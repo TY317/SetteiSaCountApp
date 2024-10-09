@@ -1,0 +1,6 @@
+framework module Pods_SetteiSaCountApp_SetteiSaCountAppUITests {
+  umbrella header "Pods-SetteiSaCountApp-SetteiSaCountAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
