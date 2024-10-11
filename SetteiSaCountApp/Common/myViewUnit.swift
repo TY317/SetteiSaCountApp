@@ -187,6 +187,7 @@ struct unitCountButtonVerticalWithoutRatio: View {
 //    @State var numberofDicimal: Int
     @Binding var minusBool: Bool
     @State var flushColor: Color?
+    @State var flushBool: Bool?
 //    var denominator: Double {
 //        let deno = Double(bigNumber) / Double(count)
 //        return count > 0 ? deno : 0.0
@@ -195,12 +196,31 @@ struct unitCountButtonVerticalWithoutRatio: View {
     var body: some View {
         ZStack {
             // 背景フラッシュ部分
-            if let flushColor = self.flushColor {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
-            } else {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushBool = self.flushBool {
+                if flushBool {
+                    // 背景フラッシュ部分
+                    if let flushColor = self.flushColor {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                    } else {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: self.color)
+                    }
+                }
+                else {
+                    Rectangle()
+                        .foregroundColor(Color.clear)
+                }
+            }
+            else {
+                // 背景フラッシュ部分
+                if let flushColor = self.flushColor {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                } else {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: self.color)
+                }
             }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
@@ -245,6 +265,7 @@ struct unitCountButtonVerticalDenominate: View {
     @State var numberofDicimal: Int
     @Binding var minusBool: Bool
     @State var flushColor: Color?
+    @State var flushBool: Bool?
     var denominator: Double {
         let deno = Double(bigNumber) / Double(count)
         return count > 0 ? deno : 0.0
@@ -252,13 +273,31 @@ struct unitCountButtonVerticalDenominate: View {
     
     var body: some View {
         ZStack {
-            // 背景フラッシュ部分
-            if let flushColor = self.flushColor {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
-            } else {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushBool = self.flushBool {
+                if flushBool {
+                    // 背景フラッシュ部分
+                    if let flushColor = self.flushColor {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                    } else {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: self.color)
+                    }
+                }
+                else {
+                    Rectangle()
+                        .foregroundColor(Color.clear)
+                }
+            }
+            else {
+                // 背景フラッシュ部分
+                if let flushColor = self.flushColor {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                } else {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: self.color)
+                }
             }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
@@ -312,6 +351,7 @@ struct unitCountButtonVerticalPercent: View {
     @State var numberofDicimal: Int
     @Binding var minusBool: Bool
     @State var flushColor: Color?
+    @State var flushBool: Bool?
     var ratio: Double {
         let rat = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? rat : 0.0
@@ -320,14 +360,31 @@ struct unitCountButtonVerticalPercent: View {
     var body: some View {
         ZStack {
             // 背景フラッシュ部分
-//            Rectangle()
-//                .backgroundFlashModifier(trigger: self.count, color: self.color)
-            if let flushColor = self.flushColor {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
-            } else {
-                Rectangle()
-                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushBool = self.flushBool {
+                if flushBool {
+                    // 背景フラッシュ部分
+                    if let flushColor = self.flushColor {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                    } else {
+                        Rectangle()
+                            .backgroundFlashModifier(trigger: self.count, color: self.color)
+                    }
+                }
+                else {
+                    Rectangle()
+                        .foregroundColor(Color.clear)
+                }
+            }
+            else {
+                // 背景フラッシュ部分
+                if let flushColor = self.flushColor {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: flushColor)
+                } else {
+                    Rectangle()
+                        .backgroundFlashModifier(trigger: self.count, color: self.color)
+                }
             }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
@@ -367,6 +424,20 @@ struct unitCountButtonVerticalPercent: View {
                 .buttonStyle(CountButtonStyle(color: self.color, MinusBool: minusBool))
             }
         }
+    }
+}
+
+
+// /////////////////////
+// ビュー：ボタンの背景フラッシュ用ユニット
+// /////////////////////
+struct unitFlashRectangle: View {
+    @Binding var trigger: Int
+    @State var color: Color
+    
+    var body: some View {
+        Rectangle()
+            .backgroundFlashModifier(trigger: self.trigger, color: self.color)
     }
 }
 

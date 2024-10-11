@@ -330,13 +330,16 @@ struct draHanaSenkohSubAssyNormalPortraitCountSection: View {
     @ObservedObject var hana: draHanaSenkohVar
     
     var body: some View {
-        HStack {
-            // ベル　カウントボタン
-            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow)
-            // ビッグ　カウントボタン
-            unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
-            // レギュラー　カウントボタン
-            unitCountButtonVerticalDenominate(title: "REG", count: $hana.regCount, color: Color("personalSummerLightPurple"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
+        ZStack {
+            // //// カウントボタン横並び
+            HStack {
+                // ベル　カウントボタン
+                unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow, flushBool: true)
+                // ビッグ　カウントボタン
+                unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck, flushBool: true)
+                // レギュラー　カウントボタン
+                unitCountButtonVerticalDenominate(title: "REG", count: $hana.regCount, color: Color("personalSummerLightPurple"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck, flushBool: true)
+            }
         }
         // ボーナス合算確率
         unitResultRatioDenomination2Line(title: "ボーナス合算", color: Color("grayBack"), count: $hana.totalBonus, bigNumber: $hana.playGames, numberofDicimal: 0)
@@ -355,16 +358,19 @@ struct draHanaSenkohSubAssyNormalLandScapeCountSection: View {
     @ObservedObject var hana: draHanaSenkohVar
     
     var body: some View {
-        HStack {
-            // ベル　カウントボタン
-            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow)
-            // ビッグ　カウントボタン
-            unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
-            // レギュラー　カウントボタン
-            unitCountButtonVerticalDenominate(title: "REG", count: $hana.regCount, color: Color("personalSummerLightPurple"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
-            // ボーナス合算確率
-            unitResultRatioDenomination2Line(title: "ボーナス合算", color: Color("grayBack"), count: $hana.totalBonus, bigNumber: $hana.playGames, numberofDicimal: 0)
-                .padding(.vertical)
+        ZStack {
+            // //// ボタン・表示部分
+            HStack {
+                // ベル　カウントボタン
+                unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow, flushBool: true)
+                // ビッグ　カウントボタン
+                unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck, flushBool: true)
+                // レギュラー　カウントボタン
+                unitCountButtonVerticalDenominate(title: "REG", count: $hana.regCount, color: Color("personalSummerLightPurple"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck, flushBool: true)
+                // ボーナス合算確率
+                unitResultRatioDenomination2Line(title: "ボーナス合算", color: Color("grayBack"), count: $hana.totalBonus, bigNumber: $hana.playGames, numberofDicimal: 0)
+                    .padding(.vertical)
+            }
         }
         // ベル確率・ボーナス確率の参考情報リンク
         unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(draHanaSenkohExViewBellBonus()))
