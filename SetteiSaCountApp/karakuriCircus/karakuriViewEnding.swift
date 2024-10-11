@@ -27,7 +27,7 @@ struct karakuriViewEnding: View {
                         // 青
                         unitCountButtonVerticalPercent(title: "青", count: $karakuri.endingCountBlue, color: .personalSummerLightBlue, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                         // 黄色
-                        unitCountButtonVerticalPercent(title: "黄", count: $karakuri.endingCountYellow, color: .personalSpringLightYellow, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
+                        unitCountButtonVerticalPercent(title: "黄", count: $karakuri.endingCountYellow, color: .personalSpringLightYellow, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck, flushColor: Color.yellow)
                         // 緑
                         unitCountButtonVerticalPercent(title: "緑", count: $karakuri.endingCountGreen, color: .personalSummerLightGreen, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                         // 赤
@@ -46,7 +46,7 @@ struct karakuriViewEnding: View {
                         // 青
                         unitCountButtonVerticalPercent(title: "青", count: $karakuri.endingCountBlue, color: .personalSummerLightBlue, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                         // 黄色
-                        unitCountButtonVerticalPercent(title: "黄", count: $karakuri.endingCountYellow, color: .personalSpringLightYellow, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
+                        unitCountButtonVerticalPercent(title: "黄", count: $karakuri.endingCountYellow, color: .personalSpringLightYellow, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck, flushColor: Color.yellow)
                         // 緑
                         unitCountButtonVerticalPercent(title: "緑", count: $karakuri.endingCountGreen, color: .personalSummerLightGreen, bigNumber: $karakuri.endingCountSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                     }

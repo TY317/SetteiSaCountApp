@@ -333,7 +333,7 @@ struct kingHanaSubAssyNormalPortraitCountSection: View {
     var body: some View {
         HStack {
             // ベル　カウントボタン
-            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck)
+            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow)
             // ビッグ　カウントボタン
             unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
             // レギュラー　カウントボタン
@@ -358,7 +358,7 @@ struct kingHanaSubAssyNormalLandScapeCountSection: View {
     var body: some View {
         HStack {
             // ベル　カウントボタン
-            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck)
+            unitCountButtonVerticalDenominate(title: "ベル", count: $hana.bellCount, color: Color("personalSpringLightYellow"), bigNumber: $hana.playGames, numberofDicimal: 2, minusBool: $hana.minusCheck, flushColor: Color.yellow)
             // ビッグ　カウントボタン
             unitCountButtonVerticalDenominate(title: "BIG", count: $hana.bigCount, color: Color("personalSummerLightRed"), bigNumber: $hana.playGames, numberofDicimal: 0, minusBool: $hana.minusCheck)
             // レギュラー　カウントボタン
@@ -398,7 +398,7 @@ struct kingHanaSubAssyBigPortrait: View {
                 // 青
                 unitCountButtonVerticalPercent(title: "🪽青", count: $hana.bbLampBCount, color: .personalSummerLightBlue, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
                 // 黄
-                unitCountButtonVerticalPercent(title: "🪽黄", count: $hana.bbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
+                unitCountButtonVerticalPercent(title: "🪽黄", count: $hana.bbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck, flushColor: Color.yellow)
                 // 緑
                 unitCountButtonVerticalPercent(title: "🪽緑", count: $hana.bbLampGCount, color: .personalSummerLightGreen, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
                 // 赤
@@ -430,7 +430,7 @@ struct kingHanaSubAssyBigLandScape: View {
                 // 青
                 unitCountButtonVerticalPercent(title: "🪽青", count: $hana.bbLampBCount, color: .personalSummerLightBlue, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
                 // 黄
-                unitCountButtonVerticalPercent(title: "🪽黄", count: $hana.bbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
+                unitCountButtonVerticalPercent(title: "🪽黄", count: $hana.bbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck, flushColor: Color.yellow)
                 // 緑
                 unitCountButtonVerticalPercent(title: "🪽緑", count: $hana.bbLampGCount, color: .personalSummerLightGreen, bigNumber: $hana.bigCount, numberofDicimal: 1, minusBool: $hana.minusCheck)
                 // 赤
@@ -461,7 +461,7 @@ struct kingHanaSubAssyRegPortrait: View {
                 // 青
                 unitCountButtonVerticalPercent(title: "ランプ青", count: $hana.rbLampBCount, color: .personalSummerLightBlue, bigNumber: $hana.rbLampCountSum, numberofDicimal: 0, minusBool: $hana.minusCheck)
                 // 黄
-                unitCountButtonVerticalPercent(title: "ランプ黄", count: $hana.rbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.rbLampCountSum, numberofDicimal: 0, minusBool: $hana.minusCheck)
+                unitCountButtonVerticalPercent(title: "ランプ黄", count: $hana.rbLampYCount, color: .personalSpringLightYellow, bigNumber: $hana.rbLampCountSum, numberofDicimal: 0, minusBool: $hana.minusCheck, flushColor: Color.yellow)
                 // 緑
                 unitCountButtonVerticalPercent(title: "ランプ緑", count: $hana.rbLampGCount, color: .personalSummerLightGreen, bigNumber: $hana.rbLampCountSum, numberofDicimal: 0, minusBool: $hana.minusCheck)
                 // 赤

@@ -20,7 +20,7 @@ struct mt5ViewMedal: View {
                         // 青メダルのカウント
                         unitCountButtonVerticalPercent(title: "青メダル", count: $mt5.blueMedalCount, color: .personalSummerLightBlue, bigNumber: $mt5.atCount, numberofDicimal: 1, minusBool: $mt5.minusCheck)
                         // 黄メダルのカウント
-                        unitCountButtonVerticalPercent(title: "黄メダル", count: $mt5.yellowMedalCount, color: .personalSpringLightYellow, bigNumber: $mt5.atCount, numberofDicimal: 1, minusBool: $mt5.minusCheck)
+                        unitCountButtonVerticalPercent(title: "黄メダル", count: $mt5.yellowMedalCount, color: .personalSpringLightYellow, bigNumber: $mt5.atCount, numberofDicimal: 1, minusBool: $mt5.minusCheck, flushColor: Color.yellow)
                         // 黒メダルのカウント
                         unitCountButtonVerticalPercent(title: "黒メダル", count: $mt5.blackMedalCount, color: .gray, bigNumber: $mt5.atCount, numberofDicimal: 1, minusBool: $mt5.minusCheck)
                     }

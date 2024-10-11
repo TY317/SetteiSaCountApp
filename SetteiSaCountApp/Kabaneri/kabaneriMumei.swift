@@ -22,7 +22,7 @@ struct kabaneriMumei: View {
                         // ナビなし
                         unitCountButtonVerticalWithoutRatio(title: "ベルこぼし目", count: $kabaneri.mumeiNaviNoneCount, color: .personalSummerLightBlue, minusBool: $kabaneri.minusCheck)
                         // ナビあり
-                        unitCountButtonVerticalWithoutRatio(title: "ナビあり", count: $kabaneri.mumeiNaviCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck)
+                        unitCountButtonVerticalWithoutRatio(title: "ナビあり", count: $kabaneri.mumeiNaviCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck, flushColor: Color.yellow)
                         // 結果表示
                         unitResultRatioPercent2Line(title: "ナビ発生率", color: .grayBack, count: $kabaneri.mumeiNaviCount, bigNumber: $kabaneri.mumeiNaviCountSum, numberofDicimal: 0)
                             .padding(.vertical)

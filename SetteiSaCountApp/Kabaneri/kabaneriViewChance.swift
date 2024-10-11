@@ -38,7 +38,7 @@ struct kabaneriViewChance: View {
                     Section {
                         HStack {
                             // カウントボタン
-                            unitCountButtonVerticalWithoutRatio(title: "共通ベル", count: $kabaneri.bellCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck)
+                            unitCountButtonVerticalWithoutRatio(title: "共通ベル", count: $kabaneri.bellCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck, flushColor: Color.yellow)
                             // 確率
                             unitResultRatioDenomination2Line(title: "出現率", color: .grayBack, count: $kabaneri.bellCount, bigNumber: $kabaneri.playGame, numberofDicimal: 1)
                                 .padding(.vertical)
@@ -92,7 +92,7 @@ struct kabaneriViewChance: View {
                             // 発光ありカウントボタン
                             unitCountButtonVerticalWithoutRatio(title: "発光あり", count: $kabaneri.chanceWithFlushCount, color: .personalSummerLightRed, minusBool: $kabaneri.minusCheck)
                             // 共通ベルカウントボタン
-                            unitCountButtonVerticalWithoutRatio(title: "共通ベル", count: $kabaneri.bellCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck)
+                            unitCountButtonVerticalWithoutRatio(title: "共通ベル", count: $kabaneri.bellCount, color: .personalSpringLightYellow, minusBool: $kabaneri.minusCheck, flushColor: Color.yellow)
                         }
                         // //// 結果表示
                         HStack {

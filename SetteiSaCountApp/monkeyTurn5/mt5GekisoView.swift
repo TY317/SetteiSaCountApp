@@ -19,7 +19,7 @@ struct mt5GekisoView: View {
                         //波多野Aのカウントボタン
                         unitCountButtonVerticalPercent(title: "波多野A", count: $mt5.hatanoACount, color: .personalSummerLightBlue, bigNumber: $mt5.hatanoCountSum, numberofDicimal: 0, minusBool: $mt5.minusCheck)
                         // 波多野Bのカウントボタン
-                        unitCountButtonVerticalPercent(title: "波多野B", count: $mt5.hatanoBCount, color: .personalSpringLightYellow, bigNumber: $mt5.hatanoCountSum, numberofDicimal: 0, minusBool: $mt5.minusCheck)
+                        unitCountButtonVerticalPercent(title: "波多野B", count: $mt5.hatanoBCount, color: .personalSpringLightYellow, bigNumber: $mt5.hatanoCountSum, numberofDicimal: 0, minusBool: $mt5.minusCheck, flushColor: Color.yellow)
                     }
                     // 参考情報へのリンク
                     unitLinkButton(title: "激走チャージ後のセリフ", exview: AnyView(mt5ExViewGekiso()))

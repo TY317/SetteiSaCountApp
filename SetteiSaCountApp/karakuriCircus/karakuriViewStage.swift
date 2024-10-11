@@ -33,7 +33,7 @@ struct karakuriViewStage: View {
                     // テーブル１
                     unitCountButtonVerticalPercent(title: "テーブル\n1", count: $karakuri.stageCountTable1, color: .personalSummerLightBlue, bigNumber: $karakuri.stageCountTableSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                     // テーブル２
-                    unitCountButtonVerticalPercent(title: "テーブル\n2", count: $karakuri.stageCountTable2, color: .personalSpringLightYellow, bigNumber: $karakuri.stageCountTableSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
+                    unitCountButtonVerticalPercent(title: "テーブル\n2", count: $karakuri.stageCountTable2, color: .personalSpringLightYellow, bigNumber: $karakuri.stageCountTableSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck, flushColor: Color.yellow)
                     // テーブル3
                     unitCountButtonVerticalPercent(title: "テーブル\n3", count: $karakuri.stageCountTable3, color: .personalSummerLightGreen, bigNumber: $karakuri.stageCountTableSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                     // テーブル4

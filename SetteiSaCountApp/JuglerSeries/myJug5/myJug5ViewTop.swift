@@ -303,7 +303,8 @@ struct myJug5SubViewBellCount: View {
         ZStack {
             // 背景フラッシュ部分
             Rectangle()
-                .backgroundFlashModifier(trigger: jug.bellCount, color: Color("personalSpringLightYellow"))
+//                .backgroundFlashModifier(trigger: jug.bellCount, color: Color("personalSpringLightYellow"))
+                .backgroundFlashModifier(trigger: jug.bellCount, color: Color(.yellow))
             // //// ボタンと表示部分
             VStack(spacing: 5) {
                 // タイトル
@@ -313,10 +314,18 @@ struct myJug5SubViewBellCount: View {
                     .fontWeight(.bold)
                     .lineLimit(1)
                 // 回数
-                Text("\(jug.bellCount)")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .lineLimit(1)
+                if jug.bellCount < 1000 {
+                    Text("\(jug.bellCount)")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                } else {
+                    Text("\(jug.bellCount)")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .padding(.vertical, 8.0)
+                }
                 // カウントボタン
                 Button(action: {
                     jug.bellCount = countUpDown(minusCheck: jug.minusCheck, count: jug.bellCount)

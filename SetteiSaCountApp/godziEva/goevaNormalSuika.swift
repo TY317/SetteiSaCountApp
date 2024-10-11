@@ -39,7 +39,7 @@ struct goevaNormalSuika: View {
                         // 小役変異
                         unitCountButtonVerticalPercent(title: "小役変異", count: $goeva.normalHenniKoyakuCount, color: .personalSummerLightBlue, bigNumber: $goeva.normalHenniCountSum, numberofDicimal: 1, minusBool: $goeva.minusCheck)
                         // 増殖変異
-                        unitCountButtonVerticalPercent(title: "増殖変異", count: $goeva.normalHenniZoshokuCount, color: .personalSpringLightYellow, bigNumber: $goeva.normalHenniCountSum, numberofDicimal: 1, minusBool: $goeva.minusCheck)
+                        unitCountButtonVerticalPercent(title: "増殖変異", count: $goeva.normalHenniZoshokuCount, color: .personalSpringLightYellow, bigNumber: $goeva.normalHenniCountSum, numberofDicimal: 1, minusBool: $goeva.minusCheck, flushColor: Color.yellow)
                         // 宇宙変異
                         unitCountButtonVerticalPercent(title: "宇宙変異", count: $goeva.normalHenniUchuCount, color: .personalSummerLightRed, bigNumber: $goeva.normalHenniCountSum, numberofDicimal: 1, minusBool: $goeva.minusCheck)
                         // 活性化

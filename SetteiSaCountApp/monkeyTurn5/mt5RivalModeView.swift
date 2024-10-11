@@ -20,7 +20,7 @@ struct mt5RivalModeView: View {
                         // 蒲生カウントボタン
                         unitCountButtonVerticalPercent(title: "蒲生", count: $mt5.rivalGamoCount, color: .personalSummerLightRed, bigNumber: $mt5.atCountPlus1, numberofDicimal: 1, minusBool: $mt5.minusCheck)
                         // 浜岡カウントボタン
-                        unitCountButtonVerticalPercent(title: "浜岡", count: $mt5.rivalHamaokaCount, color: .personalSpringLightYellow, bigNumber: $mt5.atCountPlus1, numberofDicimal: 1, minusBool: $mt5.minusCheck)
+                        unitCountButtonVerticalPercent(title: "浜岡", count: $mt5.rivalHamaokaCount, color: .personalSpringLightYellow, bigNumber: $mt5.atCountPlus1, numberofDicimal: 1, minusBool: $mt5.minusCheck, flushColor: Color.yellow)
                         // 榎木カウントボタン
                         unitCountButtonVerticalPercent(title: "榎木", count: $mt5.rivalEnokiCount, color: .personalSummerLightPurple, bigNumber: $mt5.atCountPlus1, numberofDicimal: 1, minusBool: $mt5.minusCheck)
                     }

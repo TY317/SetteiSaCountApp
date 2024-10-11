@@ -186,6 +186,7 @@ struct unitCountButtonVerticalWithoutRatio: View {
 //    @Binding var bigNumber: Int
 //    @State var numberofDicimal: Int
     @Binding var minusBool: Bool
+    @State var flushColor: Color?
 //    var denominator: Double {
 //        let deno = Double(bigNumber) / Double(count)
 //        return count > 0 ? deno : 0.0
@@ -194,8 +195,13 @@ struct unitCountButtonVerticalWithoutRatio: View {
     var body: some View {
         ZStack {
             // 背景フラッシュ部分
-            Rectangle()
-                .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushColor = self.flushColor {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
+            } else {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
                 // タイトル
@@ -238,6 +244,7 @@ struct unitCountButtonVerticalDenominate: View {
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
     @Binding var minusBool: Bool
+    @State var flushColor: Color?
     var denominator: Double {
         let deno = Double(bigNumber) / Double(count)
         return count > 0 ? deno : 0.0
@@ -246,8 +253,13 @@ struct unitCountButtonVerticalDenominate: View {
     var body: some View {
         ZStack {
             // 背景フラッシュ部分
-            Rectangle()
-                .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushColor = self.flushColor {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
+            } else {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
                 // タイトル
@@ -299,6 +311,7 @@ struct unitCountButtonVerticalPercent: View {
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
     @Binding var minusBool: Bool
+    @State var flushColor: Color?
     var ratio: Double {
         let rat = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? rat : 0.0
@@ -307,8 +320,15 @@ struct unitCountButtonVerticalPercent: View {
     var body: some View {
         ZStack {
             // 背景フラッシュ部分
-            Rectangle()
-                .backgroundFlashModifier(trigger: self.count, color: self.color)
+//            Rectangle()
+//                .backgroundFlashModifier(trigger: self.count, color: self.color)
+            if let flushColor = self.flushColor {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: flushColor)
+            } else {
+                Rectangle()
+                    .backgroundFlashModifier(trigger: self.count, color: self.color)
+            }
             // //// ボタンと表示部分
             VStack(spacing: 5) {
                 // タイトル
