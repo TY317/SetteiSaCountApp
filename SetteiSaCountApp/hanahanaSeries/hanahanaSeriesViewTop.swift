@@ -54,7 +54,7 @@ struct hanahanaSeriesViewTop: View {
                             // 非表示
                         } else {
                             unitMachinListLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "ハナハナ鳳凰天翔", makerName: "パイオニア", releaseYear: 2022, releaseMonth: 1)
-                                .popoverTip(tipAddHanahanaTensho())
+//                                .popoverTip(tipAddHanahanaTensho())
                         }
                         
                     } header: {
@@ -96,20 +96,6 @@ struct hanahanaSeriesViewTop: View {
     }
 }
 
-// //////////////////
-// Tip：機種追加
-// //////////////////
-struct tipAddHanahanaTensho: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ハナハナ鳳凰天翔を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
 
 // ///////////////////////
 // ビュー：お気に入り設定画面

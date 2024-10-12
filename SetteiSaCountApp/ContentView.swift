@@ -25,6 +25,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodeater") var isSelectedFavoriteGodeater = true
     @AppStorage("isSelectedFavoriteSympho") var isSelectedFavoriteSympho = true
     @AppStorage("isSelectedFavoriteKarakuri") var isSelectedFavoriteKarakuri = true
+    @AppStorage("isSelectedFavoriteKaguya") var isSelectedFavoriteKaguya = true
 }
 
 
@@ -33,22 +34,6 @@ class favoriteSetVar: ObservableObject {
 // /////////////////////////
 class commonVar: ObservableObject {
     
-}
-
-
-// //////////////////
-// Tip：機種追加
-// //////////////////
-struct tipAddGodeaterSympho: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ゴッドイーター、シンフォギア、からくりサーカスを追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
 }
 
 
@@ -83,12 +68,19 @@ struct ContentView: View {
                                 machineListHanahanaSeries()
                             }
                             
+                            // //// かぐや様、24年9月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
+                                
+                            } else {
+                                unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
+                                    .popoverTip(tipVer130AddMachine())
+                            }
                             // //// シンフォギア 正義の歌、24年7月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
                                 // 非表示
                             } else {
                                 unitMachinListLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "戦姫絶唱シンフォギア 正義の歌", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 7)
-                                    .popoverTip(tipAddGodeaterSympho())
+//                                    .popoverTip(tipAddGodeaterSympho())
                             }
                             
                             // //// ゴッドイーター リザレクション、24年7月

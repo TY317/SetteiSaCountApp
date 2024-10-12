@@ -118,6 +118,10 @@
 		0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */; };
 		0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */; };
 		0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B332C79C88A000E65D7 /* myTips.swift */; };
+		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
+		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
+		0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */; };
+		0FF9AC942CBA2F89000C8E76 /* kaguyaViewNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */; };
 		8E5AC93A5DB992A735EBA11F /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */; };
 		B9566B8C0FC3F74865BF2953 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		DA5F7CAE87ECA671AE565E42 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */; };
@@ -257,6 +261,10 @@
 		0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewMedal.swift; sourceTree = "<group>"; };
 		0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewAoshimaSG.swift; sourceTree = "<group>"; };
 		0FE23B332C79C88A000E65D7 /* myTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTips.swift; sourceTree = "<group>"; };
+		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
+		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
+		0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kaguyaAssets.xcassets; sourceTree = "<group>"; };
+		0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewNormalMode.swift; sourceTree = "<group>"; };
 		4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -478,6 +486,7 @@
 		0F8030DA2C6249FC001F008E /* SetteiSaCountApp */ = {
 			isa = PBXGroup;
 			children = (
+				0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */,
 				0F3B70502CA7F41B002C7F44 /* karakuriCircus */,
 				0F7546B72C95C0490007A277 /* symphogear */,
 				0F7202F92C8F14F0001A8AF2 /* godeater */,
@@ -549,6 +558,7 @@
 				0F654BD72C6F409F00F37849 /* myViewUnit.swift */,
 				0FE23B332C79C88A000E65D7 /* myTips.swift */,
 				0F3465C02CB4128900B5D2DD /* ver120Tip.swift */,
+				0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -645,6 +655,16 @@
 				0F3465BE2CB410D200B5D2DD /* mt5View5coin.swift */,
 			);
 			path = monkeyTurn5;
+			sourceTree = "<group>";
+		};
+		0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */ = {
+			isa = PBXGroup;
+			children = (
+				0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */,
+				0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */,
+				0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */,
+			);
+			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
 		FB4E2CF52E2BC8A8ECB19A24 /* Frameworks */ = {
@@ -783,6 +803,7 @@
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0F8090402C83DC410061480F /* hokutoAssets.xcassets in Resources */,
 				0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */,
+				0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */,
 				0F7D3F192C80B67F00A3FE7D /* kabaneriAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -923,6 +944,7 @@
 				0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */,
 				0F654BD42C6F130700F37849 /* draHanaSenkohViewTop.swift in Sources */,
 				0F80903E2C83DC2D0061480F /* hokutoViewTop.swift in Sources */,
+				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */,
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0F8031182C697910001F008E /* splashScreenView.swift in Sources */,
@@ -968,6 +990,7 @@
 				0F8325B72C7E10370037226E /* goevaViewTop.swift in Sources */,
 				0F25C2792C8887A3008B4707 /* toloveruViewHarlem.swift in Sources */,
 				0F8872762C6AE38C00AADD2B /* myModifier.swift in Sources */,
+				0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */,
 				0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */,
 				0F80311B2C69B3BD001F008E /* myButtonStyle.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
@@ -985,6 +1008,7 @@
 				0F3465B72CB21CB000B5D2DD /* karakuriAtScreen.swift in Sources */,
 				0F8325C12C7F51A80037226E /* goevaViewAtSuika.swift in Sources */,
 				0F7202FF2C8F19AE001A8AF2 /* godeaterViewHistory.swift in Sources */,
+				0FF9AC942CBA2F89000C8E76 /* kaguyaViewNormalMode.swift in Sources */,
 				0F3465BD2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift in Sources */,
 				0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */,
 				0F80312A2C6A2E24001F008E /* VVVendScreenView.swift in Sources */,
