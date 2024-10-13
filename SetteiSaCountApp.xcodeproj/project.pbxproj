@@ -122,6 +122,8 @@
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
 		0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */; };
 		0FF9AC942CBA2F89000C8E76 /* kaguyaViewNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */; };
+		0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */; };
+		0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */; };
 		8E5AC93A5DB992A735EBA11F /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */; };
 		B9566B8C0FC3F74865BF2953 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		DA5F7CAE87ECA671AE565E42 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */; };
@@ -265,6 +267,8 @@
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
 		0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kaguyaAssets.xcassets; sourceTree = "<group>"; };
 		0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewNormalMode.swift; sourceTree = "<group>"; };
+		0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewBonus.swift; sourceTree = "<group>"; };
+		0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewReg.swift; sourceTree = "<group>"; };
 		4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -663,6 +667,8 @@
 				0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */,
 				0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */,
 				0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */,
+				0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */,
+				0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */,
 			);
 			path = kaguyaSama;
 			sourceTree = "<group>";
@@ -970,6 +976,7 @@
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
 				0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */,
 				0F654BC62C6E3C3600F37849 /* happyJugV3ViewTop.swift in Sources */,
+				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
 				0F7546B92C95C0820007A277 /* symphoViewTop.swift in Sources */,
 				0F654BF12C7168A900F37849 /* kingHanaExViewBbLamp.swift in Sources */,
@@ -998,6 +1005,7 @@
 				0F8031102C6251AB001F008E /* VVV_Top.swift in Sources */,
 				0F8090442C84027D0061480F /* hokutoViewHistory.swift in Sources */,
 				0F3465BF2CB410D200B5D2DD /* mt5View5coin.swift in Sources */,
+				0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */,
 				0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */,
 				0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */,
 				0F66FE6E2C8C43C600776053 /* hokutoViewVoice.swift in Sources */,
