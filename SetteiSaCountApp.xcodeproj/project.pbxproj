@@ -124,6 +124,7 @@
 		0FF9AC942CBA2F89000C8E76 /* kaguyaViewNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */; };
 		0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */; };
 		0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */; };
+		0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */; };
 		8E5AC93A5DB992A735EBA11F /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */; };
 		B9566B8C0FC3F74865BF2953 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		DA5F7CAE87ECA671AE565E42 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */; };
@@ -269,6 +270,7 @@
 		0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewNormalMode.swift; sourceTree = "<group>"; };
 		0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewBonus.swift; sourceTree = "<group>"; };
 		0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewReg.swift; sourceTree = "<group>"; };
+		0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewScreen.swift; sourceTree = "<group>"; };
 		4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -669,6 +671,7 @@
 				0FF9AC932CBA2F89000C8E76 /* kaguyaViewNormalMode.swift */,
 				0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */,
 				0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */,
+				0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */,
 			);
 			path = kaguyaSama;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				0F80903E2C83DC2D0061480F /* hokutoViewTop.swift in Sources */,
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */,
+				0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */,
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0F8031182C697910001F008E /* splashScreenView.swift in Sources */,
 				0F3465B52CAEC5E400B5D2DD /* karakuriViewStage.swift in Sources */,

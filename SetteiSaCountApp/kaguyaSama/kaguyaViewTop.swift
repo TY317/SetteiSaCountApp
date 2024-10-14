@@ -58,13 +58,127 @@ class KaguyaSama: ObservableObject {
     let regCharaSelectListFirst: [String] = ["かぐや", "白銀", "かぐや(虹背景)"]
     @AppStorage("kaguyaRegCharaSelectedFirst") var regCharaSelectedFirst: String = "白銀"
     let regCharaSelectListSecondAfterKaguya: [String] = ["白銀", "白銀パパ", "藤原", "大仏"]
-    @AppStorage("kaguyaRegCharaSelectedSecondAfterKaguya") var regCharaSelectedSecondAfterKaguya: String = "白銀パパ"
+    @AppStorage("kaguyaRegCharaSelectedSecondAfterKaguya") var regCharaSelectedSecondAfterKaguya: String = "白銀"
     let regCharaSelectListSecondAfterShirogane: [String] = ["かぐや", "白銀圭", "ベツィー"]
     @AppStorage("kaguyaRegCharaSelectedSecondAfterShirogane") var regCharaSelectedSecondAfterShirogane: String = "かぐや"
     let regCharaSelectListSecondAfterRainbow: [String] = ["白銀(虹背景)"]
     @AppStorage("kaguyaRegCharaSelectedSecondAfterRainbow") var regCharaSelectedSecondAfterRainbow: String = "白銀(虹背景)"
+    @AppStorage("kaguyaRegCharaCountDefault") var regCharaCountDefault = 0 {
+        didSet {
+            regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+        }
+    }
+        @AppStorage("kaguyaRegCharaCountKei") var regCharaCountKei = 0 {
+            didSet {
+                regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+            }
+        }
+            @AppStorage("kaguyaRegCharaCountPapa") var regCharaCountPapa = 0 {
+                didSet {
+                    regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+                }
+            }
+                @AppStorage("kaguyaRegCharaCountHayasaka") var regCharaCountHayasaka = 0 {
+                    didSet {
+                        regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+                    }
+                }
+                    @AppStorage("kaguyaRegCharaCountRainbow") var regCharaCountRainbow = 0 {
+                        didSet {
+                            regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+                        }
+                    }
+                        @AppStorage("kaguyaRegCharaCountOsaragi") var regCharaCountOsaragi = 0 {
+                            didSet {
+                                regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+                            }
+                        }
+                            @AppStorage("kaguyaRegCharaCountBezi") var regCharaCountBezi = 0 {
+                                didSet {
+                                    regCharaCountSum = countSum(regCharaCountDefault, regCharaCountKei, regCharaCountPapa, regCharaCountHayasaka, regCharaCountRainbow, regCharaCountOsaragi, regCharaCountBezi)
+                                }
+                            }
+    @AppStorage("kaguyaRegCharaCountSum") var regCharaCountSum = 0
     
+    func resetRegChara() {
+        regCharaSelectedFirst = "白銀"
+        regCharaSelectedSecondAfterKaguya = "白銀"
+        regCharaSelectedSecondAfterShirogane = "かぐや"
+        regCharaSelectedSecondAfterRainbow = "白銀(虹背景)"
+        regCharaCountDefault = 0
+        regCharaCountKei = 0
+        regCharaCountPapa = 0
+        regCharaCountHayasaka = 0
+        regCharaCountRainbow = 0
+        regCharaCountOsaragi = 0
+        regCharaCountBezi = 0
+        minusCheck = false
+    }
     
+    // //////////////////////////
+    // ボーナス終了画面
+    // //////////////////////////
+    @AppStorage("kaguyaScreenCurrentKeyword") var screenCurrentKeyword: String = ""
+    let screenKeywordList: [String] = ["kaguyaScreenDefault", "kaguyaScreenRedNekomimi", "kaguyaScreenPurple2Men", "kaguyaScreenGekiga", "kaguyaScreenKaguyaFujiwara", "kaguyaScreenShiroganeKaguya", "kaguyaScreenSilverAdult", "kaguyaScreenSilverDeformed", "kaguyaScreenGoldWedding"]
+    @AppStorage("kaguyaScreenCountDefault") var screenCountDefault = 0 {
+        didSet {
+            screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+        }
+    }
+        @AppStorage("kaguyaScreenCountRedNekomimi") var screenCountRedNekomimi = 0 {
+            didSet {
+                screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+            }
+        }
+            @AppStorage("kaguyaScreenCountPurple2Men") var screenCountPurple2Men = 0 {
+                didSet {
+                    screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                }
+            }
+                @AppStorage("kaguyaScreenCountGekiga") var screenCountGekiga = 0 {
+                    didSet {
+                        screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                    }
+                }
+                    @AppStorage("kaguyaScreenCountKaguyaFujiwara") var screenCountKaguyaFujiwara = 0 {
+                        didSet {
+                            screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                        }
+                    }
+                        @AppStorage("kaguyaScreenCountShiroganeKaguya") var screenCountShiroganeKaguya = 0 {
+                            didSet {
+                                screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                            }
+                        }
+                            @AppStorage("kaguyaScreenCountSilverAdult") var screenCountSilverAdult = 0 {
+                                didSet {
+                                    screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                                }
+                            }
+                                @AppStorage("kaguyaScreenCountSilverDeformed") var screenCountSilverDeformed = 0 {
+                                    didSet {
+                                        screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                                    }
+                                }
+                                    @AppStorage("kaguyaScreenCountGoldWedding") var screenCountGoldWedding = 0 {
+                                        didSet {
+                                            screenCountSum = countSum(screenCountDefault, screenCountRedNekomimi, screenCountPurple2Men, screenCountGekiga, screenCountKaguyaFujiwara, screenCountShiroganeKaguya, screenCountSilverAdult, screenCountSilverDeformed, screenCountGoldWedding)
+                                        }
+                                    }
+    @AppStorage("kaguyaScreenCountSum") var screenCountSum = 0
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountRedNekomimi = 0
+        screenCountPurple2Men = 0
+        screenCountGekiga = 0
+        screenCountKaguyaFujiwara = 0
+        screenCountShiroganeKaguya = 0
+        screenCountSilverAdult = 0
+        screenCountSilverDeformed = 0
+        screenCountGoldWedding = 0
+        minusCheck = false
+    }
     
     // //////////////////////////
     // 共通
@@ -73,6 +187,8 @@ class KaguyaSama: ObservableObject {
     
     func resetAll() {
         resetBonus()
+        resetRegChara()
+        resetScreen()
     }
 }
 
@@ -95,6 +211,10 @@ struct kaguyaViewTop: View {
                     // REG中のキャラ紹介
                     NavigationLink(destination: kaguyaViewReg()) {
                         unitLabelMenu(imageSystemName: "person.3.sequence", textBody: "REG中のキャラ紹介")
+                    }
+                    // ボーナス終了画面
+                    NavigationLink(destination: kaguyaViewScreen()) {
+                        unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ボーナス終了画面")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "かぐや様は告らせたい")
