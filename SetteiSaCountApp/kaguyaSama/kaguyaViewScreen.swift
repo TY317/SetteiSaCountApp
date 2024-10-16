@@ -10,6 +10,11 @@ import SwiftUI
 struct kaguyaViewScreen: View {
     @ObservedObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
     
     var body: some View {
         List {
@@ -42,7 +47,7 @@ struct kaguyaViewScreen: View {
                 // デフォルト
                 unitResultCountListPercent(title: "デフォルト", count: $kaguya.screenCountDefault, flashColor: .gray, bigNumber: $kaguya.screenCountSum)
                 // 高設定示唆
-                unitResultCountListPercent(title: "高設定示唆", count: $kaguya.screenCountRedNekomimi, flashColor: .red, bigNumber: $kaguya.screenCountSum)
+                unitResultCountListPercent(title: "設定2以上示唆", count: $kaguya.screenCountRedNekomimi, flashColor: .red, bigNumber: $kaguya.screenCountSum)
                 // 設定2以上濃厚
                 unitResultCountListPercent(title: "設定2 以上濃厚", count: $kaguya.screenCountPurple2Men, flashColor: .purple, bigNumber: $kaguya.screenCountSum)
                 // 引き戻し期待度60%
@@ -57,8 +62,46 @@ struct kaguyaViewScreen: View {
                 unitResultCountListPercent(title: "設定4＆引戻し70%", count: $kaguya.screenCountSilverDeformed, flashColor: .pink, bigNumber: $kaguya.screenCountSum)
                 // 設定6
                 unitResultCountListPercent(title: "設定6 濃厚", count: $kaguya.screenCountGoldWedding, flashColor: .orange, bigNumber: $kaguya.screenCountSum)
+                // //// 参考情報リンク
+                unitLinkButton(title: "ボーナス終了画面について", exview: AnyView(unitExView5body2image(title: "ボーナス終了画面", image1: Image("kaguyaScreenRatio"))))
+                // //// 参考情報リンク　アイキャッチ
+                unitLinkButton(title: "ボーナス終了直後のアイキャッチ", exview: AnyView(unitExView5body2image(title: "ボーナス終了直後アイキャッチ", textBody1: "・ボーナス終了直後のアイキャッチでは引戻し期待度を示唆", textBody2: "・通常時のステージチェンジなどで出るアイキャッチとは示唆が異なるので注意", image1: Image("kaguyaScreenEyecatch"))))
             } header: {
                 Text("ボーナス終了画面")
+            }
+            unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
+        }
+        // //// 画面の向き情報の取得部分
+        .onAppear {
+            // ビューが表示されるときにデバイスの向きを取得
+            self.orientation = UIDevice.current.orientation
+            // 向きがフラットでなければlastOrientationの値を更新
+            if self.orientation.isFlat {
+                
+            }
+            else {
+                self.lastOrientation = self.orientation
+            }
+            if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                self.spaceHeight = self.spaceHeightLandscape
+            } else {
+                self.spaceHeight = self.spaceHeight
+            }
+            // デバイスの向きの変更を監視する
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.spaceHeight = self.spaceHeightLandscape
+                } else {
+                    self.spaceHeight = self.spaceHeightPortrait
+                }
             }
         }
         .navigationTitle("ボーナス終了画面")

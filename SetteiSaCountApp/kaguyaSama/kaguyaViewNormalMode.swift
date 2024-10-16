@@ -31,6 +31,12 @@ struct kaguyaViewNormalMode: View {
             } header: {
                 Text("規定ゲーム数での抽選")
             }
+            // 通常時のアイキャッチ
+            Section {
+                unitLinkButton(title: "通常時のアイキャッチについて", exview: AnyView(unitExView5body2image(title: "通常時アイキャッチ", textBody1: "・次回ビッグの期待度を示唆", textBody2: "・ボーナス終了直後のアイキャッチは示唆が異なるため注意", image1: Image("kaguyaNormalEyecatch"))))
+            } header: {
+                Text("通常時アイキャッチ示唆")
+            }
         }
     }
 }

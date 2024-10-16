@@ -118,6 +118,7 @@
 		0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */; };
 		0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */; };
 		0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B332C79C88A000E65D7 /* myTips.swift */; };
+		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
 		0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */; };
@@ -264,6 +265,7 @@
 		0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewMedal.swift; sourceTree = "<group>"; };
 		0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewAoshimaSG.swift; sourceTree = "<group>"; };
 		0FE23B332C79C88A000E65D7 /* myTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTips.swift; sourceTree = "<group>"; };
+		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
 		0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kaguyaAssets.xcassets; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */,
 				0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */,
 				0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */,
+				0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */,
 			);
 			path = kaguyaSama;
 			sourceTree = "<group>";
@@ -973,6 +976,7 @@
 				0F8031122C6255AB001F008E /* VVV_CZ.swift in Sources */,
 				0F7D3F1D2C80B94900A3FE7D /* kabaneriViewChance.swift in Sources */,
 				0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */,
+				0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */,
 				0F8325BD2C7E138B0037226E /* goevaNormalSuika.swift in Sources */,
 				0F88727D2C6B2D2300AADD2B /* VVVmarieView.swift in Sources */,
 				0F8031232C69EE4D001F008E /* exViewModeDetailVVV.swift in Sources */,

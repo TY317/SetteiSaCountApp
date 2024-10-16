@@ -181,6 +181,39 @@ class KaguyaSama: ObservableObject {
     }
     
     // //////////////////////////
+    // エンディング
+    // //////////////////////////
+    @AppStorage("kaguyaEndingCountBaloon") var endingCountBaloon = 0 {
+        didSet {
+            endingCountSum = countSum(endingCountBaloon, endingCountKoiNoYukue, endingCountKaguya, endingCountShirogane)
+        }
+    }
+        @AppStorage("kaguyaEndingCountKoiNoYukue") var endingCountKoiNoYukue = 0 {
+            didSet {
+                endingCountSum = countSum(endingCountBaloon, endingCountKoiNoYukue, endingCountKaguya, endingCountShirogane)
+            }
+        }
+            @AppStorage("kaguyaEndingCountKaguya") var endingCountKaguya = 0 {
+                didSet {
+                    endingCountSum = countSum(endingCountBaloon, endingCountKoiNoYukue, endingCountKaguya, endingCountShirogane)
+                }
+            }
+                @AppStorage("kaguyaEndingCountShirogane") var endingCountShirogane = 0 {
+                    didSet {
+                        endingCountSum = countSum(endingCountBaloon, endingCountKoiNoYukue, endingCountKaguya, endingCountShirogane)
+                    }
+                }
+    @AppStorage("kaguyaEndingCountSum") var endingCountSum = 0
+    
+    func resetEnding() {
+        endingCountBaloon = 0
+        endingCountKoiNoYukue = 0
+        endingCountKaguya = 0
+        endingCountShirogane = 0
+        minusCheck = false
+    }
+    
+    // //////////////////////////
     // 共通
     // //////////////////////////
     @AppStorage("kaguyaMinusCheck") var minusCheck: Bool = false
@@ -189,6 +222,7 @@ class KaguyaSama: ObservableObject {
         resetBonus()
         resetRegChara()
         resetScreen()
+        resetEnding()
     }
 }
 
@@ -215,6 +249,10 @@ struct kaguyaViewTop: View {
                     // ボーナス終了画面
                     NavigationLink(destination: kaguyaViewScreen()) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ボーナス終了画面")
+                    }
+                    // エンディング
+                    NavigationLink(destination: kaguyaViewEnding()) {
+                        unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "かぐや様は告らせたい")
