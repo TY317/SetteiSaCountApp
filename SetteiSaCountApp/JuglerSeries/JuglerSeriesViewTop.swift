@@ -14,6 +14,7 @@ import SwiftUI
 class JuglerSeriesfavoriteSetVar: ObservableObject {
     @AppStorage("isSelectedMyJug5") var isSelectedMyJug5 = true
     @AppStorage("isSelectedHappyJugV3") var isSelectedHappyJugV3 = true
+    @AppStorage("isSelectedImJugEx") var isSelectedImJugEx = true
 }
 
 
@@ -52,6 +53,14 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
                             }
+                            
+                            // //// アイムジャグラーEX
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
+                                    .popoverTip(tipVer130AddMachineJug())
+                            }
                         }
                     }
                     .background(Color(UIColor.systemGroupedBackground))
@@ -73,6 +82,14 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
+                            }
+                            
+                            // //// アイムジャグラーEX
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
+                                    .popoverTip(tipVer130AddMachineJug())
                             }
                             
                         } header: {

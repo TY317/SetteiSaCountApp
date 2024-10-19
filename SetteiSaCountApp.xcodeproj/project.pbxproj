@@ -118,6 +118,8 @@
 		0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */; };
 		0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */; };
 		0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B332C79C88A000E65D7 /* myTips.swift */; };
+		0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF187872CBF985700224A49 /* imJugExViewTop.swift */; };
+		0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF187892CBF98BF00224A49 /* imJugExAssets.xcassets */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
@@ -265,6 +267,8 @@
 		0FE23B2F2C776976000E65D7 /* mt5ViewMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewMedal.swift; sourceTree = "<group>"; };
 		0FE23B312C79BF81000E65D7 /* mt5ViewAoshimaSG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewAoshimaSG.swift; sourceTree = "<group>"; };
 		0FE23B332C79C88A000E65D7 /* myTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTips.swift; sourceTree = "<group>"; };
+		0FF187872CBF985700224A49 /* imJugExViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExViewTop.swift; sourceTree = "<group>"; };
+		0FF187892CBF98BF00224A49 /* imJugExAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = imJugExAssets.xcassets; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 		0F654BB62C6DD27E00F37849 /* JuglerSeries */ = {
 			isa = PBXGroup;
 			children = (
+				0FF187862CBF982700224A49 /* imJugEx */,
 				0F654BC22C6E3B0800F37849 /* happyJugV3 */,
 				0F654BBB2C6DD79B00F37849 /* myJug5 */,
 				0F654BB72C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets */,
@@ -665,6 +670,15 @@
 			path = monkeyTurn5;
 			sourceTree = "<group>";
 		};
+		0FF187862CBF982700224A49 /* imJugEx */ = {
+			isa = PBXGroup;
+			children = (
+				0FF187872CBF985700224A49 /* imJugExViewTop.swift */,
+				0FF187892CBF98BF00224A49 /* imJugExAssets.xcassets */,
+			);
+			path = imJugEx;
+			sourceTree = "<group>";
+		};
 		0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,6 +814,7 @@
 			files = (
 				0F7202FD2C8F1535001A8AF2 /* godeaterAssets.xcassets in Resources */,
 				0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */,
+				0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */,
 				0F654BED2C70A2E200F37849 /* kingHanaAssets.xcassets in Resources */,
 				0F654BC42C6E3BE200F37849 /* happyJugV3Assets.xcassets in Resources */,
 				0F7546BB2C95C1060007A277 /* symphoAssets.xcassets in Resources */,
@@ -996,6 +1011,7 @@
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
 				0F654BE92C708C2000F37849 /* kingHanaViewTop.swift in Sources */,
 				0F8031272C69FB21001F008E /* exViewKakumeiRatioVVV.swift in Sources */,
+				0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */,
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,
 				0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */,
 				0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */,
