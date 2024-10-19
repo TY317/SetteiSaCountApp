@@ -14,6 +14,7 @@ import SwiftUI
 class JuglerSeriesfavoriteSetVar: ObservableObject {
     @AppStorage("isSelectedMyJug5") var isSelectedMyJug5 = true
     @AppStorage("isSelectedHappyJugV3") var isSelectedHappyJugV3 = true
+    @AppStorage("isSelectedImJugEx") var isSelectedImJugEx = true
 }
 
 
@@ -25,31 +26,77 @@ struct JuglerSeriesViewTop: View {
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
+    @ObservedObject var common = commonVar()
+    @State var lazyVGridColumns: Int = 4
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     
     var body: some View {
         NavigationStack {
             ZStack {
-                // //// 機種リスト表示部分
-                List {
-                    Section {
-                        // //// ハッピージャグラーV3
-                        if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
-                            // 非表示
-                        } else {
-                            unitMachinListLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
+                if common.iconDisplayMode {
+                    ScrollView {
+                        Rectangle()
+                            .frame(height: 40)
+                            .foregroundColor(.clear)
+                        LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                            // //// ハッピージャグラーV3
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピーV3")
+                            }
+                            
+                            // //// マイジャグラー５
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
+                            }
+                            
+                            // //// アイムジャグラーEX
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
+                                    .popoverTip(tipVer130AddMachineJug())
+                            }
                         }
-                        
-                        // //// マイジャグラー５
-                        if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
-                            // 非表示
-                        } else {
-                            unitMachinListLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
-                        }
-                        
-                    } header: {
-                        VStack {
-                            Text("")
-                            Text("")
+                    }
+                    .background(Color(UIColor.systemGroupedBackground))
+                }
+                // リスト表示モード
+                else {
+                    // //// 機種リスト表示部分
+                    List {
+                        Section {
+                            // //// ハッピージャグラーV3
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
+                            }
+                            
+                            // //// マイジャグラー５
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
+                            }
+                            
+                            // //// アイムジャグラーEX
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
+                                    .popoverTip(tipVer130AddMachineJug())
+                            }
+                            
+                        } header: {
+                            VStack {
+                                Text("")
+                                Text("")
+                            }
                         }
                     }
                 }
@@ -65,20 +112,72 @@ struct JuglerSeriesViewTop: View {
                     Spacer()
                 }
             }
+            // //// 画面の向き情報の取得部分
+            .onAppear {
+                // ビューが表示されるときにデバイスの向きを取得
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                } else {
+                    self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                }
+                // デバイスの向きの変更を監視する
+                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                    self.orientation = UIDevice.current.orientation
+                    // 向きがフラットでなければlastOrientationの値を更新
+                    if self.orientation.isFlat {
+                        
+                    }
+                    else {
+                        self.lastOrientation = self.orientation
+                    }
+                    if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                        self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                    } else {
+                        self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                    }
+                }
+            }
+            .onDisappear {
+                // ビューが非表示になるときに監視を解除
+                NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+            }
             .navigationTitle("ジャグラー機種選択")
             .toolbarTitleDisplayMode(.inline)
             
             // //// ツールバーボタン
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        isShowFavoriteSettingView.toggle()
-                    }, label: {
-                        Image(systemName: "gearshape.fill")
-                    })
-                    .sheet(isPresented: $isShowFavoriteSettingView, content: {
-                        juglerSeriesfavoriteSettingView()
-                    })
+                    HStack {
+                        // 表示モード切り替えボタン
+                        Button {
+                            common.iconDisplayMode.toggle()
+                        } label: {
+                            if common.iconDisplayMode {
+                                Image(systemName: "list.bullet")
+                            }
+                            else {
+                                Image(systemName: "rectangle.grid.2x2")
+                                    .popoverTip(tipUnitButtonIconDisplayMode())
+                            }
+                        }
+                        // お気に入り設定ボタン
+                        Button(action: {
+                            isShowFavoriteSettingView.toggle()
+                        }, label: {
+                            Image(systemName: "gearshape.fill")
+                        })
+                        .sheet(isPresented: $isShowFavoriteSettingView, content: {
+                            juglerSeriesfavoriteSettingView()
+                        })
+                    }
                 }
             }
         }

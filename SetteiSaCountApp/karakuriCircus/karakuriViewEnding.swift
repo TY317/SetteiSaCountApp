@@ -99,6 +99,10 @@ struct karakuriViewEnding: View {
                 }
             }
         }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        }
         .navigationBarTitle("エンディング中の示唆")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

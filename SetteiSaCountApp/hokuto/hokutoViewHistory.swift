@@ -175,7 +175,7 @@ struct hokutoViewHistory: View {
                         unitResultRatioDenomination2Line(title: "初当たり確率", color: .grayBack, count: $hokuto.bbHitCount, bigNumber: $hokuto.bbGameSum, numberofDicimal: 0)
                     }
                     // //// 参考情報のリンク
-                    unitLinkButton(title: "バトルボーナス初当たりについて", exview: AnyView(unitExView5body2image(title: "BB初当たり", textBody1: "・初当たり確率に設定差", textBody2: "・天国中の弱スイカ、角チェでの当選に設定差", textBody3: "弱レア役でのモード移行にも設定差", textBody4: "・天井短縮や謎当たりにも大きな設定差があるらしい", image1: Image("hokutoBbHit"))))
+                    unitLinkButton(title: "バトルボーナス初当たりについて", exview: AnyView(unitExView5body2image(title: "BB初当たり", textBody1: "・初当たり確率に設定差", textBody2: "・天国中の弱スイカ、角チェでの当選に設定差", textBody3: "弱レア役でのモード移行にも設定差", textBody4: "・天井短縮や謎当たりにも大きな設定差があるらしい。800仮天井のヒット率は設定6で3割くらい、設定1で1割未満くらいとの噂も", image1: Image("hokutoBbHit"))))
                 } header: {
                     unitHeaderHistoryColumns(column2: "ゲーム", column3: "モード", column4: "当選契機")
                 }

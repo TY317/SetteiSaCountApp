@@ -28,39 +28,110 @@ struct hanahanaSeriesViewTop: View {
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
+    @ObservedObject var common = commonVar()
+    @State var lazyVGridColumns: Int = 4
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     
     var body: some View {
         NavigationStack {
             ZStack {
-                // //// 機種リスト表示部分
-                List {
-                    Section {
-                        // //// ドラゴンハナハナ, 23年12月
-                        if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedDragonHanahanaSenkoh == false {
-                            // 非表示
-                        } else {
-                            machineListDragonHanahanaSenkoh()
+                if common.iconDisplayMode {
+                    ScrollView {
+                        Rectangle()
+                            .frame(height: 40)
+                            .foregroundColor(.clear)
+                        LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                            // //// ドラゴンハナハナ, 23年12月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedDragonHanahanaSenkoh == false {
+                                // 非表示
+                            } else {
+                                NavigationLink(destination: draHanaSenkohViewTop()) {
+                                    VStack {
+                                        ZStack {
+                                            Image("machineImageDragonHanahanaSenkoh2")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .cornerRadius(13.0)
+                                                .padding(.horizontal, 4.0)
+                                            Image(systemName: "bolt")
+                                                .foregroundColor(.secondary)
+                                                .font(.largeTitle)
+                                        }
+                                        Text("ドラゴン閃光")
+                                            .font(.caption)
+                                            .lineLimit(1)
+                                            .foregroundColor(Color.primary)
+                                    }
+                                }
+                            }
+                            
+                            // //// キングハナハナ, 23年3月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedKingHanahana == false {
+                                // 非表示
+                            } else {
+                                NavigationLink(destination: kingHanaViewTop()) {
+                                    VStack {
+                                        ZStack {
+                                            Rectangle()
+                                                .foregroundStyle(Color(hue: 1.0, saturation: 0.683, brightness: 0.797).gradient.opacity(0.8))
+//                                                .frame(width: 40.0, height: 40.0)
+                                                .cornerRadius(13.0)
+                                                .padding(.horizontal, 4.0)
+                                            Image(systemName: "crown.fill")
+                                                .foregroundColor(.secondary)
+                                                .font(.largeTitle)
+                                        }
+                                        Text("キングハナハナ")
+                                            .font(.caption)
+                                            .lineLimit(1)
+                                            .foregroundColor(Color.primary)
+                                    }
+                                }
+                            }
+                            
+                            // //// ハナハナ鳳凰天翔, 22年1月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "鳳凰 天翔")
+                            }
                         }
-                        
-                        // //// キングハナハナ, 23年3月
-                        if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedKingHanahana == false {
-                            // 非表示
-                        } else {
-                            machineListKingHanahana()
-                        }
-                        
-                        // //// ハナハナ鳳凰天翔, 22年1月
-                        if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
-                            // 非表示
-                        } else {
-                            unitMachinListLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "ハナハナ鳳凰天翔", makerName: "パイオニア", releaseYear: 2022, releaseMonth: 1)
-                                .popoverTip(tipAddHanahanaTensho())
-                        }
-                        
-                    } header: {
-                        VStack {
-                            Text("")
-                            Text("")
+                    }
+                    .background(Color(UIColor.systemGroupedBackground))
+                }
+                // //// リスト表示モード
+                else {
+                    // //// 機種リスト表示部分
+                    List {
+                        Section {
+                            // //// ドラゴンハナハナ, 23年12月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedDragonHanahanaSenkoh == false {
+                                // 非表示
+                            } else {
+                                machineListDragonHanahanaSenkoh()
+                            }
+                            
+                            // //// キングハナハナ, 23年3月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedKingHanahana == false {
+                                // 非表示
+                            } else {
+                                machineListKingHanahana()
+                            }
+                            
+                            // //// ハナハナ鳳凰天翔, 22年1月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "ハナハナ鳳凰天翔", makerName: "パイオニア", releaseYear: 2022, releaseMonth: 1)
+    //                                .popoverTip(tipAddHanahanaTensho())
+                            }
+                            
+                        } header: {
+                            VStack {
+                                Text("")
+                                Text("")
+                            }
                         }
                     }
                 }
@@ -76,40 +147,78 @@ struct hanahanaSeriesViewTop: View {
                     Spacer()
                 }
             }
+            // //// 画面の向き情報の取得部分
+            .onAppear {
+                // ビューが表示されるときにデバイスの向きを取得
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                } else {
+                    self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                }
+                // デバイスの向きの変更を監視する
+                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                    self.orientation = UIDevice.current.orientation
+                    // 向きがフラットでなければlastOrientationの値を更新
+                    if self.orientation.isFlat {
+                        
+                    }
+                    else {
+                        self.lastOrientation = self.orientation
+                    }
+                    if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                        self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                    } else {
+                        self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                    }
+                }
+            }
+            .onDisappear {
+                // ビューが非表示になるときに監視を解除
+                NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+            }
             .navigationTitle("ハナハナ機種選択")
             .toolbarTitleDisplayMode(.inline)
             
             // //// ツールバーボタン
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        isShowFavoriteSettingView.toggle()
-                    }, label: {
-                        Image(systemName: "gearshape.fill")
-                    })
-                    .sheet(isPresented: $isShowFavoriteSettingView, content: {
-                        hanahanaSeriesfavoriteSettingView()
-                    })
+                    HStack {
+                        // 表示モード切り替えボタン
+                        Button {
+                            common.iconDisplayMode.toggle()
+                        } label: {
+                            if common.iconDisplayMode {
+                                Image(systemName: "list.bullet")
+                            }
+                            else {
+                                Image(systemName: "rectangle.grid.2x2")
+                                    .popoverTip(tipUnitButtonIconDisplayMode())
+                            }
+                        }
+                        // お気に入り設定ボタン
+                        Button(action: {
+                            isShowFavoriteSettingView.toggle()
+                        }, label: {
+                            Image(systemName: "gearshape.fill")
+                        })
+                        .sheet(isPresented: $isShowFavoriteSettingView, content: {
+                            hanahanaSeriesfavoriteSettingView()
+                        })
+                    }
                 }
             }
         }
     }
 }
 
-// //////////////////
-// Tip：機種追加
-// //////////////////
-struct tipAddHanahanaTensho: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ハナハナ鳳凰天翔を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
 
 // ///////////////////////
 // ビュー：お気に入り設定画面

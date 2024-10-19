@@ -115,6 +115,22 @@ struct tipUnitButtonReset: Tip {
 }
 
 
+// /////////////////////
+// Tip：アイコン表示モード切り替え
+// /////////////////////
+struct tipUnitButtonIconDisplayMode: Tip {
+    var title: Text {
+        Text("アイコン表示モード切替")
+    }
+    
+    var message: Text? {
+        Text("機種アイコンを並べた表示モード。表示される機種は変わりません。")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
 
 #Preview {
     myTips()

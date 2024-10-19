@@ -147,6 +147,31 @@ struct unitMachinListLink: View {
 }
 
 // //////////////////////////
+// ビュー：機種選択ページ　アイコン表示用のリンク
+// //////////////////////////
+struct unitMachineIconLink: View {
+    @State var linkView: AnyView
+    @State var iconImage: Image
+    @State var machineName: String
+    
+    var body: some View {
+        NavigationLink(destination: self.linkView) {
+            VStack {
+                self.iconImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(13.0)
+                    .padding(.horizontal, 4.0)
+                Text(self.machineName)
+                    .font(.caption)
+                    .lineLimit(1)
+                    .foregroundColor(Color.primary)
+            }
+        }
+    }
+}
+
+// //////////////////////////
 // ビュー：参考情報リンクボタン
 // //////////////////////////
 struct unitLinkButton: View {

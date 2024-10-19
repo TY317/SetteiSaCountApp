@@ -25,6 +25,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodeater") var isSelectedFavoriteGodeater = true
     @AppStorage("isSelectedFavoriteSympho") var isSelectedFavoriteSympho = true
     @AppStorage("isSelectedFavoriteKarakuri") var isSelectedFavoriteKarakuri = true
+    @AppStorage("isSelectedFavoriteKaguya") var isSelectedFavoriteKaguya = true
 }
 
 
@@ -32,127 +33,224 @@ class favoriteSetVar: ObservableObject {
 // 変数：コモン
 // /////////////////////////
 class commonVar: ObservableObject {
+    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = false      // アイコン表示の切り替え
+    let lazyVGridSize: CGFloat = 70
+    let lazyVGridSpacing: CGFloat = 20
+    let lazyVGridColumnsPortlait: Int = 4
+    let lazyVGridColumnsLandscape: Int = 7
     
 }
-
-
-// //////////////////
-// Tip：機種追加
-// //////////////////
-struct tipAddGodeaterSympho: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ゴッドイーター、シンフォギア、からくりサーカスを追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
-
 
 // /////////////////////////
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
     @ObservedObject var favoriteSet = favoriteSetVar()
+    @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
     @State private var isKeyboardVisible = false  // キーボード表示状態を追跡
+    @State var lazyVGridColumns: Int = 4
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
                 ZStack {
-                    // //// 機種リスト表示部分
-                    List {
-                        Section {
-                            // //// ジャグラーシリーズ
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
-                                // 非表示
-                            } else {
-                                machineListJuglerSeries()
+                    // //// アイコン表示モード
+                    if common.iconDisplayMode {
+                        ScrollView {
+                            Rectangle()
+                                .frame(height: 40)
+                                .foregroundColor(.clear)
+                            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                                // //// ジャグラーシリーズ
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(JuglerSeriesViewTop()), iconImage: Image("machineIconJuglerSeries"), machineName: "ジャグラー")
+                                }
+                                
+                                // //// ハナハナシリーズ
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
+                                }
+                                
+                                // //// かぐや様、24年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様")
+                                        .popoverTip(tipVer130AddMachine())
+                                }
+                                
+                                // //// シンフォギア 正義の歌、24年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "シンフォギア")
+                                }
+                                
+                                // //// ゴッドイーター リザレクション、24年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター")
+                                }
+                                
+                                // //// ToLOVEるダークネス、24年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLoveる")
+                                }
+                                
+                                // //// ゴジラvsエヴァンゲリオン、24年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGoeva == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(goevaViewTop()), iconImage: Image("machinIconGoeva"), machineName: "ゴジエヴァ")
+                                }
+                                
+                                // //// モンキーターン５、23年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMT5 == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(mt5ViewTop()), iconImage: Image("mt5MachineIconWhite"), machineName: "モンキー5")
+                                }
+                                
+                                // //// からくりサーカス、23年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス")
+                                }
+                                
+                                // //// 北斗の拳、23年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳")
+                                }
+                                
+                                // //// ヴァルヴレイヴ、22年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVVV == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(VVV_Top()), iconImage: Image("machineIconVVV"), machineName: "ヴヴヴ")
+                                }
+                                
+                                // //// カバネリ、22年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneri == false {
+                                    // 非表示
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(kabaneriViewTop()), iconImage: Image("machineIconKabaneri"), machineName: "カバネリ")
+                                }
                             }
-                            
-                            // //// ハナハナシリーズ
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
-                                // 非表示
-                            } else {
-                                machineListHanahanaSeries()
-                            }
-                            
-                            // //// シンフォギア 正義の歌、24年7月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "戦姫絶唱シンフォギア 正義の歌", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 7)
-                                    .popoverTip(tipAddGodeaterSympho())
-                            }
-                            
-                            // //// ゴッドイーター リザレクション、24年7月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "セブンリーグ", releaseYear: 2024, releaseMonth: 7)
-                            }
-                            // //// ToLOVEるダークネス、24年6月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "オリンピアエステート", releaseYear: 2024, releaseMonth: 6)
-//                                    .popoverTip(tipAddToloveru())
-                            }
-                            
-                            // //// ゴジラvsエヴァンゲリオン、24年2月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGoeva == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(goevaViewTop()), iconImage: Image("machinIconGoeva"), machineName: "ゴジラvsエヴァンゲリオン", makerName: "ビスティ", releaseYear: 2024, releaseMonth: 2)
-                            }
-                            
-                            // //// モンキーターン５、23年12月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMT5 == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(mt5ViewTop()), iconImage: Image("machineIconMT5"), machineName: "モンキーターン5", makerName: "山佐", releaseYear: 2023, releaseMonth: 12)
-                            }
-                            
-                            // //// からくりサーカス、23年7月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス", makerName: "SANKYO", releaseYear: 2023, releaseMonth: 7)
-                            }
-                            
-                            // //// 北斗の拳、23年4月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
-//                                    .popoverTip(tipAddHokuto())
-                            }
-                            
-                            // //// ヴァルヴレイヴ、22年11月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVVV == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(VVV_Top()), iconImage: Image("machineIconVVV"), machineName: "革命機ヴァルヴレイヴ", makerName: "SANKYO", releaseYear: 2022, releaseMonth: 11)
-                            }
-                            
-                            // //// カバネリ、22年7月
-                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneri == false {
-                                // 非表示
-                            } else {
-                                unitMachinListLink(linkView: AnyView(kabaneriViewTop()), iconImage: Image("machineIconKabaneri"), machineName: "甲鉄城のカバネリ", makerName: "サミー", releaseYear: 2022, releaseMonth: 7)
-                            }
-                            
-                        } header: {
-                            VStack {
-                                Text("")
-                                Text("")
-                            }
+                        }
+                        .background(Color(UIColor.systemGroupedBackground))
+                    }
+                    
+                    // リスト表示モード
+                    else {
+                        // //// 機種リスト表示部分
+                        List {
+                                Section {
+                                    // //// ジャグラーシリーズ
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
+                                        // 非表示
+                                    } else {
+                                        machineListJuglerSeries()
+                                    }
+                                    
+                                    // //// ハナハナシリーズ
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
+                                        // 非表示
+                                    } else {
+                                        machineListHanahanaSeries()
+                                    }
+                                    
+                                    // //// かぐや様、24年9月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
+                                        
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
+                                            .popoverTip(tipVer130AddMachine())
+                                    }
+                                    // //// シンフォギア 正義の歌、24年7月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "戦姫絶唱シンフォギア 正義の歌", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 7)
+                                    }
+                                    
+                                    // //// ゴッドイーター リザレクション、24年7月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "セブンリーグ", releaseYear: 2024, releaseMonth: 7)
+                                    }
+                                    // //// ToLOVEるダークネス、24年6月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "オリンピアエステート", releaseYear: 2024, releaseMonth: 6)
+        //                                    .popoverTip(tipAddToloveru())
+                                    }
+                                    
+                                    // //// ゴジラvsエヴァンゲリオン、24年2月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGoeva == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(goevaViewTop()), iconImage: Image("machinIconGoeva"), machineName: "ゴジラvsエヴァンゲリオン", makerName: "ビスティ", releaseYear: 2024, releaseMonth: 2)
+                                    }
+                                    
+                                    // //// モンキーターン５、23年12月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMT5 == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(mt5ViewTop()), iconImage: Image("machineIconMT5"), machineName: "モンキーターン5", makerName: "山佐", releaseYear: 2023, releaseMonth: 12)
+                                    }
+                                    
+                                    // //// からくりサーカス、23年7月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス", makerName: "SANKYO", releaseYear: 2023, releaseMonth: 7)
+                                    }
+                                    
+                                    // //// 北斗の拳、23年4月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
+        //                                    .popoverTip(tipAddHokuto())
+                                    }
+                                    
+                                    // //// ヴァルヴレイヴ、22年11月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVVV == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(VVV_Top()), iconImage: Image("machineIconVVV"), machineName: "革命機ヴァルヴレイヴ", makerName: "SANKYO", releaseYear: 2022, releaseMonth: 11)
+                                    }
+                                    
+                                    // //// カバネリ、22年7月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneri == false {
+                                        // 非表示
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(kabaneriViewTop()), iconImage: Image("machineIconKabaneri"), machineName: "甲鉄城のカバネリ", makerName: "サミー", releaseYear: 2022, releaseMonth: 7)
+                                    }
+                                    
+                                } header: {
+                                    VStack {
+                                        Text("")
+                                        Text("")
+                                    }
+                                }
                         }
                     }
                     // //// モード選択ピッカー
@@ -168,20 +266,73 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                // //// 画面の向き情報の取得部分
+                .onAppear {
+                    // ビューが表示されるときにデバイスの向きを取得
+                    self.orientation = UIDevice.current.orientation
+                    // 向きがフラットでなければlastOrientationの値を更新
+                    if self.orientation.isFlat {
+                        
+                    }
+                    else {
+                        self.lastOrientation = self.orientation
+                    }
+                    if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                        self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                    } else {
+                        self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                    }
+                    // デバイスの向きの変更を監視する
+                    NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                        self.orientation = UIDevice.current.orientation
+                        // 向きがフラットでなければlastOrientationの値を更新
+                        if self.orientation.isFlat {
+                            
+                        }
+                        else {
+                            self.lastOrientation = self.orientation
+                        }
+                        if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                            self.lazyVGridColumns = common.lazyVGridColumnsLandscape
+                        } else {
+                            self.lazyVGridColumns = common.lazyVGridColumnsPortlait
+                        }
+                    }
+                }
+                .onDisappear {
+                    // ビューが非表示になるときに監視を解除
+                    NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+                }
                 .navigationTitle("機種選択")
                 .toolbarTitleDisplayMode(.inline)
                 
                 // //// ツールバーボタン
                 .toolbar {
                     ToolbarItem(placement: .automatic) {
-                        Button(action: {
-                            isShowFavoriteSettingView.toggle()
-                        }, label: {
-                            Image(systemName: "gearshape.fill")
-                        })
-                        .sheet(isPresented: $isShowFavoriteSettingView, content: {
-                            favoriteSettingView()
-                        })
+                        HStack {
+                            // 表示モード切り替えボタン
+                            Button {
+                                common.iconDisplayMode.toggle()
+                            } label: {
+                                if common.iconDisplayMode {
+                                    Image(systemName: "list.bullet")
+                                }
+                                else {
+                                    Image(systemName: "rectangle.grid.2x2")
+                                        .popoverTip(tipUnitButtonIconDisplayMode())
+                                }
+                            }
+
+                            // お気に入り設定ボタン
+                            Button(action: {
+                                isShowFavoriteSettingView.toggle()
+                            }, label: {
+                                Image(systemName: "gearshape.fill")
+                            })
+                            .sheet(isPresented: $isShowFavoriteSettingView, content: {
+                                favoriteSettingView()
+                            })
+                        }
                     }
                 }
             }
@@ -231,6 +382,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// かぐや様、24年9月
+                Toggle("かぐや様は告らせたい", isOn: $favoriteSet.isSelectedFavoriteKaguya)
                 // //// シンフォギア、24年7月
                 Toggle("戦姫絶唱シンフォギア 正義の歌", isOn: $favoriteSet.isSelectedFavoriteSympho)
                 // //// ゴッドイーターリザレクション、24年7月

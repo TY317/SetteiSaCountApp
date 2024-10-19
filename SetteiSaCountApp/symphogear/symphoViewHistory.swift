@@ -166,6 +166,10 @@ struct symphoViewHistory: View {
                 }
             }
         }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        }
         .navigationTitle("AT初当り履歴")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
