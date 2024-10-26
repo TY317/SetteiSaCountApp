@@ -1181,6 +1181,388 @@ struct unitLabelMenu: View {
     }
 }
 
+// //////////////////////////
+// ビュー：メモリー上書き保存のツールバーボタン
+// //////////////////////////
+struct unitButtonSaveMemory: View {
+    @State var isShowSaveView: Bool = false
+    @State var saveView: AnyView
+    
+    var body: some View {
+        Button {
+            self.isShowSaveView.toggle()
+        } label: {
+            Image(systemName: "rectangle.and.pencil.and.ellipsis")
+        }
+        .sheet(isPresented: self.$isShowSaveView) {
+            self.saveView
+                .presentationDetents([.large])
+        }
+    }
+}
+
+
+// //////////////////////////
+// ビュー：メモリー上書き保存の画面
+// //////////////////////////
+struct unitViewSaveMemory: View {
+    @Environment(\.dismiss) private var dismiss
+    let memorySelectList: [String] = ["メモリー1", "メモリー2", "メモリー3"]
+    let machineName: String
+    @Binding var selectedMemory: String
+    // メモリー1
+    @Binding var memoMemory1: String
+    @Binding var dateDoubleMemory1: Double
+    @State var dateMemory1: Date = Date()
+    @State var memoInput1: String = ""
+    let actionMemory1: () -> Void
+    // メモリー2
+    @Binding var memoMemory2: String
+    @Binding var dateDoubleMemory2: Double
+    @State var dateMemory2: Date = Date()
+    @State var memoInput2: String = ""
+    let actionMemory2: () -> Void
+    // メモリー3
+    @Binding var memoMemory3: String
+    @Binding var dateDoubleMemory3: Double
+    @State var dateMemory3: Date = Date()
+    @State var memoInput3: String = ""
+    let actionMemory3: () -> Void
+    
+    @Binding var isShowSaveAlert: Bool
+    @FocusState var isFocused: Bool
+    
+    // カスタムイニシャライザを追加
+//    init(machineName: String, selectedMemory: Binding<String>, memoMemory1: Binding<String>, dateDoubleMemory1: Binding<Double>, actionMemory1: @escaping () -> Void = {}, memoMemory2: Binding<String>, dateDoubleMemory2: Binding<Double>, actionMemory2: @escaping () -> Void = {}, memoMemory3: Binding<String>, dateDoubleMemory3: Binding<Double>, actionMemory3: @escaping () -> Void = {}, isShowSaveAlert: Binding<Bool>) {
+//        self._selectedMemory = selectedMemory
+//        self._memoMemory1 = memoMemory1
+//        self._dateDoubleMemory1 = dateDoubleMemory1
+//        
+//        // dateDoubleMemory1 から Date を生成して初期化
+//        self._dateMemory1 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory1.wrappedValue))
+//        self._memoInput1 = State(initialValue: memoMemory1.wrappedValue)
+//        self.actionMemory1 = actionMemory1
+//        self.machineName = machineName
+//        
+//        // メモリー2
+//        self._memoMemory2 = memoMemory2
+//        self._dateDoubleMemory2 = dateDoubleMemory2
+//        self._dateMemory2 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory2.wrappedValue))
+//        self._memoInput2 = State(initialValue: memoMemory2.wrappedValue)
+//        self.actionMemory2 = actionMemory2
+//        
+//        // メモリー3
+//        self._memoMemory3 = memoMemory3
+//        self._dateDoubleMemory3 = dateDoubleMemory3
+//        self._dateMemory3 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory3.wrappedValue))
+//        self._memoInput3 = State(initialValue: memoMemory3.wrappedValue)
+//        self.actionMemory3 = actionMemory3
+//        
+//        self._isShowSaveAlert = isShowSaveAlert
+//    }
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    // //// 機種名
+                    HStack {
+                        Text("機種")
+                        Spacer()
+                        Text(self.machineName)
+                            .foregroundColor(.secondary)
+                    }
+                    // //// メモリー選択
+                    Picker("", selection: self.$selectedMemory) {
+                        ForEach(self.memorySelectList, id: \.self) { memory in
+                            Text(memory)
+                        }
+                    }
+                    .pickerStyle(.palette)
+                    // メモ
+                    HStack {
+                        Text("メモ")
+                        if self.selectedMemory == "メモリー1" {
+                            TextField("メモ", text: $memoInput1)
+                                .focused($isFocused)
+                                .toolbar {
+                                    ToolbarItem(placement: .keyboard) {
+                                        HStack {
+                                            Spacer()
+                                            Button(action: {
+                                                isFocused = false
+                                            }, label: {
+                                                Text("完了")
+                                                    .fontWeight(.bold)
+                                            })
+                                        }
+                                    }
+                                }
+                        } else if self.selectedMemory == "メモリー2" {
+                            TextField("メモ", text: $memoInput2)
+                                .focused($isFocused)
+                                .toolbar {
+                                    ToolbarItem(placement: .keyboard) {
+                                        HStack {
+                                            Spacer()
+                                            Button(action: {
+                                                isFocused = false
+                                            }, label: {
+                                                Text("完了")
+                                                    .fontWeight(.bold)
+                                            })
+                                        }
+                                    }
+                                }
+                        } else {
+                            TextField("メモ", text: $memoInput3)
+                                .focused($isFocused)
+                                .toolbar {
+                                    ToolbarItem(placement: .keyboard) {
+                                        HStack {
+                                            Spacer()
+                                            Button(action: {
+                                                isFocused = false
+                                            }, label: {
+                                                Text("完了")
+                                                    .fontWeight(.bold)
+                                            })
+                                        }
+                                    }
+                                }
+                        }
+                    }
+                    // 日付
+                    if self.selectedMemory == "メモリー1" {
+                        DatePicker(selection: self.$dateMemory1, displayedComponents: .date) {
+                            Text("日付")
+                        }
+                    } else if self.selectedMemory == "メモリー2" {
+                        DatePicker(selection: self.$dateMemory2, displayedComponents: .date) {
+                            Text("日付")
+                        }
+                    } else {
+                        DatePicker(selection: self.$dateMemory3, displayedComponents: .date) {
+                            Text("日付")
+                        }
+                    }
+                }
+                // 上書き保存ボタン
+                Section {
+                    Button {
+                        self.isShowSaveAlert = true
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("上書き保存")
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                    }
+                    .alert("上書き保存", isPresented: self.$isShowSaveAlert) {
+                        Button("キャンセル", role: .cancel) {
+                            
+                        }
+                        Button("OK", role: .destructive) {
+                            // メモリー1
+                            if self.selectedMemory == "メモリー1" {
+                                self.memoMemory1 = self.memoInput1
+                                self.dateDoubleMemory1 = self.dateMemory1.timeIntervalSince1970
+                                actionMemory1()
+                            }
+                            // メモリー2
+                            else if self.selectedMemory == "メモリー2" {
+                                self.memoMemory2 = self.memoInput2
+                                self.dateDoubleMemory2 = self.dateMemory2.timeIntervalSince1970
+                                actionMemory2()
+                            }
+                            // メモリー3
+                            else {
+                                self.memoMemory3 = self.memoInput3
+                                self.dateDoubleMemory3 = self.dateMemory3.timeIntervalSince1970
+                                actionMemory3()
+                            }
+                        }
+                    } message: {
+                        Text("現在のカウントデータを選択中のメモリーに上書き保存します")
+                    }
+                }
+
+            }
+            .navigationTitle("データ保存")
+            // //// ツールバー閉じるボタン
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("閉じる")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
+        }
+        .onAppear {
+            self.memoInput1 = self.memoMemory1
+            self.dateMemory1 = Date(timeIntervalSince1970: $dateDoubleMemory1.wrappedValue)
+            self.memoInput2 = self.memoMemory2
+            self.dateMemory2 = Date(timeIntervalSince1970: $dateDoubleMemory2.wrappedValue)
+            self.memoInput3 = self.memoMemory3
+            self.dateMemory3 = Date(timeIntervalSince1970: $dateDoubleMemory3.wrappedValue)
+        }
+    }
+}
+
+
+// //////////////////////////
+// ビュー：メモリー読み出しのツールバーボタン
+// //////////////////////////
+struct unitButtonLoadMemory: View {
+    @State var isShowLoadView: Bool = false
+    @State var loadView: AnyView
+    
+    var body: some View {
+        Button {
+            self.isShowLoadView.toggle()
+        } label: {
+            Image(systemName: "folder")
+        }
+        .sheet(isPresented: self.$isShowLoadView) {
+            self.loadView
+                .presentationDetents([.large])
+        }
+    }
+}
+
+
+// //////////////////////////
+// ビュー：メモリー読み出し画面
+// //////////////////////////
+struct unitViewLoadMemory: View {
+    @Environment(\.dismiss) private var dismiss
+    let memorySelectList: [String] = ["メモリー1", "メモリー2", "メモリー3"]
+    let machineName: String
+    @Binding var selectedMemory: String
+    // メモリー1
+    @State var memoMemory1: String
+    @State var dateDoubleMemory1: Double
+    let actionMemory1: () -> Void
+    // メモリー2
+    @State var memoMemory2: String
+    @State var dateDoubleMemory2: Double
+    let actionMemory2: () -> Void
+    // メモリー3
+    @State var memoMemory3: String
+    @State var dateDoubleMemory3: Double
+    let actionMemory3: () -> Void
+    
+    @Binding var isShowLoadAlert: Bool
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    // //// 機種名
+                    HStack {
+                        Text("機種")
+                        Spacer()
+                        Text(self.machineName)
+                            .foregroundColor(.secondary)
+                    }
+                    // //// メモリー選択
+                    Picker("", selection: self.$selectedMemory) {
+                        ForEach(self.memorySelectList, id: \.self) { memory in
+                            Text(memory)
+                        }
+                    }
+                    .pickerStyle(.palette)
+                    // //// メモ
+                    HStack {
+                        Text("メモ")
+                        Spacer()
+                        if self.selectedMemory == "メモリー1" {
+                            Text(self.memoMemory1)
+                                .foregroundColor(.secondary)
+                        } else if self.selectedMemory == "メモリー2" {
+                            Text(self.memoMemory2)
+                                .foregroundColor(.secondary)
+                        } else {
+                            Text(self.memoMemory3)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    // 日付
+                    HStack {
+                        Text("日付")
+                        Spacer()
+                        if self.selectedMemory == "メモリー1" {
+                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory1)
+                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                .foregroundColor(.secondary)
+                        } else if self.selectedMemory == "メモリー2" {
+                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory2)
+                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                .foregroundColor(.secondary)
+                        } else {
+                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory3)
+                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+                // データ読み出しボタン
+                Section {
+                    Button {
+                        self.isShowLoadAlert = true
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("読み出し")
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                    }
+                }
+                .alert("データ読み出し", isPresented: self.$isShowLoadAlert) {
+                    Button("キャンセル", role: .cancel) {
+                        
+                    }
+                    Button("OK", role: .destructive) {
+                        // メモリー1
+                        if self.selectedMemory == "メモリー1" {
+                            actionMemory1()
+                        }
+                        // メモリー2
+                        else if self.selectedMemory == "メモリー2" {
+                            actionMemory2()
+                        }
+                        // メモリー3
+                        else {
+                            actionMemory3()
+                        }
+                    }
+                } message: {
+                    Text("現在のカウントデータをリセットし、選択中のメモリーデータを読み出します")
+                }
+            }
+            .navigationTitle("データ読み出し")
+            // //// ツールバー閉じるボタン
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("閉じる")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
+        }
+    }
+}
+
+
+
 
 #Preview {
     myViewUnit()
