@@ -132,6 +132,57 @@ struct tipUnitButtonIconDisplayMode: Tip {
 }
 
 
+// /////////////////////
+// Tip：データ読み出しボタンの説明
+// /////////////////////
+struct tipUnitButtonLoadMemory: Tip {
+    var title: Text {
+        Text("メモリーデータ読み出し")
+    }
+    
+    var message: Text? {
+        Text("メモリーへ保存したデータを読み出すことができます")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
+// /////////////////////
+// Tip：データ上書きボタンの説明
+// /////////////////////
+struct tipUnitButtonSaveMemory: Tip {
+    var title: Text {
+        Text("メモリーへ上書き保存")
+    }
+    
+    var message: Text? {
+        Text("現在のデータをメモリーへ上書き保存することができます")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
+// /////////////////////
+// Tip：メモリー機能の説明
+// /////////////////////
+struct tipUnitButtonMemory: Tip {
+    var title: Text {
+        Text("メモリー機能")
+    }
+    
+    var message: Text? {
+        Text("・現在のデータ保存\n・保存したデータの読み出し\nができます")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 #Preview {
     myTips()
 }

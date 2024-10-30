@@ -26,6 +26,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteSympho") var isSelectedFavoriteSympho = true
     @AppStorage("isSelectedFavoriteKarakuri") var isSelectedFavoriteKarakuri = true
     @AppStorage("isSelectedFavoriteKaguya") var isSelectedFavoriteKaguya = true
+    @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
 }
 
 
@@ -80,12 +81,20 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// リゼロ2、24年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRezero2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ2")
+                                        
+                                }
+                                
                                 // //// かぐや様、24年9月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様")
-                                        .popoverTip(tipVer130AddMachine())
+//                                        .popoverTip(tipVer130AddMachine())
                                 }
                                 
                                 // //// シンフォギア 正義の歌、24年7月
@@ -174,12 +183,20 @@ struct ContentView: View {
                                         machineListHanahanaSeries()
                                     }
                                     
+                                    // //// リゼロ2、24年10月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRezero2 == false {
+                                        
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ season2", makerName: "大都技研", releaseYear: 2024, releaseMonth: 10)
+                                            
+                                    }
+                                    
                                     // //// かぐや様、24年9月
                                     if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
                                         
                                     } else {
                                         unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
-                                            .popoverTip(tipVer130AddMachine())
+//                                            .popoverTip(tipVer130AddMachine())
                                     }
                                     // //// シンフォギア 正義の歌、24年7月
                                     if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
@@ -192,13 +209,13 @@ struct ContentView: View {
                                     if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
                                         // 非表示
                                     } else {
-                                        unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "セブンリーグ", releaseYear: 2024, releaseMonth: 7)
+                                        unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "山佐", releaseYear: 2024, releaseMonth: 7)
                                     }
                                     // //// ToLOVEるダークネス、24年6月
                                     if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
                                         // 非表示
                                     } else {
-                                        unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "オリンピアエステート", releaseYear: 2024, releaseMonth: 6)
+                                        unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "平和", releaseYear: 2024, releaseMonth: 6)
         //                                    .popoverTip(tipAddToloveru())
                                     }
                                     
@@ -382,6 +399,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// リゼロ2、24年10月
+                Toggle("Re:ゼロ season2", isOn: $favoriteSet.isSelectedFavoriteRezero2)
                 // //// かぐや様、24年9月
                 Toggle("かぐや様は告らせたい", isOn: $favoriteSet.isSelectedFavoriteKaguya)
                 // //// シンフォギア、24年7月

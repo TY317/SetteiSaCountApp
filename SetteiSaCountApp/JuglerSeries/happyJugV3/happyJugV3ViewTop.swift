@@ -86,6 +86,47 @@ class happyJugV3Var: ObservableObject {
     
     // Tips
     var tipKeybordHidden = commonTipKeybordHidden()
+    
+    @AppStorage("happyJugV3SelectedMemory") var selectedMemory = "メモリー1"
+}
+
+// //// メモリー1
+class happyJugV3Memory1: ObservableObject {
+    @AppStorage("happyJugV3BellCountMemory1") var bellCount = 0
+    @AppStorage("happyJugV3AloneBigCountMemory1") var aloneBigCount = 0
+    @AppStorage("happyJugV3CherryBigCountMemory1") var cherryBigCount = 0
+    @AppStorage("happyJugV3AloneRegCountMemory1") var aloneRegCount = 0
+    @AppStorage("happyJugV3CherryRegCountMemory1") var cherryRegCount = 0
+    @AppStorage("happyJugV3StartGamesMemory1") var startGames = 0
+    @AppStorage("happyJugV3CurrentGamesMemory1") var currentGames = 0
+    @AppStorage("happyJugV3MemoMemory1") var memo = ""
+    @AppStorage("happyJugV3DateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class happyJugV3Memory2: ObservableObject {
+    @AppStorage("happyJugV3BellCountMemory2") var bellCount = 0
+    @AppStorage("happyJugV3AloneBigCountMemory2") var aloneBigCount = 0
+    @AppStorage("happyJugV3CherryBigCountMemory2") var cherryBigCount = 0
+    @AppStorage("happyJugV3AloneRegCountMemory2") var aloneRegCount = 0
+    @AppStorage("happyJugV3CherryRegCountMemory2") var cherryRegCount = 0
+    @AppStorage("happyJugV3StartGamesMemory2") var startGames = 0
+    @AppStorage("happyJugV3CurrentGamesMemory2") var currentGames = 0
+    @AppStorage("happyJugV3MemoMemory2") var memo = ""
+    @AppStorage("happyJugV3DateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class happyJugV3Memory3: ObservableObject {
+    @AppStorage("happyJugV3BellCountMemory3") var bellCount = 0
+    @AppStorage("happyJugV3AloneBigCountMemory3") var aloneBigCount = 0
+    @AppStorage("happyJugV3CherryBigCountMemory3") var cherryBigCount = 0
+    @AppStorage("happyJugV3AloneRegCountMemory3") var aloneRegCount = 0
+    @AppStorage("happyJugV3CherryRegCountMemory3") var cherryRegCount = 0
+    @AppStorage("happyJugV3StartGamesMemory3") var startGames = 0
+    @AppStorage("happyJugV3CurrentGamesMemory3") var currentGames = 0
+    @AppStorage("happyJugV3MemoMemory3") var memo = ""
+    @AppStorage("happyJugV3DateMemory3") var dateDouble = 0.0
 }
 
 
@@ -94,6 +135,9 @@ class happyJugV3Var: ObservableObject {
 // //////////////////////
 struct happyJugV3ViewTop: View {
     @ObservedObject var jug = happyJugV3Var()
+    @ObservedObject var jugMemory1 = happyJugV3Memory1()
+    @ObservedObject var jugMemory2 = happyJugV3Memory2()
+    @ObservedObject var jugMemory3 = happyJugV3Memory3()
     @FocusState private var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -250,6 +294,13 @@ struct happyJugV3ViewTop: View {
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     HStack {
+                        HStack {
+                            // //// データ読み出し
+                            unitButtonLoadMemory(loadView: AnyView(happyJugV3ViewLoadMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
+                            // //// データ保存
+                            unitButtonSaveMemory(saveView: AnyView(happyJugV3ViewSaveMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
+                        }
+                        .popoverTip(tipUnitButtonMemory())
                         // マイナスボタン
                         Button(action: {
                             jug.minusCheck.toggle()
@@ -630,6 +681,114 @@ func happyJugV3funcReset(jug: happyJugV3Var) {
 }
 
 
+// /////////////////////////////
+// メモリーセーブ画面
+// /////////////////////////////
+struct happyJugV3ViewSaveMemory: View {
+    @ObservedObject var jug: happyJugV3Var
+    @ObservedObject var jugMemory1: happyJugV3Memory1
+    @ObservedObject var jugMemory2: happyJugV3Memory2
+    @ObservedObject var jugMemory3: happyJugV3Memory3
+    @State var isShowSaveAlert: Bool = false
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "ハッピージャグラーV3",
+            selectedMemory: jug.$selectedMemory,
+            memoMemory1: $jugMemory1.memo,
+            dateDoubleMemory1: $jugMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $jugMemory2.memo,
+            dateDoubleMemory2: $jugMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $jugMemory3.memo,
+            dateDoubleMemory3: $jugMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        jugMemory1.bellCount = jug.bellCount
+        jugMemory1.aloneBigCount = jug.aloneBigCount
+        jugMemory1.cherryBigCount = jug.cherryBigCount
+        jugMemory1.aloneRegCount = jug.aloneRegCount
+        jugMemory1.cherryRegCount = jug.cherryRegCount
+        jugMemory1.startGames = jug.startGames
+        jugMemory1.currentGames = jug.currentGames
+    }
+    func saveMemory2() {
+        jugMemory2.bellCount = jug.bellCount
+        jugMemory2.aloneBigCount = jug.aloneBigCount
+        jugMemory2.cherryBigCount = jug.cherryBigCount
+        jugMemory2.aloneRegCount = jug.aloneRegCount
+        jugMemory2.cherryRegCount = jug.cherryRegCount
+        jugMemory2.startGames = jug.startGames
+        jugMemory2.currentGames = jug.currentGames
+    }
+    func saveMemory3() {
+        jugMemory3.bellCount = jug.bellCount
+        jugMemory3.aloneBigCount = jug.aloneBigCount
+        jugMemory3.cherryBigCount = jug.cherryBigCount
+        jugMemory3.aloneRegCount = jug.aloneRegCount
+        jugMemory3.cherryRegCount = jug.cherryRegCount
+        jugMemory3.startGames = jug.startGames
+        jugMemory3.currentGames = jug.currentGames
+    }
+}
+
+
+// /////////////////////////////
+// メモリーロード画面
+// /////////////////////////////
+struct happyJugV3ViewLoadMemory: View {
+    @ObservedObject var jug: happyJugV3Var
+    @ObservedObject var jugMemory1: happyJugV3Memory1
+    @ObservedObject var jugMemory2: happyJugV3Memory2
+    @ObservedObject var jugMemory3: happyJugV3Memory3
+    @State var isShowLoadAlert: Bool = false
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "ハッピージャグラーV3",
+            selectedMemory: $jug.selectedMemory,
+            memoMemory1: jugMemory1.memo,
+            dateDoubleMemory1: jugMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: jugMemory2.memo,
+            dateDoubleMemory2: jugMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: jugMemory3.memo,
+            dateDoubleMemory3: jugMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        jug.bellCount = jugMemory1.bellCount
+        jug.aloneBigCount = jugMemory1.aloneBigCount
+        jug.cherryBigCount = jugMemory1.cherryBigCount
+        jug.aloneRegCount = jugMemory1.aloneRegCount
+        jug.cherryRegCount = jugMemory1.cherryRegCount
+        jug.startGames = jugMemory1.startGames
+        jug.currentGames = jugMemory1.currentGames
+    }
+    func loadMemory2() {
+        jug.bellCount = jugMemory2.bellCount
+        jug.aloneBigCount = jugMemory2.aloneBigCount
+        jug.cherryBigCount = jugMemory2.cherryBigCount
+        jug.aloneRegCount = jugMemory2.aloneRegCount
+        jug.cherryRegCount = jugMemory2.cherryRegCount
+        jug.startGames = jugMemory2.startGames
+        jug.currentGames = jugMemory2.currentGames
+    }
+    func loadMemory3() {
+        jug.bellCount = jugMemory3.bellCount
+        jug.aloneBigCount = jugMemory3.aloneBigCount
+        jug.cherryBigCount = jugMemory3.cherryBigCount
+        jug.aloneRegCount = jugMemory3.aloneRegCount
+        jug.cherryRegCount = jugMemory3.cherryRegCount
+        jug.startGames = jugMemory3.startGames
+        jug.currentGames = jugMemory3.currentGames
+    }
+}
 
 #Preview {
     happyJugV3ViewTop()

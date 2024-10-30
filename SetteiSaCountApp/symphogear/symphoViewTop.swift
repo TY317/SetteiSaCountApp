@@ -185,6 +185,7 @@ class Symphogear: ObservableObject {
     // 共通
     // //////////////////////
     @AppStorage("symphoMinusCheck") var minusCheck = false
+    @AppStorage("symphoSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
         resetHistory()
@@ -193,9 +194,84 @@ class Symphogear: ObservableObject {
     }
 }
 
+
+// //// メモリー1
+class SymphogearMemory1: ObservableObject {
+    @AppStorage("symphoGameArrayDataMemory1") var gameArrayData: Data?
+    @AppStorage("symphoBonusArrayKeyMemory1") var bonusArrayData: Data?
+    @AppStorage("symphoTriggerArrayKeyMemory1") var triggerArrayData: Data?
+    @AppStorage("symphoAtCountMemory1") var atCount = 0
+    @AppStorage("symphoCzSaishuCountMemory1") var czSaishuCount = 0
+    @AppStorage("symphoPlayGameMemory1") var playGame = 0
+    @AppStorage("symphoScreenCountNoneMemory1") var screenCountNone = 0
+    @AppStorage("symphoScreenCountWhiteAMemory1") var screenCountWhiteA = 0
+    @AppStorage("symphoScreenCountWhiteBMemory1") var screenCountWhiteB = 0
+    @AppStorage("symphoScreenCountRedAMemory1") var screenCountRedA = 0
+    @AppStorage("symphoScreenCountRedBMemory1") var screenCountRedB = 0
+    @AppStorage("symphoScreenCountPurpleABMemory1") var screenCountPurpleAB = 0
+    @AppStorage("symphoScreenCountPurpleCMemory1") var screenCountPurpleC = 0
+    @AppStorage("symphoScreenCountPurpleDMemory1") var screenCountPurpleD = 0
+    @AppStorage("symphoScreenCountPurpleEMemory1") var screenCountPurpleE = 0
+    @AppStorage("symphoScreenCountSilverMemory1") var screenCountSilver = 0
+    @AppStorage("symphoScreenCountGoldMemory1") var screenCountGold = 0
+    @AppStorage("symphoScreenCountSumMemory1") var screenCountSum = 0
+    @AppStorage("symphoMemoMemory1") var memo = ""
+    @AppStorage("symphoDateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class SymphogearMemory2: ObservableObject {
+    @AppStorage("symphoGameArrayDataMemory2") var gameArrayData: Data?
+    @AppStorage("symphoBonusArrayKeyMemory2") var bonusArrayData: Data?
+    @AppStorage("symphoTriggerArrayKeyMemory2") var triggerArrayData: Data?
+    @AppStorage("symphoAtCountMemory2") var atCount = 0
+    @AppStorage("symphoCzSaishuCountMemory2") var czSaishuCount = 0
+    @AppStorage("symphoPlayGameMemory2") var playGame = 0
+    @AppStorage("symphoScreenCountNoneMemory2") var screenCountNone = 0
+    @AppStorage("symphoScreenCountWhiteAMemory2") var screenCountWhiteA = 0
+    @AppStorage("symphoScreenCountWhiteBMemory2") var screenCountWhiteB = 0
+    @AppStorage("symphoScreenCountRedAMemory2") var screenCountRedA = 0
+    @AppStorage("symphoScreenCountRedBMemory2") var screenCountRedB = 0
+    @AppStorage("symphoScreenCountPurpleABMemory2") var screenCountPurpleAB = 0
+    @AppStorage("symphoScreenCountPurpleCMemory2") var screenCountPurpleC = 0
+    @AppStorage("symphoScreenCountPurpleDMemory2") var screenCountPurpleD = 0
+    @AppStorage("symphoScreenCountPurpleEMemory2") var screenCountPurpleE = 0
+    @AppStorage("symphoScreenCountSilverMemory2") var screenCountSilver = 0
+    @AppStorage("symphoScreenCountGoldMemory2") var screenCountGold = 0
+    @AppStorage("symphoScreenCountSumMemory2") var screenCountSum = 0
+    @AppStorage("symphoMemoMemory2") var memo = ""
+    @AppStorage("symphoDateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class SymphogearMemory3: ObservableObject {
+    @AppStorage("symphoGameArrayDataMemory3") var gameArrayData: Data?
+    @AppStorage("symphoBonusArrayKeyMemory3") var bonusArrayData: Data?
+    @AppStorage("symphoTriggerArrayKeyMemory3") var triggerArrayData: Data?
+    @AppStorage("symphoAtCountMemory3") var atCount = 0
+    @AppStorage("symphoCzSaishuCountMemory3") var czSaishuCount = 0
+    @AppStorage("symphoPlayGameMemory3") var playGame = 0
+    @AppStorage("symphoScreenCountNoneMemory3") var screenCountNone = 0
+    @AppStorage("symphoScreenCountWhiteAMemory3") var screenCountWhiteA = 0
+    @AppStorage("symphoScreenCountWhiteBMemory3") var screenCountWhiteB = 0
+    @AppStorage("symphoScreenCountRedAMemory3") var screenCountRedA = 0
+    @AppStorage("symphoScreenCountRedBMemory3") var screenCountRedB = 0
+    @AppStorage("symphoScreenCountPurpleABMemory3") var screenCountPurpleAB = 0
+    @AppStorage("symphoScreenCountPurpleCMemory3") var screenCountPurpleC = 0
+    @AppStorage("symphoScreenCountPurpleDMemory3") var screenCountPurpleD = 0
+    @AppStorage("symphoScreenCountPurpleEMemory3") var screenCountPurpleE = 0
+    @AppStorage("symphoScreenCountSilverMemory3") var screenCountSilver = 0
+    @AppStorage("symphoScreenCountGoldMemory3") var screenCountGold = 0
+    @AppStorage("symphoScreenCountSumMemory3") var screenCountSum = 0
+    @AppStorage("symphoMemoMemory3") var memo = ""
+    @AppStorage("symphoDateMemory3") var dateDouble = 0.0
+}
+
 struct symphoViewTop: View {
     @ObservedObject var sympho = Symphogear()
     @State var isShowAlert = false
+    @State var isShowSaveView: Bool = false
+    @State var isShowLoadView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -230,9 +306,197 @@ struct symphoViewTop: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetAll, message: "この機種のデータを全てリセットします")
+                HStack {
+                    HStack {
+                        // //// データ読み出し
+                        unitButtonLoadMemory(loadView: AnyView(symphoViewLoadMemory()))
+                        // //// データ保存
+                        unitButtonSaveMemory(saveView: AnyView(symphoViewSaveMemory()))
+                    }
+                    .popoverTip(tipUnitButtonMemory())
+                    unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetAll, message: "この機種のデータを全てリセットします")
+                        .popoverTip(tipUnitButtonReset())
+                }
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct symphoViewSaveMemory: View {
+    @ObservedObject var sympho = Symphogear()
+    @ObservedObject var symphoMemory1 = SymphogearMemory1()
+    @ObservedObject var symphoMemory2 = SymphogearMemory2()
+    @ObservedObject var symphoMemory3 = SymphogearMemory3()
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "シンフォギア 正義の歌",
+            selectedMemory: $sympho.selectedMemory,
+            memoMemory1: $symphoMemory1.memo,
+            dateDoubleMemory1: $symphoMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $symphoMemory2.memo,
+            dateDoubleMemory2: $symphoMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $symphoMemory3.memo,
+            dateDoubleMemory3: $symphoMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        symphoMemory1.gameArrayData = sympho.gameArrayData
+        symphoMemory1.bonusArrayData = sympho.bonusArrayData
+        symphoMemory1.triggerArrayData = sympho.triggerArrayData
+        symphoMemory1.atCount = sympho.atCount
+        symphoMemory1.czSaishuCount = sympho.czSaishuCount
+        symphoMemory1.playGame = sympho.playGame
+        symphoMemory1.screenCountNone = sympho.screenCountNone
+        symphoMemory1.screenCountWhiteA = sympho.screenCountWhiteA
+        symphoMemory1.screenCountWhiteB = sympho.screenCountWhiteB
+        symphoMemory1.screenCountRedA = sympho.screenCountRedA
+        symphoMemory1.screenCountRedB = sympho.screenCountRedB
+        symphoMemory1.screenCountPurpleAB = sympho.screenCountPurpleAB
+        symphoMemory1.screenCountPurpleC = sympho.screenCountPurpleC
+        symphoMemory1.screenCountPurpleD = sympho.screenCountPurpleD
+        symphoMemory1.screenCountPurpleE = sympho.screenCountPurpleE
+        symphoMemory1.screenCountSilver = sympho.screenCountSilver
+        symphoMemory1.screenCountGold = sympho.screenCountGold
+        symphoMemory1.screenCountSum = sympho.screenCountSum
+    }
+    func saveMemory2() {
+        symphoMemory2.gameArrayData = sympho.gameArrayData
+        symphoMemory2.bonusArrayData = sympho.bonusArrayData
+        symphoMemory2.triggerArrayData = sympho.triggerArrayData
+        symphoMemory2.atCount = sympho.atCount
+        symphoMemory2.czSaishuCount = sympho.czSaishuCount
+        symphoMemory2.playGame = sympho.playGame
+        symphoMemory2.screenCountNone = sympho.screenCountNone
+        symphoMemory2.screenCountWhiteA = sympho.screenCountWhiteA
+        symphoMemory2.screenCountWhiteB = sympho.screenCountWhiteB
+        symphoMemory2.screenCountRedA = sympho.screenCountRedA
+        symphoMemory2.screenCountRedB = sympho.screenCountRedB
+        symphoMemory2.screenCountPurpleAB = sympho.screenCountPurpleAB
+        symphoMemory2.screenCountPurpleC = sympho.screenCountPurpleC
+        symphoMemory2.screenCountPurpleD = sympho.screenCountPurpleD
+        symphoMemory2.screenCountPurpleE = sympho.screenCountPurpleE
+        symphoMemory2.screenCountSilver = sympho.screenCountSilver
+        symphoMemory2.screenCountGold = sympho.screenCountGold
+        symphoMemory2.screenCountSum = sympho.screenCountSum
+    }
+    func saveMemory3() {
+        symphoMemory3.gameArrayData = sympho.gameArrayData
+        symphoMemory3.bonusArrayData = sympho.bonusArrayData
+        symphoMemory3.triggerArrayData = sympho.triggerArrayData
+        symphoMemory3.atCount = sympho.atCount
+        symphoMemory3.czSaishuCount = sympho.czSaishuCount
+        symphoMemory3.playGame = sympho.playGame
+        symphoMemory3.screenCountNone = sympho.screenCountNone
+        symphoMemory3.screenCountWhiteA = sympho.screenCountWhiteA
+        symphoMemory3.screenCountWhiteB = sympho.screenCountWhiteB
+        symphoMemory3.screenCountRedA = sympho.screenCountRedA
+        symphoMemory3.screenCountRedB = sympho.screenCountRedB
+        symphoMemory3.screenCountPurpleAB = sympho.screenCountPurpleAB
+        symphoMemory3.screenCountPurpleC = sympho.screenCountPurpleC
+        symphoMemory3.screenCountPurpleD = sympho.screenCountPurpleD
+        symphoMemory3.screenCountPurpleE = sympho.screenCountPurpleE
+        symphoMemory3.screenCountSilver = sympho.screenCountSilver
+        symphoMemory3.screenCountGold = sympho.screenCountGold
+        symphoMemory3.screenCountSum = sympho.screenCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct symphoViewLoadMemory: View {
+    @ObservedObject var sympho = Symphogear()
+    @ObservedObject var symphoMemory1 = SymphogearMemory1()
+    @ObservedObject var symphoMemory2 = SymphogearMemory2()
+    @ObservedObject var symphoMemory3 = SymphogearMemory3()
+    @State var isShowLoadAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "シンフォギア 正義の歌",
+            selectedMemory: $sympho.selectedMemory,
+            memoMemory1: symphoMemory1.memo,
+            dateDoubleMemory1: symphoMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: symphoMemory2.memo,
+            dateDoubleMemory2: symphoMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: symphoMemory3.memo,
+            dateDoubleMemory3: symphoMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        sympho.gameArrayData = symphoMemory1.gameArrayData
+        sympho.bonusArrayData = symphoMemory1.bonusArrayData
+        sympho.triggerArrayData = symphoMemory1.triggerArrayData
+        sympho.atCount = symphoMemory1.atCount
+        sympho.czSaishuCount = symphoMemory1.czSaishuCount
+        sympho.playGame = symphoMemory1.playGame
+        sympho.screenCountNone = symphoMemory1.screenCountNone
+        sympho.screenCountWhiteA = symphoMemory1.screenCountWhiteA
+        sympho.screenCountWhiteB = symphoMemory1.screenCountWhiteB
+        sympho.screenCountRedA = symphoMemory1.screenCountRedA
+        sympho.screenCountRedB = symphoMemory1.screenCountRedB
+        sympho.screenCountPurpleAB = symphoMemory1.screenCountPurpleAB
+        sympho.screenCountPurpleC = symphoMemory1.screenCountPurpleC
+        sympho.screenCountPurpleD = symphoMemory1.screenCountPurpleD
+        sympho.screenCountPurpleE = symphoMemory1.screenCountPurpleE
+        sympho.screenCountSilver = symphoMemory1.screenCountSilver
+        sympho.screenCountGold = symphoMemory1.screenCountGold
+        sympho.screenCountSum = symphoMemory1.screenCountSum
+    }
+    func loadMemory2() {
+        sympho.gameArrayData = symphoMemory2.gameArrayData
+        sympho.bonusArrayData = symphoMemory2.bonusArrayData
+        sympho.triggerArrayData = symphoMemory2.triggerArrayData
+        sympho.atCount = symphoMemory2.atCount
+        sympho.czSaishuCount = symphoMemory2.czSaishuCount
+        sympho.playGame = symphoMemory2.playGame
+        sympho.screenCountNone = symphoMemory2.screenCountNone
+        sympho.screenCountWhiteA = symphoMemory2.screenCountWhiteA
+        sympho.screenCountWhiteB = symphoMemory2.screenCountWhiteB
+        sympho.screenCountRedA = symphoMemory2.screenCountRedA
+        sympho.screenCountRedB = symphoMemory2.screenCountRedB
+        sympho.screenCountPurpleAB = symphoMemory2.screenCountPurpleAB
+        sympho.screenCountPurpleC = symphoMemory2.screenCountPurpleC
+        sympho.screenCountPurpleD = symphoMemory2.screenCountPurpleD
+        sympho.screenCountPurpleE = symphoMemory2.screenCountPurpleE
+        sympho.screenCountSilver = symphoMemory2.screenCountSilver
+        sympho.screenCountGold = symphoMemory2.screenCountGold
+        sympho.screenCountSum = symphoMemory2.screenCountSum
+    }
+    func loadMemory3() {
+        sympho.gameArrayData = symphoMemory3.gameArrayData
+        sympho.bonusArrayData = symphoMemory3.bonusArrayData
+        sympho.triggerArrayData = symphoMemory3.triggerArrayData
+        sympho.atCount = symphoMemory3.atCount
+        sympho.czSaishuCount = symphoMemory3.czSaishuCount
+        sympho.playGame = symphoMemory3.playGame
+        sympho.screenCountNone = symphoMemory3.screenCountNone
+        sympho.screenCountWhiteA = symphoMemory3.screenCountWhiteA
+        sympho.screenCountWhiteB = symphoMemory3.screenCountWhiteB
+        sympho.screenCountRedA = symphoMemory3.screenCountRedA
+        sympho.screenCountRedB = symphoMemory3.screenCountRedB
+        sympho.screenCountPurpleAB = symphoMemory3.screenCountPurpleAB
+        sympho.screenCountPurpleC = symphoMemory3.screenCountPurpleC
+        sympho.screenCountPurpleD = symphoMemory3.screenCountPurpleD
+        sympho.screenCountPurpleE = symphoMemory3.screenCountPurpleE
+        sympho.screenCountSilver = symphoMemory3.screenCountSilver
+        sympho.screenCountGold = symphoMemory3.screenCountGold
+        sympho.screenCountSum = symphoMemory3.screenCountSum
     }
 }
 

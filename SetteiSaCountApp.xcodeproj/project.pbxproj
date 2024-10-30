@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */; };
+		0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */; };
 		0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */; };
 		0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */; };
 		0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */; };
@@ -152,6 +154,8 @@
 
 /* Begin PBXFileReference section */
 		06BAB0A75A95FB86B1741093 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
+		0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = rezero2Assets.xcassets; sourceTree = "<group>"; };
 		0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewTop.swift; sourceTree = "<group>"; };
 		0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveruAssets.xcassets; sourceTree = "<group>"; };
 		0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewBonusHit.swift; sourceTree = "<group>"; };
@@ -328,6 +332,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0F0B4BBF2CCD23E500B12B00 /* rezero2 */ = {
+			isa = PBXGroup;
+			children = (
+				0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */,
+				0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */,
+			);
+			path = rezero2;
+			sourceTree = "<group>";
+		};
 		0F25C26F2C887E79008B4707 /* toloveru */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +512,7 @@
 		0F8030DA2C6249FC001F008E /* SetteiSaCountApp */ = {
 			isa = PBXGroup;
 			children = (
+				0F0B4BBF2CCD23E500B12B00 /* rezero2 */,
 				0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */,
 				0F3B70502CA7F41B002C7F44 /* karakuriCircus */,
 				0F7546B72C95C0490007A277 /* symphogear */,
@@ -813,6 +827,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7202FD2C8F1535001A8AF2 /* godeaterAssets.xcassets in Resources */,
+				0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */,
 				0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */,
 				0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */,
 				0F654BED2C70A2E200F37849 /* kingHanaAssets.xcassets in Resources */,
@@ -1015,6 +1030,7 @@
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,
 				0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */,
 				0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */,
+				0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */,
 				0F654BC82C6EC2F400F37849 /* commonTips.swift in Sources */,
 				0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */,
 				0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */,

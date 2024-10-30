@@ -69,6 +69,44 @@ class myJug5Var: ObservableObject {
     
     // Tips
     var tipKeybordHidden = commonTipKeybordHidden()
+    
+    @AppStorage("myJug5SelectedMemory") var selectedMemory = "メモリー1"
+}
+
+// //// メモリー1
+class myJug5Memory1: ObservableObject {
+    @AppStorage("myJug5BellCountMemory1") var bellCount = 0
+    @AppStorage("myJug5BigCountMemory1") var bigCount = 0
+    @AppStorage("myJug5AloneRegCountMemory1") var aloneRegCount = 0
+    @AppStorage("myJug5CherryRegCountMemory1") var cherryRegCount = 0
+    @AppStorage("myJug5StartGamesMemory1") var startGames = 0
+    @AppStorage("myJug5CurrentGamesMemory1") var currentGames = 0
+    @AppStorage("myJug5MemoMemory1") var memo = ""
+    @AppStorage("myJug5DateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class myJug5Memory2: ObservableObject {
+    @AppStorage("myJug5BellCountMemory2") var bellCount = 0
+    @AppStorage("myJug5BigCountMemory2") var bigCount = 0
+    @AppStorage("myJug5AloneRegCountMemory2") var aloneRegCount = 0
+    @AppStorage("myJug5CherryRegCountMemory2") var cherryRegCount = 0
+    @AppStorage("myJug5StartGamesMemory2") var startGames = 0
+    @AppStorage("myJug5CurrentGamesMemory2") var currentGames = 0
+    @AppStorage("myJug5MemoMemory2") var memo = ""
+    @AppStorage("myJug5DateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class myJug5Memory3: ObservableObject {
+    @AppStorage("myJug5BellCountMemory3") var bellCount = 0
+    @AppStorage("myJug5BigCountMemory3") var bigCount = 0
+    @AppStorage("myJug5AloneRegCountMemory3") var aloneRegCount = 0
+    @AppStorage("myJug5CherryRegCountMemory3") var cherryRegCount = 0
+    @AppStorage("myJug5StartGamesMemory3") var startGames = 0
+    @AppStorage("myJug5CurrentGamesMemory3") var currentGames = 0
+    @AppStorage("myJug5MemoMemory3") var memo = ""
+    @AppStorage("myJug5DateMemory3") var dateDouble = 0.0
 }
 
 
@@ -78,6 +116,9 @@ class myJug5Var: ObservableObject {
 struct myJug5ViewTop: View {
     @ObservedObject var common = commonVar()
     @ObservedObject var jug = myJug5Var()
+    @ObservedObject var jugMemory1 = myJug5Memory1()
+    @ObservedObject var jugMemory2 = myJug5Memory2()
+    @ObservedObject var jugMemory3 = myJug5Memory3()
     @FocusState private var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -223,6 +264,13 @@ struct myJug5ViewTop: View {
                 .toolbar {
                     ToolbarItem(placement: .automatic) {
                         HStack {
+                            HStack {
+                                // //// メモリー読み出し
+                                unitButtonLoadMemory(loadView: AnyView(myJug5ViewLoadMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
+                                // //// メモリー保存
+                                unitButtonSaveMemory(saveView: AnyView(myJug5ViewSaveMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
+                            }
+                            .popoverTip(tipUnitButtonMemory())
                             // マイナスボタン
                             Button(action: {
                                 jug.minusCheck.toggle()
@@ -540,6 +588,110 @@ func myJug5funcReset(jug: myJug5Var) {
     jug.minusCheck = false
 }
 
+
+// /////////////////////////////
+// メモリーセーブ画面
+// /////////////////////////////
+struct myJug5ViewSaveMemory: View {
+    @ObservedObject var jug: myJug5Var
+    @ObservedObject var jugMemory1: myJug5Memory1
+    @ObservedObject var jugMemory2: myJug5Memory2
+    @ObservedObject var jugMemory3: myJug5Memory3
+    @State var isShowSaveAlert: Bool = false
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "マイジャグラー5",
+            selectedMemory: $jug.selectedMemory,
+            memoMemory1: $jugMemory1.memo,
+            dateDoubleMemory1: $jugMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $jugMemory2.memo,
+            dateDoubleMemory2: $jugMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $jugMemory3.memo,
+            dateDoubleMemory3: $jugMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        jugMemory1.bellCount = jug.bellCount
+        jugMemory1.bigCount = jug.bigCount
+        jugMemory1.aloneRegCount = jug.aloneRegCount
+        jugMemory1.cherryRegCount = jug.cherryRegCount
+        jugMemory1.startGames = jug.startGames
+        jugMemory1.currentGames = jug.currentGames
+    }
+    func saveMemory2() {
+        jugMemory2.bellCount = jug.bellCount
+        jugMemory2.bigCount = jug.bigCount
+        jugMemory2.aloneRegCount = jug.aloneRegCount
+        jugMemory2.cherryRegCount = jug.cherryRegCount
+        jugMemory2.startGames = jug.startGames
+        jugMemory2.currentGames = jug.currentGames
+    }
+    func saveMemory3() {
+        jugMemory3.bellCount = jug.bellCount
+        jugMemory3.bigCount = jug.bigCount
+        jugMemory3.aloneRegCount = jug.aloneRegCount
+        jugMemory3.cherryRegCount = jug.cherryRegCount
+        jugMemory3.startGames = jug.startGames
+        jugMemory3.currentGames = jug.currentGames
+    }
+}
+
+
+// /////////////////////////////
+// メモリーセーブ画面
+// /////////////////////////////
+struct myJug5ViewLoadMemory: View {
+    @ObservedObject var jug: myJug5Var
+    @ObservedObject var jugMemory1: myJug5Memory1
+    @ObservedObject var jugMemory2: myJug5Memory2
+    @ObservedObject var jugMemory3: myJug5Memory3
+    @State var isShowLoadAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "マイジャグラー5",
+            selectedMemory: $jug.selectedMemory,
+            memoMemory1: jugMemory1.memo,
+            dateDoubleMemory1: jugMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: jugMemory2.memo,
+            dateDoubleMemory2: jugMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: jugMemory3.memo,
+            dateDoubleMemory3: jugMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        jug.bellCount = jugMemory1.bellCount
+        jug.bigCount = jugMemory1.bigCount
+        jug.aloneRegCount = jugMemory1.aloneRegCount
+        jug.cherryRegCount = jugMemory1.cherryRegCount
+        jug.startGames = jugMemory1.startGames
+        jug.currentGames = jugMemory1.currentGames
+    }
+    func loadMemory2() {
+        jug.bellCount = jugMemory2.bellCount
+        jug.bigCount = jugMemory2.bigCount
+        jug.aloneRegCount = jugMemory2.aloneRegCount
+        jug.cherryRegCount = jugMemory2.cherryRegCount
+        jug.startGames = jugMemory2.startGames
+        jug.currentGames = jugMemory2.currentGames
+    }
+    func loadMemory3() {
+        jug.bellCount = jugMemory3.bellCount
+        jug.bigCount = jugMemory3.bigCount
+        jug.aloneRegCount = jugMemory3.aloneRegCount
+        jug.cherryRegCount = jugMemory3.cherryRegCount
+        jug.startGames = jugMemory3.startGames
+        jug.currentGames = jugMemory3.currentGames
+    }
+}
 
 #Preview {
     myJug5ViewTop()

@@ -1192,7 +1192,7 @@ struct unitButtonSaveMemory: View {
         Button {
             self.isShowSaveView.toggle()
         } label: {
-            Image(systemName: "rectangle.and.pencil.and.ellipsis")
+            Image(systemName: "externaldrive.badge.plus")
         }
         .sheet(isPresented: self.$isShowSaveView) {
             self.saveView
@@ -1283,7 +1283,7 @@ struct unitViewSaveMemory: View {
                     HStack {
                         Text("メモ")
                         if self.selectedMemory == "メモリー1" {
-                            TextField("メモ", text: $memoInput1)
+                            TextField("未入力", text: $memoInput1)
                                 .focused($isFocused)
                                 .toolbar {
                                     ToolbarItem(placement: .keyboard) {
@@ -1299,7 +1299,7 @@ struct unitViewSaveMemory: View {
                                     }
                                 }
                         } else if self.selectedMemory == "メモリー2" {
-                            TextField("メモ", text: $memoInput2)
+                            TextField("未入力", text: $memoInput2)
                                 .focused($isFocused)
                                 .toolbar {
                                     ToolbarItem(placement: .keyboard) {
@@ -1315,7 +1315,7 @@ struct unitViewSaveMemory: View {
                                     }
                                 }
                         } else {
-                            TextField("メモ", text: $memoInput3)
+                            TextField("未入力", text: $memoInput3)
                                 .focused($isFocused)
                                 .toolbar {
                                     ToolbarItem(placement: .keyboard) {
@@ -1382,12 +1382,12 @@ struct unitViewSaveMemory: View {
                                 self.dateDoubleMemory3 = self.dateMemory3.timeIntervalSince1970
                                 actionMemory3()
                             }
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
                         }
                     } message: {
                         Text("現在のカウントデータを選択中のメモリーに上書き保存します")
                     }
                 }
-
             }
             .navigationTitle("データ保存")
             // //// ツールバー閉じるボタン
@@ -1404,11 +1404,23 @@ struct unitViewSaveMemory: View {
         }
         .onAppear {
             self.memoInput1 = self.memoMemory1
-            self.dateMemory1 = Date(timeIntervalSince1970: $dateDoubleMemory1.wrappedValue)
+            if self.dateDoubleMemory1 > 10000.0 {
+                self.dateMemory1 = Date(timeIntervalSince1970: $dateDoubleMemory1.wrappedValue)
+            } else {
+                
+            }
             self.memoInput2 = self.memoMemory2
-            self.dateMemory2 = Date(timeIntervalSince1970: $dateDoubleMemory2.wrappedValue)
+            if self.dateDoubleMemory2 > 10000.0 {
+                self.dateMemory2 = Date(timeIntervalSince1970: $dateDoubleMemory2.wrappedValue)
+            } else {
+                
+            }
             self.memoInput3 = self.memoMemory3
-            self.dateMemory3 = Date(timeIntervalSince1970: $dateDoubleMemory3.wrappedValue)
+            if self.dateDoubleMemory3 > 10000.0 {
+                self.dateMemory3 = Date(timeIntervalSince1970: $dateDoubleMemory3.wrappedValue)
+            } else {
+                
+            }
         }
     }
 }
@@ -1481,14 +1493,29 @@ struct unitViewLoadMemory: View {
                         Text("メモ")
                         Spacer()
                         if self.selectedMemory == "メモリー1" {
-                            Text(self.memoMemory1)
-                                .foregroundColor(.secondary)
+                            if self.memoMemory1 != "" {
+                                Text(self.memoMemory1)
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         } else if self.selectedMemory == "メモリー2" {
-                            Text(self.memoMemory2)
-                                .foregroundColor(.secondary)
+                            if self.memoMemory2 != "" {
+                                Text(self.memoMemory2)
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         } else {
-                            Text(self.memoMemory3)
-                                .foregroundColor(.secondary)
+                            if self.memoMemory3 != "" {
+                                Text(self.memoMemory3)
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                     // 日付
@@ -1496,17 +1523,32 @@ struct unitViewLoadMemory: View {
                         Text("日付")
                         Spacer()
                         if self.selectedMemory == "メモリー1" {
-                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory1)
-                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                .foregroundColor(.secondary)
+                            if self.dateDoubleMemory1 > 10000.0 {
+                                let date = Date(timeIntervalSince1970: self.dateDoubleMemory1)
+                                Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         } else if self.selectedMemory == "メモリー2" {
-                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory2)
-                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                .foregroundColor(.secondary)
+                            if self.dateDoubleMemory2 > 10000.0 {
+                                let date = Date(timeIntervalSince1970: self.dateDoubleMemory2)
+                                Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         } else {
-                            let date = Date(timeIntervalSince1970: self.dateDoubleMemory3)
-                            Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                .foregroundColor(.secondary)
+                            if self.dateDoubleMemory3 > 10000.0 {
+                                let date = Date(timeIntervalSince1970: self.dateDoubleMemory3)
+                                Text(date, format: Date.FormatStyle(date: .long, time: .none))
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("なし")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }
@@ -1540,6 +1582,7 @@ struct unitViewLoadMemory: View {
                         else {
                             actionMemory3()
                         }
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
                     }
                 } message: {
                     Text("現在のカウントデータをリセットし、選択中のメモリーデータを読み出します")

@@ -291,6 +291,7 @@ class Mt5: ObservableObject, mt5Protocol {
     // 共通
     // //////////////////////
     @AppStorage("mt5MinusCheck") var minusCheck = false
+    @AppStorage("mt5SelectedMemory") var selectedMemory = "メモリー1"
     
     // データ全リセット
     func resetAll() {
@@ -301,6 +302,95 @@ class Mt5: ObservableObject, mt5Protocol {
         resetAoshima()
         resetCoin5()
     }
+}
+
+
+// //// メモリー1
+class Mt5Memory1: ObservableObject {
+    @AppStorage("mt5Coin5CountMemory1") var coin5Count = 0
+    @AppStorage("mt5StartGameMemory1") var startGame = 0
+    @AppStorage("mt5CurrentGameMemory1") var currentGame = 0
+    @AppStorage("mt5PlayGameMemory1") var playGame = 0
+    @AppStorage("mt5ShukiArrayKeyMemory1") var mt5ShukiArrayData: Data?
+    @AppStorage("mt5PtArrayKeyMemory1") var mt5PtArrayData: Data?
+    @AppStorage("mt5TriggerArrayKeyMemory1") var mt5TriggerArrayData: Data?
+    @AppStorage("mt5ResultArrayKeyMemory1") var mt5ResultArrayData: Data?
+    @AppStorage("mt5HatanoACountMemory1") var hatanoACount = 0
+    @AppStorage("mt5HatanoBCountMemory1") var hatanoBCount = 0
+    @AppStorage("mt5HatanoCountSumMemory1") var hatanoCountSum = 0
+    @AppStorage("mt5RivalGamoCountMemory1") var rivalGamoCount = 0
+    @AppStorage("mt5RivalHamaokaCountMemory1") var rivalHamaokaCount = 0
+    @AppStorage("mt5RivalEnokiCountMemory1") var rivalEnokiCount = 0
+    @AppStorage("mt5ATCountPlus1Memory1") var atCountPlus1 = 0
+    @AppStorage("mt5BlueMedalCountMemory1") var blueMedalCount = 0
+    @AppStorage("mt5YellowMedalCountMemory1") var yellowMedalCount = 0
+    @AppStorage("mt5BlackMedalCountMemory1") var blackMedalCount = 0
+    @AppStorage("mt5ATCountMemory1") var atCount = 0
+    @AppStorage("mt5AoshimaSGShifukuCountMemory1") var AoshimaSGShifukuCount = 0
+    @AppStorage("mt5AoshimaSGRaceCountMemory1") var AoshimaSGRaceCount = 0
+    @AppStorage("mt5AoshimaSGDressCountMemory1") var AoshimaSGDressCount = 0
+    @AppStorage("mt5AoshimaSGHatanoCountMemory1") var AoshimaSGHatanoCount = 0
+    @AppStorage("mt5AoshimaSGCountSumMemory1") var AoshimaSGCountSum = 0
+    @AppStorage("mt5MemoMemory1") var memo = ""
+    @AppStorage("mt5DateMemory1") var dateDouble = 0.0
+}
+// //// メモリー2
+class Mt5Memory2: ObservableObject {
+    @AppStorage("mt5Coin5CountMemory2") var coin5Count = 0
+    @AppStorage("mt5StartGameMemory2") var startGame = 0
+    @AppStorage("mt5CurrentGameMemory2") var currentGame = 0
+    @AppStorage("mt5PlayGameMemory2") var playGame = 0
+    @AppStorage("mt5ShukiArrayKeyMemory2") var mt5ShukiArrayData: Data?
+    @AppStorage("mt5PtArrayKeyMemory2") var mt5PtArrayData: Data?
+    @AppStorage("mt5TriggerArrayKeyMemory2") var mt5TriggerArrayData: Data?
+    @AppStorage("mt5ResultArrayKeyMemory2") var mt5ResultArrayData: Data?
+    @AppStorage("mt5HatanoACountMemory2") var hatanoACount = 0
+    @AppStorage("mt5HatanoBCountMemory2") var hatanoBCount = 0
+    @AppStorage("mt5HatanoCountSumMemory2") var hatanoCountSum = 0
+    @AppStorage("mt5RivalGamoCountMemory2") var rivalGamoCount = 0
+    @AppStorage("mt5RivalHamaokaCountMemory2") var rivalHamaokaCount = 0
+    @AppStorage("mt5RivalEnokiCountMemory2") var rivalEnokiCount = 0
+    @AppStorage("mt5ATCountPlus1Memory2") var atCountPlus1 = 0
+    @AppStorage("mt5BlueMedalCountMemory2") var blueMedalCount = 0
+    @AppStorage("mt5YellowMedalCountMemory2") var yellowMedalCount = 0
+    @AppStorage("mt5BlackMedalCountMemory2") var blackMedalCount = 0
+    @AppStorage("mt5ATCountMemory2") var atCount = 0
+    @AppStorage("mt5AoshimaSGShifukuCountMemory2") var AoshimaSGShifukuCount = 0
+    @AppStorage("mt5AoshimaSGRaceCountMemory2") var AoshimaSGRaceCount = 0
+    @AppStorage("mt5AoshimaSGDressCountMemory2") var AoshimaSGDressCount = 0
+    @AppStorage("mt5AoshimaSGHatanoCountMemory2") var AoshimaSGHatanoCount = 0
+    @AppStorage("mt5AoshimaSGCountSumMemory2") var AoshimaSGCountSum = 0
+    @AppStorage("mt5MemoMemory2") var memo = ""
+    @AppStorage("mt5DateMemory2") var dateDouble = 0.0
+}
+// //// メモリー3
+class Mt5Memory3: ObservableObject {
+    @AppStorage("mt5Coin5CountMemory3") var coin5Count = 0
+    @AppStorage("mt5StartGameMemory3") var startGame = 0
+    @AppStorage("mt5CurrentGameMemory3") var currentGame = 0
+    @AppStorage("mt5PlayGameMemory3") var playGame = 0
+    @AppStorage("mt5ShukiArrayKeyMemory3") var mt5ShukiArrayData: Data?
+    @AppStorage("mt5PtArrayKeyMemory3") var mt5PtArrayData: Data?
+    @AppStorage("mt5TriggerArrayKeyMemory3") var mt5TriggerArrayData: Data?
+    @AppStorage("mt5ResultArrayKeyMemory3") var mt5ResultArrayData: Data?
+    @AppStorage("mt5HatanoACountMemory3") var hatanoACount = 0
+    @AppStorage("mt5HatanoBCountMemory3") var hatanoBCount = 0
+    @AppStorage("mt5HatanoCountSumMemory3") var hatanoCountSum = 0
+    @AppStorage("mt5RivalGamoCountMemory3") var rivalGamoCount = 0
+    @AppStorage("mt5RivalHamaokaCountMemory3") var rivalHamaokaCount = 0
+    @AppStorage("mt5RivalEnokiCountMemory3") var rivalEnokiCount = 0
+    @AppStorage("mt5ATCountPlus1Memory3") var atCountPlus1 = 0
+    @AppStorage("mt5BlueMedalCountMemory3") var blueMedalCount = 0
+    @AppStorage("mt5YellowMedalCountMemory3") var yellowMedalCount = 0
+    @AppStorage("mt5BlackMedalCountMemory3") var blackMedalCount = 0
+    @AppStorage("mt5ATCountMemory3") var atCount = 0
+    @AppStorage("mt5AoshimaSGShifukuCountMemory3") var AoshimaSGShifukuCount = 0
+    @AppStorage("mt5AoshimaSGRaceCountMemory3") var AoshimaSGRaceCount = 0
+    @AppStorage("mt5AoshimaSGDressCountMemory3") var AoshimaSGDressCount = 0
+    @AppStorage("mt5AoshimaSGHatanoCountMemory3") var AoshimaSGHatanoCount = 0
+    @AppStorage("mt5AoshimaSGCountSumMemory3") var AoshimaSGCountSum = 0
+    @AppStorage("mt5MemoMemory3") var memo = ""
+    @AppStorage("mt5DateMemory3") var dateDouble = 0.0
 }
 
 
@@ -323,58 +413,30 @@ struct mt5ViewTop: View {
                     // 周期履歴
                     NavigationLink(destination: mt5ViewHistory()) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "周期履歴")
-//                        Image(systemName: "pencil.and.list.clipboard")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("周期履歴")
                     }
                     // 激走チャージ後のセリフ
                     NavigationLink(destination: mt5GekisoView()) {
                         unitLabelMenu(imageSystemName: "message", textBody: "激走チャージ後のセリフ")
-//                        Image(systemName: "message")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("激走チャージ後のセリフ")
                     }
                     // ライバルモード
                     NavigationLink(destination: mt5RivalModeView()) {
                         unitLabelMenu(imageSystemName: "person.2", textBody: "ライバルモード")
-//                        Image(systemName: "person.2")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("ライバルモード")
                     }
                     // ラウンド開始画面の示唆
                     NavigationLink(destination: mt5ViewRoundScreen()) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ラウンド開始画面示唆")
-//                        Image(systemName: "photo.on.rectangle")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("ラウンド開始画面示唆")
                     }
                     // AT終了後のメダル
                     NavigationLink(destination: mt5ViewMedal()) {
                         unitLabelMenu(imageSystemName: "medal", textBody: "AT終了後のメダル")
-//                        Image(systemName: "medal")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("AT終了後のメダル")
                     }
                     // 青島SG
                     NavigationLink(destination: mt5ViewAoshimaSG()) {
                         unitLabelMenu(imageSystemName: "sailboat", textBody: "青島SG")
-//                        Image(systemName: "sailboat")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("青島SG")
                     }
                     // エンディング
                     NavigationLink(destination: mt5ViewEnding()) {
                         unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
-//                        Image(systemName: "flag.checkered")
-//                            .foregroundColor(Color.gray)
-//                            .font(.title2)
-//                        Text("エンディング")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "モンキーターン5")
@@ -384,10 +446,233 @@ struct mt5ViewTop: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetAll, message: "この機種の全ページのデータは完全に消去されます")
+                    HStack {
+                        HStack {
+                            // //// データ読み出し
+                            unitButtonLoadMemory(loadView: AnyView(mt5ViewLoadMemory()))
+                            // //// データ保存
+                            unitButtonSaveMemory(saveView: AnyView(mt5ViewSaveMemory()))
+                        }
+                        .popoverTip(tipUnitButtonMemory())
+                        unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetAll, message: "この機種の全ページのデータは完全に消去されます")
+                            .popoverTip(tipUnitButtonReset())
+                    }
                 }
             }
         }
+    }
+}
+
+
+// /////////////////////////////
+// メモリーセーブ画面
+// /////////////////////////////
+struct mt5ViewSaveMemory: View {
+    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5Memory1 = Mt5Memory1()
+    @ObservedObject var mt5Memory2 = Mt5Memory2()
+    @ObservedObject var mt5Memory3 = Mt5Memory3()
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "モンキーターン5",
+            selectedMemory: $mt5.selectedMemory,
+            memoMemory1: $mt5Memory1.memo,
+            dateDoubleMemory1: $mt5Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $mt5Memory2.memo,
+            dateDoubleMemory2: $mt5Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $mt5Memory3.memo,
+            dateDoubleMemory3: $mt5Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        mt5Memory1.coin5Count = mt5.coin5Count
+        mt5Memory1.startGame = mt5.startGame
+        mt5Memory1.currentGame = mt5.currentGame
+        mt5Memory1.playGame = mt5.playGame
+        mt5Memory1.mt5ShukiArrayData = mt5.mt5ShukiArrayData
+        mt5Memory1.mt5PtArrayData = mt5.mt5PtArrayData
+        mt5Memory1.mt5TriggerArrayData = mt5.mt5TriggerArrayData
+        mt5Memory1.mt5ResultArrayData = mt5.mt5ResultArrayData
+        mt5Memory1.hatanoACount = mt5.hatanoACount
+        mt5Memory1.hatanoBCount = mt5.hatanoBCount
+        mt5Memory1.hatanoCountSum = mt5.hatanoCountSum
+        mt5Memory1.rivalGamoCount = mt5.rivalGamoCount
+        mt5Memory1.rivalHamaokaCount = mt5.rivalHamaokaCount
+        mt5Memory1.rivalEnokiCount = mt5.rivalEnokiCount
+        mt5Memory1.atCountPlus1 = mt5.atCountPlus1
+        mt5Memory1.blueMedalCount = mt5.blueMedalCount
+        mt5Memory1.yellowMedalCount = mt5.yellowMedalCount
+        mt5Memory1.blackMedalCount = mt5.blackMedalCount
+        mt5Memory1.atCount = mt5.atCount
+        mt5Memory1.AoshimaSGShifukuCount = mt5.AoshimaSGShifukuCount
+        mt5Memory1.AoshimaSGRaceCount = mt5.AoshimaSGRaceCount
+        mt5Memory1.AoshimaSGDressCount = mt5.AoshimaSGDressCount
+        mt5Memory1.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
+        mt5Memory1.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+    }
+    func saveMemory2() {
+        mt5Memory2.coin5Count = mt5.coin5Count
+        mt5Memory2.startGame = mt5.startGame
+        mt5Memory2.currentGame = mt5.currentGame
+        mt5Memory2.playGame = mt5.playGame
+        mt5Memory2.mt5ShukiArrayData = mt5.mt5ShukiArrayData
+        mt5Memory2.mt5PtArrayData = mt5.mt5PtArrayData
+        mt5Memory2.mt5TriggerArrayData = mt5.mt5TriggerArrayData
+        mt5Memory2.mt5ResultArrayData = mt5.mt5ResultArrayData
+        mt5Memory2.hatanoACount = mt5.hatanoACount
+        mt5Memory2.hatanoBCount = mt5.hatanoBCount
+        mt5Memory2.hatanoCountSum = mt5.hatanoCountSum
+        mt5Memory2.rivalGamoCount = mt5.rivalGamoCount
+        mt5Memory2.rivalHamaokaCount = mt5.rivalHamaokaCount
+        mt5Memory2.rivalEnokiCount = mt5.rivalEnokiCount
+        mt5Memory2.atCountPlus1 = mt5.atCountPlus1
+        mt5Memory2.blueMedalCount = mt5.blueMedalCount
+        mt5Memory2.yellowMedalCount = mt5.yellowMedalCount
+        mt5Memory2.blackMedalCount = mt5.blackMedalCount
+        mt5Memory2.atCount = mt5.atCount
+        mt5Memory2.AoshimaSGShifukuCount = mt5.AoshimaSGShifukuCount
+        mt5Memory2.AoshimaSGRaceCount = mt5.AoshimaSGRaceCount
+        mt5Memory2.AoshimaSGDressCount = mt5.AoshimaSGDressCount
+        mt5Memory2.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
+        mt5Memory2.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+    }
+    func saveMemory3() {
+        mt5Memory3.coin5Count = mt5.coin5Count
+        mt5Memory3.startGame = mt5.startGame
+        mt5Memory3.currentGame = mt5.currentGame
+        mt5Memory3.playGame = mt5.playGame
+        mt5Memory3.mt5ShukiArrayData = mt5.mt5ShukiArrayData
+        mt5Memory3.mt5PtArrayData = mt5.mt5PtArrayData
+        mt5Memory3.mt5TriggerArrayData = mt5.mt5TriggerArrayData
+        mt5Memory3.mt5ResultArrayData = mt5.mt5ResultArrayData
+        mt5Memory3.hatanoACount = mt5.hatanoACount
+        mt5Memory3.hatanoBCount = mt5.hatanoBCount
+        mt5Memory3.hatanoCountSum = mt5.hatanoCountSum
+        mt5Memory3.rivalGamoCount = mt5.rivalGamoCount
+        mt5Memory3.rivalHamaokaCount = mt5.rivalHamaokaCount
+        mt5Memory3.rivalEnokiCount = mt5.rivalEnokiCount
+        mt5Memory3.atCountPlus1 = mt5.atCountPlus1
+        mt5Memory3.blueMedalCount = mt5.blueMedalCount
+        mt5Memory3.yellowMedalCount = mt5.yellowMedalCount
+        mt5Memory3.blackMedalCount = mt5.blackMedalCount
+        mt5Memory3.atCount = mt5.atCount
+        mt5Memory3.AoshimaSGShifukuCount = mt5.AoshimaSGShifukuCount
+        mt5Memory3.AoshimaSGRaceCount = mt5.AoshimaSGRaceCount
+        mt5Memory3.AoshimaSGDressCount = mt5.AoshimaSGDressCount
+        mt5Memory3.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
+        mt5Memory3.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+    }
+}
+
+
+// /////////////////////////////
+// メモリーロード画面
+// /////////////////////////////
+struct mt5ViewLoadMemory: View {
+    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5Memory1 = Mt5Memory1()
+    @ObservedObject var mt5Memory2 = Mt5Memory2()
+    @ObservedObject var mt5Memory3 = Mt5Memory3()
+    @State var isShowLoadAlert: Bool = false
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "モンキーターン5",
+            selectedMemory: $mt5.selectedMemory,
+            memoMemory1: mt5Memory1.memo,
+            dateDoubleMemory1: mt5Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: mt5Memory2.memo,
+            dateDoubleMemory2: mt5Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: mt5Memory3.memo,
+            dateDoubleMemory3: mt5Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        mt5.coin5Count = mt5Memory1.coin5Count
+        mt5.startGame = mt5Memory1.startGame
+        mt5.currentGame = mt5Memory1.currentGame
+        mt5.playGame = mt5Memory1.playGame
+        mt5.mt5ShukiArrayData = mt5Memory1.mt5ShukiArrayData
+        mt5.mt5PtArrayData = mt5Memory1.mt5PtArrayData
+        mt5.mt5TriggerArrayData = mt5Memory1.mt5TriggerArrayData
+        mt5.mt5ResultArrayData = mt5Memory1.mt5ResultArrayData
+        mt5.hatanoACount = mt5Memory1.hatanoACount
+        mt5.hatanoBCount = mt5Memory1.hatanoBCount
+        mt5.hatanoCountSum = mt5Memory1.hatanoCountSum
+        mt5.rivalGamoCount = mt5Memory1.rivalGamoCount
+        mt5.rivalHamaokaCount = mt5Memory1.rivalHamaokaCount
+        mt5.rivalEnokiCount = mt5Memory1.rivalEnokiCount
+        mt5.atCountPlus1 = mt5Memory1.atCountPlus1
+        mt5.blueMedalCount = mt5Memory1.blueMedalCount
+        mt5.yellowMedalCount = mt5Memory1.yellowMedalCount
+        mt5.blackMedalCount = mt5Memory1.blackMedalCount
+        mt5.atCount = mt5Memory1.atCount
+        mt5.AoshimaSGShifukuCount = mt5Memory1.AoshimaSGShifukuCount
+        mt5.AoshimaSGRaceCount = mt5Memory1.AoshimaSGRaceCount
+        mt5.AoshimaSGDressCount = mt5Memory1.AoshimaSGDressCount
+        mt5.AoshimaSGHatanoCount = mt5Memory1.AoshimaSGHatanoCount
+        mt5.AoshimaSGCountSum = mt5Memory1.AoshimaSGCountSum
+    }
+    func loadMemory2() {
+        mt5.coin5Count = mt5Memory2.coin5Count
+        mt5.startGame = mt5Memory2.startGame
+        mt5.currentGame = mt5Memory2.currentGame
+        mt5.playGame = mt5Memory2.playGame
+        mt5.mt5ShukiArrayData = mt5Memory2.mt5ShukiArrayData
+        mt5.mt5PtArrayData = mt5Memory2.mt5PtArrayData
+        mt5.mt5TriggerArrayData = mt5Memory2.mt5TriggerArrayData
+        mt5.mt5ResultArrayData = mt5Memory2.mt5ResultArrayData
+        mt5.hatanoACount = mt5Memory2.hatanoACount
+        mt5.hatanoBCount = mt5Memory2.hatanoBCount
+        mt5.hatanoCountSum = mt5Memory2.hatanoCountSum
+        mt5.rivalGamoCount = mt5Memory2.rivalGamoCount
+        mt5.rivalHamaokaCount = mt5Memory2.rivalHamaokaCount
+        mt5.rivalEnokiCount = mt5Memory2.rivalEnokiCount
+        mt5.atCountPlus1 = mt5Memory2.atCountPlus1
+        mt5.blueMedalCount = mt5Memory2.blueMedalCount
+        mt5.yellowMedalCount = mt5Memory2.yellowMedalCount
+        mt5.blackMedalCount = mt5Memory2.blackMedalCount
+        mt5.atCount = mt5Memory2.atCount
+        mt5.AoshimaSGShifukuCount = mt5Memory2.AoshimaSGShifukuCount
+        mt5.AoshimaSGRaceCount = mt5Memory2.AoshimaSGRaceCount
+        mt5.AoshimaSGDressCount = mt5Memory2.AoshimaSGDressCount
+        mt5.AoshimaSGHatanoCount = mt5Memory2.AoshimaSGHatanoCount
+        mt5.AoshimaSGCountSum = mt5Memory2.AoshimaSGCountSum
+    }
+    func loadMemory3() {
+        mt5.coin5Count = mt5Memory3.coin5Count
+        mt5.startGame = mt5Memory3.startGame
+        mt5.currentGame = mt5Memory3.currentGame
+        mt5.playGame = mt5Memory3.playGame
+        mt5.mt5ShukiArrayData = mt5Memory3.mt5ShukiArrayData
+        mt5.mt5PtArrayData = mt5Memory3.mt5PtArrayData
+        mt5.mt5TriggerArrayData = mt5Memory3.mt5TriggerArrayData
+        mt5.mt5ResultArrayData = mt5Memory3.mt5ResultArrayData
+        mt5.hatanoACount = mt5Memory3.hatanoACount
+        mt5.hatanoBCount = mt5Memory3.hatanoBCount
+        mt5.hatanoCountSum = mt5Memory3.hatanoCountSum
+        mt5.rivalGamoCount = mt5Memory3.rivalGamoCount
+        mt5.rivalHamaokaCount = mt5Memory3.rivalHamaokaCount
+        mt5.rivalEnokiCount = mt5Memory3.rivalEnokiCount
+        mt5.atCountPlus1 = mt5Memory3.atCountPlus1
+        mt5.blueMedalCount = mt5Memory3.blueMedalCount
+        mt5.yellowMedalCount = mt5Memory3.yellowMedalCount
+        mt5.blackMedalCount = mt5Memory3.blackMedalCount
+        mt5.atCount = mt5Memory3.atCount
+        mt5.AoshimaSGShifukuCount = mt5Memory3.AoshimaSGShifukuCount
+        mt5.AoshimaSGRaceCount = mt5Memory3.AoshimaSGRaceCount
+        mt5.AoshimaSGDressCount = mt5Memory3.AoshimaSGDressCount
+        mt5.AoshimaSGHatanoCount = mt5Memory3.AoshimaSGHatanoCount
+        mt5.AoshimaSGCountSum = mt5Memory3.AoshimaSGCountSum
     }
 }
 

@@ -229,7 +229,9 @@ class KaguyaSama: ObservableObject {
     // メモリー
     // /////////////////////////
     @AppStorage("kaguyaSelectedMemory") var selectedMemory = "メモリー1"
-    
+}
+
+class KaguyaMemory1: ObservableObject {
     // //// メモリー１
     @AppStorage("kaguyaFirstBonusCountBigMemory1") var firstBonusCountBigMemory1 = 0
     @AppStorage("kaguyaFirstBonusCountRegMemory1") var firstBonusCountRegMemory1 = 0
@@ -261,73 +263,12 @@ class KaguyaSama: ObservableObject {
     @AppStorage("kaguyaEndingCountKaguyaMemory1") var endingCountKaguyaMemory1 = 0
     @AppStorage("kaguyaEndingCountShiroganeMemory1") var endingCountShiroganeMemory1 = 0
     @AppStorage("kaguyaEndingCountSumMemory1") var endingCountSumMemory1 = 0
-    @AppStorage("kaguyaMemoMemory1") var memoMemory1 = "未使用"
-    @AppStorage("kaguyaDateMemory1") var dateDoubleMemory1 = 1725235200.0
-    func saveMemory1() {
-        firstBonusCountBigMemory1 = firstBonusCountBig
-        firstBonusCountRegMemory1 = firstBonusCountReg
-        firstBonusCountSumMemory1 = firstBonusCountSum
-        bigCountNormalMemory1 = bigCountNormal
-        bigCountSuperMemory1 = bigCountSuper
-        bigCountExtraMemory1 = bigCountExtra
-        bigCountSumMemory1 = bigCountSum
-        regCharaCountDefaultMemory1 = regCharaCountDefault
-        regCharaCountKeiMemory1 = regCharaCountKei
-        regCharaCountPapaMemory1 = regCharaCountPapa
-        regCharaCountHayasakaMemory1 = regCharaCountHayasaka
-        regCharaCountRainbowMemory1 = regCharaCountRainbow
-        regCharaCountOsaragiMemory1 = regCharaCountOsaragi
-        regCharaCountBeziMemory1 = regCharaCountBezi
-        regCharaCountSumMemory1 = regCharaCountSum
-        screenCountDefaultMemory1 = screenCountDefault
-        screenCountRedNekomimiMemory1 = screenCountRedNekomimi
-        screenCountPurple2MenMemory1 = screenCountPurple2Men
-        screenCountGekigaMemory1 = screenCountGekiga
-        screenCountKaguyaFujiwaraMemory1 = screenCountKaguyaFujiwara
-        screenCountShiroganeKaguyaMemory1 = screenCountShiroganeKaguya
-        screenCountSilverAdultMemory1 = screenCountSilverAdult
-        screenCountSilverDeformedMemory1 = screenCountSilverDeformed
-        screenCountGoldWeddingMemory1 = screenCountGoldWedding
-        screenCountSumMemory1 = screenCountSum
-        endingCountBaloonMemory1 = endingCountBaloon
-        endingCountKoiNoYukueMemory1 = endingCountKoiNoYukue
-        endingCountKaguyaMemory1 = endingCountKaguya
-        endingCountShiroganeMemory1 = endingCountShirogane
-        endingCountSumMemory1 = endingCountSum
-    }
-    func loadMemory1() {
-        firstBonusCountBig = firstBonusCountBigMemory1
-        firstBonusCountReg = firstBonusCountRegMemory1
-        firstBonusCountSum = firstBonusCountSumMemory1
-        bigCountNormal = bigCountNormalMemory1
-        bigCountSuper = bigCountSuperMemory1
-        bigCountExtra = bigCountExtraMemory1
-        bigCountSum = bigCountSumMemory1
-        regCharaCountDefault = regCharaCountDefaultMemory1
-        regCharaCountKei = regCharaCountKeiMemory1
-        regCharaCountPapa = regCharaCountPapaMemory1
-        regCharaCountHayasaka = regCharaCountHayasakaMemory1
-        regCharaCountRainbow = regCharaCountRainbowMemory1
-        regCharaCountOsaragi = regCharaCountOsaragiMemory1
-        regCharaCountBezi = regCharaCountBeziMemory1
-        regCharaCountSum = regCharaCountSumMemory1
-        screenCountDefault = screenCountDefaultMemory1
-        screenCountRedNekomimi = screenCountRedNekomimiMemory1
-        screenCountPurple2Men = screenCountPurple2MenMemory1
-        screenCountGekiga = screenCountGekigaMemory1
-        screenCountKaguyaFujiwara = screenCountKaguyaFujiwaraMemory1
-        screenCountShiroganeKaguya = screenCountShiroganeKaguyaMemory1
-        screenCountSilverAdult = screenCountSilverAdultMemory1
-        screenCountSilverDeformed = screenCountSilverDeformedMemory1
-        screenCountGoldWedding = screenCountGoldWeddingMemory1
-        screenCountSum = screenCountSumMemory1
-        endingCountBaloon = endingCountBaloonMemory1
-        endingCountKoiNoYukue = endingCountKoiNoYukueMemory1
-        endingCountKaguya = endingCountKaguyaMemory1
-        endingCountShirogane = endingCountShiroganeMemory1
-        endingCountSum = endingCountSumMemory1
-    }
-    
+    @AppStorage("kaguyaMemoMemory1") var memoMemory1 = ""
+    @AppStorage("kaguyaDateMemory1") var dateDoubleMemory1 = 0.0
+}
+
+
+class KaguyaMemory2: ObservableObject {
     // //// メモリー2
     @AppStorage("kaguyaFirstBonusCountBigMemory2") var firstBonusCountBigMemory2 = 0
     @AppStorage("kaguyaFirstBonusCountRegMemory2") var firstBonusCountRegMemory2 = 0
@@ -359,73 +300,12 @@ class KaguyaSama: ObservableObject {
     @AppStorage("kaguyaEndingCountKaguyaMemory2") var endingCountKaguyaMemory2 = 0
     @AppStorage("kaguyaEndingCountShiroganeMemory2") var endingCountShiroganeMemory2 = 0
     @AppStorage("kaguyaEndingCountSumMemory2") var endingCountSumMemory2 = 0
-    @AppStorage("kaguyaMemoMemory2") var memoMemory2 = "未使用"
-    @AppStorage("kaguyaDateMemory2") var dateDoubleMemory2 = 1725235200.0
-    func saveMemory2() {
-        firstBonusCountBigMemory2 = firstBonusCountBig
-        firstBonusCountRegMemory2 = firstBonusCountReg
-        firstBonusCountSumMemory2 = firstBonusCountSum
-        bigCountNormalMemory2 = bigCountNormal
-        bigCountSuperMemory2 = bigCountSuper
-        bigCountExtraMemory2 = bigCountExtra
-        bigCountSumMemory2 = bigCountSum
-        regCharaCountDefaultMemory2 = regCharaCountDefault
-        regCharaCountKeiMemory2 = regCharaCountKei
-        regCharaCountPapaMemory2 = regCharaCountPapa
-        regCharaCountHayasakaMemory2 = regCharaCountHayasaka
-        regCharaCountRainbowMemory2 = regCharaCountRainbow
-        regCharaCountOsaragiMemory2 = regCharaCountOsaragi
-        regCharaCountBeziMemory2 = regCharaCountBezi
-        regCharaCountSumMemory2 = regCharaCountSum
-        screenCountDefaultMemory2 = screenCountDefault
-        screenCountRedNekomimiMemory2 = screenCountRedNekomimi
-        screenCountPurple2MenMemory2 = screenCountPurple2Men
-        screenCountGekigaMemory2 = screenCountGekiga
-        screenCountKaguyaFujiwaraMemory2 = screenCountKaguyaFujiwara
-        screenCountShiroganeKaguyaMemory2 = screenCountShiroganeKaguya
-        screenCountSilverAdultMemory2 = screenCountSilverAdult
-        screenCountSilverDeformedMemory2 = screenCountSilverDeformed
-        screenCountGoldWeddingMemory2 = screenCountGoldWedding
-        screenCountSumMemory2 = screenCountSum
-        endingCountBaloonMemory2 = endingCountBaloon
-        endingCountKoiNoYukueMemory2 = endingCountKoiNoYukue
-        endingCountKaguyaMemory2 = endingCountKaguya
-        endingCountShiroganeMemory2 = endingCountShirogane
-        endingCountSumMemory2 = endingCountSum
-    }
-    func loadMemory2() {
-        firstBonusCountBig = firstBonusCountBigMemory2
-        firstBonusCountReg = firstBonusCountRegMemory2
-        firstBonusCountSum = firstBonusCountSumMemory2
-        bigCountNormal = bigCountNormalMemory2
-        bigCountSuper = bigCountSuperMemory2
-        bigCountExtra = bigCountExtraMemory2
-        bigCountSum = bigCountSumMemory2
-        regCharaCountDefault = regCharaCountDefaultMemory2
-        regCharaCountKei = regCharaCountKeiMemory2
-        regCharaCountPapa = regCharaCountPapaMemory2
-        regCharaCountHayasaka = regCharaCountHayasakaMemory2
-        regCharaCountRainbow = regCharaCountRainbowMemory2
-        regCharaCountOsaragi = regCharaCountOsaragiMemory2
-        regCharaCountBezi = regCharaCountBeziMemory2
-        regCharaCountSum = regCharaCountSumMemory2
-        screenCountDefault = screenCountDefaultMemory2
-        screenCountRedNekomimi = screenCountRedNekomimiMemory2
-        screenCountPurple2Men = screenCountPurple2MenMemory2
-        screenCountGekiga = screenCountGekigaMemory2
-        screenCountKaguyaFujiwara = screenCountKaguyaFujiwaraMemory2
-        screenCountShiroganeKaguya = screenCountShiroganeKaguyaMemory2
-        screenCountSilverAdult = screenCountSilverAdultMemory2
-        screenCountSilverDeformed = screenCountSilverDeformedMemory2
-        screenCountGoldWedding = screenCountGoldWeddingMemory2
-        screenCountSum = screenCountSumMemory2
-        endingCountBaloon = endingCountBaloonMemory2
-        endingCountKoiNoYukue = endingCountKoiNoYukueMemory2
-        endingCountKaguya = endingCountKaguyaMemory2
-        endingCountShirogane = endingCountShiroganeMemory2
-        endingCountSum = endingCountSumMemory2
-    }
-    
+    @AppStorage("kaguyaMemoMemory2") var memoMemory2 = ""
+    @AppStorage("kaguyaDateMemory2") var dateDoubleMemory2 = 0.0
+}
+
+
+class KaguyaMemory3: ObservableObject {
     // //// メモリー3
     @AppStorage("kaguyaFirstBonusCountBigMemory3") var firstBonusCountBigMemory3 = 0
     @AppStorage("kaguyaFirstBonusCountRegMemory3") var firstBonusCountRegMemory3 = 0
@@ -457,81 +337,16 @@ class KaguyaSama: ObservableObject {
     @AppStorage("kaguyaEndingCountKaguyaMemory3") var endingCountKaguyaMemory3 = 0
     @AppStorage("kaguyaEndingCountShiroganeMemory3") var endingCountShiroganeMemory3 = 0
     @AppStorage("kaguyaEndingCountSumMemory3") var endingCountSumMemory3 = 0
-    @AppStorage("kaguyaMemoMemory3") var memoMemory3 = "未使用"
-    @AppStorage("kaguyaDateMemory3") var dateDoubleMemory3 = 1725235200.0
-    func saveMemory3() {
-        firstBonusCountBigMemory3 = firstBonusCountBig
-        firstBonusCountRegMemory3 = firstBonusCountReg
-        firstBonusCountSumMemory3 = firstBonusCountSum
-        bigCountNormalMemory3 = bigCountNormal
-        bigCountSuperMemory3 = bigCountSuper
-        bigCountExtraMemory3 = bigCountExtra
-        bigCountSumMemory3 = bigCountSum
-        regCharaCountDefaultMemory3 = regCharaCountDefault
-        regCharaCountKeiMemory3 = regCharaCountKei
-        regCharaCountPapaMemory3 = regCharaCountPapa
-        regCharaCountHayasakaMemory3 = regCharaCountHayasaka
-        regCharaCountRainbowMemory3 = regCharaCountRainbow
-        regCharaCountOsaragiMemory3 = regCharaCountOsaragi
-        regCharaCountBeziMemory3 = regCharaCountBezi
-        regCharaCountSumMemory3 = regCharaCountSum
-        screenCountDefaultMemory3 = screenCountDefault
-        screenCountRedNekomimiMemory3 = screenCountRedNekomimi
-        screenCountPurple2MenMemory3 = screenCountPurple2Men
-        screenCountGekigaMemory3 = screenCountGekiga
-        screenCountKaguyaFujiwaraMemory3 = screenCountKaguyaFujiwara
-        screenCountShiroganeKaguyaMemory3 = screenCountShiroganeKaguya
-        screenCountSilverAdultMemory3 = screenCountSilverAdult
-        screenCountSilverDeformedMemory3 = screenCountSilverDeformed
-        screenCountGoldWeddingMemory3 = screenCountGoldWedding
-        screenCountSumMemory3 = screenCountSum
-        endingCountBaloonMemory3 = endingCountBaloon
-        endingCountKoiNoYukueMemory3 = endingCountKoiNoYukue
-        endingCountKaguyaMemory3 = endingCountKaguya
-        endingCountShiroganeMemory3 = endingCountShirogane
-        endingCountSumMemory3 = endingCountSum
-    }
-    func loadMemory3() {
-        firstBonusCountBig = firstBonusCountBigMemory3
-        firstBonusCountReg = firstBonusCountRegMemory3
-        firstBonusCountSum = firstBonusCountSumMemory3
-        bigCountNormal = bigCountNormalMemory3
-        bigCountSuper = bigCountSuperMemory3
-        bigCountExtra = bigCountExtraMemory3
-        bigCountSum = bigCountSumMemory3
-        regCharaCountDefault = regCharaCountDefaultMemory3
-        regCharaCountKei = regCharaCountKeiMemory3
-        regCharaCountPapa = regCharaCountPapaMemory3
-        regCharaCountHayasaka = regCharaCountHayasakaMemory3
-        regCharaCountRainbow = regCharaCountRainbowMemory3
-        regCharaCountOsaragi = regCharaCountOsaragiMemory3
-        regCharaCountBezi = regCharaCountBeziMemory3
-        regCharaCountSum = regCharaCountSumMemory3
-        screenCountDefault = screenCountDefaultMemory3
-        screenCountRedNekomimi = screenCountRedNekomimiMemory3
-        screenCountPurple2Men = screenCountPurple2MenMemory3
-        screenCountGekiga = screenCountGekigaMemory3
-        screenCountKaguyaFujiwara = screenCountKaguyaFujiwaraMemory3
-        screenCountShiroganeKaguya = screenCountShiroganeKaguyaMemory3
-        screenCountSilverAdult = screenCountSilverAdultMemory3
-        screenCountSilverDeformed = screenCountSilverDeformedMemory3
-        screenCountGoldWedding = screenCountGoldWeddingMemory3
-        screenCountSum = screenCountSumMemory3
-        endingCountBaloon = endingCountBaloonMemory3
-        endingCountKoiNoYukue = endingCountKoiNoYukueMemory3
-        endingCountKaguya = endingCountKaguyaMemory3
-        endingCountShirogane = endingCountShiroganeMemory3
-        endingCountSum = endingCountSumMemory3
-    }
+    @AppStorage("kaguyaMemoMemory3") var memoMemory3 = ""
+    @AppStorage("kaguyaDateMemory3") var dateDoubleMemory3 = 0.0
 }
+
 
 struct kaguyaViewTop: View {
     @ObservedObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
     @State var isShowSaveView: Bool = false
-    @State var isShowSaveAlert: Bool = false
     @State var isShowLoadView: Bool = false
-    @State var isShowLoadAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -567,53 +382,15 @@ struct kaguyaViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    // //// データ読み出し
-                    Button {
-                        self.isShowLoadView.toggle()
-                    } label: {
-                        Image(systemName: "folder")
+                    HStack {
+                        // //// データ読み出し
+                        unitButtonLoadMemory(loadView: AnyView(kaguyaViewLoadMemory()))
+    //                        .popoverTip(tipUnitButtonLoadMemory())
+                        // //// データ保存
+                        unitButtonSaveMemory(saveView: AnyView(kaguyaViewSaveMemory()))
+    //                        .popoverTip(tipUnitButtonSaveMemory())
                     }
-                    .sheet(isPresented: $isShowLoadView) {
-                        unitViewLoadMemory(
-                            machineName: "かぐや様は告らせたい",
-                            selectedMemory: $kaguya.selectedMemory,
-                            memoMemory1: kaguya.memoMemory1,
-                            dateDoubleMemory1: kaguya.dateDoubleMemory1,
-                            actionMemory1: kaguya.loadMemory1,
-                            memoMemory2: kaguya.memoMemory2,
-                            dateDoubleMemory2: kaguya.dateDoubleMemory2,
-                            actionMemory2: kaguya.loadMemory2,
-                            memoMemory3: kaguya.memoMemory3,
-                            dateDoubleMemory3: kaguya.dateDoubleMemory3,
-                            actionMemory3: kaguya.loadMemory3,
-                            isShowLoadAlert: $isShowLoadAlert
-                        )
-                            .presentationDetents([.large])
-                    }
-
-                    // //// データ保存
-                    Button {
-                        self.isShowSaveView.toggle()
-                    } label: {
-                        Image(systemName: "externaldrive.badge.plus")
-                    }
-                    .sheet(isPresented: $isShowSaveView) {
-                        unitViewSaveMemory(
-                            machineName: "かぐや様は告らせたい",
-                            selectedMemory: $kaguya.selectedMemory,
-                            memoMemory1: $kaguya.memoMemory1,
-                            dateDoubleMemory1: $kaguya.dateDoubleMemory1,
-                            actionMemory1: kaguya.saveMemory1,
-                            memoMemory2: $kaguya.memoMemory2,
-                            dateDoubleMemory2: $kaguya.dateDoubleMemory2,
-                            actionMemory2: kaguya.saveMemory2,
-                            memoMemory3: $kaguya.memoMemory3,
-                            dateDoubleMemory3: $kaguya.dateDoubleMemory3,
-                            actionMemory3: kaguya.saveMemory3,
-                            isShowSaveAlert: $isShowSaveAlert
-                        )
-                    }
-
+                    .popoverTip(tipUnitButtonMemory())
                     // //// データリセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetAll, message: "この機種のデータを全てリセットします")
                         .popoverTip(tipUnitButtonReset())
@@ -623,6 +400,258 @@ struct kaguyaViewTop: View {
     }
 }
 
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct kaguyaViewSaveMemory: View {
+    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguyaMemory1 = KaguyaMemory1()
+    @ObservedObject var kaguyaMemory2 = KaguyaMemory2()
+    @ObservedObject var kaguyaMemory3 = KaguyaMemory3()
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "かぐや様は告らせたい",
+            selectedMemory: $kaguya.selectedMemory,
+            memoMemory1: $kaguyaMemory1.memoMemory1,
+            dateDoubleMemory1: $kaguyaMemory1.dateDoubleMemory1,
+            actionMemory1: saveMemory1,
+            memoMemory2: $kaguyaMemory2.memoMemory2,
+            dateDoubleMemory2: $kaguyaMemory2.dateDoubleMemory2,
+            actionMemory2: saveMemory2,
+            memoMemory3: $kaguyaMemory3.memoMemory3,
+            dateDoubleMemory3: $kaguyaMemory3.dateDoubleMemory3,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        kaguyaMemory1.firstBonusCountBigMemory1 = kaguya.firstBonusCountBig
+        kaguyaMemory1.firstBonusCountRegMemory1 = kaguya.firstBonusCountReg
+        kaguyaMemory1.firstBonusCountSumMemory1 = kaguya.firstBonusCountSum
+        kaguyaMemory1.bigCountNormalMemory1 = kaguya.bigCountNormal
+        kaguyaMemory1.bigCountSuperMemory1 = kaguya.bigCountSuper
+        kaguyaMemory1.bigCountExtraMemory1 = kaguya.bigCountExtra
+        kaguyaMemory1.bigCountSumMemory1 = kaguya.bigCountSum
+        kaguyaMemory1.regCharaCountDefaultMemory1 = kaguya.regCharaCountDefault
+        kaguyaMemory1.regCharaCountKeiMemory1 = kaguya.regCharaCountKei
+        kaguyaMemory1.regCharaCountPapaMemory1 = kaguya.regCharaCountPapa
+        kaguyaMemory1.regCharaCountHayasakaMemory1 = kaguya.regCharaCountHayasaka
+        kaguyaMemory1.regCharaCountRainbowMemory1 = kaguya.regCharaCountRainbow
+        kaguyaMemory1.regCharaCountOsaragiMemory1 = kaguya.regCharaCountOsaragi
+        kaguyaMemory1.regCharaCountBeziMemory1 = kaguya.regCharaCountBezi
+        kaguyaMemory1.regCharaCountSumMemory1 = kaguya.regCharaCountSum
+        kaguyaMemory1.screenCountDefaultMemory1 = kaguya.screenCountDefault
+        kaguyaMemory1.screenCountRedNekomimiMemory1 = kaguya.screenCountRedNekomimi
+        kaguyaMemory1.screenCountPurple2MenMemory1 = kaguya.screenCountPurple2Men
+        kaguyaMemory1.screenCountGekigaMemory1 = kaguya.screenCountGekiga
+        kaguyaMemory1.screenCountKaguyaFujiwaraMemory1 = kaguya.screenCountKaguyaFujiwara
+        kaguyaMemory1.screenCountShiroganeKaguyaMemory1 = kaguya.screenCountShiroganeKaguya
+        kaguyaMemory1.screenCountSilverAdultMemory1 = kaguya.screenCountSilverAdult
+        kaguyaMemory1.screenCountSilverDeformedMemory1 = kaguya.screenCountSilverDeformed
+        kaguyaMemory1.screenCountGoldWeddingMemory1 = kaguya.screenCountGoldWedding
+        kaguyaMemory1.screenCountSumMemory1 = kaguya.screenCountSum
+        kaguyaMemory1.endingCountBaloonMemory1 = kaguya.endingCountBaloon
+        kaguyaMemory1.endingCountKoiNoYukueMemory1 = kaguya.endingCountKoiNoYukue
+        kaguyaMemory1.endingCountKaguyaMemory1 = kaguya.endingCountKaguya
+        kaguyaMemory1.endingCountShiroganeMemory1 = kaguya.endingCountShirogane
+        kaguyaMemory1.endingCountSumMemory1 = kaguya.endingCountSum
+    }
+    
+    func saveMemory2() {
+        kaguyaMemory2.firstBonusCountBigMemory2 = kaguya.firstBonusCountBig
+        kaguyaMemory2.firstBonusCountRegMemory2 = kaguya.firstBonusCountReg
+        kaguyaMemory2.firstBonusCountSumMemory2 = kaguya.firstBonusCountSum
+        kaguyaMemory2.bigCountNormalMemory2 = kaguya.bigCountNormal
+        kaguyaMemory2.bigCountSuperMemory2 = kaguya.bigCountSuper
+        kaguyaMemory2.bigCountExtraMemory2 = kaguya.bigCountExtra
+        kaguyaMemory2.bigCountSumMemory2 = kaguya.bigCountSum
+        kaguyaMemory2.regCharaCountDefaultMemory2 = kaguya.regCharaCountDefault
+        kaguyaMemory2.regCharaCountKeiMemory2 = kaguya.regCharaCountKei
+        kaguyaMemory2.regCharaCountPapaMemory2 = kaguya.regCharaCountPapa
+        kaguyaMemory2.regCharaCountHayasakaMemory2 = kaguya.regCharaCountHayasaka
+        kaguyaMemory2.regCharaCountRainbowMemory2 = kaguya.regCharaCountRainbow
+        kaguyaMemory2.regCharaCountOsaragiMemory2 = kaguya.regCharaCountOsaragi
+        kaguyaMemory2.regCharaCountBeziMemory2 = kaguya.regCharaCountBezi
+        kaguyaMemory2.regCharaCountSumMemory2 = kaguya.regCharaCountSum
+        kaguyaMemory2.screenCountDefaultMemory2 = kaguya.screenCountDefault
+        kaguyaMemory2.screenCountRedNekomimiMemory2 = kaguya.screenCountRedNekomimi
+        kaguyaMemory2.screenCountPurple2MenMemory2 = kaguya.screenCountPurple2Men
+        kaguyaMemory2.screenCountGekigaMemory2 = kaguya.screenCountGekiga
+        kaguyaMemory2.screenCountKaguyaFujiwaraMemory2 = kaguya.screenCountKaguyaFujiwara
+        kaguyaMemory2.screenCountShiroganeKaguyaMemory2 = kaguya.screenCountShiroganeKaguya
+        kaguyaMemory2.screenCountSilverAdultMemory2 = kaguya.screenCountSilverAdult
+        kaguyaMemory2.screenCountSilverDeformedMemory2 = kaguya.screenCountSilverDeformed
+        kaguyaMemory2.screenCountGoldWeddingMemory2 = kaguya.screenCountGoldWedding
+        kaguyaMemory2.screenCountSumMemory2 = kaguya.screenCountSum
+        kaguyaMemory2.endingCountBaloonMemory2 = kaguya.endingCountBaloon
+        kaguyaMemory2.endingCountKoiNoYukueMemory2 = kaguya.endingCountKoiNoYukue
+        kaguyaMemory2.endingCountKaguyaMemory2 = kaguya.endingCountKaguya
+        kaguyaMemory2.endingCountShiroganeMemory2 = kaguya.endingCountShirogane
+        kaguyaMemory2.endingCountSumMemory2 = kaguya.endingCountSum
+    }
+    
+    func saveMemory3() {
+        kaguyaMemory3.firstBonusCountBigMemory3 = kaguya.firstBonusCountBig
+        kaguyaMemory3.firstBonusCountRegMemory3 = kaguya.firstBonusCountReg
+        kaguyaMemory3.firstBonusCountSumMemory3 = kaguya.firstBonusCountSum
+        kaguyaMemory3.bigCountNormalMemory3 = kaguya.bigCountNormal
+        kaguyaMemory3.bigCountSuperMemory3 = kaguya.bigCountSuper
+        kaguyaMemory3.bigCountExtraMemory3 = kaguya.bigCountExtra
+        kaguyaMemory3.bigCountSumMemory3 = kaguya.bigCountSum
+        kaguyaMemory3.regCharaCountDefaultMemory3 = kaguya.regCharaCountDefault
+        kaguyaMemory3.regCharaCountKeiMemory3 = kaguya.regCharaCountKei
+        kaguyaMemory3.regCharaCountPapaMemory3 = kaguya.regCharaCountPapa
+        kaguyaMemory3.regCharaCountHayasakaMemory3 = kaguya.regCharaCountHayasaka
+        kaguyaMemory3.regCharaCountRainbowMemory3 = kaguya.regCharaCountRainbow
+        kaguyaMemory3.regCharaCountOsaragiMemory3 = kaguya.regCharaCountOsaragi
+        kaguyaMemory3.regCharaCountBeziMemory3 = kaguya.regCharaCountBezi
+        kaguyaMemory3.regCharaCountSumMemory3 = kaguya.regCharaCountSum
+        kaguyaMemory3.screenCountDefaultMemory3 = kaguya.screenCountDefault
+        kaguyaMemory3.screenCountRedNekomimiMemory3 = kaguya.screenCountRedNekomimi
+        kaguyaMemory3.screenCountPurple2MenMemory3 = kaguya.screenCountPurple2Men
+        kaguyaMemory3.screenCountGekigaMemory3 = kaguya.screenCountGekiga
+        kaguyaMemory3.screenCountKaguyaFujiwaraMemory3 = kaguya.screenCountKaguyaFujiwara
+        kaguyaMemory3.screenCountShiroganeKaguyaMemory3 = kaguya.screenCountShiroganeKaguya
+        kaguyaMemory3.screenCountSilverAdultMemory3 = kaguya.screenCountSilverAdult
+        kaguyaMemory3.screenCountSilverDeformedMemory3 = kaguya.screenCountSilverDeformed
+        kaguyaMemory3.screenCountGoldWeddingMemory3 = kaguya.screenCountGoldWedding
+        kaguyaMemory3.screenCountSumMemory3 = kaguya.screenCountSum
+        kaguyaMemory3.endingCountBaloonMemory3 = kaguya.endingCountBaloon
+        kaguyaMemory3.endingCountKoiNoYukueMemory3 = kaguya.endingCountKoiNoYukue
+        kaguyaMemory3.endingCountKaguyaMemory3 = kaguya.endingCountKaguya
+        kaguyaMemory3.endingCountShiroganeMemory3 = kaguya.endingCountShirogane
+        kaguyaMemory3.endingCountSumMemory3 = kaguya.endingCountSum
+    }
+}
+
+
+// ///////////////////////////
+// メモリーロード画面
+// ///////////////////////////
+struct kaguyaViewLoadMemory: View {
+    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguyaMemory1 = KaguyaMemory1()
+    @ObservedObject var kaguyaMemory2 = KaguyaMemory2()
+    @ObservedObject var kaguyaMemory3 = KaguyaMemory3()
+    @State var isShowLoadAlert: Bool = false
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "かぐや様は告らせたい",
+            selectedMemory: $kaguya.selectedMemory,
+            memoMemory1: kaguyaMemory1.memoMemory1,
+            dateDoubleMemory1: kaguyaMemory1.dateDoubleMemory1,
+            actionMemory1: loadMemory1,
+            memoMemory2: kaguyaMemory2.memoMemory2,
+            dateDoubleMemory2: kaguyaMemory2.dateDoubleMemory2,
+            actionMemory2: loadMemory2,
+            memoMemory3: kaguyaMemory3.memoMemory3,
+            dateDoubleMemory3: kaguyaMemory3.dateDoubleMemory3,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        kaguya.firstBonusCountBig = kaguyaMemory1.firstBonusCountBigMemory1
+        kaguya.firstBonusCountReg = kaguyaMemory1.firstBonusCountRegMemory1
+        kaguya.firstBonusCountSum = kaguyaMemory1.firstBonusCountSumMemory1
+        kaguya.bigCountNormal = kaguyaMemory1.bigCountNormalMemory1
+        kaguya.bigCountSuper = kaguyaMemory1.bigCountSuperMemory1
+        kaguya.bigCountExtra = kaguyaMemory1.bigCountExtraMemory1
+        kaguya.bigCountSum = kaguyaMemory1.bigCountSumMemory1
+        kaguya.regCharaCountDefault = kaguyaMemory1.regCharaCountDefaultMemory1
+        kaguya.regCharaCountKei = kaguyaMemory1.regCharaCountKeiMemory1
+        kaguya.regCharaCountPapa = kaguyaMemory1.regCharaCountPapaMemory1
+        kaguya.regCharaCountHayasaka = kaguyaMemory1.regCharaCountHayasakaMemory1
+        kaguya.regCharaCountRainbow = kaguyaMemory1.regCharaCountRainbowMemory1
+        kaguya.regCharaCountOsaragi = kaguyaMemory1.regCharaCountOsaragiMemory1
+        kaguya.regCharaCountBezi = kaguyaMemory1.regCharaCountBeziMemory1
+        kaguya.regCharaCountSum = kaguyaMemory1.regCharaCountSumMemory1
+        kaguya.screenCountDefault = kaguyaMemory1.screenCountDefaultMemory1
+        kaguya.screenCountRedNekomimi = kaguyaMemory1.screenCountRedNekomimiMemory1
+        kaguya.screenCountPurple2Men = kaguyaMemory1.screenCountPurple2MenMemory1
+        kaguya.screenCountGekiga = kaguyaMemory1.screenCountGekigaMemory1
+        kaguya.screenCountKaguyaFujiwara = kaguyaMemory1.screenCountKaguyaFujiwaraMemory1
+        kaguya.screenCountShiroganeKaguya = kaguyaMemory1.screenCountShiroganeKaguyaMemory1
+        kaguya.screenCountSilverAdult = kaguyaMemory1.screenCountSilverAdultMemory1
+        kaguya.screenCountSilverDeformed = kaguyaMemory1.screenCountSilverDeformedMemory1
+        kaguya.screenCountGoldWedding = kaguyaMemory1.screenCountGoldWeddingMemory1
+        kaguya.screenCountSum = kaguyaMemory1.screenCountSumMemory1
+        kaguya.endingCountBaloon = kaguyaMemory1.endingCountBaloonMemory1
+        kaguya.endingCountKoiNoYukue = kaguyaMemory1.endingCountKoiNoYukueMemory1
+        kaguya.endingCountKaguya = kaguyaMemory1.endingCountKaguyaMemory1
+        kaguya.endingCountShirogane = kaguyaMemory1.endingCountShiroganeMemory1
+        kaguya.endingCountSum = kaguyaMemory1.endingCountSumMemory1
+    }
+    
+    func loadMemory2() {
+        kaguya.firstBonusCountBig = kaguyaMemory2.firstBonusCountBigMemory2
+        kaguya.firstBonusCountReg = kaguyaMemory2.firstBonusCountRegMemory2
+        kaguya.firstBonusCountSum = kaguyaMemory2.firstBonusCountSumMemory2
+        kaguya.bigCountNormal = kaguyaMemory2.bigCountNormalMemory2
+        kaguya.bigCountSuper = kaguyaMemory2.bigCountSuperMemory2
+        kaguya.bigCountExtra = kaguyaMemory2.bigCountExtraMemory2
+        kaguya.bigCountSum = kaguyaMemory2.bigCountSumMemory2
+        kaguya.regCharaCountDefault = kaguyaMemory2.regCharaCountDefaultMemory2
+        kaguya.regCharaCountKei = kaguyaMemory2.regCharaCountKeiMemory2
+        kaguya.regCharaCountPapa = kaguyaMemory2.regCharaCountPapaMemory2
+        kaguya.regCharaCountHayasaka = kaguyaMemory2.regCharaCountHayasakaMemory2
+        kaguya.regCharaCountRainbow = kaguyaMemory2.regCharaCountRainbowMemory2
+        kaguya.regCharaCountOsaragi = kaguyaMemory2.regCharaCountOsaragiMemory2
+        kaguya.regCharaCountBezi = kaguyaMemory2.regCharaCountBeziMemory2
+        kaguya.regCharaCountSum = kaguyaMemory2.regCharaCountSumMemory2
+        kaguya.screenCountDefault = kaguyaMemory2.screenCountDefaultMemory2
+        kaguya.screenCountRedNekomimi = kaguyaMemory2.screenCountRedNekomimiMemory2
+        kaguya.screenCountPurple2Men = kaguyaMemory2.screenCountPurple2MenMemory2
+        kaguya.screenCountGekiga = kaguyaMemory2.screenCountGekigaMemory2
+        kaguya.screenCountKaguyaFujiwara = kaguyaMemory2.screenCountKaguyaFujiwaraMemory2
+        kaguya.screenCountShiroganeKaguya = kaguyaMemory2.screenCountShiroganeKaguyaMemory2
+        kaguya.screenCountSilverAdult = kaguyaMemory2.screenCountSilverAdultMemory2
+        kaguya.screenCountSilverDeformed = kaguyaMemory2.screenCountSilverDeformedMemory2
+        kaguya.screenCountGoldWedding = kaguyaMemory2.screenCountGoldWeddingMemory2
+        kaguya.screenCountSum = kaguyaMemory2.screenCountSumMemory2
+        kaguya.endingCountBaloon = kaguyaMemory2.endingCountBaloonMemory2
+        kaguya.endingCountKoiNoYukue = kaguyaMemory2.endingCountKoiNoYukueMemory2
+        kaguya.endingCountKaguya = kaguyaMemory2.endingCountKaguyaMemory2
+        kaguya.endingCountShirogane = kaguyaMemory2.endingCountShiroganeMemory2
+        kaguya.endingCountSum = kaguyaMemory2.endingCountSumMemory2
+    }
+    
+    func loadMemory3() {
+        kaguya.firstBonusCountBig = kaguyaMemory3.firstBonusCountBigMemory3
+        kaguya.firstBonusCountReg = kaguyaMemory3.firstBonusCountRegMemory3
+        kaguya.firstBonusCountSum = kaguyaMemory3.firstBonusCountSumMemory3
+        kaguya.bigCountNormal = kaguyaMemory3.bigCountNormalMemory3
+        kaguya.bigCountSuper = kaguyaMemory3.bigCountSuperMemory3
+        kaguya.bigCountExtra = kaguyaMemory3.bigCountExtraMemory3
+        kaguya.bigCountSum = kaguyaMemory3.bigCountSumMemory3
+        kaguya.regCharaCountDefault = kaguyaMemory3.regCharaCountDefaultMemory3
+        kaguya.regCharaCountKei = kaguyaMemory3.regCharaCountKeiMemory3
+        kaguya.regCharaCountPapa = kaguyaMemory3.regCharaCountPapaMemory3
+        kaguya.regCharaCountHayasaka = kaguyaMemory3.regCharaCountHayasakaMemory3
+        kaguya.regCharaCountRainbow = kaguyaMemory3.regCharaCountRainbowMemory3
+        kaguya.regCharaCountOsaragi = kaguyaMemory3.regCharaCountOsaragiMemory3
+        kaguya.regCharaCountBezi = kaguyaMemory3.regCharaCountBeziMemory3
+        kaguya.regCharaCountSum = kaguyaMemory3.regCharaCountSumMemory3
+        kaguya.screenCountDefault = kaguyaMemory3.screenCountDefaultMemory3
+        kaguya.screenCountRedNekomimi = kaguyaMemory3.screenCountRedNekomimiMemory3
+        kaguya.screenCountPurple2Men = kaguyaMemory3.screenCountPurple2MenMemory3
+        kaguya.screenCountGekiga = kaguyaMemory3.screenCountGekigaMemory3
+        kaguya.screenCountKaguyaFujiwara = kaguyaMemory3.screenCountKaguyaFujiwaraMemory3
+        kaguya.screenCountShiroganeKaguya = kaguyaMemory3.screenCountShiroganeKaguyaMemory3
+        kaguya.screenCountSilverAdult = kaguyaMemory3.screenCountSilverAdultMemory3
+        kaguya.screenCountSilverDeformed = kaguyaMemory3.screenCountSilverDeformedMemory3
+        kaguya.screenCountGoldWedding = kaguyaMemory3.screenCountGoldWeddingMemory3
+        kaguya.screenCountSum = kaguyaMemory3.screenCountSumMemory3
+        kaguya.endingCountBaloon = kaguyaMemory3.endingCountBaloonMemory3
+        kaguya.endingCountKoiNoYukue = kaguyaMemory3.endingCountKoiNoYukueMemory3
+        kaguya.endingCountKaguya = kaguyaMemory3.endingCountKaguyaMemory3
+        kaguya.endingCountShirogane = kaguyaMemory3.endingCountShiroganeMemory3
+        kaguya.endingCountSum = kaguyaMemory3.endingCountSumMemory3
+    }
+}
 
 #Preview {
     kaguyaViewTop()

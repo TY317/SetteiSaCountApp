@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class hanaTensho: ObservableObject, hanaVar {
+class hanaTensho: ObservableObject {
     @AppStorage("hanaTenshoBellCount") var bellCount = 0
     @AppStorage("hanaTenshoBigCount") var bigCount = 0 {
         didSet {
@@ -144,7 +144,97 @@ class hanaTensho: ObservableObject, hanaVar {
         currentGames = 0
         minusCheck = false
     }
+    @AppStorage("hanaTenshoSelectedMemory") var selectedMemory = "メモリー1"
 }
+
+
+// //// メモリー1
+class hanaTenshoMemory1: ObservableObject {
+    @AppStorage("hanaTenshoBellCountMemory1") var bellCount = 0
+    @AppStorage("hanaTenshoBigCountMemory1") var bigCount = 0
+    @AppStorage("hanaTenshoRegCountMemory1") var regCount = 0
+    @AppStorage("hanaTenshoBBSuikaCountMemory1") var bbSuikaCount = 0
+    @AppStorage("hanaTenshoBBLampBCountMemory1") var bbLampBCount = 0
+    @AppStorage("hanaTenshoBBLampYCountMemory1") var bbLampYCount = 0
+    @AppStorage("hanaTenshoBBLampGCountMemory1") var bbLampGCount = 0
+    @AppStorage("hanaTenshoBBLampRCountMemory1") var bbLampRCount = 0
+    @AppStorage("hanaTenshoBBLampRainbowCountMemory1") var bbLampRainbowCount = 0
+    @AppStorage("hanaTenshoRbLampBCountMemory1") var rbLampBCount = 0
+    @AppStorage("hanaTenshoRbLampYCountMemory1") var rbLampYCount = 0
+    @AppStorage("hanaTenshoRbLampGCountMemory1") var rbLampGCount = 0
+    @AppStorage("hanaTenshoRbLampRCountMemory1") var rbLampRCount = 0
+    @AppStorage("hanaTenshoRbLampRainbowCountMemory1") var rbLampRainbowCount = 0
+    @AppStorage("hanaTenshoStartGamesMemory1") var startGames = 0
+    @AppStorage("hanaTenshoCurrentGamesMemory1") var currentGames = 0
+    @AppStorage("hanaTenshoTotalBonusMemory1") var totalBonus = 0
+    @AppStorage("hanaTenshoPlayGamesMemory1") var playGames = 0
+    @AppStorage("hanaTenshoBigPlayGamesMemory1") var bigPlayGames = 0
+    @AppStorage("hanaTenshoBbLampCountSumMemory1") var bbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampCountSumMemory1") var rbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampKisuCountSumMemory1") var rbLampKisuCountSum = 0
+    @AppStorage("hanaTenshoRbLampGusuCountSumMemory1") var rbLampGusuCountSum = 0
+    @AppStorage("hanaTenshoMemoMemory1") var memo = ""
+    @AppStorage("hanaTenshoDateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class hanaTenshoMemory2: ObservableObject {
+    @AppStorage("hanaTenshoBellCountMemory2") var bellCount = 0
+    @AppStorage("hanaTenshoBigCountMemory2") var bigCount = 0
+    @AppStorage("hanaTenshoRegCountMemory2") var regCount = 0
+    @AppStorage("hanaTenshoBBSuikaCountMemory2") var bbSuikaCount = 0
+    @AppStorage("hanaTenshoBBLampBCountMemory2") var bbLampBCount = 0
+    @AppStorage("hanaTenshoBBLampYCountMemory2") var bbLampYCount = 0
+    @AppStorage("hanaTenshoBBLampGCountMemory2") var bbLampGCount = 0
+    @AppStorage("hanaTenshoBBLampRCountMemory2") var bbLampRCount = 0
+    @AppStorage("hanaTenshoBBLampRainbowCountMemory2") var bbLampRainbowCount = 0
+    @AppStorage("hanaTenshoRbLampBCountMemory2") var rbLampBCount = 0
+    @AppStorage("hanaTenshoRbLampYCountMemory2") var rbLampYCount = 0
+    @AppStorage("hanaTenshoRbLampGCountMemory2") var rbLampGCount = 0
+    @AppStorage("hanaTenshoRbLampRCountMemory2") var rbLampRCount = 0
+    @AppStorage("hanaTenshoRbLampRainbowCountMemory2") var rbLampRainbowCount = 0
+    @AppStorage("hanaTenshoStartGamesMemory2") var startGames = 0
+    @AppStorage("hanaTenshoCurrentGamesMemory2") var currentGames = 0
+    @AppStorage("hanaTenshoTotalBonusMemory2") var totalBonus = 0
+    @AppStorage("hanaTenshoPlayGamesMemory2") var playGames = 0
+    @AppStorage("hanaTenshoBigPlayGamesMemory2") var bigPlayGames = 0
+    @AppStorage("hanaTenshoBbLampCountSumMemory2") var bbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampCountSumMemory2") var rbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampKisuCountSumMemory2") var rbLampKisuCountSum = 0
+    @AppStorage("hanaTenshoRbLampGusuCountSumMemory2") var rbLampGusuCountSum = 0
+    @AppStorage("hanaTenshoMemoMemory2") var memo = ""
+    @AppStorage("hanaTenshoDateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class hanaTenshoMemory3: ObservableObject {
+    @AppStorage("hanaTenshoBellCountMemory3") var bellCount = 0
+    @AppStorage("hanaTenshoBigCountMemory3") var bigCount = 0
+    @AppStorage("hanaTenshoRegCountMemory3") var regCount = 0
+    @AppStorage("hanaTenshoBBSuikaCountMemory3") var bbSuikaCount = 0
+    @AppStorage("hanaTenshoBBLampBCountMemory3") var bbLampBCount = 0
+    @AppStorage("hanaTenshoBBLampYCountMemory3") var bbLampYCount = 0
+    @AppStorage("hanaTenshoBBLampGCountMemory3") var bbLampGCount = 0
+    @AppStorage("hanaTenshoBBLampRCountMemory3") var bbLampRCount = 0
+    @AppStorage("hanaTenshoBBLampRainbowCountMemory3") var bbLampRainbowCount = 0
+    @AppStorage("hanaTenshoRbLampBCountMemory3") var rbLampBCount = 0
+    @AppStorage("hanaTenshoRbLampYCountMemory3") var rbLampYCount = 0
+    @AppStorage("hanaTenshoRbLampGCountMemory3") var rbLampGCount = 0
+    @AppStorage("hanaTenshoRbLampRCountMemory3") var rbLampRCount = 0
+    @AppStorage("hanaTenshoRbLampRainbowCountMemory3") var rbLampRainbowCount = 0
+    @AppStorage("hanaTenshoStartGamesMemory3") var startGames = 0
+    @AppStorage("hanaTenshoCurrentGamesMemory3") var currentGames = 0
+    @AppStorage("hanaTenshoTotalBonusMemory3") var totalBonus = 0
+    @AppStorage("hanaTenshoPlayGamesMemory3") var playGames = 0
+    @AppStorage("hanaTenshoBigPlayGamesMemory3") var bigPlayGames = 0
+    @AppStorage("hanaTenshoBbLampCountSumMemory3") var bbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampCountSumMemory3") var rbLampCountSum = 0
+    @AppStorage("hanaTenshoRbLampKisuCountSumMemory3") var rbLampKisuCountSum = 0
+    @AppStorage("hanaTenshoRbLampGusuCountSumMemory3") var rbLampGusuCountSum = 0
+    @AppStorage("hanaTenshoMemoMemory3") var memo = ""
+    @AppStorage("hanaTenshoDateMemory3") var dateDouble = 0.0
+}
+
 
 struct hanaTenshoViewTop: View {
     @ObservedObject var hana = hanaTensho()
@@ -157,6 +247,9 @@ struct hanaTenshoViewTop: View {
     @State var normalClearSpaceHeight = 10.0
     @State var bigClearSpaceHeight = 250.0
     @State var regClearSpaceHeight = 200.0
+    @ObservedObject var hanaMemory1 = hanaTenshoMemory1()
+    @ObservedObject var hanaMemory2 = hanaTenshoMemory2()
+    @ObservedObject var hanaMemory3 = hanaTenshoMemory3()
     
     var body: some View {
         ZStack {
@@ -394,13 +487,229 @@ struct hanaTenshoViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    HStack {
+                        // //// データ読み出し
+                        unitButtonLoadMemory(loadView: AnyView(hanaTenshoViewLoadMemory(hana: hana, hanaMemory1: hanaMemory1, hanaMemory2: hanaMemory2, hanaMemory3: hanaMemory3)))
+                        // //// データ保存
+                        unitButtonSaveMemory(saveView: AnyView(hanaTenshoViewSaveMemory(hana: hana, hanaMemory1: hanaMemory1, hanaMemory2: hanaMemory2, hanaMemory3: hanaMemory3)))
+                    }
+                    .popoverTip(tipUnitButtonMemory())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $hana.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: hana.hanaReset, message: "この機種の全データをリセットします")
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
+    }
+}
+
+
+// /////////////////////////////
+// メモリーセーブ画面
+// /////////////////////////////
+struct hanaTenshoViewSaveMemory: View {
+    @ObservedObject var hana: hanaTensho
+    @ObservedObject var hanaMemory1: hanaTenshoMemory1
+    @ObservedObject var hanaMemory2: hanaTenshoMemory2
+    @ObservedObject var hanaMemory3: hanaTenshoMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "ハナハナ鳳凰天翔",
+            selectedMemory: $hana.selectedMemory,
+            memoMemory1: $hanaMemory1.memo,
+            dateDoubleMemory1: $hanaMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $hanaMemory2.memo,
+            dateDoubleMemory2: $hanaMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $hanaMemory3.memo,
+            dateDoubleMemory3: $hanaMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        hanaMemory1.bellCount = hana.bellCount
+        hanaMemory1.bigCount = hana.bigCount
+        hanaMemory1.regCount = hana.regCount
+        hanaMemory1.bbSuikaCount = hana.bbSuikaCount
+        hanaMemory1.bbLampBCount = hana.bbLampBCount
+        hanaMemory1.bbLampYCount = hana.bbLampYCount
+        hanaMemory1.bbLampGCount = hana.bbLampGCount
+        hanaMemory1.bbLampRCount = hana.bbLampRCount
+        hanaMemory1.bbLampRainbowCount = hana.bbLampRainbowCount
+        hanaMemory1.rbLampBCount = hana.rbLampBCount
+        hanaMemory1.rbLampYCount = hana.rbLampYCount
+        hanaMemory1.rbLampGCount = hana.rbLampGCount
+        hanaMemory1.rbLampRCount = hana.rbLampRCount
+        hanaMemory1.rbLampRainbowCount = hana.rbLampRainbowCount
+        hanaMemory1.startGames = hana.startGames
+        hanaMemory1.currentGames = hana.currentGames
+        hanaMemory1.totalBonus = hana.totalBonus
+        hanaMemory1.playGames = hana.playGames
+        hanaMemory1.bigPlayGames = hana.bigPlayGames
+        hanaMemory1.bbLampCountSum = hana.bbLampCountSum
+        hanaMemory1.rbLampCountSum = hana.rbLampCountSum
+        hanaMemory1.rbLampKisuCountSum = hana.rbLampKisuCountSum
+        hanaMemory1.rbLampGusuCountSum = hana.rbLampGusuCountSum
+    }
+    func saveMemory2() {
+        hanaMemory2.bellCount = hana.bellCount
+        hanaMemory2.bigCount = hana.bigCount
+        hanaMemory2.regCount = hana.regCount
+        hanaMemory2.bbSuikaCount = hana.bbSuikaCount
+        hanaMemory2.bbLampBCount = hana.bbLampBCount
+        hanaMemory2.bbLampYCount = hana.bbLampYCount
+        hanaMemory2.bbLampGCount = hana.bbLampGCount
+        hanaMemory2.bbLampRCount = hana.bbLampRCount
+        hanaMemory2.bbLampRainbowCount = hana.bbLampRainbowCount
+        hanaMemory2.rbLampBCount = hana.rbLampBCount
+        hanaMemory2.rbLampYCount = hana.rbLampYCount
+        hanaMemory2.rbLampGCount = hana.rbLampGCount
+        hanaMemory2.rbLampRCount = hana.rbLampRCount
+        hanaMemory2.rbLampRainbowCount = hana.rbLampRainbowCount
+        hanaMemory2.startGames = hana.startGames
+        hanaMemory2.currentGames = hana.currentGames
+        hanaMemory2.totalBonus = hana.totalBonus
+        hanaMemory2.playGames = hana.playGames
+        hanaMemory2.bigPlayGames = hana.bigPlayGames
+        hanaMemory2.bbLampCountSum = hana.bbLampCountSum
+        hanaMemory2.rbLampCountSum = hana.rbLampCountSum
+        hanaMemory2.rbLampKisuCountSum = hana.rbLampKisuCountSum
+        hanaMemory2.rbLampGusuCountSum = hana.rbLampGusuCountSum
+    }
+    func saveMemory3() {
+        hanaMemory3.bellCount = hana.bellCount
+        hanaMemory3.bigCount = hana.bigCount
+        hanaMemory3.regCount = hana.regCount
+        hanaMemory3.bbSuikaCount = hana.bbSuikaCount
+        hanaMemory3.bbLampBCount = hana.bbLampBCount
+        hanaMemory3.bbLampYCount = hana.bbLampYCount
+        hanaMemory3.bbLampGCount = hana.bbLampGCount
+        hanaMemory3.bbLampRCount = hana.bbLampRCount
+        hanaMemory3.bbLampRainbowCount = hana.bbLampRainbowCount
+        hanaMemory3.rbLampBCount = hana.rbLampBCount
+        hanaMemory3.rbLampYCount = hana.rbLampYCount
+        hanaMemory3.rbLampGCount = hana.rbLampGCount
+        hanaMemory3.rbLampRCount = hana.rbLampRCount
+        hanaMemory3.rbLampRainbowCount = hana.rbLampRainbowCount
+        hanaMemory3.startGames = hana.startGames
+        hanaMemory3.currentGames = hana.currentGames
+        hanaMemory3.totalBonus = hana.totalBonus
+        hanaMemory3.playGames = hana.playGames
+        hanaMemory3.bigPlayGames = hana.bigPlayGames
+        hanaMemory3.bbLampCountSum = hana.bbLampCountSum
+        hanaMemory3.rbLampCountSum = hana.rbLampCountSum
+        hanaMemory3.rbLampKisuCountSum = hana.rbLampKisuCountSum
+        hanaMemory3.rbLampGusuCountSum = hana.rbLampGusuCountSum
+    }
+}
+
+
+// /////////////////////////////
+// メモリーロード画面
+// /////////////////////////////
+struct hanaTenshoViewLoadMemory: View {
+    @ObservedObject var hana: hanaTensho
+    @ObservedObject var hanaMemory1: hanaTenshoMemory1
+    @ObservedObject var hanaMemory2: hanaTenshoMemory2
+    @ObservedObject var hanaMemory3: hanaTenshoMemory3
+    @State var isShowLoadAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "ハナハナ鳳凰天翔",
+            selectedMemory: $hana.selectedMemory,
+            memoMemory1: hanaMemory1.memo,
+            dateDoubleMemory1: hanaMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: hanaMemory2.memo,
+            dateDoubleMemory2: hanaMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: hanaMemory3.memo,
+            dateDoubleMemory3: hanaMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        hana.bellCount = hanaMemory1.bellCount
+        hana.bigCount = hanaMemory1.bigCount
+        hana.regCount = hanaMemory1.regCount
+        hana.bbSuikaCount = hanaMemory1.bbSuikaCount
+        hana.bbLampBCount = hanaMemory1.bbLampBCount
+        hana.bbLampYCount = hanaMemory1.bbLampYCount
+        hana.bbLampGCount = hanaMemory1.bbLampGCount
+        hana.bbLampRCount = hanaMemory1.bbLampRCount
+        hana.bbLampRainbowCount = hanaMemory1.bbLampRainbowCount
+        hana.rbLampBCount = hanaMemory1.rbLampBCount
+        hana.rbLampYCount = hanaMemory1.rbLampYCount
+        hana.rbLampGCount = hanaMemory1.rbLampGCount
+        hana.rbLampRCount = hanaMemory1.rbLampRCount
+        hana.rbLampRainbowCount = hanaMemory1.rbLampRainbowCount
+        hana.startGames = hanaMemory1.startGames
+        hana.currentGames = hanaMemory1.currentGames
+        hana.totalBonus = hanaMemory1.totalBonus
+        hana.playGames = hanaMemory1.playGames
+        hana.bigPlayGames = hanaMemory1.bigPlayGames
+        hana.bbLampCountSum = hanaMemory1.bbLampCountSum
+        hana.rbLampCountSum = hanaMemory1.rbLampCountSum
+        hana.rbLampKisuCountSum = hanaMemory1.rbLampKisuCountSum
+        hana.rbLampGusuCountSum = hanaMemory1.rbLampGusuCountSum
+    }
+    func loadMemory2() {
+        hana.bellCount = hanaMemory2.bellCount
+        hana.bigCount = hanaMemory2.bigCount
+        hana.regCount = hanaMemory2.regCount
+        hana.bbSuikaCount = hanaMemory2.bbSuikaCount
+        hana.bbLampBCount = hanaMemory2.bbLampBCount
+        hana.bbLampYCount = hanaMemory2.bbLampYCount
+        hana.bbLampGCount = hanaMemory2.bbLampGCount
+        hana.bbLampRCount = hanaMemory2.bbLampRCount
+        hana.bbLampRainbowCount = hanaMemory2.bbLampRainbowCount
+        hana.rbLampBCount = hanaMemory2.rbLampBCount
+        hana.rbLampYCount = hanaMemory2.rbLampYCount
+        hana.rbLampGCount = hanaMemory2.rbLampGCount
+        hana.rbLampRCount = hanaMemory2.rbLampRCount
+        hana.rbLampRainbowCount = hanaMemory2.rbLampRainbowCount
+        hana.startGames = hanaMemory2.startGames
+        hana.currentGames = hanaMemory2.currentGames
+        hana.totalBonus = hanaMemory2.totalBonus
+        hana.playGames = hanaMemory2.playGames
+        hana.bigPlayGames = hanaMemory2.bigPlayGames
+        hana.bbLampCountSum = hanaMemory2.bbLampCountSum
+        hana.rbLampCountSum = hanaMemory2.rbLampCountSum
+        hana.rbLampKisuCountSum = hanaMemory2.rbLampKisuCountSum
+        hana.rbLampGusuCountSum = hanaMemory2.rbLampGusuCountSum
+    }
+    func loadMemory3() {
+        hana.bellCount = hanaMemory3.bellCount
+        hana.bigCount = hanaMemory3.bigCount
+        hana.regCount = hanaMemory3.regCount
+        hana.bbSuikaCount = hanaMemory3.bbSuikaCount
+        hana.bbLampBCount = hanaMemory3.bbLampBCount
+        hana.bbLampYCount = hanaMemory3.bbLampYCount
+        hana.bbLampGCount = hanaMemory3.bbLampGCount
+        hana.bbLampRCount = hanaMemory3.bbLampRCount
+        hana.bbLampRainbowCount = hanaMemory3.bbLampRainbowCount
+        hana.rbLampBCount = hanaMemory3.rbLampBCount
+        hana.rbLampYCount = hanaMemory3.rbLampYCount
+        hana.rbLampGCount = hanaMemory3.rbLampGCount
+        hana.rbLampRCount = hanaMemory3.rbLampRCount
+        hana.rbLampRainbowCount = hanaMemory3.rbLampRainbowCount
+        hana.startGames = hanaMemory3.startGames
+        hana.currentGames = hanaMemory3.currentGames
+        hana.totalBonus = hanaMemory3.totalBonus
+        hana.playGames = hanaMemory3.playGames
+        hana.bigPlayGames = hanaMemory3.bigPlayGames
+        hana.bbLampCountSum = hanaMemory3.bbLampCountSum
+        hana.rbLampCountSum = hanaMemory3.rbLampCountSum
+        hana.rbLampKisuCountSum = hanaMemory3.rbLampKisuCountSum
+        hana.rbLampGusuCountSum = hanaMemory3.rbLampGusuCountSum
     }
 }
 
