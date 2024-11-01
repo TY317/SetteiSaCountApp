@@ -1,15 +1,16 @@
 //
-//  symphoViewHistory.swift
+//  rezero2ViewHistory.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2024/09/15.
+//  Created by 横田徹 on 2024/10/31.
 //
 
 import SwiftUI
+import TipKit
 
-struct symphoViewHistory: View {
-    @ObservedObject var sympho = Symphogear()
-    @State var isShowAlert = false
+struct rezero2ViewHistory: View {
+    @ObservedObject var rezero2 = Rezero2()
+    @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -17,19 +18,16 @@ struct symphoViewHistory: View {
     let scrollViewHeightPortrait = 250.0
     let scrollViewHeightLandscape = 150.0
     @State var scrollViewHeight = 250.0
-    let spaceHeightPortrait = 230.0
+    let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
-    @State var spaceHeight = 230.0
-    
-    
+    @State var spaceHeight = 250.0
     var body: some View {
-        //        NavigationView {
         List {
             // //// 履歴
             Section {
                 ScrollView {
-                    // //// 配列のデータが0以上なら履歴表示
-                    let gameArray = decodeIntArray(from: sympho.gameArrayData)
+                    // //// 配列のデータ数が0以上なら履歴表示
+                    let gameArray = decodeIntArray(from: rezero2.gameArrayData)
                     if gameArray.count > 0 {
                         ForEach(gameArray.indices, id: \.self) { index in
                             let viewIndex = gameArray.count - index - 1
@@ -46,10 +44,10 @@ struct symphoViewHistory: View {
                                     Text("-")
                                         .frame(maxWidth: .infinity)
                                 }
-                                // 種類
-                                let bonusArray = decodeStringArray(from: sympho.bonusArrayData)
-                                if bonusArray.indices.contains(viewIndex) {
-                                    Text("\(bonusArray[viewIndex])")
+                                // Ptゾーン
+                                let ptZoneArray = decodeStringArray(from: rezero2.ptZoneArrayData)
+                                if ptZoneArray.indices.contains(viewIndex) {
+                                    Text("\(ptZoneArray[viewIndex])")
                                         .lineLimit(1)
                                         .frame(maxWidth: .infinity)
                                 } else {
@@ -57,14 +55,13 @@ struct symphoViewHistory: View {
                                         .frame(maxWidth: .infinity)
                                 }
                                 // 当選契機
-                                let triggerArray = decodeStringArray(from: sympho.triggerArrayData)
+                                let triggerArray = decodeStringArray(from: rezero2.triggerArrayData)
                                 if triggerArray.indices.contains(viewIndex) {
                                     Text("\(triggerArray[viewIndex])")
                                         .lineLimit(1)
                                         .frame(maxWidth: .infinity)
                                 } else {
                                     Text("-")
-                                        .frame(maxWidth: .infinity)
                                 }
                             }
                             Divider()
@@ -82,51 +79,69 @@ struct symphoViewHistory: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                
                 // //// 登録、1行削除ボタン
                 HStack {
                     Spacer()
-                    Button(action: {
-                        if sympho.minusCheck {
-                            let gameArray = decodeIntArray(from: sympho.gameArrayData)
+                    Button {
+                        if rezero2.minusCheck {
+                            let gameArray = decodeIntArray(from: rezero2.gameArrayData)
                             if gameArray.count > 0 {
-                                sympho.removeLastHistory()
-                                UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                                rezero2.removeLastHistory()
+                                UINotificationFeedbackGenerator().notificationOccurred(.success)
                             }
                         } else {
                             isShowDataInputView.toggle()
                         }
-                    }, label: {
-                        if sympho.minusCheck {
+                    } label: {
+                        if rezero2.minusCheck {
                             Image(systemName: "minus")
                         } else {
                             Image(systemName: "plus")
                         }
-                    })
-                    .buttonStyle(PlusDeleatButtonStyle(MinusBool: sympho.minusCheck))
-                    .sheet(isPresented: $isShowDataInputView, content: {
-                        symphoSubViewDataInput(sympho: sympho)
+                    }
+                    .buttonStyle(PlusDeleatButtonStyle(MinusBool: rezero2.minusCheck))
+                    .sheet(isPresented: $isShowDataInputView) {
+                        rezero2SubViewDataInput(rezero2: rezero2)
                             .presentationDetents([.medium])
-                    })
+                    }
                     Spacer()
                 }
-                // //// 結果
-                // AT初当り
-                HStack {
-                    unitResultCount2Line(title: "AT初当り回数", color: .grayBack, count: $sympho.atCount)
-                    unitResultRatioDenomination2Line(title: "AT初当り確率", color: .grayBack, count: $sympho.atCount, bigNumber: $sympho.playGame, numberofDicimal: 0)
-                }
-                // 最終決戦
-                HStack {
-                    unitResultCount2Line(title: "最終決戦 回数", color: .grayBack, count: $sympho.czSaishuCount)
-                    unitResultRatioDenomination2Line(title: "最終決戦 確率", color: .grayBack, count: $sympho.czSaishuCount, bigNumber: $sympho.playGame, numberofDicimal: 0)
-                }
-                // 参考情報
-                unitLinkButton(title: "通常時のモードについて", exview: AnyView(unitExView5body2image(title: "通常時のモード", textBody1: "・通常時のモードは3種類。主にAT終了時に移行。", textBody2: "・高設定ほど天国移行、天国ループ率が優遇されているらしい。下記設定1の数値以上に天国が確認できればチャンス", textBody3: "・ATでの獲得枚数が100枚以下の場合は前回のモード不問で天国移行が優遇されるため勘違いしないよう注意", image1: Image("symphoMode"), image2: Image("symphoModeChange"))))
-                unitLinkButton(title: "AT,最終決戦 初当りについて", exview: AnyView(unitExView5body2image(title: "AT,最終決戦初当りについて", textBody1: "・AT初当り確率に設定差", textBody2: "・特に高確中チェリーでの当選に設定差あり。チェリーからの当選が多いほど良挙動。", textBody3: "・小役3連(リプレイ除く)で音符が降ってくる演出が出ることがあり、内部的にギアフラグモード移行の可能性あるのではとの噂あり。ギアフラグモードによってギアフラグ時の当選確率が変わる。高設定ほどギアフラグモードが良挙動するとの噂あり", textBody4: "・CZ 最終決戦の出現率に設定差あり。複数回確認でければ大チャンスか", image1: Image("symphoAtHit"), image2: Image("symphoCherryHit"))))
+                // //// 参考情報リンク
+                unitLinkButton(title: "規定Ptについて", exview: AnyView(unitExView5body2image(title: "規定Pt", textBody1: "・本機のメイン当選契機で最大天井は1400", textBody2: "・基本的に100Ptごとにゾーンが存在し、百の位が偶数のゾーンがチャンス", textBody3: "・百の位が奇数のゾーンでの当選は高設定ほど多いのではとの噂あり（ただし、特に朝イチは低設定でも奇数ゾーンで当たることもあるらしいので要注意）")))
             } header: {
-                unitHeaderHistoryColumns(column2: "ゲーム数", column3: "種類", column4: "当選契機")
+                unitHeaderHistoryColumns(column2: "実ゲーム数", column3: "Ptゾーン", column4: "当選契機")
             }
-//            unitClearScrollSection(spaceHeight: 250)
+            
+            // //// AT初当たり
+            Section {
+                HStack {
+                    // 通常時ゲーム数
+                    unitResultCount2Line(title: "通常G数", color: .grayBack, count: $rezero2.playGameSum, spacerBool: false)
+                    // 初当たり回数
+                    unitResultCount2Line(title: "AT回数", color: .grayBack, count: $rezero2.atHitCount, spacerBool: false)
+                    // 初当たり確率
+                    unitResultRatioDenomination2Line(title: "AT確率", color: .grayBack, count: $rezero2.atHitCount, bigNumber: $rezero2.playGameSum, numberofDicimal: 0, spacerBool: false)
+                }
+                // //// 参考情報リンク
+                unitLinkButton(title: "AT初当たり確率について", exview: AnyView(unitExView5body2image(title: "AT初当たり確率", textBody1: "・AT初当たり確率に設定差あり", image1: Image("rezero2AtHitRatio"))))
+            } header: {
+                Text("AT初当たり")
+            }
+            
+            // //// 引き戻し
+            Section {
+                HStack {
+                    // 引き戻し回数
+                    unitResultCount2Line(title: "引き戻し回数", color: .grayBack, count: $rezero2.comebackCount)
+                    // 引き戻し確率
+                    unitResultRatioPercent2Line(title: "引き戻し確率", color: .grayBack, count: $rezero2.comebackCount, bigNumber: $rezero2.atHitCount, numberofDicimal: 0)
+                }
+                // //// 参考情報リンク
+                unitLinkButton(title: "引き戻しについて", exview: AnyView(unitExView5body2image(title: "引き戻し（死に戻り）", textBody1: "・AT後32G+αで引き戻しの可能性あり", textBody2: "・引き戻し確率に設定差があるのではとの噂あり。設定6は20%程度で引き戻すとの噂。低設定は数%！？引き戻しが複数回確認できたら期待できるかも。")))
+            } header: {
+                Text("引き戻し")
+            }
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分
@@ -170,13 +185,15 @@ struct symphoViewHistory: View {
             // ビューが非表示になるときに監視を解除
             NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
-        .navigationTitle("AT初当り履歴")
+        .navigationTitle("AT初当たり履歴")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    unitButtonMinusCheck(minusCheck: $sympho.minusCheck)
-                    unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetHistory)
+                    // //// マイナスチェック
+                    unitButtonMinusCheck(minusCheck: $rezero2.minusCheck)
+                    // /// リセット
+                    unitButtonReset(isShowAlert: $isShowAlert, action: rezero2.resetHistory)
                         .popoverTip(tipUnitButtonReset())
                 }
             }
@@ -188,8 +205,8 @@ struct symphoViewHistory: View {
 // /////////////////////////
 // ビュー：データインプット画面
 // /////////////////////////
-struct symphoSubViewDataInput: View {
-    @ObservedObject var sympho: Symphogear
+struct rezero2SubViewDataInput: View {
+    @ObservedObject var rezero2: Rezero2
     @Environment(\.dismiss) private var dismiss
     @FocusState var isFocused: Bool
     
@@ -197,7 +214,7 @@ struct symphoSubViewDataInput: View {
         NavigationView {
             List {
                 // ゲーム数入力
-                unitTextFieldGamesInput(title: "ゲーム数", inputValue: $sympho.inputGame)
+                unitTextFieldGamesInput(title: "実ゲーム数", inputValue: $rezero2.inputGame)
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItem(placement: .keyboard) {
@@ -212,33 +229,24 @@ struct symphoSubViewDataInput: View {
                             }
                         }
                     }
-                // サークルピッカー横並び
+                // //// サークルピッカー横並び
                 HStack {
-                    unitPickerCircleString(title: "種類", selected: $sympho.selectedBonus, selectList: sympho.selectListBonus)
-                    // //// AT時の表示
-                    if sympho.selectedBonus == "AT" {
-                        unitPickerCircleString(title: "当選契機", selected: $sympho.selectedAtTrigger, selectList: sympho.selectListAtTrigger)
-                    }
-                    // //// 現在時の表示
-                    else {
-                        unitPickerCircleString(title: "当選契機", selected: $sympho.selectedCurrentTrigger, selectList: sympho.selectListCurrentTrigger)
-                    }
+                    // Ptゾーン
+                    unitPickerCircleString(title: "Ptゾーン", selected: $rezero2.selectedPt, selectList: rezero2.selectListPtZone)
+                    // 当選契機
+                    unitPickerCircleString(title: "当選契機", selected: $rezero2.selectedTrigger, selectList: rezero2.selectListTrigger)
                 }
                 // //// 登録ボタン
                 HStack {
                     Spacer()
-                    Button(action: {
-                        if sympho.selectedBonus == "AT" {
-                            sympho.addDataHistoryAt()
-                        } else {
-                            sympho.addDataHistoryCurrent()
-                        }
-                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                    Button {
+                        rezero2.addDataHistory()
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
                         dismiss()
-                    }, label: {
+                    } label: {
                         Text("登録")
                             .fontWeight(.bold)
-                    })
+                    }
                     Spacer()
                 }
             }
@@ -259,5 +267,5 @@ struct symphoSubViewDataInput: View {
 }
 
 #Preview {
-    symphoViewHistory()
+    rezero2ViewHistory()
 }

@@ -117,7 +117,7 @@ class draHanaSenkohVar: ObservableObject, hanaVar {
     
     // ビッグ消化ゲーム数
     private func BigPlayGames(big:Int) -> Int {
-        return big * 24
+        return big * 21
     }
     @AppStorage("draHanaSenkohBigPlayGames") var bigPlayGames = 0
     

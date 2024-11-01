@@ -474,16 +474,21 @@ struct unitResultCount2Line: View {
     @State var title: String
     @State var color: Color
     @Binding var count: Int
+    @State var spacerBool: Bool = true
     
     var body: some View {
         ZStack {
             // 背景用
             HStack {
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
                 Rectangle()
                     .foregroundColor(self.color)
                     .cornerRadius(15)
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
             }
             VStack {
                 Text(self.title)
@@ -506,6 +511,7 @@ struct unitResultRatioDenomination2Line: View {
     @Binding var count: Int
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
+    @State var spacerBool: Bool = true
     var denomination: Double {
         let deno = Double(bigNumber) / Double(count)
         return count > 0 ? deno : 0.0
@@ -515,11 +521,15 @@ struct unitResultRatioDenomination2Line: View {
         ZStack {
             // 背景用
             HStack {
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
                 Rectangle()
                     .foregroundColor(self.color)
                     .cornerRadius(15)
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
             }
             VStack {
                 Text(self.title)

@@ -117,7 +117,7 @@ class kingHanaVar: ObservableObject, hanaVar {
     
     // ビッグ消化ゲーム数
     private func BigPlayGames(big:Int) -> Int {
-        return big * 24
+        return big * 20
     }
     @AppStorage("kingHanaBigPlayGames") var bigPlayGames = 0
     
