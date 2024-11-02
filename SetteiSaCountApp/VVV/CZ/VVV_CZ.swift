@@ -11,6 +11,11 @@ import SwiftUI
 // 変数
 // ////////////////////
 class czVar: ObservableObject {
+    // 選択肢の設定
+    let selectListZone = ["100未満", "100G台", "200G台", "300G台", "400G台", "500G台", "600G台", "700G台", "800G台", "900G台"]
+    let selectListCharacter = ["キューマ", "ライゾウ", "サキ", "アキラ", "マリエ", "3人共闘"]
+    let selectListResult = ["ハズレ", "革命", "決戦"]
+    // 選択結果の設定
     @Published var selectedZone = "200G台"     // 液晶ゲーム数ゾーンの選択結果
     @Published var selectedCharacter = "サキ"     // CZキャラの選択結果
     @Published var selectedResult = "革命"     // CZ結果の選択結果
@@ -49,6 +54,38 @@ class czVar: ObservableObject {
     }
     
     // //// ボーナス回数関係
+    @AppStorage("vvvBonusCountKakumei") var bonusCountKakumei = 0
+    @AppStorage("vvvBonusCountKessen") var bonusCountKessen = 0
+    @AppStorage("vvvBonusCountSum") var bonusCountSum = 0
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayStringRemoveLast(arrayData: zoneArrayCzVVVData, key: zoneArrayKey)
+        arrayStringRemoveLast(arrayData: characterArrayCzVVVData, key: characterArrayKey)
+        arrayStringRemoveLast(arrayData: resultArrayCzVVVData, key: resultArrayKey)
+        bonusCountKakumei = arrayStringDataCount(arrayData: resultArrayCzVVVData, countString: "革命")
+        bonusCountKessen = arrayStringDataCount(arrayData: resultArrayCzVVVData, countString: "決戦")
+        bonusCountSum = bonusCountKakumei + bonusCountKessen
+        selectedZone = "200G台"
+        selectedCharacter = "サキ"
+        selectedResult = "革命"
+    }
+    
+    // データ追加
+    func addDataHistory() {
+        arrayStringAddData(arrayData: zoneArrayCzVVVData, addData: selectedZone, key: zoneArrayKey)
+        arrayStringAddData(arrayData: characterArrayCzVVVData, addData: selectedCharacter, key: characterArrayKey)
+        arrayStringAddData(arrayData: resultArrayCzVVVData, addData: selectedResult, key: resultArrayKey)
+        bonusCountKakumei = arrayStringDataCount(arrayData: resultArrayCzVVVData, countString: "革命")
+        bonusCountKessen = arrayStringDataCount(arrayData: resultArrayCzVVVData, countString: "決戦")
+        bonusCountSum = bonusCountKakumei + bonusCountKessen
+        selectedZone = "200G台"
+        selectedCharacter = "サキ"
+        selectedResult = "革命"
+    }
+    func resetHistory() {
+        
+    }
     // 革命回数
     var kakumeiCount: Int {
         return resultArray.filter { $0 == "革命" }.count

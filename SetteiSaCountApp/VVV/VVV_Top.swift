@@ -26,6 +26,9 @@ class VvvMemory1: ObservableObject {
     @AppStorage("zoneArrayCzVVVMemory1") var zoneArrayCzVVVData: Data?
     @AppStorage("characterArrayCzVVVMemory1") var characterArrayCzVVVData: Data?
     @AppStorage("resultArrayCzVVVMemory1") var resultArrayCzVVVData: Data?
+    @AppStorage("vvvKakumeiCountMemory1") var kakumeiCount = 0
+    @AppStorage("vvvKessenCountMemory1") var kessenCount = 0
+    @AppStorage("vvvBonusCountSumMemory1") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory1") var memo = ""
     @AppStorage("vvvDateMemory1") var dateDouble = 0.0
 }
@@ -48,6 +51,9 @@ class VvvMemory2: ObservableObject {
     @AppStorage("zoneArrayCzVVVMemory2") var zoneArrayCzVVVData: Data?
     @AppStorage("characterArrayCzVVVMemory2") var characterArrayCzVVVData: Data?
     @AppStorage("resultArrayCzVVVMemory2") var resultArrayCzVVVData: Data?
+    @AppStorage("vvvKakumeiCountMemory2") var kakumeiCount = 0
+    @AppStorage("vvvKessenCountMemory2") var kessenCount = 0
+    @AppStorage("vvvBonusCountSumMemory2") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory2") var memo = ""
     @AppStorage("vvvDateMemory2") var dateDouble = 0.0
 }
@@ -70,13 +76,16 @@ class VvvMemory3: ObservableObject {
     @AppStorage("zoneArrayCzVVVMemory3") var zoneArrayCzVVVData: Data?
     @AppStorage("characterArrayCzVVVMemory3") var characterArrayCzVVVData: Data?
     @AppStorage("resultArrayCzVVVMemory3") var resultArrayCzVVVData: Data?
+    @AppStorage("vvvKakumeiCountMemory2") var kakumeiCount = 0
+    @AppStorage("vvvKessenCountMemory2") var kessenCount = 0
+    @AppStorage("vvvBonusCountSumMemory2") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory3") var memo = ""
     @AppStorage("vvvDateMemory3") var dateDouble = 0.0
 }
 
 struct VVV_Top: View {
     @State var isShowAlert = false
-    @ObservedObject var cz = czVar()
+//    @ObservedObject var cz = czVar()
     @ObservedObject var VVVendScreen = VVVendScreenVar()
     @ObservedObject var VVVmarie = VVVmarieVar()
     @ObservedObject var VVVharakiri = VVVharakiriVar()
@@ -147,7 +156,7 @@ struct VVV_Top: View {
                                 
                             }
                             Button("リセット", role: .destructive) {
-                                VVVfuncResetCz(cz: cz)
+//                                VVVfuncResetCz(cz: cz)
                                 VVVfuncResetEndScreen(VVVendScreen: VVVendScreen)
                                 VVVfuncResetMarie(VVVmarie: VVVmarie)
                                 VVVfuncResetDrive(VVVharakiri: VVVharakiri)
@@ -170,7 +179,7 @@ struct VVV_Top: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct vvvViewSaveMemory: View {
-    @ObservedObject var cz = czVar()
+//    @ObservedObject var cz = czVar()
     @ObservedObject var VVVendScreen = VVVendScreenVar()
     @ObservedObject var VVVmarie = VVVmarieVar()
     @ObservedObject var VVVharakiri = VVVharakiriVar()
@@ -210,9 +219,12 @@ struct vvvViewSaveMemory: View {
         vvvMemory1.r5Count = VVVendScreen.r5Count
         vvvMemory1.r6Count = VVVendScreen.r6Count
         vvvMemory1.gCount = VVVendScreen.gCount
-        vvvMemory1.zoneArrayCzVVVData = cz.zoneArrayCzVVVData
-        vvvMemory1.characterArrayCzVVVData = cz.characterArrayCzVVVData
-        vvvMemory1.resultArrayCzVVVData = cz.resultArrayCzVVVData
+        vvvMemory1.zoneArrayCzVVVData = vvv.zoneArrayCzVVVData
+        vvvMemory1.characterArrayCzVVVData = vvv.characterArrayCzVVVData
+        vvvMemory1.resultArrayCzVVVData = vvv.resultArrayCzVVVData
+        vvvMemory1.kakumeiCount = vvv.kakumeiCount
+        vvvMemory1.kessenCount = vvv.kessenCount
+        vvvMemory1.bonusCountSum = vvv.bonusCountSum
     }
     func saveMemory2() {
         vvvMemory2.before1020Count = VVVharakiri.before1020Count
@@ -228,9 +240,12 @@ struct vvvViewSaveMemory: View {
         vvvMemory2.r5Count = VVVendScreen.r5Count
         vvvMemory2.r6Count = VVVendScreen.r6Count
         vvvMemory2.gCount = VVVendScreen.gCount
-        vvvMemory2.zoneArrayCzVVVData = cz.zoneArrayCzVVVData
-        vvvMemory2.characterArrayCzVVVData = cz.characterArrayCzVVVData
-        vvvMemory2.resultArrayCzVVVData = cz.resultArrayCzVVVData
+        vvvMemory2.zoneArrayCzVVVData = vvv.zoneArrayCzVVVData
+        vvvMemory2.characterArrayCzVVVData = vvv.characterArrayCzVVVData
+        vvvMemory2.resultArrayCzVVVData = vvv.resultArrayCzVVVData
+        vvvMemory2.kakumeiCount = vvv.kakumeiCount
+        vvvMemory2.kessenCount = vvv.kessenCount
+        vvvMemory2.bonusCountSum = vvv.bonusCountSum
     }
     func saveMemory3() {
         vvvMemory3.before1020Count = VVVharakiri.before1020Count
@@ -246,9 +261,12 @@ struct vvvViewSaveMemory: View {
         vvvMemory3.r5Count = VVVendScreen.r5Count
         vvvMemory3.r6Count = VVVendScreen.r6Count
         vvvMemory3.gCount = VVVendScreen.gCount
-        vvvMemory3.zoneArrayCzVVVData = cz.zoneArrayCzVVVData
-        vvvMemory3.characterArrayCzVVVData = cz.characterArrayCzVVVData
-        vvvMemory3.resultArrayCzVVVData = cz.resultArrayCzVVVData
+        vvvMemory3.zoneArrayCzVVVData = vvv.zoneArrayCzVVVData
+        vvvMemory3.characterArrayCzVVVData = vvv.characterArrayCzVVVData
+        vvvMemory3.resultArrayCzVVVData = vvv.resultArrayCzVVVData
+        vvvMemory3.kakumeiCount = vvv.kakumeiCount
+        vvvMemory3.kessenCount = vvv.kessenCount
+        vvvMemory3.bonusCountSum = vvv.bonusCountSum
     }
 }
 
@@ -257,7 +275,7 @@ struct vvvViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct vvvViewLoadMemory: View {
-    @ObservedObject var cz = czVar()
+//    @ObservedObject var cz = czVar()
     @ObservedObject var VVVendScreen = VVVendScreenVar()
     @ObservedObject var VVVmarie = VVVmarieVar()
     @ObservedObject var VVVharakiri = VVVharakiriVar()
@@ -297,9 +315,12 @@ struct vvvViewLoadMemory: View {
         VVVendScreen.r5Count = vvvMemory1.r5Count
         VVVendScreen.r6Count = vvvMemory1.r6Count
         VVVendScreen.gCount = vvvMemory1.gCount
-        cz.zoneArrayCzVVVData = vvvMemory1.zoneArrayCzVVVData
-        cz.characterArrayCzVVVData = vvvMemory1.characterArrayCzVVVData
-        cz.resultArrayCzVVVData = vvvMemory1.resultArrayCzVVVData
+        vvv.zoneArrayCzVVVData = vvvMemory1.zoneArrayCzVVVData
+        vvv.characterArrayCzVVVData = vvvMemory1.characterArrayCzVVVData
+        vvv.resultArrayCzVVVData = vvvMemory1.resultArrayCzVVVData
+        vvv.kakumeiCount = vvvMemory1.kakumeiCount
+        vvv.kessenCount = vvvMemory1.kessenCount
+        vvv.bonusCountSum = vvvMemory1.bonusCountSum
     }
     func loadMemory2() {
         VVVharakiri.before1020Count = vvvMemory2.before1020Count
@@ -315,9 +336,12 @@ struct vvvViewLoadMemory: View {
         VVVendScreen.r5Count = vvvMemory2.r5Count
         VVVendScreen.r6Count = vvvMemory2.r6Count
         VVVendScreen.gCount = vvvMemory2.gCount
-        cz.zoneArrayCzVVVData = vvvMemory2.zoneArrayCzVVVData
-        cz.characterArrayCzVVVData = vvvMemory2.characterArrayCzVVVData
-        cz.resultArrayCzVVVData = vvvMemory2.resultArrayCzVVVData
+        vvv.zoneArrayCzVVVData = vvvMemory2.zoneArrayCzVVVData
+        vvv.characterArrayCzVVVData = vvvMemory2.characterArrayCzVVVData
+        vvv.resultArrayCzVVVData = vvvMemory2.resultArrayCzVVVData
+        vvv.kakumeiCount = vvvMemory2.kakumeiCount
+        vvv.kessenCount = vvvMemory2.kessenCount
+        vvv.bonusCountSum = vvvMemory2.bonusCountSum
     }
     func loadMemory3() {
         VVVharakiri.before1020Count = vvvMemory3.before1020Count
@@ -333,9 +357,12 @@ struct vvvViewLoadMemory: View {
         VVVendScreen.r5Count = vvvMemory3.r5Count
         VVVendScreen.r6Count = vvvMemory3.r6Count
         VVVendScreen.gCount = vvvMemory3.gCount
-        cz.zoneArrayCzVVVData = vvvMemory3.zoneArrayCzVVVData
-        cz.characterArrayCzVVVData = vvvMemory3.characterArrayCzVVVData
-        cz.resultArrayCzVVVData = vvvMemory3.resultArrayCzVVVData
+        vvv.zoneArrayCzVVVData = vvvMemory3.zoneArrayCzVVVData
+        vvv.characterArrayCzVVVData = vvvMemory3.characterArrayCzVVVData
+        vvv.resultArrayCzVVVData = vvvMemory3.resultArrayCzVVVData
+        vvv.kakumeiCount = vvvMemory3.kakumeiCount
+        vvv.kessenCount = vvvMemory3.kessenCount
+        vvv.bonusCountSum = vvvMemory3.bonusCountSum
     }
 }
 

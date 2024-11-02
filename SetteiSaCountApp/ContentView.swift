@@ -603,8 +603,8 @@ struct AdMobBannerView: UIViewRepresentable {
     func makeUIView(context: Context) -> GADBannerView {
         let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
         // 諸々の設定をしていく
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
-//        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
+//        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
+        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
         banner.rootViewController = getRootViewController() // 修正部分
         banner.load(GADRequest())
         return banner // 最終的にインスタンスを返す
