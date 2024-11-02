@@ -156,7 +156,7 @@ struct VVV_CZ: View {
                     })
                     
                     // //// ボーナス回数、比率の部分
-                    bonusTimesView()
+                    bonusTimesView(cz: cz)
                     
                     // //// 参考情報リンク：革命比率
                     Button(action: {
@@ -462,7 +462,8 @@ struct DataInputView: View {
 // ビュー：革命、決戦回数と比率の表示
 // ////////////////////////////
 struct bonusTimesView: View {
-    @ObservedObject var cz = czVar()
+//    @ObservedObject var cz = czVar()
+    @ObservedObject var cz: czVar
     
     var body: some View {
         HStack {

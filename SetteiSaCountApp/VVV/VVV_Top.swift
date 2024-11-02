@@ -133,9 +133,9 @@ struct VVV_Top: View {
                     HStack {
                         HStack {
                             // //// データ読み出し
-                            unitButtonLoadMemory(loadView: AnyView(vvvViewLoadMemory(cz: cz, VVVendScreen: VVVendScreen, VVVmarie: VVVmarie, VVVharakiri: VVVharakiri, vvv: vvv, vvvMemory1: vvvMemory1, vvvMemory2: vvvMemory2, vvvMemory3: vvvMemory3)))
+                            unitButtonLoadMemory(loadView: AnyView(vvvViewLoadMemory()))
                             // //// データ保存
-                            unitButtonSaveMemory(saveView: AnyView(vvvViewSaveMemory(cz: cz, VVVendScreen: VVVendScreen, VVVmarie: VVVmarie, VVVharakiri: VVVharakiri, vvv: vvv, vvvMemory1: vvvMemory1, vvvMemory2: vvvMemory2, vvvMemory3: vvvMemory3)))
+                            unitButtonSaveMemory(saveView: AnyView(vvvViewSaveMemory()))
                         }
                         .popoverTip(tipUnitButtonMemory())
                         // データリセットボタン
@@ -170,14 +170,14 @@ struct VVV_Top: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct vvvViewSaveMemory: View {
-    @ObservedObject var cz: czVar
-    @ObservedObject var VVVendScreen: VVVendScreenVar
-    @ObservedObject var VVVmarie: VVVmarieVar
-    @ObservedObject var VVVharakiri: VVVharakiriVar
-    @ObservedObject var vvv: vvvCzHistory
-    @ObservedObject var vvvMemory1: VvvMemory1
-    @ObservedObject var vvvMemory2: VvvMemory2
-    @ObservedObject var vvvMemory3: VvvMemory3
+    @ObservedObject var cz = czVar()
+    @ObservedObject var VVVendScreen = VVVendScreenVar()
+    @ObservedObject var VVVmarie = VVVmarieVar()
+    @ObservedObject var VVVharakiri = VVVharakiriVar()
+    @ObservedObject var vvv = vvvCzHistory()
+    @ObservedObject var vvvMemory1 = VvvMemory1()
+    @ObservedObject var vvvMemory2 = VvvMemory2()
+    @ObservedObject var vvvMemory3 = VvvMemory3()
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -257,14 +257,14 @@ struct vvvViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct vvvViewLoadMemory: View {
-    @ObservedObject var cz: czVar
-    @ObservedObject var VVVendScreen: VVVendScreenVar
-    @ObservedObject var VVVmarie: VVVmarieVar
-    @ObservedObject var VVVharakiri: VVVharakiriVar
-    @ObservedObject var vvv: vvvCzHistory
-    @ObservedObject var vvvMemory1: VvvMemory1
-    @ObservedObject var vvvMemory2: VvvMemory2
-    @ObservedObject var vvvMemory3: VvvMemory3
+    @ObservedObject var cz = czVar()
+    @ObservedObject var VVVendScreen = VVVendScreenVar()
+    @ObservedObject var VVVmarie = VVVmarieVar()
+    @ObservedObject var VVVharakiri = VVVharakiriVar()
+    @ObservedObject var vvv = vvvCzHistory()
+    @ObservedObject var vvvMemory1 = VvvMemory1()
+    @ObservedObject var vvvMemory2 = VvvMemory2()
+    @ObservedObject var vvvMemory3 = VvvMemory3()
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {
