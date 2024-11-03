@@ -59,7 +59,7 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
-                                    .popoverTip(tipVer130AddMachineJug())
+//                                    .popoverTip(tipVer130AddMachineJug())
                             }
                         }
                     }
@@ -89,7 +89,7 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
-                                    .popoverTip(tipVer130AddMachineJug())
+//                                    .popoverTip(tipVer130AddMachineJug())
                             }
                             
                         } header: {

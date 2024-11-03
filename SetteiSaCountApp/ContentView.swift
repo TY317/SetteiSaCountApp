@@ -86,7 +86,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ2")
-                                        
+                                        .popoverTip(tipVer140AddMachine())
                                 }
                                 
                                 // //// かぐや様、24年9月
