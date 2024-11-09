@@ -27,6 +27,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteKarakuri") var isSelectedFavoriteKarakuri = true
     @AppStorage("isSelectedFavoriteKaguya") var isSelectedFavoriteKaguya = true
     @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
+    @AppStorage("isSelectedFavoriteBangdream") var isSelectedFavoriteBangdream = true
 }
 
 
@@ -81,12 +82,20 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// バンドリ、24年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBangdream == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!")
+                                        .popoverTip(tipVer150AddMachine())
+                                }
+                                
                                 // //// リゼロ2、24年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRezero2 == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ2")
-                                        .popoverTip(tipVer140AddMachine())
+//                                        .popoverTip(tipVer140AddMachine())
                                 }
                                 
                                 // //// かぐや様、24年9月
@@ -181,6 +190,14 @@ struct ContentView: View {
                                         // 非表示
                                     } else {
                                         machineListHanahanaSeries()
+                                    }
+                                    
+                                    // //// バンドリ、24年11月
+                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBangdream == false {
+                                        
+                                    } else {
+                                        unitMachinListLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!", makerName: "平和", releaseYear: 2024, releaseMonth: 11)
+                                            .popoverTip(tipVer150AddMachine())
                                     }
                                     
                                     // //// リゼロ2、24年10月
@@ -399,6 +416,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// バンドリ、24年11月
+                Toggle("バンドリ!", isOn: $favoriteSet.isSelectedFavoriteBangdream)
                 // //// リゼロ2、24年10月
                 Toggle("Re:ゼロ season2", isOn: $favoriteSet.isSelectedFavoriteRezero2)
                 // //// かぐや様、24年9月
@@ -603,8 +622,8 @@ struct AdMobBannerView: UIViewRepresentable {
     func makeUIView(context: Context) -> GADBannerView {
         let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
         // 諸々の設定をしていく
-//        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
-        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
+//        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
         banner.rootViewController = getRootViewController() // 修正部分
         banner.load(GADRequest())
         return banner // 最終的にインスタンスを返す

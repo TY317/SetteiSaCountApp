@@ -558,6 +558,7 @@ struct unitResultRatioPercent2Line: View {
     @Binding var count: Int
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
+    @State var spacerBool: Bool = true
     var ratio: Double {
         let ra = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? ra : 0.0
@@ -567,11 +568,15 @@ struct unitResultRatioPercent2Line: View {
         ZStack {
             // 背景用
             HStack {
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
                 Rectangle()
                     .foregroundColor(self.color)
                     .cornerRadius(15)
-                Spacer()
+                if self.spacerBool {
+                    Spacer()
+                }
             }
             VStack {
                 Text(self.title)

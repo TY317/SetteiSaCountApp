@@ -114,6 +114,14 @@
 		0F88727F2C6B4C3700AADD2B /* VVVexViewMarie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F88727E2C6B4C3700AADD2B /* VVVexViewMarie.swift */; };
 		0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8872812C6B5F0D00AADD2B /* VVVharakiriDriveView.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
+		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
+		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
+		0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024462CDB93C4004B3FD5 /* ver150Tip.swift */; };
+		0FA024492CDCEB3A004B3FD5 /* bangdreamViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024482CDCEB3A004B3FD5 /* bangdreamViewHistory.swift */; };
+		0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0244A2CDF40D7004B3FD5 /* bangdreamViewScreen.swift */; };
+		0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0244C2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift */; };
+		0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */; };
+		0FA024512CDF5C93004B3FD5 /* commonAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */; };
 		0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
@@ -270,6 +278,14 @@
 		0F88727E2C6B4C3700AADD2B /* VVVexViewMarie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVexViewMarie.swift; sourceTree = "<group>"; };
 		0F8872812C6B5F0D00AADD2B /* VVVharakiriDriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVharakiriDriveView.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
+		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
+		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
+		0FA024462CDB93C4004B3FD5 /* ver150Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver150Tip.swift; sourceTree = "<group>"; };
+		0FA024482CDCEB3A004B3FD5 /* bangdreamViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewHistory.swift; sourceTree = "<group>"; };
+		0FA0244A2CDF40D7004B3FD5 /* bangdreamViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewScreen.swift; sourceTree = "<group>"; };
+		0FA0244C2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewPicoAttack.swift; sourceTree = "<group>"; };
+		0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewKakureNagi.swift; sourceTree = "<group>"; };
+		0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = commonAssets.xcassets; sourceTree = "<group>"; };
 		0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewScreen.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
@@ -526,6 +542,7 @@
 		0F8030DA2C6249FC001F008E /* SetteiSaCountApp */ = {
 			isa = PBXGroup;
 			children = (
+				0FA024412CDB9242004B3FD5 /* bangdream */,
 				0F0B4BBF2CCD23E500B12B00 /* rezero2 */,
 				0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */,
 				0F3B70502CA7F41B002C7F44 /* karakuriCircus */,
@@ -601,6 +618,9 @@
 				0F3465C02CB4128900B5D2DD /* ver120Tip.swift */,
 				0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */,
 				0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */,
+				0FA024462CDB93C4004B3FD5 /* ver150Tip.swift */,
+				0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */,
+				0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -673,6 +693,18 @@
 				0F654BB42C6CE41100F37849 /* VVVexViewRoundScreen.swift */,
 			);
 			path = Drive;
+			sourceTree = "<group>";
+		};
+		0FA024412CDB9242004B3FD5 /* bangdream */ = {
+			isa = PBXGroup;
+			children = (
+				0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */,
+				0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */,
+				0FA024482CDCEB3A004B3FD5 /* bangdreamViewHistory.swift */,
+				0FA0244A2CDF40D7004B3FD5 /* bangdreamViewScreen.swift */,
+				0FA0244C2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift */,
+			);
+			path = bangdream;
 			sourceTree = "<group>";
 		};
 		0FE23B232C718FD1000E65D7 /* botsu */ = {
@@ -842,11 +874,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7202FD2C8F1535001A8AF2 /* godeaterAssets.xcassets in Resources */,
+				0FA024512CDF5C93004B3FD5 /* commonAssets.xcassets in Resources */,
 				0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */,
 				0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */,
 				0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */,
 				0F654BED2C70A2E200F37849 /* kingHanaAssets.xcassets in Resources */,
 				0F654BC42C6E3BE200F37849 /* happyJugV3Assets.xcassets in Resources */,
+				0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */,
 				0F7546BB2C95C1060007A277 /* symphoAssets.xcassets in Resources */,
 				0FE23B282C74CAB3000E65D7 /* mt5Assets.xcassets in Resources */,
 				0F80310D2C625042001F008E /* VVV_Assets.xcassets in Resources */,
@@ -1008,12 +1042,15 @@
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */,
 				0F8031182C697910001F008E /* splashScreenView.swift in Sources */,
+				0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */,
 				0F3465B52CAEC5E400B5D2DD /* karakuriViewStage.swift in Sources */,
 				0F7D3F212C82925B00A3FE7D /* kabaneriMumei.swift in Sources */,
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
+				0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */,
 				0F3465BB2CB21F1A00B5D2DD /* karakuriViewEnding.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
 				0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */,
+				0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */,
 				0F25C27D2C889E5F008B4707 /* toloveruViewEndScreen.swift in Sources */,
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
 				0F66FE702C8C78FC00776053 /* hokutoViewMode.swift in Sources */,
@@ -1024,6 +1061,7 @@
 				0F7D3F1D2C80B94900A3FE7D /* kabaneriViewChance.swift in Sources */,
 				0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */,
 				0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */,
+				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
 				0F8325BD2C7E138B0037226E /* goevaNormalSuika.swift in Sources */,
 				0F88727D2C6B2D2300AADD2B /* VVVmarieView.swift in Sources */,
 				0F8031232C69EE4D001F008E /* exViewModeDetailVVV.swift in Sources */,
@@ -1059,6 +1097,7 @@
 				0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */,
 				0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */,
 				0F80311B2C69B3BD001F008E /* myButtonStyle.swift in Sources */,
+				0FA024492CDCEB3A004B3FD5 /* bangdreamViewHistory.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0F8090462C849DC00061480F /* hokutoViewBbBell.swift in Sources */,
 				0F8031102C6251AB001F008E /* VVV_Top.swift in Sources */,
@@ -1086,6 +1125,7 @@
 				0F654BB32C6CDF0B00F37849 /* VVVexViewDrive.swift in Sources */,
 				0F8031252C69F87D001F008E /* exViewMimizuVVV.swift in Sources */,
 				0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */,
+				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
 				0F719BCE2C7CBFD700FAD8B8 /* mt5ViewEnding.swift in Sources */,
 				0F587EAA2CD50CCA0027641C /* rezero2ViewWatch.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
@@ -1274,7 +1314,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1313,7 +1353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

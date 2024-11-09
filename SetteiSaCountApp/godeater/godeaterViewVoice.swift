@@ -116,11 +116,13 @@ struct godeaterViewVoice: View {
                             if godeater.minusCheck == false {
                                 Text("登録")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color.blue)
+//                                    .foregroundColor(Color.blue)
+                                    .foregroundStyle(Color.blue)
                             } else {
                                 Text("マイナス")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             }
                             Spacer()
                         }
