@@ -186,11 +186,11 @@ struct vvvViewCzHistoryVer2: View {
             Section {
                 HStack {
                     HStack {
-                        unitResultCount2Line(title: "革命", color: .grayBack, count: $vvv.kakumeiCount)
-                        unitResultCount2Line(title: "決戦", color: .grayBack, count: $vvv.kessenCount)
+                        unitResultCount2Line(title: "革命", color: .grayBack, count: $vvv.kakumeiCount, spacerBool: false)
+                        unitResultCount2Line(title: "決戦", color: .grayBack, count: $vvv.kessenCount, spacerBool: false)
                     }
                     .frame(maxWidth: .infinity)
-                    unitResultRatioPercent2Line(title: "革命比率", color: .grayBack, count: $vvv.kakumeiCount, bigNumber: $vvv.bonusCountSum, numberofDicimal: 0)
+                    unitResultRatioPercent2Line(title: "革命比率", color: .grayBack, count: $vvv.kakumeiCount, bigNumber: $vvv.bonusCountSum, numberofDicimal: 0, spacerBool: false)
                 }
                 // //// 参考情報リンク
                 unitLinkButton(title: "革命ボーナス比率について", exview: AnyView(exViewKakumeiRatioVVV()))
