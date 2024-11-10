@@ -15,6 +15,7 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
     @AppStorage("isSelectedMyJug5") var isSelectedMyJug5 = true
     @AppStorage("isSelectedHappyJugV3") var isSelectedHappyJugV3 = true
     @AppStorage("isSelectedImJugEx") var isSelectedImJugEx = true
+    @AppStorage("isSelectedGoJug3") var isSelectedGoJug3 = true
 }
 
 
@@ -40,6 +41,18 @@ struct JuglerSeriesViewTop: View {
                             .frame(height: 40)
                             .foregroundColor(.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                            // //// ゴーゴージャグラー3、2023年 7月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(
+                                    linkView: AnyView(goJug3ViewTop()),
+                                    iconImage: Image("goJug3MachineIcon"),
+                                    machineName: "ゴージャグ3"
+                                )
+                                .popoverTip(tipVer150AddMachineJug())
+                            }
+                            
                             // //// ハッピージャグラーV3
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
@@ -70,6 +83,21 @@ struct JuglerSeriesViewTop: View {
                     // //// 機種リスト表示部分
                     List {
                         Section {
+                            // //// ゴーゴージャグラー3、2023年 7月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(
+                                    linkView: AnyView(goJug3ViewTop()),
+                                    iconImage: Image("goJug3MachineIcon"),
+                                    machineName: "ゴーゴージャグラー3",
+                                    makerName: "北電子",
+                                    releaseYear: 2023,
+                                    releaseMonth: 7
+                                )
+                                .popoverTip(tipVer150AddMachineJug())
+                            }
+                            
                             // //// ハッピージャグラーV3
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
@@ -195,10 +223,14 @@ struct juglerSeriesfavoriteSettingView: View {
     var body: some View {
         NavigationView {
             List {
+                // //// ゴーゴージャグラー3、2023年 7月
+                Toggle("ゴーゴージャグラー3", isOn: $favoriteSet.isSelectedGoJug3)
                 // ハッピージャグラーV3, 22年10月
                 Toggle("ハッピージャグラーV3", isOn: $favoriteSet.isSelectedHappyJugV3)
                 // マイジャグラー　21年12月
                 Toggle("マイジャグラー5", isOn: $favoriteSet.isSelectedMyJug5)
+                // アイムジャグラー
+                Toggle("アイムジャグラーEX", isOn: $favoriteSet.isSelectedImJugEx)
             }
             .navigationTitle("お気に入り機種設定")
             .toolbarTitleDisplayMode(.inline)

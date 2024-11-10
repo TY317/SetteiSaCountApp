@@ -122,6 +122,8 @@
 		0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0244C2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift */; };
 		0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */; };
 		0FA024512CDF5C93004B3FD5 /* commonAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */; };
+		0FA024542CE03C66004B3FD5 /* goJug3ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024532CE03C66004B3FD5 /* goJug3ViewTop.swift */; };
+		0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024552CE03C75004B3FD5 /* goJug3Assets.xcassets */; };
 		0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
@@ -286,6 +288,8 @@
 		0FA0244C2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewPicoAttack.swift; sourceTree = "<group>"; };
 		0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewKakureNagi.swift; sourceTree = "<group>"; };
 		0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = commonAssets.xcassets; sourceTree = "<group>"; };
+		0FA024532CE03C66004B3FD5 /* goJug3ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goJug3ViewTop.swift; sourceTree = "<group>"; };
+		0FA024552CE03C75004B3FD5 /* goJug3Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = goJug3Assets.xcassets; sourceTree = "<group>"; };
 		0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewScreen.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 		0F654BB62C6DD27E00F37849 /* JuglerSeries */ = {
 			isa = PBXGroup;
 			children = (
+				0FA024522CE03C3B004B3FD5 /* goJug3 */,
 				0FF187862CBF982700224A49 /* imJugEx */,
 				0F654BC22C6E3B0800F37849 /* happyJugV3 */,
 				0F654BBB2C6DD79B00F37849 /* myJug5 */,
@@ -707,6 +712,15 @@
 			path = bangdream;
 			sourceTree = "<group>";
 		};
+		0FA024522CE03C3B004B3FD5 /* goJug3 */ = {
+			isa = PBXGroup;
+			children = (
+				0FA024532CE03C66004B3FD5 /* goJug3ViewTop.swift */,
+				0FA024552CE03C75004B3FD5 /* goJug3Assets.xcassets */,
+			);
+			path = goJug3;
+			sourceTree = "<group>";
+		};
 		0FE23B232C718FD1000E65D7 /* botsu */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +906,7 @@
 				0F6F1F7F2CA382C2008554A0 /* hanaTenshoAssets.xcassets in Resources */,
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
+				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
 				0F8090402C83DC410061480F /* hokutoAssets.xcassets in Resources */,
 				0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */,
 				0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */,
@@ -1075,6 +1090,7 @@
 				0F654BF12C7168A900F37849 /* kingHanaExViewBbLamp.swift in Sources */,
 				0FE23B2E2C773DBC000E65D7 /* mt5RivalModeView.swift in Sources */,
 				0F25C27B2C8891EB008B4707 /* toloveruViewBonus.swift in Sources */,
+				0FA024542CE03C66004B3FD5 /* goJug3ViewTop.swift in Sources */,
 				0F654BEB2C70A10B00F37849 /* kingHanaExViewBellBonus.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,

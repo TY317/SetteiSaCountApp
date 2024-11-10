@@ -23,7 +23,22 @@ struct tipVer150AddMachine: Tip {
         Text("機種追加しました！")
     }
     var message: Text? {
-        Text("バンドリ!を追加")
+        Text("バンドリ!、ゴーゴージャグラー3を追加")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+// //////////////////
+// Tip：機種追加
+// //////////////////
+struct tipVer150AddMachineJug: Tip {
+    var title: Text {
+        Text("機種追加しました！")
+    }
+    var message: Text? {
+        Text("ゴーゴージャグラー3を追加")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

@@ -105,9 +105,48 @@ class Bangdream: ObservableObject {
     // /////////////////////////
     // ST終了画面
     // /////////////////////////
+    @AppStorage("bangdreamScreenCurrentKeyword") var screenCurrentKeyword = ""
+    let screenKeywordList = ["bangdreamScreenKasumi", "bangdreamScreenPhoto", "bangdreamScreenMiniChara", "bangdreamScreenRyo", "bangdreamScreenYu", "bangdreamScreenKiwami"]
+    @AppStorage("bangdreamScreenCountKasumi") var screenCountKasumi = 0 {
+        didSet {
+            screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+        }
+    }
+        @AppStorage("bangdreamScreenCountPhoto") var screenCountPhoto = 0 {
+            didSet {
+                screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+            }
+        }
+            @AppStorage("bangdreamScreenCountMinichara") var screenCountMinichara = 0 {
+                didSet {
+                    screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+                }
+            }
+                @AppStorage("bangdreamScreenCountRyoStamp") var screenCountRyoStamp = 0 {
+                    didSet {
+                        screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+                    }
+                }
+                    @AppStorage("bangdreamScreenCountYuStamp") var screenCountYuStamp = 0 {
+                        didSet {
+                            screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+                        }
+                    }
+                        @AppStorage("bangdreamScreenCountKiwamiStamp") var screenCountKiwamiStamp = 0 {
+                            didSet {
+                                screenCountSum = countSum(screenCountKasumi, screenCountPhoto, screenCountMinichara, screenCountRyoStamp, screenCountYuStamp, screenCountKiwamiStamp)
+                            }
+                        }
+    @AppStorage("bangdreamScreenCountSum") var screenCountSum = 0
     
     func resetScreen() {
-        
+        screenCountKasumi = 0
+        screenCountPhoto = 0
+        screenCountMinichara = 0
+        screenCountRyoStamp = 0
+        screenCountYuStamp = 0
+        screenCountKiwamiStamp = 0
+        minusCheck = false
     }
     
     // /////////////////////////
@@ -167,6 +206,87 @@ class Bangdream: ObservableObject {
     }
 }
 
+// //// メモリー1
+class BangdreamMemory1: ObservableObject {
+    @AppStorage("bangdreamCycleArrayKeyMemory1") var cycleArrayData: Data?
+    @AppStorage("bangdreamTriggerArrayKeyMemory1") var triggerArrayData: Data?
+    @AppStorage("bangdreamCycleNumberArrayKeyMemory1") var cycleNumberArrayData: Data?
+    @AppStorage("bangdreamStoryCountSumMemory1") var storyCountSum: Int = 0
+    @AppStorage("bangdreamCycleHitCountSumMemory1") var cycleHitCountSum: Int = 0
+    @AppStorage("bangdreamScreenCountKasumiMemory1") var screenCountKasumi = 0
+    @AppStorage("bangdreamScreenCountPhotoMemory1") var screenCountPhoto = 0
+    @AppStorage("bangdreamScreenCountMinicharaMemory1") var screenCountMinichara = 0
+    @AppStorage("bangdreamScreenCountRyoStampMemory1") var screenCountRyoStamp = 0
+    @AppStorage("bangdreamScreenCountYuStampMemory1") var screenCountYuStamp = 0
+    @AppStorage("bangdreamScreenCountKiwamiStampMemory1") var screenCountKiwamiStamp = 0
+    @AppStorage("bangdreamScreenCountSumMemory1") var screenCountSum = 0
+    @AppStorage("bangdreamPicoAttackCountSingleWinMemory1") var picoAttackCountSingleWin = 0
+    @AppStorage("bangdreamPicoAttackCountSingleLoseMemory1") var picoAttackCountSingleLose = 0
+    @AppStorage("bangdreamPicoAttackCountSingleSumMemory1") var picoAttackCountSingleSum = 0
+    @AppStorage("bangdreamPicoAttackCountMultiWinMemory1") var picoAttackCountMultiWin = 0
+    @AppStorage("bangdreamPicoAttackCountMultiLoseMemory1") var picoAttackCountMultiLose = 0
+    @AppStorage("bangdreamPicoAttackCountMultiSumMemory1") var picoAttackCountMultiSum = 0
+    @AppStorage("bangdreamPicoAttackCountWinSumMemory1") var picoAttackCountWinSum = 0
+    @AppStorage("bangdreamPicoAttackCountLoseSumMemory1") var picoAttackCountLoseSum = 0
+    @AppStorage("bangdreamPicoAttackCountAllSumMemory1") var picoAttackCountAllSum = 0
+    @AppStorage("bangdreamMemoMemory1") var memo = ""
+    @AppStorage("bangdreamDateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class BangdreamMemory2: ObservableObject {
+    @AppStorage("bangdreamCycleArrayKeyMemory2") var cycleArrayData: Data?
+    @AppStorage("bangdreamTriggerArrayKeyMemory2") var triggerArrayData: Data?
+    @AppStorage("bangdreamCycleNumberArrayKeyMemory2") var cycleNumberArrayData: Data?
+    @AppStorage("bangdreamStoryCountSumMemory2") var storyCountSum: Int = 0
+    @AppStorage("bangdreamCycleHitCountSumMemory2") var cycleHitCountSum: Int = 0
+    @AppStorage("bangdreamScreenCountKasumiMemory2") var screenCountKasumi = 0
+    @AppStorage("bangdreamScreenCountPhotoMemory2") var screenCountPhoto = 0
+    @AppStorage("bangdreamScreenCountMinicharaMemory2") var screenCountMinichara = 0
+    @AppStorage("bangdreamScreenCountRyoStampMemory2") var screenCountRyoStamp = 0
+    @AppStorage("bangdreamScreenCountYuStampMemory2") var screenCountYuStamp = 0
+    @AppStorage("bangdreamScreenCountKiwamiStampMemory2") var screenCountKiwamiStamp = 0
+    @AppStorage("bangdreamScreenCountSumMemory2") var screenCountSum = 0
+    @AppStorage("bangdreamPicoAttackCountSingleWinMemory2") var picoAttackCountSingleWin = 0
+    @AppStorage("bangdreamPicoAttackCountSingleLoseMemory2") var picoAttackCountSingleLose = 0
+    @AppStorage("bangdreamPicoAttackCountSingleSumMemory2") var picoAttackCountSingleSum = 0
+    @AppStorage("bangdreamPicoAttackCountMultiWinMemory2") var picoAttackCountMultiWin = 0
+    @AppStorage("bangdreamPicoAttackCountMultiLoseMemory2") var picoAttackCountMultiLose = 0
+    @AppStorage("bangdreamPicoAttackCountMultiSumMemory2") var picoAttackCountMultiSum = 0
+    @AppStorage("bangdreamPicoAttackCountWinSumMemory2") var picoAttackCountWinSum = 0
+    @AppStorage("bangdreamPicoAttackCountLoseSumMemory2") var picoAttackCountLoseSum = 0
+    @AppStorage("bangdreamPicoAttackCountAllSumMemory2") var picoAttackCountAllSum = 0
+    @AppStorage("bangdreamMemoMemory2") var memo = ""
+    @AppStorage("bangdreamDateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class BangdreamMemory3: ObservableObject {
+    @AppStorage("bangdreamCycleArrayKeyMemory3") var cycleArrayData: Data?
+    @AppStorage("bangdreamTriggerArrayKeyMemory3") var triggerArrayData: Data?
+    @AppStorage("bangdreamCycleNumberArrayKeyMemory3") var cycleNumberArrayData: Data?
+    @AppStorage("bangdreamStoryCountSumMemory3") var storyCountSum: Int = 0
+    @AppStorage("bangdreamCycleHitCountSumMemory3") var cycleHitCountSum: Int = 0
+    @AppStorage("bangdreamScreenCountKasumiMemory3") var screenCountKasumi = 0
+    @AppStorage("bangdreamScreenCountPhotoMemory3") var screenCountPhoto = 0
+    @AppStorage("bangdreamScreenCountMinicharaMemory3") var screenCountMinichara = 0
+    @AppStorage("bangdreamScreenCountRyoStampMemory3") var screenCountRyoStamp = 0
+    @AppStorage("bangdreamScreenCountYuStampMemory3") var screenCountYuStamp = 0
+    @AppStorage("bangdreamScreenCountKiwamiStampMemory3") var screenCountKiwamiStamp = 0
+    @AppStorage("bangdreamScreenCountSumMemory3") var screenCountSum = 0
+    @AppStorage("bangdreamPicoAttackCountSingleWinMemory3") var picoAttackCountSingleWin = 0
+    @AppStorage("bangdreamPicoAttackCountSingleLoseMemory3") var picoAttackCountSingleLose = 0
+    @AppStorage("bangdreamPicoAttackCountSingleSumMemory3") var picoAttackCountSingleSum = 0
+    @AppStorage("bangdreamPicoAttackCountMultiWinMemory3") var picoAttackCountMultiWin = 0
+    @AppStorage("bangdreamPicoAttackCountMultiLoseMemory3") var picoAttackCountMultiLose = 0
+    @AppStorage("bangdreamPicoAttackCountMultiSumMemory3") var picoAttackCountMultiSum = 0
+    @AppStorage("bangdreamPicoAttackCountWinSumMemory3") var picoAttackCountWinSum = 0
+    @AppStorage("bangdreamPicoAttackCountLoseSumMemory3") var picoAttackCountLoseSum = 0
+    @AppStorage("bangdreamPicoAttackCountAllSumMemory3") var picoAttackCountAllSum = 0
+    @AppStorage("bangdreamMemoMemory3") var memo = ""
+    @AppStorage("bangdreamDateMemory3") var dateDouble = 0.0
+}
+
 struct bangdreamViewTop: View {
     @ObservedObject var bangdream = Bangdream()
     @State var isshowalert: Bool = false
@@ -203,10 +323,11 @@ struct bangdreamViewTop: View {
                 HStack {
                     HStack {
                         // データ読出し
-                        
+                        unitButtonLoadMemory(loadView: AnyView(bangdreamSubViewLoadMemory()))
                         // データ保存
-                        
+                        unitButtonSaveMemory(saveView: AnyView(bangdreamSubViewSaveMemory()))
                     }
+                    .popoverTip(tipUnitButtonMemory())
                     // データリセット
                     unitButtonReset(isShowAlert: $isshowalert, action: bangdream.resetAll, message: "この機種のデータを全てリセットします")
                         .popoverTip(tipUnitButtonReset())
@@ -215,6 +336,200 @@ struct bangdreamViewTop: View {
         }
     }
 }
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct bangdreamSubViewSaveMemory: View {
+    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdreamMemory1 = BangdreamMemory1()
+    @ObservedObject var bangdreamMemory2 = BangdreamMemory2()
+    @ObservedObject var bangdreamMemory3 = BangdreamMemory3()
+    @State var isShowSaveAlert: Bool = false
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: "バンドリ!",
+            selectedMemory: $bangdream.selectedMemory,
+            memoMemory1: $bangdreamMemory1.memo,
+            dateDoubleMemory1: $bangdreamMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $bangdreamMemory2.memo,
+            dateDoubleMemory2: $bangdreamMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $bangdreamMemory3.memo,
+            dateDoubleMemory3: $bangdreamMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        bangdreamMemory1.cycleArrayData = bangdream.cycleArrayData
+        bangdreamMemory1.triggerArrayData = bangdream.triggerArrayData
+        bangdreamMemory1.cycleNumberArrayData = bangdream.cycleNumberArrayData
+        bangdreamMemory1.storyCountSum = bangdream.storyCountSum
+        bangdreamMemory1.cycleHitCountSum = bangdream.cycleHitCountSum
+        bangdreamMemory1.screenCountKasumi = bangdream.screenCountKasumi
+        bangdreamMemory1.screenCountPhoto = bangdream.screenCountPhoto
+        bangdreamMemory1.screenCountMinichara = bangdream.screenCountMinichara
+        bangdreamMemory1.screenCountRyoStamp = bangdream.screenCountRyoStamp
+        bangdreamMemory1.screenCountYuStamp = bangdream.screenCountYuStamp
+        bangdreamMemory1.screenCountKiwamiStamp = bangdream.screenCountKiwamiStamp
+        bangdreamMemory1.screenCountSum = bangdream.screenCountSum
+        bangdreamMemory1.picoAttackCountSingleWin = bangdream.picoAttackCountSingleWin
+        bangdreamMemory1.picoAttackCountSingleLose = bangdream.picoAttackCountSingleLose
+        bangdreamMemory1.picoAttackCountSingleSum = bangdream.picoAttackCountSingleSum
+        bangdreamMemory1.picoAttackCountMultiWin = bangdream.picoAttackCountMultiWin
+        bangdreamMemory1.picoAttackCountMultiLose = bangdream.picoAttackCountMultiLose
+        bangdreamMemory1.picoAttackCountMultiSum = bangdream.picoAttackCountMultiSum
+        bangdreamMemory1.picoAttackCountWinSum = bangdream.picoAttackCountWinSum
+        bangdreamMemory1.picoAttackCountLoseSum = bangdream.picoAttackCountLoseSum
+        bangdreamMemory1.picoAttackCountAllSum = bangdream.picoAttackCountAllSum
+    }
+    func saveMemory2() {
+        bangdreamMemory2.cycleArrayData = bangdream.cycleArrayData
+        bangdreamMemory2.triggerArrayData = bangdream.triggerArrayData
+        bangdreamMemory2.cycleNumberArrayData = bangdream.cycleNumberArrayData
+        bangdreamMemory2.storyCountSum = bangdream.storyCountSum
+        bangdreamMemory2.cycleHitCountSum = bangdream.cycleHitCountSum
+        bangdreamMemory2.screenCountKasumi = bangdream.screenCountKasumi
+        bangdreamMemory2.screenCountPhoto = bangdream.screenCountPhoto
+        bangdreamMemory2.screenCountMinichara = bangdream.screenCountMinichara
+        bangdreamMemory2.screenCountRyoStamp = bangdream.screenCountRyoStamp
+        bangdreamMemory2.screenCountYuStamp = bangdream.screenCountYuStamp
+        bangdreamMemory2.screenCountKiwamiStamp = bangdream.screenCountKiwamiStamp
+        bangdreamMemory2.screenCountSum = bangdream.screenCountSum
+        bangdreamMemory2.picoAttackCountSingleWin = bangdream.picoAttackCountSingleWin
+        bangdreamMemory2.picoAttackCountSingleLose = bangdream.picoAttackCountSingleLose
+        bangdreamMemory2.picoAttackCountSingleSum = bangdream.picoAttackCountSingleSum
+        bangdreamMemory2.picoAttackCountMultiWin = bangdream.picoAttackCountMultiWin
+        bangdreamMemory2.picoAttackCountMultiLose = bangdream.picoAttackCountMultiLose
+        bangdreamMemory2.picoAttackCountMultiSum = bangdream.picoAttackCountMultiSum
+        bangdreamMemory2.picoAttackCountWinSum = bangdream.picoAttackCountWinSum
+        bangdreamMemory2.picoAttackCountLoseSum = bangdream.picoAttackCountLoseSum
+        bangdreamMemory2.picoAttackCountAllSum = bangdream.picoAttackCountAllSum
+    }
+    func saveMemory3() {
+        bangdreamMemory3.cycleArrayData = bangdream.cycleArrayData
+        bangdreamMemory3.triggerArrayData = bangdream.triggerArrayData
+        bangdreamMemory3.cycleNumberArrayData = bangdream.cycleNumberArrayData
+        bangdreamMemory3.storyCountSum = bangdream.storyCountSum
+        bangdreamMemory3.cycleHitCountSum = bangdream.cycleHitCountSum
+        bangdreamMemory3.screenCountKasumi = bangdream.screenCountKasumi
+        bangdreamMemory3.screenCountPhoto = bangdream.screenCountPhoto
+        bangdreamMemory3.screenCountMinichara = bangdream.screenCountMinichara
+        bangdreamMemory3.screenCountRyoStamp = bangdream.screenCountRyoStamp
+        bangdreamMemory3.screenCountYuStamp = bangdream.screenCountYuStamp
+        bangdreamMemory3.screenCountKiwamiStamp = bangdream.screenCountKiwamiStamp
+        bangdreamMemory3.screenCountSum = bangdream.screenCountSum
+        bangdreamMemory3.picoAttackCountSingleWin = bangdream.picoAttackCountSingleWin
+        bangdreamMemory3.picoAttackCountSingleLose = bangdream.picoAttackCountSingleLose
+        bangdreamMemory3.picoAttackCountSingleSum = bangdream.picoAttackCountSingleSum
+        bangdreamMemory3.picoAttackCountMultiWin = bangdream.picoAttackCountMultiWin
+        bangdreamMemory3.picoAttackCountMultiLose = bangdream.picoAttackCountMultiLose
+        bangdreamMemory3.picoAttackCountMultiSum = bangdream.picoAttackCountMultiSum
+        bangdreamMemory3.picoAttackCountWinSum = bangdream.picoAttackCountWinSum
+        bangdreamMemory3.picoAttackCountLoseSum = bangdream.picoAttackCountLoseSum
+        bangdreamMemory3.picoAttackCountAllSum = bangdream.picoAttackCountAllSum
+    }
+}
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct bangdreamSubViewLoadMemory: View {
+    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdreamMemory1 = BangdreamMemory1()
+    @ObservedObject var bangdreamMemory2 = BangdreamMemory2()
+    @ObservedObject var bangdreamMemory3 = BangdreamMemory3()
+    @State var isShowLoadAlert: Bool = false
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: "バンドリ!",
+            selectedMemory: $bangdream.selectedMemory,
+            memoMemory1: bangdreamMemory1.memo,
+            dateDoubleMemory1: bangdreamMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: bangdreamMemory2.memo,
+            dateDoubleMemory2: bangdreamMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: bangdreamMemory3.memo,
+            dateDoubleMemory3: bangdreamMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowLoadAlert
+        )
+    }
+    func loadMemory1() {
+        bangdream.cycleArrayData = bangdreamMemory1.cycleArrayData
+        bangdream.triggerArrayData = bangdreamMemory1.triggerArrayData
+        bangdream.cycleNumberArrayData = bangdreamMemory1.cycleNumberArrayData
+        bangdream.storyCountSum = bangdreamMemory1.storyCountSum
+        bangdream.cycleHitCountSum = bangdreamMemory1.cycleHitCountSum
+        bangdream.screenCountKasumi = bangdreamMemory1.screenCountKasumi
+        bangdream.screenCountPhoto = bangdreamMemory1.screenCountPhoto
+        bangdream.screenCountMinichara = bangdreamMemory1.screenCountMinichara
+        bangdream.screenCountRyoStamp = bangdreamMemory1.screenCountRyoStamp
+        bangdream.screenCountYuStamp = bangdreamMemory1.screenCountYuStamp
+        bangdream.screenCountKiwamiStamp = bangdreamMemory1.screenCountKiwamiStamp
+        bangdream.screenCountSum = bangdreamMemory1.screenCountSum
+        bangdream.picoAttackCountSingleWin = bangdreamMemory1.picoAttackCountSingleWin
+        bangdream.picoAttackCountSingleLose = bangdreamMemory1.picoAttackCountSingleLose
+        bangdream.picoAttackCountSingleSum = bangdreamMemory1.picoAttackCountSingleSum
+        bangdream.picoAttackCountMultiWin = bangdreamMemory1.picoAttackCountMultiWin
+        bangdream.picoAttackCountMultiLose = bangdreamMemory1.picoAttackCountMultiLose
+        bangdream.picoAttackCountMultiSum = bangdreamMemory1.picoAttackCountMultiSum
+        bangdream.picoAttackCountWinSum = bangdreamMemory1.picoAttackCountWinSum
+        bangdream.picoAttackCountLoseSum = bangdreamMemory1.picoAttackCountLoseSum
+        bangdream.picoAttackCountAllSum = bangdreamMemory1.picoAttackCountAllSum
+    }
+    func loadMemory2() {
+        bangdream.cycleArrayData = bangdreamMemory2.cycleArrayData
+        bangdream.triggerArrayData = bangdreamMemory2.triggerArrayData
+        bangdream.cycleNumberArrayData = bangdreamMemory2.cycleNumberArrayData
+        bangdream.storyCountSum = bangdreamMemory2.storyCountSum
+        bangdream.cycleHitCountSum = bangdreamMemory2.cycleHitCountSum
+        bangdream.screenCountKasumi = bangdreamMemory2.screenCountKasumi
+        bangdream.screenCountPhoto = bangdreamMemory2.screenCountPhoto
+        bangdream.screenCountMinichara = bangdreamMemory2.screenCountMinichara
+        bangdream.screenCountRyoStamp = bangdreamMemory2.screenCountRyoStamp
+        bangdream.screenCountYuStamp = bangdreamMemory2.screenCountYuStamp
+        bangdream.screenCountKiwamiStamp = bangdreamMemory2.screenCountKiwamiStamp
+        bangdream.screenCountSum = bangdreamMemory2.screenCountSum
+        bangdream.picoAttackCountSingleWin = bangdreamMemory2.picoAttackCountSingleWin
+        bangdream.picoAttackCountSingleLose = bangdreamMemory2.picoAttackCountSingleLose
+        bangdream.picoAttackCountSingleSum = bangdreamMemory2.picoAttackCountSingleSum
+        bangdream.picoAttackCountMultiWin = bangdreamMemory2.picoAttackCountMultiWin
+        bangdream.picoAttackCountMultiLose = bangdreamMemory2.picoAttackCountMultiLose
+        bangdream.picoAttackCountMultiSum = bangdreamMemory2.picoAttackCountMultiSum
+        bangdream.picoAttackCountWinSum = bangdreamMemory2.picoAttackCountWinSum
+        bangdream.picoAttackCountLoseSum = bangdreamMemory2.picoAttackCountLoseSum
+        bangdream.picoAttackCountAllSum = bangdreamMemory2.picoAttackCountAllSum
+    }
+    func loadMemory3() {
+        bangdream.cycleArrayData = bangdreamMemory3.cycleArrayData
+        bangdream.triggerArrayData = bangdreamMemory3.triggerArrayData
+        bangdream.cycleNumberArrayData = bangdreamMemory3.cycleNumberArrayData
+        bangdream.storyCountSum = bangdreamMemory3.storyCountSum
+        bangdream.cycleHitCountSum = bangdreamMemory3.cycleHitCountSum
+        bangdream.screenCountKasumi = bangdreamMemory3.screenCountKasumi
+        bangdream.screenCountPhoto = bangdreamMemory3.screenCountPhoto
+        bangdream.screenCountMinichara = bangdreamMemory3.screenCountMinichara
+        bangdream.screenCountRyoStamp = bangdreamMemory3.screenCountRyoStamp
+        bangdream.screenCountYuStamp = bangdreamMemory3.screenCountYuStamp
+        bangdream.screenCountKiwamiStamp = bangdreamMemory3.screenCountKiwamiStamp
+        bangdream.screenCountSum = bangdreamMemory3.screenCountSum
+        bangdream.picoAttackCountSingleWin = bangdreamMemory3.picoAttackCountSingleWin
+        bangdream.picoAttackCountSingleLose = bangdreamMemory3.picoAttackCountSingleLose
+        bangdream.picoAttackCountSingleSum = bangdreamMemory3.picoAttackCountSingleSum
+        bangdream.picoAttackCountMultiWin = bangdreamMemory3.picoAttackCountMultiWin
+        bangdream.picoAttackCountMultiLose = bangdreamMemory3.picoAttackCountMultiLose
+        bangdream.picoAttackCountMultiSum = bangdreamMemory3.picoAttackCountMultiSum
+        bangdream.picoAttackCountWinSum = bangdreamMemory3.picoAttackCountWinSum
+        bangdream.picoAttackCountLoseSum = bangdreamMemory3.picoAttackCountLoseSum
+        bangdream.picoAttackCountAllSum = bangdreamMemory3.picoAttackCountAllSum
+    }
+}
+
+
 
 #Preview {
     bangdreamViewTop()
