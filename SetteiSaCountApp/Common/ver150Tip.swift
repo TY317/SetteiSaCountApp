@@ -18,32 +18,32 @@ struct ver150Tip: View {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer150AddMachine: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("バンドリ!、ゴーゴージャグラー3を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer150AddMachine: Tip {
+//    var title: Text {
+//        Text("機種追加しました！")
+//    }
+//    var message: Text? {
+//        Text("バンドリ!、ゴーゴージャグラー3を追加")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer150AddMachineJug: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ゴーゴージャグラー3を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer150AddMachineJug: Tip {
+//    var title: Text {
+//        Text("機種追加しました！")
+//    }
+//    var message: Text? {
+//        Text("ゴーゴージャグラー3を追加")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 
 #Preview {

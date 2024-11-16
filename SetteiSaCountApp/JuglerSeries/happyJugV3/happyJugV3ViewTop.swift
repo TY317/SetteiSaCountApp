@@ -199,7 +199,8 @@ struct happyJugV3ViewTop: View {
                             isShowExView.toggle()
                         }, label: {
                             Text(">> 設定差情報")
-                                .foregroundColor(Color.blue)
+//                                .foregroundColor(Color.blue)
+                                .foregroundStyle(Color.blue)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         })
                         .sheet(isPresented: $isShowExView, content: {
@@ -307,7 +308,8 @@ struct happyJugV3ViewTop: View {
                         }, label: {
                             if jug.minusCheck == true{
                                 Image(systemName: "minus.circle.fill")
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             } else {
                                 Image(systemName: "minus.circle")
                             }
@@ -581,7 +583,8 @@ struct happyJugV3SubViewTotalRegRatio: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("grayBack"))
+//                    .foregroundColor(Color("grayBack"))
+                    .foregroundStyle(Color.grayBack)
                     .cornerRadius(15)
                 Spacer()
             }
@@ -613,7 +616,8 @@ struct happyJugV3SubViewTotalBigRatio: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("grayBack"))
+//                    .foregroundColor(Color("grayBack"))
+                    .foregroundStyle(Color.grayBack)
                     .cornerRadius(15)
                 Spacer()
             }
@@ -645,7 +649,8 @@ struct happyJugV3SubViewTotalBonusRatio: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("grayBack"))
+//                    .foregroundColor(Color("grayBack"))
+                    .foregroundStyle(Color.grayBack)
                     .cornerRadius(15)
                 Spacer()
             }

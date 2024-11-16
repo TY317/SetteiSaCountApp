@@ -105,12 +105,14 @@ struct hokutoViewVoice: View {
                                 Text("登録")
 //                                    .font(.title3)
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color.blue)
+//                                    .foregroundColor(Color.blue)
+                                    .foregroundStyle(Color.blue)
                             } else {
                                 Text("マイナス")
 //                                    .font(.title3)
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             }
                             Spacer()
                         }

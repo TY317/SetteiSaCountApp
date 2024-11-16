@@ -50,12 +50,14 @@ struct CountButtonStyle: ButtonStyle {
             if MinusBool == false {
                 Image(systemName: "plus.circle")
                     .font(.largeTitle)
-                    .foregroundColor(self.plusColor)
+//                    .foregroundColor(self.plusColor)
+                    .foregroundStyle(self.plusColor)
             
             } else {
                 Image(systemName: "minus.circle")
                     .font(.largeTitle)
-                    .foregroundColor(self.minusColor)
+//                    .foregroundColor(self.minusColor)
+                    .foregroundStyle(self.minusColor)
                     .fontWeight(.bold)
             }
             

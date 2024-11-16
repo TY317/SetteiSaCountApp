@@ -13,17 +13,17 @@ import TipKit
 // //////////////////
 // Tip：5枚役の機能追加
 // //////////////////
-struct mt5TipAdd5Coins: Tip {
-    var title: Text {
-        Text("5枚役カウント")
-    }
-    var message: Text? {
-        Text("5枚役のカウント機能を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct mt5TipAdd5Coins: Tip {
+//    var title: Text {
+//        Text("5枚役カウント")
+//    }
+//    var message: Text? {
+//        Text("5枚役のカウント機能を追加")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 struct ver120Tip: View {
     var body: some View {

@@ -73,7 +73,8 @@ struct VVVmarieView: View {
                         }, label: {
                             if VVVmarie.minusCheck == true{
                                 Image(systemName: "minus.circle.fill")
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             } else {
                                 Image(systemName: "minus.circle")
                             }
@@ -179,7 +180,8 @@ struct VVVmarieSubCountView: View {
                 // 回数
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("grayBack"))
+//                        .foregroundColor(Color("grayBack"))
+                        .foregroundStyle(Color.grayBack)
                         .cornerRadius(15)
                     VStack {
                         Text("回数")
@@ -200,7 +202,8 @@ struct VVVmarieSubCountView: View {
                 // 確率
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("personalSummerLightRed"))
+//                        .foregroundColor(Color("personalSummerLightRed"))
+                        .foregroundStyle(Color.personalSummerLightRed)
                         .cornerRadius(15)
                     VStack {
                         Text("確率")

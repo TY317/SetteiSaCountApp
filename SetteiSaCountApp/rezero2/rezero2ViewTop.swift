@@ -65,8 +65,11 @@ class Rezero2: ObservableObject {
         arrayStringRemoveLast(arrayData: ptZoneArrayData, key: ptZoneArrayKey)
         arrayStringRemoveLast(arrayData: triggerArrayData, key: triggerArrayKey)
         atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
-        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        let gameArray = decodeIntArray(from: gameArrayData)
+        playGameSum = gameArray.filter({$0 > 32}).reduce(0, +)
+//        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
+        atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"
@@ -78,8 +81,11 @@ class Rezero2: ObservableObject {
         arrayStringAddData(arrayData: ptZoneArrayData, addData: selectedPt, key: ptZoneArrayKey)
         arrayStringAddData(arrayData: triggerArrayData, addData: selectedTrigger, key: triggerArrayKey)
         atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
-        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        let gameArray = decodeIntArray(from: gameArrayData)
+        playGameSum = gameArray.filter({$0 > 32}).reduce(0, +)
+//        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
+        atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"
@@ -90,8 +96,11 @@ class Rezero2: ObservableObject {
         arrayStringRemoveAll(arrayData: ptZoneArrayData, key: ptZoneArrayKey)
         arrayStringRemoveAll(arrayData: triggerArrayData, key: triggerArrayKey)
         atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
-        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        let gameArray = decodeIntArray(from: gameArrayData)
+        playGameSum = gameArray.filter({$0 > 32}).reduce(0, +)
+//        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
+        atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"

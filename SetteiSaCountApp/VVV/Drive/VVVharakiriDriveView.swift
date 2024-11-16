@@ -113,7 +113,8 @@ struct VVVharakiriDriveView: View {
                             }, label: {
                                 Text(">> ハラキリドライブについて")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .foregroundColor(.blue)
+//                                    .foregroundColor(.blue)
+                                    .foregroundStyle(Color.blue)
                             })
                             .sheet(isPresented: $isShowExviewDrive, content: {
                                 VVVexViewDrive()
@@ -126,7 +127,8 @@ struct VVVharakiriDriveView: View {
                             }, label: {
                                 Text(">> ラウンド開始画面の示唆")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .foregroundColor(.blue)
+//                                    .foregroundColor(.blue)
+                                    .foregroundStyle(Color.blue)
                             })
                             .sheet(isPresented: $isShowExViewRoundScreen, content: {
                                 VVVexViewRoundScreen()
@@ -151,11 +153,13 @@ struct VVVharakiriDriveView: View {
                                 VStack {
                                     Text("    有利区間切断前")
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+//                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(Color.secondary)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     ZStack {
                                         Rectangle()
-                                            .foregroundColor(Color(UIColor.systemBackground))
+//                                            .foregroundColor(Color(UIColor.systemBackground))
+                                            .foregroundStyle(Color(UIColor.systemBackground))
                                             .cornerRadius(15)
                                         VVVharakiriDriveSubBeforeCutCountView(VVVharakiri: VVVharakiri)
                                             .padding(.all)
@@ -165,11 +169,13 @@ struct VVVharakiriDriveView: View {
                                 VStack {
                                     Text("    有利区間切断後")
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+//                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(Color.secondary)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     ZStack {
                                         Rectangle()
-                                            .foregroundColor(Color(UIColor.systemBackground))
+//                                            .foregroundColor(Color(UIColor.systemBackground))
+                                            .foregroundStyle(Color(UIColor.systemBackground))
                                             .cornerRadius(15)
                                         VVVharakiriDriveSubAfterCutCountView(VVVharakiri: VVVharakiri)
                                             .padding(.all)
@@ -194,7 +200,8 @@ struct VVVharakiriDriveView: View {
                             }, label: {
                                 Text(">> ハラキリドライブについて")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .foregroundColor(.blue)
+//                                    .foregroundColor(.blue)
+                                    .foregroundStyle(Color.blue)
                             })
                             .sheet(isPresented: $isShowExviewDrive, content: {
                                 VVVexViewDrive()
@@ -207,7 +214,8 @@ struct VVVharakiriDriveView: View {
                             }, label: {
                                 Text(">> ラウンド開始画面の示唆")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .foregroundColor(.blue)
+//                                    .foregroundColor(.blue)
+                                    .foregroundStyle(Color.blue)
                             })
                             .sheet(isPresented: $isShowExViewRoundScreen, content: {
                                 VVVexViewRoundScreen()
@@ -236,7 +244,8 @@ struct VVVharakiriDriveView: View {
                         }, label: {
                             if VVVharakiri.minusCheck == true{
                                 Image(systemName: "minus.circle.fill")
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             } else {
                                 Image(systemName: "minus.circle")
                             }
@@ -357,7 +366,8 @@ struct VVVharakiriDriveSubBeforeCutCountView: View {
             ZStack {
                 // 背景用
                 Rectangle()
-                    .foregroundColor(Color("personalSummerLightRed"))
+//                    .foregroundColor(Color("personalSummerLightRed"))
+                    .foregroundStyle(Color.personalSummerLightRed)
                     .cornerRadius(15)
                 // 確率表示
                 VStack {
@@ -436,7 +446,8 @@ struct VVVharakiriDriveSubAfterCutCountView: View {
             ZStack {
                 // 背景用
                 Rectangle()
-                    .foregroundColor(Color("personalSummerLightRed"))
+//                    .foregroundColor(Color("personalSummerLightRed"))
+                    .foregroundStyle(Color.personalSummerLightRed)
                     .cornerRadius(15)
                 // 確率表示
                 VStack {
@@ -472,7 +483,8 @@ struct VVVharakiriDriveSubTotalView: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("personalSummerLightRed"))
+//                    .foregroundColor(Color("personalSummerLightRed"))
+                    .foregroundStyle(Color.personalSummerLightRed)
                     .cornerRadius(15)
                 Spacer()
             }

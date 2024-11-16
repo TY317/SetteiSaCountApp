@@ -40,7 +40,8 @@ struct hanahanaSeriesViewTop: View {
                     ScrollView {
                         Rectangle()
                             .frame(height: 40)
-                            .foregroundColor(.clear)
+//                            .foregroundColor(.clear)
+                            .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                             // //// ドラゴンハナハナ, 23年12月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedDragonHanahanaSenkoh == false {
@@ -55,13 +56,16 @@ struct hanahanaSeriesViewTop: View {
                                                 .cornerRadius(13.0)
                                                 .padding(.horizontal, 4.0)
                                             Image(systemName: "bolt")
-                                                .foregroundColor(.secondary)
+//                                                .foregroundColor(.secondary)
+//                                                .foregroundStyle(Color.secondary)
+                                                .foregroundStyle(Color.gray)
                                                 .font(.largeTitle)
                                         }
                                         Text("ドラゴン閃光")
                                             .font(.caption)
                                             .lineLimit(1)
-                                            .foregroundColor(Color.primary)
+//                                            .foregroundColor(Color.primary)
+                                            .foregroundStyle(Color.primary)
                                     }
                                 }
                             }
@@ -79,13 +83,15 @@ struct hanahanaSeriesViewTop: View {
                                                 .cornerRadius(13.0)
                                                 .padding(.horizontal, 4.0)
                                             Image(systemName: "crown.fill")
-                                                .foregroundColor(.secondary)
+//                                                .foregroundColor(.secondary)
+                                                .foregroundStyle(Color.secondary)
                                                 .font(.largeTitle)
                                         }
                                         Text("キングハナハナ")
                                             .font(.caption)
                                             .lineLimit(1)
-                                            .foregroundColor(Color.primary)
+//                                            .foregroundColor(Color.primary)
+                                            .foregroundStyle(Color.primary)
                                     }
                                 }
                             }
@@ -270,13 +276,15 @@ struct machineListDragonHanahanaSenkoh: View {
                         .frame(width: 40.0)
                         .cornerRadius(8)
                     Image(systemName: "bolt")
-                        .foregroundColor(.secondary)
+//                        .foregroundColor(.secondary)
+                        .foregroundStyle(Color.secondary)
                 }
                 VStack(alignment: .leading) {
                     Text("ドラゴンハナハナ閃光")
                     Text("パイオニア , 2023年 12月")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.secondary)
                         .padding(.leading)
                 }
                 .padding(.leading)
@@ -299,13 +307,15 @@ struct machineListKingHanahana: View {
                         .frame(width: 40.0, height: 40.0)
                         .cornerRadius(8)
                     Image(systemName: "crown.fill")
-                        .foregroundColor(.secondary)
+//                        .foregroundColor(.secondary)
+                        .foregroundStyle(Color.secondary)
                 }
                 VStack(alignment: .leading) {
                     Text("キングハナハナ")
                     Text("パイオニア , 2023年 3月")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)

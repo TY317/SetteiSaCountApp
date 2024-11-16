@@ -137,7 +137,8 @@ struct unitMachinListLink: View {
                     Text(self.machineName)
                     Text("\(self.makerName) , \(String(self.releaseYear))年 \(self.releaseMonth)月")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)
@@ -165,7 +166,8 @@ struct unitMachineIconLink: View {
                 Text(self.machineName)
                     .font(.caption)
                     .lineLimit(1)
-                    .foregroundColor(Color.primary)
+//                    .foregroundColor(Color.primary)
+                    .foregroundStyle(Color.primary)
             }
         }
     }
@@ -190,7 +192,8 @@ struct unitLinkButton: View {
     //                .foregroundColor(Color.blue)
     //                .frame(maxWidth: .infinity, alignment: .trailing)
                 Text(">> \(self.title)")
-                    .foregroundColor(Color.blue)
+//                    .foregroundColor(Color.blue)
+                    .foregroundStyle(Color.blue)
             })
             .sheet(isPresented: $isShowExView, content: {
                 self.exview
@@ -234,7 +237,8 @@ struct unitCountButtonVerticalWithoutRatio: View {
                 }
                 else {
                     Rectangle()
-                        .foregroundColor(Color.clear)
+//                        .foregroundColor(Color.clear)
+                        .foregroundStyle(Color.clear)
                 }
             }
             else {
@@ -311,7 +315,8 @@ struct unitCountButtonVerticalDenominate: View {
                 }
                 else {
                     Rectangle()
-                        .foregroundColor(Color.clear)
+//                        .foregroundColor(Color.clear)
+                        .foregroundStyle(Color.clear)
                 }
             }
             else {
@@ -398,7 +403,8 @@ struct unitCountButtonVerticalPercent: View {
                 }
                 else {
                     Rectangle()
-                        .foregroundColor(Color.clear)
+//                        .foregroundColor(Color.clear)
+                        .foregroundStyle(Color.clear)
                 }
             }
             else {
@@ -484,7 +490,8 @@ struct unitResultCount2Line: View {
                     Spacer()
                 }
                 Rectangle()
-                    .foregroundColor(self.color)
+//                    .foregroundColor(self.color)
+                    .foregroundStyle(self.color)
                     .cornerRadius(15)
                 if self.spacerBool {
                     Spacer()
@@ -525,7 +532,8 @@ struct unitResultRatioDenomination2Line: View {
                     Spacer()
                 }
                 Rectangle()
-                    .foregroundColor(self.color)
+//                    .foregroundColor(self.color)
+                    .foregroundStyle(self.color)
                     .cornerRadius(15)
                 if self.spacerBool {
                     Spacer()
@@ -572,7 +580,8 @@ struct unitResultRatioPercent2Line: View {
                     Spacer()
                 }
                 Rectangle()
-                    .foregroundColor(self.color)
+//                    .foregroundColor(self.color)
+                    .foregroundStyle(self.color)
                     .cornerRadius(15)
                 if self.spacerBool {
                     Spacer()
@@ -621,7 +630,8 @@ struct unitResultRatioRatioRightOneLine: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(self.color)
+//                    .foregroundColor(self.color)
+                    .foregroundStyle(self.color)
                     .cornerRadius(15)
                 Spacer()
             }
@@ -680,7 +690,8 @@ struct unitButtonMinusCheck: View {
         }, label: {
             if self.minusCheck {
                 Image(systemName: "minus.circle.fill")
-                    .foregroundColor(Color.red)
+//                    .foregroundColor(Color.red)
+                    .foregroundStyle(Color.red)
             } else {
                 Image(systemName: "minus.circle")
             }
@@ -813,7 +824,8 @@ struct unitLabelMachineTopTitle: View {
             Text(self.machineName)
                 .font(self.titleFont)
                 .fontWeight(.bold)
-                .foregroundColor(.primary)
+//                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
             Spacer()
         }
     }
@@ -1000,7 +1012,8 @@ struct unitButtonScreenChoice: View {
                                 .border(Color.red, width: 10)
                                 .cornerRadius(10)
                             Image(systemName: "minus.circle")
-                                .foregroundColor(Color.red)
+//                                .foregroundColor(Color.red)
+                                .foregroundStyle(Color.red)
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .background(Color.white)
@@ -1018,7 +1031,8 @@ struct unitButtonScreenChoice: View {
                                 .cornerRadius(10)
 //                                .popoverTip(secondTip)
                             Image(systemName: "plus.circle")
-                                .foregroundColor(Color.green)
+//                                .foregroundColor(Color.green)
+                                .foregroundStyle(Color.green)
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .background(Color.white)
@@ -1064,7 +1078,8 @@ struct unitButtonScreenChoiceForDataInput: View {
                             .border(Color.green, width: 10)
                             .cornerRadius(10)
                         Image(systemName: "")//plus.circle")
-                            .foregroundColor(Color.green)
+//                            .foregroundColor(Color.green)
+                            .foregroundStyle(Color.green)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .background(Color.white)
@@ -1131,10 +1146,12 @@ struct unitButtonToolbarScreenSelectReset: View {
         }, label: {
             if currentKeyword == "" {
                 Image(systemName: "rectangle.on.rectangle.slash")
-                    .foregroundColor(.gray)
+//                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
             } else {
                 Image(systemName: "rectangle.on.rectangle.slash")
-                    .foregroundColor(.blue)
+//                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
 //                    .popoverTip(tips)
             }
         })
@@ -1151,7 +1168,8 @@ struct unitClearScrollSection: View {
     var body: some View {
         Section {
             Rectangle()
-                .foregroundColor(.clear)
+//                .foregroundColor(.clear)
+                .foregroundStyle(.clear)
                 .frame(height: self.spaceHeight)
         }
         .listRowBackground(Color.clear)
@@ -1168,7 +1186,8 @@ struct unitClearScrollSectionBinding: View {
     var body: some View {
         Section {
             Rectangle()
-                .foregroundColor(.clear)
+//                .foregroundColor(.clear)
+                .foregroundStyle(.clear)
                 .frame(height: self.spaceHeight)
         }
         .listRowBackground(Color.clear)
@@ -1189,7 +1208,8 @@ struct unitLabelMenu: View {
             Image(systemName: self.imageSystemName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color.gray)
+//                .foregroundColor(Color.gray)
+                .foregroundStyle(Color.gray)
                 .frame(width: self.imageWidthSize)
             Text(self.textBody)
         }
@@ -1222,6 +1242,7 @@ struct unitButtonSaveMemory: View {
 // //////////////////////////
 struct unitViewSaveMemory: View {
     @Environment(\.dismiss) private var dismiss
+    
     let memorySelectList: [String] = ["メモリー1", "メモリー2", "メモリー3"]
     let machineName: String
     @Binding var selectedMemory: String
@@ -1247,34 +1268,8 @@ struct unitViewSaveMemory: View {
     @Binding var isShowSaveAlert: Bool
     @FocusState var isFocused: Bool
     
-    // カスタムイニシャライザを追加
-//    init(machineName: String, selectedMemory: Binding<String>, memoMemory1: Binding<String>, dateDoubleMemory1: Binding<Double>, actionMemory1: @escaping () -> Void = {}, memoMemory2: Binding<String>, dateDoubleMemory2: Binding<Double>, actionMemory2: @escaping () -> Void = {}, memoMemory3: Binding<String>, dateDoubleMemory3: Binding<Double>, actionMemory3: @escaping () -> Void = {}, isShowSaveAlert: Binding<Bool>) {
-//        self._selectedMemory = selectedMemory
-//        self._memoMemory1 = memoMemory1
-//        self._dateDoubleMemory1 = dateDoubleMemory1
-//        
-//        // dateDoubleMemory1 から Date を生成して初期化
-//        self._dateMemory1 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory1.wrappedValue))
-//        self._memoInput1 = State(initialValue: memoMemory1.wrappedValue)
-//        self.actionMemory1 = actionMemory1
-//        self.machineName = machineName
-//        
-//        // メモリー2
-//        self._memoMemory2 = memoMemory2
-//        self._dateDoubleMemory2 = dateDoubleMemory2
-//        self._dateMemory2 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory2.wrappedValue))
-//        self._memoInput2 = State(initialValue: memoMemory2.wrappedValue)
-//        self.actionMemory2 = actionMemory2
-//        
-//        // メモリー3
-//        self._memoMemory3 = memoMemory3
-//        self._dateDoubleMemory3 = dateDoubleMemory3
-//        self._dateMemory3 = State(initialValue: Date(timeIntervalSince1970: dateDoubleMemory3.wrappedValue))
-//        self._memoInput3 = State(initialValue: memoMemory3.wrappedValue)
-//        self.actionMemory3 = actionMemory3
-//        
-//        self._isShowSaveAlert = isShowSaveAlert
-//    }
+    @ObservedObject var common = commonVar()
+    @Environment(\.requestReview) var requestReview
     
     var body: some View {
         NavigationView {
@@ -1285,7 +1280,8 @@ struct unitViewSaveMemory: View {
                         Text("機種")
                         Spacer()
                         Text(self.machineName)
-                            .foregroundColor(.secondary)
+//                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     // //// メモリー選択
                     Picker("", selection: self.$selectedMemory) {
@@ -1398,6 +1394,27 @@ struct unitViewSaveMemory: View {
                                 actionMemory3()
                             }
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
+                            // //// レビューリクエストの実行
+                            // アプリ起動回数が10回以上ならレビューリクエストを実行
+                            if common.appLaunchCount > 10 {
+                                // 現在の時刻を日本時間に合わせて取得
+                                let currentDate = Date()
+                                let calendar = Calendar.current
+                                let timeZone = TimeZone(identifier: "Asia/Tokyo")!
+                                let currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
+                                // 時間のコンポーネントを取得
+                                guard let hour = currentComponents.hour else { return }
+                                // 21時から翌日の8時までの間
+                                if hour >= 21 || hour < 8 {
+                                    requestReview()
+                                    print("レビューリクエストの実行")
+                                    common.appLaunchCount = 0
+                                } else {
+                                    print("レビューリクエストの見送り")
+                                }
+                            } else {
+                                print("起動回数不足")
+                            }
                         }
                     } message: {
                         Text("現在のカウントデータを選択中のメモリーに上書き保存します")
@@ -1494,7 +1511,8 @@ struct unitViewLoadMemory: View {
                         Text("機種")
                         Spacer()
                         Text(self.machineName)
-                            .foregroundColor(.secondary)
+//                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     // //// メモリー選択
                     Picker("", selection: self.$selectedMemory) {
@@ -1510,26 +1528,32 @@ struct unitViewLoadMemory: View {
                         if self.selectedMemory == "メモリー1" {
                             if self.memoMemory1 != "" {
                                 Text(self.memoMemory1)
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         } else if self.selectedMemory == "メモリー2" {
                             if self.memoMemory2 != "" {
                                 Text(self.memoMemory2)
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         } else {
                             if self.memoMemory3 != "" {
                                 Text(self.memoMemory3)
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
@@ -1541,28 +1565,34 @@ struct unitViewLoadMemory: View {
                             if self.dateDoubleMemory1 > 10000.0 {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory1)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         } else if self.selectedMemory == "メモリー2" {
                             if self.dateDoubleMemory2 > 10000.0 {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory2)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         } else {
                             if self.dateDoubleMemory3 > 10000.0 {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory3)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             } else {
                                 Text("なし")
-                                    .foregroundColor(.secondary)
+//                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }

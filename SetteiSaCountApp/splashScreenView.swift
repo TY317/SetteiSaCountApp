@@ -13,7 +13,7 @@ struct splashScreenView: View {
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opsity = 0.0
-    
+    @ObservedObject var common = commonVar()
     var body: some View {
         if isActive {
             ContentView()
@@ -30,6 +30,7 @@ struct splashScreenView: View {
                             self.size = 1.0
                             self.opsity = 1.0
                         }
+                        common.appLaunchCountUp()
                     }
             }
             .onAppear {

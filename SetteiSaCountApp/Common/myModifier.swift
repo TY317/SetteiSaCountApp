@@ -29,7 +29,8 @@ struct backgroundFlashModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .foregroundColor(self.color)
+//            .foregroundColor(self.color)
+            .foregroundStyle(self.color)
             .opacity(self.flashOpacity)
             .cornerRadius(self.radius)
             .onChange(of: self.trigger) { //_ in

@@ -123,7 +123,8 @@ struct VVV_Top: View {
                         Text("革命機ヴァルヴレイヴ")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(.primary)
+//                            .foregroundColor(.primary)
+                            .foregroundStyle(Color.primary)
                         Spacer()
                     }
                     

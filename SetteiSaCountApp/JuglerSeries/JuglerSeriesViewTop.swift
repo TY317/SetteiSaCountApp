@@ -39,7 +39,8 @@ struct JuglerSeriesViewTop: View {
                     ScrollView {
                         Rectangle()
                             .frame(height: 40)
-                            .foregroundColor(.clear)
+//                            .foregroundColor(.clear)
+                            .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                             // //// ゴーゴージャグラー3、2023年 7月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
@@ -50,7 +51,7 @@ struct JuglerSeriesViewTop: View {
                                     iconImage: Image("goJug3MachineIcon"),
                                     machineName: "ゴージャグ3"
                                 )
-                                .popoverTip(tipVer150AddMachineJug())
+//                                .popoverTip(tipVer150AddMachineJug())
                             }
                             
                             // //// ハッピージャグラーV3
@@ -95,7 +96,7 @@ struct JuglerSeriesViewTop: View {
                                     releaseYear: 2023,
                                     releaseMonth: 7
                                 )
-                                .popoverTip(tipVer150AddMachineJug())
+//                                .popoverTip(tipVer150AddMachineJug())
                             }
                             
                             // //// ハッピージャグラーV3
@@ -266,7 +267,8 @@ struct machineListHappyJugV3: View {
                     Text("ハッピージャグラーV3")
                     Text("北電子 , 2022年 10月")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)
@@ -292,7 +294,8 @@ struct machineListMyJug5: View {
                     Text("マイジャグラー5")
                     Text("北電子 , 2021年 12月")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)

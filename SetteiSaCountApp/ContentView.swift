@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 import UIKit
 import TipKit
+import StoreKit
 
 // /////////////////////////
 // 変数：お気に入り機種設定用の変数
@@ -28,6 +29,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteKaguya") var isSelectedFavoriteKaguya = true
     @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
     @AppStorage("isSelectedFavoriteBangdream") var isSelectedFavoriteBangdream = true
+    @AppStorage("isSelectedFavoriteMhr") var isSelectedFavoriteMhr = true
 }
 
 
@@ -41,6 +43,50 @@ class commonVar: ObservableObject {
     let lazyVGridColumnsPortlait: Int = 4
     let lazyVGridColumnsLandscape: Int = 7
     
+    // ///////////////////////
+    // 起動回数カウント
+    // ///////////////////////
+    @AppStorage("commonAppLaunchCount") var appLaunchCount: Int = 0
+    @AppStorage("commonAppLaunchCountUpLastDateDouble") var appLaunchCountUpLastDateDouble: Double = 0.0
+    
+    // //// 1日1回アプリ起動回数をカウントアップさせる
+    func appLaunchCountUp() {
+        // 現在時の取得
+        let nowDate = Date()
+        let nowDateDouble = nowDate.timeIntervalSince1970
+        // 最終カウントアップ時から20時間経過していたらカウントアップさせる
+        if (nowDateDouble - appLaunchCountUpLastDateDouble) > 72000 {
+            appLaunchCount += 1
+            appLaunchCountUpLastDateDouble = nowDateDouble
+            print("カウントアップ： \(appLaunchCount) 回")
+        } else {
+            print("カウントアップなし")
+        }
+    }
+    @Environment(\.requestReview) var requestReview
+    // //// レビューリクエストの実行
+//    func reviewRequest() {
+//        var count: Int = 0
+//        // 現在の時刻を日本時間に合わせて取得
+//        let currentDate = Date()
+//        let calendar = Calendar.current
+//        let timeZone = TimeZone(identifier: "Asia/Tokyo")!
+//        var currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
+//        
+//        // 時間のコンポーネントを取得
+//        guard let hour = currentComponents.hour else { return }
+//        
+//        // 21時から翌日の8時までの間
+//        if hour >= 21 || hour < 8 {
+//            count += 1
+////            print("カウントアップ！ 現在のカウント: \(count)")
+////            requestReview()
+//            print("レビューリクエストの実行")
+//        } else {
+////            print("カウントアップせず、現在のカウント: \(count)")
+//            print("レビューリクエストの見送り")
+//        }
+//    }
 }
 
 // /////////////////////////
@@ -66,7 +112,8 @@ struct ContentView: View {
                         ScrollView {
                             Rectangle()
                                 .frame(height: 40)
-                                .foregroundColor(.clear)
+//                                .foregroundColor(.clear)
+                                .foregroundStyle(Color.clear)
                             LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                                 // //// ジャグラーシリーズ
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
@@ -82,12 +129,20 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// モンスターハンターライズ、24年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(mhrViewTop()), iconImage: Image("mhrMachineIcon"), machineName: "モンハンライズ")
+                                        .popoverTip(tipVer160AddMachine())
+                                }
+                                
                                 // //// バンドリ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBangdream == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!")
-                                        .popoverTip(tipVer150AddMachine())
+//                                        .popoverTip(tipVer150AddMachine())
                                 }
                                 
                                 // //// リゼロ2、24年10月
@@ -95,7 +150,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ2")
-//                                        .popoverTip(tipVer140AddMachine())
+                                    //                                        .popoverTip(tipVer140AddMachine())
                                 }
                                 
                                 // //// かぐや様、24年9月
@@ -103,7 +158,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様")
-//                                        .popoverTip(tipVer130AddMachine())
+                                    //                                        .popoverTip(tipVer130AddMachine())
                                 }
                                 
                                 // //// シンフォギア 正義の歌、24年7月
@@ -177,121 +232,136 @@ struct ContentView: View {
                     else {
                         // //// 機種リスト表示部分
                         List {
-                                Section {
-                                    // //// ジャグラーシリーズ
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
-                                        // 非表示
-                                    } else {
-                                        machineListJuglerSeries()
-                                    }
-                                    
-                                    // //// ハナハナシリーズ
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
-                                        // 非表示
-                                    } else {
-                                        machineListHanahanaSeries()
-                                    }
-                                    
-                                    // //// バンドリ、24年11月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBangdream == false {
-                                        
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!", makerName: "平和", releaseYear: 2024, releaseMonth: 11)
-                                            .popoverTip(tipVer150AddMachine())
-                                    }
-                                    
-                                    // //// リゼロ2、24年10月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRezero2 == false {
-                                        
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ season2", makerName: "大都技研", releaseYear: 2024, releaseMonth: 10)
-                                            
-                                    }
-                                    
-                                    // //// かぐや様、24年9月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
-                                        
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
-//                                            .popoverTip(tipVer130AddMachine())
-                                    }
-                                    // //// シンフォギア 正義の歌、24年7月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "戦姫絶唱シンフォギア 正義の歌", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 7)
-                                    }
-                                    
-                                    // //// ゴッドイーター リザレクション、24年7月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "山佐", releaseYear: 2024, releaseMonth: 7)
-                                    }
-                                    // //// ToLOVEるダークネス、24年6月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "平和", releaseYear: 2024, releaseMonth: 6)
-        //                                    .popoverTip(tipAddToloveru())
-                                    }
-                                    
-                                    // //// ゴジラvsエヴァンゲリオン、24年2月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGoeva == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(goevaViewTop()), iconImage: Image("machinIconGoeva"), machineName: "ゴジラvsエヴァンゲリオン", makerName: "ビスティ", releaseYear: 2024, releaseMonth: 2)
-                                    }
-                                    
-                                    // //// モンキーターン５、23年12月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMT5 == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(mt5ViewTop()), iconImage: Image("machineIconMT5"), machineName: "モンキーターン5", makerName: "山佐", releaseYear: 2023, releaseMonth: 12)
-                                    }
-                                    
-                                    // //// からくりサーカス、23年7月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス", makerName: "SANKYO", releaseYear: 2023, releaseMonth: 7)
-                                    }
-                                    
-                                    // //// 北斗の拳、23年4月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
-        //                                    .popoverTip(tipAddHokuto())
-                                    }
-                                    
-                                    // //// ヴァルヴレイヴ、22年11月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVVV == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(VVV_Top()), iconImage: Image("machineIconVVV"), machineName: "革命機ヴァルヴレイヴ", makerName: "SANKYO", releaseYear: 2022, releaseMonth: 11)
-                                    }
-                                    
-                                    // //// カバネリ、22年7月
-                                    if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneri == false {
-                                        // 非表示
-                                    } else {
-                                        unitMachinListLink(linkView: AnyView(kabaneriViewTop()), iconImage: Image("machineIconKabaneri"), machineName: "甲鉄城のカバネリ", makerName: "サミー", releaseYear: 2022, releaseMonth: 7)
-                                    }
-                                    
-                                } header: {
-                                    VStack {
-                                        Text("")
-                                        Text("")
-                                    }
+                            Section {
+                                // //// ジャグラーシリーズ
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
+                                    // 非表示
+                                } else {
+                                    machineListJuglerSeries()
                                 }
+                                
+                                // //// ハナハナシリーズ
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
+                                    // 非表示
+                                } else {
+                                    machineListHanahanaSeries()
+                                }
+                                
+                                // //// モンスターハンターライズ、24年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(mhrViewTop()),
+                                        iconImage: Image("mhrMachineIcon"),
+                                        machineName: "モンスターハンター ライズ",
+                                        makerName: "アデリオン",
+                                        releaseYear: 2024,
+                                        releaseMonth: 11
+                                    )
+                                        .popoverTip(tipVer160AddMachine())
+                                }
+                                
+                                // //// バンドリ、24年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBangdream == false {
+                                    
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!", makerName: "平和", releaseYear: 2024, releaseMonth: 11)
+//                                        .popoverTip(tipVer150AddMachine())
+                                }
+                                
+                                // //// リゼロ2、24年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRezero2 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ season2", makerName: "大都技研", releaseYear: 2024, releaseMonth: 10)
+                                    
+                                }
+                                
+                                // //// かぐや様、24年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
+                                    
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
+                                    //                                            .popoverTip(tipVer130AddMachine())
+                                }
+                                // //// シンフォギア 正義の歌、24年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(symphoViewTop()), iconImage: Image("symphoMachineIcon"), machineName: "戦姫絶唱シンフォギア 正義の歌", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 7)
+                                }
+                                
+                                // //// ゴッドイーター リザレクション、24年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "山佐", releaseYear: 2024, releaseMonth: 7)
+                                }
+                                // //// ToLOVEるダークネス、24年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "平和", releaseYear: 2024, releaseMonth: 6)
+                                    //                                    .popoverTip(tipAddToloveru())
+                                }
+                                
+                                // //// ゴジラvsエヴァンゲリオン、24年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGoeva == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(goevaViewTop()), iconImage: Image("machinIconGoeva"), machineName: "ゴジラvsエヴァンゲリオン", makerName: "ビスティ", releaseYear: 2024, releaseMonth: 2)
+                                }
+                                
+                                // //// モンキーターン５、23年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMT5 == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(mt5ViewTop()), iconImage: Image("machineIconMT5"), machineName: "モンキーターン5", makerName: "山佐", releaseYear: 2023, releaseMonth: 12)
+                                }
+                                
+                                // //// からくりサーカス、23年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス", makerName: "SANKYO", releaseYear: 2023, releaseMonth: 7)
+                                }
+                                
+                                // //// 北斗の拳、23年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
+                                    //                                    .popoverTip(tipAddHokuto())
+                                }
+                                
+                                // //// ヴァルヴレイヴ、22年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVVV == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(VVV_Top()), iconImage: Image("machineIconVVV"), machineName: "革命機ヴァルヴレイヴ", makerName: "SANKYO", releaseYear: 2022, releaseMonth: 11)
+                                }
+                                
+                                // //// カバネリ、22年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneri == false {
+                                    // 非表示
+                                } else {
+                                    unitMachinListLink(linkView: AnyView(kabaneriViewTop()), iconImage: Image("machineIconKabaneri"), machineName: "甲鉄城のカバネリ", makerName: "サミー", releaseYear: 2022, releaseMonth: 7)
+                                }
+                                
+                            } header: {
+                                VStack {
+                                    Text("")
+                                    Text("")
+                                }
+                            }
                         }
                     }
                     // //// モード選択ピッカー
                     VStack {
                         Picker("", selection: $isSelectedDisplayMode) {
                             ForEach(displayMode, id: \.self) { mode in
-//                                Text($0)
+                                //                                Text($0)
                                 Text(mode)
                             }
                         }
@@ -356,7 +426,7 @@ struct ContentView: View {
                                         .popoverTip(tipUnitButtonIconDisplayMode())
                                 }
                             }
-
+                            
                             // お気に入り設定ボタン
                             Button(action: {
                                 isShowFavoriteSettingView.toggle()
@@ -374,12 +444,21 @@ struct ContentView: View {
             if !isKeyboardVisible {
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color(UIColor.systemGroupedBackground))
+//                        .foregroundColor(Color(UIColor.systemGroupedBackground))
+                        .foregroundStyle(Color(UIColor.systemGroupedBackground))
                         .ignoresSafeArea()
                         .frame(height: 50)
                     AdMobBannerView()
                         .frame(width: 320,height: 50)     // 320*50が基本サイズ？50だといい感じ
                 }
+//                GeometryReader { geometry in
+//                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
+//                    VStack {
+//                        Spacer()
+//                        BannerView(adSize)
+//                            .frame(height: adSize.size.height)
+//                    }
+//                }
             }
         }
         
@@ -416,6 +495,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// モンハンライズ、24年11月
+                Toggle("モンスターハンター ライズ", isOn: $favoriteSet.isSelectedFavoriteMhr)
                 // //// バンドリ、24年11月
                 Toggle("バンドリ!", isOn: $favoriteSet.isSelectedFavoriteBangdream)
                 // //// リゼロ2、24年10月
@@ -459,83 +540,6 @@ struct favoriteSettingView: View {
 }
 
 
-// ////////////////////////////
-// ゴジラvsエヴァンゲリオン、24年2月
-// ////////////////////////////
-struct machineListGoeva: View {
-    var body: some View {
-        NavigationLink(destination: goevaViewTop()) {
-            HStack {
-                Image("machinIconGoeva")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("ゴジラvsエヴァンゲリオン")
-                    Text("ビスティ , 2024年 2月")
-                        .font(.caption)
-                        .foregroundColor(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
-
-
-// ////////////////////////
-// ビュー：革命機ヴァルヴレイヴ
-// ////////////////////////
-struct machineListVVV: View {
-    var body: some View {
-        NavigationLink(destination: VVV_Top()) {
-            HStack {
-                Image("machineIconVVV")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("革命機ヴァルヴレイヴ")
-                    Text("SANKYO , 2022年 11月")
-                        .font(.caption)
-                        .foregroundColor(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
-
-
-// ////////////////////////
-// ビュー：カバネリ、22年7月
-// ////////////////////////
-struct machineListKabaneri: View {
-    var body: some View {
-        NavigationLink(destination: kabaneriViewTop()) {
-            HStack {
-                Image("machineIconKabaneri")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("甲鉄城のカバネリ")
-                    Text("サミー , 2022年 7月")
-                        .font(.caption)
-                        .foregroundColor(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
-
 // ////////////////////////
 // ビュー：ジャグラーシリーズ
 // ////////////////////////
@@ -552,7 +556,8 @@ struct machineListJuglerSeries: View {
                     Text("ジャグラーシリーズ")
                     Text("")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)
@@ -578,7 +583,8 @@ struct machineListHanahanaSeries: View {
                     Text("ハナハナシリーズ")
                     Text("")
                         .font(.caption)
-                        .foregroundColor(Color.gray)
+//                        .foregroundColor(Color.gray)
+                        .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
                 .padding(.leading)
@@ -586,33 +592,6 @@ struct machineListHanahanaSeries: View {
         }
     }
 }
-
-
-// ////////////////////////
-// ビュー：モンキーターン５、23年　12月
-// ////////////////////////
-struct machineListMT5: View {
-    var body: some View {
-        NavigationLink(destination: mt5ViewTop()) {
-            HStack {
-                Image("machineIconMT5")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("モンキーターン5")
-                    Text("山佐 , 2023年 12月")
-                        .font(.caption)
-                        .foregroundColor(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
-
 
 
 // ////////////////////
@@ -623,6 +602,7 @@ struct AdMobBannerView: UIViewRepresentable {
         let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
         // 諸々の設定をしていく
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
+//        banner.adUnitID = "ca-app-pub-3940256099942544/2435281174" // テスト用広告ID2
 //        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
         banner.rootViewController = getRootViewController() // 修正部分
         banner.load(GADRequest())
@@ -639,6 +619,67 @@ struct AdMobBannerView: UIViewRepresentable {
         }
         return nil
     }
+}
+
+
+// [START create_banner_view]
+private struct BannerView: UIViewRepresentable {
+  let adSize: GADAdSize
+
+  init(_ adSize: GADAdSize) {
+    self.adSize = adSize
+  }
+
+  func makeUIView(context: Context) -> UIView {
+    // Wrap the GADBannerView in a UIView. GADBannerView automatically reloads a new ad when its
+    // frame size changes; wrapping in a UIView container insulates the GADBannerView from size
+    // changes that impact the view returned from makeUIView.
+    let view = UIView()
+    view.addSubview(context.coordinator.bannerView)
+    return view
+  }
+
+  func updateUIView(_ uiView: UIView, context: Context) {
+    context.coordinator.bannerView.adSize = adSize
+  }
+
+  func makeCoordinator() -> BannerCoordinator {
+    return BannerCoordinator(self)
+  }
+  // [END create_banner_view]
+
+  // [START create_banner]
+  class BannerCoordinator: NSObject, GADBannerViewDelegate {
+
+    private(set) lazy var bannerView: GADBannerView = {
+      let banner = GADBannerView(adSize: parent.adSize)
+      // [START load_ad]
+      banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+      banner.load(GADRequest())
+      // [END load_ad]
+      // [START set_delegate]
+      banner.delegate = self
+      // [END set_delegate]
+      return banner
+    }()
+
+    let parent: BannerView
+
+    init(_ parent: BannerView) {
+      self.parent = parent
+    }
+    // [END create_banner]
+
+    // MARK: - GADBannerViewDelegate methods
+
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("DID RECEIVE AD.")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("FAILED TO RECEIVE AD: \(error.localizedDescription)")
+    }
+  }
 }
 
 #Preview {

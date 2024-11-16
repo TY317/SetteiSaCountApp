@@ -165,7 +165,8 @@ struct myJug5ViewTop: View {
                             isShowExView.toggle()
                         }, label: {
                             Text(">> 設定差情報")
-                                .foregroundColor(Color.blue)
+//                                .foregroundColor(Color.blue)
+                                .foregroundStyle(Color.blue)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         })
                         .sheet(isPresented: $isShowExView, content: {
@@ -277,7 +278,8 @@ struct myJug5ViewTop: View {
                             }, label: {
                                 if jug.minusCheck == true{
                                     Image(systemName: "minus.circle.fill")
-                                        .foregroundColor(Color.red)
+//                                        .foregroundColor(Color.red)
+                                        .foregroundStyle(Color.red)
                                 } else {
                                     Image(systemName: "minus.circle")
                                 }
@@ -512,7 +514,8 @@ struct myJug5SubViewTotalRegRatio: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("grayBack"))
+//                    .foregroundColor(Color("grayBack"))
+                    .foregroundStyle(Color.grayBack)
                     .cornerRadius(15)
                 Spacer()
             }
@@ -544,7 +547,8 @@ struct myJug5SubViewTotalBonusRatio: View {
             HStack {
                 Spacer()
                 Rectangle()
-                    .foregroundColor(Color("grayBack"))
+//                    .foregroundColor(Color("grayBack"))
+                    .foregroundStyle(Color.grayBack)
                     .cornerRadius(15)
                 Spacer()
             }

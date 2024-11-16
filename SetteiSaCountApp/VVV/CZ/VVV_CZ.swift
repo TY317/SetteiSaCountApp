@@ -259,7 +259,8 @@ struct VVV_CZ: View {
                         }, label: {
                             if cz.MinusCheck == true{
                                 Image(systemName: "minus.circle.fill")
-                                    .foregroundColor(Color.red)
+//                                    .foregroundColor(Color.red)
+                                    .foregroundStyle(Color.red)
                             } else {
                                 Image(systemName: "minus.circle")
                             }
@@ -508,7 +509,8 @@ struct bonusTimesView: View {
                 // //// 革命ボーナス回数
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("grayBack"))
+//                        .foregroundColor(Color("grayBack"))
+                        .foregroundStyle(Color.grayBack)
                         .cornerRadius(15)
                     VStack {
                         Text("革命")
@@ -529,7 +531,8 @@ struct bonusTimesView: View {
                 // //// 決戦ボーナス回数
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("grayBack"))
+//                        .foregroundColor(Color("grayBack"))
+                        .foregroundStyle(Color.grayBack)
                         .cornerRadius(15)
                     VStack {
                         Text("決戦")
@@ -552,7 +555,8 @@ struct bonusTimesView: View {
             // 革命比率の表示
             ZStack {
                 Rectangle()
-                    .foregroundColor(Color("personalSummerLightRed"))
+//                    .foregroundColor(Color("personalSummerLightRed"))
+                    .foregroundStyle(Color.personalSummerLightRed)
                     .cornerRadius(15)
                 VStack {
                     Text("革命比率")

@@ -409,7 +409,7 @@ struct mt5ViewTop: View {
                     NavigationLink(destination: mt5View5coin()) {
                         unitLabelMenu(imageSystemName: "5.circle", textBody: "５枚役")
                     }
-                    .popoverTip(mt5TipAdd5Coins())
+//                    .popoverTip(mt5TipAdd5Coins())
                     // 周期履歴
                     NavigationLink(destination: mt5ViewHistory()) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "周期履歴")
