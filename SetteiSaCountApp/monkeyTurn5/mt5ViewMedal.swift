@@ -28,6 +28,8 @@ struct mt5ViewMedal: View {
                     unitLinkButton(title: "メダルについて", exview: AnyView(mt5ExViewMedal()))
                         .popoverTip(mt5TipBlackMedalRatioAdd())
                     unitLinkButton(title: "トロフィーについて", exview: AnyView(mt5ExViewTrofy()))
+                    // 95%信頼区間グラフ
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 6)))
                 } header: {
                     Text("メダルのカウント")
                 }

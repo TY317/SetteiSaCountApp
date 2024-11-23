@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import Charts
 
 struct myViewUnit: View {
     @State var count = 10
@@ -15,103 +16,6 @@ struct myViewUnit: View {
         Text("aaa")
     }
 }
-
-
-//// //////////////////////
-//// [旧式今後使用禁止]ビュー：縦型カウントボタン、確率分母タイプ
-//// //////////////////////
-//struct unitVerticalCountDenominate: View {
-//    @State var title: String
-//    @Binding var count: Int
-//    @State var color: Color
-//    @Binding var startGames: Int
-//    @Binding var currentGames: Int
-//    @State var numberofDicimal: Int
-//    @Binding var minusBool: Bool
-//    var denominator: Double {
-//        let playGames = (currentGames - startGames) > 0 ? (currentGames - startGames) : 0
-//        let deno = Double(playGames) / Double(count)
-//        return count > 0 ? deno : 0.0
-//    }
-//    
-//    var body: some View {
-//        ZStack {
-//            // 背景フラッシュ部分
-//            Rectangle()
-//                .backgroundFlashModifier(trigger: self.count, color: self.color)
-//            // //// ボタンと表示部分
-//            VStack(spacing: 5) {
-//                // タイトル
-//                Text(self.title)
-//                // 確率
-//                Text("\(self.count > 0 ? 1 : 0)/\(String(format:"%.\(self.numberofDicimal)f",self.denominator))")
-//                    .fontWeight(.bold)
-//                    .lineLimit(1)
-//                // 回数
-//                Text("\(self.count)")
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
-//                    .lineLimit(1)
-//                // カウントボタン
-//                Button(action: {
-//                    self.count = countUpDown(minusCheck: minusBool, count: self.count)
-//                }, label: {
-//                    Text("")
-//                })
-//                .buttonStyle(CountButtonStyle(color: self.color, MinusBool: minusBool))
-//            }
-//        }
-//    }
-//}
-//
-//
-//// //////////////////////
-//// [旧式今後使用禁止ビュー：縦型カウントボタン、％タイプ
-//// //////////////////////
-//struct unitVerticalCountPercent: View {
-//    @State var title: String
-//    @Binding var count: Int
-//    @State var color: Color
-//    @Binding var startGames: Int
-//    @Binding var currentGames: Int
-//    @State var numberofDicimal: Int
-//    @Binding var minusBool: Bool
-//    @State var totalNumber: Int
-//    var ratio: Double {
-//        let rat = Double(count) / Double(totalNumber) * 100
-//        return totalNumber > 0 ? rat : 0.0
-//    }
-//    
-//    var body: some View {
-//        ZStack {
-//            // 背景フラッシュ部分
-//            Rectangle()
-//                .backgroundFlashModifier(trigger: self.count, color: self.color)
-//            // //// ボタンと表示部分
-//            VStack(spacing: 5) {
-//                // タイトル
-//                Text(self.title)
-//                // 確率
-//                Text("\(String(format:"%.\(self.numberofDicimal)f",self.ratio))%")
-//                    .font(.footnote)
-//                    .fontWeight(.bold)
-//                    .lineLimit(1)
-//                // 回数
-//                Text("\(self.count)")
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
-//                    .lineLimit(1)
-//                // カウントボタン
-//                Button(action: {
-//                    self.count = countUpDown(minusCheck: self.minusBool, count: self.count)
-//                }, label: {
-//                    Text("")
-//                })
-//                .buttonStyle(CountButtonStyle(color: self.color, MinusBool: self.minusBool))
-//            }
-//        }
-//    }
-//}
 
 
 // ////////////////////////////
@@ -825,7 +729,7 @@ struct unitLabelMachineTopTitle: View {
                 .font(self.titleFont)
                 .fontWeight(.bold)
 //                .foregroundColor(.primary)
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.primary)
             Spacer()
         }
     }
@@ -1147,11 +1051,11 @@ struct unitButtonToolbarScreenSelectReset: View {
             if currentKeyword == "" {
                 Image(systemName: "rectangle.on.rectangle.slash")
 //                    .foregroundColor(.gray)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(Color.gray)
             } else {
                 Image(systemName: "rectangle.on.rectangle.slash")
 //                    .foregroundColor(.blue)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(Color.blue)
 //                    .popoverTip(tips)
             }
         })
@@ -1169,7 +1073,7 @@ struct unitClearScrollSection: View {
         Section {
             Rectangle()
 //                .foregroundColor(.clear)
-                .foregroundStyle(.clear)
+                .foregroundStyle(Color.clear)
                 .frame(height: self.spaceHeight)
         }
         .listRowBackground(Color.clear)
@@ -1187,7 +1091,7 @@ struct unitClearScrollSectionBinding: View {
         Section {
             Rectangle()
 //                .foregroundColor(.clear)
-                .foregroundStyle(.clear)
+                .foregroundStyle(Color.clear)
                 .frame(height: self.spaceHeight)
         }
         .listRowBackground(Color.clear)
@@ -1202,6 +1106,7 @@ struct unitLabelMenu: View {
     @State var imageSystemName: String
     @State var textBody: String
     @State var imageWidthSize: Double = 25.0
+    @State var statisticsBool: Bool = false
     
     var body: some View {
         HStack {
@@ -1212,6 +1117,14 @@ struct unitLabelMenu: View {
                 .foregroundStyle(Color.gray)
                 .frame(width: self.imageWidthSize)
             Text(self.textBody)
+            if self.statisticsBool {
+                Spacer()
+                Image(systemName: "chart.bar.xaxis")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(Color.gray)
+                    .frame(width: self.imageWidthSize)
+            }
         }
     }
 }
@@ -1281,7 +1194,7 @@ struct unitViewSaveMemory: View {
                         Spacer()
                         Text(self.machineName)
 //                            .foregroundColor(.secondary)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondary)
                     }
                     // //// メモリー選択
                     Picker("", selection: self.$selectedMemory) {
@@ -1512,7 +1425,7 @@ struct unitViewLoadMemory: View {
                         Spacer()
                         Text(self.machineName)
 //                            .foregroundColor(.secondary)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondary)
                     }
                     // //// メモリー選択
                     Picker("", selection: self.$selectedMemory) {
@@ -1529,31 +1442,31 @@ struct unitViewLoadMemory: View {
                             if self.memoMemory1 != "" {
                                 Text(self.memoMemory1)
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         } else if self.selectedMemory == "メモリー2" {
                             if self.memoMemory2 != "" {
                                 Text(self.memoMemory2)
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         } else {
                             if self.memoMemory3 != "" {
                                 Text(self.memoMemory3)
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         }
                     }
@@ -1566,33 +1479,33 @@ struct unitViewLoadMemory: View {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory1)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         } else if self.selectedMemory == "メモリー2" {
                             if self.dateDoubleMemory2 > 10000.0 {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory2)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         } else {
                             if self.dateDoubleMemory3 > 10000.0 {
                                 let date = Date(timeIntervalSince1970: self.dateDoubleMemory3)
                                 Text(date, format: Date.FormatStyle(date: .long, time: .none))
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             } else {
                                 Text("なし")
 //                                    .foregroundColor(.secondary)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(Color.secondary)
                             }
                         }
                     }
@@ -1650,7 +1563,496 @@ struct unitViewLoadMemory: View {
 }
 
 
+// ////////////////////////////
+// ビュー：95%信頼区間のグラフ表示（確率分母バージョン）
+// ////////////////////////////
+struct unitChart95CiDenominate: View {
+    @Binding var currentCount: Int
+    @Binding var bigNumber: Int
+    @State var setting1Enable: Bool = true
+    @State var setting1Denominate: Double
+    @State var setting2Enable: Bool = true
+    @State var setting2Denominate: Double
+    @State var setting3Enable: Bool = true
+    @State var setting3Denominate: Double
+    @State var setting4Enable: Bool = true
+    @State var setting4Denominate: Double
+    @State var setting5Enable: Bool = true
+    @State var setting5Denominate: Double
+    @State var setting6Enable: Bool = true
+    @State var setting6Denominate: Double
+    let xAxisTitle: String = "設定"
+    let barOpacity: Double = 0.5
+    let chartHeight: CGFloat = 250
+    let ruleMarkColor: Color = .red
+//    let yScaleLower: Double = 0.8
+//    let yScaleUpper: Double = 1.2
+    let yScaleKeisu: Double = 0.2
+    
+    var body: some View {
+        Chart {
+            // 設定1
+            if self.setting1Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定1"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting1Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting1Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.gray)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定2
+            if self.setting2Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定2"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting2Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting2Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.blue)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定3
+            if self.setting3Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定3"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting3Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting3Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.yellow)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定4
+            if self.setting4Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定4"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting4Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting4Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.green)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定5
+            if self.setting5Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定5"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting5Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting5Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.purple)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定6
+            if self.setting6Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定6"),
+                    yStart: .value("下限", statistical95Lower(denominate: self.setting6Denominate, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95Upper(denominate: self.setting6Denominate, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.red)
+                .opacity(self.barOpacity)
+            }
+            
+            // 現在値の赤ライン
+            RuleMark(
+                y: .value("現状", self.currentCount)
+            )
+            .foregroundStyle(self.ruleMarkColor)
+        }
+        .chartYScale(domain: (statistical95Lower(denominate: minDenominate(), times: self.bigNumber)-(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)+(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu)))
+        .frame(height: self.chartHeight)
+    }
+    private func minDenominate() -> Double {
+        var firstInput = false
+        var minimumDenominate = 0.0
+        // 設定1
+        if self.setting1Enable && self.setting1Denominate >= 0 {
+            minimumDenominate = self.setting1Denominate
+            firstInput = true
+        } else {
+            
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Denominate >= 0 {
+            if !firstInput {
+                minimumDenominate = self.setting2Denominate
+                firstInput = true
+            } else if minimumDenominate < self.setting2Denominate {
+                minimumDenominate = self.setting2Denominate
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Denominate >= 0 {
+            if !firstInput {
+                minimumDenominate = self.setting3Denominate
+                firstInput = true
+            } else if minimumDenominate < self.setting3Denominate {
+                minimumDenominate = self.setting3Denominate
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Denominate >= 0 {
+            if !firstInput {
+                minimumDenominate = self.setting4Denominate
+                firstInput = true
+            } else if minimumDenominate < self.setting4Denominate {
+                minimumDenominate = self.setting4Denominate
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Denominate >= 0 {
+            if !firstInput {
+                minimumDenominate = self.setting5Denominate
+                firstInput = true
+            } else if minimumDenominate < self.setting5Denominate {
+                minimumDenominate = self.setting5Denominate
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Denominate >= 0 {
+            if !firstInput {
+                minimumDenominate = self.setting6Denominate
+                firstInput = true
+            } else if minimumDenominate < self.setting6Denominate {
+                minimumDenominate = self.setting6Denominate
+            }
+        }
+        
+        return minimumDenominate
+    }
+    
+    private func maxDenominate() -> Double {
+        var maximumDenominate = 0.0
+        var firstInput = false
+        
+        // 設定1
+        if self.setting1Enable && self.setting1Denominate >= 0 {
+            maximumDenominate = self.setting1Denominate
+            firstInput = true
+        } else {
+            
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Denominate >= 0 {
+            if !firstInput {
+                maximumDenominate = self.setting2Denominate
+                firstInput = true
+            } else if maximumDenominate > self.setting2Denominate {
+                maximumDenominate = self.setting2Denominate
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Denominate >= 0 {
+            if !firstInput {
+                maximumDenominate = self.setting3Denominate
+                firstInput = true
+            } else if maximumDenominate > self.setting3Denominate {
+                maximumDenominate = self.setting3Denominate
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Denominate >= 0 {
+            if !firstInput {
+                maximumDenominate = self.setting4Denominate
+                firstInput = true
+            } else if maximumDenominate > self.setting4Denominate {
+                maximumDenominate = self.setting4Denominate
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Denominate >= 0 {
+            if !firstInput {
+                maximumDenominate = self.setting5Denominate
+                firstInput = true
+            } else if maximumDenominate > self.setting5Denominate {
+                maximumDenominate = self.setting5Denominate
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Denominate >= 0 {
+            if !firstInput {
+                maximumDenominate = self.setting6Denominate
+                firstInput = true
+            } else if maximumDenominate > self.setting6Denominate {
+                maximumDenominate = self.setting6Denominate
+            }
+        }
+        return maximumDenominate
+    }
+}
 
+
+// ////////////////////////////
+// ビュー：95%信頼区間のグラフ表示（パーセントバージョン）
+// ////////////////////////////
+struct unitChart95CiPercent: View {
+    @Binding var currentCount: Int
+    @Binding var bigNumber: Int
+    @State var setting1Enable: Bool = true
+    @State var setting1Percent: Double
+    @State var setting2Enable: Bool = true
+    @State var setting2Percent: Double
+    @State var setting3Enable: Bool = true
+    @State var setting3Percent: Double
+    @State var setting4Enable: Bool = true
+    @State var setting4Percent: Double
+    @State var setting5Enable: Bool = true
+    @State var setting5Percent: Double
+    @State var setting6Enable: Bool = true
+    @State var setting6Percent: Double
+    let xAxisTitle: String = "設定"
+    let barOpacity: Double = 0.5
+    let chartHeight: CGFloat = 250
+    let ruleMarkColor: Color = .red
+    let yScaleKeisu: Double = 0.2
+    
+    var body: some View {
+        Chart {
+            // 設定1
+            if self.setting1Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定1"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting1Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting1Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.gray)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定2
+            if self.setting2Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定2"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting2Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting2Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.blue)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定3
+            if self.setting3Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定3"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting3Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting3Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.yellow)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定4
+            if self.setting4Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定4"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting4Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting4Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.green)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定5
+            if self.setting5Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定5"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting5Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting5Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.purple)
+                .opacity(self.barOpacity)
+            }
+            
+            // 設定6
+            if self.setting6Enable {
+                BarMark(
+                    x: .value(self.xAxisTitle, "設定6"),
+                    yStart: .value("下限", statistical95LowerPercent(percent: self.setting6Percent, times: self.bigNumber)),
+                    yEnd: .value("上限", statistical95UpperPercent(percent: self.setting6Percent, times: self.bigNumber))
+                )
+                .foregroundStyle(Color.red)
+                .opacity(self.barOpacity)
+            }
+            
+            // 現在値の赤ライン
+            RuleMark(
+                y: .value("現状", self.currentCount)
+            )
+            .foregroundStyle(self.ruleMarkColor)
+        }
+        .chartYScale(domain: (statistical95LowerPercent(percent: minPercent(), times: self.bigNumber)-(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)+(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu)))
+        .frame(height: self.chartHeight)
+    }
+    private func minPercent() -> Double {
+        var firstInput = false
+        var minimumPercent = 0.0
+        // 設定1
+        if self.setting1Enable && self.setting1Percent >= 0 {
+            minimumPercent = self.setting1Percent
+            firstInput = true
+        } else {
+            
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Percent >= 0 {
+            if !firstInput {
+                minimumPercent = self.setting2Percent
+                firstInput = true
+            } else if minimumPercent > self.setting2Percent {
+                minimumPercent = self.setting2Percent
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Percent >= 0 {
+            if !firstInput {
+                minimumPercent = self.setting3Percent
+                firstInput = true
+            } else if minimumPercent > self.setting3Percent {
+                minimumPercent = self.setting3Percent
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Percent >= 0 {
+            if !firstInput {
+                minimumPercent = self.setting4Percent
+                firstInput = true
+            } else if minimumPercent > self.setting4Percent {
+                minimumPercent = self.setting4Percent
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Percent >= 0 {
+            if !firstInput {
+                minimumPercent = self.setting5Percent
+                firstInput = true
+            } else if minimumPercent > self.setting5Percent {
+                minimumPercent = self.setting5Percent
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Percent >= 0 {
+            if !firstInput {
+                minimumPercent = self.setting6Percent
+                firstInput = true
+            } else if minimumPercent > self.setting6Percent {
+                minimumPercent = self.setting6Percent
+            }
+        }
+        
+        return minimumPercent
+    }
+    
+    private func maxPercent() -> Double {
+        var maximumPercent = 0.0
+        var firstInput = false
+        
+        // 設定1
+        if self.setting1Enable && self.setting1Percent >= 0 {
+            maximumPercent = self.setting1Percent
+            firstInput = true
+        } else {
+            
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Percent >= 0 {
+            if !firstInput {
+                maximumPercent = self.setting2Percent
+                firstInput = true
+            } else if maximumPercent < self.setting2Percent {
+                maximumPercent = self.setting2Percent
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Percent >= 0 {
+            if !firstInput {
+                maximumPercent = self.setting3Percent
+                firstInput = true
+            } else if maximumPercent < self.setting3Percent {
+                maximumPercent = self.setting3Percent
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Percent >= 0 {
+            if !firstInput {
+                maximumPercent = self.setting4Percent
+                firstInput = true
+            } else if maximumPercent < self.setting4Percent {
+                maximumPercent = self.setting4Percent
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Percent >= 0 {
+            if !firstInput {
+                maximumPercent = self.setting5Percent
+                firstInput = true
+            } else if maximumPercent < self.setting5Percent {
+                maximumPercent = self.setting5Percent
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Percent >= 0 {
+            if !firstInput {
+                maximumPercent = self.setting6Percent
+                firstInput = true
+            } else if maximumPercent < self.setting6Percent {
+                maximumPercent = self.setting6Percent
+            }
+        }
+        return maximumPercent
+    }
+}
+
+// /////////////////////
+// ビュー：信頼区間グラフのモーダル遷移表示用リンクボタン
+// /////////////////////
+//struct unitLinkView95Ci: View {
+//    @State var Ci95view: AnyView
+//    @State var isShowExView = false
+//    var detent: PresentationDetent = .medium
+//    var body: some View {
+//        HStack {
+//            Spacer()
+//            Button {
+//                self.isShowExView.toggle()
+//            } label: {
+//                Image(systemName: "chart.bar.xaxis")
+//                    .font(.title2)
+//            }
+//            .sheet(isPresented: $isShowExView) {
+//                NavigationView {
+//                    self.Ci95view
+//                }
+//                    .presentationDetents([self.detent])
+//            }
+//        }
+//    }
+//}
+
+
+// //////////////////////
+// ビュー：信頼区間グラフのナビゲーション遷移用リンクボタン
+struct unitNaviLink95Ci: View {
+    @State var Ci95view: AnyView
+    var body: some View {
+        NavigationStack {
+            NavigationLink {
+                self.Ci95view
+            } label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: "chart.bar.xaxis")
+                        .font(.title2)
+                        .foregroundStyle(Color.blue)
+                }
+            }
+
+        }
+    }
+}
 
 #Preview {
     myViewUnit()

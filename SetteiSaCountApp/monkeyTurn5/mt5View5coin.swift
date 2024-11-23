@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import Charts
 
 // //////////////////
 // Tip：5枚役 ゲーム数の種類の説明
@@ -28,6 +29,7 @@ struct mt5View5coin: View {
     @ObservedObject var mt5 = Mt5()
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         List {
@@ -41,6 +43,8 @@ struct mt5View5coin: View {
                 }
                 // //// 参考情報リンク
                 unitLinkButton(title: "5枚役について", exview: AnyView(unitExView5body2image(title: "5枚役", textBody1: "・5枚役の出現率に大きな設定差があるらしい", textBody2: "・AT中含めて全状態でカウント可能", textBody3: "・AT中含めてカウントの場合は液晶メニュー画面の総ゲーム数を分母とする", textBody4: "・停止形は下記画像を参照",image1: Image("mt5coin5Ratio"), image2: Image("mt5Coin5Image"))))
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 1)))
             } header: {
                 Text("5枚役のカウント")
             }
@@ -91,6 +95,7 @@ struct mt5View5coin: View {
         }
     }
 }
+
 
 #Preview {
     mt5View5coin()

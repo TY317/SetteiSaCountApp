@@ -28,6 +28,8 @@ struct mt5RivalModeView: View {
                     unitLinkButton(title: "ライバルモードについて", exview: AnyView(mt5ExViewRival()))
                     // 参考情報へのリンク：舟券での示唆
                     unitLinkButton(title: "舟券での示唆", exview: AnyView(mt5ExViewFnaken()))
+                    // 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 3)))
                 } header: {
                     Text("ライバルモードカウント")
                 }

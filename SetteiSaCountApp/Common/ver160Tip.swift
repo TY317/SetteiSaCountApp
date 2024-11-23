@@ -45,6 +45,21 @@ struct tipVer160AddMachine: Tip {
     }
 }
 
+// //////////////////
+// Tip：設定推測グラフの追加
+// //////////////////
+struct tipVer16095CiAdd: Tip {
+    var title: Text {
+        Text("設定推測グラフの追加")
+    }
+    var message: Text? {
+        Text("設定推測に役立つ95%信頼区間のグラフ表示機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
 
 #Preview {
     ver160Tip()

@@ -127,6 +127,8 @@
 		0FA024582CE8189B004B3FD5 /* ver160Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024572CE8189B004B3FD5 /* ver160Tip.swift */; };
 		0FA0245B2CE82EC8004B3FD5 /* mhrViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0245A2CE82EC8004B3FD5 /* mhrViewTop.swift */; };
 		0FA0245D2CE82ED9004B3FD5 /* mhrAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA0245C2CE82ED9004B3FD5 /* mhrAssets.xcassets */; };
+		0FA0245F2CEE0EBF004B3FD5 /* mt5View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0245E2CEE0EBF004B3FD5 /* mt5View95Ci.swift */; };
+		0FA024612CF1C605004B3FD5 /* ci95Explain.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024602CF1C605004B3FD5 /* ci95Explain.pdf */; };
 		0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
@@ -296,6 +298,8 @@
 		0FA024572CE8189B004B3FD5 /* ver160Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver160Tip.swift; sourceTree = "<group>"; };
 		0FA0245A2CE82EC8004B3FD5 /* mhrViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrViewTop.swift; sourceTree = "<group>"; };
 		0FA0245C2CE82ED9004B3FD5 /* mhrAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mhrAssets.xcassets; sourceTree = "<group>"; };
+		0FA0245E2CEE0EBF004B3FD5 /* mt5View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5View95Ci.swift; sourceTree = "<group>"; };
+		0FA024602CF1C605004B3FD5 /* ci95Explain.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ci95Explain.pdf; sourceTree = "<group>"; };
 		0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewScreen.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
@@ -625,6 +629,7 @@
 				0F80311A2C69B3BD001F008E /* myButtonStyle.swift */,
 				0F80311C2C69B42A001F008E /* myFunction.swift */,
 				0F8872752C6AE38C00AADD2B /* myModifier.swift */,
+				0FA024602CF1C605004B3FD5 /* ci95Explain.pdf */,
 				0F654BD72C6F409F00F37849 /* myViewUnit.swift */,
 				0FE23B332C79C88A000E65D7 /* myTips.swift */,
 				0F3465C02CB4128900B5D2DD /* ver120Tip.swift */,
@@ -758,6 +763,7 @@
 				0F719BCD2C7CBFD700FAD8B8 /* mt5ViewEnding.swift */,
 				0F8325B32C7DFE530037226E /* mt5ViewRoundScreen.swift */,
 				0F3465BE2CB410D200B5D2DD /* mt5View5coin.swift */,
+				0FA0245E2CEE0EBF004B3FD5 /* mt5View95Ci.swift */,
 			);
 			path = monkeyTurn5;
 			sourceTree = "<group>";
@@ -916,6 +922,7 @@
 				0FE23B282C74CAB3000E65D7 /* mt5Assets.xcassets in Resources */,
 				0F80310D2C625042001F008E /* VVV_Assets.xcassets in Resources */,
 				0F654BBD2C6DD7BE00F37849 /* myJug5Assets.xcassets in Resources */,
+				0FA024612CF1C605004B3FD5 /* ci95Explain.pdf in Resources */,
 				0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */,
 				0F654BB82C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets in Resources */,
 				0F654BD22C6F0F1900F37849 /* dragonHanahanaSenkohAssets.xcassets in Resources */,
@@ -1143,6 +1150,7 @@
 				0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */,
 				0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */,
 				0F66FE6E2C8C43C600776053 /* hokutoViewVoice.swift in Sources */,
+				0FA0245F2CEE0EBF004B3FD5 /* mt5View95Ci.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
 				0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */,
 				0F654BC12C6E2D3400F37849 /* myJug5exView.swift in Sources */,
@@ -1340,6 +1348,7 @@
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可頂くと広告の内容が最適化されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1350,7 +1359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1379,6 +1388,7 @@
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可頂くと広告の内容が最適化されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1389,7 +1399,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

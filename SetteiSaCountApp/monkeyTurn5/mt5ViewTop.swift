@@ -407,7 +407,10 @@ struct mt5ViewTop: View {
                 Section {
                     // ５枚役
                     NavigationLink(destination: mt5View5coin()) {
-                        unitLabelMenu(imageSystemName: "5.circle", textBody: "５枚役")
+                        unitLabelMenu(
+                            imageSystemName: "5.circle",
+                            textBody: "５枚役"
+                        )
                     }
 //                    .popoverTip(mt5TipAdd5Coins())
                     // 周期履歴
@@ -441,6 +444,12 @@ struct mt5ViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "モンキーターン5")
                 }
+                
+                // 設定推測グラフ
+                NavigationLink(destination: mt5View95Ci(mt5: mt5)) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
             .navigationTitle("メニュー")
             .navigationBarTitleDisplayMode(.inline)

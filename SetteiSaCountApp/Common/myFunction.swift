@@ -211,6 +211,59 @@ func countSum(_ numbers: Int...) -> Int {
     return numbers.reduce(0, +)
 }
 
+
+// /////////////////////////////
+// 関数：95%信頼区間の下限値を算出
+// /////////////////////////////
+func statistical95Lower(denominate: Double, times: Int) -> Double {
+    let probability = 1.0 / denominate
+    let standardError = sqrt(probability * (1.0 - probability)/Double(times))
+    let zScore = 1.96
+    let lowerRatio = probability - (zScore * standardError)
+    let lower = lowerRatio * Double(times) > 0 ? lowerRatio * Double(times) : 0
+    return times > 0 ? lower : 0
+}
+
+
+// /////////////////////////////
+// 関数：95%信頼区間の上限値を算出
+// /////////////////////////////
+func statistical95Upper(denominate: Double, times: Int) -> Double {
+    let probability = 1.0 / denominate
+    let standardError = sqrt(probability * (1.0 - probability)/Double(times))
+    let zScore = 1.96
+    let upperRatio = probability + (zScore * standardError)
+    let upper = upperRatio * Double(times) > 0 ? upperRatio * Double(times) : 0
+    return times > 0 ? upper : 0
+}
+
+
+// /////////////////////////////
+// 関数：95%信頼区間の下限値を算出、パーセントバージョン
+// /////////////////////////////
+func statistical95LowerPercent(percent: Double, times: Int) -> Double {
+    let probability = percent / 100.0
+    let standardError = sqrt(probability * (1.0 - probability)/Double(times))
+    let zScore = 1.96
+    let lowerRatio = probability - (zScore * standardError)
+    let lower = lowerRatio * Double(times) > 0 ? lowerRatio * Double(times) : 0
+    return times > 0 ? lower : 0
+}
+
+
+// /////////////////////////////
+// 関数：95%信頼区間の上限値を算出、パーセントバージョン
+// /////////////////////////////
+func statistical95UpperPercent(percent: Double, times: Int) -> Double {
+    let probability = percent / 100.0
+    let standardError = sqrt(probability * (1.0 - probability)/Double(times))
+    let zScore = 1.96
+    let upperRatio = probability + (zScore * standardError)
+    let upper = upperRatio * Double(times) > 0 ? upperRatio * Double(times) : 0
+    return times > 0 ? upper : 0
+}
+
+
 #Preview {
     myFunction()
 }

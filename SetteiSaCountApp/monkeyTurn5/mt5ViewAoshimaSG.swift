@@ -54,6 +54,8 @@ struct mt5ViewAoshimaSG: View {
                     unitResultCountListPercent(title: "設定5以上", count: $mt5.AoshimaSGHatanoCount, flashColor: .red, bigNumber: $mt5.AoshimaSGCountSum)
                     // 参考情報
                     unitLinkButton(title: "出現確率", exview: AnyView(mt5ExViewAoshimaScreenAnalysis()))
+                    // 95%信頼区間グラフ
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 7)))
                 } header: {
                     Text("ラウンド開始画面")
                 }

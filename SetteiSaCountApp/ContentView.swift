@@ -10,6 +10,8 @@ import GoogleMobileAds
 import UIKit
 import TipKit
 import StoreKit
+import AppTrackingTransparency
+import PDFKit
 
 // /////////////////////////
 // 変数：お気に入り機種設定用の変数
@@ -64,6 +66,7 @@ class commonVar: ObservableObject {
         }
     }
     @Environment(\.requestReview) var requestReview
+    @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
     // //// レビューリクエストの実行
 //    func reviewRequest() {
 //        var count: Int = 0
@@ -112,7 +115,7 @@ struct ContentView: View {
                         ScrollView {
                             Rectangle()
                                 .frame(height: 40)
-//                                .foregroundColor(.clear)
+                            //                                .foregroundColor(.clear)
                                 .foregroundStyle(Color.clear)
                             LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                                 // //// ジャグラーシリーズ
@@ -142,7 +145,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!")
-//                                        .popoverTip(tipVer150AddMachine())
+                                    //                                        .popoverTip(tipVer150AddMachine())
                                 }
                                 
                                 // //// リゼロ2、24年10月
@@ -259,7 +262,7 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 11
                                     )
-                                        .popoverTip(tipVer160AddMachine())
+                                    .popoverTip(tipVer160AddMachine())
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -267,7 +270,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!", makerName: "平和", releaseYear: 2024, releaseMonth: 11)
-//                                        .popoverTip(tipVer150AddMachine())
+                                    //                                        .popoverTip(tipVer150AddMachine())
                                 }
                                 
                                 // //// リゼロ2、24年10月
@@ -442,23 +445,27 @@ struct ContentView: View {
             }
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
-                ZStack {
-                    Rectangle()
-//                        .foregroundColor(Color(UIColor.systemGroupedBackground))
-                        .foregroundStyle(Color(UIColor.systemGroupedBackground))
-                        .ignoresSafeArea()
-                        .frame(height: 50)
-                    AdMobBannerView()
-                        .frame(width: 320,height: 50)     // 320*50が基本サイズ？50だといい感じ
+                //                ZStack {
+                //                    Rectangle()
+                //                        .foregroundStyle(Color(UIColor.systemGroupedBackground))
+                //                        .ignoresSafeArea()
+                //                        .frame(height: 50)
+                //                    AdMobBannerView()
+                //                        .frame(width: 320,height: 50)     // 320*50が基本サイズ？50だといい感じ
+                //                }
+                GeometryReader { geometry in
+                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
+                    
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(Color(UIColor.systemGroupedBackground))
+                            .ignoresSafeArea()
+                        BannerView(adSize)
+                            .frame(height: adSize.size.height)
+                    }
+                    .frame(height: adSize.size.height)
                 }
-//                GeometryReader { geometry in
-//                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
-//                    VStack {
-//                        Spacer()
-//                        BannerView(adSize)
-//                            .frame(height: adSize.size.height)
-//                    }
-//                }
+                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
             }
         }
         
@@ -472,11 +479,33 @@ struct ContentView: View {
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
                 isKeyboardVisible = false
             }
+            // トラッキング許可のポップアップを出す
+            if common.trackingRequested == false {
+                ATTrackingManager.requestTrackingAuthorization() {_ in
+                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+                }
+                common.trackingRequested = true
+            }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
+        // //// アプリがアクティブになったことを確認してトラッキング許可のポップアップを出す
+//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+//            ATTrackingManager.requestTrackingAuthorization() {_ in
+//                GADMobileAds.sharedInstance().start(completionHandler: nil)
+//            }
+//        }
+//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+//            // トラッキングの許諾ダイアログメッセージを表示
+//            Task {
+//                let result = await ATTrackingManager.requestTrackingAuthorization()
+//                if result == .authorized {
+//                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+//                }
+//            }
+//        }
     }
 }
 
@@ -624,62 +653,84 @@ struct AdMobBannerView: UIViewRepresentable {
 
 // [START create_banner_view]
 private struct BannerView: UIViewRepresentable {
-  let adSize: GADAdSize
-
-  init(_ adSize: GADAdSize) {
-    self.adSize = adSize
-  }
-
-  func makeUIView(context: Context) -> UIView {
-    // Wrap the GADBannerView in a UIView. GADBannerView automatically reloads a new ad when its
-    // frame size changes; wrapping in a UIView container insulates the GADBannerView from size
-    // changes that impact the view returned from makeUIView.
-    let view = UIView()
-    view.addSubview(context.coordinator.bannerView)
-    return view
-  }
-
-  func updateUIView(_ uiView: UIView, context: Context) {
-    context.coordinator.bannerView.adSize = adSize
-  }
-
-  func makeCoordinator() -> BannerCoordinator {
-    return BannerCoordinator(self)
-  }
-  // [END create_banner_view]
-
-  // [START create_banner]
-  class BannerCoordinator: NSObject, GADBannerViewDelegate {
-
-    private(set) lazy var bannerView: GADBannerView = {
-      let banner = GADBannerView(adSize: parent.adSize)
-      // [START load_ad]
-      banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"
-      banner.load(GADRequest())
-      // [END load_ad]
-      // [START set_delegate]
-      banner.delegate = self
-      // [END set_delegate]
-      return banner
-    }()
-
-    let parent: BannerView
-
-    init(_ parent: BannerView) {
-      self.parent = parent
+    let adSize: GADAdSize
+    
+    init(_ adSize: GADAdSize) {
+        self.adSize = adSize
     }
-    // [END create_banner]
+    
+    func makeUIView(context: Context) -> UIView {
+        // Wrap the GADBannerView in a UIView. GADBannerView automatically reloads a new ad when its
+        // frame size changes; wrapping in a UIView container insulates the GADBannerView from size
+        // changes that impact the view returned from makeUIView.
+        let view = UIView()
+        view.addSubview(context.coordinator.bannerView)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        context.coordinator.bannerView.adSize = adSize
+    }
+    
+    func makeCoordinator() -> BannerCoordinator {
+        return BannerCoordinator(self)
+    }
+    // [END create_banner_view]
+    
+    // [START create_banner]
+    class BannerCoordinator: NSObject, GADBannerViewDelegate {
+        
+        private(set) lazy var bannerView: GADBannerView = {
+            let banner = GADBannerView(adSize: parent.adSize)
+            // [START load_ad]
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.load(GADRequest())
+            // [END load_ad]
+            // [START set_delegate]
+            banner.delegate = self
+            // [END set_delegate]
+            return banner
+        }()
+        
+        let parent: BannerView
+        
+        init(_ parent: BannerView) {
+            self.parent = parent
+        }
+        // [END create_banner]
+        
+        // MARK: - GADBannerViewDelegate methods
+        
+        func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+            print("DID RECEIVE AD.")
+        }
+        
+        func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+            print("FAILED TO RECEIVE AD: \(error.localizedDescription)")
+        }
+    }
+}
 
-    // MARK: - GADBannerViewDelegate methods
 
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("DID RECEIVE AD.")
+// ///////////////////
+// PDFファイルを表示するためのビューを定義
+// ///////////////////
+struct PDFKitView: UIViewRepresentable {
+    private let url: URL
+
+    init(urlString: String) {
+        self.url = Bundle.main.url(forResource: urlString, withExtension: "pdf")!
     }
 
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("FAILED TO RECEIVE AD: \(error.localizedDescription)")
+    func makeUIView(context: Context) -> PDFView {
+        let pdfView = PDFView()
+        pdfView.document = PDFDocument(url: url)
+        pdfView.autoScales = true
+        return pdfView
     }
-  }
+
+    func updateUIView(_ uiView: PDFView, context: Context) {}
 }
 
 #Preview {
