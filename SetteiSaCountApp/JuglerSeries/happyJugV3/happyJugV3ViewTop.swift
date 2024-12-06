@@ -13,13 +13,47 @@ import SwiftUI
 // /////////////////////
 class happyJugV3Var: ObservableObject {
     @AppStorage("happyJugV3BellCount") var bellCount = 0
-    @AppStorage("happyJugV3AloneBigCount") var aloneBigCount = 0
-    @AppStorage("happyJugV3CherryBigCount") var cherryBigCount = 0
-    @AppStorage("happyJugV3AloneRegCount") var aloneRegCount = 0
-    @AppStorage("happyJugV3CherryRegCount") var cherryRegCount = 0
-    @AppStorage("happyJugV3StartGames") var startGames = 0
-    @AppStorage("happyJugV3CurrentGames") var currentGames = 0
+    @AppStorage("happyJugV3AloneBigCount") var aloneBigCount = 0 {
+        didSet {
+            bigCountSum = countSum(aloneBigCount, cherryBigCount)
+            bonusCountSum = countSum(aloneBigCount, cherryBigCount, aloneRegCount, cherryRegCount)
+        }
+    }
+        @AppStorage("happyJugV3CherryBigCount") var cherryBigCount = 0 {
+            didSet {
+                bigCountSum = countSum(aloneBigCount, cherryBigCount)
+                bonusCountSum = countSum(aloneBigCount, cherryBigCount, aloneRegCount, cherryRegCount)
+            }
+        }
+    @AppStorage("happyJugV3AloneRegCount") var aloneRegCount = 0 {
+        didSet {
+            regCountSum = countSum(aloneRegCount, cherryRegCount)
+            bonusCountSum = countSum(aloneBigCount, cherryBigCount, aloneRegCount, cherryRegCount)
+        }
+    }
+        @AppStorage("happyJugV3CherryRegCount") var cherryRegCount = 0 {
+            didSet {
+                regCountSum = countSum(aloneRegCount, cherryRegCount)
+                bonusCountSum = countSum(aloneBigCount, cherryBigCount, aloneRegCount, cherryRegCount)
+            }
+        }
+    @AppStorage("happyJugV3StartGames") var startGames = 0 {
+        didSet {
+            let games = currentGames - startGames
+            playgame = games > 0 ? games : 0
+        }
+    }
+        @AppStorage("happyJugV3CurrentGames") var currentGames = 0 {
+            didSet {
+                let games = currentGames - startGames
+                playgame = games > 0 ? games : 0
+            }
+        }
     @Published var minusCheck = false
+    @AppStorage("happyJugV3RegCountSum") var regCountSum = 0
+    @AppStorage("happyJugV3BigCountSum") var bigCountSum = 0
+    @AppStorage("happyJugV3BonusCountSum") var bonusCountSum = 0
+    @AppStorage("happyJugV3PlayGame") var playgame = 0
     
     // レギュラー合算回数
     var totalRegCount: Int {
@@ -101,6 +135,10 @@ class happyJugV3Memory1: ObservableObject {
     @AppStorage("happyJugV3CurrentGamesMemory1") var currentGames = 0
     @AppStorage("happyJugV3MemoMemory1") var memo = ""
     @AppStorage("happyJugV3DateMemory1") var dateDouble = 0.0
+    @AppStorage("happyJugV3RegCountSumMemory1") var regCountSum = 0
+    @AppStorage("happyJugV3BigCountSumMemory1") var bigCountSum = 0
+    @AppStorage("happyJugV3BonusCountSumMemory1") var bonusCountSum = 0
+    @AppStorage("happyJugV3PlayGameMemory1") var playgame = 0
 }
 
 // //// メモリー2
@@ -114,6 +152,10 @@ class happyJugV3Memory2: ObservableObject {
     @AppStorage("happyJugV3CurrentGamesMemory2") var currentGames = 0
     @AppStorage("happyJugV3MemoMemory2") var memo = ""
     @AppStorage("happyJugV3DateMemory2") var dateDouble = 0.0
+    @AppStorage("happyJugV3RegCountSumMemory2") var regCountSum = 0
+    @AppStorage("happyJugV3BigCountSumMemory2") var bigCountSum = 0
+    @AppStorage("happyJugV3BonusCountSumMemory2") var bonusCountSum = 0
+    @AppStorage("happyJugV3PlayGameMemory2") var playgame = 0
 }
 
 // //// メモリー3
@@ -127,6 +169,10 @@ class happyJugV3Memory3: ObservableObject {
     @AppStorage("happyJugV3CurrentGamesMemory3") var currentGames = 0
     @AppStorage("happyJugV3MemoMemory3") var memo = ""
     @AppStorage("happyJugV3DateMemory3") var dateDouble = 0.0
+    @AppStorage("happyJugV3RegCountSumMemory3") var regCountSum = 0
+    @AppStorage("happyJugV3BigCountSumMemory3") var bigCountSum = 0
+    @AppStorage("happyJugV3BonusCountSumMemory3") var bonusCountSum = 0
+    @AppStorage("happyJugV3PlayGameMemory3") var playgame = 0
 }
 
 
@@ -207,6 +253,9 @@ struct happyJugV3ViewTop: View {
                             happyJugV3exView()
                                 .presentationDetents([.medium])
                         })
+                        // 95%信頼区間グラフ
+                        unitNaviLink95Ci(Ci95view: AnyView(happyJugV3View95Ci()))
+                            .popoverTip(tipUnitButtonLink95Ci())
                     }
 //                    .onTapGesture {
 //                        isFocused = false
@@ -719,6 +768,10 @@ struct happyJugV3ViewSaveMemory: View {
         jugMemory1.cherryRegCount = jug.cherryRegCount
         jugMemory1.startGames = jug.startGames
         jugMemory1.currentGames = jug.currentGames
+        jugMemory1.regCountSum = jug.regCountSum
+        jugMemory1.bigCountSum = jug.bigCountSum
+        jugMemory1.bonusCountSum = jug.bonusCountSum
+        jugMemory1.playgame = jug.playgame
     }
     func saveMemory2() {
         jugMemory2.bellCount = jug.bellCount
@@ -728,6 +781,10 @@ struct happyJugV3ViewSaveMemory: View {
         jugMemory2.cherryRegCount = jug.cherryRegCount
         jugMemory2.startGames = jug.startGames
         jugMemory2.currentGames = jug.currentGames
+        jugMemory2.regCountSum = jug.regCountSum
+        jugMemory2.bigCountSum = jug.bigCountSum
+        jugMemory2.bonusCountSum = jug.bonusCountSum
+        jugMemory2.playgame = jug.playgame
     }
     func saveMemory3() {
         jugMemory3.bellCount = jug.bellCount
@@ -737,6 +794,10 @@ struct happyJugV3ViewSaveMemory: View {
         jugMemory3.cherryRegCount = jug.cherryRegCount
         jugMemory3.startGames = jug.startGames
         jugMemory3.currentGames = jug.currentGames
+        jugMemory3.regCountSum = jug.regCountSum
+        jugMemory3.bigCountSum = jug.bigCountSum
+        jugMemory3.bonusCountSum = jug.bonusCountSum
+        jugMemory3.playgame = jug.playgame
     }
 }
 
@@ -774,6 +835,10 @@ struct happyJugV3ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory1.cherryRegCount
         jug.startGames = jugMemory1.startGames
         jug.currentGames = jugMemory1.currentGames
+        jug.regCountSum = jugMemory1.regCountSum
+        jug.bigCountSum = jugMemory1.bigCountSum
+        jug.bonusCountSum = jugMemory1.bonusCountSum
+        jug.playgame = jugMemory1.playgame
     }
     func loadMemory2() {
         jug.bellCount = jugMemory2.bellCount
@@ -783,6 +848,10 @@ struct happyJugV3ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory2.cherryRegCount
         jug.startGames = jugMemory2.startGames
         jug.currentGames = jugMemory2.currentGames
+        jug.regCountSum = jugMemory2.regCountSum
+        jug.bigCountSum = jugMemory2.bigCountSum
+        jug.bonusCountSum = jugMemory2.bonusCountSum
+        jug.playgame = jugMemory2.playgame
     }
     func loadMemory3() {
         jug.bellCount = jugMemory3.bellCount
@@ -792,6 +861,10 @@ struct happyJugV3ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory3.cherryRegCount
         jug.startGames = jugMemory3.startGames
         jug.currentGames = jugMemory3.currentGames
+        jug.regCountSum = jugMemory3.regCountSum
+        jug.bigCountSum = jugMemory3.bigCountSum
+        jug.bonusCountSum = jugMemory3.bonusCountSum
+        jug.playgame = jugMemory3.playgame
     }
 }
 

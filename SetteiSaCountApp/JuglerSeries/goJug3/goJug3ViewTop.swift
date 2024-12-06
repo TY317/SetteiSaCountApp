@@ -135,18 +135,21 @@ struct goJug3ViewTop: View {
                         // ボーナス合算
                         unitResultRatioDenomination2Line(title: "ボーナス合算", color: .grayBack, count: $jug.bonusCountSum, bigNumber: $jug.playGame, numberofDicimal: 0)
                     }
-                    // //// 参考情報リンク
-                    unitLinkButton(
-                        title: "設定差情報",
-                        exview: AnyView(
-                            unitExView5body2image(
-                                title: "ゴーゴージャグラー3設定差",
-                                textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
-                                image1: Image("goJug3Ratio")
-                            )
+                }
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "設定差情報",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ゴーゴージャグラー3設定差",
+                            textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
+                            image1: Image("goJug3Ratio")
                         )
                     )
-                }
+                )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(goJug3View95Ci()))
+                    .popoverTip(tipUnitButtonLink95Ci())
             }
             // //// ゲーム数入力部分
             Section {

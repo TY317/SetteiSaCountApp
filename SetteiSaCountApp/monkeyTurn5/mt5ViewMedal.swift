@@ -30,6 +30,7 @@ struct mt5ViewMedal: View {
                     unitLinkButton(title: "トロフィーについて", exview: AnyView(mt5ExViewTrofy()))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 6)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("メダルのカウント")
                 }

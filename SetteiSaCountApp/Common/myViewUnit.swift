@@ -382,7 +382,7 @@ struct unitFlashRectangle: View {
 // /////////////////////
 struct unitResultCount2Line: View {
     @State var title: String
-    @State var color: Color
+    @State var color: Color = .grayBack
     @Binding var count: Int
     @State var spacerBool: Bool = true
     
@@ -418,7 +418,7 @@ struct unitResultCount2Line: View {
 // /////////////////////
 struct unitResultRatioDenomination2Line: View {
     @State var title: String
-    @State var color: Color
+    @State var color: Color = .grayBack
     @Binding var count: Int
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
@@ -1326,7 +1326,7 @@ struct unitViewSaveMemory: View {
                                     print("レビューリクエストの見送り")
                                 }
                             } else {
-                                print("起動回数不足")
+                                print("起動回数不足:\(common.appLaunchCount)回")
                             }
                         }
                     } message: {
@@ -1587,7 +1587,7 @@ struct unitChart95CiDenominate: View {
     let ruleMarkColor: Color = .red
 //    let yScaleLower: Double = 0.8
 //    let yScaleUpper: Double = 1.2
-    let yScaleKeisu: Double = 0.2
+    @State var yScaleKeisu: Double = 0.2
     
     var body: some View {
         Chart {
@@ -1663,12 +1663,16 @@ struct unitChart95CiDenominate: View {
             )
             .foregroundStyle(self.ruleMarkColor)
         }
-        .chartYScale(domain: (statistical95Lower(denominate: minDenominate(), times: self.bigNumber)-(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)+(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu)))
+//        .chartYScale(domain: (statistical95Lower(denominate: minDenominate(), times: self.bigNumber)-(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)+(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*self.yScaleKeisu)))
+//        .chartYScale(domain: (statistical95Lower(denominate: minDenominate(), times: self.bigNumber)*(1-self.yScaleKeisu))...(statistical95Upper(denominate: maxDenominate(), times: self.bigNumber)*(1+self.yScaleKeisu)))
+        .chartYScale(domain: yScaleMin()...yScaleMax())
         .frame(height: self.chartHeight)
     }
     private func minDenominate() -> Double {
         var firstInput = false
         var minimumDenominate = 0.0
+//        let currentDenominate = Double(bigNumber / currentCount)
+        let currentDenominate = currentCount > 0 ? Double(bigNumber / currentCount) : 0.0
         // 設定1
         if self.setting1Enable && self.setting1Denominate >= 0 {
             minimumDenominate = self.setting1Denominate
@@ -1721,6 +1725,10 @@ struct unitChart95CiDenominate: View {
                 minimumDenominate = self.setting6Denominate
             }
         }
+        // 現在確率
+        if minimumDenominate < currentDenominate {
+            minimumDenominate = currentDenominate
+        }
         
         return minimumDenominate
     }
@@ -1728,6 +1736,8 @@ struct unitChart95CiDenominate: View {
     private func maxDenominate() -> Double {
         var maximumDenominate = 0.0
         var firstInput = false
+//        let currentDenominate = Double(bigNumber / currentCount)
+        let currentDenominate = currentCount > 0 ? Double(bigNumber / currentCount) : 0.0
         
         // 設定1
         if self.setting1Enable && self.setting1Denominate >= 0 {
@@ -1781,7 +1791,152 @@ struct unitChart95CiDenominate: View {
                 maximumDenominate = self.setting6Denominate
             }
         }
+        // 現在確率
+        if maximumDenominate > currentDenominate {
+            maximumDenominate = currentDenominate
+        }
         return maximumDenominate
+    }
+    
+    private func yScaleMax() -> Double {
+        var yMax: Double = 0
+        var firstInput = false
+        // 設定1
+        if self.setting1Enable && self.setting1Denominate >= 0 {
+            let y1Upper = statistical95Upper(denominate: self.setting1Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = y1Upper
+                firstInput = true
+            } else {
+                
+            }
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Denominate >= 0 {
+            let y2Upper = statistical95Upper(denominate: self.setting2Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = y2Upper
+                firstInput = true
+            } else if yMax < y2Upper {
+                yMax = y2Upper
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Denominate >= 0 {
+            let yUpper = statistical95Upper(denominate: self.setting3Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Denominate >= 0 {
+            let yUpper = statistical95Upper(denominate: self.setting4Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Denominate >= 0 {
+            let yUpper = statistical95Upper(denominate: self.setting5Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Denominate >= 0 {
+            let yUpper = statistical95Upper(denominate: self.setting6Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 現在カウント値
+        if yMax < Double(self.currentCount) {
+            yMax = Double(self.currentCount)
+        }
+//        print(yMax)
+        return yMax * (1 + self.yScaleKeisu)
+    }
+    
+    private func yScaleMin() -> Double {
+        var yMin: Double = 0.0
+        var firstInput = false
+        // 設定1
+        if self.setting1Enable && self.setting1Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting1Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else {
+                
+            }
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting2Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting3Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting4Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting5Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Denominate >= 0 {
+            let yLower = statistical95Lower(denominate: self.setting6Denominate, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 現在カウント
+        if yMin > Double(self.currentCount) {
+            yMin = Double(self.currentCount)
+        }
+        return self.currentCount > 0 ? yMin - (yScaleMax() * self.yScaleKeisu) : 0.0
     }
 }
 
@@ -1808,7 +1963,7 @@ struct unitChart95CiPercent: View {
     let barOpacity: Double = 0.5
     let chartHeight: CGFloat = 250
     let ruleMarkColor: Color = .red
-    let yScaleKeisu: Double = 0.2
+    @State var yScaleKeisu: Double = 0.2
     
     var body: some View {
         Chart {
@@ -1884,12 +2039,14 @@ struct unitChart95CiPercent: View {
             )
             .foregroundStyle(self.ruleMarkColor)
         }
-        .chartYScale(domain: (statistical95LowerPercent(percent: minPercent(), times: self.bigNumber)-(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)+(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu)))
+//        .chartYScale(domain: (statistical95LowerPercent(percent: minPercent(), times: self.bigNumber)-(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu))...(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)+(statistical95UpperPercent(percent: maxPercent(), times: self.bigNumber)*self.yScaleKeisu)))
+        .chartYScale(domain: yScaleMin()...yScaleMax())
         .frame(height: self.chartHeight)
     }
     private func minPercent() -> Double {
         var firstInput = false
         var minimumPercent = 0.0
+        let currentPercent = bigNumber > 0 ? Double(currentCount / bigNumber * 100) : 0.0
         // 設定1
         if self.setting1Enable && self.setting1Percent >= 0 {
             minimumPercent = self.setting1Percent
@@ -1942,14 +2099,17 @@ struct unitChart95CiPercent: View {
                 minimumPercent = self.setting6Percent
             }
         }
-        
+        // 現在確率
+        if minimumPercent > currentPercent {
+            minimumPercent = currentPercent
+        }
         return minimumPercent
     }
     
     private func maxPercent() -> Double {
         var maximumPercent = 0.0
         var firstInput = false
-        
+        let currentPercent = bigNumber > 0 ? Double(currentCount / bigNumber * 100) : 0.0
         // 設定1
         if self.setting1Enable && self.setting1Percent >= 0 {
             maximumPercent = self.setting1Percent
@@ -2002,35 +2162,153 @@ struct unitChart95CiPercent: View {
                 maximumPercent = self.setting6Percent
             }
         }
+        // 現在確率
+        if maximumPercent < currentPercent {
+            maximumPercent = currentPercent
+        }
         return maximumPercent
     }
+    private func yScaleMax() -> Double {
+        var yMax: Double = 0
+        var firstInput = false
+        // 設定1
+        if self.setting1Enable && self.setting1Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting1Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else {
+                
+            }
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting2Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting3Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting4Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting5Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Percent >= 0 {
+            let yUpper = statistical95UpperPercent(percent: self.setting6Percent, times: self.bigNumber)
+            if !firstInput {
+                yMax = yUpper
+                firstInput = true
+            } else if yMax < yUpper {
+                yMax = yUpper
+            }
+        }
+        // 現在カウント値
+        if yMax < Double(self.currentCount) {
+            yMax = Double(self.currentCount)
+        }
+//        print(yMax)
+        return yMax * (1 + self.yScaleKeisu)
+    }
+    
+    private func yScaleMin() -> Double {
+        var yMin: Double = 0
+        var firstInput = false
+        // 設定1
+        if self.setting1Enable && self.setting1Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting1Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else {
+                
+            }
+        }
+        // 設定2
+        if self.setting2Enable && self.setting2Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting2Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定3
+        if self.setting3Enable && self.setting3Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting3Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定4
+        if self.setting4Enable && self.setting4Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting4Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定5
+        if self.setting5Enable && self.setting5Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting5Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 設定6
+        if self.setting6Enable && self.setting6Percent >= 0 {
+            let yLower = statistical95LowerPercent(percent: self.setting6Percent, times: self.bigNumber)
+            if !firstInput {
+                yMin = yLower
+                firstInput = true
+            } else if yMin > yLower {
+                yMin = yLower
+            }
+        }
+        // 現在カウント値
+        if yMin > Double(self.currentCount) {
+            yMin = Double(self.currentCount)
+        }
+        return self.currentCount > 0 ? yMin - (yScaleMax() * self.yScaleKeisu) : 0.0
+    }
 }
-
-// /////////////////////
-// ビュー：信頼区間グラフのモーダル遷移表示用リンクボタン
-// /////////////////////
-//struct unitLinkView95Ci: View {
-//    @State var Ci95view: AnyView
-//    @State var isShowExView = false
-//    var detent: PresentationDetent = .medium
-//    var body: some View {
-//        HStack {
-//            Spacer()
-//            Button {
-//                self.isShowExView.toggle()
-//            } label: {
-//                Image(systemName: "chart.bar.xaxis")
-//                    .font(.title2)
-//            }
-//            .sheet(isPresented: $isShowExView) {
-//                NavigationView {
-//                    self.Ci95view
-//                }
-//                    .presentationDetents([self.detent])
-//            }
-//        }
-//    }
-//}
 
 
 // //////////////////////
@@ -2050,6 +2328,57 @@ struct unitNaviLink95Ci: View {
                 }
             }
 
+        }
+    }
+}
+
+
+// ///////////////////////
+// ビュー：信頼区間の説明リンクボタン
+// ///////////////////////
+struct unitButton95CiExplain: View {
+    @State var isShow95CiExplain: Bool
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        Button {
+            self.isShow95CiExplain.toggle()
+        } label: {
+            Image(systemName: "info.circle")
+        }
+        .sheet(isPresented: $isShow95CiExplain) {
+            NavigationView {
+                PDFKitView(urlString: "ci95Explain")
+                    .toolbar {
+                        ToolbarItem(placement: .automatic) {
+                            Button(action: {
+                                dismiss()
+                            }, label: {
+                                Text("閉じる")
+                                    .fontWeight(.bold)
+                            })
+                        }
+                    }
+            }
+        }
+    }
+}
+
+
+// ///////////////////////
+// 95%信頼グラフ　タブビュー表示用の入れ物
+// ///////////////////////
+struct unitListSection95Ci: View {
+    @State var grafTitle: String
+    @State var titleFont: Font = .title
+    @State var grafView: AnyView
+    var body: some View {
+        List {
+            Section {
+                self.grafView
+            } header: {
+                unitLabelMachineTopTitle(machineName: self.grafTitle, titleFont: self.titleFont)
+            }
+            .popoverTip(tipUnit95CiViewExplain())
         }
     }
 }

@@ -56,6 +56,7 @@ struct mt5ViewAoshimaSG: View {
                     unitLinkButton(title: "出現確率", exview: AnyView(mt5ExViewAoshimaScreenAnalysis()))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 7)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ラウンド開始画面")
                 }

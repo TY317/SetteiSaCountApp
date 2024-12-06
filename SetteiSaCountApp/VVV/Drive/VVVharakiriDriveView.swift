@@ -12,10 +12,34 @@ import SwiftUI
 // 変数
 // ///////////////////////
 class VVVharakiriVar: ObservableObject {
-    @AppStorage("VVVharakiriBefore1020Count") var before1020Count = 0     // 有利切断前の10,20Gのカウント
-    @AppStorage("VVVharakiriBeforeDriveCount") var beforeDriveCount = 0     // 有利切断前のドライブカウント
-    @AppStorage("VVVharakiriAfter1020Count") var after1020Count = 0     // 有利切断後の10,20Gのカウント
-    @AppStorage("VVVharakiriAfterDriveCount") var afterDriveCount = 0     // 有利切断後のドライブカウント
+    @AppStorage("VVVharakiriBefore1020Count") var before1020Count = 0 {
+        didSet {
+            allSetCountSum = countSum(before1020Count, beforeDriveCount, after1020Count, afterDriveCount)
+        }
+    }
+    @AppStorage("VVVharakiriBeforeDriveCount") var beforeDriveCount = 0 {
+        didSet {
+            allDriveCountSum = countSum(beforeDriveCount, afterDriveCount)
+            allSetCountSum = countSum(before1020Count, beforeDriveCount, after1020Count, afterDriveCount)
+        }
+    }
+    @AppStorage("VVVharakiriAfter1020Count") var after1020Count = 0 {
+        didSet {
+            afterSetCountSum = countSum(after1020Count, afterDriveCount)
+            allSetCountSum = countSum(before1020Count, beforeDriveCount, after1020Count, afterDriveCount)
+        }
+    }
+        @AppStorage("VVVharakiriAfterDriveCount") var afterDriveCount = 0 {
+            didSet {
+                afterSetCountSum = countSum(after1020Count, afterDriveCount)
+                allDriveCountSum = countSum(beforeDriveCount, afterDriveCount)
+                allSetCountSum = countSum(before1020Count, beforeDriveCount, after1020Count, afterDriveCount)
+            }
+        }
+    @AppStorage("VVVharakiriAfterSetCountSum") var afterSetCountSum = 0
+    @AppStorage("VVVharakiriAllDriveCountSum") var allDriveCountSum = 0
+    @AppStorage("VVVharakiriAllSetCountSum") var allSetCountSum = 0
+    
     
     // //// 有利切断前のドライブ確率算出
     // カウントの合計
@@ -134,6 +158,9 @@ struct VVVharakiriDriveView: View {
                                 VVVexViewRoundScreen()
                                     .presentationDetents([.medium])
                             })
+                            // //// 95%信頼区間グラフへのリンク
+                            unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
+                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             
                         }
@@ -221,6 +248,9 @@ struct VVVharakiriDriveView: View {
                                 VVVexViewRoundScreen()
                                     .presentationDetents([.medium])
                             })
+                            // //// 95%信頼区間グラフへのリンク
+                            unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
+                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             
                         }

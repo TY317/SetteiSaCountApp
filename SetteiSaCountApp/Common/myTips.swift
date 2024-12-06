@@ -183,6 +183,57 @@ struct tipUnitButtonMemory: Tip {
 }
 
 
+// /////////////////////
+// Tip：95%信頼区間の説明
+// /////////////////////
+struct tipUnitButton95CiExplain: Tip {
+    var title: Text {
+        Text("グラフの説明")
+    }
+    
+    var message: Text? {
+        Text("グラフの見方や考え方の参考はこちらを参照ください")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
+// /////////////////////
+// Tip：95%信頼区間へのリンク
+// /////////////////////
+struct tipUnitButtonLink95Ci: Tip {
+    var title: Text {
+        Text("設定推測グラフへのリンク")
+    }
+    
+    var message: Text? {
+        Text("このボタンからも設定推測グラフへアクセスできます\nスライドで他要素も参照できます")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
+// /////////////////////
+// Tip：95%信頼区間へのリンク
+// /////////////////////
+struct tipUnit95CiViewExplain: Tip {
+    var title: Text {
+        Text("スライドで要素切り替え")
+    }
+    
+    var message: Text? {
+        Text("スライド操作で他の要素のグラフに切り替えできます")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 #Preview {
     myTips()
 }

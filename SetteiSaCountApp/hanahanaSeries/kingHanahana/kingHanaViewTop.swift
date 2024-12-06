@@ -428,6 +428,9 @@ struct kingHanaSubAssyNormalPortraitCountSection: View {
         // ベル確率・ボーナス確率の参考情報リンク
         unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(kingHanaExViewBellBonus()))
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
+        // 95%信頼区間グラフ
+        unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 1)))
+            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -454,6 +457,9 @@ struct kingHanaSubAssyNormalLandScapeCountSection: View {
         // ベル確率・ボーナス確率の参考情報リンク
         unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(kingHanaExViewBellBonus()))
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
+        // 95%信頼区間グラフ
+        unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 1)))
+            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -471,6 +477,9 @@ struct kingHanaSubAssyBigPortrait: View {
             unitCountButtonVerticalDenominate(title: "スイカ", count: $hana.bbSuikaCount, color: .green, bigNumber: $hana.bigPlayGames, numberofDicimal: 1, minusBool: $hana.minusCheck)
             // スイカ確率の情報リンク
             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(kingHanaExViewBbSuika()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 5)))
+                .popoverTip(tipUnitButtonLink95Ci())
         } header: {
             Text("\nスイカ")
         }
@@ -492,6 +501,9 @@ struct kingHanaSubAssyBigPortrait: View {
             unitResultRatioPercent2Line(title: "ランプ合算", color: Color("grayBack"), count: $hana.bbLampCountSum, bigNumber: $hana.bigCount, numberofDicimal: 1)
             // 参考情報リンク
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(kingHanaExViewBbLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 6)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
     
@@ -526,6 +538,9 @@ struct kingHanaSubAssyBigLandScape: View {
             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(kingHanaExViewBbSuika()))
             // 参考情報リンク
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(kingHanaExViewBbLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 5)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }
@@ -562,6 +577,9 @@ struct kingHanaSubAssyRegPortrait: View {
             unitLinkButton(title: "REG中のサイドランプについて", exview: AnyView(kingHanaExViewRegLamp()))
             // フェザーランプの参考情報リンク
             unitLinkButton(title: "REG後のフェザーランプについて", exview: AnyView(kingHanaExViewAfterRegLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 7)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }

@@ -375,6 +375,11 @@ struct kaguyaViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "かぐや様は告らせたい")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: kaguyaView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

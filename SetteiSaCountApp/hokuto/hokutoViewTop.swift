@@ -342,6 +342,11 @@ struct hokutoViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "スマスロ北斗の拳")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: hokutoView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

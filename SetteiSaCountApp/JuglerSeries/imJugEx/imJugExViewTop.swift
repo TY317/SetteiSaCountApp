@@ -158,9 +158,12 @@ struct imJugExViewTop: View {
                         // REG合算
                         unitResultRatioDenomination2Line(title: "REG合算", color: .grayBack, count: $jug.regCountSum, bigNumber: $jug.playGame, numberofDicimal: 0)
                     }
-                    // //// 参考情報リンク
-                    unitLinkButton(title: "設定差情報", exview: AnyView(unitExView5body2image(title: "アイムジャグラーEX設定差", image1: Image("imJugExRatio"))))
                 }
+                // //// 参考情報リンク
+                unitLinkButton(title: "設定差情報", exview: AnyView(unitExView5body2image(title: "アイムジャグラーEX設定差", image1: Image("imJugExRatio"))))
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(imJugExView95Ci()))
+                    .popoverTip(tipUnitButtonLink95Ci())
             }
             // //// ゲーム数入力部分
             Section {

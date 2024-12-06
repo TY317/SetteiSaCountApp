@@ -12,12 +12,39 @@ import SwiftUI
 // /////////////////////
 class myJug5Var: ObservableObject {
     @AppStorage("myJug5BellCount") var bellCount = 0
-    @AppStorage("myJug5BigCount") var bigCount = 0
-    @AppStorage("myJug5AloneRegCount") var aloneRegCount = 0
-    @AppStorage("myJug5CherryRegCount") var cherryRegCount = 0
-    @AppStorage("myJug5StartGames") var startGames = 0
-    @AppStorage("myJug5CurrentGames") var currentGames = 0
+    @AppStorage("myJug5BigCount") var bigCount = 0 {
+        didSet {
+            bonusCountSum = countSum(bigCount, aloneRegCount, cherryRegCount)
+        }
+    }
+    @AppStorage("myJug5AloneRegCount") var aloneRegCount = 0 {
+        didSet {
+            regCountSum = countSum(aloneRegCount, cherryRegCount)
+            bonusCountSum = countSum(bigCount, aloneRegCount, cherryRegCount)
+        }
+    }
+        @AppStorage("myJug5CherryRegCount") var cherryRegCount = 0 {
+            didSet {
+                regCountSum = countSum(aloneRegCount, cherryRegCount)
+                bonusCountSum = countSum(bigCount, aloneRegCount, cherryRegCount)
+            }
+        }
+    @AppStorage("myJug5StartGames") var startGames = 0 {
+        didSet {
+            let games = currentGames - startGames
+            playGame = games > 0 ? games : 0
+        }
+    }
+        @AppStorage("myJug5CurrentGames") var currentGames = 0 {
+            didSet {
+                let games = currentGames - startGames
+                playGame = games > 0 ? games : 0
+            }
+        }
     @Published var minusCheck = false
+    @AppStorage("myJug5RegCountSum") var regCountSum = 0
+    @AppStorage("myJug5BonusCountSum") var bonusCountSum = 0
+    @AppStorage("myJug5PlayGame") var playGame = 0
     
     // レギュラー合算回数
     var totalRegCount: Int {
@@ -83,6 +110,9 @@ class myJug5Memory1: ObservableObject {
     @AppStorage("myJug5CurrentGamesMemory1") var currentGames = 0
     @AppStorage("myJug5MemoMemory1") var memo = ""
     @AppStorage("myJug5DateMemory1") var dateDouble = 0.0
+    @AppStorage("myJug5RegCountSumMemory1") var regCountSum = 0
+    @AppStorage("myJug5BonusCountSumMemory1") var bonusCountSum = 0
+    @AppStorage("myJug5PlayGameMemory1") var playGame = 0
 }
 
 // //// メモリー2
@@ -95,6 +125,9 @@ class myJug5Memory2: ObservableObject {
     @AppStorage("myJug5CurrentGamesMemory2") var currentGames = 0
     @AppStorage("myJug5MemoMemory2") var memo = ""
     @AppStorage("myJug5DateMemory2") var dateDouble = 0.0
+    @AppStorage("myJug5RegCountSumMemory2") var regCountSum = 0
+    @AppStorage("myJug5BonusCountSumMemory2") var bonusCountSum = 0
+    @AppStorage("myJug5PlayGameMemory2") var playGame = 0
 }
 
 // //// メモリー3
@@ -107,6 +140,9 @@ class myJug5Memory3: ObservableObject {
     @AppStorage("myJug5CurrentGamesMemory3") var currentGames = 0
     @AppStorage("myJug5MemoMemory3") var memo = ""
     @AppStorage("myJug5DateMemory3") var dateDouble = 0.0
+    @AppStorage("myJug5RegCountSumMemory3") var regCountSum = 0
+    @AppStorage("myJug5BonusCountSumMemory3") var bonusCountSum = 0
+    @AppStorage("myJug5PlayGameMemory3") var playGame = 0
 }
 
 
@@ -173,6 +209,9 @@ struct myJug5ViewTop: View {
                             myJug5exView()
                                 .presentationDetents([.medium])
                         })
+                        // 95%信頼区間グラフ
+                        unitNaviLink95Ci(Ci95view: AnyView(myJug5View95Ci()))
+                            .popoverTip(tipUnitButtonLink95Ci())
                     }
 //                    .background(Color.clear) // これで背景をタップ可能にする
 //                    .onTapGesture {
@@ -625,6 +664,9 @@ struct myJug5ViewSaveMemory: View {
         jugMemory1.cherryRegCount = jug.cherryRegCount
         jugMemory1.startGames = jug.startGames
         jugMemory1.currentGames = jug.currentGames
+        jugMemory1.regCountSum = jug.regCountSum
+        jugMemory1.bonusCountSum = jug.bonusCountSum
+        jugMemory1.playGame = jug.playGame
     }
     func saveMemory2() {
         jugMemory2.bellCount = jug.bellCount
@@ -633,6 +675,9 @@ struct myJug5ViewSaveMemory: View {
         jugMemory2.cherryRegCount = jug.cherryRegCount
         jugMemory2.startGames = jug.startGames
         jugMemory2.currentGames = jug.currentGames
+        jugMemory2.regCountSum = jug.regCountSum
+        jugMemory2.bonusCountSum = jug.bonusCountSum
+        jugMemory2.playGame = jug.playGame
     }
     func saveMemory3() {
         jugMemory3.bellCount = jug.bellCount
@@ -641,6 +686,9 @@ struct myJug5ViewSaveMemory: View {
         jugMemory3.cherryRegCount = jug.cherryRegCount
         jugMemory3.startGames = jug.startGames
         jugMemory3.currentGames = jug.currentGames
+        jugMemory3.regCountSum = jug.regCountSum
+        jugMemory3.bonusCountSum = jug.bonusCountSum
+        jugMemory3.playGame = jug.playGame
     }
 }
 
@@ -678,6 +726,9 @@ struct myJug5ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory1.cherryRegCount
         jug.startGames = jugMemory1.startGames
         jug.currentGames = jugMemory1.currentGames
+        jug.regCountSum = jugMemory1.regCountSum
+        jug.bonusCountSum = jugMemory1.bonusCountSum
+        jug.playGame = jugMemory1.playGame
     }
     func loadMemory2() {
         jug.bellCount = jugMemory2.bellCount
@@ -686,6 +737,9 @@ struct myJug5ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory2.cherryRegCount
         jug.startGames = jugMemory2.startGames
         jug.currentGames = jugMemory2.currentGames
+        jug.regCountSum = jugMemory2.regCountSum
+        jug.bonusCountSum = jugMemory2.bonusCountSum
+        jug.playGame = jugMemory2.playGame
     }
     func loadMemory3() {
         jug.bellCount = jugMemory3.bellCount
@@ -694,6 +748,9 @@ struct myJug5ViewLoadMemory: View {
         jug.cherryRegCount = jugMemory3.cherryRegCount
         jug.startGames = jugMemory3.startGames
         jug.currentGames = jugMemory3.currentGames
+        jug.regCountSum = jugMemory3.regCountSum
+        jug.bonusCountSum = jugMemory3.bonusCountSum
+        jug.playGame = jugMemory3.playGame
     }
 }
 

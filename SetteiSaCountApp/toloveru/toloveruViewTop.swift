@@ -141,6 +141,11 @@ struct toloveruViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ToLOVEるダークネス")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: toloveruView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

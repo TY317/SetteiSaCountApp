@@ -23,17 +23,50 @@ class VVVendScreenVar: ObservableObject {
     let gSelectedkey = "g"
     
     // //// カウント回数
-    @AppStorage("VVVendScreenW2Count") var w2Count = 0     // 白枠2人のカウント回数
-    @AppStorage("VVVendScreenW3Count") var w3Count = 0     // 白枠3人のカウント回数
-    @AppStorage("VVVendScreenW4Count") var w4Count = 0     // 白枠4人のカウント回数
-    @AppStorage("VVVendScreenPManCount") var pManCount = 0     // 紫枠男性集合のカウント回数
-    @AppStorage("VVVendScreenPMizugiCount") var pMizugiCount = 0     // 紫枠水着のカウント回数
-    @AppStorage("VVVendScreenR5Count") var r5Count = 0     // 赤枠5人のカウント回数
-    @AppStorage("VVVendScreenR6Count") var r6Count = 0     // 赤枠6人のカウント回数
-    @AppStorage("VVVendScreenGCount") var gCount = 0     // 金枠のカウント回数
+    @AppStorage("VVVendScreenW2Count") var w2Count = 0 {
+        didSet {
+            screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+        }
+    }
+        @AppStorage("VVVendScreenW3Count") var w3Count = 0 {
+            didSet {
+                screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+            }
+        }
+            @AppStorage("VVVendScreenW4Count") var w4Count = 0 {
+                didSet {
+                    screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                }
+            }
+                @AppStorage("VVVendScreenPManCount") var pManCount = 0 {
+                    didSet {
+                        screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                    }
+                }
+                    @AppStorage("VVVendScreenPMizugiCount") var pMizugiCount = 0 {
+                        didSet {
+                            screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                        }
+                    }
+                        @AppStorage("VVVendScreenR5Count") var r5Count = 0 {
+                            didSet {
+                                screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                            }
+                        }
+                            @AppStorage("VVVendScreenR6Count") var r6Count = 0 {
+                                didSet {
+                                    screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                                }
+                            }
+                                @AppStorage("VVVendScreenGCount") var gCount = 0 {
+                                    didSet {
+                                        screenCountSum = w2Count + w3Count + w4Count + pManCount + pMizugiCount + r5Count + r6Count + gCount
+                                    }
+                                }
     
     @AppStorage("vvvScreenMinusCheck") var minusCheck = false      // マイナスボタンのチェック状態
     @Published var w2select = false
+    @AppStorage("VVVendScreenCountSum") var screenCountSum = 0
     
     // //// 出現確率％を算出
     // 全画面の合計カウント
@@ -255,6 +288,9 @@ struct VVVendScreenView: View {
                         VVVexViewEndScreen()
                             .presentationDetents([.medium])
                     })
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 2)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 }
                 .listRowBackground(Color.clear)
                 if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {

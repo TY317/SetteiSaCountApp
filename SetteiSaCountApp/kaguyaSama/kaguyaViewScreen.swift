@@ -66,6 +66,9 @@ struct kaguyaViewScreen: View {
                 unitLinkButton(title: "ボーナス終了画面について", exview: AnyView(unitExView5body2image(title: "ボーナス終了画面", image1: Image("kaguyaScreenRatio"))))
                 // //// 参考情報リンク　アイキャッチ
                 unitLinkButton(title: "ボーナス終了直後のアイキャッチ", exview: AnyView(unitExView5body2image(title: "ボーナス終了直後アイキャッチ", textBody1: "・ボーナス終了直後のアイキャッチでは引戻し期待度を示唆", textBody2: "・通常時のステージチェンジなどで出るアイキャッチとは示唆が異なるので注意", image1: Image("kaguyaScreenEyecatch"))))
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ボーナス終了画面")
             }

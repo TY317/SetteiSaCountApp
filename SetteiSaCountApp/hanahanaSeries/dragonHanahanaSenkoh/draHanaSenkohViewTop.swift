@@ -445,6 +445,9 @@ struct draHanaSenkohSubAssyNormalPortraitCountSection: View {
         // ベル確率・ボーナス確率の参考情報リンク
         unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(draHanaSenkohExViewBellBonus()))
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
+        // 95%信頼区間グラフ
+        unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 1)))
+            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -474,6 +477,9 @@ struct draHanaSenkohSubAssyNormalLandScapeCountSection: View {
         // ベル確率・ボーナス確率の参考情報リンク
         unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(draHanaSenkohExViewBellBonus()))
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
+        // 95%信頼区間グラフ
+        unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 1)))
+            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -500,6 +506,9 @@ struct draHanaSenkohSubAssyBigPortrait: View {
             unitCountButtonVerticalDenominate(title: "スイカ", count: $hana.bbSuikaCount, color: .green, bigNumber: $hana.bigPlayGames, numberofDicimal: 1, minusBool: $hana.minusCheck)
             // スイカ確率の情報リンク
             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(draHanaExViewBigSuika()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 5)))
+                .popoverTip(tipUnitButtonLink95Ci())
         } header: {
             Text("\nスイカ")
         }
@@ -521,6 +530,9 @@ struct draHanaSenkohSubAssyBigPortrait: View {
             unitResultRatioPercent2Line(title: "ランプ合算", color: Color("grayBack"), count: $hana.bbLampCountSum, bigNumber: $hana.bigCount, numberofDicimal: 1)
             // 参考情報リンク
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(draHanaExViewBigLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 6)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
     
@@ -555,6 +567,9 @@ struct draHanaSenkohSubAssyBigLandScape: View {
             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(draHanaExViewBigSuika()))
             // 参考情報リンク
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(draHanaExViewBigLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 5)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }
@@ -610,6 +625,9 @@ struct draHanaSenkohSubAssyRegPortrait: View {
             unitLinkButton(title: "REG中のサイドランプについて", exview: AnyView(draHanaExViewRegSideLamp()))
             // フェザーランプの参考情報リンク
             unitLinkButton(title: "REG後のフェザーランプについて", exview: AnyView(draHanaExViewRegAfterLamp()))
+            // 95%信頼区間グラフ
+            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohView95Ci(selection: 7)))
+                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }

@@ -58,6 +58,9 @@ struct VVVmarieView: View {
                         VVVexViewMarie()
                             .presentationDetents([.medium])
                     })
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 5)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 }
             }
             .navigationTitle("マリエ覚醒")

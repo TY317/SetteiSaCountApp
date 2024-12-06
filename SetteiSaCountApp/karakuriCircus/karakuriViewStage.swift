@@ -23,6 +23,9 @@ struct karakuriViewStage: View {
                     unitCountButtonVerticalPercent(title: "勝", count: $karakuri.stageCountMasaru, color: .yellow, bigNumber: $karakuri.stageCountFirstSum, numberofDicimal: 0, minusBool: $karakuri.minusCheck)
                 }
                 unitLinkButton(title: "ステージ示唆（AT開始時）", exview: AnyView(unitExView5body2image(title: "ステージ示唆（AT開始時）", textBody1: "・AT中のステージは勝、鳴海の2種類があり移行順番で設定を示唆", textBody2: "・激情ジャッジ成功でステージ移行", textBody3: "・AT開始時のステージで奇偶を示唆", image1: Image("karakuriStageStart"))))
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT開始時のステージ")
             }

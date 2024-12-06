@@ -427,6 +427,11 @@ struct karakuriViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "からくりサーカス")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: karakuriView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

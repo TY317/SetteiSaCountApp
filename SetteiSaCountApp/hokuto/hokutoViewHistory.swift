@@ -176,6 +176,9 @@ struct hokutoViewHistory: View {
                     }
                     // //// 参考情報のリンク
                     unitLinkButton(title: "バトルボーナス初当たりについて", exview: AnyView(unitExView5body2image(title: "BB初当たり", textBody1: "・初当たり確率に設定差", textBody2: "・天国中の弱スイカ、角チェでの当選に設定差", textBody3: "弱レア役でのモード移行にも設定差", textBody4: "・天井短縮や謎当たりにも大きな設定差があるらしい。800仮天井のヒット率は設定6で3割くらい、設定1で1割未満くらいとの噂も", image1: Image("hokutoBbHit"))))
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(selection: 2)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     unitHeaderHistoryColumns(column2: "ゲーム", column3: "モード", column4: "当選契機")
                 }

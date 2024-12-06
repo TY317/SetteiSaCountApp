@@ -58,6 +58,10 @@ class Rezero2: ObservableObject {
     @AppStorage("rezero2AtHitCount") var atHitCount = 0
     @AppStorage("rezero2PlayGameSum") var playGameSum = 0
     @AppStorage("rezero2ComebackCount") var comebackCount = 0
+    @AppStorage("rezero2PtDrawKisuCount") var ptDrawKisuCount = 0
+    @AppStorage("rezero2PtDrawGusuCount") var ptDrawGusuCount = 0
+    @AppStorage("rezero2PtDrawKisuWinCount") var ptDrawKisuWinCount = 0
+    @AppStorage("rezero2PtDrawGusuWinCount") var ptDrawGusuWinCount = 0
     
     // 1行削除
     func removeLastHistory() {
@@ -70,6 +74,7 @@ class Rezero2: ObservableObject {
 //        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
         atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
+        ptDrawCount()
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"
@@ -86,9 +91,255 @@ class Rezero2: ObservableObject {
 //        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
         atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
+        ptDrawCount()
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"
+    }
+    
+    // //// 内部Pt抽選の回数を算出
+    func ptDrawCount() {
+        let ptZoneArray = decodeStringArray(from: ptZoneArrayData)
+        let triggerArray = decodeStringArray(from: triggerArrayData)
+        // 最初に変数を0リセット
+        ptDrawKisuCount = 0
+        ptDrawGusuCount = 0
+        ptDrawKisuWinCount = 0
+        ptDrawGusuWinCount = 0
+        
+        // 配列にデータがあれば集計
+        if ptZoneArray.count > 0 {
+            for index in ptZoneArray.indices {
+                // 当選Ptが100未満
+                if ptZoneArray[index] == selectListPtZone[0] {
+                    
+                }
+                // 当選Ptが100台
+                else if ptZoneArray[index] == selectListPtZone[1] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 1
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                    }
+                }
+                // 当選Ptが200台
+                else if ptZoneArray[index] == selectListPtZone[2] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 1
+                            ptDrawGusuCount += 1
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 1
+                        }
+                    }
+                }
+                // 当選Ptが300台
+                else if ptZoneArray[index] == selectListPtZone[3] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 2
+                            ptDrawGusuCount += 1
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 1
+                            ptDrawGusuCount += 1
+                        }
+                    }
+                }
+                // 当選Ptが400台
+                else if ptZoneArray[index] == selectListPtZone[4] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 2
+                            ptDrawGusuCount += 2
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 2
+                            ptDrawGusuCount += 1
+                        }
+                    }
+                }
+                // 当選Ptが500台
+                else if ptZoneArray[index] == selectListPtZone[5] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 3
+                            ptDrawGusuCount += 2
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 2
+                            ptDrawGusuCount += 2
+                        }
+                    }
+                }
+                // 当選Ptが600台
+                else if ptZoneArray[index] == selectListPtZone[6] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 3
+                            ptDrawGusuCount += 3
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 3
+                            ptDrawGusuCount += 2
+                        }
+                    }
+                }
+                // 当選Ptが700台
+                else if ptZoneArray[index] == selectListPtZone[7] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 4
+                            ptDrawGusuCount += 3
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 3
+                            ptDrawGusuCount += 3
+                        }
+                    }
+                }
+                // 当選Ptが800台
+                else if ptZoneArray[index] == selectListPtZone[8] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 4
+                            ptDrawGusuCount += 4
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 4
+                            ptDrawGusuCount += 3
+                        }
+                    }
+                }
+                // 当選Ptが900台
+                else if ptZoneArray[index] == selectListPtZone[9] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 5
+                            ptDrawGusuCount += 4
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 4
+                            ptDrawGusuCount += 4
+                        }
+                    }
+                }
+                // 当選Ptが1000台
+                else if ptZoneArray[index] == selectListPtZone[10] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 5
+                            ptDrawGusuCount += 5
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 5
+                            ptDrawGusuCount += 4
+                        }
+                    }
+                }
+                // 当選Ptが1100台
+                else if ptZoneArray[index] == selectListPtZone[11] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 6
+                            ptDrawGusuCount += 5
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 5
+                            ptDrawGusuCount += 5
+                        }
+                    }
+                }
+                // 当選Ptが1200台
+                else if ptZoneArray[index] == selectListPtZone[12] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 6
+                            ptDrawGusuCount += 6
+                            ptDrawGusuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 6
+                            ptDrawGusuCount += 5
+                        }
+                    }
+                }
+                // 当選Ptが1300台
+                else if ptZoneArray[index] == selectListPtZone[13] {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 7
+                            ptDrawGusuCount += 6
+                            ptDrawKisuWinCount += 1
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 6
+                            ptDrawGusuCount += 6
+                        }
+                    }
+                }
+                // 当選Ptが1400台
+                else {
+                    if triggerArray.indices.contains(index) {
+                        // 規定Ptでの当選の場合
+                        if triggerArray[index] == selectListTrigger[0] {
+                            ptDrawKisuCount += 7
+                            ptDrawGusuCount += 6
+                        }
+                        // それ以外での当選の場合
+                        else {
+                            ptDrawKisuCount += 7
+                            ptDrawGusuCount += 6
+                        }
+                    }
+                }
+            }
+        }
+        // 配列にデータがなければ0にする
+        else {
+            ptDrawKisuCount = 0
+            ptDrawGusuCount = 0
+            ptDrawKisuWinCount = 0
+            ptDrawGusuWinCount = 0
+        }
     }
     
     func resetHistory() {
@@ -101,6 +352,7 @@ class Rezero2: ObservableObject {
 //        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         comebackCount = arrayStringDataCount(arrayData: triggerArrayData, countString: "引き戻し")
         atHitCount = (atHitCount - comebackCount) > 0 ? (atHitCount - comebackCount) : 0
+        ptDrawCount()
         inputGame = 0
         selectedPt = "200台"
         selectedTrigger = "規定Pt"
@@ -283,6 +535,11 @@ struct rezero2ViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "Re:ゼロ season2")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: rezero2View95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

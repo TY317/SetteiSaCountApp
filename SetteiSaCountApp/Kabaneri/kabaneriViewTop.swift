@@ -574,6 +574,11 @@ struct kabaneriViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "甲鉄城のカバネリ")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: kabaneriView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

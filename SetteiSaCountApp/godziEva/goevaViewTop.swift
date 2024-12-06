@@ -319,6 +319,11 @@ struct goevaViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ゴジラvsエヴァ")
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: goevaView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

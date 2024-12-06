@@ -31,6 +31,10 @@ class VvvMemory1: ObservableObject {
     @AppStorage("vvvBonusCountSumMemory1") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory1") var memo = ""
     @AppStorage("vvvDateMemory1") var dateDouble = 0.0
+    @AppStorage("VVVendScreenCountSumMemory1") var screenCountSum = 0
+    @AppStorage("VVVharakiriAfterSetCountSumMemory1") var afterSetCountSum = 0
+    @AppStorage("VVVharakiriAllDriveCountSumMemory1") var allDriveCountSum = 0
+    @AppStorage("VVVharakiriAllSetCountSumMemory1") var allSetCountSum = 0
 }
 
 // //// メモリー2
@@ -56,6 +60,10 @@ class VvvMemory2: ObservableObject {
     @AppStorage("vvvBonusCountSumMemory2") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory2") var memo = ""
     @AppStorage("vvvDateMemory2") var dateDouble = 0.0
+    @AppStorage("VVVendScreenCountSumMemory2") var screenCountSum = 0
+    @AppStorage("VVVharakiriAfterSetCountSumMemory2") var afterSetCountSum = 0
+    @AppStorage("VVVharakiriAllDriveCountSumMemory2") var allDriveCountSum = 0
+    @AppStorage("VVVharakiriAllSetCountSumMemory2") var allSetCountSum = 0
 }
 
 // //// メモリー3
@@ -81,6 +89,10 @@ class VvvMemory3: ObservableObject {
     @AppStorage("vvvBonusCountSumMemory2") var bonusCountSum = 0
     @AppStorage("vvvMemoMemory3") var memo = ""
     @AppStorage("vvvDateMemory3") var dateDouble = 0.0
+    @AppStorage("VVVendScreenCountSumMemory3") var screenCountSum = 0
+    @AppStorage("VVVharakiriAfterSetCountSumMemory3") var afterSetCountSum = 0
+    @AppStorage("VVVharakiriAllDriveCountSumMemory3") var allDriveCountSum = 0
+    @AppStorage("VVVharakiriAllSetCountSumMemory3") var allSetCountSum = 0
 }
 
 struct VVV_Top: View {
@@ -129,6 +141,11 @@ struct VVV_Top: View {
                     }
                     
                 }
+                // 設定推測グラフ
+                NavigationLink(destination: vvvView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                .popoverTip(tipVer16095CiAdd())
                 Section {
                     Text("")
                 }
@@ -226,6 +243,10 @@ struct vvvViewSaveMemory: View {
         vvvMemory1.kakumeiCount = vvv.kakumeiCount
         vvvMemory1.kessenCount = vvv.kessenCount
         vvvMemory1.bonusCountSum = vvv.bonusCountSum
+        vvvMemory1.screenCountSum = VVVendScreen.screenCountSum
+        vvvMemory1.afterSetCountSum = VVVharakiri.afterSetCountSum
+        vvvMemory1.allDriveCountSum = VVVharakiri.allDriveCountSum
+        vvvMemory1.allSetCountSum = VVVharakiri.allSetCountSum
     }
     func saveMemory2() {
         vvvMemory2.before1020Count = VVVharakiri.before1020Count
@@ -247,6 +268,10 @@ struct vvvViewSaveMemory: View {
         vvvMemory2.kakumeiCount = vvv.kakumeiCount
         vvvMemory2.kessenCount = vvv.kessenCount
         vvvMemory2.bonusCountSum = vvv.bonusCountSum
+        vvvMemory2.screenCountSum = VVVendScreen.screenCountSum
+        vvvMemory2.afterSetCountSum = VVVharakiri.afterSetCountSum
+        vvvMemory2.allDriveCountSum = VVVharakiri.allDriveCountSum
+        vvvMemory2.allSetCountSum = VVVharakiri.allSetCountSum
     }
     func saveMemory3() {
         vvvMemory3.before1020Count = VVVharakiri.before1020Count
@@ -268,6 +293,10 @@ struct vvvViewSaveMemory: View {
         vvvMemory3.kakumeiCount = vvv.kakumeiCount
         vvvMemory3.kessenCount = vvv.kessenCount
         vvvMemory3.bonusCountSum = vvv.bonusCountSum
+        vvvMemory3.screenCountSum = VVVendScreen.screenCountSum
+        vvvMemory3.afterSetCountSum = VVVharakiri.afterSetCountSum
+        vvvMemory3.allDriveCountSum = VVVharakiri.allDriveCountSum
+        vvvMemory3.allSetCountSum = VVVharakiri.allSetCountSum
     }
 }
 
@@ -322,6 +351,10 @@ struct vvvViewLoadMemory: View {
         vvv.kakumeiCount = vvvMemory1.kakumeiCount
         vvv.kessenCount = vvvMemory1.kessenCount
         vvv.bonusCountSum = vvvMemory1.bonusCountSum
+        VVVendScreen.screenCountSum = vvvMemory1.screenCountSum
+        VVVharakiri.afterSetCountSum = vvvMemory1.afterSetCountSum
+        VVVharakiri.allDriveCountSum = vvvMemory1.allDriveCountSum
+        VVVharakiri.allSetCountSum = vvvMemory1.allSetCountSum
     }
     func loadMemory2() {
         VVVharakiri.before1020Count = vvvMemory2.before1020Count
@@ -343,6 +376,10 @@ struct vvvViewLoadMemory: View {
         vvv.kakumeiCount = vvvMemory2.kakumeiCount
         vvv.kessenCount = vvvMemory2.kessenCount
         vvv.bonusCountSum = vvvMemory2.bonusCountSum
+        VVVendScreen.screenCountSum = vvvMemory2.screenCountSum
+        VVVharakiri.afterSetCountSum = vvvMemory2.afterSetCountSum
+        VVVharakiri.allDriveCountSum = vvvMemory2.allDriveCountSum
+        VVVharakiri.allSetCountSum = vvvMemory2.allSetCountSum
     }
     func loadMemory3() {
         VVVharakiri.before1020Count = vvvMemory3.before1020Count
@@ -364,6 +401,10 @@ struct vvvViewLoadMemory: View {
         vvv.kakumeiCount = vvvMemory3.kakumeiCount
         vvv.kessenCount = vvvMemory3.kessenCount
         vvv.bonusCountSum = vvvMemory3.bonusCountSum
+        VVVendScreen.screenCountSum = vvvMemory3.screenCountSum
+        VVVharakiri.afterSetCountSum = vvvMemory3.afterSetCountSum
+        VVVharakiri.allDriveCountSum = vvvMemory3.allDriveCountSum
+        VVVharakiri.allSetCountSum = vvvMemory3.allSetCountSum
     }
 }
 

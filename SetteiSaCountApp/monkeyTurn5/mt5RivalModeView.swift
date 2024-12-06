@@ -30,6 +30,7 @@ struct mt5RivalModeView: View {
                     unitLinkButton(title: "舟券での示唆", exview: AnyView(mt5ExViewFnaken()))
                     // 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 3)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ライバルモードカウント")
                 }

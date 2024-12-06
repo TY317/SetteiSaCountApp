@@ -8,6 +8,23 @@
 import SwiftUI
 import TipKit
 
+// /////////////////////
+// Tip：内部規定ポイント抽選についての説明
+// /////////////////////
+struct tipRezero2PtDraw: Tip {
+    var title: Text {
+        Text("内部規定ポイントの抽選確率")
+    }
+    
+    var message: Text? {
+        Text("入力されたPtゾーンと当選契機の履歴から内部での規定ポイント抽選の回数と当選確率を算出します")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 struct rezero2ViewHistory: View {
     @ObservedObject var rezero2 = Rezero2()
     @State var isShowAlert: Bool = false
@@ -62,6 +79,7 @@ struct rezero2ViewHistory: View {
                                         .frame(maxWidth: .infinity)
                                 } else {
                                     Text("-")
+                                        .frame(maxWidth: .infinity)
                                 }
                             }
                             Divider()
@@ -125,9 +143,87 @@ struct rezero2ViewHistory: View {
                 }
                 // //// 参考情報リンク
                 unitLinkButton(title: "AT初当たり確率について", exview: AnyView(unitExView5body2image(title: "AT初当たり確率", textBody1: "・AT初当たり確率に設定差あり", image1: Image("rezero2AtHitRatio"))))
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 1)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当たり")
             }
+            
+            // //// 内部規定Pt抽選
+            Section {
+                // 偶数
+                VStack {
+                    Text("百の位が偶数の抽選")
+                    HStack {
+                        unitResultCount2Line(
+                            title: "抽選回数",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawGusuCount,
+                            spacerBool: false
+                        )
+                        unitResultCount2Line(
+                            title: "当選回数",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawGusuWinCount,
+                            spacerBool: false
+                        )
+                        unitResultRatioPercent2Line(
+                            title: "当選確率",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawGusuWinCount,
+                            bigNumber: $rezero2.ptDrawGusuCount,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                    }
+                }
+                // 奇数
+                VStack {
+                    Text("百の位が奇数の抽選")
+                    HStack {
+                        unitResultCount2Line(
+                            title: "抽選回数",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawKisuCount,
+                            spacerBool: false
+                        )
+                        unitResultCount2Line(
+                            title: "当選回数",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawKisuWinCount,
+                            spacerBool: false
+                        )
+                        unitResultRatioPercent2Line(
+                            title: "当選確率",
+                            color: .grayBack,
+                            count: $rezero2.ptDrawKisuWinCount,
+                            bigNumber: $rezero2.ptDrawKisuCount,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                    }
+                }
+                // 参考情報リンク
+                unitLinkButton(
+                    title: "内部規定Pt抽選について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "内部規定Pt抽選",
+                            textBody1: "・通常開始1G目に次回規定Ptを内部的に決定",
+                            textBody2: "・100Pt,200Pt〜の順に下表の抽選を繰り返し、当否を決定",
+                            textBody3: "・最大1400Ptで当選。1300までの抽選に漏れたら1400は100％当選という仕組みと思われる",
+                            textBody4: "・このアプリでは初当り履歴から内部的な抽選回数と当選確率を算出させています",
+                            image1: Image("rezero2PtDraw")
+                        )
+                    )
+                )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 3)))
+            } header: {
+                Text("内部規定Pt抽選")
+            }
+            .popoverTip(tipRezero2PtDraw())
             
             // //// 引き戻し
             Section {
@@ -151,6 +247,9 @@ struct rezero2ViewHistory: View {
                         )
                     )
                 )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("引き戻し")
             }

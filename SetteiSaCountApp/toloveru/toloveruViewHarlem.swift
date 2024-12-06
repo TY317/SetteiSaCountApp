@@ -31,6 +31,9 @@ struct toloveruViewHarlem: View {
                     }
                     // 参考情報リンク
                     unitLinkButton(title: "ウィスパー選択率について", exview: AnyView(unitExView5body2image(title: "ウィスパー選択率", textBody1: "・ハーレムモード中の枚数選択ゾーンでウィスパー演出が選択される確率に設定差あり", image1: Image("toloveruHarlemWhisper"))))
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(toloveruView95Ci(selection: 1)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ウィスパー選択率")
                 }

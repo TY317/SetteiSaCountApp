@@ -112,6 +112,9 @@ struct bangdreamViewPicoAttack: View {
                         )
                     )
                 )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("トータル結果")
             }

@@ -29,6 +29,9 @@ struct goevaNormalSuika: View {
                     }
                     // 参考情報：スイカからのCZ当選率
                     unitLinkButton(title: "スイカからのCZ当選について", exview: AnyView(goevaExViewNormalSuika()))
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(goevaView95Ci(selection: 1)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("スイカ回数、CZ アスカvsレイ回数")
                 }
@@ -47,6 +50,9 @@ struct goevaNormalSuika: View {
                     }
                     // 参考情報リンク
                     unitLinkButton(title: "変異の内訳", exview: AnyView(goevaExViewHenni()))
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(goevaView95Ci(selection: 4)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text ("変異の内訳")
                 }

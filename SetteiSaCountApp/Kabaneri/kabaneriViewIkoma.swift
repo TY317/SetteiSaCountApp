@@ -63,6 +63,9 @@ struct kabaneriViewIkoma: View {
                     }
                     // 参考情報リンク
                     unitLinkButton(title: "ハズレでのライフ減少について", exview: AnyView(unitExView5body2image(title: "ハズレでのライフ減少", textBody1: "・表示上はライフ3までだが、内部的にはライフ5の状態でスタートしている", textBody2: "・ライフ4の時もハズレで減少しない可能性があるため、最初はライフ3なのかライフ4なのかを完全に見抜くことは難しい", textBody3: "・一度ライフが2以下になってからカウントをスタートするのが無難か",textBody4: "（ライフが2以下になってから子役でライフ回復した場合はライフ3がほぼ確定。チャンス目成立時は内部的にライフが8or21になる可能性があるため注意）", image1: Image("kabaneriIcomaLifeAll"))))
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 6)))
+                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ハズレでのライフ減少率")
                 }
