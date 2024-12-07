@@ -626,29 +626,29 @@ struct machineListHanahanaSeries: View {
 // ////////////////////
 // バナー広告の設定
 // ////////////////////
-struct AdMobBannerView: UIViewRepresentable {
-    func makeUIView(context: Context) -> GADBannerView {
-        let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
-        // 諸々の設定をしていく
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
-//        banner.adUnitID = "ca-app-pub-3940256099942544/2435281174" // テスト用広告ID2
-//        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
-        banner.rootViewController = getRootViewController() // 修正部分
-        banner.load(GADRequest())
-        return banner // 最終的にインスタンスを返す
-    }
-
-    func updateUIView(_ uiView: GADBannerView, context: Context) {
-        // 特にないのでメソッドだけ用意
-    }
-
-    private func getRootViewController() -> UIViewController? {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            return windowScene.windows.filter { $0.isKeyWindow }.first?.rootViewController
-        }
-        return nil
-    }
-}
+//struct AdMobBannerView: UIViewRepresentable {
+//    func makeUIView(context: Context) -> GADBannerView {
+//        let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
+//        // 諸々の設定をしていく
+//        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
+////        banner.adUnitID = "ca-app-pub-3940256099942544/2435281174" // テスト用広告ID2
+////        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
+//        banner.rootViewController = getRootViewController() // 修正部分
+//        banner.load(GADRequest())
+//        return banner // 最終的にインスタンスを返す
+//    }
+//
+//    func updateUIView(_ uiView: GADBannerView, context: Context) {
+//        // 特にないのでメソッドだけ用意
+//    }
+//
+//    private func getRootViewController() -> UIViewController? {
+//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//            return windowScene.windows.filter { $0.isKeyWindow }.first?.rootViewController
+//        }
+//        return nil
+//    }
+//}
 
 
 // [START create_banner_view]
@@ -683,8 +683,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             banner.load(GADRequest())
             // [END load_ad]
             // [START set_delegate]
