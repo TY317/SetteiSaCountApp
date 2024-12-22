@@ -32,6 +32,9 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
     @AppStorage("isSelectedFavoriteBangdream") var isSelectedFavoriteBangdream = true
     @AppStorage("isSelectedFavoriteMhr") var isSelectedFavoriteMhr = true
+    @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
+    @AppStorage("isSelectedFavoriteLupin") var isSelectedFavoriteLupin = true
+    @AppStorage("isSelectedFavoriteDanvine") var isSelectedFavoriteDanvine = true
 }
 
 
@@ -67,29 +70,6 @@ class commonVar: ObservableObject {
     }
     @Environment(\.requestReview) var requestReview
     @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
-    // //// レビューリクエストの実行
-//    func reviewRequest() {
-//        var count: Int = 0
-//        // 現在の時刻を日本時間に合わせて取得
-//        let currentDate = Date()
-//        let calendar = Calendar.current
-//        let timeZone = TimeZone(identifier: "Asia/Tokyo")!
-//        var currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
-//        
-//        // 時間のコンポーネントを取得
-//        guard let hour = currentComponents.hour else { return }
-//        
-//        // 21時から翌日の8時までの間
-//        if hour >= 21 || hour < 8 {
-//            count += 1
-////            print("カウントアップ！ 現在のカウント: \(count)")
-////            requestReview()
-//            print("レビューリクエストの実行")
-//        } else {
-////            print("カウントアップせず、現在のカウント: \(count)")
-//            print("レビューリクエストの見送り")
-//        }
-//    }
 }
 
 // /////////////////////////
@@ -132,12 +112,35 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// ダンバイン、24年12月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
+//                                }
+                                
+                                // //// ルパン大航海者の秘宝、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
+                                        .popoverTip(tipVer170AddMachine())
+                                }
+                                
+                                // //// 犬夜叉2、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
+//                                        .popoverTip(tipVer170AddMachine())
+                                }
+                                
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(mhrViewTop()), iconImage: Image("mhrMachineIcon"), machineName: "モンハンライズ")
-                                        .popoverTip(tipVer160AddMachine())
+//                                        .popoverTip(tipVer160AddMachine())
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -145,7 +148,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!")
-                                    //                                        .popoverTip(tipVer150AddMachine())
                                 }
                                 
                                 // //// リゼロ2、24年10月
@@ -153,7 +155,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(rezero2ViewTop()), iconImage: Image("rezero2MachineIcon"), machineName: "Re:ゼロ2")
-                                    //                                        .popoverTip(tipVer140AddMachine())
                                 }
                                 
                                 // //// かぐや様、24年9月
@@ -161,7 +162,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様")
-                                    //                                        .popoverTip(tipVer130AddMachine())
                                 }
                                 
                                 // //// シンフォギア 正義の歌、24年7月
@@ -250,6 +250,50 @@ struct ContentView: View {
                                     machineListHanahanaSeries()
                                 }
                                 
+                                // //// ダンバイン、24年12月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(danvineViewTop()),
+//                                        iconImage: Image("danvineMachineIcone"),
+//                                        machineName: "ダンバイン",
+//                                        makerName: "サミー",
+//                                        releaseYear: 2024,
+//                                        releaseMonth: 12
+//                                    )
+//                                }
+                                
+                                // //// ルパン大航海者の秘宝、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(lupinViewTop()),
+                                        iconImage: Image("lupinMachineIcon"),
+                                        machineName: "ルパン3世 大航海者の秘宝",
+                                        makerName: "平和",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+                                    .popoverTip(tipVer170AddMachine())
+                                }
+                                
+                                // //// 犬夜叉2、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(inuyasha2ViewTop()),
+                                        iconImage: Image("inuyasha2MachineIcon"),
+                                        machineName: "犬夜叉2",
+                                        makerName: "エフ",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+//                                    .popoverTip(tipVer170AddMachine())
+                                }
+                                
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
                                     
@@ -262,7 +306,7 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 11
                                     )
-                                    .popoverTip(tipVer160AddMachine())
+//                                    .popoverTip(tipVer160AddMachine())
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -270,7 +314,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(linkView: AnyView(bangdreamViewTop()), iconImage: Image("bangdreamMachinIcon"), machineName: "バンドリ!", makerName: "平和", releaseYear: 2024, releaseMonth: 11)
-                                    //                                        .popoverTip(tipVer150AddMachine())
                                 }
                                 
                                 // //// リゼロ2、24年10月
@@ -286,7 +329,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
-                                    //                                            .popoverTip(tipVer130AddMachine())
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
@@ -306,7 +348,6 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "平和", releaseYear: 2024, releaseMonth: 6)
-                                    //                                    .popoverTip(tipAddToloveru())
                                 }
                                 
                                 // //// ゴジラvsエヴァンゲリオン、24年2月
@@ -335,7 +376,6 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
-                                    //                                    .popoverTip(tipAddHokuto())
                                 }
                                 
                                 // //// ヴァルヴレイヴ、22年11月
@@ -364,7 +404,6 @@ struct ContentView: View {
                     VStack {
                         Picker("", selection: $isSelectedDisplayMode) {
                             ForEach(displayMode, id: \.self) { mode in
-                                //                                Text($0)
                                 Text(mode)
                             }
                         }
@@ -524,6 +563,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// ダンバイン、24年12月
+//                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
+                // //// ルパン大航海者の秘宝、24年12月
+                Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
+                // //// 犬夜叉2、24年12月
+                Toggle("犬夜叉2", isOn: $favoriteSet.isSelectedFavoriteInuyasha2)
                 // //// モンハンライズ、24年11月
                 Toggle("モンスターハンター ライズ", isOn: $favoriteSet.isSelectedFavoriteMhr)
                 // //// バンドリ、24年11月
@@ -683,8 +728,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             banner.load(GADRequest())
             // [END load_ad]
             // [START set_delegate]

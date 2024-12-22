@@ -33,17 +33,17 @@ struct tipVer160rezero2ComebackRatio: Tip {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer160AddMachine: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("モンスターハンター ライズを追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer160AddMachine: Tip {
+//    var title: Text {
+//        Text("機種追加しました！")
+//    }
+//    var message: Text? {
+//        Text("モンスターハンター ライズを追加")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：設定推測グラフの追加

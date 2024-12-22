@@ -466,7 +466,7 @@ struct unitResultRatioDenomination2Line: View {
 // /////////////////////
 struct unitResultRatioPercent2Line: View {
     @State var title: String
-    @State var color: Color
+    @State var color: Color = .grayBack
     @Binding var count: Int
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
@@ -742,6 +742,7 @@ struct unitLabelMachineTopTitle: View {
 struct unitHeaderHistoryColumns: View {
     var column1: String = "回数"
     var column1Width:Double = 40.0
+    var column1Bool: Bool = true
     var column2: String?
     var column3: String?
     var column4: String?
@@ -750,8 +751,10 @@ struct unitHeaderHistoryColumns: View {
     
     var body: some View {
         HStack {
-            Text(column1)
-                .frame(width: column1Width)
+            if self.column1Bool {
+                Text(column1)
+                    .frame(width: column1Width)
+            }
             if let column2 = column2 {
                 Text(column2)
                     .frame(maxWidth: .infinity)
@@ -818,6 +821,7 @@ struct unitPickerCircleString: View {
     var title: String
     @Binding var selected: String
     var selectList: [String]
+    var pickerHeight: Double = 150
     
     var body: some View {
         VStack {
@@ -830,7 +834,7 @@ struct unitPickerCircleString: View {
             }
             .pickerStyle(.wheel)
         }
-        .frame(height: 150)
+        .frame(height: self.pickerHeight)
         .frame(maxWidth: .infinity)
     }
 }

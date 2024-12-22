@@ -177,6 +177,33 @@ func arraySumPlayGameResetWordOne(gameArrayData: Data?, bonusArrayData: Data?, r
 
 
 // //////////////////////////////
+// 関数：2つの文字列配列から特定のキーワードに両方合致するデータのカウント
+// //////////////////////////////
+func arrayString2Array2AndDataCount(array1Data: Data?, array2Data: Data?, key1: String, key2: String) -> Int {
+    let array1 = decodeStringArray(from: array1Data)
+    let array2 = decodeStringArray(from: array2Data)
+    var count = 0
+    
+    // 配列の数を確認し0なら0を返す
+    if array1.count == 0 ||
+        array2.count == 0 {
+        count = 0
+    }
+    
+    // 配列にデータがあれば1個ずつ確認しながらカウントしていく
+    else {
+        for (index, array1Data) in array1.enumerated() {
+            if array2.indices.contains(index) {
+                if array1Data == key1 && array2[index] == key2 {
+                    count += 1
+                }
+            }
+        }
+    }
+    return count
+}
+
+// //////////////////////////////
 // 関数：カウントボタンの処理
 // /////////////////////////////
 func countUpDown(minusCheck: Bool, count: Int) -> Int {
