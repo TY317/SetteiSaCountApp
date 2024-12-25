@@ -178,6 +178,7 @@
 		0FDC32632D17CAD4005B3D06 /* commonViewNamichanTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */; };
 		0FDC32652D17D76A005B3D06 /* inuyashaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */; };
 		0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32662D1C289C005B3D06 /* ver180Tip.swift */; };
+		0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -397,6 +398,7 @@
 		0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewNamichanTrophy.swift; sourceTree = "<group>"; };
 		0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaView95Ci.swift; sourceTree = "<group>"; };
 		0FDC32662D1C289C005B3D06 /* ver180Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver180Tip.swift; sourceTree = "<group>"; };
+		0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewHistory.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -905,6 +907,7 @@
 			children = (
 				0FA0249F2D05D547004B3FD5 /* danvineViewTop.swift */,
 				0FA024A12D05D558004B3FD5 /* danvineAssets.xcassets */,
+				0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */,
 			);
 			path = danvine;
 			sourceTree = "<group>";
@@ -1271,6 +1274,7 @@
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
 				0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */,
 				0F3465BB2CB21F1A00B5D2DD /* karakuriViewEnding.swift in Sources */,
+				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
 				0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */,
 				0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */,
