@@ -232,7 +232,6 @@ struct rezero2ViewHistory: View {
                     unitResultCount2Line(title: "引き戻し回数", color: .grayBack, count: $rezero2.comebackCount)
                     // 引き戻し確率
                     unitResultRatioPercent2Line(title: "引き戻し確率", color: .grayBack, count: $rezero2.comebackCount, bigNumber: $rezero2.atHitCount, numberofDicimal: 0)
-                        .popoverTip(tipVer160rezero2ComebackRatio())
                 }
                 // //// 参考情報リンク
 //                unitLinkButton(title: "引き戻しについて", exview: AnyView(unitExView5body2image(title: "引き戻し（死に戻り）", textBody1: "・AT後32G+αで引き戻しの可能性あり", textBody2: "・引き戻し確率に設定差があるのではとの噂あり。設定6は20%程度で引き戻すとの噂。低設定は数%！？引き戻しが複数回確認できたら期待できるかも。")))

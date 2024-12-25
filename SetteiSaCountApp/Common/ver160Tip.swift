@@ -18,17 +18,17 @@ struct ver160Tip: View {
 // //////////////////
 // Tip：リゼロ　死に戻り確率の情報追加
 // //////////////////
-struct tipVer160rezero2ComebackRatio: Tip {
-    var title: Text {
-        Text("引き戻し確率の情報追記")
-    }
-    var message: Text? {
-        Text("設定ごとの確率が判明したので情報追記しました！")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer160rezero2ComebackRatio: Tip {
+//    var title: Text {
+//        Text("引き戻し確率の情報追記")
+//    }
+//    var message: Text? {
+//        Text("設定ごとの確率が判明したので情報追記しました！")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：機種追加
@@ -48,17 +48,17 @@ struct tipVer160rezero2ComebackRatio: Tip {
 // //////////////////
 // Tip：設定推測グラフの追加
 // //////////////////
-struct tipVer16095CiAdd: Tip {
-    var title: Text {
-        Text("設定推測グラフの追加")
-    }
-    var message: Text? {
-        Text("設定推測に役立つ95%信頼区間のグラフ表示機能を追加しました")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer16095CiAdd: Tip {
+//    var title: Text {
+//        Text("設定推測グラフの追加")
+//    }
+//    var message: Text? {
+//        Text("設定推測に役立つ95%信頼区間のグラフ表示機能を追加しました")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 
 #Preview {

@@ -145,7 +145,6 @@ struct VVV_Top: View {
                 NavigationLink(destination: vvvView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
-                .popoverTip(tipVer16095CiAdd())
                 Section {
                     Text("")
                 }

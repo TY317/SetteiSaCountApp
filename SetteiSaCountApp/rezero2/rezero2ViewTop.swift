@@ -539,7 +539,6 @@ struct rezero2ViewTop: View {
                 NavigationLink(destination: rezero2View95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
-                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

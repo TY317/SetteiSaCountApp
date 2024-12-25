@@ -17,17 +17,17 @@ struct ver170Tip: View {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer170AddMachine: Tip {
-    var title: Text {
-        Text("機種追加しました！")
-    }
-    var message: Text? {
-        Text("ルパン3世\n犬夜叉2 を追加")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer170AddMachine: Tip {
+//    var title: Text {
+//        Text("機種追加しました！")
+//    }
+//    var message: Text? {
+//        Text("ルパン3世\n犬夜叉2 を追加")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 
 #Preview {

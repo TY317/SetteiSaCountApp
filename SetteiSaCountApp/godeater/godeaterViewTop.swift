@@ -421,7 +421,6 @@ struct godeaterViewTop: View {
                 NavigationLink(destination: godeaterView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
-                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

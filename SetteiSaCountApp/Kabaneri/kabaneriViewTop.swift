@@ -578,7 +578,6 @@ struct kabaneriViewTop: View {
                 NavigationLink(destination: kabaneriView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
-                .popoverTip(tipVer16095CiAdd())
             }
         }
         .navigationTitle("メニュー")

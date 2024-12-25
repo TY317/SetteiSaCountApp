@@ -449,7 +449,6 @@ struct mt5ViewTop: View {
                 NavigationLink(destination: mt5View95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
-                .popoverTip(tipVer16095CiAdd())
             }
             .navigationTitle("メニュー")
             .navigationBarTitleDisplayMode(.inline)

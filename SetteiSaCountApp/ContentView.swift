@@ -113,18 +113,18 @@ struct ContentView: View {
                                 }
                                 
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
+                                        .popoverTip(tipVer180AddMachine())
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
-                                        .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
@@ -251,18 +251,19 @@ struct ContentView: View {
                                 }
                                 
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(danvineViewTop()),
-//                                        iconImage: Image("danvineMachineIcone"),
-//                                        machineName: "ダンバイン",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2024,
-//                                        releaseMonth: 12
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(danvineViewTop()),
+                                        iconImage: Image("danvineMachineIcone"),
+                                        machineName: "ダンバイン",
+                                        makerName: "サミー",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+                                    .popoverTip(tipVer180AddMachine())
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
@@ -276,7 +277,6 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-                                    .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
@@ -564,7 +564,7 @@ struct favoriteSettingView: View {
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // //// ダンバイン、24年12月
-//                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
+                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
                 // //// ルパン大航海者の秘宝、24年12月
                 Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
                 // //// 犬夜叉2、24年12月
