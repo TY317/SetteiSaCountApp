@@ -118,7 +118,33 @@ struct danvineViewHistory: View {
                     }
                     Spacer()
                 }
-                
+                // //// 参考情報リンク
+                // 偶数周期での当選について
+                unitLinkButton(
+                    title: "周期について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "周期について",
+                            textBody1: "・偶数周期での当選は高設定期待度アップとなる",
+                            textBody2: "・周期のボーナス期待度として下記表の数値が公表されているが、周期当選の設定差があるならば高設定はこれよりも高い数値になる可能性もあり",
+                            image1: Image("danvineCycleRatio")
+                        )
+                    )
+                )
+                // 規定ポイントについて
+                unitLinkButton(
+                    title: "規定Ptについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "規定Ptについて",
+                            textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
+                            textBody2: "・下表の規定ポイント以外（1ptを除く）で当選した場合は高設定の期待度アップとなる",
+                            textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
+                            image1: Image("danvinePoint"),
+                            image2: Image("danvineGetPoint")
+                        )
+                    )
+                )
             } header: {
                 unitHeaderHistoryColumns(
                     column1Bool: false,
@@ -166,10 +192,15 @@ struct danvineViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ボーナス、ST 初当り確率",
+                            textBody1: "・2Gバトルでの当選率は高設定ほど高いらしい",
+                            textBody2: "・直撃は高設定ほど多くなるらしい",
                             image1: Image("danvineHitRatio")
                         )
                     )
                 )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 1)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
             }

@@ -179,6 +179,8 @@
 		0FDC32652D17D76A005B3D06 /* inuyashaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */; };
 		0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32662D1C289C005B3D06 /* ver180Tip.swift */; };
 		0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */; };
+		0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */; };
+		0FDC326D2D1EA219005B3D06 /* danvineViewNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -399,6 +401,8 @@
 		0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaView95Ci.swift; sourceTree = "<group>"; };
 		0FDC32662D1C289C005B3D06 /* ver180Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver180Tip.swift; sourceTree = "<group>"; };
 		0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewHistory.swift; sourceTree = "<group>"; };
+		0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineView95Ci.swift; sourceTree = "<group>"; };
+		0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewNormalMode.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -908,6 +912,8 @@
 				0FA0249F2D05D547004B3FD5 /* danvineViewTop.swift */,
 				0FA024A12D05D558004B3FD5 /* danvineAssets.xcassets */,
 				0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */,
+				0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */,
+				0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */,
 			);
 			path = danvine;
 			sourceTree = "<group>";
@@ -1250,6 +1256,7 @@
 				0FA024A02D05D547004B3FD5 /* danvineViewTop.swift in Sources */,
 				0FA024812CF4A6DC004B3FD5 /* karakuriView95Ci.swift in Sources */,
 				0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */,
+				0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */,
 				0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */,
 				0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */,
 				0FA0248F2D011C59004B3FD5 /* mhrViewDuringBonus.swift in Sources */,
@@ -1282,6 +1289,7 @@
 				0FA024692CF2F046004B3FD5 /* imJugExView95Ci.swift in Sources */,
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
 				0F66FE702C8C78FC00776053 /* hokutoViewMode.swift in Sources */,
+				0FDC326D2D1EA219005B3D06 /* danvineViewNormalMode.swift in Sources */,
 				0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */,
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,

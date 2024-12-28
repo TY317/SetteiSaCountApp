@@ -27,6 +27,7 @@ class Danvine: ObservableObject {
         "アタック",
         "規定Pt",
         "直撃",
+        "2Gバトル",
         "天井",
         "フリーズ",
         "その他"
@@ -126,6 +127,12 @@ struct danvineViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時演出、モード
+                    NavigationLink(destination: danvineViewNormalMode()) {
+                        unitLabelMenu(
+                            imageSystemName: "square.3.layers.3d",
+                            textBody: "通常時演出、モード")
+                    }
                     // 初当り履歴
                     NavigationLink(destination: danvineViewHistory()) {
                         unitLabelMenu(
@@ -134,6 +141,10 @@ struct danvineViewTop: View {
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ダンバイン", titleFont: .title2)
+                }
+                // 設定推測グラフ
+                NavigationLink(destination: danvineView95Ci()) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
             }
         }
