@@ -729,9 +729,16 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+            //            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
             banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
-            banner.load(GADRequest())
+            
+            // 広告リクエストを作成
+            let adRequest = GADRequest()
+            // カスタムキーワードを設定
+            adRequest.keywords = ["パチスロ", "パチンコ", "ギャンブル", "遊技場", "スマスロ", "スマパチ", "スロット"]
+            
+//            banner.load(GADRequest())
+            banner.load(adRequest)
             // [END load_ad]
             // [START set_delegate]
             banner.delegate = self
