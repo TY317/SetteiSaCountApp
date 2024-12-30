@@ -1587,7 +1587,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1627,7 +1627,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
