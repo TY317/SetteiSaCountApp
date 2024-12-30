@@ -23,13 +23,12 @@ struct danvineViewNormalMode: View {
                         )
                     )
                 )
-//                Text("ダンバイン起動ミッションまでの規定小Vベル回数は、残り3回から出現がデフォルト\n残り4〜6回が表示されればその数字以上の設定が濃厚となる")
-//                    .foregroundStyle(Color.secondary)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
             } header: {
                 Text("規定小Vベル回数表示")
             }
         }
+        .navigationTitle("通常時の演出、モード")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -145,6 +145,17 @@ struct danvineViewHistory: View {
                         )
                     )
                 )
+                // 当選契機について
+                unitLinkButton(
+                    title: "当選契機について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "当選契機について",
+                            textBody1: "・2Gバトルでのボーナス当選率は高設定ほど高い",
+                            textBody2: "・ボーナス直撃当選は高設定ほど多い"
+                        )
+                    )
+                )
             } header: {
                 unitHeaderHistoryColumns(
                     column1Bool: false,

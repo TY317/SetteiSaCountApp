@@ -113,19 +113,19 @@ struct ContentView: View {
                                 }
                                 
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
-//                                        .popoverTip(tipVer180AddMachine())
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
+                                        .popoverTip(tipVer180AddMachine())
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
-                                        .popoverTip(tipVer170AddMachine())
+//                                        .popoverTip(tipVer170AddMachine())
                                 }
                                 // //// 犬夜叉2、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
@@ -251,19 +251,19 @@ struct ContentView: View {
                                 }
                                 
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(danvineViewTop()),
-//                                        iconImage: Image("danvineMachineIcone"),
-//                                        machineName: "ダンバイン",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2024,
-//                                        releaseMonth: 12
-//                                    )
-//                                    .popoverTip(tipVer180AddMachine())
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(danvineViewTop()),
+                                        iconImage: Image("danvineMachineIcone"),
+                                        machineName: "ダンバイン",
+                                        makerName: "サミー",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+                                    .popoverTip(tipVer180AddMachine())
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
@@ -277,7 +277,7 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-                                    .popoverTip(tipVer170AddMachine())
+//                                    .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
@@ -565,7 +565,7 @@ struct favoriteSettingView: View {
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // //// ダンバイン、24年12月
-//                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
+                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
                 // //// ルパン大航海者の秘宝、24年12月
                 Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
                 // //// 犬夜叉2、24年12月
@@ -729,15 +729,15 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-            //            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()
             // カスタムキーワードを設定
             adRequest.keywords = ["パチスロ", "パチンコ", "ギャンブル", "遊技場", "スマスロ", "スマパチ", "スロット"]
             
-//            banner.load(GADRequest())
+            //            banner.load(GADRequest())
             banner.load(adRequest)
             // [END load_ad]
             // [START set_delegate]

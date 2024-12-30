@@ -107,6 +107,19 @@ class Danvine: ObservableObject {
     }
     
     // ////////////////////////
+    // アタックモード
+    // ////////////////////////
+    @AppStorage("danvineAttackHazure3CountAll") var hazure3CountAll = 0
+    @AppStorage("danvineAttackHazure3CountWin") var hazure3CountWin = 0
+    
+    
+    func resetAttack() {
+        hazure3CountAll = 0
+        hazure3CountWin = 0
+        minusCheck = false
+    }
+    
+    // ////////////////////////
     // 共通
     // ////////////////////////
     @AppStorage("danvineMinusCheck") var minusCheck: Bool = false
@@ -132,6 +145,13 @@ struct danvineViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "square.3.layers.3d",
                             textBody: "通常時演出、モード")
+                    }
+                    // アタックモード
+                    NavigationLink(destination: danvineViewAttack()) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.martial.arts",
+                            textBody: "アタックモード"
+                        )
                     }
                     // 初当り履歴
                     NavigationLink(destination: danvineViewHistory()) {

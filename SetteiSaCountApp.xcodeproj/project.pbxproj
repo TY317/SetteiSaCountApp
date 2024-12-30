@@ -184,6 +184,7 @@
 		0FDC326F2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */; };
 		0FDC32712D20A37E005B3D06 /* inuyashaViewKoyaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */; };
 		0FDC32732D22329E005B3D06 /* ver171Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32722D22329E005B3D06 /* ver171Tip.swift */; };
+		0FDC32752D2293AF005B3D06 /* danvineViewAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -409,6 +410,7 @@
 		0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistoryVer2.swift; sourceTree = "<group>"; };
 		0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewKoyaku.swift; sourceTree = "<group>"; };
 		0FDC32722D22329E005B3D06 /* ver171Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver171Tip.swift; sourceTree = "<group>"; };
+		0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewAttack.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -923,6 +925,7 @@
 				0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */,
 				0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */,
 				0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */,
+				0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */,
 			);
 			path = danvine;
 			sourceTree = "<group>";
@@ -1358,6 +1361,7 @@
 				0F8325B72C7E10370037226E /* goevaViewTop.swift in Sources */,
 				0F25C2792C8887A3008B4707 /* toloveruViewHarlem.swift in Sources */,
 				0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */,
+				0FDC32752D2293AF005B3D06 /* danvineViewAttack.swift in Sources */,
 				0F8872762C6AE38C00AADD2B /* myModifier.swift in Sources */,
 				0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */,
 				0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */,
@@ -1587,7 +1591,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1599,7 +1603,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.1;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1627,7 +1631,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1639,7 +1643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.1;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
