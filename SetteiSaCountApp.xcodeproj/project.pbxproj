@@ -181,6 +181,9 @@
 		0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */; };
 		0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */; };
 		0FDC326D2D1EA219005B3D06 /* danvineViewNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */; };
+		0FDC326F2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */; };
+		0FDC32712D20A37E005B3D06 /* inuyashaViewKoyaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */; };
+		0FDC32732D22329E005B3D06 /* ver171Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32722D22329E005B3D06 /* ver171Tip.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -403,6 +406,9 @@
 		0FDC32682D1C2BF7005B3D06 /* danvineViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewHistory.swift; sourceTree = "<group>"; };
 		0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineView95Ci.swift; sourceTree = "<group>"; };
 		0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewNormalMode.swift; sourceTree = "<group>"; };
+		0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistoryVer2.swift; sourceTree = "<group>"; };
+		0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewKoyaku.swift; sourceTree = "<group>"; };
+		0FDC32722D22329E005B3D06 /* ver171Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver171Tip.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -759,6 +765,7 @@
 				0FA024972D05CF3E004B3FD5 /* ver170Tip.swift */,
 				0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */,
 				0FDC32662D1C289C005B3D06 /* ver180Tip.swift */,
+				0FDC32722D22329E005B3D06 /* ver171Tip.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -886,6 +893,8 @@
 				0FDC325E2D16FD1E005B3D06 /* inuyashaViewAtScreen.swift */,
 				0FDC32602D17B173005B3D06 /* inuyashaViewEnding.swift */,
 				0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */,
+				0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */,
+				0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */,
 			);
 			path = inuyasha2;
 			sourceTree = "<group>";
@@ -1248,6 +1257,7 @@
 				0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */,
 				0FA0247B2CF49B82004B3FD5 /* kaguyaView95Ci.swift in Sources */,
 				0FA024632CF2AD43004B3FD5 /* goJug3View95Ci.swift in Sources */,
+				0FDC326F2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift in Sources */,
 				0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */,
 				0F654BCA2C6EC7FE00F37849 /* happyJugV3exView.swift in Sources */,
 				0FA024772CF495D3004B3FD5 /* bangdreamView95Ci.swift in Sources */,
@@ -1338,6 +1348,7 @@
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,
 				0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */,
 				0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */,
+				0FDC32712D20A37E005B3D06 /* inuyashaViewKoyaku.swift in Sources */,
 				0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */,
 				0F654BC82C6EC2F400F37849 /* commonTips.swift in Sources */,
 				0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */,
@@ -1377,6 +1388,7 @@
 				0FA0248B2D01145C004B3FD5 /* mhrViewBonusScreen.swift in Sources */,
 				0F3465B72CB21CB000B5D2DD /* karakuriAtScreen.swift in Sources */,
 				0FA024872CF89EA1004B3FD5 /* mhrViewHistory.swift in Sources */,
+				0FDC32732D22329E005B3D06 /* ver171Tip.swift in Sources */,
 				0FA0246F2CF30794004B3FD5 /* hanaTenshoView95Ci.swift in Sources */,
 				0F8325C12C7F51A80037226E /* goevaViewAtSuika.swift in Sources */,
 				0FDC325D2D1656D8005B3D06 /* inuyashaViewBigScreen.swift in Sources */,
@@ -1587,7 +1599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 1.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1627,7 +1639,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 1.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

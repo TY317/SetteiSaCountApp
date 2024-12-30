@@ -1,13 +1,31 @@
 //
-//  inuyashaViewHistory.swift
+//  inuyashaViewHistoryVer2.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2024/12/14.
+//  Created by 横田徹 on 2024/12/28.
 //
 
 import SwiftUI
+import TipKit
 
-struct inuyashaViewHistory: View {
+// //////////////////
+// Tip：履歴入力の説明
+// //////////////////
+struct inuyashaTipHistoryInput: Tip {
+    var title: Text {
+        Text("履歴入力")
+    }
+    
+    var message: Text? {
+        Text("CZ当選、直AT当選ごとに入力して下さい。入力結果から\n・CZ初当り確率\n・333G天井越え確率\n・AT初当り確率　を算出します")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
+struct inuyashaViewHistoryVer2: View {
     @ObservedObject var inuyasha = Inuyasha()
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
@@ -23,19 +41,6 @@ struct inuyashaViewHistory: View {
     
     var body: some View {
         List {
-            // //// 333超えCZカウント
-            Section {
-                // カウントボタン
-                unitCountButtonVerticalWithoutRatio(
-                    title: "333越えCZ",
-                    count: $inuyasha.over333CzCount,
-                    color: .personalSummerLightBlue,
-                    minusBool: $inuyasha.minusCheck
-                )
-            } header: {
-                Text("333G天井越えでのCZ当選カウント")
-            }
-            // //// 履歴
             Section {
                 ScrollView {
                     // //// 配列のデータ数が0以上なら履歴表示
@@ -56,20 +61,30 @@ struct inuyashaViewHistory: View {
                                     Text("-")
                                         .frame(maxWidth: .infinity)
                                 }
-                                // 当選CZ周期
-                                let cycleArray = decodeStringArray(from: inuyasha.cycleArrayData)
-                                if cycleArray.indices.contains(viewIndex) {
-                                    Text("\(cycleArray[viewIndex])")
+                                // ボーナス種類
+                                let bonusArray = decodeStringArray(from: inuyasha.bonusArrayData)
+                                if bonusArray.indices.contains(viewIndex) {
+                                    Text("\(bonusArray[viewIndex])")
                                         .lineLimit(1)
                                         .frame(maxWidth: .infinity)
                                 } else {
                                     Text("-")
                                         .frame(maxWidth: .infinity)
                                 }
-                                // 当選契機
+                                // 備考
                                 let triggerArray = decodeStringArray(from: inuyasha.triggerArrayData)
                                 if triggerArray.indices.contains(viewIndex) {
                                     Text("\(triggerArray[viewIndex])")
+                                        .lineLimit(1)
+                                        .frame(maxWidth: .infinity)
+                                } else {
+                                    Text("-")
+                                        .frame(maxWidth: .infinity)
+                                }
+                                // AT当否
+                                let atHitArray = decodeStringArray(from: inuyasha.atHitArrayData)
+                                if atHitArray.indices.contains(viewIndex) {
+                                    Text("\(atHitArray[viewIndex])")
                                         .lineLimit(1)
                                         .frame(maxWidth: .infinity)
                                 } else {
@@ -92,6 +107,7 @@ struct inuyashaViewHistory: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                .popoverTip(inuyashaTipHistoryInput())
                 
                 // //// 登録、1行削除ボタン
                 HStack {
@@ -115,14 +131,13 @@ struct inuyashaViewHistory: View {
                     }
                     .buttonStyle(PlusDeleatButtonStyle(MinusBool: inuyasha.minusCheck))
                     .sheet(isPresented: $isShowDataInputView) {
-                        inuyashaSubViewDataInput(inuyasha: inuyasha)
-                            .presentationDetents([.medium])
+                        inuyashaSubViewDataInputVer2(inuyasha: inuyasha)
+                            .presentationDetents([.large])
                     }
                     Spacer()
                 }
-                // //// 参考情報リンク
             } header: {
-                unitHeaderHistoryColumns(column2: "実ゲーム数", column3: "当選CZ周期", column4: "当選契機")
+                unitHeaderHistoryColumns(column2: "ゲーム数", column3: "種類", column4: "備考", column5: "AT当否")
             }
             
             // //// 初当り
@@ -131,38 +146,67 @@ struct inuyashaViewHistory: View {
                 unitResultCount2Line(title: "通常G数", count: $inuyasha.playGameSum)
                 // //// CZ初当り
                 VStack {
-                    HStack {
-                        // CZ回数
-                        unitResultCount2Line(title: "CZ回数", count: $inuyasha.cycleSum, spacerBool: false)
-                        // CZ確率
-                        unitResultRatioDenomination2Line(
-                            title: "CZ確率",
-                            count: $inuyasha.cycleSum,
-                            bigNumber: $inuyasha.playGameSum,
-                            numberofDicimal: 0,
-                            spacerBool: false
-                        )
+                    // //// 横画面
+                    if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                        HStack {
+                            // CZ回数
+                            unitResultCount2Line(title: "CZ回数", count: $inuyasha.czCount)
+                            // CZ確率
+                            unitResultRatioDenomination2Line(
+                                title: "CZ確率",
+                                count: $inuyasha.czCount,
+                                bigNumber: $inuyasha.playGameSum,
+                                numberofDicimal: 0
+                            )
+                            // 333天井越え確率
+                            unitResultRatioPercent2Line(
+                                title: "333+α越え確率",
+                                count: $inuyasha.over333CzCount,
+                                bigNumber: $inuyasha.czCount,
+                                numberofDicimal: 1
+                            )
+                            // CZ成功率
+                            unitResultRatioPercent2Line(
+                                title: "CZ成功率",
+                                count: $inuyasha.czHitCountWithoutTenjo,
+                                bigNumber: $inuyasha.cycleSumWithoutTenjo,
+                                numberofDicimal: 0
+                            )
+                        }
                     }
-                    // CZ確率
-                    HStack {
-                        // 333天井越え確率
-                        unitResultRatioPercent2Line(
-                            title: "333天井越え確率",
-                            count: $inuyasha.over333CzCount,
-                            bigNumber: $inuyasha.cycleSum,
-                            numberofDicimal: 1
-                        )
-                        // CZ成功率
-                        unitResultRatioPercent2Line(
-                            title: "CZ成功率",
-                            count: $inuyasha.czHitCountWithoutTenjo,
-                            bigNumber: $inuyasha.cycleSumWithoutTenjo,
-                            numberofDicimal: 0,
-                            spacerBool: false
-                        )
+                    // //// 縦画面
+                    else {
+                        HStack {
+                            // CZ回数
+                            unitResultCount2Line(title: "CZ回数", count: $inuyasha.czCount)
+                            // CZ確率
+                            unitResultRatioDenomination2Line(
+                                title: "CZ確率",
+                                count: $inuyasha.czCount,
+                                bigNumber: $inuyasha.playGameSum,
+                                numberofDicimal: 0
+                            )
+                        }
+                        // CZ確率
+                        HStack {
+                            // 333天井越え確率
+                            unitResultRatioPercent2Line(
+                                title: "333+α越え確率",
+                                count: $inuyasha.over333CzCount,
+                                bigNumber: $inuyasha.czCount,
+                                numberofDicimal: 1
+                            )
+                            // CZ成功率
+                            unitResultRatioPercent2Line(
+                                title: "CZ成功率",
+                                count: $inuyasha.czHitCountWithoutTenjo,
+                                bigNumber: $inuyasha.cycleSumWithoutTenjo,
+                                numberofDicimal: 0
+                            )
+                        }
                     }
                     // CZ成功率の注釈
-                    Text("※ CZ成功率は天井CZを除外して算出")
+                    Text("※ CZ成功率は周期天井CZを除外して算出")
                         .foregroundStyle(.secondary)
                         .font(.footnote)
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -187,6 +231,21 @@ struct inuyashaViewHistory: View {
                         unitExView5body2image(
                             title: "CZ,AT 初当り確率",
                             image1: Image("inuyashaHitRatio")
+                        )
+                    )
+                )
+                unitLinkButton(
+                    title: "CZ間 333G天井について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "CZ間 333G天井について",
+                            textBody1: "・CZ失敗後、AT終了後にCZ間天井ゲーム数を内部的に抽選",
+                            textBody2: "・333G+α以下の選択率に大きな設定差あり",
+                            textBody3: "・独自に各設定でCZ100万回シミュレーションを行った結果を下記に記載（独自計算値なので参考まで）",
+                            textBody4: "・このアプリでは+α=32Gと仮定し、履歴データ内で333+32=365Gを越えた回数とCZの初当り回数から333G天井越え確率を算出",
+                            image1: Image("inuyasha333Tenjo"),
+                            image2Title:"CZ回数別の333G天井選択率",
+                            image2: Image("inuyasha333Ratio")
                         )
                     )
                 )
@@ -255,11 +314,10 @@ struct inuyashaViewHistory: View {
     }
 }
 
-
 // /////////////////////////
 // データインプットビュー
 // /////////////////////////
-struct inuyashaSubViewDataInput: View {
+struct inuyashaSubViewDataInputVer2: View {
     @ObservedObject var inuyasha: Inuyasha
     @Environment(\.dismiss) private var dismiss
     @FocusState var isFocused: Bool
@@ -284,24 +342,60 @@ struct inuyashaSubViewDataInput: View {
                         }
                     }
                 // サークルピッカー横並び
-                HStack {
-                    // CZ当選周期
-                    unitPickerCircleString(
-                        title: "当選CZ周期",
-                        selected: $inuyasha.selectedCycle,
-                        selectList: inuyasha.selectListCycle
-                    )
-                    // 当選契機
-                    unitPickerCircleString(
-                        title: "当選契機",
-                        selected: $inuyasha.selectedTrigger,
-                        selectList: inuyasha.selectListTrigger
-                    )
+                // 種類
+                unitPickerCircleString(
+                    title: "当選種類",
+                    selected: $inuyasha.selectedBonus,
+                    selectList: inuyasha.selectListBonus
+                )
+                // //// 直ATの場合
+                if inuyasha.selectedBonus == inuyasha.selectListBonus[1]{
+                    HStack {
+                        // 当選契機
+                        unitPickerCircleString(
+                            title: "当選契機",
+                            selected: $inuyasha.selectedTriggerAt,
+                            selectList: inuyasha.selectListTriggerAt
+                        )
+                        // AT当否
+                        unitPickerCircleString(
+                            title: "AT当否",
+                            selected: $inuyasha.selectedAtHitAt,
+                            selectList: inuyasha.selectListAtHitAt
+                        )
+                    }
+                }
+                // //// CZの場合
+                else {
+                    HStack {
+                        // 当選契機
+                        unitPickerCircleString(
+                            title: "CZ周期",
+                            selected: $inuyasha.selectedTriggerCz,
+                            selectList: inuyasha.selectListTriggerCz
+                        )
+                        // AT当否
+                        unitPickerCircleString(
+                            title: "AT当否",
+                            selected: $inuyasha.selectedAtHitCz,
+                            selectList: inuyasha.selectListAtHitCz
+                        )
+                    }
                 }
                 // 登録ボタン
                 HStack {
                     Spacer()
                     Button {
+                        // //// 直ATの場合
+                        if inuyasha.selectedBonus == inuyasha.selectListBonus[1] {
+                            inuyasha.selectedTrigger = inuyasha.selectedTriggerAt
+                            inuyasha.selectedAtHit = inuyasha.selectedAtHitAt
+                        }
+                        // //// CZの場合
+                        else {
+                            inuyasha.selectedTrigger = inuyasha.selectedTriggerCz
+                            inuyasha.selectedAtHit = inuyasha.selectedAtHitCz
+                        }
                         inuyasha.addDataHistory()
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
                         dismiss()
@@ -330,5 +424,5 @@ struct inuyashaSubViewDataInput: View {
 
 
 #Preview {
-    inuyashaViewHistory()
+    inuyashaViewHistoryVer2()
 }

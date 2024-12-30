@@ -204,6 +204,55 @@ func arrayString2Array2AndDataCount(array1Data: Data?, array2Data: Data?, key1: 
 }
 
 // //////////////////////////////
+// 関数：整数配列と文字列配列から指定数値以上かつ特定のキーワードに両方合致するデータのカウント
+// //////////////////////////////
+func arrayKeywordAndOverGameCount(intArrayData: Data?, stringArrayData: Data?, overGame: Int, keyword: String) -> Int {
+    let intArray = decodeIntArray(from: intArrayData)
+    let stringArray = decodeStringArray(from: stringArrayData)
+    var count = 0
+    
+    // 配列の数を確認し0なら0を返す
+    if intArray.count == 0 ||
+        stringArray.count == 0 {
+        count = 0
+    }
+    
+    // 配列にデータがあれば1個ずつ確認しながらカウントしていく
+    else {
+        for (index, intData) in intArray.enumerated() {
+            if stringArray.indices.contains(index) {
+                if intData > overGame && stringArray[index] == keyword {
+                    count += 1
+                }
+            }
+        }
+    }
+    return count
+}
+
+
+// //////////////////////////////
+// 関数：特定のゲーム数以上のデータの数をカウント
+// //////////////////////////////
+func arrayIntOverGameCount(intArrayData: Data?, overGame: Int) -> Int {
+    let intArray = decodeIntArray(from: intArrayData)
+    var count = 0
+    
+    // 配列の数を確認し0なら0を返す
+    if intArray.count == 0 {
+        count = 0
+    }
+    else {
+        for intData in intArray {
+            if intData > overGame {
+                count += 1
+            }
+        }
+    }
+    return count
+}
+
+// //////////////////////////////
 // 関数：カウントボタンの処理
 // /////////////////////////////
 func countUpDown(minusCheck: Bool, count: Int) -> Int {

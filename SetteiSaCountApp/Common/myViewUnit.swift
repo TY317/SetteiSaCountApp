@@ -203,6 +203,7 @@ struct unitCountButtonVerticalDenominate: View {
         let deno = Double(bigNumber) / Double(count)
         return count > 0 ? deno : 0.0
     }
+    @State var minusColor: Color = .red
     
     var body: some View {
         ZStack {
@@ -267,7 +268,7 @@ struct unitCountButtonVerticalDenominate: View {
                 }, label: {
                     Text("")
                 })
-                .buttonStyle(CountButtonStyle(color: self.color, MinusBool: minusBool))
+                .buttonStyle(CountButtonStyle(color: self.color, minusColor: self.minusColor, MinusBool: minusBool))
             }
         }
     }

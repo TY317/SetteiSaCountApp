@@ -18,10 +18,21 @@ class Inuyasha: ObservableObject {
     // 選択肢の設定
     let selectListCycle = ["1周期", "2周期", "3周期", "4周期", "5周期", "6周期", "7周期", "8周期"]
     let selectListTrigger = ["妖勝負", "魍魎丸", "直撃", "フリーズ", "その他"]
+    let selectListBonus = ["妖勝負", "直AT"]
+    let selectListTriggerAt = ["魍魎丸", "直撃", "フリーズ", "その他"]
+    let selectListTriggerCz = ["1周期", "2周期", "3周期", "4周期", "5周期", "6周期", "7周期", "8周期"]
+    let selectListAtHitCz = ["当選", "ハズレ"]
+    let selectListAtHitAt = ["当選"]
     // 選択結果の設定
     @Published var inputGame = 0
     @Published var selectedCycle = "3周期"
-    @Published var selectedTrigger = "妖勝負"
+    @Published var selectedTrigger = "1周期"
+    @Published var selectedBonus = "妖勝負"
+    @Published var selectedTriggerAt = "魍魎丸"
+    @Published var selectedTriggerCz = "1周期"
+    @Published var selectedAtHitCz = "当選"
+    @Published var selectedAtHitAt = "当選"
+    @Published var selectedAtHit = "当選"
     // //// 配列の設定
     // ゲーム数配列
     let gameArrayKey = "inuyashaGameArrayKey"
@@ -35,6 +46,12 @@ class Inuyasha: ObservableObject {
     // 消化周期数配列
     let cycleNumberArrayKey = "inuyashaCycleNumberArrayKey"
     @AppStorage("inuyashaCycleNumberArrayKey") var cycleNumberArrayData: Data?
+    // 当選種類配列
+    let bonusArrayKey = "inuyashaBonusArrayKey"
+    @AppStorage("inuyashaBonusArrayKey") var bonusArrayData: Data?
+    // AT当否配列
+    let atHitArrayKey = "inuyashaAtHitArrayKey"
+    @AppStorage("inuyashaAtHitArrayKey") var atHitArrayData: Data?
     // //// 結果集計用
     @AppStorage("inuyashaAtHitCount") var atHitCount: Int = 0
     @AppStorage("inuyashaPlayGameSum") var playGameSum: Int = 0
@@ -43,91 +60,188 @@ class Inuyasha: ObservableObject {
     @AppStorage("inuyashaCzHitCountWithoutTenjo") var czHitCountWithoutTenjo: Int = 0
     @AppStorage("inuyashaCycleSumWithoutTenjo") var cycleSumWithoutTenjo: Int = 0
     @Published var cycleNumber: Int = 1
+    @AppStorage("inuyashaOver333CzCount") var over333CzCount: Int = 0
+    @AppStorage("inuyashaCzCount") var czCount: Int = 0
+    @AppStorage("inuyashaHitCountAll") var hitCountAll: Int = 0
     
     // //// データ追加
     func addDataHistory() {
         arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
-        arrayStringAddData(arrayData: cycleArrayData, addData: selectedCycle, key: cycleArrayKey)
+        arrayStringAddData(arrayData: bonusArrayData, addData: selectedBonus, key: bonusArrayKey)
+//        arrayStringAddData(arrayData: cycleArrayData, addData: selectedCycle, key: cycleArrayKey)
         arrayStringAddData(arrayData: triggerArrayData, addData: selectedTrigger, key: triggerArrayKey)
-        // 選択された周期に合わせて消化周期数を変数に代入
-        if selectedCycle == selectListCycle[1] {
-            cycleNumber = 2
-        } else if selectedCycle == selectListCycle[2] {
-            cycleNumber = 3
-        } else if selectedCycle == selectListCycle[3] {
-            cycleNumber = 4
-        } else if selectedCycle == selectListCycle[4] {
-            cycleNumber = 5
-        } else if selectedCycle == selectListCycle[5] {
-            cycleNumber = 6
-        } else if selectedCycle == selectListCycle[6] {
-            cycleNumber = 7
-        } else if selectedCycle == selectListCycle[7] {
-            cycleNumber = 8
-        } else {
-            cycleNumber = 1
-        }
-        // 選択された当選契機が妖決戦以外であれば変数から-1する
-        if selectedTrigger != selectListTrigger[0] {
-            cycleNumber -= 1
-        }
-        // 天井CZでの当選があればCz回数とCz当選回数から−1する
-        let tenjoCz = arrayString2Array2AndDataCount(
-            array1Data: cycleArrayData,
-            array2Data: triggerArrayData,
-            key1: selectListCycle[7],
-            key2: selectListTrigger[0]
-        )
-        arrayIntAddData(arrayData: cycleNumberArrayData, addData: cycleNumber, key: cycleNumberArrayKey)
-        atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
+        arrayStringAddData(arrayData: atHitArrayData, addData: selectedAtHit, key: atHitArrayKey)
         playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
-        czHitCount = arrayStringDataCount(arrayData: triggerArrayData, countString: selectListTrigger[0])
-        cycleSum = arrayIntAllDataSum(arrayData: cycleNumberArrayData)
-        czHitCountWithoutTenjo = czHitCount - tenjoCz
-        cycleSumWithoutTenjo = cycleSum - tenjoCz
+        czCount = arrayStringDataCount(arrayData: bonusArrayData, countString: "妖勝負")
+        // ゲーム数が333＋α越えならカウント
+        over333CzCount = arrayKeywordAndOverGameCount(
+            intArrayData: gameArrayData,
+            stringArrayData: bonusArrayData,
+            overGame: 365,
+            keyword: "妖勝負"
+        )
+        // CZ成功回数をカウント
+        czHitCount = arrayString2Array2AndDataCount(
+            array1Data: bonusArrayData,
+            array2Data: atHitArrayData,
+            key1: "妖勝負",
+            key2: "当選"
+        )
+        // 天井CZを除いたCZ回数とCZ成功回数をカウント
+        cycleSumWithoutTenjo = czCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        czHitCountWithoutTenjo = czHitCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        atHitCount = arrayStringDataCount(arrayData: atHitArrayData, countString: "当選")
+        hitCountAll = arrayIntAllDataCount(arrayData: gameArrayData)
+//        // 選択された周期に合わせて消化周期数を変数に代入
+//        if selectedCycle == selectListCycle[1] {
+//            cycleNumber = 2
+//        } else if selectedCycle == selectListCycle[2] {
+//            cycleNumber = 3
+//        } else if selectedCycle == selectListCycle[3] {
+//            cycleNumber = 4
+//        } else if selectedCycle == selectListCycle[4] {
+//            cycleNumber = 5
+//        } else if selectedCycle == selectListCycle[5] {
+//            cycleNumber = 6
+//        } else if selectedCycle == selectListCycle[6] {
+//            cycleNumber = 7
+//        } else if selectedCycle == selectListCycle[7] {
+//            cycleNumber = 8
+//        } else {
+//            cycleNumber = 1
+//        }
+//        // 選択された当選契機が妖決戦以外であれば変数から-1する
+//        if selectedTrigger != selectListTrigger[0] {
+//            cycleNumber -= 1
+//        }
+//        // 天井CZでの当選があればCz回数とCz当選回数から−1する
+//        let tenjoCz = arrayString2Array2AndDataCount(
+//            array1Data: cycleArrayData,
+//            array2Data: triggerArrayData,
+//            key1: selectListCycle[7],
+//            key2: selectListTrigger[0]
+//        )
+//        arrayIntAddData(arrayData: cycleNumberArrayData, addData: cycleNumber, key: cycleNumberArrayKey)
+//        atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
+//        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+//        czHitCount = arrayStringDataCount(arrayData: triggerArrayData, countString: selectListTrigger[0])
+//        cycleSum = arrayIntAllDataSum(arrayData: cycleNumberArrayData)
+//        czHitCountWithoutTenjo = czHitCount - tenjoCz
+//        cycleSumWithoutTenjo = cycleSum - tenjoCz
         inputGame = 0
-        selectedCycle = "3周期"
-        selectedTrigger = "妖勝負"
+        selectedTrigger = "1周期"
+        selectedBonus = "妖勝負"
+        selectedTriggerAt = "魍魎丸"
+        selectedTriggerCz = "1周期"
+        selectedAtHitCz = "当選"
+        selectedAtHitAt = "当選"
+        selectedAtHit = "当選"
     }
     
     // 1行削除
     func removeLastHistory() {
         arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
-        arrayStringRemoveLast(arrayData: cycleArrayData, key: cycleArrayKey)
+        arrayStringRemoveLast(arrayData: bonusArrayData, key: bonusArrayKey)
         arrayStringRemoveLast(arrayData: triggerArrayData, key: triggerArrayKey)
-        arrayIntRemoveLast(arrayData: cycleNumberArrayData, key: cycleNumberArrayKey)
-        // 天井CZでの当選があればCz回数とCz当選回数から−1する
-        let tenjoCz = arrayString2Array2AndDataCount(
-            array1Data: cycleArrayData,
-            array2Data: triggerArrayData,
-            key1: selectListCycle[7],
-            key2: selectListTrigger[0]
-        )
-        atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
+        arrayStringRemoveLast(arrayData: atHitArrayData, key: atHitArrayKey)
         playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
-        czHitCount = arrayStringDataCount(arrayData: triggerArrayData, countString: selectListTrigger[0])
-        cycleSum = arrayIntAllDataSum(arrayData: cycleNumberArrayData)
-        czHitCountWithoutTenjo = czHitCount - tenjoCz
-        cycleSumWithoutTenjo = cycleSum - tenjoCz
+        czCount = arrayStringDataCount(arrayData: bonusArrayData, countString: "妖勝負")
+        // ゲーム数が333＋α越えならカウント
+        over333CzCount = arrayKeywordAndOverGameCount(
+            intArrayData: gameArrayData,
+            stringArrayData: bonusArrayData,
+            overGame: 365,
+            keyword: "妖勝負"
+        )
+        // CZ成功回数をカウント
+        czHitCount = arrayString2Array2AndDataCount(
+            array1Data: bonusArrayData,
+            array2Data: atHitArrayData,
+            key1: "妖勝負",
+            key2: "当選"
+        )
+        // 天井CZを除いたCZ回数とCZ成功回数をカウント
+        cycleSumWithoutTenjo = czCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        czHitCountWithoutTenjo = czHitCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        atHitCount = arrayStringDataCount(arrayData: atHitArrayData, countString: "当選")
+        hitCountAll = arrayIntAllDataCount(arrayData: gameArrayData)
         inputGame = 0
-        selectedCycle = "3周期"
-        selectedTrigger = "妖勝負"
+        selectedTrigger = "1周期"
+        selectedBonus = "妖勝負"
+        selectedTriggerAt = "魍魎丸"
+        selectedTriggerCz = "1周期"
+        selectedAtHitCz = "当選"
+        selectedAtHitAt = "当選"
+        selectedAtHit = "当選"
+//        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+//        arrayStringRemoveLast(arrayData: cycleArrayData, key: cycleArrayKey)
+//        arrayStringRemoveLast(arrayData: triggerArrayData, key: triggerArrayKey)
+//        arrayIntRemoveLast(arrayData: cycleNumberArrayData, key: cycleNumberArrayKey)
+//        // 天井CZでの当選があればCz回数とCz当選回数から−1する
+//        let tenjoCz = arrayString2Array2AndDataCount(
+//            array1Data: cycleArrayData,
+//            array2Data: triggerArrayData,
+//            key1: selectListCycle[7],
+//            key2: selectListTrigger[0]
+//        )
+//        atHitCount = arrayIntAllDataCount(arrayData: gameArrayData)
+//        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+//        czHitCount = arrayStringDataCount(arrayData: triggerArrayData, countString: selectListTrigger[0])
+//        cycleSum = arrayIntAllDataSum(arrayData: cycleNumberArrayData)
+//        czHitCountWithoutTenjo = czHitCount - tenjoCz
+//        cycleSumWithoutTenjo = cycleSum - tenjoCz
+//        inputGame = 0
+//        selectedCycle = "3周期"
+//        selectedTrigger = "妖勝負"
     }
     
     func resetHistory() {
         arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
-        arrayStringRemoveAll(arrayData: cycleArrayData, key: cycleArrayKey)
+        arrayStringRemoveAll(arrayData: bonusArrayData, key: bonusArrayKey)
         arrayStringRemoveAll(arrayData: triggerArrayData, key: triggerArrayKey)
-        arrayIntRemoveAll(arrayData: cycleNumberArrayData, key: cycleNumberArrayKey)
-        atHitCount = 0
-        playGameSum = 0
-        czHitCount = 0
-        cycleSum = 0
-        czHitCountWithoutTenjo = 0
-        cycleSumWithoutTenjo = 0
+        arrayStringRemoveAll(arrayData: atHitArrayData, key: atHitArrayKey)
+        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        czCount = arrayStringDataCount(arrayData: bonusArrayData, countString: "妖勝負")
+        // ゲーム数が333＋α越えならカウント
+        over333CzCount = arrayKeywordAndOverGameCount(
+            intArrayData: gameArrayData,
+            stringArrayData: bonusArrayData,
+            overGame: 365,
+            keyword: "妖勝負"
+        )
+        // CZ成功回数をカウント
+        czHitCount = arrayString2Array2AndDataCount(
+            array1Data: bonusArrayData,
+            array2Data: atHitArrayData,
+            key1: "妖勝負",
+            key2: "当選"
+        )
+        // 天井CZを除いたCZ回数とCZ成功回数をカウント
+        cycleSumWithoutTenjo = czCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        czHitCountWithoutTenjo = czHitCount - arrayStringDataCount(arrayData: triggerArrayData, countString: "8周期")
+        atHitCount = arrayStringDataCount(arrayData: atHitArrayData, countString: "当選")
+        hitCountAll = arrayIntAllDataCount(arrayData: gameArrayData)
         inputGame = 0
-        selectedCycle = "3周期"
-        selectedTrigger = "妖勝負"
+        selectedTrigger = "1周期"
+        selectedBonus = "妖勝負"
+        selectedTriggerAt = "魍魎丸"
+        selectedTriggerCz = "1周期"
+        selectedAtHitCz = "当選"
+        selectedAtHitAt = "当選"
+        selectedAtHit = "当選"
+//        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+//        arrayStringRemoveAll(arrayData: cycleArrayData, key: cycleArrayKey)
+//        arrayStringRemoveAll(arrayData: triggerArrayData, key: triggerArrayKey)
+//        arrayIntRemoveAll(arrayData: cycleNumberArrayData, key: cycleNumberArrayKey)
+//        atHitCount = 0
+//        playGameSum = 0
+//        czHitCount = 0
+//        cycleSum = 0
+//        czHitCountWithoutTenjo = 0
+//        cycleSumWithoutTenjo = 0
+//        inputGame = 0
+//        selectedCycle = "3周期"
+//        selectedTrigger = "妖勝負"
         minusCheck = false
     }
     
@@ -332,7 +446,62 @@ class Inuyasha: ObservableObject {
         resetVoice()
         resetAtScreen()
         resetBigScreen()
+        resetKoyaku()
     }
+    
+    // /////////////////////////
+    // 小役
+    // /////////////////////////
+    @AppStorage("inuyashaKoyakuCountJakuCherry") var koyakuCountJakuCherry = 0 {
+        didSet {
+            koyakuCountSum = countSum(koyakuCountJakuCherry, koyakuCountKyoCherry, koyakuCountSuika, koyakuCountChanceA, koyakuCountChanceB)
+        }
+    }
+        @AppStorage("inuyashaKoyakuCountKyoCherry") var koyakuCountKyoCherry = 0 {
+            didSet {
+                koyakuCountSum = countSum(koyakuCountJakuCherry, koyakuCountKyoCherry, koyakuCountSuika, koyakuCountChanceA, koyakuCountChanceB)
+            }
+        }
+            @AppStorage("inuyashaKoyakuCountSuika") var koyakuCountSuika = 0 {
+                didSet {
+                    koyakuCountSum = countSum(koyakuCountJakuCherry, koyakuCountKyoCherry, koyakuCountSuika, koyakuCountChanceA, koyakuCountChanceB)
+                }
+            }
+                @AppStorage("inuyashaKoyakuCountChanceA") var koyakuCountChanceA = 0 {
+                    didSet {
+                        koyakuCountSum = countSum(koyakuCountJakuCherry, koyakuCountKyoCherry, koyakuCountSuika, koyakuCountChanceA, koyakuCountChanceB)
+                    }
+                }
+                    @AppStorage("inuyashaKoyakuCountChanceB") var koyakuCountChanceB = 0 {
+                        didSet {
+                            koyakuCountSum = countSum(koyakuCountJakuCherry, koyakuCountKyoCherry, koyakuCountSuika, koyakuCountChanceA, koyakuCountChanceB)
+                        }
+                    }
+    @AppStorage("inuyashaKoyakuCountSum") var koyakuCountSum = 0
+    @AppStorage("inuyashaKoyakuCountStartGame") var koyakuCountStartGame = 0 {
+        didSet {
+            let games = koyakuCountCurrentGame - koyakuCountStartGame
+            koyakuCountPlayGame = games > 0 ? games : 0
+        }
+    }
+        @AppStorage("inuyashaKoyakuCountCurrentGame") var koyakuCountCurrentGame = 0 {
+            didSet {
+                let games = koyakuCountCurrentGame - koyakuCountStartGame
+                koyakuCountPlayGame = games > 0 ? games : 0
+            }
+        }
+    @AppStorage("inuyashaKoyakuCountPlayGame") var koyakuCountPlayGame = 0
+    
+    func resetKoyaku() {
+        koyakuCountJakuCherry = 0
+        koyakuCountKyoCherry = 0
+        koyakuCountSuika = 0
+        koyakuCountChanceA = 0
+        koyakuCountChanceB = 0
+        koyakuCountStartGame = 0
+        koyakuCountCurrentGame = 0
+    }
+    
 }
 
 // //// メモリー1
@@ -372,6 +541,20 @@ class InuyashaMemory1: ObservableObject {
     @AppStorage("inuyashaAtScreenCountSumMemory1") var atScreenCountSum = 0
     @AppStorage("inuyashaMemoMemory1") var memo = ""
     @AppStorage("inuyashaDateMemory1") var dateDouble = 0.0
+    @AppStorage("inuyashaBonusArrayKeyMemory1") var bonusArrayData: Data?
+    @AppStorage("inuyashaAtHitArrayKeyMemory1") var atHitArrayData: Data?
+    @AppStorage("inuyashaOver333CzCountMemory1") var over333CzCount: Int = 0
+    @AppStorage("inuyashaCzCountMemory1") var czCount: Int = 0
+    @AppStorage("inuyashaHitCountAllMemory1") var hitCountAll: Int = 0
+    @AppStorage("inuyashaKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry = 0
+    @AppStorage("inuyashaKoyakuCountKyoCherryMemory1") var koyakuCountKyoCherry = 0
+    @AppStorage("inuyashaKoyakuCountSuikaMemory1") var koyakuCountSuika = 0
+    @AppStorage("inuyashaKoyakuCountChanceAMemory1") var koyakuCountChanceA = 0
+    @AppStorage("inuyashaKoyakuCountChanceBMemory1") var koyakuCountChanceB = 0
+    @AppStorage("inuyashaKoyakuCountSumMemory1") var koyakuCountSum = 0
+    @AppStorage("inuyashaKoyakuCountStartGameMemory1") var koyakuCountStartGame = 0
+    @AppStorage("inuyashaKoyakuCountCurrentGameMemory1") var koyakuCountCurrentGame = 0
+    @AppStorage("inuyashaKoyakuCountPlayGameMemory1") var koyakuCountPlayGame = 0
 }
 
 // //// メモリー2
@@ -411,6 +594,20 @@ class InuyashaMemory2: ObservableObject {
     @AppStorage("inuyashaAtScreenCountSumMemory2") var atScreenCountSum = 0
     @AppStorage("inuyashaMemoMemory2") var memo = ""
     @AppStorage("inuyashaDateMemory2") var dateDouble = 0.0
+    @AppStorage("inuyashaBonusArrayKeyMemory2") var bonusArrayData: Data?
+    @AppStorage("inuyashaAtHitArrayKeyMemory2") var atHitArrayData: Data?
+    @AppStorage("inuyashaOver333CzCountMemory2") var over333CzCount: Int = 0
+    @AppStorage("inuyashaCzCountMemory2") var czCount: Int = 0
+    @AppStorage("inuyashaHitCountAllMemory2") var hitCountAll: Int = 0
+    @AppStorage("inuyashaKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry = 0
+    @AppStorage("inuyashaKoyakuCountKyoCherryMemory2") var koyakuCountKyoCherry = 0
+    @AppStorage("inuyashaKoyakuCountSuikaMemory2") var koyakuCountSuika = 0
+    @AppStorage("inuyashaKoyakuCountChanceAMemory2") var koyakuCountChanceA = 0
+    @AppStorage("inuyashaKoyakuCountChanceBMemory2") var koyakuCountChanceB = 0
+    @AppStorage("inuyashaKoyakuCountSumMemory2") var koyakuCountSum = 0
+    @AppStorage("inuyashaKoyakuCountStartGameMemory2") var koyakuCountStartGame = 0
+    @AppStorage("inuyashaKoyakuCountCurrentGameMemory2") var koyakuCountCurrentGame = 0
+    @AppStorage("inuyashaKoyakuCountPlayGameMemory2") var koyakuCountPlayGame = 0
 }
 
 // //// メモリー3
@@ -450,6 +647,20 @@ class InuyashaMemory3: ObservableObject {
     @AppStorage("inuyashaAtScreenCountSumMemory3") var atScreenCountSum = 0
     @AppStorage("inuyashaMemoMemory3") var memo = ""
     @AppStorage("inuyashaDateMemory3") var dateDouble = 0.0
+    @AppStorage("inuyashaBonusArrayKeyMemory3") var bonusArrayData: Data?
+    @AppStorage("inuyashaAtHitArrayKeyMemory3") var atHitArrayData: Data?
+    @AppStorage("inuyashaOver333CzCountMemory3") var over333CzCount: Int = 0
+    @AppStorage("inuyashaCzCountMemory3") var czCount: Int = 0
+    @AppStorage("inuyashaHitCountAllMemory3") var hitCountAll: Int = 0
+    @AppStorage("inuyashaKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry = 0
+    @AppStorage("inuyashaKoyakuCountKyoCherryMemory3") var koyakuCountKyoCherry = 0
+    @AppStorage("inuyashaKoyakuCountSuikaMemory3") var koyakuCountSuika = 0
+    @AppStorage("inuyashaKoyakuCountChanceAMemory3") var koyakuCountChanceA = 0
+    @AppStorage("inuyashaKoyakuCountChanceBMemory3") var koyakuCountChanceB = 0
+    @AppStorage("inuyashaKoyakuCountSumMemory3") var koyakuCountSum = 0
+    @AppStorage("inuyashaKoyakuCountStartGameMemory3") var koyakuCountStartGame = 0
+    @AppStorage("inuyashaKoyakuCountCurrentGameMemory3") var koyakuCountCurrentGame = 0
+    @AppStorage("inuyashaKoyakuCountPlayGameMemory3") var koyakuCountPlayGame = 0
 }
 
 struct inuyasha2ViewTop: View {
@@ -467,12 +678,26 @@ struct inuyasha2ViewTop: View {
                             textBody: "お札演出"
                         )
                     }
+                    // 小役
+                    NavigationLink(destination: inuyashaViewKoyaku()) {
+                        unitLabelMenu(
+                            imageSystemName: "gift",
+                            textBody: "設定差のある小役"
+                        )
+                    }
                     // AT初当り履歴
-                    NavigationLink(destination: inuyashaViewHistory()) {
+//                    NavigationLink(destination: inuyashaViewHistory()) {
+//                        unitLabelMenu(
+//                            imageSystemName: "pencil.and.list.clipboard",
+//                            textBody: "AT初当たり履歴"
+//                        )
+//                    }
+                    NavigationLink(destination: inuyashaViewHistoryVer2()) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
                         )
+                        .popoverTip(tipVer171Inuyasha333TenjoAdd())
                     }
                     // 狙え演出
                     NavigationLink(destination: inuyashaViewAim()) {
@@ -519,7 +744,7 @@ struct inuyasha2ViewTop: View {
                     unitLabelMachineTopTitle(machineName: "犬夜叉2")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: inuyashaView95Ci()) {
+                NavigationLink(destination: inuyashaView95Ci(selection: 4)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
             }
@@ -603,6 +828,20 @@ struct inuyashaSubViewSaveMemory: View {
         inuyashaMemory1.atScreenCountOver4 = inuyasha.atScreenCountOver4
         inuyashaMemory1.atScreenCount6Kaku = inuyasha.atScreenCount6Kaku
         inuyashaMemory1.atScreenCountSum = inuyasha.atScreenCountSum
+        inuyashaMemory1.bonusArrayData = inuyasha.bonusArrayData
+        inuyashaMemory1.atHitArrayData = inuyasha.atHitArrayData
+        inuyashaMemory1.over333CzCount = inuyasha.over333CzCount
+        inuyashaMemory1.czCount = inuyasha.czCount
+        inuyashaMemory1.hitCountAll = inuyasha.hitCountAll
+        inuyashaMemory1.koyakuCountJakuCherry = inuyasha.koyakuCountJakuCherry
+        inuyashaMemory1.koyakuCountKyoCherry = inuyasha.koyakuCountKyoCherry
+        inuyashaMemory1.koyakuCountSuika = inuyasha.koyakuCountSuika
+        inuyashaMemory1.koyakuCountChanceA = inuyasha.koyakuCountChanceA
+        inuyashaMemory1.koyakuCountChanceB = inuyasha.koyakuCountChanceB
+        inuyashaMemory1.koyakuCountSum = inuyasha.koyakuCountSum
+        inuyashaMemory1.koyakuCountStartGame = inuyasha.koyakuCountStartGame
+        inuyashaMemory1.koyakuCountCurrentGame = inuyasha.koyakuCountCurrentGame
+        inuyashaMemory1.koyakuCountPlayGame = inuyasha.koyakuCountPlayGame
     }
     func saveMemory2() {
         inuyashaMemory2.gameArrayData = inuyasha.gameArrayData
@@ -638,6 +877,20 @@ struct inuyashaSubViewSaveMemory: View {
         inuyashaMemory2.atScreenCountOver4 = inuyasha.atScreenCountOver4
         inuyashaMemory2.atScreenCount6Kaku = inuyasha.atScreenCount6Kaku
         inuyashaMemory2.atScreenCountSum = inuyasha.atScreenCountSum
+        inuyashaMemory2.bonusArrayData = inuyasha.bonusArrayData
+        inuyashaMemory2.atHitArrayData = inuyasha.atHitArrayData
+        inuyashaMemory2.over333CzCount = inuyasha.over333CzCount
+        inuyashaMemory2.czCount = inuyasha.czCount
+        inuyashaMemory2.hitCountAll = inuyasha.hitCountAll
+        inuyashaMemory2.koyakuCountJakuCherry = inuyasha.koyakuCountJakuCherry
+        inuyashaMemory2.koyakuCountKyoCherry = inuyasha.koyakuCountKyoCherry
+        inuyashaMemory2.koyakuCountSuika = inuyasha.koyakuCountSuika
+        inuyashaMemory2.koyakuCountChanceA = inuyasha.koyakuCountChanceA
+        inuyashaMemory2.koyakuCountChanceB = inuyasha.koyakuCountChanceB
+        inuyashaMemory2.koyakuCountSum = inuyasha.koyakuCountSum
+        inuyashaMemory2.koyakuCountStartGame = inuyasha.koyakuCountStartGame
+        inuyashaMemory2.koyakuCountCurrentGame = inuyasha.koyakuCountCurrentGame
+        inuyashaMemory2.koyakuCountPlayGame = inuyasha.koyakuCountPlayGame
     }
     func saveMemory3() {
         inuyashaMemory3.gameArrayData = inuyasha.gameArrayData
@@ -673,6 +926,20 @@ struct inuyashaSubViewSaveMemory: View {
         inuyashaMemory3.atScreenCountOver4 = inuyasha.atScreenCountOver4
         inuyashaMemory3.atScreenCount6Kaku = inuyasha.atScreenCount6Kaku
         inuyashaMemory3.atScreenCountSum = inuyasha.atScreenCountSum
+        inuyashaMemory3.bonusArrayData = inuyasha.bonusArrayData
+        inuyashaMemory3.atHitArrayData = inuyasha.atHitArrayData
+        inuyashaMemory3.over333CzCount = inuyasha.over333CzCount
+        inuyashaMemory3.czCount = inuyasha.czCount
+        inuyashaMemory3.hitCountAll = inuyasha.hitCountAll
+        inuyashaMemory3.koyakuCountJakuCherry = inuyasha.koyakuCountJakuCherry
+        inuyashaMemory3.koyakuCountKyoCherry = inuyasha.koyakuCountKyoCherry
+        inuyashaMemory3.koyakuCountSuika = inuyasha.koyakuCountSuika
+        inuyashaMemory3.koyakuCountChanceA = inuyasha.koyakuCountChanceA
+        inuyashaMemory3.koyakuCountChanceB = inuyasha.koyakuCountChanceB
+        inuyashaMemory3.koyakuCountSum = inuyasha.koyakuCountSum
+        inuyashaMemory3.koyakuCountStartGame = inuyasha.koyakuCountStartGame
+        inuyashaMemory3.koyakuCountCurrentGame = inuyasha.koyakuCountCurrentGame
+        inuyashaMemory3.koyakuCountPlayGame = inuyasha.koyakuCountPlayGame
     }
 }
 
@@ -736,6 +1003,20 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory1.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory1.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory1.atScreenCountSum
+        inuyasha.bonusArrayData = inuyashaMemory1.bonusArrayData
+        inuyasha.atHitArrayData = inuyashaMemory1.atHitArrayData
+        inuyasha.over333CzCount = inuyashaMemory1.over333CzCount
+        inuyasha.czCount = inuyashaMemory1.czCount
+        inuyasha.hitCountAll = inuyashaMemory1.hitCountAll
+        inuyasha.koyakuCountJakuCherry = inuyashaMemory1.koyakuCountJakuCherry
+        inuyasha.koyakuCountKyoCherry = inuyashaMemory1.koyakuCountKyoCherry
+        inuyasha.koyakuCountSuika = inuyashaMemory1.koyakuCountSuika
+        inuyasha.koyakuCountChanceA = inuyashaMemory1.koyakuCountChanceA
+        inuyasha.koyakuCountChanceB = inuyashaMemory1.koyakuCountChanceB
+        inuyasha.koyakuCountSum = inuyashaMemory1.koyakuCountSum
+        inuyasha.koyakuCountStartGame = inuyashaMemory1.koyakuCountStartGame
+        inuyasha.koyakuCountCurrentGame = inuyashaMemory1.koyakuCountCurrentGame
+        inuyasha.koyakuCountPlayGame = inuyashaMemory1.koyakuCountPlayGame
     }
     func loadMemory2() {
         inuyasha.gameArrayData = inuyashaMemory2.gameArrayData
@@ -771,6 +1052,20 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory2.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory2.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory2.atScreenCountSum
+        inuyasha.bonusArrayData = inuyashaMemory2.bonusArrayData
+        inuyasha.atHitArrayData = inuyashaMemory2.atHitArrayData
+        inuyasha.over333CzCount = inuyashaMemory2.over333CzCount
+        inuyasha.czCount = inuyashaMemory2.czCount
+        inuyasha.hitCountAll = inuyashaMemory2.hitCountAll
+        inuyasha.koyakuCountJakuCherry = inuyashaMemory2.koyakuCountJakuCherry
+        inuyasha.koyakuCountKyoCherry = inuyashaMemory2.koyakuCountKyoCherry
+        inuyasha.koyakuCountSuika = inuyashaMemory2.koyakuCountSuika
+        inuyasha.koyakuCountChanceA = inuyashaMemory2.koyakuCountChanceA
+        inuyasha.koyakuCountChanceB = inuyashaMemory2.koyakuCountChanceB
+        inuyasha.koyakuCountSum = inuyashaMemory2.koyakuCountSum
+        inuyasha.koyakuCountStartGame = inuyashaMemory2.koyakuCountStartGame
+        inuyasha.koyakuCountCurrentGame = inuyashaMemory2.koyakuCountCurrentGame
+        inuyasha.koyakuCountPlayGame = inuyashaMemory2.koyakuCountPlayGame
     }
     func loadMemory3() {
         inuyasha.gameArrayData = inuyashaMemory3.gameArrayData
@@ -806,6 +1101,20 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory3.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory3.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory3.atScreenCountSum
+        inuyasha.bonusArrayData = inuyashaMemory3.bonusArrayData
+        inuyasha.atHitArrayData = inuyashaMemory3.atHitArrayData
+        inuyasha.over333CzCount = inuyashaMemory3.over333CzCount
+        inuyasha.czCount = inuyashaMemory3.czCount
+        inuyasha.hitCountAll = inuyashaMemory3.hitCountAll
+        inuyasha.koyakuCountJakuCherry = inuyashaMemory3.koyakuCountJakuCherry
+        inuyasha.koyakuCountKyoCherry = inuyashaMemory3.koyakuCountKyoCherry
+        inuyasha.koyakuCountSuika = inuyashaMemory3.koyakuCountSuika
+        inuyasha.koyakuCountChanceA = inuyashaMemory3.koyakuCountChanceA
+        inuyasha.koyakuCountChanceB = inuyashaMemory3.koyakuCountChanceB
+        inuyasha.koyakuCountSum = inuyashaMemory3.koyakuCountSum
+        inuyasha.koyakuCountStartGame = inuyashaMemory3.koyakuCountStartGame
+        inuyasha.koyakuCountCurrentGame = inuyashaMemory3.koyakuCountCurrentGame
+        inuyasha.koyakuCountPlayGame = inuyashaMemory3.koyakuCountPlayGame
     }
 }
 
