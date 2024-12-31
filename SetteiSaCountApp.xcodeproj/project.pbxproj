@@ -185,6 +185,10 @@
 		0FDC32712D20A37E005B3D06 /* inuyashaViewKoyaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */; };
 		0FDC32732D22329E005B3D06 /* ver171Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32722D22329E005B3D06 /* ver171Tip.swift */; };
 		0FDC32752D2293AF005B3D06 /* danvineViewAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */; };
+		0FDC32772D2386CF005B3D06 /* danvineViewSt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32762D2386CF005B3D06 /* danvineViewSt.swift */; };
+		0FDC32792D23B4D7005B3D06 /* danvineViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32782D23B4D7005B3D06 /* danvineViewVoice.swift */; };
+		0FDC327B2D23C0A1005B3D06 /* danvineViewPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC327A2D23C0A1005B3D06 /* danvineViewPt.swift */; };
+		0FDC327D2D23DC80005B3D06 /* commonSammyTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -411,6 +415,10 @@
 		0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewKoyaku.swift; sourceTree = "<group>"; };
 		0FDC32722D22329E005B3D06 /* ver171Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver171Tip.swift; sourceTree = "<group>"; };
 		0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewAttack.swift; sourceTree = "<group>"; };
+		0FDC32762D2386CF005B3D06 /* danvineViewSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewSt.swift; sourceTree = "<group>"; };
+		0FDC32782D23B4D7005B3D06 /* danvineViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewVoice.swift; sourceTree = "<group>"; };
+		0FDC327A2D23C0A1005B3D06 /* danvineViewPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewPt.swift; sourceTree = "<group>"; };
+		0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSammyTrophy.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -768,6 +776,7 @@
 				0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */,
 				0FDC32662D1C289C005B3D06 /* ver180Tip.swift */,
 				0FDC32722D22329E005B3D06 /* ver171Tip.swift */,
+				0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -926,6 +935,9 @@
 				0FDC326A2D1E9E12005B3D06 /* danvineView95Ci.swift */,
 				0FDC326C2D1EA219005B3D06 /* danvineViewNormalMode.swift */,
 				0FDC32742D2293AF005B3D06 /* danvineViewAttack.swift */,
+				0FDC32762D2386CF005B3D06 /* danvineViewSt.swift */,
+				0FDC32782D23B4D7005B3D06 /* danvineViewVoice.swift */,
+				0FDC327A2D23C0A1005B3D06 /* danvineViewPt.swift */,
 			);
 			path = danvine;
 			sourceTree = "<group>";
@@ -1282,6 +1294,7 @@
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */,
 				0FA024A82D0B137A004B3FD5 /* lupinViewRoundScreen.swift in Sources */,
+				0FDC32772D2386CF005B3D06 /* danvineViewSt.swift in Sources */,
 				0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */,
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */,
@@ -1293,6 +1306,7 @@
 				0FA024852CF75001004B3FD5 /* kabaneriView95Ci.swift in Sources */,
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
 				0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */,
+				0FDC32792D23B4D7005B3D06 /* danvineViewVoice.swift in Sources */,
 				0F3465BB2CB21F1A00B5D2DD /* karakuriViewEnding.swift in Sources */,
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
@@ -1330,6 +1344,7 @@
 				0FA024712CF30CF4004B3FD5 /* hokutoView95Ci.swift in Sources */,
 				0F7546B92C95C0820007A277 /* symphoViewTop.swift in Sources */,
 				0FA024B02D0C00F6004B3FD5 /* lupinViewAtVoice.swift in Sources */,
+				0FDC327B2D23C0A1005B3D06 /* danvineViewPt.swift in Sources */,
 				0F654BF12C7168A900F37849 /* kingHanaExViewBbLamp.swift in Sources */,
 				0FE23B2E2C773DBC000E65D7 /* mt5RivalModeView.swift in Sources */,
 				0F25C27B2C8891EB008B4707 /* toloveruViewBonus.swift in Sources */,
@@ -1346,6 +1361,7 @@
 				0FA024AA2D0B13D9004B3FD5 /* lupinViewHaruruna.swift in Sources */,
 				0FA024942D05CDF5004B3FD5 /* inuyasha2ViewTop.swift in Sources */,
 				0FA0247D2CF49E1F004B3FD5 /* symphoView95Ci.swift in Sources */,
+				0FDC327D2D23DC80005B3D06 /* commonSammyTrophy.swift in Sources */,
 				0F8031272C69FB21001F008E /* exViewKakumeiRatioVVV.swift in Sources */,
 				0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */,
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,

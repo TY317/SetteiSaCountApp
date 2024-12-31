@@ -53,6 +53,42 @@ struct danvineViewAttack: View {
             } header: {
                 Text("ハズレ3連続時のオーラ狙え高確当選")
             }
+            
+            // //// 敵機数での示唆
+            Section {
+                unitLinkButton(
+                    title: "撃破数、初期機数での示唆について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "機数での示唆",
+                            textBody1: "・残り1001機からスタートの場合は設定6濃厚",
+                            textBody2: "・敵撃破数がゾロ目の場合は特定設定以上が濃厚となる",
+                            image1: Image("danvineAttackEnemyNumber")
+                        )
+                    )
+                )
+            } header: {
+                Text("撃破数、初期機数での示唆")
+            }
+            
+            // //// 突入時の成功
+            Section {
+                unitLinkButton(
+                    title: "突入時の成功抽選について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "突入時成功抽選",
+                            textBody1: "・アタックモード当選時に成功抽選をしており、当選時は必ず成功",
+                            textBody2: "・高設定ほど当選率が高い",
+                            textBody3: "・自力で成功した場合は判別はできないが、初期機数が777機や1001機の場合は成功抽選の当選に期待できる",
+                            textBody4: "・残りゲーム数が0かつ、オーラ狙え高確中以外の敵非撃破でアタックモードが終了しない場合も成功抽選の当選に期待できる",
+                            image1: Image("danvineAttackWinRatio")
+                        )
+                    )
+                )
+            } header: {
+                Text("突入時の成功抽選")
+            }
         }
         .navigationTitle("アタックモード")
         .navigationBarTitleDisplayMode(.inline)

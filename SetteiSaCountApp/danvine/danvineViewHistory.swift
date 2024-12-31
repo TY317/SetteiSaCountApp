@@ -132,19 +132,19 @@ struct danvineViewHistory: View {
                     )
                 )
                 // 規定ポイントについて
-                unitLinkButton(
-                    title: "規定Ptについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "規定Ptについて",
-                            textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
-                            textBody2: "・下表の規定ポイント以外（1ptを除く）で当選した場合は高設定の期待度アップとなる",
-                            textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
-                            image1: Image("danvinePoint"),
-                            image2: Image("danvineGetPoint")
-                        )
-                    )
-                )
+//                unitLinkButton(
+//                    title: "規定Ptについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "規定Ptについて",
+//                            textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
+//                            textBody2: "・下表の規定ポイント以外（1ptを除く）で当選した場合は高設定の期待度アップとなる",
+//                            textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
+//                            image1: Image("danvinePoint"),
+//                            image2: Image("danvineGetPoint")
+//                        )
+//                    )
+//                )
                 // 当選契機について
                 unitLinkButton(
                     title: "当選契機について",

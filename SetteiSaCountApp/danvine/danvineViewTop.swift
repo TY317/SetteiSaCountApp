@@ -120,6 +120,138 @@ class Danvine: ObservableObject {
     }
     
     // ////////////////////////
+    // ST中
+    // ////////////////////////
+    @AppStorage("danvineChamLampCountWhitBlue") var chamLampCountWhitBlue = 0 {
+        didSet {
+            chamLampCountSum = countSum(chamLampCountWhitBlue, chamLampCountYellow, chamLampCountGreen, chamLampCountRed)
+        }
+    }
+        @AppStorage("danvineChamLampCountYellow") var chamLampCountYellow = 0 {
+            didSet {
+                chamLampCountSum = countSum(chamLampCountWhitBlue, chamLampCountYellow, chamLampCountGreen, chamLampCountRed)
+            }
+        }
+            @AppStorage("danvineChamLampCountGreen") var chamLampCountGreen = 0 {
+                didSet {
+                    chamLampCountSum = countSum(chamLampCountWhitBlue, chamLampCountYellow, chamLampCountGreen, chamLampCountRed)
+                }
+            }
+                @AppStorage("danvineChamLampCountRed") var chamLampCountRed = 0 {
+                    didSet {
+                        chamLampCountSum = countSum(chamLampCountWhitBlue, chamLampCountYellow, chamLampCountGreen, chamLampCountRed)
+                    }
+                }
+    @AppStorage("danvineChamLampCountSum") var chamLampCountSum = 0
+    @AppStorage("danvineAuraAttackCountNone") var auraAttackCountNone = 0 {
+        didSet {
+            auraAttackCountSum = countSum(auraAttackCountNone, auraAttackCountWin)
+        }
+    }
+        @AppStorage("danvineAuraAttackCountWin") var auraAttackCountWin = 0 {
+            didSet {
+                auraAttackCountSum = countSum(auraAttackCountNone, auraAttackCountWin)
+            }
+        }
+    @AppStorage("danvineAuraAttackCountSum") var auraAttackCountSum = 0
+    
+    func resetSt() {
+        chamLampCountWhitBlue = 0
+        chamLampCountYellow = 0
+        chamLampCountGreen = 0
+        chamLampCountRed = 0
+        auraAttackCountNone = 0
+        auraAttackCountWin = 0
+        minusCheck = false
+    }
+    
+    // ////////////////////////
+    // ST終了ボイス
+    // ////////////////////////
+    @Published var selectListVoice = [
+        "俺は負けない！",
+        "フェラリオだって、品性は身につけなくちゃ",
+        "ダンバインで、蹴散らしてみせなさい",
+        "来ます！悪しきオーラ力",
+        "私が受けた屈辱、この恨み、貴様にわかるか！？ショウ！",
+        "俺は人は殺さない！その怨念を殺す！",
+        "私が欲しいのはLike me じゃないわ、Love me よ",
+        "人々よ！バイストンウェルに帰還します",
+        "乾杯といくかい？",
+        "落ちろよーーー",
+        "と言われてもなぁ"
+    ]
+    @AppStorage("danvineSelectedVoice") var selectedVoice = "俺は負けない！"
+    @AppStorage("danvineVoiceCountDefault") var voiceCountDefault = 0 {
+        didSet {
+            voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+        }
+    }
+        @AppStorage("danvineVoiceCountHighJaku") var voiceCountHighJaku = 0 {
+            didSet {
+                voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+            }
+        }
+            @AppStorage("danvineVoiceCountHighChu") var voiceCountHighChu = 0 {
+                didSet {
+                    voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+                }
+            }
+                @AppStorage("danvineVoiceCountHighKyo") var voiceCountHighKyo = 0 {
+                    didSet {
+                        voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+                    }
+                }
+                    @AppStorage("danvineVoiceCountOver4") var voiceCountOver4 = 0 {
+                        didSet {
+                            voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+                        }
+                    }
+                        @AppStorage("danvineVoiceCountOver6") var voiceCountOver6 = 0 {
+                            didSet {
+                                voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+                            }
+                        }
+                            @AppStorage("danvineVoiceCountComeBack") var voiceCountComeBack = 0 {
+                                didSet {
+                                    voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighChu, voiceCountHighKyo, voiceCountOver4, voiceCountOver6, voiceCountComeBack)
+                                }
+                            }
+    @AppStorage("danvineVoiceCountSum") var voiceCountSum = 0
+    
+    func resetVoice() {
+        voiceCountDefault = 0
+        voiceCountHighJaku = 0
+        voiceCountHighChu = 0
+        voiceCountHighKyo = 0
+        voiceCountOver4 = 0
+        voiceCountOver6 = 0
+        voiceCountComeBack = 0
+        minusCheck = false
+    }
+    
+    // ////////////////////////
+    // 規定Pt
+    // ////////////////////////
+    @AppStorage("danvinePtCountNot11") var ptCountNot11 = 0 {
+        didSet {
+            ptCountSum = countSum(ptCountNot11, ptCount11)
+        }
+    }
+        @AppStorage("danvinePtCount11") var ptCount11 = 0 {
+            didSet {
+                ptCountSum = countSum(ptCountNot11, ptCount11)
+            }
+        }
+    @AppStorage("danvinePtCountSum") var ptCountSum = 0
+    
+    func resetPt() {
+        ptCountNot11 = 0
+        ptCount11 = 0
+        minusCheck = false
+    }
+    
+    // ////////////////////////
     // 共通
     // ////////////////////////
     @AppStorage("danvineMinusCheck") var minusCheck: Bool = false
@@ -127,6 +259,10 @@ class Danvine: ObservableObject {
     
     func resetAll() {
         resetHistory()
+        resetAttack()
+        resetSt()
+        resetVoice()
+        resetPt()
     }
 }
 
@@ -146,6 +282,13 @@ struct danvineViewTop: View {
                             imageSystemName: "square.3.layers.3d",
                             textBody: "通常時演出、モード")
                     }
+                    // 規定ポイント
+                    NavigationLink(destination: danvineViewPt()) {
+                        unitLabelMenu(
+                            imageSystemName: "11.circle",
+                            textBody: "規定ポイント"
+                        )
+                    }
                     // アタックモード
                     NavigationLink(destination: danvineViewAttack()) {
                         unitLabelMenu(
@@ -157,7 +300,29 @@ struct danvineViewTop: View {
                     NavigationLink(destination: danvineViewHistory()) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "ボーナス,ST初当り履歴")
+                            textBody: "ボーナス,ST初当り履歴"
+                        )
+                    }
+                    // ST中
+                    NavigationLink(destination: danvineViewSt()) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper",
+                            textBody: "ST中"
+                        )
+                    }
+                    // ST終了ボイス
+                    NavigationLink(destination: danvineViewVoice()) {
+                        unitLabelMenu(
+                            imageSystemName: "message",
+                            textBody: "ST終了ボイス"
+                        )
+                    }
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewSammyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy",
+                            textBody: "サミートロフィー"
+                        )
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ダンバイン", titleFont: .title2)
