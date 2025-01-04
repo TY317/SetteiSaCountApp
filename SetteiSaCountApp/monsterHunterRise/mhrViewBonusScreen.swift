@@ -24,6 +24,7 @@ struct mhrViewBonusScreen: View {
                             count: $mhr.bonusScreenCountMen,
                             minusCheck: $mhr.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // 女性キャラ
                         unitButtonScreenChoice(
                             image: Image(mhr.bonusScreenKeywordList[1]),

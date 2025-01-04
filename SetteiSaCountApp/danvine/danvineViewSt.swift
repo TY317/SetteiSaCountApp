@@ -10,6 +10,14 @@ import SwiftUI
 struct danvineViewSt: View {
     @ObservedObject var danvine = Danvine()
     @State var isShowAlert = false
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
     
     var body: some View {
         List {
@@ -68,6 +76,8 @@ struct danvineViewSt: View {
                         )
                     )
                 )
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 5)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ST中ボーナス 狙え演出時のランプ色")
             }
@@ -132,6 +142,48 @@ struct danvineViewSt: View {
             } header: {
                 Text("聖戦士への道 初期ゲーム数")
             }
+            unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
+        }
+        // //// 画面の向き情報の取得部分
+        .onAppear {
+            // ビューが表示されるときにデバイスの向きを取得
+            self.orientation = UIDevice.current.orientation
+            // 向きがフラットでなければlastOrientationの値を更新
+            if self.orientation.isFlat {
+                
+            }
+            else {
+                self.lastOrientation = self.orientation
+            }
+            if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                self.scrollViewHeight = self.scrollViewHeightLandscape
+                self.spaceHeight = self.spaceHeightLandscape
+            } else {
+                self.scrollViewHeight = self.scrollViewHeightPortrait
+                self.spaceHeight = self.spaceHeightPortrait
+            }
+            // デバイスの向きの変更を監視する
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.scrollViewHeight = self.scrollViewHeightLandscape
+                    self.spaceHeight = self.spaceHeightLandscape
+                } else {
+                    self.scrollViewHeight = self.scrollViewHeightPortrait
+                    self.spaceHeight = self.spaceHeightPortrait
+                }
+            }
+        }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
         .navigationTitle("ST中")
         .navigationBarTitleDisplayMode(.inline)

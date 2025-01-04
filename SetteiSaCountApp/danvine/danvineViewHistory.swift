@@ -8,6 +8,23 @@
 import SwiftUI
 import TipKit
 
+// //////////////////
+// Tip：履歴入力の説明
+// //////////////////
+struct danvineTipHistoryInput: Tip {
+    var title: Text {
+        Text("履歴入力")
+    }
+    
+    var message: Text? {
+        Text("ボーナス当選ごとに入力。入力結果から\n・ボーナス初当り確率\n・ST初当り確率　を算出します")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 struct danvineViewHistory: View {
     @ObservedObject var danvine = Danvine()
     @State var isShowAlert: Bool = false
@@ -90,6 +107,7 @@ struct danvineViewHistory: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                .popoverTip(danvineTipHistoryInput())
                 
                 // //// 登録、1行削除ボタン
                 HStack {
@@ -215,6 +233,7 @@ struct danvineViewHistory: View {
             } header: {
                 Text("初当り")
             }
+            unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

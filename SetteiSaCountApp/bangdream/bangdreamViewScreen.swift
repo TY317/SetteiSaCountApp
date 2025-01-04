@@ -34,6 +34,7 @@ struct bangdreamViewScreen: View {
                             count: $bangdream.screenCountKasumi,
                             minusCheck: $bangdream.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // 写真
                         unitButtonScreenChoice(
                             image: Image(bangdream.screenKeywordList[1]),

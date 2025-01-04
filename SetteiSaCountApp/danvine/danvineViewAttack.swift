@@ -50,6 +50,8 @@ struct danvineViewAttack: View {
                         )
                     )
                 )
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 4)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ハズレ3連続時のオーラ狙え高確当選")
             }

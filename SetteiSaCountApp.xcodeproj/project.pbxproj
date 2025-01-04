@@ -78,6 +78,7 @@
 		0F7D3F212C82925B00A3FE7D /* kabaneriMumei.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F202C82925B00A3FE7D /* kabaneriMumei.swift */; };
 		0F7D3F232C82CB1E00A3FE7D /* kabaneriViewIkoma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F222C82CB1E00A3FE7D /* kabaneriViewIkoma.swift */; };
 		0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F242C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift */; };
+		0F7E4F732D28AC77001CC916 /* dumbbellView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F722D28AC77001CC916 /* dumbbellView95Ci.swift */; };
 		0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */; };
 		0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DD2C6249FC001F008E /* ContentView.swift */; };
 		0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
@@ -189,6 +190,15 @@
 		0FDC32792D23B4D7005B3D06 /* danvineViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32782D23B4D7005B3D06 /* danvineViewVoice.swift */; };
 		0FDC327B2D23C0A1005B3D06 /* danvineViewPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC327A2D23C0A1005B3D06 /* danvineViewPt.swift */; };
 		0FDC327D2D23DC80005B3D06 /* commonSammyTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */; };
+		0FDC32812D260757005B3D06 /* dumbbellViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32802D260757005B3D06 /* dumbbellViewTop.swift */; };
+		0FDC32832D260767005B3D06 /* dumbbellAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC32822D260767005B3D06 /* dumbbellAssets.xcassets */; };
+		0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32842D260A23005B3D06 /* dumbbellViewHistory.swift */; };
+		0FDC32872D264452005B3D06 /* dumbbellViewGoldenChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32862D264452005B3D06 /* dumbbellViewGoldenChallenge.swift */; };
+		0FDC32892D2653F9005B3D06 /* dumbbellCzAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC32882D2653F9005B3D06 /* dumbbellCzAtScreen.swift */; };
+		0FDC328B2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC328A2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift */; };
+		0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC328C2D2774E9005B3D06 /* dumbbellViewCheatDay.swift */; };
+		0FDC32902D27DF5A005B3D06 /* acceleratorViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC328F2D27DF5A005B3D06 /* acceleratorViewTop.swift */; };
+		0FDC32942D27DF85005B3D06 /* acceleratorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC32932D27DF85005B3D06 /* acceleratorAssets.xcassets */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -305,6 +315,7 @@
 		0F7D3F202C82925B00A3FE7D /* kabaneriMumei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriMumei.swift; sourceTree = "<group>"; };
 		0F7D3F222C82CB1E00A3FE7D /* kabaneriViewIkoma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriViewIkoma.swift; sourceTree = "<group>"; };
 		0F7D3F242C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriViewHintDuringBonus.swift; sourceTree = "<group>"; };
+		0F7E4F722D28AC77001CC916 /* dumbbellView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellView95Ci.swift; sourceTree = "<group>"; };
 		0F8030D82C6249FC001F008E /* SetteiSaCountApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetteiSaCountApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppApp.swift; sourceTree = "<group>"; };
 		0F8030DD2C6249FC001F008E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -419,6 +430,15 @@
 		0FDC32782D23B4D7005B3D06 /* danvineViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewVoice.swift; sourceTree = "<group>"; };
 		0FDC327A2D23C0A1005B3D06 /* danvineViewPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineViewPt.swift; sourceTree = "<group>"; };
 		0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSammyTrophy.swift; sourceTree = "<group>"; };
+		0FDC32802D260757005B3D06 /* dumbbellViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellViewTop.swift; sourceTree = "<group>"; };
+		0FDC32822D260767005B3D06 /* dumbbellAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = dumbbellAssets.xcassets; sourceTree = "<group>"; };
+		0FDC32842D260A23005B3D06 /* dumbbellViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellViewHistory.swift; sourceTree = "<group>"; };
+		0FDC32862D264452005B3D06 /* dumbbellViewGoldenChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellViewGoldenChallenge.swift; sourceTree = "<group>"; };
+		0FDC32882D2653F9005B3D06 /* dumbbellCzAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellCzAtScreen.swift; sourceTree = "<group>"; };
+		0FDC328A2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellViewKinnikuBonus.swift; sourceTree = "<group>"; };
+		0FDC328C2D2774E9005B3D06 /* dumbbellViewCheatDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellViewCheatDay.swift; sourceTree = "<group>"; };
+		0FDC328F2D27DF5A005B3D06 /* acceleratorViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorViewTop.swift; sourceTree = "<group>"; };
+		0FDC32932D27DF85005B3D06 /* acceleratorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acceleratorAssets.xcassets; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -686,6 +706,8 @@
 		0F8030DA2C6249FC001F008E /* SetteiSaCountApp */ = {
 			isa = PBXGroup;
 			children = (
+				0FDC328E2D27DF01005B3D06 /* accelerator */,
+				0FDC327F2D26073E005B3D06 /* dumbbell */,
 				0FA0249E2D05D534004B3FD5 /* danvine */,
 				0FA024992D05D10C004B3FD5 /* lupin */,
 				0FA024922D05CDCC004B3FD5 /* inuyasha2 */,
@@ -942,6 +964,30 @@
 			path = danvine;
 			sourceTree = "<group>";
 		};
+		0FDC327F2D26073E005B3D06 /* dumbbell */ = {
+			isa = PBXGroup;
+			children = (
+				0FDC32802D260757005B3D06 /* dumbbellViewTop.swift */,
+				0FDC32822D260767005B3D06 /* dumbbellAssets.xcassets */,
+				0FDC32842D260A23005B3D06 /* dumbbellViewHistory.swift */,
+				0FDC32862D264452005B3D06 /* dumbbellViewGoldenChallenge.swift */,
+				0FDC32882D2653F9005B3D06 /* dumbbellCzAtScreen.swift */,
+				0FDC328A2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift */,
+				0FDC328C2D2774E9005B3D06 /* dumbbellViewCheatDay.swift */,
+				0F7E4F722D28AC77001CC916 /* dumbbellView95Ci.swift */,
+			);
+			path = dumbbell;
+			sourceTree = "<group>";
+		};
+		0FDC328E2D27DF01005B3D06 /* accelerator */ = {
+			isa = PBXGroup;
+			children = (
+				0FDC328F2D27DF5A005B3D06 /* acceleratorViewTop.swift */,
+				0FDC32932D27DF85005B3D06 /* acceleratorAssets.xcassets */,
+			);
+			path = accelerator;
+			sourceTree = "<group>";
+		};
 		0FE23B232C718FD1000E65D7 /* botsu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1120,6 +1166,7 @@
 				0F654BC42C6E3BE200F37849 /* happyJugV3Assets.xcassets in Resources */,
 				0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */,
 				0F7546BB2C95C1060007A277 /* symphoAssets.xcassets in Resources */,
+				0FDC32942D27DF85005B3D06 /* acceleratorAssets.xcassets in Resources */,
 				0FE23B282C74CAB3000E65D7 /* mt5Assets.xcassets in Resources */,
 				0F80310D2C625042001F008E /* VVV_Assets.xcassets in Resources */,
 				0F654BBD2C6DD7BE00F37849 /* myJug5Assets.xcassets in Resources */,
@@ -1136,6 +1183,7 @@
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
+				0FDC32832D260767005B3D06 /* dumbbellAssets.xcassets in Resources */,
 				0F8090402C83DC410061480F /* hokutoAssets.xcassets in Resources */,
 				0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */,
 				0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */,
@@ -1288,6 +1336,7 @@
 				0FA024A42D0873AF004B3FD5 /* lupinViewHistory.swift in Sources */,
 				0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */,
 				0F654BD42C6F130700F37849 /* draHanaSenkohViewTop.swift in Sources */,
+				0FDC32872D264452005B3D06 /* dumbbellViewGoldenChallenge.swift in Sources */,
 				0FA024752CF354C0004B3FD5 /* goevaView95Ci.swift in Sources */,
 				0F80903E2C83DC2D0061480F /* hokutoViewTop.swift in Sources */,
 				0FA0248D2D011BBA004B3FD5 /* mhrViewEndScreen.swift in Sources */,
@@ -1321,6 +1370,7 @@
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,
 				0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */,
+				0FDC328B2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift in Sources */,
 				0F7D3F1B2C80B70C00A3FE7D /* kabaneriViewTop.swift in Sources */,
 				0F8031122C6255AB001F008E /* VVV_CZ.swift in Sources */,
 				0FDC32652D17D76A005B3D06 /* inuyashaView95Ci.swift in Sources */,
@@ -1330,6 +1380,7 @@
 				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
 				0F592CDC2D143CAC00E79883 /* inuyashViewOfuda.swift in Sources */,
 				0F8325BD2C7E138B0037226E /* goevaNormalSuika.swift in Sources */,
+				0FDC32902D27DF5A005B3D06 /* acceleratorViewTop.swift in Sources */,
 				0F88727D2C6B2D2300AADD2B /* VVVmarieView.swift in Sources */,
 				0F8031232C69EE4D001F008E /* exViewModeDetailVVV.swift in Sources */,
 				0F7D3F232C82CB1E00A3FE7D /* kabaneriViewIkoma.swift in Sources */,
@@ -1351,6 +1402,7 @@
 				0FA024542CE03C66004B3FD5 /* goJug3ViewTop.swift in Sources */,
 				0F654BEB2C70A10B00F37849 /* kingHanaExViewBellBonus.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
+				0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
 				0FDC32632D17CAD4005B3D06 /* commonViewNamichanTrophy.swift in Sources */,
@@ -1384,6 +1436,7 @@
 				0F80311B2C69B3BD001F008E /* myButtonStyle.swift in Sources */,
 				0FA024982D05CF3E004B3FD5 /* ver170Tip.swift in Sources */,
 				0FA024492CDCEB3A004B3FD5 /* bangdreamViewHistory.swift in Sources */,
+				0FDC32812D260757005B3D06 /* dumbbellViewTop.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0F8090462C849DC00061480F /* hokutoViewBbBell.swift in Sources */,
 				0FA0245B2CE82EC8004B3FD5 /* mhrViewTop.swift in Sources */,
@@ -1392,6 +1445,7 @@
 				0F8090442C84027D0061480F /* hokutoViewHistory.swift in Sources */,
 				0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */,
 				0FA024832CF5F5F0004B3FD5 /* vvvView95Ci.swift in Sources */,
+				0FDC32892D2653F9005B3D06 /* dumbbellCzAtScreen.swift in Sources */,
 				0F3465BF2CB410D200B5D2DD /* mt5View5coin.swift in Sources */,
 				0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */,
 				0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */,
@@ -1400,6 +1454,7 @@
 				0FA0245F2CEE0EBF004B3FD5 /* mt5View95Ci.swift in Sources */,
 				0FA0247F2CF4A25A004B3FD5 /* toloveruView95Ci.swift in Sources */,
 				0FA024672CF2C7C8004B3FD5 /* myJug5View95Ci.swift in Sources */,
+				0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
 				0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */,
@@ -1433,6 +1488,7 @@
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
 				0FA024912D013AF5004B3FD5 /* mhrViewEnding.swift in Sources */,
+				0F7E4F732D28AC77001CC916 /* dumbbellView95Ci.swift in Sources */,
 				0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
 				0F88727F2C6B4C3700AADD2B /* VVVexViewMarie.swift in Sources */,
@@ -1606,7 +1662,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
+				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンター - count";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1646,7 +1702,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "設定差カウンターcount";
+				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンター - count";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

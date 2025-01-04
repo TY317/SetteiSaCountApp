@@ -1323,7 +1323,8 @@ struct unitViewSaveMemory: View {
                                 // 時間のコンポーネントを取得
                                 guard let hour = currentComponents.hour else { return }
                                 // 21時から翌日の8時までの間
-                                if hour >= 21 || hour < 8 {
+                                // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
+                                if hour >= 15 || hour < 9 {
                                     requestReview()
                                     print("レビューリクエストの実行")
                                     common.appLaunchCount = 0

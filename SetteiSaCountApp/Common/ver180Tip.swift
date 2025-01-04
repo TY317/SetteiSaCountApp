@@ -22,7 +22,7 @@ struct tipVer180AddMachine: Tip {
         Text("機種追加しました！")
     }
     var message: Text? {
-        Text("ダンバイン\nダンベル何キロ持てる？ を追加")
+        Text("ダンバイン\nダンベル何キロ持てる？\n一方通行 を追加")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

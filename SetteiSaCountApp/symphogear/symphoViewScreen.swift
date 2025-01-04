@@ -22,6 +22,7 @@ struct symphoViewScreen: View {
                     HStack(spacing: 20) {
                         // 枠なし
                         unitButtonScreenChoice(image: Image("symphoScreenNone"), keyword: sympho.screenKeywordList[0], currentKeyword: $sympho.screenCurrentKeyword, count: $sympho.screenCountNone, minusCheck: $sympho.minusCheck)
+                            .popoverTip(tipUnitButtonScreenChoice())
                         // 白枠A
                         unitButtonScreenChoice(image: Image("symphoScreenWhiteA"), keyword: sympho.screenKeywordList[1], currentKeyword: $sympho.screenCurrentKeyword, count: $sympho.screenCountWhiteA, minusCheck: $sympho.minusCheck)
                         // 白枠B
