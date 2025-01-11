@@ -20,13 +20,13 @@ struct mt5View95Ci: View {
                     unitChart95CiDenominate(
                         currentCount: $mt5.coin5Count,
                         bigNumber: $mt5.playGame,
-                        setting1Denominate: 40,
-                        setting2Denominate: -100,
+                        setting1Denominate: 38,
+                        setting2Denominate: 36,
                         setting3Enable: false,
                         setting3Denominate: -100,
-                        setting4Denominate: 29.0,
-                        setting5Denominate: 25.0,
-                        setting6Denominate: 23.0
+                        setting4Denominate: 30,
+                        setting5Denominate: 24,
+                        setting6Denominate: 22
                     )
                 } header: {
                     unitLabelMachineTopTitle(machineName: "5枚役回数")

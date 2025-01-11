@@ -316,13 +316,22 @@ struct lupinViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "キャラによる示唆",
-                            image1: Image("lupinSingleChara")
+                            textBody1: "・シングル揃い時のキャラ振り分けに設定差あり",
+                            textBody2: "・設定4は次元が別格、設定5は五エ門が別格といった特徴あり",
+                            textBody3: "・不二子は設定3以上が期待でき、特に6が別格といった特徴あり",
+                            textBody4: "・高設定ほどデフォルトのルパン比率が低い。設定1,2はルパン以外は20回に1回程度。設定6は5〜6回に1回程度でルパン以外が選ばれる",
+                            image1: Image("lupinSingleChara"),
+                            image2: Image("lupinSingleCharaRatio")
                         )
                     )
                 )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(lupinView95Ci(selection: 6)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("シングル揃い ボーナスキャラ種類")
             }
+            .popoverTip(tipVer180LupinSingleCharaRatioAdd())
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分

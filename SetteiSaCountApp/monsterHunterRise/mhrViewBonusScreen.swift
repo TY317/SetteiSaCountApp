@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct mhrViewBonusScreen: View {
     @ObservedObject var mhr = Mhr()
@@ -24,6 +25,7 @@ struct mhrViewBonusScreen: View {
                             count: $mhr.bonusScreenCountMen,
                             minusCheck: $mhr.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // 女性キャラ
                         unitButtonScreenChoice(
                             image: Image(mhr.bonusScreenKeywordList[1]),
@@ -84,6 +86,23 @@ struct mhrViewBonusScreen: View {
             } header: {
                 Text("ボーナス確定画面")
             }
+            
+            // //// ボイス示唆の情報
+            Section {
+                unitLinkButton(
+                    title: "特殊停止ボイスでの示唆について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "特殊停止ボイスでの示唆",
+                            textBody1: "・ボーナス図柄の狙えカットイン発生時のリール停止時に特殊ボイスで設定を示唆する場合あり",
+                            image1: Image("mhrVoice")
+                        )
+                    )
+                )
+            } header: {
+                Text("特殊停止ボイスでの示唆")
+            }
+            .popoverTip(tipVer180MhrVoiceAdd())
         }
         .navigationTitle("ボーナス確定画面")
         .navigationBarTitleDisplayMode(.inline)

@@ -8,6 +8,23 @@
 import SwiftUI
 import TipKit
 
+// //////////////////
+// Tip：履歴入力の説明
+// //////////////////
+struct danvineTipHistoryInput: Tip {
+    var title: Text {
+        Text("履歴入力")
+    }
+    
+    var message: Text? {
+        Text("ボーナス当選ごとに入力。入力結果から\n・ボーナス初当り確率\n・ST初当り確率　を算出します")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 struct danvineViewHistory: View {
     @ObservedObject var danvine = Danvine()
     @State var isShowAlert: Bool = false
@@ -90,6 +107,7 @@ struct danvineViewHistory: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                .popoverTip(danvineTipHistoryInput())
                 
                 // //// 登録、1行削除ボタン
                 HStack {
@@ -132,16 +150,27 @@ struct danvineViewHistory: View {
                     )
                 )
                 // 規定ポイントについて
+//                unitLinkButton(
+//                    title: "規定Ptについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "規定Ptについて",
+//                            textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
+//                            textBody2: "・下表の規定ポイント以外（1ptを除く）で当選した場合は高設定の期待度アップとなる",
+//                            textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
+//                            image1: Image("danvinePoint"),
+//                            image2: Image("danvineGetPoint")
+//                        )
+//                    )
+//                )
+                // 当選契機について
                 unitLinkButton(
-                    title: "規定Ptについて",
+                    title: "当選契機について",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "規定Ptについて",
-                            textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
-                            textBody2: "・下表の規定ポイント以外（1ptを除く）で当選した場合は高設定の期待度アップとなる",
-                            textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
-                            image1: Image("danvinePoint"),
-                            image2: Image("danvineGetPoint")
+                            title: "当選契機について",
+                            textBody1: "・2Gバトルでのボーナス当選率は高設定ほど高い",
+                            textBody2: "・ボーナス直撃当選は高設定ほど多い"
                         )
                     )
                 )
@@ -204,6 +233,7 @@ struct danvineViewHistory: View {
             } header: {
                 Text("初当り")
             }
+            unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

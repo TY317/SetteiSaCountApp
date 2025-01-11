@@ -35,6 +35,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
     @AppStorage("isSelectedFavoriteLupin") var isSelectedFavoriteLupin = true
     @AppStorage("isSelectedFavoriteDanvine") var isSelectedFavoriteDanvine = true
+    @AppStorage("isSelectedFavoriteDumbbell") var isSelectedFavoriteDumbbell = true
+    @AppStorage("isSelectedFavoriteAccelerator") var isSelectedFavoriteAccelerator = true
 }
 
 
@@ -112,20 +114,35 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// 一方通行、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAccelerator == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(acceleratorViewTop()), iconImage: Image("acceleratorMachineIcon"), machineName: "一方通行")
+                                }
+                                
+                                // //// ダンベル、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDumbbell == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(dumbbellViewTop()), iconImage: Image("dumbbellMachineIcon"), machineName: "ダンベル")
+                                        .popoverTip(tipVer180AddMachine())
+                                }
+                                
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
 //                                        .popoverTip(tipVer180AddMachine())
-//                                }
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
-                                        .popoverTip(tipVer170AddMachine())
+//                                        .popoverTip(tipVer170AddMachine())
                                 }
                                 // //// 犬夜叉2、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
@@ -250,20 +267,49 @@ struct ContentView: View {
                                     machineListHanahanaSeries()
                                 }
                                 
+                                // //// 一方通行、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAccelerator == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(acceleratorViewTop()),
+                                        iconImage: Image("acceleratorMachineIcon"),
+                                        machineName: "一方通行 とある魔術の禁書目録",
+                                        makerName: "藤商事",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+                                }
+                                
+                                // //// ダンベル、24年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDumbbell == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(dumbbellViewTop()),
+                                        iconImage: Image("dumbbellMachineIcon"),
+                                        machineName: "ダンベル何キロ持てる？",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
+                                    .popoverTip(tipVer180AddMachine())
+                                }
+                                
                                 // //// ダンバイン、24年12月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
-//                                    
-//                                } else {
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(danvineViewTop()),
-//                                        iconImage: Image("danvineMachineIcone"),
-//                                        machineName: "ダンバイン",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2024,
-//                                        releaseMonth: 12
-//                                    )
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDanvine == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(danvineViewTop()),
+                                        iconImage: Image("danvineMachineIcone"),
+                                        machineName: "ダンバイン",
+                                        makerName: "サミー",
+                                        releaseYear: 2024,
+                                        releaseMonth: 12
+                                    )
 //                                    .popoverTip(tipVer180AddMachine())
-//                                }
+                                }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteLupin == false {
@@ -277,7 +323,7 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-                                    .popoverTip(tipVer170AddMachine())
+//                                    .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
@@ -564,8 +610,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// 一方通行、24年12月
+                Toggle("一方通行 とある魔術の禁書目録", isOn: $favoriteSet.isSelectedFavoriteAccelerator)
+                // //// ダンベル、24年12月
+                Toggle("ダンベル何キロ持てる？", isOn: $favoriteSet.isSelectedFavoriteDumbbell)
                 // //// ダンバイン、24年12月
-//                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
+                Toggle("ダンバイン", isOn: $favoriteSet.isSelectedFavoriteDanvine)
                 // //// ルパン大航海者の秘宝、24年12月
                 Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
                 // //// 犬夜叉2、24年12月
@@ -737,7 +787,7 @@ private struct BannerView: UIViewRepresentable {
             // カスタムキーワードを設定
             adRequest.keywords = ["パチスロ", "パチンコ", "ギャンブル", "遊技場", "スマスロ", "スマパチ", "スロット"]
             
-//            banner.load(GADRequest())
+            //            banner.load(GADRequest())
             banner.load(adRequest)
             // [END load_ad]
             // [START set_delegate]

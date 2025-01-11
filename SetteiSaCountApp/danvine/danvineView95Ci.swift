@@ -14,6 +14,42 @@ struct danvineView95Ci: View {
     
     var body: some View {
         TabView(selection: $selection) {
+            // 規定Pt11回数
+            unitListSection95Ci(
+                grafTitle: "規定ポイント11 選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $danvine.ptCount11,
+                        bigNumber: $danvine.ptCountSum,
+                        setting1Percent: 2.0,
+                        setting2Percent: 2.0,
+                        setting3Percent: 2.7,
+                        setting4Percent: 3.5,
+                        setting5Percent: 4.3,
+                        setting6Percent: 5.1
+                    )
+                )
+            )
+            .tag(3)
+            // ハズレ3連時の高確当選回数
+            unitListSection95Ci(
+                grafTitle: "ハズレ3連時の高確当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $danvine.hazure3CountWin,
+                        bigNumber: $danvine.hazure3CountAll,
+                        setting1Percent: 19.9,
+                        setting2Percent: 20.3,
+                        setting3Percent: 20.7,
+                        setting4Percent: 24.6,
+                        setting5Percent: 27.3,
+                        setting6Percent: 30.1
+                    )
+                )
+            )
+            .tag(4)
             // ボーナス初当り回数
             unitListSection95Ci(
                 grafTitle: "ボーナス初当り回数",
@@ -48,6 +84,40 @@ struct danvineView95Ci: View {
                 )
             )
             .tag(2)
+            // チャムランプ 緑回数
+            unitListSection95Ci(
+                grafTitle: "チャムランプ 緑回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $danvine.chamLampCountGreen,
+                        bigNumber: $danvine.chamLampCountSum,
+                        setting1Percent: 3.1,
+                        setting2Percent: 3.3,
+                        setting3Percent: 3.6,
+                        setting4Percent: 3.9,
+                        setting5Percent: 4.3,
+                        setting6Percent: 4.8
+                    )
+                )
+            )
+            .tag(5)
+            // チャムランプ 赤回数
+            unitListSection95Ci(
+                grafTitle: "チャムランプ 赤回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $danvine.chamLampCountRed,
+                        bigNumber: $danvine.chamLampCountSum,
+                        setting1Percent: 0.8,
+                        setting2Percent: 0.9,
+                        setting3Percent: 1.0,
+                        setting4Percent: 1.1,
+                        setting5Percent: 1.3,
+                        setting6Percent: 1.4
+                    )
+                )
+            )
+            .tag(6)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

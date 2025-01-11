@@ -25,6 +25,7 @@ struct lupinViewAtScreen: View {
                             count: $lupin.atScreenCountDefault,
                             minusCheck: $lupin.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // ルパン一味
                         unitButtonScreenChoice(
                             image: Image(lupin.atScreenKeywordList[1]),

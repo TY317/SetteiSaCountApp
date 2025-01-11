@@ -24,6 +24,7 @@ struct kaguyaViewScreen: View {
                     HStack(spacing: 20) {
                         // デフォルト
                         unitButtonScreenChoice(image: Image(kaguya.screenKeywordList[0]), keyword: kaguya.screenKeywordList[0], currentKeyword: $kaguya.screenCurrentKeyword, count: $kaguya.screenCountDefault, minusCheck: $kaguya.minusCheck)
+                            .popoverTip(tipUnitButtonScreenChoice())
                         // 赤枠猫耳
                         unitButtonScreenChoice(image: Image(kaguya.screenKeywordList[1]), keyword: kaguya.screenKeywordList[1], currentKeyword: $kaguya.screenCurrentKeyword, count: $kaguya.screenCountRedNekomimi, minusCheck: $kaguya.minusCheck)
                         // 紫枠男2人

@@ -23,13 +23,52 @@ struct danvineViewNormalMode: View {
                         )
                     )
                 )
-//                Text("ダンバイン起動ミッションまでの規定小Vベル回数は、残り3回から出現がデフォルト\n残り4〜6回が表示されればその数字以上の設定が濃厚となる")
-//                    .foregroundStyle(Color.secondary)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
             } header: {
                 Text("規定小Vベル回数表示")
             }
+            
+            // //// モードについて
+            Section {
+                // モードの概要
+                unitLinkButton(
+                    title: "モードの概要について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "モードの概要",
+                            textBody1: "・通常時は4つのモードで管理",
+                            image1: Image("danvineMode"),
+                            image2: Image("danvineGetPoint")
+                        )
+                    )
+                )
+                // 高確移行
+                unitLinkButton(
+                    title: "高確移行について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "高確移行について",
+                            textBody1: "・赤オーラ役以外での高確移行は全般的に良い挙動",
+                            textBody2: "・フェラリオボーナス終了後の高確移行も高設定ほど優遇（設定1と6で10%程度の差）",
+                            textBody3: "・ST終了後の高確移行も高設定ほど優遇"
+                        )
+                    )
+                )
+                // 超高確移行
+                unitLinkButton(
+                    title: "超高確移行について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "超高確移行について",
+                            textBody1: "・通常ステージ(昼)から超高確ステージ(夜)への直接移行は高設定ほど優遇"
+                        )
+                    )
+                )
+            } header: {
+                Text("モード")
+            }
         }
+        .navigationTitle("通常時の演出、モード")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

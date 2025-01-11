@@ -66,6 +66,15 @@ func arrayIntAllDataCount(arrayData: Data?) -> Int {
 
 
 // ///////////////////////////////
+// 関数：Array内のデータの数をカウントする、文字列配列用
+// ///////////////////////////////
+func arrayStringAllDataCount(arrayData: Data?) -> Int {
+    let array = decodeStringArray(from: arrayData)
+    return array.count
+}
+
+
+// ///////////////////////////////
 // 関数：Array内の整数データを全て合計する、整数配列専用
 // ///////////////////////////////
 func arrayIntAllDataSum(arrayData: Data?) -> Int {

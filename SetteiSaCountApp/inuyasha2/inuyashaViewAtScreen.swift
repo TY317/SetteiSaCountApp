@@ -25,6 +25,7 @@ struct inuyashaViewAtScreen: View {
                             count: $inuyasha.atScreenCountDefault,
                             minusCheck: $inuyasha.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // 青枠　おんぶ
                         unitButtonScreenChoice(
                             image: Image(inuyasha.atScreenKeywordList[1]),

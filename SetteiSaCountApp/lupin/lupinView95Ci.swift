@@ -99,6 +99,78 @@ struct lupinView95Ci: View {
                 )
             )
             .tag(5)
+            // シングル揃い時のルパン回数
+            unitListSection95Ci(
+                grafTitle: "シングル揃い時のルパン回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $lupin.bonusCharaCountLupin,
+                        bigNumber: $lupin.bonusCharaCountSum,
+                        setting1Percent: 94.3,
+                        setting2Percent: 94.3,
+                        setting3Percent: 90.6,
+                        setting4Percent: 85.3,
+                        setting5Percent: 85.4,
+                        setting6Percent: 82.5
+                    )
+                )
+            )
+            .tag(6)
+            // シングル揃い時の次元回数
+            unitListSection95Ci(
+                grafTitle: "シングル揃い時の次元回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $lupin.bonusCharaCountJigen,
+                        bigNumber: $lupin.bonusCharaCountSum,
+                        setting1Percent: 1.5,
+                        setting2Percent: 4.1,
+                        setting3Percent: 3.3,
+                        setting4Percent: 11.2,
+                        setting5Percent: 1.6,
+                        setting6Percent: 7.1
+                    )
+                )
+            )
+            .tag(7)
+            // シングル揃い時の五エ門回数
+            unitListSection95Ci(
+                grafTitle: "シングル揃い時の五エ門回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $lupin.bonusCharaCountGoemon,
+                        bigNumber: $lupin.bonusCharaCountSum,
+                        setting1Percent: 4.1,
+                        setting2Percent: 1.5,
+                        setting3Percent: 5.1,
+                        setting4Percent: 2.5,
+                        setting5Percent: 12.0,
+                        setting6Percent: 7.3
+                    )
+                )
+            )
+            .tag(8)
+            // シングル揃い時の不二子回数
+            unitListSection95Ci(
+                grafTitle: "シングル揃い時の不二子回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $lupin.bonusCharaCountFujiko,
+                        bigNumber: $lupin.bonusCharaCountSum,
+                        setting1Percent: 0.1,
+                        setting2Percent: 0.1,
+                        setting3Percent: 1.0,
+                        setting4Percent: 1.0,
+                        setting5Percent: 1.0,
+                        setting6Percent: 3.1
+                    )
+                )
+            )
+            .tag(9)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

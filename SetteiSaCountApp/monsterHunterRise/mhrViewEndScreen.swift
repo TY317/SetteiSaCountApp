@@ -24,6 +24,7 @@ struct mhrViewEndScreen: View {
                             count: $mhr.endScreenCountKisu,
                             minusCheck: $mhr.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // ルーク
                         unitButtonScreenChoice(
                             image: Image(mhr.endScreenKeywordList[1]),

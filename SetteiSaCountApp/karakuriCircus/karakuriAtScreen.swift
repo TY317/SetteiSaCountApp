@@ -19,6 +19,7 @@ struct karakuriAtScreen: View {
                     HStack(spacing: 20) {
                         // デフォルト
                         unitButtonScreenChoice(image: Image("karakuriAtScreenDefault"), keyword: karakuri.atScreenKeywordList[0], currentKeyword: $karakuri.atScreenCurrentKeyword, count: $karakuri.atScreenCountDefault, minusCheck: $karakuri.minusCheck)
+                            .popoverTip(tipUnitButtonScreenChoice())
                         // 敵幹部
                         unitButtonScreenChoice(image: Image("karakuriAtScreenEnemy"), keyword: karakuri.atScreenKeywordList[1], currentKeyword: $karakuri.atScreenCurrentKeyword, count: $karakuri.atScreenCountEnemy, minusCheck: $karakuri.minusCheck)
                         // ヒロイン5人

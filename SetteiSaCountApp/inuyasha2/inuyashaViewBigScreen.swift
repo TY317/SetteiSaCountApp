@@ -52,6 +52,7 @@ struct inuyashaViewBigScreen: View {
                                 count: $inuyasha.bigScreenCountDefault,
                                 minusCheck: $inuyasha.minusCheck
                             )
+                            .popoverTip(tipUnitButtonScreenChoice())
                             // 設定2以上
                             unitButtonScreenChoice(
                                 image: Image(inuyasha.bigScreenKeywordList[3]),

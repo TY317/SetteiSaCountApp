@@ -70,6 +70,7 @@ class Mhr: ObservableObject {
         selectedCycle = "3周期"
         selectedTrigger = "クエスト"
         minusCheck = false
+        riseZoneCount = 0
     }
     
     // /////////////////////////
@@ -257,6 +258,9 @@ class Mhr: ObservableObject {
         resetEndScreen()
         resetEnding()
     }
+    
+    // //// ver1.8.1追加
+    @AppStorage("mhrRiseZoneCount") var riseZoneCount = 0
 }
 
 // //// メモリー1
@@ -291,6 +295,7 @@ class MhrMemory1: ObservableObject {
     @AppStorage("mhrEndingCountSumMemory1") var endingCountSum = 0
     @AppStorage("mhrMemoMemory1") var memo = ""
     @AppStorage("mhrDateMemory1") var dateDouble = 0.0
+    @AppStorage("mhrRiseZoneCountMemory1") var riseZoneCount = 0
 }
 
 // //// メモリー2
@@ -325,6 +330,7 @@ class MhrMemory2: ObservableObject {
     @AppStorage("mhrEndingCountSumMemory2") var endingCountSum = 0
     @AppStorage("mhrMemoMemory2") var memo = ""
     @AppStorage("mhrDateMemory2") var dateDouble = 0.0
+    @AppStorage("mhrRiseZoneCountMemory2") var riseZoneCount = 0
 }
 
 // //// メモリー3
@@ -359,6 +365,7 @@ class MhrMemory3: ObservableObject {
     @AppStorage("mhrEndingCountSumMemory3") var endingCountSum = 0
     @AppStorage("mhrMemoMemory3") var memo = ""
     @AppStorage("mhrDateMemory3") var dateDouble = 0.0
+    @AppStorage("mhrRiseZoneCountMemory3") var riseZoneCount = 0
 }
 
 struct mhrViewTop: View {
@@ -374,6 +381,7 @@ struct mhrViewTop: View {
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
                         )
+                        .popoverTip(tipVer180MhrRiseZoneCountAddTop())
                     }
                     // ボーナス確定画面
                     NavigationLink(destination: mhrViewBonusScreen()) {
@@ -485,6 +493,7 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory1.endingCountRed = mhr.endingCountRed
         mhrMemory1.endingCountAny = mhr.endingCountAny
         mhrMemory1.endingCountSum = mhr.endingCountSum
+        mhrMemory1.riseZoneCount = mhr.riseZoneCount
     }
     func saveMemory2() {
         mhrMemory2.gameArrayData = mhr.gameArrayData
@@ -515,6 +524,7 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory2.endingCountRed = mhr.endingCountRed
         mhrMemory2.endingCountAny = mhr.endingCountAny
         mhrMemory2.endingCountSum = mhr.endingCountSum
+        mhrMemory2.riseZoneCount = mhr.riseZoneCount
     }
     func saveMemory3() {
         mhrMemory3.gameArrayData = mhr.gameArrayData
@@ -545,6 +555,7 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory3.endingCountRed = mhr.endingCountRed
         mhrMemory3.endingCountAny = mhr.endingCountAny
         mhrMemory3.endingCountSum = mhr.endingCountSum
+        mhrMemory3.riseZoneCount = mhr.riseZoneCount
     }
 }
 
@@ -602,6 +613,7 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountRed = mhrMemory1.endingCountRed
         mhr.endingCountAny = mhrMemory1.endingCountAny
         mhr.endingCountSum = mhrMemory1.endingCountSum
+        mhr.riseZoneCount = mhrMemory1.riseZoneCount
     }
     func loadMemory2() {
         mhr.gameArrayData = mhrMemory2.gameArrayData
@@ -632,6 +644,7 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountRed = mhrMemory2.endingCountRed
         mhr.endingCountAny = mhrMemory2.endingCountAny
         mhr.endingCountSum = mhrMemory2.endingCountSum
+        mhr.riseZoneCount = mhrMemory2.riseZoneCount
     }
     func loadMemory3() {
         mhr.gameArrayData = mhrMemory3.gameArrayData
@@ -662,6 +675,7 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountRed = mhrMemory3.endingCountRed
         mhr.endingCountAny = mhrMemory3.endingCountAny
         mhr.endingCountSum = mhrMemory3.endingCountSum
+        mhr.riseZoneCount = mhrMemory3.riseZoneCount
     }
 }
 

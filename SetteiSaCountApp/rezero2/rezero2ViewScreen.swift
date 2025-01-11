@@ -24,6 +24,7 @@ struct rezero2ViewScreen: View {
                             count: $rezero2.screenCountGrave,
                             minusCheck: $rezero2.minusCheck
                         )
+                        .popoverTip(tipUnitButtonScreenChoice())
                         // 風呂男性
                         unitButtonScreenChoice(
                             image: Image(rezero2.screenKeywordList[1]),
