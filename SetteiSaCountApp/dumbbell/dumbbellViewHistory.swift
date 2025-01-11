@@ -152,6 +152,19 @@ struct dumbbellViewHistory: View {
                     }
                     Spacer()
                 }
+                
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "摂取カロリーについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "摂取カロリー",
+                            textBody1: "・主に小役成立時に加算される",
+                            textBody2: "・10,000kcalごとにCZを抽選。100,000kcalの天井到達時はCZ当選",
+                            image1: Image("dumbbellCalorieRatio")
+                        )
+                    )
+                )
             } header: {
                 unitHeaderHistoryColumns(column1Bool: false, column2: "ゲーム数", column3: "カロリー", column4: "前半パート", column5: "後半パート")
             }
@@ -199,13 +212,16 @@ struct dumbbellViewHistory: View {
                         unitExView5body2image(
                             title: "CZ関連の設定差",
                             textBody1: "・CZ初当り確率は未発表。大きな設定差はない！？",
-                            textBody2: "・CZの後半パート成功率に設定差があるらしい",
-                            textBody3: "・各種公表値から逆算すると後半パート成功率は平均すると57%。高設定はこの数値を上回るのが目安になるかも",
+                            textBody2: "・CZの後半パート成功率に設定差あり",
+                            textBody3: "・前半パートの突破率公表値は約77%",
                             textBody4: "・CZ高確示唆の神社ステージへの移行率も高設定ほど優遇",
-                            image1: Image("dumbbellCz")
+                            image1: Image("dumbbellSecondHalfSuccessRatio")
                         )
                     )
                 )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ関連まとめ")
             }

@@ -675,6 +675,7 @@ struct unitExView5body2image: View {
                     if let image1Title = image1Title {
                         Text(image1Title)
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.top)
                     }
                     if let image1 = image1 {
                         image1

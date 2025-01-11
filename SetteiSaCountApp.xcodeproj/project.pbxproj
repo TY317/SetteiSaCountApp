@@ -79,6 +79,10 @@
 		0F7D3F232C82CB1E00A3FE7D /* kabaneriViewIkoma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F222C82CB1E00A3FE7D /* kabaneriViewIkoma.swift */; };
 		0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F242C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift */; };
 		0F7E4F732D28AC77001CC916 /* dumbbellView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F722D28AC77001CC916 /* dumbbellView95Ci.swift */; };
+		0F7E4F752D28E94D001CC916 /* acceleratorViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F742D28E94D001CC916 /* acceleratorViewCz.swift */; };
+		0F7E4F772D2A2230001CC916 /* acceleratorViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F762D2A2230001CC916 /* acceleratorViewScreen.swift */; };
+		0F7E4F792D2A48FF001CC916 /* commonViewFujimaruCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F782D2A48FF001CC916 /* commonViewFujimaruCoin.swift */; };
+		0F7E4F7B2D2A4C8F001CC916 /* acceleratorView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7E4F7A2D2A4C8F001CC916 /* acceleratorView95Ci.swift */; };
 		0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */; };
 		0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DD2C6249FC001F008E /* ContentView.swift */; };
 		0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
@@ -316,6 +320,10 @@
 		0F7D3F222C82CB1E00A3FE7D /* kabaneriViewIkoma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriViewIkoma.swift; sourceTree = "<group>"; };
 		0F7D3F242C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriViewHintDuringBonus.swift; sourceTree = "<group>"; };
 		0F7E4F722D28AC77001CC916 /* dumbbellView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dumbbellView95Ci.swift; sourceTree = "<group>"; };
+		0F7E4F742D28E94D001CC916 /* acceleratorViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorViewCz.swift; sourceTree = "<group>"; };
+		0F7E4F762D2A2230001CC916 /* acceleratorViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorViewScreen.swift; sourceTree = "<group>"; };
+		0F7E4F782D2A48FF001CC916 /* commonViewFujimaruCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewFujimaruCoin.swift; sourceTree = "<group>"; };
+		0F7E4F7A2D2A4C8F001CC916 /* acceleratorView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorView95Ci.swift; sourceTree = "<group>"; };
 		0F8030D82C6249FC001F008E /* SetteiSaCountApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetteiSaCountApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppApp.swift; sourceTree = "<group>"; };
 		0F8030DD2C6249FC001F008E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -799,6 +807,7 @@
 				0FDC32662D1C289C005B3D06 /* ver180Tip.swift */,
 				0FDC32722D22329E005B3D06 /* ver171Tip.swift */,
 				0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */,
+				0F7E4F782D2A48FF001CC916 /* commonViewFujimaruCoin.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -984,6 +993,9 @@
 			children = (
 				0FDC328F2D27DF5A005B3D06 /* acceleratorViewTop.swift */,
 				0FDC32932D27DF85005B3D06 /* acceleratorAssets.xcassets */,
+				0F7E4F742D28E94D001CC916 /* acceleratorViewCz.swift */,
+				0F7E4F762D2A2230001CC916 /* acceleratorViewScreen.swift */,
+				0F7E4F7A2D2A4C8F001CC916 /* acceleratorView95Ci.swift */,
 			);
 			path = accelerator;
 			sourceTree = "<group>";
@@ -1345,6 +1357,7 @@
 				0FA024A82D0B137A004B3FD5 /* lupinViewRoundScreen.swift in Sources */,
 				0FDC32772D2386CF005B3D06 /* danvineViewSt.swift in Sources */,
 				0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */,
+				0F7E4F772D2A2230001CC916 /* acceleratorViewScreen.swift in Sources */,
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */,
 				0F8031182C697910001F008E /* splashScreenView.swift in Sources */,
@@ -1370,6 +1383,7 @@
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,
 				0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */,
+				0F7E4F7B2D2A4C8F001CC916 /* acceleratorView95Ci.swift in Sources */,
 				0FDC328B2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift in Sources */,
 				0F7D3F1B2C80B70C00A3FE7D /* kabaneriViewTop.swift in Sources */,
 				0F8031122C6255AB001F008E /* VVV_CZ.swift in Sources */,
@@ -1475,6 +1489,8 @@
 				0F80311D2C69B42A001F008E /* myFunction.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
 				0F654BEF2C71670600F37849 /* kingHanaExViewBbSuika.swift in Sources */,
+				0F7E4F792D2A48FF001CC916 /* commonViewFujimaruCoin.swift in Sources */,
+				0F7E4F752D28E94D001CC916 /* acceleratorViewCz.swift in Sources */,
 				0FE23B2C2C772D04000E65D7 /* mt5GekisoView.swift in Sources */,
 				0F654BBF2C6DD9A600F37849 /* myJug5ViewTop.swift in Sources */,
 				0F654BB32C6CDF0B00F37849 /* VVVexViewDrive.swift in Sources */,
@@ -1662,7 +1678,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンター - count";
+				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンターcount - パチスロ設定判別";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1702,7 +1718,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SetteiSaCountApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンター - count";
+				INFOPLIST_KEY_CFBundleDisplayName = "小役カウンターcount - パチスロ設定判別";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "許可すると興味のある広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -120,6 +120,19 @@ struct godeaterViewHistory: View {
                         }
                         // //// 参考情報
                         unitLinkButton(title: "初当りについて", exview: AnyView (unitExView5body2image(title: "初当りについて", textBody1: "・CZ,ATの初当り確率に設定差", textBody2: "・C Zは基本レア役からの当選。弱レア役での当選により設定差があるのではとの噂も？", textBody3: "・ATのメイン契機は規定ゲーム数。規定ゲーム数は100,200,300,450,600,750,1000。", textBody4: "・200と450での当選率に特に設定差があるのではと言われている", textBody5: "・レア役でのAT直撃にも設定差があると言われている" ,image1: Image("godeaterHit"))))
+                        // 通常滞在時のレア役からのCZ当選率
+                        unitLinkButton(
+                            title: "通常滞在時 レア役からのCZについて",
+                            exview: AnyView(
+                                unitExView5body2image(
+                                    title: "通常滞在時 レア役からのCZ",
+                                    textBody1: "・レア役成立時はCZ抽選。当選時はアラガミ防衛戦 or 殲滅モードへ突入",
+                                    textBody2: "・通常滞在時のレア役からのCZ当選に設定差あり",
+                                    image1Title: "[レア役からのCZ当選率]",
+                                    image1: Image("godeaterNormalRareCz")
+                                )
+                            )
+                        )
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(selection: 1)))
                             .popoverTip(tipUnitButtonLink95Ci())

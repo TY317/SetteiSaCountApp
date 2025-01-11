@@ -176,7 +176,7 @@ struct dumbbellViewKinnikuBonus: View {
                             title: "ライジングアッパーチャレンジ",
                             textBody1: "・金肉ボーナス後に突入する引き戻しCZ",
                             textBody2: "・高設定ほど成功率が優遇されているらしい",
-                            textBody3: "・公表値は約56%だが、高設定はこれより高い数値が目安になると思われる"
+                            textBody3: "・成功率公表値は約56%だが、高設定はこれより高い数値が目安になると思われる"
                         )
                     )
                 )

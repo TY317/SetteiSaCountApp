@@ -31,6 +31,23 @@ struct mhrView95Ci: View {
                 )
             )
             .tag(1)
+            // ライズゾーン初当り回数
+            unitListSection95Ci(
+                grafTitle: "ライズゾーン初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mhr.riseZoneCount,
+                        bigNumber: $mhr.playGameSum,
+                        setting1Denominate: 75.6,
+                        setting2Denominate: 75.2,
+                        setting3Denominate: 72.9,
+                        setting4Denominate: 71.8,
+                        setting5Denominate: 68.9,
+                        setting6Denominate: 68.2
+                    )
+                )
+            )
+            .tag(2)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

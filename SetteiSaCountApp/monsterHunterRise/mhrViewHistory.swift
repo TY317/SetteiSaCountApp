@@ -23,6 +23,18 @@ struct mhrViewHistory: View {
     
     var body: some View {
         List {
+            // //// ライズゾーンカウント
+            Section {
+                unitCountButtonVerticalWithoutRatio(
+                    title: "ライズゾーン初当り",
+                    count: $mhr.riseZoneCount,
+                    color: .personalSummerLightBlue,
+                    minusBool: $mhr.minusCheck
+                )
+            } header: {
+                Text("ライズゾーン初当り回数")
+            }
+            .popoverTip(tipVer180MhrRiseZoneCountAdd())
             // //// 履歴表示
             Section {
                 ScrollView {
@@ -179,12 +191,51 @@ struct mhrViewHistory: View {
                         )
                     )
                 )
+                // レア役からの直撃確率
+                unitLinkButton(
+                    title: "レア役からの直撃確率",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "レア役からの直撃確率",
+                            textBody1: "・レア役からの直撃確率に設定差あり",
+                            textBody2: "・強レア役は現実的に起こりうる数値。複数回確認できれば高設定に期待してもいいかも",
+                            image1: Image("mhrRareHitRatio")
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当り")
             }
+            
+            // //// ライズゾーン初当り確率
+            Section {
+                // 確率表示
+                unitResultRatioDenomination2Line(
+                    title: "ライズゾーン確率",
+                    count: $mhr.riseZoneCount,
+                    bigNumber: $mhr.playGameSum,
+                    numberofDicimal: 1
+                )
+                // 参考情報リンク
+                unitLinkButton(
+                    title: "ライズゾーン実質初当り確率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ライズゾーン実質初当り確率",
+                            image1: Image("mhrRiseZone")
+                        )
+                    )
+                )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 2)))
+                    .popoverTip(tipUnitButtonLink95Ci())
+            } header: {
+                Text("ライズゾーン初当り確率")
+            }
+            unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

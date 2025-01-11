@@ -145,54 +145,69 @@ class Dumbbell: ObservableObject {
     @AppStorage("dumbbellCzBonusScreenCurrentKeyword") var czBonusScreenCurrentKeyword: String = ""
     @AppStorage("dumbbellCzBonusScreenCountDefault") var czBonusScreenCountDefault = 0 {
         didSet {
-            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
         }
     }
     @AppStorage("dumbbellCzBonusScreenCountAny") var czBonusScreenCountAny = 0 {
         didSet {
-            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
         }
     }
         @AppStorage("dumbbellCzBonusScreenCountOver3Sisa") var czBonusScreenCountOver3Sisa = 0 {
             didSet {
-                czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
             }
         }
             @AppStorage("dumbbellCzBonusScreenCountHighJaku") var czBonusScreenCountHigh = 0 {
                 didSet {
-                    czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                    czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                 }
             }
                 @AppStorage("dumbbellCzBonusScreenCountOverTokutei") var czBonusScreenCountOverTokutei = 0 {
                     didSet {
-                        czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                        czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                     }
                 }
                     @AppStorage("dumbbellCzBonusScreenCountOver4") var czBonusScreenCountOver4 = 0 {
                         didSet {
-                            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                         }
                     }
                         @AppStorage("dumbbellCzBonusScreenCountOver4Kyo") var czBonusScreenCountOver4Kyo = 0 {
                             didSet {
-                                czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                                czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                             }
                         }
                             @AppStorage("dumbbellCzBonusScreenCountOver6") var czBonusScreenCountOver6 = 0 {
                                 didSet {
-                                    czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                                    czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                                 }
                             }
                                 @AppStorage("dumbbellCzBonusScreenCountMode") var czBonusScreenCountMode = 0 {
                                     didSet {
-                                        czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                                        czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                                     }
                                 }
                                     @AppStorage("dumbbellCzBonusScreenCount1or6") var czBonusScreenCount1or6 = 0 {
                                         didSet {
-                                            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6)
+                                            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
                                         }
                                     }
+    @AppStorage("dumbbellCzBonusScreenCountOver2Sisa") var czBonusScreenCountOver2Sisa = 0 {
+        didSet {
+            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
+        }
+    }
+    @AppStorage("dumbbellCzBonusScreenCountGusuSisa") var czBonusScreenCountGusuSisa = 0 {
+        didSet {
+            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
+        }
+    }
+    @AppStorage("dumbbellCzBonusScreenCountKisuSisa") var czBonusScreenCountKisuSisa = 0 {
+        didSet {
+            czBonusScreenCountSum = countSum(czBonusScreenCountDefault, czBonusScreenCountAny, czBonusScreenCountOver3Sisa, czBonusScreenCountHigh, czBonusScreenCountOverTokutei, czBonusScreenCountOver4, czBonusScreenCountOver4Kyo, czBonusScreenCountOver6, czBonusScreenCountMode, czBonusScreenCount1or6, czBonusScreenCountOver2Sisa, czBonusScreenCountKisuSisa, czBonusScreenCountGusuSisa)
+        }
+    }
     @AppStorage("dumbbellCzBonusScreenCountSum") var czBonusScreenCountSum = 0
     
     func resetCzBonusScreen() {
@@ -207,6 +222,9 @@ class Dumbbell: ObservableObject {
         czBonusScreenCountOver6 = 0
         czBonusScreenCountMode = 0
         czBonusScreenCount1or6 = 0
+        czBonusScreenCountOver2Sisa = 0
+        czBonusScreenCountGusuSisa = 0
+        czBonusScreenCountKisuSisa = 0
         minusCheck = false
     }
     
@@ -354,6 +372,9 @@ class DumbbellMemory1: ObservableObject {
     @AppStorage("dumbbellKinnikuScreenCountSumMemory1") var kinnikuScreenCountSum = 0
     @AppStorage("dumbbellMemoMemory1") var memo = ""
     @AppStorage("dumbbellDateMemory1") var dateDouble = 0.0
+    @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory1") var czBonusScreenCountOver2Sisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory1") var czBonusScreenCountGusuSisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory1") var czBonusScreenCountKisuSisa = 0
 }
 
 
@@ -396,6 +417,9 @@ class DumbbellMemory2: ObservableObject {
     @AppStorage("dumbbellKinnikuScreenCountSumMemory2") var kinnikuScreenCountSum = 0
     @AppStorage("dumbbellMemoMemory2") var memo = ""
     @AppStorage("dumbbellDateMemory2") var dateDouble = 0.0
+    @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory2") var czBonusScreenCountOver2Sisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory2") var czBonusScreenCountGusuSisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory2") var czBonusScreenCountKisuSisa = 0
 }
 
 
@@ -438,6 +462,9 @@ class DumbbellMemory3: ObservableObject {
     @AppStorage("dumbbellKinnikuScreenCountSumMemory3") var kinnikuScreenCountSum = 0
     @AppStorage("dumbbellMemoMemory3") var memo = ""
     @AppStorage("dumbbellDateMemory3") var dateDouble = 0.0
+    @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory3") var czBonusScreenCountOver2Sisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory3") var czBonusScreenCountGusuSisa = 0
+    @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory3") var czBonusScreenCountKisuSisa = 0
 }
 
 
@@ -466,7 +493,7 @@ struct dumbbellViewTop: View {
                     NavigationLink(destination: dumbbellCzAtScreen()) {
                         unitLabelMenu(
                             imageSystemName: "dumbbell.fill",
-                            textBody: "CZ・ボーナス終了画面"
+                            textBody: "CZ,ボーナス終了画面"
                         )
                     }
                     // ゴールデンチャレンジ
@@ -487,7 +514,7 @@ struct dumbbellViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ダンベル何キロ持てる？")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: dumbbellView95Ci()) {
+                NavigationLink(destination: dumbbellView95Ci(selection: 2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
             }
@@ -574,6 +601,9 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory1.kinnikuScreenCountHigh = dumbbell.kinnikuScreenCountHigh
         dumbbellMemory1.kinnikuScreenCountHighKyo = dumbbell.kinnikuScreenCountHighKyo
         dumbbellMemory1.kinnikuScreenCountSum = dumbbell.kinnikuScreenCountSum
+        dumbbellMemory1.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
+        dumbbellMemory1.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
+        dumbbellMemory1.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
     }
     func saveMemory2() {
         dumbbellMemory2.gameArrayData = dumbbell.gameArrayData
@@ -611,6 +641,9 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory2.kinnikuScreenCountHigh = dumbbell.kinnikuScreenCountHigh
         dumbbellMemory2.kinnikuScreenCountHighKyo = dumbbell.kinnikuScreenCountHighKyo
         dumbbellMemory2.kinnikuScreenCountSum = dumbbell.kinnikuScreenCountSum
+        dumbbellMemory2.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
+        dumbbellMemory2.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
+        dumbbellMemory2.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
     }
     func saveMemory3() {
         dumbbellMemory3.gameArrayData = dumbbell.gameArrayData
@@ -648,6 +681,9 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory3.kinnikuScreenCountHigh = dumbbell.kinnikuScreenCountHigh
         dumbbellMemory3.kinnikuScreenCountHighKyo = dumbbell.kinnikuScreenCountHighKyo
         dumbbellMemory3.kinnikuScreenCountSum = dumbbell.kinnikuScreenCountSum
+        dumbbellMemory3.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
+        dumbbellMemory3.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
+        dumbbellMemory3.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
     }
 }
 
@@ -714,6 +750,9 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.kinnikuScreenCountHigh = dumbbellMemory1.kinnikuScreenCountHigh
         dumbbell.kinnikuScreenCountHighKyo = dumbbellMemory1.kinnikuScreenCountHighKyo
         dumbbell.kinnikuScreenCountSum = dumbbellMemory1.kinnikuScreenCountSum
+        dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory1.czBonusScreenCountOver2Sisa
+        dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory1.czBonusScreenCountGusuSisa
+        dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory1.czBonusScreenCountKisuSisa
     }
     func loadMemory2() {
         dumbbell.gameArrayData = dumbbellMemory2.gameArrayData
@@ -751,6 +790,9 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.kinnikuScreenCountHigh = dumbbellMemory2.kinnikuScreenCountHigh
         dumbbell.kinnikuScreenCountHighKyo = dumbbellMemory2.kinnikuScreenCountHighKyo
         dumbbell.kinnikuScreenCountSum = dumbbellMemory2.kinnikuScreenCountSum
+        dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory2.czBonusScreenCountOver2Sisa
+        dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory2.czBonusScreenCountGusuSisa
+        dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory2.czBonusScreenCountKisuSisa
     }
     func loadMemory3() {
         dumbbell.gameArrayData = dumbbellMemory3.gameArrayData
@@ -788,6 +830,9 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.kinnikuScreenCountHigh = dumbbellMemory3.kinnikuScreenCountHigh
         dumbbell.kinnikuScreenCountHighKyo = dumbbellMemory3.kinnikuScreenCountHighKyo
         dumbbell.kinnikuScreenCountSum = dumbbellMemory3.kinnikuScreenCountSum
+        dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory3.czBonusScreenCountOver2Sisa
+        dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory3.czBonusScreenCountGusuSisa
+        dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory3.czBonusScreenCountKisuSisa
     }
 }
 

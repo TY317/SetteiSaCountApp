@@ -85,12 +85,15 @@ struct dumbbellViewGoldenChallenge: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ゴールデンチャレンジ",
-                            textBody1: "・高設定ほどチャレンジ当選率、成功率が高いらしい",
-                            textBody2: "・当選率は設定6の実戦値として27%程度との噂あり",
-                            image1: Image("dumbbellGoldenChallenge")
+                            textBody1: "・高設定ほどチャレンジ当選率が優遇",
+                            textBody2: "・成功率は公表値で約56%。これは低設定または全設定平均値と思われる。高設定はこれより優遇？",
+                            image1: Image("dumbellGoldenChallengeRatio")
                         )
                     )
                 )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 3)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ゴールデンチャレンジ")
             }
