@@ -43,37 +43,60 @@ struct JuglerSeriesViewTop: View {
                             .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                             // //// ゴーゴージャグラー3、2023年 7月
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachineIconLink(
+//                                    linkView: AnyView(goJug3ViewTop()),
+//                                    iconImage: Image("goJug3MachineIcon"),
+//                                    machineName: "ゴージャグ3"
+//                                )
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(
-                                    linkView: AnyView(goJug3ViewTop()),
+                                    linkView: AnyView(goJug3Ver2ViewTop()),
                                     iconImage: Image("goJug3MachineIcon"),
                                     machineName: "ゴージャグ3"
                                 )
-//                                .popoverTip(tipVer150AddMachineJug())
                             }
                             
                             // //// ハッピージャグラーV3
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachineIconLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピーV3")
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピーV3")
+                                unitMachineIconLink(linkView: AnyView(happyJugV3Ver2ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピーV3")
                             }
                             
+                            // //// マイジャグラー５
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachineIconLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
+//                            }
                             // //// マイジャグラー５
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
+                                unitMachineIconLink(linkView: AnyView(myJug5Ver2ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
                             }
-                            
+                            // //// アイムジャグラーEX
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachineIconLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
+//                            }
                             // //// アイムジャグラーEX
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
-//                                    .popoverTip(tipVer130AddMachineJug())
+                                unitMachineIconLink(linkView: AnyView(imJugExVer2ViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
                             }
                         }
                     }
@@ -85,18 +108,29 @@ struct JuglerSeriesViewTop: View {
                     List {
                         Section {
                             // //// ゴーゴージャグラー3、2023年 7月
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachinListLink(
+//                                    linkView: AnyView(goJug3ViewTop()),
+//                                    iconImage: Image("goJug3MachineIcon"),
+//                                    machineName: "ゴーゴージャグラー3",
+//                                    makerName: "北電子",
+//                                    releaseYear: 2023,
+//                                    releaseMonth: 7
+//                                )
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedGoJug3 == false {
                                 // 非表示
                             } else {
                                 unitMachinListLink(
-                                    linkView: AnyView(goJug3ViewTop()),
+                                    linkView: AnyView(goJug3Ver2ViewTop()),
                                     iconImage: Image("goJug3MachineIcon"),
                                     machineName: "ゴーゴージャグラー3",
                                     makerName: "北電子",
                                     releaseYear: 2023,
                                     releaseMonth: 7
                                 )
-//                                .popoverTip(tipVer150AddMachineJug())
                             }
                             
                             // //// ハッピージャグラーV3
@@ -107,18 +141,27 @@ struct JuglerSeriesViewTop: View {
                             }
                             
                             // //// マイジャグラー５
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachinListLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(myJug5ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
+                                unitMachinListLink(linkView: AnyView(myJug5Ver2ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
                             }
                             
                             // //// アイムジャグラーEX
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachinListLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(imJugExViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
-//                                    .popoverTip(tipVer130AddMachineJug())
+                                unitMachinListLink(linkView: AnyView(imJugExVer2ViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
                             }
                             
                         } header: {
