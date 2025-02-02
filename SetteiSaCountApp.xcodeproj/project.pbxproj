@@ -938,33 +938,14 @@
 		0F80310E2C625060001F008E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0F80311A2C69B3BD001F008E /* myButtonStyle.swift */,
-				0F80311C2C69B42A001F008E /* myFunction.swift */,
-				0F8872752C6AE38C00AADD2B /* myModifier.swift */,
+				0F868A722D4F2E8D00D952D9 /* modifier */,
+				0F868A712D4F2E7C00D952D9 /* buttonStyle */,
+				0F868A702D4F2E5800D952D9 /* unitView */,
+				0F868A6E2D4F2DF800D952D9 /* tipkit */,
+				0F868A6D2D4F2DA000D952D9 /* view */,
+				0F868A6C2D4F2D7B00D952D9 /* function */,
 				0FA024602CF1C605004B3FD5 /* ci95Explain.pdf */,
-				0F654BD72C6F409F00F37849 /* myViewUnit.swift */,
-				0FE23B332C79C88A000E65D7 /* myTips.swift */,
-				0F3465C02CB4128900B5D2DD /* ver120Tip.swift */,
-				0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */,
-				0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */,
-				0FA024462CDB93C4004B3FD5 /* ver150Tip.swift */,
-				0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */,
 				0FA024502CDF5C93004B3FD5 /* commonAssets.xcassets */,
-				0FA024572CE8189B004B3FD5 /* ver160Tip.swift */,
-				0FA024972D05CF3E004B3FD5 /* ver170Tip.swift */,
-				0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */,
-				0FDC32662D1C289C005B3D06 /* ver180Tip.swift */,
-				0FDC32722D22329E005B3D06 /* ver171Tip.swift */,
-				0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */,
-				0F7E4F782D2A48FF001CC916 /* commonViewFujimaruCoin.swift */,
-				0F8689DB2D3BD26800D952D9 /* unitButtonRecordKenToStart.swift */,
-				0F8689DF2D3C874F00D952D9 /* unitCountButtonVerticalDenominateAnotherDisplayNumber.swift */,
-				0F8689E52D3D251000D952D9 /* unitResultCountListWithoutRatio.swift */,
-				0F868A0F2D44917A00D952D9 /* unitTextBackCaluculateStatus.swift */,
-				0F868A262D45167200D952D9 /* unitResultHanrei.swift */,
-				0F868A632D490BF900D952D9 /* tipJugHanaCommon.swift */,
-				0F868A662D4910BA00D952D9 /* ver200Tip.swift */,
-				0F868A6A2D4DA97F00D952D9 /* unitChart95CiPercentNotBinding.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1132,6 +1113,81 @@
 				0F868A612D47BF8D00D952D9 /* draHanaSenkohVer2View95CiPersonal.swift */,
 			);
 			path = ver2;
+			sourceTree = "<group>";
+		};
+		0F868A6C2D4F2D7B00D952D9 /* function */ = {
+			isa = PBXGroup;
+			children = (
+				0F80311C2C69B42A001F008E /* myFunction.swift */,
+			);
+			path = function;
+			sourceTree = "<group>";
+		};
+		0F868A6D2D4F2DA000D952D9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0FA0244E2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift */,
+				0FDC32622D17CAD4005B3D06 /* commonViewNamichanTrophy.swift */,
+				0FDC327C2D23DC80005B3D06 /* commonSammyTrophy.swift */,
+				0F7E4F782D2A48FF001CC916 /* commonViewFujimaruCoin.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0F868A6E2D4F2DF800D952D9 /* tipkit */ = {
+			isa = PBXGroup;
+			children = (
+				0F868A6F2D4F2E1300D952D9 /* verTip */,
+				0FE23B332C79C88A000E65D7 /* myTips.swift */,
+				0F868A632D490BF900D952D9 /* tipJugHanaCommon.swift */,
+			);
+			path = tipkit;
+			sourceTree = "<group>";
+		};
+		0F868A6F2D4F2E1300D952D9 /* verTip */ = {
+			isa = PBXGroup;
+			children = (
+				0F3465C02CB4128900B5D2DD /* ver120Tip.swift */,
+				0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */,
+				0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */,
+				0FA024462CDB93C4004B3FD5 /* ver150Tip.swift */,
+				0FA024572CE8189B004B3FD5 /* ver160Tip.swift */,
+				0FA024972D05CF3E004B3FD5 /* ver170Tip.swift */,
+				0FDC32662D1C289C005B3D06 /* ver180Tip.swift */,
+				0FDC32722D22329E005B3D06 /* ver171Tip.swift */,
+				0F868A662D4910BA00D952D9 /* ver200Tip.swift */,
+			);
+			path = verTip;
+			sourceTree = "<group>";
+		};
+		0F868A702D4F2E5800D952D9 /* unitView */ = {
+			isa = PBXGroup;
+			children = (
+				0F654BD72C6F409F00F37849 /* myViewUnit.swift */,
+				0F8689DB2D3BD26800D952D9 /* unitButtonRecordKenToStart.swift */,
+				0F8689DF2D3C874F00D952D9 /* unitCountButtonVerticalDenominateAnotherDisplayNumber.swift */,
+				0F8689E52D3D251000D952D9 /* unitResultCountListWithoutRatio.swift */,
+				0F868A0F2D44917A00D952D9 /* unitTextBackCaluculateStatus.swift */,
+				0F868A262D45167200D952D9 /* unitResultHanrei.swift */,
+				0F868A6A2D4DA97F00D952D9 /* unitChart95CiPercentNotBinding.swift */,
+			);
+			path = unitView;
+			sourceTree = "<group>";
+		};
+		0F868A712D4F2E7C00D952D9 /* buttonStyle */ = {
+			isa = PBXGroup;
+			children = (
+				0F80311A2C69B3BD001F008E /* myButtonStyle.swift */,
+			);
+			path = buttonStyle;
+			sourceTree = "<group>";
+		};
+		0F868A722D4F2E8D00D952D9 /* modifier */ = {
+			isa = PBXGroup;
+			children = (
+				0F8872752C6AE38C00AADD2B /* myModifier.swift */,
+			);
+			path = modifier;
 			sourceTree = "<group>";
 		};
 		0F88727B2C6B2CF900AADD2B /* marie */ = {
