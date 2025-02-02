@@ -863,6 +863,8 @@
 		0F8030DA2C6249FC001F008E /* SetteiSaCountApp */ = {
 			isa = PBXGroup;
 			children = (
+				0F8030DD2C6249FC001F008E /* ContentView.swift */,
+				0F80310E2C625060001F008E /* Common */,
 				0FDC328E2D27DF01005B3D06 /* accelerator */,
 				0FDC327F2D26073E005B3D06 /* dumbbell */,
 				0FA0249E2D05D534004B3FD5 /* danvine */,
@@ -882,15 +884,12 @@
 				0FE23B242C71B282000E65D7 /* monkeyTurn5 */,
 				0F654BCB2C6F041600F37849 /* hanahanaSeries */,
 				0F77326B2C6C91FB00A87FC8 /* Info.plist */,
-				0F80310E2C625060001F008E /* Common */,
 				0F654BB62C6DD27E00F37849 /* JuglerSeries */,
 				0F80310B2C624F20001F008E /* VVV */,
 				0F8030E12C6249FE001F008E /* Preview Content */,
 				0F8031172C697910001F008E /* splashScreenView.swift */,
 				0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */,
-				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F8030DF2C6249FE001F008E /* Assets.xcassets */,
-				0F654BC72C6EC2F400F37849 /* commonTips.swift */,
 			);
 			path = SetteiSaCountApp;
 			sourceTree = "<group>";
@@ -1140,6 +1139,7 @@
 				0F868A6F2D4F2E1300D952D9 /* verTip */,
 				0FE23B332C79C88A000E65D7 /* myTips.swift */,
 				0F868A632D490BF900D952D9 /* tipJugHanaCommon.swift */,
+				0F654BC72C6EC2F400F37849 /* commonTips.swift */,
 			);
 			path = tipkit;
 			sourceTree = "<group>";
