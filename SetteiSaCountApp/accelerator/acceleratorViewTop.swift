@@ -84,6 +84,9 @@ class Accelerator: ObservableObject {
         atCount = arrayStringDataCount(arrayData: resultArrayData, countString: selectListResultAt[0])
         let directAtCount = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[3])
         czCount = arrayIntAllDataCount(arrayData: gameArrayData) - directAtCount
+        czCountAccelerator = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[0])
+        czCountLastorder = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[1])
+        czCountBoth = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[2])
     }
     // 1行削除
     func removeLastHistory() {
@@ -98,6 +101,9 @@ class Accelerator: ObservableObject {
         atCount = arrayStringDataCount(arrayData: resultArrayData, countString: selectListResultAt[0])
         let directAtCount = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[3])
         czCount = arrayIntAllDataCount(arrayData: gameArrayData) - directAtCount
+        czCountAccelerator = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[0])
+        czCountLastorder = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[1])
+        czCountBoth = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[2])
     }
     func resetHistory() {
         arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
@@ -111,6 +117,9 @@ class Accelerator: ObservableObject {
         atCount = arrayStringDataCount(arrayData: resultArrayData, countString: selectListResultAt[0])
         let directAtCount = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[3])
         czCount = arrayIntAllDataCount(arrayData: gameArrayData) - directAtCount
+        czCountAccelerator = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[0])
+        czCountLastorder = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[1])
+        czCountBoth = arrayStringDataCount(arrayData: czArrayData, countString: selectListCz[2])
         chanceCountLose = 0
         chanceCountWinAccelerator = 0
         chanceCountWinLastorder = 0
@@ -196,6 +205,47 @@ class Accelerator: ObservableObject {
     func resetAll() {
         resetHistory()
         resetScreen()
+        resetShutter()
+    }
+    
+    // ////////////////////////
+    // ver2.0.0で追加
+    // ////////////////////////
+    @AppStorage("acceleratorCzCountAccelerator") var czCountAccelerator = 0
+    @AppStorage("acceleratorCzCountLastorder") var czCountLastorder = 0
+    @AppStorage("acceleratorCzCountBoth") var czCountBoth = 0
+    
+    // ////////////////////////
+    // シャッター関連
+    // ////////////////////////
+    @AppStorage("acceleratorNormalChanceCountShutterClose") var normalChanceCount = 0
+    @AppStorage("acceleratorNormalChanceCountShutterOpen") var normalChanceCountShutterOpen = 0
+    @AppStorage("acceleratorShutterOpenStartGameMemo") var shutterOpenStartGameMemo = 0
+    @AppStorage("acceleratorShutterOpenCount18G") var shutterOpenCount18G = 0 {
+        didSet {
+            shutterOpenCountSum = countSum(shutterOpenCount18G, shutterOpenCount23G, shutterOpenCount33G)
+        }
+    }
+        @AppStorage("acceleratorShutterOpenCount23G") var shutterOpenCount23G = 0 {
+            didSet {
+                shutterOpenCountSum = countSum(shutterOpenCount18G, shutterOpenCount23G, shutterOpenCount33G)
+            }
+        }
+            @AppStorage("acceleratorShutterOpenCount33G") var shutterOpenCount33G = 0 {
+                didSet {
+                    shutterOpenCountSum = countSum(shutterOpenCount18G, shutterOpenCount23G, shutterOpenCount33G)
+                }
+            }
+    @AppStorage("acceleratorShutterOpenCountSum") var shutterOpenCountSum = 0
+    
+    func resetShutter() {
+        normalChanceCount = 0
+        normalChanceCountShutterOpen = 0
+        shutterOpenStartGameMemo = 0
+        shutterOpenCount18G = 0
+        shutterOpenCount23G = 0
+        shutterOpenCount33G = 0
+        minusCheck = false
     }
 }
 
@@ -224,6 +274,18 @@ class AcceleratorMemory1: ObservableObject {
     @AppStorage("acceleratorScreenCountSumMemory1") var screenCountSum = 0
     @AppStorage("acceleratorMemoMemory1") var memo = ""
     @AppStorage("acceleratorDateMemory1") var dateDouble = 0.0
+    // ////////////////////////
+    // ver2.0.0で追加
+    // ////////////////////////
+    @AppStorage("acceleratorCzCountAcceleratorMemory1") var czCountAccelerator = 0
+    @AppStorage("acceleratorCzCountLastorderMemory1") var czCountLastorder = 0
+    @AppStorage("acceleratorCzCountBothMemory1") var czCountBoth = 0
+    @AppStorage("acceleratorNormalChanceCountShutterCloseMemory1") var normalChanceCount = 0
+    @AppStorage("acceleratorNormalChanceCountShutterOpenMemory1") var normalChanceCountShutterOpen = 0
+    @AppStorage("acceleratorShutterOpenCount18GMemory1") var shutterOpenCount18G = 0
+    @AppStorage("acceleratorShutterOpenCount23GMemory1") var shutterOpenCount23G = 0
+    @AppStorage("acceleratorShutterOpenCount33GMemory1") var shutterOpenCount33G = 0
+    @AppStorage("acceleratorShutterOpenCountSumMemory1") var shutterOpenCountSum = 0
 }
 
 
@@ -251,6 +313,18 @@ class AcceleratorMemory2: ObservableObject {
     @AppStorage("acceleratorScreenCountSumMemory2") var screenCountSum = 0
     @AppStorage("acceleratorMemoMemory2") var memo = ""
     @AppStorage("acceleratorDateMemory2") var dateDouble = 0.0
+    // ////////////////////////
+    // ver2.0.0で追加
+    // ////////////////////////
+    @AppStorage("acceleratorCzCountAcceleratorMemory2") var czCountAccelerator = 0
+    @AppStorage("acceleratorCzCountLastorderMemory2") var czCountLastorder = 0
+    @AppStorage("acceleratorCzCountBothMemory2") var czCountBoth = 0
+    @AppStorage("acceleratorNormalChanceCountShutterCloseMemory2") var normalChanceCount = 0
+    @AppStorage("acceleratorNormalChanceCountShutterOpenMemory2") var normalChanceCountShutterOpen = 0
+    @AppStorage("acceleratorShutterOpenCount18GMemory2") var shutterOpenCount18G = 0
+    @AppStorage("acceleratorShutterOpenCount23GMemory2") var shutterOpenCount23G = 0
+    @AppStorage("acceleratorShutterOpenCount33GMemory2") var shutterOpenCount33G = 0
+    @AppStorage("acceleratorShutterOpenCountSumMemory2") var shutterOpenCountSum = 0
 }
 
 
@@ -278,6 +352,18 @@ class AcceleratorMemory3: ObservableObject {
     @AppStorage("acceleratorScreenCountSumMemory3") var screenCountSum = 0
     @AppStorage("acceleratorMemoMemory3") var memo = ""
     @AppStorage("acceleratorDateMemory3") var dateDouble = 0.0
+    // ////////////////////////
+    // ver2.0.0で追加
+    // ////////////////////////
+    @AppStorage("acceleratorCzCountAcceleratorMemory3") var czCountAccelerator = 0
+    @AppStorage("acceleratorCzCountLastorderMemory3") var czCountLastorder = 0
+    @AppStorage("acceleratorCzCountBothMemory3") var czCountBoth = 0
+    @AppStorage("acceleratorNormalChanceCountShutterCloseMemory3") var normalChanceCount = 0
+    @AppStorage("acceleratorNormalChanceCountShutterOpenMemory3") var normalChanceCountShutterOpen = 0
+    @AppStorage("acceleratorShutterOpenCount18GMemory3") var shutterOpenCount18G = 0
+    @AppStorage("acceleratorShutterOpenCount23GMemory3") var shutterOpenCount23G = 0
+    @AppStorage("acceleratorShutterOpenCount33GMemory3") var shutterOpenCount33G = 0
+    @AppStorage("acceleratorShutterOpenCountSumMemory3") var shutterOpenCountSum = 0
 }
 
 
@@ -289,6 +375,13 @@ struct acceleratorViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // シャッター関連
+                    NavigationLink(destination: acceleratorViewShutter()) {
+                        unitLabelMenu(
+                            imageSystemName: "door.sliding.left.hand.closed",
+                            textBody: "通常時 シャッター関連")
+                        .popoverTip(tipVer200AcceleratorMenuShutter())
+                    }
                     // CZ
                     NavigationLink(destination: acceleratorViewCz()) {
                         unitLabelMenu(
@@ -312,7 +405,7 @@ struct acceleratorViewTop: View {
                     unitLabelMachineTopTitle(machineName: "一方通行 とある魔術の禁書目録", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: acceleratorView95Ci()) {
+                NavigationLink(destination: acceleratorView95Ci(selection: 9)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
             }
@@ -384,6 +477,18 @@ struct acceleratorSubViewSaveMemory: View {
         acceleratorMemory1.screenCountOver2 = accelerator.screenCountOver2
         acceleratorMemory1.screenCountOver4 = accelerator.screenCountOver4
         acceleratorMemory1.screenCountSum = accelerator.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        acceleratorMemory1.czCountAccelerator = accelerator.czCountAccelerator
+        acceleratorMemory1.czCountLastorder = accelerator.czCountLastorder
+        acceleratorMemory1.czCountBoth = accelerator.czCountBoth
+        acceleratorMemory1.normalChanceCount = accelerator.normalChanceCount
+        acceleratorMemory1.normalChanceCountShutterOpen = accelerator.normalChanceCountShutterOpen
+        acceleratorMemory1.shutterOpenCount18G = accelerator.shutterOpenCount18G
+        acceleratorMemory1.shutterOpenCount23G = accelerator.shutterOpenCount23G
+        acceleratorMemory1.shutterOpenCount33G = accelerator.shutterOpenCount33G
+        acceleratorMemory1.shutterOpenCountSum = accelerator.shutterOpenCountSum
     }
     func saveMemory2() {
         acceleratorMemory2.chanceCountLose = accelerator.chanceCountLose
@@ -406,6 +511,18 @@ struct acceleratorSubViewSaveMemory: View {
         acceleratorMemory2.screenCountOver2 = accelerator.screenCountOver2
         acceleratorMemory2.screenCountOver4 = accelerator.screenCountOver4
         acceleratorMemory2.screenCountSum = accelerator.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        acceleratorMemory2.czCountAccelerator = accelerator.czCountAccelerator
+        acceleratorMemory2.czCountLastorder = accelerator.czCountLastorder
+        acceleratorMemory2.czCountBoth = accelerator.czCountBoth
+        acceleratorMemory2.normalChanceCount = accelerator.normalChanceCount
+        acceleratorMemory2.normalChanceCountShutterOpen = accelerator.normalChanceCountShutterOpen
+        acceleratorMemory2.shutterOpenCount18G = accelerator.shutterOpenCount18G
+        acceleratorMemory2.shutterOpenCount23G = accelerator.shutterOpenCount23G
+        acceleratorMemory2.shutterOpenCount33G = accelerator.shutterOpenCount33G
+        acceleratorMemory2.shutterOpenCountSum = accelerator.shutterOpenCountSum
     }
     func saveMemory3() {
         acceleratorMemory3.chanceCountLose = accelerator.chanceCountLose
@@ -428,6 +545,18 @@ struct acceleratorSubViewSaveMemory: View {
         acceleratorMemory3.screenCountOver2 = accelerator.screenCountOver2
         acceleratorMemory3.screenCountOver4 = accelerator.screenCountOver4
         acceleratorMemory3.screenCountSum = accelerator.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        acceleratorMemory3.czCountAccelerator = accelerator.czCountAccelerator
+        acceleratorMemory3.czCountLastorder = accelerator.czCountLastorder
+        acceleratorMemory3.czCountBoth = accelerator.czCountBoth
+        acceleratorMemory3.normalChanceCount = accelerator.normalChanceCount
+        acceleratorMemory3.normalChanceCountShutterOpen = accelerator.normalChanceCountShutterOpen
+        acceleratorMemory3.shutterOpenCount18G = accelerator.shutterOpenCount18G
+        acceleratorMemory3.shutterOpenCount23G = accelerator.shutterOpenCount23G
+        acceleratorMemory3.shutterOpenCount33G = accelerator.shutterOpenCount33G
+        acceleratorMemory3.shutterOpenCountSum = accelerator.shutterOpenCountSum
     }
 }
 
@@ -479,6 +608,18 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.screenCountOver2 = acceleratorMemory1.screenCountOver2
         accelerator.screenCountOver4 = acceleratorMemory1.screenCountOver4
         accelerator.screenCountSum = acceleratorMemory1.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        accelerator.czCountAccelerator = acceleratorMemory1.czCountAccelerator
+        accelerator.czCountLastorder = acceleratorMemory1.czCountLastorder
+        accelerator.czCountBoth = acceleratorMemory1.czCountBoth
+        accelerator.normalChanceCount = acceleratorMemory1.normalChanceCount
+        accelerator.normalChanceCountShutterOpen = acceleratorMemory1.normalChanceCountShutterOpen
+        accelerator.shutterOpenCount18G = acceleratorMemory1.shutterOpenCount18G
+        accelerator.shutterOpenCount23G = acceleratorMemory1.shutterOpenCount23G
+        accelerator.shutterOpenCount33G = acceleratorMemory1.shutterOpenCount33G
+        accelerator.shutterOpenCountSum = acceleratorMemory1.shutterOpenCountSum
     }
     func loadMemory2() {
         accelerator.chanceCountLose = acceleratorMemory2.chanceCountLose
@@ -501,6 +642,18 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.screenCountOver2 = acceleratorMemory2.screenCountOver2
         accelerator.screenCountOver4 = acceleratorMemory2.screenCountOver4
         accelerator.screenCountSum = acceleratorMemory2.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        accelerator.czCountAccelerator = acceleratorMemory2.czCountAccelerator
+        accelerator.czCountLastorder = acceleratorMemory2.czCountLastorder
+        accelerator.czCountBoth = acceleratorMemory2.czCountBoth
+        accelerator.normalChanceCount = acceleratorMemory2.normalChanceCount
+        accelerator.normalChanceCountShutterOpen = acceleratorMemory2.normalChanceCountShutterOpen
+        accelerator.shutterOpenCount18G = acceleratorMemory2.shutterOpenCount18G
+        accelerator.shutterOpenCount23G = acceleratorMemory2.shutterOpenCount23G
+        accelerator.shutterOpenCount33G = acceleratorMemory2.shutterOpenCount33G
+        accelerator.shutterOpenCountSum = acceleratorMemory2.shutterOpenCountSum
     }
     func loadMemory3() {
         accelerator.chanceCountLose = acceleratorMemory3.chanceCountLose
@@ -523,6 +676,18 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.screenCountOver2 = acceleratorMemory3.screenCountOver2
         accelerator.screenCountOver4 = acceleratorMemory3.screenCountOver4
         accelerator.screenCountSum = acceleratorMemory3.screenCountSum
+        // ////////////////////////
+        // ver2.0.0で追加
+        // ////////////////////////
+        accelerator.czCountAccelerator = acceleratorMemory3.czCountAccelerator
+        accelerator.czCountLastorder = acceleratorMemory3.czCountLastorder
+        accelerator.czCountBoth = acceleratorMemory3.czCountBoth
+        accelerator.normalChanceCount = acceleratorMemory3.normalChanceCount
+        accelerator.normalChanceCountShutterOpen = acceleratorMemory3.normalChanceCountShutterOpen
+        accelerator.shutterOpenCount18G = acceleratorMemory3.shutterOpenCount18G
+        accelerator.shutterOpenCount23G = acceleratorMemory3.shutterOpenCount23G
+        accelerator.shutterOpenCount33G = acceleratorMemory3.shutterOpenCount33G
+        accelerator.shutterOpenCountSum = acceleratorMemory3.shutterOpenCountSum
     }
 }
 

@@ -169,6 +169,7 @@ class MyJug5: ObservableObject {
         @AppStorage("myJug5StartGames") var startGameInput: Int = 0 {
             didSet {
                 startBellBackCalculationCount = bellBackCalculate(game: startGameInput, bigCount: startBigCountInput, regCount: startRegCountInput, coinDifference: startCoinDifferenceInput)
+                playGame = currentGames - startGameInput
             }
         }
             @AppStorage("myJug5StartBigCountInput") var startBigCountInput: Int = 0 {
@@ -408,7 +409,7 @@ struct myJug5Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                
+                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -437,6 +438,7 @@ struct myJug5Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
+                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: myJug5Ver2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")

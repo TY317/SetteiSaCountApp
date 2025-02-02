@@ -102,7 +102,7 @@ struct mhrViewBonusScreen: View {
             } header: {
                 Text("特殊停止ボイスでの示唆")
             }
-            .popoverTip(tipVer180MhrVoiceAdd())
+//            .popoverTip(tipVer180MhrVoiceAdd())
         }
         .navigationTitle("ボーナス確定画面")
         .navigationBarTitleDisplayMode(.inline)

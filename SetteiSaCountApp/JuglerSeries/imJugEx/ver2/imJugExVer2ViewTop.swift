@@ -111,6 +111,7 @@ class ImJugEx: ObservableObject {
         @AppStorage("imJugExStartGame") var startGameInput: Int = 0 {
             didSet {
                 startBellBackCalculationCount = bellBackCalculate(game: startGameInput, bigCount: startBigCountInput, regCount: startRegCountInput, coinDifference: startCoinDifferenceInput)
+                playGame = currentGames - startGameInput
             }
         }
             @AppStorage("imJugExStartBigCountInput") var startBigCountInput: Int = 0 {
@@ -350,7 +351,7 @@ struct imJugExVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                
+                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -379,6 +380,7 @@ struct imJugExVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
+                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: imJugExVer2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")

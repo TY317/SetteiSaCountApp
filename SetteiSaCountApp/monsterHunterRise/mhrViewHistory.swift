@@ -31,10 +31,63 @@ struct mhrViewHistory: View {
                     color: .personalSummerLightBlue,
                     minusBool: $mhr.minusCheck
                 )
+                // 参考情報リンク
+                unitLinkButton(
+                    title: "ライズゾーン実質初当り確率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ライズゾーン実質初当り確率",
+                            image1: Image("mhrRiseZone")
+                        )
+                    )
+                )
             } header: {
                 Text("ライズゾーン初当り回数")
             }
-            .popoverTip(tipVer180MhrRiseZoneCountAdd())
+//            .popoverTip(tipVer180MhrRiseZoneCountAdd())
+            
+            // //// アイルーだるま落とし規定回数のカウント
+            Section {
+                HStack {
+                    // 80回以下
+                    unitCountButtonVerticalPercent(
+                        title: "80回以下",
+                        count: $mhr.airuCountUnder80,
+                        color: .personalSummerLightRed,
+                        bigNumber: $mhr.airuCountSum,
+                        numberofDicimal: 0,
+                        minusBool: $mhr.minusCheck
+                    )
+                    // 120回以上
+                    unitCountButtonVerticalPercent(
+                        title: "120回以上",
+                        count: $mhr.airuCountOver120,
+                        color: .personalSummerLightBlue,
+                        bigNumber: $mhr.airuCountSum,
+                        numberofDicimal: 0,
+                        minusBool: $mhr.minusCheck
+                    )
+                }
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "規定リプレイ回数の振り分けについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "規定リプレイ回数振り分け",
+                            textBody1: "・アイルーだるま落としまでの規定リプレイ回数振り分けに設定差あり",
+                            textBody2: "・40,80回がより設定差大きいため、本アプリでは80回以下と120回以上の2種類に分けてカウントできるようにしました",
+                            image1: Image("mhrAiruSumRatio"),
+                            image2: Image("mhrAiruRatioDetail")
+                        )
+                    )
+                )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 3)))
+                    .popoverTip(tipUnitButtonLink95Ci())
+            } header: {
+                Text("アイルーだるま落とし規定回数")
+            }
+            .popoverTip(tipVer200MhrAiruAdd())
             // //// 履歴表示
             Section {
                 ScrollView {

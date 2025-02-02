@@ -48,24 +48,42 @@ struct dumbbellView95Ci: View {
                 )
             )
             .tag(1)
-            // ボーナス初当り回数
+//            // ボーナス初当り回数
+//            unitListSection95Ci(
+//                grafTitle: "ゴールデンチャレンジ当選回数",
+//                titleFont: .title2,
+//                grafView: AnyView(
+//                    unitChart95CiPercent(
+//                        currentCount: $dumbbell.goldenChallengeCountSum,
+//                        bigNumber: $dumbbell.bonusCountSum,
+//                        setting1Percent: 17,
+//                        setting2Percent: 17,
+//                        setting3Percent: 17,
+//                        setting4Percent: 17,
+//                        setting5Percent: 18,
+//                        setting6Percent: 20
+//                    )
+//                )
+//            )
+//            .tag(3)
+            // CZ,ボーナス終了画面 デフォルト・モード示唆合算
             unitListSection95Ci(
-                grafTitle: "ゴールデンチャレンジ当選回数",
+                grafTitle: "CZ,ボーナス終了画面\nデフォルト・モード示唆 合算",
                 titleFont: .title2,
                 grafView: AnyView(
-                    unitChart95CiPercent(
-                        currentCount: $dumbbell.goldenChallengeCountSum,
-                        bigNumber: $dumbbell.bonusCountSum,
-                        setting1Percent: 17,
-                        setting2Percent: 17,
-                        setting3Percent: 17,
-                        setting4Percent: 17,
-                        setting5Percent: 18,
-                        setting6Percent: 20
+                    unitChart95CiPercentNotBinding(
+                        currentCount: defaultModeSum(),
+                        bigNumber: dumbbell.czBonusScreenCountSum,
+                        setting1Percent: 44,
+                        setting2Percent: 34,
+                        setting3Percent: 34,
+                        setting4Percent: 29,
+                        setting5Percent: 29,
+                        setting6Percent: 28
                     )
                 )
             )
-            .tag(3)
+            .tag(8)
             // CZ,ボーナス終了画面 設定2以上示唆
             unitListSection95Ci(
                 grafTitle: "CZ,ボーナス終了画面\n設定2以上示唆",
@@ -138,6 +156,114 @@ struct dumbbellView95Ci: View {
                 )
             )
             .tag(7)
+            // ゴールデンチャレンジ当選回数
+            unitListSection95Ci(
+                grafTitle: "ゴールデンチャレンジ当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dumbbell.goldenChallengeCountSum,
+                        bigNumber: $dumbbell.bonusCountSum,
+                        setting1Percent: 17,
+                        setting2Percent: 17,
+                        setting3Percent: 17,
+                        setting4Percent: 17,
+                        setting5Percent: 18,
+                        setting6Percent: 20
+                    )
+                )
+            )
+            .tag(3)
+            // ゴールデンチャレンジ成功回数
+            unitListSection95Ci(
+                grafTitle: "ゴールデンチャレンジ成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dumbbell.goldenChallengeCountSuccess,
+                        bigNumber: $dumbbell.goldenChallengeCountSum,
+                        setting1Percent: 56,
+                        setting2Percent: 57,
+                        setting3Percent: 57,
+                        setting4Percent: 58,
+                        setting5Percent: 59,
+                        setting6Percent: 64
+                    )
+                )
+            )
+            .tag(13)
+            // 合いの手 デフォルト回数
+            unitListSection95Ci(
+                grafTitle: "合いの手 デフォルト回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercentNotBinding(
+                        currentCount: dumbbell.ainoteCount1Person,
+                        bigNumber: dumbbell.ainoteCountSum,
+                        setting1Percent: 97,
+                        setting2Percent: 97,
+                        setting3Percent: 97,
+                        setting4Percent: 94,
+                        setting5Percent: 94,
+                        setting6Percent: 94
+                    )
+                )
+            )
+            .tag(9)
+            // 合いの手 デフォルト回数
+            unitListSection95Ci(
+                grafTitle: "合いの手 高設定示唆合算回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercentNotBinding(
+                        currentCount: ainoteHighSum(),
+                        bigNumber: dumbbell.ainoteCountSum,
+                        setting1Percent: 2,
+                        setting2Percent: 2,
+                        setting3Percent: 2,
+                        setting4Percent: 6,
+                        setting5Percent: 6,
+                        setting6Percent: 6
+                    )
+                )
+            )
+            .tag(10)
+            // 上位AT終了画面 奇数示唆回数
+            unitListSection95Ci(
+                grafTitle: "金肉ボーナス終了画面\n奇数示唆回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercentNotBinding(
+                        currentCount: dumbbell.kinnikuScreenCountDefault,
+                        bigNumber: dumbbell.kinnikuScreenCountSum,
+                        setting1Percent: 65,
+                        setting2Percent: 35,
+                        setting3Percent: 65,
+                        setting4Percent: 35,
+                        setting5Percent: 63,
+                        setting6Percent: 48
+                    )
+                )
+            )
+            .tag(11)
+            // 上位AT終了画面 偶数示唆回数
+            unitListSection95Ci(
+                grafTitle: "金肉ボーナス終了画面\n偶数示唆回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercentNotBinding(
+                        currentCount: dumbbell.kinnikuScreenCountGusu,
+                        bigNumber: dumbbell.kinnikuScreenCountSum,
+                        setting1Percent: 35,
+                        setting2Percent: 65,
+                        setting3Percent: 35,
+                        setting4Percent: 63,
+                        setting5Percent: 35,
+                        setting6Percent: 48
+                    )
+                )
+            )
+            .tag(12)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
@@ -148,6 +274,15 @@ struct dumbbellView95Ci: View {
             }
         }
         .tabViewStyle(.page)
+    }
+    private func defaultModeSum() -> Int {
+        let czBonusScreenCountDefaultModeSum = countSum(dumbbell.czBonusScreenCountDefault, dumbbell.czBonusScreenCountMode)
+        return czBonusScreenCountDefaultModeSum
+    }
+    
+    private func ainoteHighSum() -> Int {
+        let ainoteHighSum = countSum(dumbbell.ainoteCount2Person, dumbbell.ainoteCount5Person)
+        return ainoteHighSum
     }
 }
 

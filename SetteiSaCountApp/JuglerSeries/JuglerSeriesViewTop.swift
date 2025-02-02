@@ -134,10 +134,15 @@ struct JuglerSeriesViewTop: View {
                             }
                             
                             // //// ハッピージャグラーV3
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachinListLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(happyJugV3ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
+                                unitMachinListLink(linkView: AnyView(happyJugV3Ver2ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
                             }
                             
                             // //// マイジャグラー５

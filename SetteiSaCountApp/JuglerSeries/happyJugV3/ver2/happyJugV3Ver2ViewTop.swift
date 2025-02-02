@@ -195,6 +195,7 @@ class HappyJugV3: ObservableObject {
         @AppStorage("happyJugV3StartGames") var startGameInput: Int = 0 {
             didSet {
                 startBellBackCalculationCount = bellBackCalculate(game: startGameInput, bigCount: startBigCountInput, regCount: startRegCountInput, coinDifference: startCoinDifferenceInput)
+                playGame = currentGames - startGameInput
             }
         }
             @AppStorage("happyJugV3StartBigCountInput") var startBigCountInput: Int = 0 {
@@ -449,7 +450,7 @@ struct happyJugV3Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                
+                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -478,6 +479,7 @@ struct happyJugV3Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
+                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: happyJugV3Ver2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")

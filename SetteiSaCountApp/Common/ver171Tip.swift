@@ -14,20 +14,20 @@ struct ver171Tip: View {
     }
 }
 
-// //////////////////
-// Tip：犬夜叉 短縮天井選択率の算出機能追加
-// //////////////////
-struct tipVer171Inuyasha333TenjoAdd: Tip {
-    var title: Text {
-        Text("短縮天井選択率の算出機能追加")
-    }
-    var message: Text? {
-        Text("短縮天井選択率に大きな設定差あることが判明したため、算出機能を追加しました。そのため履歴入力方法も変更しました。過去のメモリーはうまく表示されない可能性がありますのでご了承ください")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//// //////////////////
+//// Tip：犬夜叉 短縮天井選択率の算出機能追加
+//// //////////////////
+//struct tipVer171Inuyasha333TenjoAdd: Tip {
+//    var title: Text {
+//        Text("短縮天井選択率の算出機能追加")
+//    }
+//    var message: Text? {
+//        Text("短縮天井選択率に大きな設定差あることが判明したため、算出機能を追加しました。そのため履歴入力方法も変更しました。過去のメモリーはうまく表示されない可能性がありますのでご了承ください")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 
 #Preview {

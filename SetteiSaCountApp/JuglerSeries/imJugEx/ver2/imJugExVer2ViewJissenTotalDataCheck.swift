@@ -12,6 +12,14 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
     var body: some View {
         List {
             Section {
+                // //// 凡例
+                VStack {
+                    unitResultHanrei()
+                    unitResultHanrei(
+                        rectangleColor: .personalSummerLightBlue,
+                        textBody: "：打ち始め＋自分のプレイデータ"
+                    )
+                }
                 // 確率1段目
                 HStack {
                     // ぶどう
@@ -19,6 +27,7 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                         HStack {
                             unitResultRatioDenomination2Line(
                                 title: "ぶどう確率",
+                                color: .personalSummerLightBlue,
                                 count: $imJugEx.totalBellCount,
                                 bigNumber: $imJugEx.currentGames,
                                 numberofDicimal: 2,
@@ -44,6 +53,7 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                     // BIG確率
                     unitResultRatioDenomination2Line(
                         title: "BIG確率",
+                        color: .personalSummerLightBlue,
                         count: $imJugEx.totalBigCount,
                         bigNumber: $imJugEx.currentGames,
                         numberofDicimal: 0,
@@ -52,6 +62,7 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                     // REG確率
                     unitResultRatioDenomination2Line(
                         title: "REG確率",
+                        color: .personalSummerLightBlue,
                         count: $imJugEx.totalRegCount,
                         bigNumber: $imJugEx.currentGames,
                         numberofDicimal: 0,
@@ -60,6 +71,7 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                     // ボーナス合算
                     unitResultRatioDenomination2Line(
                         title: "ボーナス合算",
+                        color: .personalSummerLightBlue,
                         count: $imJugEx.totalBonusCountSum,
                         bigNumber: $imJugEx.currentGames,
                         numberofDicimal: 0,

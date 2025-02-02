@@ -194,6 +194,7 @@ struct happyJugV3Ver2ViewKenDataInput: View {
             
             // //// 打ち始めへデータ登録
             unitButtonRecordKenToStart(isShowAlertRecord: $isShowAlertRecord, action: happyJugV3.kenToStartRecord)
+                .popoverTip(tipUnitJugHanaCommonKenDataTohroku())
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// 画面の向き情報の取得部分

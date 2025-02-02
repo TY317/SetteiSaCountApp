@@ -41,106 +41,106 @@ struct acceleratorViewCz: View {
     
     var body: some View {
         List {
-            Section {
-                // //// 横画面
-                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
-                    // //// カウントボタン横並び
-                    HStack {
-                        // ハズレ
-                        unitCountButtonVerticalPercent(
-                            title: "ハズレ",
-                            count: $accelerator.chanceCountLose,
-                            color: .personalSummerLightBlue,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 0,
-                            minusBool: $accelerator.minusCheck
-                        )
-                        // 一方通行
-                        unitCountButtonVerticalPercent(
-                            title: "一方通行CZ",
-                            count: $accelerator.chanceCountWinAccelerator,
-                            color: .personalSummerLightPurple,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 0,
-                            minusBool: $accelerator.minusCheck
-                        )
-                        // 打ち止め
-                        unitCountButtonVerticalPercent(
-                            title: "打ち止めCZ",
-                            count: $accelerator.chanceCountWinLastorder,
-                            color: .personalSummerLightRed,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 1,
-                            minusBool: $accelerator.minusCheck
-                        )
-                        // //// トータル当選率
-                        unitResultRatioPercent2Line(
-                            title: "合算当選率",
-                            count: $accelerator.chanceCountWinSum,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 0
-                        )
-                        .padding(.vertical)
-                    }
-                }
-                // //// 縦画面
-                else {
-                    // //// カウントボタン横並び
-                    HStack {
-                        // ハズレ
-                        unitCountButtonVerticalPercent(
-                            title: "ハズレ",
-                            count: $accelerator.chanceCountLose,
-                            color: .personalSummerLightBlue,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 0,
-                            minusBool: $accelerator.minusCheck
-                        )
-                        // 一方通行
-                        unitCountButtonVerticalPercent(
-                            title: "一方通行CZ",
-                            count: $accelerator.chanceCountWinAccelerator,
-                            color: .personalSummerLightPurple,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 0,
-                            minusBool: $accelerator.minusCheck
-                        )
-                        // 打ち止め
-                        unitCountButtonVerticalPercent(
-                            title: "打ち止めCZ",
-                            count: $accelerator.chanceCountWinLastorder,
-                            color: .personalSummerLightRed,
-                            bigNumber: $accelerator.chanceCountSum,
-                            numberofDicimal: 1,
-                            minusBool: $accelerator.minusCheck
-                        )
-                    }
-                    // //// トータル当選率
-                    unitResultRatioPercent2Line(
-                        title: "合算当選率",
-                        count: $accelerator.chanceCountWinSum,
-                        bigNumber: $accelerator.chanceCountSum,
-                        numberofDicimal: 0
-                    )
-                }
-                // //// 参考情報リンク
-                unitLinkButton(
-                    title: "対応チャンス目からのCZについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "対応チャンス目抽選",
-                            textBody1: "・液晶下部のシャッターが開いた状態で対応するチャンス目を引いた際のCZ当選率に設定差あり",
-                            textBody2: "・高設定ほど当選率が高く、打ち止めCZの比率が多くなる",
-                            image1: Image("acceleratorChanceRatio")
-                        )
-                    )
-                )
-                // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
-            } header: {
-                Text("対応チャンス目成立時の抽選")
-            }
+//            Section {
+//                // //// 横画面
+//                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+//                    // //// カウントボタン横並び
+//                    HStack {
+//                        // ハズレ
+//                        unitCountButtonVerticalPercent(
+//                            title: "ハズレ",
+//                            count: $accelerator.chanceCountLose,
+//                            color: .personalSummerLightBlue,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                        // 一方通行
+//                        unitCountButtonVerticalPercent(
+//                            title: "一方通行CZ",
+//                            count: $accelerator.chanceCountWinAccelerator,
+//                            color: .personalSummerLightPurple,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                        // 打ち止め
+//                        unitCountButtonVerticalPercent(
+//                            title: "打ち止めCZ",
+//                            count: $accelerator.chanceCountWinLastorder,
+//                            color: .personalSummerLightRed,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 1,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                        // //// トータル当選率
+//                        unitResultRatioPercent2Line(
+//                            title: "合算当選率",
+//                            count: $accelerator.chanceCountWinSum,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 0
+//                        )
+//                        .padding(.vertical)
+//                    }
+//                }
+//                // //// 縦画面
+//                else {
+//                    // //// カウントボタン横並び
+//                    HStack {
+//                        // ハズレ
+//                        unitCountButtonVerticalPercent(
+//                            title: "ハズレ",
+//                            count: $accelerator.chanceCountLose,
+//                            color: .personalSummerLightBlue,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                        // 一方通行
+//                        unitCountButtonVerticalPercent(
+//                            title: "一方通行CZ",
+//                            count: $accelerator.chanceCountWinAccelerator,
+//                            color: .personalSummerLightPurple,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                        // 打ち止め
+//                        unitCountButtonVerticalPercent(
+//                            title: "打ち止めCZ",
+//                            count: $accelerator.chanceCountWinLastorder,
+//                            color: .personalSummerLightRed,
+//                            bigNumber: $accelerator.chanceCountSum,
+//                            numberofDicimal: 1,
+//                            minusBool: $accelerator.minusCheck
+//                        )
+//                    }
+//                    // //// トータル当選率
+//                    unitResultRatioPercent2Line(
+//                        title: "合算当選率",
+//                        count: $accelerator.chanceCountWinSum,
+//                        bigNumber: $accelerator.chanceCountSum,
+//                        numberofDicimal: 0
+//                    )
+//                }
+//                // //// 参考情報リンク
+//                unitLinkButton(
+//                    title: "対応チャンス目からのCZについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "対応チャンス目抽選",
+//                            textBody1: "・液晶下部のシャッターが開いた状態で対応するチャンス目を引いた際のCZ当選率に設定差あり",
+//                            textBody2: "・高設定ほど当選率が高く、打ち止めCZの比率が多くなる",
+//                            image1: Image("acceleratorChanceRatio")
+//                        )
+//                    )
+//                )
+//                // 95%信頼区間グラフ
+//                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 1)))
+//                    .popoverTip(tipUnitButtonLink95Ci())
+//            } header: {
+//                Text("対応チャンス目成立時の抽選")
+//            }
             
             // //// 履歴
             Section {
@@ -266,57 +266,117 @@ struct acceleratorViewCz: View {
             // //// 初当り関連まとめ
             Section {
                 // //// 通常時ゲーム数
-                unitResultCount2Line(title: "通常時ゲーム数", count: $accelerator.playGameSum)
+                unitResultCount2Line(title: "通常時ゲーム数", count: $accelerator.playGameSum, spacerBool: false)
                 
                 // //// 横画面
                 if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
                     HStack {
                         // //// CZ
                         // 初当り回数
-                        unitResultCount2Line(title: "CZ回数", count: $accelerator.czCount)
+                        unitResultCount2Line(title: "CZ回数", count: $accelerator.czCount, spacerBool: false)
                         // 初当り確率
                         unitResultRatioDenomination2Line(
                             title: "CZ確率",
                             count: $accelerator.czCount,
                             bigNumber: $accelerator.playGameSum,
-                            numberofDicimal: 0
+                            numberofDicimal: 0,
+                            spacerBool: false
                         )
+                        // 一方通行CZ確率
+                        unitResultRatioDenomination2Line(
+                            title: "一通CZ",
+                            count: $accelerator.czCountAccelerator,
+                            bigNumber: $accelerator.playGameSum,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                        // 打ち止めCZ確率
+                        unitResultRatioDenomination2Line(
+                            title: "打止CZ",
+                            count: $accelerator.czCountLastorder,
+                            bigNumber: $accelerator.playGameSum,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                        .popoverTip(tipVer200AcceleratorCzRatio())
+                        // 一通・打ち止めCZ確率
+                        unitResultRatioDenomination2Line(
+                            title: "一通・打止",
+                            count: $accelerator.czCountBoth,
+                            bigNumber: $accelerator.playGameSum,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                    }
+                    HStack {
                         // //// AT
                         // 初当り回数
-                        unitResultCount2Line(title: "AT回数", count: $accelerator.atCount)
+                        unitResultCount2Line(title: "AT回数", count: $accelerator.atCount, spacerBool: false)
                         // 初当り確率
                         unitResultRatioDenomination2Line(
                             title: "AT確率",
                             count: $accelerator.atCount,
                             bigNumber: $accelerator.playGameSum,
-                            numberofDicimal: 0
+                            numberofDicimal: 0,
+                            spacerBool: false
                         )
                     }
                 }
                 // //// 縦画面
                 else {
                     // //// CZ
-                    HStack {
-                        // 初当り回数
-                        unitResultCount2Line(title: "CZ回数", count: $accelerator.czCount)
-                        // 初当り確率
-                        unitResultRatioDenomination2Line(
-                            title: "CZ確率",
-                            count: $accelerator.czCount,
-                            bigNumber: $accelerator.playGameSum,
-                            numberofDicimal: 0
-                        )
+                    VStack(spacing: 10) {
+                        HStack {
+                            // 初当り回数
+                            unitResultCount2Line(title: "CZ回数", count: $accelerator.czCount, spacerBool: false)
+                            // 初当り確率
+                            unitResultRatioDenomination2Line(
+                                title: "CZ確率",
+                                count: $accelerator.czCount,
+                                bigNumber: $accelerator.playGameSum,
+                                numberofDicimal: 0,
+                                spacerBool: false
+                            )
+                        }
+                        HStack {
+                            // 一方通行CZ確率
+                            unitResultRatioDenomination2Line(
+                                title: "一通CZ",
+                                count: $accelerator.czCountAccelerator,
+                                bigNumber: $accelerator.playGameSum,
+                                numberofDicimal: 0,
+                                spacerBool: false
+                            )
+                            // 打ち止めCZ確率
+                            unitResultRatioDenomination2Line(
+                                title: "打止CZ",
+                                count: $accelerator.czCountLastorder,
+                                bigNumber: $accelerator.playGameSum,
+                                numberofDicimal: 0,
+                                spacerBool: false
+                            )
+                            // 一通・打ち止めCZ確率
+                            unitResultRatioDenomination2Line(
+                                title: "一通・打止",
+                                count: $accelerator.czCountBoth,
+                                bigNumber: $accelerator.playGameSum,
+                                numberofDicimal: 0,
+                                spacerBool: false
+                            )
+                        }
+                        .popoverTip(tipVer200AcceleratorCzRatio())
                     }
                     // //// AT
                     HStack {
                         // 初当り回数
-                        unitResultCount2Line(title: "AT回数", count: $accelerator.atCount)
+                        unitResultCount2Line(title: "AT回数", count: $accelerator.atCount, spacerBool: false)
                         // 初当り確率
                         unitResultRatioDenomination2Line(
                             title: "AT確率",
                             count: $accelerator.atCount,
                             bigNumber: $accelerator.playGameSum,
-                            numberofDicimal: 0
+                            numberofDicimal: 0,
+                            spacerBool: false
                         )
                     }
                 }
@@ -326,7 +386,8 @@ struct acceleratorViewCz: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            image1: Image("acceleratorHitRatio")
+                            image1: Image("acceleratorHitRatio"),
+                            image2: Image("acceleratorCzHitRatio")
                         )
                     )
                 )

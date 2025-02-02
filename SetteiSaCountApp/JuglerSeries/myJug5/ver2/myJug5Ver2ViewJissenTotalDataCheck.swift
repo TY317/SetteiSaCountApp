@@ -13,6 +13,14 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
     var body: some View {
         List {
             Section {
+                // //// 凡例
+                VStack {
+                    unitResultHanrei()
+                    unitResultHanrei(
+                        rectangleColor: .personalSummerLightBlue,
+                        textBody: "：打ち始め＋自分のプレイデータ"
+                    )
+                }
                 // 確率1段目
                 HStack {
                     // ぶどう
@@ -20,6 +28,7 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                         HStack {
                             unitResultRatioDenomination2Line(
                                 title: "ぶどう確率",
+                                color: .personalSummerLightBlue,
                                 count: $myJug5.totalBellCount,
                                 bigNumber: $myJug5.currentGames,
                                 numberofDicimal: 2,
@@ -45,6 +54,7 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                     // BIG確率
                     unitResultRatioDenomination2Line(
                         title: "BIG確率",
+                        color: .personalSummerLightBlue,
                         count: $myJug5.totalBigCount,
                         bigNumber: $myJug5.currentGames,
                         numberofDicimal: 0,
@@ -53,6 +63,7 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                     // REG確率
                     unitResultRatioDenomination2Line(
                         title: "REG確率",
+                        color: .personalSummerLightBlue,
                         count: $myJug5.totalRegCount,
                         bigNumber: $myJug5.currentGames,
                         numberofDicimal: 0,
@@ -61,6 +72,7 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                     // ボーナス合算
                     unitResultRatioDenomination2Line(
                         title: "ボーナス合算",
+                        color: .personalSummerLightBlue,
                         count: $myJug5.totalBonusCountSum,
                         bigNumber: $myJug5.currentGames,
                         numberofDicimal: 0,

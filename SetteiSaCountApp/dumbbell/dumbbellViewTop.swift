@@ -290,19 +290,24 @@ class Dumbbell: ObservableObject {
     @AppStorage("dumbbellKinnikuScreenCurrentKeyword") var kinnikuScreenCurrentKeyword: String = ""
     @AppStorage("dumbbellKinnikuScreenCountDefault") var kinnikuScreenCountDefault = 0 {
         didSet {
-            kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo)
+            kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo, kinnikuScreenCountGusu)
         }
     }
         @AppStorage("dumbbellKinnikuScreenCountHigh") var kinnikuScreenCountHigh = 0 {
             didSet {
-                kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo)
+                kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo, kinnikuScreenCountGusu)
             }
         }
             @AppStorage("dumbbellKinnikuScreenCountHighKyo") var kinnikuScreenCountHighKyo = 0 {
                 didSet {
-                    kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo)
+                    kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo, kinnikuScreenCountGusu)
                 }
             }
+    @AppStorage("dumbbellKinnikuScreenCountGusu") var kinnikuScreenCountGusu = 0 {
+        didSet {
+            kinnikuScreenCountSum = countSum(kinnikuScreenCountDefault, kinnikuScreenCountHigh, kinnikuScreenCountHighKyo, kinnikuScreenCountGusu)
+        }
+    }
     @AppStorage("dumbbellKinnikuScreenCountSum") var kinnikuScreenCountSum = 0
     
     func resetKinnikuBonus() {
@@ -315,6 +320,7 @@ class Dumbbell: ObservableObject {
         kinnikuScreenCountDefault = 0
         kinnikuScreenCountHigh = 0
         kinnikuScreenCountHighKyo = 0
+        kinnikuScreenCountGusu = 0
         minusCheck = false
     }
     
@@ -375,6 +381,7 @@ class DumbbellMemory1: ObservableObject {
     @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory1") var czBonusScreenCountOver2Sisa = 0
     @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory1") var czBonusScreenCountGusuSisa = 0
     @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory1") var czBonusScreenCountKisuSisa = 0
+    @AppStorage("dumbbellKinnikuScreenCountGusuMemory1") var kinnikuScreenCountGusu = 0
 }
 
 
@@ -420,6 +427,7 @@ class DumbbellMemory2: ObservableObject {
     @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory2") var czBonusScreenCountOver2Sisa = 0
     @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory2") var czBonusScreenCountGusuSisa = 0
     @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory2") var czBonusScreenCountKisuSisa = 0
+    @AppStorage("dumbbellKinnikuScreenCountGusuMemory2") var kinnikuScreenCountGusu = 0
 }
 
 
@@ -465,6 +473,7 @@ class DumbbellMemory3: ObservableObject {
     @AppStorage("dumbbellCzBonusScreenCountOver2SisaMemory3") var czBonusScreenCountOver2Sisa = 0
     @AppStorage("dumbbellCzBonusScreenCountGusuSisaMemory3") var czBonusScreenCountGusuSisa = 0
     @AppStorage("dumbbellCzBonusScreenCountKisuSisaMemory3") var czBonusScreenCountKisuSisa = 0
+    @AppStorage("dumbbellKinnikuScreenCountGusuMemory3") var kinnikuScreenCountGusu = 0
 }
 
 
@@ -496,6 +505,7 @@ struct dumbbellViewTop: View {
                             textBody: "CZ,ボーナス終了画面"
                         )
                     }
+                    .popoverTip(tipVer200DumbbellUpdateInfo())
                     // ゴールデンチャレンジ
                     NavigationLink(destination: dumbbellViewGoldenChallenge()) {
                         unitLabelMenu(
@@ -604,6 +614,7 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory1.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
         dumbbellMemory1.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
         dumbbellMemory1.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
+        dumbbellMemory1.kinnikuScreenCountGusu = dumbbell.kinnikuScreenCountGusu
     }
     func saveMemory2() {
         dumbbellMemory2.gameArrayData = dumbbell.gameArrayData
@@ -644,6 +655,7 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory2.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
         dumbbellMemory2.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
         dumbbellMemory2.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
+        dumbbellMemory2.kinnikuScreenCountGusu = dumbbell.kinnikuScreenCountGusu
     }
     func saveMemory3() {
         dumbbellMemory3.gameArrayData = dumbbell.gameArrayData
@@ -684,6 +696,7 @@ struct dumbbellSubViewSaveMemory: View {
         dumbbellMemory3.czBonusScreenCountOver2Sisa = dumbbell.czBonusScreenCountOver2Sisa
         dumbbellMemory3.czBonusScreenCountGusuSisa = dumbbell.czBonusScreenCountGusuSisa
         dumbbellMemory3.czBonusScreenCountKisuSisa = dumbbell.czBonusScreenCountKisuSisa
+        dumbbellMemory3.kinnikuScreenCountGusu = dumbbell.kinnikuScreenCountGusu
     }
 }
 
@@ -753,6 +766,7 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory1.czBonusScreenCountOver2Sisa
         dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory1.czBonusScreenCountGusuSisa
         dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory1.czBonusScreenCountKisuSisa
+        dumbbell.kinnikuScreenCountGusu = dumbbellMemory1.kinnikuScreenCountGusu
     }
     func loadMemory2() {
         dumbbell.gameArrayData = dumbbellMemory2.gameArrayData
@@ -793,6 +807,7 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory2.czBonusScreenCountOver2Sisa
         dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory2.czBonusScreenCountGusuSisa
         dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory2.czBonusScreenCountKisuSisa
+        dumbbell.kinnikuScreenCountGusu = dumbbellMemory2.kinnikuScreenCountGusu
     }
     func loadMemory3() {
         dumbbell.gameArrayData = dumbbellMemory3.gameArrayData
@@ -833,6 +848,7 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.czBonusScreenCountOver2Sisa = dumbbellMemory3.czBonusScreenCountOver2Sisa
         dumbbell.czBonusScreenCountGusuSisa = dumbbellMemory3.czBonusScreenCountGusuSisa
         dumbbell.czBonusScreenCountKisuSisa = dumbbellMemory3.czBonusScreenCountKisuSisa
+        dumbbell.kinnikuScreenCountGusu = dumbbellMemory3.kinnikuScreenCountGusu
     }
 }
 

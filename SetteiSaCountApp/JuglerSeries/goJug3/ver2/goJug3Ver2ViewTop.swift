@@ -93,7 +93,7 @@ class GoJug3: ObservableObject {
         let budonukiAverageOut = 1.01   // ぶどう抜き平均OUT枚数
         let bigOut: Double = 240   // ビッグ獲得枚数
         let regOut: Double = 96   // REG獲得枚数
-        let cherryOut: Double = 2   // チェリー払い出し枚数
+        let cherryOut: Double = 4   // チェリー払い出し枚数
         let bellOut: Double = 8   // ぶどう・ベル払い出し枚数
         
         // //// ゲーム数の内訳算出
@@ -150,6 +150,7 @@ class GoJug3: ObservableObject {
         @AppStorage("goJug3StartGame") var startGameInput: Int = 0 {
             didSet {
                 startBellBackCalculationCount = bellBackCalculate(game: startGameInput, bigCount: startBigCountInput, regCount: startRegCountInput, coinDifference: startCoinDifferenceInput)
+                playGame = currentGames - startGameInput
             }
         }
             @AppStorage("goJug3StartBigCountInput") var startBigCountInput: Int = 0 {
@@ -382,7 +383,7 @@ struct goJug3Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                
+                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -411,6 +412,7 @@ struct goJug3Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
+                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: goJug3Ver2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
