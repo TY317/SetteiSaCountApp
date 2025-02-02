@@ -10,6 +10,15 @@ import SwiftUI
 struct dumbbellCzAtScreen: View {
     @ObservedObject var dumbbell = Dumbbell()
     @State var isShowAlert: Bool = false
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    @FocusState var isFocused: Bool
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 200.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 200.0
     
     var body: some View {
         List {
@@ -26,6 +35,14 @@ struct dumbbellCzAtScreen: View {
                             minusCheck: $dumbbell.minusCheck
                         )
                         .popoverTip(tipUnitButtonScreenChoice())
+                        // サウナ
+                        unitButtonScreenChoice(
+                            image: Image(dumbbell.czBonusScreenKeywordList[10]),
+                            keyword: dumbbell.czBonusScreenKeywordList[10],
+                            currentKeyword: $dumbbell.czBonusScreenCurrentKeyword,
+                            count: $dumbbell.czBonusScreenCountMode,
+                            minusCheck: $dumbbell.minusCheck
+                        )
                         // 白枠 朱美
                         unitButtonScreenChoice(
                             image: Image(dumbbell.czBonusScreenKeywordList[1]),
@@ -98,14 +115,14 @@ struct dumbbellCzAtScreen: View {
                             count: $dumbbell.czBonusScreenCountOver6,
                             minusCheck: $dumbbell.minusCheck
                         )
-                        // サウナ
-                        unitButtonScreenChoice(
-                            image: Image(dumbbell.czBonusScreenKeywordList[10]),
-                            keyword: dumbbell.czBonusScreenKeywordList[10],
-                            currentKeyword: $dumbbell.czBonusScreenCurrentKeyword,
-                            count: $dumbbell.czBonusScreenCountMode,
-                            minusCheck: $dumbbell.minusCheck
-                        )
+//                        // サウナ
+//                        unitButtonScreenChoice(
+//                            image: Image(dumbbell.czBonusScreenKeywordList[10]),
+//                            keyword: dumbbell.czBonusScreenKeywordList[10],
+//                            currentKeyword: $dumbbell.czBonusScreenCurrentKeyword,
+//                            count: $dumbbell.czBonusScreenCountMode,
+//                            minusCheck: $dumbbell.minusCheck
+//                        )
                         // トランプ
                         unitButtonScreenChoice(
                             image: Image(dumbbell.czBonusScreenKeywordList[11]),
@@ -126,6 +143,19 @@ struct dumbbellCzAtScreen: View {
                     flashColor: .gray,
                     bigNumber: $dumbbell.czBonusScreenCountSum
                 )
+                // モード示唆
+                VStack(spacing:0) {
+                    unitResultCountListPercent(
+                        title: "モード示唆",
+                        count: $dumbbell.czBonusScreenCountMode,
+                        flashColor: .brown,
+                        bigNumber: $dumbbell.czBonusScreenCountSum
+                    )
+                    Text("※ 人数少ないほど早い規定カロリーに期待")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 // 設定2 以上示唆
                 unitResultCountListPercent(
                     title: "設定2 以上示唆",
@@ -163,7 +193,7 @@ struct dumbbellCzAtScreen: View {
                 )
                 // 特定設定以上濃厚
                 unitResultCountListPercent(
-                    title: "特定設定以上濃厚",
+                    title: "設定2 以上濃厚",
                     count: $dumbbell.czBonusScreenCountOverTokutei,
                     flashColor: .purple,
                     bigNumber: $dumbbell.czBonusScreenCountSum
@@ -176,18 +206,18 @@ struct dumbbellCzAtScreen: View {
                     bigNumber: $dumbbell.czBonusScreenCountSum
                 )
                 // 設定4 以上濃厚 強
-                VStack(spacing:0) {
+//                VStack(spacing:0) {
                     unitResultCountListPercent(
-                        title: "設定4 以上濃厚 強",
+                        title: "設定5 以上濃厚",
                         count: $dumbbell.czBonusScreenCountOver4Kyo,
                         flashColor: .gray,
                         bigNumber: $dumbbell.czBonusScreenCountSum
                     )
-                    Text("※ 紫枠 ドレスより強い")
-                        .foregroundStyle(Color.secondary)
-                        .font(.footnote)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
+//                    Text("※ 紫枠 ドレスより強い")
+//                        .foregroundStyle(Color.secondary)
+//                        .font(.footnote)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                }
                 // 設定6 濃厚
                 unitResultCountListPercent(
                     title: "設定6 濃厚",
@@ -195,19 +225,19 @@ struct dumbbellCzAtScreen: View {
                     flashColor: .orange,
                     bigNumber: $dumbbell.czBonusScreenCountSum
                 )
-                // モード示唆
-                VStack(spacing:0) {
-                    unitResultCountListPercent(
-                        title: "モード示唆",
-                        count: $dumbbell.czBonusScreenCountMode,
-                        flashColor: .brown,
-                        bigNumber: $dumbbell.czBonusScreenCountSum
-                    )
-                    Text("※ 人数少ないほど早い規定カロリーに期待")
-                        .foregroundStyle(Color.secondary)
-                        .font(.footnote)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
+//                // モード示唆
+//                VStack(spacing:0) {
+//                    unitResultCountListPercent(
+//                        title: "モード示唆",
+//                        count: $dumbbell.czBonusScreenCountMode,
+//                        flashColor: .brown,
+//                        bigNumber: $dumbbell.czBonusScreenCountSum
+//                    )
+//                    Text("※ 人数少ないほど早い規定カロリーに期待")
+//                        .foregroundStyle(Color.secondary)
+//                        .font(.footnote)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                }
                 // 設定1or6 濃厚
                 unitResultCountListPercent(
                     title: "設定1 or 6 濃厚",
@@ -217,20 +247,65 @@ struct dumbbellCzAtScreen: View {
                 )
                 // //// 参考情報リンク
                 unitLinkButton(
-                    title: "白枠画面の出現率",
+                    title: "画面の振り分けについて",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "白枠画面の出現率",
-                            image1: Image("dumbbellCzBonusScreenWhiteRatio")
+                            title: "終了画面振り分け",
+                            textBody1: "・朝イチは特定設定濃厚画面の出現率がアップ。朝イチがひびき・サウナだった場合は次回の画面で出現率アップ",
+                            textBody2: "・差枚マイナス2500枚時の画面でも特定設定濃厚画面の出現率がアップ",
+                            textBody3: "・トランプは設定1での確率は極めて低いらしい。出現すれば設定6の期待大",
+                            image1: Image("dumbbellCzBonusScreenRatio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 8)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ・AT終了画面")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        // //// 画面の向き情報の取得部分
+        .onAppear {
+            // ビューが表示されるときにデバイスの向きを取得
+            self.orientation = UIDevice.current.orientation
+            // 向きがフラットでなければlastOrientationの値を更新
+            if self.orientation.isFlat {
+                
+            }
+            else {
+                self.lastOrientation = self.orientation
+            }
+            if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                self.scrollViewHeight = self.scrollViewHeightLandscape
+                self.spaceHeight = self.spaceHeightLandscape
+            } else {
+                self.scrollViewHeight = self.scrollViewHeightPortrait
+                self.spaceHeight = self.spaceHeightPortrait
+            }
+            // デバイスの向きの変更を監視する
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.scrollViewHeight = self.scrollViewHeightLandscape
+                    self.spaceHeight = self.spaceHeightLandscape
+                } else {
+                    self.scrollViewHeight = self.scrollViewHeightPortrait
+                    self.spaceHeight = self.spaceHeightPortrait
+                }
+            }
+        }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
         .navigationTitle("CZ・AT終了画面")
         .navigationBarTitleDisplayMode(.inline)

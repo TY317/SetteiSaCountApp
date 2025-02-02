@@ -29,7 +29,8 @@ struct myButtonStyle: View {
 // /////////////////////////
 struct CountButtonStyle: ButtonStyle {
     var color: Color = .yellow
-    var plusColor: Color = .black
+//    var plusColor: Color = .black
+    var plusColor: Color = .secondary
     var minusColor: Color = .red
     var MinusBool = false
     var Vsize = 70.0

@@ -71,6 +71,8 @@ class Mhr: ObservableObject {
         selectedTrigger = "クエスト"
         minusCheck = false
         riseZoneCount = 0
+        airuCountUnder80 = 0
+        airuCountOver120 = 0
     }
     
     // /////////////////////////
@@ -261,6 +263,19 @@ class Mhr: ObservableObject {
     
     // //// ver1.8.1追加
     @AppStorage("mhrRiseZoneCount") var riseZoneCount = 0
+    
+    // //// ver2.0.0追加
+    @AppStorage("mhrAiruCountUnder80") var airuCountUnder80: Int = 0 {
+        didSet {
+            airuCountSum = countSum(airuCountUnder80, airuCountOver120)
+        }
+    }
+        @AppStorage("mhrAiruCountOver120") var airuCountOver120: Int = 0 {
+            didSet {
+                airuCountSum = countSum(airuCountUnder80, airuCountOver120)
+            }
+        }
+    @AppStorage("mhrAiruCountSum") var airuCountSum: Int = 0
 }
 
 // //// メモリー1
@@ -296,6 +311,10 @@ class MhrMemory1: ObservableObject {
     @AppStorage("mhrMemoMemory1") var memo = ""
     @AppStorage("mhrDateMemory1") var dateDouble = 0.0
     @AppStorage("mhrRiseZoneCountMemory1") var riseZoneCount = 0
+    // //// ver2.0.0追加
+    @AppStorage("mhrAiruCountUnder80Memory1") var airuCountUnder80: Int = 0
+    @AppStorage("mhrAiruCountOver120Memory1") var airuCountOver120: Int = 0
+    @AppStorage("mhrAiruCountSumMemory1") var airuCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -331,6 +350,9 @@ class MhrMemory2: ObservableObject {
     @AppStorage("mhrMemoMemory2") var memo = ""
     @AppStorage("mhrDateMemory2") var dateDouble = 0.0
     @AppStorage("mhrRiseZoneCountMemory2") var riseZoneCount = 0
+    @AppStorage("mhrAiruCountUnder80Memory2") var airuCountUnder80: Int = 0
+    @AppStorage("mhrAiruCountOver120Memory2") var airuCountOver120: Int = 0
+    @AppStorage("mhrAiruCountSumMemory2") var airuCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -366,6 +388,9 @@ class MhrMemory3: ObservableObject {
     @AppStorage("mhrMemoMemory3") var memo = ""
     @AppStorage("mhrDateMemory3") var dateDouble = 0.0
     @AppStorage("mhrRiseZoneCountMemory3") var riseZoneCount = 0
+    @AppStorage("mhrAiruCountUnder80Memory3") var airuCountUnder80: Int = 0
+    @AppStorage("mhrAiruCountOver120Memory3") var airuCountOver120: Int = 0
+    @AppStorage("mhrAiruCountSumMemory3") var airuCountSum: Int = 0
 }
 
 struct mhrViewTop: View {
@@ -381,7 +406,7 @@ struct mhrViewTop: View {
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
                         )
-                        .popoverTip(tipVer180MhrRiseZoneCountAddTop())
+                        .popoverTip(tipVer200MhrUpdateInfo())
                     }
                     // ボーナス確定画面
                     NavigationLink(destination: mhrViewBonusScreen()) {
@@ -494,6 +519,9 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory1.endingCountAny = mhr.endingCountAny
         mhrMemory1.endingCountSum = mhr.endingCountSum
         mhrMemory1.riseZoneCount = mhr.riseZoneCount
+        mhrMemory1.airuCountUnder80 = mhr.airuCountUnder80
+        mhrMemory1.airuCountOver120 = mhr.airuCountOver120
+        mhrMemory1.airuCountSum = mhr.airuCountSum
     }
     func saveMemory2() {
         mhrMemory2.gameArrayData = mhr.gameArrayData
@@ -525,6 +553,9 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory2.endingCountAny = mhr.endingCountAny
         mhrMemory2.endingCountSum = mhr.endingCountSum
         mhrMemory2.riseZoneCount = mhr.riseZoneCount
+        mhrMemory2.airuCountUnder80 = mhr.airuCountUnder80
+        mhrMemory2.airuCountOver120 = mhr.airuCountOver120
+        mhrMemory2.airuCountSum = mhr.airuCountSum
     }
     func saveMemory3() {
         mhrMemory3.gameArrayData = mhr.gameArrayData
@@ -556,6 +587,9 @@ struct mhrSubViewSaveMemory: View {
         mhrMemory3.endingCountAny = mhr.endingCountAny
         mhrMemory3.endingCountSum = mhr.endingCountSum
         mhrMemory3.riseZoneCount = mhr.riseZoneCount
+        mhrMemory3.airuCountUnder80 = mhr.airuCountUnder80
+        mhrMemory3.airuCountOver120 = mhr.airuCountOver120
+        mhrMemory3.airuCountSum = mhr.airuCountSum
     }
 }
 
@@ -614,6 +648,9 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountAny = mhrMemory1.endingCountAny
         mhr.endingCountSum = mhrMemory1.endingCountSum
         mhr.riseZoneCount = mhrMemory1.riseZoneCount
+        mhr.airuCountUnder80 = mhrMemory1.airuCountUnder80
+        mhr.airuCountOver120 = mhrMemory1.airuCountOver120
+        mhr.airuCountSum = mhrMemory1.airuCountSum
     }
     func loadMemory2() {
         mhr.gameArrayData = mhrMemory2.gameArrayData
@@ -645,6 +682,9 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountAny = mhrMemory2.endingCountAny
         mhr.endingCountSum = mhrMemory2.endingCountSum
         mhr.riseZoneCount = mhrMemory2.riseZoneCount
+        mhr.airuCountUnder80 = mhrMemory2.airuCountUnder80
+        mhr.airuCountOver120 = mhrMemory2.airuCountOver120
+        mhr.airuCountSum = mhrMemory2.airuCountSum
     }
     func loadMemory3() {
         mhr.gameArrayData = mhrMemory3.gameArrayData
@@ -676,6 +716,9 @@ struct mhrSubViewLoadMemory: View {
         mhr.endingCountAny = mhrMemory3.endingCountAny
         mhr.endingCountSum = mhrMemory3.endingCountSum
         mhr.riseZoneCount = mhrMemory3.riseZoneCount
+        mhr.airuCountUnder80 = mhrMemory3.airuCountUnder80
+        mhr.airuCountOver120 = mhrMemory3.airuCountOver120
+        mhr.airuCountSum = mhrMemory3.airuCountSum
     }
 }
 

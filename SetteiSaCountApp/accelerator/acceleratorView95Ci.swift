@@ -14,6 +14,74 @@ struct acceleratorView95Ci: View {
     
     var body: some View {
         TabView(selection: $selection) {
+            // シャッター開放回数
+            unitListSection95Ci(
+                grafTitle: "シャッター開放回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $accelerator.normalChanceCountShutterOpen,
+                        bigNumber: $accelerator.normalChanceCount,
+                        setting1Percent: 33.2,
+                        setting2Percent: 34.8,
+                        setting3Percent: 36.7,
+                        setting4Percent: 38.7,
+                        setting5Percent: 40.6,
+                        setting6Percent: 44.9
+                    )
+                )
+            )
+            .tag(9)
+            // シャッター開放継続18G回数
+            unitListSection95Ci(
+                grafTitle: "シャッター開放継続 18G回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $accelerator.shutterOpenCount18G,
+                        bigNumber: $accelerator.shutterOpenCountSum,
+                        setting1Percent: 64.7,
+                        setting2Percent: 62.9,
+                        setting3Percent: 60.6,
+                        setting4Percent: 58.6,
+                        setting5Percent: 56.7,
+                        setting6Percent: 53.0
+                    )
+                )
+            )
+            .tag(10)
+            // シャッター開放継続23G回数
+            unitListSection95Ci(
+                grafTitle: "シャッター開放継続 23G回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $accelerator.shutterOpenCount23G,
+                        bigNumber: $accelerator.shutterOpenCountSum,
+                        setting1Percent: 32.9,
+                        setting2Percent: 33.7,
+                        setting3Percent: 35.1,
+                        setting4Percent: 36.4,
+                        setting5Percent: 36.5,
+                        setting6Percent: 38.3
+                    )
+                )
+            )
+            .tag(11)
+            // シャッター開放継続33G回数
+            unitListSection95Ci(
+                grafTitle: "シャッター開放継続 33G回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $accelerator.shutterOpenCount33G,
+                        bigNumber: $accelerator.shutterOpenCountSum,
+                        setting1Percent: 2.4,
+                        setting2Percent: 3.4,
+                        setting3Percent: 4.3,
+                        setting4Percent: 5.1,
+                        setting5Percent: 6.7,
+                        setting6Percent: 8.7
+                    )
+                )
+            )
+            .tag(12)
             // 対応チャンス目からの一方通行CZ回数
             unitListSection95Ci(
                 grafTitle: "対応チャンス目からの\n一方通行CZ回数",
@@ -85,6 +153,57 @@ struct acceleratorView95Ci: View {
                 )
             )
             .tag(4)
+            // 一方通行CZ回数
+            unitListSection95Ci(
+                grafTitle: "一方通行CZ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $accelerator.czCountAccelerator,
+                        bigNumber: $accelerator.playGameSum,
+                        setting1Denominate: 168.7,
+                        setting2Denominate: 165.5,
+                        setting3Denominate: 159.6,
+                        setting4Denominate: 152.9,
+                        setting5Denominate: 145.5,
+                        setting6Denominate: 134.1
+                    )
+                )
+            )
+            .tag(6)
+            // 打ち止めCZ回数
+            unitListSection95Ci(
+                grafTitle: "打ち止めCZ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $accelerator.czCountLastorder,
+                        bigNumber: $accelerator.playGameSum,
+                        setting1Denominate: 3244.1,
+                        setting2Denominate: 3188.7,
+                        setting3Denominate: 2892.9,
+                        setting4Denominate: 1838.2,
+                        setting5Denominate: 1356.3,
+                        setting6Denominate: 1247.1
+                    )
+                )
+            )
+            .tag(7)
+            // 一通・打止CZ回数
+            unitListSection95Ci(
+                grafTitle: "一通・打止CZ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $accelerator.czCountBoth,
+                        bigNumber: $accelerator.playGameSum,
+                        setting1Denominate: 1290.5,
+                        setting2Denominate: 1244.1,
+                        setting3Denominate: 1058.9,
+                        setting4Denominate: 1058.9,
+                        setting5Denominate: 943.6,
+                        setting6Denominate: 845.7
+                    )
+                )
+            )
+            .tag(8)
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",

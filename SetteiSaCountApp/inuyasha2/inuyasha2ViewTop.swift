@@ -697,7 +697,7 @@ struct inuyasha2ViewTop: View {
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
                         )
-                        .popoverTip(tipVer171Inuyasha333TenjoAdd())
+//                        .popoverTip(tipVer171Inuyasha333TenjoAdd())
                     }
                     // 狙え演出
                     NavigationLink(destination: inuyashaViewAim()) {

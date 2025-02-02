@@ -47,7 +47,7 @@ struct hanahanaSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedDragonHanahanaSenkoh == false {
                                 // 非表示
                             } else {
-                                NavigationLink(destination: draHanaSenkohViewTop()) {
+                                NavigationLink(destination: draHanaSenkohVer2ViewTop()) {
                                     VStack {
                                         ZStack {
                                             Image("machineImageDragonHanahanaSenkoh2")
@@ -71,10 +71,34 @@ struct hanahanaSeriesViewTop: View {
                             }
                             
                             // //// キングハナハナ, 23年3月
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedKingHanahana == false {
+//                                // 非表示
+//                            } else {
+//                                NavigationLink(destination: kingHanaViewTop()) {
+//                                    VStack {
+//                                        ZStack {
+//                                            Rectangle()
+//                                                .foregroundStyle(Color(hue: 1.0, saturation: 0.683, brightness: 0.797).gradient.opacity(0.8))
+////                                                .frame(width: 40.0, height: 40.0)
+//                                                .cornerRadius(13.0)
+//                                                .padding(.horizontal, 4.0)
+//                                            Image(systemName: "crown.fill")
+////                                                .foregroundColor(.secondary)
+//                                                .foregroundStyle(Color.secondary)
+//                                                .font(.largeTitle)
+//                                        }
+//                                        Text("キングハナハナ")
+//                                            .font(.caption)
+//                                            .lineLimit(1)
+////                                            .foregroundColor(Color.primary)
+//                                            .foregroundStyle(Color.primary)
+//                                    }
+//                                }
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedKingHanahana == false {
                                 // 非表示
                             } else {
-                                NavigationLink(destination: kingHanaViewTop()) {
+                                NavigationLink(destination: kingHanaVer2ViewTop()) {
                                     VStack {
                                         ZStack {
                                             Rectangle()
@@ -97,10 +121,15 @@ struct hanahanaSeriesViewTop: View {
                             }
                             
                             // //// ハナハナ鳳凰天翔, 22年1月
+//                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
+//                                // 非表示
+//                            } else {
+//                                unitMachineIconLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "鳳凰 天翔")
+//                            }
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "鳳凰 天翔")
+                                unitMachineIconLink(linkView: AnyView(hanaTenshoVer2ViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "鳳凰 天翔")
                             }
                         }
                     }
@@ -129,7 +158,7 @@ struct hanahanaSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanaTensho == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(hanaTenshoViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "ハナハナ鳳凰天翔", makerName: "パイオニア", releaseYear: 2022, releaseMonth: 1)
+                                unitMachinListLink(linkView: AnyView(hanaTenshoVer2ViewTop()), iconImage: Image("hanatenshoMachineIcon"), machineName: "ハナハナ鳳凰天翔", makerName: "パイオニア", releaseYear: 2022, releaseMonth: 1)
     //                                .popoverTip(tipAddHanahanaTensho())
                             }
                             
@@ -267,7 +296,7 @@ struct hanahanaSeriesfavoriteSettingView: View {
 // ////////////////////////
 struct machineListDragonHanahanaSenkoh: View {
     var body: some View {
-        NavigationLink(destination: draHanaSenkohViewTop()) {
+        NavigationLink(destination: draHanaSenkohVer2ViewTop()) {
             HStack {
                 ZStack {
                     Image("machineImageDragonHanahanaSenkoh2")
@@ -299,7 +328,7 @@ struct machineListDragonHanahanaSenkoh: View {
 // ////////////////////////
 struct machineListKingHanahana: View {
     var body: some View {
-        NavigationLink(destination: kingHanaViewTop()) {
+        NavigationLink(destination: kingHanaVer2ViewTop()) {
             HStack {
                 ZStack {
                     Rectangle()

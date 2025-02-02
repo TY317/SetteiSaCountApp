@@ -65,6 +65,9 @@ struct dumbbellViewKinnikuBonus: View {
                         )
                     )
                 )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 9)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("合いの手の人数")
             }
@@ -88,17 +91,17 @@ struct dumbbellViewKinnikuBonus: View {
                             image: Image(dumbbell.kinnikuScreenKeywordList[1]),
                             keyword: dumbbell.kinnikuScreenKeywordList[1],
                             currentKeyword: $dumbbell.kinnikuScreenCurrentKeyword,
-                            count: $dumbbell.kinnikuScreenCountDefault,
+                            count: $dumbbell.kinnikuScreenCountGusu,
                             minusCheck: $dumbbell.minusCheck
                         )
-                        // 全員集合
-                        unitButtonScreenChoice(
-                            image: Image(dumbbell.kinnikuScreenKeywordList[2]),
-                            keyword: dumbbell.kinnikuScreenKeywordList[2],
-                            currentKeyword: $dumbbell.kinnikuScreenCurrentKeyword,
-                            count: $dumbbell.kinnikuScreenCountDefault,
-                            minusCheck: $dumbbell.minusCheck
-                        )
+//                        // 全員集合
+//                        unitButtonScreenChoice(
+//                            image: Image(dumbbell.kinnikuScreenKeywordList[2]),
+//                            keyword: dumbbell.kinnikuScreenKeywordList[2],
+//                            currentKeyword: $dumbbell.kinnikuScreenCurrentKeyword,
+//                            count: $dumbbell.kinnikuScreenCountDefault,
+//                            minusCheck: $dumbbell.minusCheck
+//                        )
                         // ひびき
                         unitButtonScreenChoice(
                             image: Image(dumbbell.kinnikuScreenKeywordList[3]),
@@ -120,27 +123,56 @@ struct dumbbellViewKinnikuBonus: View {
                 .frame(height: 120)
                 
                 // //// カウント結果
-                //  デフォルト
+                //  デフォルト→奇数示唆
                 unitResultCountListPercent(
-                    title: "デフォルト",
+                    title: "奇数示唆",
                     count: $dumbbell.kinnikuScreenCountDefault,
-                    flashColor: .gray,
+                    flashColor: .blue,
+                    bigNumber: $dumbbell.kinnikuScreenCountSum
+                )
+                //  偶数示唆
+                unitResultCountListPercent(
+                    title: "偶数示唆",
+                    count: $dumbbell.kinnikuScreenCountGusu,
+                    flashColor: .yellow,
                     bigNumber: $dumbbell.kinnikuScreenCountSum
                 )
                 //  高設定示唆
                 unitResultCountListPercent(
-                    title: "高設定示唆",
+                    title: "設定4 以上濃厚",
                     count: $dumbbell.kinnikuScreenCountHigh,
                     flashColor: .green,
                     bigNumber: $dumbbell.kinnikuScreenCountSum
                 )
                 //  高設定示唆 強
                 unitResultCountListPercent(
-                    title: "高設定示唆 強",
+                    title: "設定6 濃厚",
                     count: $dumbbell.kinnikuScreenCountHighKyo,
                     flashColor: .red,
                     bigNumber: $dumbbell.kinnikuScreenCountSum
                 )
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "終了画面振り分けについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "終了画面振り分け",
+                            image1: Image("dumbbellKinnikuScreenRatio")
+                        )
+                    )
+                )
+                unitLinkButton(
+                    title: "全員集合画面について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "全員集合画面",
+                            textBody1: "・全員集合画面は差枚完走時やライジングアッパーチャレンジ失敗時のデフォルト画面で示唆では無いため注意"
+                        )
+                    )
+                )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 11)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("終了画面")
             }

@@ -44,7 +44,7 @@ class favoriteSetVar: ObservableObject {
 // 変数：コモン
 // /////////////////////////
 class commonVar: ObservableObject {
-    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = false      // アイコン表示の切り替え
+    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = true      // アイコン表示の切り替え
     let lazyVGridSize: CGFloat = 70
     let lazyVGridSpacing: CGFloat = 20
     let lazyVGridColumnsPortlait: Int = 4
@@ -105,6 +105,7 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(JuglerSeriesViewTop()), iconImage: Image("machineIconJuglerSeries"), machineName: "ジャグラー")
+                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -126,7 +127,7 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(dumbbellViewTop()), iconImage: Image("dumbbellMachineIcon"), machineName: "ダンベル")
-                                        .popoverTip(tipVer180AddMachine())
+//                                        .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ダンバイン、24年12月
@@ -258,6 +259,7 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     machineListJuglerSeries()
+                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -293,7 +295,7 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-                                    .popoverTip(tipVer180AddMachine())
+//                                    .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ダンバイン、24年12月
@@ -779,8 +781,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

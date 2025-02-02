@@ -48,6 +48,24 @@ struct mhrView95Ci: View {
                 )
             )
             .tag(2)
+            // アイルーだるま落とし80回以下回数
+            unitListSection95Ci(
+                grafTitle: "アイルーだるま落とし\n80回以下回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercentNotBinding(
+                        currentCount: mhr.airuCountUnder80,
+                        bigNumber: mhr.airuCountSum,
+                        setting1Percent: 25.0,
+                        setting2Percent: 26.6,
+                        setting3Percent: 31.2,
+                        setting4Percent: 39.0,
+                        setting5Percent: 43.8,
+                        setting6Percent: 45.4
+                    )
+                )
+            )
+            .tag(3)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

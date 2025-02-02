@@ -569,15 +569,26 @@ struct unitResultRatioRatioRightOneLine: View {
 struct unitTextFieldGamesInput: View {
     @State var title: String
     @Binding var inputValue: Int
+    @State var numberPadTypeSelect: Bool = true
+    var titleColor: Color = .primary
+    var inputNumberColor: Color = .primary
     
     var body: some View {
         HStack {
             Text(self.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            TextField(self.title, value: self.$inputValue, format: .number)
-                .keyboardType(.numberPad)
-//                .focused($isFocused)
-                .multilineTextAlignment(.center)
+                .foregroundStyle(self.titleColor)
+            if self.numberPadTypeSelect {
+                TextField(self.title, value: self.$inputValue, format: .number)
+                    .keyboardType(.numberPad)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(self.inputNumberColor)
+            } else {
+                TextField(self.title, value: self.$inputValue, format: .number)
+//                    .keyboardType(.numberPad)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(self.inputNumberColor)
+            }
         }
     }
 }
@@ -732,6 +743,7 @@ struct unitLabelMachineTopTitle: View {
                 .fontWeight(.bold)
 //                .foregroundColor(.primary)
                 .foregroundStyle(Color.primary)
+                .multilineTextAlignment(.center)
             Spacer()
         }
     }
@@ -1023,6 +1035,9 @@ struct unitResultCountListPercent: View {
         let Ratio = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? Ratio : 0.0
     }
+    let titleColor: Color = .primary
+    let numberColor: Color = .secondary
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -1030,11 +1045,14 @@ struct unitResultCountListPercent: View {
             HStack {
                 Text(title)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(self.titleColor)
                 HStack {
                     Text("\(count)")
                         .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundStyle(self.numberColor)
                     Text("(\(String(format: "%.\(numberofDigit)f", ratio))%)")
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(self.numberColor)
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -1111,26 +1129,45 @@ struct unitClearScrollSectionBinding: View {
 struct unitLabelMenu: View {
     @State var imageSystemName: String
     @State var textBody: String
-    @State var imageWidthSize: Double = 25.0
+    @State var imageWidthSize: Double = 20.0//25.0
+    @State var imageHeightSize: Double = 20.0
     @State var statisticsBool: Bool = false
+    let rectangleColor: Color = Color(UIColor.systemGray2)
+    let rectangleCornerRadius: CGFloat = 6.0
+    let rectangleSize: CGFloat = 30.0
+    let imageColor: Color = .white
+    let hstackSpacing: CGFloat = 15.0
     
     var body: some View {
-        HStack {
-            Image(systemName: self.imageSystemName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-//                .foregroundColor(Color.gray)
-                .foregroundStyle(Color.gray)
-                .frame(width: self.imageWidthSize)
-            Text(self.textBody)
-            if self.statisticsBool {
-                Spacer()
-                Image(systemName: "chart.bar.xaxis")
+//        HStack {
+//            Image(systemName: self.imageSystemName)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .foregroundStyle(Color.gray)
+//                .frame(width: self.imageWidthSize)
+//            Text(self.textBody)
+//            if self.statisticsBool {
+//                Spacer()
+//                Image(systemName: "chart.bar.xaxis")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .foregroundStyle(Color.gray)
+//                    .frame(width: self.imageWidthSize)
+//            }
+//        }
+        HStack(spacing: self.hstackSpacing) {
+            ZStack {
+                Rectangle()
+                    .foregroundStyle(self.rectangleColor)
+                    .cornerRadius(self.rectangleCornerRadius)
+                Image(systemName: self.imageSystemName)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(Color.gray)
-                    .frame(width: self.imageWidthSize)
+                    .scaledToFit()
+                    .foregroundStyle(self.imageColor)
+                    .frame(width: self.imageWidthSize, height: self.imageHeightSize)
             }
+            .frame(width: self.rectangleSize, height: self.rectangleSize)
+            Text(self.textBody)
         }
     }
 }

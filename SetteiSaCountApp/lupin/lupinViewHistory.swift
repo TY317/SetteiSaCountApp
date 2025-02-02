@@ -331,7 +331,7 @@ struct lupinViewHistory: View {
             } header: {
                 Text("シングル揃い ボーナスキャラ種類")
             }
-            .popoverTip(tipVer180LupinSingleCharaRatioAdd())
+//            .popoverTip(tipVer180LupinSingleCharaRatioAdd())
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
         // //// 画面の向き情報の取得部分
