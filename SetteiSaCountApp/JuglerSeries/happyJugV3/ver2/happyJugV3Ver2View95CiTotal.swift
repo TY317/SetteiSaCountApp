@@ -73,7 +73,7 @@ struct happyJugV3Ver2View95CiTotal: View {
             .tag(2)
             // REG合算回数
             unitListSection95Ci(
-                grafTitle: "総合結果\n REG合算回数",
+                grafTitle: "総合結果\n REG回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $happyJugV3.totalRegCount,

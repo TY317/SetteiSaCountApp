@@ -37,6 +37,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteDanvine") var isSelectedFavoriteDanvine = true
     @AppStorage("isSelectedFavoriteDumbbell") var isSelectedFavoriteDumbbell = true
     @AppStorage("isSelectedFavoriteAccelerator") var isSelectedFavoriteAccelerator = true
+    @AppStorage("isSelectedFavoriteSbj") var isSelectedFavoriteSbj = true
 }
 
 
@@ -78,6 +79,7 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
+    @ObservedObject var ver210 = Ver210()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -104,8 +106,13 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(JuglerSeriesViewTop()), iconImage: Image("machineIconJuglerSeries"), machineName: "ジャグラー")
-                                        .popoverTip(tipVer200RemakeJugHana())
+                                    unitMachineIconLink(
+                                        linkView: AnyView(JuglerSeriesViewTop()),
+                                        iconImage: Image("machineIconJuglerSeries"),
+                                        machineName: "ジャグラー",
+                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
+                                    )
+//                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -115,6 +122,13 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
                                 }
                                 
+                                // //// スーパーブラックジャック、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSbj == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(linkView: AnyView(sbjViewTop()), iconImage: Image("sbjMachineIcon"), machineName: "SBJ", badgeStatus: ver210.sbjNewBadgeStatus)
+                                        .popoverTip(tipVer210MachineAdd())
+                                }
                                 // //// 一方通行、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAccelerator == false {
                                     
@@ -258,8 +272,17 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedJuglerSeries == false {
                                     // 非表示
                                 } else {
-                                    machineListJuglerSeries()
-                                        .popoverTip(tipVer200RemakeJugHana())
+                                    unitMachinListLink(
+                                        linkView: AnyView(JuglerSeriesViewTop()),
+                                        iconImage: Image("machineIconJuglerSeries"),
+                                        machineName: "ジャグラーシリーズ",
+                                        makerName: "北電子",
+                                        releaseYear: 96,
+                                        releaseMonth: 12,
+                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
+                                    )
+//                                    machineListJuglerSeries()
+//                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -267,6 +290,22 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     machineListHanahanaSeries()
+                                }
+                                
+                                // //// スーパーブラックジャック、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSbj == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(sbjViewTop()),
+                                        iconImage: Image("sbjMachineIcon"),
+                                        machineName: "スーパーブラックジャック",
+                                        makerName: "山佐",
+                                        releaseYear: 2025,
+                                        releaseMonth: 2,
+                                        badgeStatus: ver210.sbjNewBadgeStatus
+                                    )
+                                    .popoverTip(tipVer210MachineAdd())
                                 }
                                 
                                 // //// 一方通行、24年12月
@@ -612,6 +651,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// スーパーブラックジャック、25年2月
+                Toggle("スーパーブラックジャック", isOn: $favoriteSet.isSelectedFavoriteSbj)
                 // //// 一方通行、24年12月
                 Toggle("一方通行 とある魔術の禁書目録", isOn: $favoriteSet.isSelectedFavoriteAccelerator)
                 // //// ダンベル、24年12月
@@ -781,8 +822,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

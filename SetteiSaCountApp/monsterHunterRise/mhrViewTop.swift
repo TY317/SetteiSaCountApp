@@ -406,7 +406,7 @@ struct mhrViewTop: View {
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
                         )
-                        .popoverTip(tipVer200MhrUpdateInfo())
+//                        .popoverTip(tipVer200MhrUpdateInfo())
                     }
                     // ボーナス確定画面
                     NavigationLink(destination: mhrViewBonusScreen()) {

@@ -298,7 +298,7 @@ struct acceleratorViewCz: View {
                             numberofDicimal: 0,
                             spacerBool: false
                         )
-                        .popoverTip(tipVer200AcceleratorCzRatio())
+//                        .popoverTip(tipVer200AcceleratorCzRatio())
                         // 一通・打ち止めCZ確率
                         unitResultRatioDenomination2Line(
                             title: "一通・打止",
@@ -364,7 +364,7 @@ struct acceleratorViewCz: View {
                                 spacerBool: false
                             )
                         }
-                        .popoverTip(tipVer200AcceleratorCzRatio())
+//                        .popoverTip(tipVer200AcceleratorCzRatio())
                     }
                     // //// AT
                     HStack {

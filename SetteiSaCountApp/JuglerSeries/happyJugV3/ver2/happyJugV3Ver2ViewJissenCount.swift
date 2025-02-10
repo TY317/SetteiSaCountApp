@@ -16,9 +16,9 @@ struct happyJugV3Ver2ViewJissenCount: View {
     let scrollViewHeightPortrait = 250.0
     let scrollViewHeightLandscape = 150.0
     @State var scrollViewHeight = 250.0
-    let spaceHeightPortrait = 250.0
+    let spaceHeightPortrait = 100.0
     let spaceHeightLandscape = 0.0
-    @State var spaceHeight = 250.0
+    @State var spaceHeight = 100.0
     
     var body: some View {
         List {
@@ -238,6 +238,7 @@ struct happyJugV3Ver2ViewJissenCount: View {
             } header: {
                 Text("ゲーム数入力")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

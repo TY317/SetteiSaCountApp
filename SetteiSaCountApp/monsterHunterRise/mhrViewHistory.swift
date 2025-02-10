@@ -87,7 +87,7 @@ struct mhrViewHistory: View {
             } header: {
                 Text("アイルーだるま落とし規定回数")
             }
-            .popoverTip(tipVer200MhrAiruAdd())
+//            .popoverTip(tipVer200MhrAiruAdd())
             // //// 履歴表示
             Section {
                 ScrollView {
