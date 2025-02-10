@@ -380,7 +380,7 @@ struct acceleratorViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "door.sliding.left.hand.closed",
                             textBody: "通常時 シャッター関連")
-                        .popoverTip(tipVer200AcceleratorMenuShutter())
+//                        .popoverTip(tipVer200AcceleratorMenuShutter())
                     }
                     // CZ
                     NavigationLink(destination: acceleratorViewCz()) {

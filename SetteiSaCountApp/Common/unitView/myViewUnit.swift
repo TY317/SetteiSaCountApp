@@ -28,20 +28,57 @@ struct unitMachinListLink: View {
     @State var makerName: String
     @State var releaseYear: Int
     @State var releaseMonth: Int
+    var badgeStatus: String = "none"
+    let newBadgeBgColor: Color = .yellow
+    let updateBadgeColor: Color = .red
     
     var body: some View {
         NavigationLink(destination: self.linkView) {
-            HStack {
-                self.iconImage
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
+            HStack(spacing: 5.0) {
+                ZStack {
+                    // アイコン部分
+                    self.iconImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 40.0)
+                        .cornerRadius(8)
+                        .padding(.trailing, 5.0)
+                    // newバッジ部分
+                    if self.badgeStatus == "new" {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundStyle(self.newBadgeBgColor)
+                                        .cornerRadius(10.0)
+                                        .frame(width: 40.0, height: 20.0)
+                                    Text("NEW")
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                    // updateバッジ部分
+                    else if self.badgeStatus == "update" {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Circle()
+                                    .foregroundStyle(self.updateBadgeColor)
+                                    .frame(width: 20.0, height: 20.0)
+                            }
+                            Spacer()
+                        }
+                    }
+                }
+                .frame(width: 45.0)
                 VStack(alignment: .leading) {
                     Text(self.machineName)
                     Text("\(self.makerName) , \(String(self.releaseYear))年 \(self.releaseMonth)月")
                         .font(.caption)
-//                        .foregroundColor(Color.gray)
                         .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
@@ -58,20 +95,57 @@ struct unitMachineIconLink: View {
     @State var linkView: AnyView
     @State var iconImage: Image
     @State var machineName: String
+    var badgeStatus: String = "none"
+    let newBadgeBgColor: Color = .yellow
+    let updateBadgeColor: Color = .red
     
     var body: some View {
         NavigationLink(destination: self.linkView) {
-            VStack {
-                self.iconImage
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(13.0)
-                    .padding(.horizontal, 4.0)
-                Text(self.machineName)
-                    .font(.caption)
-                    .lineLimit(1)
-//                    .foregroundColor(Color.primary)
-                    .foregroundStyle(Color.primary)
+            ZStack {
+                // アイコン本体部分
+                VStack {
+                    self.iconImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(13.0)
+//                        .padding(.horizontal, 4.0)
+                        .padding(.horizontal, 4.0)
+                        .padding(.top, 4.0)
+                    Text(self.machineName)
+                        .font(.caption)
+                        .lineLimit(1)
+                        .foregroundStyle(Color.primary)
+                }
+                // newバッジ部分
+                if self.badgeStatus == "new" {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                Rectangle()
+                                    .foregroundStyle(self.newBadgeBgColor)
+                                    .cornerRadius(10.0)
+                                    .frame(width: 40.0, height: 20.0)
+                                Text("NEW")
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        Spacer()
+                    }
+                }
+                // updateバッジ部分
+                else if self.badgeStatus == "update" {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Circle()
+                                .foregroundStyle(self.updateBadgeColor)
+                                .frame(width: 20.0, height: 20.0)
+                        }
+                        Spacer()
+                    }
+                }
             }
         }
     }

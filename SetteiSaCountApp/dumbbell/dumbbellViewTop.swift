@@ -505,7 +505,7 @@ struct dumbbellViewTop: View {
                             textBody: "CZ,ボーナス終了画面"
                         )
                     }
-                    .popoverTip(tipVer200DumbbellUpdateInfo())
+//                    .popoverTip(tipVer200DumbbellUpdateInfo())
                     // ゴールデンチャレンジ
                     NavigationLink(destination: dumbbellViewGoldenChallenge()) {
                         unitLabelMenu(

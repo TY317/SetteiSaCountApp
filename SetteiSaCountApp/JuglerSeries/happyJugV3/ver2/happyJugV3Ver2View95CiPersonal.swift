@@ -34,7 +34,7 @@ struct happyJugV3Ver2View95CiPersonal: View {
             .tag(1)
             // BIG合算回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\n BIG合算回数",
+                grafTitle: "自分のプレイデータ\n BIG回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $happyJugV3.personalBigCountSum,
@@ -51,7 +51,7 @@ struct happyJugV3Ver2View95CiPersonal: View {
             .tag(2)
             // REG合算回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\n REG合算回数",
+                grafTitle: "自分のプレイデータ\n REG回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $happyJugV3.personalRegCountSum,
