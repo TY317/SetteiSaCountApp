@@ -145,6 +145,9 @@ struct VVV_Top: View {
                 NavigationLink(destination: vvvView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4244")
+                    .popoverTip(tipVer220AddLink())
                 Section {
                     Text("")
                 }

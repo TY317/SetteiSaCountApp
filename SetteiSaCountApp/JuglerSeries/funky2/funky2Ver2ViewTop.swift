@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct funky2Ver2ViewTop: View {
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var funky2 = Funky2()
     @State var isShowAlert: Bool = false
     
@@ -69,6 +69,9 @@ struct funky2Ver2ViewTop: View {
                 NavigationLink(destination: funky2Ver2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/3961")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -87,11 +90,11 @@ struct funky2Ver2ViewTop: View {
                     .popoverTip(tipUnitButtonReset())
             }
         }
-        .onAppear {
-            if ver210.ver210Funky2NewBadgeStatus != "none" {
-                ver210.ver210Funky2NewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver210.ver210Funky2NewBadgeStatus != "none" {
+//                ver210.ver210Funky2NewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

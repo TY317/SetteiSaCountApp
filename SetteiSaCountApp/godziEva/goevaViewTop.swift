@@ -323,6 +323,9 @@ struct goevaViewTop: View {
                 NavigationLink(destination: goevaView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4501")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

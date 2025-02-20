@@ -38,6 +38,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteDumbbell") var isSelectedFavoriteDumbbell = true
     @AppStorage("isSelectedFavoriteAccelerator") var isSelectedFavoriteAccelerator = true
     @AppStorage("isSelectedFavoriteSbj") var isSelectedFavoriteSbj = true
+    @AppStorage("isSelectedFavoriteSevenSwords") var isSelectedFavoriteSevenSwords = true
 }
 
 
@@ -79,7 +80,8 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
+    @ObservedObject var ver220 = Ver220()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -109,8 +111,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(JuglerSeriesViewTop()),
                                         iconImage: Image("machineIconJuglerSeries"),
-                                        machineName: "ジャグラー",
-                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
+                                        machineName: "ジャグラー"
+//                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
                                     )
 //                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
@@ -119,16 +121,40 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(hanahanaSeriesViewTop()), iconImage: Image("machineIconHanahanaSeries"), machineName: "ハナハナ")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(hanahanaSeriesViewTop()),
+                                        iconImage: Image("machineIconHanahanaSeries"),
+                                        machineName: "ハナハナ",
+                                        badgeStatus: ver220.hanaSerieseNewBadgeStatus
+                                    )
                                 }
                                 
                                 // //// スーパーブラックジャック、25年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSbj == false {
                                     
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(sbjViewTop()), iconImage: Image("sbjMachineIcon"), machineName: "SBJ", badgeStatus: ver210.sbjNewBadgeStatus)
-                                        .popoverTip(tipVer210MachineAdd())
+                                    unitMachineIconLink(
+                                        linkView: AnyView(sbjViewTop()),
+                                        iconImage: Image("sbjMachineIcon"),
+                                        machineName: "SBJ",
+                                        badgeStatus: ver220.sbjUpdateBadgeStatus
+                                    )
+//                                        .popoverTip(tipVer210MachineAdd())
                                 }
+                                
+                                // //// 七つの魔剣が支配する、25年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSevenSwords == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(sevenSwordsViewTop()),
+                                        iconImage: Image("sevenSwordsMachineIcon"),
+                                        machineName: "七つの魔剣が支配する",
+                                        badgeStatus: ver220.sevenSwordsNewBadgeStatus
+                                    )
+                                        .popoverTip(tipVer220MachineAdd())
+                                }
+                                
                                 // //// 一方通行、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAccelerator == false {
                                     
@@ -207,7 +233,12 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(godeaterViewTop()),
+                                        iconImage: Image("godeaterMachinIcon"),
+                                        machineName: "ゴッドイーター",
+                                        badgeStatus: ver220.godEaterUpdateBadgeStatus
+                                    )
                                 }
                                 
                                 // //// ToLOVEるダークネス、24年6月
@@ -278,8 +309,8 @@ struct ContentView: View {
                                         machineName: "ジャグラーシリーズ",
                                         makerName: "北電子",
                                         releaseYear: 96,
-                                        releaseMonth: 12,
-                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
+                                        releaseMonth: 12
+//                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
                                     )
 //                                    machineListJuglerSeries()
 //                                        .popoverTip(tipVer200RemakeJugHana())
@@ -289,7 +320,16 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHanahanaSeries == false {
                                     // 非表示
                                 } else {
-                                    machineListHanahanaSeries()
+                                    unitMachinListLink(
+                                        linkView: AnyView(hanahanaSeriesViewTop()),
+                                        iconImage: Image("machineIconHanahanaSeries"),
+                                        machineName: "ハナハナ",
+                                        makerName: "パイオニア",
+                                        releaseYear: 2001,
+                                        releaseMonth: 5,
+                                        badgeStatus: ver220.hanaSerieseNewBadgeStatus
+                                    )
+//                                    machineListHanahanaSeries()
                                 }
                                 
                                 // //// スーパーブラックジャック、25年2月
@@ -303,9 +343,25 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver210.sbjNewBadgeStatus
+                                        badgeStatus: ver220.sbjUpdateBadgeStatus
                                     )
-                                    .popoverTip(tipVer210MachineAdd())
+//                                    .popoverTip(tipVer210MachineAdd())
+                                }
+                                
+                                // //// 七つの魔剣が支配する、25年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSevenSwords == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(sevenSwordsViewTop()),
+                                        iconImage: Image("sevenSwordsMachineIcon"),
+                                        machineName: "七つの魔剣が支配する",
+                                        makerName: "コナミ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 1,
+                                        badgeStatus: ver220.sevenSwordsNewBadgeStatus
+                                    )
+                                    .popoverTip(tipVer220MachineAdd())
                                 }
                                 
                                 // //// 一方通行、24年12月
@@ -429,7 +485,15 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodeater == false {
                                     // 非表示
                                 } else {
-                                    unitMachinListLink(linkView: AnyView(godeaterViewTop()), iconImage: Image("godeaterMachinIcon"), machineName: "ゴッドイーター リザレクション", makerName: "山佐", releaseYear: 2024, releaseMonth: 7)
+                                    unitMachinListLink(
+                                        linkView: AnyView(godeaterViewTop()),
+                                        iconImage: Image("godeaterMachinIcon"),
+                                        machineName: "ゴッドイーター リザレクション",
+                                        makerName: "山佐",
+                                        releaseYear: 2024,
+                                        releaseMonth: 7,
+                                        badgeStatus: ver220.godEaterUpdateBadgeStatus
+                                    )
                                 }
                                 // //// ToLOVEるダークネス、24年6月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
@@ -653,6 +717,8 @@ struct favoriteSettingView: View {
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // //// スーパーブラックジャック、25年2月
                 Toggle("スーパーブラックジャック", isOn: $favoriteSet.isSelectedFavoriteSbj)
+                // //// 7つの魔剣が支配する、25年1月
+                Toggle("七つの魔剣が支配する", isOn: $favoriteSet.isSelectedFavoriteSevenSwords)
                 // //// 一方通行、24年12月
                 Toggle("一方通行 とある魔術の禁書目録", isOn: $favoriteSet.isSelectedFavoriteAccelerator)
                 // //// ダンベル、24年12月
@@ -822,8 +888,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

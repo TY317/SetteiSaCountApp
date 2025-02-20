@@ -432,7 +432,7 @@ struct mhrViewTop: View {
                     // エンディング
                     NavigationLink(destination: mhrViewEnding()) {
                         unitLabelMenu(
-                            imageSystemName: "flag.checkered",
+                            imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
                         )
                     }
@@ -443,6 +443,9 @@ struct mhrViewTop: View {
                 NavigationLink(destination: mhrView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4676")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

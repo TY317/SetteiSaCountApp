@@ -17,7 +17,7 @@ struct draHanaSenkohVer2View95CiKen: View {
             if draHanaSenkoh.kenBackCalculationEnable {
                 // ぶどう回数
                 unitListSection95Ci(
-                    grafTitle: "見\nぶどう回数",
+                    grafTitle: "見\nベル回数",
                     grafView: AnyView(
                         unitChart95CiDenominate(
                             currentCount: $draHanaSenkoh.kenBellBackCalculationCount,

@@ -578,6 +578,9 @@ struct kabaneriViewTop: View {
                 NavigationLink(destination: kabaneriView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4160")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

@@ -532,6 +532,9 @@ struct kingHanaVer2ViewTop: View {
                 NavigationLink(destination: kingHanaVer2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4311")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

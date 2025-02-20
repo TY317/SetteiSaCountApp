@@ -431,6 +431,9 @@ struct karakuriViewTop: View {
                 NavigationLink(destination: karakuriView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4360")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

@@ -17,7 +17,7 @@ struct draHanaSenkohVer2View95CiStart: View {
             if draHanaSenkoh.startBackCalculationEnable {
                 // ぶどう回数
                 unitListSection95Ci(
-                    grafTitle: "打ち始め\nぶどう回数",
+                    grafTitle: "打ち始め\nベル回数",
                     grafView: AnyView(
                         unitChart95CiDenominate(
                             currentCount: $draHanaSenkoh.startBellBackCalculationCount,

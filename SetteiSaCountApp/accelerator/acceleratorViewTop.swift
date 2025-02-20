@@ -408,6 +408,9 @@ struct acceleratorViewTop: View {
                 NavigationLink(destination: acceleratorView95Ci(selection: 9)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4686")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

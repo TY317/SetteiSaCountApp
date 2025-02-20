@@ -52,6 +52,9 @@ class Sbj: ObservableObject {
         nextInputRedBbCount = 0
         nextInputBlueBbCount = 0
         minusCheck = false
+        normalChanceCount = 0
+        normalChanceKokakuCount = 0
+        normalChanceChokugekiCount = 0
     }
     
     // ////////////////////////
@@ -121,6 +124,13 @@ class Sbj: ObservableObject {
         resetNormal()
         resetDiceCheck()
     }
+    
+    // /////////////////////////
+    // ver220で追加、通常チャンス目関連
+    // /////////////////////////
+    @AppStorage("sbjNormalChanceCount") var normalChanceCount = 0
+    @AppStorage("sbjNormalChanceKokakuCount") var normalChanceKokakuCount = 0
+    @AppStorage("sbjNormalChanceChokugekiCount") var normalChanceChokugekiCount = 0
 }
 
 
@@ -139,6 +149,12 @@ class SbjMemory1: ObservableObject {
     @AppStorage("sbjSuikaArrayKeyMemory1") var suikaArrayData: Data?
     @AppStorage("sbjMemoMemory1") var memo = ""
     @AppStorage("sbjDateMemory1") var dateDouble = 0.0
+    // /////////////////////////
+    // ver220で追加、通常チャンス目関連
+    // /////////////////////////
+    @AppStorage("sbjNormalChanceCountMemory1") var normalChanceCount = 0
+    @AppStorage("sbjNormalChanceKokakuCountMemory1") var normalChanceKokakuCount = 0
+    @AppStorage("sbjNormalChanceChokugekiCountMemory1") var normalChanceChokugekiCount = 0
 }
 
 // //// メモリー2
@@ -156,6 +172,12 @@ class SbjMemory2: ObservableObject {
     @AppStorage("sbjSuikaArrayKeyMemory2") var suikaArrayData: Data?
     @AppStorage("sbjMemoMemory2") var memo = ""
     @AppStorage("sbjDateMemory2") var dateDouble = 0.0
+    // /////////////////////////
+    // ver220で追加、通常チャンス目関連
+    // /////////////////////////
+    @AppStorage("sbjNormalChanceCountMemory2") var normalChanceCount = 0
+    @AppStorage("sbjNormalChanceKokakuCountMemory2") var normalChanceKokakuCount = 0
+    @AppStorage("sbjNormalChanceChokugekiCountMemory2") var normalChanceChokugekiCount = 0
 }
 
 // //// メモリー3
@@ -173,5 +195,11 @@ class SbjMemory3: ObservableObject {
     @AppStorage("sbjSuikaArrayKeyMemory3") var suikaArrayData: Data?
     @AppStorage("sbjMemoMemory3") var memo = ""
     @AppStorage("sbjDateMemory3") var dateDouble = 0.0
+    // /////////////////////////
+    // ver220で追加、通常チャンス目関連
+    // /////////////////////////
+    @AppStorage("sbjNormalChanceCountMemory3") var normalChanceCount = 0
+    @AppStorage("sbjNormalChanceKokakuCountMemory3") var normalChanceKokakuCount = 0
+    @AppStorage("sbjNormalChanceChokugekiCountMemory3") var normalChanceChokugekiCount = 0
 }
 

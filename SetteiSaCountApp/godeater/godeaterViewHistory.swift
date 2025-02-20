@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct godeaterViewHistory: View {
+    @ObservedObject var ver220 = Ver220()
     @ObservedObject var godeater = Godeater()
     @State var isShowAlert = false
     @State var isShowDataInputView = false
@@ -133,6 +134,17 @@ struct godeaterViewHistory: View {
                                 )
                             )
                         )
+                        // //// 参考情報リンク、強チェリーからの直撃
+                        unitLinkButton(
+                            title: "強チェリーからのAT直撃について",
+                            exview: AnyView(
+                                unitExView5body2image(
+                                    title: "強チェリーからのAT直撃",
+                                    image1: Image("godeaterKyoCherryAt")
+                                )
+                            )
+                        )
+                        .popoverTip(tipVer220GodEaterKyoCherryChokugeki())
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(selection: 1)))
                             .popoverTip(tipUnitButtonLink95Ci())
@@ -289,6 +301,11 @@ struct godeaterViewHistory: View {
                         unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetHistory)
                             .popoverTip(tipUnitButtonReset())
                     }
+                }
+            }
+            .onAppear {
+                if ver220.godEaterUpdateBadgeStatus2 != "none" {
+                    ver220.godEaterUpdateBadgeStatus2 = "none"
                 }
             }
 //        }
