@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct girlsSSViewTop: View {
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var girlsSS = GirlsSS()
     @State var isShowAlert: Bool = false
     
@@ -69,6 +69,9 @@ struct girlsSSViewTop: View {
                 NavigationLink(destination: girlsSSVer2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4540")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -87,11 +90,11 @@ struct girlsSSViewTop: View {
                     .popoverTip(tipUnitButtonReset())
             }
         }
-        .onAppear {
-            if ver210.ver210GirlsSSNewBadgeStatus != "none" {
-                ver210.ver210GirlsSSNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver210.ver210GirlsSSNewBadgeStatus != "none" {
+//                ver210.ver210GirlsSSNewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

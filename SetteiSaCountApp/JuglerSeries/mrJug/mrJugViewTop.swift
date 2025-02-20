@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mrJugViewTop: View {
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var mrJug = MrJug()
     @State var isShowAlert: Bool = false
     
@@ -69,6 +69,9 @@ struct mrJugViewTop: View {
                 NavigationLink(destination: mrJugVer2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4588")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -87,11 +90,11 @@ struct mrJugViewTop: View {
                     .popoverTip(tipUnitButtonReset())
             }
         }
-        .onAppear {
-            if ver210.ver210MrJugNewBadgeStatus != "none" {
-                ver210.ver210MrJugNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver210.ver210MrJugNewBadgeStatus != "none" {
+//                ver210.ver210MrJugNewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

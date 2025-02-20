@@ -10,7 +10,8 @@ import SwiftUI
 struct sbjViewTop: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
+    @ObservedObject var ver220 = Ver220()
     
     var body: some View {
         NavigationStack {
@@ -29,7 +30,8 @@ struct sbjViewTop: View {
                     NavigationLink(destination: sbjViewNormal()) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時 小役、高確、初当り"
+                            textBody: "通常時 小役、高確、初当り",
+                            badgeStatus: ver220.sbjUpdateBadgeStatus2
                         )
                     }
                     // ダイスチェック
@@ -65,11 +67,14 @@ struct sbjViewTop: View {
                 NavigationLink(destination: sbjView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4712")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .onAppear {
-            if ver210.sbjNewBadgeStatus == "new" {
-                ver210.sbjNewBadgeStatus = "none"
+            if ver220.sbjUpdateBadgeStatus != "none" {
+                ver220.sbjUpdateBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -130,6 +135,12 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory1.diceLeftArrayData = sbj.diceLeftArrayData
         sbjMemory1.diceRightArrayData = sbj.diceRightArrayData
         sbjMemory1.suikaArrayData = sbj.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbjMemory1.normalChanceCount = sbj.normalChanceCount
+        sbjMemory1.normalChanceKokakuCount = sbj.normalChanceKokakuCount
+        sbjMemory1.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
     }
     func saveMemory2() {
         sbjMemory2.kokakuCount = sbj.kokakuCount
@@ -143,6 +154,12 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory2.diceLeftArrayData = sbj.diceLeftArrayData
         sbjMemory2.diceRightArrayData = sbj.diceRightArrayData
         sbjMemory2.suikaArrayData = sbj.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbjMemory2.normalChanceCount = sbj.normalChanceCount
+        sbjMemory2.normalChanceKokakuCount = sbj.normalChanceKokakuCount
+        sbjMemory2.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
     }
     func saveMemory3() {
         sbjMemory3.kokakuCount = sbj.kokakuCount
@@ -156,6 +173,12 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory3.diceLeftArrayData = sbj.diceLeftArrayData
         sbjMemory3.diceRightArrayData = sbj.diceRightArrayData
         sbjMemory3.suikaArrayData = sbj.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbjMemory3.normalChanceCount = sbj.normalChanceCount
+        sbjMemory3.normalChanceKokakuCount = sbj.normalChanceKokakuCount
+        sbjMemory3.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
     }
 }
 
@@ -198,6 +221,12 @@ struct sbjSubViewLoadMemory: View {
         sbj.diceLeftArrayData = sbjMemory1.diceLeftArrayData
         sbj.diceRightArrayData = sbjMemory1.diceRightArrayData
         sbj.suikaArrayData = sbjMemory1.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbj.normalChanceCount = sbjMemory1.normalChanceCount
+        sbj.normalChanceKokakuCount = sbjMemory1.normalChanceKokakuCount
+        sbj.normalChanceChokugekiCount = sbjMemory1.normalChanceChokugekiCount
     }
     func loadMemory2() {
         sbj.kokakuCount = sbjMemory2.kokakuCount
@@ -211,6 +240,12 @@ struct sbjSubViewLoadMemory: View {
         sbj.diceLeftArrayData = sbjMemory2.diceLeftArrayData
         sbj.diceRightArrayData = sbjMemory2.diceRightArrayData
         sbj.suikaArrayData = sbjMemory2.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbj.normalChanceCount = sbjMemory2.normalChanceCount
+        sbj.normalChanceKokakuCount = sbjMemory2.normalChanceKokakuCount
+        sbj.normalChanceChokugekiCount = sbjMemory2.normalChanceChokugekiCount
     }
     func loadMemory3() {
         sbj.kokakuCount = sbjMemory3.kokakuCount
@@ -224,6 +259,12 @@ struct sbjSubViewLoadMemory: View {
         sbj.diceLeftArrayData = sbjMemory3.diceLeftArrayData
         sbj.diceRightArrayData = sbjMemory3.diceRightArrayData
         sbj.suikaArrayData = sbjMemory3.suikaArrayData
+        // /////////////////////////
+        // ver220で追加、通常チャンス目関連
+        // /////////////////////////
+        sbj.normalChanceCount = sbjMemory3.normalChanceCount
+        sbj.normalChanceKokakuCount = sbjMemory3.normalChanceKokakuCount
+        sbj.normalChanceChokugekiCount = sbjMemory3.normalChanceChokugekiCount
     }
 }
 

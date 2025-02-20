@@ -534,6 +534,9 @@ struct hanaTenshoVer2ViewTop: View {
                 NavigationLink(destination: hanaTenshoVer2View95CiTotal()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4014")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")

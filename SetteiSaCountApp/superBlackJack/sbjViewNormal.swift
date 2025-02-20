@@ -24,8 +24,26 @@ struct sbjTipKokakuCount: Tip {
     }
 }
 
+// /////////////////////
+// Tip：通常チャンス目関連
+// /////////////////////
+struct sbjTipChanceCount: Tip {
+    var title: Text {
+        Text("通常 チャンス目関連")
+    }
+    
+    var message: Text? {
+        Text("通常モード中のチャンス目での\n・成立回数\n・ボーナス高確移行回数\n・ボーナス直撃回数\nをカウントを推奨")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 
 struct sbjViewNormal: View {
+    @ObservedObject var ver220 = Ver220()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
@@ -41,6 +59,53 @@ struct sbjViewNormal: View {
     
     var body: some View {
         List {
+            // //// 通常中チャンス目関連
+            Section {
+                HStack {
+                    // チャンス目回数
+                    unitCountButtonVerticalDenominate(
+                        title: "ﾁｬﾝｽ目回数",
+                        count: $sbj.normalChanceCount,
+                        color: .personalSummerLightBlue,
+                        bigNumber: $sbj.normalGame,
+                        numberofDicimal: 0,
+                        minusBool: $sbj.minusCheck
+                    )
+                    // ボナ高確移行
+                    unitCountButtonVerticalPercent(
+                        title: "ﾎﾞﾅ高確移行",
+                        count: $sbj.normalChanceKokakuCount,
+                        color: .personalSummerLightGreen,
+                        bigNumber: $sbj.normalChanceCount,
+                        numberofDicimal: 0,
+                        minusBool: $sbj.minusCheck
+                    )
+                    // ボナ高確移行
+                    unitCountButtonVerticalPercent(
+                        title: "ﾎﾞﾅ直撃",
+                        count: $sbj.normalChanceChokugekiCount,
+                        color: .personalSummerLightPurple,
+                        bigNumber: $sbj.normalChanceCount,
+                        numberofDicimal: 0,
+                        minusBool: $sbj.minusCheck
+                    )
+                }
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "通常モード中のチャンス目について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "通常モード中チャンス目",
+                            textBody1: "・通常モード中チャンス目からのボーナス高確移行とボーナス直撃に設定差あり",
+                            textBody2: "・モードを完全に見抜くことはできないと思われるが、チャイナ以上は別抽選の可能性高いため、通常ステージ中のチャンス目のみを対象とするのが無難かも",
+                            image1: Image("sbjNormalChance")
+                        )
+                    )
+                )
+            } header: {
+                Text("通常モード中 チャンス目関連")
+            }
+            .popoverTip(sbjTipChanceCount())
             // //// 高確カウント
             Section {
                 unitCountButtonVerticalWithoutRatio(
@@ -227,6 +292,11 @@ struct sbjViewNormal: View {
                 Text("レア役確率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        .onAppear {
+            if ver220.sbjUpdateBadgeStatus2 != "none" {
+                ver220.sbjUpdateBadgeStatus2 = "none"
+            }
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

@@ -391,6 +391,7 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
+    @ObservedObject var ver220 = Ver220()
     @ObservedObject var godeater = Godeater()
     @State var isShowAlert = false
     
@@ -400,7 +401,11 @@ struct godeaterViewTop: View {
                 Section {
                     // AT,CZ当選履歴
                     NavigationLink(destination: godeaterViewHistory()) {
-                        unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "AT,CZ 当選履歴")
+                        unitLabelMenu(
+                            imageSystemName: "pencil.and.list.clipboard",
+                            textBody: "AT,CZ 当選履歴",
+                            badgeStatus: ver220.godEaterUpdateBadgeStatus2
+                        )
                     }
                     // ストーリーパート後のボイス
                     NavigationLink(destination: godeaterViewVoice()) {
@@ -421,6 +426,9 @@ struct godeaterViewTop: View {
                 NavigationLink(destination: godeaterView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4602")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -438,6 +446,11 @@ struct godeaterViewTop: View {
                     unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetAll, message: "この機種の全データをリセットします")
                         .popoverTip(tipUnitButtonReset())
                 }
+            }
+        }
+        .onAppear {
+            if ver220.godEaterUpdateBadgeStatus != "none" {
+                ver220.godEaterUpdateBadgeStatus = "none"
             }
         }
     }

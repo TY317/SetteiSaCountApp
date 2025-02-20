@@ -26,7 +26,7 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct JuglerSeriesViewTop: View {
-    @ObservedObject var ver210 = Ver210()
+//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var favoriteSet = JuglerSeriesfavoriteSetVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
@@ -52,8 +52,8 @@ struct JuglerSeriesViewTop: View {
                                 unitMachineIconLink(
                                     linkView: AnyView(mrJugViewTop()),
                                     iconImage: Image("mrJugMachineIcon"),
-                                    machineName: "ミスター",
-                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
+                                    machineName: "ミスター"
+//                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
                                 )
                             }
                             
@@ -64,8 +64,8 @@ struct JuglerSeriesViewTop: View {
                                 unitMachineIconLink(
                                     linkView: AnyView(girlsSSViewTop()),
                                     iconImage: Image("girlsSSMachineIcon"),
-                                    machineName: "ガールズSS",
-                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
+                                    machineName: "ガールズSS"
+//                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
                                 )
                             }
                             
@@ -80,6 +80,7 @@ struct JuglerSeriesViewTop: View {
                                 )
                             }
                             
+                            // //// ハッピージャグラー
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
                             } else {
@@ -100,8 +101,8 @@ struct JuglerSeriesViewTop: View {
                                 unitMachineIconLink(
                                     linkView: AnyView(funky2Ver2ViewTop()),
                                     iconImage: Image("funky2MachineIcon"),
-                                    machineName: "ファンキー2",
-                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
+                                    machineName: "ファンキー2"
+//                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
                                 )
                             }
                             
@@ -130,8 +131,8 @@ struct JuglerSeriesViewTop: View {
                                     machineName: "ミスタージャグラー",
                                     makerName: "北電子",
                                     releaseYear: 2024,
-                                    releaseMonth: 7,
-                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
+                                    releaseMonth: 7
+//                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
                                 )
                             }
                             
@@ -145,8 +146,8 @@ struct JuglerSeriesViewTop: View {
                                     machineName: "ジャグラーガールズSS",
                                     makerName: "北電子",
                                     releaseYear: 2024,
-                                    releaseMonth: 4,
-                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
+                                    releaseMonth: 4
+//                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
                                 )
                             }
                             
@@ -188,8 +189,8 @@ struct JuglerSeriesViewTop: View {
                                     machineName: "ファンキージャグラー2",
                                     makerName: "北電子",
                                     releaseYear: 2021,
-                                    releaseMonth: 10,
-                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
+                                    releaseMonth: 10
+//                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
                                 )
                             }
                             
@@ -289,11 +290,11 @@ struct JuglerSeriesViewTop: View {
                 }
             }
         }
-        .onAppear {
-            if ver210.ver210JugTopNewBadgeStatus != "none" {
-                ver210.ver210JugTopNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver210.ver210JugTopNewBadgeStatus != "none" {
+//                ver210.ver210JugTopNewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

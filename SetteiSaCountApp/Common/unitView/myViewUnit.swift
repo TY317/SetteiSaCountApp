@@ -1208,9 +1208,13 @@ struct unitLabelMenu: View {
     @State var statisticsBool: Bool = false
     let rectangleColor: Color = Color(UIColor.systemGray2)
     let rectangleCornerRadius: CGFloat = 6.0
-    let rectangleSize: CGFloat = 30.0
+//    let rectangleSize: CGFloat = 30.0
+    let rectangleSize: CGFloat = 35.0
     let imageColor: Color = .white
     let hstackSpacing: CGFloat = 15.0
+    var badgeStatus: String = ""
+    let newBadgeBgColor: Color = .yellow
+    let updateBadgeColor: Color = .red
     
     var body: some View {
 //        HStack {
@@ -1234,11 +1238,42 @@ struct unitLabelMenu: View {
                 Rectangle()
                     .foregroundStyle(self.rectangleColor)
                     .cornerRadius(self.rectangleCornerRadius)
+                    .padding(2.5)
                 Image(systemName: self.imageSystemName)
                     .resizable()
                     .scaledToFit()
                     .foregroundStyle(self.imageColor)
                     .frame(width: self.imageWidthSize, height: self.imageHeightSize)
+                // newバッジ部分
+                if self.badgeStatus == "new" {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                Rectangle()
+                                    .foregroundStyle(self.newBadgeBgColor)
+                                    .cornerRadius(7.0)
+                                    .frame(width: 30.0, height: 15.0)
+                                Text("NEW")
+                                    .font(.system(size: 10.0))
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        Spacer()
+                    }
+                }
+                // updateバッジ部分
+                else if self.badgeStatus == "update" {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Circle()
+                                .foregroundStyle(self.updateBadgeColor)
+                                .frame(width: 13.0, height: 13.0)
+                        }
+                        Spacer()
+                    }
+                }
             }
             .frame(width: self.rectangleSize, height: self.rectangleSize)
             Text(self.textBody)

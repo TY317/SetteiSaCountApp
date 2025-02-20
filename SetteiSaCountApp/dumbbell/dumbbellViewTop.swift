@@ -527,6 +527,9 @@ struct dumbbellViewTop: View {
                 NavigationLink(destination: dumbbellView95Ci(selection: 2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4669")
+                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
