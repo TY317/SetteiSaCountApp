@@ -39,6 +39,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteAccelerator") var isSelectedFavoriteAccelerator = true
     @AppStorage("isSelectedFavoriteSbj") var isSelectedFavoriteSbj = true
     @AppStorage("isSelectedFavoriteSevenSwords") var isSelectedFavoriteSevenSwords = true
+    @AppStorage("isSelectedFavoriteTokyoGhoul") var isSelectedFavoriteTokyoGhoul = true
+    @AppStorage("isSelectedFavoriteShamanKing") var isSelectedFavoriteShamanKing = true
 }
 
 
@@ -80,8 +82,8 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var ver220 = Ver220()
+    @ObservedObject var ver230 = Ver230()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -101,7 +103,6 @@ struct ContentView: View {
                         ScrollView {
                             Rectangle()
                                 .frame(height: 40)
-                            //                                .foregroundColor(.clear)
                                 .foregroundStyle(Color.clear)
                             LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
                                 // //// ジャグラーシリーズ
@@ -114,7 +115,6 @@ struct ContentView: View {
                                         machineName: "ジャグラー"
 //                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
                                     )
-//                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -129,6 +129,31 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 東京グール、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTokyoGhoul == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(tokyoGhoulViewTop()),
+                                        iconImage: Image("tokyoGhoulMachineIcon"),
+                                        machineName: "東京喰種",
+                                        badgeStatus: ver230.tokyoGhoulNewBadgeStatus
+                                    )
+                                        .popoverTip(tipVer230MachineAdd())
+                                }
+                                
+                                // //// シャーマンキング、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShamanKing == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(shamanKingViewTop()),
+                                        iconImage: Image("shamanKingMachineIcon"),
+                                        machineName: "シャーマンキング",
+                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                    )
+                                }
+                                
                                 // //// スーパーブラックジャック、25年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSbj == false {
                                     
@@ -137,9 +162,8 @@ struct ContentView: View {
                                         linkView: AnyView(sbjViewTop()),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "SBJ",
-                                        badgeStatus: ver220.sbjUpdateBadgeStatus
+                                        badgeStatus: ver230.sbjMachineIconBadgeStatus
                                     )
-//                                        .popoverTip(tipVer210MachineAdd())
                                 }
                                 
                                 // //// 七つの魔剣が支配する、25年1月
@@ -152,7 +176,6 @@ struct ContentView: View {
                                         machineName: "七つの魔剣が支配する",
                                         badgeStatus: ver220.sevenSwordsNewBadgeStatus
                                     )
-                                        .popoverTip(tipVer220MachineAdd())
                                 }
                                 
                                 // //// 一方通行、24年12月
@@ -167,7 +190,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(dumbbellViewTop()), iconImage: Image("dumbbellMachineIcon"), machineName: "ダンベル")
-//                                        .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ダンバイン、24年12月
@@ -175,7 +197,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(danvineViewTop()), iconImage: Image("danvineMachineIcone"), machineName: "ダンバイン")
-//                                        .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
@@ -183,14 +204,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
-//                                        .popoverTip(tipVer170AddMachine())
                                 }
                                 // //// 犬夜叉2、24年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
-//                                        .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// モンスターハンターライズ、24年11月
@@ -198,7 +217,6 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(linkView: AnyView(mhrViewTop()), iconImage: Image("mhrMachineIcon"), machineName: "モンハンライズ")
-//                                        .popoverTip(tipVer160AddMachine())
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -312,8 +330,6 @@ struct ContentView: View {
                                         releaseMonth: 12
 //                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
                                     )
-//                                    machineListJuglerSeries()
-//                                        .popoverTip(tipVer200RemakeJugHana())
                                 }
                                 
                                 // //// ハナハナシリーズ
@@ -329,7 +345,38 @@ struct ContentView: View {
                                         releaseMonth: 5,
                                         badgeStatus: ver220.hanaSerieseNewBadgeStatus
                                     )
-//                                    machineListHanahanaSeries()
+                                }
+                                
+                                // //// 東京グール、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTokyoGhoul == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(tokyoGhoulViewTop()),
+                                        iconImage: Image("tokyoGhoulMachineIcon"),
+                                        machineName: "東京喰種",
+                                        makerName: "Spiky",
+                                        releaseYear: 2025,
+                                        releaseMonth: 2,
+                                        badgeStatus: ver230.tokyoGhoulNewBadgeStatus
+//                                        badgeStatus: "update"
+                                    )
+                                    .popoverTip(tipVer230MachineAdd())
+                                }
+                                
+                                // //// シャーマンキング、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTokyoGhoul == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(shamanKingViewTop()),
+                                        iconImage: Image("shamanKingMachineIcon"),
+                                        machineName: "シャーマンキング",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2025,
+                                        releaseMonth: 2,
+                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                    )
                                 }
                                 
                                 // //// スーパーブラックジャック、25年2月
@@ -343,9 +390,8 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver220.sbjUpdateBadgeStatus
+                                        badgeStatus: ver230.sbjMachineIconBadgeStatus
                                     )
-//                                    .popoverTip(tipVer210MachineAdd())
                                 }
                                 
                                 // //// 七つの魔剣が支配する、25年1月
@@ -361,7 +407,6 @@ struct ContentView: View {
                                         releaseMonth: 1,
                                         badgeStatus: ver220.sevenSwordsNewBadgeStatus
                                     )
-                                    .popoverTip(tipVer220MachineAdd())
                                 }
                                 
                                 // //// 一方通行、24年12月
@@ -390,7 +435,6 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-//                                    .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ダンバイン、24年12月
@@ -405,7 +449,6 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-//                                    .popoverTip(tipVer180AddMachine())
                                 }
                                 
                                 // //// ルパン大航海者の秘宝、24年12月
@@ -420,7 +463,6 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-//                                    .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
@@ -431,11 +473,10 @@ struct ContentView: View {
                                         linkView: AnyView(inuyasha2ViewTop()),
                                         iconImage: Image("inuyasha2MachineIcon"),
                                         machineName: "犬夜叉2",
-                                        makerName: "エフ",
+                                        makerName: "Spiky",
                                         releaseYear: 2024,
                                         releaseMonth: 12
                                     )
-//                                    .popoverTip(tipVer170AddMachine())
                                 }
                                 
                                 // //// モンスターハンターライズ、24年11月
@@ -450,7 +491,6 @@ struct ContentView: View {
                                         releaseYear: 2024,
                                         releaseMonth: 11
                                     )
-//                                    .popoverTip(tipVer160AddMachine())
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -715,6 +755,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// 東京グール、25年2月
+                Toggle("東京喰種", isOn: $favoriteSet.isSelectedFavoriteTokyoGhoul)
+                // //// シャーマンキング、25年2月
+                Toggle("シャーマンキング", isOn: $favoriteSet.isSelectedFavoriteShamanKing)
                 // //// スーパーブラックジャック、25年2月
                 Toggle("スーパーブラックジャック", isOn: $favoriteSet.isSelectedFavoriteSbj)
                 // //// 7つの魔剣が支配する、25年1月

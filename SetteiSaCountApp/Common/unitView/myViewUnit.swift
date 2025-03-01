@@ -34,7 +34,7 @@ struct unitMachinListLink: View {
     
     var body: some View {
         NavigationLink(destination: self.linkView) {
-            HStack(spacing: 5.0) {
+            HStack(spacing: 10.0) {
                 ZStack {
                     // アイコン部分
                     self.iconImage
@@ -50,10 +50,15 @@ struct unitMachinListLink: View {
                                 Spacer()
                                 ZStack {
                                     Rectangle()
+                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
+                                        .cornerRadius(11.0)
+                                        .frame(width: 44.0, height: 24.0)
+                                    Rectangle()
                                         .foregroundStyle(self.newBadgeBgColor)
                                         .cornerRadius(10.0)
                                         .frame(width: 40.0, height: 20.0)
                                     Text("NEW")
+                                        .foregroundStyle(Color.blue)
                                         .font(.caption)
                                         .fontWeight(.bold)
                                 }
@@ -66,9 +71,14 @@ struct unitMachinListLink: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                Circle()
-                                    .foregroundStyle(self.updateBadgeColor)
-                                    .frame(width: 20.0, height: 20.0)
+                                ZStack {
+                                    Circle()
+                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
+                                        .frame(width: 25.0, height: 25.0)
+                                    Circle()
+                                        .foregroundStyle(self.updateBadgeColor)
+                                        .frame(width: 20.0, height: 20.0)
+                                }
                             }
                             Spacer()
                         }
@@ -82,7 +92,7 @@ struct unitMachinListLink: View {
                         .foregroundStyle(Color.gray)
                         .padding(.leading)
                 }
-                .padding(.leading)
+//                .padding(.leading)
             }
         }
     }
@@ -123,6 +133,10 @@ struct unitMachineIconLink: View {
                             Spacer()
                             ZStack {
                                 Rectangle()
+                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
+                                    .cornerRadius(11.25)
+                                    .frame(width: 45.0, height: 25.0)
+                                Rectangle()
                                     .foregroundStyle(self.newBadgeBgColor)
                                     .cornerRadius(10.0)
                                     .frame(width: 40.0, height: 20.0)
@@ -139,9 +153,14 @@ struct unitMachineIconLink: View {
                     VStack {
                         HStack {
                             Spacer()
-                            Circle()
-                                .foregroundStyle(self.updateBadgeColor)
-                                .frame(width: 20.0, height: 20.0)
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
+                                    .frame(width: 25.0, height: 25.0)
+                                Circle()
+                                    .foregroundStyle(self.updateBadgeColor)
+                                    .frame(width: 20.0, height: 20.0)
+                            }
                         }
                         Spacer()
                     }
@@ -194,6 +213,7 @@ struct unitCountButtonVerticalWithoutRatio: View {
     @Binding var minusBool: Bool
     @State var flushColor: Color?
     @State var flushBool: Bool?
+    var vSpaceBool: Bool = false
 //    var denominator: Double {
 //        let deno = Double(bigNumber) / Double(count)
 //        return count > 0 ? deno : 0.0
@@ -234,6 +254,11 @@ struct unitCountButtonVerticalWithoutRatio: View {
                 // タイトル
                 Text(self.title)
                     .multilineTextAlignment(.center)
+                if self.vSpaceBool {
+                    Text("100")
+                        .font(.title3)
+                        .foregroundStyle(Color.clear)
+                }
                 // 回数
                 if self.count < 1000{
                     Text("\(self.count)")
@@ -1251,11 +1276,21 @@ struct unitLabelMenu: View {
                             Spacer()
                             ZStack {
                                 Rectangle()
-                                    .foregroundStyle(self.newBadgeBgColor)
+                                    .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
                                     .cornerRadius(7.0)
-                                    .frame(width: 30.0, height: 15.0)
+                                    .frame(width: 27.0, height: 14.0)
+                                Rectangle()
+                                    .foregroundStyle(self.newBadgeBgColor)
+                                    .cornerRadius(6.0)
+                                    .frame(width: 25.0, height: 12.0)
+//                                Rectangle()
+//                                    .foregroundStyle(self.newBadgeBgColor)
+//                                    .cornerRadius(7.0)
+//                                    .frame(width: 30.0, height: 15.0)
                                 Text("NEW")
-                                    .font(.system(size: 10.0))
+                                    .foregroundStyle(Color.blue)
+//                                    .font(.system(size: 10.0))
+                                    .font(.system(size: 9.0))
                                     .fontWeight(.bold)
                             }
                         }
@@ -1267,9 +1302,14 @@ struct unitLabelMenu: View {
                     VStack {
                         HStack {
                             Spacer()
-                            Circle()
-                                .foregroundStyle(self.updateBadgeColor)
-                                .frame(width: 13.0, height: 13.0)
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
+                                    .frame(width: 16.0, height: 16.0)
+                                Circle()
+                                    .foregroundStyle(self.updateBadgeColor)
+                                    .frame(width: 13.0, height: 13.0)
+                            }
                         }
                         Spacer()
                     }

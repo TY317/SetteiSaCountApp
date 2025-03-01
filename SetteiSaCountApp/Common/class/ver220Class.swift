@@ -22,17 +22,17 @@ class Ver220: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer220MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・七つの魔剣が支配する\n・スターハナハナ")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer220MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・七つの魔剣が支配する\n・スターハナハナ")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：機種追加
