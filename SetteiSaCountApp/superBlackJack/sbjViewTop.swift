@@ -10,8 +10,8 @@ import SwiftUI
 struct sbjViewTop: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-//    @ObservedObject var ver210 = Ver210()
     @ObservedObject var ver220 = Ver220()
+    @ObservedObject var ver230 = Ver230()
     
     var body: some View {
         NavigationStack {
@@ -31,14 +31,15 @@ struct sbjViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時 小役、高確、初当り",
-                            badgeStatus: ver220.sbjUpdateBadgeStatus2
+                            badgeStatus: ver230.sbjMenuNormalBadgeStatus
                         )
                     }
                     // ダイスチェック
                     NavigationLink(destination: sbjViewDiceCheck()) {
                         unitLabelMenu(
                             imageSystemName: "dice.fill",
-                            textBody: "ダイスチェック"
+                            textBody: "ダイスチェック",
+                            badgeStatus: ver230.sbjMenuDiceCheckBadgeStatus
                         )
                     }
                     // JAC中のトランプ
@@ -73,8 +74,8 @@ struct sbjViewTop: View {
             }
         }
         .onAppear {
-            if ver220.sbjUpdateBadgeStatus != "none" {
-                ver220.sbjUpdateBadgeStatus = "none"
+            if ver230.sbjMachineIconBadgeStatus != "none" {
+                ver230.sbjMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")

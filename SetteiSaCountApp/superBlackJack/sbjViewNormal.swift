@@ -43,7 +43,7 @@ struct sbjTipChanceCount: Tip {
 
 
 struct sbjViewNormal: View {
-    @ObservedObject var ver220 = Ver220()
+    @ObservedObject var ver230 = Ver230()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
@@ -126,6 +126,7 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
+                .popoverTip(tipVer230SbjKokakuSisaUpdate())
                 // 高確概要
                 unitLinkButton(
                     title: "ボーナス高確について",
@@ -294,8 +295,8 @@ struct sbjViewNormal: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         .onAppear {
-            if ver220.sbjUpdateBadgeStatus2 != "none" {
-                ver220.sbjUpdateBadgeStatus2 = "none"
+            if ver230.sbjMenuNormalBadgeStatus != "none" {
+                ver230.sbjMenuNormalBadgeStatus = "none"
             }
         }
         // //// 画面の向き情報の取得部分
