@@ -25,7 +25,7 @@ class hanahanaSeriesfavoriteSetVar: ObservableObject {
 // ビュー：メインビュー
 // //////////////////////
 struct hanahanaSeriesViewTop: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var favoriteSet = hanahanaSeriesfavoriteSetVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
@@ -52,7 +52,7 @@ struct hanahanaSeriesViewTop: View {
                                     linkView: AnyView(starHanaViewTop()),
                                     iconImage: Image("starHanaMachineIcon"),
                                     machineName: "スターハナハナ",
-                                    badgeStatus: ver220.starHanaNewBadgeStatus,
+//                                    badgeStatus: ver220.starHanaNewBadgeStatus,
                                     sfSymbolName: "star.fill"
                                 )
                             }
@@ -130,7 +130,7 @@ struct hanahanaSeriesViewTop: View {
                                     makerName: "パイオニア",
                                     releaseYear: 2025,
                                     releaseMonth: 1,
-                                    badgeStatus: ver220.starHanaNewBadgeStatus,
+//                                    badgeStatus: ver220.starHanaNewBadgeStatus,
                                     sfSymbolName: "star.fill"
                                 )
                             }
@@ -246,11 +246,11 @@ struct hanahanaSeriesViewTop: View {
                 }
             }
         }
-        .onAppear {
-            if ver220.hanaSerieseNewBadgeStatus != "none" {
-                ver220.hanaSerieseNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver220.hanaSerieseNewBadgeStatus != "none" {
+//                ver220.hanaSerieseNewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

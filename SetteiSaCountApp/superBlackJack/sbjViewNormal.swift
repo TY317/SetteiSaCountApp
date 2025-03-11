@@ -44,6 +44,7 @@ struct sbjTipChanceCount: Tip {
 
 struct sbjViewNormal: View {
     @ObservedObject var ver230 = Ver230()
+    @ObservedObject var ver240 = Ver240()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
@@ -59,6 +60,47 @@ struct sbjViewNormal: View {
     
     var body: some View {
         List {
+            // 高確、ステージについての情報
+            Section {
+                // 高確概要
+                unitLinkButton(
+                    title: "ボーナス高確について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ボーナス高確",
+                            textBody1: "・ボーナス当選のメインルート",
+                            textBody2: "・主に3つの契機で移行抽選\n　　・規定ゲーム数\n　　・レア役\n　　・小役連続",
+                            textBody3: "・規定ゲーム数は100と百の位が偶数のゾーンがチャンス。高設定ほど規定ゲーム数での移行が優遇されている",
+                            textBody4: "・小役は3連以上でチャンス。小役連時はプッシュボタンのサイドランプを要チェック",
+                            image1Title: "[規定ゲーム数での移行]",
+                            image1: Image("sbjKiteiGame")
+                        )
+                    )
+                )
+                // //// 参考情報リンク
+                // 示唆演出
+                unitLinkButton(
+                    title: "高確示唆演出",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "高確示唆演出",
+                            image1: Image("sbjKokakuEnshutu")
+                        )
+                    )
+                )
+                // ハワイステージでの設定示唆
+                unitLinkButton(
+                    title: "ハワイステージでの設定示唆について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ハワイステージでの設定示唆",
+                            textBody1: "ハワイステージ滞在中に設定を示唆する演出が発生する場合あり",
+                            image1: Image("sbjHawaiiSisa")
+                        )
+                    )
+                )
+            }
+            .popoverTip(tipVer240SbjKokakuSisaUpdate())
             // //// 通常中チャンス目関連
             Section {
                 HStack {
@@ -115,33 +157,33 @@ struct sbjViewNormal: View {
                     minusBool: $sbj.minusCheck
                 )
                 .popoverTip(sbjTipKokakuCount())
-                // //// 参考情報リンク
-                // 示唆演出
-                unitLinkButton(
-                    title: "高確示唆演出",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "高確示唆演出",
-                            image1: Image("sbjKokakuEnshutu")
-                        )
-                    )
-                )
-                .popoverTip(tipVer230SbjKokakuSisaUpdate())
-                // 高確概要
-                unitLinkButton(
-                    title: "ボーナス高確について",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "ボーナス高確",
-                            textBody1: "・ボーナス当選のメインルート",
-                            textBody2: "・主に3つの契機で移行抽選\n　　・規定ゲーム数\n　　・レア役\n　　・小役連続",
-                            textBody3: "・規定ゲーム数は100と百の位が偶数のゾーンがチャンス。高設定ほど規定ゲーム数での移行が優遇されている",
-                            textBody4: "・小役は3連以上でチャンス。小役連時はプッシュボタンのサイドランプを要チェック",
-                            image1Title: "[規定ゲーム数での移行]",
-                            image1: Image("sbjKiteiGame")
-                        )
-                    )
-                )
+//                // //// 参考情報リンク
+//                // 示唆演出
+//                unitLinkButton(
+//                    title: "高確示唆演出",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "高確示唆演出",
+//                            image1: Image("sbjKokakuEnshutu")
+//                        )
+//                    )
+//                )
+//                .popoverTip(tipVer230SbjKokakuSisaUpdate())
+//                // 高確概要
+//                unitLinkButton(
+//                    title: "ボーナス高確について",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "ボーナス高確",
+//                            textBody1: "・ボーナス当選のメインルート",
+//                            textBody2: "・主に3つの契機で移行抽選\n　　・規定ゲーム数\n　　・レア役\n　　・小役連続",
+//                            textBody3: "・規定ゲーム数は100と百の位が偶数のゾーンがチャンス。高設定ほど規定ゲーム数での移行が優遇されている",
+//                            textBody4: "・小役は3連以上でチャンス。小役連時はプッシュボタンのサイドランプを要チェック",
+//                            image1Title: "[規定ゲーム数での移行]",
+//                            image1: Image("sbjKiteiGame")
+//                        )
+//                    )
+//                )
             } header: {
                 Text("ボーナス高確初当り")
             }
@@ -289,14 +331,15 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
+                .popoverTip(tipVer240SbjKoyakuUpdate())
             } header: {
                 Text("レア役確率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         .onAppear {
-            if ver230.sbjMenuNormalBadgeStatus != "none" {
-                ver230.sbjMenuNormalBadgeStatus = "none"
+            if ver240.sbjMenuNormalBadgeStatus != "none" {
+                ver240.sbjMenuNormalBadgeStatus = "none"
             }
         }
         // //// 画面の向き情報の取得部分

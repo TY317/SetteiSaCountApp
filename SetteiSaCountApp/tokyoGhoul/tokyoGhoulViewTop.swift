@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewTop: View {
-    @ObservedObject var ver230 = Ver230()
+    @ObservedObject var ver240 = Ver240()
     @ObservedObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
     
@@ -41,7 +41,8 @@ struct tokyoGhoulViewTop: View {
                     NavigationLink(destination: tokyoGhoulViewEnding()) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング"
+                            textBody: "エンディング",
+                            badgeStatus: ver240.tokyoGhoulMenuEndingBadgeStatus
                         )
                     }
                 } header: {
@@ -57,8 +58,8 @@ struct tokyoGhoulViewTop: View {
             }
         }
         .onAppear {
-            if ver230.tokyoGhoulNewBadgeStatus != "none" {
-                ver230.tokyoGhoulNewBadgeStatus = "none"
+            if ver240.tokyoGhoulMachineIconBadgeStatus != "none" {
+                ver240.tokyoGhoulMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -148,6 +149,17 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory1.endingCountHighJaku = tokyoGhoul.endingCountHighJaku
         tokyoGhoulMemory1.endingCountHighKyo = tokyoGhoul.endingCountHighKyo
         tokyoGhoulMemory1.endingCountSum = tokyoGhoul.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoulMemory1.endingCountExcept1 = tokyoGhoul.endingCountExcept1
+        tokyoGhoulMemory1.endingCountExcept2 = tokyoGhoul.endingCountExcept2
+        tokyoGhoulMemory1.endingCountExcept3 = tokyoGhoul.endingCountExcept3
+        tokyoGhoulMemory1.endingCountExcept4 = tokyoGhoul.endingCountExcept4
+        tokyoGhoulMemory1.endingCountOver3 = tokyoGhoul.endingCountOver3
+        tokyoGhoulMemory1.endingCountOver4 = tokyoGhoul.endingCountOver4
+        tokyoGhoulMemory1.endingCountOver5 = tokyoGhoul.endingCountOver5
+        tokyoGhoulMemory1.endingCountOver6 = tokyoGhoul.endingCountOver6
     }
     func saveMemory2() {
         tokyoGhoulMemory2.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -191,6 +203,17 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory2.endingCountHighJaku = tokyoGhoul.endingCountHighJaku
         tokyoGhoulMemory2.endingCountHighKyo = tokyoGhoul.endingCountHighKyo
         tokyoGhoulMemory2.endingCountSum = tokyoGhoul.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoulMemory2.endingCountExcept1 = tokyoGhoul.endingCountExcept1
+        tokyoGhoulMemory2.endingCountExcept2 = tokyoGhoul.endingCountExcept2
+        tokyoGhoulMemory2.endingCountExcept3 = tokyoGhoul.endingCountExcept3
+        tokyoGhoulMemory2.endingCountExcept4 = tokyoGhoul.endingCountExcept4
+        tokyoGhoulMemory2.endingCountOver3 = tokyoGhoul.endingCountOver3
+        tokyoGhoulMemory2.endingCountOver4 = tokyoGhoul.endingCountOver4
+        tokyoGhoulMemory2.endingCountOver5 = tokyoGhoul.endingCountOver5
+        tokyoGhoulMemory2.endingCountOver6 = tokyoGhoul.endingCountOver6
     }
     func saveMemory3() {
         tokyoGhoulMemory3.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -234,6 +257,17 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory3.endingCountHighJaku = tokyoGhoul.endingCountHighJaku
         tokyoGhoulMemory3.endingCountHighKyo = tokyoGhoul.endingCountHighKyo
         tokyoGhoulMemory3.endingCountSum = tokyoGhoul.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoulMemory3.endingCountExcept1 = tokyoGhoul.endingCountExcept1
+        tokyoGhoulMemory3.endingCountExcept2 = tokyoGhoul.endingCountExcept2
+        tokyoGhoulMemory3.endingCountExcept3 = tokyoGhoul.endingCountExcept3
+        tokyoGhoulMemory3.endingCountExcept4 = tokyoGhoul.endingCountExcept4
+        tokyoGhoulMemory3.endingCountOver3 = tokyoGhoul.endingCountOver3
+        tokyoGhoulMemory3.endingCountOver4 = tokyoGhoul.endingCountOver4
+        tokyoGhoulMemory3.endingCountOver5 = tokyoGhoul.endingCountOver5
+        tokyoGhoulMemory3.endingCountOver6 = tokyoGhoul.endingCountOver6
     }
 }
 
@@ -306,6 +340,17 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountHighJaku = tokyoGhoulMemory1.endingCountHighJaku
         tokyoGhoul.endingCountHighKyo = tokyoGhoulMemory1.endingCountHighKyo
         tokyoGhoul.endingCountSum = tokyoGhoulMemory1.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoul.endingCountExcept1 = tokyoGhoulMemory1.endingCountExcept1
+        tokyoGhoul.endingCountExcept2 = tokyoGhoulMemory1.endingCountExcept2
+        tokyoGhoul.endingCountExcept3 = tokyoGhoulMemory1.endingCountExcept3
+        tokyoGhoul.endingCountExcept4 = tokyoGhoulMemory1.endingCountExcept4
+        tokyoGhoul.endingCountOver3 = tokyoGhoulMemory1.endingCountOver3
+        tokyoGhoul.endingCountOver4 = tokyoGhoulMemory1.endingCountOver4
+        tokyoGhoul.endingCountOver5 = tokyoGhoulMemory1.endingCountOver5
+        tokyoGhoul.endingCountOver6 = tokyoGhoulMemory1.endingCountOver6
     }
     func loadMemory2() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory2.tsukiyamaCountGusu
@@ -349,6 +394,17 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountHighJaku = tokyoGhoulMemory2.endingCountHighJaku
         tokyoGhoul.endingCountHighKyo = tokyoGhoulMemory2.endingCountHighKyo
         tokyoGhoul.endingCountSum = tokyoGhoulMemory2.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoul.endingCountExcept1 = tokyoGhoulMemory2.endingCountExcept1
+        tokyoGhoul.endingCountExcept2 = tokyoGhoulMemory2.endingCountExcept2
+        tokyoGhoul.endingCountExcept3 = tokyoGhoulMemory2.endingCountExcept3
+        tokyoGhoul.endingCountExcept4 = tokyoGhoulMemory2.endingCountExcept4
+        tokyoGhoul.endingCountOver3 = tokyoGhoulMemory2.endingCountOver3
+        tokyoGhoul.endingCountOver4 = tokyoGhoulMemory2.endingCountOver4
+        tokyoGhoul.endingCountOver5 = tokyoGhoulMemory2.endingCountOver5
+        tokyoGhoul.endingCountOver6 = tokyoGhoulMemory2.endingCountOver6
     }
     func loadMemory3() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory3.tsukiyamaCountGusu
@@ -392,6 +448,17 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountHighJaku = tokyoGhoulMemory3.endingCountHighJaku
         tokyoGhoul.endingCountHighKyo = tokyoGhoulMemory3.endingCountHighKyo
         tokyoGhoul.endingCountSum = tokyoGhoulMemory3.endingCountSum
+        // ///////////////////////
+        // ver240追加
+        // ///////////////////////
+        tokyoGhoul.endingCountExcept1 = tokyoGhoulMemory3.endingCountExcept1
+        tokyoGhoul.endingCountExcept2 = tokyoGhoulMemory3.endingCountExcept2
+        tokyoGhoul.endingCountExcept3 = tokyoGhoulMemory3.endingCountExcept3
+        tokyoGhoul.endingCountExcept4 = tokyoGhoulMemory3.endingCountExcept4
+        tokyoGhoul.endingCountOver3 = tokyoGhoulMemory3.endingCountOver3
+        tokyoGhoul.endingCountOver4 = tokyoGhoulMemory3.endingCountOver4
+        tokyoGhoul.endingCountOver5 = tokyoGhoulMemory3.endingCountOver5
+        tokyoGhoul.endingCountOver6 = tokyoGhoulMemory3.endingCountOver6
     }
 }
 

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct tokyoGhoulViewEnding: View {
+    @ObservedObject var ver240 = Ver240()
     @ObservedObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert = false
-    let selectListColor: [String] = ["白カード", "青カード", "赤カード"]
+    let selectListColor: [String] = ["白カード", "青カード", "赤カード", "銅銀金虹"]
     @State var selectedColor: String = "白カード"
     let selectListWhiteChara: [String] = [
         "金木研",
@@ -53,6 +54,17 @@ struct tokyoGhoulViewEnding: View {
         "鈴屋什造"
     ]
     @State var selectedRedChara: String = "金木研"
+    let selectListBSGRChara: [String] = [
+        "銅：鈴屋什造",
+        "銅：高槻泉①",
+        "銅：高槻泉②",
+        "銅：エト",
+        "銀：金木研",
+        "金：神代利世",
+        "金：隻眼の梟",
+        "虹：有馬貴将"
+    ]
+    @State var selectedBSGRChara: String = "銅：鈴屋什造"
     
     var body: some View {
         List {
@@ -64,6 +76,7 @@ struct tokyoGhoulViewEnding: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .popoverTip(tipVer240TokyoGhoulEndingUpdate())
                 // //// キャラの選択
                 // 白カード
                 if self.selectedColor == self.selectListColor[0] {
@@ -199,7 +212,141 @@ struct tokyoGhoulViewEnding: View {
                         }
                     }
                 }
-                
+                // 銅銀金虹カード
+                else if self.selectedColor == self.selectListColor[3] {
+                    // 銅銀金虹カードキャラ選択 サークルピッカー
+                    Picker(selection: self.$selectedBSGRChara) {
+                        ForEach(self.selectListBSGRChara, id: \.self) { bsgrChara in
+                            Text(bsgrChara)
+                        }
+                    } label: {
+                        
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(height: 120.0)
+                    // 選択されているキャラのカウント表示
+                    // 設定1 否定
+                    if self.selectedBSGRChara == self.selectListBSGRChara[0] {
+                        unitResultCountListPercent(
+                            title: "設定1 否定",
+                            count: $tokyoGhoul.endingCountExcept1,
+                            flashColor: .personalSummerLightBlue,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定2 否定
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[1] {
+                        unitResultCountListPercent(
+                            title: "設定2 否定",
+                            count: $tokyoGhoul.endingCountExcept2,
+                            flashColor: .personalSpringLightYellow,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定3 否定
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[2] {
+                        unitResultCountListPercent(
+                            title: "設定3 否定",
+                            count: $tokyoGhoul.endingCountExcept3,
+                            flashColor: .personalSummerLightGreen,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定4 否定
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[3] {
+                        unitResultCountListPercent(
+                            title: "設定4 否定",
+                            count: $tokyoGhoul.endingCountExcept4,
+                            flashColor: .personalSummerLightRed,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定3 以上濃厚
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[4] {
+                        unitResultCountListPercent(
+                            title: "設定3 以上濃厚",
+                            count: $tokyoGhoul.endingCountOver3,
+                            flashColor: .yellow,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定4 以上濃厚
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[5] {
+                        unitResultCountListPercent(
+                            title: "設定4 以上濃厚",
+                            count: $tokyoGhoul.endingCountOver4,
+                            flashColor: .green,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定5 以上濃厚
+                    else if self.selectedBSGRChara == self.selectListBSGRChara[6] {
+                        unitResultCountListPercent(
+                            title: "設定5 以上濃厚",
+                            count: $tokyoGhoul.endingCountOver5,
+                            flashColor: .red,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // 設定6 濃厚
+                    else {
+                        unitResultCountListPercent(
+                            title: "設定6 濃厚",
+                            count: $tokyoGhoul.endingCountOver6,
+                            flashColor: .purple,
+                            bigNumber: $tokyoGhoul.endingCountSum
+                        )
+                    }
+                    // //// 登録ボタン
+                    Button {
+                        // 設定1 否定
+                        if self.selectedBSGRChara == self.selectListBSGRChara[0] {
+                            tokyoGhoul.endingCountExcept1 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountExcept1)
+                        }
+                        // 設定2 否定
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[1] {
+                            tokyoGhoul.endingCountExcept2 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountExcept2)
+                        }
+                        // 設定3 否定
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[2] {
+                            tokyoGhoul.endingCountExcept3 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountExcept3)
+                        }
+                        // 設定4 否定
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[3] {
+                            tokyoGhoul.endingCountExcept4 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountExcept4)
+                        }
+                        // 設定3 以上濃厚
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[4] {
+                            tokyoGhoul.endingCountOver3 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountOver3)
+                        }
+                        // 設定4 以上濃厚
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[5] {
+                            tokyoGhoul.endingCountOver4 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountOver4)
+                        }
+                        // 設定5 以上濃厚
+                        else if self.selectedBSGRChara == self.selectListBSGRChara[6] {
+                            tokyoGhoul.endingCountOver5 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountOver5)
+                        }
+                        // 設定6 濃厚
+                        else {
+                            tokyoGhoul.endingCountOver6 = countUpDown(minusCheck: tokyoGhoul.minusCheck, count: tokyoGhoul.endingCountOver6)
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if tokyoGhoul.minusCheck == false {
+                                Text("登録")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(Color.blue)
+                            } else {
+                                Text("マイナス")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(Color.red)
+                            }
+                            Spacer()
+                        }
+                    }
+                }
                 // //// 赤カード
                 else {
                     // 赤カードキャラ選択 サークルピッカー
@@ -311,8 +458,69 @@ struct tokyoGhoulViewEnding: View {
                     flashColor: .red,
                     bigNumber: $tokyoGhoul.endingCountSum
                 )
+                // 設定1 否定
+                unitResultCountListPercent(
+                    title: "設定1 否定",
+                    count: $tokyoGhoul.endingCountExcept1,
+                    flashColor: .personalSummerLightBlue,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定2 否定
+                unitResultCountListPercent(
+                    title: "設定2 否定",
+                    count: $tokyoGhoul.endingCountExcept2,
+                    flashColor: .personalSpringLightYellow,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定3 否定
+                unitResultCountListPercent(
+                    title: "設定3 否定",
+                    count: $tokyoGhoul.endingCountExcept3,
+                    flashColor: .personalSummerLightGreen,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定4 否定
+                unitResultCountListPercent(
+                    title: "設定4 否定",
+                    count: $tokyoGhoul.endingCountExcept4,
+                    flashColor: .personalSummerLightRed,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定3 以上濃厚
+                unitResultCountListPercent(
+                    title: "設定3 以上濃厚",
+                    count: $tokyoGhoul.endingCountOver3,
+                    flashColor: .yellow,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定4 以上濃厚
+                unitResultCountListPercent(
+                    title: "設定4 以上濃厚",
+                    count: $tokyoGhoul.endingCountOver4,
+                    flashColor: .green,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定5 以上濃厚
+                unitResultCountListPercent(
+                    title: "設定5 以上濃厚",
+                    count: $tokyoGhoul.endingCountOver5,
+                    flashColor: .red,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
+                // 設定6 濃厚
+                unitResultCountListPercent(
+                    title: "設定6 濃厚",
+                    count: $tokyoGhoul.endingCountOver6,
+                    flashColor: .purple,
+                    bigNumber: $tokyoGhoul.endingCountSum
+                )
             } header: {
                 Text("カウント結果")
+            }
+        }
+        .onAppear {
+            if ver240.tokyoGhoulMenuEndingBadgeStatus != "none" {
+                ver240.tokyoGhoulMenuEndingBadgeStatus = "none"
             }
         }
         .navigationTitle("エンディング")

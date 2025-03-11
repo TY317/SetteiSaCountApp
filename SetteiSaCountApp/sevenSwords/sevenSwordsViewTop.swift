@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct sevenSwordsViewTop: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var sevenSwords = SevenSwords()
     @State var isShowAlert: Bool = false
     
@@ -70,11 +70,11 @@ struct sevenSwordsViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver220.sevenSwordsNewBadgeStatus == "new" {
-                ver220.sevenSwordsNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver220.sevenSwordsNewBadgeStatus == "new" {
+//                ver220.sevenSwordsNewBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

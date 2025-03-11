@@ -123,6 +123,7 @@ class Sbj: ObservableObject {
     func resetAll() {
         resetNormal()
         resetDiceCheck()
+        resetGameChange()
     }
     
     // /////////////////////////
@@ -131,6 +132,120 @@ class Sbj: ObservableObject {
     @AppStorage("sbjNormalChanceCount") var normalChanceCount = 0
     @AppStorage("sbjNormalChanceKokakuCount") var normalChanceKokakuCount = 0
     @AppStorage("sbjNormalChanceChokugekiCount") var normalChanceChokugekiCount = 0
+    
+    // ///////////////////////
+    // ver240で追加、規定ゲーム数
+    // ///////////////////////
+    @AppStorage("sbjGameChangeCount100Miss") var gameChangeCount100Miss: Int = 0 {
+        didSet {
+            gameChangeCount100Sum = countSum(gameChangeCount100Miss, gameChangeCount100China, gameChangeCount100Kokaku)
+        }
+    }
+        @AppStorage("sbjGameChangeCount100China") var gameChangeCount100China: Int = 0 {
+            didSet {
+                gameChangeCount100Sum = countSum(gameChangeCount100Miss, gameChangeCount100China, gameChangeCount100Kokaku)
+            }
+        }
+            @AppStorage("sbjGameChangeCount100Kokaku") var gameChangeCount100Kokaku: Int = 0 {
+                didSet {
+                    gameChangeCount100Sum = countSum(gameChangeCount100Miss, gameChangeCount100China, gameChangeCount100Kokaku)
+                }
+            }
+    @AppStorage("sbjGameChangeCount100Sum") var gameChangeCount100Sum: Int = 0
+    @AppStorage("sbjGameChangeCountGusuMiss") var gameChangeCountGusuMiss: Int = 0 {
+        didSet {
+            gameChangeCountGusuSum = countSum(gameChangeCountGusuMiss, gameChangeCountGusuChina, gameChangeCountGusuKokaku)
+        }
+    }
+        @AppStorage("sbjGameChangeCountGusuChina") var gameChangeCountGusuChina: Int = 0 {
+            didSet {
+                gameChangeCountGusuSum = countSum(gameChangeCountGusuMiss, gameChangeCountGusuChina, gameChangeCountGusuKokaku)
+            }
+        }
+            @AppStorage("sbjGameChangeCountGusuKokaku") var gameChangeCountGusuKokaku: Int = 0 {
+                didSet {
+                    gameChangeCountGusuSum = countSum(gameChangeCountGusuMiss, gameChangeCountGusuChina, gameChangeCountGusuKokaku)
+                }
+            }
+    @AppStorage("sbjGameChangeCountGusuSum") var gameChangeCountGusuSum: Int = 0
+    @AppStorage("sbjGameChangeCountKisuMiss") var gameChangeCountKisuMiss: Int = 0 {
+        didSet {
+            gameChangeCountKisuSum = countSum(gameChangeCountKisuMiss, gameChangeCountKisuChina, gameChangeCountKisuKokaku)
+        }
+    }
+        @AppStorage("sbjGameChangeCountKisuChina") var gameChangeCountKisuChina: Int = 0 {
+            didSet {
+                gameChangeCountKisuSum = countSum(gameChangeCountKisuMiss, gameChangeCountKisuChina, gameChangeCountKisuKokaku)
+            }
+        }
+            @AppStorage("sbjGameChangeCountKisuKokaku") var gameChangeCountKisuKokaku: Int = 0 {
+                didSet {
+                    gameChangeCountKisuSum = countSum(gameChangeCountKisuMiss, gameChangeCountKisuChina, gameChangeCountKisuKokaku)
+                }
+            }
+    @AppStorage("sbjGameChangeCountKisuSum") var gameChangeCountKisuSum: Int = 0
+    
+    
+    func resetGameChange() {
+        gameChangeCount100Miss = 0
+        gameChangeCount100China = 0
+        gameChangeCount100Kokaku = 0
+        gameChangeCountGusuMiss = 0
+        gameChangeCountGusuChina = 0
+        gameChangeCountGusuKokaku = 0
+        gameChangeCountKisuMiss = 0
+        gameChangeCountKisuChina = 0
+        gameChangeCountKisuKokaku = 0
+        minusCheck = false
+    }
+    let stageChange100ChinaRatio: [Double] = [
+        84.8,
+        84.0,
+        83.2,
+        80.5,
+        77.0,
+        76.2
+    ]
+    let stageChange100KokakuRatio: [Double] = [
+        15.2,
+        16.0,
+        16.8,
+        19.5,
+        23.0,
+        23.8
+    ]
+    let stageChangeGusuChinaRatio: [Double] = [
+        39.8,
+        40.6,
+        41.4,
+        42.2,
+        43.0,
+        43.8
+    ]
+    let stageChangeGusuKokakuRatio: [Double] = [
+        10.2,
+        11.3,
+        12.5,
+        18.4,
+        19.9,
+        20.7
+    ]
+    let stageChangeKisuChinaRatio: [Double] = [
+        12.5,
+        13.3,
+        14.1,
+        14.8,
+        15.6,
+        16.4
+    ]
+    let stageChangeKisuKokakuRatio: [Double] = [
+        3.9,
+        4.7,
+        5.5,
+        7.0,
+        8.2,
+        9.0
+    ]
 }
 
 
@@ -155,6 +270,21 @@ class SbjMemory1: ObservableObject {
     @AppStorage("sbjNormalChanceCountMemory1") var normalChanceCount = 0
     @AppStorage("sbjNormalChanceKokakuCountMemory1") var normalChanceKokakuCount = 0
     @AppStorage("sbjNormalChanceChokugekiCountMemory1") var normalChanceChokugekiCount = 0
+    // ///////////////////////
+    // ver240で追加、規定ゲーム数
+    // ///////////////////////
+    @AppStorage("sbjGameChangeCount100MissMemory1") var gameChangeCount100Miss: Int = 0
+    @AppStorage("sbjGameChangeCount100ChinaMemory1") var gameChangeCount100China: Int = 0
+    @AppStorage("sbjGameChangeCount100KokakuMemory1") var gameChangeCount100Kokaku: Int = 0
+    @AppStorage("sbjGameChangeCount100SumMemory1") var gameChangeCount100Sum: Int = 0
+    @AppStorage("sbjGameChangeCountGusuMissMemory1") var gameChangeCountGusuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountGusuChinaMemory1") var gameChangeCountGusuChina: Int = 0
+    @AppStorage("sbjGameChangeCountGusuKokakuMemory1") var gameChangeCountGusuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountGusuSumMemory1") var gameChangeCountGusuSum: Int = 0
+    @AppStorage("sbjGameChangeCountKisuMissMemory1") var gameChangeCountKisuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountKisuChinaMemory1") var gameChangeCountKisuChina: Int = 0
+    @AppStorage("sbjGameChangeCountKisuKokakuMemory1") var gameChangeCountKisuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountKisuSumMemory1") var gameChangeCountKisuSum: Int = 0
 }
 
 // //// メモリー2
@@ -178,6 +308,21 @@ class SbjMemory2: ObservableObject {
     @AppStorage("sbjNormalChanceCountMemory2") var normalChanceCount = 0
     @AppStorage("sbjNormalChanceKokakuCountMemory2") var normalChanceKokakuCount = 0
     @AppStorage("sbjNormalChanceChokugekiCountMemory2") var normalChanceChokugekiCount = 0
+    // ///////////////////////
+    // ver240で追加、規定ゲーム数
+    // ///////////////////////
+    @AppStorage("sbjGameChangeCount100MissMemory2") var gameChangeCount100Miss: Int = 0
+    @AppStorage("sbjGameChangeCount100ChinaMemory2") var gameChangeCount100China: Int = 0
+    @AppStorage("sbjGameChangeCount100KokakuMemory2") var gameChangeCount100Kokaku: Int = 0
+    @AppStorage("sbjGameChangeCount100SumMemory2") var gameChangeCount100Sum: Int = 0
+    @AppStorage("sbjGameChangeCountGusuMissMemory2") var gameChangeCountGusuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountGusuChinaMemory2") var gameChangeCountGusuChina: Int = 0
+    @AppStorage("sbjGameChangeCountGusuKokakuMemory2") var gameChangeCountGusuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountGusuSumMemory2") var gameChangeCountGusuSum: Int = 0
+    @AppStorage("sbjGameChangeCountKisuMissMemory2") var gameChangeCountKisuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountKisuChinaMemory2") var gameChangeCountKisuChina: Int = 0
+    @AppStorage("sbjGameChangeCountKisuKokakuMemory2") var gameChangeCountKisuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountKisuSumMemory2") var gameChangeCountKisuSum: Int = 0
 }
 
 // //// メモリー3
@@ -201,5 +346,20 @@ class SbjMemory3: ObservableObject {
     @AppStorage("sbjNormalChanceCountMemory3") var normalChanceCount = 0
     @AppStorage("sbjNormalChanceKokakuCountMemory3") var normalChanceKokakuCount = 0
     @AppStorage("sbjNormalChanceChokugekiCountMemory3") var normalChanceChokugekiCount = 0
+    // ///////////////////////
+    // ver240で追加、規定ゲーム数
+    // ///////////////////////
+    @AppStorage("sbjGameChangeCount100MissMemory3") var gameChangeCount100Miss: Int = 0
+    @AppStorage("sbjGameChangeCount100ChinaMemory3") var gameChangeCount100China: Int = 0
+    @AppStorage("sbjGameChangeCount100KokakuMemory3") var gameChangeCount100Kokaku: Int = 0
+    @AppStorage("sbjGameChangeCount100SumMemory3") var gameChangeCount100Sum: Int = 0
+    @AppStorage("sbjGameChangeCountGusuMissMemory3") var gameChangeCountGusuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountGusuChinaMemory3") var gameChangeCountGusuChina: Int = 0
+    @AppStorage("sbjGameChangeCountGusuKokakuMemory3") var gameChangeCountGusuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountGusuSumMemory3") var gameChangeCountGusuSum: Int = 0
+    @AppStorage("sbjGameChangeCountKisuMissMemory3") var gameChangeCountKisuMiss: Int = 0
+    @AppStorage("sbjGameChangeCountKisuChinaMemory3") var gameChangeCountKisuChina: Int = 0
+    @AppStorage("sbjGameChangeCountKisuKokakuMemory3") var gameChangeCountKisuKokaku: Int = 0
+    @AppStorage("sbjGameChangeCountKisuSumMemory3") var gameChangeCountKisuSum: Int = 0
 }
 

@@ -422,7 +422,7 @@ struct imJugExSubViewSaveMemory: View {
     
     var body: some View {
         unitViewSaveMemory(
-            machineName: "マイジャグラー5",
+            machineName: "アイムジャグラーEX",
             selectedMemory: $imJugEx.selectedMemory,
             memoMemory1: $imJugExMemory1.memo,
             dateDoubleMemory1: $imJugExMemory1.dateDouble,
@@ -535,7 +535,7 @@ struct imJugExSubViewLoadMemory: View {
     
     var body: some View {
         unitViewLoadMemory(
-            machineName: "マイジャグラー5",
+            machineName: "アイムジャグラーEX",
             selectedMemory: $imJugEx.selectedMemory,
             memoMemory1: imJugExMemory1.memo,
             dateDoubleMemory1: imJugExMemory1.dateDouble,

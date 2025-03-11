@@ -24,6 +24,7 @@ struct tokyoGhoulViewScreen: View {
                         count: $tokyoGhoul.screenCountDefault,
                         minusCheck: $tokyoGhoul.minusCheck
                     )
+                    .popoverTip(tipUnitButtonScreenChoice())
                     // 奇数示唆
                     unitButtonScreenChoice(
                         image: Image(tokyoGhoul.atScreenKeywordList[1]),
