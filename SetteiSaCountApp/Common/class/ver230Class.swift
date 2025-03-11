@@ -20,17 +20,17 @@ class Ver230: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer230MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・東京喰種\n・シャーマンキング")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer230MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・東京喰種\n・シャーマンキング")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：SBJ高確示唆演出

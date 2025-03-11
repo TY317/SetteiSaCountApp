@@ -41,6 +41,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteSevenSwords") var isSelectedFavoriteSevenSwords = true
     @AppStorage("isSelectedFavoriteTokyoGhoul") var isSelectedFavoriteTokyoGhoul = true
     @AppStorage("isSelectedFavoriteShamanKing") var isSelectedFavoriteShamanKing = true
+    @AppStorage("isSelectedFavoriteArifure") var isSelectedFavoriteArifure = true
 }
 
 
@@ -82,8 +83,9 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var ver230 = Ver230()
+    @ObservedObject var ver240 = Ver240()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -124,9 +126,21 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(hanahanaSeriesViewTop()),
                                         iconImage: Image("machineIconHanahanaSeries"),
-                                        machineName: "ハナハナ",
-                                        badgeStatus: ver220.hanaSerieseNewBadgeStatus
+                                        machineName: "ハナハナ"
                                     )
+                                }
+                                
+                                // //// ありふれた職業、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteArifure == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(arifureViewTop()),
+                                        iconImage: Image("arifureMachineIcon"),
+                                        machineName: "ありふれ",
+                                        badgeStatus: ver240.arifureMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -137,9 +151,9 @@ struct ContentView: View {
                                         linkView: AnyView(tokyoGhoulViewTop()),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-                                        badgeStatus: ver230.tokyoGhoulNewBadgeStatus
+                                        badgeStatus: ver240.tokyoGhoulMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer230MachineAdd())
+//                                        .popoverTip(tipVer230MachineAdd())
                                 }
                                 
                                 // //// シャーマンキング、25年2月
@@ -162,7 +176,7 @@ struct ContentView: View {
                                         linkView: AnyView(sbjViewTop()),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "SBJ",
-                                        badgeStatus: ver230.sbjMachineIconBadgeStatus
+                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -173,8 +187,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(sevenSwordsViewTop()),
                                         iconImage: Image("sevenSwordsMachineIcon"),
-                                        machineName: "七つの魔剣が支配する",
-                                        badgeStatus: ver220.sevenSwordsNewBadgeStatus
+                                        machineName: "七つの魔剣が支配する"
                                     )
                                 }
                                 
@@ -254,8 +267,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(godeaterViewTop()),
                                         iconImage: Image("godeaterMachinIcon"),
-                                        machineName: "ゴッドイーター",
-                                        badgeStatus: ver220.godEaterUpdateBadgeStatus
+                                        machineName: "ゴッドイーター"
                                     )
                                 }
                                 
@@ -342,9 +354,24 @@ struct ContentView: View {
                                         machineName: "ハナハナ",
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
-                                        releaseMonth: 5,
-                                        badgeStatus: ver220.hanaSerieseNewBadgeStatus
+                                        releaseMonth: 5
                                     )
+                                }
+                                
+                                // //// ありふれた職業、25年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteArifure == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(arifureViewTop()),
+                                        iconImage: Image("arifureMachineIcon"),
+                                        machineName: "ありふれた職業で世界最強",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2025,
+                                        releaseMonth: 2,
+                                        badgeStatus: ver240.arifureMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -358,10 +385,10 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver230.tokyoGhoulNewBadgeStatus
+                                        badgeStatus: ver240.tokyoGhoulMachineIconBadgeStatus
 //                                        badgeStatus: "update"
                                     )
-                                    .popoverTip(tipVer230MachineAdd())
+//                                    .popoverTip(tipVer230MachineAdd())
                                 }
                                 
                                 // //// シャーマンキング、25年2月
@@ -390,7 +417,7 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver230.sbjMachineIconBadgeStatus
+                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -404,8 +431,7 @@ struct ContentView: View {
                                         machineName: "七つの魔剣が支配する",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
-                                        releaseMonth: 1,
-                                        badgeStatus: ver220.sevenSwordsNewBadgeStatus
+                                        releaseMonth: 1
                                     )
                                 }
                                 
@@ -531,8 +557,7 @@ struct ContentView: View {
                                         machineName: "ゴッドイーター リザレクション",
                                         makerName: "山佐",
                                         releaseYear: 2024,
-                                        releaseMonth: 7,
-                                        badgeStatus: ver220.godEaterUpdateBadgeStatus
+                                        releaseMonth: 7
                                     )
                                 }
                                 // //// ToLOVEるダークネス、24年6月
@@ -755,6 +780,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// ありふれた職業、25年2月
+                Toggle("ありふれた職業で世界最強", isOn: $favoriteSet.isSelectedFavoriteArifure)
                 // //// 東京グール、25年2月
                 Toggle("東京喰種", isOn: $favoriteSet.isSelectedFavoriteTokyoGhoul)
                 // //// シャーマンキング、25年2月

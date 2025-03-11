@@ -391,7 +391,7 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var godeater = Godeater()
     @State var isShowAlert = false
     
@@ -403,8 +403,8 @@ struct godeaterViewTop: View {
                     NavigationLink(destination: godeaterViewHistory()) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "AT,CZ 当選履歴",
-                            badgeStatus: ver220.godEaterUpdateBadgeStatus2
+                            textBody: "AT,CZ 当選履歴"
+//                            badgeStatus: ver220.godEaterUpdateBadgeStatus2
                         )
                     }
                     // ストーリーパート後のボイス
@@ -448,11 +448,11 @@ struct godeaterViewTop: View {
                 }
             }
         }
-        .onAppear {
-            if ver220.godEaterUpdateBadgeStatus != "none" {
-                ver220.godEaterUpdateBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver220.godEaterUpdateBadgeStatus != "none" {
+//                ver220.godEaterUpdateBadgeStatus = "none"
+//            }
+//        }
     }
 }
 

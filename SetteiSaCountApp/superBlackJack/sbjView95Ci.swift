@@ -65,6 +65,60 @@ struct sbjView95Ci: View {
                 )
             )
             .tag(3)
+            // 規定G数 100Gでの高確移行回数
+            unitListSection95Ci(
+                grafTitle: "規定G数での移行\n100Gでの高確移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sbj.gameChangeCount100Kokaku,
+                        bigNumber: $sbj.gameChangeCount100Sum,
+                        setting1Percent: sbj.stageChange100KokakuRatio[0],
+                        setting2Percent: sbj.stageChange100KokakuRatio[1],
+                        setting3Percent: sbj.stageChange100KokakuRatio[2],
+                        setting4Percent: sbj.stageChange100KokakuRatio[3],
+                        setting5Percent: sbj.stageChange100KokakuRatio[4],
+                        setting6Percent: sbj.stageChange100KokakuRatio[5]
+                    )
+                )
+            )
+            .tag(4)
+            // 規定G数 百の位偶数での高確移行回数
+            unitListSection95Ci(
+                grafTitle: "規定G数での移行\n百の位偶数での高確移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sbj.gameChangeCountKisuKokaku,
+                        bigNumber: $sbj.gameChangeCountKisuSum,
+                        setting1Percent: sbj.stageChangeGusuKokakuRatio[0],
+                        setting2Percent: sbj.stageChangeGusuKokakuRatio[1],
+                        setting3Percent: sbj.stageChangeGusuKokakuRatio[2],
+                        setting4Percent: sbj.stageChangeGusuKokakuRatio[3],
+                        setting5Percent: sbj.stageChangeGusuKokakuRatio[4],
+                        setting6Percent: sbj.stageChangeGusuKokakuRatio[5]
+                    )
+                )
+            )
+            .tag(5)
+            // 規定G数 百の位奇数での高確移行回数
+            unitListSection95Ci(
+                grafTitle: "規定G数での移行\n百の位奇数での高確移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sbj.gameChangeCountKisuKokaku,
+                        bigNumber: $sbj.gameChangeCountKisuSum,
+                        setting1Percent: sbj.stageChangeKisuKokakuRatio[0],
+                        setting2Percent: sbj.stageChangeKisuKokakuRatio[1],
+                        setting3Percent: sbj.stageChangeKisuKokakuRatio[2],
+                        setting4Percent: sbj.stageChangeKisuKokakuRatio[3],
+                        setting5Percent: sbj.stageChangeKisuKokakuRatio[4],
+                        setting6Percent: sbj.stageChangeKisuKokakuRatio[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

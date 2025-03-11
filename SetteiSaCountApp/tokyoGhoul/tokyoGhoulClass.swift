@@ -296,32 +296,32 @@ class TokyoGhoul: ObservableObject {
     // ////////////////////////
     @AppStorage("tokyoGhoulEndingCountKisuJaku") var endingCountKisuJaku: Int = 0 {
         didSet {
-            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
         }
     }
         @AppStorage("tokyoGhoulEndingCountKisuKyo") var endingCountKisuKyo: Int = 0 {
             didSet {
-                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
             }
         }
             @AppStorage("tokyoGhoulEndingCountGusuJaku") var endingCountGusuJaku: Int = 0 {
                 didSet {
-                    endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+                    endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
                 }
             }
                 @AppStorage("tokyoGhoulEndingCountGusuKyo") var endingCountGusuKyo: Int = 0 {
                     didSet {
-                        endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+                        endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
                     }
                 }
                     @AppStorage("tokyoGhoulEndingCountHighJaku") var endingCountHighJaku: Int = 0 {
                         didSet {
-                            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+                            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
                         }
                     }
                         @AppStorage("tokyoGhoulEndingCountHighKyo") var endingCountHighKyo: Int = 0 {
                             didSet {
-                                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo)
+                                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
                             }
                         }
     @AppStorage("tokyoGhoulEndingCountSum") var endingCountSum: Int = 0
@@ -334,6 +334,14 @@ class TokyoGhoul: ObservableObject {
         endingCountHighJaku = 0
         endingCountHighKyo = 0
         minusCheck = false
+        endingCountExcept1 = 0
+        endingCountExcept2 = 0
+        endingCountExcept3 = 0
+        endingCountExcept4 = 0
+        endingCountOver3 = 0
+        endingCountOver4 = 0
+        endingCountOver5 = 0
+        endingCountOver6 = 0
     }
     
     // ////////////////////////
@@ -348,6 +356,50 @@ class TokyoGhoul: ObservableObject {
         resetScreen()
         resetEnding()
     }
+    
+    // ///////////////////////
+    // ver240追加
+    // ///////////////////////
+    @AppStorage("tokyoGhoulEndingCountExcept1") var endingCountExcept1: Int = 0 {
+        didSet {
+            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+        }
+    }
+        @AppStorage("tokyoGhoulEndingCountExcept2") var endingCountExcept2: Int = 0 {
+            didSet {
+                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+            }
+        }
+            @AppStorage("tokyoGhoulEndingCountExcept3") var endingCountExcept3: Int = 0 {
+                didSet {
+                    endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                }
+            }
+                @AppStorage("tokyoGhoulEndingCountExcept4") var endingCountExcept4: Int = 0 {
+                    didSet {
+                        endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                    }
+                }
+                    @AppStorage("tokyoGhoulEndingCountOver3") var endingCountOver3: Int = 0 {
+                        didSet {
+                            endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                        }
+                    }
+                        @AppStorage("tokyoGhoulEndingCountOver4") var endingCountOver4: Int = 0 {
+                            didSet {
+                                endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                            }
+                        }
+                            @AppStorage("tokyoGhoulEndingCountOver5") var endingCountOver5: Int = 0 {
+                                didSet {
+                                    endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                                }
+                            }
+                                @AppStorage("tokyoGhoulEndingCountOver6") var endingCountOver6: Int = 0 {
+                                    didSet {
+                                        endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
+                                    }
+                                }
 }
 
 // //// メモリー1
@@ -395,6 +447,17 @@ class TokyoGhoulMemory1: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountHighJakuMemory1") var endingCountHighJaku: Int = 0
     @AppStorage("tokyoGhoulEndingCountHighKyoMemory1") var endingCountHighKyo: Int = 0
     @AppStorage("tokyoGhoulEndingCountSumMemory1") var endingCountSum: Int = 0
+    // ///////////////////////
+    // ver240追加
+    // ///////////////////////
+    @AppStorage("tokyoGhoulEndingCountExcept1Memory1") var endingCountExcept1: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept2Memory1") var endingCountExcept2: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept3Memory1") var endingCountExcept3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept4Memory1") var endingCountExcept4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver3Memory1") var endingCountOver3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver4Memory1") var endingCountOver4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver5Memory1") var endingCountOver5: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver6Memory1") var endingCountOver6: Int = 0
 }
 
 // //// メモリー2
@@ -442,6 +505,17 @@ class TokyoGhoulMemory2: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountHighJakuMemory2") var endingCountHighJaku: Int = 0
     @AppStorage("tokyoGhoulEndingCountHighKyoMemory2") var endingCountHighKyo: Int = 0
     @AppStorage("tokyoGhoulEndingCountSumMemory2") var endingCountSum: Int = 0
+    // ///////////////////////
+    // ver240追加
+    // ///////////////////////
+    @AppStorage("tokyoGhoulEndingCountExcept1Memory2") var endingCountExcept1: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept2Memory2") var endingCountExcept2: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept3Memory2") var endingCountExcept3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept4Memory2") var endingCountExcept4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver3Memory2") var endingCountOver3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver4Memory2") var endingCountOver4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver5Memory2") var endingCountOver5: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver6Memory2") var endingCountOver6: Int = 0
 }
 
 // //// メモリー3
@@ -489,4 +563,15 @@ class TokyoGhoulMemory3: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountHighJakuMemory3") var endingCountHighJaku: Int = 0
     @AppStorage("tokyoGhoulEndingCountHighKyoMemory3") var endingCountHighKyo: Int = 0
     @AppStorage("tokyoGhoulEndingCountSumMemory3") var endingCountSum: Int = 0
+    // ///////////////////////
+    // ver240追加
+    // ///////////////////////
+    @AppStorage("tokyoGhoulEndingCountExcept1Memory3") var endingCountExcept1: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept2Memory3") var endingCountExcept2: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept3Memory3") var endingCountExcept3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountExcept4Memory3") var endingCountExcept4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver3Memory3") var endingCountOver3: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver4Memory3") var endingCountOver4: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver5Memory3") var endingCountOver5: Int = 0
+    @AppStorage("tokyoGhoulEndingCountOver6Memory3") var endingCountOver6: Int = 0
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewHistory: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var godeater = Godeater()
     @State var isShowAlert = false
     @State var isShowDataInputView = false
@@ -144,7 +144,7 @@ struct godeaterViewHistory: View {
                                 )
                             )
                         )
-                        .popoverTip(tipVer220GodEaterKyoCherryChokugeki())
+//                        .popoverTip(tipVer220GodEaterKyoCherryChokugeki())
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(selection: 1)))
                             .popoverTip(tipUnitButtonLink95Ci())
@@ -303,11 +303,11 @@ struct godeaterViewHistory: View {
                     }
                 }
             }
-            .onAppear {
-                if ver220.godEaterUpdateBadgeStatus2 != "none" {
-                    ver220.godEaterUpdateBadgeStatus2 = "none"
-                }
-            }
+//            .onAppear {
+//                if ver220.godEaterUpdateBadgeStatus2 != "none" {
+//                    ver220.godEaterUpdateBadgeStatus2 = "none"
+//                }
+//            }
 //        }
 //        .navigationTitle("AT,CZ 当選履歴")
 //        .navigationBarTitleDisplayMode(.inline)

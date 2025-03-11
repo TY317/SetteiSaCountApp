@@ -757,6 +757,7 @@ struct unitExView5body2image: View {
     @State var image1: Image?
     @State var image2Title: String?
     @State var image2: Image?
+    @State var tableView: AnyView?
     
     var body: some View {
         NavigationView {
@@ -802,6 +803,9 @@ struct unitExView5body2image: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding([.top, .bottom, .trailing])
+                    }
+                    if let tableView = tableView {
+                        tableView
                     }
                     Spacer()
                 }

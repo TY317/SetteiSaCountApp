@@ -10,8 +10,9 @@ import SwiftUI
 struct sbjViewTop: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var ver230 = Ver230()
+    @ObservedObject var ver240 = Ver240()
     
     var body: some View {
         NavigationStack {
@@ -31,7 +32,15 @@ struct sbjViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時 小役、高確、初当り",
-                            badgeStatus: ver230.sbjMenuNormalBadgeStatus
+                            badgeStatus: ver240.sbjMenuNormalBadgeStatus
+                        )
+                    }
+                    // 規定ゲーム数でのステージ移行
+                    NavigationLink(destination: sbjViewGameStageChange()) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "規定ゲーム数での移行",
+                            badgeStatus: ver240.sbjMenuGameStageChangeBadgeStatus
                         )
                     }
                     // ダイスチェック
@@ -74,8 +83,8 @@ struct sbjViewTop: View {
             }
         }
         .onAppear {
-            if ver230.sbjMachineIconBadgeStatus != "none" {
-                ver230.sbjMachineIconBadgeStatus = "none"
+            if ver240.sbjMachineIconBadgeStatus != "none" {
+                ver240.sbjMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -142,6 +151,21 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory1.normalChanceCount = sbj.normalChanceCount
         sbjMemory1.normalChanceKokakuCount = sbj.normalChanceKokakuCount
         sbjMemory1.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbjMemory1.gameChangeCount100Miss = sbj.gameChangeCount100Miss
+        sbjMemory1.gameChangeCount100China = sbj.gameChangeCount100China
+        sbjMemory1.gameChangeCount100Kokaku = sbj.gameChangeCount100Kokaku
+        sbjMemory1.gameChangeCount100Sum = sbj.gameChangeCount100Sum
+        sbjMemory1.gameChangeCountGusuMiss = sbj.gameChangeCountGusuMiss
+        sbjMemory1.gameChangeCountGusuChina = sbj.gameChangeCountGusuChina
+        sbjMemory1.gameChangeCountGusuKokaku = sbj.gameChangeCountGusuKokaku
+        sbjMemory1.gameChangeCountGusuSum = sbj.gameChangeCountGusuSum
+        sbjMemory1.gameChangeCountKisuMiss = sbj.gameChangeCountKisuMiss
+        sbjMemory1.gameChangeCountKisuChina = sbj.gameChangeCountKisuChina
+        sbjMemory1.gameChangeCountKisuKokaku = sbj.gameChangeCountKisuKokaku
+        sbjMemory1.gameChangeCountKisuSum = sbj.gameChangeCountKisuSum
     }
     func saveMemory2() {
         sbjMemory2.kokakuCount = sbj.kokakuCount
@@ -161,6 +185,21 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory2.normalChanceCount = sbj.normalChanceCount
         sbjMemory2.normalChanceKokakuCount = sbj.normalChanceKokakuCount
         sbjMemory2.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbjMemory2.gameChangeCount100Miss = sbj.gameChangeCount100Miss
+        sbjMemory2.gameChangeCount100China = sbj.gameChangeCount100China
+        sbjMemory2.gameChangeCount100Kokaku = sbj.gameChangeCount100Kokaku
+        sbjMemory2.gameChangeCount100Sum = sbj.gameChangeCount100Sum
+        sbjMemory2.gameChangeCountGusuMiss = sbj.gameChangeCountGusuMiss
+        sbjMemory2.gameChangeCountGusuChina = sbj.gameChangeCountGusuChina
+        sbjMemory2.gameChangeCountGusuKokaku = sbj.gameChangeCountGusuKokaku
+        sbjMemory2.gameChangeCountGusuSum = sbj.gameChangeCountGusuSum
+        sbjMemory2.gameChangeCountKisuMiss = sbj.gameChangeCountKisuMiss
+        sbjMemory2.gameChangeCountKisuChina = sbj.gameChangeCountKisuChina
+        sbjMemory2.gameChangeCountKisuKokaku = sbj.gameChangeCountKisuKokaku
+        sbjMemory2.gameChangeCountKisuSum = sbj.gameChangeCountKisuSum
     }
     func saveMemory3() {
         sbjMemory3.kokakuCount = sbj.kokakuCount
@@ -180,6 +219,21 @@ struct sbjSubViewSaveMemory: View {
         sbjMemory3.normalChanceCount = sbj.normalChanceCount
         sbjMemory3.normalChanceKokakuCount = sbj.normalChanceKokakuCount
         sbjMemory3.normalChanceChokugekiCount = sbj.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbjMemory3.gameChangeCount100Miss = sbj.gameChangeCount100Miss
+        sbjMemory3.gameChangeCount100China = sbj.gameChangeCount100China
+        sbjMemory3.gameChangeCount100Kokaku = sbj.gameChangeCount100Kokaku
+        sbjMemory3.gameChangeCount100Sum = sbj.gameChangeCount100Sum
+        sbjMemory3.gameChangeCountGusuMiss = sbj.gameChangeCountGusuMiss
+        sbjMemory3.gameChangeCountGusuChina = sbj.gameChangeCountGusuChina
+        sbjMemory3.gameChangeCountGusuKokaku = sbj.gameChangeCountGusuKokaku
+        sbjMemory3.gameChangeCountGusuSum = sbj.gameChangeCountGusuSum
+        sbjMemory3.gameChangeCountKisuMiss = sbj.gameChangeCountKisuMiss
+        sbjMemory3.gameChangeCountKisuChina = sbj.gameChangeCountKisuChina
+        sbjMemory3.gameChangeCountKisuKokaku = sbj.gameChangeCountKisuKokaku
+        sbjMemory3.gameChangeCountKisuSum = sbj.gameChangeCountKisuSum
     }
 }
 
@@ -228,6 +282,21 @@ struct sbjSubViewLoadMemory: View {
         sbj.normalChanceCount = sbjMemory1.normalChanceCount
         sbj.normalChanceKokakuCount = sbjMemory1.normalChanceKokakuCount
         sbj.normalChanceChokugekiCount = sbjMemory1.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbj.gameChangeCount100Miss = sbjMemory1.gameChangeCount100Miss
+        sbj.gameChangeCount100China = sbjMemory1.gameChangeCount100China
+        sbj.gameChangeCount100Kokaku = sbjMemory1.gameChangeCount100Kokaku
+        sbj.gameChangeCount100Sum = sbjMemory1.gameChangeCount100Sum
+        sbj.gameChangeCountGusuMiss = sbjMemory1.gameChangeCountGusuMiss
+        sbj.gameChangeCountGusuChina = sbjMemory1.gameChangeCountGusuChina
+        sbj.gameChangeCountGusuKokaku = sbjMemory1.gameChangeCountGusuKokaku
+        sbj.gameChangeCountGusuSum = sbjMemory1.gameChangeCountGusuSum
+        sbj.gameChangeCountKisuMiss = sbjMemory1.gameChangeCountKisuMiss
+        sbj.gameChangeCountKisuChina = sbjMemory1.gameChangeCountKisuChina
+        sbj.gameChangeCountKisuKokaku = sbjMemory1.gameChangeCountKisuKokaku
+        sbj.gameChangeCountKisuSum = sbjMemory1.gameChangeCountKisuSum
     }
     func loadMemory2() {
         sbj.kokakuCount = sbjMemory2.kokakuCount
@@ -247,6 +316,21 @@ struct sbjSubViewLoadMemory: View {
         sbj.normalChanceCount = sbjMemory2.normalChanceCount
         sbj.normalChanceKokakuCount = sbjMemory2.normalChanceKokakuCount
         sbj.normalChanceChokugekiCount = sbjMemory2.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbj.gameChangeCount100Miss = sbjMemory2.gameChangeCount100Miss
+        sbj.gameChangeCount100China = sbjMemory2.gameChangeCount100China
+        sbj.gameChangeCount100Kokaku = sbjMemory2.gameChangeCount100Kokaku
+        sbj.gameChangeCount100Sum = sbjMemory2.gameChangeCount100Sum
+        sbj.gameChangeCountGusuMiss = sbjMemory2.gameChangeCountGusuMiss
+        sbj.gameChangeCountGusuChina = sbjMemory2.gameChangeCountGusuChina
+        sbj.gameChangeCountGusuKokaku = sbjMemory2.gameChangeCountGusuKokaku
+        sbj.gameChangeCountGusuSum = sbjMemory2.gameChangeCountGusuSum
+        sbj.gameChangeCountKisuMiss = sbjMemory2.gameChangeCountKisuMiss
+        sbj.gameChangeCountKisuChina = sbjMemory2.gameChangeCountKisuChina
+        sbj.gameChangeCountKisuKokaku = sbjMemory2.gameChangeCountKisuKokaku
+        sbj.gameChangeCountKisuSum = sbjMemory2.gameChangeCountKisuSum
     }
     func loadMemory3() {
         sbj.kokakuCount = sbjMemory3.kokakuCount
@@ -266,6 +350,21 @@ struct sbjSubViewLoadMemory: View {
         sbj.normalChanceCount = sbjMemory3.normalChanceCount
         sbj.normalChanceKokakuCount = sbjMemory3.normalChanceKokakuCount
         sbj.normalChanceChokugekiCount = sbjMemory3.normalChanceChokugekiCount
+        // ///////////////////////
+        // ver240で追加、規定ゲーム数
+        // ///////////////////////
+        sbj.gameChangeCount100Miss = sbjMemory3.gameChangeCount100Miss
+        sbj.gameChangeCount100China = sbjMemory3.gameChangeCount100China
+        sbj.gameChangeCount100Kokaku = sbjMemory3.gameChangeCount100Kokaku
+        sbj.gameChangeCount100Sum = sbjMemory3.gameChangeCount100Sum
+        sbj.gameChangeCountGusuMiss = sbjMemory3.gameChangeCountGusuMiss
+        sbj.gameChangeCountGusuChina = sbjMemory3.gameChangeCountGusuChina
+        sbj.gameChangeCountGusuKokaku = sbjMemory3.gameChangeCountGusuKokaku
+        sbj.gameChangeCountGusuSum = sbjMemory3.gameChangeCountGusuSum
+        sbj.gameChangeCountKisuMiss = sbjMemory3.gameChangeCountKisuMiss
+        sbj.gameChangeCountKisuChina = sbjMemory3.gameChangeCountKisuChina
+        sbj.gameChangeCountKisuKokaku = sbjMemory3.gameChangeCountKisuKokaku
+        sbj.gameChangeCountKisuSum = sbjMemory3.gameChangeCountKisuSum
     }
 }
 

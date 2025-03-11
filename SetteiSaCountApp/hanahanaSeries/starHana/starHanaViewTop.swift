@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct starHanaViewTop: View {
-    @ObservedObject var ver220 = Ver220()
+//    @ObservedObject var ver220 = Ver220()
     @ObservedObject var starHana = StarHana()
     @State var isShowAlert: Bool = false
     
@@ -90,11 +90,11 @@ struct starHanaViewTop: View {
                     .popoverTip(tipUnitButtonReset())
             }
         }
-        .onAppear {
-            if ver220.starHanaNewBadgeStatus != "none" {
-                ver220.starHanaNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver220.starHanaNewBadgeStatus != "none" {
+//                ver220.starHanaNewBadgeStatus = "none"
+//            }
+//        }
     }
 }
 
