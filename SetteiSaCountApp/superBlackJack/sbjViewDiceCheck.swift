@@ -43,7 +43,6 @@ struct sbjTipStHistoryInput: Tip {
 
 
 struct sbjViewDiceCheck: View {
-    @ObservedObject var ver230 = Ver230()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
@@ -264,17 +263,16 @@ struct sbjViewDiceCheck: View {
                         )
                     )
                 )
-                .popoverTip(tipVer230SbjRedDiceUpdate())
             } header: {
                 unitHeaderHistoryColumns(column2: "出目", column3: "スイカ回数")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver230.sbjMenuDiceCheckBadgeStatus != "none" {
-                ver230.sbjMenuDiceCheckBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver230.sbjMenuDiceCheckBadgeStatus != "none" {
+//                ver230.sbjMenuDiceCheckBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

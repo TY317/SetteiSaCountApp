@@ -806,6 +806,7 @@ struct unitExView5body2image: View {
                     }
                     if let tableView = tableView {
                         tableView
+                            .padding([.top, .trailing])
                     }
                     Spacer()
                 }

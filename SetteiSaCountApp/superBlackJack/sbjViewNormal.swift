@@ -43,7 +43,6 @@ struct sbjTipChanceCount: Tip {
 
 
 struct sbjViewNormal: View {
-    @ObservedObject var ver230 = Ver230()
     @ObservedObject var ver240 = Ver240()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool

@@ -136,64 +136,56 @@ class Arifure: ObservableObject {
     // ////////////////////////
     @AppStorage("arifureCharaCountGusu") var charaCountGusu: Int = 0 {
         didSet {
-            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
         }
     }
         @AppStorage("arifureCharaCountKisu") var charaCountKisu: Int = 0 {
             didSet {
-                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
             }
         }
             @AppStorage("arifureCharaCountHighJaku") var charaCountHighJaku: Int = 0 {
                 didSet {
-                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                 }
             }
                 @AppStorage("arifureCharaCountHighKyo") var charaCountHighKyo: Int = 0 {
                     didSet {
-                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                     }
                 }
                     @AppStorage("arifureCharaCountGusuKyo") var charaCountGusuKyo: Int = 0 {
                         didSet {
-                            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                         }
                     }
                         @AppStorage("arifureCharaCountOver2") var charaCountOver2: Int = 0 {
                             didSet {
-                                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                             }
                         }
                             @AppStorage("arifureCharaCountOver2Kyo") var charaCountOver2Kyo: Int = 0 {
                                 didSet {
-                                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                                 }
                             }
                                 @AppStorage("arifureCharaCountOver2Gusu") var charaCountOver2Gusu: Int = 0 {
                                     didSet {
-                                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+//                                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
+                                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu)
                                     }
                                 }
-                                    @AppStorage("arifureCharaCountAt") var charaCountAt: Int = 0 {
-                                        didSet {
-                                            charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
-                                        }
-                                    }
-                                        @AppStorage("arifureCharaCountOver4") var charaCountOver4: Int = 0 {
-                                            didSet {
-                                                charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
-                                            }
-                                        }
-                                            @AppStorage("arifureCharaCountOver5") var charaCountOver5: Int = 0 {
-                                                didSet {
-                                                    charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
-                                                }
-                                            }
-                                                @AppStorage("arifureCharaCountOver6") var charaCountOver6: Int = 0 {
-                                                    didSet {
-                                                        charaCountSum = countSum(charaCountKisu, charaCountGusu, charaCountHighJaku, charaCountHighKyo, charaCountGusuKyo, charaCountOver2, charaCountOver2Kyo, charaCountOver2Gusu, charaCountAt, charaCountOver4, charaCountOver5, charaCountOver6)
-                                                    }
-                                                }
+                                    @AppStorage("arifureCharaCountAt") var charaCountAt: Int = 0
+                                        @AppStorage("arifureCharaCountOver4") var charaCountOver4: Int = 0
+                                            @AppStorage("arifureCharaCountOver5") var charaCountOver5: Int = 0
+                                                @AppStorage("arifureCharaCountOver6") var charaCountOver6: Int = 0
     @AppStorage("arifureCharaCountSum") var charaCountSum: Int = 0
     
     func resetCharacter() {
@@ -273,13 +265,41 @@ class Arifure: ObservableObject {
     // ////////////////////////
     // エンディング
     // ////////////////////////
-    @AppStorage("arifureEndingCountKisu") var endingCountKisu: Int = 0
-    @AppStorage("arifureEndingCountGusu") var endingCountGusu: Int = 0
-    @AppStorage("arifureEndingCountHighJaku") var endingCountHighJaku: Int = 0
-    @AppStorage("arifureEndingCountHighKyo") var endingCountHighKyo: Int = 0
-    @AppStorage("arifureEndingCountOver4") var endingCountOver4: Int = 0
-    @AppStorage("arifureEndingCountOver5") var endingCountOver5: Int = 0
-    @AppStorage("arifureEndingCountOver6") var endingCountOver6: Int = 0
+    @AppStorage("arifureEndingCountKisu") var endingCountKisu: Int = 0 {
+        didSet {
+            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+        }
+    }
+        @AppStorage("arifureEndingCountGusu") var endingCountGusu: Int = 0 {
+            didSet {
+                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+            }
+        }
+            @AppStorage("arifureEndingCountHighJaku") var endingCountHighJaku: Int = 0 {
+                didSet {
+                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+                }
+            }
+                @AppStorage("arifureEndingCountHighKyo") var endingCountHighKyo: Int = 0 {
+                    didSet {
+                        endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+                    }
+                }
+                    @AppStorage("arifureEndingCountOver4") var endingCountOver4: Int = 0 {
+                        didSet {
+                            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+                        }
+                    }
+                        @AppStorage("arifureEndingCountOver5") var endingCountOver5: Int = 0 {
+                            didSet {
+                                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+                            }
+                        }
+                            @AppStorage("arifureEndingCountOver6") var endingCountOver6: Int = 0 {
+                                didSet {
+                                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHighJaku, endingCountHighKyo, endingCountOver4, endingCountOver5, endingCountOver6)
+                                }
+                            }
     @AppStorage("arifureEndingCountSum") var endingCountSum: Int = 0
     
     func resetEnding() {
@@ -305,7 +325,310 @@ class Arifure: ObservableObject {
         resetScreen()
         resetAfterKokaku()
         resetEnding()
+        resetPremium()
     }
+    
+    // ///////////////////////
+    // ver2.5.0で追加
+    // ///////////////////////
+    // 上位AT初当り確率
+    let ratioPremiumAtHit: [Double] = [
+        8800,
+        8200,
+        7300,
+        5900,
+        5200,
+        4100
+    ]
+    // 覚醒チャレンジ成功率
+    let ratioKakuseiSuccess: [Double] = [
+        44,
+        45,
+        48,
+        53,
+        54,
+        57
+    ]
+    // ビッグトリガー10％選択率
+    let ratioBigTrigger10Percent: [Double] = [
+        90,
+        86,
+        76,
+        58,
+        50,
+        28
+    ]
+    // ビッグトリガー56％選択率
+    let ratioBigTrigger56Percent: [Double] = [
+        5,
+        7,
+        12,
+        21,
+        25,
+        28
+    ]
+    // ビッグトリガー73％選択率
+    let ratioBigTrigger73Percent: [Double] = [
+        5,
+        7,
+        12,
+        21,
+        25,
+        44
+    ]
+    // ビッグトリガー継続２G
+    let ratioBigTriggerContinuous2G: [Double] = [
+        84.5,
+        82.4,
+        76.9,
+        67.1,
+        62.7,
+        49.4
+    ]
+    // ビッグトリガー継続3G
+    let ratioBigTriggerContinuous3G: [Double] = [
+        10.4,
+        10.8,
+        12.2,
+        14.6,
+        15.7,
+        18.1
+    ]
+    // ビッグトリガー継続4G以上
+    let ratioBigTriggerContinuous4GOver: [Double] = [
+        5.1,
+        6.8,
+        10.9,
+        18.3,
+        21.6,
+        32.5
+    ]
+    @AppStorage("arifureBtaGameCount2G") var btaGameCount2G: Int = 0 {
+        didSet {
+            btaGameCountSum = countSum(btaGameCount2G, btaGameCount3G, btaGameCount4GOver)
+        }
+    }
+        @AppStorage("arifureBtaGameCount3G") var btaGameCount3G: Int = 0 {
+            didSet {
+                btaGameCountSum = countSum(btaGameCount2G, btaGameCount3G, btaGameCount4GOver)
+            }
+        }
+            @AppStorage("arifureBtaGameCount4GOver") var btaGameCount4GOver: Int = 0 {
+                didSet {
+                    btaGameCountSum = countSum(btaGameCount2G, btaGameCount3G, btaGameCount4GOver)
+                }
+            }
+    @AppStorage("arifureBtaGameCountSum") var btaGameCountSum: Int = 0
+    
+    func resetPremium() {
+        btaGameCount2G = 0
+        btaGameCount3G = 0
+        btaGameCount4GOver = 0
+        minusCheck = false
+    }
+    // キャラ紹介インデックス
+    let charaIndex: [String] = [
+        "偶数示唆",
+        "奇数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "偶数濃厚",
+        "2以上濃厚",
+        "2以上濃厚+\n356示唆",
+        "2以上濃厚+\n偶数示唆"
+    ]
+    // キャラ紹介振り分け設定1
+    let ratioCharaSetting1: [Double] = [
+        36,
+        43,
+        20,
+        1,
+        0,
+        0,
+        0,
+        0
+    ]
+    // キャラ紹介振り分け設定2
+    let ratioCharaSetting2: [Double] = [
+        39,
+        31,
+        20,
+        1,
+        1,
+        5,
+        1,
+        2
+    ]
+    // キャラ紹介振り分け設定3
+    let ratioCharaSetting3: [Double] = [
+        31,
+        37,
+        22,
+        2,
+        0,
+        5,
+        2,
+        1
+    ]
+    // キャラ紹介振り分け設定4
+    let ratioCharaSetting4: [Double] = [
+        36,
+        29,
+        22,
+        2,
+        3,
+        5,
+        1,
+        2
+    ]
+    // キャラ紹介振り分け設定5
+    let ratioCharaSetting5: [Double] = [
+        29,
+        35,
+        25,
+        3,
+        0,
+        5,
+        2,
+        1
+    ]
+    // キャラ紹介振り分け設定6
+    let ratioCharaSetting6: [Double] = [
+        33,
+        27,
+        25,
+        3,
+        3,
+        5,
+        2,
+        2
+    ]
+    // AT終了画面インデックス
+    let atEndScreenIndex: [String] = [
+        "デフォルト",
+        "高設定示唆",
+        "4以上",
+        "5以上",
+        "6濃厚"
+    ]
+    // AT終了画面振り分け設定1
+    let ratioAtEndScreenSetting1: [Double] = [
+        85,
+        15,
+        0,
+        0,
+        0
+    ]
+    // AT終了画面振り分け設定2
+    let ratioAtEndScreenSetting2: [Double] = [
+        82,
+        18,
+        0,
+        0,
+        0
+    ]
+    // AT終了画面振り分け設定3
+    let ratioAtEndScreenSetting3: [Double] = [
+        80,
+        20,
+        0,
+        0,
+        0
+    ]
+    // AT終了画面振り分け設定4
+    let ratioAtEndScreenSetting4: [Double] = [
+        77,
+        22,
+        1,
+        0,
+        0
+    ]
+    // AT終了画面振り分け設定5
+    let ratioAtEndScreenSetting5: [Double] = [
+        74,
+        25,
+        1,
+        1,
+        0
+    ]
+    // AT終了画面振り分け設定6
+    let ratioAtEndScreenSetting6: [Double] = [
+        74,
+        25,
+        1,
+        1,
+        1
+    ]
+    // エンディング振り分けインデックス
+    let endingIndex: [String] = [
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "4以上",
+        "5以上",
+        "6濃厚"
+    ]
+    // エンディング振り分け設定1
+    let ratioEndingSetting1: [Double] = [
+        45,
+        30,
+        15,
+        10,
+        0,
+        0,
+        0
+    ]
+    // エンディング振り分け設定2
+    let ratioEndingSetting2: [Double] = [
+        29,
+        45,
+        15,
+        11,
+        0,
+        0,
+        0
+    ]
+    // エンディング振り分け設定3
+    let ratioEndingSetting3: [Double] = [
+        44,
+        28,
+        16,
+        12,
+        0,
+        0,
+        0
+    ]
+    // エンディング振り分け設定4
+    let ratioEndingSetting4: [Double] = [
+        27,
+        40,
+        17,
+        13,
+        3,
+        0,
+        0
+    ]
+    // エンディング振り分け設定5
+    let ratioEndingSetting5: [Double] = [
+        38,
+        26,
+        17,
+        14,
+        3,
+        2,
+        0
+    ]
+    // エンディング振り分け設定6
+    let ratioEndingSetting6: [Double] = [
+        25,
+        36,
+        18,
+        15,
+        3,
+        2,
+        1
+    ]
 }
 
 
@@ -362,6 +685,14 @@ class ArifureMemory1: ObservableObject {
     @AppStorage("arifureEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("arifureMemoMemory1") var memo = ""
     @AppStorage("arifureDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.5.0で追加
+    // ///////////////////////
+    @AppStorage("arifureBtaGameCount2GMemory1") var btaGameCount2G: Int = 0
+    @AppStorage("arifureBtaGameCount3GMemory1") var btaGameCount3G: Int = 0
+    @AppStorage("arifureBtaGameCount4GOverMemory1") var btaGameCount4GOver: Int = 0
+    @AppStorage("arifureBtaGameCountSumMemory1") var btaGameCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -417,6 +748,14 @@ class ArifureMemory2: ObservableObject {
     @AppStorage("arifureEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("arifureMemoMemory2") var memo = ""
     @AppStorage("arifureDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.5.0で追加
+    // ///////////////////////
+    @AppStorage("arifureBtaGameCount2GMemory2") var btaGameCount2G: Int = 0
+    @AppStorage("arifureBtaGameCount3GMemory2") var btaGameCount3G: Int = 0
+    @AppStorage("arifureBtaGameCount4GOverMemory2") var btaGameCount4GOver: Int = 0
+    @AppStorage("arifureBtaGameCountSumMemory2") var btaGameCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -472,4 +811,12 @@ class ArifureMemory3: ObservableObject {
     @AppStorage("arifureEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("arifureMemoMemory3") var memo = ""
     @AppStorage("arifureDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.5.0で追加
+    // ///////////////////////
+    @AppStorage("arifureBtaGameCount2GMemory3") var btaGameCount2G: Int = 0
+    @AppStorage("arifureBtaGameCount3GMemory3") var btaGameCount3G: Int = 0
+    @AppStorage("arifureBtaGameCount4GOverMemory3") var btaGameCount4GOver: Int = 0
+    @AppStorage("arifureBtaGameCountSumMemory3") var btaGameCountSum: Int = 0
 }

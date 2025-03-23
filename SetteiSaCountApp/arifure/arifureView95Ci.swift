@@ -155,6 +155,42 @@ struct arifureView95Ci: View {
                 )
             )
             .tag(7)
+            // ミュウボーナス キャラ紹介　奇数示唆回数
+            unitListSection95Ci(
+                grafTitle: "ミュウボーナス キャラ紹介\n奇数示唆回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.charaCountKisu,
+                        bigNumber: $arifure.charaCountSum,
+                        setting1Percent: arifure.ratioCharaSetting1[1],
+                        setting2Percent: arifure.ratioCharaSetting2[1],
+                        setting3Percent: arifure.ratioCharaSetting3[1],
+                        setting4Percent: arifure.ratioCharaSetting4[1],
+                        setting5Percent: arifure.ratioCharaSetting5[1],
+                        setting6Percent: arifure.ratioCharaSetting6[1]
+                    )
+                )
+            )
+            .tag(13)
+            // AT終了画面　高設定示唆 出現回数
+            unitListSection95Ci(
+                grafTitle: "AT終了画面\n高設定示唆 出現回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.endScreenCountHigh,
+                        bigNumber: $arifure.endScreenCountSum,
+                        setting1Percent: arifure.ratioAtEndScreenSetting1[1],
+                        setting2Percent: arifure.ratioAtEndScreenSetting2[1],
+                        setting3Percent: arifure.ratioAtEndScreenSetting3[1],
+                        setting4Percent: arifure.ratioAtEndScreenSetting4[1],
+                        setting5Percent: arifure.ratioAtEndScreenSetting5[1],
+                        setting6Percent: arifure.ratioAtEndScreenSetting6[1]
+                    )
+                )
+            )
+            .tag(14)
             // AT終了後の高確移行回数
             unitListSection95Ci(
                 grafTitle: "AT終了後の高確移行回数",
@@ -172,6 +208,78 @@ struct arifureView95Ci: View {
                 )
             )
             .tag(9)
+            // ビッグトリガーアタック2G継続回数
+            unitListSection95Ci(
+                grafTitle: "ビッグトリガーアタック\n継続2G 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.btaGameCount2G,
+                        bigNumber: $arifure.btaGameCountSum,
+                        setting1Percent: arifure.ratioBigTriggerContinuous2G[0],
+                        setting2Percent: arifure.ratioBigTriggerContinuous2G[1],
+                        setting3Percent: arifure.ratioBigTriggerContinuous2G[2],
+                        setting4Percent: arifure.ratioBigTriggerContinuous2G[3],
+                        setting5Percent: arifure.ratioBigTriggerContinuous2G[4],
+                        setting6Percent: arifure.ratioBigTriggerContinuous2G[5]
+                    )
+                )
+            )
+            .tag(10)
+            // ビッグトリガーアタック3G継続回数
+            unitListSection95Ci(
+                grafTitle: "ビッグトリガーアタック\n継続3G 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.btaGameCount3G,
+                        bigNumber: $arifure.btaGameCountSum,
+                        setting1Percent: arifure.ratioBigTriggerContinuous3G[0],
+                        setting2Percent: arifure.ratioBigTriggerContinuous3G[1],
+                        setting3Percent: arifure.ratioBigTriggerContinuous3G[2],
+                        setting4Percent: arifure.ratioBigTriggerContinuous3G[3],
+                        setting5Percent: arifure.ratioBigTriggerContinuous3G[4],
+                        setting6Percent: arifure.ratioBigTriggerContinuous3G[5]
+                    )
+                )
+            )
+            .tag(11)
+            // ビッグトリガーアタック4G継続回数
+            unitListSection95Ci(
+                grafTitle: "ビッグトリガーアタック\n継続4G以上 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.btaGameCount4GOver,
+                        bigNumber: $arifure.btaGameCountSum,
+                        setting1Percent: arifure.ratioBigTriggerContinuous4GOver[0],
+                        setting2Percent: arifure.ratioBigTriggerContinuous4GOver[1],
+                        setting3Percent: arifure.ratioBigTriggerContinuous4GOver[2],
+                        setting4Percent: arifure.ratioBigTriggerContinuous4GOver[3],
+                        setting5Percent: arifure.ratioBigTriggerContinuous4GOver[4],
+                        setting6Percent: arifure.ratioBigTriggerContinuous4GOver[5]
+                    )
+                )
+            )
+            .tag(12)
+            // エンディング奇数示唆回数
+            unitListSection95Ci(
+                grafTitle: "エンディング レア役時の画面\n奇数示唆回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $arifure.endingCountKisu,
+                        bigNumber: $arifure.endingCountSum,
+                        setting1Percent: arifure.ratioEndingSetting1[0],
+                        setting2Percent: arifure.ratioEndingSetting2[0],
+                        setting3Percent: arifure.ratioEndingSetting3[0],
+                        setting4Percent: arifure.ratioEndingSetting4[0],
+                        setting5Percent: arifure.ratioEndingSetting5[0],
+                        setting6Percent: arifure.ratioEndingSetting6[0]
+                    )
+                )
+            )
+            .tag(15)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

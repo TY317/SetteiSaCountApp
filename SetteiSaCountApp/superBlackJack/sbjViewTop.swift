@@ -10,8 +10,6 @@ import SwiftUI
 struct sbjViewTop: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-//    @ObservedObject var ver220 = Ver220()
-    @ObservedObject var ver230 = Ver230()
     @ObservedObject var ver240 = Ver240()
     
     var body: some View {
@@ -47,8 +45,8 @@ struct sbjViewTop: View {
                     NavigationLink(destination: sbjViewDiceCheck()) {
                         unitLabelMenu(
                             imageSystemName: "dice.fill",
-                            textBody: "ダイスチェック",
-                            badgeStatus: ver230.sbjMenuDiceCheckBadgeStatus
+                            textBody: "ダイスチェック"
+//                            badgeStatus: ver230.sbjMenuDiceCheckBadgeStatus
                         )
                     }
                     // JAC中のトランプ

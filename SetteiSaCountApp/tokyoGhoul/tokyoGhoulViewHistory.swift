@@ -43,6 +43,7 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 struct tokyoGhoulViewHistory: View {
     @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var ver250 = Ver250()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -188,6 +189,19 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
+                // //// 参考情報）下段リプレイ確率
+                unitLinkButton(
+                    title: "下段リプレイ確率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "下段リプレイ確率",
+                            textBody1: "・下段リプレイに若干だが設定差あり",
+                            textBody2: "・下段リプレイ成立時は全状態で赫眼状態へ移行濃厚",
+                            tableView: AnyView(tokyoGhoulSubViewTableGedanReplay())
+                        )
+                    )
+                )
+                .popoverTip(tipVer250GhoulGedanReplay())
             }
             // //// 履歴表示
             Section {
@@ -386,6 +400,19 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
+                // //// 参考情報）裏AT
+                unitLinkButton(
+                    title: "裏ATの振分けについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "裏ATの振分け",
+                            textBody1: "・初当り時に裏ATへの振分けがあり高設定ほど優遇",
+                            textBody2: "・裏ATは喰種対決の勝利期待度が大幅アップしたATで期待枚数は3000枚以上！",
+                            tableView: AnyView(tokyoGhoulSubViewTableUraAt())
+                        )
+                    )
+                )
+                .popoverTip(tipVer250GhoulUraAt())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
@@ -424,6 +451,11 @@ struct tokyoGhoulViewHistory: View {
                 Text("100G以内での当選率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        .onAppear {
+            if ver250.ghoulMenuHistoryBadgeStatus != "none" {
+                ver250.ghoulMenuHistoryBadgeStatus = "none"
+            }
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

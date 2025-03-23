@@ -22,17 +22,17 @@ class Ver240: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer240MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・ありふれた職業で世界最強")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer240MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・ありふれた職業で世界最強")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：SBJ小役確率

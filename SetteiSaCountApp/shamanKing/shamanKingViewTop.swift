@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct shamanKingViewTop: View {
-    @ObservedObject var ver230 = Ver230()
+//    @ObservedObject var ver230 = Ver230()
     @ObservedObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     
@@ -77,11 +77,11 @@ struct shamanKingViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver230.shamanKingNewBadgeStatus != "none" {
-                ver230.shamanKingNewBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver230.shamanKingNewBadgeStatus != "none" {
+//                ver230.shamanKingNewBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
