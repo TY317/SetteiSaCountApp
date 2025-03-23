@@ -181,7 +181,8 @@ struct mrJugVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ミスタージャグラー設定差",
-                            image1: Image("mrJugAnalysis")
+                            tableView: AnyView(mrJugSubViewTableRatio())
+//                            image1: Image("mrJugAnalysis")
                         )
                     )
                 )

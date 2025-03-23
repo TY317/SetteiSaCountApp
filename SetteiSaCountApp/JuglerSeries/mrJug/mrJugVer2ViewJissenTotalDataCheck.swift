@@ -123,7 +123,7 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ミスタージャグラー設定差",
-                            image1: Image("mrJugAnalysis")
+                            tableView: AnyView(mrJugSubViewTableRatio())
                         )
                     )
                 )

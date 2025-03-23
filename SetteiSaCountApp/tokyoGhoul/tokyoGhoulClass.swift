@@ -400,6 +400,25 @@ class TokyoGhoul: ObservableObject {
                                         endingCountSum = countSum(endingCountKisuJaku, endingCountKisuKyo, endingCountGusuJaku, endingCountGusuKyo, endingCountHighJaku, endingCountHighKyo, endingCountExcept1, endingCountExcept2, endingCountExcept3, endingCountExcept4, endingCountOver3, endingCountOver4, endingCountOver5, endingCountOver6)
                                     }
                                 }
+    // ///////////////////
+    // ver2.5.0で追加
+    // ///////////////////
+    let ratioUraAt: [Double] = [
+        1.1,
+        1.32,
+        1.63,
+        2.19,
+        2.85,
+        3.32
+    ]
+    let ratioGedanReplay: [Double] = [
+        1260.3,
+        1213.6,
+        1170.3,
+        1129.0,
+        1092.3,
+        1024.0
+    ]
 }
 
 // //// メモリー1

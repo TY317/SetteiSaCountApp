@@ -420,7 +420,7 @@ struct danvineViewTop: View {
                     // サミートロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(
-                            imageSystemName: "trophy",
+                            imageSystemName: "trophy.fill",
                             textBody: "サミートロフィー"
                         )
                     }

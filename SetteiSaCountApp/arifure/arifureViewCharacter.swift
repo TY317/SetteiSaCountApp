@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct arifureViewCharacter: View {
+    @ObservedObject var ver250 = Ver250()
     @ObservedObject var arifure = Arifure()
     @State var isShowAlert = false
     @State var selectedCategory: String = "通常"
@@ -33,6 +34,14 @@ struct arifureViewCharacter: View {
         "南雲 ハジメ"
     ]
     @State var selectedYueScondChara: String = "シア・ハウリア"
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
     
     var body: some View {
         List {
@@ -54,12 +63,13 @@ struct arifureViewCharacter: View {
                     Text("ー")
                         .foregroundStyle(.secondary)
                     // AT濃厚
-                    unitResultCountListPercent(
-                        title: "AT濃厚",
-                        count: $arifure.charaCountAt,
-                        flashColor: .red,
-                        bigNumber: $arifure.charaCountSum
-                    )
+//                    unitResultCountListPercent(
+//                        title: "AT濃厚",
+//                        count: $arifure.charaCountAt,
+//                        flashColor: .red,
+//                        bigNumber: $arifure.charaCountSum
+//                    )
+                    unitResultCountListWithoutRatio(title: "AT濃厚", count: $arifure.charaCountAt, flashColor: .red)
                 }
                 // 金文字
                 else if self.selectedCategory == self.selectListCategory[1] {
@@ -85,30 +95,33 @@ struct arifureViewCharacter: View {
                     )
                     // AT+設定4 以上濃厚
                     if self.selectedGoldChara == self.selectListGoldChara[0] {
-                        unitResultCountListPercent(
-                            title: "AT+設定4 以上濃厚",
-                            count: $arifure.charaCountOver4,
-                            flashColor: .orange,
-                            bigNumber: $arifure.charaCountSum
-                        )
+//                        unitResultCountListPercent(
+//                            title: "AT+設定4 以上濃厚",
+//                            count: $arifure.charaCountOver4,
+//                            flashColor: .orange,
+//                            bigNumber: $arifure.charaCountSum
+//                        )
+                        unitResultCountListWithoutRatio(title: "AT+設定4 以上濃厚", count: $arifure.charaCountOver4, flashColor: .orange)
                     }
                     // AT+設定5 以上濃厚
                     else if self.selectedGoldChara == self.selectListGoldChara[1] {
-                        unitResultCountListPercent(
-                            title: "AT+設定5 以上濃厚",
-                            count: $arifure.charaCountOver5,
-                            flashColor: .orange,
-                            bigNumber: $arifure.charaCountSum
-                        )
+//                        unitResultCountListPercent(
+//                            title: "AT+設定5 以上濃厚",
+//                            count: $arifure.charaCountOver5,
+//                            flashColor: .orange,
+//                            bigNumber: $arifure.charaCountSum
+//                        )
+                        unitResultCountListWithoutRatio(title: "AT+設定5 以上濃厚", count: $arifure.charaCountOver5, flashColor: .orange)
                     }
                     // AT+設定6 濃厚
                     else {
-                        unitResultCountListPercent(
-                            title: "AT+設定6 濃厚",
-                            count: $arifure.charaCountOver6,
-                            flashColor: .orange,
-                            bigNumber: $arifure.charaCountSum
-                        )
+//                        unitResultCountListPercent(
+//                            title: "AT+設定6 濃厚",
+//                            count: $arifure.charaCountOver6,
+//                            flashColor: .orange,
+//                            bigNumber: $arifure.charaCountSum
+//                        )
+                        unitResultCountListWithoutRatio(title: "AT+設定6 濃厚", count: $arifure.charaCountOver6, flashColor: .orange)
                     }
                 }
                 // 通常
@@ -424,36 +437,101 @@ struct arifureViewCharacter: View {
                     bigNumber: $arifure.charaCountSum
                 )
                 // AT濃厚
-                unitResultCountListPercent(
-                    title: "AT濃厚",
-                    count: $arifure.charaCountAt,
-                    flashColor: .red,
-                    bigNumber: $arifure.charaCountSum
-                )
+//                unitResultCountListPercent(
+//                    title: "AT濃厚",
+//                    count: $arifure.charaCountAt,
+//                    flashColor: .red,
+//                    bigNumber: $arifure.charaCountSum
+//                )
+                unitResultCountListWithoutRatio(title: "AT濃厚", count: $arifure.charaCountAt, flashColor: .red)
                 // AT+設定4 以上濃厚
-                unitResultCountListPercent(
-                    title: "AT+設定4 以上濃厚",
-                    count: $arifure.charaCountOver4,
-                    flashColor: .orange,
-                    bigNumber: $arifure.charaCountSum
-                )
+//                unitResultCountListPercent(
+//                    title: "AT+設定4 以上濃厚",
+//                    count: $arifure.charaCountOver4,
+//                    flashColor: .orange,
+//                    bigNumber: $arifure.charaCountSum
+//                )
+                unitResultCountListWithoutRatio(title: "AT+設定4 以上濃厚", count: $arifure.charaCountOver4, flashColor: .orange)
                 // AT+設定5 以上濃厚
-                unitResultCountListPercent(
-                    title: "AT+設定5 以上濃厚",
-                    count: $arifure.charaCountOver5,
-                    flashColor: .orange,
-                    bigNumber: $arifure.charaCountSum
-                )
+//                unitResultCountListPercent(
+//                    title: "AT+設定5 以上濃厚",
+//                    count: $arifure.charaCountOver5,
+//                    flashColor: .orange,
+//                    bigNumber: $arifure.charaCountSum
+//                )
+                unitResultCountListWithoutRatio(title: "AT+設定5 以上濃厚", count: $arifure.charaCountOver5, flashColor: .orange)
                 // AT+設定6 濃厚
-                unitResultCountListPercent(
-                    title: "AT+設定6 濃厚",
-                    count: $arifure.charaCountOver6,
-                    flashColor: .orange,
-                    bigNumber: $arifure.charaCountSum
+//                unitResultCountListPercent(
+//                    title: "AT+設定6 濃厚",
+//                    count: $arifure.charaCountOver6,
+//                    flashColor: .orange,
+//                    bigNumber: $arifure.charaCountSum
+//                )
+                unitResultCountListWithoutRatio(title: "AT+設定6 濃厚", count: $arifure.charaCountOver6, flashColor: .orange)
+                // //// 参考情報）振り分け
+                unitLinkButton(
+                    title: "キャラ紹介振り分け",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "キャラ紹介振り分け",
+                            tableView: AnyView(arifureSubViewTableChara())
+                        )
+                    )
                 )
+                .popoverTip(tipVer250ArifureCharacterRatio())
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 13)))
+                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("カウント結果")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        .onAppear {
+            if ver250.arifureMenuCharacterBadgeStatus != "none" {
+                ver250.arifureMenuCharacterBadgeStatus = "none"
+            }
+        }
+        // //// 画面の向き情報の取得部分
+        .onAppear {
+            // ビューが表示されるときにデバイスの向きを取得
+            self.orientation = UIDevice.current.orientation
+            // 向きがフラットでなければlastOrientationの値を更新
+            if self.orientation.isFlat {
+                
+            }
+            else {
+                self.lastOrientation = self.orientation
+            }
+            if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                self.scrollViewHeight = self.scrollViewHeightLandscape
+                self.spaceHeight = self.spaceHeightLandscape
+            } else {
+                self.scrollViewHeight = self.scrollViewHeightPortrait
+                self.spaceHeight = self.spaceHeightPortrait
+            }
+            // デバイスの向きの変更を監視する
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                self.orientation = UIDevice.current.orientation
+                // 向きがフラットでなければlastOrientationの値を更新
+                if self.orientation.isFlat {
+                    
+                }
+                else {
+                    self.lastOrientation = self.orientation
+                }
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    self.scrollViewHeight = self.scrollViewHeightLandscape
+                    self.spaceHeight = self.spaceHeightLandscape
+                } else {
+                    self.scrollViewHeight = self.scrollViewHeightPortrait
+                    self.spaceHeight = self.spaceHeightPortrait
+                }
+            }
+        }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
         .navigationTitle("ミュウボーナス中のキャラ紹介")
         .navigationBarTitleDisplayMode(.inline)

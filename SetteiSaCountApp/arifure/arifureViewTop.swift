@@ -9,6 +9,7 @@ import SwiftUI
 
 struct arifureViewTop: View {
     @ObservedObject var ver240 = Ver240()
+    @ObservedObject var ver250 = Ver250()
     @ObservedObject var arifure = Arifure()
     @State var isShowAlert: Bool = false
     
@@ -33,14 +34,16 @@ struct arifureViewTop: View {
                     NavigationLink(destination: arifureViewCharacter()) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
-                            textBody: "ミュウボーナス中のキャラ紹介"
+                            textBody: "ミュウボーナス中のキャラ紹介",
+                            badgeStatus: ver250.arifureMenuCharacterBadgeStatus
                         )
                     }
                     // AT終了画面
                     NavigationLink(destination: arifureViewScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面"
+                            textBody: "AT終了画面",
+                            badgeStatus: ver250.arifureMenuAtScreenBadgeStatus
                         )
                     }
                     // AT終了後の高確移行率
@@ -50,11 +53,20 @@ struct arifureViewTop: View {
                             textBody: "AT終了後の高確移行"
                         )
                     }
+                    // 上位AT関連
+                    NavigationLink(destination: arifureViewPremiumAt()) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "上位AT関連",
+                            badgeStatus: ver250.arifureMenuPremiumBadgeStatus
+                        )
+                    }
                     // エンディング、レア役時のキャラ
                     NavigationLink(destination: arifureViewEnding()) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング"
+                            textBody: "エンディング",
+                            badgeStatus: ver250.arifureMenuEndingBadgeStatus
                         )
                     }
                 } header: {
@@ -71,8 +83,8 @@ struct arifureViewTop: View {
             }
         }
         .onAppear {
-            if ver240.arifureMachineIconBadgeStatus != "none" {
-                ver240.arifureMachineIconBadgeStatus = "none"
+            if ver250.arifureMachineIconBadgeStatus != "none" {
+                ver250.arifureMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -171,6 +183,14 @@ struct arifureSubViewSaveMemory: View {
         arifureMemory1.endingCountOver5 = arifure.endingCountOver5
         arifureMemory1.endingCountOver6 = arifure.endingCountOver6
         arifureMemory1.endingCountSum = arifure.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifureMemory1.btaGameCount2G = arifure.btaGameCount2G
+        arifureMemory1.btaGameCount3G = arifure.btaGameCount3G
+        arifureMemory1.btaGameCount4GOver = arifure.btaGameCount4GOver
+        arifureMemory1.btaGameCountSum = arifure.btaGameCountSum
     }
     func saveMemory2() {
         arifureMemory2.jakuCherryCount = arifure.jakuCherryCount
@@ -222,6 +242,14 @@ struct arifureSubViewSaveMemory: View {
         arifureMemory2.endingCountOver5 = arifure.endingCountOver5
         arifureMemory2.endingCountOver6 = arifure.endingCountOver6
         arifureMemory2.endingCountSum = arifure.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifureMemory2.btaGameCount2G = arifure.btaGameCount2G
+        arifureMemory2.btaGameCount3G = arifure.btaGameCount3G
+        arifureMemory2.btaGameCount4GOver = arifure.btaGameCount4GOver
+        arifureMemory2.btaGameCountSum = arifure.btaGameCountSum
     }
     func saveMemory3() {
         arifureMemory3.jakuCherryCount = arifure.jakuCherryCount
@@ -273,6 +301,14 @@ struct arifureSubViewSaveMemory: View {
         arifureMemory3.endingCountOver5 = arifure.endingCountOver5
         arifureMemory3.endingCountOver6 = arifure.endingCountOver6
         arifureMemory3.endingCountSum = arifure.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifureMemory3.btaGameCount2G = arifure.btaGameCount2G
+        arifureMemory3.btaGameCount3G = arifure.btaGameCount3G
+        arifureMemory3.btaGameCount4GOver = arifure.btaGameCount4GOver
+        arifureMemory3.btaGameCountSum = arifure.btaGameCountSum
     }
 }
 
@@ -353,6 +389,14 @@ struct arifureSubViewLoadMemory: View {
         arifure.endingCountOver5 = arifureMemory1.endingCountOver5
         arifure.endingCountOver6 = arifureMemory1.endingCountOver6
         arifure.endingCountSum = arifureMemory1.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifure.btaGameCount2G = arifureMemory1.btaGameCount2G
+        arifure.btaGameCount3G = arifureMemory1.btaGameCount3G
+        arifure.btaGameCount4GOver = arifureMemory1.btaGameCount4GOver
+        arifure.btaGameCountSum = arifureMemory1.btaGameCountSum
     }
     func loadMemory2() {
         arifure.jakuCherryCount = arifureMemory2.jakuCherryCount
@@ -404,6 +448,14 @@ struct arifureSubViewLoadMemory: View {
         arifure.endingCountOver5 = arifureMemory2.endingCountOver5
         arifure.endingCountOver6 = arifureMemory2.endingCountOver6
         arifure.endingCountSum = arifureMemory2.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifure.btaGameCount2G = arifureMemory2.btaGameCount2G
+        arifure.btaGameCount3G = arifureMemory2.btaGameCount3G
+        arifure.btaGameCount4GOver = arifureMemory2.btaGameCount4GOver
+        arifure.btaGameCountSum = arifureMemory2.btaGameCountSum
     }
     func loadMemory3() {
         arifure.jakuCherryCount = arifureMemory3.jakuCherryCount
@@ -455,6 +507,14 @@ struct arifureSubViewLoadMemory: View {
         arifure.endingCountOver5 = arifureMemory3.endingCountOver5
         arifure.endingCountOver6 = arifureMemory3.endingCountOver6
         arifure.endingCountSum = arifureMemory3.endingCountSum
+        
+        // ///////////////////////
+        // ver2.5.0で追加
+        // ///////////////////////
+        arifure.btaGameCount2G = arifureMemory3.btaGameCount2G
+        arifure.btaGameCount3G = arifureMemory3.btaGameCount3G
+        arifure.btaGameCount4GOver = arifureMemory3.btaGameCount4GOver
+        arifure.btaGameCountSum = arifureMemory3.btaGameCountSum
     }
 }
 

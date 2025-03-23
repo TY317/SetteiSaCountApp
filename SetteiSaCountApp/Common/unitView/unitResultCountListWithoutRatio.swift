@@ -12,15 +12,20 @@ struct unitResultCountListWithoutRatio: View {
     @Binding var count: Int
     let titleColor: Color = .primary
     let numberColor: Color = .secondary
+    var flashColor: Color = .clear
     
     var body: some View {
-        HStack {
-            Text(self.title)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(self.titleColor)
-            Text("\(self.count)")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundStyle(self.numberColor)
+        ZStack {
+            Rectangle()
+                .backgroundFlashModifier(trigger: self.count, color: flashColor)
+            HStack {
+                Text(self.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(self.titleColor)
+                Text("\(self.count)")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(self.numberColor)
+            }
         }
     }
 }

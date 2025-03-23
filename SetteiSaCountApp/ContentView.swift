@@ -42,6 +42,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteTokyoGhoul") var isSelectedFavoriteTokyoGhoul = true
     @AppStorage("isSelectedFavoriteShamanKing") var isSelectedFavoriteShamanKing = true
     @AppStorage("isSelectedFavoriteArifure") var isSelectedFavoriteArifure = true
+    @AppStorage("isSelectedFavoriteBio") var isSelectedFavoriteBio = true
+    @AppStorage("isSelectedFavoriteKaiji") var isSelectedFavoriteKaiji = true
 }
 
 
@@ -83,9 +85,8 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-//    @ObservedObject var ver220 = Ver220()
-    @ObservedObject var ver230 = Ver230()
     @ObservedObject var ver240 = Ver240()
+    @ObservedObject var ver250 = Ver250()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -130,6 +131,31 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// バイオハザード５、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBio == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(bioViewTop()),
+                                        iconImage: Image("bioMachineIcon"),
+                                        machineName: "バイオ5",
+                                        badgeStatus: ver250.bioMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer250MachineAdd())
+                                }
+                                
+                                // //// カイジ、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaiji == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(kaijiViewTop()),
+                                        iconImage: Image("kaijiMachineIcon"),
+                                        machineName: "カイジ狂宴",
+                                        badgeStatus: ver250.kaijiMachineIconBadgeStatus
+                                    )
+                                }
+                                
                                 // //// ありふれた職業、25年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteArifure == false {
                                     
@@ -138,9 +164,9 @@ struct ContentView: View {
                                         linkView: AnyView(arifureViewTop()),
                                         iconImage: Image("arifureMachineIcon"),
                                         machineName: "ありふれ",
-                                        badgeStatus: ver240.arifureMachineIconBadgeStatus
+                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer240MachineAdd())
+//                                        .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -151,7 +177,7 @@ struct ContentView: View {
                                         linkView: AnyView(tokyoGhoulViewTop()),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-                                        badgeStatus: ver240.tokyoGhoulMachineIconBadgeStatus
+                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer230MachineAdd())
                                 }
@@ -163,8 +189,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(shamanKingViewTop()),
                                         iconImage: Image("shamanKingMachineIcon"),
-                                        machineName: "シャーマンキング",
-                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                        machineName: "シャーマンキング"
+//                                        badgeStatus: ver230.shamanKingNewBadgeStatus
                                     )
                                 }
                                 
@@ -358,6 +384,37 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// バイオ５、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBio == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(bioViewTop()),
+                                        iconImage: Image("bioMachineIcon"),
+                                        machineName: "バイオハザード5",
+                                        makerName: "エンターライズ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 3,
+                                        badgeStatus: ver250.bioMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer250MachineAdd())
+                                }
+                                
+                                // //// カイジ、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaiji == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(kaijiViewTop()),
+                                        iconImage: Image("kaijiMachineIcon"),
+                                        machineName: "回胴黙示録カイジ 狂宴",
+                                        makerName: "サミー",
+                                        releaseYear: 2025,
+                                        releaseMonth: 3,
+                                        badgeStatus: ver250.kaijiMachineIconBadgeStatus
+                                    )
+                                }
+                                
                                 // //// ありふれた職業、25年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteArifure == false {
                                     
@@ -369,9 +426,9 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver240.arifureMachineIconBadgeStatus
+                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer240MachineAdd())
+//                                    .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -385,7 +442,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver240.tokyoGhoulMachineIconBadgeStatus
+                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
 //                                        badgeStatus: "update"
                                     )
 //                                    .popoverTip(tipVer230MachineAdd())
@@ -401,8 +458,8 @@ struct ContentView: View {
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver230.shamanKingNewBadgeStatus
                                     )
                                 }
                                 
@@ -780,6 +837,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// バイオ５、25年3月
+                Toggle("バイオハザード5", isOn: $favoriteSet.isSelectedFavoriteBio)
+                // //// カイジ、25年3月
+                Toggle("回胴黙示録カイジ 狂宴", isOn: $favoriteSet.isSelectedFavoriteKaiji)
                 // //// ありふれた職業、25年2月
                 Toggle("ありふれた職業で世界最強", isOn: $favoriteSet.isSelectedFavoriteArifure)
                 // //// 東京グール、25年2月
@@ -959,8 +1020,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

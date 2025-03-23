@@ -9,6 +9,7 @@ import SwiftUI
 
 struct tokyoGhoulViewTop: View {
     @ObservedObject var ver240 = Ver240()
+    @ObservedObject var ver250 = Ver250()
     @ObservedObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
     
@@ -27,7 +28,8 @@ struct tokyoGhoulViewTop: View {
                     NavigationLink(destination: tokyoGhoulViewHistory()) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "CZ,AT 初当り履歴"
+                            textBody: "CZ,AT 初当り履歴",
+                            badgeStatus: ver250.ghoulMenuHistoryBadgeStatus
                         )
                     }
                     // AT終了画面
@@ -58,8 +60,8 @@ struct tokyoGhoulViewTop: View {
             }
         }
         .onAppear {
-            if ver240.tokyoGhoulMachineIconBadgeStatus != "none" {
-                ver240.tokyoGhoulMachineIconBadgeStatus = "none"
+            if ver250.ghoulMachineIconBadgeStatus != "none" {
+                ver250.ghoulMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
