@@ -413,6 +413,17 @@ struct tokyoGhoulViewHistory: View {
                     )
                 )
                 .popoverTip(tipVer250GhoulUraAt())
+                // //// 参考情報）弱チェからのCZ
+                unitLinkButton(
+                    title: "弱🍒からのCZ当選について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "弱🍒からのCZ当選",
+                            textBody1: "・通常中、高確中共に弱🍒成立時のCZ当選率に設定差あり",
+                            tableView: AnyView(tokyoGhoulTableJakuCherryCz())
+                        )
+                    )
+                )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())

@@ -44,6 +44,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteArifure") var isSelectedFavoriteArifure = true
     @AppStorage("isSelectedFavoriteBio") var isSelectedFavoriteBio = true
     @AppStorage("isSelectedFavoriteKaiji") var isSelectedFavoriteKaiji = true
+    @AppStorage("isSelectedFavoriteRsl") var isSelectedFavoriteRsl = true
 }
 
 
@@ -85,7 +86,7 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver240 = Ver240()
+    @ObservedObject var ver260 = Ver260()
     @ObservedObject var ver250 = Ver250()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
@@ -131,6 +132,19 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// レビュースタァライト、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRsl == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(rslViewTop()),
+                                        iconImage: Image("rslMachineIcon"),
+                                        machineName: "レビュースタァライト",
+                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer260MachineAdd())
+                                }
+                                
                                 // //// バイオハザード５、25年3月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBio == false {
                                     
@@ -141,7 +155,7 @@ struct ContentView: View {
                                         machineName: "バイオ5",
                                         badgeStatus: ver250.bioMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer250MachineAdd())
+//                                        .popoverTip(tipVer250MachineAdd())
                                 }
                                 
                                 // //// カイジ、25年3月
@@ -152,7 +166,7 @@ struct ContentView: View {
                                         linkView: AnyView(kaijiViewTop()),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴",
-                                        badgeStatus: ver250.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver260.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -201,8 +215,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(sbjViewTop()),
                                         iconImage: Image("sbjMachineIcon"),
-                                        machineName: "SBJ",
-                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
+                                        machineName: "SBJ"
+//                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -276,7 +290,12 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
                                     
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(kaguyaViewTop()),
+                                        iconImage: Image("kaguyaMachineIcon"),
+                                        machineName: "かぐや様",
+                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                    )
                                 }
                                 
                                 // //// シンフォギア 正義の歌、24年7月
@@ -384,6 +403,22 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// レビュースタァライト、25年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRsl == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(rslViewTop()),
+                                        iconImage: Image("rslMachineIcon"),
+                                        machineName: "レビュースタァライト",
+                                        makerName: "オーイズミ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 3,
+                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer260MachineAdd())
+                                }
+                                
                                 // //// バイオ５、25年3月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBio == false {
                                     
@@ -397,7 +432,7 @@ struct ContentView: View {
                                         releaseMonth: 3,
                                         badgeStatus: ver250.bioMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer250MachineAdd())
+//                                    .popoverTip(tipVer250MachineAdd())
                                 }
                                 
                                 // //// カイジ、25年3月
@@ -411,7 +446,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver250.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver260.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -473,8 +508,8 @@ struct ContentView: View {
                                         machineName: "スーパーブラックジャック",
                                         makerName: "山佐",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver240.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -595,7 +630,15 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKaguya == false {
                                     
                                 } else {
-                                    unitMachinListLink(linkView: AnyView(kaguyaViewTop()), iconImage: Image("kaguyaMachineIcon"), machineName: "かぐや様は告らせたい", makerName: "SANKYO", releaseYear: 2024, releaseMonth: 9)
+                                    unitMachinListLink(
+                                        linkView: AnyView(kaguyaViewTop()),
+                                        iconImage: Image("kaguyaMachineIcon"),
+                                        machineName: "かぐや様は告らせたい",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2024,
+                                        releaseMonth: 9,
+                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                    )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSympho == false {
@@ -837,6 +880,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// レビュースターライト、25年3月
+                Toggle("レビュースタァライト", isOn: $favoriteSet.isSelectedFavoriteRsl)
                 // //// バイオ５、25年3月
                 Toggle("バイオハザード5", isOn: $favoriteSet.isSelectedFavoriteBio)
                 // //// カイジ、25年3月
@@ -1020,8 +1065,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

@@ -28,7 +28,7 @@ struct unitTableString: View {
     let valueHstackSpacing: CGFloat = 5
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
-    let lineHeight: CGFloat = 24
+    let lineHeight: CGFloat = 25
     
     var body: some View {
         VStack(spacing: 0) {
@@ -68,6 +68,7 @@ struct unitTableString: View {
 //                        .font(.title3)
                         .font(self.contentFont)
                         .foregroundStyle(Color.black)
+                        .multilineTextAlignment(.center)
                 }
                 .frame(height: lineNumber(ind: index))
                 .frame(maxWidth: self.maxWidth)

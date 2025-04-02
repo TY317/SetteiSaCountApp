@@ -29,12 +29,13 @@ struct unitTablePercent: View {
     let valueHstackSpacing: CGFloat = 5
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
-    let lineHeight: CGFloat = 24
+    let lineHeight: CGFloat = 25
     
     var body: some View {
         VStack(spacing: 0) {
             if self.columTitle != "" {
                 Text(self.columTitle)
+                    .multilineTextAlignment(.center)
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
                     .padding(.vertical, self.verticlaPadding)

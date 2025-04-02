@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewTop: View {
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     @ObservedObject var ver250 = Ver250()
     @ObservedObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
@@ -43,8 +43,8 @@ struct tokyoGhoulViewTop: View {
                     NavigationLink(destination: tokyoGhoulViewEnding()) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver240.tokyoGhoulMenuEndingBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver240.tokyoGhoulMenuEndingBadgeStatus
                         )
                     }
                 } header: {

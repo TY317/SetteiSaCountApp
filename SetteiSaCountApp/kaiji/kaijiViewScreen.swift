@@ -9,6 +9,7 @@ import SwiftUI
 import TipKit
 
 struct kaijiViewScreen: View {
+    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
@@ -112,6 +113,7 @@ struct kaijiViewScreen: View {
                             minusCheck: $kaiji.minusCheck
                         )
                     }
+                    .popoverTip(tipVer260KaijiScreen())
                 }
                 .frame(height: 120)
                 
@@ -146,28 +148,28 @@ struct kaijiViewScreen: View {
                 )
                 // トネガワ
                 unitResultCountListPercent(
-                    title: "トネガワ画面",
+                    title: "設定2,3 否定\n+高設定示唆 強",
                     count: $kaiji.screenCountTonegawa,
                     flashColor: .cyan,
                     bigNumber: $kaiji.screenCountSum
                 )
                 // ハンチョウ
                 unitResultCountListPercent(
-                    title: "ハンチョウ画面",
+                    title: "設定2,3,4 否定\n高設定示唆 強",
                     count: $kaiji.screenCountHancho,
                     flashColor: .red,
                     bigNumber: $kaiji.screenCountSum
                 )
                 // みここ
                 unitResultCountListPercent(
-                    title: "美心画面",
+                    title: "設定4 以上濃厚",
                     count: $kaiji.screenCountMikoko,
                     flashColor: .purple,
                     bigNumber: $kaiji.screenCountSum
                 )
                 // 札束風呂
                 unitResultCountListPercent(
-                    title: "札束風呂画面",
+                    title: "設定6 濃厚",
                     count: $kaiji.screenCountBunny,
                     flashColor: .orange,
                     bigNumber: $kaiji.screenCountSum
@@ -177,6 +179,11 @@ struct kaijiViewScreen: View {
                     title: "専用画面",
                     count: $kaiji.screenCountSenyo
                 )
+            }
+        }
+        .onAppear {
+            if ver260.kaijiMenuScreenBadgeStatus != "none" {
+                ver260.kaijiMenuScreenBadgeStatus = "none"
             }
         }
         .navigationTitle("ボーナス終了画面")

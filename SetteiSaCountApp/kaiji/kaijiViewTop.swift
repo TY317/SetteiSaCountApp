@@ -9,6 +9,7 @@ import SwiftUI
 
 struct kaijiViewTop: View {
     @ObservedObject var ver250 = Ver250()
+    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     
@@ -27,7 +28,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewHirameki()) {
                         unitLabelMenu(
                             imageSystemName: "lightbulb.max",
-                            textBody: "閃き前兆"
+                            textBody: "閃き前兆",
+                            badgeStatus: ver260.kaijiMenuHiramekiBadgeStatus
                         )
                     }
                     // CZ,AT初当り
@@ -40,7 +42,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面"
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: ver260.kaijiMenuScreenBadgeStatus
                         )
                     }
                     // エンディング
@@ -70,8 +73,8 @@ struct kaijiViewTop: View {
             }
         }
         .onAppear {
-            if ver250.kaijiMachineIconBadgeStatus != "none" {
-                ver250.kaijiMachineIconBadgeStatus = "none"
+            if ver260.kaijiMachineIconBadgeStatus != "none" {
+                ver260.kaijiMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")

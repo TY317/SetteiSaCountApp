@@ -285,7 +285,8 @@ struct arifureViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            image1: Image("arifureHitRatio")
+                            tableView: AnyView(arifureTableFirstHit())
+//                            image1: Image("arifureHitRatio")
                         )
                     )
                 )
@@ -296,7 +297,8 @@ struct arifureViewHistory: View {
                             title: "ミュウボーナス開始時のAT当選",
                             textBody1: "・ミュウボーナス開始時に内部的にAT当選を抽選。当選率は高設定ほど優遇",
                             textBody2: "・ボーナス消化中の自力当選もあるため、開始時の当選を完全に見抜くことはできないと思われるが、設定差大きいため参考する価値はあると考えられる",
-                            image1: Image("arifureMyuAt")
+                            tableView: AnyView(arifureTableMyuAt())
+//                            image1: Image("arifureMyuAt")
                         )
                     )
                 )

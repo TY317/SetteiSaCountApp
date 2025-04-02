@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct arifureViewTop: View {
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     @ObservedObject var ver250 = Ver250()
     @ObservedObject var arifure = Arifure()
     @State var isShowAlert: Bool = false
