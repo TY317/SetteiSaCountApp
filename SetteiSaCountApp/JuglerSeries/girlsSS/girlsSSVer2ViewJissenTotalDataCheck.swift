@@ -123,9 +123,10 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ジャグラーガールズSS設定差",
-                            image1: Image("girlsSSAnalysis"),
-                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
-                            image2: Image("girlsSSYosoku")
+                            tableView: AnyView(girlsSSTableRatio())
+//                            image1: Image("girlsSSAnalysis"),
+//                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
+//                            image2: Image("girlsSSYosoku")
                         )
                     )
                 )

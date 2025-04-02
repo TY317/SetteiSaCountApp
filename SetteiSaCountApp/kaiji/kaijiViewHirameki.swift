@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct kaijiViewHirameki: View {
+    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert = false
     @State var selectedColor: String = "青"
@@ -155,10 +156,28 @@ struct kaijiViewHirameki: View {
                         )
                     )
                 )
+                // //// 参考情報）トネガワラッシュ直撃について
+                unitLinkButton(
+                    title: "トネガワラッシュ直撃について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "トネガワラッシュ直撃",
+                            textBody1: "・閃き前兆移行時にトネガワラッシュ直撃抽選が行われる",
+                            textBody2: "・当選率は高設定ほど優遇",
+                            tableView: AnyView(kaijiTableHiramekiTonegawa())
+                        )
+                    )
+                )
+                .popoverTip(tipVer260KaijiHiramekiTonegawa())
             } header: {
                 Text("色ごとの成功率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        .onAppear {
+            if ver260.kaijiMenuHiramekiBadgeStatus != "none" {
+                ver260.kaijiMenuHiramekiBadgeStatus = "none"
+            }
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

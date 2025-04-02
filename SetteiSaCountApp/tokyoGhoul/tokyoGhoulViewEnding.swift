@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewEnding: View {
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     @ObservedObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert = false
     let selectListColor: [String] = ["白カード", "青カード", "赤カード", "銅銀金虹"]
@@ -76,7 +76,7 @@ struct tokyoGhoulViewEnding: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer240TokyoGhoulEndingUpdate())
+//                .popoverTip(tipVer240TokyoGhoulEndingUpdate())
                 // //// キャラの選択
                 // 白カード
                 if self.selectedColor == self.selectListColor[0] {
@@ -518,11 +518,11 @@ struct tokyoGhoulViewEnding: View {
                 Text("カウント結果")
             }
         }
-        .onAppear {
-            if ver240.tokyoGhoulMenuEndingBadgeStatus != "none" {
-                ver240.tokyoGhoulMenuEndingBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver240.tokyoGhoulMenuEndingBadgeStatus != "none" {
+//                ver240.tokyoGhoulMenuEndingBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

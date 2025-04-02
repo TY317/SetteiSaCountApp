@@ -63,7 +63,8 @@ struct goJug3Ver2ViewJissenCount: View {
                         unitExView5body2image(
                             title: "ゴーゴージャグラー3設定差",
                             textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
-                            image1: Image("goJug3Ratio")
+                            tableView: AnyView(goJugTableRatio())
+//                            image1: Image("goJug3Ratio")
                         )
                     )
                 )

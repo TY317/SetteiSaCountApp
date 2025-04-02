@@ -43,7 +43,7 @@ struct sbjTipChanceCount: Tip {
 
 
 struct sbjViewNormal: View {
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     @ObservedObject var sbj = Sbj()
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
@@ -99,7 +99,7 @@ struct sbjViewNormal: View {
                     )
                 )
             }
-            .popoverTip(tipVer240SbjKokakuSisaUpdate())
+//            .popoverTip(tipVer240SbjKokakuSisaUpdate())
             // //// 通常中チャンス目関連
             Section {
                 HStack {
@@ -330,17 +330,17 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer240SbjKoyakuUpdate())
+//                .popoverTip(tipVer240SbjKoyakuUpdate())
             } header: {
                 Text("レア役確率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver240.sbjMenuNormalBadgeStatus != "none" {
-                ver240.sbjMenuNormalBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver240.sbjMenuNormalBadgeStatus != "none" {
+//                ver240.sbjMenuNormalBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

@@ -58,11 +58,21 @@ struct CountButtonStyle: ButtonStyle {
                 Image(systemName: "minus.circle")
                     .font(.largeTitle)
 //                    .foregroundColor(self.minusColor)
-                    .foregroundStyle(self.minusColor)
+//                    .foregroundStyle(self.minusColor)
+                    .foregroundStyle(minusColorSet())
                     .fontWeight(.bold)
             }
             
                 
+        }
+    }
+    private func minusColorSet() -> Color {
+        if self.color == Color.red {
+            return .black
+        } else if self.color == Color.pink {
+            return .black
+        } else {
+            return self.minusColor
         }
     }
 }

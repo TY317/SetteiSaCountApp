@@ -10,7 +10,7 @@ import SwiftUI
 struct sbjViewGameStageChange: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     let selectListSegment: [String] = [
         "100G",
         "百の位 偶数",
@@ -144,11 +144,11 @@ struct sbjViewGameStageChange: View {
                 Text("規定ゲーム数での移行カウント")
             }
         }
-        .onAppear {
-            if ver240.sbjMenuGameStageChangeBadgeStatus != "none" {
-                ver240.sbjMenuGameStageChangeBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver240.sbjMenuGameStageChangeBadgeStatus != "none" {
+//                ver240.sbjMenuGameStageChangeBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("規定ゲーム数での移行")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

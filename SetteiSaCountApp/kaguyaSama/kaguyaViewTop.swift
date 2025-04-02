@@ -50,6 +50,12 @@ class KaguyaSama: ObservableObject {
         bigCountSuper = 0
         bigCountExtra = 0
         minusCheck = false
+        bigCountUnder3Blue = 0
+        bigCountUnder3Red = 0
+        bigCount4to6Blue = 0
+        bigCount4to6Red = 0
+        bigCountOver7Blue = 0
+        bigCountOver7Red = 0
     }
     
     // //////////////////////////
@@ -229,6 +235,43 @@ class KaguyaSama: ObservableObject {
     // メモリー
     // /////////////////////////
     @AppStorage("kaguyaSelectedMemory") var selectedMemory = "メモリー1"
+    
+    // /////////////////////
+    // ver2.6.0で追加
+    // /////////////////////
+    @AppStorage("kaguyaBigCountUnder3Blue") var bigCountUnder3Blue: Int = 0 {
+        didSet {
+            bigCountUnder3Sum = countSum(bigCountUnder3Blue, bigCountUnder3Red)
+        }
+    }
+        @AppStorage("kaguyaBigCountUnder3Red") var bigCountUnder3Red: Int = 0 {
+            didSet {
+                bigCountUnder3Sum = countSum(bigCountUnder3Blue, bigCountUnder3Red)
+            }
+        }
+    @AppStorage("kaguyaBigCountUnder3Sum") var bigCountUnder3Sum: Int = 0
+    @AppStorage("kaguyaBigCount4to6Blue") var bigCount4to6Blue: Int = 0 {
+        didSet {
+            bigCount4to6Sum = countSum(bigCount4to6Blue, bigCount4to6Red)
+        }
+    }
+        @AppStorage("kaguyaBigCount4to6Red") var bigCount4to6Red: Int = 0 {
+            didSet {
+                bigCount4to6Sum = countSum(bigCount4to6Blue, bigCount4to6Red)
+            }
+        }
+    @AppStorage("kaguyaBigCount4to6Sum") var bigCount4to6Sum: Int = 0
+    @AppStorage("kaguyaBigCountOver7Blue") var bigCountOver7Blue: Int = 0 {
+        didSet {
+            bigCountOver7Sum = countSum(bigCountOver7Blue, bigCountOver7Red)
+        }
+    }
+        @AppStorage("kaguyaBigCountOver7Red") var bigCountOver7Red: Int = 0 {
+            didSet {
+                bigCountOver7Sum = countSum(bigCountOver7Blue, bigCountOver7Red)
+            }
+        }
+    @AppStorage("kaguyaBigCountOver7Sum") var bigCountOver7Sum: Int = 0
 }
 
 class KaguyaMemory1: ObservableObject {
@@ -265,6 +308,18 @@ class KaguyaMemory1: ObservableObject {
     @AppStorage("kaguyaEndingCountSumMemory1") var endingCountSumMemory1 = 0
     @AppStorage("kaguyaMemoMemory1") var memoMemory1 = ""
     @AppStorage("kaguyaDateMemory1") var dateDoubleMemory1 = 0.0
+    // /////////////////////
+    // ver2.6.0で追加
+    // /////////////////////
+    @AppStorage("kaguyaBigCountUnder3BlueMemory1") var bigCountUnder3Blue: Int = 0
+    @AppStorage("kaguyaBigCountUnder3RedMemory1") var bigCountUnder3Red: Int = 0
+    @AppStorage("kaguyaBigCountUnder3SumMemory1") var bigCountUnder3Sum: Int = 0
+    @AppStorage("kaguyaBigCount4to6BlueMemory1") var bigCount4to6Blue: Int = 0
+    @AppStorage("kaguyaBigCount4to6RedMemory1") var bigCount4to6Red: Int = 0
+    @AppStorage("kaguyaBigCount4to6SumMemory1") var bigCount4to6Sum: Int = 0
+    @AppStorage("kaguyaBigCountOver7BlueMemory1") var bigCountOver7Blue: Int = 0
+    @AppStorage("kaguyaBigCountOver7RedMemory1") var bigCountOver7Red: Int = 0
+    @AppStorage("kaguyaBigCountOver7SumMemory1") var bigCountOver7Sum: Int = 0
 }
 
 
@@ -302,6 +357,18 @@ class KaguyaMemory2: ObservableObject {
     @AppStorage("kaguyaEndingCountSumMemory2") var endingCountSumMemory2 = 0
     @AppStorage("kaguyaMemoMemory2") var memoMemory2 = ""
     @AppStorage("kaguyaDateMemory2") var dateDoubleMemory2 = 0.0
+    // /////////////////////
+    // ver2.6.0で追加
+    // /////////////////////
+    @AppStorage("kaguyaBigCountUnder3BlueMemory2") var bigCountUnder3Blue: Int = 0
+    @AppStorage("kaguyaBigCountUnder3RedMemory2") var bigCountUnder3Red: Int = 0
+    @AppStorage("kaguyaBigCountUnder3SumMemory2") var bigCountUnder3Sum: Int = 0
+    @AppStorage("kaguyaBigCount4to6BlueMemory2") var bigCount4to6Blue: Int = 0
+    @AppStorage("kaguyaBigCount4to6RedMemory2") var bigCount4to6Red: Int = 0
+    @AppStorage("kaguyaBigCount4to6SumMemory2") var bigCount4to6Sum: Int = 0
+    @AppStorage("kaguyaBigCountOver7BlueMemory2") var bigCountOver7Blue: Int = 0
+    @AppStorage("kaguyaBigCountOver7RedMemory2") var bigCountOver7Red: Int = 0
+    @AppStorage("kaguyaBigCountOver7SumMemory2") var bigCountOver7Sum: Int = 0
 }
 
 
@@ -339,10 +406,23 @@ class KaguyaMemory3: ObservableObject {
     @AppStorage("kaguyaEndingCountSumMemory3") var endingCountSumMemory3 = 0
     @AppStorage("kaguyaMemoMemory3") var memoMemory3 = ""
     @AppStorage("kaguyaDateMemory3") var dateDoubleMemory3 = 0.0
+    // /////////////////////
+    // ver2.6.0で追加
+    // /////////////////////
+    @AppStorage("kaguyaBigCountUnder3BlueMemory3") var bigCountUnder3Blue: Int = 0
+    @AppStorage("kaguyaBigCountUnder3RedMemory3") var bigCountUnder3Red: Int = 0
+    @AppStorage("kaguyaBigCountUnder3SumMemory3") var bigCountUnder3Sum: Int = 0
+    @AppStorage("kaguyaBigCount4to6BlueMemory3") var bigCount4to6Blue: Int = 0
+    @AppStorage("kaguyaBigCount4to6RedMemory3") var bigCount4to6Red: Int = 0
+    @AppStorage("kaguyaBigCount4to6SumMemory3") var bigCount4to6Sum: Int = 0
+    @AppStorage("kaguyaBigCountOver7BlueMemory3") var bigCountOver7Blue: Int = 0
+    @AppStorage("kaguyaBigCountOver7RedMemory3") var bigCountOver7Red: Int = 0
+    @AppStorage("kaguyaBigCountOver7SumMemory3") var bigCountOver7Sum: Int = 0
 }
 
 
 struct kaguyaViewTop: View {
+    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
     @State var isShowSaveView: Bool = false
@@ -358,7 +438,11 @@ struct kaguyaViewTop: View {
                     }
                     // ボーナス内訳
                     NavigationLink(destination: kaguyaViewBonus()) {
-                        unitLabelMenu(imageSystemName: "signpost.right.and.left", textBody: "ボーナス種類の振分け")
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "ボーナス種類の振分け",
+                            badgeStatus: ver260.kaguyaMenuBonusBadgeStatus
+                        )
                     }
                     // REG中のキャラ紹介
                     NavigationLink(destination: kaguyaViewReg()) {
@@ -382,6 +466,11 @@ struct kaguyaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4618")
                     .popoverTip(tipVer220AddLink())
+            }
+        }
+        .onAppear {
+            if ver260.kaguyaMachineIconBadgeStatus != "none" {
+                ver260.kaguyaMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -465,6 +554,18 @@ struct kaguyaViewSaveMemory: View {
         kaguyaMemory1.endingCountKaguyaMemory1 = kaguya.endingCountKaguya
         kaguyaMemory1.endingCountShiroganeMemory1 = kaguya.endingCountShirogane
         kaguyaMemory1.endingCountSumMemory1 = kaguya.endingCountSum
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguyaMemory1.bigCountUnder3Blue = kaguya.bigCountUnder3Blue
+        kaguyaMemory1.bigCountUnder3Red = kaguya.bigCountUnder3Red
+        kaguyaMemory1.bigCountUnder3Sum = kaguya.bigCountUnder3Sum
+        kaguyaMemory1.bigCount4to6Blue = kaguya.bigCount4to6Blue
+        kaguyaMemory1.bigCount4to6Red = kaguya.bigCount4to6Red
+        kaguyaMemory1.bigCount4to6Sum = kaguya.bigCount4to6Sum
+        kaguyaMemory1.bigCountOver7Blue = kaguya.bigCountOver7Blue
+        kaguyaMemory1.bigCountOver7Red = kaguya.bigCountOver7Red
+        kaguyaMemory1.bigCountOver7Sum = kaguya.bigCountOver7Sum
     }
     
     func saveMemory2() {
@@ -498,6 +599,18 @@ struct kaguyaViewSaveMemory: View {
         kaguyaMemory2.endingCountKaguyaMemory2 = kaguya.endingCountKaguya
         kaguyaMemory2.endingCountShiroganeMemory2 = kaguya.endingCountShirogane
         kaguyaMemory2.endingCountSumMemory2 = kaguya.endingCountSum
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguyaMemory2.bigCountUnder3Blue = kaguya.bigCountUnder3Blue
+        kaguyaMemory2.bigCountUnder3Red = kaguya.bigCountUnder3Red
+        kaguyaMemory2.bigCountUnder3Sum = kaguya.bigCountUnder3Sum
+        kaguyaMemory2.bigCount4to6Blue = kaguya.bigCount4to6Blue
+        kaguyaMemory2.bigCount4to6Red = kaguya.bigCount4to6Red
+        kaguyaMemory2.bigCount4to6Sum = kaguya.bigCount4to6Sum
+        kaguyaMemory2.bigCountOver7Blue = kaguya.bigCountOver7Blue
+        kaguyaMemory2.bigCountOver7Red = kaguya.bigCountOver7Red
+        kaguyaMemory2.bigCountOver7Sum = kaguya.bigCountOver7Sum
     }
     
     func saveMemory3() {
@@ -531,6 +644,18 @@ struct kaguyaViewSaveMemory: View {
         kaguyaMemory3.endingCountKaguyaMemory3 = kaguya.endingCountKaguya
         kaguyaMemory3.endingCountShiroganeMemory3 = kaguya.endingCountShirogane
         kaguyaMemory3.endingCountSumMemory3 = kaguya.endingCountSum
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguyaMemory3.bigCountUnder3Blue = kaguya.bigCountUnder3Blue
+        kaguyaMemory3.bigCountUnder3Red = kaguya.bigCountUnder3Red
+        kaguyaMemory3.bigCountUnder3Sum = kaguya.bigCountUnder3Sum
+        kaguyaMemory3.bigCount4to6Blue = kaguya.bigCount4to6Blue
+        kaguyaMemory3.bigCount4to6Red = kaguya.bigCount4to6Red
+        kaguyaMemory3.bigCount4to6Sum = kaguya.bigCount4to6Sum
+        kaguyaMemory3.bigCountOver7Blue = kaguya.bigCountOver7Blue
+        kaguyaMemory3.bigCountOver7Red = kaguya.bigCountOver7Red
+        kaguyaMemory3.bigCountOver7Sum = kaguya.bigCountOver7Sum
     }
 }
 
@@ -591,6 +716,18 @@ struct kaguyaViewLoadMemory: View {
         kaguya.endingCountKaguya = kaguyaMemory1.endingCountKaguyaMemory1
         kaguya.endingCountShirogane = kaguyaMemory1.endingCountShiroganeMemory1
         kaguya.endingCountSum = kaguyaMemory1.endingCountSumMemory1
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguya.bigCountUnder3Blue = kaguyaMemory1.bigCountUnder3Blue
+        kaguya.bigCountUnder3Red = kaguyaMemory1.bigCountUnder3Red
+        kaguya.bigCountUnder3Sum = kaguyaMemory1.bigCountUnder3Sum
+        kaguya.bigCount4to6Blue = kaguyaMemory1.bigCount4to6Blue
+        kaguya.bigCount4to6Red = kaguyaMemory1.bigCount4to6Red
+        kaguya.bigCount4to6Sum = kaguyaMemory1.bigCount4to6Sum
+        kaguya.bigCountOver7Blue = kaguyaMemory1.bigCountOver7Blue
+        kaguya.bigCountOver7Red = kaguyaMemory1.bigCountOver7Red
+        kaguya.bigCountOver7Sum = kaguyaMemory1.bigCountOver7Sum
     }
     
     func loadMemory2() {
@@ -624,6 +761,18 @@ struct kaguyaViewLoadMemory: View {
         kaguya.endingCountKaguya = kaguyaMemory2.endingCountKaguyaMemory2
         kaguya.endingCountShirogane = kaguyaMemory2.endingCountShiroganeMemory2
         kaguya.endingCountSum = kaguyaMemory2.endingCountSumMemory2
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguya.bigCountUnder3Blue = kaguyaMemory2.bigCountUnder3Blue
+        kaguya.bigCountUnder3Red = kaguyaMemory2.bigCountUnder3Red
+        kaguya.bigCountUnder3Sum = kaguyaMemory2.bigCountUnder3Sum
+        kaguya.bigCount4to6Blue = kaguyaMemory2.bigCount4to6Blue
+        kaguya.bigCount4to6Red = kaguyaMemory2.bigCount4to6Red
+        kaguya.bigCount4to6Sum = kaguyaMemory2.bigCount4to6Sum
+        kaguya.bigCountOver7Blue = kaguyaMemory2.bigCountOver7Blue
+        kaguya.bigCountOver7Red = kaguyaMemory2.bigCountOver7Red
+        kaguya.bigCountOver7Sum = kaguyaMemory2.bigCountOver7Sum
     }
     
     func loadMemory3() {
@@ -657,6 +806,18 @@ struct kaguyaViewLoadMemory: View {
         kaguya.endingCountKaguya = kaguyaMemory3.endingCountKaguyaMemory3
         kaguya.endingCountShirogane = kaguyaMemory3.endingCountShiroganeMemory3
         kaguya.endingCountSum = kaguyaMemory3.endingCountSumMemory3
+        // /////////////////////
+        // ver2.6.0で追加
+        // /////////////////////
+        kaguya.bigCountUnder3Blue = kaguyaMemory3.bigCountUnder3Blue
+        kaguya.bigCountUnder3Red = kaguyaMemory3.bigCountUnder3Red
+        kaguya.bigCountUnder3Sum = kaguyaMemory3.bigCountUnder3Sum
+        kaguya.bigCount4to6Blue = kaguyaMemory3.bigCount4to6Blue
+        kaguya.bigCount4to6Red = kaguyaMemory3.bigCount4to6Red
+        kaguya.bigCount4to6Sum = kaguyaMemory3.bigCount4to6Sum
+        kaguya.bigCountOver7Blue = kaguyaMemory3.bigCountOver7Blue
+        kaguya.bigCountOver7Red = kaguyaMemory3.bigCountOver7Red
+        kaguya.bigCountOver7Sum = kaguyaMemory3.bigCountOver7Sum
     }
 }
 

@@ -169,7 +169,8 @@ struct arifureViewNormal: View {
                             textBody1: "・弱レア役契機での引鉄高確（神山ステージ）移行に設定差あり",
                             textBody2: "・弱🍒と弱チャンス目は全状態不問",
                             textBody3: "・スイカは高確中（魔力駆動四輪ブリーゼステージ）のみ抽選",
-                            image1: Image("arifureJakuRareKokaku")
+                            tableView: AnyView(arifureTableJakuRareMove())
+//                            image1: Image("arifureJakuRareKokaku")
                         )
                     )
                 )

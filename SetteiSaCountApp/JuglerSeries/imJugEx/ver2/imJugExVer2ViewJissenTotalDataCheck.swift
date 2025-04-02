@@ -98,7 +98,15 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                     )
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "設定差情報", exview: AnyView(unitExView5body2image(title: "アイムジャグラーEX設定差", image1: Image("imJugExRatio"))))
+                unitLinkButton(
+                    title: "設定差情報",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "アイムジャグラーEX設定差",
+                            tableView: AnyView(imJugExTableRatio())
+                        )
+                    )
+                )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiTotal()))
                     .popoverTip(tipUnitButtonLink95Ci())

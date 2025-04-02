@@ -10,7 +10,7 @@ import SwiftUI
 struct sbjViewTop: View {
     @ObservedObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
-    @ObservedObject var ver240 = Ver240()
+//    @ObservedObject var ver240 = Ver240()
     
     var body: some View {
         NavigationStack {
@@ -29,16 +29,16 @@ struct sbjViewTop: View {
                     NavigationLink(destination: sbjViewNormal()) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時 小役、高確、初当り",
-                            badgeStatus: ver240.sbjMenuNormalBadgeStatus
+                            textBody: "通常時 小役、高確、初当り"
+//                            badgeStatus: ver240.sbjMenuNormalBadgeStatus
                         )
                     }
                     // 規定ゲーム数でのステージ移行
                     NavigationLink(destination: sbjViewGameStageChange()) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "規定ゲーム数での移行",
-                            badgeStatus: ver240.sbjMenuGameStageChangeBadgeStatus
+                            textBody: "規定ゲーム数での移行"
+//                            badgeStatus: ver240.sbjMenuGameStageChangeBadgeStatus
                         )
                     }
                     // ダイスチェック
@@ -80,11 +80,11 @@ struct sbjViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver240.sbjMachineIconBadgeStatus != "none" {
-                ver240.sbjMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver240.sbjMachineIconBadgeStatus != "none" {
+//                ver240.sbjMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

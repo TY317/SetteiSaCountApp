@@ -25,17 +25,17 @@ class Ver250: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer250MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・バイオハザード5\n・カイジ 狂宴")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer250MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・バイオハザード5\n・カイジ 狂宴")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：ありふれキャラ紹介

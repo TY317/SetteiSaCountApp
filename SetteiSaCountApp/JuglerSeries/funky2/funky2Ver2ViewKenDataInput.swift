@@ -181,7 +181,8 @@ struct funky2Ver2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ファンキージャグラー2設定差",
-                            image1: Image("funky2Analysis")
+                            tableView: AnyView(funky2TableRatio())
+//                            image1: Image("funky2Analysis")
                         )
                     )
                 )

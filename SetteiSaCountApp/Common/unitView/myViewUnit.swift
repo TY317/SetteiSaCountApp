@@ -523,10 +523,13 @@ struct unitResultRatioDenomination2Line: View {
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
     @State var spacerBool: Bool = true
+    var fontResult: Font = .title
+    var fontBunshi: Font = .body
     var denomination: Double {
         let deno = Double(bigNumber) / Double(count)
         return count > 0 ? deno : 0.0
     }
+    var maxWidth: CGFloat = 200
     
     var body: some View {
         ZStack {
@@ -536,9 +539,10 @@ struct unitResultRatioDenomination2Line: View {
                     Spacer()
                 }
                 Rectangle()
-//                    .foregroundColor(self.color)
+                //                    .foregroundColor(self.color)
                     .foregroundStyle(self.color)
                     .cornerRadius(15)
+                    .frame(maxWidth: self.maxWidth)
                 if self.spacerBool {
                     Spacer()
                 }
@@ -549,11 +553,13 @@ struct unitResultRatioDenomination2Line: View {
                     Text("\(self.count > 0 ? 1 : 0)/")
 //                        .font(.title3)
 //                        .fontWeight(.bold)
+                        .font(self.fontBunshi)
                         .lineLimit(1)
                     Text("\(String(format: "%.\(numberofDicimal)f", self.denomination))")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .lineLimit(1)
+//                            .font(.title)
+                        .font(self.fontResult)
+                        .fontWeight(.bold)
+                        .lineLimit(1)
                 }
             }
         }

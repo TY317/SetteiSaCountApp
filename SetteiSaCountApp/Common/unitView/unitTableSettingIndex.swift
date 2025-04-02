@@ -15,7 +15,7 @@ struct unitTableSettingIndex: View {
     var lineList: [Int] = [1,1,1,1,1,1]
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
-    let lineHeight: CGFloat = 24
+    let lineHeight: CGFloat = 25
     
     var body: some View {
         VStack(spacing: 0) {
