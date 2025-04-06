@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct bioViewTop: View {
-    @ObservedObject var ver250 = Ver250()
+//    @ObservedObject var ver250 = Ver250()
     @ObservedObject var bio = Bio()
     @State var isShowAlert: Bool = false
     var body: some View {
@@ -62,11 +62,11 @@ struct bioViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver250.bioMachineIconBadgeStatus != "none" {
-                ver250.bioMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver250.bioMachineIconBadgeStatus != "none" {
+//                ver250.bioMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

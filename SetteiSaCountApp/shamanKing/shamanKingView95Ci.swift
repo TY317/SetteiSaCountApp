@@ -48,6 +48,42 @@ struct shamanKingView95Ci: View {
                 )
             )
             .tag(8)
+            // 憑依ポイント０−５９５　道蓮選択回数
+            unitListSection95Ci(
+                grafTitle: "CZ当選時の振分け\n0〜595Pt　道蓮 選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shamanKing.czCountUnder600Ren,
+                        bigNumber: $shamanKing.czCountUnder600Sum,
+                        setting1Percent: shamanKing.ratioCzFuriwakeUnder600Ren[0],
+                        setting2Percent: shamanKing.ratioCzFuriwakeUnder600Ren[1],
+                        setting3Percent: shamanKing.ratioCzFuriwakeUnder600Ren[2],
+                        setting4Percent: shamanKing.ratioCzFuriwakeUnder600Ren[3],
+                        setting5Percent: shamanKing.ratioCzFuriwakeUnder600Ren[4],
+                        setting6Percent: shamanKing.ratioCzFuriwakeUnder600Ren[5]
+                    )
+                )
+            )
+            .tag(9)
+            // 憑依ポイント600-1000　道蓮選択回数
+            unitListSection95Ci(
+                grafTitle: "CZ当選時の振分け\n600〜1000Pt　道蓮 選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shamanKing.czCountOver600Ren,
+                        bigNumber: $shamanKing.czCountOver600Sum,
+                        setting1Percent: shamanKing.ratioCzFuriwakeOver600Ren[0],
+                        setting2Percent: shamanKing.ratioCzFuriwakeOver600Ren[1],
+                        setting3Percent: shamanKing.ratioCzFuriwakeOver600Ren[2],
+                        setting4Percent: shamanKing.ratioCzFuriwakeOver600Ren[3],
+                        setting5Percent: shamanKing.ratioCzFuriwakeOver600Ren[4],
+                        setting6Percent: shamanKing.ratioCzFuriwakeOver600Ren[5]
+                    )
+                )
+            )
+            .tag(10)
             // 残HP7−8での勝利回数
             unitListSection95Ci(
                 grafTitle: "憑依合体バトル\n残HP7−8での勝利回数",

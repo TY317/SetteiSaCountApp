@@ -581,6 +581,7 @@ struct unitResultRatioPercent2Line: View {
         let ra = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? ra : 0.0
     }
+    var maxWidth: CGFloat = 200
     
     var body: some View {
         ZStack {
@@ -593,6 +594,7 @@ struct unitResultRatioPercent2Line: View {
 //                    .foregroundColor(self.color)
                     .foregroundStyle(self.color)
                     .cornerRadius(15)
+                    .frame(maxWidth: self.maxWidth)
                 if self.spacerBool {
                     Spacer()
                 }

@@ -88,7 +88,8 @@ struct shamanKingViewHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            image1: Image("shamanKingHit")
+                            tableView: AnyView(shamanKingTableFirstHit())
+//                            image1: Image("shamanKingHit")
                         )
                     )
                 )
@@ -101,7 +102,8 @@ struct shamanKingViewHit: View {
                             textBody2: "・高設定ほどエピソード割合が優遇",
                             textBody3: "・確定役やボーナス準備中の昇格には設定差ないため、それ以外でのエピソード初当りが対象",
                             textBody4: "・複数回確認できれば高設定に期待",
-                            image1: Image("shamanKingEpisodeRatio")
+                            tableView: AnyView(shamanKingTableEpisode())
+//                            image1: Image("shamanKingEpisodeRatio")
                         )
                     )
                 )
@@ -113,7 +115,8 @@ struct shamanKingViewHit: View {
                             textBody1: "・通常時のAT直撃に設定差あり",
                             textBody2: "・内部OS図柄揃い成立時の一部がAT直撃となる",
                             textBody3: "・通常時はOS揃いせずにリプレイ揃いとなるため、リプレイからの謎当り直撃となる",
-                            image1: Image("shamanKingAtDirectHit")
+                            tableView: AnyView(shamanKingDirectAt())
+//                            image1: Image("shamanKingAtDirectHit")
                         )
                     )
                 )

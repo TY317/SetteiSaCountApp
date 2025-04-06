@@ -227,6 +227,20 @@ struct danvineViewHistory: View {
                         )
                     )
                 )
+                // //// 参考情報）上位ラッシュ引き継ぎ
+                unitLinkButton(
+                    title: "上位ラッシュスタートについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "上位ラッシュスタート",
+                            textBody1: "・63G+αを超えて前回のラッシュ情報を持ち越す場合がある",
+                            textBody2: "・通常ラッシュ後は全設定0.4%",
+                            textBody3: "・上位ラッシュ後は特大の設定差あり",
+                            textBody4: "　上位ラッシュ後63G+α超えた初当りで上位ラッシュスタートが確認できれば高設定に期待",
+                            tableView: AnyView(danvineTableExRushStart())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())

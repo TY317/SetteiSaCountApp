@@ -45,6 +45,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteBio") var isSelectedFavoriteBio = true
     @AppStorage("isSelectedFavoriteKaiji") var isSelectedFavoriteKaiji = true
     @AppStorage("isSelectedFavoriteRsl") var isSelectedFavoriteRsl = true
+    @AppStorage("isSelectedFavoriteMagia") var isSelectedFavoriteMagia = true
 }
 
 
@@ -87,7 +88,7 @@ class commonVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @ObservedObject var ver260 = Ver260()
-    @ObservedObject var ver250 = Ver250()
+    @ObservedObject var ver270 = Ver270()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -132,6 +133,19 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 間ギアレコード、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMagia == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(magiaViewTop()),
+                                        iconImage: Image("magiaMachineIcon"),
+                                        machineName: "マギレコ",
+                                        badgeStatus: ver270.magiaMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer270MachineAdd())
+                                }
+                                
                                 // //// レビュースタァライト、25年3月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRsl == false {
                                     
@@ -142,7 +156,7 @@ struct ContentView: View {
                                         machineName: "レビュースタァライト",
                                         badgeStatus: ver260.rslMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer260MachineAdd())
+//                                        .popoverTip(tipVer260MachineAdd())
                                 }
                                 
                                 // //// バイオハザード５、25年3月
@@ -152,8 +166,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(bioViewTop()),
                                         iconImage: Image("bioMachineIcon"),
-                                        machineName: "バイオ5",
-                                        badgeStatus: ver250.bioMachineIconBadgeStatus
+                                        machineName: "バイオ5"
+//                                        badgeStatus: ver250.bioMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer250MachineAdd())
                                 }
@@ -166,7 +180,7 @@ struct ContentView: View {
                                         linkView: AnyView(kaijiViewTop()),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴",
-                                        badgeStatus: ver260.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver270.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -177,8 +191,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(arifureViewTop()),
                                         iconImage: Image("arifureMachineIcon"),
-                                        machineName: "ありふれ",
-                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
+                                        machineName: "ありふれ"
+//                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer240MachineAdd())
                                 }
@@ -190,8 +204,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop()),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
-                                        machineName: "東京喰種",
-                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
+                                        machineName: "東京喰種"
+//                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer230MachineAdd())
                                 }
@@ -203,8 +217,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(shamanKingViewTop()),
                                         iconImage: Image("shamanKingMachineIcon"),
-                                        machineName: "シャーマンキング"
-//                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                        machineName: "シャーマンキング",
+                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -227,7 +241,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(sevenSwordsViewTop()),
                                         iconImage: Image("sevenSwordsMachineIcon"),
-                                        machineName: "七つの魔剣が支配する"
+                                        machineName: "七つの魔剣が支配する",
+                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -403,6 +418,22 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// マギアレコード、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMagia == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(magiaViewTop()),
+                                        iconImage: Image("magiaMachineIcon"),
+                                        machineName: "マギアレコード",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2025,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver270.magiaMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer270MachineAdd())
+                                }
+                                
                                 // //// レビュースタァライト、25年3月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRsl == false {
                                     
@@ -416,7 +447,7 @@ struct ContentView: View {
                                         releaseMonth: 3,
                                         badgeStatus: ver260.rslMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer260MachineAdd())
+//                                    .popoverTip(tipVer260MachineAdd())
                                 }
                                 
                                 // //// バイオ５、25年3月
@@ -429,8 +460,8 @@ struct ContentView: View {
                                         machineName: "バイオハザード5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
-                                        releaseMonth: 3,
-                                        badgeStatus: ver250.bioMachineIconBadgeStatus
+                                        releaseMonth: 3
+//                                        badgeStatus: ver250.bioMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer250MachineAdd())
                                 }
@@ -446,7 +477,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver260.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver270.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -460,8 +491,8 @@ struct ContentView: View {
                                         machineName: "ありふれた職業で世界最強",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer240MachineAdd())
                                 }
@@ -476,8 +507,8 @@ struct ContentView: View {
                                         machineName: "東京喰種",
                                         makerName: "Spiky",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
 //                                        badgeStatus: "update"
                                     )
 //                                    .popoverTip(tipVer230MachineAdd())
@@ -493,8 +524,8 @@ struct ContentView: View {
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 2
-//                                        badgeStatus: ver230.shamanKingNewBadgeStatus
+                                        releaseMonth: 2,
+                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -523,7 +554,8 @@ struct ContentView: View {
                                         machineName: "七つの魔剣が支配する",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
-                                        releaseMonth: 1
+                                        releaseMonth: 1,
+                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -880,6 +912,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// マギアレコード、25年4月
+                Toggle("マギアレコード", isOn: $favoriteSet.isSelectedFavoriteMagia)
                 // //// レビュースターライト、25年3月
                 Toggle("レビュースタァライト", isOn: $favoriteSet.isSelectedFavoriteRsl)
                 // //// バイオ５、25年3月

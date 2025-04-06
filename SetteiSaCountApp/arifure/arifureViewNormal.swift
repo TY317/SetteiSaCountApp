@@ -215,10 +215,11 @@ struct arifureViewNormal: View {
                             textBody3: "・高設定ほど規定ゲーム数での当選が優遇",
                             textBody4: "・滞在モードを見抜くことはできないと思われるが、100Gは全モードで当選期待度が同じの可能性あるため、カウントを推奨",
                             textBody5: "・リセット後は内部的にゲーム数がランダム加算されているため、カウントから除外が無難かも",
-                            image1Title: "[CZモードごとの期待度テーブル]",
-                            image1: Image("arifureCzModeTable"),
-                            image2Title: "[期待度記号ごとのCZ当選率]",
-                            image2: Image("arifureCzMarkRatio")
+                            tableView: AnyView(arifureTableCzMode())
+//                            image1Title: "[CZモードごとの期待度テーブル]",
+//                            image1: Image("arifureCzModeTable"),
+//                            image2Title: "[期待度記号ごとのCZ当選率]",
+//                            image2: Image("arifureCzMarkRatio")
                         )
                     )
                 )

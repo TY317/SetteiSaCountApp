@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct kaijiViewTop: View {
-    @ObservedObject var ver250 = Ver250()
     @ObservedObject var ver260 = Ver260()
+    @ObservedObject var ver270 = Ver270()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     
@@ -17,10 +17,18 @@ struct kaijiViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時モード
+                    NavigationLink(destination: kaijiViewMode()) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "モード推測",
+                            badgeStatus: ver270.kaijiMenuModeBadgeStatus
+                        )
+                    }
                     // ざわ高確
                     NavigationLink(destination: kaijiViewZawaKokaku()) {
                         unitLabelMenu(
-                            imageSystemName: "signpost.right.and.left",
+                            imageSystemName: "bubble.left.and.exclamationmark.bubble.right.fill",
                             textBody: "ざわ高確"
                         )
                     }
@@ -37,6 +45,14 @@ struct kaijiViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "CZ,ボーナス 初当り")
+                    }
+                    // 赤7BIG中のBAR揃い
+                    NavigationLink(destination: kaijiViewRedBig()) {
+                        unitLabelMenu(
+                            imageSystemName: "7.circle.fill",
+                            textBody: "赤7BIG中のBAR揃い",
+                            badgeStatus: ver270.kaijiMenuRedBigBadgeStatus
+                        )
                     }
                     // AT終了画面
                     NavigationLink(destination: kaijiViewScreen()) {
@@ -73,8 +89,8 @@ struct kaijiViewTop: View {
             }
         }
         .onAppear {
-            if ver260.kaijiMachineIconBadgeStatus != "none" {
-                ver260.kaijiMachineIconBadgeStatus = "none"
+            if ver270.kaijiMachineIconBadgeStatus != "none" {
+                ver270.kaijiMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")

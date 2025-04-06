@@ -26,10 +26,10 @@ struct unitTablePercent: View {
     var lineList: [Int] = [1,1,1,1,1,1]
     var titleFont: Font = .title3
     var contentFont: Font = .title3
-    let valueHstackSpacing: CGFloat = 5
+    let valueHstackSpacing: CGFloat = 2 // ver270で5から2へ変更
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
-    let lineHeight: CGFloat = 25
+    let lineHeight: CGFloat = 29  // ver270で25から29へ変更。代わりに垂直padding無くした
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,7 +38,7 @@ struct unitTablePercent: View {
                     .multilineTextAlignment(.center)
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
-                    .padding(.vertical, self.verticlaPadding)
+//                    .padding(.vertical, self.verticlaPadding)
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
                     .background(Color.columnTitle)
@@ -51,7 +51,7 @@ struct unitTablePercent: View {
                 Text(" ")
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
-                    .padding(.vertical, self.verticlaPadding)
+//                    .padding(.vertical, self.verticlaPadding)
                     .foregroundStyle(Color.clear)
                     .fontWeight(.bold)
                     .background(Color.clear)
@@ -94,7 +94,7 @@ struct unitTablePercent: View {
                     }
                     .frame(height: lineNumber(ind: index))
                     .frame(maxWidth: self.maxWidth)
-                    .padding(.vertical, self.verticlaPadding)
+//                    .padding(.vertical, self.verticlaPadding)
                     .background(backColor(ind: index))
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭

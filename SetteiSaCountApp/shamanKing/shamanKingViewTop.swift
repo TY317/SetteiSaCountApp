@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct shamanKingViewTop: View {
-//    @ObservedObject var ver230 = Ver230()
+    @ObservedObject var ver270 = Ver270()
     @ObservedObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     
@@ -30,6 +30,14 @@ struct shamanKingViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
+                        )
+                    }
+                    // CZ当選時の振分け
+                    NavigationLink(destination: shamanKingViewCzFuriwake()) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "CZ当選時の振分け",
+                            badgeStatus: ver270.shamanKingMenuCzFuriwakeBadgeStatus
                         )
                     }
                     // 憑依合体バトル
@@ -77,11 +85,11 @@ struct shamanKingViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-//        .onAppear {
-//            if ver230.shamanKingNewBadgeStatus != "none" {
-//                ver230.shamanKingNewBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver270.shamanKingMachineIconBadgeStatus != "none" {
+                ver270.shamanKingMachineIconBadgeStatus = "none"
+            }
+        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -162,6 +170,20 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory1.endingCountOver5 = shamanKing.endingCountOver5
         shamanKingMemory1.endingCountOver6 = shamanKing.endingCountOver6
         shamanKingMemory1.endingCountSum = shamanKing.endingCountSum
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKingMemory1.czCountUnder600Ren = shamanKing.czCountUnder600Ren
+        shamanKingMemory1.czCountUnder600Jun = shamanKing.czCountUnder600Jun
+        shamanKingMemory1.czCountUnder600Ryunosuke = shamanKing.czCountUnder600Ryunosuke
+        shamanKingMemory1.czCountUnder600Kokkuri = shamanKing.czCountUnder600Kokkuri
+        shamanKingMemory1.czCountUnder600Sum = shamanKing.czCountUnder600Sum
+        shamanKingMemory1.czCountOver600Ren = shamanKing.czCountOver600Ren
+        shamanKingMemory1.czCountOver600Jun = shamanKing.czCountOver600Jun
+        shamanKingMemory1.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
+        shamanKingMemory1.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
+        shamanKingMemory1.czCountOver600Sum = shamanKing.czCountOver600Sum
     }
     func saveMemory2() {
         shamanKingMemory2.jakuRareCount = shamanKing.jakuRareCount
@@ -197,6 +219,21 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory2.endingCountOver5 = shamanKing.endingCountOver5
         shamanKingMemory2.endingCountOver6 = shamanKing.endingCountOver6
         shamanKingMemory2.endingCountSum = shamanKing.endingCountSum
+        
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKingMemory2.czCountUnder600Ren = shamanKing.czCountUnder600Ren
+        shamanKingMemory2.czCountUnder600Jun = shamanKing.czCountUnder600Jun
+        shamanKingMemory2.czCountUnder600Ryunosuke = shamanKing.czCountUnder600Ryunosuke
+        shamanKingMemory2.czCountUnder600Kokkuri = shamanKing.czCountUnder600Kokkuri
+        shamanKingMemory2.czCountUnder600Sum = shamanKing.czCountUnder600Sum
+        shamanKingMemory2.czCountOver600Ren = shamanKing.czCountOver600Ren
+        shamanKingMemory2.czCountOver600Jun = shamanKing.czCountOver600Jun
+        shamanKingMemory2.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
+        shamanKingMemory2.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
+        shamanKingMemory2.czCountOver600Sum = shamanKing.czCountOver600Sum
     }
     func saveMemory3() {
         shamanKingMemory3.jakuRareCount = shamanKing.jakuRareCount
@@ -232,6 +269,21 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory3.endingCountOver5 = shamanKing.endingCountOver5
         shamanKingMemory3.endingCountOver6 = shamanKing.endingCountOver6
         shamanKingMemory3.endingCountSum = shamanKing.endingCountSum
+        
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKingMemory3.czCountUnder600Ren = shamanKing.czCountUnder600Ren
+        shamanKingMemory3.czCountUnder600Jun = shamanKing.czCountUnder600Jun
+        shamanKingMemory3.czCountUnder600Ryunosuke = shamanKing.czCountUnder600Ryunosuke
+        shamanKingMemory3.czCountUnder600Kokkuri = shamanKing.czCountUnder600Kokkuri
+        shamanKingMemory3.czCountUnder600Sum = shamanKing.czCountUnder600Sum
+        shamanKingMemory3.czCountOver600Ren = shamanKing.czCountOver600Ren
+        shamanKingMemory3.czCountOver600Jun = shamanKing.czCountOver600Jun
+        shamanKingMemory3.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
+        shamanKingMemory3.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
+        shamanKingMemory3.czCountOver600Sum = shamanKing.czCountOver600Sum
     }
 }
 
@@ -296,6 +348,21 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.endingCountOver5 = shamanKingMemory1.endingCountOver5
         shamanKing.endingCountOver6 = shamanKingMemory1.endingCountOver6
         shamanKing.endingCountSum = shamanKingMemory1.endingCountSum
+        
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKing.czCountUnder600Ren = shamanKingMemory1.czCountUnder600Ren
+        shamanKing.czCountUnder600Jun = shamanKingMemory1.czCountUnder600Jun
+        shamanKing.czCountUnder600Ryunosuke = shamanKingMemory1.czCountUnder600Ryunosuke
+        shamanKing.czCountUnder600Kokkuri = shamanKingMemory1.czCountUnder600Kokkuri
+        shamanKing.czCountUnder600Sum = shamanKingMemory1.czCountUnder600Sum
+        shamanKing.czCountOver600Ren = shamanKingMemory1.czCountOver600Ren
+        shamanKing.czCountOver600Jun = shamanKingMemory1.czCountOver600Jun
+        shamanKing.czCountOver600Ryunosuke = shamanKingMemory1.czCountOver600Ryunosuke
+        shamanKing.czCountOver600Kokkuri = shamanKingMemory1.czCountOver600Kokkuri
+        shamanKing.czCountOver600Sum = shamanKingMemory1.czCountOver600Sum
     }
     func loadMemory2() {
         shamanKing.jakuRareCount = shamanKingMemory2.jakuRareCount
@@ -331,6 +398,21 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.endingCountOver5 = shamanKingMemory2.endingCountOver5
         shamanKing.endingCountOver6 = shamanKingMemory2.endingCountOver6
         shamanKing.endingCountSum = shamanKingMemory2.endingCountSum
+        
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKing.czCountUnder600Ren = shamanKingMemory2.czCountUnder600Ren
+        shamanKing.czCountUnder600Jun = shamanKingMemory2.czCountUnder600Jun
+        shamanKing.czCountUnder600Ryunosuke = shamanKingMemory2.czCountUnder600Ryunosuke
+        shamanKing.czCountUnder600Kokkuri = shamanKingMemory2.czCountUnder600Kokkuri
+        shamanKing.czCountUnder600Sum = shamanKingMemory2.czCountUnder600Sum
+        shamanKing.czCountOver600Ren = shamanKingMemory2.czCountOver600Ren
+        shamanKing.czCountOver600Jun = shamanKingMemory2.czCountOver600Jun
+        shamanKing.czCountOver600Ryunosuke = shamanKingMemory2.czCountOver600Ryunosuke
+        shamanKing.czCountOver600Kokkuri = shamanKingMemory2.czCountOver600Kokkuri
+        shamanKing.czCountOver600Sum = shamanKingMemory2.czCountOver600Sum
     }
     func loadMemory3() {
         shamanKing.jakuRareCount = shamanKingMemory3.jakuRareCount
@@ -366,6 +448,21 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.endingCountOver5 = shamanKingMemory3.endingCountOver5
         shamanKing.endingCountOver6 = shamanKingMemory3.endingCountOver6
         shamanKing.endingCountSum = shamanKingMemory3.endingCountSum
+        
+        // ///////////////////////
+        // ver2.7.0で追加
+        // CZ当選時の振分け
+        // ///////////////////////
+        shamanKing.czCountUnder600Ren = shamanKingMemory3.czCountUnder600Ren
+        shamanKing.czCountUnder600Jun = shamanKingMemory3.czCountUnder600Jun
+        shamanKing.czCountUnder600Ryunosuke = shamanKingMemory3.czCountUnder600Ryunosuke
+        shamanKing.czCountUnder600Kokkuri = shamanKingMemory3.czCountUnder600Kokkuri
+        shamanKing.czCountUnder600Sum = shamanKingMemory3.czCountUnder600Sum
+        shamanKing.czCountOver600Ren = shamanKingMemory3.czCountOver600Ren
+        shamanKing.czCountOver600Jun = shamanKingMemory3.czCountOver600Jun
+        shamanKing.czCountOver600Ryunosuke = shamanKingMemory3.czCountOver600Ryunosuke
+        shamanKing.czCountOver600Kokkuri = shamanKingMemory3.czCountOver600Kokkuri
+        shamanKing.czCountOver600Sum = shamanKingMemory3.czCountOver600Sum
     }
 }
 

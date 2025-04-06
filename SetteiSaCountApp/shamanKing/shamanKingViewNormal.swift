@@ -51,7 +51,8 @@ struct shamanKingViewNormal: View {
                         unitExView5body2image(
                             title: "弱レア役からの高確移行",
                             textBody1: "・弱🍒、スイカからのシャーマンボーナス高確移行率に設定差あり",
-                            image1: Image("shamanKingJakuRareKokaku")
+                            tableView: AnyView(shamanKingTableKokakuMove())
+//                            image1: Image("shamanKingJakuRareKokaku")
                         )
                     )
                 )
@@ -104,7 +105,8 @@ struct shamanKingViewNormal: View {
                             textBody2: "・カウンタの告知はされないため見た目には分からない",
                             textBody3: "・カウンタは1Gで1減算されるため、カウンタ1が選ばれたリプレイ連続以外で小鬼レベル昇格はない",
                             textBody4: "・リプレイ連続ではなく1回だけで昇格すればカウンタ10以上が濃厚となる",
-                            image1: Image("shamanKingReplayCounter")
+                            tableView: AnyView(shamanKingTableReplayCounter())
+//                            image1: Image("shamanKingReplayCounter")
                         )
                     )
                 )

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct arifureViewPremiumAt: View {
     @ObservedObject var arifure = Arifure()
-    @ObservedObject var ver250 = Ver250()
+//    @ObservedObject var ver250 = Ver250()
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -110,11 +110,11 @@ struct arifureViewPremiumAt: View {
                 Text("ビッグトリガーアタック継続G数")
             }
         }
-        .onAppear {
-            if ver250.arifureMenuPremiumBadgeStatus != "none" {
-                ver250.arifureMenuPremiumBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver250.arifureMenuPremiumBadgeStatus != "none" {
+//                ver250.arifureMenuPremiumBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

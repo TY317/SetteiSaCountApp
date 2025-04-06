@@ -21,7 +21,8 @@ struct shamanKingViewEnding: View {
                         unitExView5body2image(
                             title: "Congratulationsの文字色",
                             textBody1: "エンディング開始時のCongratulationsの文字色で設定を示唆",
-                            image1: Image("shamanKingCongratulations")
+                            tableView: AnyView(shamanKingTableEnding())
+//                            image1: Image("shamanKingCongratulations")
                         )
                     )
                 )

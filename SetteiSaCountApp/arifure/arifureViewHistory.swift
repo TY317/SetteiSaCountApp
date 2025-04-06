@@ -309,7 +309,8 @@ struct arifureViewHistory: View {
                             title: "天国モードでの当選",
                             textBody1: "・リセット、AT終了後の天国モード移行率に設定差あり",
                             textBody2: "・天国モード滞在は完全に見抜くことができないと思われるため、本アプリでは参考として全初当り中の100G+32以内の初当りの割合を算出",
-                            image1: Image("arifureTengokuRatio")
+                            tableView: AnyView(arifureTableHeavenHit())
+//                            image1: Image("arifureTengokuRatio")
                         )
                     )
                 )
