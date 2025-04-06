@@ -20,7 +20,8 @@ struct shamanKingViewScreen: View {
                         unitExView5body2image(
                             title: "AT終了画面",
                             textBody1: "キャラカスタムによってデフォルト画面が変化",
-                            image1: Image("shamanKingAtEndScreen")
+                            tableView: AnyView(shamanKingTableEndScreen())
+//                            image1: Image("shamanKingAtEndScreen")
                         )
                     )
                 )

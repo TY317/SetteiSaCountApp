@@ -181,7 +181,8 @@ struct draHanaSenkohVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            image1: Image("draHanaSenkohBellBonusAnalysis")
+                            tableView: AnyView(draHanaSenkohTableBellBonus())
+//                            image1: Image("draHanaSenkohBellBonusAnalysis")
                         )
                     )
                 )

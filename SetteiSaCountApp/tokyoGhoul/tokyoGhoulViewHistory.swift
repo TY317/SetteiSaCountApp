@@ -43,7 +43,7 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 struct tokyoGhoulViewHistory: View {
     @ObservedObject var tokyoGhoul = TokyoGhoul()
-    @ObservedObject var ver250 = Ver250()
+//    @ObservedObject var ver250 = Ver250()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -201,7 +201,7 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-                .popoverTip(tipVer250GhoulGedanReplay())
+//                .popoverTip(tipVer250GhoulGedanReplay())
             }
             // //// 履歴表示
             Section {
@@ -396,7 +396,8 @@ struct tokyoGhoulViewHistory: View {
                         unitExView5body2image(
                             title: "初当り確率",
                             textBody1: "・弱レア役からのCZ・AT当選率に設定差あると思われる",
-                            image1: Image("tokyoGhoulHitRatio")
+                            tableView: AnyView(tokyoGhoulTableFirstHit())
+//                            image1: Image("tokyoGhoulHitRatio")
                         )
                     )
                 )
@@ -412,7 +413,7 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-                .popoverTip(tipVer250GhoulUraAt())
+//                .popoverTip(tipVer250GhoulUraAt())
                 // //// 参考情報）弱チェからのCZ
                 unitLinkButton(
                     title: "弱🍒からのCZ当選について",
@@ -451,7 +452,8 @@ struct tokyoGhoulViewHistory: View {
                             title: "100G以内の当選率",
                             textBody1: "・100G以内での当選率に設定差あり",
                             textBody2: "・設定変更時に移行する朝一モードは算出の対象外",
-                            image1: Image("tokyoGhoul100Hit")
+                            tableView: AnyView(tokyoGhoulTable100Hit())
+//                            image1: Image("tokyoGhoul100Hit")
                         )
                     )
                 )
@@ -463,11 +465,11 @@ struct tokyoGhoulViewHistory: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver250.ghoulMenuHistoryBadgeStatus != "none" {
-                ver250.ghoulMenuHistoryBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver250.ghoulMenuHistoryBadgeStatus != "none" {
+//                ver250.ghoulMenuHistoryBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

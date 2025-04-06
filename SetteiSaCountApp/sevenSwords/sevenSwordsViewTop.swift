@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct sevenSwordsViewTop: View {
-//    @ObservedObject var ver220 = Ver220()
+    @ObservedObject var ver270 = Ver270()
     @ObservedObject var sevenSwords = SevenSwords()
     @State var isShowAlert: Bool = false
     
@@ -60,6 +60,14 @@ struct sevenSwordsViewTop: View {
                             textBody: "エンディング"
                         )
                     }
+                    // ボイスカスタムでの示唆
+                    NavigationLink(destination: sevenSwordsViewVoiceCustom()) {
+                        unitLabelMenu(
+                            imageSystemName: "message.fill",
+                            textBody: "ボイスカスタムでの示唆",
+                            badgeStatus: ver270.sevenSwordsMenuVoiceBadgeStatus
+                        )
+                    }
                 }
                 // 設定推測グラフ
                 NavigationLink(destination: sevenSwordsView95Ci()) {
@@ -70,11 +78,11 @@ struct sevenSwordsViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-//        .onAppear {
-//            if ver220.sevenSwordsNewBadgeStatus == "new" {
-//                ver220.sevenSwordsNewBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver270.sevenSwordsMachineIconBadgeStatus != "none" {
+                ver270.sevenSwordsMachineIconBadgeStatus = "none"
+            }
+        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

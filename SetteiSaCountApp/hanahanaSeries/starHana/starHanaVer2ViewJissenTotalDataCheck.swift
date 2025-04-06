@@ -142,7 +142,8 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ベル・ボーナス確率",
-                            image1: Image("starHanaBellBonusAnalysis")
+                            tableView: AnyView(starHanaTableBellBonus())
+//                            image1: Image("starHanaBellBonusAnalysis")
                         )
                     )
                 )
@@ -151,8 +152,9 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "BIG中スイカ確率",
-                            image1Title: "[参考] 過去のハナハナシリーズ数値",
-                            image1:Image("hanaCommonBbSuika")
+                            tableView: AnyView(hanahanaCommonTableBigSuika())
+//                            image1Title: "[参考] 過去のハナハナシリーズ数値",
+//                            image1:Image("hanaCommonBbSuika")
                         )
                     )
                 )
@@ -161,8 +163,9 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "BIG後のフェザーランプ確率",
-                            image1Title: "[参考] 過去のハナハナシリーズ数値",
-                            image1:Image("hanaCommonBbLamp")
+                            tableView: AnyView(hanahanaCommonTableBigLamp())
+//                            image1Title: "[参考] 過去のハナハナシリーズ数値",
+//                            image1:Image("hanaCommonBbLamp")
                         )
                     )
                 )
@@ -175,8 +178,9 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                             textBody2: "・左リール中段に白７ビタ押し",
                             textBody3: "　成功したら中・右にスイカを狙う",
                             textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する",
-                            image1Title: "[参考] 過去のハナハナシリーズ数値",
-                            image1: Image("hanaCommonRbSideLamp")
+                            tableView: AnyView(hanahanaCommonTableRegSideLamp())
+//                            image1Title: "[参考] 過去のハナハナシリーズ数値",
+//                            image1: Image("hanaCommonRbSideLamp")
                         )
                     )
                 )

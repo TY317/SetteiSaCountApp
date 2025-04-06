@@ -119,7 +119,8 @@ struct shamanKingViewHyoiGattai: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "残HPごとの勝率",
-                            image1: Image("shamanKingHyoiGattai")
+                            tableView: AnyView(shamanKingTableHyoiGattai())
+//                            image1: Image("shamanKingHyoiGattai")
                         )
                     )
                 )

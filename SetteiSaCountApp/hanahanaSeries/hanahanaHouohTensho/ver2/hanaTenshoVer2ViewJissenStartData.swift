@@ -180,7 +180,8 @@ struct hanaTenshoVer2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            image1: Image("hanaTenshoBellBonus")
+                            tableView: AnyView(hanaTenshoTableBellBonus())
+//                            image1: Image("hanaTenshoBellBonus")
                         )
                     )
                 )

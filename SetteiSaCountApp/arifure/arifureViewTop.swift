@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct arifureViewTop: View {
-//    @ObservedObject var ver240 = Ver240()
-    @ObservedObject var ver250 = Ver250()
+//    @ObservedObject var ver250 = Ver250()
     @ObservedObject var arifure = Arifure()
     @State var isShowAlert: Bool = false
     
@@ -34,16 +33,16 @@ struct arifureViewTop: View {
                     NavigationLink(destination: arifureViewCharacter()) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
-                            textBody: "ミュウボーナス中のキャラ紹介",
-                            badgeStatus: ver250.arifureMenuCharacterBadgeStatus
+                            textBody: "ミュウボーナス中のキャラ紹介"
+//                            badgeStatus: ver250.arifureMenuCharacterBadgeStatus
                         )
                     }
                     // AT終了画面
                     NavigationLink(destination: arifureViewScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面",
-                            badgeStatus: ver250.arifureMenuAtScreenBadgeStatus
+                            textBody: "AT終了画面"
+//                            badgeStatus: ver250.arifureMenuAtScreenBadgeStatus
                         )
                     }
                     // AT終了後の高確移行率
@@ -57,16 +56,16 @@ struct arifureViewTop: View {
                     NavigationLink(destination: arifureViewPremiumAt()) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "上位AT関連",
-                            badgeStatus: ver250.arifureMenuPremiumBadgeStatus
+                            textBody: "上位AT関連"
+//                            badgeStatus: ver250.arifureMenuPremiumBadgeStatus
                         )
                     }
                     // エンディング、レア役時のキャラ
                     NavigationLink(destination: arifureViewEnding()) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver250.arifureMenuEndingBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver250.arifureMenuEndingBadgeStatus
                         )
                     }
                 } header: {
@@ -82,11 +81,11 @@ struct arifureViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver250.arifureMachineIconBadgeStatus != "none" {
-                ver250.arifureMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver250.arifureMachineIconBadgeStatus != "none" {
+//                ver250.arifureMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -137,10 +137,57 @@ struct kingHanaVer2ViewJissenTotalDataCheck: View {
                     }
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(unitExView5body2image(title: "ベル・ボーナス確率", image1: Image("kingHanaBellBonusAnalysis"))))
-                unitLinkButton(title: "BB中のスイカ確率", exview: AnyView(unitExView5body2image(title: "BIG中スイカ確率", image1:Image("kingHanaBigSuikaAnalysis"))))
-                unitLinkButton(title: "BIG後のフェザーランプ確率", exview: AnyView(unitExView5body2image(title: "BIG後のフェザーランプ確率", image1:Image("kingHanaBigLampAnalysis"))))
-                unitLinkButton(title: "REG中のサイドランプ確率", exview: AnyView(unitExView5body2image(title: "REG中のサイドランプ確率", textBody1: "・REG中に1回だけ確認可能", textBody2: "・左リール中段に白７ビタ押し", textBody3: "　成功したら中・右にスイカを狙う", textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する", image1: Image("kingHanaRegLampAnalysis"))))
+                // //// 参考情報リンク
+                unitLinkButton(
+                    title: "ベル,ボーナス確率",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ベル・ボーナス確率",
+                            tableView: AnyView(kingHanaTableBellBonus())
+//                                image1: Image("kingHanaBellBonusAnalysis")
+                        )
+                    )
+                )
+//                unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(unitExView5body2image(title: "ベル・ボーナス確率", image1: Image("kingHanaBellBonusAnalysis"))))
+                // スイカ確率の情報リンク
+                unitLinkButton(
+                    title: "BB中のスイカについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "BIG中スイカ確率",
+                            tableView: AnyView(hanahanaCommonTableBigSuika())
+//                                        image1:Image("kingHanaBigSuikaAnalysis")
+                        )
+                    )
+                )
+//                unitLinkButton(title: "BB中のスイカ確率", exview: AnyView(unitExView5body2image(title: "BIG中スイカ確率", image1:Image("kingHanaBigSuikaAnalysis"))))
+                // 参考情報リンク
+                unitLinkButton(
+                    title: "BIG後のフェザーランプについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "BIG後のフェザーランプ確率",
+                            tableView: AnyView(hanahanaCommonTableBigLamp())
+//                                        image1:Image("kingHanaBigLampAnalysis")
+                        )
+                    )
+                )
+//                unitLinkButton(title: "BIG後のフェザーランプ確率", exview: AnyView(unitExView5body2image(title: "BIG後のフェザーランプ確率", image1:Image("kingHanaBigLampAnalysis"))))
+                unitLinkButton(
+                    title: "REG中のサイドランプについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "REG中のサイドランプ確率",
+                            textBody1: "・REG中に1回だけ確認可能",
+                            textBody2: "・左リール中段に白７ビタ押し",
+                            textBody3: "　成功したら中・右にスイカを狙う",
+                            textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する",
+                            tableView: AnyView(hanahanaCommonTableRegSideLamp())
+//                                    image1: Image("kingHanaRegLampAnalysis")
+                        )
+                    )
+                )
+//                unitLinkButton(title: "REG中のサイドランプ確率", exview: AnyView(unitExView5body2image(title: "REG中のサイドランプ確率", textBody1: "・REG中に1回だけ確認可能", textBody2: "・左リール中段に白７ビタ押し", textBody3: "　成功したら中・右にスイカを狙う", textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する", image1: Image("kingHanaRegLampAnalysis"))))
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiTotal()))
                     .popoverTip(tipUnitButtonLink95Ci())

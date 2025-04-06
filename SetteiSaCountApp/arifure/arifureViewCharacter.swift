@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct arifureViewCharacter: View {
-    @ObservedObject var ver250 = Ver250()
+//    @ObservedObject var ver250 = Ver250()
     @ObservedObject var arifure = Arifure()
     @State var isShowAlert = false
     @State var selectedCategory: String = "通常"
@@ -478,7 +478,7 @@ struct arifureViewCharacter: View {
                         )
                     )
                 )
-                .popoverTip(tipVer250ArifureCharacterRatio())
+//                .popoverTip(tipVer250ArifureCharacterRatio())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 13)))
                     .popoverTip(tipUnitButtonLink95Ci())
@@ -487,11 +487,11 @@ struct arifureViewCharacter: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver250.arifureMenuCharacterBadgeStatus != "none" {
-                ver250.arifureMenuCharacterBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver250.arifureMenuCharacterBadgeStatus != "none" {
+//                ver250.arifureMenuCharacterBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

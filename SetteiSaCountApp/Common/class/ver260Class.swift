@@ -37,17 +37,17 @@ struct tipVer260KaijiScreen: Tip {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer260MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・レビュースタァライト")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer260MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・レビュースタァライト")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 // //////////////////
 // Tip：かぐやボーナス振分け

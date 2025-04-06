@@ -212,6 +212,74 @@ class ShamanKing: ObservableObject {
         resetHyoiGattai()
         resetHit()
         resetEnding()
+        resetCzFuriwake()
+    }
+    
+    // ///////////////////////
+    // ver2.7.0で追加
+    // CZ当選時の振分け
+    // ///////////////////////
+    @AppStorage("shamanKingCzCountUnder600Ren") var czCountUnder600Ren: Int = 0 {
+        didSet {
+            czCountUnder600Sum = countSum(czCountUnder600Ren, czCountUnder600Jun, czCountUnder600Ryunosuke, czCountUnder600Kokkuri)
+        }
+    }
+        @AppStorage("shamanKingCzCountUnder600Jun") var czCountUnder600Jun: Int = 0 {
+            didSet {
+                czCountUnder600Sum = countSum(czCountUnder600Ren, czCountUnder600Jun, czCountUnder600Ryunosuke, czCountUnder600Kokkuri)
+            }
+        }
+            @AppStorage("shamanKingCzCountUnder600Ryunosuke") var czCountUnder600Ryunosuke: Int = 0 {
+                didSet {
+                    czCountUnder600Sum = countSum(czCountUnder600Ren, czCountUnder600Jun, czCountUnder600Ryunosuke, czCountUnder600Kokkuri)
+                }
+            }
+                @AppStorage("shamanKingCzCountUnder600Kokkuri") var czCountUnder600Kokkuri: Int = 0 {
+                    didSet {
+                        czCountUnder600Sum = countSum(czCountUnder600Ren, czCountUnder600Jun, czCountUnder600Ryunosuke, czCountUnder600Kokkuri)
+                    }
+                }
+    @AppStorage("shamanKingCzCountUnder600Sum") var czCountUnder600Sum: Int = 0
+    @AppStorage("shamanKingCzCountOver600Ren") var czCountOver600Ren: Int = 0 {
+        didSet {
+            czCountOver600Sum = countSum(czCountOver600Ren, czCountOver600Jun, czCountOver600Ryunosuke, czCountOver600Kokkuri)
+        }
+    }
+        @AppStorage("shamanKingCzCountOver600Jun") var czCountOver600Jun: Int = 0 {
+            didSet {
+                czCountOver600Sum = countSum(czCountOver600Ren, czCountOver600Jun, czCountOver600Ryunosuke, czCountOver600Kokkuri)
+            }
+        }
+            @AppStorage("shamanKingCzCountOver600Ryunosuke") var czCountOver600Ryunosuke: Int = 0 {
+                didSet {
+                    czCountOver600Sum = countSum(czCountOver600Ren, czCountOver600Jun, czCountOver600Ryunosuke, czCountOver600Kokkuri)
+                }
+            }
+                @AppStorage("shamanKingCzCountOver600Kokkuri") var czCountOver600Kokkuri: Int = 0 {
+                    didSet {
+                        czCountOver600Sum = countSum(czCountOver600Ren, czCountOver600Jun, czCountOver600Ryunosuke, czCountOver600Kokkuri)
+                    }
+                }
+    @AppStorage("shamanKingCzCountOver600Sum") var czCountOver600Sum: Int = 0
+    let ratioCzFuriwakeUnder600Ren: [Double] = [73.0,71.5,69.5,65.6,61.3,56.6]
+    let ratioCzFuriwakeUnder600Jun: [Double] = [16.8,17.6,18.4,20.3,21.9,23.8]
+    let ratioCzFuriwakeUnder600Ryunosuke: [Double] = [6.3,6.6,7.0,8.6,10.5,12.5]
+    let ratioCzFuriwakeUnder600Kokkuri: [Double] = [3.9,4.3,5.1,5.5,6.3,7.0]
+    let ratioCzFuriwakeOver600Ren: [Double] = [60.9,58.6,55.9,51.6,44.9,39.1]
+    let ratioCzFuriwakeOver600Jun: [Double] = [25.0,26.6,28.1,29.7,32.4,34.4]
+    let ratioCzFuriwakeOver600Ryunosuke: [Double] = [7.8,8.2,9.0,10.9,13.3,15.6]
+    let ratioCzFuriwakeOver600Kokkuri: [Double] = [6.3,6.6,7.0,7.8,9.4,10.9]
+    
+    func resetCzFuriwake() {
+        czCountUnder600Ren = 0
+        czCountUnder600Jun = 0
+        czCountUnder600Ryunosuke = 0
+        czCountUnder600Kokkuri = 0
+        czCountOver600Ren = 0
+        czCountOver600Jun = 0
+        czCountOver600Ryunosuke = 0
+        czCountOver600Kokkuri = 0
+        minusCheck = false
     }
 }
 
@@ -252,6 +320,21 @@ class ShamanKingMemory1: ObservableObject {
     @AppStorage("shamanKingEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("shamanKingMemoMemory1") var memo = ""
     @AppStorage("shamanKingDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.7.0で追加
+    // CZ当選時の振分け
+    // ///////////////////////
+    @AppStorage("shamanKingCzCountUnder600RenMemory1") var czCountUnder600Ren: Int = 0
+    @AppStorage("shamanKingCzCountUnder600JunMemory1") var czCountUnder600Jun: Int = 0
+    @AppStorage("shamanKingCzCountUnder600RyunosukeMemory1") var czCountUnder600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountUnder600KokkuriMemory1") var czCountUnder600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountUnder600SumMemory1") var czCountUnder600Sum: Int = 0
+    @AppStorage("shamanKingCzCountOver600RenMemory1") var czCountOver600Ren: Int = 0
+    @AppStorage("shamanKingCzCountOver600JunMemory1") var czCountOver600Jun: Int = 0
+    @AppStorage("shamanKingCzCountOver600RyunosukeMemory1") var czCountOver600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountOver600KokkuriMemory1") var czCountOver600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountOver600SumMemory1") var czCountOver600Sum: Int = 0
 }
 
 
@@ -292,6 +375,21 @@ class ShamanKingMemory2: ObservableObject {
     @AppStorage("shamanKingEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("shamanKingMemoMemory2") var memo = ""
     @AppStorage("shamanKingDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.7.0で追加
+    // CZ当選時の振分け
+    // ///////////////////////
+    @AppStorage("shamanKingCzCountUnder600RenMemory2") var czCountUnder600Ren: Int = 0
+    @AppStorage("shamanKingCzCountUnder600JunMemory2") var czCountUnder600Jun: Int = 0
+    @AppStorage("shamanKingCzCountUnder600RyunosukeMemory2") var czCountUnder600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountUnder600KokkuriMemory2") var czCountUnder600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountUnder600SumMemory2") var czCountUnder600Sum: Int = 0
+    @AppStorage("shamanKingCzCountOver600RenMemory2") var czCountOver600Ren: Int = 0
+    @AppStorage("shamanKingCzCountOver600JunMemory2") var czCountOver600Jun: Int = 0
+    @AppStorage("shamanKingCzCountOver600RyunosukeMemory2") var czCountOver600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountOver600KokkuriMemory2") var czCountOver600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountOver600SumMemory2") var czCountOver600Sum: Int = 0
 }
 
 
@@ -332,4 +430,19 @@ class ShamanKingMemory3: ObservableObject {
     @AppStorage("shamanKingEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("shamanKingMemoMemory3") var memo = ""
     @AppStorage("shamanKingDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.7.0で追加
+    // CZ当選時の振分け
+    // ///////////////////////
+    @AppStorage("shamanKingCzCountUnder600RenMemory3") var czCountUnder600Ren: Int = 0
+    @AppStorage("shamanKingCzCountUnder600JunMemory3") var czCountUnder600Jun: Int = 0
+    @AppStorage("shamanKingCzCountUnder600RyunosukeMemory3") var czCountUnder600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountUnder600KokkuriMemory3") var czCountUnder600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountUnder600SumMemory3") var czCountUnder600Sum: Int = 0
+    @AppStorage("shamanKingCzCountOver600RenMemory3") var czCountOver600Ren: Int = 0
+    @AppStorage("shamanKingCzCountOver600JunMemory3") var czCountOver600Jun: Int = 0
+    @AppStorage("shamanKingCzCountOver600RyunosukeMemory3") var czCountOver600Ryunosuke: Int = 0
+    @AppStorage("shamanKingCzCountOver600KokkuriMemory3") var czCountOver600Kokkuri: Int = 0
+    @AppStorage("shamanKingCzCountOver600SumMemory3") var czCountOver600Sum: Int = 0
 }

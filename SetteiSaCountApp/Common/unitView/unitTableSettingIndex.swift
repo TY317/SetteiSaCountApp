@@ -15,7 +15,7 @@ struct unitTableSettingIndex: View {
     var lineList: [Int] = [1,1,1,1,1,1]
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
-    let lineHeight: CGFloat = 25
+    let lineHeight: CGFloat = 29  // ver270で25から29へ変更。代わりに垂直padding無くした
     
     var body: some View {
         VStack(spacing: 0) {
@@ -23,7 +23,7 @@ struct unitTableSettingIndex: View {
             Text(" ")
                 .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                 .frame(maxWidth: self.maxWidth)
-                .padding(.vertical, self.verticlaPadding)
+//                .padding(.vertical, self.verticlaPadding)
                 .foregroundStyle(Color.clear)
                 .fontWeight(.bold)
                 .background(Color.clear)
@@ -45,7 +45,7 @@ struct unitTableSettingIndex: View {
                     }
                     .frame(height: lineNumber(ind: index))
                     .frame(maxWidth: self.maxWidth)
-                    .padding(.vertical, self.verticlaPadding)
+//                    .padding(.vertical, self.verticlaPadding)
                     .background(backColor(ind: index))
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭

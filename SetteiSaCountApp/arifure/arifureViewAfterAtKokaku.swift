@@ -41,7 +41,8 @@ struct arifureViewAfterAtKokaku: View {
                     unitExView5body2image(
                         title: "AT終了後の高確移行",
                         textBody1: "・設定変更後やAT・上位AT終了後の高確（魔力駆動四輪ブリーゼステージ）移行に設定差あり",
-                        image1: Image("arifureKokakuStartRatio")
+                        tableView: AnyView(arifureTableAfterKokaku())
+//                        image1: Image("arifureKokakuStartRatio")
                     )
                 )
             )
