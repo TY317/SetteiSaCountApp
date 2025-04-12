@@ -191,6 +191,16 @@ struct kaijiSubViewSaveMemory: View {
         kaijiMemory1.endingCountOver4 = kaiji.endingCountOver4
         kaijiMemory1.endingCountTeiai = kaiji.endingCountTeiai
         kaijiMemory1.endingCountSum = kaiji.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaijiMemory1.totalGame = kaiji.totalGame
+        kaijiMemory1.koyakuCountSuika = kaiji.koyakuCountSuika
+        kaijiMemory1.koyakuCountJakuCherry = kaiji.koyakuCountJakuCherry
+        kaijiMemory1.koyakuCountJakuChance = kaiji.koyakuCountJakuChance
+        kaijiMemory1.koyakuCountKyoCherry = kaiji.koyakuCountKyoCherry
+        kaijiMemory1.koyakuCountSum = kaiji.koyakuCountSum
     }
     func saveMemory2() {
         kaijiMemory2.zawaKokakuCountJakuRare = kaiji.zawaKokakuCountJakuRare
@@ -226,6 +236,16 @@ struct kaijiSubViewSaveMemory: View {
         kaijiMemory2.endingCountOver4 = kaiji.endingCountOver4
         kaijiMemory2.endingCountTeiai = kaiji.endingCountTeiai
         kaijiMemory2.endingCountSum = kaiji.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaijiMemory2.totalGame = kaiji.totalGame
+        kaijiMemory2.koyakuCountSuika = kaiji.koyakuCountSuika
+        kaijiMemory2.koyakuCountJakuCherry = kaiji.koyakuCountJakuCherry
+        kaijiMemory2.koyakuCountJakuChance = kaiji.koyakuCountJakuChance
+        kaijiMemory2.koyakuCountKyoCherry = kaiji.koyakuCountKyoCherry
+        kaijiMemory2.koyakuCountSum = kaiji.koyakuCountSum
     }
     func saveMemory3() {
         kaijiMemory3.zawaKokakuCountJakuRare = kaiji.zawaKokakuCountJakuRare
@@ -261,6 +281,16 @@ struct kaijiSubViewSaveMemory: View {
         kaijiMemory3.endingCountOver4 = kaiji.endingCountOver4
         kaijiMemory3.endingCountTeiai = kaiji.endingCountTeiai
         kaijiMemory3.endingCountSum = kaiji.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaijiMemory3.totalGame = kaiji.totalGame
+        kaijiMemory3.koyakuCountSuika = kaiji.koyakuCountSuika
+        kaijiMemory3.koyakuCountJakuCherry = kaiji.koyakuCountJakuCherry
+        kaijiMemory3.koyakuCountJakuChance = kaiji.koyakuCountJakuChance
+        kaijiMemory3.koyakuCountKyoCherry = kaiji.koyakuCountKyoCherry
+        kaijiMemory3.koyakuCountSum = kaiji.koyakuCountSum
     }
 }
 
@@ -325,6 +355,16 @@ struct kaijiSubViewLoadMemory: View {
         kaiji.endingCountOver4 = kaijiMemory1.endingCountOver4
         kaiji.endingCountTeiai = kaijiMemory1.endingCountTeiai
         kaiji.endingCountSum = kaijiMemory1.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaiji.totalGame = kaijiMemory1.totalGame
+        kaiji.koyakuCountSuika = kaijiMemory1.koyakuCountSuika
+        kaiji.koyakuCountJakuCherry = kaijiMemory1.koyakuCountJakuCherry
+        kaiji.koyakuCountJakuChance = kaijiMemory1.koyakuCountJakuChance
+        kaiji.koyakuCountKyoCherry = kaijiMemory1.koyakuCountKyoCherry
+        kaiji.koyakuCountSum = kaijiMemory1.koyakuCountSum
     }
     func loadMemory2() {
         kaiji.zawaKokakuCountJakuRare = kaijiMemory2.zawaKokakuCountJakuRare
@@ -360,6 +400,16 @@ struct kaijiSubViewLoadMemory: View {
         kaiji.endingCountOver4 = kaijiMemory2.endingCountOver4
         kaiji.endingCountTeiai = kaijiMemory2.endingCountTeiai
         kaiji.endingCountSum = kaijiMemory2.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaiji.totalGame = kaijiMemory2.totalGame
+        kaiji.koyakuCountSuika = kaijiMemory2.koyakuCountSuika
+        kaiji.koyakuCountJakuCherry = kaijiMemory2.koyakuCountJakuCherry
+        kaiji.koyakuCountJakuChance = kaijiMemory2.koyakuCountJakuChance
+        kaiji.koyakuCountKyoCherry = kaijiMemory2.koyakuCountKyoCherry
+        kaiji.koyakuCountSum = kaijiMemory2.koyakuCountSum
     }
     func loadMemory3() {
         kaiji.zawaKokakuCountJakuRare = kaijiMemory3.zawaKokakuCountJakuRare
@@ -395,6 +445,16 @@ struct kaijiSubViewLoadMemory: View {
         kaiji.endingCountOver4 = kaijiMemory3.endingCountOver4
         kaiji.endingCountTeiai = kaijiMemory3.endingCountTeiai
         kaiji.endingCountSum = kaijiMemory3.endingCountSum
+        
+        // /////////////////////
+        // 小役、ver271で追加
+        // /////////////////////
+        kaiji.totalGame = kaijiMemory3.totalGame
+        kaiji.koyakuCountSuika = kaijiMemory3.koyakuCountSuika
+        kaiji.koyakuCountJakuCherry = kaijiMemory3.koyakuCountJakuCherry
+        kaiji.koyakuCountJakuChance = kaijiMemory3.koyakuCountJakuChance
+        kaiji.koyakuCountKyoCherry = kaijiMemory3.koyakuCountKyoCherry
+        kaiji.koyakuCountSum = kaijiMemory3.koyakuCountSum
     }
 }
 

@@ -266,7 +266,7 @@ class Kaiji: ObservableObject {
     }
     
     // /////////////////////
-    // 小役、ver280で追加
+    // 小役、ver271で追加
     // /////////////////////
     @AppStorage("kaijiTotalGame") var totalGame: Int = 0
     @AppStorage("kaijiKoyakuCountSuika") var koyakuCountSuika: Int = 0 {
@@ -345,6 +345,16 @@ class KaijiMemory1: ObservableObject {
     @AppStorage("kaijiEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("kaijiMemoMemory1") var memo = ""
     @AppStorage("kaijiDateMemory1") var dateDouble = 0.0
+    
+    // /////////////////////
+    // 小役、ver271で追加
+    // /////////////////////
+    @AppStorage("kaijiTotalGameMemory1") var totalGame: Int = 0
+    @AppStorage("kaijiKoyakuCountSuikaMemory1") var koyakuCountSuika: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuChanceMemory1") var koyakuCountJakuChance: Int = 0
+    @AppStorage("kaijiKoyakuCountKyoCherryMemory1") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountSumMemory1") var koyakuCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -384,6 +394,16 @@ class KaijiMemory2: ObservableObject {
     @AppStorage("kaijiEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("kaijiMemoMemory2") var memo = ""
     @AppStorage("kaijiDateMemory2") var dateDouble = 0.0
+    
+    // /////////////////////
+    // 小役、ver271で追加
+    // /////////////////////
+    @AppStorage("kaijiTotalGameMemory2") var totalGame: Int = 0
+    @AppStorage("kaijiKoyakuCountSuikaMemory2") var koyakuCountSuika: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuChanceMemory2") var koyakuCountJakuChance: Int = 0
+    @AppStorage("kaijiKoyakuCountKyoCherryMemory2") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountSumMemory2") var koyakuCountSum: Int = 0
 }
 
 
@@ -424,4 +444,14 @@ class KaijiMemory3: ObservableObject {
     @AppStorage("kaijiEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("kaijiMemoMemory3") var memo = ""
     @AppStorage("kaijiDateMemory3") var dateDouble = 0.0
+    
+    // /////////////////////
+    // 小役、ver271で追加
+    // /////////////////////
+    @AppStorage("kaijiTotalGameMemory3") var totalGame: Int = 0
+    @AppStorage("kaijiKoyakuCountSuikaMemory3") var koyakuCountSuika: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountJakuChanceMemory3") var koyakuCountJakuChance: Int = 0
+    @AppStorage("kaijiKoyakuCountKyoCherryMemory3") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("kaijiKoyakuCountSumMemory3") var koyakuCountSum: Int = 0
 }
