@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct magiaViewNormal: View {
+    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -88,6 +89,22 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
+                // //// 参考情報）魔法少女モードについて
+                unitLinkButton(
+                    title: "魔法少女モードについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "魔法少女モード",
+                            textBody1: "・通常時は6種類のモードが存在し、モードによって恩恵を得られる",
+                            textBody2: "・AT当選までモードを維持（いろはモードのみAT非当選のボーナス終了時に移行抽選）",
+                            textBody3: "・ステチェン時のアイキャッチでモードを示唆。キャラの持ち物が弱示唆で、キャラが強示唆となる",
+                            textBody4: "・モンキーターンのライバルモードに近いシステムと思われる",
+                            textBody5: "・スイカからのCZ当選については、さなモード滞在状態を意識しながらカウントするとベター",
+                            tableView: AnyView(magiaTableMode())
+                        )
+                    )
+                )
+                .popoverTip(tipVer271MagiaMagicGirlMode())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
@@ -95,6 +112,11 @@ struct magiaViewNormal: View {
                 Text("スイカからのCZ当選")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+        }
+        .onAppear {
+            if ver271.magiaMenuNormalBadgeStatus != "none" {
+                ver271.magiaMenuNormalBadgeStatus = "none"
+            }
         }
         // //// 画面の向き情報の取得部分
         .onAppear {

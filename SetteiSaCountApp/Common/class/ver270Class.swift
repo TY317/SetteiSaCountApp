@@ -23,14 +23,14 @@ class Ver270: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer270MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・マギアレコード")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer270MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・マギアレコード")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}

@@ -422,7 +422,7 @@ class KaguyaMemory3: ObservableObject {
 
 
 struct kaguyaViewTop: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
     @State var isShowSaveView: Bool = false
@@ -440,8 +440,8 @@ struct kaguyaViewTop: View {
                     NavigationLink(destination: kaguyaViewBonus()) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "ボーナス種類の振分け",
-                            badgeStatus: ver260.kaguyaMenuBonusBadgeStatus
+                            textBody: "ボーナス種類の振分け"
+//                            badgeStatus: ver260.kaguyaMenuBonusBadgeStatus
                         )
                     }
                     // REG中のキャラ紹介
@@ -468,11 +468,11 @@ struct kaguyaViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver260.kaguyaMachineIconBadgeStatus != "none" {
-                ver260.kaguyaMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver260.kaguyaMachineIconBadgeStatus != "none" {
+//                ver260.kaguyaMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

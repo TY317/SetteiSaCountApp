@@ -372,6 +372,10 @@
 		0FD357642DA297D90069BD1A /* magiaViewBigScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357632DA297D90069BD1A /* magiaViewBigScreen.swift */; };
 		0FD357662DA29EA70069BD1A /* magiaViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357652DA29EA70069BD1A /* magiaViewVoice.swift */; };
 		0FD357682DA2A2090069BD1A /* magiaViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357672DA2A2090069BD1A /* magiaViewAtScreen.swift */; };
+		0FD3576A2DA553680069BD1A /* ver271Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357692DA553680069BD1A /* ver271Class.swift */; };
+		0FD3576C2DA7FBB60069BD1A /* magiaTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3576B2DA7FBB60069BD1A /* magiaTableMode.swift */; };
+		0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3576D2DA9E09E0069BD1A /* kaijiViewKoyaku.swift */; };
+		0FD357702DA9EA720069BD1A /* kaijiTableKoyaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3576F2DA9EA720069BD1A /* kaijiTableKoyaku.swift */; };
 		0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC325A2D16435C005B3D06 /* inuyashaViewVoice.swift */; };
 		0FDC325D2D1656D8005B3D06 /* inuyashaViewBigScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC325C2D1656D8005B3D06 /* inuyashaViewBigScreen.swift */; };
 		0FDC325F2D16FD1E005B3D06 /* inuyashaViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC325E2D16FD1E005B3D06 /* inuyashaViewAtScreen.swift */; };
@@ -889,6 +893,10 @@
 		0FD357632DA297D90069BD1A /* magiaViewBigScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewBigScreen.swift; sourceTree = "<group>"; };
 		0FD357652DA29EA70069BD1A /* magiaViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewVoice.swift; sourceTree = "<group>"; };
 		0FD357672DA2A2090069BD1A /* magiaViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewAtScreen.swift; sourceTree = "<group>"; };
+		0FD357692DA553680069BD1A /* ver271Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver271Class.swift; sourceTree = "<group>"; };
+		0FD3576B2DA7FBB60069BD1A /* magiaTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableMode.swift; sourceTree = "<group>"; };
+		0FD3576D2DA9E09E0069BD1A /* kaijiViewKoyaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaijiViewKoyaku.swift; sourceTree = "<group>"; };
+		0FD3576F2DA9EA720069BD1A /* kaijiTableKoyaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaijiTableKoyaku.swift; sourceTree = "<group>"; };
 		0FDC325A2D16435C005B3D06 /* inuyashaViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewVoice.swift; sourceTree = "<group>"; };
 		0FDC325C2D1656D8005B3D06 /* inuyashaViewBigScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewBigScreen.swift; sourceTree = "<group>"; };
 		0FDC325E2D16FD1E005B3D06 /* inuyashaViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewAtScreen.swift; sourceTree = "<group>"; };
@@ -1229,6 +1237,8 @@
 				0FD357212DA0C8400069BD1A /* kaijiViewMode.swift */,
 				0FD357232DA0CDF60069BD1A /* kaijiTableModeStageChange.swift */,
 				0FD3573B2DA2151D0069BD1A /* kaijiViewRedBig.swift */,
+				0FD3576D2DA9E09E0069BD1A /* kaijiViewKoyaku.swift */,
+				0FD3576F2DA9EA720069BD1A /* kaijiTableKoyaku.swift */,
 			);
 			path = kaiji;
 			sourceTree = "<group>";
@@ -1303,6 +1313,7 @@
 				0FD357632DA297D90069BD1A /* magiaViewBigScreen.swift */,
 				0FD357652DA29EA70069BD1A /* magiaViewVoice.swift */,
 				0FD357672DA2A2090069BD1A /* magiaViewAtScreen.swift */,
+				0FD3576B2DA7FBB60069BD1A /* magiaTableMode.swift */,
 			);
 			path = MagiaRecord;
 			sourceTree = "<group>";
@@ -1712,6 +1723,7 @@
 				0F6BD7C72D806725003F5563 /* ver250Class.swift */,
 				0FEC57B92D9179EF00FF1024 /* ver260Class.swift */,
 				0F7F863F2D9EB26400F26486 /* ver270Class.swift */,
+				0FD357692DA553680069BD1A /* ver271Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -2605,6 +2617,7 @@
 				0F868A022D42790E00D952D9 /* goJug3Ver2ViewJissenStartData.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
 				0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */,
+				0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
 				0F868AE42D5F0CCB00D952D9 /* sevenSwordsViewStScreen.swift in Sources */,
@@ -2613,6 +2626,8 @@
 				0F868A342D45CB7100D952D9 /* hanaTenshoVer2View95CiTotal.swift in Sources */,
 				0F8689E02D3C874F00D952D9 /* unitCountButtonVerticalDenominateAnotherDisplayNumber.swift in Sources */,
 				0F868A192D44B6F200D952D9 /* happyJugV3Ver2ViewJissenStartData.swift in Sources */,
+				0FD357702DA9EA720069BD1A /* kaijiTableKoyaku.swift in Sources */,
+				0FD3576A2DA553680069BD1A /* ver271Class.swift in Sources */,
 				0F654BE92C708C2000F37849 /* kingHanaViewTop.swift in Sources */,
 				0F6BD7C82D806725003F5563 /* ver250Class.swift in Sources */,
 				0F25FC642CD3AE920005F971 /* rezero2ViewHistory.swift in Sources */,
@@ -2633,6 +2648,7 @@
 				0F868A412D460E7500D952D9 /* kingHanaVer2ViewJissenStartData.swift in Sources */,
 				0FDC327D2D23DC80005B3D06 /* commonSammyTrophy.swift in Sources */,
 				0FD357362DA159C20069BD1A /* draHanaSenkohTableBellBonus.swift in Sources */,
+				0FD3576C2DA7FBB60069BD1A /* magiaTableMode.swift in Sources */,
 				0FD357302DA14DE30069BD1A /* hanahanaCommonTableBigLump.swift in Sources */,
 				0F868ADC2D5E2E4100D952D9 /* sevenSwordsViewBonus.swift in Sources */,
 				0F6BD7B42D743180003F5563 /* arifureViewHistory.swift in Sources */,
@@ -3016,7 +3032,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7.0;
+				MARKETING_VERSION = 2.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3055,7 +3071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7.0;
+				MARKETING_VERSION = 2.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

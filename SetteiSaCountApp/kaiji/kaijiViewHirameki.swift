@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewHirameki: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert = false
     @State var selectedColor: String = "青"
@@ -168,17 +168,17 @@ struct kaijiViewHirameki: View {
                         )
                     )
                 )
-                .popoverTip(tipVer260KaijiHiramekiTonegawa())
+//                .popoverTip(tipVer260KaijiHiramekiTonegawa())
             } header: {
                 Text("色ごとの成功率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver260.kaijiMenuHiramekiBadgeStatus != "none" {
-                ver260.kaijiMenuHiramekiBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver260.kaijiMenuHiramekiBadgeStatus != "none" {
+//                ver260.kaijiMenuHiramekiBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
