@@ -1,16 +1,16 @@
 //
-//  magiaViewFirstHit.swift
+//  kaijiViewKoyaku.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2025/04/06.
+//  Created by 横田徹 on 2025/04/12.
 //
 
 import SwiftUI
 
-struct magiaViewFirstHit: View {
+struct kaijiViewKoyaku: View {
     @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
-    @State var isShowAlert: Bool = false
+    @ObservedObject var kaiji = Kaiji()
+    @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -24,13 +24,13 @@ struct magiaViewFirstHit: View {
     var body: some View {
         List {
             Section {
-                Text("ユニメモを参考に入力してください")
+                Text("マイスロを参考に入力してください")
                     .foregroundStyle(Color.secondary)
                     .font(.caption)
-                // 通常プレイ数
+                // ゲーム数
                 unitTextFieldNumberInputWithUnit(
-                    title: "通常プレイ数",
-                    inputValue: $magia.normalPlayGame,
+                    title: "ゲーム数",
+                    inputValue: $kaiji.totalGame,
                     unitText: "Ｇ"
                 )
                 .focused($isFocused)
@@ -47,101 +47,67 @@ struct magiaViewFirstHit: View {
                         }
                     }
                 }
-                // ビッグ
+                // スイカ
                 unitTextFieldNumberInputWithUnit(
-                    title: "ビッグボーナス",
-                    inputValue: $magia.bonusCountBig
+                    title: "スイカ",
+                    inputValue: $kaiji.koyakuCountSuika
                 )
                 .focused($isFocused)
-                // ミタマ
+                // チェリー
                 unitTextFieldNumberInputWithUnit(
-                    title: "みたまボーナス",
-                    inputValue: $magia.bonusCountMitama
+                    title: "チェリー",
+                    inputValue: $kaiji.koyakuCountJakuCherry
                 )
                 .focused($isFocused)
-                // エピソード
+                // チャンス目
                 unitTextFieldNumberInputWithUnit(
-                    title: "エピソードボーナス",
-                    inputValue: $magia.bonusCountEpisode
+                    title: "チャンス目",
+                    inputValue: $kaiji.koyakuCountJakuChance
                 )
                 .focused($isFocused)
-                // ビッグ
+                // 強チェリー
                 unitTextFieldNumberInputWithUnit(
-                    title: "マギアラッシュ",
-                    inputValue: $magia.atCount
+                    title: "強チェリー",
+                    inputValue: $kaiji.koyakuCountKyoCherry
                 )
                 .focused($isFocused)
-                
-                // //// 確率
-                HStack {
-                    // ボーナス合算
-                    unitResultRatioDenomination2Line(
-                        title: "ボーナス合算",
-                        count: $magia.bonusCountSum,
-                        bigNumber: $magia.normalPlayGame,
-                        numberofDicimal: 0
-                    )
-                    // ボーナス合算
-                    unitResultRatioDenomination2Line(
-                        title: "AT",
-                        count: $magia.atCount,
-                        bigNumber: $magia.normalPlayGame,
-                        numberofDicimal: 0
-                    )
-                }
-                .popoverTip(tipVer271MagiaFirstHit())
-                
-                // //// 参考情報）初当り確率
+                // 合算確率
+                unitResultRatioDenomination2Line(
+                    title: "合算",
+                    count: $kaiji.koyakuCountSum,
+                    bigNumber: $kaiji.totalGame,
+                    numberofDicimal: 1
+                )
+                .popoverTip(tipVer271KaijiKoyaku())
+                // //// 参考情報）小役確率
                 unitLinkButton(
-                    title: "初当り確率",
+                    title: "小役確率",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "初当り確率",
-                            tableView: AnyView(magiaTableFirstHit())
+                            title: "小役確率",
+                            tableView: AnyView(kaijiTableKoyaku())
                         )
                     )
                 )
-                // //// 参考情報）直撃の情報
+                // //// 参考情報）小役停止形
                 unitLinkButton(
-                    title: "AT直撃について",
+                    title: "小役停止形",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "AT直撃",
-                            textBody1: "・今作もAT直撃は高設定ほど優遇されている"
+                            title: "小役停止形",
+                            image1: Image("kaijiKoyakuStyle")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
-            } header: {
-                Text("初当り")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
-//            // //// 参考情報）初当り確率
-//            unitLinkButton(
-//                title: "初当り確率",
-//                exview: AnyView(
-//                    unitExView5body2image(
-//                        title: "初当り確率",
-//                        tableView: AnyView(magiaTableFirstHit())
-//                    )
-//                )
-//            )
-//            // //// 参考情報）直撃の情報
-//            unitLinkButton(
-//                title: "AT直撃について",
-//                exview: AnyView(
-//                    unitExView5body2image(
-//                        title: "AT直撃",
-//                        textBody1: "・今作もAT直撃は高設定ほど優遇されている"
-//                    )
-//                )
-//            )
         }
         .onAppear {
-            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
-                ver271.magiaMenuFirstHitBadgeStatus = "none"
+            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
+                ver271.kaijiMenuKoyakuBadgeStatus = "none"
             }
         }
         // //// 画面の向き情報の取得部分
@@ -185,15 +151,15 @@ struct magiaViewFirstHit: View {
             // ビューが非表示になるときに監視を解除
             NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
-        .navigationTitle("ボーナス,AT 初当り")
+        .navigationTitle("小役")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    // マイナスチェック
-//                    unitButtonMinusCheck(minusCheck: $magia.minusCheck)
+//                    // マイナスチェック
+//                    unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetFirstHit)
+                    unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetKoyaku)
                 }
             }
         }
@@ -201,5 +167,5 @@ struct magiaViewFirstHit: View {
 }
 
 #Preview {
-    magiaViewFirstHit()
+    kaijiViewKoyaku()
 }

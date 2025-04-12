@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 struct kaijiViewScreen: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
@@ -113,7 +113,7 @@ struct kaijiViewScreen: View {
                             minusCheck: $kaiji.minusCheck
                         )
                     }
-                    .popoverTip(tipVer260KaijiScreen())
+//                    .popoverTip(tipVer260KaijiScreen())
                 }
                 .frame(height: 120)
                 
@@ -181,11 +181,11 @@ struct kaijiViewScreen: View {
                 )
             }
         }
-        .onAppear {
-            if ver260.kaijiMenuScreenBadgeStatus != "none" {
-                ver260.kaijiMenuScreenBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver260.kaijiMenuScreenBadgeStatus != "none" {
+//                ver260.kaijiMenuScreenBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

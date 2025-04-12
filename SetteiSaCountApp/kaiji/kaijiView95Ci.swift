@@ -14,6 +14,23 @@ struct kaijiView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 小役合算回数
+            unitListSection95Ci(
+                grafTitle: "小役合算回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kaiji.koyakuCountSum,
+                        bigNumber: $kaiji.totalGame,
+                        setting1Denominate: kaiji.ratioKoyakuSum[0],
+                        setting2Denominate: kaiji.ratioKoyakuSum[1],
+                        setting3Denominate: kaiji.ratioKoyakuSum[2],
+                        setting4Denominate: kaiji.ratioKoyakuSum[3],
+                        setting5Denominate: kaiji.ratioKoyakuSum[4],
+                        setting6Denominate: kaiji.ratioKoyakuSum[5]
+                    )
+                )
+            )
+            .tag(4)
             // ざわ高確移行
             unitListSection95Ci(
                 grafTitle: "弱レア役からのざわ高確移行回数",

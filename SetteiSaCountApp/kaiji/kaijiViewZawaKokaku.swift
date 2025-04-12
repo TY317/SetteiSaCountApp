@@ -57,6 +57,16 @@ struct kaijiViewZawaKokaku: View {
                         )
                     )
                 )
+                // //// 参考情報）小役停止形
+                unitLinkButton(
+                    title: "小役停止形",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "小役停止形",
+                            image1: Image("kaijiKoyakuStyle")
+                        )
+                    )
+                )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())

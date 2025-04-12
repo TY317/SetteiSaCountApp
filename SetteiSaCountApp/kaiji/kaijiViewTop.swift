@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct kaijiViewTop: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var ver270 = Ver270()
+    @ObservedObject var ver271 = Ver271()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     
@@ -17,12 +18,29 @@ struct kaijiViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 注意事項
+                    Text("マイスロの利用を前提としています\n遊技前にマイスロを開始してください")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                } header: {
+                    unitLabelMachineTopTitle(machineName: "回胴黙示録カイジ 狂宴")
+                }
+                
+                Section {
                     // 通常時モード
                     NavigationLink(destination: kaijiViewMode()) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "モード推測",
                             badgeStatus: ver270.kaijiMenuModeBadgeStatus
+                        )
+                    }
+                    // 小役
+                    NavigationLink(destination: kaijiViewKoyaku()) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "小役",
+                            badgeStatus: ver271.kaijiMenuKoyakuBadgeStatus
                         )
                     }
                     // ざわ高確
@@ -36,8 +54,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewHirameki()) {
                         unitLabelMenu(
                             imageSystemName: "lightbulb.max",
-                            textBody: "閃き前兆",
-                            badgeStatus: ver260.kaijiMenuHiramekiBadgeStatus
+                            textBody: "閃き前兆"
+//                            badgeStatus: ver260.kaijiMenuHiramekiBadgeStatus
                         )
                     }
                     // CZ,AT初当り
@@ -58,8 +76,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面",
-                            badgeStatus: ver260.kaijiMenuScreenBadgeStatus
+                            textBody: "ボーナス終了画面"
+//                            badgeStatus: ver260.kaijiMenuScreenBadgeStatus
                         )
                     }
                     // エンディング
@@ -77,10 +95,10 @@ struct kaijiViewTop: View {
                         )
                     }
                 } header: {
-                    unitLabelMachineTopTitle(machineName: "回胴黙示録カイジ 狂宴")
+//                    unitLabelMachineTopTitle(machineName: "回胴黙示録カイジ 狂宴")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: kaijiView95Ci()) {
+                NavigationLink(destination: kaijiView95Ci(selection: 4)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -89,8 +107,8 @@ struct kaijiViewTop: View {
             }
         }
         .onAppear {
-            if ver270.kaijiMachineIconBadgeStatus != "none" {
-                ver270.kaijiMachineIconBadgeStatus = "none"
+            if ver271.kaijiMachineIconBadgeStatus != "none" {
+                ver271.kaijiMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")

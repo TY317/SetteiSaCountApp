@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct rslViewTop: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var rsl = Rsl()
     @State var isShowAlert: Bool = false
     
@@ -57,11 +57,11 @@ struct rslViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver260.rslMachineIconBadgeStatus != "none" {
-                ver260.rslMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver260.rslMachineIconBadgeStatus != "none" {
+//                ver260.rslMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

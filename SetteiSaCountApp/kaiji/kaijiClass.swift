@@ -262,7 +262,49 @@ class Kaiji: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetEnding()
+        resetKoyaku()
     }
+    
+    // /////////////////////
+    // 小役、ver280で追加
+    // /////////////////////
+    @AppStorage("kaijiTotalGame") var totalGame: Int = 0
+    @AppStorage("kaijiKoyakuCountSuika") var koyakuCountSuika: Int = 0 {
+        didSet {
+            koyakuCountSum = countSum(koyakuCountSuika, koyakuCountJakuCherry, koyakuCountJakuChance, koyakuCountKyoCherry)
+        }
+    }
+        @AppStorage("kaijiKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0 {
+            didSet {
+                koyakuCountSum = countSum(koyakuCountSuika, koyakuCountJakuCherry, koyakuCountJakuChance, koyakuCountKyoCherry)
+            }
+        }
+            @AppStorage("kaijiKoyakuCountJakuChance") var koyakuCountJakuChance: Int = 0 {
+                didSet {
+                    koyakuCountSum = countSum(koyakuCountSuika, koyakuCountJakuCherry, koyakuCountJakuChance, koyakuCountKyoCherry)
+                }
+            }
+                @AppStorage("kaijiKoyakuCountKyoCherry") var koyakuCountKyoCherry: Int = 0 {
+                    didSet {
+                        koyakuCountSum = countSum(koyakuCountSuika, koyakuCountJakuCherry, koyakuCountJakuChance, koyakuCountKyoCherry)
+                    }
+                }
+    @AppStorage("kaijiKoyakuCountSum") var koyakuCountSum: Int = 0
+    let ratioKoyakuSuika: [Double] = [79.9, 79.0, 78.0, 77.1, 75.3, 72.8]
+    let ratioKoyakuJakuCherry: [Double] = [218.5, 211.4, 204.8, 198.6, 187.2, 182.0]
+    let ratioKoyakuJakuChance: [Double] = [84.0, 81.9, 79.9, 79.0, 78.0, 77.1]
+    let ratioKoyakuKyoCherry: [Double] = [528.5, 512.0, 496.5, 481.9, 468.1, 455.1]
+    let ratioKoyakuSum: [Double] = [32.37, 31.69, 31.02, 30.54, 29.78, 29.07]
+    
+    func resetKoyaku() {
+        totalGame = 0
+        koyakuCountSuika = 0
+        koyakuCountJakuCherry = 0
+        koyakuCountJakuChance = 0
+        koyakuCountKyoCherry = 0
+        minusCheck = false
+    }
+    
 }
 
 

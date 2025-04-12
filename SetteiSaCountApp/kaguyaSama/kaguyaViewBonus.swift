@@ -40,7 +40,7 @@ struct kaguyaTipBigCount: Tip {
 }
 
 struct kaguyaViewBonus: View {
-    @ObservedObject var ver260 = Ver260()
+//    @ObservedObject var ver260 = Ver260()
     @ObservedObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -88,7 +88,7 @@ struct kaguyaViewBonus: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer260KaguyaBonus())
+//                .popoverTip(tipVer260KaguyaBonus())
                 // //// カウントボタン
                 // 3連
                 if self.selectedRenchan == self.renchanList[0] {
@@ -199,11 +199,11 @@ struct kaguyaViewBonus: View {
             // //// 空スペース
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
-        .onAppear {
-            if ver260.kaguyaMenuBonusBadgeStatus != "none" {
-                ver260.kaguyaMenuBonusBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver260.kaguyaMenuBonusBadgeStatus != "none" {
+//                ver260.kaguyaMenuBonusBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

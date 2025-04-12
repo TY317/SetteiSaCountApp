@@ -17,6 +17,7 @@ struct magiaView95Ci: View {
             // スイカからのCZ当選回数
             unitListSection95Ci(
                 grafTitle: "スイカからのCZ当選回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $magia.suikaCzCountCz,
@@ -31,6 +32,40 @@ struct magiaView95Ci: View {
                 )
             )
             .tag(1)
+            // ボーナス合算回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス合算回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $magia.bonusCountSum,
+                        bigNumber: $magia.normalPlayGame,
+                        setting1Denominate: magia.ratioBonus[0],
+                        setting2Denominate: magia.ratioBonus[1],
+                        setting3Denominate: magia.ratioBonus[2],
+                        setting4Denominate: magia.ratioBonus[3],
+                        setting5Denominate: magia.ratioBonus[4],
+                        setting6Denominate: magia.ratioBonus[5]
+                    )
+                )
+            )
+            .tag(2)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $magia.atCount,
+                        bigNumber: $magia.normalPlayGame,
+                        setting1Denominate: magia.ratioAt[0],
+                        setting2Denominate: magia.ratioAt[1],
+                        setting3Denominate: magia.ratioAt[2],
+                        setting4Denominate: magia.ratioAt[3],
+                        setting5Denominate: magia.ratioAt[4],
+                        setting6Denominate: magia.ratioAt[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

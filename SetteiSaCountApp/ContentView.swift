@@ -87,8 +87,8 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver260 = Ver260()
     @ObservedObject var ver270 = Ver270()
+    @ObservedObject var ver271 = Ver271()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -141,9 +141,9 @@ struct ContentView: View {
                                         linkView: AnyView(magiaViewTop()),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver270.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver271.magiaMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer270MachineAdd())
+//                                        .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -153,8 +153,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(rslViewTop()),
                                         iconImage: Image("rslMachineIcon"),
-                                        machineName: "レビュースタァライト",
-                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                        machineName: "レビュースタァライト"
+//                                        badgeStatus: ver260.rslMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer260MachineAdd())
                                 }
@@ -180,7 +180,7 @@ struct ContentView: View {
                                         linkView: AnyView(kaijiViewTop()),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴",
-                                        badgeStatus: ver270.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver271.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -308,8 +308,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaguyaViewTop()),
                                         iconImage: Image("kaguyaMachineIcon"),
-                                        machineName: "かぐや様",
-                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        machineName: "かぐや様"
+//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -429,9 +429,9 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver270.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver271.magiaMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer270MachineAdd())
+//                                    .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -444,8 +444,8 @@ struct ContentView: View {
                                         machineName: "レビュースタァライト",
                                         makerName: "オーイズミ",
                                         releaseYear: 2025,
-                                        releaseMonth: 3,
-                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                        releaseMonth: 3
+//                                        badgeStatus: ver260.rslMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer260MachineAdd())
                                 }
@@ -477,7 +477,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver270.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver271.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -668,8 +668,8 @@ struct ContentView: View {
                                         machineName: "かぐや様は告らせたい",
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
-                                        releaseMonth: 9,
-                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        releaseMonth: 9
+//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
