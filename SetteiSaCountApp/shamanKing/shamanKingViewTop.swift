@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct shamanKingViewTop: View {
-    @ObservedObject var ver270 = Ver270()
+//    @ObservedObject var ver270 = Ver270()
     @ObservedObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     
@@ -36,8 +36,8 @@ struct shamanKingViewTop: View {
                     NavigationLink(destination: shamanKingViewCzFuriwake()) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "CZ当選時の振分け",
-                            badgeStatus: ver270.shamanKingMenuCzFuriwakeBadgeStatus
+                            textBody: "CZ当選時の振分け"
+//                            badgeStatus: ver270.shamanKingMenuCzFuriwakeBadgeStatus
                         )
                     }
                     // 憑依合体バトル
@@ -85,11 +85,11 @@ struct shamanKingViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver270.shamanKingMachineIconBadgeStatus != "none" {
-                ver270.shamanKingMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver270.shamanKingMachineIconBadgeStatus != "none" {
+//                ver270.shamanKingMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

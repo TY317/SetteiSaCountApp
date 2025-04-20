@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct sevenSwordsViewVoiceCustom: View {
-    @ObservedObject var ver270 = Ver270()
+//    @ObservedObject var ver270 = Ver270()
     
     var body: some View {
         List {
@@ -48,11 +48,11 @@ struct sevenSwordsViewVoiceCustom: View {
                 )
             })
         }
-        .onAppear {
-            if ver270.sevenSwordsMenuVoiceBadgeStatus != "none" {
-                ver270.sevenSwordsMenuVoiceBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver270.sevenSwordsMenuVoiceBadgeStatus != "none" {
+//                ver270.sevenSwordsMenuVoiceBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ボイスカスタムでの示唆")
         .navigationBarTitleDisplayMode(.inline)
     }

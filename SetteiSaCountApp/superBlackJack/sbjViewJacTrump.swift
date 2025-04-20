@@ -21,7 +21,8 @@ struct sbjViewJacTrump: View {
                         title: "トランプでの示唆",
                         textBody1: "・ALL設定バトルの結果を見るとミントの出現率が設定1・2と5・6で差があった",
                         textBody2: "・リオ、リナは低設定でも複数回出ていたので過信は禁物",
-                        image1: Image("sbjJacTrump")
+                        tableView: AnyView(sbjTableTrump())
+//                        image1: Image("sbjJacTrump")
                     )
                 )
             )

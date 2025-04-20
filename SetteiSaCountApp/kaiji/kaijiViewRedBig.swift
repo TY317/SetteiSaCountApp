@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewRedBig: View {
-    @ObservedObject var ver270 = Ver270()
+//    @ObservedObject var ver270 = Ver270()
     var body: some View {
         List {
             Text("赤7BIG中 1回目のBAR揃いの恩恵に設定差あり")
@@ -39,11 +39,11 @@ struct kaijiViewRedBig: View {
                 )
             }
         }
-        .onAppear {
-            if ver270.kaijiMenuRedBigBadgeStatus != "none" {
-                ver270.kaijiMenuRedBigBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver270.kaijiMenuRedBigBadgeStatus != "none" {
+//                ver270.kaijiMenuRedBigBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("赤7BIG中のBAR揃い")
         .navigationBarTitleDisplayMode(.inline)
     }

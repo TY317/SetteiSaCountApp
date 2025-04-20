@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct shamanKingViewCzFuriwake: View {
-    @ObservedObject var ver270 = Ver270()
+//    @ObservedObject var ver270 = Ver270()
     @ObservedObject var shamanKing = ShamanKing()
     @State var isShowAlert = false
     let selectListPt: [String] = [
@@ -138,11 +138,11 @@ struct shamanKingViewCzFuriwake: View {
                 Text("前兆移行時の憑依ポイント別カウント")
             }
         }
-        .onAppear {
-            if ver270.shamanKingMenuCzFuriwakeBadgeStatus != "none" {
-                ver270.shamanKingMenuCzFuriwakeBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver270.shamanKingMenuCzFuriwakeBadgeStatus != "none" {
+//                ver270.shamanKingMenuCzFuriwakeBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("CZ当選時の振分け")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

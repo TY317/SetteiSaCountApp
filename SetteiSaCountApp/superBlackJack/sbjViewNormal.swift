@@ -71,8 +71,9 @@ struct sbjViewNormal: View {
                             textBody2: "・主に3つの契機で移行抽選\n　　・規定ゲーム数\n　　・レア役\n　　・小役連続",
                             textBody3: "・規定ゲーム数は100と百の位が偶数のゾーンがチャンス。高設定ほど規定ゲーム数での移行が優遇されている",
                             textBody4: "・小役は3連以上でチャンス。小役連時はプッシュボタンのサイドランプを要チェック",
-                            image1Title: "[規定ゲーム数での移行]",
-                            image1: Image("sbjKiteiGame")
+                            tableView: AnyView(sbjTableKokakuKiteiGame())
+//                            image1Title: "[規定ゲーム数での移行]",
+//                            image1: Image("sbjKiteiGame")
                         )
                     )
                 )
@@ -94,7 +95,8 @@ struct sbjViewNormal: View {
                         unitExView5body2image(
                             title: "ハワイステージでの設定示唆",
                             textBody1: "ハワイステージ滞在中に設定を示唆する演出が発生する場合あり",
-                            image1: Image("sbjHawaiiSisa")
+                            tableView: AnyView(sbjTableHawaiiStage())
+//                            image1: Image("sbjHawaiiSisa")
                         )
                     )
                 )
@@ -139,7 +141,8 @@ struct sbjViewNormal: View {
                             title: "通常モード中チャンス目",
                             textBody1: "・通常モード中チャンス目からのボーナス高確移行とボーナス直撃に設定差あり",
                             textBody2: "・モードを完全に見抜くことはできないと思われるが、チャイナ以上は別抽選の可能性高いため、通常ステージ中のチャンス目のみを対象とするのが無難かも",
-                            image1: Image("sbjNormalChance")
+                            tableView: AnyView(sbjTableNormalChance())
+//                            image1: Image("sbjNormalChance")
                         )
                     )
                 )
@@ -303,7 +306,8 @@ struct sbjViewNormal: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            image1: Image("sbjHitRatio")
+                            tableView: AnyView(sbjTableFirstHit())
+//                            image1: Image("sbjHitRatio")
                         )
                     )
                 )
@@ -324,9 +328,10 @@ struct sbjViewNormal: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "レア役確率",
-                            textBody1: "・設定1のみ数値が公表されている",
-                            textBody2: "・発表の仕方的に設定差ある可能性高いと思われる",
-                            image1: Image("sbjKoyakuRatio")
+//                            textBody1: "・設定1のみ数値が公表されている",
+//                            textBody2: "・発表の仕方的に設定差ある可能性高いと思われる",
+                            tableView: AnyView(sbjTableKoyakuRatio())
+//                            image1: Image("sbjKoyakuRatio")
                         )
                     )
                 )

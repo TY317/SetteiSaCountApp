@@ -21,7 +21,8 @@ struct sbjViewEndScreen: View {
                         title: "終了画面",
                         textBody1: "・ボーナス終了時のサブ液晶で示唆画面",
                         textBody2: "・エピソードボーナス中のレア役時も示唆画面が出る",
-                        image1: Image("sbjEndScreen")
+                        tableView: AnyView(sbjTableEndScreen())
+//                        image1: Image("sbjEndScreen")
                     )
                 )
             )
