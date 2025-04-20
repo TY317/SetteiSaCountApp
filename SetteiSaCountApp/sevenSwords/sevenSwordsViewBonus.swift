@@ -55,7 +55,8 @@ struct sevenSwordsViewBonus: View {
                             textBody2: "・規定ゲーム数は100/250/450/650/1000",
                             textBody3: "・250Gでのボーナス当選に設定差があるらしい",
                             textBody4: "・独自集計で250〜290Gでの当選は25％。これを超えてくるのが高設定の目安かも。\n※あくまで独自集計値なので参考程度",
-                            image1: Image("sevenSwords250HitRatio")
+                            tableView: AnyView(sevenSwordsTable250Hit())
+//                            image1: Image("sevenSwords250HitRatio")
                         )
                     )
                 )
@@ -130,7 +131,8 @@ struct sevenSwordsViewBonus: View {
                         unitExView5body2image(
                             title: "初当り確率",
                             textBody1: "・e-slot+ではST確率が総ゲーム数から算出されていますが、本アプリでは通常ゲーム数から算出しています。",
-                            image1: Image("sevenSwordsHitRatio")
+                            tableView: AnyView(sevenSwordsTableFirstHit())
+//                            image1: Image("sevenSwordsHitRatio")
                         )
                     )
                 )

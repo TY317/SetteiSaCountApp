@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewTop: View {
-    @ObservedObject var ver270 = Ver270()
+    @ObservedObject var ver280 = Ver280()
     @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert: Bool = false
@@ -64,6 +64,30 @@ struct magiaViewTop: View {
                             badgeStatus: ver271.magiaMenuAtScreenBadgeStatus
                         )
                     }
+                    // ボーナス,AT後の高確スタート
+                    NavigationLink(destination: magiaViewKokakuStart()) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "ビッグ,AT後の高確スタート",
+                            badgeStatus: ver280.magiaKokakuStartBadgeStatus
+                        )
+                    }
+                    // ストーリーのキャラ紹介
+                    NavigationLink(destination: magiaViewStoryChara()) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "ストーリーのキャラ紹介",
+                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
+                        )
+                    }
+                    // エンディング
+                    NavigationLink(destination: magiaViewEnding()) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
+                        )
+                    }
                 }
                 // 設定推測グラフ
                 NavigationLink(destination: magiaView95Ci()) {
@@ -75,8 +99,8 @@ struct magiaViewTop: View {
             }
         }
         .onAppear {
-            if ver271.magiaMachineIconBadgeStatus != "none" {
-                ver271.magiaMachineIconBadgeStatus = "none"
+            if ver280.magiaMachineIconBadgeStatus != "none" {
+                ver280.magiaMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -143,6 +167,20 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory1.atScreenCount356 = magia.atScreenCount356
         magiaMemory1.atScreenCount246 = magia.atScreenCount246
         magiaMemory1.atScreenCountSum = magia.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magiaMemory1.kokakuStartAfterAtCountNone = magia.kokakuStartAfterAtCountNone
+        magiaMemory1.kokakuStartAfterAtCountHit = magia.kokakuStartAfterAtCountHit
+        magiaMemory1.kokakuStartAfterAtCountSum = magia.kokakuStartAfterAtCountSum
+        magiaMemory1.kokakuStartAfterBonusCountNone = magia.kokakuStartAfterBonusCountNone
+        magiaMemory1.kokakuStartAfterBonusCountHit = magia.kokakuStartAfterBonusCountHit
+        magiaMemory1.kokakuStartAfterBonusCountSum = magia.kokakuStartAfterBonusCountSum
+        magiaMemory1.endingCountKisu = magia.endingCountKisu
+        magiaMemory1.endingCountGusu = magia.endingCountGusu
+        magiaMemory1.endingCountHigh = magia.endingCountHigh
+        magiaMemory1.endingCountSum = magia.endingCountSum
     }
     func saveMemory2() {
         magiaMemory2.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -163,6 +201,20 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory2.atScreenCount356 = magia.atScreenCount356
         magiaMemory2.atScreenCount246 = magia.atScreenCount246
         magiaMemory2.atScreenCountSum = magia.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magiaMemory2.kokakuStartAfterAtCountNone = magia.kokakuStartAfterAtCountNone
+        magiaMemory2.kokakuStartAfterAtCountHit = magia.kokakuStartAfterAtCountHit
+        magiaMemory2.kokakuStartAfterAtCountSum = magia.kokakuStartAfterAtCountSum
+        magiaMemory2.kokakuStartAfterBonusCountNone = magia.kokakuStartAfterBonusCountNone
+        magiaMemory2.kokakuStartAfterBonusCountHit = magia.kokakuStartAfterBonusCountHit
+        magiaMemory2.kokakuStartAfterBonusCountSum = magia.kokakuStartAfterBonusCountSum
+        magiaMemory2.endingCountKisu = magia.endingCountKisu
+        magiaMemory2.endingCountGusu = magia.endingCountGusu
+        magiaMemory2.endingCountHigh = magia.endingCountHigh
+        magiaMemory2.endingCountSum = magia.endingCountSum
     }
     func saveMemory3() {
         magiaMemory3.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -183,6 +235,20 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory3.atScreenCount356 = magia.atScreenCount356
         magiaMemory3.atScreenCount246 = magia.atScreenCount246
         magiaMemory3.atScreenCountSum = magia.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magiaMemory3.kokakuStartAfterAtCountNone = magia.kokakuStartAfterAtCountNone
+        magiaMemory3.kokakuStartAfterAtCountHit = magia.kokakuStartAfterAtCountHit
+        magiaMemory3.kokakuStartAfterAtCountSum = magia.kokakuStartAfterAtCountSum
+        magiaMemory3.kokakuStartAfterBonusCountNone = magia.kokakuStartAfterBonusCountNone
+        magiaMemory3.kokakuStartAfterBonusCountHit = magia.kokakuStartAfterBonusCountHit
+        magiaMemory3.kokakuStartAfterBonusCountSum = magia.kokakuStartAfterBonusCountSum
+        magiaMemory3.endingCountKisu = magia.endingCountKisu
+        magiaMemory3.endingCountGusu = magia.endingCountGusu
+        magiaMemory3.endingCountHigh = magia.endingCountHigh
+        magiaMemory3.endingCountSum = magia.endingCountSum
     }
 }
 
@@ -232,6 +298,20 @@ struct magiaSubViewLoadMemory: View {
         magia.atScreenCount356 = magiaMemory1.atScreenCount356
         magia.atScreenCount246 = magiaMemory1.atScreenCount246
         magia.atScreenCountSum = magiaMemory1.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magia.kokakuStartAfterAtCountNone = magiaMemory1.kokakuStartAfterAtCountNone
+        magia.kokakuStartAfterAtCountHit = magiaMemory1.kokakuStartAfterAtCountHit
+        magia.kokakuStartAfterAtCountSum = magiaMemory1.kokakuStartAfterAtCountSum
+        magia.kokakuStartAfterBonusCountNone = magiaMemory1.kokakuStartAfterBonusCountNone
+        magia.kokakuStartAfterBonusCountHit = magiaMemory1.kokakuStartAfterBonusCountHit
+        magia.kokakuStartAfterBonusCountSum = magiaMemory1.kokakuStartAfterBonusCountSum
+        magia.endingCountKisu = magiaMemory1.endingCountKisu
+        magia.endingCountGusu = magiaMemory1.endingCountGusu
+        magia.endingCountHigh = magiaMemory1.endingCountHigh
+        magia.endingCountSum = magiaMemory1.endingCountSum
     }
     func loadMemory2() {
         magia.suikaCzCountSuika = magiaMemory2.suikaCzCountSuika
@@ -252,6 +332,20 @@ struct magiaSubViewLoadMemory: View {
         magia.atScreenCount356 = magiaMemory2.atScreenCount356
         magia.atScreenCount246 = magiaMemory2.atScreenCount246
         magia.atScreenCountSum = magiaMemory2.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magia.kokakuStartAfterAtCountNone = magiaMemory2.kokakuStartAfterAtCountNone
+        magia.kokakuStartAfterAtCountHit = magiaMemory2.kokakuStartAfterAtCountHit
+        magia.kokakuStartAfterAtCountSum = magiaMemory2.kokakuStartAfterAtCountSum
+        magia.kokakuStartAfterBonusCountNone = magiaMemory2.kokakuStartAfterBonusCountNone
+        magia.kokakuStartAfterBonusCountHit = magiaMemory2.kokakuStartAfterBonusCountHit
+        magia.kokakuStartAfterBonusCountSum = magiaMemory2.kokakuStartAfterBonusCountSum
+        magia.endingCountKisu = magiaMemory2.endingCountKisu
+        magia.endingCountGusu = magiaMemory2.endingCountGusu
+        magia.endingCountHigh = magiaMemory2.endingCountHigh
+        magia.endingCountSum = magiaMemory2.endingCountSum
     }
     func loadMemory3() {
         magia.suikaCzCountSuika = magiaMemory3.suikaCzCountSuika
@@ -272,6 +366,20 @@ struct magiaSubViewLoadMemory: View {
         magia.atScreenCount356 = magiaMemory3.atScreenCount356
         magia.atScreenCount246 = magiaMemory3.atScreenCount246
         magia.atScreenCountSum = magiaMemory3.atScreenCountSum
+        
+        // ///////////////////////
+        // ver2.8.0で追加
+        // ///////////////////////
+        magia.kokakuStartAfterAtCountNone = magiaMemory3.kokakuStartAfterAtCountNone
+        magia.kokakuStartAfterAtCountHit = magiaMemory3.kokakuStartAfterAtCountHit
+        magia.kokakuStartAfterAtCountSum = magiaMemory3.kokakuStartAfterAtCountSum
+        magia.kokakuStartAfterBonusCountNone = magiaMemory3.kokakuStartAfterBonusCountNone
+        magia.kokakuStartAfterBonusCountHit = magiaMemory3.kokakuStartAfterBonusCountHit
+        magia.kokakuStartAfterBonusCountSum = magiaMemory3.kokakuStartAfterBonusCountSum
+        magia.endingCountKisu = magiaMemory3.endingCountKisu
+        magia.endingCountGusu = magiaMemory3.endingCountGusu
+        magia.endingCountHigh = magiaMemory3.endingCountHigh
+        magia.endingCountSum = magiaMemory3.endingCountSum
     }
 }
 

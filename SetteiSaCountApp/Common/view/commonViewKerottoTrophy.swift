@@ -26,9 +26,26 @@ struct commonViewKerottoTrophy: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
-            Image("commonKerottoTrophy")
-                .resizable()
-                .scaledToFit()
+            HStack(spacing: 0) {
+                unitTableString(
+                    columTitle: "トロフィー色",
+                    stringList: ["銅","銀","金","ケロット柄","虹"]
+                )
+                unitTableString(
+                    columTitle: "示唆",
+                    stringList: [
+                        "設定2 以上濃厚",
+                        "設定3 以上濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定6 濃厚"
+                    ],
+                    maxWidth: 200
+                )
+            }
+//            Image("commonKerottoTrophy")
+//                .resizable()
+//                .scaledToFit()
             if let textBodyAfterImage1 = textBodyAfterImage1 {
                 Text(textBodyAfterImage1)
                     .frame(maxWidth: .infinity, alignment: .leading)

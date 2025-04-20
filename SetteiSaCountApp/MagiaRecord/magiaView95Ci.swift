@@ -66,6 +66,42 @@ struct magiaView95Ci: View {
                 )
             )
             .tag(3)
+            // ビッグ後の高確スタート回数
+            unitListSection95Ci(
+                grafTitle: "高確スタート回数\nビッグ後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $magia.kokakuStartAfterBonusCountHit,
+                        bigNumber: $magia.kokakuStartAfterBonusCountSum,
+                        setting1Percent: magia.ratioKokakuStartAfterBonusTotal[0],
+                        setting2Percent: magia.ratioKokakuStartAfterBonusTotal[1],
+                        setting3Percent: magia.ratioKokakuStartAfterBonusTotal[2],
+                        setting4Percent: magia.ratioKokakuStartAfterBonusTotal[3],
+                        setting5Percent: magia.ratioKokakuStartAfterBonusTotal[4],
+                        setting6Percent: magia.ratioKokakuStartAfterBonusTotal[5]
+                    )
+                )
+            )
+            .tag(4)
+            // AT後の高確スタート回数
+            unitListSection95Ci(
+                grafTitle: "高確スタート回数\nAT後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $magia.kokakuStartAfterAtCountHit,
+                        bigNumber: $magia.kokakuStartAfterAtCountSum,
+                        setting1Percent: magia.ratioKokakuStartAfterAtTotal[0],
+                        setting2Percent: magia.ratioKokakuStartAfterAtTotal[1],
+                        setting3Percent: magia.ratioKokakuStartAfterAtTotal[2],
+                        setting4Percent: magia.ratioKokakuStartAfterAtTotal[3],
+                        setting5Percent: magia.ratioKokakuStartAfterAtTotal[4],
+                        setting6Percent: magia.ratioKokakuStartAfterAtTotal[5]
+                    )
+                )
+            )
+            .tag(5)
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

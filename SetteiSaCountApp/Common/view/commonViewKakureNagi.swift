@@ -14,13 +14,42 @@ struct commonViewKakureNagi: View {
 //                .foregroundStyle(.secondary)
             Text("打-WINで設定示唆セリフが出現することがある")
                 .foregroundStyle(.secondary)
+                .font(.caption)
             Text("1000G消化ごとに出現抽選されるため、定期的にチェックを推奨")
                 .foregroundStyle(.secondary)
+                .font(.caption)
             Text("セリフの色で設定を示唆")
                 .foregroundStyle(.secondary)
-            Image("commonKakureNagi")
-                .resizable()
-                .scaledToFit()
+                .font(.caption)
+            HStack(spacing: 0) {
+                Spacer()
+                unitTableString(
+                    columTitle: "",
+                    stringList: [
+                        "白",
+                        "緑",
+                        "赤",
+                        "銀",
+                        "金"
+                    ],
+                    maxWidth: 70
+                )
+                unitTableString(
+                    columTitle: "示唆",
+                    stringList: [
+                        "デフォルト",
+                        "設定3 以上濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定6 濃厚"
+                    ],
+                    maxWidth: 180
+                )
+                Spacer()
+            }
+//            Image("commonKakureNagi")
+//                .resizable()
+//                .scaledToFit()
         }
         .navigationTitle("隠れ凪")
         .navigationBarTitleDisplayMode(.inline)

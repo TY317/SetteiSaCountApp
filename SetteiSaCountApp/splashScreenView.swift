@@ -17,6 +17,7 @@ struct splashScreenView: View {
     var body: some View {
         if isActive {
             ContentView()
+//                .environmentObject(Yoshimune())
         } else {
             ZStack {
                 Image("splashLogo2")

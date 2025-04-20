@@ -9,16 +9,16 @@ import Foundation
 import SwiftUI
 import TipKit
 
-class Ver270: ObservableObject {
-    @AppStorage("ver270MagiaMachineIconBadgeStatus") var magiaMachineIconBadgeStatus: String = "new"
-    @AppStorage("ver270SevenSwordsMachineIconBadgeStatus") var sevenSwordsMachineIconBadgeStatus = "update"
-    @AppStorage("ver270SevenSwordsMenuVoiceBadgeStatus") var sevenSwordsMenuVoiceBadgeStatus = "new"
-    @AppStorage("ver270KaijiMachineIconBadgeStatus") var kaijiMachineIconBadgeStatus = "update"
-    @AppStorage("ver270KaijiMenuModeBadgeStatus") var kaijiMenuModeBadgeStatus = "new"
-    @AppStorage("ver270KaijiMenuRedBigBadgeStatus") var kaijiMenuRedBigBadgeStatus = "new"
-    @AppStorage("ver270ShamanKingMachineIconBadgeStatus") var shamanKingMachineIconBadgeStatus = "update"
-    @AppStorage("ver270ShamanKingMenuCzFuriwakeBadgeStatus") var shamanKingMenuCzFuriwakeBadgeStatus = "new"
-}
+//class Ver270: ObservableObject {
+//    @AppStorage("ver270MagiaMachineIconBadgeStatus") var magiaMachineIconBadgeStatus: String = "new"
+//    @AppStorage("ver270SevenSwordsMachineIconBadgeStatus") var sevenSwordsMachineIconBadgeStatus = "update"
+//    @AppStorage("ver270SevenSwordsMenuVoiceBadgeStatus") var sevenSwordsMenuVoiceBadgeStatus = "new"
+//    @AppStorage("ver270KaijiMachineIconBadgeStatus") var kaijiMachineIconBadgeStatus = "update"
+//    @AppStorage("ver270KaijiMenuModeBadgeStatus") var kaijiMenuModeBadgeStatus = "new"
+//    @AppStorage("ver270KaijiMenuRedBigBadgeStatus") var kaijiMenuRedBigBadgeStatus = "new"
+//    @AppStorage("ver270ShamanKingMachineIconBadgeStatus") var shamanKingMachineIconBadgeStatus = "update"
+//    @AppStorage("ver270ShamanKingMenuCzFuriwakeBadgeStatus") var shamanKingMenuCzFuriwakeBadgeStatus = "new"
+//}
 
 // //////////////////
 // Tip：機種追加

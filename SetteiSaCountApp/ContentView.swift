@@ -46,6 +46,9 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteKaiji") var isSelectedFavoriteKaiji = true
     @AppStorage("isSelectedFavoriteRsl") var isSelectedFavoriteRsl = true
     @AppStorage("isSelectedFavoriteMagia") var isSelectedFavoriteMagia = true
+    @AppStorage("isSelectedFavoriteGodzilla") var isSelectedFavoriteGodzilla = true
+    @AppStorage("isSelectedFavoriteMahjong") var isSelectedFavoriteMahjong = true
+    @AppStorage("isSelectedFavoriteYoshimune") var isSelectedFavoriteYoshimune = true
 }
 
 
@@ -87,7 +90,7 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver270 = Ver270()
+    @ObservedObject var ver280 = Ver280()
     @ObservedObject var ver271 = Ver271()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
@@ -133,6 +136,45 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 吉宗、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        iconImage: Image("yoshimuneMachineIcon"),
+                                        machineName: "吉宗",
+                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer280MachineAdd())
+                                }
+                                
+                                // //// 麻雀物語、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMahjong == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(mahjongViewTop()),
+                                        iconImage: Image("mahjongMachineIcon"),
+                                        machineName: "麻雀物語",
+                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                    )
+//                                        .popoverTip(tipVer280MachineAdd())
+                                }
+                                
+                                // //// ゴジラ、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodzilla == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(godzillaViewTop()),
+                                        iconImage: Image("godzillaMachineIcon"),
+                                        machineName: "ゴジラ",
+                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                    )
+//                                        .popoverTip(tipVer280MachineAdd())
+                                }
+                                
                                 // //// 間ギアレコード、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMagia == false {
                                     
@@ -141,7 +183,7 @@ struct ContentView: View {
                                         linkView: AnyView(magiaViewTop()),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver271.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -180,7 +222,7 @@ struct ContentView: View {
                                         linkView: AnyView(kaijiViewTop()),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴",
-                                        badgeStatus: ver271.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -217,8 +259,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(shamanKingViewTop()),
                                         iconImage: Image("shamanKingMachineIcon"),
-                                        machineName: "シャーマンキング",
-                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        machineName: "シャーマンキング"
+//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -241,8 +283,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(sevenSwordsViewTop()),
                                         iconImage: Image("sevenSwordsMachineIcon"),
-                                        machineName: "七つの魔剣が支配する",
-                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
+                                        machineName: "七つの魔剣が支配する"
+//                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -418,6 +460,54 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 吉宗、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        iconImage: Image("yoshimuneMachineIcon"),
+                                        machineName: "吉宗",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer280MachineAdd())
+                                }
+                                
+                                // //// 麻雀物語、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMahjong == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(mahjongViewTop()),
+                                        iconImage: Image("mahjongMachineIcon"),
+                                        machineName: "麻雀物語",
+                                        makerName: "平和",
+                                        releaseYear: 2025,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                    )
+//                                    .popoverTip(tipVer280MachineAdd())
+                                }
+                                
+                                // //// ゴジラ、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodzilla == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(godzillaViewTop()),
+                                        iconImage: Image("godzillaMachineIcon"),
+                                        machineName: "ゴジラ",
+                                        makerName: "ニューギン",
+                                        releaseYear: 2025,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                    )
+//                                    .popoverTip(tipVer280MachineAdd())
+                                }
+                                
                                 // //// マギアレコード、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMagia == false {
                                     
@@ -429,7 +519,7 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver271.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -477,7 +567,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver271.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -524,8 +614,8 @@ struct ContentView: View {
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -554,8 +644,8 @@ struct ContentView: View {
                                         machineName: "七つの魔剣が支配する",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
-                                        releaseMonth: 1,
-                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
+                                        releaseMonth: 1
+//                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -912,6 +1002,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// 吉宗、25年4月
+                Toggle("吉宗", isOn: $favoriteSet.isSelectedFavoriteYoshimune)
+                // //// 麻雀物語、25年4月
+                Toggle("麻雀物語", isOn: $favoriteSet.isSelectedFavoriteMahjong)
+                // //// ゴジラ、25年4月
+                Toggle("ゴジラ", isOn: $favoriteSet.isSelectedFavoriteGodzilla)
                 // //// マギアレコード、25年4月
                 Toggle("マギアレコード", isOn: $favoriteSet.isSelectedFavoriteMagia)
                 // //// レビュースターライト、25年3月

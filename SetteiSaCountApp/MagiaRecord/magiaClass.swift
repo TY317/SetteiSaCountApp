@@ -134,6 +134,82 @@ class Magia: ObservableObject {
         resetBigScreen()
         resetAtScreen()
         resetFirstHit()
+        resetKokakuStart()
+        resetEnding()
+    }
+    
+    // ///////////////////////
+    // ver2.8.0で追加
+    // ///////////////////////
+    
+    // //////////////
+    // 高確スタート
+    // //////////////
+    @AppStorage("magiaKokakuStartAfterAtCountNone") var kokakuStartAfterAtCountNone: Int = 0 {
+        didSet {
+            kokakuStartAfterAtCountSum = countSum(kokakuStartAfterAtCountNone, kokakuStartAfterAtCountHit)
+        }
+    }
+        @AppStorage("magiaKokakuStartAfterAtCountHit") var kokakuStartAfterAtCountHit: Int = 0 {
+            didSet {
+                kokakuStartAfterAtCountSum = countSum(kokakuStartAfterAtCountNone, kokakuStartAfterAtCountHit)
+            }
+        }
+    @AppStorage("magiaKokakuStartAfterAtCountSum") var kokakuStartAfterAtCountSum: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountNone") var kokakuStartAfterBonusCountNone: Int = 0 {
+        didSet {
+            kokakuStartAfterBonusCountSum = countSum(kokakuStartAfterBonusCountNone, kokakuStartAfterBonusCountHit)
+        }
+    }
+        @AppStorage("magiaKokakuStartAfterBonusCountHit") var kokakuStartAfterBonusCountHit: Int = 0 {
+            didSet {
+                kokakuStartAfterBonusCountSum = countSum(kokakuStartAfterBonusCountNone, kokakuStartAfterBonusCountHit)
+            }
+        }
+    @AppStorage("magiaKokakuStartAfterBonusCountSum") var kokakuStartAfterBonusCountSum: Int = 0
+    
+    let ratioKokakuStartAfterAtTotal: [Double] = [25,25,27.7,29.3,30.5,33.7]
+    let ratioKokakuStartAfterAt10G: [Double] = [14.1,14.1,15.6,16.4,17.2,18.8]
+    let ratioKokakuStartAfterAt20G: [Double] = [7.8,7.8,8.6,9.0,9.4,10.2]
+    let ratioKokakuStartAfterAt30G: [Double] = [3.1,3.1,3.5,3.9,3.9,4.7]
+    let ratioKokakuStartAfterBonusTotal: [Double] = [33.7,33.7,36.4,40.6,45.3,50.0]
+    let ratioKokakuStartAfterBonus10G: [Double] = [18.8,18.8,20.3,22.7,25.0,27.3]
+    let ratioKokakuStartAfterBonus20G: [Double] = [13.3,13.3,14.1,15.6,17.2,18.8]
+    let ratioKokakuStartAfterBonus30G: [Double] = [1.6,1.6,2.0,2.3,3.1,3.9]
+    
+    func resetKokakuStart() {
+        kokakuStartAfterAtCountNone = 0
+        kokakuStartAfterAtCountHit = 0
+        kokakuStartAfterBonusCountNone = 0
+        kokakuStartAfterBonusCountHit = 0
+        minusCheck = false
+    }
+    
+    // ///////////////////
+    // エンディング
+    // ///////////////////
+    @AppStorage("magiaEndingCountKisu") var endingCountKisu: Int = 0 {
+        didSet {
+            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+        }
+    }
+        @AppStorage("magiaEndingCountGusu") var endingCountGusu: Int = 0 {
+            didSet {
+                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+            }
+        }
+            @AppStorage("magiaEndingCountHigh") var endingCountHigh: Int = 0 {
+                didSet {
+                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+                }
+            }
+    @AppStorage("magiaEndingCountSum") var endingCountSum: Int = 0
+    
+    func resetEnding() {
+        endingCountKisu = 0
+        endingCountGusu = 0
+        endingCountHigh = 0
+        minusCheck = false
     }
 }
 
@@ -160,6 +236,20 @@ class MagiaMemory1: ObservableObject {
     @AppStorage("magiaAtScreenCountSumMemory1") var atScreenCountSum: Int = 0
     @AppStorage("magiaMemoMemory1") var memo = ""
     @AppStorage("magiaDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.8.0で追加
+    // ///////////////////////
+    @AppStorage("magiaKokakuStartAfterAtCountNoneMemory1") var kokakuStartAfterAtCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountHitMemory1") var kokakuStartAfterAtCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountSumMemory1") var kokakuStartAfterAtCountSum: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountNoneMemory1") var kokakuStartAfterBonusCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountHitMemory1") var kokakuStartAfterBonusCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountSumMemory1") var kokakuStartAfterBonusCountSum: Int = 0
+    @AppStorage("magiaEndingCountKisuMemory1") var endingCountKisu: Int = 0
+    @AppStorage("magiaEndingCountGusuMemory1") var endingCountGusu: Int = 0
+    @AppStorage("magiaEndingCountHighMemory1") var endingCountHigh: Int = 0
+    @AppStorage("magiaEndingCountSumMemory1") var endingCountSum: Int = 0
 }
 
 
@@ -185,6 +275,20 @@ class MagiaMemory2: ObservableObject {
     @AppStorage("magiaAtScreenCountSumMemory2") var atScreenCountSum: Int = 0
     @AppStorage("magiaMemoMemory2") var memo = ""
     @AppStorage("magiaDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.8.0で追加
+    // ///////////////////////
+    @AppStorage("magiaKokakuStartAfterAtCountNoneMemory2") var kokakuStartAfterAtCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountHitMemory2") var kokakuStartAfterAtCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountSumMemory2") var kokakuStartAfterAtCountSum: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountNoneMemory2") var kokakuStartAfterBonusCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountHitMemory2") var kokakuStartAfterBonusCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountSumMemory2") var kokakuStartAfterBonusCountSum: Int = 0
+    @AppStorage("magiaEndingCountKisuMemory2") var endingCountKisu: Int = 0
+    @AppStorage("magiaEndingCountGusuMemory2") var endingCountGusu: Int = 0
+    @AppStorage("magiaEndingCountHighMemory2") var endingCountHigh: Int = 0
+    @AppStorage("magiaEndingCountSumMemory2") var endingCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -209,4 +313,18 @@ class MagiaMemory3: ObservableObject {
     @AppStorage("magiaAtScreenCountSumMemory3") var atScreenCountSum: Int = 0
     @AppStorage("magiaMemoMemory3") var memo = ""
     @AppStorage("magiaDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////////////
+    // ver2.8.0で追加
+    // ///////////////////////
+    @AppStorage("magiaKokakuStartAfterAtCountNoneMemory3") var kokakuStartAfterAtCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountHitMemory3") var kokakuStartAfterAtCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterAtCountSumMemory3") var kokakuStartAfterAtCountSum: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountNoneMemory3") var kokakuStartAfterBonusCountNone: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountHitMemory3") var kokakuStartAfterBonusCountHit: Int = 0
+    @AppStorage("magiaKokakuStartAfterBonusCountSumMemory3") var kokakuStartAfterBonusCountSum: Int = 0
+    @AppStorage("magiaEndingCountKisuMemory3") var endingCountKisu: Int = 0
+    @AppStorage("magiaEndingCountGusuMemory3") var endingCountGusu: Int = 0
+    @AppStorage("magiaEndingCountHighMemory3") var endingCountHigh: Int = 0
+    @AppStorage("magiaEndingCountSumMemory3") var endingCountSum: Int = 0
 }

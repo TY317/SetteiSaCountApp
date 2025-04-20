@@ -173,7 +173,8 @@ struct tokyoGhoulViewHistory: View {
                             title: "CZ終了画面",
                             textBody1: "・終了画面でボタンPUSHでカード表示",
                             textBody2: "・基本は滞在モード示唆だが、一部で設定を示唆",
-                            image1: Image("tokyoGhoulEndCard")
+                            tableView: AnyView(tokyoGhoulTableCzEndScreen())
+//                            image1: Image("tokyoGhoulEndCard")
                         )
                     )
                 )
@@ -185,7 +186,8 @@ struct tokyoGhoulViewHistory: View {
                             textBody1: "・6種類のモードで規定ゲーム数の抽選テーブルを管理",
                             textBody2: "・モード移行契機はCZ失敗時",
                             textBody3: "・天国以外は転落なし",
-                            image1: Image("tokyoGhoulCzTable")
+                            tableView: AnyView(tokyoGhoulTableModeTable())
+//                            image1: Image("tokyoGhoulCzTable")
                         )
                     )
                 )

@@ -26,6 +26,7 @@ struct unitTableDenominate: View {
         VStack(spacing: 0) {
             if self.columTitle != "" {
                 Text(self.columTitle)
+                    .multilineTextAlignment(.center)
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)

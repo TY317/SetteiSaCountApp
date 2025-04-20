@@ -25,6 +25,7 @@ struct unitTableString: View {
     var lineList: [Int] = [1,1,1,1,1,1]
     var titleFont: Font = .title3
     var contentFont: Font = .title3
+    var colorList: [Color]?
     let valueHstackSpacing: CGFloat = 5
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
@@ -34,6 +35,7 @@ struct unitTableString: View {
         VStack(spacing: 0) {
             if self.columTitle != "" {
                 Text(self.columTitle)
+                    .multilineTextAlignment(.center)
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)
@@ -63,7 +65,8 @@ struct unitTableString: View {
             }
             ForEach(self.stringList.indices, id: \.self) { index in
                 HStack(spacing:self.valueHstackSpacing) {
-                    Text(self.stringList[index])
+//                    Text(self.stringList[index])
+                    Text(contentString(ind: index))
                         .fontWeight(.bold)
 //                        .font(.title3)
                         .font(self.contentFont)
@@ -94,13 +97,35 @@ struct unitTableString: View {
     
     private func backColor(ind: Int) -> Color {
         var textBackColor: Color = .white
-        if ind % 2 == 0 {
-            textBackColor = Color.tableBlue
+        if let colorList = colorList {
+            if colorList.indices.contains(ind) {
+                textBackColor = colorList[ind]
+            } else {
+                textBackColor = .white
+            }
         } else {
-            textBackColor = Color.white
+            if ind % 2 == 0 {
+                textBackColor = Color.tableBlue
+            } else {
+                textBackColor = Color.white
+            }
+            if self.stringList[ind] == "grayOut" {
+                textBackColor = Color.gray
+            }
         }
         
         return textBackColor
+    }
+    
+    private func contentString(ind: Int) -> String {
+        var contentString: String = ""
+        if self.stringList[ind] == "grayOut" {
+            contentString = ""
+        } else {
+            contentString = self.stringList[ind]
+        }
+        
+        return contentString
     }
 }
 

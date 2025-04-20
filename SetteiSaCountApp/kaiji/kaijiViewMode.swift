@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewMode: View {
-    @ObservedObject var ver270 = Ver270()
+//    @ObservedObject var ver270 = Ver270()
     var body: some View {
         List {
             Section {
@@ -108,11 +108,11 @@ struct kaijiViewMode: View {
                 Text("推測要素２）ざわ高確中の挙動")
             }
         }
-        .onAppear {
-            if ver270.kaijiMenuModeBadgeStatus != "none" {
-                ver270.kaijiMenuModeBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver270.kaijiMenuModeBadgeStatus != "none" {
+//                ver270.kaijiMenuModeBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("モード推測")
         .navigationBarTitleDisplayMode(.inline)
     }

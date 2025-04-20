@@ -132,11 +132,11 @@ class Kaiji: ObservableObject {
     
     let ratioCz: [Double] = [
         243.3,
-        -1,
-        -1,
-        -1,
-        -1,
-        -1
+        237.6,
+        225.7,
+        199.4,
+        185.1,
+        176.8
     ]
     let ratioBonus: [Double] = [
         384.9,

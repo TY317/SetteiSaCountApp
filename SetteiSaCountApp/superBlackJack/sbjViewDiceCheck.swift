@@ -259,7 +259,8 @@ struct sbjViewDiceCheck: View {
                             textBody3: "・規定回数の法則矛盾の場合は設定示唆",
                             textBody4: "・規定回数到達時はストックタイムに当選",
                             textBody5: "[注!] 赤ダイスはゾロ目濃厚演出。示唆内容は白ダイスと同じと思われる",
-                            image1: Image("sbjDiceCheck")
+                            tableView: AnyView(sbjTableDiceCheck())
+//                            image1: Image("sbjDiceCheck")
                         )
                     )
                 )
