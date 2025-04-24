@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct magiaViewTop: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert: Bool = false
     var body: some View {
@@ -29,24 +29,24 @@ struct magiaViewTop: View {
                     NavigationLink(destination: magiaViewNormal()) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時",
-                            badgeStatus: ver271.magiaMenuNormalBadgeStatus
+                            textBody: "通常時"
+//                            badgeStatus: ver271.magiaMenuNormalBadgeStatus
                         )
                     }
                     // 初当り
                     NavigationLink(destination: magiaViewFirstHit()) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "ボーナス,AT 初当り",
-                            badgeStatus: ver271.magiaMenuFirstHitBadgeStatus
+                            textBody: "ボーナス,AT 初当り"
+//                            badgeStatus: ver271.magiaMenuFirstHitBadgeStatus
                         )
                     }
                     // BIG終了画面
                     NavigationLink(destination: magiaViewBigScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "BIG終了画面",
-                            badgeStatus: ver271.magiaMenuBonusScreenBadgeStatus
+                            textBody: "BIG終了画面"
+//                            badgeStatus: ver271.magiaMenuBonusScreenBadgeStatus
                         )
                     }
                     // ボーナス終了後ボイス
@@ -60,32 +60,32 @@ struct magiaViewTop: View {
                     NavigationLink(destination: magiaViewAtScreen()) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面",
-                            badgeStatus: ver271.magiaMenuAtScreenBadgeStatus
+                            textBody: "AT終了画面"
+//                            badgeStatus: ver271.magiaMenuAtScreenBadgeStatus
                         )
                     }
                     // ボーナス,AT後の高確スタート
                     NavigationLink(destination: magiaViewKokakuStart()) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "ビッグ,AT後の高確スタート",
-                            badgeStatus: ver280.magiaKokakuStartBadgeStatus
+                            textBody: "ビッグ,AT後の高確スタート"
+//                            badgeStatus: ver280.magiaKokakuStartBadgeStatus
                         )
                     }
                     // ストーリーのキャラ紹介
                     NavigationLink(destination: magiaViewStoryChara()) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
-                            textBody: "ストーリーのキャラ紹介",
-                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
+                            textBody: "ストーリーのキャラ紹介"
+//                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
                         )
                     }
                     // エンディング
                     NavigationLink(destination: magiaViewEnding()) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
                         )
                     }
                 }
@@ -98,11 +98,11 @@ struct magiaViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver280.magiaMachineIconBadgeStatus != "none" {
-                ver280.magiaMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.magiaMachineIconBadgeStatus != "none" {
+//                ver280.magiaMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

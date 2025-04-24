@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct yoshimuneViewTop: View {
-    @ObservedObject var ver280: Ver280
+//    @ObservedObject var ver280: Ver280
 //    @StateObject var ver280 = Ver280()
     @StateObject var yoshimune = Yoshimune()
 //    @State var yoshimune = Yoshimune()
@@ -60,11 +60,11 @@ struct yoshimuneViewTop: View {
             }
         }
 //        .id(reloadID) // <- これで NavigationStack 全体を再読み込みできる
-        .onAppear {
-            if ver280.yoshimuneMachineIconBadgeStatus != "none" {
-                ver280.yoshimuneMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.yoshimuneMachineIconBadgeStatus != "none" {
+//                ver280.yoshimuneMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -291,5 +291,5 @@ struct yoshimuneSubViewLoadMemory: View {
 }
 
 #Preview {
-    yoshimuneViewTop(ver280: Ver280())
+    yoshimuneViewTop()
 }

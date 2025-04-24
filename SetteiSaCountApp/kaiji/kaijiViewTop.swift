@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct kaijiViewTop: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
     
@@ -38,8 +38,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewKoyaku()) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "小役",
-                            badgeStatus: ver271.kaijiMenuKoyakuBadgeStatus
+                            textBody: "小役"
+//                            badgeStatus: ver271.kaijiMenuKoyakuBadgeStatus
                         )
                     }
                     // ざわ高確
@@ -61,8 +61,8 @@ struct kaijiViewTop: View {
                     NavigationLink(destination: kaijiViewFirstHit()) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "CZ,ボーナス 初当り",
-                            badgeStatus: ver280.kaijiMenuFirstHitBadgeStatus
+                            textBody: "CZ,ボーナス 初当り"
+//                            badgeStatus: ver280.kaijiMenuFirstHitBadgeStatus
                         )
                     }
                     // 赤7BIG中のBAR揃い
@@ -107,11 +107,11 @@ struct kaijiViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver280.kaijiMachineIconBadgeStatus != "none" {
-                ver280.kaijiMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.kaijiMachineIconBadgeStatus != "none" {
+//                ver280.kaijiMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

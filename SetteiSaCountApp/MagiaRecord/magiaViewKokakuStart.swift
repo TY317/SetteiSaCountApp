@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewKokakuStart: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     @ObservedObject var magia = Magia()
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -110,11 +110,11 @@ struct magiaViewKokakuStart: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver280.magiaKokakuStartBadgeStatus != "none" {
-                ver280.magiaKokakuStartBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.magiaKokakuStartBadgeStatus != "none" {
+//                ver280.magiaKokakuStartBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

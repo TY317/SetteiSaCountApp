@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewKoyaku: View {
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -78,7 +78,7 @@ struct kaijiViewKoyaku: View {
                     bigNumber: $kaiji.totalGame,
                     numberofDicimal: 1
                 )
-                .popoverTip(tipVer271KaijiKoyaku())
+//                .popoverTip(tipVer271KaijiKoyaku())
                 // //// 参考情報）小役確率
                 unitLinkButton(
                     title: "小役確率",
@@ -105,11 +105,11 @@ struct kaijiViewKoyaku: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
-                ver271.kaijiMenuKoyakuBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
+//                ver271.kaijiMenuKoyakuBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

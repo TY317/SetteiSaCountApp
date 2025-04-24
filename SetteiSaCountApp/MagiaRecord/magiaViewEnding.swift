@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewEnding: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     @ObservedObject var magia = Magia()
     @State var isShowAlert = false
     let selectListCard: [String] = [
@@ -124,11 +124,11 @@ struct magiaViewEnding: View {
                 Text("カウント結果")
             }
         }
-        .onAppear {
-            if ver280.magiaMenuEndingBadgeStatus != "none" {
-                ver280.magiaMenuEndingBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.magiaMenuEndingBadgeStatus != "none" {
+//                ver280.magiaMenuEndingBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

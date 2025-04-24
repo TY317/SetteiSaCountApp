@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewBigScreen: View {
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -93,7 +93,7 @@ struct magiaViewBigScreen: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer271MagiaBonusScreen())
+//                .popoverTip(tipVer271MagiaBonusScreen())
                 // //// カウント結果
                 // デフォルト
                 unitResultCountListPercent(
@@ -125,11 +125,11 @@ struct magiaViewBigScreen: View {
                 )
             }
         }
-        .onAppear {
-            if ver271.magiaMenuBonusScreenBadgeStatus != "none" {
-                ver271.magiaMenuBonusScreenBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.magiaMenuBonusScreenBadgeStatus != "none" {
+//                ver271.magiaMenuBonusScreenBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("BIG終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

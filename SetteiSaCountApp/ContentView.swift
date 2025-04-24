@@ -90,8 +90,9 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver271 = Ver271()
+    @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -141,12 +142,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        linkView: AnyView(yoshimuneViewTop()),
                                         iconImage: Image("yoshimuneMachineIcon"),
-                                        machineName: "吉宗",
-                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        machineName: "吉宗"
+//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer280MachineAdd())
+//                                        .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -156,8 +157,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(mahjongViewTop()),
                                         iconImage: Image("mahjongMachineIcon"),
-                                        machineName: "麻雀物語",
-                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                        machineName: "麻雀物語"
+//                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer280MachineAdd())
                                 }
@@ -169,8 +170,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(godzillaViewTop()),
                                         iconImage: Image("godzillaMachineIcon"),
-                                        machineName: "ゴジラ",
-                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                        machineName: "ゴジラ"
+//                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer280MachineAdd())
                                 }
@@ -182,8 +183,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop()),
                                         iconImage: Image("magiaMachineIcon"),
-                                        machineName: "マギレコ",
-                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
+                                        machineName: "マギレコ"
+//                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -221,8 +222,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaijiViewTop()),
                                         iconImage: Image("kaijiMachineIcon"),
-                                        machineName: "カイジ狂宴",
-                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
+                                        machineName: "カイジ狂宴"
+//                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -465,15 +466,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        linkView: AnyView(yoshimuneViewTop()),
                                         iconImage: Image("yoshimuneMachineIcon"),
                                         machineName: "吉宗",
                                         makerName: "大都技研",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer280MachineAdd())
+//                                    .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -486,8 +487,8 @@ struct ContentView: View {
                                         machineName: "麻雀物語",
                                         makerName: "平和",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer280MachineAdd())
                                 }
@@ -502,8 +503,8 @@ struct ContentView: View {
                                         machineName: "ゴジラ",
                                         makerName: "ニューギン",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer280MachineAdd())
                                 }
@@ -518,8 +519,8 @@ struct ContentView: View {
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -566,8 +567,8 @@ struct ContentView: View {
                                         machineName: "回胴黙示録カイジ 狂宴",
                                         makerName: "サミー",
                                         releaseYear: 2025,
-                                        releaseMonth: 3,
-                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
+                                        releaseMonth: 3
+//                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 

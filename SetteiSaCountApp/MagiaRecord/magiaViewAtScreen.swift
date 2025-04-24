@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewAtScreen: View {
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -72,7 +72,7 @@ struct magiaViewAtScreen: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer271MagiaAtScreen())
+//                .popoverTip(tipVer271MagiaAtScreen())
                 
                 // //// カウント結果
                 // デフォルト
@@ -98,11 +98,11 @@ struct magiaViewAtScreen: View {
                 )
             }
         }
-        .onAppear {
-            if ver271.magiaMenuAtScreenBadgeStatus != "none" {
-                ver271.magiaMenuAtScreenBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.magiaMenuAtScreenBadgeStatus != "none" {
+//                ver271.magiaMenuAtScreenBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

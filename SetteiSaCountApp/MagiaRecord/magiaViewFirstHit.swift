@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewFirstHit: View {
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -89,7 +89,7 @@ struct magiaViewFirstHit: View {
                         numberofDicimal: 0
                     )
                 }
-                .popoverTip(tipVer271MagiaFirstHit())
+//                .popoverTip(tipVer271MagiaFirstHit())
                 
                 // //// 参考情報）初当り確率
                 unitLinkButton(
@@ -139,11 +139,11 @@ struct magiaViewFirstHit: View {
 //                )
 //            )
         }
-        .onAppear {
-            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
-                ver271.magiaMenuFirstHitBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
+//                ver271.magiaMenuFirstHitBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

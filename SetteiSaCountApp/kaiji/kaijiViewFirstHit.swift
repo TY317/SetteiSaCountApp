@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewFirstHit: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     @ObservedObject var kaiji = Kaiji()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -88,18 +88,18 @@ struct kaijiViewFirstHit: View {
                         )
                     )
                 )
-                .popoverTip(tipVer280KaijiCzRatio())
+//                .popoverTip(tipVer280KaijiCzRatio())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver280.kaijiMenuFirstHitBadgeStatus != "none" {
-                ver280.kaijiMenuFirstHitBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.kaijiMenuFirstHitBadgeStatus != "none" {
+//                ver280.kaijiMenuFirstHitBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

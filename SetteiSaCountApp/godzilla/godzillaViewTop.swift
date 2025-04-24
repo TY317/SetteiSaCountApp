@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaViewTop: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     @ObservedObject var godzilla = Godzilla()
     @State var isShowAlert: Bool = false
     
@@ -72,11 +72,11 @@ struct godzillaViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver280.godzillaMachineIconBadgeStatus != "none" {
-                ver280.godzillaMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.godzillaMachineIconBadgeStatus != "none" {
+//                ver280.godzillaMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

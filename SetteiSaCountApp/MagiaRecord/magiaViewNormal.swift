@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewNormal: View {
-    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var ver271 = Ver271()
     @ObservedObject var magia = Magia()
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -104,7 +104,7 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer271MagiaMagicGirlMode())
+//                .popoverTip(tipVer271MagiaMagicGirlMode())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
@@ -113,11 +113,11 @@ struct magiaViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver271.magiaMenuNormalBadgeStatus != "none" {
-                ver271.magiaMenuNormalBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.magiaMenuNormalBadgeStatus != "none" {
+//                ver271.magiaMenuNormalBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

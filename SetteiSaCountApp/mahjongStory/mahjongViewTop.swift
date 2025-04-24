@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewTop: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     @ObservedObject var mahjong = Mahjong()
     @State var isShowAlert: Bool = false
     
@@ -78,11 +78,11 @@ struct mahjongViewTop: View {
                     .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver280.mahjongMachineIconBadgeStatus != "none" {
-                ver280.mahjongMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.mahjongMachineIconBadgeStatus != "none" {
+//                ver280.mahjongMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
