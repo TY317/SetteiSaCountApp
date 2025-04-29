@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct hanaTenshoVer2View95CiStart: View {
-    @ObservedObject var hanaTensho = HanaTensho()
+//    @ObservedObject var hanaTensho = HanaTensho()
+    @ObservedObject var hanaTensho: HanaTensho
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct hanaTenshoVer2View95CiStart: View {
 }
 
 #Preview {
-    hanaTenshoVer2View95CiStart()
+    hanaTenshoVer2View95CiStart(hanaTensho: HanaTensho())
 }

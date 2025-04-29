@@ -9,8 +9,12 @@ import SwiftUI
 
 struct mahjongViewTop: View {
 //    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var mahjong = Mahjong()
+//    @ObservedObject var mahjong = Mahjong()
+    @StateObject var mahjong = Mahjong()
     @State var isShowAlert: Bool = false
+    @StateObject var mahjongMemory1 = MahjongMemory1()
+    @StateObject var mahjongMemory2 = MahjongMemory2()
+    @StateObject var mahjongMemory3 = MahjongMemory3()
     
     var body: some View {
         NavigationStack {
@@ -26,35 +30,35 @@ struct mahjongViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: mahjongViewNormal()) {
+                    NavigationLink(destination: mahjongViewNormal(mahjong: mahjong)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
                         )
                     }
                     // 初当り
-                    NavigationLink(destination: mahjongViewFirstHit()) {
+                    NavigationLink(destination: mahjongViewFirstHit(mahjong: mahjong)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り"
                         )
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: mahjongViewBonusScreen()) {
+                    NavigationLink(destination: mahjongViewBonusScreen(mahjong: mahjong)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス終了画面"
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: mahjongViewAtScreen()) {
+                    NavigationLink(destination: mahjongViewAtScreen(mahjong: mahjong)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
                         )
                     }
                     // ボイス
-                    NavigationLink(destination: mahjongViewVoice()) {
+                    NavigationLink(destination: mahjongViewVoice(mahjong: mahjong)) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
                             textBody: "ボーナス,AT 終了後ボイス")
@@ -89,9 +93,19 @@ struct mahjongViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(mahjongSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(mahjongSubViewLoadMemory(
+                        mahjong: mahjong,
+                        mahjongMemory1: mahjongMemory1,
+                        mahjongMemory2: mahjongMemory2,
+                        mahjongMemory3: mahjongMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(mahjongSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(mahjongSubViewSaveMemory(
+                        mahjong: mahjong,
+                        mahjongMemory1: mahjongMemory1,
+                        mahjongMemory2: mahjongMemory2,
+                        mahjongMemory3: mahjongMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -107,10 +121,10 @@ struct mahjongViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct mahjongSubViewSaveMemory: View {
-    @ObservedObject var mahjong = Mahjong()
-    @ObservedObject var mahjongMemory1 = MahjongMemory1()
-    @ObservedObject var mahjongMemory2 = MahjongMemory2()
-    @ObservedObject var mahjongMemory3 = MahjongMemory3()
+    @ObservedObject var mahjong: Mahjong
+    @ObservedObject var mahjongMemory1: MahjongMemory1
+    @ObservedObject var mahjongMemory2: MahjongMemory2
+    @ObservedObject var mahjongMemory3: MahjongMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -184,10 +198,10 @@ struct mahjongSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct mahjongSubViewLoadMemory: View {
-    @ObservedObject var mahjong = Mahjong()
-    @ObservedObject var mahjongMemory1 = MahjongMemory1()
-    @ObservedObject var mahjongMemory2 = MahjongMemory2()
-    @ObservedObject var mahjongMemory3 = MahjongMemory3()
+    @ObservedObject var mahjong: Mahjong
+    @ObservedObject var mahjongMemory1: MahjongMemory1
+    @ObservedObject var mahjongMemory2: MahjongMemory2
+    @ObservedObject var mahjongMemory3: MahjongMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

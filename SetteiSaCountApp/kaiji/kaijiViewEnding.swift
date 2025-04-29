@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiViewEnding: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     let voiceList: [String] = [
         "救えぬ偽善者・・",
@@ -184,5 +185,5 @@ struct kaijiViewEnding: View {
 }
 
 #Preview {
-    kaijiViewEnding()
+    kaijiViewEnding(kaiji: Kaiji())
 }

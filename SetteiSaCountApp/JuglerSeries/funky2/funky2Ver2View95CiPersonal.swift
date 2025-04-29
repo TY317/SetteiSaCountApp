@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2View95CiPersonal: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -165,5 +166,5 @@ struct funky2Ver2View95CiPersonal: View {
 }
 
 #Preview {
-    funky2Ver2View95CiPersonal()
+    funky2Ver2View95CiPersonal(funky2: Funky2())
 }

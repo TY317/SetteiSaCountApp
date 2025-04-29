@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenTotalDataCheck: View {
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var starHana: StarHana
     
     var body: some View {
         List {
@@ -142,7 +143,7 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ベル・ボーナス確率",
-                            tableView: AnyView(starHanaTableBellBonus())
+                            tableView: AnyView(starHanaTableBellBonus(starHana: starHana))
 //                            image1: Image("starHanaBellBonusAnalysis")
                         )
                     )
@@ -185,7 +186,7 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiTotal(starHana: starHana)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $starHana.currentGames)
@@ -235,5 +236,5 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    starHanaVer2ViewJissenTotalDataCheck()
+    starHanaVer2ViewJissenTotalDataCheck(starHana: StarHana())
 }

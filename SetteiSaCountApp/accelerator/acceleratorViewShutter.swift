@@ -43,7 +43,8 @@ struct tipUnitAcceleratorShutterOpenGame: Tip {
 
 
 struct acceleratorViewShutter: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
@@ -97,7 +98,7 @@ struct acceleratorViewShutter: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 9)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 9)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("チャンス目からのシャッター開放")
@@ -165,7 +166,7 @@ struct acceleratorViewShutter: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 10)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 10)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("シャッター開放継続G数")
@@ -267,7 +268,7 @@ struct acceleratorViewShutter: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("対応チャンス目成立時の抽選")
@@ -364,5 +365,5 @@ struct acceleratorViewShutter: View {
 }
 
 #Preview {
-    acceleratorViewShutter()
+    acceleratorViewShutter(accelerator: Accelerator())
 }

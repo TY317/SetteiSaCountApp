@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiTableZawaKokaku: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -21,5 +22,5 @@ struct kaijiTableZawaKokaku: View {
 }
 
 #Preview {
-    kaijiTableZawaKokaku()
+    kaijiTableZawaKokaku(kaiji: Kaiji())
 }

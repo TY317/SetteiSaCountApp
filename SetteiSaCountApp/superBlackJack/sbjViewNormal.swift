@@ -44,7 +44,8 @@ struct sbjTipChanceCount: Tip {
 
 struct sbjViewNormal: View {
 //    @ObservedObject var ver240 = Ver240()
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @ObservedObject var sbj: Sbj
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -312,7 +313,7 @@ struct sbjViewNormal: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
@@ -404,5 +405,5 @@ struct sbjViewNormal: View {
 }
 
 #Preview {
-    sbjViewNormal()
+    sbjViewNormal(sbj: Sbj())
 }

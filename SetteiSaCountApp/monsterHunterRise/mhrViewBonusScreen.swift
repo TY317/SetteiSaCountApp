@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct mhrViewBonusScreen: View {
-    @ObservedObject var mhr = Mhr()
+//    @ObservedObject var mhr = Mhr()
+    @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
     var body: some View {
         List {
@@ -122,5 +123,5 @@ struct mhrViewBonusScreen: View {
 }
 
 #Preview {
-    mhrViewBonusScreen()
+    mhrViewBonusScreen(mhr: Mhr())
 }

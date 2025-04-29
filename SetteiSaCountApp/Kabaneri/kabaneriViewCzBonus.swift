@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct kabaneriViewCzBonus: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @ObservedObject var kabaneri: Kabaneri
     @State var isShowAlert = false
     @State var bonusGameSelected = "100G"
     @State var bonusGameSelectList = ["100G", "250G", "450G", "650G"]
@@ -192,7 +193,7 @@ struct kabaneriViewCzBonus: View {
 //                    Text("CZ回数、ゲーム数はマイスロで確認")
                     unitLinkButton(title: "CZ出現率", exview: AnyView(unitExView5body2image(title: "CZ出現率", textBody1: "・3種類のCZの合算確率で確認", textBody2: "・詳細データはマイスロで確認", image1: Image("kabaneriCzRatio"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 3)))
+                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 3)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("CZ出現率")
@@ -441,5 +442,5 @@ struct tipKabaneriInputGame: Tip {
 }
 
 #Preview {
-    kabaneriViewCzBonus()
+    kabaneriViewCzBonus(kabaneri: Kabaneri())
 }

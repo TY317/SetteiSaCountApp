@@ -26,7 +26,8 @@ struct bioTipHistoryInput: Tip {
 
 
 struct bioViewHistory: View {
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -258,12 +259,12 @@ struct bioViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            tableView: AnyView(bioSubViewTableFirstHit())
+                            tableView: AnyView(bioSubViewTableFirstHit(bio: bio))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(bioView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(bioView95Ci(bio: bio, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("確率集計")
@@ -327,5 +328,5 @@ struct bioViewHistory: View {
 }
 
 #Preview {
-    bioViewHistory()
+    bioViewHistory(bio: Bio())
 }

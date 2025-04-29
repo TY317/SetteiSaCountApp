@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct godeaterView95Ci: View {
-    @ObservedObject var godeater = Godeater()
+//    @ObservedObject var godeater = Godeater()
+    @ObservedObject var godeater: Godeater
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -62,5 +63,5 @@ struct godeaterView95Ci: View {
 }
 
 #Preview {
-    godeaterView95Ci()
+    godeaterView95Ci(godeater: Godeater())
 }

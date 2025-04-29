@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct lupinViewAtScreen: View {
-    @ObservedObject var lupin = Lupin()
+//    @ObservedObject var lupin = Lupin()
+    @ObservedObject var lupin: Lupin
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -150,5 +151,5 @@ struct lupinViewAtScreen: View {
 }
 
 #Preview {
-    lupinViewAtScreen()
+    lupinViewAtScreen(lupin: Lupin())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewJissenCount: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
     @FocusState var isFocused: Bool
@@ -63,13 +64,13 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                         exview: AnyView(
                             unitExView5body2image(
                                 title: "ベル・ボーナス確率",
-                                tableView: AnyView(draHanaSenkohTableBellBonus())
+                                tableView: AnyView(draHanaSenkohTableBellBonus(draHanaSenkoh: draHanaSenkoh))
 //                                image1: Image("draHanaSenkohBellBonusAnalysis")
                             )
                         )
                     )
                     // 95%信頼区間グラフ
-                    unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(selection: 1)))
+                    unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 1)))
                         .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
@@ -155,7 +156,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、フェザーランプ")
@@ -180,7 +181,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
@@ -213,7 +214,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(selection: 6)))
+                            unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 6)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
@@ -272,7 +273,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                         )
                         // 95%信頼区間グラフ
-                        unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(selection: 7)))
+                        unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 7)))
                             .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
@@ -355,5 +356,5 @@ struct draHanaSenkohVer2ViewJissenCount: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewJissenCount()
+    draHanaSenkohVer2ViewJissenCount(draHanaSenkoh: DraHanaSenkoh())
 }

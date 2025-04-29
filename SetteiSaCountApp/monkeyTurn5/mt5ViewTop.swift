@@ -398,15 +398,19 @@ class Mt5Memory3: ObservableObject {
 // ビュー：メインビュー
 // //////////////////////
 struct mt5ViewTop: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @StateObject var mt5 = Mt5()
     @State var isShowAlert = false
+    @StateObject var mt5Memory1 = Mt5Memory1()
+    @StateObject var mt5Memory2 = Mt5Memory2()
+    @StateObject var mt5Memory3 = Mt5Memory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // ５枚役
-                    NavigationLink(destination: mt5View5coin()) {
+                    NavigationLink(destination: mt5View5coin(mt5: mt5)) {
                         unitLabelMenu(
                             imageSystemName: "5.circle",
                             textBody: "５枚役"
@@ -414,15 +418,15 @@ struct mt5ViewTop: View {
                     }
 //                    .popoverTip(mt5TipAdd5Coins())
                     // 周期履歴
-                    NavigationLink(destination: mt5ViewHistory()) {
+                    NavigationLink(destination: mt5ViewHistory(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "周期履歴")
                     }
                     // 激走チャージ後のセリフ
-                    NavigationLink(destination: mt5GekisoView()) {
+                    NavigationLink(destination: mt5GekisoView(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "message", textBody: "激走チャージ後のセリフ")
                     }
                     // ライバルモード
-                    NavigationLink(destination: mt5RivalModeView()) {
+                    NavigationLink(destination: mt5RivalModeView(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "person.2", textBody: "ライバルモード")
                     }
                     // ラウンド開始画面の示唆
@@ -430,11 +434,11 @@ struct mt5ViewTop: View {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ラウンド開始画面示唆")
                     }
                     // AT終了後のメダル
-                    NavigationLink(destination: mt5ViewMedal()) {
+                    NavigationLink(destination: mt5ViewMedal(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "medal", textBody: "AT終了後のメダル")
                     }
                     // 青島SG
-                    NavigationLink(destination: mt5ViewAoshimaSG()) {
+                    NavigationLink(destination: mt5ViewAoshimaSG(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "sailboat", textBody: "青島SG")
                     }
                     // エンディング
@@ -446,7 +450,7 @@ struct mt5ViewTop: View {
                 }
                 
                 // 設定推測グラフ
-                NavigationLink(destination: mt5View95Ci()) {
+                NavigationLink(destination: mt5View95Ci(mt5: mt5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -460,9 +464,19 @@ struct mt5ViewTop: View {
                     HStack {
                         HStack {
                             // //// データ読み出し
-                            unitButtonLoadMemory(loadView: AnyView(mt5ViewLoadMemory()))
+                            unitButtonLoadMemory(loadView: AnyView(mt5ViewLoadMemory(
+                                mt5: mt5,
+                                mt5Memory1: mt5Memory1,
+                                mt5Memory2: mt5Memory2,
+                                mt5Memory3: mt5Memory3
+                            )))
                             // //// データ保存
-                            unitButtonSaveMemory(saveView: AnyView(mt5ViewSaveMemory()))
+                            unitButtonSaveMemory(saveView: AnyView(mt5ViewSaveMemory(
+                                mt5: mt5,
+                                mt5Memory1: mt5Memory1,
+                                mt5Memory2: mt5Memory2,
+                                mt5Memory3: mt5Memory3
+                            )))
                         }
                         .popoverTip(tipUnitButtonMemory())
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetAll, message: "この機種の全ページのデータは完全に消去されます")
@@ -479,10 +493,10 @@ struct mt5ViewTop: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct mt5ViewSaveMemory: View {
-    @ObservedObject var mt5 = Mt5()
-    @ObservedObject var mt5Memory1 = Mt5Memory1()
-    @ObservedObject var mt5Memory2 = Mt5Memory2()
-    @ObservedObject var mt5Memory3 = Mt5Memory3()
+    @ObservedObject var mt5: Mt5
+    @ObservedObject var mt5Memory1: Mt5Memory1
+    @ObservedObject var mt5Memory2: Mt5Memory2
+    @ObservedObject var mt5Memory3: Mt5Memory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -586,10 +600,10 @@ struct mt5ViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct mt5ViewLoadMemory: View {
-    @ObservedObject var mt5 = Mt5()
-    @ObservedObject var mt5Memory1 = Mt5Memory1()
-    @ObservedObject var mt5Memory2 = Mt5Memory2()
-    @ObservedObject var mt5Memory3 = Mt5Memory3()
+    @ObservedObject var mt5: Mt5
+    @ObservedObject var mt5Memory1: Mt5Memory1
+    @ObservedObject var mt5Memory2: Mt5Memory2
+    @ObservedObject var mt5Memory3: Mt5Memory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(
@@ -612,10 +626,18 @@ struct mt5ViewLoadMemory: View {
         mt5.startGame = mt5Memory1.startGame
         mt5.currentGame = mt5Memory1.currentGame
         mt5.playGame = mt5Memory1.playGame
-        mt5.mt5ShukiArrayData = mt5Memory1.mt5ShukiArrayData
-        mt5.mt5PtArrayData = mt5Memory1.mt5PtArrayData
-        mt5.mt5TriggerArrayData = mt5Memory1.mt5TriggerArrayData
-        mt5.mt5ResultArrayData = mt5Memory1.mt5ResultArrayData
+        let memoryMt5ShukiArray = decodeStringArray(from: mt5Memory1.mt5ShukiArrayData)
+        saveArray(memoryMt5ShukiArray, forKey: mt5.mt5ShukiArrayKey)
+        let memoryMt5PtArray = decodeStringArray(from: mt5Memory1.mt5PtArrayData)
+        saveArray(memoryMt5PtArray, forKey: mt5.mt5PtArrayKey)
+        let memoryMt5TriggerArray = decodeStringArray(from: mt5Memory1.mt5TriggerArrayData)
+        saveArray(memoryMt5TriggerArray, forKey: mt5.mt5TriggerArrayKey)
+        let memoryMt5ResultArray = decodeStringArray(from: mt5Memory1.mt5ResultArrayData)
+        saveArray(memoryMt5ResultArray, forKey: mt5.mt5ResultArrayKey)
+//        mt5.mt5ShukiArrayData = mt5Memory1.mt5ShukiArrayData
+//        mt5.mt5PtArrayData = mt5Memory1.mt5PtArrayData
+//        mt5.mt5TriggerArrayData = mt5Memory1.mt5TriggerArrayData
+//        mt5.mt5ResultArrayData = mt5Memory1.mt5ResultArrayData
         mt5.hatanoACount = mt5Memory1.hatanoACount
         mt5.hatanoBCount = mt5Memory1.hatanoBCount
         mt5.hatanoCountSum = mt5Memory1.hatanoCountSum
@@ -638,10 +660,18 @@ struct mt5ViewLoadMemory: View {
         mt5.startGame = mt5Memory2.startGame
         mt5.currentGame = mt5Memory2.currentGame
         mt5.playGame = mt5Memory2.playGame
-        mt5.mt5ShukiArrayData = mt5Memory2.mt5ShukiArrayData
-        mt5.mt5PtArrayData = mt5Memory2.mt5PtArrayData
-        mt5.mt5TriggerArrayData = mt5Memory2.mt5TriggerArrayData
-        mt5.mt5ResultArrayData = mt5Memory2.mt5ResultArrayData
+        let memoryMt5ShukiArray = decodeStringArray(from: mt5Memory2.mt5ShukiArrayData)
+        saveArray(memoryMt5ShukiArray, forKey: mt5.mt5ShukiArrayKey)
+        let memoryMt5PtArray = decodeStringArray(from: mt5Memory2.mt5PtArrayData)
+        saveArray(memoryMt5PtArray, forKey: mt5.mt5PtArrayKey)
+        let memoryMt5TriggerArray = decodeStringArray(from: mt5Memory2.mt5TriggerArrayData)
+        saveArray(memoryMt5TriggerArray, forKey: mt5.mt5TriggerArrayKey)
+        let memoryMt5ResultArray = decodeStringArray(from: mt5Memory2.mt5ResultArrayData)
+        saveArray(memoryMt5ResultArray, forKey: mt5.mt5ResultArrayKey)
+//        mt5.mt5ShukiArrayData = mt5Memory2.mt5ShukiArrayData
+//        mt5.mt5PtArrayData = mt5Memory2.mt5PtArrayData
+//        mt5.mt5TriggerArrayData = mt5Memory2.mt5TriggerArrayData
+//        mt5.mt5ResultArrayData = mt5Memory2.mt5ResultArrayData
         mt5.hatanoACount = mt5Memory2.hatanoACount
         mt5.hatanoBCount = mt5Memory2.hatanoBCount
         mt5.hatanoCountSum = mt5Memory2.hatanoCountSum
@@ -664,10 +694,18 @@ struct mt5ViewLoadMemory: View {
         mt5.startGame = mt5Memory3.startGame
         mt5.currentGame = mt5Memory3.currentGame
         mt5.playGame = mt5Memory3.playGame
-        mt5.mt5ShukiArrayData = mt5Memory3.mt5ShukiArrayData
-        mt5.mt5PtArrayData = mt5Memory3.mt5PtArrayData
-        mt5.mt5TriggerArrayData = mt5Memory3.mt5TriggerArrayData
-        mt5.mt5ResultArrayData = mt5Memory3.mt5ResultArrayData
+        let memoryMt5ShukiArray = decodeStringArray(from: mt5Memory3.mt5ShukiArrayData)
+        saveArray(memoryMt5ShukiArray, forKey: mt5.mt5ShukiArrayKey)
+        let memoryMt5PtArray = decodeStringArray(from: mt5Memory3.mt5PtArrayData)
+        saveArray(memoryMt5PtArray, forKey: mt5.mt5PtArrayKey)
+        let memoryMt5TriggerArray = decodeStringArray(from: mt5Memory3.mt5TriggerArrayData)
+        saveArray(memoryMt5TriggerArray, forKey: mt5.mt5TriggerArrayKey)
+        let memoryMt5ResultArray = decodeStringArray(from: mt5Memory3.mt5ResultArrayData)
+        saveArray(memoryMt5ResultArray, forKey: mt5.mt5ResultArrayKey)
+//        mt5.mt5ShukiArrayData = mt5Memory3.mt5ShukiArrayData
+//        mt5.mt5PtArrayData = mt5Memory3.mt5PtArrayData
+//        mt5.mt5TriggerArrayData = mt5Memory3.mt5TriggerArrayData
+//        mt5.mt5ResultArrayData = mt5Memory3.mt5ResultArrayData
         mt5.hatanoACount = mt5Memory3.hatanoACount
         mt5.hatanoBCount = mt5Memory3.hatanoBCount
         mt5.hatanoCountSum = mt5Memory3.hatanoCountSum

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bangdreamView95Ci: View {
-    @ObservedObject var bangdream = Bangdream()
+//    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdream: Bangdream
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -64,5 +65,5 @@ struct bangdreamView95Ci: View {
 }
 
 #Preview {
-    bangdreamView95Ci()
+    bangdreamView95Ci(bangdream: Bangdream())
 }

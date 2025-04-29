@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenStartData: View {
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var starHana: StarHana
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -180,13 +181,13 @@ struct starHanaVer2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            tableView: AnyView(starHanaTableBellBonus())
+                            tableView: AnyView(starHanaTableBellBonus(starHana: starHana))
 //                            image1: Image("starHanaBellBonusAnalysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiStart(starHana: starHana)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -249,5 +250,5 @@ struct starHanaVer2ViewJissenStartData: View {
 }
 
 #Preview {
-    starHanaVer2ViewJissenStartData()
+    starHanaVer2ViewJissenStartData(starHana: StarHana())
 }

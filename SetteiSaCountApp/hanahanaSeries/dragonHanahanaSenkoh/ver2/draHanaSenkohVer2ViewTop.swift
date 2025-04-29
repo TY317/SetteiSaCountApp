@@ -472,8 +472,12 @@ class DraHanaSenkohMemory3: ObservableObject {
 }
 
 struct draHanaSenkohVer2ViewTop: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @StateObject var draHanaSenkoh = DraHanaSenkoh()
     @State var isShowAlert: Bool = false
+    @StateObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
+    @StateObject var draHanaSenkohMemory2 = DraHanaSenkohMemory2()
+    @StateObject var draHanaSenkohMemory3 = DraHanaSenkohMemory3()
     
     var body: some View {
         NavigationStack {
@@ -487,7 +491,7 @@ struct draHanaSenkohVer2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: draHanaSenkohVer2ViewKenDataInput()) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewKenDataInput(draHanaSenkoh: draHanaSenkoh)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -502,21 +506,21 @@ struct draHanaSenkohVer2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: draHanaSenkohVer2ViewJissenStartData()) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewJissenStartData(draHanaSenkoh: draHanaSenkoh)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: draHanaSenkohVer2ViewJissenCount()) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewJissenCount(draHanaSenkoh: draHanaSenkoh)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: draHanaSenkohVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewJissenTotalDataCheck(draHanaSenkoh: draHanaSenkoh)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -529,7 +533,7 @@ struct draHanaSenkohVer2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: draHanaSenkohVer2View95CiTotal()) {
+                NavigationLink(destination: draHanaSenkohVer2View95CiTotal(draHanaSenkoh: draHanaSenkoh)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -543,9 +547,19 @@ struct draHanaSenkohVer2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(draHanaSenkohSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(draHanaSenkohSubViewLoadMemory(
+                        draHanaSenkoh: draHanaSenkoh,
+                        draHanaSenkohMemory1: draHanaSenkohMemory1,
+                        draHanaSenkohMemory2: draHanaSenkohMemory2,
+                        draHanaSenkohMemory3: draHanaSenkohMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(draHanaSenkohSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(draHanaSenkohSubViewSaveMemory(
+                        draHanaSenkoh: draHanaSenkoh,
+                        draHanaSenkohMemory1: draHanaSenkohMemory1,
+                        draHanaSenkohMemory2: draHanaSenkohMemory2,
+                        draHanaSenkohMemory3: draHanaSenkohMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -561,10 +575,10 @@ struct draHanaSenkohVer2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct draHanaSenkohSubViewSaveMemory: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
-    @ObservedObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
-    @ObservedObject var draHanaSenkohMemory2 = DraHanaSenkohMemory2()
-    @ObservedObject var draHanaSenkohMemory3 = DraHanaSenkohMemory3()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
+    @ObservedObject var draHanaSenkohMemory1: DraHanaSenkohMemory1
+    @ObservedObject var draHanaSenkohMemory2: DraHanaSenkohMemory2
+    @ObservedObject var draHanaSenkohMemory3: DraHanaSenkohMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -710,10 +724,10 @@ struct draHanaSenkohSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct draHanaSenkohSubViewLoadMemory: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
-    @ObservedObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
-    @ObservedObject var draHanaSenkohMemory2 = DraHanaSenkohMemory2()
-    @ObservedObject var draHanaSenkohMemory3 = DraHanaSenkohMemory3()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
+    @ObservedObject var draHanaSenkohMemory1: DraHanaSenkohMemory1
+    @ObservedObject var draHanaSenkohMemory2: DraHanaSenkohMemory2
+    @ObservedObject var draHanaSenkohMemory3: DraHanaSenkohMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

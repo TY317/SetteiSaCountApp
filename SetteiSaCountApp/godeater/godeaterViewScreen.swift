@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct godeaterViewScreen: View {
-    @ObservedObject var godeater = Godeater()
+//    @ObservedObject var godeater = Godeater()
+    @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     var body: some View {
 //        NavigationView {
@@ -100,5 +101,5 @@ struct godeaterViewScreen: View {
 }
 
 #Preview {
-    godeaterViewScreen()
+    godeaterViewScreen(godeater: Godeater())
 }

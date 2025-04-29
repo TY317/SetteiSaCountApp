@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct karakuriView95Ci: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @ObservedObject var karakuri: Karakuri
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -64,5 +65,5 @@ struct karakuriView95Ci: View {
 }
 
 #Preview {
-    karakuriView95Ci()
+    karakuriView95Ci(karakuri: Karakuri())
 }

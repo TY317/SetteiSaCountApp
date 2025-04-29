@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct lupinView95Ci: View {
-    @ObservedObject var lupin = Lupin()
+//    @ObservedObject var lupin = Lupin()
+    @ObservedObject var lupin: Lupin
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -185,5 +186,5 @@ struct lupinView95Ci: View {
 }
 
 #Preview {
-    lupinView95Ci()
+    lupinView95Ci(lupin: Lupin())
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewFirstHit: View {
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -97,7 +98,7 @@ struct magiaViewFirstHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            tableView: AnyView(magiaTableFirstHit())
+                            tableView: AnyView(magiaTableFirstHit(magia: magia))
                         )
                     )
                 )
@@ -112,7 +113,7 @@ struct magiaViewFirstHit: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -201,5 +202,5 @@ struct magiaViewFirstHit: View {
 }
 
 #Preview {
-    magiaViewFirstHit()
+    magiaViewFirstHit(magia: Magia())
 }

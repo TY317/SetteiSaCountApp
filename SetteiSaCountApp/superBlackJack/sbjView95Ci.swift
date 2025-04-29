@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sbjView95Ci: View {
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @ObservedObject var sbj: Sbj
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -133,5 +134,5 @@ struct sbjView95Ci: View {
 }
 
 #Preview {
-    sbjView95Ci()
+    sbjView95Ci(sbj: Sbj())
 }

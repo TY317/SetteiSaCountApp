@@ -9,35 +9,40 @@ import SwiftUI
 
 struct bioViewTop: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @StateObject var bio = Bio()
     @State var isShowAlert: Bool = false
+    @StateObject var bioMemory1 = BioMemory1()
+    @StateObject var bioMemory2 = BioMemory2()
+    @StateObject var bioMemory3 = BioMemory3()
+    
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 通常時
-                    NavigationLink(destination: bioViewNormal()) {
+                    NavigationLink(destination: bioViewNormal(bio: bio)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
                         )
                     }
                     // CZ,AT初当り
-                    NavigationLink(destination: bioViewHistory()) {
+                    NavigationLink(destination: bioViewHistory(bio: bio)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT初当り"
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: bioViewScreen()) {
+                    NavigationLink(destination: bioViewScreen(bio: bio)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: bioViewEnding()) {
+                    NavigationLink(destination: bioViewEnding(bio: bio)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -54,7 +59,7 @@ struct bioViewTop: View {
                     unitLabelMachineTopTitle(machineName: "バイオハザード5")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: bioView95Ci()) {
+                NavigationLink(destination: bioView95Ci(bio: bio)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -73,9 +78,19 @@ struct bioViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(bioSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(bioSubViewLoadMemory(
+                        bio: bio,
+                        bioMemory1: bioMemory1,
+                        bioMemory2: bioMemory2,
+                        bioMemory3: bioMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(bioSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(bioSubViewSaveMemory(
+                        bio: bio,
+                        bioMemory1: bioMemory1,
+                        bioMemory2: bioMemory2,
+                        bioMemory3: bioMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -91,10 +106,10 @@ struct bioViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct bioSubViewSaveMemory: View {
-    @ObservedObject var bio = Bio()
-    @ObservedObject var bioMemory1 = BioMemory1()
-    @ObservedObject var bioMemory2 = BioMemory2()
-    @ObservedObject var bioMemory3 = BioMemory3()
+    @ObservedObject var bio: Bio
+    @ObservedObject var bioMemory1: BioMemory1
+    @ObservedObject var bioMemory2: BioMemory2
+    @ObservedObject var bioMemory3: BioMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -210,10 +225,10 @@ struct bioSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct bioSubViewLoadMemory: View {
-    @ObservedObject var bio = Bio()
-    @ObservedObject var bioMemory1 = BioMemory1()
-    @ObservedObject var bioMemory2 = BioMemory2()
-    @ObservedObject var bioMemory3 = BioMemory3()
+    @ObservedObject var bio: Bio
+    @ObservedObject var bioMemory1: BioMemory1
+    @ObservedObject var bioMemory2: BioMemory2
+    @ObservedObject var bioMemory3: BioMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -233,9 +248,15 @@ struct bioSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        bio.gameArrayData = bioMemory1.gameArrayData
-        bio.kindArrayData = bioMemory1.kindArrayData
-        bio.atHitArrayData = bioMemory1.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: bioMemory1.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: bio.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: bioMemory1.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: bio.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: bioMemory1.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: bio.atHitArrayKey)
+//        bio.gameArrayData = bioMemory1.gameArrayData
+//        bio.kindArrayData = bioMemory1.kindArrayData
+//        bio.atHitArrayData = bioMemory1.atHitArrayData
         bio.playGameSum = bioMemory1.playGameSum
         bio.atCount = bioMemory1.atCount
         bio.czCount = bioMemory1.czCount
@@ -263,9 +284,15 @@ struct bioSubViewLoadMemory: View {
         bio.endingCountSum = bioMemory1.endingCountSum
     }
     func loadMemory2() {
-        bio.gameArrayData = bioMemory2.gameArrayData
-        bio.kindArrayData = bioMemory2.kindArrayData
-        bio.atHitArrayData = bioMemory2.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: bioMemory2.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: bio.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: bioMemory2.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: bio.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: bioMemory2.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: bio.atHitArrayKey)
+//        bio.gameArrayData = bioMemory2.gameArrayData
+//        bio.kindArrayData = bioMemory2.kindArrayData
+//        bio.atHitArrayData = bioMemory2.atHitArrayData
         bio.playGameSum = bioMemory2.playGameSum
         bio.atCount = bioMemory2.atCount
         bio.czCount = bioMemory2.czCount
@@ -293,9 +320,15 @@ struct bioSubViewLoadMemory: View {
         bio.endingCountSum = bioMemory2.endingCountSum
     }
     func loadMemory3() {
-        bio.gameArrayData = bioMemory3.gameArrayData
-        bio.kindArrayData = bioMemory3.kindArrayData
-        bio.atHitArrayData = bioMemory3.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: bioMemory3.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: bio.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: bioMemory3.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: bio.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: bioMemory3.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: bio.atHitArrayKey)
+//        bio.gameArrayData = bioMemory3.gameArrayData
+//        bio.kindArrayData = bioMemory3.kindArrayData
+//        bio.atHitArrayData = bioMemory3.atHitArrayData
         bio.playGameSum = bioMemory3.playGameSum
         bio.atCount = bioMemory3.atCount
         bio.czCount = bioMemory3.czCount

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mhrViewHistory: View {
-    @ObservedObject var mhr = Mhr()
+//    @ObservedObject var mhr = Mhr()
+    @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -82,7 +83,7 @@ struct mhrViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("アイルーだるま落とし規定回数")
@@ -257,7 +258,7 @@ struct mhrViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当り")
@@ -283,7 +284,7 @@ struct mhrViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ライズゾーン初当り確率")
@@ -421,5 +422,5 @@ struct mhrSubViewDataInput: View {
 }
 
 #Preview {
-    mhrViewHistory()
+    mhrViewHistory(mhr: Mhr())
 }

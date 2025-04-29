@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct dumbbellViewKinnikuBonus: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @ObservedObject var dumbbell: Dumbbell
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -66,7 +67,7 @@ struct dumbbellViewKinnikuBonus: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 9)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 9)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("合いの手の人数")
@@ -171,7 +172,7 @@ struct dumbbellViewKinnikuBonus: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 11)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 11)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("終了画面")
@@ -278,5 +279,5 @@ struct dumbbellViewKinnikuBonus: View {
 }
 
 #Preview {
-    dumbbellViewKinnikuBonus()
+    dumbbellViewKinnikuBonus(dumbbell: Dumbbell())
 }

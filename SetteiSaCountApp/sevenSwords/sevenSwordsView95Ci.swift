@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sevenSwordsView95Ci: View {
-    @ObservedObject var sevenSwords = SevenSwords()
+//    @ObservedObject var sevenSwords = SevenSwords()
+    @ObservedObject var sevenSwords: SevenSwords
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -62,5 +63,5 @@ struct sevenSwordsView95Ci: View {
 }
 
 #Preview {
-    sevenSwordsView95Ci()
+    sevenSwordsView95Ci(sevenSwords: SevenSwords())
 }

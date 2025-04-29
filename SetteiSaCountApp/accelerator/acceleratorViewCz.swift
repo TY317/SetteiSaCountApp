@@ -26,7 +26,8 @@ struct acceleratorTipHistoryInput: Tip {
 
 
 struct acceleratorViewCz: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -392,7 +393,7 @@ struct acceleratorViewCz: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り結果")
@@ -549,5 +550,5 @@ struct acceleratorSubViewDataInputVer2: View {
 
 
 #Preview {
-    acceleratorViewCz()
+    acceleratorViewCz(accelerator: Accelerator())
 }

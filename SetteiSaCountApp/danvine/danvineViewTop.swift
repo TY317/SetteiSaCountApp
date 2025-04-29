@@ -369,8 +369,12 @@ class DanvineMemory3: ObservableObject {
 
 
 struct danvineViewTop: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @StateObject var danvine = Danvine()
     @State var isShowAlert: Bool = false
+    @StateObject var danvineMemory1 = DanvineMemory1()
+    @StateObject var danvineMemory2 = DanvineMemory2()
+    @StateObject var danvineMemory3 = DanvineMemory3()
     
     var body: some View {
         NavigationStack {
@@ -383,35 +387,35 @@ struct danvineViewTop: View {
                             textBody: "通常時演出、モード")
                     }
                     // 規定ポイント
-                    NavigationLink(destination: danvineViewPt()) {
+                    NavigationLink(destination: danvineViewPt(danvine: danvine)) {
                         unitLabelMenu(
                             imageSystemName: "11.circle",
                             textBody: "規定ポイント"
                         )
                     }
                     // アタックモード
-                    NavigationLink(destination: danvineViewAttack()) {
+                    NavigationLink(destination: danvineViewAttack(danvine: danvine)) {
                         unitLabelMenu(
                             imageSystemName: "figure.martial.arts",
                             textBody: "アタックモード"
                         )
                     }
                     // 初当り履歴
-                    NavigationLink(destination: danvineViewHistory()) {
+                    NavigationLink(destination: danvineViewHistory(danvine: danvine)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "ボーナス,ST初当り履歴"
                         )
                     }
                     // ST中
-                    NavigationLink(destination: danvineViewSt()) {
+                    NavigationLink(destination: danvineViewSt(danvine: danvine)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper",
                             textBody: "ST中"
                         )
                     }
                     // ST終了ボイス
-                    NavigationLink(destination: danvineViewVoice()) {
+                    NavigationLink(destination: danvineViewVoice(danvine: danvine)) {
                         unitLabelMenu(
                             imageSystemName: "message",
                             textBody: "ST終了ボイス"
@@ -428,7 +432,7 @@ struct danvineViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ダンバイン")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: danvineView95Ci(selection: 3)) {
+                NavigationLink(destination: danvineView95Ci(danvine: danvine, selection: 3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -442,9 +446,19 @@ struct danvineViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(danvineSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(danvineSubViewLoadMemory(
+                        danvine: danvine,
+                        danvineMemory1: danvineMemory1,
+                        danvineMemory2: danvineMemory2,
+                        danvineMemory3: danvineMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(danvineSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(danvineSubViewSaveMemory(
+                        danvine: danvine,
+                        danvineMemory1: danvineMemory1,
+                        danvineMemory2: danvineMemory2,
+                        danvineMemory3: danvineMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -460,10 +474,10 @@ struct danvineViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct danvineSubViewSaveMemory: View {
-    @ObservedObject var danvine = Danvine()
-    @ObservedObject var danvineMemory1 = DanvineMemory1()
-    @ObservedObject var danvineMemory2 = DanvineMemory2()
-    @ObservedObject var danvineMemory3 = DanvineMemory3()
+    @ObservedObject var danvine: Danvine
+    @ObservedObject var danvineMemory1: DanvineMemory1
+    @ObservedObject var danvineMemory2: DanvineMemory2
+    @ObservedObject var danvineMemory3: DanvineMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -576,10 +590,10 @@ struct danvineSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct danvineSubViewLoadMemory: View {
-    @ObservedObject var danvine = Danvine()
-    @ObservedObject var danvineMemory1 = DanvineMemory1()
-    @ObservedObject var danvineMemory2 = DanvineMemory2()
-    @ObservedObject var danvineMemory3 = DanvineMemory3()
+    @ObservedObject var danvine: Danvine
+    @ObservedObject var danvineMemory1: DanvineMemory1
+    @ObservedObject var danvineMemory2: DanvineMemory2
+    @ObservedObject var danvineMemory3: DanvineMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -599,10 +613,18 @@ struct danvineSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        danvine.gameArrayData = danvineMemory1.gameArrayData
-        danvine.bonusArrayData = danvineMemory1.bonusArrayData
-        danvine.triggerArrayData = danvineMemory1.triggerArrayData
-        danvine.stHitArrayData = danvineMemory1.stHitArrayData
+        let memoryGameArray = decodeIntArray(from: danvineMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: danvine.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: danvineMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: danvine.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: danvineMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: danvine.triggerArrayKey)
+        let memoryStHitArray = decodeStringArray(from: danvineMemory1.stHitArrayData)
+        saveArray(memoryStHitArray, forKey: danvine.stHitArrayKey)
+//        danvine.gameArrayData = danvineMemory1.gameArrayData
+//        danvine.bonusArrayData = danvineMemory1.bonusArrayData
+//        danvine.triggerArrayData = danvineMemory1.triggerArrayData
+//        danvine.stHitArrayData = danvineMemory1.stHitArrayData
         danvine.playGameSum = danvineMemory1.playGameSum
         danvine.bonusCount = danvineMemory1.bonusCount
         danvine.stCount = danvineMemory1.stCount
@@ -628,10 +650,18 @@ struct danvineSubViewLoadMemory: View {
         danvine.ptCountSum = danvineMemory1.ptCountSum
     }
     func loadMemory2() {
-        danvine.gameArrayData = danvineMemory2.gameArrayData
-        danvine.bonusArrayData = danvineMemory2.bonusArrayData
-        danvine.triggerArrayData = danvineMemory2.triggerArrayData
-        danvine.stHitArrayData = danvineMemory2.stHitArrayData
+        let memoryGameArray = decodeIntArray(from: danvineMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: danvine.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: danvineMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: danvine.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: danvineMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: danvine.triggerArrayKey)
+        let memoryStHitArray = decodeStringArray(from: danvineMemory2.stHitArrayData)
+        saveArray(memoryStHitArray, forKey: danvine.stHitArrayKey)
+//        danvine.gameArrayData = danvineMemory2.gameArrayData
+//        danvine.bonusArrayData = danvineMemory2.bonusArrayData
+//        danvine.triggerArrayData = danvineMemory2.triggerArrayData
+//        danvine.stHitArrayData = danvineMemory2.stHitArrayData
         danvine.playGameSum = danvineMemory2.playGameSum
         danvine.bonusCount = danvineMemory2.bonusCount
         danvine.stCount = danvineMemory2.stCount
@@ -657,10 +687,18 @@ struct danvineSubViewLoadMemory: View {
         danvine.ptCountSum = danvineMemory2.ptCountSum
     }
     func loadMemory3() {
-        danvine.gameArrayData = danvineMemory3.gameArrayData
-        danvine.bonusArrayData = danvineMemory3.bonusArrayData
-        danvine.triggerArrayData = danvineMemory3.triggerArrayData
-        danvine.stHitArrayData = danvineMemory3.stHitArrayData
+        let memoryGameArray = decodeIntArray(from: danvineMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: danvine.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: danvineMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: danvine.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: danvineMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: danvine.triggerArrayKey)
+        let memoryStHitArray = decodeStringArray(from: danvineMemory3.stHitArrayData)
+        saveArray(memoryStHitArray, forKey: danvine.stHitArrayKey)
+//        danvine.gameArrayData = danvineMemory3.gameArrayData
+//        danvine.bonusArrayData = danvineMemory3.bonusArrayData
+//        danvine.triggerArrayData = danvineMemory3.triggerArrayData
+//        danvine.stHitArrayData = danvineMemory3.stHitArrayData
         danvine.playGameSum = danvineMemory3.playGameSum
         danvine.bonusCount = danvineMemory3.bonusCount
         danvine.stCount = danvineMemory3.stCount

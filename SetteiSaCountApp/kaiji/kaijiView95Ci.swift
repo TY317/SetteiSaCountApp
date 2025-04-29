@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiView95Ci: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -97,5 +98,5 @@ struct kaijiView95Ci: View {
 }
 
 #Preview {
-    kaijiView95Ci()
+    kaijiView95Ci(kaiji: Kaiji())
 }

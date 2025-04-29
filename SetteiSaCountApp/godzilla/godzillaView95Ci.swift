@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaView95Ci: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -151,5 +151,5 @@ struct godzillaView95Ci: View {
 }
 
 #Preview {
-    godzillaView95Ci()
+    godzillaView95Ci(godzilla: Godzilla())
 }

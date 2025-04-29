@@ -423,10 +423,14 @@ class KaguyaMemory3: ObservableObject {
 
 struct kaguyaViewTop: View {
 //    @ObservedObject var ver260 = Ver260()
-    @ObservedObject var kaguya = KaguyaSama()
+//    @ObservedObject var kaguya = KaguyaSama()
+    @StateObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
     @State var isShowSaveView: Bool = false
     @State var isShowLoadView: Bool = false
+    @StateObject var kaguyaMemory1 = KaguyaMemory1()
+    @StateObject var kaguyaMemory2 = KaguyaMemory2()
+    @StateObject var kaguyaMemory3 = KaguyaMemory3()
     
     var body: some View {
         NavigationStack {
@@ -437,7 +441,7 @@ struct kaguyaViewTop: View {
                         unitLabelMenu(imageSystemName: "sparkle.magnifyingglass", textBody: "通常時のモード、示唆")
                     }
                     // ボーナス内訳
-                    NavigationLink(destination: kaguyaViewBonus()) {
+                    NavigationLink(destination: kaguyaViewBonus(kaguya: kaguya)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "ボーナス種類の振分け"
@@ -445,22 +449,22 @@ struct kaguyaViewTop: View {
                         )
                     }
                     // REG中のキャラ紹介
-                    NavigationLink(destination: kaguyaViewReg()) {
+                    NavigationLink(destination: kaguyaViewReg(kaguya: kaguya)) {
                         unitLabelMenu(imageSystemName: "person.3.sequence", textBody: "REG中のキャラ紹介")
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: kaguyaViewScreen()) {
+                    NavigationLink(destination: kaguyaViewScreen(kaguya: kaguya)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ボーナス終了画面")
                     }
                     // エンディング
-                    NavigationLink(destination: kaguyaViewEnding()) {
+                    NavigationLink(destination: kaguyaViewEnding(kaguya: kaguya)) {
                         unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "かぐや様は告らせたい")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: kaguyaView95Ci()) {
+                NavigationLink(destination: kaguyaView95Ci(kaguya: kaguya)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -480,10 +484,20 @@ struct kaguyaViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(kaguyaViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(kaguyaViewLoadMemory(
+                            kaguya: kaguya,
+                            kaguyaMemory1: kaguyaMemory1,
+                            kaguyaMemory2: kaguyaMemory2,
+                            kaguyaMemory3: kaguyaMemory3
+                        )))
     //                        .popoverTip(tipUnitButtonLoadMemory())
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(kaguyaViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(kaguyaViewSaveMemory(
+                            kaguya: kaguya,
+                            kaguyaMemory1: kaguyaMemory1,
+                            kaguyaMemory2: kaguyaMemory2,
+                            kaguyaMemory3: kaguyaMemory3
+                        )))
     //                        .popoverTip(tipUnitButtonSaveMemory())
                     }
                     .popoverTip(tipUnitButtonMemory())
@@ -501,10 +515,10 @@ struct kaguyaViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct kaguyaViewSaveMemory: View {
-    @ObservedObject var kaguya = KaguyaSama()
-    @ObservedObject var kaguyaMemory1 = KaguyaMemory1()
-    @ObservedObject var kaguyaMemory2 = KaguyaMemory2()
-    @ObservedObject var kaguyaMemory3 = KaguyaMemory3()
+    @ObservedObject var kaguya: KaguyaSama
+    @ObservedObject var kaguyaMemory1: KaguyaMemory1
+    @ObservedObject var kaguyaMemory2: KaguyaMemory2
+    @ObservedObject var kaguyaMemory3: KaguyaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -664,10 +678,10 @@ struct kaguyaViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////////
 struct kaguyaViewLoadMemory: View {
-    @ObservedObject var kaguya = KaguyaSama()
-    @ObservedObject var kaguyaMemory1 = KaguyaMemory1()
-    @ObservedObject var kaguyaMemory2 = KaguyaMemory2()
-    @ObservedObject var kaguyaMemory3 = KaguyaMemory3()
+    @ObservedObject var kaguya: KaguyaSama
+    @ObservedObject var kaguyaMemory1: KaguyaMemory1
+    @ObservedObject var kaguyaMemory2: KaguyaMemory2
+    @ObservedObject var kaguyaMemory3: KaguyaMemory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(

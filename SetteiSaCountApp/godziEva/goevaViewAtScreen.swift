@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goevaViewAtScreen: View {
-    @ObservedObject var goeva = Goeva()
+//    @ObservedObject var goeva = Goeva()
+    @ObservedObject var goeva: Goeva
     @State var isShowAlert = false
     
     var body: some View {
@@ -81,5 +82,5 @@ struct goevaViewAtScreen: View {
 }
 
 #Preview {
-    goevaViewAtScreen()
+    goevaViewAtScreen(goeva: Goeva())
 }

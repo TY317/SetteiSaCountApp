@@ -383,8 +383,12 @@ class MyJug5Memory3: ObservableObject {
 
 
 struct myJug5Ver2ViewTop: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @StateObject var myJug5 = MyJug5()
     @State var isShowAlert: Bool = false
+    @StateObject var myJug5Memory1 = MyJug5Memory1()
+    @StateObject var myJug5Memory2 = MyJug5Memory2()
+    @StateObject var myJug5Memory3 = MyJug5Memory3()
     
     var body: some View {
         NavigationStack {
@@ -398,7 +402,7 @@ struct myJug5Ver2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: myJug5Ver2ViewKenDataInput()) {
+                    NavigationLink(destination: myJug5Ver2ViewKenDataInput(myJug5: myJug5)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -413,21 +417,21 @@ struct myJug5Ver2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: myJug5Ver2ViewJissenStartData()) {
+                    NavigationLink(destination: myJug5Ver2ViewJissenStartData(myJug5: myJug5)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: myJug5Ver2ViewJissenCount()) {
+                    NavigationLink(destination: myJug5Ver2ViewJissenCount(myJug5: myJug5)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: myJug5Ver2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: myJug5Ver2ViewJissenTotalDataCheck(myJug5: myJug5)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -440,7 +444,7 @@ struct myJug5Ver2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: myJug5Ver2View95CiTotal()) {
+                NavigationLink(destination: myJug5Ver2View95CiTotal(myJug5: myJug5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -454,9 +458,19 @@ struct myJug5Ver2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(myJug5SubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(myJug5SubViewLoadMemory(
+                        myJug5: myJug5,
+                        myJug5Memory1: myJug5Memory1,
+                        myJug5Memory2: myJug5Memory2,
+                        myJug5Memory3: myJug5Memory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(myJug5SubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(myJug5SubViewSaveMemory(
+                        myJug5: myJug5,
+                        myJug5Memory1: myJug5Memory1,
+                        myJug5Memory2: myJug5Memory2,
+                        myJug5Memory3: myJug5Memory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -472,10 +486,10 @@ struct myJug5Ver2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct myJug5SubViewSaveMemory: View {
-    @ObservedObject var myJug5 = MyJug5()
-    @ObservedObject var myJug5Memory1 = MyJug5Memory1()
-    @ObservedObject var myJug5Memory2 = MyJug5Memory2()
-    @ObservedObject var myJug5Memory3 = MyJug5Memory3()
+    @ObservedObject var myJug5: MyJug5
+    @ObservedObject var myJug5Memory1: MyJug5Memory1
+    @ObservedObject var myJug5Memory2: MyJug5Memory2
+    @ObservedObject var myJug5Memory3: MyJug5Memory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -585,10 +599,10 @@ struct myJug5SubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct myJug5SubViewLoadMemory: View {
-    @ObservedObject var myJug5 = MyJug5()
-    @ObservedObject var myJug5Memory1 = MyJug5Memory1()
-    @ObservedObject var myJug5Memory2 = MyJug5Memory2()
-    @ObservedObject var myJug5Memory3 = MyJug5Memory3()
+    @ObservedObject var myJug5: MyJug5
+    @ObservedObject var myJug5Memory1: MyJug5Memory1
+    @ObservedObject var myJug5Memory2: MyJug5Memory2
+    @ObservedObject var myJug5Memory3: MyJug5Memory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

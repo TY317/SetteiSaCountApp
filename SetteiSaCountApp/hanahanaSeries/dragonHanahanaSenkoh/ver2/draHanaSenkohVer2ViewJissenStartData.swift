@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewJissenStartData: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -180,13 +181,13 @@ struct draHanaSenkohVer2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            tableView: AnyView(draHanaSenkohTableBellBonus())
+                            tableView: AnyView(draHanaSenkohTableBellBonus(draHanaSenkoh: draHanaSenkoh))
 //                            image1: Image("draHanaSenkohBellBonusAnalysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiStart(draHanaSenkoh: draHanaSenkoh)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -249,5 +250,5 @@ struct draHanaSenkohVer2ViewJissenStartData: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewJissenStartData()
+    draHanaSenkohVer2ViewJissenStartData(draHanaSenkoh: DraHanaSenkoh())
 }

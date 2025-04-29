@@ -424,8 +424,12 @@ class HappyJugV3Memory3: ObservableObject {
 }
 
 struct happyJugV3Ver2ViewTop: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
+//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @StateObject var happyJugV3 = HappyJugV3()
     @State var isShowAlert: Bool = false
+    @StateObject var happyJugV3Memory1 = HappyJugV3Memory1()
+    @StateObject var happyJugV3Memory2 = HappyJugV3Memory2()
+    @StateObject var happyJugV3Memory3 = HappyJugV3Memory3()
     
     var body: some View {
         NavigationStack {
@@ -439,7 +443,7 @@ struct happyJugV3Ver2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: happyJugV3Ver2ViewKenDataInput()) {
+                    NavigationLink(destination: happyJugV3Ver2ViewKenDataInput(happyJugV3: happyJugV3)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -454,21 +458,21 @@ struct happyJugV3Ver2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: happyJugV3Ver2ViewJissenStartData()) {
+                    NavigationLink(destination: happyJugV3Ver2ViewJissenStartData(happyJugV3: happyJugV3)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: happyJugV3Ver2ViewJissenCount()) {
+                    NavigationLink(destination: happyJugV3Ver2ViewJissenCount(happyJugV3: happyJugV3)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck(happyJugV3: happyJugV3)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -481,7 +485,7 @@ struct happyJugV3Ver2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: happyJugV3Ver2View95CiTotal()) {
+                NavigationLink(destination: happyJugV3Ver2View95CiTotal(happyJugV3: happyJugV3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -495,9 +499,19 @@ struct happyJugV3Ver2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(happyJugV3SubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(happyJugV3SubViewLoadMemory(
+                        happyJugV3: happyJugV3,
+                        happyJugV3Memory1: happyJugV3Memory1,
+                        happyJugV3Memory2: happyJugV3Memory2,
+                        happyJugV3Memory3: happyJugV3Memory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(happyJugV3SubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(happyJugV3SubViewSaveMemory(
+                        happyJugV3: happyJugV3,
+                        happyJugV3Memory1: happyJugV3Memory1,
+                        happyJugV3Memory2: happyJugV3Memory2,
+                        happyJugV3Memory3: happyJugV3Memory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -513,10 +527,10 @@ struct happyJugV3Ver2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct happyJugV3SubViewSaveMemory: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
-    @ObservedObject var happyJugV3Memory1 = HappyJugV3Memory1()
-    @ObservedObject var happyJugV3Memory2 = HappyJugV3Memory2()
-    @ObservedObject var happyJugV3Memory3 = HappyJugV3Memory3()
+    @ObservedObject var happyJugV3: HappyJugV3
+    @ObservedObject var happyJugV3Memory1: HappyJugV3Memory1
+    @ObservedObject var happyJugV3Memory2: HappyJugV3Memory2
+    @ObservedObject var happyJugV3Memory3: HappyJugV3Memory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -632,10 +646,10 @@ struct happyJugV3SubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct happyJugV3SubViewLoadMemory: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
-    @ObservedObject var happyJugV3Memory1 = HappyJugV3Memory1()
-    @ObservedObject var happyJugV3Memory2 = HappyJugV3Memory2()
-    @ObservedObject var happyJugV3Memory3 = HappyJugV3Memory3()
+    @ObservedObject var happyJugV3: HappyJugV3
+    @ObservedObject var happyJugV3Memory1: HappyJugV3Memory1
+    @ObservedObject var happyJugV3Memory2: HappyJugV3Memory2
+    @ObservedObject var happyJugV3Memory3: HappyJugV3Memory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

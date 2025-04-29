@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewBigScreen: View {
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
     let imageNameList: [String] = [
@@ -150,5 +151,5 @@ struct magiaViewBigScreen: View {
 }
 
 #Preview {
-    magiaViewBigScreen()
+    magiaViewBigScreen(magia: Magia())
 }

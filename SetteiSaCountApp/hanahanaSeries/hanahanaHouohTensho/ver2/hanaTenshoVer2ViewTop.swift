@@ -473,8 +473,12 @@ class HanaTenshoMemory3: ObservableObject {
 }
 
 struct hanaTenshoVer2ViewTop: View {
-    @ObservedObject var hanaTensho = HanaTensho()
+//    @ObservedObject var hanaTensho = HanaTensho()
+    @StateObject var hanaTensho = HanaTensho()
     @State var isShowAlert: Bool = false
+    @StateObject var hanaTenshoMemory1 = HanaTenshoMemory1()
+    @StateObject var hanaTenshoMemory2 = HanaTenshoMemory2()
+    @StateObject var hanaTenshoMemory3 = HanaTenshoMemory3()
     
     var body: some View {
         NavigationStack {
@@ -488,7 +492,7 @@ struct hanaTenshoVer2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: hanaTenshoVer2ViewKenDataInput()) {
+                    NavigationLink(destination: hanaTenshoVer2ViewKenDataInput(hanaTensho: hanaTensho)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -504,21 +508,21 @@ struct hanaTenshoVer2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: hanaTenshoVer2ViewJissenStartData()) {
+                    NavigationLink(destination: hanaTenshoVer2ViewJissenStartData(hanaTensho: hanaTensho)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: hanaTenshoVer2ViewJissenCount()) {
+                    NavigationLink(destination: hanaTenshoVer2ViewJissenCount(hanaTensho: hanaTensho)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: hanaTenshoVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: hanaTenshoVer2ViewJissenTotalDataCheck(hanaTensho: hanaTensho)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -531,7 +535,7 @@ struct hanaTenshoVer2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: hanaTenshoVer2View95CiTotal()) {
+                NavigationLink(destination: hanaTenshoVer2View95CiTotal(hanaTensho: hanaTensho)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -545,9 +549,19 @@ struct hanaTenshoVer2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(hanaTenshoSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(hanaTenshoSubViewLoadMemory(
+                        hanaTensho: hanaTensho,
+                        hanaTenshoMemory1: hanaTenshoMemory1,
+                        hanaTenshoMemory2: hanaTenshoMemory2,
+                        hanaTenshoMemory3: hanaTenshoMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(hanaTenshoSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(hanaTenshoSubViewSaveMemory(
+                        hanaTensho: hanaTensho,
+                        hanaTenshoMemory1: hanaTenshoMemory1,
+                        hanaTenshoMemory2: hanaTenshoMemory2,
+                        hanaTenshoMemory3: hanaTenshoMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -563,10 +577,10 @@ struct hanaTenshoVer2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct hanaTenshoSubViewSaveMemory: View {
-    @ObservedObject var hanaTensho = HanaTensho()
-    @ObservedObject var hanaTenshoMemory1 = HanaTenshoMemory1()
-    @ObservedObject var hanaTenshoMemory2 = HanaTenshoMemory2()
-    @ObservedObject var hanaTenshoMemory3 = HanaTenshoMemory3()
+    @ObservedObject var hanaTensho: HanaTensho
+    @ObservedObject var hanaTenshoMemory1: HanaTenshoMemory1
+    @ObservedObject var hanaTenshoMemory2: HanaTenshoMemory2
+    @ObservedObject var hanaTenshoMemory3: HanaTenshoMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -712,10 +726,10 @@ struct hanaTenshoSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct hanaTenshoSubViewLoadMemory: View {
-    @ObservedObject var hanaTensho = HanaTensho()
-    @ObservedObject var hanaTenshoMemory1 = HanaTenshoMemory1()
-    @ObservedObject var hanaTenshoMemory2 = HanaTenshoMemory2()
-    @ObservedObject var hanaTenshoMemory3 = HanaTenshoMemory3()
+    @ObservedObject var hanaTensho: HanaTensho
+    @ObservedObject var hanaTenshoMemory1: HanaTenshoMemory1
+    @ObservedObject var hanaTenshoMemory2: HanaTenshoMemory2
+    @ObservedObject var hanaTenshoMemory3: HanaTenshoMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

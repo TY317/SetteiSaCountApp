@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kingHanaTableBellBonus: View {
-    @ObservedObject var kingHana = KingHana()
+//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var kingHana: KingHana
     
     var body: some View {
         HStack(spacing: 0) {
@@ -35,5 +36,5 @@ struct kingHanaTableBellBonus: View {
 }
 
 #Preview {
-    kingHanaTableBellBonus()
+    kingHanaTableBellBonus(kingHana: KingHana())
 }

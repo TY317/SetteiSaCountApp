@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mrJugVer2View95CiPersonal: View {
-    @ObservedObject var mrJug = MrJug()
+//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var mrJug: MrJug
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -165,5 +166,5 @@ struct mrJugVer2View95CiPersonal: View {
 }
 
 #Preview {
-    mrJugVer2View95CiPersonal()
+    mrJugVer2View95CiPersonal(mrJug: MrJug())
 }

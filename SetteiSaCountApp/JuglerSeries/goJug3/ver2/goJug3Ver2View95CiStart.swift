@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goJug3Ver2View95CiStart: View {
-    @ObservedObject var goJug3 = GoJug3()
+//    @ObservedObject var goJug3 = GoJug3()
+    @ObservedObject var goJug3: GoJug3
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct goJug3Ver2View95CiStart: View {
 }
 
 #Preview {
-    goJug3Ver2View95CiStart()
+    goJug3Ver2View95CiStart(goJug3: GoJug3())
 }

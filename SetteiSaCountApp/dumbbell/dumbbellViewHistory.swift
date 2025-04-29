@@ -43,7 +43,8 @@ struct dumbbellTipWithoutCzBonusCount: Tip {
 
 
 struct dumbbellViewHistory: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @ObservedObject var dumbbell: Dumbbell
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -220,7 +221,7 @@ struct dumbbellViewHistory: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ関連まとめ")
@@ -257,7 +258,7 @@ struct dumbbellViewHistory: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ボーナス初当り")
@@ -420,5 +421,5 @@ struct dumbbellSubViewDataInputVer2: View {
 
 
 #Preview {
-    dumbbellViewHistory()
+    dumbbellViewHistory(dumbbell: Dumbbell())
 }

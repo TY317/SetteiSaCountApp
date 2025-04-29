@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mrJugVer2ViewKenDataInput: View {
-    @ObservedObject var mrJug = MrJug()
+//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var mrJug: MrJug
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,13 +182,13 @@ struct mrJugVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ミスタージャグラー設定差",
-                            tableView: AnyView(mrJugSubViewTableRatio())
+                            tableView: AnyView(mrJugSubViewTableRatio(mrJug: mrJug))
 //                            image1: Image("mrJugAnalysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiKen(mrJug: mrJug)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -254,5 +255,5 @@ struct mrJugVer2ViewKenDataInput: View {
 }
 
 #Preview {
-    mrJugVer2ViewKenDataInput()
+    mrJugVer2ViewKenDataInput(mrJug: MrJug())
 }

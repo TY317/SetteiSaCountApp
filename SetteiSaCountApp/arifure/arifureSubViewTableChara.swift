@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureSubViewTableChara: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     let lineList1: [Int] = [1,1,1,1,1,1,2,2]
     let contentWidth: CGFloat = 80
     
@@ -68,5 +69,5 @@ struct arifureSubViewTableChara: View {
 }
 
 #Preview {
-    arifureSubViewTableChara()
+    arifureSubViewTableChara(arifure: Arifure())
 }

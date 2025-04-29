@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kabaneriViewChance: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @ObservedObject var kabaneri: Kabaneri
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -32,7 +33,7 @@ struct kabaneriViewChance: View {
                         // 参考情報リンク
                         unitLinkButton(title: "発光率について", exview: AnyView(unitExView5body2image(title: "1個チャンス目の発光率", textBody1: "・好機、発光していないチャンス目が単独で出現した時がカウント対象", textBody2: "・発光率に設定差あり。通常時の判別要素のメインになり得る", image1: Image("kabaneriChance"))))
                         // //// 95%信頼区間グラフへのリンク
-                        unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 1)))
+                        unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 1)))
                             .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("1個チャンス目の発光率")
@@ -75,7 +76,7 @@ struct kabaneriViewChance: View {
                         // 参考情報リンク
                         unitLinkButton(title: "共通ベルについて", exview: AnyView(unitExView5body2image(title: "共通ベル", textBody1: "・中段または下段に平行に揃うベル（画像参照）に設定差あり", textBody2: "・基本的に状態不問でカウント可能", textBody3: "・ベルは赤・青のどちらでもOK", image1: Image("kabaneriBellRatio"), image2: Image("kabaneriBell"))))
                         // //// 95%信頼区間グラフへのリンク
-                        unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 2)))
+                        unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 2)))
                             .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("共通ベル")
@@ -199,5 +200,5 @@ struct kabaneriViewChance: View {
 }
 
 #Preview {
-    kabaneriViewChance()
+    kabaneriViewChance(kabaneri: Kabaneri())
 }

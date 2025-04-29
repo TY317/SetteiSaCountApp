@@ -288,7 +288,11 @@ class BangdreamMemory3: ObservableObject {
 }
 
 struct bangdreamViewTop: View {
-    @ObservedObject var bangdream = Bangdream()
+//    @ObservedObject var bangdream = Bangdream()
+    @StateObject var bangdream = Bangdream()
+    @StateObject var bangdreamMemory1 = BangdreamMemory1()
+    @StateObject var bangdreamMemory2 = BangdreamMemory2()
+    @StateObject var bangdreamMemory3 = BangdreamMemory3()
     @State var isshowalert: Bool = false
     
     var body: some View {
@@ -296,15 +300,15 @@ struct bangdreamViewTop: View {
             List {
                 Section {
                     // ST初当たり履歴
-                    NavigationLink(destination: bangdreamViewHistory()) {
+                    NavigationLink(destination: bangdreamViewHistory(bangdream: bangdream)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "ST初当たり履歴")
                     }
                     // ST終了画面
-                    NavigationLink(destination: bangdreamViewScreen()) {
+                    NavigationLink(destination: bangdreamViewScreen(bangdream: bangdream)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ST終了画面")
                     }
                     // ピコアタック
-                    NavigationLink(destination: bangdreamViewPicoAttack()) {
+                    NavigationLink(destination: bangdreamViewPicoAttack(bangdream: bangdream)) {
                         unitLabelMenu(imageSystemName: "figure.boxing", textBody: "ピコアタック")
                     }
                     // 隠れ凪
@@ -315,7 +319,7 @@ struct bangdreamViewTop: View {
                     unitLabelMachineTopTitle(machineName: "バンドリ!")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: bangdreamView95Ci()) {
+                NavigationLink(destination: bangdreamView95Ci(bangdream: bangdream)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -330,9 +334,19 @@ struct bangdreamViewTop: View {
                 HStack {
                     HStack {
                         // データ読出し
-                        unitButtonLoadMemory(loadView: AnyView(bangdreamSubViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(bangdreamSubViewLoadMemory(
+                            bangdream: bangdream,
+                            bangdreamMemory1: bangdreamMemory1,
+                            bangdreamMemory2: bangdreamMemory2,
+                            bangdreamMemory3: bangdreamMemory3
+                        )))
                         // データ保存
-                        unitButtonSaveMemory(saveView: AnyView(bangdreamSubViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(bangdreamSubViewSaveMemory(
+                            bangdream: bangdream,
+                            bangdreamMemory1: bangdreamMemory1,
+                            bangdreamMemory2: bangdreamMemory2,
+                            bangdreamMemory3: bangdreamMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     // データリセット
@@ -348,10 +362,10 @@ struct bangdreamViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct bangdreamSubViewSaveMemory: View {
-    @ObservedObject var bangdream = Bangdream()
-    @ObservedObject var bangdreamMemory1 = BangdreamMemory1()
-    @ObservedObject var bangdreamMemory2 = BangdreamMemory2()
-    @ObservedObject var bangdreamMemory3 = BangdreamMemory3()
+    @ObservedObject var bangdream: Bangdream
+    @ObservedObject var bangdreamMemory1: BangdreamMemory1
+    @ObservedObject var bangdreamMemory2: BangdreamMemory2
+    @ObservedObject var bangdreamMemory3: BangdreamMemory3
     @State var isShowSaveAlert: Bool = false
     var body: some View {
         unitViewSaveMemory(
@@ -444,10 +458,10 @@ struct bangdreamSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct bangdreamSubViewLoadMemory: View {
-    @ObservedObject var bangdream = Bangdream()
-    @ObservedObject var bangdreamMemory1 = BangdreamMemory1()
-    @ObservedObject var bangdreamMemory2 = BangdreamMemory2()
-    @ObservedObject var bangdreamMemory3 = BangdreamMemory3()
+    @ObservedObject var bangdream: Bangdream
+    @ObservedObject var bangdreamMemory1: BangdreamMemory1
+    @ObservedObject var bangdreamMemory2: BangdreamMemory2
+    @ObservedObject var bangdreamMemory3: BangdreamMemory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(
@@ -466,9 +480,15 @@ struct bangdreamSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        bangdream.cycleArrayData = bangdreamMemory1.cycleArrayData
-        bangdream.triggerArrayData = bangdreamMemory1.triggerArrayData
-        bangdream.cycleNumberArrayData = bangdreamMemory1.cycleNumberArrayData
+        let memoryCycleArray = decodeStringArray(from: bangdreamMemory1.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: bangdream.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: bangdreamMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: bangdream.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: bangdreamMemory1.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: bangdream.cycleNumberArrayKey)
+//        bangdream.cycleArrayData = bangdreamMemory1.cycleArrayData
+//        bangdream.triggerArrayData = bangdreamMemory1.triggerArrayData
+//        bangdream.cycleNumberArrayData = bangdreamMemory1.cycleNumberArrayData
         bangdream.storyCountSum = bangdreamMemory1.storyCountSum
         bangdream.cycleHitCountSum = bangdreamMemory1.cycleHitCountSum
         bangdream.screenCountKasumi = bangdreamMemory1.screenCountKasumi
@@ -489,9 +509,15 @@ struct bangdreamSubViewLoadMemory: View {
         bangdream.picoAttackCountAllSum = bangdreamMemory1.picoAttackCountAllSum
     }
     func loadMemory2() {
-        bangdream.cycleArrayData = bangdreamMemory2.cycleArrayData
-        bangdream.triggerArrayData = bangdreamMemory2.triggerArrayData
-        bangdream.cycleNumberArrayData = bangdreamMemory2.cycleNumberArrayData
+        let memoryCycleArray = decodeStringArray(from: bangdreamMemory2.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: bangdream.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: bangdreamMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: bangdream.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: bangdreamMemory2.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: bangdream.cycleNumberArrayKey)
+//        bangdream.cycleArrayData = bangdreamMemory2.cycleArrayData
+//        bangdream.triggerArrayData = bangdreamMemory2.triggerArrayData
+//        bangdream.cycleNumberArrayData = bangdreamMemory2.cycleNumberArrayData
         bangdream.storyCountSum = bangdreamMemory2.storyCountSum
         bangdream.cycleHitCountSum = bangdreamMemory2.cycleHitCountSum
         bangdream.screenCountKasumi = bangdreamMemory2.screenCountKasumi
@@ -512,9 +538,15 @@ struct bangdreamSubViewLoadMemory: View {
         bangdream.picoAttackCountAllSum = bangdreamMemory2.picoAttackCountAllSum
     }
     func loadMemory3() {
-        bangdream.cycleArrayData = bangdreamMemory3.cycleArrayData
-        bangdream.triggerArrayData = bangdreamMemory3.triggerArrayData
-        bangdream.cycleNumberArrayData = bangdreamMemory3.cycleNumberArrayData
+        let memoryCycleArray = decodeStringArray(from: bangdreamMemory3.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: bangdream.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: bangdreamMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: bangdream.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: bangdreamMemory3.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: bangdream.cycleNumberArrayKey)
+//        bangdream.cycleArrayData = bangdreamMemory3.cycleArrayData
+//        bangdream.triggerArrayData = bangdreamMemory3.triggerArrayData
+//        bangdream.cycleNumberArrayData = bangdreamMemory3.cycleNumberArrayData
         bangdream.storyCountSum = bangdreamMemory3.storyCountSum
         bangdream.cycleHitCountSum = bangdreamMemory3.cycleHitCountSum
         bangdream.screenCountKasumi = bangdreamMemory3.screenCountKasumi

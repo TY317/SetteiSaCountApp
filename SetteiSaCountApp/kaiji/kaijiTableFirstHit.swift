@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiTableFirstHit: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -25,5 +26,5 @@ struct kaijiTableFirstHit: View {
 }
 
 #Preview {
-    kaijiTableFirstHit()
+    kaijiTableFirstHit(kaiji: Kaiji())
 }

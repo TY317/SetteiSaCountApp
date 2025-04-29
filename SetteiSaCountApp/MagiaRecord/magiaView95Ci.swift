@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct magiaView95Ci: View {
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -116,5 +117,5 @@ struct magiaView95Ci: View {
 }
 
 #Preview {
-    magiaView95Ci()
+    magiaView95Ci(magia: Magia())
 }

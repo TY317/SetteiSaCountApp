@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bangdreamViewScreen: View {
-    @ObservedObject var bangdream = Bangdream()
+//    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdream: Bangdream
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -199,5 +200,5 @@ struct bangdreamViewScreen: View {
 }
 
 #Preview {
-    bangdreamViewScreen()
+    bangdreamViewScreen(bangdream: Bangdream())
 }

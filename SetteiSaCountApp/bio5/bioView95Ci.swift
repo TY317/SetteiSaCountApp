@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bioView95Ci: View {
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -62,5 +63,5 @@ struct bioView95Ci: View {
 }
 
 #Preview {
-    bioView95Ci()
+    bioView95Ci(bio: Bio())
 }

@@ -24,7 +24,8 @@ struct kaguyaTipRegCharaSelect: Tip {
 }
 
 struct kaguyaViewReg: View {
-    @ObservedObject var kaguya = KaguyaSama()
+//    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -173,7 +174,7 @@ struct kaguyaViewReg: View {
                 // 参考情報リンク
                 unitLinkButton(title: "キャラ紹介シナリオの振分けについて", exview: AnyView(unitExView5body2image(title: "キャラ紹介シナリオ振分け", textBody1: "・紹介されるキャラと順番はシナリオで管理されている", textBody2: "・大仏、べツィーは設定差はなくボーナス後のモード示唆", image1: Image("kaguyaRegCharaRatio"), image2: Image("kaguyaRegCharaPattern"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(kaguya: kaguya, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("カウント結果")
@@ -233,5 +234,5 @@ struct kaguyaViewReg: View {
 }
 
 #Preview {
-    kaguyaViewReg()
+    kaguyaViewReg(kaguya: KaguyaSama())
 }

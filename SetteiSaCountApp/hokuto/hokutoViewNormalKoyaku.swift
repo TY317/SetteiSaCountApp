@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct hokutoViewNormalKoyaku: View {
-    @ObservedObject var hokuto = Hokuto()
+//    @ObservedObject var hokuto = Hokuto()
+    @ObservedObject var hokuto: Hokuto
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -56,7 +57,7 @@ struct hokutoViewNormalKoyaku: View {
                     // 参考情報へのリンク
                     unitLinkButton(title: "ナビなしベルについて", exview: AnyView(unitExView5body2image(title: "通常時のベル", textBody1: "・押し順は中・右・左を遵守", textBody2: "・中段に平行揃いするベルに設定差があると言われている", textBody3: "・斜めベルとの比率も指標になるため、斜め揃いもカウントを推奨", textBody4: "・通常時ゲーム数はマイスロを参照", image1: Image("hokutoNormalBell"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(selection: 1)))
+                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 1)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ナビなしベル")
@@ -166,5 +167,5 @@ struct hokutoViewNormalKoyaku: View {
 }
 
 #Preview {
-    hokutoViewNormalKoyaku()
+    hokutoViewNormalKoyaku(hokuto: Hokuto())
 }

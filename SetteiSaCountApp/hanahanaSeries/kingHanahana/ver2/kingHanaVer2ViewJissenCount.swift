@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kingHanaVer2ViewJissenCount: View {
-    @ObservedObject var kingHana = KingHana()
+//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var kingHana: KingHana
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
     @FocusState var isFocused: Bool
@@ -63,13 +64,13 @@ struct kingHanaVer2ViewJissenCount: View {
                         exview: AnyView(
                             unitExView5body2image(
                                 title: "ベル・ボーナス確率",
-                                tableView: AnyView(kingHanaTableBellBonus())
+                                tableView: AnyView(kingHanaTableBellBonus(kingHana: kingHana))
 //                                image1: Image("kingHanaBellBonusAnalysis")
                             )
                         )
                     )
                     // 95%信頼区間グラフ
-                    unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(selection: 1)))
+                    unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(kingHana: kingHana, selection: 1)))
                         .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
@@ -155,7 +156,7 @@ struct kingHanaVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(kingHana: kingHana, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、フェザーランプ")
@@ -181,7 +182,7 @@ struct kingHanaVer2ViewJissenCount: View {
                             )
 //                            unitLinkButton(title: "BB中のスイカについて", exview: AnyView(unitExView5body2image(title: "BIG中スイカ確率", image1:Image("kingHanaBigSuikaAnalysis"))))
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(kingHana: kingHana, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
@@ -215,7 +216,7 @@ struct kingHanaVer2ViewJissenCount: View {
                             )
 //                            unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(unitExView5body2image(title: "BIG後のフェザーランプ確率", image1:Image("kingHanaBigLampAnalysis"))))
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(selection: 6)))
+                            unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(kingHana: kingHana, selection: 6)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
@@ -274,7 +275,7 @@ struct kingHanaVer2ViewJissenCount: View {
                             )
                         )
                         // 95%信頼区間グラフ
-                        unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(selection: 7)))
+                        unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiPersonal(kingHana: kingHana, selection: 7)))
                             .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
@@ -357,5 +358,5 @@ struct kingHanaVer2ViewJissenCount: View {
 }
 
 #Preview {
-    kingHanaVer2ViewJissenCount()
+    kingHanaVer2ViewJissenCount(kingHana: KingHana())
 }

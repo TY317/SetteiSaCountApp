@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct imJugExVer2ViewKenDataInput: View {
-    @ObservedObject var imJugEx = ImJugEx()
+//    @ObservedObject var imJugEx = ImJugEx()
+    @ObservedObject var imJugEx: ImJugEx
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,12 +182,12 @@ struct imJugExVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "アイムジャグラーEX設定差",
-                            tableView: AnyView(imJugExTableRatio())
+                            tableView: AnyView(imJugExTableRatio(imJugEx: imJugEx))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiKen(imJugEx: imJugEx)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -253,5 +254,5 @@ struct imJugExVer2ViewKenDataInput: View {
 }
 
 #Preview {
-    imJugExVer2ViewKenDataInput()
+    imJugExVer2ViewKenDataInput(imJugEx: ImJugEx())
 }

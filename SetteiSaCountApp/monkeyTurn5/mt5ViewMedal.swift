@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct mt5ViewMedal: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var isShowAlert = false
     
     var body: some View {
@@ -29,7 +30,7 @@ struct mt5ViewMedal: View {
                         .popoverTip(mt5TipBlackMedalRatioAdd())
                     unitLinkButton(title: "トロフィーについて", exview: AnyView(mt5ExViewTrofy()))
                     // 95%信頼区間グラフ
-                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 6)))
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 6)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("メダルのカウント")
@@ -94,5 +95,5 @@ struct mt5ExViewTrofy: View {
 }
 
 #Preview {
-    mt5ViewMedal()
+    mt5ViewMedal(mt5: Mt5())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rezero2View95Ci: View {
-    @ObservedObject var rezero2 = Rezero2()
+//    @ObservedObject var rezero2 = Rezero2()
+    @ObservedObject var rezero2: Rezero2
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -96,5 +97,5 @@ struct rezero2View95Ci: View {
 }
 
 #Preview {
-    rezero2View95Ci()
+    rezero2View95Ci(rezero2: Rezero2())
 }

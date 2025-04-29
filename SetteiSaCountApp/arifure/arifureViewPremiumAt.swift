@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureViewPremiumAt: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
 //    @ObservedObject var ver250 = Ver250()
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -28,7 +29,7 @@ struct arifureViewPremiumAt: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "上位AT初当り",
-                            tableView: AnyView(arifureSubViewTablePremiumAtHit())
+                            tableView: AnyView(arifureSubViewTablePremiumAtHit(arifure: arifure))
                         )
                     )
                 )
@@ -45,7 +46,7 @@ struct arifureViewPremiumAt: View {
                             title: "覚醒チャレンジ成功期待度",
                             textBody1: "・チャレンジ成功率に設定差あり",
                             textBody2: "・最終ゲーム小役成立時は成功濃厚なので注意。ハズレでの成功に着目",
-                            tableView: AnyView(arifureSubViewTableKakuseiSuccess())
+                            tableView: AnyView(arifureSubViewTableKakuseiSuccess(arifure: arifure))
                         )
                     )
                 )
@@ -98,12 +99,12 @@ struct arifureViewPremiumAt: View {
                             textBody2: "・2G以降は継続抽選で決定\n　2G以降のレア役成立時はその時点で継続濃厚",
                             textBody3: "・継続率は3段階あり、高設定ほど高継続率が選ばれやすい",
                             textBody4: "・継続率は見抜けないため、実質の継続G数カウントを推奨\n　100万回シミュレートでの実質継続G数は下記を参照",
-                            tableView: AnyView(arifureSubViewTableBta())
+                            tableView: AnyView(arifureSubViewTableBta(arifure: arifure))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 10)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 10)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
             } header: {
@@ -172,5 +173,5 @@ struct arifureViewPremiumAt: View {
 }
 
 #Preview {
-    arifureViewPremiumAt()
+    arifureViewPremiumAt(arifure: Arifure())
 }

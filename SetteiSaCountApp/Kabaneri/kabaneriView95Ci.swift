@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kabaneriView95Ci: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @ObservedObject var kabaneri: Kabaneri
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -181,5 +182,5 @@ struct kabaneriView95Ci: View {
 }
 
 #Preview {
-    kabaneriView95Ci()
+    kabaneriView95Ci(kabaneri: Kabaneri())
 }

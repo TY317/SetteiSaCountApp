@@ -268,21 +268,25 @@ class SymphogearMemory3: ObservableObject {
 }
 
 struct symphoViewTop: View {
-    @ObservedObject var sympho = Symphogear()
+//    @ObservedObject var sympho = Symphogear()
+    @StateObject var sympho = Symphogear()
     @State var isShowAlert = false
     @State var isShowSaveView: Bool = false
     @State var isShowLoadView: Bool = false
+    @StateObject var symphoMemory1 = SymphogearMemory1()
+    @StateObject var symphoMemory2 = SymphogearMemory2()
+    @StateObject var symphoMemory3 = SymphogearMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // AT初当り履歴
-                    NavigationLink(destination: symphoViewHistory()) {
+                    NavigationLink(destination: symphoViewHistory(sympho: sympho)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "AT初当り履歴")
                     }
                     // AT終了画面
-                    NavigationLink(destination: symphoViewScreen()) {
+                    NavigationLink(destination: symphoViewScreen(sympho: sympho)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "AT終了画面")
                     }
                     // AT終了後のボイス
@@ -301,7 +305,7 @@ struct symphoViewTop: View {
                     unitLabelMachineTopTitle(machineName: "シンフォギア 正義の歌")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: symphoView95Ci()) {
+                NavigationLink(destination: symphoView95Ci(sympho: sympho)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -316,9 +320,19 @@ struct symphoViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(symphoViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(symphoViewLoadMemory(
+                            sympho: sympho,
+                            symphoMemory1: symphoMemory1,
+                            symphoMemory2: symphoMemory2,
+                            symphoMemory3: symphoMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(symphoViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(symphoViewSaveMemory(
+                            sympho: sympho,
+                            symphoMemory1: symphoMemory1,
+                            symphoMemory2: symphoMemory2,
+                            symphoMemory3: symphoMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetAll, message: "この機種のデータを全てリセットします")
@@ -334,10 +348,10 @@ struct symphoViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct symphoViewSaveMemory: View {
-    @ObservedObject var sympho = Symphogear()
-    @ObservedObject var symphoMemory1 = SymphogearMemory1()
-    @ObservedObject var symphoMemory2 = SymphogearMemory2()
-    @ObservedObject var symphoMemory3 = SymphogearMemory3()
+    @ObservedObject var sympho: Symphogear
+    @ObservedObject var symphoMemory1: SymphogearMemory1
+    @ObservedObject var symphoMemory2: SymphogearMemory2
+    @ObservedObject var symphoMemory3: SymphogearMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -423,10 +437,10 @@ struct symphoViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct symphoViewLoadMemory: View {
-    @ObservedObject var sympho = Symphogear()
-    @ObservedObject var symphoMemory1 = SymphogearMemory1()
-    @ObservedObject var symphoMemory2 = SymphogearMemory2()
-    @ObservedObject var symphoMemory3 = SymphogearMemory3()
+    @ObservedObject var sympho: Symphogear
+    @ObservedObject var symphoMemory1: SymphogearMemory1
+    @ObservedObject var symphoMemory2: SymphogearMemory2
+    @ObservedObject var symphoMemory3: SymphogearMemory3
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {
@@ -446,9 +460,15 @@ struct symphoViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        sympho.gameArrayData = symphoMemory1.gameArrayData
-        sympho.bonusArrayData = symphoMemory1.bonusArrayData
-        sympho.triggerArrayData = symphoMemory1.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: symphoMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: sympho.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: symphoMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: sympho.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: symphoMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: sympho.triggerArrayKey)
+//        sympho.gameArrayData = symphoMemory1.gameArrayData
+//        sympho.bonusArrayData = symphoMemory1.bonusArrayData
+//        sympho.triggerArrayData = symphoMemory1.triggerArrayData
         sympho.atCount = symphoMemory1.atCount
         sympho.czSaishuCount = symphoMemory1.czSaishuCount
         sympho.playGame = symphoMemory1.playGame
@@ -466,9 +486,15 @@ struct symphoViewLoadMemory: View {
         sympho.screenCountSum = symphoMemory1.screenCountSum
     }
     func loadMemory2() {
-        sympho.gameArrayData = symphoMemory2.gameArrayData
-        sympho.bonusArrayData = symphoMemory2.bonusArrayData
-        sympho.triggerArrayData = symphoMemory2.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: symphoMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: sympho.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: symphoMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: sympho.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: symphoMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: sympho.triggerArrayKey)
+//        sympho.gameArrayData = symphoMemory2.gameArrayData
+//        sympho.bonusArrayData = symphoMemory2.bonusArrayData
+//        sympho.triggerArrayData = symphoMemory2.triggerArrayData
         sympho.atCount = symphoMemory2.atCount
         sympho.czSaishuCount = symphoMemory2.czSaishuCount
         sympho.playGame = symphoMemory2.playGame
@@ -486,9 +512,15 @@ struct symphoViewLoadMemory: View {
         sympho.screenCountSum = symphoMemory2.screenCountSum
     }
     func loadMemory3() {
-        sympho.gameArrayData = symphoMemory3.gameArrayData
-        sympho.bonusArrayData = symphoMemory3.bonusArrayData
-        sympho.triggerArrayData = symphoMemory3.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: symphoMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: sympho.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: symphoMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: sympho.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: symphoMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: sympho.triggerArrayKey)
+//        sympho.gameArrayData = symphoMemory3.gameArrayData
+//        sympho.bonusArrayData = symphoMemory3.bonusArrayData
+//        sympho.triggerArrayData = symphoMemory3.triggerArrayData
         sympho.atCount = symphoMemory3.atCount
         sympho.czSaishuCount = symphoMemory3.czSaishuCount
         sympho.playGame = symphoMemory3.playGame

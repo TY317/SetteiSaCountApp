@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bangdreamViewPicoAttack: View {
-    @ObservedObject var bangdream = Bangdream()
+//    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdream: Bangdream
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -113,7 +114,7 @@ struct bangdreamViewPicoAttack: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(bangdream: bangdream, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("トータル結果")
@@ -177,5 +178,5 @@ struct bangdreamViewPicoAttack: View {
 }
 
 #Preview {
-    bangdreamViewPicoAttack()
+    bangdreamViewPicoAttack(bangdream: Bangdream())
 }

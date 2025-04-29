@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewAtScreen: View {
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
     let imageNameList: [String] = [
@@ -123,5 +124,5 @@ struct magiaViewAtScreen: View {
 }
 
 #Preview {
-    magiaViewAtScreen()
+    magiaViewAtScreen(magia: Magia())
 }

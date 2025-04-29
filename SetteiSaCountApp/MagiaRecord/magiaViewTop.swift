@@ -10,8 +10,13 @@ import SwiftUI
 struct magiaViewTop: View {
 //    @ObservedObject var ver280 = Ver280()
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
+    @StateObject var magiaMemory1 = MagiaMemory1()
+    @StateObject var magiaMemory2 = MagiaMemory2()
+    @StateObject var magiaMemory3 = MagiaMemory3()
+    
     var body: some View {
         NavigationStack {
             List {
@@ -26,7 +31,7 @@ struct magiaViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: magiaViewNormal()) {
+                    NavigationLink(destination: magiaViewNormal(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
@@ -34,7 +39,7 @@ struct magiaViewTop: View {
                         )
                     }
                     // 初当り
-                    NavigationLink(destination: magiaViewFirstHit()) {
+                    NavigationLink(destination: magiaViewFirstHit(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
@@ -42,7 +47,7 @@ struct magiaViewTop: View {
                         )
                     }
                     // BIG終了画面
-                    NavigationLink(destination: magiaViewBigScreen()) {
+                    NavigationLink(destination: magiaViewBigScreen(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "BIG終了画面"
@@ -50,14 +55,14 @@ struct magiaViewTop: View {
                         )
                     }
                     // ボーナス終了後ボイス
-                    NavigationLink(destination: magiaViewVoice()) {
+                    NavigationLink(destination: magiaViewVoice(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
                             textBody: "BIG終了後ボイス"
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: magiaViewAtScreen()) {
+                    NavigationLink(destination: magiaViewAtScreen(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
@@ -65,7 +70,7 @@ struct magiaViewTop: View {
                         )
                     }
                     // ボーナス,AT後の高確スタート
-                    NavigationLink(destination: magiaViewKokakuStart()) {
+                    NavigationLink(destination: magiaViewKokakuStart(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "ビッグ,AT後の高確スタート"
@@ -81,7 +86,7 @@ struct magiaViewTop: View {
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: magiaViewEnding()) {
+                    NavigationLink(destination: magiaViewEnding(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -90,7 +95,7 @@ struct magiaViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: magiaView95Ci()) {
+                NavigationLink(destination: magiaView95Ci(magia: magia)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -109,9 +114,19 @@ struct magiaViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(magiaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(magiaSubViewLoadMemory(
+                        magia: magia,
+                        magiaMemory1: magiaMemory1,
+                        magiaMemory2: magiaMemory2,
+                        magiaMemory3: magiaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(magiaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(magiaSubViewSaveMemory(
+                        magia: magia,
+                        magiaMemory1: magiaMemory1,
+                        magiaMemory2: magiaMemory2,
+                        magiaMemory3: magiaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -126,10 +141,10 @@ struct magiaViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct magiaSubViewSaveMemory: View {
-    @ObservedObject var magia = Magia()
-    @ObservedObject var magiaMemory1 = MagiaMemory1()
-    @ObservedObject var magiaMemory2 = MagiaMemory2()
-    @ObservedObject var magiaMemory3 = MagiaMemory3()
+    @ObservedObject var magia: Magia
+    @ObservedObject var magiaMemory1: MagiaMemory1
+    @ObservedObject var magiaMemory2: MagiaMemory2
+    @ObservedObject var magiaMemory3: MagiaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -257,10 +272,10 @@ struct magiaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct magiaSubViewLoadMemory: View {
-    @ObservedObject var magia = Magia()
-    @ObservedObject var magiaMemory1 = MagiaMemory1()
-    @ObservedObject var magiaMemory2 = MagiaMemory2()
-    @ObservedObject var magiaMemory3 = MagiaMemory3()
+    @ObservedObject var magia: Magia
+    @ObservedObject var magiaMemory1: MagiaMemory1
+    @ObservedObject var magiaMemory2: MagiaMemory2
+    @ObservedObject var magiaMemory3: MagiaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

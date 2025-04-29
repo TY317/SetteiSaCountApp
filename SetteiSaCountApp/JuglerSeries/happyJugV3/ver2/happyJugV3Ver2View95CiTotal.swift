@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct happyJugV3Ver2View95CiTotal: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
+//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @ObservedObject var happyJugV3: HappyJugV3
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -187,5 +188,5 @@ struct happyJugV3Ver2View95CiTotal: View {
 }
 
 #Preview {
-    happyJugV3Ver2View95CiTotal()
+    happyJugV3Ver2View95CiTotal(happyJugV3: HappyJugV3())
 }

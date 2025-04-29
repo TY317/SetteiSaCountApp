@@ -10,7 +10,8 @@ import TipKit
 
 struct kaijiViewScreen: View {
 //    @ObservedObject var ver260 = Ver260()
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
         "kaijiScreenKaijiRed",
@@ -206,5 +207,5 @@ struct kaijiViewScreen: View {
 }
 
 #Preview {
-    kaijiViewScreen()
+    kaijiViewScreen(kaiji: Kaiji())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct shamanKingTableCzFuriwake: View {
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     
     var body: some View {
         VStack {
@@ -67,5 +68,5 @@ struct shamanKingTableCzFuriwake: View {
 }
 
 #Preview {
-    shamanKingTableCzFuriwake()
+    shamanKingTableCzFuriwake(shamanKing: ShamanKing())
 }

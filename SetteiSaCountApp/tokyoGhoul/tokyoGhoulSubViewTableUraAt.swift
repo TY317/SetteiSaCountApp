@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct tokyoGhoulSubViewTableUraAt: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
     
     var body: some View {
         VStack {
@@ -25,5 +26,5 @@ struct tokyoGhoulSubViewTableUraAt: View {
 }
 
 #Preview {
-    tokyoGhoulSubViewTableUraAt()
+    tokyoGhoulSubViewTableUraAt(tokyoGhoul: TokyoGhoul())
 }

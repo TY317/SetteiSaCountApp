@@ -391,44 +391,48 @@ class KarakuriMemory3: ObservableObject {
 
 
 struct karakuriViewTop: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @StateObject var karakuri = Karakuri()
     @State var isShowAlert = false
     @State var isShowSaveView: Bool = false
     @State var isShowLoadView: Bool = false
+    @StateObject var karakuriMemory1 = KarakuriMemory1()
+    @StateObject var karakuriMemory2 = KarakuriMemory2()
+    @StateObject var karakuriMemory3 = KarakuriMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // スイカと幕間チャンス
-                    NavigationLink(destination: karakuriViewMakuai()) {
+                    NavigationLink(destination: karakuriViewMakuai(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "curtains.closed", textBody: "スイカと通常幕間チャンス")
                     }
                     // CZ初当たり履歴
-                    NavigationLink(destination: karakuriViewCzHistory()) {
+                    NavigationLink(destination: karakuriViewCzHistory(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "CZ初当たり履歴")
                     }
                     // AT中のステージ
-                    NavigationLink(destination: karakuriViewStage()) {
+                    NavigationLink(destination: karakuriViewStage(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "robotic.vacuum", textBody: "AT中のステージ")
                     }
                     // AT終了画面
-                    NavigationLink(destination: karakuriAtScreen()) {
+                    NavigationLink(destination: karakuriAtScreen(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "AT終了画面")
                     }
                     // 運命の一劇突破率
-                    NavigationLink(destination: karakuriViewIchigeki()) {
+                    NavigationLink(destination: karakuriViewIchigeki(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "party.popper", textBody: "運命の一劇")
                     }
                     // エンディング
-                    NavigationLink(destination: karakuriViewEnding()) {
+                    NavigationLink(destination: karakuriViewEnding(karakuri: karakuri)) {
                         unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "からくりサーカス")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: karakuriView95Ci()) {
+                NavigationLink(destination: karakuriView95Ci(karakuri: karakuri)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -443,10 +447,20 @@ struct karakuriViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(karakuriViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(karakuriViewLoadMemory(
+                            karakuri: karakuri,
+                            karakuriMemory1: karakuriMemory1,
+                            karakuriMemory2: karakuriMemory2,
+                            karakuriMemory3: karakuriMemory3
+                        )))
 //                            .popoverTip(tipUnitButtonLoadMemory())
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(karakuriViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(karakuriViewSaveMemory(
+                            karakuri: karakuri,
+                            karakuriMemory1: karakuriMemory1,
+                            karakuriMemory2: karakuriMemory2,
+                            karakuriMemory3: karakuriMemory3
+                        )))
 //                            .popoverTip(tipUnitButtonSaveMemory())
                     }
                     .popoverTip(tipUnitButtonMemory())
@@ -464,10 +478,10 @@ struct karakuriViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct karakuriViewSaveMemory: View {
-    @ObservedObject var karakuri = Karakuri()
-    @ObservedObject var karakuriMemory1 = KarakuriMemory1()
-    @ObservedObject var karakuriMemory2 = KarakuriMemory2()
-    @ObservedObject var karakuriMemory3 = KarakuriMemory3()
+    @ObservedObject var karakuri: Karakuri
+    @ObservedObject var karakuriMemory1: KarakuriMemory1
+    @ObservedObject var karakuriMemory2: KarakuriMemory2
+    @ObservedObject var karakuriMemory3: KarakuriMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -597,10 +611,10 @@ struct karakuriViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////////
 struct karakuriViewLoadMemory: View {
-    @ObservedObject var karakuri = Karakuri()
-    @ObservedObject var karakuriMemory1 = KarakuriMemory1()
-    @ObservedObject var karakuriMemory2 = KarakuriMemory2()
-    @ObservedObject var karakuriMemory3 = KarakuriMemory3()
+    @ObservedObject var karakuri: Karakuri
+    @ObservedObject var karakuriMemory1: KarakuriMemory1
+    @ObservedObject var karakuriMemory2: KarakuriMemory2
+    @ObservedObject var karakuriMemory3: KarakuriMemory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(
@@ -622,10 +636,18 @@ struct karakuriViewLoadMemory: View {
         karakuri.suikaCount = karakuriMemory1.suikaCount
         karakuri.makuaiCount = karakuriMemory1.makuaiCount
         karakuri.makuaiPlayGame = karakuriMemory1.makuaiPlayGame
-        karakuri.suikaCountArrayData = karakuriMemory1.suikaCountArrayData
-        karakuri.zoneArrayData = karakuriMemory1.zoneArrayData
-        karakuri.triggerArrayData = karakuriMemory1.triggerArrayData
-        karakuri.screenArrayData = karakuriMemory1.screenArrayData
+        let memorySuikaCountArray = decodeIntArray(from: karakuriMemory1.suikaCountArrayData)
+        saveArray(memorySuikaCountArray, forKey: karakuri.suikaCountArrayKey)
+        let memoryZoneArray = decodeStringArray(from: karakuriMemory1.zoneArrayData)
+        saveArray(memoryZoneArray, forKey: karakuri.zoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: karakuriMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: karakuri.triggerArrayKey)
+        let memoryScreenArray = decodeStringArray(from: karakuriMemory1.screenArrayData)
+        saveArray(memoryScreenArray, forKey: karakuri.screenArrayKey)
+//        karakuri.suikaCountArrayData = karakuriMemory1.suikaCountArrayData
+//        karakuri.zoneArrayData = karakuriMemory1.zoneArrayData
+//        karakuri.triggerArrayData = karakuriMemory1.triggerArrayData
+//        karakuri.screenArrayData = karakuriMemory1.screenArrayData
         karakuri.stageCountMasaru = karakuriMemory1.stageCountMasaru
         karakuri.stageCountNarumi = karakuriMemory1.stageCountNarumi
         karakuri.stageCountTable1 = karakuriMemory1.stageCountTable1
@@ -657,10 +679,18 @@ struct karakuriViewLoadMemory: View {
         karakuri.suikaCount = karakuriMemory2.suikaCount
         karakuri.makuaiCount = karakuriMemory2.makuaiCount
         karakuri.makuaiPlayGame = karakuriMemory2.makuaiPlayGame
-        karakuri.suikaCountArrayData = karakuriMemory2.suikaCountArrayData
-        karakuri.zoneArrayData = karakuriMemory2.zoneArrayData
-        karakuri.triggerArrayData = karakuriMemory2.triggerArrayData
-        karakuri.screenArrayData = karakuriMemory2.screenArrayData
+        let memorySuikaCountArray = decodeIntArray(from: karakuriMemory2.suikaCountArrayData)
+        saveArray(memorySuikaCountArray, forKey: karakuri.suikaCountArrayKey)
+        let memoryZoneArray = decodeStringArray(from: karakuriMemory2.zoneArrayData)
+        saveArray(memoryZoneArray, forKey: karakuri.zoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: karakuriMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: karakuri.triggerArrayKey)
+        let memoryScreenArray = decodeStringArray(from: karakuriMemory2.screenArrayData)
+        saveArray(memoryScreenArray, forKey: karakuri.screenArrayKey)
+//        karakuri.suikaCountArrayData = karakuriMemory2.suikaCountArrayData
+//        karakuri.zoneArrayData = karakuriMemory2.zoneArrayData
+//        karakuri.triggerArrayData = karakuriMemory2.triggerArrayData
+//        karakuri.screenArrayData = karakuriMemory2.screenArrayData
         karakuri.stageCountMasaru = karakuriMemory2.stageCountMasaru
         karakuri.stageCountNarumi = karakuriMemory2.stageCountNarumi
         karakuri.stageCountTable1 = karakuriMemory2.stageCountTable1
@@ -692,10 +722,18 @@ struct karakuriViewLoadMemory: View {
         karakuri.suikaCount = karakuriMemory3.suikaCount
         karakuri.makuaiCount = karakuriMemory3.makuaiCount
         karakuri.makuaiPlayGame = karakuriMemory3.makuaiPlayGame
-        karakuri.suikaCountArrayData = karakuriMemory3.suikaCountArrayData
-        karakuri.zoneArrayData = karakuriMemory3.zoneArrayData
-        karakuri.triggerArrayData = karakuriMemory3.triggerArrayData
-        karakuri.screenArrayData = karakuriMemory3.screenArrayData
+        let memorySuikaCountArray = decodeIntArray(from: karakuriMemory3.suikaCountArrayData)
+        saveArray(memorySuikaCountArray, forKey: karakuri.suikaCountArrayKey)
+        let memoryZoneArray = decodeStringArray(from: karakuriMemory3.zoneArrayData)
+        saveArray(memoryZoneArray, forKey: karakuri.zoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: karakuriMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: karakuri.triggerArrayKey)
+        let memoryScreenArray = decodeStringArray(from: karakuriMemory3.screenArrayData)
+        saveArray(memoryScreenArray, forKey: karakuri.screenArrayKey)
+//        karakuri.suikaCountArrayData = karakuriMemory3.suikaCountArrayData
+//        karakuri.zoneArrayData = karakuriMemory3.zoneArrayData
+//        karakuri.triggerArrayData = karakuriMemory3.triggerArrayData
+//        karakuri.screenArrayData = karakuriMemory3.screenArrayData
         karakuri.stageCountMasaru = karakuriMemory3.stageCountMasaru
         karakuri.stageCountNarumi = karakuriMemory3.stageCountNarumi
         karakuri.stageCountTable1 = karakuriMemory3.stageCountTable1

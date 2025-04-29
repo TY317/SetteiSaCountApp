@@ -26,7 +26,8 @@ struct danvineTipHistoryInput: Tip {
 
 
 struct danvineViewHistory: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -242,7 +243,7 @@ struct danvineViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -401,5 +402,5 @@ struct danvineSubViewDataInput: View {
 }
 
 #Preview {
-    danvineViewHistory()
+    danvineViewHistory(danvine: Danvine())
 }

@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct hokutoViewBbBell: View {
-    @ObservedObject var hokuto = Hokuto()
+//    @ObservedObject var hokuto = Hokuto()
+    @ObservedObject var hokuto: Hokuto
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -55,7 +56,7 @@ struct hokutoViewBbBell: View {
                     // //// 参考情報
                     unitLinkButton(title: "ナビなしベルについて", exview: AnyView(unitExView5body2image(title: "BB中のナビなしベル", textBody1: "・押し順は中・右・左を遵守", textBody2: "・小役パート中が対象。バトルパート中は対象外", textBody3: "・中段に平行揃いするベルに設定差があると言われている", textBody4: "・斜めベルとの比率も指標になるため、斜め揃いもカウントを推奨", textBody5: "・消化ゲーム数はサブ液晶のセット数×30Gで算出", image1: Image("hokutoBBBell"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(selection: 3)))
+                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 3)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ナビなしベル")
@@ -146,5 +147,5 @@ struct hokutoViewBbBell: View {
 }
 
 #Preview {
-    hokutoViewBbBell()
+    hokutoViewBbBell(hokuto: Hokuto())
 }

@@ -368,28 +368,32 @@ class AcceleratorMemory3: ObservableObject {
 
 
 struct acceleratorViewTop: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @StateObject var accelerator = Accelerator()
     @State var isShowAlert: Bool = false
+    @StateObject var acceleratorMemory1 = AcceleratorMemory1()
+    @StateObject var acceleratorMemory2 = AcceleratorMemory2()
+    @StateObject var acceleratorMemory3 = AcceleratorMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // シャッター関連
-                    NavigationLink(destination: acceleratorViewShutter()) {
+                    NavigationLink(destination: acceleratorViewShutter(accelerator: accelerator)) {
                         unitLabelMenu(
                             imageSystemName: "door.sliding.left.hand.closed",
                             textBody: "通常時 シャッター関連")
 //                        .popoverTip(tipVer200AcceleratorMenuShutter())
                     }
                     // CZ
-                    NavigationLink(destination: acceleratorViewCz()) {
+                    NavigationLink(destination: acceleratorViewCz(accelerator: accelerator)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT 初当り履歴")
                     }
                     // ビッグ,AT終了画面
-                    NavigationLink(destination: acceleratorViewScreen()) {
+                    NavigationLink(destination: acceleratorViewScreen(accelerator: accelerator)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "ビッグ,AT終了画面")
@@ -405,7 +409,7 @@ struct acceleratorViewTop: View {
                     unitLabelMachineTopTitle(machineName: "一方通行 とある魔術の禁書目録", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: acceleratorView95Ci(selection: 9)) {
+                NavigationLink(destination: acceleratorView95Ci(accelerator: accelerator, selection: 9)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -419,9 +423,19 @@ struct acceleratorViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(acceleratorSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(acceleratorSubViewLoadMemory(
+                        accelerator: accelerator,
+                        acceleratorMemory1: acceleratorMemory1,
+                        acceleratorMemory2: acceleratorMemory2,
+                        acceleratorMemory3: acceleratorMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(acceleratorSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(acceleratorSubViewSaveMemory(
+                        accelerator: accelerator,
+                        acceleratorMemory1: acceleratorMemory1,
+                        acceleratorMemory2: acceleratorMemory2,
+                        acceleratorMemory3: acceleratorMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -437,10 +451,10 @@ struct acceleratorViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct acceleratorSubViewSaveMemory: View {
-    @ObservedObject var accelerator = Accelerator()
-    @ObservedObject var acceleratorMemory1 = AcceleratorMemory1()
-    @ObservedObject var acceleratorMemory2 = AcceleratorMemory2()
-    @ObservedObject var acceleratorMemory3 = AcceleratorMemory3()
+    @ObservedObject var accelerator: Accelerator
+    @ObservedObject var acceleratorMemory1: AcceleratorMemory1
+    @ObservedObject var acceleratorMemory2: AcceleratorMemory2
+    @ObservedObject var acceleratorMemory3: AcceleratorMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -568,10 +582,10 @@ struct acceleratorSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct acceleratorSubViewLoadMemory: View {
-    @ObservedObject var accelerator = Accelerator()
-    @ObservedObject var acceleratorMemory1 = AcceleratorMemory1()
-    @ObservedObject var acceleratorMemory2 = AcceleratorMemory2()
-    @ObservedObject var acceleratorMemory3 = AcceleratorMemory3()
+    @ObservedObject var accelerator: Accelerator
+    @ObservedObject var acceleratorMemory1: AcceleratorMemory1
+    @ObservedObject var acceleratorMemory2: AcceleratorMemory2
+    @ObservedObject var acceleratorMemory3: AcceleratorMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -596,9 +610,15 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.chanceCountWinLastorder = acceleratorMemory1.chanceCountWinLastorder
         accelerator.chanceCountSum = acceleratorMemory1.chanceCountSum
         accelerator.chanceCountWinSum = acceleratorMemory1.chanceCountWinSum
-        accelerator.gameArrayData = acceleratorMemory1.gameArrayData
-        accelerator.czArrayData = acceleratorMemory1.czArrayData
-        accelerator.resultArrayData = acceleratorMemory1.resultArrayData
+        let memoryGameArray = decodeIntArray(from: acceleratorMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: accelerator.gameArrayKey)
+        let memoryCzArray = decodeStringArray(from: acceleratorMemory1.czArrayData)
+        saveArray(memoryCzArray, forKey: accelerator.czArrayKey)
+        let memoryResultArray = decodeStringArray(from: acceleratorMemory1.resultArrayData)
+        saveArray(memoryResultArray, forKey: accelerator.resultArrayKey)
+//        accelerator.gameArrayData = acceleratorMemory1.gameArrayData
+//        accelerator.czArrayData = acceleratorMemory1.czArrayData
+//        accelerator.resultArrayData = acceleratorMemory1.resultArrayData
         accelerator.playGameSum = acceleratorMemory1.playGameSum
         accelerator.czCount = acceleratorMemory1.czCount
         accelerator.atCount = acceleratorMemory1.atCount
@@ -630,9 +650,15 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.chanceCountWinLastorder = acceleratorMemory2.chanceCountWinLastorder
         accelerator.chanceCountSum = acceleratorMemory2.chanceCountSum
         accelerator.chanceCountWinSum = acceleratorMemory2.chanceCountWinSum
-        accelerator.gameArrayData = acceleratorMemory2.gameArrayData
-        accelerator.czArrayData = acceleratorMemory2.czArrayData
-        accelerator.resultArrayData = acceleratorMemory2.resultArrayData
+        let memoryGameArray = decodeIntArray(from: acceleratorMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: accelerator.gameArrayKey)
+        let memoryCzArray = decodeStringArray(from: acceleratorMemory2.czArrayData)
+        saveArray(memoryCzArray, forKey: accelerator.czArrayKey)
+        let memoryResultArray = decodeStringArray(from: acceleratorMemory2.resultArrayData)
+        saveArray(memoryResultArray, forKey: accelerator.resultArrayKey)
+//        accelerator.gameArrayData = acceleratorMemory2.gameArrayData
+//        accelerator.czArrayData = acceleratorMemory2.czArrayData
+//        accelerator.resultArrayData = acceleratorMemory2.resultArrayData
         accelerator.playGameSum = acceleratorMemory2.playGameSum
         accelerator.czCount = acceleratorMemory2.czCount
         accelerator.atCount = acceleratorMemory2.atCount
@@ -664,9 +690,15 @@ struct acceleratorSubViewLoadMemory: View {
         accelerator.chanceCountWinLastorder = acceleratorMemory3.chanceCountWinLastorder
         accelerator.chanceCountSum = acceleratorMemory3.chanceCountSum
         accelerator.chanceCountWinSum = acceleratorMemory3.chanceCountWinSum
-        accelerator.gameArrayData = acceleratorMemory3.gameArrayData
-        accelerator.czArrayData = acceleratorMemory3.czArrayData
-        accelerator.resultArrayData = acceleratorMemory3.resultArrayData
+        let memoryGameArray = decodeIntArray(from: acceleratorMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: accelerator.gameArrayKey)
+        let memoryCzArray = decodeStringArray(from: acceleratorMemory3.czArrayData)
+        saveArray(memoryCzArray, forKey: accelerator.czArrayKey)
+        let memoryResultArray = decodeStringArray(from: acceleratorMemory3.resultArrayData)
+        saveArray(memoryResultArray, forKey: accelerator.resultArrayKey)
+//        accelerator.gameArrayData = acceleratorMemory3.gameArrayData
+//        accelerator.czArrayData = acceleratorMemory3.czArrayData
+//        accelerator.resultArrayData = acceleratorMemory3.resultArrayData
         accelerator.playGameSum = acceleratorMemory3.playGameSum
         accelerator.czCount = acceleratorMemory3.czCount
         accelerator.atCount = acceleratorMemory3.atCount

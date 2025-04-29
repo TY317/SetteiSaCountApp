@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct sbjViewTop: View {
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @StateObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
 //    @ObservedObject var ver240 = Ver240()
+    @StateObject var sbjMemory1 = SbjMemory1()
+    @StateObject var sbjMemory2 = SbjMemory2()
+    @StateObject var sbjMemory3 = SbjMemory3()
     
     var body: some View {
         NavigationStack {
@@ -26,7 +30,7 @@ struct sbjViewTop: View {
                 
                 Section {
                     // 通常時の小役、高確、初当り
-                    NavigationLink(destination: sbjViewNormal()) {
+                    NavigationLink(destination: sbjViewNormal(sbj: sbj)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時 小役、高確、初当り"
@@ -34,7 +38,7 @@ struct sbjViewTop: View {
                         )
                     }
                     // 規定ゲーム数でのステージ移行
-                    NavigationLink(destination: sbjViewGameStageChange()) {
+                    NavigationLink(destination: sbjViewGameStageChange(sbj: sbj)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "規定ゲーム数での移行"
@@ -42,7 +46,7 @@ struct sbjViewTop: View {
                         )
                     }
                     // ダイスチェック
-                    NavigationLink(destination: sbjViewDiceCheck()) {
+                    NavigationLink(destination: sbjViewDiceCheck(sbj: sbj)) {
                         unitLabelMenu(
                             imageSystemName: "dice.fill",
                             textBody: "ダイスチェック"
@@ -72,7 +76,7 @@ struct sbjViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: sbjView95Ci()) {
+                NavigationLink(destination: sbjView95Ci(sbj: sbj)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -91,9 +95,19 @@ struct sbjViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(sbjSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(sbjSubViewLoadMemory(
+                        sbj: sbj,
+                        sbjMemory1: sbjMemory1,
+                        sbjMemory2: sbjMemory2,
+                        sbjMemory3: sbjMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(sbjSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(sbjSubViewSaveMemory(
+                        sbj: sbj,
+                        sbjMemory1: sbjMemory1,
+                        sbjMemory2: sbjMemory2,
+                        sbjMemory3: sbjMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -109,10 +123,10 @@ struct sbjViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct sbjSubViewSaveMemory: View {
-    @ObservedObject var sbj = Sbj()
-    @ObservedObject var sbjMemory1 = SbjMemory1()
-    @ObservedObject var sbjMemory2 = SbjMemory2()
-    @ObservedObject var sbjMemory3 = SbjMemory3()
+    @ObservedObject var sbj: Sbj
+    @ObservedObject var sbjMemory1: SbjMemory1
+    @ObservedObject var sbjMemory2: SbjMemory2
+    @ObservedObject var sbjMemory3: SbjMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -240,10 +254,10 @@ struct sbjSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct sbjSubViewLoadMemory: View {
-    @ObservedObject var sbj = Sbj()
-    @ObservedObject var sbjMemory1 = SbjMemory1()
-    @ObservedObject var sbjMemory2 = SbjMemory2()
-    @ObservedObject var sbjMemory3 = SbjMemory3()
+    @ObservedObject var sbj: Sbj
+    @ObservedObject var sbjMemory1: SbjMemory1
+    @ObservedObject var sbjMemory2: SbjMemory2
+    @ObservedObject var sbjMemory3: SbjMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -271,9 +285,15 @@ struct sbjSubViewLoadMemory: View {
         sbj.nextInputBlueBbCount = sbjMemory1.nextInputBlueBbCount
         sbj.bonusSum = sbjMemory1.bonusSum
         sbj.rioChanceCount = sbjMemory1.rioChanceCount
-        sbj.diceLeftArrayData = sbjMemory1.diceLeftArrayData
-        sbj.diceRightArrayData = sbjMemory1.diceRightArrayData
-        sbj.suikaArrayData = sbjMemory1.suikaArrayData
+        let memoryDiceLeftArray = decodeStringArray(from: sbjMemory1.diceLeftArrayData)
+        saveArray(memoryDiceLeftArray, forKey: sbj.diceLeftArrayKey)
+        let memoryDiceRightArray = decodeStringArray(from: sbjMemory1.diceRightArrayData)
+        saveArray(memoryDiceRightArray, forKey: sbj.diceRightArrayKey)
+        let memorySuikaArray = decodeIntArray(from: sbjMemory1.suikaArrayData)
+        saveArray(memorySuikaArray, forKey: sbj.suikaArrayKey)
+//        sbj.diceLeftArrayData = sbjMemory1.diceLeftArrayData
+//        sbj.diceRightArrayData = sbjMemory1.diceRightArrayData
+//        sbj.suikaArrayData = sbjMemory1.suikaArrayData
         // /////////////////////////
         // ver220で追加、通常チャンス目関連
         // /////////////////////////
@@ -305,9 +325,15 @@ struct sbjSubViewLoadMemory: View {
         sbj.nextInputBlueBbCount = sbjMemory2.nextInputBlueBbCount
         sbj.bonusSum = sbjMemory2.bonusSum
         sbj.rioChanceCount = sbjMemory2.rioChanceCount
-        sbj.diceLeftArrayData = sbjMemory2.diceLeftArrayData
-        sbj.diceRightArrayData = sbjMemory2.diceRightArrayData
-        sbj.suikaArrayData = sbjMemory2.suikaArrayData
+        let memoryDiceLeftArray = decodeStringArray(from: sbjMemory2.diceLeftArrayData)
+        saveArray(memoryDiceLeftArray, forKey: sbj.diceLeftArrayKey)
+        let memoryDiceRightArray = decodeStringArray(from: sbjMemory2.diceRightArrayData)
+        saveArray(memoryDiceRightArray, forKey: sbj.diceRightArrayKey)
+        let memorySuikaArray = decodeIntArray(from: sbjMemory2.suikaArrayData)
+        saveArray(memorySuikaArray, forKey: sbj.suikaArrayKey)
+//        sbj.diceLeftArrayData = sbjMemory2.diceLeftArrayData
+//        sbj.diceRightArrayData = sbjMemory2.diceRightArrayData
+//        sbj.suikaArrayData = sbjMemory2.suikaArrayData
         // /////////////////////////
         // ver220で追加、通常チャンス目関連
         // /////////////////////////
@@ -339,9 +365,15 @@ struct sbjSubViewLoadMemory: View {
         sbj.nextInputBlueBbCount = sbjMemory3.nextInputBlueBbCount
         sbj.bonusSum = sbjMemory3.bonusSum
         sbj.rioChanceCount = sbjMemory3.rioChanceCount
-        sbj.diceLeftArrayData = sbjMemory3.diceLeftArrayData
-        sbj.diceRightArrayData = sbjMemory3.diceRightArrayData
-        sbj.suikaArrayData = sbjMemory3.suikaArrayData
+        let memoryDiceLeftArray = decodeStringArray(from: sbjMemory3.diceLeftArrayData)
+        saveArray(memoryDiceLeftArray, forKey: sbj.diceLeftArrayKey)
+        let memoryDiceRightArray = decodeStringArray(from: sbjMemory3.diceRightArrayData)
+        saveArray(memoryDiceRightArray, forKey: sbj.diceRightArrayKey)
+        let memorySuikaArray = decodeIntArray(from: sbjMemory3.suikaArrayData)
+        saveArray(memorySuikaArray, forKey: sbj.suikaArrayKey)
+//        sbj.diceLeftArrayData = sbjMemory3.diceLeftArrayData
+//        sbj.diceRightArrayData = sbjMemory3.diceRightArrayData
+//        sbj.suikaArrayData = sbjMemory3.suikaArrayData
         // /////////////////////////
         // ver220で追加、通常チャンス目関連
         // /////////////////////////

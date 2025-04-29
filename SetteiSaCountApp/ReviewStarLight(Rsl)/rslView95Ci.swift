@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslView95Ci: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -119,5 +120,5 @@ struct rslView95Ci: View {
 }
 
 #Preview {
-    rslView95Ci()
+    rslView95Ci(rsl: Rsl())
 }

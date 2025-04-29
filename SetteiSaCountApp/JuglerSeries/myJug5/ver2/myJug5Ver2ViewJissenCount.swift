@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct myJug5Ver2ViewJissenCount: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var myJug5: MyJug5
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     
@@ -83,7 +84,7 @@ struct myJug5Ver2ViewJissenCount: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiPersonal(myJug5: myJug5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -143,5 +144,5 @@ struct myJug5Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    myJug5Ver2ViewJissenCount()
+    myJug5Ver2ViewJissenCount(myJug5: MyJug5())
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct shamanKingViewCzFuriwake: View {
 //    @ObservedObject var ver270 = Ver270()
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     @State var isShowAlert = false
     let selectListPt: [String] = [
         "0〜595Pt",
@@ -127,12 +128,12 @@ struct shamanKingViewCzFuriwake: View {
                             textBody1: "・前兆移行してCZ当選した場合は憑依ポイントに応じて振り分け抽選",
                             textBody2: "・高設定ほど期待度の高い種別の振り分けが優遇",
                             textBody3: "・道蓮,潤,竜之介は憑依合体バトルのキャラ。たまお は上位CZのコックリさん占いを指す",
-                            tableView: AnyView(shamanKingTableCzFuriwake())
+                            tableView: AnyView(shamanKingTableCzFuriwake(shamanKing: shamanKing))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(selection: 9)))
+                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 9)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("前兆移行時の憑依ポイント別カウント")
@@ -159,5 +160,5 @@ struct shamanKingViewCzFuriwake: View {
 }
 
 #Preview {
-    shamanKingViewCzFuriwake()
+    shamanKingViewCzFuriwake(shamanKing: ShamanKing())
 }

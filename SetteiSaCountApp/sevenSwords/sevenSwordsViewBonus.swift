@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sevenSwordsViewBonus: View {
-    @ObservedObject var sevenSwords = SevenSwords()
+//    @ObservedObject var sevenSwords = SevenSwords()
+    @ObservedObject var sevenSwords: SevenSwords
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -137,7 +138,7 @@ struct sevenSwordsViewBonus: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(sevenSwordsView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(sevenSwordsView95Ci(sevenSwords: sevenSwords, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
@@ -202,5 +203,5 @@ struct sevenSwordsViewBonus: View {
 }
 
 #Preview {
-    sevenSwordsViewBonus()
+    sevenSwordsViewBonus(sevenSwords: SevenSwords())
 }

@@ -9,8 +9,12 @@ import SwiftUI
 
 struct rslViewTop: View {
 //    @ObservedObject var ver260 = Ver260()
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @StateObject var rsl = Rsl()
     @State var isShowAlert: Bool = false
+    @StateObject var rslMemory1 = RslMemory1()
+    @StateObject var rslMemory2 = RslMemory2()
+    @StateObject var rslMemory3 = RslMemory3()
     
     var body: some View {
         NavigationStack {
@@ -24,21 +28,21 @@ struct rslViewTop: View {
                         )
                     }
                     // CZ,ボーナス、AT初当り
-                    NavigationLink(destination: rslViewFirstHit()) {
+                    NavigationLink(destination: rslViewFirstHit(rsl: rsl)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "CZ,ボーナス,AT 初当り"
                         )
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: rslViewScreen()) {
+                    NavigationLink(destination: rslViewScreen(rsl: rsl)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス終了画面"
                         )
                     }
                     // AT終了後ボイス
-                    NavigationLink(destination: rslViewVoice()) {
+                    NavigationLink(destination: rslViewVoice(rsl: rsl)) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
                             textBody: "AT終了後ボイス"
@@ -49,7 +53,7 @@ struct rslViewTop: View {
                     unitLabelMachineTopTitle(machineName: "レビュースタァライト")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: rslView95Ci()) {
+                NavigationLink(destination: rslView95Ci(rsl: rsl)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -68,9 +72,19 @@ struct rslViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(rslSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(rslSubViewLoadMemory(
+                        rsl: rsl,
+                        rslMemory1: rslMemory1,
+                        rslMemory2: rslMemory2,
+                        rslMemory3: rslMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(rslSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(rslSubViewSaveMemory(
+                        rsl: rsl,
+                        rslMemory1: rslMemory1,
+                        rslMemory2: rslMemory2,
+                        rslMemory3: rslMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -86,10 +100,10 @@ struct rslViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct rslSubViewSaveMemory: View {
-    @ObservedObject var rsl = Rsl()
-    @ObservedObject var rslMemory1 = RslMemory1()
-    @ObservedObject var rslMemory2 = RslMemory2()
-    @ObservedObject var rslMemory3 = RslMemory3()
+    @ObservedObject var rsl: Rsl
+    @ObservedObject var rslMemory1: RslMemory1
+    @ObservedObject var rslMemory2: RslMemory2
+    @ObservedObject var rslMemory3: RslMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -196,10 +210,10 @@ struct rslSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct rslSubViewLoadMemory: View {
-    @ObservedObject var rsl = Rsl()
-    @ObservedObject var rslMemory1 = RslMemory1()
-    @ObservedObject var rslMemory2 = RslMemory2()
-    @ObservedObject var rslMemory3 = RslMemory3()
+    @ObservedObject var rsl: Rsl
+    @ObservedObject var rslMemory1: RslMemory1
+    @ObservedObject var rslMemory2: RslMemory2
+    @ObservedObject var rslMemory3: RslMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

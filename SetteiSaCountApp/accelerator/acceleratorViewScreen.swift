@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct acceleratorViewScreen: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -174,5 +175,5 @@ struct acceleratorViewScreen: View {
 }
 
 #Preview {
-    acceleratorViewScreen()
+    acceleratorViewScreen(accelerator: Accelerator())
 }

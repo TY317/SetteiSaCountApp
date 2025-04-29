@@ -9,22 +9,26 @@ import SwiftUI
 
 struct tokyoGhoulViewTop: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @StateObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
+    @StateObject var tokyoGhoulMemory1 = TokyoGhoulMemory1()
+    @StateObject var tokyoGhoulMemory2 = TokyoGhoulMemory2()
+    @StateObject var tokyoGhoulMemory3 = TokyoGhoulMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 月山招待状
-                    NavigationLink(destination: tokyoGhoulViewTsukiyama()) {
+                    NavigationLink(destination: tokyoGhoulViewTsukiyama(tokyoGhoul: tokyoGhoul)) {
                         unitLabelMenu(
                             imageSystemName: "envelope.fill",
                             textBody: "通常時 月山招待状での示唆"
                         )
                     }
                     // CZ,AT 初当り履歴
-                    NavigationLink(destination: tokyoGhoulViewHistory()) {
+                    NavigationLink(destination: tokyoGhoulViewHistory(tokyoGhoul: tokyoGhoul)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT 初当り履歴"
@@ -32,14 +36,14 @@ struct tokyoGhoulViewTop: View {
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: tokyoGhoulViewScreen()) {
+                    NavigationLink(destination: tokyoGhoulViewScreen(tokyoGhoul: tokyoGhoul)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: tokyoGhoulViewEnding()) {
+                    NavigationLink(destination: tokyoGhoulViewEnding(tokyoGhoul: tokyoGhoul)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -50,7 +54,7 @@ struct tokyoGhoulViewTop: View {
                     unitLabelMachineTopTitle(machineName: "東京喰種")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: tokyoGhoulView95Ci(selection: 3)) {
+                NavigationLink(destination: tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -69,9 +73,19 @@ struct tokyoGhoulViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(tokyoGhoulSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(tokyoGhoulSubViewLoadMemory(
+                        tokyoGhoul: tokyoGhoul,
+                        tokyoGhoulMemory1: tokyoGhoulMemory1,
+                        tokyoGhoulMemory2: tokyoGhoulMemory2,
+                        tokyoGhoulMemory3: tokyoGhoulMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(tokyoGhoulSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(tokyoGhoulSubViewSaveMemory(
+                        tokyoGhoul: tokyoGhoul,
+                        tokyoGhoulMemory1: tokyoGhoulMemory1,
+                        tokyoGhoulMemory2: tokyoGhoulMemory2,
+                        tokyoGhoulMemory3: tokyoGhoulMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -87,10 +101,10 @@ struct tokyoGhoulViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct tokyoGhoulSubViewSaveMemory: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
-    @ObservedObject var tokyoGhoulMemory1 = TokyoGhoulMemory1()
-    @ObservedObject var tokyoGhoulMemory2 = TokyoGhoulMemory2()
-    @ObservedObject var tokyoGhoulMemory3 = TokyoGhoulMemory3()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
+    @ObservedObject var tokyoGhoulMemory1: TokyoGhoulMemory1
+    @ObservedObject var tokyoGhoulMemory2: TokyoGhoulMemory2
+    @ObservedObject var tokyoGhoulMemory3: TokyoGhoulMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -277,10 +291,10 @@ struct tokyoGhoulSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct tokyoGhoulSubViewLoadMemory: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
-    @ObservedObject var tokyoGhoulMemory1 = TokyoGhoulMemory1()
-    @ObservedObject var tokyoGhoulMemory2 = TokyoGhoulMemory2()
-    @ObservedObject var tokyoGhoulMemory3 = TokyoGhoulMemory3()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
+    @ObservedObject var tokyoGhoulMemory1: TokyoGhoulMemory1
+    @ObservedObject var tokyoGhoulMemory2: TokyoGhoulMemory2
+    @ObservedObject var tokyoGhoulMemory3: TokyoGhoulMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -311,10 +325,18 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.tsukiyamaCountRemainGame = tokyoGhoulMemory1.tsukiyamaCountRemainGame
         tokyoGhoul.tsukiyamaCountSum = tokyoGhoulMemory1.tsukiyamaCountSum
         tokyoGhoul.inputGame = tokyoGhoulMemory1.inputGame
-        tokyoGhoul.gameArrayData = tokyoGhoulMemory1.gameArrayData
-        tokyoGhoul.kindArrayData = tokyoGhoulMemory1.kindArrayData
-        tokyoGhoul.triggerArrayData = tokyoGhoulMemory1.triggerArrayData
-        tokyoGhoul.atHitArrayData = tokyoGhoulMemory1.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: tokyoGhoulMemory1.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: tokyoGhoul.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: tokyoGhoulMemory1.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: tokyoGhoul.kindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: tokyoGhoulMemory1.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: tokyoGhoul.triggerArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: tokyoGhoulMemory1.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: tokyoGhoul.atHitArrayKey)
+//        tokyoGhoul.gameArrayData = tokyoGhoulMemory1.gameArrayData
+//        tokyoGhoul.kindArrayData = tokyoGhoulMemory1.kindArrayData
+//        tokyoGhoul.triggerArrayData = tokyoGhoulMemory1.triggerArrayData
+//        tokyoGhoul.atHitArrayData = tokyoGhoulMemory1.atHitArrayData
         tokyoGhoul.playGameSum = tokyoGhoulMemory1.playGameSum
         tokyoGhoul.czCountRemini = tokyoGhoulMemory1.czCountRemini
         tokyoGhoul.czCountRise = tokyoGhoulMemory1.czCountRise
@@ -365,10 +387,18 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.tsukiyamaCountRemainGame = tokyoGhoulMemory2.tsukiyamaCountRemainGame
         tokyoGhoul.tsukiyamaCountSum = tokyoGhoulMemory2.tsukiyamaCountSum
         tokyoGhoul.inputGame = tokyoGhoulMemory2.inputGame
-        tokyoGhoul.gameArrayData = tokyoGhoulMemory2.gameArrayData
-        tokyoGhoul.kindArrayData = tokyoGhoulMemory2.kindArrayData
-        tokyoGhoul.triggerArrayData = tokyoGhoulMemory2.triggerArrayData
-        tokyoGhoul.atHitArrayData = tokyoGhoulMemory2.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: tokyoGhoulMemory2.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: tokyoGhoul.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: tokyoGhoulMemory2.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: tokyoGhoul.kindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: tokyoGhoulMemory2.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: tokyoGhoul.triggerArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: tokyoGhoulMemory2.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: tokyoGhoul.atHitArrayKey)
+//        tokyoGhoul.gameArrayData = tokyoGhoulMemory2.gameArrayData
+//        tokyoGhoul.kindArrayData = tokyoGhoulMemory2.kindArrayData
+//        tokyoGhoul.triggerArrayData = tokyoGhoulMemory2.triggerArrayData
+//        tokyoGhoul.atHitArrayData = tokyoGhoulMemory2.atHitArrayData
         tokyoGhoul.playGameSum = tokyoGhoulMemory2.playGameSum
         tokyoGhoul.czCountRemini = tokyoGhoulMemory2.czCountRemini
         tokyoGhoul.czCountRise = tokyoGhoulMemory2.czCountRise
@@ -419,10 +449,18 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.tsukiyamaCountRemainGame = tokyoGhoulMemory3.tsukiyamaCountRemainGame
         tokyoGhoul.tsukiyamaCountSum = tokyoGhoulMemory3.tsukiyamaCountSum
         tokyoGhoul.inputGame = tokyoGhoulMemory3.inputGame
-        tokyoGhoul.gameArrayData = tokyoGhoulMemory3.gameArrayData
-        tokyoGhoul.kindArrayData = tokyoGhoulMemory3.kindArrayData
-        tokyoGhoul.triggerArrayData = tokyoGhoulMemory3.triggerArrayData
-        tokyoGhoul.atHitArrayData = tokyoGhoulMemory3.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: tokyoGhoulMemory3.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: tokyoGhoul.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: tokyoGhoulMemory3.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: tokyoGhoul.kindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: tokyoGhoulMemory3.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: tokyoGhoul.triggerArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: tokyoGhoulMemory3.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: tokyoGhoul.atHitArrayKey)
+//        tokyoGhoul.gameArrayData = tokyoGhoulMemory3.gameArrayData
+//        tokyoGhoul.kindArrayData = tokyoGhoulMemory3.kindArrayData
+//        tokyoGhoul.triggerArrayData = tokyoGhoulMemory3.triggerArrayData
+//        tokyoGhoul.atHitArrayData = tokyoGhoulMemory3.atHitArrayData
         tokyoGhoul.playGameSum = tokyoGhoulMemory3.playGameSum
         tokyoGhoul.czCountRemini = tokyoGhoulMemory3.czCountRemini
         tokyoGhoul.czCountRise = tokyoGhoulMemory3.czCountRise

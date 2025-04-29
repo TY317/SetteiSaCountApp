@@ -664,8 +664,12 @@ class InuyashaMemory3: ObservableObject {
 }
 
 struct inuyasha2ViewTop: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @StateObject var inuyasha = Inuyasha()
     @State var isShowAlert: Bool = false
+    @StateObject var inuyashaMemory1 = InuyashaMemory1()
+    @StateObject var inuyashaMemory2 = InuyashaMemory2()
+    @StateObject var inuyashaMemory3 = InuyashaMemory3()
     
     var body: some View {
         NavigationStack {
@@ -679,7 +683,7 @@ struct inuyasha2ViewTop: View {
                         )
                     }
                     // 小役
-                    NavigationLink(destination: inuyashaViewKoyaku()) {
+                    NavigationLink(destination: inuyashaViewKoyaku(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "gift",
                             textBody: "設定差のある小役"
@@ -692,7 +696,7 @@ struct inuyasha2ViewTop: View {
 //                            textBody: "AT初当たり履歴"
 //                        )
 //                    }
-                    NavigationLink(destination: inuyashaViewHistoryVer2()) {
+                    NavigationLink(destination: inuyashaViewHistoryVer2(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
@@ -700,27 +704,27 @@ struct inuyasha2ViewTop: View {
 //                        .popoverTip(tipVer171Inuyasha333TenjoAdd())
                     }
                     // 狙え演出
-                    NavigationLink(destination: inuyashaViewAim()) {
+                    NavigationLink(destination: inuyashaViewAim(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "light.beacon.min",
                             textBody: "狙え 成功時の犬夜叉ランプ")
                     }
                     // 目押しボイス
-                    NavigationLink(destination: inuyashaViewVoice()) {
+                    NavigationLink(destination: inuyashaViewVoice(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "message",
                             textBody: "目押し成功時のボイス"
                         )
                     }
                     // Big終了画面
-                    NavigationLink(destination: inuyashaViewBigScreen()) {
+                    NavigationLink(destination: inuyashaViewBigScreen(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "Big終了画面"
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: inuyashaViewAtScreen()) {
+                    NavigationLink(destination: inuyashaViewAtScreen(inuyasha: inuyasha)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "AT終了画面"
@@ -744,7 +748,7 @@ struct inuyasha2ViewTop: View {
                     unitLabelMachineTopTitle(machineName: "犬夜叉2")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: inuyashaView95Ci(selection: 4)) {
+                NavigationLink(destination: inuyashaView95Ci(inuyasha: inuyasha, selection: 4)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -758,9 +762,19 @@ struct inuyasha2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(inuyashaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(inuyashaSubViewLoadMemory(
+                        inuyasha: inuyasha,
+                        inuyashaMemory1: inuyashaMemory1,
+                        inuyashaMemory2: inuyashaMemory2,
+                        inuyashaMemory3: inuyashaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(inuyashaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(inuyashaSubViewSaveMemory(
+                        inuyasha: inuyasha,
+                        inuyashaMemory1: inuyashaMemory1,
+                        inuyashaMemory2: inuyashaMemory2,
+                        inuyashaMemory3: inuyashaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -775,10 +789,10 @@ struct inuyasha2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct inuyashaSubViewSaveMemory: View {
-    @ObservedObject var inuyasha = Inuyasha()
-    @ObservedObject var inuyashaMemory1 = InuyashaMemory1()
-    @ObservedObject var inuyashaMemory2 = InuyashaMemory2()
-    @ObservedObject var inuyashaMemory3 = InuyashaMemory3()
+    @ObservedObject var inuyasha: Inuyasha
+    @ObservedObject var inuyashaMemory1: InuyashaMemory1
+    @ObservedObject var inuyashaMemory2: InuyashaMemory2
+    @ObservedObject var inuyashaMemory3: InuyashaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -950,10 +964,10 @@ struct inuyashaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct inuyashaSubViewLoadMemory: View {
-    @ObservedObject var inuyasha = Inuyasha()
-    @ObservedObject var inuyashaMemory1 = InuyashaMemory1()
-    @ObservedObject var inuyashaMemory2 = InuyashaMemory2()
-    @ObservedObject var inuyashaMemory3 = InuyashaMemory3()
+    @ObservedObject var inuyasha: Inuyasha
+    @ObservedObject var inuyashaMemory1: InuyashaMemory1
+    @ObservedObject var inuyashaMemory2: InuyashaMemory2
+    @ObservedObject var inuyashaMemory3: InuyashaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -973,10 +987,18 @@ struct inuyashaSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        inuyasha.gameArrayData = inuyashaMemory1.gameArrayData
-        inuyasha.cycleArrayData = inuyashaMemory1.cycleArrayData
-        inuyasha.triggerArrayData = inuyashaMemory1.triggerArrayData
-        inuyasha.cycleNumberArrayData = inuyashaMemory1.cycleNumberArrayData
+        let memoryGameArray = decodeIntArray(from: inuyashaMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: inuyasha.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: inuyashaMemory1.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: inuyasha.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: inuyashaMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: inuyasha.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: inuyashaMemory1.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: inuyasha.cycleNumberArrayKey)
+//        inuyasha.gameArrayData = inuyashaMemory1.gameArrayData
+//        inuyasha.cycleArrayData = inuyashaMemory1.cycleArrayData
+//        inuyasha.triggerArrayData = inuyashaMemory1.triggerArrayData
+//        inuyasha.cycleNumberArrayData = inuyashaMemory1.cycleNumberArrayData
         inuyasha.atHitCount = inuyashaMemory1.atHitCount
         inuyasha.playGameSum = inuyashaMemory1.playGameSum
         inuyasha.czHitCount = inuyashaMemory1.czHitCount
@@ -1006,8 +1028,12 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory1.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory1.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory1.atScreenCountSum
-        inuyasha.bonusArrayData = inuyashaMemory1.bonusArrayData
-        inuyasha.atHitArrayData = inuyashaMemory1.atHitArrayData
+        let memoryBonusArray = decodeStringArray(from: inuyashaMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: inuyasha.bonusArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: inuyashaMemory1.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: inuyasha.atHitArrayKey)
+//        inuyasha.bonusArrayData = inuyashaMemory1.bonusArrayData
+//        inuyasha.atHitArrayData = inuyashaMemory1.atHitArrayData
         inuyasha.over333CzCount = inuyashaMemory1.over333CzCount
         inuyasha.czCount = inuyashaMemory1.czCount
         inuyasha.hitCountAll = inuyashaMemory1.hitCountAll
@@ -1022,10 +1048,18 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.koyakuCountPlayGame = inuyashaMemory1.koyakuCountPlayGame
     }
     func loadMemory2() {
-        inuyasha.gameArrayData = inuyashaMemory2.gameArrayData
-        inuyasha.cycleArrayData = inuyashaMemory2.cycleArrayData
-        inuyasha.triggerArrayData = inuyashaMemory2.triggerArrayData
-        inuyasha.cycleNumberArrayData = inuyashaMemory2.cycleNumberArrayData
+        let memoryGameArray = decodeIntArray(from: inuyashaMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: inuyasha.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: inuyashaMemory2.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: inuyasha.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: inuyashaMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: inuyasha.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: inuyashaMemory2.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: inuyasha.cycleNumberArrayKey)
+//        inuyasha.gameArrayData = inuyashaMemory2.gameArrayData
+//        inuyasha.cycleArrayData = inuyashaMemory2.cycleArrayData
+//        inuyasha.triggerArrayData = inuyashaMemory2.triggerArrayData
+//        inuyasha.cycleNumberArrayData = inuyashaMemory2.cycleNumberArrayData
         inuyasha.atHitCount = inuyashaMemory2.atHitCount
         inuyasha.playGameSum = inuyashaMemory2.playGameSum
         inuyasha.czHitCount = inuyashaMemory2.czHitCount
@@ -1055,8 +1089,12 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory2.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory2.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory2.atScreenCountSum
-        inuyasha.bonusArrayData = inuyashaMemory2.bonusArrayData
-        inuyasha.atHitArrayData = inuyashaMemory2.atHitArrayData
+        let memoryBonusArray = decodeStringArray(from: inuyashaMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: inuyasha.bonusArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: inuyashaMemory2.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: inuyasha.atHitArrayKey)
+//        inuyasha.bonusArrayData = inuyashaMemory2.bonusArrayData
+//        inuyasha.atHitArrayData = inuyashaMemory2.atHitArrayData
         inuyasha.over333CzCount = inuyashaMemory2.over333CzCount
         inuyasha.czCount = inuyashaMemory2.czCount
         inuyasha.hitCountAll = inuyashaMemory2.hitCountAll
@@ -1071,10 +1109,18 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.koyakuCountPlayGame = inuyashaMemory2.koyakuCountPlayGame
     }
     func loadMemory3() {
-        inuyasha.gameArrayData = inuyashaMemory3.gameArrayData
-        inuyasha.cycleArrayData = inuyashaMemory3.cycleArrayData
-        inuyasha.triggerArrayData = inuyashaMemory3.triggerArrayData
-        inuyasha.cycleNumberArrayData = inuyashaMemory3.cycleNumberArrayData
+        let memoryGameArray = decodeIntArray(from: inuyashaMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: inuyasha.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: inuyashaMemory3.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: inuyasha.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: inuyashaMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: inuyasha.triggerArrayKey)
+        let memoryCycleNumberArray = decodeIntArray(from: inuyashaMemory3.cycleNumberArrayData)
+        saveArray(memoryCycleNumberArray, forKey: inuyasha.cycleNumberArrayKey)
+//        inuyasha.gameArrayData = inuyashaMemory3.gameArrayData
+//        inuyasha.cycleArrayData = inuyashaMemory3.cycleArrayData
+//        inuyasha.triggerArrayData = inuyashaMemory3.triggerArrayData
+//        inuyasha.cycleNumberArrayData = inuyashaMemory3.cycleNumberArrayData
         inuyasha.atHitCount = inuyashaMemory3.atHitCount
         inuyasha.playGameSum = inuyashaMemory3.playGameSum
         inuyasha.czHitCount = inuyashaMemory3.czHitCount
@@ -1104,8 +1150,12 @@ struct inuyashaSubViewLoadMemory: View {
         inuyasha.atScreenCountOver4 = inuyashaMemory3.atScreenCountOver4
         inuyasha.atScreenCount6Kaku = inuyashaMemory3.atScreenCount6Kaku
         inuyasha.atScreenCountSum = inuyashaMemory3.atScreenCountSum
-        inuyasha.bonusArrayData = inuyashaMemory3.bonusArrayData
-        inuyasha.atHitArrayData = inuyashaMemory3.atHitArrayData
+        let memoryBonusArray = decodeStringArray(from: inuyashaMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: inuyasha.bonusArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: inuyashaMemory3.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: inuyasha.atHitArrayKey)
+//        inuyasha.bonusArrayData = inuyashaMemory3.bonusArrayData
+//        inuyasha.atHitArrayData = inuyashaMemory3.atHitArrayData
         inuyasha.over333CzCount = inuyashaMemory3.over333CzCount
         inuyasha.czCount = inuyashaMemory3.czCount
         inuyasha.hitCountAll = inuyashaMemory3.hitCountAll

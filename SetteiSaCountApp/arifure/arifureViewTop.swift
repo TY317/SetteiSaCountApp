@@ -9,28 +9,32 @@ import SwiftUI
 
 struct arifureViewTop: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @StateObject var arifure = Arifure()
     @State var isShowAlert: Bool = false
+    @StateObject var arifureMemory1 = ArifureMemory1()
+    @StateObject var arifureMemory2 = ArifureMemory2()
+    @StateObject var arifureMemory3 = ArifureMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 通常時、弱レア役からの引き金高確移行率、CZ当選率（100Gでの当選率をカウント）
-                    NavigationLink(destination: arifureViewNormal()) {
+                    NavigationLink(destination: arifureViewNormal(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
                         )
                     }
                     // ボーナス、AT初当り、初当り確率と１００G以内の当選率、ミュウからのAT当選率
-                    NavigationLink(destination: arifureViewHistory()) {
+                    NavigationLink(destination: arifureViewHistory(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "ボーナス,AT 初当り")
                     }
                     // ミュウボーナス、キャラ紹介
-                    NavigationLink(destination: arifureViewCharacter()) {
+                    NavigationLink(destination: arifureViewCharacter(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
                             textBody: "ミュウボーナス中のキャラ紹介"
@@ -38,7 +42,7 @@ struct arifureViewTop: View {
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: arifureViewScreen()) {
+                    NavigationLink(destination: arifureViewScreen(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
@@ -46,14 +50,14 @@ struct arifureViewTop: View {
                         )
                     }
                     // AT終了後の高確移行率
-                    NavigationLink(destination: arifureViewAfterAtKokaku()) {
+                    NavigationLink(destination: arifureViewAfterAtKokaku(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "AT終了後の高確移行"
                         )
                     }
                     // 上位AT関連
-                    NavigationLink(destination: arifureViewPremiumAt()) {
+                    NavigationLink(destination: arifureViewPremiumAt(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "上位AT関連"
@@ -61,7 +65,7 @@ struct arifureViewTop: View {
                         )
                     }
                     // エンディング、レア役時のキャラ
-                    NavigationLink(destination: arifureViewEnding()) {
+                    NavigationLink(destination: arifureViewEnding(arifure: arifure)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -73,7 +77,7 @@ struct arifureViewTop: View {
                 }
                 
                 // 設定推測グラフ
-                NavigationLink(destination: arifureView95Ci()) {
+                NavigationLink(destination: arifureView95Ci(arifure: arifure)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -92,9 +96,19 @@ struct arifureViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(arifureSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(arifureSubViewLoadMemory(
+                        arifure: arifure,
+                        arifureMemory1: arifureMemory1,
+                        arifureMemory2: arifureMemory2,
+                        arifureMemory3: arifureMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(arifureSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(arifureSubViewSaveMemory(
+                        arifure: arifure,
+                        arifureMemory1: arifureMemory1,
+                        arifureMemory2: arifureMemory2,
+                        arifureMemory3: arifureMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -110,10 +124,10 @@ struct arifureViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct arifureSubViewSaveMemory: View {
-    @ObservedObject var arifure = Arifure()
-    @ObservedObject var arifureMemory1 = ArifureMemory1()
-    @ObservedObject var arifureMemory2 = ArifureMemory2()
-    @ObservedObject var arifureMemory3 = ArifureMemory3()
+    @ObservedObject var arifure: Arifure
+    @ObservedObject var arifureMemory1: ArifureMemory1
+    @ObservedObject var arifureMemory2: ArifureMemory2
+    @ObservedObject var arifureMemory3: ArifureMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -316,10 +330,10 @@ struct arifureSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct arifureSubViewLoadMemory: View {
-    @ObservedObject var arifure = Arifure()
-    @ObservedObject var arifureMemory1 = ArifureMemory1()
-    @ObservedObject var arifureMemory2 = ArifureMemory2()
-    @ObservedObject var arifureMemory3 = ArifureMemory3()
+    @ObservedObject var arifure: Arifure
+    @ObservedObject var arifureMemory1: ArifureMemory1
+    @ObservedObject var arifureMemory2: ArifureMemory2
+    @ObservedObject var arifureMemory3: ArifureMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -349,9 +363,15 @@ struct arifureSubViewLoadMemory: View {
         arifure.cz100GCountHit = arifureMemory1.cz100GCountHit
         arifure.cz100GCountSum = arifureMemory1.cz100GCountSum
         arifure.inputGame = arifureMemory1.inputGame
-        arifure.gameArrayData = arifureMemory1.gameArrayData
-        arifure.kindArrayData = arifureMemory1.kindArrayData
-        arifure.atHitArrayData = arifureMemory1.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: arifureMemory1.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: arifure.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: arifureMemory1.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: arifure.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: arifureMemory1.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: arifure.atHitArrayKey)
+//        arifure.gameArrayData = arifureMemory1.gameArrayData
+//        arifure.kindArrayData = arifureMemory1.kindArrayData
+//        arifure.atHitArrayData = arifureMemory1.atHitArrayData
         arifure.playGameSum = arifureMemory1.playGameSum
         arifure.myuBonusCountAll = arifureMemory1.myuBonusCountAll
         arifure.myuBonusCountAtHit = arifureMemory1.myuBonusCountAtHit
@@ -408,9 +428,15 @@ struct arifureSubViewLoadMemory: View {
         arifure.cz100GCountHit = arifureMemory2.cz100GCountHit
         arifure.cz100GCountSum = arifureMemory2.cz100GCountSum
         arifure.inputGame = arifureMemory2.inputGame
-        arifure.gameArrayData = arifureMemory2.gameArrayData
-        arifure.kindArrayData = arifureMemory2.kindArrayData
-        arifure.atHitArrayData = arifureMemory2.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: arifureMemory2.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: arifure.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: arifureMemory2.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: arifure.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: arifureMemory2.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: arifure.atHitArrayKey)
+//        arifure.gameArrayData = arifureMemory2.gameArrayData
+//        arifure.kindArrayData = arifureMemory2.kindArrayData
+//        arifure.atHitArrayData = arifureMemory2.atHitArrayData
         arifure.playGameSum = arifureMemory2.playGameSum
         arifure.myuBonusCountAll = arifureMemory2.myuBonusCountAll
         arifure.myuBonusCountAtHit = arifureMemory2.myuBonusCountAtHit
@@ -467,9 +493,15 @@ struct arifureSubViewLoadMemory: View {
         arifure.cz100GCountHit = arifureMemory3.cz100GCountHit
         arifure.cz100GCountSum = arifureMemory3.cz100GCountSum
         arifure.inputGame = arifureMemory3.inputGame
-        arifure.gameArrayData = arifureMemory3.gameArrayData
-        arifure.kindArrayData = arifureMemory3.kindArrayData
-        arifure.atHitArrayData = arifureMemory3.atHitArrayData
+        let memoryGameArrayData = decodeIntArray(from: arifureMemory3.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: arifure.gameArrayKey)
+        let memoryKindArrayData = decodeStringArray(from: arifureMemory3.kindArrayData)
+        saveArray(memoryKindArrayData, forKey: arifure.kindArrayKey)
+        let memoryAtHitArrayData = decodeStringArray(from: arifureMemory3.atHitArrayData)
+        saveArray(memoryAtHitArrayData, forKey: arifure.atHitArrayKey)
+//        arifure.gameArrayData = arifureMemory3.gameArrayData
+//        arifure.kindArrayData = arifureMemory3.kindArrayData
+//        arifure.atHitArrayData = arifureMemory3.atHitArrayData
         arifure.playGameSum = arifureMemory3.playGameSum
         arifure.myuBonusCountAll = arifureMemory3.myuBonusCountAll
         arifure.myuBonusCountAtHit = arifureMemory3.myuBonusCountAtHit

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewNormal: View {
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -43,7 +44,7 @@ struct magiaViewNormal: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "弱🍒確率",
-                            tableView: AnyView(magiaTableJakuCherry())
+                            tableView: AnyView(magiaTableJakuCherry(magia: magia))
                         )
                     )
                 )
@@ -85,7 +86,7 @@ struct magiaViewNormal: View {
                         unitExView5body2image(
                             title: "スイカからのCZ",
                             textBody1: "・通常時スイカからのCZ マギアチャレンジ当選に設定差あり",
-                            tableView: AnyView(magiaTableSuikaCz())
+                            tableView: AnyView(magiaTableSuikaCz(magia: magia))
                         )
                     )
                 )
@@ -106,7 +107,7 @@ struct magiaViewNormal: View {
                 )
 //                .popoverTip(tipVer271MagiaMagicGirlMode())
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("スイカからのCZ当選")
@@ -175,5 +176,5 @@ struct magiaViewNormal: View {
 }
 
 #Preview {
-    magiaViewNormal()
+    magiaViewNormal(magia: Magia())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct shamanKingViewEnding: View {
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     @State var isShowAlert = false
     
     var body: some View {
@@ -309,5 +310,5 @@ struct shamanKingViewEnding: View {
 }
 
 #Preview {
-    shamanKingViewEnding()
+    shamanKingViewEnding(shamanKing: ShamanKing())
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct bioViewScreen: View {
-    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
         "bioScreenDefault",
@@ -238,5 +238,5 @@ struct bioViewScreen: View {
 }
 
 #Preview {
-    bioViewScreen()
+    bioViewScreen(bio: Bio())
 }

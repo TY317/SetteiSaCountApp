@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSTableRatio: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     var body: some View {
         VStack {
             HStack(spacing: 0) {
@@ -53,5 +54,5 @@ struct girlsSSTableRatio: View {
 }
 
 #Preview {
-    girlsSSTableRatio()
+    girlsSSTableRatio(girlsSS: GirlsSS())
 }

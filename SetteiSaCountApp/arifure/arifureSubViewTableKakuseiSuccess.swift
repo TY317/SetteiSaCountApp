@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureSubViewTableKakuseiSuccess: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -22,5 +23,5 @@ struct arifureSubViewTableKakuseiSuccess: View {
 }
 
 #Preview {
-    arifureSubViewTableKakuseiSuccess()
+    arifureSubViewTableKakuseiSuccess(arifure: Arifure())
 }

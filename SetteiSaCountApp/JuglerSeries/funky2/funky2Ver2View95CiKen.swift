@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2View95CiKen: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct funky2Ver2View95CiKen: View {
 }
 
 #Preview {
-    funky2Ver2View95CiKen()
+    funky2Ver2View95CiKen(funky2: Funky2())
 }

@@ -43,7 +43,8 @@ struct sbjTipStHistoryInput: Tip {
 
 
 struct sbjViewDiceCheck: View {
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @ObservedObject var sbj: Sbj
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
     @State var isShowAlert = false
@@ -331,5 +332,5 @@ struct sbjViewDiceCheck: View {
 }
 
 #Preview {
-    sbjViewDiceCheck()
+    sbjViewDiceCheck(sbj: Sbj())
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewKokakuStart: View {
 //    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -100,12 +101,12 @@ struct magiaViewKokakuStart: View {
                             textBody1: "・ビッグ終了後、AT終了後（含む 設定変更）に高確移行を抽選",
                             textBody2: "・高確当選時は10,20,30Gのいずれかに振り分けられる",
                             textBody3: "・高確を完全に見抜くことは難しいと思われるが、参考として予測しながらのカウントを推奨",
-                            tableView: AnyView(magiaTableKokakuStart())
+                            tableView: AnyView(magiaTableKokakuStart(magia: magia))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
@@ -172,5 +173,5 @@ struct magiaViewKokakuStart: View {
 }
 
 #Preview {
-    magiaViewKokakuStart()
+    magiaViewKokakuStart(magia: Magia())
 }

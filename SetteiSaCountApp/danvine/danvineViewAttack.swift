@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewAttack: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     var body: some View {
         List {
@@ -50,7 +51,7 @@ struct danvineViewAttack: View {
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ハズレ3連続時のオーラ狙え高確当選")
@@ -108,5 +109,5 @@ struct danvineViewAttack: View {
 }
 
 #Preview {
-    danvineViewAttack()
+    danvineViewAttack(danvine: Danvine())
 }

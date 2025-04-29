@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct karakuriAtScreen: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -74,5 +75,5 @@ struct karakuriAtScreen: View {
 }
 
 #Preview {
-    karakuriAtScreen()
+    karakuriAtScreen(karakuri: Karakuri())
 }

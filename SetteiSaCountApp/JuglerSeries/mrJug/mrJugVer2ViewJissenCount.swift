@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenCount: View {
-    @ObservedObject var mrJug = MrJug()
+//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var mrJug: MrJug
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -111,6 +112,7 @@ struct mrJugVer2ViewJissenCount: View {
 //                            numberofDicimal: 0,
 //                            spacerBool: false
 //                        )
+                        Spacer()
                         // ボーナス合算
                         unitResultRatioDenomination2Line(
                             title: "ボーナス合算",
@@ -119,6 +121,7 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 0,
                             spacerBool: false
                         )
+                        Spacer()
                     }
                 }
                 // //// 縦画面
@@ -212,6 +215,7 @@ struct mrJugVer2ViewJissenCount: View {
 //                            numberofDicimal: 0,
 //                            spacerBool: false
 //                        )
+                        Spacer()
                         // ボーナス合算
                         unitResultRatioDenomination2Line(
                             title: "ボーナス合算",
@@ -220,6 +224,7 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 0,
                             spacerBool: false
                         )
+                        Spacer()
                     }
                 }
                 // //// 参考情報リンク
@@ -228,12 +233,12 @@ struct mrJugVer2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ミスタージャグラー設定差",
-                            tableView: AnyView(mrJugSubViewTableRatio())
+                            tableView: AnyView(mrJugSubViewTableRatio(mrJug: mrJug))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiPersonal(mrJug: mrJug)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -335,5 +340,5 @@ struct mrJugVer2ViewJissenCount: View {
 }
 
 #Preview {
-    mrJugVer2ViewJissenCount()
+    mrJugVer2ViewJissenCount(mrJug: MrJug())
 }

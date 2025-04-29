@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct karakuriViewEnding: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -118,5 +119,5 @@ struct karakuriViewEnding: View {
 }
 
 #Preview {
-    karakuriViewEnding()
+    karakuriViewEnding(karakuri: Karakuri())
 }

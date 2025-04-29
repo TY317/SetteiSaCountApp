@@ -316,34 +316,38 @@ class HokutoMemory3: ObservableObject {
 
 
 struct hokutoViewTop: View {
-    @ObservedObject var hokuto = Hokuto()
+//    @ObservedObject var hokuto = Hokuto()
+    @StateObject var hokuto = Hokuto()
     @State var isShowAlert = false
+    @StateObject var hokutoMemory1 = HokutoMemory1()
+    @StateObject var hokutoMemory2 = HokutoMemory2()
+    @StateObject var hokutoMemory3 = HokutoMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 通常時子役
-                    NavigationLink(destination: hokutoViewNormalKoyaku()) {
+                    NavigationLink(destination: hokutoViewNormalKoyaku(hokuto: hokuto)) {
                         unitLabelMenu(imageSystemName: "bell", textBody: "通常時小役")
                     }
                     // バトルボーナス初当たり履歴
-                    NavigationLink(destination: hokutoViewHistory()) {
+                    NavigationLink(destination: hokutoViewHistory(hokuto: hokuto)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "バトルボーナス初当たり履歴")
                     }
                     // バトルボーナス中のベル
-                    NavigationLink(destination: hokutoViewBbBell()) {
+                    NavigationLink(destination: hokutoViewBbBell(hokuto: hokuto)) {
                         unitLabelMenu(imageSystemName: "bell.fill", textBody: "バトルボーナス中のベル")
                     }
                     // バトルボーナス後のボイス
-                    NavigationLink(destination: hokutoViewVoice()) {
+                    NavigationLink(destination: hokutoViewVoice(hokuto: hokuto)) {
                         unitLabelMenu(imageSystemName: "message", textBody: "バトルボーナス後のボイス")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "スマスロ北斗の拳")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: hokutoView95Ci()) {
+                NavigationLink(destination: hokutoView95Ci(hokuto: hokuto)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -358,9 +362,19 @@ struct hokutoViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(hokutoViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(hokutoViewLoadMemory(
+                            hokuto: hokuto,
+                            hokutoMemory1: hokutoMemory1,
+                            hokutoMemory2: hokutoMemory2,
+                            hokutoMemory3: hokutoMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(hokutoViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(hokutoViewSaveMemory(
+                            hokuto: hokuto,
+                            hokutoMemory1: hokutoMemory1,
+                            hokutoMemory2: hokutoMemory2,
+                            hokutoMemory3: hokutoMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetAll, message: "この機種の全データをリセットします")
@@ -376,10 +390,10 @@ struct hokutoViewTop: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct hokutoViewSaveMemory: View {
-    @ObservedObject var hokuto = Hokuto()
-    @ObservedObject var hokutoMemory1 = HokutoMemory1()
-    @ObservedObject var hokutoMemory2 = HokutoMemory2()
-    @ObservedObject var hokutoMemory3 = HokutoMemory3()
+    @ObservedObject var hokuto: Hokuto
+    @ObservedObject var hokutoMemory1: HokutoMemory1
+    @ObservedObject var hokutoMemory2: HokutoMemory2
+    @ObservedObject var hokutoMemory3: HokutoMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -486,10 +500,10 @@ struct hokutoViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct hokutoViewLoadMemory: View {
-    @ObservedObject var hokuto = Hokuto()
-    @ObservedObject var hokutoMemory1 = HokutoMemory1()
-    @ObservedObject var hokutoMemory2 = HokutoMemory2()
-    @ObservedObject var hokutoMemory3 = HokutoMemory3()
+    @ObservedObject var hokuto: Hokuto
+    @ObservedObject var hokutoMemory1: HokutoMemory1
+    @ObservedObject var hokutoMemory2: HokutoMemory2
+    @ObservedObject var hokutoMemory3: HokutoMemory3
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {
@@ -515,9 +529,15 @@ struct hokutoViewLoadMemory: View {
         hokuto.normalStartGame = hokutoMemory1.normalStartGame
         hokuto.normalCurrentGame = hokutoMemory1.normalCurrentGame
         hokuto.normalPlayGame = hokutoMemory1.normalPlayGame
-        hokuto.gameArrayData = hokutoMemory1.gameArrayData
-        hokuto.modeArrayData = hokutoMemory1.modeArrayData
-        hokuto.triggerArrayData = hokutoMemory1.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: hokutoMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: hokuto.hokutoGameArrayKey)
+        let memoryModeArray = decodeStringArray(from: hokutoMemory1.modeArrayData)
+        saveArray(memoryModeArray, forKey: hokuto.hokutoModeArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: hokutoMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: hokuto.hokutoTriggerArrayKey)
+//        hokuto.gameArrayData = hokutoMemory1.gameArrayData
+//        hokuto.modeArrayData = hokutoMemory1.modeArrayData
+//        hokuto.triggerArrayData = hokutoMemory1.triggerArrayData
         hokuto.bbHitCount = hokutoMemory1.bbHitCount
         hokuto.bbGameSum = hokutoMemory1.bbGameSum
         hokuto.bbBellNanameCount = hokutoMemory1.bbBellNanameCount
@@ -542,9 +562,15 @@ struct hokutoViewLoadMemory: View {
         hokuto.normalStartGame = hokutoMemory2.normalStartGame
         hokuto.normalCurrentGame = hokutoMemory2.normalCurrentGame
         hokuto.normalPlayGame = hokutoMemory2.normalPlayGame
-        hokuto.gameArrayData = hokutoMemory2.gameArrayData
-        hokuto.modeArrayData = hokutoMemory2.modeArrayData
-        hokuto.triggerArrayData = hokutoMemory2.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: hokutoMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: hokuto.hokutoGameArrayKey)
+        let memoryModeArray = decodeStringArray(from: hokutoMemory2.modeArrayData)
+        saveArray(memoryModeArray, forKey: hokuto.hokutoModeArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: hokutoMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: hokuto.hokutoTriggerArrayKey)
+//        hokuto.gameArrayData = hokutoMemory2.gameArrayData
+//        hokuto.modeArrayData = hokutoMemory2.modeArrayData
+//        hokuto.triggerArrayData = hokutoMemory2.triggerArrayData
         hokuto.bbHitCount = hokutoMemory2.bbHitCount
         hokuto.bbGameSum = hokutoMemory2.bbGameSum
         hokuto.bbBellNanameCount = hokutoMemory2.bbBellNanameCount
@@ -569,9 +595,15 @@ struct hokutoViewLoadMemory: View {
         hokuto.normalStartGame = hokutoMemory3.normalStartGame
         hokuto.normalCurrentGame = hokutoMemory3.normalCurrentGame
         hokuto.normalPlayGame = hokutoMemory3.normalPlayGame
-        hokuto.gameArrayData = hokutoMemory3.gameArrayData
-        hokuto.modeArrayData = hokutoMemory3.modeArrayData
-        hokuto.triggerArrayData = hokutoMemory3.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: hokutoMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: hokuto.hokutoGameArrayKey)
+        let memoryModeArray = decodeStringArray(from: hokutoMemory3.modeArrayData)
+        saveArray(memoryModeArray, forKey: hokuto.hokutoModeArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: hokutoMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: hokuto.hokutoTriggerArrayKey)
+//        hokuto.gameArrayData = hokutoMemory3.gameArrayData
+//        hokuto.modeArrayData = hokutoMemory3.modeArrayData
+//        hokuto.triggerArrayData = hokutoMemory3.triggerArrayData
         hokuto.bbHitCount = hokutoMemory3.bbHitCount
         hokuto.bbGameSum = hokutoMemory3.bbGameSum
         hokuto.bbBellNanameCount = hokutoMemory3.bbBellNanameCount

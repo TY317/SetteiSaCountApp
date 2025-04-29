@@ -115,23 +115,27 @@ class ToloveruMemory3: ObservableObject {
 
 
 struct toloveruViewTop: View {
-    @ObservedObject var toloveru = Toloveru()
+//    @ObservedObject var toloveru = Toloveru()
+    @StateObject var toloveru = Toloveru()
     @State var isShowAlert = false
+    @StateObject var toloveruMemory1 = ToloveruMemory1()
+    @StateObject var toloveruMemory2 = ToloveruMemory2()
+    @StateObject var toloveruMemory3 = ToloveruMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 楽園計画初当たり
-                    NavigationLink(destination: toloveruViewBonusHit()) {
+                    NavigationLink(destination: toloveruViewBonusHit(toloveru: toloveru)) {
                         unitLabelMenu(imageSystemName: "scope", textBody: "楽園計画 初当たり")
                     }
                     // 楽園計画中のボーナス
-                    NavigationLink(destination: toloveruViewBonus()) {
+                    NavigationLink(destination: toloveruViewBonus(toloveru: toloveru)) {
                         unitLabelMenu(imageSystemName: "dog", textBody: "250G以降当選での初回ボーナス")
                     }
                     // 上位STハーレムモード
-                    NavigationLink(destination: toloveruViewHarlem()) {
+                    NavigationLink(destination: toloveruViewHarlem(toloveru: toloveru)) {
                         unitLabelMenu(imageSystemName: "beach.umbrella", textBody: "ハーレムモード")
                     }
                     // 終了画面
@@ -142,7 +146,7 @@ struct toloveruViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ToLOVEるダークネス")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: toloveruView95Ci()) {
+                NavigationLink(destination: toloveruView95Ci(toloveru: toloveru)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -157,9 +161,19 @@ struct toloveruViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(toloveruViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(toloveruViewLoadMemory(
+                            toloveru: toloveru,
+                            toloveruMemory1: toloveruMemory1,
+                            toloveruMemory2: toloveruMemory2,
+                            toloveruMemory3: toloveruMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(toloveruViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(toloveruViewSaveMemory(
+                            toloveru: toloveru,
+                            toloveruMemory1: toloveruMemory1,
+                            toloveruMemory2: toloveruMemory2,
+                            toloveruMemory3: toloveruMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: toloveru.resetAll, message: "この機種の全データをリセットします")
@@ -175,10 +189,10 @@ struct toloveruViewTop: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct toloveruViewSaveMemory: View {
-    @ObservedObject var toloveru = Toloveru()
-    @ObservedObject var toloveruMemory1 = ToloveruMemory1()
-    @ObservedObject var toloveruMemory2 = ToloveruMemory2()
-    @ObservedObject var toloveruMemory3 = ToloveruMemory3()
+    @ObservedObject var toloveru: Toloveru
+    @ObservedObject var toloveruMemory1: ToloveruMemory1
+    @ObservedObject var toloveruMemory2: ToloveruMemory2
+    @ObservedObject var toloveruMemory3: ToloveruMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -231,10 +245,10 @@ struct toloveruViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct toloveruViewLoadMemory: View {
-    @ObservedObject var toloveru = Toloveru()
-    @ObservedObject var toloveruMemory1 = ToloveruMemory1()
-    @ObservedObject var toloveruMemory2 = ToloveruMemory2()
-    @ObservedObject var toloveruMemory3 = ToloveruMemory3()
+    @ObservedObject var toloveru: Toloveru
+    @ObservedObject var toloveruMemory1: ToloveruMemory1
+    @ObservedObject var toloveruMemory2: ToloveruMemory2
+    @ObservedObject var toloveruMemory3: ToloveruMemory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(

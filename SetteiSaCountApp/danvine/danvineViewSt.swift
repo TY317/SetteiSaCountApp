@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewSt: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -76,7 +77,7 @@ struct danvineViewSt: View {
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 5)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ST中ボーナス 狙え演出時のランプ色")
@@ -201,5 +202,5 @@ struct danvineViewSt: View {
 }
 
 #Preview {
-    danvineViewSt()
+    danvineViewSt(danvine: Danvine())
 }

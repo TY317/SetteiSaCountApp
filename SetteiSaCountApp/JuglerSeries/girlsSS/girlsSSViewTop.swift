@@ -9,8 +9,12 @@ import SwiftUI
 
 struct girlsSSViewTop: View {
 //    @ObservedObject var ver210 = Ver210()
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @StateObject var girlsSS = GirlsSS()
     @State var isShowAlert: Bool = false
+    @StateObject var girlsSSMemory1 = GirlsSSMemory1()
+    @StateObject var girlsSSMemory2 = GirlsSSMemory2()
+    @StateObject var girlsSSMemory3 = GirlsSSMemory3()
     
     var body: some View {
         NavigationStack {
@@ -24,7 +28,7 @@ struct girlsSSViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: girlsSSVer2ViewKenDataInput()) {
+                    NavigationLink(destination: girlsSSVer2ViewKenDataInput(girlsSS: girlsSS)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -39,21 +43,21 @@ struct girlsSSViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: girlsSSVer2ViewJissenStartData()) {
+                    NavigationLink(destination: girlsSSVer2ViewJissenStartData(girlsSS: girlsSS)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: girlsSSVer2ViewJissenCount()) {
+                    NavigationLink(destination: girlsSSVer2ViewJissenCount(girlsSS: girlsSS)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: girlsSSVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: girlsSSVer2ViewJissenTotalDataCheck(girlsSS: girlsSS)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -66,7 +70,7 @@ struct girlsSSViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: girlsSSVer2View95CiTotal()) {
+                NavigationLink(destination: girlsSSVer2View95CiTotal(girlsSS: girlsSS)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -80,9 +84,19 @@ struct girlsSSViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(girlsSSSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(girlsSSSubViewLoadMemory(
+                        girlsSS: girlsSS,
+                        girlsSSMemory1: girlsSSMemory1,
+                        girlsSSMemory2: girlsSSMemory2,
+                        girlsSSMemory3: girlsSSMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(girlsSSSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(girlsSSSubViewSaveMemory(
+                        girlsSS: girlsSS,
+                        girlsSSMemory1: girlsSSMemory1,
+                        girlsSSMemory2: girlsSSMemory2,
+                        girlsSSMemory3: girlsSSMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -103,10 +117,10 @@ struct girlsSSViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct girlsSSSubViewSaveMemory: View {
-    @ObservedObject var girlsSS = GirlsSS()
-    @ObservedObject var girlsSSMemory1 = GirlsSSMemory1()
-    @ObservedObject var girlsSSMemory2 = GirlsSSMemory2()
-    @ObservedObject var girlsSSMemory3 = GirlsSSMemory3()
+    @ObservedObject var girlsSS: GirlsSS
+    @ObservedObject var girlsSSMemory1: GirlsSSMemory1
+    @ObservedObject var girlsSSMemory2: GirlsSSMemory2
+    @ObservedObject var girlsSSMemory3: GirlsSSMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -222,10 +236,10 @@ struct girlsSSSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct girlsSSSubViewLoadMemory: View {
-    @ObservedObject var girlsSS = GirlsSS()
-    @ObservedObject var girlsSSMemory1 = GirlsSSMemory1()
-    @ObservedObject var girlsSSMemory2 = GirlsSSMemory2()
-    @ObservedObject var girlsSSMemory3 = GirlsSSMemory3()
+    @ObservedObject var girlsSS: GirlsSS
+    @ObservedObject var girlsSSMemory1: GirlsSSMemory1
+    @ObservedObject var girlsSSMemory2: GirlsSSMemory2
+    @ObservedObject var girlsSSMemory3: GirlsSSMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

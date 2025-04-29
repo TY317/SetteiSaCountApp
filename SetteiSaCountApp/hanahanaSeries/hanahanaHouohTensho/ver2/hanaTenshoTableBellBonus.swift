@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct hanaTenshoTableBellBonus: View {
-    @ObservedObject var hanaTensho = HanaTensho()
+//    @ObservedObject var hanaTensho = HanaTensho()
+    @ObservedObject var hanaTensho: HanaTensho
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -34,5 +35,5 @@ struct hanaTenshoTableBellBonus: View {
 }
 
 #Preview {
-    hanaTenshoTableBellBonus()
+    hanaTenshoTableBellBonus(hanaTensho: HanaTensho())
 }

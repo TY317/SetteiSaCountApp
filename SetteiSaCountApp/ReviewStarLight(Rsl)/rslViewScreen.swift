@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslViewScreen: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
         "rslScreenDefault",
@@ -160,5 +161,5 @@ struct rslViewScreen: View {
 }
 
 #Preview {
-    rslViewScreen()
+    rslViewScreen(rsl: Rsl())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct symphoView95Ci: View {
-    @ObservedObject var sympho = Symphogear()
+//    @ObservedObject var sympho = Symphogear()
+    @ObservedObject var sympho: Symphogear
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -102,5 +103,5 @@ struct symphoView95Ci: View {
 }
 
 #Preview {
-    symphoView95Ci()
+    symphoView95Ci(sympho: Symphogear())
 }

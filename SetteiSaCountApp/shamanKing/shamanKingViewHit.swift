@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct shamanKingViewHit: View {
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
@@ -121,7 +122,7 @@ struct shamanKingViewHit: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(selection: 5)))
+                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
@@ -186,5 +187,5 @@ struct shamanKingViewHit: View {
 }
 
 #Preview {
-    shamanKingViewHit()
+    shamanKingViewHit(shamanKing: ShamanKing())
 }

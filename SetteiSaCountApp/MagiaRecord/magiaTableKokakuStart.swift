@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct magiaTableKokakuStart: View {
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     
     var body: some View {
         VStack {
@@ -70,5 +71,5 @@ struct magiaTableKokakuStart: View {
 }
 
 #Preview {
-    magiaTableKokakuStart()
+    magiaTableKokakuStart(magia: Magia())
 }

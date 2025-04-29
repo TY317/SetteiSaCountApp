@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureViewAfterAtKokaku: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -41,13 +42,13 @@ struct arifureViewAfterAtKokaku: View {
                     unitExView5body2image(
                         title: "AT終了後の高確移行",
                         textBody1: "・設定変更後やAT・上位AT終了後の高確（魔力駆動四輪ブリーゼステージ）移行に設定差あり",
-                        tableView: AnyView(arifureTableAfterKokaku())
+                        tableView: AnyView(arifureTableAfterKokaku(arifure: arifure))
 //                        image1: Image("arifureKokakuStartRatio")
                     )
                 )
             )
             // 95%信頼区間グラフ
-            unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 9)))
+            unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 9)))
                 .popoverTip(tipUnitButtonLink95Ci())
         }
         .navigationTitle("AT終了後の高確移行")
@@ -66,5 +67,5 @@ struct arifureViewAfterAtKokaku: View {
 }
 
 #Preview {
-    arifureViewAfterAtKokaku()
+    arifureViewAfterAtKokaku(arifure: Arifure())
 }

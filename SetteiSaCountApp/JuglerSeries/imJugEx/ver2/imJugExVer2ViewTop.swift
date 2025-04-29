@@ -325,8 +325,12 @@ class ImJugExMemory3: ObservableObject {
 
 
 struct imJugExVer2ViewTop: View {
-    @ObservedObject var imJugEx = ImJugEx()
+//    @ObservedObject var imJugEx = ImJugEx()
+    @StateObject var imJugEx = ImJugEx()
     @State var isShowAlert: Bool = false
+    @StateObject var imJugExMemory1 = ImJugExMemory1()
+    @StateObject var imJugExMemory2 = ImJugExMemory2()
+    @StateObject var imJugExMemory3 = ImJugExMemory3()
     
     var body: some View {
         NavigationStack {
@@ -340,7 +344,7 @@ struct imJugExVer2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: imJugExVer2ViewKenDataInput()) {
+                    NavigationLink(destination: imJugExVer2ViewKenDataInput(imJugEx: imJugEx)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -355,21 +359,21 @@ struct imJugExVer2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: imJugExVer2ViewJissenStartData()) {
+                    NavigationLink(destination: imJugExVer2ViewJissenStartData(imJugEx: imJugEx)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: imJugExVer2ViewJissenCount()) {
+                    NavigationLink(destination: imJugExVer2ViewJissenCount(imJugEx: imJugEx)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck(imJugEx: imJugEx)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -382,7 +386,7 @@ struct imJugExVer2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: imJugExVer2View95CiTotal()) {
+                NavigationLink(destination: imJugExVer2View95CiTotal(imJugEx: imJugEx)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -396,9 +400,19 @@ struct imJugExVer2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(imJugExSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(imJugExSubViewLoadMemory(
+                        imJugEx: imJugEx,
+                        imJugExMemory1: imJugExMemory1,
+                        imJugExMemory2: imJugExMemory2,
+                        imJugExMemory3: imJugExMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(imJugExSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(imJugExSubViewSaveMemory(
+                        imJugEx: imJugEx,
+                        imJugExMemory1: imJugExMemory1,
+                        imJugExMemory2: imJugExMemory2,
+                        imJugExMemory3: imJugExMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -414,10 +428,10 @@ struct imJugExVer2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct imJugExSubViewSaveMemory: View {
-    @ObservedObject var imJugEx = ImJugEx()
-    @ObservedObject var imJugExMemory1 = ImJugExMemory1()
-    @ObservedObject var imJugExMemory2 = ImJugExMemory2()
-    @ObservedObject var imJugExMemory3 = ImJugExMemory3()
+    @ObservedObject var imJugEx: ImJugEx
+    @ObservedObject var imJugExMemory1: ImJugExMemory1
+    @ObservedObject var imJugExMemory2: ImJugExMemory2
+    @ObservedObject var imJugExMemory3: ImJugExMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -527,10 +541,10 @@ struct imJugExSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct imJugExSubViewLoadMemory: View {
-    @ObservedObject var imJugEx = ImJugEx()
-    @ObservedObject var imJugExMemory1 = ImJugExMemory1()
-    @ObservedObject var imJugExMemory2 = ImJugExMemory2()
-    @ObservedObject var imJugExMemory3 = ImJugExMemory3()
+    @ObservedObject var imJugEx: ImJugEx
+    @ObservedObject var imJugExMemory1: ImJugExMemory1
+    @ObservedObject var imJugExMemory2: ImJugExMemory2
+    @ObservedObject var imJugExMemory3: ImJugExMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

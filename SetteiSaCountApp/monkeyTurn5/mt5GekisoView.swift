@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mt5GekisoView: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var isShowAlert = false
     
     var body: some View {
@@ -24,7 +25,7 @@ struct mt5GekisoView: View {
                     // 参考情報へのリンク
                     unitLinkButton(title: "激走チャージ後のセリフ", exview: AnyView(mt5ExViewGekiso()))
                     // 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 2)))
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 2)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("波多野A,Bのカウント")
@@ -67,5 +68,5 @@ struct mt5ExViewGekiso: View {
 }
 
 #Preview {
-    mt5GekisoView()
+    mt5GekisoView(mt5: Mt5())
 }

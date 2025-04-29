@@ -9,7 +9,8 @@ import SwiftUI
 
 struct kaijiViewKoyaku: View {
 //    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -85,7 +86,7 @@ struct kaijiViewKoyaku: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "小役確率",
-                            tableView: AnyView(kaijiTableKoyaku())
+                            tableView: AnyView(kaijiTableKoyaku(kaiji: kaiji))
                         )
                     )
                 )
@@ -100,7 +101,7 @@ struct kaijiViewKoyaku: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(kaiji: kaiji, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
@@ -167,5 +168,5 @@ struct kaijiViewKoyaku: View {
 }
 
 #Preview {
-    kaijiViewKoyaku()
+    kaijiViewKoyaku(kaiji: Kaiji())
 }

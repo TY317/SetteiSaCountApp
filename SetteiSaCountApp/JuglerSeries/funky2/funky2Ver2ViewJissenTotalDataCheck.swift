@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2ViewJissenTotalDataCheck: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     
     var body: some View {
         List {
@@ -123,13 +124,13 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ファンキージャグラー2設定差",
-                            tableView: AnyView(funky2TableRatio())
+                            tableView: AnyView(funky2TableRatio(funky2: funky2))
 //                            image1: Image("funky2Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiTotal(funky2: funky2)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $funky2.currentGames)
@@ -167,5 +168,5 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    funky2Ver2ViewJissenTotalDataCheck()
+    funky2Ver2ViewJissenTotalDataCheck(funky2: Funky2())
 }

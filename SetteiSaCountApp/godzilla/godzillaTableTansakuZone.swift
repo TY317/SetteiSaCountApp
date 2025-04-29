@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaTableTansakuZone: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -21,5 +21,5 @@ struct godzillaTableTansakuZone: View {
 }
 
 #Preview {
-    godzillaTableTansakuZone()
+    godzillaTableTansakuZone(godzilla: Godzilla())
 }

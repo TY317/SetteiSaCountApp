@@ -289,27 +289,31 @@ class GoevaMemory3: ObservableObject {
 
 
 struct goevaViewTop: View {
-    @ObservedObject var goeva = Goeva()
+//    @ObservedObject var goeva = Goeva()
+    @StateObject var goeva = Goeva()
     @State var isShowAlert = false
+    @StateObject var goevaMemory1 = GoevaMemory1()
+    @StateObject var goevaMemory2 = GoevaMemory2()
+    @StateObject var goevaMemory3 = GoevaMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 通常時スイカからのCZ
-                    NavigationLink(destination: goevaNormalSuika()) {
+                    NavigationLink(destination: goevaNormalSuika(goeva: goeva)) {
                         unitLabelMenu(imageSystemName: "figure.2.circle", textBody: "通常時のCZ、変異")
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: goevaViewBonusScreen()) {
+                    NavigationLink(destination: goevaViewBonusScreen(goeva: goeva)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ボーナス終了画面")
                     }
                     // AT中のスイカ
-                    NavigationLink(destination: goevaViewAtSuika()) {
+                    NavigationLink(destination: goevaViewAtSuika(goeva: goeva)) {
                         unitLabelMenu(imageSystemName: "shield.lefthalf.filled", textBody: "AT中スイカからのCZ")
                     }
                     // AT終了画面
-                    NavigationLink(destination: goevaViewAtScreen()) {
+                    NavigationLink(destination: goevaViewAtScreen(goeva: goeva)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "AT終了画面")
                     }
                     // エンディング
@@ -320,7 +324,7 @@ struct goevaViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ゴジラvsエヴァ")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: goevaView95Ci()) {
+                NavigationLink(destination: goevaView95Ci(goeva: goeva)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -335,9 +339,19 @@ struct goevaViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(goevaViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(goevaViewLoadMemory(
+                            goeva: goeva,
+                            goevaMemory1: goevaMemory1,
+                            goevaMemory2: goevaMemory2,
+                            goevaMemory3: goevaMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(goevaViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(goevaViewSaveMemory(
+                            goeva: goeva,
+                            goevaMemory1: goevaMemory1,
+                            goevaMemory2: goevaMemory2,
+                            goevaMemory3: goevaMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetAll, message: "この機種のデータを全てリセットします")
@@ -353,10 +367,10 @@ struct goevaViewTop: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct goevaViewSaveMemory: View {
-    @ObservedObject var goeva = Goeva()
-    @ObservedObject var goevaMemory1 = GoevaMemory1()
-    @ObservedObject var goevaMemory2 = GoevaMemory2()
-    @ObservedObject var goevaMemory3 = GoevaMemory3()
+    @ObservedObject var goeva: Goeva
+    @ObservedObject var goevaMemory1: GoevaMemory1
+    @ObservedObject var goevaMemory2: GoevaMemory2
+    @ObservedObject var goevaMemory3: GoevaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -463,10 +477,10 @@ struct goevaViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct goevaViewLoadMemory: View {
-    @ObservedObject var goeva = Goeva()
-    @ObservedObject var goevaMemory1 = GoevaMemory1()
-    @ObservedObject var goevaMemory2 = GoevaMemory2()
-    @ObservedObject var goevaMemory3 = GoevaMemory3()
+    @ObservedObject var goeva: Goeva
+    @ObservedObject var goevaMemory1: GoevaMemory1
+    @ObservedObject var goevaMemory2: GoevaMemory2
+    @ObservedObject var goevaMemory3: GoevaMemory3
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {

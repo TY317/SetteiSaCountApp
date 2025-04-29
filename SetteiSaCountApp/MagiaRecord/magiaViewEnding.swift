@@ -9,7 +9,8 @@ import SwiftUI
 
 struct magiaViewEnding: View {
 //    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert = false
     let selectListCard: [String] = [
         "絶交階段のウワサ",
@@ -145,5 +146,5 @@ struct magiaViewEnding: View {
 }
 
 #Preview {
-    magiaViewEnding()
+    magiaViewEnding(magia: Magia())
 }

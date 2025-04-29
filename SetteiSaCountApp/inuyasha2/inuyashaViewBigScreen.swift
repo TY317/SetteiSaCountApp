@@ -26,7 +26,8 @@ struct tipInuyashaBigSelect: Tip {
 }
 
 struct inuyashaViewBigScreen: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @ObservedObject var inuyasha: Inuyasha
     @State var isShowAlert: Bool = false
     var body: some View {
         List {
@@ -152,5 +153,5 @@ struct inuyashaViewBigScreen: View {
 }
 
 #Preview {
-    inuyashaViewBigScreen()
+    inuyashaViewBigScreen(inuyasha: Inuyasha())
 }

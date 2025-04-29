@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct inuyashaViewAtScreen: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @ObservedObject var inuyasha: Inuyasha
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -165,5 +166,5 @@ struct inuyashaViewAtScreen: View {
 }
 
 #Preview {
-    inuyashaViewAtScreen()
+    inuyashaViewAtScreen(inuyasha: Inuyasha())
 }

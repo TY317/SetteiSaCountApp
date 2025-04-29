@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewVoice: View {
-    @ObservedObject var mahjong = Mahjong()
+    @ObservedObject var mahjong: Mahjong
     var body: some View {
         List {
             Section {
@@ -46,5 +46,5 @@ struct mahjongViewVoice: View {
 }
 
 #Preview {
-    mahjongViewVoice()
+    mahjongViewVoice(mahjong: Mahjong())
 }

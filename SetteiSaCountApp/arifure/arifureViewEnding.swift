@@ -9,7 +9,8 @@ import SwiftUI
 
 struct arifureViewEnding: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
     let imageNameList: [String] = [
@@ -153,13 +154,13 @@ struct arifureViewEnding: View {
                         unitExView5body2image(
                             title: "画面振り分け",
                             textBody1: "・強レア役時は確定画面の振り分けが若干増える。確率詳細は解析サイトを参照下さい",
-                            tableView: AnyView(arifureSubViewTableEnding())
+                            tableView: AnyView(arifureSubViewTableEnding(arifure: arifure))
                         )
                     )
                 )
 //                .popoverTip(tipVer250ArifureEndingRatio())
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 15)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 15)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
@@ -230,5 +231,5 @@ struct arifureViewEnding: View {
 }
 
 #Preview {
-    arifureViewEnding()
+    arifureViewEnding(arifure: Arifure())
 }

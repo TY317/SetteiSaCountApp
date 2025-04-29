@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bioViewEnding: View {
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     @State var isShowAlert = false
     let selectListVoice: [String] = [
         "俺にはやるべきことがある",
@@ -243,5 +244,5 @@ struct bioViewEnding: View {
 }
 
 #Preview {
-    bioViewEnding()
+    bioViewEnding(bio: Bio())
 }

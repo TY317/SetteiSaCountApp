@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewPt: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     
     var body: some View {
@@ -66,7 +67,7 @@ struct danvineViewPt: View {
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定Pt 11の選択率")
@@ -88,5 +89,5 @@ struct danvineViewPt: View {
 }
 
 #Preview {
-    danvineViewPt()
+    danvineViewPt(danvine: Danvine())
 }

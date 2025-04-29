@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct tokyoGhoulSubViewTableGedanReplay: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
     
     var body: some View {
         VStack {
@@ -24,5 +25,5 @@ struct tokyoGhoulSubViewTableGedanReplay: View {
 }
 
 #Preview {
-    tokyoGhoulSubViewTableGedanReplay()
+    tokyoGhoulSubViewTableGedanReplay(tokyoGhoul: TokyoGhoul())
 }

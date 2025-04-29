@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct symphoViewScreen: View {
-    @ObservedObject var sympho = Symphogear()
+//    @ObservedObject var sympho = Symphogear()
+    @ObservedObject var sympho: Symphogear
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -75,7 +76,7 @@ struct symphoViewScreen: View {
                 // //// 参考情報リンク
                 unitLinkButton(title: "AT終了画面について", exview: AnyView(unitExView5body2image(title: "AT終了画面", image1: Image("symphoScreenRatio"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(sympho: sympho, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             
@@ -134,5 +135,5 @@ struct symphoViewScreen: View {
 }
 
 #Preview {
-    symphoViewScreen()
+    symphoViewScreen(sympho: Symphogear())
 }

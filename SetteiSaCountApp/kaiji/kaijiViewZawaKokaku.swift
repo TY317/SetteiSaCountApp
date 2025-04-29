@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiViewZawaKokaku: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     
     var body: some View {
@@ -53,7 +54,7 @@ struct kaijiViewZawaKokaku: View {
                             textBody1: "・弱レア役からの高確移行は高設定ほど優遇",
                             textBody2: "・ざわ高確は閃き前兆の高確状態",
                             textBody3: "・滞在中は液晶上に「ざわ」の文字が出現",
-                            tableView: AnyView(kaijiTableZawaKokaku())
+                            tableView: AnyView(kaijiTableZawaKokaku(kaiji: kaiji))
                         )
                     )
                 )
@@ -68,7 +69,7 @@ struct kaijiViewZawaKokaku: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(kaiji: kaiji, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("弱レア役からの移行率")
@@ -90,5 +91,5 @@ struct kaijiViewZawaKokaku: View {
 }
 
 #Preview {
-    kaijiViewZawaKokaku()
+    kaijiViewZawaKokaku(kaiji: Kaiji())
 }

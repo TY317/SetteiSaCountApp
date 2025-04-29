@@ -507,10 +507,11 @@ class Rezero2Memory3: ObservableObject {
 
 
 struct rezero2ViewTop: View {
-    @ObservedObject var rezero2 = Rezero2()
-    @ObservedObject var rezero2Memory1 = Rezero2Memory1()
-    @ObservedObject var rezero2Memory2 = Rezero2Memory2()
-    @ObservedObject var rezero2Memory3 = Rezero2Memory3()
+//    @ObservedObject var rezero2 = Rezero2()
+    @StateObject var rezero2 = Rezero2()
+    @StateObject var rezero2Memory1 = Rezero2Memory1()
+    @StateObject var rezero2Memory2 = Rezero2Memory2()
+    @StateObject var rezero2Memory3 = Rezero2Memory3()
     @State var isShowAlert: Bool = false
     var body: some View {
         NavigationStack {
@@ -521,22 +522,22 @@ struct rezero2ViewTop: View {
                         unitLabelMenu(imageSystemName: "watch.analog", textBody: "菜月家ステージでの時計演出")
                     }
                     // チキチキ雪合戦
-                    NavigationLink(destination: rezero2ViewSnowball()) {
+                    NavigationLink(destination: rezero2ViewSnowball(rezero2: rezero2)) {
                         unitLabelMenu(imageSystemName: "snowflake", textBody: "チキチキ雪合戦")
                     }
                     // 初当たり履歴
-                    NavigationLink(destination: rezero2ViewHistory()) {
+                    NavigationLink(destination: rezero2ViewHistory(rezero2: rezero2)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "AT初当たり履歴")
                     }
                     // AT終了画面
-                    NavigationLink(destination: rezero2ViewScreen()) {
+                    NavigationLink(destination: rezero2ViewScreen(rezero2: rezero2)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "AT終了画面")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "Re:ゼロ season2")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: rezero2View95Ci()) {
+                NavigationLink(destination: rezero2View95Ci(rezero2: rezero2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
@@ -550,9 +551,19 @@ struct rezero2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(rezero2ViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(rezero2ViewLoadMemory(
+                        rezero2: rezero2,
+                        rezero2Memory1: rezero2Memory1,
+                        rezero2Memory2: rezero2Memory2,
+                        rezero2Memory3: rezero2Memory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(rezero2ViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(rezero2ViewSaveMemory(
+                        rezero2: rezero2,
+                        rezero2Memory1: rezero2Memory1,
+                        rezero2Memory2: rezero2Memory2,
+                        rezero2Memory3: rezero2Memory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -568,10 +579,10 @@ struct rezero2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct rezero2ViewSaveMemory: View {
-    @ObservedObject var rezero2 = Rezero2()
-    @ObservedObject var rezero2Memory1 = Rezero2Memory1()
-    @ObservedObject var rezero2Memory2 = Rezero2Memory2()
-    @ObservedObject var rezero2Memory3 = Rezero2Memory3()
+    @ObservedObject var rezero2: Rezero2
+    @ObservedObject var rezero2Memory1: Rezero2Memory1
+    @ObservedObject var rezero2Memory2: Rezero2Memory2
+    @ObservedObject var rezero2Memory3: Rezero2Memory3
     @State var isShowSaveAlert: Bool = false
     var body: some View {
         unitViewSaveMemory(
@@ -656,10 +667,10 @@ struct rezero2ViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct rezero2ViewLoadMemory: View {
-    @ObservedObject var rezero2 = Rezero2()
-    @ObservedObject var rezero2Memory1 = Rezero2Memory1()
-    @ObservedObject var rezero2Memory2 = Rezero2Memory2()
-    @ObservedObject var rezero2Memory3 = Rezero2Memory3()
+    @ObservedObject var rezero2: Rezero2
+    @ObservedObject var rezero2Memory1: Rezero2Memory1
+    @ObservedObject var rezero2Memory2: Rezero2Memory2
+    @ObservedObject var rezero2Memory3: Rezero2Memory3
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {
@@ -682,9 +693,15 @@ struct rezero2ViewLoadMemory: View {
         rezero2.snowballCountSingle = rezero2Memory1.snowballCountSingle
         rezero2.snowballCountMultiple = rezero2Memory1.snowballCountMultiple
         rezero2.snowballCountSum = rezero2Memory1.snowballCountSum
-        rezero2.gameArrayData = rezero2Memory1.gameArrayData
-        rezero2.ptZoneArrayData = rezero2Memory1.ptZoneArrayData
-        rezero2.triggerArrayData = rezero2Memory1.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: rezero2Memory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: rezero2.gameArrayKey)
+        let memoryPtZoneArray = decodeStringArray(from: rezero2Memory1.ptZoneArrayData)
+        saveArray(memoryPtZoneArray, forKey: rezero2.ptZoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: rezero2Memory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: rezero2.triggerArrayKey)
+//        rezero2.gameArrayData = rezero2Memory1.gameArrayData
+//        rezero2.ptZoneArrayData = rezero2Memory1.ptZoneArrayData
+//        rezero2.triggerArrayData = rezero2Memory1.triggerArrayData
         rezero2.atHitCount = rezero2Memory1.atHitCount
         rezero2.playGameSum = rezero2Memory1.playGameSum
         rezero2.comebackCount = rezero2Memory1.comebackCount
@@ -702,9 +719,15 @@ struct rezero2ViewLoadMemory: View {
         rezero2.snowballCountSingle = rezero2Memory2.snowballCountSingle
         rezero2.snowballCountMultiple = rezero2Memory2.snowballCountMultiple
         rezero2.snowballCountSum = rezero2Memory2.snowballCountSum
-        rezero2.gameArrayData = rezero2Memory2.gameArrayData
-        rezero2.ptZoneArrayData = rezero2Memory2.ptZoneArrayData
-        rezero2.triggerArrayData = rezero2Memory2.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: rezero2Memory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: rezero2.gameArrayKey)
+        let memoryPtZoneArray = decodeStringArray(from: rezero2Memory2.ptZoneArrayData)
+        saveArray(memoryPtZoneArray, forKey: rezero2.ptZoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: rezero2Memory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: rezero2.triggerArrayKey)
+//        rezero2.gameArrayData = rezero2Memory2.gameArrayData
+//        rezero2.ptZoneArrayData = rezero2Memory2.ptZoneArrayData
+//        rezero2.triggerArrayData = rezero2Memory2.triggerArrayData
         rezero2.atHitCount = rezero2Memory2.atHitCount
         rezero2.playGameSum = rezero2Memory2.playGameSum
         rezero2.comebackCount = rezero2Memory2.comebackCount
@@ -722,9 +745,15 @@ struct rezero2ViewLoadMemory: View {
         rezero2.snowballCountSingle = rezero2Memory3.snowballCountSingle
         rezero2.snowballCountMultiple = rezero2Memory3.snowballCountMultiple
         rezero2.snowballCountSum = rezero2Memory3.snowballCountSum
-        rezero2.gameArrayData = rezero2Memory3.gameArrayData
-        rezero2.ptZoneArrayData = rezero2Memory3.ptZoneArrayData
-        rezero2.triggerArrayData = rezero2Memory3.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: rezero2Memory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: rezero2.gameArrayKey)
+        let memoryPtZoneArray = decodeStringArray(from: rezero2Memory3.ptZoneArrayData)
+        saveArray(memoryPtZoneArray, forKey: rezero2.ptZoneArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: rezero2Memory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: rezero2.triggerArrayKey)
+//        rezero2.gameArrayData = rezero2Memory3.gameArrayData
+//        rezero2.ptZoneArrayData = rezero2Memory3.ptZoneArrayData
+//        rezero2.triggerArrayData = rezero2Memory3.triggerArrayData
         rezero2.atHitCount = rezero2Memory3.atHitCount
         rezero2.playGameSum = rezero2Memory3.playGameSum
         rezero2.comebackCount = rezero2Memory3.comebackCount

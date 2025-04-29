@@ -26,7 +26,8 @@ struct arifureTipHistoryInput: Tip {
 
 
 struct arifureViewHistory: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -315,7 +316,7 @@ struct arifureViewHistory: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("確率集計")
@@ -379,5 +380,5 @@ struct arifureViewHistory: View {
 }
 
 #Preview {
-    arifureViewHistory()
+    arifureViewHistory(arifure: Arifure())
 }

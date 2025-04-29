@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureView95Ci: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -294,5 +295,5 @@ struct arifureView95Ci: View {
 }
 
 #Preview {
-    arifureView95Ci()
+    arifureView95Ci(arifure: Arifure())
 }

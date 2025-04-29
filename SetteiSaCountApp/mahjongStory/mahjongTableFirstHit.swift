@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongTableFirstHit: View {
-    @ObservedObject var mahjong = Mahjong()
+    @ObservedObject var mahjong: Mahjong
     
     var body: some View {
         VStack {
@@ -37,5 +37,5 @@ struct mahjongTableFirstHit: View {
 }
 
 #Preview {
-    mahjongTableFirstHit()
+    mahjongTableFirstHit(mahjong: Mahjong())
 }

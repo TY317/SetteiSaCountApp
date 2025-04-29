@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslTableFirstHit: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     var body: some View {
         VStack {
             HStack(spacing: 0) {
@@ -50,5 +51,5 @@ struct rslTableFirstHit: View {
 }
 
 #Preview {
-    rslTableFirstHit()
+    rslTableFirstHit(rsl: Rsl())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mhrView95Ci: View {
-    @ObservedObject var mhr = Mhr()
+//    @ObservedObject var mhr = Mhr()
+    @ObservedObject var mhr: Mhr
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -80,5 +81,5 @@ struct mhrView95Ci: View {
 }
 
 #Preview {
-    mhrView95Ci()
+    mhrView95Ci(mhr: Mhr())
 }

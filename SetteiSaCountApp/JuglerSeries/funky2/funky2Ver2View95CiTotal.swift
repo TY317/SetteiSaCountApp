@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2View95CiTotal: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -187,5 +188,5 @@ struct funky2Ver2View95CiTotal: View {
 }
 
 #Preview {
-    funky2Ver2View95CiTotal()
+    funky2Ver2View95CiTotal(funky2: Funky2())
 }

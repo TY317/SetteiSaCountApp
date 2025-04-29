@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaijiTableKoyaku: View {
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     
     var body: some View {
         HStack(spacing: 0) {
@@ -46,5 +47,5 @@ struct kaijiTableKoyaku: View {
 }
 
 #Preview {
-    kaijiTableKoyaku()
+    kaijiTableKoyaku(kaiji: Kaiji())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kabaneriMumei: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @ObservedObject var kabaneri: Kabaneri
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -30,7 +31,7 @@ struct kabaneriMumei: View {
                     // 参考情報
                     unitLinkButton(title: "ナビ発生率について", exview: AnyView(unitExView5body2image(title: "ナビ発生率について", textBody1: "・連撃演出中のナビ発生率に設定差", textBody2: "・ナビなしはベルこぼし目の回数をカウント", textBody3: "　（ベルこぼし目は下記画像を参照）", image1: Image("kabaneriMumeiNavi"), image2: Image("kabaneriMumeiBellKoboshi"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 4)))
+                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 4)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("連撃中のナビ発生率")
@@ -49,7 +50,7 @@ struct kabaneriMumei: View {
                     // 参考情報リンク
                     unitLinkButton(title: "3連撃時の当選について", exview: AnyView(unitExView5body2image(title: "3連撃時の当選率", textBody1: "・3連撃でジャッジ演出に移行した際の当選率", image1: Image("kabaneriMumei3Hit"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 5)))
+                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 5)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("3連撃時の当選率")
@@ -116,5 +117,5 @@ struct kabaneriMumei: View {
 }
 
 #Preview {
-    kabaneriMumei()
+    kabaneriMumei(kabaneri: Kabaneri())
 }

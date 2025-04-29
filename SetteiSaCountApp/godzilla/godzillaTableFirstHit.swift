@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaTableFirstHit: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     
     var body: some View {
         HStack(spacing: 0) {
@@ -26,5 +26,5 @@ struct godzillaTableFirstHit: View {
 }
 
 #Preview {
-    godzillaTableFirstHit()
+    godzillaTableFirstHit(godzilla: Godzilla())
 }

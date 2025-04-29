@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct inuyashaView95Ci: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @ObservedObject var inuyasha: Inuyasha
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -181,5 +182,5 @@ struct inuyashaView95Ci: View {
 }
 
 #Preview {
-    inuyashaView95Ci()
+    inuyashaView95Ci(inuyasha: Inuyasha())
 }
