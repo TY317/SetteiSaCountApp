@@ -49,6 +49,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodzilla") var isSelectedFavoriteGodzilla = true
     @AppStorage("isSelectedFavoriteMahjong") var isSelectedFavoriteMahjong = true
     @AppStorage("isSelectedFavoriteYoshimune") var isSelectedFavoriteYoshimune = true
+    @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
+    @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
 }
 
 
@@ -90,8 +92,9 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
+    @StateObject var ver300 = Ver300()
+//    @ObservedObject var ver271 = Ver271()
+    @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -136,17 +139,43 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 緑ドン、25年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMidoriDon == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(midoriDonViewTop(ver300: ver300)),
+                                        iconImage: Image("midoriDonMachineIcon"),
+                                        machineName: "緑ドン",
+                                        badgeStatus: ver300.midoriDonMachineIconBadgeStatus
+                                    )
+                                        .popoverTip(tipVer300MachineAdd())
+                                }
+                                
+                                // //// アイマス、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(idolMasterViewTop(ver300: ver300)),
+                                        iconImage: Image("idolMasterMachineIcon"),
+                                        machineName: "アイマス",
+                                        badgeStatus: ver300.idolMasterMachineIconBadgeStatus
+                                    )
+//                                        .popoverTip(tipVer300MachineAdd())
+                                }
+                                
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        linkView: AnyView(yoshimuneViewTop()),
                                         iconImage: Image("yoshimuneMachineIcon"),
-                                        machineName: "吉宗",
-                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        machineName: "吉宗"
+//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer280MachineAdd())
+//                                        .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -154,10 +183,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(mahjongViewTop()),
+                                        linkView: AnyView(mahjongViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("mahjongMachineIcon"),
                                         machineName: "麻雀物語",
-                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                        badgeStatus: ver300.mahjongMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer280MachineAdd())
                                 }
@@ -169,8 +200,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(godzillaViewTop()),
                                         iconImage: Image("godzillaMachineIcon"),
-                                        machineName: "ゴジラ",
-                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                        machineName: "ゴジラ"
+//                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer280MachineAdd())
                                 }
@@ -180,10 +211,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(magiaViewTop()),
+                                        linkView: AnyView(magiaViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver300.magiaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -219,10 +252,10 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(kaijiViewTop()),
+                                        linkView: AnyView(kaijiViewTop(ver300: ver300)),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴",
-                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver300.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -367,9 +400,12 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(godeaterViewTop()),
+                                        linkView: AnyView(godeaterViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("godeaterMachinIcon"),
-                                        machineName: "ゴッドイーター"
+                                        machineName: "ゴッドイーター",
+                                        badgeStatus: ver300.godeaterMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -460,20 +496,52 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 緑ドン、25年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMidoriDon == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(midoriDonViewTop(ver300: ver300)),
+                                        iconImage: Image("midoriDonMachineIcon"),
+                                        machineName: "緑ドン VIVA情熱南米編",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2025,
+                                        releaseMonth: 5,
+                                        badgeStatus: ver300.midoriDonMachineIconBadgeStatus
+                                    )
+                                    .popoverTip(tipVer300MachineAdd())
+                                }
+                                
+                                // //// アイマス、25年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(idolMasterViewTop(ver300: ver300)),
+                                        iconImage: Image("idolMasterMachineIcon"),
+                                        machineName: "アイドルマスター",
+                                        makerName: "山佐",
+                                        releaseYear: 2025,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver300.idolMasterMachineIconBadgeStatus
+                                    )
+//                                    .popoverTip(tipVer300MachineAdd())
+                                }
+                                
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(yoshimuneViewTop(ver280: ver280)),
+                                        linkView: AnyView(yoshimuneViewTop()),
                                         iconImage: Image("yoshimuneMachineIcon"),
                                         machineName: "吉宗",
                                         makerName: "大都技研",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer280MachineAdd())
+//                                    .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -481,13 +549,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(mahjongViewTop()),
+                                        linkView: AnyView(mahjongViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("mahjongMachineIcon"),
                                         machineName: "麻雀物語",
                                         makerName: "平和",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver280.mahjongMachineIconBadgeStatus
+                                        badgeStatus: ver300.mahjongMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer280MachineAdd())
                                 }
@@ -502,8 +572,8 @@ struct ContentView: View {
                                         machineName: "ゴジラ",
                                         makerName: "ニューギン",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer280MachineAdd())
                                 }
@@ -513,13 +583,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(magiaViewTop()),
+                                        linkView: AnyView(magiaViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver280.magiaMachineIconBadgeStatus
+                                        badgeStatus: ver300.magiaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -561,13 +633,13 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(kaijiViewTop()),
+                                        linkView: AnyView(kaijiViewTop(ver300: ver300)),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "回胴黙示録カイジ 狂宴",
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver280.kaijiMachineIconBadgeStatus
+                                        badgeStatus: ver300.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -774,12 +846,15 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(godeaterViewTop()),
+                                        linkView: AnyView(godeaterViewTop(
+                                            ver300: ver300
+                                        )),
                                         iconImage: Image("godeaterMachinIcon"),
                                         machineName: "ゴッドイーター リザレクション",
                                         makerName: "山佐",
                                         releaseYear: 2024,
-                                        releaseMonth: 7
+                                        releaseMonth: 7,
+                                        badgeStatus: ver300.godeaterMachineIconBadgeStatus
                                     )
                                 }
                                 // //// ToLOVEるダークネス、24年6月
@@ -1002,6 +1077,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// 緑ドン、25年5月
+                Toggle("緑ドン VIVA情熱南米編", isOn: $favoriteSet.isSelectedFavoriteMidoriDon)
+                // //// アイマス、25年4月
+                Toggle("アイドルマスター", isOn: $favoriteSet.isSelectedFavoriteIdolMaster)
                 // //// 吉宗、25年4月
                 Toggle("吉宗", isOn: $favoriteSet.isSelectedFavoriteYoshimune)
                 // //// 麻雀物語、25年4月
@@ -1195,8 +1274,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

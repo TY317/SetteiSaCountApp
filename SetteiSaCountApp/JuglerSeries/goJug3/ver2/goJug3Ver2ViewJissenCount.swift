@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goJug3Ver2ViewJissenCount: View {
-    @ObservedObject var goJug3 = GoJug3()
+//    @ObservedObject var goJug3 = GoJug3()
+    @ObservedObject var goJug3: GoJug3
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     
@@ -63,13 +64,13 @@ struct goJug3Ver2ViewJissenCount: View {
                         unitExView5body2image(
                             title: "ゴーゴージャグラー3設定差",
                             textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
-                            tableView: AnyView(goJugTableRatio())
+                            tableView: AnyView(goJugTableRatio(goJug3: goJug3))
 //                            image1: Image("goJug3Ratio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiPersonal(goJug3: goJug3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -118,6 +119,15 @@ struct goJug3Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            goJug3SubViewCountInput(
+                                goJug3: goJug3
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $goJug3.minusCheck)
                     // リセットボタン
@@ -129,5 +139,5 @@ struct goJug3Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    goJug3Ver2ViewJissenCount()
+    goJug3Ver2ViewJissenCount(goJug3: GoJug3())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2ViewJissenStartData: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -180,13 +181,13 @@ struct funky2Ver2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ファンキージャグラー2設定差",
-                            tableView: AnyView(funky2TableRatio())
+                            tableView: AnyView(funky2TableRatio(funky2: funky2))
 //                            image1: Image("funky2Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiStart(funky2: funky2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -249,5 +250,5 @@ struct funky2Ver2ViewJissenStartData: View {
 }
 
 #Preview {
-    funky2Ver2ViewJissenStartData()
+    funky2Ver2ViewJissenStartData(funky2: Funky2())
 }

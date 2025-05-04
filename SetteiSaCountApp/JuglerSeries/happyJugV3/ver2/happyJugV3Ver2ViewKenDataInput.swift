@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct happyJugV3Ver2ViewKenDataInput: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
+//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @ObservedObject var happyJugV3: HappyJugV3
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -186,7 +187,7 @@ struct happyJugV3Ver2ViewKenDataInput: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiKen(happyJugV3: happyJugV3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -253,5 +254,5 @@ struct happyJugV3Ver2ViewKenDataInput: View {
 }
 
 #Preview {
-    happyJugV3Ver2ViewKenDataInput()
+    happyJugV3Ver2ViewKenDataInput(happyJugV3: HappyJugV3())
 }

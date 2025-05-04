@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goJug3Ver2ViewJissenTotalDataCheck: View {
-    @ObservedObject var goJug3 = GoJug3()
+//    @ObservedObject var goJug3 = GoJug3()
+    @ObservedObject var goJug3: GoJug3
     
     var body: some View {
         List {
@@ -87,13 +88,13 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                         unitExView5body2image(
                             title: "ゴーゴージャグラー3設定差",
                             textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
-                            tableView: AnyView(goJugTableRatio())
+                            tableView: AnyView(goJugTableRatio(goJug3: goJug3))
 //                            image1: Image("goJug3Ratio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiTotal(goJug3: goJug3)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $goJug3.currentGames)
@@ -123,5 +124,5 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    goJug3Ver2ViewJissenTotalDataCheck()
+    goJug3Ver2ViewJissenTotalDataCheck(goJug3: GoJug3())
 }

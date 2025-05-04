@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct magiaViewTop: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var magia = Magia()
+    @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
+    @StateObject var magiaMemory1 = MagiaMemory1()
+    @StateObject var magiaMemory2 = MagiaMemory2()
+    @StateObject var magiaMemory3 = MagiaMemory3()
+    
     var body: some View {
         NavigationStack {
             List {
@@ -26,81 +31,84 @@ struct magiaViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: magiaViewNormal()) {
+                    NavigationLink(destination: magiaViewNormal(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時",
-                            badgeStatus: ver271.magiaMenuNormalBadgeStatus
+                            textBody: "通常時"
+//                            badgeStatus: ver271.magiaMenuNormalBadgeStatus
                         )
                     }
                     // 初当り
-                    NavigationLink(destination: magiaViewFirstHit()) {
+                    NavigationLink(destination: magiaViewFirstHit(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "ボーナス,AT 初当り",
-                            badgeStatus: ver271.magiaMenuFirstHitBadgeStatus
+                            textBody: "ボーナス,AT 初当り"
+//                            badgeStatus: ver271.magiaMenuFirstHitBadgeStatus
                         )
                     }
                     // BIG終了画面
-                    NavigationLink(destination: magiaViewBigScreen()) {
+                    NavigationLink(destination: magiaViewBigScreen(
+                        ver300: ver300,
+                        magia: magia
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "BIG終了画面",
-                            badgeStatus: ver271.magiaMenuBonusScreenBadgeStatus
+                            badgeStatus: ver300.magiaMenuBonusScreenBadgeStatus
                         )
                     }
                     // ボーナス終了後ボイス
-                    NavigationLink(destination: magiaViewVoice()) {
+                    NavigationLink(destination: magiaViewVoice(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
                             textBody: "BIG終了後ボイス"
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: magiaViewAtScreen()) {
+                    NavigationLink(destination: magiaViewAtScreen(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面",
-                            badgeStatus: ver271.magiaMenuAtScreenBadgeStatus
+                            textBody: "AT終了画面"
+//                            badgeStatus: ver271.magiaMenuAtScreenBadgeStatus
                         )
                     }
                     // ボーナス,AT後の高確スタート
-                    NavigationLink(destination: magiaViewKokakuStart()) {
+                    NavigationLink(destination: magiaViewKokakuStart(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "ビッグ,AT後の高確スタート",
-                            badgeStatus: ver280.magiaKokakuStartBadgeStatus
+                            textBody: "ビッグ,AT後の高確スタート"
+//                            badgeStatus: ver280.magiaKokakuStartBadgeStatus
                         )
                     }
                     // ストーリーのキャラ紹介
                     NavigationLink(destination: magiaViewStoryChara()) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
-                            textBody: "ストーリーのキャラ紹介",
-                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
+                            textBody: "ストーリーのキャラ紹介"
+//                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: magiaViewEnding()) {
+                    NavigationLink(destination: magiaViewEnding(magia: magia)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
                         )
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: magiaView95Ci()) {
+                NavigationLink(destination: magiaView95Ci(magia: magia)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4745")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .onAppear {
-            if ver280.magiaMachineIconBadgeStatus != "none" {
-                ver280.magiaMachineIconBadgeStatus = "none"
+            if ver300.magiaMachineIconBadgeStatus != "none" {
+                ver300.magiaMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -109,9 +117,19 @@ struct magiaViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(magiaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(magiaSubViewLoadMemory(
+                        magia: magia,
+                        magiaMemory1: magiaMemory1,
+                        magiaMemory2: magiaMemory2,
+                        magiaMemory3: magiaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(magiaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(magiaSubViewSaveMemory(
+                        magia: magia,
+                        magiaMemory1: magiaMemory1,
+                        magiaMemory2: magiaMemory2,
+                        magiaMemory3: magiaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -126,10 +144,10 @@ struct magiaViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct magiaSubViewSaveMemory: View {
-    @ObservedObject var magia = Magia()
-    @ObservedObject var magiaMemory1 = MagiaMemory1()
-    @ObservedObject var magiaMemory2 = MagiaMemory2()
-    @ObservedObject var magiaMemory3 = MagiaMemory3()
+    @ObservedObject var magia: Magia
+    @ObservedObject var magiaMemory1: MagiaMemory1
+    @ObservedObject var magiaMemory2: MagiaMemory2
+    @ObservedObject var magiaMemory3: MagiaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -181,6 +199,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory1.endingCountGusu = magia.endingCountGusu
         magiaMemory1.endingCountHigh = magia.endingCountHigh
         magiaMemory1.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory1.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory1.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory1.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory1.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
     func saveMemory2() {
         magiaMemory2.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -215,6 +241,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory2.endingCountGusu = magia.endingCountGusu
         magiaMemory2.endingCountHigh = magia.endingCountHigh
         magiaMemory2.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory2.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory2.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory2.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory2.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
     func saveMemory3() {
         magiaMemory3.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -249,6 +283,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory3.endingCountGusu = magia.endingCountGusu
         magiaMemory3.endingCountHigh = magia.endingCountHigh
         magiaMemory3.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory3.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory3.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory3.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory3.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
 }
 
@@ -257,10 +299,10 @@ struct magiaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct magiaSubViewLoadMemory: View {
-    @ObservedObject var magia = Magia()
-    @ObservedObject var magiaMemory1 = MagiaMemory1()
-    @ObservedObject var magiaMemory2 = MagiaMemory2()
-    @ObservedObject var magiaMemory3 = MagiaMemory3()
+    @ObservedObject var magia: Magia
+    @ObservedObject var magiaMemory1: MagiaMemory1
+    @ObservedObject var magiaMemory2: MagiaMemory2
+    @ObservedObject var magiaMemory3: MagiaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -312,6 +354,14 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory1.endingCountGusu
         magia.endingCountHigh = magiaMemory1.endingCountHigh
         magia.endingCountSum = magiaMemory1.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory1.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory1.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory1.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory1.bigScreenCountOver6
     }
     func loadMemory2() {
         magia.suikaCzCountSuika = magiaMemory2.suikaCzCountSuika
@@ -346,6 +396,14 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory2.endingCountGusu
         magia.endingCountHigh = magiaMemory2.endingCountHigh
         magia.endingCountSum = magiaMemory2.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory2.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory2.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory2.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory2.bigScreenCountOver6
     }
     func loadMemory3() {
         magia.suikaCzCountSuika = magiaMemory3.suikaCzCountSuika
@@ -380,9 +438,19 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory3.endingCountGusu
         magia.endingCountHigh = magiaMemory3.endingCountHigh
         magia.endingCountSum = magiaMemory3.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory3.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory3.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory3.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory3.bigScreenCountOver6
     }
 }
 
 #Preview {
-    magiaViewTop()
+    magiaViewTop(
+        ver300: Ver300()
+    )
 }

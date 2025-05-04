@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct mt5ViewAoshimaSG: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var isShowAlert = false
     @State var tips = tipUnitButtonScreenChoice()
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -55,7 +56,7 @@ struct mt5ViewAoshimaSG: View {
                     // 参考情報
                     unitLinkButton(title: "出現確率", exview: AnyView(mt5ExViewAoshimaScreenAnalysis()))
                     // 95%信頼区間グラフ
-                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 7)))
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 7)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ラウンド開始画面")
@@ -142,5 +143,5 @@ struct mt5ExViewAoshimaScreenAnalysis: View {
 }
 
 #Preview {
-    mt5ViewAoshimaSG()
+    mt5ViewAoshimaSG(mt5: Mt5())
 }

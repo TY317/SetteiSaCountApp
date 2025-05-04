@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewSt: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -71,12 +72,13 @@ struct danvineViewSt: View {
                             title: "狙え演出時のランプ色",
                             textBody1: "・ST中ボーナスで発生する中リール狙え演出時のチャムランプ色で設定を示唆",
                             textBody2: "・チャムランプは台枠左にあり。数回点滅したら消えるため見逃さないよう注意",
-                            image1: Image("danvineChamLamp"),
-                            image2: Image("danvineChamLampRatio")
+                            tableView: AnyView(danvineTableAimLamp())
+//                            image1: Image("danvineChamLamp"),
+//                            image2: Image("danvineChamLampRatio")
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 5)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ST中ボーナス 狙え演出時のランプ色")
@@ -135,7 +137,8 @@ struct danvineViewSt: View {
                             textBody1: "・継続ゲーム数は10・20・30Gのいずれか",
                             textBody2: "・20、30Gの場合も基本はLAST 10Gから始まり、消化後に継続する形で進行",
                             textBody3: "・初期表示の段階でLAST 20、30Gから始まった場合は設定示唆となる",
-                            image1: Image("danvineSeisenshi")
+                            tableView: AnyView(danvineTableSeisenshi())
+//                            image1: Image("danvineSeisenshi")
                         )
                     )
                 )
@@ -201,5 +204,5 @@ struct danvineViewSt: View {
 }
 
 #Preview {
-    danvineViewSt()
+    danvineViewSt(danvine: Danvine())
 }

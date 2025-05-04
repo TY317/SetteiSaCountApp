@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongTableFirstHit: View {
-    @ObservedObject var mahjong = Mahjong()
+    @ObservedObject var mahjong: Mahjong
     
     var body: some View {
         VStack {
@@ -31,11 +31,12 @@ struct mahjongTableFirstHit: View {
                 )
             }
     //        .padding(.horizontal)
-            Text("※ AT直撃は前兆中の昇格抽選を含まない数値")
+            Text("※ AT直撃は前兆中の昇格抽選を含まない数値\n　昇格による直撃はほぼ設定差ないため注意")
         }
     }
 }
 
 #Preview {
-    mahjongTableFirstHit()
+    mahjongTableFirstHit(mahjong: Mahjong())
+        .padding(.horizontal)
 }

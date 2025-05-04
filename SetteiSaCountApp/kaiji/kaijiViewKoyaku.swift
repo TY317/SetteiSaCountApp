@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct kaijiViewKoyaku: View {
-    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -78,14 +79,14 @@ struct kaijiViewKoyaku: View {
                     bigNumber: $kaiji.totalGame,
                     numberofDicimal: 1
                 )
-                .popoverTip(tipVer271KaijiKoyaku())
+//                .popoverTip(tipVer271KaijiKoyaku())
                 // //// 参考情報）小役確率
                 unitLinkButton(
                     title: "小役確率",
                     exview: AnyView(
                         unitExView5body2image(
                             title: "小役確率",
-                            tableView: AnyView(kaijiTableKoyaku())
+                            tableView: AnyView(kaijiTableKoyaku(kaiji: kaiji))
                         )
                     )
                 )
@@ -100,16 +101,16 @@ struct kaijiViewKoyaku: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(kaijiView95Ci(kaiji: kaiji, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
-                ver271.kaijiMenuKoyakuBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
+//                ver271.kaijiMenuKoyakuBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -167,5 +168,5 @@ struct kaijiViewKoyaku: View {
 }
 
 #Preview {
-    kaijiViewKoyaku()
+    kaijiViewKoyaku(kaiji: Kaiji())
 }

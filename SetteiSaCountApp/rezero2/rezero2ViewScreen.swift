@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rezero2ViewScreen: View {
-    @ObservedObject var rezero2 = Rezero2()
+//    @ObservedObject var rezero2 = Rezero2()
+    @ObservedObject var rezero2: Rezero2
     @State var isShowAlert: Bool = false
     var body: some View {
         List {
@@ -164,5 +165,5 @@ struct rezero2ViewScreen: View {
 }
 
 #Preview {
-    rezero2ViewScreen()
+    rezero2ViewScreen(rezero2: Rezero2())
 }

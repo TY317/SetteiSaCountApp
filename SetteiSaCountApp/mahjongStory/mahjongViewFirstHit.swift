@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mahjongViewFirstHit: View {
-    @ObservedObject var mahjong = Mahjong()
+//    @ObservedObject var mahjong = Mahjong()
+    @ObservedObject var mahjong: Mahjong
     
     var body: some View {
         List {
@@ -22,7 +23,7 @@ struct mahjongViewFirstHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            tableView: AnyView(mahjongTableFirstHit())
+                            tableView: AnyView(mahjongTableFirstHit(mahjong: mahjong))
                         )
                     )
                 )
@@ -36,5 +37,5 @@ struct mahjongViewFirstHit: View {
 }
 
 #Preview {
-    mahjongViewFirstHit()
+    mahjongViewFirstHit(mahjong: Mahjong())
 }

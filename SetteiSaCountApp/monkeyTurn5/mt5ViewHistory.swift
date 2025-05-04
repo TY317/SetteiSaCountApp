@@ -12,7 +12,8 @@ import SwiftUI
 // ビュー：メインビュー
 // ////////////////////////
 struct mt5ViewHistory: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var isShowAlert = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -268,5 +269,5 @@ struct mt5ExViewMode: View {
 
 
 #Preview {
-    mt5ViewHistory()
+    mt5ViewHistory(mt5: Mt5())
 }

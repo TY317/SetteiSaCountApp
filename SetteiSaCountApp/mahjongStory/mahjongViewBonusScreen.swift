@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewBonusScreen: View {
-    @ObservedObject var mahjong = Mahjong()
+    @ObservedObject var mahjong: Mahjong
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
     let imageNameList: [String] = [
@@ -144,5 +144,5 @@ struct mahjongViewBonusScreen: View {
 }
 
 #Preview {
-    mahjongViewBonusScreen()
+    mahjongViewBonusScreen(mahjong: Mahjong())
 }

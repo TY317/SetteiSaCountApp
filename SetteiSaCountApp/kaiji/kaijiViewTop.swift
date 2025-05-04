@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct kaijiViewTop: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var kaiji = Kaiji()
+    @StateObject var kaiji = Kaiji()
     @State var isShowAlert: Bool = false
+    @StateObject var kaijiMemory1 = KaijiMemory1()
+    @StateObject var kaijiMemory2 = KaijiMemory2()
+    @StateObject var kaijiMemory3 = KaijiMemory3()
     
     var body: some View {
         NavigationStack {
@@ -27,30 +31,30 @@ struct kaijiViewTop: View {
                 
                 Section {
                     // 通常時モード
-                    NavigationLink(destination: kaijiViewMode()) {
+                    NavigationLink(destination: kaijiViewMode(ver300: ver300)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "モード推測"
-//                            badgeStatus: ver270.kaijiMenuModeBadgeStatus
+                            textBody: "モード推測",
+                            badgeStatus: ver300.kaijiMenuModeBadgeStatus
                         )
                     }
                     // 小役
-                    NavigationLink(destination: kaijiViewKoyaku()) {
+                    NavigationLink(destination: kaijiViewKoyaku(kaiji: kaiji)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "小役",
-                            badgeStatus: ver271.kaijiMenuKoyakuBadgeStatus
+                            textBody: "小役"
+//                            badgeStatus: ver271.kaijiMenuKoyakuBadgeStatus
                         )
                     }
                     // ざわ高確
-                    NavigationLink(destination: kaijiViewZawaKokaku()) {
+                    NavigationLink(destination: kaijiViewZawaKokaku(kaiji: kaiji)) {
                         unitLabelMenu(
                             imageSystemName: "bubble.left.and.exclamationmark.bubble.right.fill",
                             textBody: "ざわ高確"
                         )
                     }
                     // 閃き前兆
-                    NavigationLink(destination: kaijiViewHirameki()) {
+                    NavigationLink(destination: kaijiViewHirameki(kaiji: kaiji)) {
                         unitLabelMenu(
                             imageSystemName: "lightbulb.max",
                             textBody: "閃き前兆"
@@ -58,11 +62,11 @@ struct kaijiViewTop: View {
                         )
                     }
                     // CZ,AT初当り
-                    NavigationLink(destination: kaijiViewFirstHit()) {
+                    NavigationLink(destination: kaijiViewFirstHit(kaiji: kaiji)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "CZ,ボーナス 初当り",
-                            badgeStatus: ver280.kaijiMenuFirstHitBadgeStatus
+                            textBody: "CZ,ボーナス 初当り"
+//                            badgeStatus: ver280.kaijiMenuFirstHitBadgeStatus
                         )
                     }
                     // 赤7BIG中のBAR揃い
@@ -74,18 +78,48 @@ struct kaijiViewTop: View {
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: kaijiViewScreen()) {
+                    NavigationLink(destination: kaijiViewScreen(kaiji: kaiji)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス終了画面"
 //                            badgeStatus: ver260.kaijiMenuScreenBadgeStatus
                         )
                     }
+                    // トネガワラッシュ中の画面示唆
+                    NavigationLink(
+                        destination: kaijiViewTonegawaRush(
+                            ver300: ver300,
+                            kaiji: kaiji
+                        )
+                    ) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "トネガワラッシュ中の画面示唆",
+                            badgeStatus: ver300.kaijiMenuTonegawaRushBadgeStatus
+                        )
+                    }
+                    // ハンチョウラッシュ中の画面示唆
+                    NavigationLink(
+                        destination: kaijiViewHanchoRush(
+                            ver300: ver300,
+                            kaiji: kaiji
+                        )
+                    ) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ハンチョウラッシュ中の画面示唆",
+                            badgeStatus: ver300.kaijiMenuHanchoRushBadgeStatus
+                        )
+                    }
                     // エンディング
-                    NavigationLink(destination: kaijiViewEnding()) {
+                    NavigationLink(destination: kaijiViewEnding(
+                        ver300: ver300,
+                        kaiji: kaiji
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング"
+                            textBody: "エンディング",
+                            badgeStatus: ver300.kaijiMenuVoiceBadgeStatus
                         )
                     }
                     // サミートロフィー
@@ -99,17 +133,17 @@ struct kaijiViewTop: View {
 //                    unitLabelMachineTopTitle(machineName: "回胴黙示録カイジ 狂宴")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: kaijiView95Ci(selection: 4)) {
+                NavigationLink(destination: kaijiView95Ci(kaiji: kaiji, selection: 4)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4734")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .onAppear {
-            if ver280.kaijiMachineIconBadgeStatus != "none" {
-                ver280.kaijiMachineIconBadgeStatus = "none"
+            if ver300.kaijiMachineIconBadgeStatus != "none" {
+                ver300.kaijiMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -118,9 +152,19 @@ struct kaijiViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(kaijiSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(kaijiSubViewLoadMemory(
+                        kaiji: kaiji,
+                        kaijiMemory1: kaijiMemory1,
+                        kaijiMemory2: kaijiMemory2,
+                        kaijiMemory3: kaijiMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(kaijiSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(kaijiSubViewSaveMemory(
+                        kaiji: kaiji,
+                        kaijiMemory1: kaijiMemory1,
+                        kaijiMemory2: kaijiMemory2,
+                        kaijiMemory3: kaijiMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -136,10 +180,10 @@ struct kaijiViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct kaijiSubViewSaveMemory: View {
-    @ObservedObject var kaiji = Kaiji()
-    @ObservedObject var kaijiMemory1 = KaijiMemory1()
-    @ObservedObject var kaijiMemory2 = KaijiMemory2()
-    @ObservedObject var kaijiMemory3 = KaijiMemory3()
+    @ObservedObject var kaiji: Kaiji
+    @ObservedObject var kaijiMemory1: KaijiMemory1
+    @ObservedObject var kaijiMemory2: KaijiMemory2
+    @ObservedObject var kaijiMemory3: KaijiMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -300,10 +344,10 @@ struct kaijiSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct kaijiSubViewLoadMemory: View {
-    @ObservedObject var kaiji = Kaiji()
-    @ObservedObject var kaijiMemory1 = KaijiMemory1()
-    @ObservedObject var kaijiMemory2 = KaijiMemory2()
-    @ObservedObject var kaijiMemory3 = KaijiMemory3()
+    @ObservedObject var kaiji: Kaiji
+    @ObservedObject var kaijiMemory1: KaijiMemory1
+    @ObservedObject var kaijiMemory2: KaijiMemory2
+    @ObservedObject var kaijiMemory3: KaijiMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -460,5 +504,5 @@ struct kaijiSubViewLoadMemory: View {
 }
 
 #Preview {
-    kaijiViewTop()
+    kaijiViewTop(ver300: Ver300())
 }

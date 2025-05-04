@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goJugTableRatio: View {
-    @ObservedObject var goJug3 = GoJug3()
+//    @ObservedObject var goJug3 = GoJug3()
+    @ObservedObject var goJug3: GoJug3
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -34,5 +35,5 @@ struct goJugTableRatio: View {
 }
 
 #Preview {
-    goJugTableRatio()
+    goJugTableRatio(goJug3: GoJug3())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goJug3Ver2ViewJissenStartData: View {
-    @ObservedObject var goJug3 = GoJug3()
+//    @ObservedObject var goJug3 = GoJug3()
+    @ObservedObject var goJug3: GoJug3
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -181,13 +182,13 @@ struct goJug3Ver2ViewJissenStartData: View {
                         unitExView5body2image(
                             title: "ゴーゴージャグラー3設定差",
                             textBody1: "・REGは単独、チェリー重複ともに均一の設定差と思われるので分けてカウントしなくてもいいらしい",
-                            tableView: AnyView(goJugTableRatio())
+                            tableView: AnyView(goJugTableRatio(goJug3: goJug3))
 //                            image1: Image("goJug3Ratio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiStart(goJug3: goJug3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -250,5 +251,5 @@ struct goJug3Ver2ViewJissenStartData: View {
 }
 
 #Preview {
-    goJug3Ver2ViewJissenStartData()
+    goJug3Ver2ViewJissenStartData(goJug3: GoJug3())
 }

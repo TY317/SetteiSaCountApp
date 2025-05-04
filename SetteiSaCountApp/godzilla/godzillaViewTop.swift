@@ -8,44 +8,48 @@
 import SwiftUI
 
 struct godzillaViewTop: View {
-    @ObservedObject var ver280 = Ver280()
-    @ObservedObject var godzilla = Godzilla()
+//    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var godzilla = Godzilla()
+    @StateObject var godzilla = Godzilla()
     @State var isShowAlert: Bool = false
+    @StateObject var godzillaMemory1 = GodzillaMemory1()
+    @StateObject var godzillaMemory2 = GodzillaMemory2()
+    @StateObject var godzillaMemory3 = GodzillaMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 通常時
-                    NavigationLink(destination: godzillaViewNormal()) {
+                    NavigationLink(destination: godzillaViewNormal(godzilla: godzilla)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
                         )
                     }
                     // 襲来ゾーン
-                    NavigationLink(destination: godzillaViewCz()) {
+                    NavigationLink(destination: godzillaViewCz(godzilla: godzilla)) {
                         unitLabelMenu(
                             imageSystemName: "lizard.fill",
                             textBody: "襲来ゾーン"
                         )
                     }
                     // 初当り
-                    NavigationLink(destination: godzillaViewFirstHit()) {
+                    NavigationLink(destination: godzillaViewFirstHit(godzilla: godzilla)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "CZ,AT 初当り"
                         )
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: godzillaViewScreen()) {
+                    NavigationLink(destination: godzillaViewScreen(godzilla: godzilla)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス終了画面"
                         )
                     }
                     // EXボーナス中のムービー
-                    NavigationLink(destination: godzillaViewExMovie()) {
+                    NavigationLink(destination: godzillaViewExMovie(godzilla: godzilla)) {
                         unitLabelMenu(
                             imageSystemName: "movieclapper.fill",
                             textBody: "EXボーナス中のムービー"
@@ -63,29 +67,39 @@ struct godzillaViewTop: View {
                 }
                 
                 // 設定推測グラフ
-                NavigationLink(destination: godzillaView95Ci(selection: 5)) {
+                NavigationLink(destination: godzillaView95Ci(godzilla: godzilla,selection: 5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4752")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver280.godzillaMachineIconBadgeStatus != "none" {
-                ver280.godzillaMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.godzillaMachineIconBadgeStatus != "none" {
+//                ver280.godzillaMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(godzillaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(godzillaSubViewLoadMemory(
+                        godzilla: godzilla,
+                        godzillaMemory1: godzillaMemory1,
+                        godzillaMemory2: godzillaMemory2,
+                        godzillaMemory3: godzillaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(godzillaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(godzillaSubViewSaveMemory(
+                        godzilla: godzilla,
+                        godzillaMemory1: godzillaMemory1,
+                        godzillaMemory2: godzillaMemory2,
+                        godzillaMemory3: godzillaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -101,10 +115,10 @@ struct godzillaViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct godzillaSubViewSaveMemory: View {
-    @ObservedObject var godzilla = Godzilla()
-    @ObservedObject var godzillaMemory1 = GodzillaMemory1()
-    @ObservedObject var godzillaMemory2 = GodzillaMemory2()
-    @ObservedObject var godzillaMemory3 = GodzillaMemory3()
+    @ObservedObject var godzilla: Godzilla
+    @ObservedObject var godzillaMemory1: GodzillaMemory1
+    @ObservedObject var godzillaMemory2: GodzillaMemory2
+    @ObservedObject var godzillaMemory3: GodzillaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -217,10 +231,10 @@ struct godzillaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct godzillaSubViewLoadMemory: View {
-    @ObservedObject var godzilla = Godzilla()
-    @ObservedObject var godzillaMemory1 = GodzillaMemory1()
-    @ObservedObject var godzillaMemory2 = GodzillaMemory2()
-    @ObservedObject var godzillaMemory3 = GodzillaMemory3()
+    @ObservedObject var godzilla: Godzilla
+    @ObservedObject var godzillaMemory1: GodzillaMemory1
+    @ObservedObject var godzillaMemory2: GodzillaMemory2
+    @ObservedObject var godzillaMemory3: GodzillaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

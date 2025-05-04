@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewJissenTotalDataCheck: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     
     var body: some View {
         List {
@@ -142,7 +143,7 @@ struct draHanaSenkohVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ベル・ボーナス確率",
-                            tableView: AnyView(draHanaSenkohTableBellBonus())
+                            tableView: AnyView(draHanaSenkohTableBellBonus(draHanaSenkoh: draHanaSenkoh))
 //                            image1: Image("draHanaSenkohBellBonusAnalysis")
                         )
                     )
@@ -185,7 +186,7 @@ struct draHanaSenkohVer2ViewJissenTotalDataCheck: View {
                 )
 //                unitLinkButton(title: "REG中のサイドランプ確率", exview: AnyView(unitExView5body2image(title: "REG中のサイドランプ確率", textBody1: "・REG中に1回だけ確認可能", textBody2: "・左リール中段に白７ビタ押し", textBody3: "　成功したら中・右にスイカを狙う", textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する", image1: Image("hanaCommonRbSideLamp"))))
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiTotal(draHanaSenkoh: draHanaSenkoh)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $draHanaSenkoh.currentGames)
@@ -235,5 +236,5 @@ struct draHanaSenkohVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewJissenTotalDataCheck()
+    draHanaSenkohVer2ViewJissenTotalDataCheck(draHanaSenkoh: DraHanaSenkoh())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goevaViewAtSuika: View {
-    @ObservedObject var goeva = Goeva()
+//    @ObservedObject var goeva = Goeva()
+    @ObservedObject var goeva: Goeva
     @State var isShowAlert = false
     
     var body: some View {
@@ -34,7 +35,7 @@ struct goevaViewAtSuika: View {
                     // //// 参考情報リンク
                     unitLinkButton(title: "スイカからのCZ当選と成功について", exview: AnyView(goevaExViewAtSuika()))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(goevaView95Ci(selection: 2)))
+                    unitNaviLink95Ci(Ci95view: AnyView(goevaView95Ci(goeva: goeva, selection: 2)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("スイカとCZ 殲滅作戦")
@@ -72,5 +73,5 @@ struct goevaExViewAtSuika: View {
 }
 
 #Preview {
-    goevaViewAtSuika()
+    goevaViewAtSuika(goeva: Goeva())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct inuyashaViewKoyaku: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @ObservedObject var inuyasha: Inuyasha
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -159,7 +160,7 @@ struct inuyashaViewKoyaku: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(inuyashaView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(inuyashaView95Ci(inuyasha: inuyasha, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役カウント")
@@ -254,5 +255,5 @@ struct inuyashaViewKoyaku: View {
 }
 
 #Preview {
-    inuyashaViewKoyaku()
+    inuyashaViewKoyaku(inuyasha: Inuyasha())
 }

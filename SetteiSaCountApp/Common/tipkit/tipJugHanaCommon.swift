@@ -63,6 +63,23 @@ struct tipUnitJugHanaCommonKenDataTohroku: Tip {
     }
 }
 
+// ////////////////////
+// Tip: カウント値直接入力
+// ////////////////////
+struct tipUnitJugHanaCommonCountInput: Tip {
+    var title: Text {
+        Text("カウント値 直接入力")
+    }
+    
+    var message: Text? {
+        Text("カウントの数値を直接入力したい場合はこちら")
+    }
+    var image: Image? {
+        Image(systemName: "lightbulb.min")
+    }
+}
+
+
 
 #Preview {
     tipJugHanaCommon()

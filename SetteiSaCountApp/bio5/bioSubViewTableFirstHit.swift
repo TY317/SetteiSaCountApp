@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bioSubViewTableFirstHit: View {
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     var body: some View {
         VStack(spacing: 30.0) {
             HStack(spacing: 0) {
@@ -39,5 +40,5 @@ struct bioSubViewTableFirstHit: View {
 }
 
 #Preview {
-    bioSubViewTableFirstHit()
+    bioSubViewTableFirstHit(bio: Bio())
 }

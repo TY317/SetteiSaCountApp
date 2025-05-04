@@ -41,7 +41,8 @@ struct kaguyaTipBigCount: Tip {
 
 struct kaguyaViewBonus: View {
 //    @ObservedObject var ver260 = Ver260()
-    @ObservedObject var kaguya = KaguyaSama()
+//    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -255,5 +256,5 @@ struct kaguyaViewBonus: View {
 }
 
 #Preview {
-    kaguyaViewBonus()
+    kaguyaViewBonus(kaguya: KaguyaSama())
 }

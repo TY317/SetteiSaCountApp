@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2Ver2ViewJissenCount: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -190,13 +191,13 @@ struct funky2Ver2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ファンキージャグラー2設定差",
-                            tableView: AnyView(funky2TableRatio())
+                            tableView: AnyView(funky2TableRatio(funky2: funky2))
 //                            image1: Image("funky2Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiPersonal(funky2: funky2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -287,6 +288,15 @@ struct funky2Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            funky2SubViewCountInput(
+                                funky2: funky2
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $funky2.minusCheck)
                     // リセットボタン
@@ -298,5 +308,5 @@ struct funky2Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    funky2Ver2ViewJissenCount()
+    funky2Ver2ViewJissenCount(funky2: Funky2())
 }

@@ -26,7 +26,8 @@ struct tipRezero2PtDraw: Tip {
 
 
 struct rezero2ViewHistory: View {
-    @ObservedObject var rezero2 = Rezero2()
+//    @ObservedObject var rezero2 = Rezero2()
+    @ObservedObject var rezero2: Rezero2
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -144,7 +145,7 @@ struct rezero2ViewHistory: View {
                 // //// 参考情報リンク
                 unitLinkButton(title: "AT初当たり確率について", exview: AnyView(unitExView5body2image(title: "AT初当たり確率", textBody1: "・AT初当たり確率に設定差あり", image1: Image("rezero2AtHitRatio"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(rezero2: rezero2, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当たり")
@@ -219,7 +220,7 @@ struct rezero2ViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(rezero2: rezero2, selection: 3)))
             } header: {
                 Text("内部規定Pt抽選")
             }
@@ -247,7 +248,7 @@ struct rezero2ViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(rezero2: rezero2, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("引き戻し")
@@ -377,5 +378,5 @@ struct rezero2SubViewDataInput: View {
 }
 
 #Preview {
-    rezero2ViewHistory()
+    rezero2ViewHistory(rezero2: Rezero2())
 }

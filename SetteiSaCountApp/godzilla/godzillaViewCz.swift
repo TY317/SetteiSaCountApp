@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaViewCz: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -68,12 +68,12 @@ struct godzillaViewCz: View {
                         unitExView5body2image(
                             title: "怪獣の振り分け",
                             textBody1: "・高設定ほど勝利期待度の高い怪獣の振り分けが優遇",
-                            tableView: AnyView(godzillaTableCzMonster())
+                            tableView: AnyView(godzillaTableCzMonster(godzilla: godzilla))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(godzillaView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(godzillaView95Ci(godzilla: godzilla, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("怪獣種類カウント")
@@ -137,5 +137,5 @@ struct godzillaViewCz: View {
 }
 
 #Preview {
-    godzillaViewCz()
+    godzillaViewCz(godzilla: Godzilla())
 }

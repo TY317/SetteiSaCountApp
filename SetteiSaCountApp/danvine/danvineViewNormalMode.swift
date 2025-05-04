@@ -36,8 +36,9 @@ struct danvineViewNormalMode: View {
                         unitExView5body2image(
                             title: "モードの概要",
                             textBody1: "・通常時は4つのモードで管理",
-                            image1: Image("danvineMode"),
-                            image2: Image("danvineGetPoint")
+                            tableView: AnyView(danvineTableMode())
+//                            image1: Image("danvineMode"),
+//                            image2: Image("danvineGetPoint")
                         )
                     )
                 )

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct happyJugV3Ver2ViewJissenCount: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
+//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @ObservedObject var happyJugV3: HappyJugV3
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -195,7 +196,7 @@ struct happyJugV3Ver2ViewJissenCount: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiPersonal(happyJugV3: happyJugV3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -286,6 +287,15 @@ struct happyJugV3Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            happyJugV3SubViewCountInput(
+                                happyJugV3: happyJugV3
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $happyJugV3.minusCheck)
                     // リセットボタン
@@ -297,5 +307,5 @@ struct happyJugV3Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    happyJugV3Ver2ViewJissenCount()
+    happyJugV3Ver2ViewJissenCount(happyJugV3: HappyJugV3())
 }

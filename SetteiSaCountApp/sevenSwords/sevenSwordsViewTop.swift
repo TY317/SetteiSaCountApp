@@ -9,8 +9,12 @@ import SwiftUI
 
 struct sevenSwordsViewTop: View {
 //    @ObservedObject var ver270 = Ver270()
-    @ObservedObject var sevenSwords = SevenSwords()
+//    @ObservedObject var sevenSwords = SevenSwords()
+    @StateObject var sevenSwords = SevenSwords()
     @State var isShowAlert: Bool = false
+    @StateObject var sevenSwordsMemory1 = SevenSwordsMemory1()
+    @StateObject var sevenSwordsMemory2 = SevenSwordsMemory2()
+    @StateObject var sevenSwordsMemory3 = SevenSwordsMemory3()
     
     var body: some View {
         NavigationStack {
@@ -26,35 +30,35 @@ struct sevenSwordsViewTop: View {
                 
                 Section {
                     // ボーナス、ST初当り
-                    NavigationLink(destination: sevenSwordsViewBonus()) {
+                    NavigationLink(destination: sevenSwordsViewBonus(sevenSwords: sevenSwords)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,ST 初当り"
                         )
                     }
                     // キンバリーBONUS
-                    NavigationLink(destination: sevenSwordsViewKimbaryChara()) {
+                    NavigationLink(destination: sevenSwordsViewKimbaryChara(sevenSwords: sevenSwords)) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
                             textBody: "キンバリーBONUS中のキャラ"
                         )
                     }
                     // プロローグBONUS
-                    NavigationLink(destination: sevenSwordsViewPrologeScreen()) {
+                    NavigationLink(destination: sevenSwordsViewPrologeScreen(sevenSwords: sevenSwords)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "プロローグBONUS終了画面"
                         )
                     }
                     // ST終了画面
-                    NavigationLink(destination: sevenSwordsViewStScreen()) {
+                    NavigationLink(destination: sevenSwordsViewStScreen(sevenSwords: sevenSwords)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ST終了画面"
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: sevenSwordsViewEnding()) {
+                    NavigationLink(destination: sevenSwordsViewEnding(sevenSwords: sevenSwords)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -70,12 +74,12 @@ struct sevenSwordsViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: sevenSwordsView95Ci()) {
+                NavigationLink(destination: sevenSwordsView95Ci(sevenSwords: sevenSwords)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4709")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
 //        .onAppear {
@@ -89,9 +93,19 @@ struct sevenSwordsViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(sevenSwordsSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(sevenSwordsSubViewLoadMemory(
+                        sevenSwords: sevenSwords,
+                        sevenSwordsMemory1: sevenSwordsMemory1,
+                        sevenSwordsMemory2: sevenSwordsMemory2,
+                        sevenSwordsMemory3: sevenSwordsMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(sevenSwordsSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(sevenSwordsSubViewSaveMemory(
+                        sevenSwords: sevenSwords,
+                        sevenSwordsMemory1: sevenSwordsMemory1,
+                        sevenSwordsMemory2: sevenSwordsMemory2,
+                        sevenSwordsMemory3: sevenSwordsMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -107,10 +121,10 @@ struct sevenSwordsViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct sevenSwordsSubViewSaveMemory: View {
-    @ObservedObject var sevenSwords = SevenSwords()
-    @ObservedObject var sevenSwordsMemory1 = SevenSwordsMemory1()
-    @ObservedObject var sevenSwordsMemory2 = SevenSwordsMemory2()
-    @ObservedObject var sevenSwordsMemory3 = SevenSwordsMemory3()
+    @ObservedObject var sevenSwords: SevenSwords
+    @ObservedObject var sevenSwordsMemory1: SevenSwordsMemory1
+    @ObservedObject var sevenSwordsMemory2: SevenSwordsMemory2
+    @ObservedObject var sevenSwordsMemory3: SevenSwordsMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -244,10 +258,10 @@ struct sevenSwordsSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct sevenSwordsSubViewLoadMemory: View {
-    @ObservedObject var sevenSwords = SevenSwords()
-    @ObservedObject var sevenSwordsMemory1 = SevenSwordsMemory1()
-    @ObservedObject var sevenSwordsMemory2 = SevenSwordsMemory2()
-    @ObservedObject var sevenSwordsMemory3 = SevenSwordsMemory3()
+    @ObservedObject var sevenSwords: SevenSwords
+    @ObservedObject var sevenSwordsMemory1: SevenSwordsMemory1
+    @ObservedObject var sevenSwordsMemory2: SevenSwordsMemory2
+    @ObservedObject var sevenSwordsMemory3: SevenSwordsMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct magiaViewVoice: View {
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     var body: some View {
         List {
             // /// 調査中表示
@@ -39,5 +40,5 @@ struct magiaViewVoice: View {
 }
 
 #Preview {
-    magiaViewVoice()
+    magiaViewVoice(magia: Magia())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct acceleratorView95Ci: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -235,5 +236,5 @@ struct acceleratorView95Ci: View {
 }
 
 #Preview {
-    acceleratorView95Ci()
+    acceleratorView95Ci(accelerator: Accelerator())
 }

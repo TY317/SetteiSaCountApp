@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct lupinViewAtVoice: View {
-    @ObservedObject var lupin = Lupin()
+//    @ObservedObject var lupin = Lupin()
+    @ObservedObject var lupin: Lupin
     @State var isShowAlert = false
     
     var body: some View {
@@ -228,5 +229,5 @@ struct lupinViewAtVoice: View {
 }
 
 #Preview {
-    lupinViewAtVoice()
+    lupinViewAtVoice(lupin: Lupin())
 }

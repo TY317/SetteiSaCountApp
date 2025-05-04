@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewPt: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     
     var body: some View {
@@ -50,8 +51,9 @@ struct danvineViewPt: View {
                             textBody1: "・オーラ役成立時にポイントを獲得し、規定ポイントに到達すると前兆へ移行、ボーナス当否を告知する",
                             textBody2: "・下表の規定ポイント以外で当選した場合は高設定の期待度アップとなる",
                             textBody3: "・青オーラ役成立時は複数ポイント獲得。かつモードによって獲得ポイントが異なるため現在モードの推測も可能",
-                            image1: Image("danvinePoint"),
-                            image2: Image("danvineGetPoint")
+                            tableView: AnyView(danvineTableKiteiPoint())
+//                            image1: Image("danvinePoint"),
+//                            image2: Image("danvineGetPoint")
                         )
                     )
                 )
@@ -62,11 +64,12 @@ struct danvineViewPt: View {
                         unitExView5body2image(
                             title: "11Ptの選択率",
                             textBody1: "・規定ポイント 11Ptは高設定ほど選択率が高い",
-                            image1: Image("danvinePt11Ratio")
+                            tableView: AnyView(danvineTable11Pt())
+//                            image1: Image("danvinePt11Ratio")
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定Pt 11の選択率")
@@ -88,5 +91,5 @@ struct danvineViewPt: View {
 }
 
 #Preview {
-    danvineViewPt()
+    danvineViewPt(danvine: Danvine())
 }

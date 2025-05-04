@@ -26,7 +26,8 @@ struct acceleratorTipHistoryInput: Tip {
 
 
 struct acceleratorViewCz: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -238,7 +239,8 @@ struct acceleratorViewCz: View {
                             textBody2: "・設定変更時、AT終了時にモード移行",
                             textBody3: "・天井ゲーム数は液晶ゲーム数ではなく実ゲーム数が対象",
                             textBody4: "・内部的には天井ゲーム数短縮抽選が行われおり、当選時は100G単位で短縮。",
-                            image1: Image("acceleratorGameMode")
+                            tableView: AnyView(acceleratorTableGameMode())
+//                            image1: Image("acceleratorGameMode")
                         )
                     )
                 )
@@ -252,10 +254,11 @@ struct acceleratorViewCz: View {
                             textBody2: "・モードによって期待できるゲーム数が変化する",
                             textBody3: "・滞在するゲーム数モードによって帯電モードの振り分けが異なる",
                             textBody4: "・帯電モード3はゲーム数モードCorDのみ振り分けがあるので、ゲーム数末尾0,50どちらも高確へ移行するようであれば早い初当りに期待",
-                            image1Title: "[ゲーム数モード毎の帯電モード振り分け]",
-                            image1: Image("acceleratorTaidenModeRatio"),
-                            image2Title: "[高確に期待できるゾーン]",
-                            image2: Image("acceleratorTaidenModeKitai")
+                            tableView: AnyView(acceleratorTableTaidenModeRatio())
+//                            image1Title: "[ゲーム数モード毎の帯電モード振り分け]",
+//                            image1: Image("acceleratorTaidenModeRatio"),
+//                            image2Title: "[高確に期待できるゾーン]",
+//                            image2: Image("acceleratorTaidenModeKitai")
                         )
                     )
                 )
@@ -386,13 +389,14 @@ struct acceleratorViewCz: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            image1: Image("acceleratorHitRatio"),
-                            image2: Image("acceleratorCzHitRatio")
+                            tableView: AnyView(acceleratorTableFirstHit())
+//                            image1: Image("acceleratorHitRatio"),
+//                            image2: Image("acceleratorCzHitRatio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り結果")
@@ -549,5 +553,5 @@ struct acceleratorSubViewDataInputVer2: View {
 
 
 #Preview {
-    acceleratorViewCz()
+    acceleratorViewCz(accelerator: Accelerator())
 }

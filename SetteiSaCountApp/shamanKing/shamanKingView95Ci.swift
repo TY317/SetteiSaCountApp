@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct shamanKingView95Ci: View {
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -204,5 +205,5 @@ struct shamanKingView95Ci: View {
 }
 
 #Preview {
-    shamanKingView95Ci()
+    shamanKingView95Ci(shamanKing: ShamanKing())
 }

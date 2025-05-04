@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct magiaViewFirstHit: View {
-    @ObservedObject var ver271 = Ver271()
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var ver271 = Ver271()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -89,7 +90,7 @@ struct magiaViewFirstHit: View {
                         numberofDicimal: 0
                     )
                 }
-                .popoverTip(tipVer271MagiaFirstHit())
+//                .popoverTip(tipVer271MagiaFirstHit())
                 
                 // //// 参考情報）初当り確率
                 unitLinkButton(
@@ -97,7 +98,7 @@ struct magiaViewFirstHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            tableView: AnyView(magiaTableFirstHit())
+                            tableView: AnyView(magiaTableFirstHit(magia: magia))
                         )
                     )
                 )
@@ -112,7 +113,7 @@ struct magiaViewFirstHit: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(selection: 2)))
+                unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 2)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -139,11 +140,11 @@ struct magiaViewFirstHit: View {
 //                )
 //            )
         }
-        .onAppear {
-            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
-                ver271.magiaMenuFirstHitBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
+//                ver271.magiaMenuFirstHitBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -201,5 +202,5 @@ struct magiaViewFirstHit: View {
 }
 
 #Preview {
-    magiaViewFirstHit()
+    magiaViewFirstHit(magia: Magia())
 }

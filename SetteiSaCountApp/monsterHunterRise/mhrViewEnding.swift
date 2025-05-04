@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mhrViewEnding: View {
-    @ObservedObject var mhr = Mhr()
+//    @ObservedObject var mhr = Mhr()
+    @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
     var body: some View {
         List {
@@ -84,5 +85,5 @@ struct mhrViewEnding: View {
 }
 
 #Preview {
-    mhrViewEnding()
+    mhrViewEnding(mhr: Mhr())
 }

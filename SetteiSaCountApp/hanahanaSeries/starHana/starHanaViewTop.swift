@@ -9,8 +9,12 @@ import SwiftUI
 
 struct starHanaViewTop: View {
 //    @ObservedObject var ver220 = Ver220()
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @StateObject var starHana = StarHana()
     @State var isShowAlert: Bool = false
+    @StateObject var starHanaMemory1 = StarHanaMemory1()
+    @StateObject var starHanaMemory2 = StarHanaMemory2()
+    @StateObject var starHanaMemory3 = StarHanaMemory3()
     
     var body: some View {
         NavigationStack {
@@ -24,7 +28,7 @@ struct starHanaViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: starHanaVer2ViewKenDataInput()) {
+                    NavigationLink(destination: starHanaVer2ViewKenDataInput(starHana: starHana)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -39,21 +43,21 @@ struct starHanaViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: starHanaVer2ViewJissenStartData()) {
+                    NavigationLink(destination: starHanaVer2ViewJissenStartData(starHana: starHana)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: starHanaVer2ViewJissenCount()) {
+                    NavigationLink(destination: starHanaVer2ViewJissenCount(starHana: starHana)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: starHanaVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: starHanaVer2ViewJissenTotalDataCheck(starHana: starHana)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -66,12 +70,12 @@ struct starHanaViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: starHanaVer2View95CiTotal()) {
+                NavigationLink(destination: starHanaVer2View95CiTotal(starHana: starHana)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4680")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -80,9 +84,19 @@ struct starHanaViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(starHanaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(starHanaSubViewLoadMemory(
+                        starHana: starHana,
+                        starHanaMemory1: starHanaMemory1,
+                        starHanaMemory2: starHanaMemory2,
+                        starHanaMemory3: starHanaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(starHanaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(starHanaSubViewSaveMemory(
+                        starHana: starHana,
+                        starHanaMemory1: starHanaMemory1,
+                        starHanaMemory2: starHanaMemory2,
+                        starHanaMemory3: starHanaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -103,10 +117,10 @@ struct starHanaViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct starHanaSubViewSaveMemory: View {
-    @ObservedObject var starHana = StarHana()
-    @ObservedObject var starHanaMemory1 = StarHanaMemory1()
-    @ObservedObject var starHanaMemory2 = StarHanaMemory2()
-    @ObservedObject var starHanaMemory3 = StarHanaMemory3()
+    @ObservedObject var starHana: StarHana
+    @ObservedObject var starHanaMemory1: StarHanaMemory1
+    @ObservedObject var starHanaMemory2: StarHanaMemory2
+    @ObservedObject var starHanaMemory3: StarHanaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -252,10 +266,10 @@ struct starHanaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct starHanaSubViewLoadMemory: View {
-    @ObservedObject var starHana = StarHana()
-    @ObservedObject var starHanaMemory1 = StarHanaMemory1()
-    @ObservedObject var starHanaMemory2 = StarHanaMemory2()
-    @ObservedObject var starHanaMemory3 = StarHanaMemory3()
+    @ObservedObject var starHana: StarHana
+    @ObservedObject var starHanaMemory1: StarHanaMemory1
+    @ObservedObject var starHanaMemory2: StarHanaMemory2
+    @ObservedObject var starHanaMemory3: StarHanaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

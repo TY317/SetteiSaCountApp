@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct myJug5Ver2ViewJissenTotalDataCheck: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var myJug5: MyJug5
     
     var body: some View {
         List {
@@ -104,12 +105,13 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
-                            image1: Image("myJug5Analysis")
+                            tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
+//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiTotal(myJug5: myJug5)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $myJug5.currentGames)
@@ -143,5 +145,5 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    myJug5Ver2ViewJissenTotalDataCheck()
+    myJug5Ver2ViewJissenTotalDataCheck(myJug5: MyJug5())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenTotalDataCheck: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     
     var body: some View {
         List {
@@ -123,7 +124,7 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ジャグラーガールズSS設定差",
-                            tableView: AnyView(girlsSSTableRatio())
+                            tableView: AnyView(girlsSSTableRatio(girlsSS: girlsSS))
 //                            image1: Image("girlsSSAnalysis"),
 //                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
 //                            image2: Image("girlsSSYosoku")
@@ -131,7 +132,7 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiTotal()))
+                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiTotal(girlsSS: girlsSS)))
                     .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $girlsSS.currentGames)
@@ -169,5 +170,5 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    girlsSSVer2ViewJissenTotalDataCheck()
+    girlsSSVer2ViewJissenTotalDataCheck(girlsSS: GirlsSS())
 }

@@ -41,7 +41,8 @@ struct karakuriMakuaiGame: Tip {
 
 
 struct karakuriViewMakuai: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -169,7 +170,7 @@ struct karakuriViewMakuai: View {
                 // 参考情報リンク
                 unitLinkButton(title: "通常時の幕間チャンスについて", exview: AnyView(unitExView5body2image(title: "通常時の幕間チャンス", textBody1: "・通常時からくりレア役（スイカ）契機の幕間チャンス出現率に設定差あり", textBody2: "・高設定ほどスイカの規定回数が少ない回数が選ばれやすいと思われる", textBody3: "・スイカの出現確率が約1/100なので設定6では規定回数の平均が10回程度になる計算", image1: Image("karakuriMakuai"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(karakuri: karakuri, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("現在ゲーム数と幕間出現率")
@@ -227,5 +228,5 @@ struct karakuriViewMakuai: View {
 }
 
 #Preview {
-    karakuriViewMakuai()
+    karakuriViewMakuai(karakuri: Karakuri())
 }

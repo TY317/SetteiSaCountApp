@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kabaneriViewHintDuringBonus: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @ObservedObject var kabaneri: Kabaneri
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -54,7 +55,7 @@ struct kabaneriViewHintDuringBonus: View {
                     // 参考情報へのリンク
                     unitLinkButton(title: "キャラ紹介での示唆について", exview: AnyView(unitExView5body2image(title: "キャラ紹介での示唆", textBody1: "・ボーナス中のキャラ紹介のキャラによって設定を示唆", textBody2: "・男性キャラが奇数示唆、女性キャラが偶数示唆", image1: Image("kabaneriCharacterIntroduce"))))
                     // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(selection: 9)))
+                    unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 9)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("キャラ紹介による示唆")
@@ -120,5 +121,5 @@ struct kabaneriViewHintDuringBonus: View {
 }
 
 #Preview {
-    kabaneriViewHintDuringBonus()
+    kabaneriViewHintDuringBonus(kabaneri: Kabaneri())
 }

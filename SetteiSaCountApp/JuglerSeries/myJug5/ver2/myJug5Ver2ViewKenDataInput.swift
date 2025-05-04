@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct myJug5Ver2ViewKenDataInput: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var myJug5: MyJug5
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,12 +182,13 @@ struct myJug5Ver2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
-                            image1: Image("myJug5Analysis")
+                            tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
+//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiKen(myJug5: myJug5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -253,5 +255,5 @@ struct myJug5Ver2ViewKenDataInput: View {
 }
 
 #Preview {
-    myJug5Ver2ViewKenDataInput()
+    myJug5Ver2ViewKenDataInput(myJug5: MyJug5())
 }

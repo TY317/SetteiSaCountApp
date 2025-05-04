@@ -13,9 +13,14 @@ struct dumbbellViewCheatDay: View {
             Text("摂取カロリー数で設定を示唆する場合がある")
                 .foregroundStyle(Color.secondary)
                 .font(.footnote)
-            Image("dumbbellCalorieSisa")
-                .resizable()
-                .scaledToFit()
+            HStack {
+                Spacer()
+                dumbbellTableCheatDay()
+                Spacer()
+            }
+//            Image("dumbbellCalorieSisa")
+//                .resizable()
+//                .scaledToFit()
         }
         .navigationTitle("チートデイ")
         .navigationBarTitleDisplayMode(.inline)

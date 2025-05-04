@@ -472,8 +472,12 @@ class KingHanaMemory3: ObservableObject {
 }
 
 struct kingHanaVer2ViewTop: View {
-    @ObservedObject var kingHana = KingHana()
+//    @ObservedObject var kingHana = KingHana()
+    @StateObject var kingHana = KingHana()
     @State var isShowAlert: Bool = false
+    @StateObject var kingHanaMemory1 = KingHanaMemory1()
+    @StateObject var kingHanaMemory2 = KingHanaMemory2()
+    @StateObject var kingHanaMemory3 = KingHanaMemory3()
     
     var body: some View {
         NavigationStack {
@@ -487,7 +491,7 @@ struct kingHanaVer2ViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-                    NavigationLink(destination: kingHanaVer2ViewKenDataInput()) {
+                    NavigationLink(destination: kingHanaVer2ViewKenDataInput(kingHana: kingHana)) {
                         unitLabelMenu(
                             imageSystemName: "magnifyingglass",
                             textBody: "データ確認"
@@ -502,21 +506,21 @@ struct kingHanaVer2ViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-                    NavigationLink(destination: kingHanaVer2ViewJissenStartData()) {
+                    NavigationLink(destination: kingHanaVer2ViewJissenStartData(kingHana: kingHana)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.departure",
                             textBody: "打ち始めデータ"
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: kingHanaVer2ViewJissenCount()) {
+                    NavigationLink(destination: kingHanaVer2ViewJissenCount(kingHana: kingHana)) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: kingHanaVer2ViewJissenTotalDataCheck()) {
+                    NavigationLink(destination: kingHanaVer2ViewJissenTotalDataCheck(kingHana: kingHana)) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -529,12 +533,12 @@ struct kingHanaVer2ViewTop: View {
                 }
                 .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
-                NavigationLink(destination: kingHanaVer2View95CiTotal()) {
+                NavigationLink(destination: kingHanaVer2View95CiTotal(kingHana: kingHana)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4311")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -543,9 +547,19 @@ struct kingHanaVer2ViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(kingHanaSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(kingHanaSubViewLoadMemory(
+                        kingHana: kingHana,
+                        kingHanaMemory1: kingHanaMemory1,
+                        kingHanaMemory2: kingHanaMemory2,
+                        kingHanaMemory3: kingHanaMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(kingHanaSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(kingHanaSubViewSaveMemory(
+                        kingHana: kingHana,
+                        kingHanaMemory1: kingHanaMemory1,
+                        kingHanaMemory2: kingHanaMemory2,
+                        kingHanaMemory3: kingHanaMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -561,10 +575,10 @@ struct kingHanaVer2ViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct kingHanaSubViewSaveMemory: View {
-    @ObservedObject var kingHana = KingHana()
-    @ObservedObject var kingHanaMemory1 = KingHanaMemory1()
-    @ObservedObject var kingHanaMemory2 = KingHanaMemory2()
-    @ObservedObject var kingHanaMemory3 = KingHanaMemory3()
+    @ObservedObject var kingHana: KingHana
+    @ObservedObject var kingHanaMemory1: KingHanaMemory1
+    @ObservedObject var kingHanaMemory2: KingHanaMemory2
+    @ObservedObject var kingHanaMemory3: KingHanaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -710,10 +724,10 @@ struct kingHanaSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct kingHanaSubViewLoadMemory: View {
-    @ObservedObject var kingHana = KingHana()
-    @ObservedObject var kingHanaMemory1 = KingHanaMemory1()
-    @ObservedObject var kingHanaMemory2 = KingHanaMemory2()
-    @ObservedObject var kingHanaMemory3 = KingHanaMemory3()
+    @ObservedObject var kingHana: KingHana
+    @ObservedObject var kingHanaMemory1: KingHanaMemory1
+    @ObservedObject var kingHanaMemory2: KingHanaMemory2
+    @ObservedObject var kingHanaMemory3: KingHanaMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

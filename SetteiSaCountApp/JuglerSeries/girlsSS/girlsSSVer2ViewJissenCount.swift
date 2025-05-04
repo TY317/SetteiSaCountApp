@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenCount: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -208,7 +209,7 @@ struct girlsSSVer2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ジャグラーガールズSS設定差",
-                            tableView: AnyView(girlsSSTableRatio())
+                            tableView: AnyView(girlsSSTableRatio(girlsSS: girlsSS))
 //                            image1: Image("girlsSSAnalysis"),
 //                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
 //                            image2: Image("girlsSSYosoku")
@@ -216,7 +217,7 @@ struct girlsSSVer2ViewJissenCount: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiPersonal(girlsSS: girlsSS)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -307,6 +308,15 @@ struct girlsSSVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            girlsSSSubViewCountInput(
+                                girlsSS: girlsSS
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $girlsSS.minusCheck)
                     // リセットボタン
@@ -318,5 +328,5 @@ struct girlsSSVer2ViewJissenCount: View {
 }
 
 #Preview {
-    girlsSSVer2ViewJissenCount()
+    girlsSSVer2ViewJissenCount(girlsSS: GirlsSS())
 }

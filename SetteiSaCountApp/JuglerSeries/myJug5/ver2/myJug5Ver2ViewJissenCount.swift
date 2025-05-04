@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct myJug5Ver2ViewJissenCount: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var myJug5: MyJug5
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     
@@ -78,12 +79,13 @@ struct myJug5Ver2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
-                            image1: Image("myJug5Analysis")
+                            tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
+//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiPersonal(myJug5: myJug5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -132,6 +134,15 @@ struct myJug5Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            myJug5SubViewCountInput(
+                                myJug5: myJug5
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $myJug5.minusCheck)
                     // リセットボタン
@@ -143,5 +154,5 @@ struct myJug5Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    myJug5Ver2ViewJissenCount()
+    myJug5Ver2ViewJissenCount(myJug5: MyJug5())
 }

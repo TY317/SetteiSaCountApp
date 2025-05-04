@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct yoshimuneViewTop: View {
-    @ObservedObject var ver280: Ver280
+//    @ObservedObject var ver280: Ver280
 //    @StateObject var ver280 = Ver280()
     @StateObject var yoshimune = Yoshimune()
 //    @State var yoshimune = Yoshimune()
@@ -31,8 +31,8 @@ struct yoshimuneViewTop: View {
                         )
                     }
                     // 初当り履歴
-//                    NavigationLink(destination: yoshimuneViewHistory(yoshimune: yoshimune)) {
-                    NavigationLink(destination: yoshimuneViewHistory()) {
+                    NavigationLink(destination: yoshimuneViewHistory(yoshimune: yoshimune)) {
+//                    NavigationLink(destination: yoshimuneViewHistory()) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "ボーナス初当り履歴"
@@ -56,15 +56,15 @@ struct yoshimuneViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4778")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
 //        .id(reloadID) // <- これで NavigationStack 全体を再読み込みできる
-        .onAppear {
-            if ver280.yoshimuneMachineIconBadgeStatus != "none" {
-                ver280.yoshimuneMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.yoshimuneMachineIconBadgeStatus != "none" {
+//                ver280.yoshimuneMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -228,10 +228,18 @@ struct yoshimuneSubViewLoadMemory: View {
         yoshimune.bonusCountBig = yoshimuneMemory1.bonusCountBig
         yoshimune.bonusCountReg = yoshimuneMemory1.bonusCountReg
         yoshimune.bonusCountSum = yoshimuneMemory1.bonusCountSum
-        yoshimune.realGameArrayData = yoshimuneMemory1.realGameArrayData
-        yoshimune.displayGameArrayData = yoshimuneMemory1.displayGameArrayData
-        yoshimune.bonusKindArrayData = yoshimuneMemory1.bonusKindArrayData
-        yoshimune.triggerArrayData = yoshimuneMemory1.triggerArrayData
+        let memoryRealGameArray = decodeIntArray(from: yoshimuneMemory1.realGameArrayData)
+        saveArray(memoryRealGameArray, forKey: yoshimune.realGameArrayKey)
+        let memoryDisplayGameArray = decodeIntArray(from: yoshimuneMemory1.displayGameArrayData)
+        saveArray(memoryDisplayGameArray, forKey: yoshimune.displayGameArrayKey)
+        let memoryBonusKindArray = decodeStringArray(from: yoshimuneMemory1.bonusKindArrayData)
+        saveArray(memoryBonusKindArray, forKey: yoshimune.bonusKindArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: yoshimuneMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: yoshimune.triggerArrayKey)
+//        yoshimune.realGameArrayData = yoshimuneMemory1.realGameArrayData
+//        yoshimune.displayGameArrayData = yoshimuneMemory1.displayGameArrayData
+//        yoshimune.bonusKindArrayData = yoshimuneMemory1.bonusKindArrayData
+//        yoshimune.triggerArrayData = yoshimuneMemory1.triggerArrayData
         yoshimune.hanafudaCountDefault = yoshimuneMemory1.hanafudaCountDefault
         yoshimune.hanafudaCountHighJaku = yoshimuneMemory1.hanafudaCountHighJaku
         yoshimune.hanafudaCountHighKyo = yoshimuneMemory1.hanafudaCountHighKyo
@@ -251,10 +259,18 @@ struct yoshimuneSubViewLoadMemory: View {
         yoshimune.bonusCountBig = yoshimuneMemory2.bonusCountBig
         yoshimune.bonusCountReg = yoshimuneMemory2.bonusCountReg
         yoshimune.bonusCountSum = yoshimuneMemory2.bonusCountSum
-        yoshimune.realGameArrayData = yoshimuneMemory2.realGameArrayData
-        yoshimune.displayGameArrayData = yoshimuneMemory2.displayGameArrayData
-        yoshimune.bonusKindArrayData = yoshimuneMemory2.bonusKindArrayData
-        yoshimune.triggerArrayData = yoshimuneMemory2.triggerArrayData
+        let memoryRealGameArray = decodeIntArray(from: yoshimuneMemory2.realGameArrayData)
+        saveArray(memoryRealGameArray, forKey: yoshimune.realGameArrayKey)
+        let memoryDisplayGameArray = decodeIntArray(from: yoshimuneMemory2.displayGameArrayData)
+        saveArray(memoryDisplayGameArray, forKey: yoshimune.displayGameArrayKey)
+        let memoryBonusKindArray = decodeStringArray(from: yoshimuneMemory2.bonusKindArrayData)
+        saveArray(memoryBonusKindArray, forKey: yoshimune.bonusKindArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: yoshimuneMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: yoshimune.triggerArrayKey)
+//        yoshimune.realGameArrayData = yoshimuneMemory2.realGameArrayData
+//        yoshimune.displayGameArrayData = yoshimuneMemory2.displayGameArrayData
+//        yoshimune.bonusKindArrayData = yoshimuneMemory2.bonusKindArrayData
+//        yoshimune.triggerArrayData = yoshimuneMemory2.triggerArrayData
         yoshimune.hanafudaCountDefault = yoshimuneMemory2.hanafudaCountDefault
         yoshimune.hanafudaCountHighJaku = yoshimuneMemory2.hanafudaCountHighJaku
         yoshimune.hanafudaCountHighKyo = yoshimuneMemory2.hanafudaCountHighKyo
@@ -274,10 +290,18 @@ struct yoshimuneSubViewLoadMemory: View {
         yoshimune.bonusCountBig = yoshimuneMemory3.bonusCountBig
         yoshimune.bonusCountReg = yoshimuneMemory3.bonusCountReg
         yoshimune.bonusCountSum = yoshimuneMemory3.bonusCountSum
-        yoshimune.realGameArrayData = yoshimuneMemory3.realGameArrayData
-        yoshimune.displayGameArrayData = yoshimuneMemory3.displayGameArrayData
-        yoshimune.bonusKindArrayData = yoshimuneMemory3.bonusKindArrayData
-        yoshimune.triggerArrayData = yoshimuneMemory3.triggerArrayData
+        let memoryRealGameArray = decodeIntArray(from: yoshimuneMemory3.realGameArrayData)
+        saveArray(memoryRealGameArray, forKey: yoshimune.realGameArrayKey)
+        let memoryDisplayGameArray = decodeIntArray(from: yoshimuneMemory3.displayGameArrayData)
+        saveArray(memoryDisplayGameArray, forKey: yoshimune.displayGameArrayKey)
+        let memoryBonusKindArray = decodeStringArray(from: yoshimuneMemory3.bonusKindArrayData)
+        saveArray(memoryBonusKindArray, forKey: yoshimune.bonusKindArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: yoshimuneMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: yoshimune.triggerArrayKey)
+//        yoshimune.realGameArrayData = yoshimuneMemory3.realGameArrayData
+//        yoshimune.displayGameArrayData = yoshimuneMemory3.displayGameArrayData
+//        yoshimune.bonusKindArrayData = yoshimuneMemory3.bonusKindArrayData
+//        yoshimune.triggerArrayData = yoshimuneMemory3.triggerArrayData
         yoshimune.hanafudaCountDefault = yoshimuneMemory3.hanafudaCountDefault
         yoshimune.hanafudaCountHighJaku = yoshimuneMemory3.hanafudaCountHighJaku
         yoshimune.hanafudaCountHighKyo = yoshimuneMemory3.hanafudaCountHighKyo
@@ -291,5 +315,5 @@ struct yoshimuneSubViewLoadMemory: View {
 }
 
 #Preview {
-    yoshimuneViewTop(ver280: Ver280())
+    yoshimuneViewTop()
 }

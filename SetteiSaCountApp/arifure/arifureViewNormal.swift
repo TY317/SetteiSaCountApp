@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureViewNormal: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert = false
     let selectListKoyakuKind: [String] = [
         "弱🍒",
@@ -175,7 +176,7 @@ struct arifureViewNormal: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("弱レア役での引鉄高確移行率")
@@ -224,7 +225,7 @@ struct arifureViewNormal: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 8)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 8)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定ゲーム数100GでのCZ当選率")
@@ -288,5 +289,5 @@ struct arifureViewNormal: View {
 }
 
 #Preview {
-    arifureViewNormal()
+    arifureViewNormal(arifure: Arifure())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rezero2ViewSnowball: View {
-    @ObservedObject var rezero2 = Rezero2()
+//    @ObservedObject var rezero2 = Rezero2()
+    @ObservedObject var rezero2: Rezero2
     @State var isShowAlert: Bool = false
     var body: some View {
         List {
@@ -42,5 +43,5 @@ struct rezero2ViewSnowball: View {
 }
 
 #Preview {
-    rezero2ViewSnowball()
+    rezero2ViewSnowball(rezero2: Rezero2())
 }

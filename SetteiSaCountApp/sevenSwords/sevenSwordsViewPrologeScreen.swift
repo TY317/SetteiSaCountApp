@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sevenSwordsViewPrologeScreen: View {
-    @ObservedObject var sevenSwords = SevenSwords()
+//    @ObservedObject var sevenSwords = SevenSwords()
+    @ObservedObject var sevenSwords: SevenSwords
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -149,5 +150,5 @@ struct sevenSwordsViewPrologeScreen: View {
 }
 
 #Preview {
-    sevenSwordsViewPrologeScreen()
+    sevenSwordsViewPrologeScreen(sevenSwords: SevenSwords())
 }

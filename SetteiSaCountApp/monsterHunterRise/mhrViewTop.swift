@@ -394,14 +394,19 @@ class MhrMemory3: ObservableObject {
 }
 
 struct mhrViewTop: View {
-    @ObservedObject var mhr = Mhr()
+//    @ObservedObject var mhr = Mhr()
+    @StateObject var mhr = Mhr()
     @State var isShowAlert: Bool = false
+    @StateObject var mhrMemory1 = MhrMemory1()
+    @StateObject var mhrMemory2 = MhrMemory2()
+    @StateObject var mhrMemory3 = MhrMemory3()
+    
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // AT初当り履歴
-                    NavigationLink(destination: mhrViewHistory()) {
+                    NavigationLink(destination: mhrViewHistory(mhr: mhr)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
@@ -409,7 +414,7 @@ struct mhrViewTop: View {
 //                        .popoverTip(tipVer200MhrUpdateInfo())
                     }
                     // ボーナス確定画面
-                    NavigationLink(destination: mhrViewBonusScreen()) {
+                    NavigationLink(destination: mhrViewBonusScreen(mhr: mhr)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "ボーナス確定画面"
@@ -423,14 +428,14 @@ struct mhrViewTop: View {
                         )
                     }
                     // AT終了画面
-                    NavigationLink(destination: mhrViewEndScreen()) {
+                    NavigationLink(destination: mhrViewEndScreen(mhr: mhr)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "AT終了画面"
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: mhrViewEnding()) {
+                    NavigationLink(destination: mhrViewEnding(mhr: mhr)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -440,12 +445,12 @@ struct mhrViewTop: View {
                     unitLabelMachineTopTitle(machineName: "モンスターハンター ライズ", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: mhrView95Ci()) {
+                NavigationLink(destination: mhrView95Ci(mhr: mhr)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4676")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -454,9 +459,19 @@ struct mhrViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(mhrSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(mhrSubViewLoadMemory(
+                        mhr: mhr,
+                        mhrMemory1: mhrMemory1,
+                        mhrMemory2: mhrMemory2,
+                        mhrMemory3: mhrMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(mhrSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(mhrSubViewSaveMemory(
+                        mhr: mhr,
+                        mhrMemory1: mhrMemory1,
+                        mhrMemory2: mhrMemory2,
+                        mhrMemory3: mhrMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -471,10 +486,10 @@ struct mhrViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct mhrSubViewSaveMemory: View {
-    @ObservedObject var mhr = Mhr()
-    @ObservedObject var mhrMemory1 = MhrMemory1()
-    @ObservedObject var mhrMemory2 = MhrMemory2()
-    @ObservedObject var mhrMemory3 = MhrMemory3()
+    @ObservedObject var mhr: Mhr
+    @ObservedObject var mhrMemory1: MhrMemory1
+    @ObservedObject var mhrMemory2: MhrMemory2
+    @ObservedObject var mhrMemory3: MhrMemory3
     @State var isShowSaveAlert: Bool = false
     var body: some View {
         unitViewSaveMemory(
@@ -600,10 +615,10 @@ struct mhrSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct mhrSubViewLoadMemory: View {
-    @ObservedObject var mhr = Mhr()
-    @ObservedObject var mhrMemory1 = MhrMemory1()
-    @ObservedObject var mhrMemory2 = MhrMemory2()
-    @ObservedObject var mhrMemory3 = MhrMemory3()
+    @ObservedObject var mhr: Mhr
+    @ObservedObject var mhrMemory1: MhrMemory1
+    @ObservedObject var mhrMemory2: MhrMemory2
+    @ObservedObject var mhrMemory3: MhrMemory3
     @State var isShowSaveAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(
@@ -622,9 +637,15 @@ struct mhrSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        mhr.gameArrayData = mhrMemory1.gameArrayData
-        mhr.cycleArrayData = mhrMemory1.cycleArrayData
-        mhr.triggerArrayData = mhrMemory1.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: mhrMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: mhr.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: mhrMemory1.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: mhr.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: mhrMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: mhr.triggerArrayKey)
+//        mhr.gameArrayData = mhrMemory1.gameArrayData
+//        mhr.cycleArrayData = mhrMemory1.cycleArrayData
+//        mhr.triggerArrayData = mhrMemory1.triggerArrayData
         mhr.atHitCount = mhrMemory1.atHitCount
         mhr.playGameSum = mhrMemory1.playGameSum
         mhr.bonusScreenCountMen = mhrMemory1.bonusScreenCountMen
@@ -656,9 +677,15 @@ struct mhrSubViewLoadMemory: View {
         mhr.airuCountSum = mhrMemory1.airuCountSum
     }
     func loadMemory2() {
-        mhr.gameArrayData = mhrMemory2.gameArrayData
-        mhr.cycleArrayData = mhrMemory2.cycleArrayData
-        mhr.triggerArrayData = mhrMemory2.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: mhrMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: mhr.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: mhrMemory2.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: mhr.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: mhrMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: mhr.triggerArrayKey)
+//        mhr.gameArrayData = mhrMemory2.gameArrayData
+//        mhr.cycleArrayData = mhrMemory2.cycleArrayData
+//        mhr.triggerArrayData = mhrMemory2.triggerArrayData
         mhr.atHitCount = mhrMemory2.atHitCount
         mhr.playGameSum = mhrMemory2.playGameSum
         mhr.bonusScreenCountMen = mhrMemory2.bonusScreenCountMen
@@ -690,9 +717,15 @@ struct mhrSubViewLoadMemory: View {
         mhr.airuCountSum = mhrMemory2.airuCountSum
     }
     func loadMemory3() {
-        mhr.gameArrayData = mhrMemory3.gameArrayData
-        mhr.cycleArrayData = mhrMemory3.cycleArrayData
-        mhr.triggerArrayData = mhrMemory3.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: mhrMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: mhr.gameArrayKey)
+        let memoryCycleArray = decodeStringArray(from: mhrMemory3.cycleArrayData)
+        saveArray(memoryCycleArray, forKey: mhr.cycleArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: mhrMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: mhr.triggerArrayKey)
+//        mhr.gameArrayData = mhrMemory3.gameArrayData
+//        mhr.cycleArrayData = mhrMemory3.cycleArrayData
+//        mhr.triggerArrayData = mhrMemory3.triggerArrayData
         mhr.atHitCount = mhrMemory3.atHitCount
         mhr.playGameSum = mhrMemory3.playGameSum
         mhr.bonusScreenCountMen = mhrMemory3.bonusScreenCountMen

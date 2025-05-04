@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohTableBellBonus: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     
     var body: some View {
         VStack {
@@ -40,5 +41,5 @@ struct draHanaSenkohTableBellBonus: View {
 }
 
 #Preview {
-    draHanaSenkohTableBellBonus()
+    draHanaSenkohTableBellBonus(draHanaSenkoh: DraHanaSenkoh())
 }

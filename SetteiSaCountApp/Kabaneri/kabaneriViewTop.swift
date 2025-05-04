@@ -544,43 +544,47 @@ class KabaneriMemory3: ObservableObject {
 }
 
 struct kabaneriViewTop: View {
-    @ObservedObject var kabaneri = Kabaneri()
+//    @ObservedObject var kabaneri = Kabaneri()
+    @StateObject var kabaneri = Kabaneri()
     @State var isShowAlert = false
+    @StateObject var kabaneriMemory1 = KabaneriMemory1()
+    @StateObject var kabaneriMemory2 = KabaneriMemory2()
+    @StateObject var kabaneriMemory3 = KabaneriMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // チャンス目発光率
-                    NavigationLink(destination: kabaneriViewChance()) {
+                    NavigationLink(destination: kabaneriViewChance(kabaneri: kabaneri)) {
                         unitLabelMenu(imageSystemName: "sun.min", textBody: "通常時子役")
                     }
                     // CZ、ボーナス初当たり
-                    NavigationLink(destination: kabaneriViewCzBonus()) {
+                    NavigationLink(destination: kabaneriViewCzBonus(kabaneri: kabaneri)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "CZ,ボーナス初当り履歴")
                     }
                     // 無名CZ
-                    NavigationLink(destination: kabaneriMumei()) {
+                    NavigationLink(destination: kabaneriMumei(kabaneri: kabaneri)) {
                         unitLabelMenu(imageSystemName: "figure.kickboxing", textBody: "無名CZ")
                     }
                     // 生駒CZ
-                    NavigationLink(destination: kabaneriViewIkoma()) {
+                    NavigationLink(destination: kabaneriViewIkoma(kabaneri: kabaneri)) {
                         unitLabelMenu(imageSystemName: "circle.grid.2x1.left.filled", textBody: "生駒CZ")
                     }
                     // カバネリボーナス中の示唆
-                    NavigationLink(destination: kabaneriViewHintDuringBonus()) {
+                    NavigationLink(destination: kabaneriViewHintDuringBonus(kabaneri: kabaneri)) {
                         unitLabelMenu(imageSystemName: "figure.dress.line.vertical.figure", textBody: "カバネリボーナス中の示唆")
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "甲鉄城のカバネリ")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: kabaneriView95Ci()) {
+                NavigationLink(destination: kabaneriView95Ci(kabaneri: kabaneri)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4160")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -590,9 +594,19 @@ struct kabaneriViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(kabaneriViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(kabaneriViewLoadMemory(
+                            kabaneri: kabaneri,
+                            kabaneriMemory1: kabaneriMemory1,
+                            kabaneriMemory2: kabaneriMemory2,
+                            kabaneriMemory3: kabaneriMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(kabaneriViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(kabaneriViewSaveMemory(
+                            kabaneri: kabaneri,
+                            kabaneriMemory1: kabaneriMemory1,
+                            kabaneriMemory2: kabaneriMemory2,
+                            kabaneriMemory3: kabaneriMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetAll, message: "この機種のデータを全てリセットします")
@@ -608,10 +622,10 @@ struct kabaneriViewTop: View {
 // メモリーセーブ画面
 // /////////////////////////////
 struct kabaneriViewSaveMemory: View {
-    @ObservedObject var kabaneri = Kabaneri()
-    @ObservedObject var kabaneriMemory1 = KabaneriMemory1()
-    @ObservedObject var kabaneriMemory2 = KabaneriMemory2()
-    @ObservedObject var kabaneriMemory3 = KabaneriMemory3()
+    @ObservedObject var kabaneri: Kabaneri
+    @ObservedObject var kabaneriMemory1: KabaneriMemory1
+    @ObservedObject var kabaneriMemory2: KabaneriMemory2
+    @ObservedObject var kabaneriMemory3: KabaneriMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -772,10 +786,10 @@ struct kabaneriViewSaveMemory: View {
 // メモリーロード画面
 // /////////////////////////////
 struct kabaneriViewLoadMemory: View {
-    @ObservedObject var kabaneri = Kabaneri()
-    @ObservedObject var kabaneriMemory1 = KabaneriMemory1()
-    @ObservedObject var kabaneriMemory2 = KabaneriMemory2()
-    @ObservedObject var kabaneriMemory3 = KabaneriMemory3()
+    @ObservedObject var kabaneri: Kabaneri
+    @ObservedObject var kabaneriMemory1: KabaneriMemory1
+    @ObservedObject var kabaneriMemory2: KabaneriMemory2
+    @ObservedObject var kabaneriMemory3: KabaneriMemory3
     @State var isShowLoadAlert: Bool = false
     var body: some View {
         unitViewLoadMemory(
@@ -801,10 +815,18 @@ struct kabaneriViewLoadMemory: View {
         kabaneri.startGame = kabaneriMemory1.startGame
         kabaneri.currentGame = kabaneriMemory1.currentGame
         kabaneri.playGame = kabaneriMemory1.playGame
-        kabaneri.gameArrayData = kabaneriMemory1.gameArrayData
-        kabaneri.bonusArrayData = kabaneriMemory1.bonusArrayData
-        kabaneri.triggerArrayData = kabaneriMemory1.triggerArrayData
-        kabaneri.remarksArrayData = kabaneriMemory1.remarksArrayData
+        let memoryGameArray = decodeIntArray(from: kabaneriMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: kabaneri.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: kabaneriMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: kabaneri.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: kabaneriMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: kabaneri.triggerArrayKey)
+        let memoryRemarksArray = decodeStringArray(from: kabaneriMemory1.remarksArrayData)
+        saveArray(memoryRemarksArray, forKey: kabaneri.remarksArrayKey)
+//        kabaneri.gameArrayData = kabaneriMemory1.gameArrayData
+//        kabaneri.bonusArrayData = kabaneriMemory1.bonusArrayData
+//        kabaneri.triggerArrayData = kabaneriMemory1.triggerArrayData
+//        kabaneri.remarksArrayData = kabaneriMemory1.remarksArrayData
         kabaneri.czHitCount = kabaneriMemory1.czHitCount
         kabaneri.historyPlayGame = kabaneriMemory1.historyPlayGame
         kabaneri.bonus100LoseCount = kabaneriMemory1.bonus100LoseCount
@@ -846,10 +868,18 @@ struct kabaneriViewLoadMemory: View {
         kabaneri.startGame = kabaneriMemory2.startGame
         kabaneri.currentGame = kabaneriMemory2.currentGame
         kabaneri.playGame = kabaneriMemory2.playGame
-        kabaneri.gameArrayData = kabaneriMemory2.gameArrayData
-        kabaneri.bonusArrayData = kabaneriMemory2.bonusArrayData
-        kabaneri.triggerArrayData = kabaneriMemory2.triggerArrayData
-        kabaneri.remarksArrayData = kabaneriMemory2.remarksArrayData
+        let memoryGameArray = decodeIntArray(from: kabaneriMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: kabaneri.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: kabaneriMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: kabaneri.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: kabaneriMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: kabaneri.triggerArrayKey)
+        let memoryRemarksArray = decodeStringArray(from: kabaneriMemory2.remarksArrayData)
+        saveArray(memoryRemarksArray, forKey: kabaneri.remarksArrayKey)
+//        kabaneri.gameArrayData = kabaneriMemory2.gameArrayData
+//        kabaneri.bonusArrayData = kabaneriMemory2.bonusArrayData
+//        kabaneri.triggerArrayData = kabaneriMemory2.triggerArrayData
+//        kabaneri.remarksArrayData = kabaneriMemory2.remarksArrayData
         kabaneri.czHitCount = kabaneriMemory2.czHitCount
         kabaneri.historyPlayGame = kabaneriMemory2.historyPlayGame
         kabaneri.bonus100LoseCount = kabaneriMemory2.bonus100LoseCount
@@ -891,10 +921,18 @@ struct kabaneriViewLoadMemory: View {
         kabaneri.startGame = kabaneriMemory3.startGame
         kabaneri.currentGame = kabaneriMemory3.currentGame
         kabaneri.playGame = kabaneriMemory3.playGame
-        kabaneri.gameArrayData = kabaneriMemory3.gameArrayData
-        kabaneri.bonusArrayData = kabaneriMemory3.bonusArrayData
-        kabaneri.triggerArrayData = kabaneriMemory3.triggerArrayData
-        kabaneri.remarksArrayData = kabaneriMemory3.remarksArrayData
+        let memoryGameArray = decodeIntArray(from: kabaneriMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: kabaneri.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: kabaneriMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: kabaneri.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: kabaneriMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: kabaneri.triggerArrayKey)
+        let memoryRemarksArray = decodeStringArray(from: kabaneriMemory3.remarksArrayData)
+        saveArray(memoryRemarksArray, forKey: kabaneri.remarksArrayKey)
+//        kabaneri.gameArrayData = kabaneriMemory3.gameArrayData
+//        kabaneri.bonusArrayData = kabaneriMemory3.bonusArrayData
+//        kabaneri.triggerArrayData = kabaneriMemory3.triggerArrayData
+//        kabaneri.remarksArrayData = kabaneriMemory3.remarksArrayData
         kabaneri.czHitCount = kabaneriMemory3.czHitCount
         kabaneri.historyPlayGame = kabaneriMemory3.historyPlayGame
         kabaneri.bonus100LoseCount = kabaneriMemory3.bonus100LoseCount

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct starHanaVer2View95CiPersonal: View {
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var starHana: StarHana
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -148,5 +149,5 @@ struct starHanaVer2View95CiPersonal: View {
 }
 
 #Preview {
-    starHanaVer2View95CiPersonal()
+    starHanaVer2View95CiPersonal(starHana: StarHana())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewAttack: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     var body: some View {
         List {
@@ -46,11 +47,12 @@ struct danvineViewAttack: View {
                             title: "ハズレ3連での高確",
                             textBody1: "・ハズレ3連時のオーラ狙え高確の当選率に設定差あり",
                             textBody2: "（ハズレ4連時の当選率にもわずかに設定差あるが微差のためカウント機能は設けていません）",
-                            image1: Image("danvineAuraAimRatio")
+                            tableView: AnyView(danvineTableHazure3ren())
+//                            image1: Image("danvineAuraAimRatio")
                         )
                     )
                 )
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ハズレ3連続時のオーラ狙え高確当選")
@@ -65,7 +67,8 @@ struct danvineViewAttack: View {
                             title: "機数での示唆",
                             textBody1: "・残り1001機からスタートの場合は設定6濃厚",
                             textBody2: "・敵撃破数がゾロ目の場合は特定設定以上が濃厚となる",
-                            image1: Image("danvineAttackEnemyNumber")
+                            tableView: AnyView(danvineTableEnemyNumberSisa())
+//                            image1: Image("danvineAttackEnemyNumber")
                         )
                     )
                 )
@@ -84,7 +87,8 @@ struct danvineViewAttack: View {
                             textBody2: "・高設定ほど当選率が高い",
                             textBody3: "・自力で成功した場合は判別はできないが、初期機数が777機や1001機の場合は成功抽選の当選に期待できる",
                             textBody4: "・残りゲーム数が0かつ、オーラ狙え高確中以外の敵非撃破でアタックモードが終了しない場合も成功抽選の当選に期待できる",
-                            image1: Image("danvineAttackWinRatio")
+                            tableView: AnyView(danvineTableAttackStartRatio())
+//                            image1: Image("danvineAttackWinRatio")
                         )
                     )
                 )
@@ -108,5 +112,5 @@ struct danvineViewAttack: View {
 }
 
 #Preview {
-    danvineViewAttack()
+    danvineViewAttack(danvine: Danvine())
 }

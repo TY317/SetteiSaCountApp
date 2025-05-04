@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sbjSubViewTableGameChangeRatio: View {
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @ObservedObject var sbj: Sbj
     var body: some View {
         VStack {
             // //// 100Gでの移行率
@@ -72,5 +73,5 @@ struct sbjSubViewTableGameChangeRatio: View {
 }
 
 #Preview {
-    sbjSubViewTableGameChangeRatio()
+    sbjSubViewTableGameChangeRatio(sbj: Sbj())
 }

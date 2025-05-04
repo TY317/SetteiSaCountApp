@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct symphoViewHistory: View {
-    @ObservedObject var sympho = Symphogear()
+//    @ObservedObject var sympho = Symphogear()
+    @ObservedObject var sympho: Symphogear
     @State var isShowAlert = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -124,7 +125,7 @@ struct symphoViewHistory: View {
                 unitLinkButton(title: "通常時のモードについて", exview: AnyView(unitExView5body2image(title: "通常時のモード", textBody1: "・通常時のモードは3種類。主にAT終了時に移行。", textBody2: "・高設定ほど天国移行、天国ループ率が優遇されているらしい。下記設定1の数値以上に天国が確認できればチャンス", textBody3: "・ATでの獲得枚数が100枚以下の場合は前回のモード不問で天国移行が優遇されるため勘違いしないよう注意", image1: Image("symphoMode"), image2: Image("symphoModeChange"))))
                 unitLinkButton(title: "AT,最終決戦 初当りについて", exview: AnyView(unitExView5body2image(title: "AT,最終決戦初当りについて", textBody1: "・AT初当り確率に設定差", textBody2: "・特に高確中チェリーでの当選に設定差あり。チェリーからの当選が多いほど良挙動。", textBody3: "・小役3連(リプレイ除く)で音符が降ってくる演出が出ることがあり、内部的にギアフラグモード移行の可能性あるのではとの噂あり。ギアフラグモードによってギアフラグ時の当選確率が変わる。高設定ほどギアフラグモードが良挙動するとの噂あり", textBody4: "・CZ 最終決戦の出現率に設定差あり。複数回確認でければ大チャンスか", image1: Image("symphoAtHit"), image2: Image("symphoCherryHit"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(sympho: sympho, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 unitHeaderHistoryColumns(column2: "ゲーム数", column3: "種類", column4: "当選契機")
@@ -262,5 +263,5 @@ struct symphoSubViewDataInput: View {
 }
 
 #Preview {
-    symphoViewHistory()
+    symphoViewHistory(sympho: Symphogear())
 }

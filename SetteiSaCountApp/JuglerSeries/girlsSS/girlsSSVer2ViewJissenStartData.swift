@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenStartData: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -180,7 +181,7 @@ struct girlsSSVer2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ジャグラーガールズSS設定差",
-                            tableView: AnyView(girlsSSTableRatio())
+                            tableView: AnyView(girlsSSTableRatio(girlsSS: girlsSS))
 //                            image1: Image("girlsSSAnalysis"),
 //                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
 //                            image2: Image("girlsSSYosoku")
@@ -188,7 +189,7 @@ struct girlsSSVer2ViewJissenStartData: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiStart(girlsSS: girlsSS)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -251,5 +252,5 @@ struct girlsSSVer2ViewJissenStartData: View {
 }
 
 #Preview {
-    girlsSSVer2ViewJissenStartData()
+    girlsSSVer2ViewJissenStartData(girlsSS: GirlsSS())
 }

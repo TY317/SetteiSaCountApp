@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kingHanaVer2View95CiStart: View {
-    @ObservedObject var kingHana = KingHana()
+//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var kingHana: KingHana
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct kingHanaVer2View95CiStart: View {
 }
 
 #Preview {
-    kingHanaVer2View95CiStart()
+    kingHanaVer2View95CiStart(kingHana: KingHana())
 }

@@ -26,8 +26,8 @@ struct yoshimuneTipHistoryInput: Tip {
 
 
 struct yoshimuneViewHistory: View {
-//    @ObservedObject var yoshimune: Yoshimune
-    @StateObject var yoshimune = Yoshimune()
+    @ObservedObject var yoshimune: Yoshimune
+//    @StateObject var yoshimune = Yoshimune()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation

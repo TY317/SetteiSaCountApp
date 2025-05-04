@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct happyJugV3Ver2View95CiPersonal: View {
-    @ObservedObject var happyJugV3 = HappyJugV3()
+//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @ObservedObject var happyJugV3: HappyJugV3
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -165,5 +166,5 @@ struct happyJugV3Ver2View95CiPersonal: View {
 }
 
 #Preview {
-    happyJugV3Ver2View95CiPersonal()
+    happyJugV3Ver2View95CiPersonal(happyJugV3: HappyJugV3())
 }

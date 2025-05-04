@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohVer2View95CiKen: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct draHanaSenkohVer2View95CiKen: View {
 }
 
 #Preview {
-    draHanaSenkohVer2View95CiKen()
+    draHanaSenkohVer2View95CiKen(draHanaSenkoh: DraHanaSenkoh())
 }

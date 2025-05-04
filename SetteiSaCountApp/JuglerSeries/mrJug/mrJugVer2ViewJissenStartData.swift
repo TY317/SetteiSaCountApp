@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenStartData: View {
-    @ObservedObject var mrJug = MrJug()
+//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var mrJug: MrJug
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -180,12 +181,12 @@ struct mrJugVer2ViewJissenStartData: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ミスタージャグラー設定差",
-                            tableView: AnyView(mrJugSubViewTableRatio())
+                            tableView: AnyView(mrJugSubViewTableRatio(mrJug: mrJug))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiStart()))
+                unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiStart(mrJug: mrJug)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -248,5 +249,5 @@ struct mrJugVer2ViewJissenStartData: View {
 }
 
 #Preview {
-    mrJugVer2ViewJissenStartData()
+    mrJugVer2ViewJissenStartData(mrJug: MrJug())
 }

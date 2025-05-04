@@ -26,7 +26,8 @@ struct danvineTipHistoryInput: Tip {
 
 
 struct danvineViewHistory: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -145,7 +146,8 @@ struct danvineViewHistory: View {
                             title: "周期について",
                             textBody1: "・偶数周期での当選は高設定期待度アップとなる",
                             textBody2: "・周期のボーナス期待度として下記表の数値が公表されているが、周期当選の設定差があるならば高設定はこれよりも高い数値になる可能性もあり",
-                            image1: Image("danvineCycleRatio")
+                            tableView: AnyView(danvineTableShuki())
+//                            image1: Image("danvineCycleRatio")
                         )
                     )
                 )
@@ -223,7 +225,8 @@ struct danvineViewHistory: View {
                             title: "ボーナス、ST 初当り確率",
                             textBody1: "・2Gバトルでの当選率は高設定ほど高いらしい",
                             textBody2: "・直撃は高設定ほど多くなるらしい",
-                            image1: Image("danvineHitRatio")
+                            tableView: AnyView(danvineTableFirstHit())
+//                            image1: Image("danvineHitRatio")
                         )
                     )
                 )
@@ -242,7 +245,7 @@ struct danvineViewHistory: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -401,5 +404,5 @@ struct danvineSubViewDataInput: View {
 }
 
 #Preview {
-    danvineViewHistory()
+    danvineViewHistory(danvine: Danvine())
 }

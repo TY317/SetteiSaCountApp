@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaguyaViewEnding: View {
-    @ObservedObject var kaguya = KaguyaSama()
+//    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
     
     var body: some View {
@@ -46,5 +47,5 @@ struct kaguyaViewEnding: View {
 }
 
 #Preview {
-    kaguyaViewEnding()
+    kaguyaViewEnding(kaguya: KaguyaSama())
 }

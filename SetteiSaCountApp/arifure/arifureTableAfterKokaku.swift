@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureTableAfterKokaku: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex(titleLine: 2)
@@ -24,5 +25,5 @@ struct arifureTableAfterKokaku: View {
 }
 
 #Preview {
-    arifureTableAfterKokaku()
+    arifureTableAfterKokaku(arifure: Arifure())
 }

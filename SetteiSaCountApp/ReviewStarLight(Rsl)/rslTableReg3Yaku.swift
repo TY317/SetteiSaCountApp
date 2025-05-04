@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslTableReg3Yaku: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex(settingList: rsl.settingList)
@@ -35,5 +36,5 @@ struct rslTableReg3Yaku: View {
 }
 
 #Preview {
-    rslTableReg3Yaku()
+    rslTableReg3Yaku(rsl: Rsl())
 }

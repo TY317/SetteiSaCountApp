@@ -29,27 +29,27 @@ class Magia: ObservableObject {
     // ////////////////////////
     @AppStorage("magiaBigScreenCountDefault") var bigScreenCountDefault: Int = 0 {
         didSet {
-            bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault)
+            bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
         }
     }
         @AppStorage("magiaBigScreenCount356") var bigScreenCount356: Int = 0 {
             didSet {
-                bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault)
+                bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
             }
         }
             @AppStorage("magiaBigScreenCount246") var bigScreenCount246: Int = 0 {
                 didSet {
-                    bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault)
+                    bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
                 }
             }
                 @AppStorage("magiaBigScreenCountHigh1") var bigScreenCountHigh1: Int = 0 {
                     didSet {
-                        bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault)
+                        bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
                     }
                 }
                     @AppStorage("magiaBigScreenCountHigh2") var bigScreenCountHigh2: Int = 0 {
                         didSet {
-                            bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault)
+                            bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
                         }
                     }
     @AppStorage("magiaBigScreenCountSum") var bigScreenCountSum: Int = 0
@@ -61,6 +61,11 @@ class Magia: ObservableObject {
         bigScreenCountHigh1 = 0
         bigScreenCountHigh2 = 0
         minusCheck = false
+        
+        bigScreenCountOver2 = 0
+        bigScreenCountOver4 = 0
+        bigScreenCountOver5 = 0
+        bigScreenCountOver6 = 0
     }
     
     // ////////////////////////
@@ -211,6 +216,30 @@ class Magia: ObservableObject {
         endingCountHigh = 0
         minusCheck = false
     }
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("magiaBigScreenCountOver2") var bigScreenCountOver2: Int = 0 {
+        didSet {
+            bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
+        }
+    }
+        @AppStorage("magiaBigScreenCountOver4") var bigScreenCountOver4: Int = 0 {
+            didSet {
+                bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
+            }
+        }
+            @AppStorage("magiaBigScreenCountOver5") var bigScreenCountOver5: Int = 0 {
+                didSet {
+                    bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
+                }
+            }
+                @AppStorage("magiaBigScreenCountOver6") var bigScreenCountOver6: Int = 0 {
+                    didSet {
+                        bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
+                    }
+                }
 }
 
 
@@ -250,6 +279,14 @@ class MagiaMemory1: ObservableObject {
     @AppStorage("magiaEndingCountGusuMemory1") var endingCountGusu: Int = 0
     @AppStorage("magiaEndingCountHighMemory1") var endingCountHigh: Int = 0
     @AppStorage("magiaEndingCountSumMemory1") var endingCountSum: Int = 0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("magiaBigScreenCountOver2Memory1") var bigScreenCountOver2: Int = 0
+    @AppStorage("magiaBigScreenCountOver4Memory1") var bigScreenCountOver4: Int = 0
+    @AppStorage("magiaBigScreenCountOver5Memory1") var bigScreenCountOver5: Int = 0
+    @AppStorage("magiaBigScreenCountOver6Memory1") var bigScreenCountOver6: Int = 0
 }
 
 
@@ -289,6 +326,14 @@ class MagiaMemory2: ObservableObject {
     @AppStorage("magiaEndingCountGusuMemory2") var endingCountGusu: Int = 0
     @AppStorage("magiaEndingCountHighMemory2") var endingCountHigh: Int = 0
     @AppStorage("magiaEndingCountSumMemory2") var endingCountSum: Int = 0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("magiaBigScreenCountOver2Memory2") var bigScreenCountOver2: Int = 0
+    @AppStorage("magiaBigScreenCountOver4Memory2") var bigScreenCountOver4: Int = 0
+    @AppStorage("magiaBigScreenCountOver5Memory2") var bigScreenCountOver5: Int = 0
+    @AppStorage("magiaBigScreenCountOver6Memory2") var bigScreenCountOver6: Int = 0
 }
 
 // //// メモリー3
@@ -327,4 +372,12 @@ class MagiaMemory3: ObservableObject {
     @AppStorage("magiaEndingCountGusuMemory3") var endingCountGusu: Int = 0
     @AppStorage("magiaEndingCountHighMemory3") var endingCountHigh: Int = 0
     @AppStorage("magiaEndingCountSumMemory3") var endingCountSum: Int = 0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("magiaBigScreenCountOver2Memory3") var bigScreenCountOver2: Int = 0
+    @AppStorage("magiaBigScreenCountOver4Memory3") var bigScreenCountOver4: Int = 0
+    @AppStorage("magiaBigScreenCountOver5Memory3") var bigScreenCountOver5: Int = 0
+    @AppStorage("magiaBigScreenCountOver6Memory3") var bigScreenCountOver6: Int = 0
 }

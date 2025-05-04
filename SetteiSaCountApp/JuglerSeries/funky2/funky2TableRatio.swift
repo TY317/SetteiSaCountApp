@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct funky2TableRatio: View {
-    @ObservedObject var funky2 = Funky2()
+//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var funky2: Funky2
     var body: some View {
         VStack {
             HStack(spacing: 0) {
@@ -60,5 +61,5 @@ struct funky2TableRatio: View {
 }
 
 #Preview {
-    funky2TableRatio()
+    funky2TableRatio(funky2: Funky2())
 }

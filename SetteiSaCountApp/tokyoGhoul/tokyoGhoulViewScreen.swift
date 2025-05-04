@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct tokyoGhoulViewScreen: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var isShowAlert: Bool = false
     
     var body: some View {
@@ -163,5 +164,5 @@ struct tokyoGhoulViewScreen: View {
 }
 
 #Preview {
-    tokyoGhoulViewScreen()
+    tokyoGhoulViewScreen(tokyoGhoul: TokyoGhoul())
 }

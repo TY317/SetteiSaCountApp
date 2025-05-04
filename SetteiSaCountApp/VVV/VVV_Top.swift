@@ -147,7 +147,7 @@ struct VVV_Top: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4244")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
                 Section {
                     Text("")
                 }

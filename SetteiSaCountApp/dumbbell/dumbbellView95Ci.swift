@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct dumbbellView95Ci: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @ObservedObject var dumbbell: Dumbbell
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -287,5 +288,5 @@ struct dumbbellView95Ci: View {
 }
 
 #Preview {
-    dumbbellView95Ci()
+    dumbbellView95Ci(dumbbell: Dumbbell())
 }

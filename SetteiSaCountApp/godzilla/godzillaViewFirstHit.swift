@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaViewFirstHit: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -84,12 +84,12 @@ struct godzillaViewFirstHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "初当り確率",
-                            tableView: AnyView(godzillaTableFirstHit())
+                            tableView: AnyView(godzillaTableFirstHit(godzilla: godzilla))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(godzillaView95Ci(selection: 6)))
+                unitNaviLink95Ci(Ci95view: AnyView(godzillaView95Ci(godzilla: godzilla, selection: 6)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -153,5 +153,5 @@ struct godzillaViewFirstHit: View {
 }
 
 #Preview {
-    godzillaViewFirstHit()
+    godzillaViewFirstHit(godzilla: Godzilla())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct toloveruViewBonusHit: View {
-    @ObservedObject var toloveru = Toloveru()
+//    @ObservedObject var toloveru = Toloveru()
+    @ObservedObject var toloveru: Toloveru
     @State var isShowAlert = false
     
     var body: some View {
@@ -26,5 +27,5 @@ struct toloveruViewBonusHit: View {
 }
 
 #Preview {
-    toloveruViewBonusHit()
+    toloveruViewBonusHit(toloveru: Toloveru())
 }

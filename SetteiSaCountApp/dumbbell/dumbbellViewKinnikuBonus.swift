@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct dumbbellViewKinnikuBonus: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @ObservedObject var dumbbell: Dumbbell
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -61,12 +62,13 @@ struct dumbbellViewKinnikuBonus: View {
                             title: "合いの手の人数",
                             textBody1: "・100枚獲得毎に合いの手演出が発生",
                             textBody2: "・合いの手の人数で設定を示唆",
-                            image1: Image("dumbbellAinote")
+                            tableView: AnyView(dumbbellTableAinote())
+//                            image1: Image("dumbbellAinote")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 9)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 9)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("合いの手の人数")
@@ -157,7 +159,8 @@ struct dumbbellViewKinnikuBonus: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "終了画面振り分け",
-                            image1: Image("dumbbellKinnikuScreenRatio")
+                            tableView: AnyView(dumbbellTableKinnikuBonusScreen())
+//                            image1: Image("dumbbellKinnikuScreenRatio")
                         )
                     )
                 )
@@ -171,7 +174,7 @@ struct dumbbellViewKinnikuBonus: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 11)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 11)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("終了画面")
@@ -278,5 +281,5 @@ struct dumbbellViewKinnikuBonus: View {
 }
 
 #Preview {
-    dumbbellViewKinnikuBonus()
+    dumbbellViewKinnikuBonus(dumbbell: Dumbbell())
 }

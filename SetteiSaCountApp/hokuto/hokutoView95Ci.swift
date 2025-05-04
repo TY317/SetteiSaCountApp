@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct hokutoView95Ci: View {
-    @ObservedObject var hokuto = Hokuto()
+//    @ObservedObject var hokuto = Hokuto()
+    @ObservedObject var hokuto: Hokuto
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -138,5 +139,5 @@ struct hokutoView95Ci: View {
 }
 
 #Preview {
-    hokutoView95Ci()
+    hokutoView95Ci(hokuto: Hokuto())
 }

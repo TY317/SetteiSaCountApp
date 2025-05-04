@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewStoryChara: View {
-    @ObservedObject var ver280 = Ver280()
+//    @ObservedObject var ver280 = Ver280()
     
     var body: some View {
         List {
@@ -70,11 +70,11 @@ struct magiaViewStoryChara: View {
                 }
             }
         }
-        .onAppear {
-            if ver280.magiaMenuStoryCharaBadgeStatus != "none" {
-                ver280.magiaMenuStoryCharaBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver280.magiaMenuStoryCharaBadgeStatus != "none" {
+//                ver280.magiaMenuStoryCharaBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ストーリーのキャラ紹介")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godzillaViewExMovie: View {
-    @ObservedObject var godzilla = Godzilla()
+    @ObservedObject var godzilla: Godzilla
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
     let imageNameList: [String] = [
@@ -127,5 +127,5 @@ struct godzillaViewExMovie: View {
 }
 
 #Preview {
-    godzillaViewExMovie()
+    godzillaViewExMovie(godzilla: Godzilla())
 }

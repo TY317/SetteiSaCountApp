@@ -26,7 +26,8 @@ struct dumbbellTipGoldenChallengeBonusTimes: Tip {
 
 
 struct dumbbellViewGoldenChallenge: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @ObservedObject var dumbbell: Dumbbell
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -86,13 +87,14 @@ struct dumbbellViewGoldenChallenge: View {
                         unitExView5body2image(
                             title: "ゴールデンチャレンジ",
                             textBody1: "・高設定ほどチャレンジ当選、成功率が優遇",
+                            tableView: AnyView(dumbbellTableGoldenChallenge())
 //                            textBody2: "・成功率は公表値で約56%。これは低設定または全設定平均値と思われる。高設定はこれより優遇？",
-                            image1: Image("dumbellGoldenChallengeRatio")
+//                            image1: Image("dumbellGoldenChallengeRatio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ゴールデンチャレンジ")
@@ -157,5 +159,5 @@ struct dumbbellViewGoldenChallenge: View {
 }
 
 #Preview {
-    dumbbellViewGoldenChallenge()
+    dumbbellViewGoldenChallenge(dumbbell: Dumbbell())
 }

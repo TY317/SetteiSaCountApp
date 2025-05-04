@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kaguyaView95Ci: View {
-    @ObservedObject var kaguya = KaguyaSama()
+//    @ObservedObject var kaguya = KaguyaSama()
+    @ObservedObject var kaguya: KaguyaSama
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -62,5 +63,5 @@ struct kaguyaView95Ci: View {
 }
 
 #Preview {
-    kaguyaView95Ci()
+    kaguyaView95Ci(kaguya: KaguyaSama())
 }

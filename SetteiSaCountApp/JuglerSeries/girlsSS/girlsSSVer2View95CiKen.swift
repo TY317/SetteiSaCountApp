@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSVer2View95CiKen: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -99,5 +100,5 @@ struct girlsSSVer2View95CiKen: View {
 }
 
 #Preview {
-    girlsSSVer2View95CiKen()
+    girlsSSVer2View95CiKen(girlsSS: GirlsSS())
 }

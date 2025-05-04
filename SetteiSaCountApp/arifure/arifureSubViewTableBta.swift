@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureSubViewTableBta: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     var body: some View {
         VStack{
             Text("[実質継続G数 100万回シミュレーション結果]")
@@ -36,5 +37,5 @@ struct arifureSubViewTableBta: View {
 }
 
 #Preview {
-    arifureSubViewTableBta()
+    arifureSubViewTableBta(arifure: Arifure())
 }

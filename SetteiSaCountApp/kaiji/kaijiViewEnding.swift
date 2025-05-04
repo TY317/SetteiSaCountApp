@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct kaijiViewEnding: View {
-    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var ver300: Ver300
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     let voiceList: [String] = [
         "救えぬ偽善者・・",
@@ -36,6 +38,7 @@ struct kaijiViewEnding: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
+                .popoverTip(tipVer300KaijiVoice())
 
                 // //// 選択されているボイスのカウント表示
                 // 奇数示唆
@@ -59,7 +62,7 @@ struct kaijiViewEnding: View {
                 // 魔力
                 else if self.selectedVoice == self.voiceList[2] {
                     unitResultCountListPercent(
-                        title: "???",
+                        title: "高設定示唆",
                         count: $kaiji.endingCountMaryoku,
                         flashColor: .green,
                         bigNumber: $kaiji.endingCountSum
@@ -68,7 +71,7 @@ struct kaijiViewEnding: View {
                 // 設定４以上
                 else if self.selectedVoice == self.voiceList[3] {
                     unitResultCountListPercent(
-                        title: "???(4以上?）",
+                        title: "設定4 以上濃厚",
                         count: $kaiji.endingCountOver4,
                         flashColor: .red,
                         bigNumber: $kaiji.endingCountSum
@@ -77,7 +80,7 @@ struct kaijiViewEnding: View {
                 // 帝愛
                 else {
                     unitResultCountListPercent(
-                        title: "???",
+                        title: "設定6 濃厚",
                         count: $kaiji.endingCountTeiai,
                         flashColor: .purple,
                         bigNumber: $kaiji.endingCountSum
@@ -144,27 +147,32 @@ struct kaijiViewEnding: View {
                     )
                 // 魔力
                     unitResultCountListPercent(
-                        title: "?(魔力！)",
+                        title: "高設定示唆",
                         count: $kaiji.endingCountMaryoku,
                         flashColor: .green,
                         bigNumber: $kaiji.endingCountSum
                     )
                 // 設定４以上
                     unitResultCountListPercent(
-                        title: "?(456賽)",
+                        title: "設定4 以上濃厚",
                         count: $kaiji.endingCountOver4,
                         flashColor: .red,
                         bigNumber: $kaiji.endingCountSum
                     )
                 // 帝愛
                     unitResultCountListPercent(
-                        title: "?(帝愛は・・)",
+                        title: "設定6 濃厚",
                         count: $kaiji.endingCountTeiai,
                         flashColor: .purple,
                         bigNumber: $kaiji.endingCountSum
                     )
             } header: {
                 Text("カウント結果")
+            }
+        }
+        .onAppear {
+            if ver300.kaijiMenuVoiceBadgeStatus != "none" {
+                ver300.kaijiMenuVoiceBadgeStatus = "none"
             }
         }
         .navigationTitle("エンディング")
@@ -184,5 +192,8 @@ struct kaijiViewEnding: View {
 }
 
 #Preview {
-    kaijiViewEnding()
+    kaijiViewEnding(
+        ver300: Ver300(),
+        kaiji: Kaiji()
+    )
 }

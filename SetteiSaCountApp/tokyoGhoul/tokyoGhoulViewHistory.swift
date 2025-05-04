@@ -42,7 +42,8 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
 //    @ObservedObject var ver250 = Ver250()
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -199,7 +200,7 @@ struct tokyoGhoulViewHistory: View {
                             title: "下段リプレイ確率",
                             textBody1: "・下段リプレイに若干だが設定差あり",
                             textBody2: "・下段リプレイ成立時は全状態で赫眼状態へ移行濃厚",
-                            tableView: AnyView(tokyoGhoulSubViewTableGedanReplay())
+                            tableView: AnyView(tokyoGhoulSubViewTableGedanReplay(tokyoGhoul: tokyoGhoul))
                         )
                     )
                 )
@@ -411,7 +412,7 @@ struct tokyoGhoulViewHistory: View {
                             title: "裏ATの振分け",
                             textBody1: "・初当り時に裏ATへの振分けがあり高設定ほど優遇",
                             textBody2: "・裏ATは喰種対決の勝利期待度が大幅アップしたATで期待枚数は3000枚以上！",
-                            tableView: AnyView(tokyoGhoulSubViewTableUraAt())
+                            tableView: AnyView(tokyoGhoulSubViewTableUraAt(tokyoGhoul: tokyoGhoul))
                         )
                     )
                 )
@@ -428,7 +429,7 @@ struct tokyoGhoulViewHistory: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(selection: 3)))
+                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
@@ -460,7 +461,7 @@ struct tokyoGhoulViewHistory: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(selection: 6)))
+                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 6)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("100G以内での当選率")
@@ -529,5 +530,5 @@ struct tokyoGhoulViewHistory: View {
 }
 
 #Preview {
-    tokyoGhoulViewHistory()
+    tokyoGhoulViewHistory(tokyoGhoul: TokyoGhoul())
 }

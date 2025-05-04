@@ -451,15 +451,19 @@ class LupinMemory3: ObservableObject {
 
 
 struct lupinViewTop: View {
-    @ObservedObject var lupin = Lupin()
+//    @ObservedObject var lupin = Lupin()
+    @StateObject var lupin = Lupin()
     @State var isShowAlert: Bool = false
+    @StateObject var lupinMemory1 = LupinMemory1()
+    @StateObject var lupinMemory2 = LupinMemory2()
+    @StateObject var lupinMemory3 = LupinMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // 初当り履歴
-                    NavigationLink(destination: lupinViewHistory()) {
+                    NavigationLink(destination: lupinViewHistory(lupin: lupin)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "初当り履歴"
@@ -473,7 +477,7 @@ struct lupinViewTop: View {
                         )
                     }
                     // シングル揃いボーナス後のボイス
-                    NavigationLink(destination: lupinSingleBonusVoice()) {
+                    NavigationLink(destination: lupinSingleBonusVoice(lupin: lupin)) {
                         unitLabelMenu(
                             imageSystemName: "message",
                             textBody: "AT非当選ボーナス終了後のボイス"
@@ -487,14 +491,14 @@ struct lupinViewTop: View {
                         )
                     }
                     // AT終了時の画面
-                    NavigationLink(destination: lupinViewAtScreen()) {
+                    NavigationLink(destination: lupinViewAtScreen(lupin: lupin)) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "AT終了画面"
                         )
                     }
                     // AT終了後のボイス
-                    NavigationLink(destination: lupinViewAtVoice()) {
+                    NavigationLink(destination: lupinViewAtVoice(lupin: lupin)) {
                         unitLabelMenu(
                             imageSystemName: "text.bubble",
                             textBody: "AT終了後のメニュー内セリフ"
@@ -508,13 +512,13 @@ struct lupinViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ルパン3世 大航海者の秘宝", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: lupinView95Ci()) {
+                NavigationLink(destination: lupinView95Ci(lupin: lupin)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
 //                .popoverTip(tipVer16095CiAdd())
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4689")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -523,9 +527,19 @@ struct lupinViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(lupinSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(lupinSubViewLoadMemory(
+                        lupin: lupin,
+                        lupinMemory1: lupinMemory1,
+                        lupinMemory2: lupinMemory2,
+                        lupinMemory3: lupinMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(lupinSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(lupinSubViewSaveMemory(
+                        lupin: lupin,
+                        lupinMemory1: lupinMemory1,
+                        lupinMemory2: lupinMemory2,
+                        lupinMemory3: lupinMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -540,10 +554,10 @@ struct lupinViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct lupinSubViewSaveMemory: View {
-    @ObservedObject var lupin = Lupin()
-    @ObservedObject var lupinMemory1 = LupinMemory1()
-    @ObservedObject var lupinMemory2 = LupinMemory2()
-    @ObservedObject var lupinMemory3 = LupinMemory3()
+    @ObservedObject var lupin: Lupin
+    @ObservedObject var lupinMemory1: LupinMemory1
+    @ObservedObject var lupinMemory2: LupinMemory2
+    @ObservedObject var lupinMemory3: LupinMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -688,10 +702,10 @@ struct lupinSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct lupinSubViewLoadMemory: View {
-    @ObservedObject var lupin = Lupin()
-    @ObservedObject var lupinMemory1 = LupinMemory1()
-    @ObservedObject var lupinMemory2 = LupinMemory2()
-    @ObservedObject var lupinMemory3 = LupinMemory3()
+    @ObservedObject var lupin: Lupin
+    @ObservedObject var lupinMemory1: LupinMemory1
+    @ObservedObject var lupinMemory2: LupinMemory2
+    @ObservedObject var lupinMemory3: LupinMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -711,10 +725,18 @@ struct lupinSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        lupin.gameArrayData = lupinMemory1.gameArrayData
-        lupin.bonusArrayData = lupinMemory1.bonusArrayData
-        lupin.triggerArrayData = lupinMemory1.triggerArrayData
-        lupin.atHitArrayData = lupinMemory1.atHitArrayData
+        let memoryGameArray = decodeIntArray(from: lupinMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: lupin.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: lupinMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: lupin.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: lupinMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: lupin.triggerArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: lupinMemory1.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: lupin.atHitArrayKey)
+//        lupin.gameArrayData = lupinMemory1.gameArrayData
+//        lupin.bonusArrayData = lupinMemory1.bonusArrayData
+//        lupin.triggerArrayData = lupinMemory1.triggerArrayData
+//        lupin.atHitArrayData = lupinMemory1.atHitArrayData
         lupin.cherryCountAll = lupinMemory1.cherryCountAll
         lupin.cherryCountHit = lupinMemory1.cherryCountHit
         lupin.czCountAll = lupinMemory1.czCountAll
@@ -751,10 +773,18 @@ struct lupinSubViewLoadMemory: View {
         lupin.atScreenCountSum = lupinMemory1.atScreenCountSum
     }
     func loadMemory2() {
-        lupin.gameArrayData = lupinMemory2.gameArrayData
-        lupin.bonusArrayData = lupinMemory2.bonusArrayData
-        lupin.triggerArrayData = lupinMemory2.triggerArrayData
-        lupin.atHitArrayData = lupinMemory2.atHitArrayData
+        let memoryGameArray = decodeIntArray(from: lupinMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: lupin.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: lupinMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: lupin.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: lupinMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: lupin.triggerArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: lupinMemory2.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: lupin.atHitArrayKey)
+//        lupin.gameArrayData = lupinMemory2.gameArrayData
+//        lupin.bonusArrayData = lupinMemory2.bonusArrayData
+//        lupin.triggerArrayData = lupinMemory2.triggerArrayData
+//        lupin.atHitArrayData = lupinMemory2.atHitArrayData
         lupin.cherryCountAll = lupinMemory2.cherryCountAll
         lupin.cherryCountHit = lupinMemory2.cherryCountHit
         lupin.czCountAll = lupinMemory2.czCountAll
@@ -791,10 +821,18 @@ struct lupinSubViewLoadMemory: View {
         lupin.atScreenCountSum = lupinMemory2.atScreenCountSum
     }
     func loadMemory3() {
-        lupin.gameArrayData = lupinMemory3.gameArrayData
-        lupin.bonusArrayData = lupinMemory3.bonusArrayData
-        lupin.triggerArrayData = lupinMemory3.triggerArrayData
-        lupin.atHitArrayData = lupinMemory3.atHitArrayData
+        let memoryGameArray = decodeIntArray(from: lupinMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: lupin.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: lupinMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: lupin.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: lupinMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: lupin.triggerArrayKey)
+        let memoryAtHitArray = decodeStringArray(from: lupinMemory3.atHitArrayData)
+        saveArray(memoryAtHitArray, forKey: lupin.atHitArrayKey)
+//        lupin.gameArrayData = lupinMemory3.gameArrayData
+//        lupin.bonusArrayData = lupinMemory3.bonusArrayData
+//        lupin.triggerArrayData = lupinMemory3.triggerArrayData
+//        lupin.atHitArrayData = lupinMemory3.atHitArrayData
         lupin.cherryCountAll = lupinMemory3.cherryCountAll
         lupin.cherryCountHit = lupinMemory3.cherryCountHit
         lupin.czCountAll = lupinMemory3.czCountAll

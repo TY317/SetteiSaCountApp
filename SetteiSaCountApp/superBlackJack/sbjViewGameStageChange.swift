@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct sbjViewGameStageChange: View {
-    @ObservedObject var sbj = Sbj()
+//    @ObservedObject var sbj = Sbj()
+    @ObservedObject var sbj: Sbj
     @State var isShowAlert: Bool = false
 //    @ObservedObject var ver240 = Ver240()
     let selectListSegment: [String] = [
@@ -133,12 +134,12 @@ struct sbjViewGameStageChange: View {
                             title: "規定ゲーム数での移行",
                             textBody1: "・100G消化ごとにチャイナorボーナス高確移行の抽選が行われる",
                             textBody2: "・移行は高設定ほど優遇されており、特にボーナス高確は差が大きい",
-                            tableView: AnyView(sbjSubViewTableGameChangeRatio())
+                            tableView: AnyView(sbjSubViewTableGameChangeRatio(sbj: sbj))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(selection: 4)))
+                unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 4)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定ゲーム数での移行カウント")
@@ -166,5 +167,5 @@ struct sbjViewGameStageChange: View {
 }
 
 #Preview {
-    sbjViewGameStageChange()
+    sbjViewGameStageChange(sbj: Sbj())
 }

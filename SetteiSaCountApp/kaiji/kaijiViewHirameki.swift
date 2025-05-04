@@ -9,7 +9,8 @@ import SwiftUI
 
 struct kaijiViewHirameki: View {
 //    @ObservedObject var ver260 = Ver260()
-    @ObservedObject var kaiji = Kaiji()
+//    @ObservedObject var kaiji = Kaiji()
+    @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
     @State var selectedColor: String = "青"
     let colorList: [String] = [
@@ -152,7 +153,7 @@ struct kaijiViewHirameki: View {
                             title: "色ごとの成功率",
                             textBody1: "・閃き前兆開始時にCZ突入抽選をしており、高設定ほど優遇",
                             textBody2: "・自力でのCZ当選もあるため、実際は下記数値よりも高い成功率となるはず",
-                            tableView: AnyView(kaijiTableHirameki())
+                            tableView: AnyView(kaijiTableHirameki(kaiji: kaiji))
                         )
                     )
                 )
@@ -236,5 +237,5 @@ struct kaijiViewHirameki: View {
 }
 
 #Preview {
-    kaijiViewHirameki()
+    kaijiViewHirameki(kaiji: Kaiji())
 }

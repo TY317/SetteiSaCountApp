@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mt5View95Ci: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -168,5 +169,5 @@ struct mt5View95Ci: View {
 }
 
 #Preview {
-//    mt5View95Ci()
+    mt5View95Ci(mt5: Mt5())
 }

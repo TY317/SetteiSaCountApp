@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mt5RivalModeView: View {
-    @ObservedObject var mt5 = Mt5()
+//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var mt5: Mt5
     @State var isShowAlert = false
     
     var body: some View {
@@ -29,7 +30,7 @@ struct mt5RivalModeView: View {
                     // 参考情報へのリンク：舟券での示唆
                     unitLinkButton(title: "舟券での示唆", exview: AnyView(mt5ExViewFnaken()))
                     // 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(selection: 3)))
+                    unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 3)))
                         .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ライバルモードカウント")
@@ -80,5 +81,5 @@ struct mt5ExViewFnaken: View {
 }
 
 #Preview {
-    mt5RivalModeView()
+    mt5RivalModeView(mt5: Mt5())
 }

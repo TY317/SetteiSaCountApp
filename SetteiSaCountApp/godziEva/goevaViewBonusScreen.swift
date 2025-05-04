@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goevaViewBonusScreen: View {
-    @ObservedObject var goeva = Goeva()
+//    @ObservedObject var goeva = Goeva()
+    @ObservedObject var goeva: Goeva
     @State var tips = tipUnitButtonScreenChoice()
     @State var isShowAlert = false
     
@@ -89,5 +90,5 @@ struct goevaViewBonusScreen: View {
 }
 
 #Preview {
-    goevaViewBonusScreen()
+    goevaViewBonusScreen(goeva: Goeva())
 }

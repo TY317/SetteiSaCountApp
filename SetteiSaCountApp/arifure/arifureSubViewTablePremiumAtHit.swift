@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureSubViewTablePremiumAtHit: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -18,5 +19,5 @@ struct arifureSubViewTablePremiumAtHit: View {
 }
 
 #Preview {
-    arifureSubViewTablePremiumAtHit()
+    arifureSubViewTablePremiumAtHit(arifure: Arifure())
 }

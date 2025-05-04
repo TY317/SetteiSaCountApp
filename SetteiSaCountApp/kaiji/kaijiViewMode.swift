@@ -9,6 +9,7 @@ import SwiftUI
 
 struct kaijiViewMode: View {
 //    @ObservedObject var ver270 = Ver270()
+    @ObservedObject var ver300: Ver300
     var body: some View {
         List {
             Section {
@@ -41,6 +42,19 @@ struct kaijiViewMode: View {
 //                        .frame(maxWidth: .infinity, alignment: .center)
 //                        .fontWeight(.bold)
 //                }
+                
+                // モード振り分け
+                unitLinkButton(
+                    title: "モード振り分けについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "モード振り分け",
+                            textBody1: "・ボーナス連チャン後のみ設定差あり",
+                            tableView: AnyView(kaijiTableModeRatio())
+                        )
+                    )
+                )
+                .popoverTip(tipVer300KaijiMode())
             } header: {
                 Text("モードの基本情報")
             }
@@ -108,16 +122,16 @@ struct kaijiViewMode: View {
                 Text("推測要素２）ざわ高確中の挙動")
             }
         }
-//        .onAppear {
-//            if ver270.kaijiMenuModeBadgeStatus != "none" {
-//                ver270.kaijiMenuModeBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver300.kaijiMenuModeBadgeStatus != "none" {
+                ver300.kaijiMenuModeBadgeStatus = "none"
+            }
+        }
         .navigationTitle("モード推測")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    kaijiViewMode()
+    kaijiViewMode(ver300: Ver300())
 }

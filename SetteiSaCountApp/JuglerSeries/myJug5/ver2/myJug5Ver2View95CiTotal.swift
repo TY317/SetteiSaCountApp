@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct myJug5Ver2View95CiTotal: View {
-    @ObservedObject var myJug5 = MyJug5()
+//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var myJug5: MyJug5
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -153,5 +154,5 @@ struct myJug5Ver2View95CiTotal: View {
 }
 
 #Preview {
-    myJug5Ver2View95CiTotal()
+    myJug5Ver2View95CiTotal(myJug5: MyJug5())
 }

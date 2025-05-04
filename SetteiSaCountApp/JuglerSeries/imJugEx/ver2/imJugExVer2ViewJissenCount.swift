@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct imJugExVer2ViewJissenCount: View {
-    @ObservedObject var imJugEx = ImJugEx()
+//    @ObservedObject var imJugEx = ImJugEx()
+    @ObservedObject var imJugEx: ImJugEx
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     
@@ -78,12 +79,12 @@ struct imJugExVer2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "アイムジャグラーEX設定差",
-                            tableView: AnyView(imJugExTableRatio())
+                            tableView: AnyView(imJugExTableRatio(imJugEx: imJugEx))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiPersonal()))
+                unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiPersonal(imJugEx: imJugEx)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役,ボーナス カウント")
@@ -132,6 +133,15 @@ struct imJugExVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            imJugExSubViewCountInput(
+                                imJugEx: imJugEx
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $imJugEx.minusCheck)
                     // リセットボタン
@@ -143,5 +153,5 @@ struct imJugExVer2ViewJissenCount: View {
 }
 
 #Preview {
-    imJugExVer2ViewJissenCount()
+    imJugExVer2ViewJissenCount(imJugEx: ImJugEx())
 }

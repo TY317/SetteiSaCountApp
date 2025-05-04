@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct magiaTableFirstHit: View {
-    @ObservedObject var magia = Magia()
+//    @ObservedObject var magia = Magia()
+    @ObservedObject var magia: Magia
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -25,5 +26,5 @@ struct magiaTableFirstHit: View {
 }
 
 #Preview {
-    magiaTableFirstHit()
+    magiaTableFirstHit(magia: Magia())
 }

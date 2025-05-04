@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bangdreamViewHistory: View {
-    @ObservedObject var bangdream = Bangdream()
+//    @ObservedObject var bangdream = Bangdream()
+    @ObservedObject var bangdream: Bangdream
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -128,7 +129,7 @@ struct bangdreamViewHistory: View {
                 // //// 参考情報リンク
                 unitLinkButton(title: "周期到達時の当選確率について", exview: AnyView(unitExView5body2image(title: "周期到達時の当選確率", textBody1: "・ALL設定バトル動画で「周期毎のストーリーステージ期待度」に設定差があると発表", textBody2: "・赤ディスクや黒ディスクも含めた当選率なのか？詳細の説明はなし", textBody3: "・このアプリではひとまず 周期での当選回数 ÷ ストーリーステージ到達回数を参考として表示します", image1: Image("bangdreamCycleHitRatio"))))
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(bangdream: bangdream, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("周期当選確率")
@@ -254,5 +255,5 @@ struct bangdreamSubViewDataInput: View {
 }
 
 #Preview {
-    bangdreamViewHistory()
+    bangdreamViewHistory(bangdream: Bangdream())
 }

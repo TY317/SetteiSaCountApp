@@ -9,7 +9,8 @@ import SwiftUI
 
 struct arifureViewCharacter: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert = false
     @State var selectedCategory: String = "通常"
     let selectListCategory: [String] = ["通常", "金文字", "ﾐﾆｷｬﾗﾑｰﾋﾞｰ"]
@@ -474,13 +475,13 @@ struct arifureViewCharacter: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "キャラ紹介振り分け",
-                            tableView: AnyView(arifureSubViewTableChara())
+                            tableView: AnyView(arifureSubViewTableChara(arifure: arifure))
                         )
                     )
                 )
 //                .popoverTip(tipVer250ArifureCharacterRatio())
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 13)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 13)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("カウント結果")
@@ -549,5 +550,5 @@ struct arifureViewCharacter: View {
 }
 
 #Preview {
-    arifureViewCharacter()
+    arifureViewCharacter(arifure: Arifure())
 }

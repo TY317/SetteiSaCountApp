@@ -9,7 +9,8 @@ import SwiftUI
 import TipKit
 
 struct godeaterViewVoice: View {
-    @ObservedObject var godeater = Godeater()
+//    @ObservedObject var godeater = Godeater()
+    @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     
     var body: some View {
@@ -183,5 +184,5 @@ struct godeaterViewVoice: View {
 }
 
 #Preview {
-    godeaterViewVoice()
+    godeaterViewVoice(godeater: Godeater())
 }

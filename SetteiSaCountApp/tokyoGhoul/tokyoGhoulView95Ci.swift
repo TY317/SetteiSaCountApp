@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct tokyoGhoulView95Ci: View {
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -132,5 +133,5 @@ struct tokyoGhoulView95Ci: View {
 }
 
 #Preview {
-    tokyoGhoulView95Ci()
+    tokyoGhoulView95Ci(tokyoGhoul: TokyoGhoul())
 }

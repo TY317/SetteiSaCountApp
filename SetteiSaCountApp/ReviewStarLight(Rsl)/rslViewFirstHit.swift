@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslViewFirstHit: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -133,12 +134,12 @@ struct rslViewFirstHit: View {
                             title: "初当り確率",
                             textBody1: "・本機はリアルボーナスのため、ボーナス確率は総ゲーム数から算出しています",
                             textBody2: "・BIGは青7に若干の設定差あり",
-                            tableView: AnyView(rslTableFirstHit())
+                            tableView: AnyView(rslTableFirstHit(rsl: rsl))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(rsl: rsl, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
@@ -188,12 +189,12 @@ struct rslViewFirstHit: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "設定差の大きいREG当選契機",
-                            tableView: AnyView(rslTableReg3Yaku())
+                            tableView: AnyView(rslTableReg3Yaku(rsl: rsl))
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(selection: 5)))
+                unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(rsl: rsl, selection: 5)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("REG当選契機別カウント")
@@ -293,5 +294,5 @@ struct rslViewFirstHit: View {
 }
 
 #Preview {
-    rslViewFirstHit()
+    rslViewFirstHit(rsl: Rsl())
 }

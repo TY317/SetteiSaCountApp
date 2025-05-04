@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct mrJugSubViewTableRatio: View {
-    @ObservedObject var mrJug = MrJug()
+//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var mrJug: MrJug
     
     var body: some View {
         HStack(spacing: 0) {
@@ -36,5 +37,5 @@ struct mrJugSubViewTableRatio: View {
 }
 
 #Preview {
-    mrJugSubViewTableRatio()
+    mrJugSubViewTableRatio(mrJug: MrJug())
 }

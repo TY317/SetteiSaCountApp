@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct goevaView95Ci: View {
-    @ObservedObject var goeva = Goeva()
+//    @ObservedObject var goeva = Goeva()
+    @ObservedObject var goeva: Goeva
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -100,5 +101,5 @@ struct goevaView95Ci: View {
 }
 
 #Preview {
-    goevaView95Ci()
+    goevaView95Ci(goeva: Goeva())
 }

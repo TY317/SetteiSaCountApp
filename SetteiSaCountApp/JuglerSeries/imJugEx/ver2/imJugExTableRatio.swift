@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct imJugExTableRatio: View {
-    @ObservedObject var imJugEx = ImJugEx()
+//    @ObservedObject var imJugEx = ImJugEx()
+    @ObservedObject var imJugEx: ImJugEx
     var body: some View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
@@ -46,5 +47,5 @@ struct imJugExTableRatio: View {
 }
 
 #Preview {
-    imJugExTableRatio()
+    imJugExTableRatio(imJugEx: ImJugEx())
 }

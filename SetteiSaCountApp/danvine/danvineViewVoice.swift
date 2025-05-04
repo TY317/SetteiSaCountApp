@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineViewVoice: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var isShowAlert = false
     
     var body: some View {
@@ -217,5 +218,5 @@ struct danvineViewVoice: View {
 }
 
 #Preview {
-    danvineViewVoice()
+    danvineViewVoice(danvine: Danvine())
 }

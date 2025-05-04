@@ -43,7 +43,8 @@ struct tipUnitAcceleratorShutterOpenGame: Tip {
 
 
 struct acceleratorViewShutter: View {
-    @ObservedObject var accelerator = Accelerator()
+//    @ObservedObject var accelerator = Accelerator()
+    @ObservedObject var accelerator: Accelerator
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
@@ -92,12 +93,13 @@ struct acceleratorViewShutter: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "シャッター開放率",
-                            image1: Image("acceleratorShutterOpenRatio")
+                            tableView: AnyView(acceleratorTableShutterOpen())
+//                            image1: Image("acceleratorShutterOpenRatio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 9)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 9)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("チャンス目からのシャッター開放")
@@ -160,12 +162,13 @@ struct acceleratorViewShutter: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "シャッター開放継続G数",
-                            image1: Image("acceleratorShutterOpenGame")
+                            tableView: AnyView(acceleratorTableShutterOpenGame())
+//                            image1: Image("acceleratorShutterOpenGame")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 10)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 10)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("シャッター開放継続G数")
@@ -262,12 +265,13 @@ struct acceleratorViewShutter: View {
                             title: "対応チャンス目抽選",
                             textBody1: "・液晶下部のシャッターが開いた状態で対応するチャンス目を引いた際のCZ当選率に設定差あり",
                             textBody2: "・高設定ほど当選率が高く、打ち止めCZの比率が多くなる",
-                            image1: Image("acceleratorChanceRatio")
+                            tableView: AnyView(acceleratorTableTaioChance())
+//                            image1: Image("acceleratorChanceRatio")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("対応チャンス目成立時の抽選")
@@ -284,7 +288,8 @@ struct acceleratorViewShutter: View {
                             textBody1: "・シャッターが開いた状態で非対応のチャンス目を引いた際のCZ当選率に設定差あり",
                             textBody2: "・非対応チャンス目からの当選では必ず打ち止めCZとなる",
                             textBody3: "・当選率が低いが、1と6で3倍の差があるため複数回確認できたらチャンスかも",
-                            image1: Image("acceleratorNoMatchChanceHit")
+                            tableView: AnyView(acceleratorTableHitaioChance())
+//                            image1: Image("acceleratorNoMatchChanceHit")
                         )
                     )
                 )
@@ -297,7 +302,8 @@ struct acceleratorViewShutter: View {
                             textBody1: "・3連チャンス目成立時はCZ当選濃厚",
                             textBody2: "・CZ種類の振り分けに設定差あり",
                             textBody3: "・高設定ほど打ち止めCZ、一通・打止CZが出てきやすい",
-                            image1: Image("acceleratorTripleChance")
+                            tableView: AnyView(acceleratorTable3renChance())
+//                            image1: Image("acceleratorTripleChance")
                         )
                     )
                 )
@@ -364,5 +370,5 @@ struct acceleratorViewShutter: View {
 }
 
 #Preview {
-    acceleratorViewShutter()
+    acceleratorViewShutter(accelerator: Accelerator())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct bioViewNormal: View {
-    @ObservedObject var bio = Bio()
+//    @ObservedObject var bio = Bio()
+    @ObservedObject var bio: Bio
     var body: some View {
         List {
             Section {
@@ -31,5 +32,5 @@ struct bioViewNormal: View {
 }
 
 #Preview {
-    bioViewNormal()
+    bioViewNormal(bio: Bio())
 }

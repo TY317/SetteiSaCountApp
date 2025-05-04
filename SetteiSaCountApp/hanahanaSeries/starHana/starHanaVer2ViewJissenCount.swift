@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenCount: View {
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var starHana: StarHana
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
     @FocusState var isFocused: Bool
@@ -63,13 +64,13 @@ struct starHanaVer2ViewJissenCount: View {
                         exview: AnyView(
                             unitExView5body2image(
                                 title: "ベル・ボーナス確率",
-                                tableView: AnyView(starHanaTableBellBonus())
+                                tableView: AnyView(starHanaTableBellBonus(starHana: starHana))
 //                                image1: Image("starHanaBellBonusAnalysis")
                             )
                         )
                     )
                     // 95%信頼区間グラフ
-                    unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(selection: 1)))
+                    unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 1)))
                         .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
@@ -157,7 +158,7 @@ struct starHanaVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、フェザーランプ")
@@ -183,7 +184,7 @@ struct starHanaVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(selection: 5)))
+                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
@@ -217,7 +218,7 @@ struct starHanaVer2ViewJissenCount: View {
                                 )
                             )
                             // 95%信頼区間グラフ
-                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(selection: 6)))
+                            unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 6)))
                                 .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
@@ -278,7 +279,7 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                         )
                         // 95%信頼区間グラフ
-                        unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(selection: 7)))
+                        unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 7)))
                             .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
@@ -349,6 +350,15 @@ struct starHanaVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            starHanaSubViewCountInput(
+                                starHana: starHana
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $starHana.minusCheck)
                     // データリセットボタン
@@ -361,5 +371,5 @@ struct starHanaVer2ViewJissenCount: View {
 }
 
 #Preview {
-    starHanaVer2ViewJissenCount()
+    starHanaVer2ViewJissenCount(starHana: StarHana())
 }

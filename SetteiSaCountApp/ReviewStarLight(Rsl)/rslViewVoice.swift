@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct rslViewVoice: View {
-    @ObservedObject var rsl = Rsl()
+//    @ObservedObject var rsl = Rsl()
+    @ObservedObject var rsl: Rsl
     @State var isShowAlert = false
     let voiceList: [String] = [
         "オーディション終了します",
@@ -205,5 +206,5 @@ struct rslViewVoice: View {
 }
 
 #Preview {
-    rslViewVoice()
+    rslViewVoice(rsl: Rsl())
 }

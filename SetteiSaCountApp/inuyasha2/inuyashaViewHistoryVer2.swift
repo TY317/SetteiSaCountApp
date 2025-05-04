@@ -26,7 +26,8 @@ struct inuyashaTipHistoryInput: Tip {
 
 
 struct inuyashaViewHistoryVer2: View {
-    @ObservedObject var inuyasha = Inuyasha()
+//    @ObservedObject var inuyasha = Inuyasha()
+    @ObservedObject var inuyasha: Inuyasha
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -250,7 +251,7 @@ struct inuyashaViewHistoryVer2: View {
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(Ci95view: AnyView(inuyashaView95Ci(selection: 1)))
+                unitNaviLink95Ci(Ci95view: AnyView(inuyashaView95Ci(inuyasha: inuyasha, selection: 1)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
@@ -424,5 +425,5 @@ struct inuyashaSubViewDataInputVer2: View {
 
 
 #Preview {
-    inuyashaViewHistoryVer2()
+    inuyashaViewHistoryVer2(inuyasha: Inuyasha())
 }

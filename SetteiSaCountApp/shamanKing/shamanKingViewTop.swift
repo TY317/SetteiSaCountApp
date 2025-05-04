@@ -9,8 +9,12 @@ import SwiftUI
 
 struct shamanKingViewTop: View {
 //    @ObservedObject var ver270 = Ver270()
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @StateObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
+    @StateObject var shamanKingMemory1 = ShamanKingMemory1()
+    @StateObject var shamanKingMemory2 = ShamanKingMemory2()
+    @StateObject var shamanKingMemory3 = ShamanKingMemory3()
     
     var body: some View {
         NavigationStack {
@@ -26,14 +30,14 @@ struct shamanKingViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: shamanKingViewNormal()) {
+                    NavigationLink(destination: shamanKingViewNormal(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
                         )
                     }
                     // CZ当選時の振分け
-                    NavigationLink(destination: shamanKingViewCzFuriwake()) {
+                    NavigationLink(destination: shamanKingViewCzFuriwake(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "CZ当選時の振分け"
@@ -41,7 +45,7 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // 憑依合体バトル
-                    NavigationLink(destination: shamanKingViewHyoiGattai()) {
+                    NavigationLink(destination: shamanKingViewHyoiGattai(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "figure.handball",
                             textBody: "憑依合体バトル"
@@ -55,7 +59,7 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // ボーナス,AT 初当り
-                    NavigationLink(destination: shamanKingViewHit()) {
+                    NavigationLink(destination: shamanKingViewHit(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
@@ -69,7 +73,7 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: shamanKingViewEnding()) {
+                    NavigationLink(destination: shamanKingViewEnding(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング"
@@ -77,12 +81,12 @@ struct shamanKingViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: shamanKingView95Ci(selection: 7)) {
+                NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 7)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4719")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
 //        .onAppear {
@@ -96,9 +100,19 @@ struct shamanKingViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(shamanKingSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(shamanKingSubViewLoadMemory(
+                        shamanKing: shamanKing,
+                        shamanKingMemory1: shamanKingMemory1,
+                        shamanKingMemory2: shamanKingMemory2,
+                        shamanKingMemory3: shamanKingMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(shamanKingSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(shamanKingSubViewSaveMemory(
+                        shamanKing: shamanKing,
+                        shamanKingMemory1: shamanKingMemory1,
+                        shamanKingMemory2: shamanKingMemory2,
+                        shamanKingMemory3: shamanKingMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -114,10 +128,10 @@ struct shamanKingViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct shamanKingSubViewSaveMemory: View {
-    @ObservedObject var shamanKing = ShamanKing()
-    @ObservedObject var shamanKingMemory1 = ShamanKingMemory1()
-    @ObservedObject var shamanKingMemory2 = ShamanKingMemory2()
-    @ObservedObject var shamanKingMemory3 = ShamanKingMemory3()
+    @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var shamanKingMemory1: ShamanKingMemory1
+    @ObservedObject var shamanKingMemory2: ShamanKingMemory2
+    @ObservedObject var shamanKingMemory3: ShamanKingMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -292,10 +306,10 @@ struct shamanKingSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct shamanKingSubViewLoadMemory: View {
-    @ObservedObject var shamanKing = ShamanKing()
-    @ObservedObject var shamanKingMemory1 = ShamanKingMemory1()
-    @ObservedObject var shamanKingMemory2 = ShamanKingMemory2()
-    @ObservedObject var shamanKingMemory3 = ShamanKingMemory3()
+    @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var shamanKingMemory1: ShamanKingMemory1
+    @ObservedObject var shamanKingMemory2: ShamanKingMemory2
+    @ObservedObject var shamanKingMemory3: ShamanKingMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {

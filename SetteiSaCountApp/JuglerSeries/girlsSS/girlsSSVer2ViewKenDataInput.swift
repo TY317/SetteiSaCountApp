@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct girlsSSVer2ViewKenDataInput: View {
-    @ObservedObject var girlsSS = GirlsSS()
+//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var girlsSS: GirlsSS
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,7 +182,7 @@ struct girlsSSVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ジャグラーガールズSS設定差",
-                            tableView: AnyView(girlsSSTableRatio())
+                            tableView: AnyView(girlsSSTableRatio(girlsSS: girlsSS))
 //                            image1: Image("girlsSSAnalysis"),
 //                            image2Title: "[5号機数値からの予測値]\n※ただの予測です。参考程度としてください",
 //                            image2: Image("girlsSSYosoku")
@@ -189,7 +190,7 @@ struct girlsSSVer2ViewKenDataInput: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiKen(girlsSS: girlsSS)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -256,5 +257,5 @@ struct girlsSSVer2ViewKenDataInput: View {
 }
 
 #Preview {
-    girlsSSVer2ViewKenDataInput()
+    girlsSSVer2ViewKenDataInput(girlsSS: GirlsSS())
 }

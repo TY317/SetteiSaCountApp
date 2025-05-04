@@ -27,6 +27,7 @@ struct commonViewKerottoTrophy: View {
                     .foregroundStyle(self.textColor)
             }
             HStack(spacing: 0) {
+                Spacer()
                 unitTableString(
                     columTitle: "トロフィー色",
                     stringList: ["銅","銀","金","ケロット柄","虹"]
@@ -42,6 +43,7 @@ struct commonViewKerottoTrophy: View {
                     ],
                     maxWidth: 200
                 )
+                Spacer()
             }
 //            Image("commonKerottoTrophy")
 //                .resizable()

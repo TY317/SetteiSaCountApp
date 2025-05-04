@@ -9,7 +9,8 @@ import SwiftUI
 
 struct tokyoGhoulViewEnding: View {
 //    @ObservedObject var ver240 = Ver240()
-    @ObservedObject var tokyoGhoul = TokyoGhoul()
+//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var isShowAlert = false
     let selectListColor: [String] = ["白カード", "青カード", "赤カード", "銅銀金虹"]
     @State var selectedColor: String = "白カード"
@@ -539,5 +540,5 @@ struct tokyoGhoulViewEnding: View {
 }
 
 #Preview {
-    tokyoGhoulViewEnding()
+    tokyoGhoulViewEnding(tokyoGhoul: TokyoGhoul())
 }

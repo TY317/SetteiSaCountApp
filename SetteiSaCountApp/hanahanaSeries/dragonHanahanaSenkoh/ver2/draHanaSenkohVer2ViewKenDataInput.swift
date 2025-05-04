@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewKenDataInput: View {
-    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,13 +182,13 @@ struct draHanaSenkohVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            tableView: AnyView(draHanaSenkohTableBellBonus())
+                            tableView: AnyView(draHanaSenkohTableBellBonus(draHanaSenkoh: draHanaSenkoh))
 //                            image1: Image("draHanaSenkohBellBonusAnalysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiKen(draHanaSenkoh: draHanaSenkoh)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -254,5 +255,5 @@ struct draHanaSenkohVer2ViewKenDataInput: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewKenDataInput()
+    draHanaSenkohVer2ViewKenDataInput(draHanaSenkoh: DraHanaSenkoh())
 }

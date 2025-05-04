@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct starHanaTableBellBonus: View {
-    @ObservedObject var starHana = StarHana()
+//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var starHana: StarHana
     
     var body: some View {
         VStack {
@@ -40,5 +41,5 @@ struct starHanaTableBellBonus: View {
 }
 
 #Preview {
-    starHanaTableBellBonus()
+    starHanaTableBellBonus(starHana: StarHana())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct kingHanaVer2ViewKenDataInput: View {
-    @ObservedObject var kingHana = KingHana()
+//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var kingHana: KingHana
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @State var isShowAlertRecord = false
@@ -181,13 +182,13 @@ struct kingHanaVer2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "通常時 ベル・ボーナス確率",
-                            tableView: AnyView(kingHanaTableBellBonus())
+                            tableView: AnyView(kingHanaTableBellBonus(kingHana: kingHana))
 //                            image1: Image("kingHanaBellBonusAnalysis")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiKen()))
+                unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiKen(kingHana: kingHana)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
@@ -254,5 +255,5 @@ struct kingHanaVer2ViewKenDataInput: View {
 }
 
 #Preview {
-    kingHanaVer2ViewKenDataInput()
+    kingHanaVer2ViewKenDataInput(kingHana: KingHana())
 }

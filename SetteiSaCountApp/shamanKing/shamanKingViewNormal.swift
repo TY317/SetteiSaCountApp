@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct shamanKingViewNormal: View {
-    @ObservedObject var shamanKing = ShamanKing()
+//    @ObservedObject var shamanKing = ShamanKing()
+    @ObservedObject var shamanKing: ShamanKing
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -57,7 +58,7 @@ struct shamanKingViewNormal: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(selection: 7)))
+                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 7)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("弱レア役からのボーナス高確移行")
@@ -111,7 +112,7 @@ struct shamanKingViewNormal: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(selection: 8)))
+                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 8)))
                     .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("リプレイカウンタ10以上選択率")
@@ -175,5 +176,5 @@ struct shamanKingViewNormal: View {
 }
 
 #Preview {
-    shamanKingViewNormal()
+    shamanKingViewNormal(shamanKing: ShamanKing())
 }

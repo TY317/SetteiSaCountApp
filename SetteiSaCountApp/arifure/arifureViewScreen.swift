@@ -9,7 +9,8 @@ import SwiftUI
 
 struct arifureViewScreen: View {
 //    @ObservedObject var ver250 = Ver250()
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     @State var isShowAlert: Bool = false
     let imageNameList: [String] = [
         "arifureEndScreenDefault",
@@ -123,13 +124,13 @@ struct arifureViewScreen: View {
                             title: "AT終了画面の振り分け",
                             textBody1: "・トータルG数によって確定画面の出現割合が変化",
                             textBody2: "　2000G以降の数値は解析サイトで確認下さい",
-                            tableView: AnyView(arifureSubViewTableAtEndScreen())
+                            tableView: AnyView(arifureSubViewTableAtEndScreen(arifure: arifure))
                         )
                     )
                 )
 //                .popoverTip(tipVer250ArifureAtScreenRatio())
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(selection: 14)))
+                unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 14)))
                     .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
@@ -200,5 +201,5 @@ struct arifureViewScreen: View {
 }
 
 #Preview {
-    arifureViewScreen()
+    arifureViewScreen(arifure: Arifure())
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct arifureSubViewTableAtEndScreen: View {
-    @ObservedObject var arifure = Arifure()
+//    @ObservedObject var arifure = Arifure()
+    @ObservedObject var arifure: Arifure
     
     var body: some View {
         VStack {
@@ -65,5 +66,5 @@ struct arifureSubViewTableAtEndScreen: View {
 }
 
 #Preview {
-    arifureSubViewTableAtEndScreen()
+    arifureSubViewTableAtEndScreen(arifure: Arifure())
 }

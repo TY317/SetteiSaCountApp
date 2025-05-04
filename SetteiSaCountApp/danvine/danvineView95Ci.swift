@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct danvineView95Ci: View {
-    @ObservedObject var danvine = Danvine()
+//    @ObservedObject var danvine = Danvine()
+    @ObservedObject var danvine: Danvine
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -132,5 +133,5 @@ struct danvineView95Ci: View {
 }
 
 #Preview {
-    danvineView95Ci()
+    danvineView95Ci(danvine: Danvine())
 }

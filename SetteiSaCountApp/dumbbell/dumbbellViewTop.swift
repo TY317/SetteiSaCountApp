@@ -478,8 +478,12 @@ class DumbbellMemory3: ObservableObject {
 
 
 struct dumbbellViewTop: View {
-    @ObservedObject var dumbbell = Dumbbell()
+//    @ObservedObject var dumbbell = Dumbbell()
+    @StateObject var dumbbell = Dumbbell()
     @State var isShowAlert: Bool = false
+    @StateObject var dumbbellMemory1 = DumbbellMemory1()
+    @StateObject var dumbbellMemory2 = DumbbellMemory2()
+    @StateObject var dumbbellMemory3 = DumbbellMemory3()
     
     var body: some View {
         NavigationStack {
@@ -492,14 +496,14 @@ struct dumbbellViewTop: View {
                             textBody: "チートデイ")
                     }
                     // 初当り履歴
-                    NavigationLink(destination: dumbbellViewHistory()) {
+                    NavigationLink(destination: dumbbellViewHistory(dumbbell: dumbbell)) {
                         unitLabelMenu(
                             imageSystemName: "dumbbell",
                             textBody: "CZ,ボーナス初当り履歴"
                         )
                     }
                     // CZ・AT終了画面
-                    NavigationLink(destination: dumbbellCzAtScreen()) {
+                    NavigationLink(destination: dumbbellCzAtScreen(dumbbell: dumbbell)) {
                         unitLabelMenu(
                             imageSystemName: "dumbbell.fill",
                             textBody: "CZ,ボーナス終了画面"
@@ -507,14 +511,14 @@ struct dumbbellViewTop: View {
                     }
 //                    .popoverTip(tipVer200DumbbellUpdateInfo())
                     // ゴールデンチャレンジ
-                    NavigationLink(destination: dumbbellViewGoldenChallenge()) {
+                    NavigationLink(destination: dumbbellViewGoldenChallenge(dumbbell: dumbbell)) {
                         unitLabelMenu(
                             imageSystemName: "dumbbell",
                             textBody: "ゴールデンチャレンジ"
                         )
                     }
                     // 金肉ボーナス
-                    NavigationLink(destination: dumbbellViewKinnikuBonus()) {
+                    NavigationLink(destination: dumbbellViewKinnikuBonus(dumbbell: dumbbell)) {
                         unitLabelMenu(
                             imageSystemName: "dumbbell.fill",
                             textBody: "金肉ボーナス"
@@ -524,12 +528,12 @@ struct dumbbellViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ダンベル何キロ持てる？")
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: dumbbellView95Ci(selection: 2)) {
+                NavigationLink(destination: dumbbellView95Ci(dumbbell: dumbbell, selection: 2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4669")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
         .navigationTitle("メニュー")
@@ -538,9 +542,19 @@ struct dumbbellViewTop: View {
             HStack {
                 HStack {
                     // データ読み出し
-                    unitButtonLoadMemory(loadView: AnyView(dumbbellSubViewLoadMemory()))
+                    unitButtonLoadMemory(loadView: AnyView(dumbbellSubViewLoadMemory(
+                        dumbbell: dumbbell,
+                        dumbbellMemory1: dumbbellMemory1,
+                        dumbbellMemory2: dumbbellMemory2,
+                        dumbbellMemory3: dumbbellMemory3
+                    )))
                     // データ保存
-                    unitButtonSaveMemory(saveView: AnyView(dumbbellSubViewSaveMemory()))
+                    unitButtonSaveMemory(saveView: AnyView(dumbbellSubViewSaveMemory(
+                        dumbbell: dumbbell,
+                        dumbbellMemory1: dumbbellMemory1,
+                        dumbbellMemory2: dumbbellMemory2,
+                        dumbbellMemory3: dumbbellMemory3
+                    )))
                 }
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
@@ -556,10 +570,10 @@ struct dumbbellViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct dumbbellSubViewSaveMemory: View {
-    @ObservedObject var dumbbell = Dumbbell()
-    @ObservedObject var dumbbellMemory1 = DumbbellMemory1()
-    @ObservedObject var dumbbellMemory2 = DumbbellMemory2()
-    @ObservedObject var dumbbellMemory3 = DumbbellMemory3()
+    @ObservedObject var dumbbell: Dumbbell
+    @ObservedObject var dumbbellMemory1: DumbbellMemory1
+    @ObservedObject var dumbbellMemory2: DumbbellMemory2
+    @ObservedObject var dumbbellMemory3: DumbbellMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -708,10 +722,10 @@ struct dumbbellSubViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct dumbbellSubViewLoadMemory: View {
-    @ObservedObject var dumbbell = Dumbbell()
-    @ObservedObject var dumbbellMemory1 = DumbbellMemory1()
-    @ObservedObject var dumbbellMemory2 = DumbbellMemory2()
-    @ObservedObject var dumbbellMemory3 = DumbbellMemory3()
+    @ObservedObject var dumbbell: Dumbbell
+    @ObservedObject var dumbbellMemory1: DumbbellMemory1
+    @ObservedObject var dumbbellMemory2: DumbbellMemory2
+    @ObservedObject var dumbbellMemory3: DumbbellMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -731,10 +745,18 @@ struct dumbbellSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        dumbbell.gameArrayData = dumbbellMemory1.gameArrayData
-        dumbbell.calorieArrayData = dumbbellMemory1.calorieArrayData
-        dumbbell.firstArrayData = dumbbellMemory1.firstArrayData
-        dumbbell.secondArrayData = dumbbellMemory1.secondArrayData
+        let memoryGameArray = decodeIntArray(from: dumbbellMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: dumbbell.gameArrayKey)
+        let memoryCalorieArray = decodeStringArray(from: dumbbellMemory1.calorieArrayData)
+        saveArray(memoryCalorieArray, forKey: dumbbell.calorieArrayKey)
+        let memoryFirstArray = decodeStringArray(from: dumbbellMemory1.firstArrayData)
+        saveArray(memoryFirstArray, forKey: dumbbell.firstArrayKey)
+        let memorySecondArray = decodeStringArray(from: dumbbellMemory1.secondArrayData)
+        saveArray(memorySecondArray, forKey: dumbbell.secondArrayKey)
+//        dumbbell.gameArrayData = dumbbellMemory1.gameArrayData
+//        dumbbell.calorieArrayData = dumbbellMemory1.calorieArrayData
+//        dumbbell.firstArrayData = dumbbellMemory1.firstArrayData
+//        dumbbell.secondArrayData = dumbbellMemory1.secondArrayData
         dumbbell.playGameSum = dumbbellMemory1.playGameSum
         dumbbell.czCount = dumbbellMemory1.czCount
         dumbbell.czFirstSuccessCount = dumbbellMemory1.czFirstSuccessCount
@@ -772,10 +794,18 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.kinnikuScreenCountGusu = dumbbellMemory1.kinnikuScreenCountGusu
     }
     func loadMemory2() {
-        dumbbell.gameArrayData = dumbbellMemory2.gameArrayData
-        dumbbell.calorieArrayData = dumbbellMemory2.calorieArrayData
-        dumbbell.firstArrayData = dumbbellMemory2.firstArrayData
-        dumbbell.secondArrayData = dumbbellMemory2.secondArrayData
+        let memoryGameArray = decodeIntArray(from: dumbbellMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: dumbbell.gameArrayKey)
+        let memoryCalorieArray = decodeStringArray(from: dumbbellMemory2.calorieArrayData)
+        saveArray(memoryCalorieArray, forKey: dumbbell.calorieArrayKey)
+        let memoryFirstArray = decodeStringArray(from: dumbbellMemory2.firstArrayData)
+        saveArray(memoryFirstArray, forKey: dumbbell.firstArrayKey)
+        let memorySecondArray = decodeStringArray(from: dumbbellMemory2.secondArrayData)
+        saveArray(memorySecondArray, forKey: dumbbell.secondArrayKey)
+//        dumbbell.gameArrayData = dumbbellMemory2.gameArrayData
+//        dumbbell.calorieArrayData = dumbbellMemory2.calorieArrayData
+//        dumbbell.firstArrayData = dumbbellMemory2.firstArrayData
+//        dumbbell.secondArrayData = dumbbellMemory2.secondArrayData
         dumbbell.playGameSum = dumbbellMemory2.playGameSum
         dumbbell.czCount = dumbbellMemory2.czCount
         dumbbell.czFirstSuccessCount = dumbbellMemory2.czFirstSuccessCount
@@ -813,10 +843,18 @@ struct dumbbellSubViewLoadMemory: View {
         dumbbell.kinnikuScreenCountGusu = dumbbellMemory2.kinnikuScreenCountGusu
     }
     func loadMemory3() {
-        dumbbell.gameArrayData = dumbbellMemory3.gameArrayData
-        dumbbell.calorieArrayData = dumbbellMemory3.calorieArrayData
-        dumbbell.firstArrayData = dumbbellMemory3.firstArrayData
-        dumbbell.secondArrayData = dumbbellMemory3.secondArrayData
+        let memoryGameArray = decodeIntArray(from: dumbbellMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: dumbbell.gameArrayKey)
+        let memoryCalorieArray = decodeStringArray(from: dumbbellMemory3.calorieArrayData)
+        saveArray(memoryCalorieArray, forKey: dumbbell.calorieArrayKey)
+        let memoryFirstArray = decodeStringArray(from: dumbbellMemory3.firstArrayData)
+        saveArray(memoryFirstArray, forKey: dumbbell.firstArrayKey)
+        let memorySecondArray = decodeStringArray(from: dumbbellMemory3.secondArrayData)
+        saveArray(memorySecondArray, forKey: dumbbell.secondArrayKey)
+//        dumbbell.gameArrayData = dumbbellMemory3.gameArrayData
+//        dumbbell.calorieArrayData = dumbbellMemory3.calorieArrayData
+//        dumbbell.firstArrayData = dumbbellMemory3.firstArrayData
+//        dumbbell.secondArrayData = dumbbellMemory3.secondArrayData
         dumbbell.playGameSum = dumbbellMemory3.playGameSum
         dumbbell.czCount = dumbbellMemory3.czCount
         dumbbell.czFirstSuccessCount = dumbbellMemory3.czFirstSuccessCount

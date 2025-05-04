@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct toloveruView95Ci: View {
-    @ObservedObject var toloveru = Toloveru()
+//    @ObservedObject var toloveru = Toloveru()
+    @ObservedObject var toloveru: Toloveru
     @State var selection = 1
     @State var isShow95CiExplain = false
     
@@ -46,5 +47,5 @@ struct toloveruView95Ci: View {
 }
 
 #Preview {
-    toloveruView95Ci()
+    toloveruView95Ci(toloveru: Toloveru())
 }

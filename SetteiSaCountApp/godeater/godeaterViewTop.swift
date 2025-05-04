@@ -282,7 +282,38 @@ class Godeater: ObservableObject {
         resetHistory()
         resetVoice()
         resetScreen()
+        resetNormal()
     }
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("godeaterNormalChanceCountSeiritu") var normalChanceCountSeiritu: Int = 0
+    @AppStorage("godeaterNormalChanceCountCzHit") var normalChanceCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountJakuCherry") var normalCountJakuCherry: Int = 0 {
+        didSet {
+            normalCountCherrySuikaSum = countSum(normalCountJakuCherry, normalCountSuika)
+        }
+    }
+        @AppStorage("godeaterNormalCountSuika") var normalCountSuika: Int = 0 {
+            didSet {
+                normalCountCherrySuikaSum = countSum(normalCountJakuCherry, normalCountSuika)
+            }
+        }
+    @AppStorage("godeaterNormalCountCzHit") var normalCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountCherrySuikaSum") var normalCountCherrySuikaSum: Int = 0
+    
+    func resetNormal() {
+        normalChanceCountSeiritu = 0
+        normalChanceCountCzHit = 0
+        normalCountJakuCherry = 0
+        normalCountSuika = 0
+        normalCountCzHit = 0
+        minusCheck = false
+    }
+    
+    let ratioChanceCzHit: [Double] = [15.8,17.2,19.1,21.1,23.4,24.9]
+    let ratioCherrySuikaCzHit: [Double] = [0.2,0.4,0.6,0.8,1.0,1.2]
 }
 
 
@@ -391,16 +422,32 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
+    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver220 = Ver220()
-    @ObservedObject var godeater = Godeater()
+//    @ObservedObject var godeater = Godeater()
+    @StateObject var godeater = Godeater()
     @State var isShowAlert = false
+    @StateObject var godeaterMemory1 = GodeaterMemory1()
+    @StateObject var godeaterMemory2 = GodeaterMemory2()
+    @StateObject var godeaterMemory3 = GodeaterMemory3()
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時
+                    NavigationLink(destination: godeaterViewNormal(
+                        ver300: ver300,
+                        godeater: godeater
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: ver300.godeaterMenuNormalBadgeStatus
+                        )
+                    }
                     // AT,CZ当選履歴
-                    NavigationLink(destination: godeaterViewHistory()) {
+                    NavigationLink(destination: godeaterViewHistory(godeater: godeater)) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT,CZ 当選履歴"
@@ -408,11 +455,11 @@ struct godeaterViewTop: View {
                         )
                     }
                     // ストーリーパート後のボイス
-                    NavigationLink(destination: godeaterViewVoice()) {
+                    NavigationLink(destination: godeaterViewVoice(godeater: godeater)) {
                         unitLabelMenu(imageSystemName: "message", textBody: "ストーリーパート後のボイス")
                     }
                     // AT終了画面
-                    NavigationLink(destination: godeaterViewScreen()) {
+                    NavigationLink(destination: godeaterViewScreen(godeater: godeater)) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "AT終了画面")
                     }
                     // エンディング
@@ -423,12 +470,20 @@ struct godeaterViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ゴッドイーター リザレクション", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: godeaterView95Ci()) {
+                NavigationLink(destination: godeaterView95Ci(
+                    godeater: godeater,
+                    selection: 3
+                )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4602")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
+            }
+        }
+        .onAppear {
+            if ver300.godeaterMachineIconBadgeStatus != "none" {
+                ver300.godeaterMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -438,9 +493,19 @@ struct godeaterViewTop: View {
                 HStack {
                     HStack {
                         // //// データ読み出し
-                        unitButtonLoadMemory(loadView: AnyView(godeaterViewLoadMemory()))
+                        unitButtonLoadMemory(loadView: AnyView(godeaterViewLoadMemory(
+                            godeater: godeater,
+                            godeaterMemory1: godeaterMemory1,
+                            godeaterMemory2: godeaterMemory2,
+                            godeaterMemory3: godeaterMemory3
+                        )))
                         // //// データ保存
-                        unitButtonSaveMemory(saveView: AnyView(godeaterViewSaveMemory()))
+                        unitButtonSaveMemory(saveView: AnyView(godeaterViewSaveMemory(
+                            godeater: godeater,
+                            godeaterMemory1: godeaterMemory1,
+                            godeaterMemory2: godeaterMemory2,
+                            godeaterMemory3: godeaterMemory3
+                        )))
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetAll, message: "この機種の全データをリセットします")
@@ -461,10 +526,10 @@ struct godeaterViewTop: View {
 // メモリーセーブ画面
 // ///////////////////////
 struct godeaterViewSaveMemory: View {
-    @ObservedObject var godeater = Godeater()
-    @ObservedObject var godeaterMemory1 = GodeaterMemory1()
-    @ObservedObject var godeaterMemory2 = GodeaterMemory2()
-    @ObservedObject var godeaterMemory3 = GodeaterMemory3()
+    @ObservedObject var godeater: Godeater
+    @ObservedObject var godeaterMemory1: GodeaterMemory1
+    @ObservedObject var godeaterMemory2: GodeaterMemory2
+    @ObservedObject var godeaterMemory3: GodeaterMemory3
     @State var isShowSaveAlert: Bool = false
     
     var body: some View {
@@ -580,10 +645,10 @@ struct godeaterViewSaveMemory: View {
 // メモリーロード画面
 // ///////////////////////
 struct godeaterViewLoadMemory: View {
-    @ObservedObject var godeater = Godeater()
-    @ObservedObject var godeaterMemory1 = GodeaterMemory1()
-    @ObservedObject var godeaterMemory2 = GodeaterMemory2()
-    @ObservedObject var godeaterMemory3 = GodeaterMemory3()
+    @ObservedObject var godeater: Godeater
+    @ObservedObject var godeaterMemory1: GodeaterMemory1
+    @ObservedObject var godeaterMemory2: GodeaterMemory2
+    @ObservedObject var godeaterMemory3: GodeaterMemory3
     @State var isShowLoadAlert: Bool = false
     
     var body: some View {
@@ -603,9 +668,15 @@ struct godeaterViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        godeater.gameArrayData = godeaterMemory1.gameArrayData
-        godeater.bonusArrayData = godeaterMemory1.bonusArrayData
-        godeater.triggerArrayData = godeaterMemory1.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: godeaterMemory1.gameArrayData)
+        saveArray(memoryGameArray, forKey: godeater.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: godeaterMemory1.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: godeater.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: godeaterMemory1.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: godeater.triggerArrayKey)
+//        godeater.gameArrayData = godeaterMemory1.gameArrayData
+//        godeater.bonusArrayData = godeaterMemory1.bonusArrayData
+//        godeater.triggerArrayData = godeaterMemory1.triggerArrayData
         godeater.atHitCount = godeaterMemory1.atHitCount
         godeater.czHitCount = godeaterMemory1.czHitCount
         godeater.playGame = godeaterMemory1.playGame
@@ -633,9 +704,15 @@ struct godeaterViewLoadMemory: View {
         godeater.screenCountSum = godeaterMemory1.screenCountSum
     }
     func loadMemory2() {
-        godeater.gameArrayData = godeaterMemory2.gameArrayData
-        godeater.bonusArrayData = godeaterMemory2.bonusArrayData
-        godeater.triggerArrayData = godeaterMemory2.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: godeaterMemory2.gameArrayData)
+        saveArray(memoryGameArray, forKey: godeater.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: godeaterMemory2.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: godeater.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: godeaterMemory2.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: godeater.triggerArrayKey)
+//        godeater.gameArrayData = godeaterMemory2.gameArrayData
+//        godeater.bonusArrayData = godeaterMemory2.bonusArrayData
+//        godeater.triggerArrayData = godeaterMemory2.triggerArrayData
         godeater.atHitCount = godeaterMemory2.atHitCount
         godeater.czHitCount = godeaterMemory2.czHitCount
         godeater.playGame = godeaterMemory2.playGame
@@ -663,9 +740,15 @@ struct godeaterViewLoadMemory: View {
         godeater.screenCountSum = godeaterMemory2.screenCountSum
     }
     func loadMemory3() {
-        godeater.gameArrayData = godeaterMemory3.gameArrayData
-        godeater.bonusArrayData = godeaterMemory3.bonusArrayData
-        godeater.triggerArrayData = godeaterMemory3.triggerArrayData
+        let memoryGameArray = decodeIntArray(from: godeaterMemory3.gameArrayData)
+        saveArray(memoryGameArray, forKey: godeater.gameArrayKey)
+        let memoryBonusArray = decodeStringArray(from: godeaterMemory3.bonusArrayData)
+        saveArray(memoryBonusArray, forKey: godeater.bonusArrayKey)
+        let memoryTriggerArray = decodeStringArray(from: godeaterMemory3.triggerArrayData)
+        saveArray(memoryTriggerArray, forKey: godeater.triggerArrayKey)
+//        godeater.gameArrayData = godeaterMemory3.gameArrayData
+//        godeater.bonusArrayData = godeaterMemory3.bonusArrayData
+//        godeater.triggerArrayData = godeaterMemory3.triggerArrayData
         godeater.atHitCount = godeaterMemory3.atHitCount
         godeater.czHitCount = godeaterMemory3.czHitCount
         godeater.playGame = godeaterMemory3.playGame
@@ -695,5 +778,7 @@ struct godeaterViewLoadMemory: View {
 }
 
 #Preview {
-    godeaterViewTop()
+    godeaterViewTop(
+        ver300: Ver300()
+    )
 }

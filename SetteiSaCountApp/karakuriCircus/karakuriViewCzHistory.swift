@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct karakuriViewCzHistory: View {
-    @ObservedObject var karakuri = Karakuri()
+//    @ObservedObject var karakuri = Karakuri()
+    @ObservedObject var karakuri: Karakuri
     @State var isShowAlert = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -248,5 +249,5 @@ struct karakuriSubViewDataInput: View {
 }
 
 #Preview {
-    karakuriViewCzHistory()
+    karakuriViewCzHistory(karakuri: Karakuri())
 }
