@@ -119,6 +119,15 @@ struct goJug3Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            goJug3SubViewCountInput(
+                                goJug3: goJug3
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $goJug3.minusCheck)
                     // リセットボタン

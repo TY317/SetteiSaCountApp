@@ -308,6 +308,15 @@ struct girlsSSVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            girlsSSSubViewCountInput(
+                                girlsSS: girlsSS
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $girlsSS.minusCheck)
                     // リセットボタン

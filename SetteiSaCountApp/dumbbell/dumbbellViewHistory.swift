@@ -162,7 +162,8 @@ struct dumbbellViewHistory: View {
                             title: "摂取カロリー",
                             textBody1: "・主に小役成立時に加算される",
                             textBody2: "・10,000kcalごとにCZを抽選。100,000kcalの天井到達時はCZ当選",
-                            image1: Image("dumbbellCalorieRatio")
+                            tableView: AnyView(dumbbellTableCalorieTable())
+//                            image1: Image("dumbbellCalorieRatio")
                         )
                     )
                 )
@@ -216,7 +217,8 @@ struct dumbbellViewHistory: View {
                             textBody2: "・CZの後半パート成功率に設定差あり",
                             textBody3: "・前半パートの突破率公表値は約77%",
                             textBody4: "・CZ高確示唆の神社ステージへの移行率も高設定ほど優遇",
-                            image1: Image("dumbbellSecondHalfSuccessRatio")
+                            tableView: AnyView(dumbbellTableCzSecondPart())
+//                            image1: Image("dumbbellSecondHalfSuccessRatio")
                         )
                     )
                 )
@@ -253,7 +255,8 @@ struct dumbbellViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ボーナス初当り確率",
-                            image1: Image("dumbellBonusRatio")
+                            tableView: AnyView(dumbbellTableBonusFirstHit())
+//                            image1: Image("dumbellBonusRatio")
                         )
                     )
                 )

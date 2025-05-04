@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct magiaViewBigScreen: View {
+    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver271 = Ver271()
 //    @ObservedObject var magia = Magia()
     @ObservedObject var magia: Magia
@@ -18,7 +19,11 @@ struct magiaViewBigScreen: View {
         "magiaBigScreen356",
         "magiaBigScreen246",
         "magiaBigScreenHigh1",
-        "magiaBigScreenHigh2"
+        "magiaBigScreenHigh2",
+        "magiaBigScreenOver2",
+        "magiaBigScreenOver4",
+        "magiaBigScreenOver5",
+        "magiaBigScreenOver6"
     ]
     var body: some View {
         List {
@@ -88,13 +93,45 @@ struct magiaViewBigScreen: View {
                             image: Image(self.imageNameList[4]),
                             keyword: self.imageNameList[4],
                             currentKeyword: self.$selectedImageName,
-                            count: $magia.bigScreenCountHigh1,
+                            count: $magia.bigScreenCountHigh2,
+                            minusCheck: $magia.minusCheck
+                        )
+                        // 設定2以上
+                        unitButtonScreenChoice(
+                            image: Image(self.imageNameList[5]),
+                            keyword: self.imageNameList[5],
+                            currentKeyword: self.$selectedImageName,
+                            count: $magia.bigScreenCountOver2,
+                            minusCheck: $magia.minusCheck
+                        )
+                        // 設定4以上
+                        unitButtonScreenChoice(
+                            image: Image(self.imageNameList[6]),
+                            keyword: self.imageNameList[6],
+                            currentKeyword: self.$selectedImageName,
+                            count: $magia.bigScreenCountOver4,
+                            minusCheck: $magia.minusCheck
+                        )
+                        // 設定5以上
+                        unitButtonScreenChoice(
+                            image: Image(self.imageNameList[7]),
+                            keyword: self.imageNameList[7],
+                            currentKeyword: self.$selectedImageName,
+                            count: $magia.bigScreenCountOver5,
+                            minusCheck: $magia.minusCheck
+                        )
+                        // 設定6以上
+                        unitButtonScreenChoice(
+                            image: Image(self.imageNameList[8]),
+                            keyword: self.imageNameList[8],
+                            currentKeyword: self.$selectedImageName,
+                            count: $magia.bigScreenCountOver6,
                             minusCheck: $magia.minusCheck
                         )
                     }
                 }
                 .frame(height: 120)
-//                .popoverTip(tipVer271MagiaBonusScreen())
+                .popoverTip(tipVer300MagiaScreen())
                 // //// カウント結果
                 // デフォルト
                 unitResultCountListPercent(
@@ -119,18 +156,53 @@ struct magiaViewBigScreen: View {
                 )
                 // 高設定示唆
                 unitResultCountListPercent(
-                    title: "高設定示唆",
+                    title: "高設定示唆 弱",
                     count: $magia.bigScreenCountHigh1,
+                    flashColor: .personalSummerLightGreen,
+                    bigNumber: $magia.bigScreenCountSum
+                )
+                // 高設定示唆 強
+                unitResultCountListPercent(
+                    title: "高設定示唆 強",
+                    count: $magia.bigScreenCountHigh2,
                     flashColor: .green,
+                    bigNumber: $magia.bigScreenCountSum
+                )
+                // 設定2以上
+                unitResultCountListPercent(
+                    title: "設定2 以上濃厚",
+                    count: $magia.bigScreenCountOver2,
+                    flashColor: .cyan,
+                    bigNumber: $magia.bigScreenCountSum
+                )
+                // 設定4以上
+                unitResultCountListPercent(
+                    title: "設定4 以上濃厚",
+                    count: $magia.bigScreenCountOver4,
+                    flashColor: .red,
+                    bigNumber: $magia.bigScreenCountSum
+                )
+                // 設定5以上
+                unitResultCountListPercent(
+                    title: "設定5 以上濃厚",
+                    count: $magia.bigScreenCountOver5,
+                    flashColor: .purple,
+                    bigNumber: $magia.bigScreenCountSum
+                )
+                // 設定6以上
+                unitResultCountListPercent(
+                    title: "設定6 濃厚",
+                    count: $magia.bigScreenCountOver6,
+                    flashColor: .orange,
                     bigNumber: $magia.bigScreenCountSum
                 )
             }
         }
-//        .onAppear {
-//            if ver271.magiaMenuBonusScreenBadgeStatus != "none" {
-//                ver271.magiaMenuBonusScreenBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver300.magiaMenuBonusScreenBadgeStatus != "none" {
+                ver300.magiaMenuBonusScreenBadgeStatus = "none"
+            }
+        }
         .navigationTitle("BIG終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -151,5 +223,8 @@ struct magiaViewBigScreen: View {
 }
 
 #Preview {
-    magiaViewBigScreen(magia: Magia())
+    magiaViewBigScreen(
+        ver300: Ver300(),
+        magia: Magia()
+    )
 }

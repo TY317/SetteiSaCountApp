@@ -62,7 +62,8 @@ struct dumbbellViewKinnikuBonus: View {
                             title: "合いの手の人数",
                             textBody1: "・100枚獲得毎に合いの手演出が発生",
                             textBody2: "・合いの手の人数で設定を示唆",
-                            image1: Image("dumbbellAinote")
+                            tableView: AnyView(dumbbellTableAinote())
+//                            image1: Image("dumbbellAinote")
                         )
                     )
                 )
@@ -158,7 +159,8 @@ struct dumbbellViewKinnikuBonus: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "終了画面振り分け",
-                            image1: Image("dumbbellKinnikuScreenRatio")
+                            tableView: AnyView(dumbbellTableKinnikuBonusScreen())
+//                            image1: Image("dumbbellKinnikuScreenRatio")
                         )
                     )
                 )

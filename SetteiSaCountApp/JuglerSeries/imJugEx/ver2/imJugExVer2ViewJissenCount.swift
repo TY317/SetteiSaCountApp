@@ -133,6 +133,15 @@ struct imJugExVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            imJugExSubViewCountInput(
+                                imJugEx: imJugEx
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $imJugEx.minusCheck)
                     // リセットボタン

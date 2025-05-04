@@ -56,7 +56,7 @@ struct yoshimuneViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4778")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
 //        .id(reloadID) // <- これで NavigationStack 全体を再読み込みできる

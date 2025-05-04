@@ -287,6 +287,15 @@ struct happyJugV3Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            happyJugV3SubViewCountInput(
+                                happyJugV3: happyJugV3
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $happyJugV3.minusCheck)
                     // リセットボタン

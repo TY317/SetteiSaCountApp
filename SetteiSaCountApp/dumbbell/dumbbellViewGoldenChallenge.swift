@@ -87,8 +87,9 @@ struct dumbbellViewGoldenChallenge: View {
                         unitExView5body2image(
                             title: "ゴールデンチャレンジ",
                             textBody1: "・高設定ほどチャレンジ当選、成功率が優遇",
+                            tableView: AnyView(dumbbellTableGoldenChallenge())
 //                            textBody2: "・成功率は公表値で約56%。これは低設定または全設定平均値と思われる。高設定はこれより優遇？",
-                            image1: Image("dumbellGoldenChallengeRatio")
+//                            image1: Image("dumbellGoldenChallengeRatio")
                         )
                     )
                 )

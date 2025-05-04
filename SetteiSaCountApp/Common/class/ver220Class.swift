@@ -52,14 +52,14 @@ import TipKit
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer220AddLink: Tip {
-    var title: Text {
-        Text("解析サイトへのリンク追加")
-    }
-    var message: Text? {
-        Text("外部の解析サイトページへ移動します\n(本アプリとの関係はありません)")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer220AddLink: Tip {
+//    var title: Text {
+//        Text("解析サイトへのリンク追加")
+//    }
+//    var message: Text? {
+//        Text("外部の解析サイトページへ移動します\n(本アプリとの関係はありません)")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}

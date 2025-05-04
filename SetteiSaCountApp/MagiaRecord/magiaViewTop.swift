@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewTop: View {
-//    @ObservedObject var ver280 = Ver280()
+    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver271 = Ver271()
 //    @ObservedObject var magia = Magia()
     @StateObject var magia = Magia()
@@ -47,11 +47,14 @@ struct magiaViewTop: View {
                         )
                     }
                     // BIG終了画面
-                    NavigationLink(destination: magiaViewBigScreen(magia: magia)) {
+                    NavigationLink(destination: magiaViewBigScreen(
+                        ver300: ver300,
+                        magia: magia
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "BIG終了画面"
-//                            badgeStatus: ver271.magiaMenuBonusScreenBadgeStatus
+                            textBody: "BIG終了画面",
+                            badgeStatus: ver300.magiaMenuBonusScreenBadgeStatus
                         )
                     }
                     // ボーナス終了後ボイス
@@ -100,14 +103,14 @@ struct magiaViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4745")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
-//        .onAppear {
-//            if ver280.magiaMachineIconBadgeStatus != "none" {
-//                ver280.magiaMachineIconBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver300.magiaMachineIconBadgeStatus != "none" {
+                ver300.magiaMachineIconBadgeStatus = "none"
+            }
+        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -196,6 +199,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory1.endingCountGusu = magia.endingCountGusu
         magiaMemory1.endingCountHigh = magia.endingCountHigh
         magiaMemory1.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory1.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory1.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory1.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory1.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
     func saveMemory2() {
         magiaMemory2.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -230,6 +241,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory2.endingCountGusu = magia.endingCountGusu
         magiaMemory2.endingCountHigh = magia.endingCountHigh
         magiaMemory2.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory2.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory2.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory2.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory2.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
     func saveMemory3() {
         magiaMemory3.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -264,6 +283,14 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory3.endingCountGusu = magia.endingCountGusu
         magiaMemory3.endingCountHigh = magia.endingCountHigh
         magiaMemory3.endingCountSum = magia.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magiaMemory3.bigScreenCountOver2 = magia.bigScreenCountOver2
+        magiaMemory3.bigScreenCountOver4 = magia.bigScreenCountOver4
+        magiaMemory3.bigScreenCountOver5 = magia.bigScreenCountOver5
+        magiaMemory3.bigScreenCountOver6 = magia.bigScreenCountOver6
     }
 }
 
@@ -327,6 +354,14 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory1.endingCountGusu
         magia.endingCountHigh = magiaMemory1.endingCountHigh
         magia.endingCountSum = magiaMemory1.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory1.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory1.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory1.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory1.bigScreenCountOver6
     }
     func loadMemory2() {
         magia.suikaCzCountSuika = magiaMemory2.suikaCzCountSuika
@@ -361,6 +396,14 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory2.endingCountGusu
         magia.endingCountHigh = magiaMemory2.endingCountHigh
         magia.endingCountSum = magiaMemory2.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory2.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory2.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory2.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory2.bigScreenCountOver6
     }
     func loadMemory3() {
         magia.suikaCzCountSuika = magiaMemory3.suikaCzCountSuika
@@ -395,9 +438,19 @@ struct magiaSubViewLoadMemory: View {
         magia.endingCountGusu = magiaMemory3.endingCountGusu
         magia.endingCountHigh = magiaMemory3.endingCountHigh
         magia.endingCountSum = magiaMemory3.endingCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        magia.bigScreenCountOver2 = magiaMemory3.bigScreenCountOver2
+        magia.bigScreenCountOver4 = magiaMemory3.bigScreenCountOver4
+        magia.bigScreenCountOver5 = magiaMemory3.bigScreenCountOver5
+        magia.bigScreenCountOver6 = magiaMemory3.bigScreenCountOver6
     }
 }
 
 #Preview {
-    magiaViewTop()
+    magiaViewTop(
+        ver300: Ver300()
+    )
 }

@@ -26,6 +26,7 @@ struct unitTableString: View {
     var titleFont: Font = .title3
     var contentFont: Font = .title3
     var colorList: [Color]?
+    var contentTextColorList: [Color]?
     let valueHstackSpacing: CGFloat = 5
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
@@ -70,7 +71,8 @@ struct unitTableString: View {
                         .fontWeight(.bold)
 //                        .font(.title3)
                         .font(self.contentFont)
-                        .foregroundStyle(Color.black)
+//                        .foregroundStyle(Color.black)
+                        .foregroundStyle(contentTextColor(ind: index))
                         .multilineTextAlignment(.center)
                 }
                 .frame(height: lineNumber(ind: index))
@@ -126,6 +128,21 @@ struct unitTableString: View {
         }
         
         return contentString
+    }
+    
+    private func contentTextColor(ind: Int) -> Color {
+        var textColor: Color = .black
+        if let colorList = contentTextColorList {
+            if colorList.indices.contains(ind) {
+                textColor = colorList[ind]
+            } else {
+                textColor = .black
+            }
+        } else {
+            textColor = .black
+        }
+        
+        return textColor
     }
 }
 

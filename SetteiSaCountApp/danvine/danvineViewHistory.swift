@@ -146,7 +146,8 @@ struct danvineViewHistory: View {
                             title: "周期について",
                             textBody1: "・偶数周期での当選は高設定期待度アップとなる",
                             textBody2: "・周期のボーナス期待度として下記表の数値が公表されているが、周期当選の設定差があるならば高設定はこれよりも高い数値になる可能性もあり",
-                            image1: Image("danvineCycleRatio")
+                            tableView: AnyView(danvineTableShuki())
+//                            image1: Image("danvineCycleRatio")
                         )
                     )
                 )
@@ -224,7 +225,8 @@ struct danvineViewHistory: View {
                             title: "ボーナス、ST 初当り確率",
                             textBody1: "・2Gバトルでの当選率は高設定ほど高いらしい",
                             textBody2: "・直撃は高設定ほど多くなるらしい",
-                            image1: Image("danvineHitRatio")
+                            tableView: AnyView(danvineTableFirstHit())
+//                            image1: Image("danvineHitRatio")
                         )
                     )
                 )

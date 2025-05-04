@@ -282,7 +282,38 @@ class Godeater: ObservableObject {
         resetHistory()
         resetVoice()
         resetScreen()
+        resetNormal()
     }
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("godeaterNormalChanceCountSeiritu") var normalChanceCountSeiritu: Int = 0
+    @AppStorage("godeaterNormalChanceCountCzHit") var normalChanceCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountJakuCherry") var normalCountJakuCherry: Int = 0 {
+        didSet {
+            normalCountCherrySuikaSum = countSum(normalCountJakuCherry, normalCountSuika)
+        }
+    }
+        @AppStorage("godeaterNormalCountSuika") var normalCountSuika: Int = 0 {
+            didSet {
+                normalCountCherrySuikaSum = countSum(normalCountJakuCherry, normalCountSuika)
+            }
+        }
+    @AppStorage("godeaterNormalCountCzHit") var normalCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountCherrySuikaSum") var normalCountCherrySuikaSum: Int = 0
+    
+    func resetNormal() {
+        normalChanceCountSeiritu = 0
+        normalChanceCountCzHit = 0
+        normalCountJakuCherry = 0
+        normalCountSuika = 0
+        normalCountCzHit = 0
+        minusCheck = false
+    }
+    
+    let ratioChanceCzHit: [Double] = [15.8,17.2,19.1,21.1,23.4,24.9]
+    let ratioCherrySuikaCzHit: [Double] = [0.2,0.4,0.6,0.8,1.0,1.2]
 }
 
 
@@ -391,6 +422,7 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
+    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver220 = Ver220()
 //    @ObservedObject var godeater = Godeater()
     @StateObject var godeater = Godeater()
@@ -403,6 +435,17 @@ struct godeaterViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時
+                    NavigationLink(destination: godeaterViewNormal(
+                        ver300: ver300,
+                        godeater: godeater
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: ver300.godeaterMenuNormalBadgeStatus
+                        )
+                    }
                     // AT,CZ当選履歴
                     NavigationLink(destination: godeaterViewHistory(godeater: godeater)) {
                         unitLabelMenu(
@@ -427,12 +470,20 @@ struct godeaterViewTop: View {
                     unitLabelMachineTopTitle(machineName: "ゴッドイーター リザレクション", titleFont: .title2)
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: godeaterView95Ci(godeater: godeater)) {
+                NavigationLink(destination: godeaterView95Ci(
+                    godeater: godeater,
+                    selection: 3
+                )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4602")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
+            }
+        }
+        .onAppear {
+            if ver300.godeaterMachineIconBadgeStatus != "none" {
+                ver300.godeaterMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -727,5 +778,7 @@ struct godeaterViewLoadMemory: View {
 }
 
 #Preview {
-    godeaterViewTop()
+    godeaterViewTop(
+        ver300: Ver300()
+    )
 }

@@ -79,7 +79,8 @@ struct myJug5Ver2ViewJissenCount: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
-                            image1: Image("myJug5Analysis")
+                            tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
+//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )
@@ -133,6 +134,15 @@ struct myJug5Ver2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            myJug5SubViewCountInput(
+                                myJug5: myJug5
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $myJug5.minusCheck)
                     // リセットボタン

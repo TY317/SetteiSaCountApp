@@ -346,6 +346,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            hanaTenshoSubViewCountInput(
+                                hanaTensho: hanaTensho
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $hanaTensho.minusCheck)
                     // データリセットボタン

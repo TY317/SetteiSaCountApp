@@ -455,7 +455,7 @@ struct mt5ViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4450")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
             .navigationTitle("メニュー")
             .navigationBarTitleDisplayMode(.inline)

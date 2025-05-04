@@ -350,6 +350,15 @@ struct starHanaVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            starHanaSubViewCountInput(
+                                starHana: starHana
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $starHana.minusCheck)
                     // データリセットボタン

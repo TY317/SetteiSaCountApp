@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewTop: View {
-//    @ObservedObject var ver280 = Ver280()
+    @ObservedObject var ver300: Ver300
 //    @ObservedObject var mahjong = Mahjong()
     @StateObject var mahjong = Mahjong()
     @State var isShowAlert: Bool = false
@@ -58,10 +58,15 @@ struct mahjongViewTop: View {
                         )
                     }
                     // ボイス
-                    NavigationLink(destination: mahjongViewVoice(mahjong: mahjong)) {
+                    NavigationLink(destination: mahjongViewVoice(
+                        ver300: ver300,
+                        mahjong: mahjong
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "ボーナス,AT 終了後ボイス")
+                            textBody: "ボーナス,AT 終了後ボイス",
+                            badgeStatus: ver300.mahjongMenuVoiceBadgeStatus
+                        )
                     }
                     // 隠れ凪
                     NavigationLink(destination: commonViewKakureNagi()) {
@@ -79,14 +84,14 @@ struct mahjongViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4777")
-                    .popoverTip(tipVer220AddLink())
+//                    .popoverTip(tipVer220AddLink())
             }
         }
-//        .onAppear {
-//            if ver280.mahjongMachineIconBadgeStatus != "none" {
-//                ver280.mahjongMachineIconBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver300.mahjongMachineIconBadgeStatus != "none" {
+                ver300.mahjongMachineIconBadgeStatus = "none"
+            }
+        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -158,6 +163,15 @@ struct mahjongSubViewSaveMemory: View {
         mahjongMemory1.atScreenCount4Over = mahjong.atScreenCount4Over
         mahjongMemory1.atScreenCount6Over = mahjong.atScreenCount6Over
         mahjongMemory1.atScreenCountSum = mahjong.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjongMemory1.voiceCountDefault = mahjong.voiceCountDefault
+        mahjongMemory1.voiceCountHighJaku = mahjong.voiceCountHighJaku
+        mahjongMemory1.voiceCountHighKyo = mahjong.voiceCountHighKyo
+        mahjongMemory1.voiceCountHikimodoshi = mahjong.voiceCountHikimodoshi
+        mahjongMemory1.voiceCountSum = mahjong.voiceCountSum
     }
     func saveMemory2() {
         mahjongMemory2.bonusScreenCountDefault = mahjong.bonusScreenCountDefault
@@ -174,6 +188,15 @@ struct mahjongSubViewSaveMemory: View {
         mahjongMemory2.atScreenCount4Over = mahjong.atScreenCount4Over
         mahjongMemory2.atScreenCount6Over = mahjong.atScreenCount6Over
         mahjongMemory2.atScreenCountSum = mahjong.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjongMemory2.voiceCountDefault = mahjong.voiceCountDefault
+        mahjongMemory2.voiceCountHighJaku = mahjong.voiceCountHighJaku
+        mahjongMemory2.voiceCountHighKyo = mahjong.voiceCountHighKyo
+        mahjongMemory2.voiceCountHikimodoshi = mahjong.voiceCountHikimodoshi
+        mahjongMemory2.voiceCountSum = mahjong.voiceCountSum
     }
     func saveMemory3() {
         mahjongMemory3.bonusScreenCountDefault = mahjong.bonusScreenCountDefault
@@ -190,6 +213,15 @@ struct mahjongSubViewSaveMemory: View {
         mahjongMemory3.atScreenCount4Over = mahjong.atScreenCount4Over
         mahjongMemory3.atScreenCount6Over = mahjong.atScreenCount6Over
         mahjongMemory3.atScreenCountSum = mahjong.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjongMemory3.voiceCountDefault = mahjong.voiceCountDefault
+        mahjongMemory3.voiceCountHighJaku = mahjong.voiceCountHighJaku
+        mahjongMemory3.voiceCountHighKyo = mahjong.voiceCountHighKyo
+        mahjongMemory3.voiceCountHikimodoshi = mahjong.voiceCountHikimodoshi
+        mahjongMemory3.voiceCountSum = mahjong.voiceCountSum
     }
 }
 
@@ -235,6 +267,15 @@ struct mahjongSubViewLoadMemory: View {
         mahjong.atScreenCount4Over = mahjongMemory1.atScreenCount4Over
         mahjong.atScreenCount6Over = mahjongMemory1.atScreenCount6Over
         mahjong.atScreenCountSum = mahjongMemory1.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjong.voiceCountDefault = mahjongMemory1.voiceCountDefault
+        mahjong.voiceCountHighJaku = mahjongMemory1.voiceCountHighJaku
+        mahjong.voiceCountHighKyo = mahjongMemory1.voiceCountHighKyo
+        mahjong.voiceCountHikimodoshi = mahjongMemory1.voiceCountHikimodoshi
+        mahjong.voiceCountSum = mahjongMemory1.voiceCountSum
     }
     func loadMemory2() {
         mahjong.bonusScreenCountDefault = mahjongMemory2.bonusScreenCountDefault
@@ -251,6 +292,15 @@ struct mahjongSubViewLoadMemory: View {
         mahjong.atScreenCount4Over = mahjongMemory2.atScreenCount4Over
         mahjong.atScreenCount6Over = mahjongMemory2.atScreenCount6Over
         mahjong.atScreenCountSum = mahjongMemory2.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjong.voiceCountDefault = mahjongMemory2.voiceCountDefault
+        mahjong.voiceCountHighJaku = mahjongMemory2.voiceCountHighJaku
+        mahjong.voiceCountHighKyo = mahjongMemory2.voiceCountHighKyo
+        mahjong.voiceCountHikimodoshi = mahjongMemory2.voiceCountHikimodoshi
+        mahjong.voiceCountSum = mahjongMemory2.voiceCountSum
     }
     func loadMemory3() {
         mahjong.bonusScreenCountDefault = mahjongMemory3.bonusScreenCountDefault
@@ -267,9 +317,20 @@ struct mahjongSubViewLoadMemory: View {
         mahjong.atScreenCount4Over = mahjongMemory3.atScreenCount4Over
         mahjong.atScreenCount6Over = mahjongMemory3.atScreenCount6Over
         mahjong.atScreenCountSum = mahjongMemory3.atScreenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        mahjong.voiceCountDefault = mahjongMemory3.voiceCountDefault
+        mahjong.voiceCountHighJaku = mahjongMemory3.voiceCountHighJaku
+        mahjong.voiceCountHighKyo = mahjongMemory3.voiceCountHighKyo
+        mahjong.voiceCountHikimodoshi = mahjongMemory3.voiceCountHikimodoshi
+        mahjong.voiceCountSum = mahjongMemory3.voiceCountSum
     }
 }
 
 #Preview {
-    mahjongViewTop()
+    mahjongViewTop(
+        ver300: Ver300()
+    )
 }

@@ -182,7 +182,8 @@ struct myJug5Ver2ViewKenDataInput: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
-                            image1: Image("myJug5Analysis")
+                            tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
+//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )

@@ -93,7 +93,8 @@ struct acceleratorViewShutter: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "シャッター開放率",
-                            image1: Image("acceleratorShutterOpenRatio")
+                            tableView: AnyView(acceleratorTableShutterOpen())
+//                            image1: Image("acceleratorShutterOpenRatio")
                         )
                     )
                 )
@@ -161,7 +162,8 @@ struct acceleratorViewShutter: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "シャッター開放継続G数",
-                            image1: Image("acceleratorShutterOpenGame")
+                            tableView: AnyView(acceleratorTableShutterOpenGame())
+//                            image1: Image("acceleratorShutterOpenGame")
                         )
                     )
                 )
@@ -263,7 +265,8 @@ struct acceleratorViewShutter: View {
                             title: "対応チャンス目抽選",
                             textBody1: "・液晶下部のシャッターが開いた状態で対応するチャンス目を引いた際のCZ当選率に設定差あり",
                             textBody2: "・高設定ほど当選率が高く、打ち止めCZの比率が多くなる",
-                            image1: Image("acceleratorChanceRatio")
+                            tableView: AnyView(acceleratorTableTaioChance())
+//                            image1: Image("acceleratorChanceRatio")
                         )
                     )
                 )
@@ -285,7 +288,8 @@ struct acceleratorViewShutter: View {
                             textBody1: "・シャッターが開いた状態で非対応のチャンス目を引いた際のCZ当選率に設定差あり",
                             textBody2: "・非対応チャンス目からの当選では必ず打ち止めCZとなる",
                             textBody3: "・当選率が低いが、1と6で3倍の差があるため複数回確認できたらチャンスかも",
-                            image1: Image("acceleratorNoMatchChanceHit")
+                            tableView: AnyView(acceleratorTableHitaioChance())
+//                            image1: Image("acceleratorNoMatchChanceHit")
                         )
                     )
                 )
@@ -298,7 +302,8 @@ struct acceleratorViewShutter: View {
                             textBody1: "・3連チャンス目成立時はCZ当選濃厚",
                             textBody2: "・CZ種類の振り分けに設定差あり",
                             textBody3: "・高設定ほど打ち止めCZ、一通・打止CZが出てきやすい",
-                            image1: Image("acceleratorTripleChance")
+                            tableView: AnyView(acceleratorTable3renChance())
+//                            image1: Image("acceleratorTripleChance")
                         )
                     )
                 )

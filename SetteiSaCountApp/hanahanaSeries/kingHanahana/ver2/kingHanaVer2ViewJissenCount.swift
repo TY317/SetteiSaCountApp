@@ -346,6 +346,15 @@ struct kingHanaVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            kingHanaSubViewCountInput(
+                                kingHana: kingHana
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $kingHana.minusCheck)
                     // データリセットボタン

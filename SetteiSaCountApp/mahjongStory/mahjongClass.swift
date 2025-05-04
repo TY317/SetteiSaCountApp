@@ -115,6 +115,41 @@ class Mahjong: ObservableObject {
     func resetAll() {
         resetBonusScreen()
         resetAtScreen()
+        resetVoice()
+    }
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    
+    // ///// ボイス
+    @AppStorage("mahjongVoiceCountDefault") var voiceCountDefault: Int = 0 {
+        didSet {
+            voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighKyo, voiceCountHikimodoshi)
+        }
+    }
+        @AppStorage("mahjongVoiceCountHighJaku") var voiceCountHighJaku: Int = 0 {
+            didSet {
+                voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighKyo, voiceCountHikimodoshi)
+            }
+        }
+            @AppStorage("mahjongVoiceCountHighKyo") var voiceCountHighKyo: Int = 0 {
+                didSet {
+                    voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighKyo, voiceCountHikimodoshi)
+                }
+            }
+                @AppStorage("mahjongVoiceCountHikimodoshi") var voiceCountHikimodoshi: Int = 0 {
+                    didSet {
+                        voiceCountSum = countSum(voiceCountDefault, voiceCountHighJaku, voiceCountHighKyo, voiceCountHikimodoshi)
+                    }
+                }
+    @AppStorage("mahjongVoiceCountSum") var voiceCountSum: Int = 0
+    func resetVoice() {
+        voiceCountDefault = 0
+        voiceCountHighJaku = 0
+        voiceCountHighKyo = 0
+        voiceCountHikimodoshi = 0
+        minusCheck = false
     }
 }
 
@@ -137,6 +172,17 @@ class MahjongMemory1: ObservableObject {
     @AppStorage("mahjongAtScreenCountSumMemory1") var atScreenCountSum: Int = 0
     @AppStorage("mahjongMemoMemory1") var memo = ""
     @AppStorage("mahjongDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    
+    // ///// ボイス
+    @AppStorage("mahjongVoiceCountDefaultMemory1") var voiceCountDefault: Int = 0
+    @AppStorage("mahjongVoiceCountHighJakuMemory1") var voiceCountHighJaku: Int = 0
+    @AppStorage("mahjongVoiceCountHighKyoMemory1") var voiceCountHighKyo: Int = 0
+    @AppStorage("mahjongVoiceCountHikimodoshiMemory1") var voiceCountHikimodoshi: Int = 0
+    @AppStorage("mahjongVoiceCountSumMemory1") var voiceCountSum: Int = 0
 }
 
 
@@ -158,6 +204,17 @@ class MahjongMemory2: ObservableObject {
     @AppStorage("mahjongAtScreenCountSumMemory2") var atScreenCountSum: Int = 0
     @AppStorage("mahjongMemoMemory2") var memo = ""
     @AppStorage("mahjongDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    
+    // ///// ボイス
+    @AppStorage("mahjongVoiceCountDefaultMemory2") var voiceCountDefault: Int = 0
+    @AppStorage("mahjongVoiceCountHighJakuMemory2") var voiceCountHighJaku: Int = 0
+    @AppStorage("mahjongVoiceCountHighKyoMemory2") var voiceCountHighKyo: Int = 0
+    @AppStorage("mahjongVoiceCountHikimodoshiMemory2") var voiceCountHikimodoshi: Int = 0
+    @AppStorage("mahjongVoiceCountSumMemory2") var voiceCountSum: Int = 0
 }
 
 
@@ -179,4 +236,15 @@ class MahjongMemory3: ObservableObject {
     @AppStorage("mahjongAtScreenCountSumMemory3") var atScreenCountSum: Int = 0
     @AppStorage("mahjongMemoMemory3") var memo = ""
     @AppStorage("mahjongDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    
+    // ///// ボイス
+    @AppStorage("mahjongVoiceCountDefaultMemory3") var voiceCountDefault: Int = 0
+    @AppStorage("mahjongVoiceCountHighJakuMemory3") var voiceCountHighJaku: Int = 0
+    @AppStorage("mahjongVoiceCountHighKyoMemory3") var voiceCountHighKyo: Int = 0
+    @AppStorage("mahjongVoiceCountHikimodoshiMemory3") var voiceCountHikimodoshi: Int = 0
+    @AppStorage("mahjongVoiceCountSumMemory3") var voiceCountSum: Int = 0
 }

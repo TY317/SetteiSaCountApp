@@ -344,6 +344,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント入力
+                    unitButtonCountNumberInput(
+                        inputView: AnyView(
+                            draHanaSenkohSubViewCountInput(
+                                draHanaSenkoh: draHanaSenkoh
+                            )
+                        )
+                    )
+                    .popoverTip(tipUnitJugHanaCommonCountInput())
                     // マイナスボタン
                     unitButtonMinusCheck(minusCheck: $draHanaSenkoh.minusCheck)
                     // データリセットボタン
