@@ -2584,7 +2584,7 @@ struct unitListSection95Ci: View {
             } header: {
                 unitLabelMachineTopTitle(machineName: self.grafTitle, titleFont: self.titleFont)
             }
-            .popoverTip(tipUnit95CiViewExplain())
+//            .popoverTip(tipUnit95CiViewExplain())
         }
     }
 }

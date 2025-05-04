@@ -349,6 +349,16 @@ class GodeaterMemory1: ObservableObject {
     @AppStorage("godeaterScreenCountSumMemory1") var screenCountSum = 0
     @AppStorage("godeaterMemoMemory1") var memo = ""
     @AppStorage("godeaterDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("godeaterNormalChanceCountSeirituMemory1") var normalChanceCountSeiritu: Int = 0
+    @AppStorage("godeaterNormalChanceCountCzHitMemory1") var normalChanceCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountJakuCherryMemory1") var normalCountJakuCherry: Int = 0
+    @AppStorage("godeaterNormalCountSuikaMemory1") var normalCountSuika: Int = 0
+    @AppStorage("godeaterNormalCountCzHitMemory1") var normalCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountCherrySuikaSumMemory1") var normalCountCherrySuikaSum: Int = 0
 }
 
 // //// メモリー2
@@ -383,6 +393,16 @@ class GodeaterMemory2: ObservableObject {
     @AppStorage("godeaterScreenCountSumMemory2") var screenCountSum = 0
     @AppStorage("godeaterMemoMemory2") var memo = ""
     @AppStorage("godeaterDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("godeaterNormalChanceCountSeirituMemory2") var normalChanceCountSeiritu: Int = 0
+    @AppStorage("godeaterNormalChanceCountCzHitMemory2") var normalChanceCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountJakuCherryMemory2") var normalCountJakuCherry: Int = 0
+    @AppStorage("godeaterNormalCountSuikaMemory2") var normalCountSuika: Int = 0
+    @AppStorage("godeaterNormalCountCzHitMemory2") var normalCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountCherrySuikaSumMemory2") var normalCountCherrySuikaSum: Int = 0
 }
 
 // //// メモリー3
@@ -417,6 +437,16 @@ class GodeaterMemory3: ObservableObject {
     @AppStorage("godeaterScreenCountSumMemory3") var screenCountSum = 0
     @AppStorage("godeaterMemoMemory3") var memo = ""
     @AppStorage("godeaterDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////////
+    // ver3.0.0で追加
+    // ///////////////////
+    @AppStorage("godeaterNormalChanceCountSeirituMemory3") var normalChanceCountSeiritu: Int = 0
+    @AppStorage("godeaterNormalChanceCountCzHitMemory3") var normalChanceCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountJakuCherryMemory3") var normalCountJakuCherry: Int = 0
+    @AppStorage("godeaterNormalCountSuikaMemory3") var normalCountSuika: Int = 0
+    @AppStorage("godeaterNormalCountCzHitMemory3") var normalCountCzHit: Int = 0
+    @AppStorage("godeaterNormalCountCherrySuikaSumMemory3") var normalCountCherrySuikaSum: Int = 0
 }
 
 
@@ -577,6 +607,16 @@ struct godeaterViewSaveMemory: View {
         godeaterMemory1.screenCountAll = godeater.screenCountAll
         godeaterMemory1.screenCountMinichara = godeater.screenCountMinichara
         godeaterMemory1.screenCountSum = godeater.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeaterMemory1.normalChanceCountSeiritu = godeater.normalChanceCountSeiritu
+        godeaterMemory1.normalChanceCountCzHit = godeater.normalChanceCountCzHit
+        godeaterMemory1.normalCountJakuCherry = godeater.normalCountJakuCherry
+        godeaterMemory1.normalCountSuika = godeater.normalCountSuika
+        godeaterMemory1.normalCountCzHit = godeater.normalCountCzHit
+        godeaterMemory1.normalCountCherrySuikaSum = godeater.normalCountCherrySuikaSum
     }
     func saveMemory2() {
         godeaterMemory2.gameArrayData = godeater.gameArrayData
@@ -607,6 +647,16 @@ struct godeaterViewSaveMemory: View {
         godeaterMemory2.screenCountAll = godeater.screenCountAll
         godeaterMemory2.screenCountMinichara = godeater.screenCountMinichara
         godeaterMemory2.screenCountSum = godeater.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeaterMemory2.normalChanceCountSeiritu = godeater.normalChanceCountSeiritu
+        godeaterMemory2.normalChanceCountCzHit = godeater.normalChanceCountCzHit
+        godeaterMemory2.normalCountJakuCherry = godeater.normalCountJakuCherry
+        godeaterMemory2.normalCountSuika = godeater.normalCountSuika
+        godeaterMemory2.normalCountCzHit = godeater.normalCountCzHit
+        godeaterMemory2.normalCountCherrySuikaSum = godeater.normalCountCherrySuikaSum
     }
     func saveMemory3() {
         godeaterMemory3.gameArrayData = godeater.gameArrayData
@@ -637,6 +687,16 @@ struct godeaterViewSaveMemory: View {
         godeaterMemory3.screenCountAll = godeater.screenCountAll
         godeaterMemory3.screenCountMinichara = godeater.screenCountMinichara
         godeaterMemory3.screenCountSum = godeater.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeaterMemory3.normalChanceCountSeiritu = godeater.normalChanceCountSeiritu
+        godeaterMemory3.normalChanceCountCzHit = godeater.normalChanceCountCzHit
+        godeaterMemory3.normalCountJakuCherry = godeater.normalCountJakuCherry
+        godeaterMemory3.normalCountSuika = godeater.normalCountSuika
+        godeaterMemory3.normalCountCzHit = godeater.normalCountCzHit
+        godeaterMemory3.normalCountCherrySuikaSum = godeater.normalCountCherrySuikaSum
     }
 }
 
@@ -702,6 +762,16 @@ struct godeaterViewLoadMemory: View {
         godeater.screenCountAll = godeaterMemory1.screenCountAll
         godeater.screenCountMinichara = godeaterMemory1.screenCountMinichara
         godeater.screenCountSum = godeaterMemory1.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeater.normalChanceCountSeiritu = godeaterMemory1.normalChanceCountSeiritu
+        godeater.normalChanceCountCzHit = godeaterMemory1.normalChanceCountCzHit
+        godeater.normalCountJakuCherry = godeaterMemory1.normalCountJakuCherry
+        godeater.normalCountSuika = godeaterMemory1.normalCountSuika
+        godeater.normalCountCzHit = godeaterMemory1.normalCountCzHit
+        godeater.normalCountCherrySuikaSum = godeaterMemory1.normalCountCherrySuikaSum
     }
     func loadMemory2() {
         let memoryGameArray = decodeIntArray(from: godeaterMemory2.gameArrayData)
@@ -738,6 +808,16 @@ struct godeaterViewLoadMemory: View {
         godeater.screenCountAll = godeaterMemory2.screenCountAll
         godeater.screenCountMinichara = godeaterMemory2.screenCountMinichara
         godeater.screenCountSum = godeaterMemory2.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeater.normalChanceCountSeiritu = godeaterMemory2.normalChanceCountSeiritu
+        godeater.normalChanceCountCzHit = godeaterMemory2.normalChanceCountCzHit
+        godeater.normalCountJakuCherry = godeaterMemory2.normalCountJakuCherry
+        godeater.normalCountSuika = godeaterMemory2.normalCountSuika
+        godeater.normalCountCzHit = godeaterMemory2.normalCountCzHit
+        godeater.normalCountCherrySuikaSum = godeaterMemory2.normalCountCherrySuikaSum
     }
     func loadMemory3() {
         let memoryGameArray = decodeIntArray(from: godeaterMemory3.gameArrayData)
@@ -774,6 +854,16 @@ struct godeaterViewLoadMemory: View {
         godeater.screenCountAll = godeaterMemory3.screenCountAll
         godeater.screenCountMinichara = godeaterMemory3.screenCountMinichara
         godeater.screenCountSum = godeaterMemory3.screenCountSum
+        
+        // ///////////////////
+        // ver3.0.0で追加
+        // ///////////////////
+        godeater.normalChanceCountSeiritu = godeaterMemory3.normalChanceCountSeiritu
+        godeater.normalChanceCountCzHit = godeaterMemory3.normalChanceCountCzHit
+        godeater.normalCountJakuCherry = godeaterMemory3.normalCountJakuCherry
+        godeater.normalCountSuika = godeaterMemory3.normalCountSuika
+        godeater.normalCountCzHit = godeaterMemory3.normalCountCzHit
+        godeater.normalCountCherrySuikaSum = godeaterMemory3.normalCountCherrySuikaSum
     }
 }
 

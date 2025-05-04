@@ -149,7 +149,7 @@ struct ContentView: View {
                                         machineName: "緑ドン",
                                         badgeStatus: ver300.midoriDonMachineIconBadgeStatus
                                     )
-                                        .popoverTip(tipVer300MachineAdd())
+//                                        .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// アイマス、25年4月
@@ -509,7 +509,7 @@ struct ContentView: View {
                                         releaseMonth: 5,
                                         badgeStatus: ver300.midoriDonMachineIconBadgeStatus
                                     )
-                                    .popoverTip(tipVer300MachineAdd())
+//                                    .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// アイマス、25年4月
@@ -1274,8 +1274,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()
