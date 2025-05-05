@@ -191,6 +191,8 @@ struct godeaterViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $godeater.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetNormal)
+                        .popoverTip(tipUnitButtonReset())
+                    
                 }
             }
         }

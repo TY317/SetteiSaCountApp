@@ -39,6 +39,7 @@ struct mt5GekisoView: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $mt5.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetGekiso, message: "このページのデータをリセットします")
+                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

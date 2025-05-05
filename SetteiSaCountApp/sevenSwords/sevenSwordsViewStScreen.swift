@@ -81,7 +81,7 @@ struct sevenSwordsViewStScreen: View {
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetStScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

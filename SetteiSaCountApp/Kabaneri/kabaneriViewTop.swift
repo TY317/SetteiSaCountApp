@@ -610,7 +610,7 @@ struct kabaneriViewTop: View {
                     }
                     .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetAll, message: "この機種のデータを全てリセットします")
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

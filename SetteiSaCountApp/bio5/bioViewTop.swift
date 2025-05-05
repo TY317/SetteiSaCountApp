@@ -95,7 +95,7 @@ struct bioViewTop: View {
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: bio.resetAll, message: "この機種のデータを全てリセットします")
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

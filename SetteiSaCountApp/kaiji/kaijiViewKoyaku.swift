@@ -161,6 +161,7 @@ struct kaijiViewKoyaku: View {
 //                    unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetKoyaku)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -165,7 +165,7 @@ struct midoriDonViewBonusScreen: View {
                     unitButtonMinusCheck(minusCheck: $midoriDon.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: midoriDon.resetBonusScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

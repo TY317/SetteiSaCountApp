@@ -363,7 +363,7 @@ struct starHanaVer2ViewJissenCount: View {
                     unitButtonMinusCheck(minusCheck: $starHana.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: starHana.hanaReset)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

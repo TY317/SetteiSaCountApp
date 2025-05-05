@@ -273,7 +273,7 @@ struct dumbbellViewKinnikuBonus: View {
                     unitButtonMinusCheck(minusCheck: $dumbbell.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: dumbbell.resetKinnikuBonus)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

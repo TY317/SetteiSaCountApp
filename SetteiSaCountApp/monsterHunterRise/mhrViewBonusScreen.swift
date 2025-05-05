@@ -116,7 +116,7 @@ struct mhrViewBonusScreen: View {
                 unitButtonMinusCheck(minusCheck: $mhr.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mhr.resetBonusScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

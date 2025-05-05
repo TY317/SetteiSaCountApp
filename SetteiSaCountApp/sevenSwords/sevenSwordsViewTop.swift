@@ -110,7 +110,7 @@ struct sevenSwordsViewTop: View {
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetAll, message: "この機種のデータを全てリセットします")
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

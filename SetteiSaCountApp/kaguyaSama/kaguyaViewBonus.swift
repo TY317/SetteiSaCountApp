@@ -249,6 +249,7 @@ struct kaguyaViewBonus: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $kaguya.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetBonus)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

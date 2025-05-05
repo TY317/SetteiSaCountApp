@@ -89,7 +89,7 @@ struct rslViewTop: View {
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: rsl.resetAll, message: "この機種のデータを全てリセットします")
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

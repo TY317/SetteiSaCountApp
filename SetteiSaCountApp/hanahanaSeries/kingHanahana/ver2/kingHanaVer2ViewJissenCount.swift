@@ -359,7 +359,7 @@ struct kingHanaVer2ViewJissenCount: View {
                     unitButtonMinusCheck(minusCheck: $kingHana.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: kingHana.hanaReset)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

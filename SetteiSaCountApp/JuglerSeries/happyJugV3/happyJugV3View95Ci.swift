@@ -31,7 +31,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ぶどう回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(1)
             // 単独BIG回数
@@ -50,7 +50,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "単独BIG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(2)
             // 🍒BIG回数
@@ -69,7 +69,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "🍒BIG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(3)
             // BIG合算
@@ -88,7 +88,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "BIG合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(4)
             // 単独REG回数
@@ -107,7 +107,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "単独REG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(5)
             // 🍒REG回数
@@ -126,7 +126,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "🍒REG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(6)
             // REG合算
@@ -145,7 +145,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "REG合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(7)
             // ボーナス合算回数
@@ -164,7 +164,7 @@ struct happyJugV3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ボーナス合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(8)
         }

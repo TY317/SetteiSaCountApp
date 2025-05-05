@@ -169,6 +169,7 @@ struct magiaViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $magia.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetNormal)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

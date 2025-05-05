@@ -163,11 +163,12 @@ struct acceleratorViewScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: $accelerator.screenCurrentKeyword)
+                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $accelerator.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: accelerator.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

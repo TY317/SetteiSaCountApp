@@ -208,7 +208,7 @@ struct idolMasterViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $idolMaster.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: idolMaster.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

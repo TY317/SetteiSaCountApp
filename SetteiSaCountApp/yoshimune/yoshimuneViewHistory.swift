@@ -291,6 +291,7 @@ struct yoshimuneViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $yoshimune.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: yoshimune.resetHistory)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

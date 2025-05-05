@@ -108,6 +108,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
+                TipView(tipVer310MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -979,9 +980,10 @@ struct ContentView: View {
                                 }
                                 else {
                                     Image(systemName: "rectangle.grid.2x2")
-                                        .popoverTip(tipUnitButtonIconDisplayMode())
+//                                        .popoverTip(tipUnitButtonIconDisplayMode())
                                 }
                             }
+                            .popoverTip(tipUnitButtonIconDisplayMode())
                             
                             // お気に入り設定ボタン
                             Button(action: {

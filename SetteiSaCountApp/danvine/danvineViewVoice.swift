@@ -211,6 +211,7 @@ struct danvineViewVoice: View {
                     unitButtonMinusCheck(minusCheck: $danvine.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: danvine.resetVoice)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -568,7 +568,7 @@ struct rezero2ViewTop: View {
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: rezero2.resetAll, message: "この機種のデータを全てリセットします")
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

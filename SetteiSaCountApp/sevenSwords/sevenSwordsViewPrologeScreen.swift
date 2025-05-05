@@ -142,7 +142,7 @@ struct sevenSwordsViewPrologeScreen: View {
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetBonusScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

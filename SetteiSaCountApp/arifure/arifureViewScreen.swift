@@ -193,7 +193,7 @@ struct arifureViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

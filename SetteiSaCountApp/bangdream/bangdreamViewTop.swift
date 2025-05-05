@@ -351,7 +351,7 @@ struct bangdreamViewTop: View {
                     .popoverTip(tipUnitButtonMemory())
                     // データリセット
                     unitButtonReset(isShowAlert: $isshowalert, action: bangdream.resetAll, message: "この機種のデータを全てリセットします")
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

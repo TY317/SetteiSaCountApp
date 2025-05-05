@@ -101,7 +101,7 @@ struct mrJugViewTop: View {
                 .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mrJug.resetAll, message: "この機種のデータを全てリセットします")
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
 //        .onAppear {

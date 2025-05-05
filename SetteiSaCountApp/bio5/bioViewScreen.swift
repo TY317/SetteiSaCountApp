@@ -230,7 +230,7 @@ struct bioViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $bio.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: bio.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

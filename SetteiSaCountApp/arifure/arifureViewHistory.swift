@@ -373,6 +373,7 @@ struct arifureViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetHistory)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -285,6 +285,7 @@ struct midoriDonViewVoice: View {
                     unitButtonMinusCheck(minusCheck: $midoriDon.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: midoriDon.resetVoice)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

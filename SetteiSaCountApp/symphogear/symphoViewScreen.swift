@@ -119,12 +119,14 @@ struct symphoViewScreen: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    if sympho.screenCurrentKeyword != "" {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
-                    } else {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
-                    }
+//                    if sympho.screenCurrentKeyword != "" {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    } else {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
+//                    }
+                    unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
+                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $sympho.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetScreen)
                 }

@@ -153,7 +153,7 @@ struct rslViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $rsl.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: rsl.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

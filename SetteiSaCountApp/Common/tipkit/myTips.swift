@@ -93,7 +93,8 @@ struct tipUnitButtonScreenChoiceClear: Tip {
         Text("ボタンタップで選択解除")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "rectangle.on.rectangle.slash")
     }
 }
 
@@ -110,7 +111,8 @@ struct tipUnitButtonReset: Tip {
         Text("ページ内 または機種の全データを消去")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "arrow.clockwise.square")
     }
 }
 
@@ -127,7 +129,8 @@ struct tipUnitButtonIconDisplayMode: Tip {
         Text("2種類の表示モードを切り替え可能\n表示される機種は変わりません")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "list.bullet")
     }
 }
 
@@ -175,10 +178,11 @@ struct tipUnitButtonMemory: Tip {
     }
     
     var message: Text? {
-        Text("・現在のデータ保存\n・保存したデータの読み出し\nができます")
+        Text("・\(Image(systemName: "externaldrive.badge.plus")):現在のデータ保存\n・\(Image(systemName: "folder")):保存したデータの読み出し\nができます")
     }
     var image: Image? {
         Image(systemName: "lightbulb.min")
+//        Image(systemName: "externaldrive.badge.plus")
     }
 }
 
@@ -195,7 +199,8 @@ struct tipUnitButton95CiExplain: Tip {
         Text("グラフの見方や考え方の参考はこちらを参照ください")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "info.circle")
     }
 }
 
@@ -212,7 +217,8 @@ struct tipUnitButtonLink95Ci: Tip {
         Text("このボタンからも設定推測グラフへアクセスできます\nスライドで他要素も参照できます")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "chart.bar.xaxis")
     }
 }
 

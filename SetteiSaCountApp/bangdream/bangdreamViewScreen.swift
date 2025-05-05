@@ -193,7 +193,7 @@ struct bangdreamViewScreen: View {
                 unitButtonMinusCheck(minusCheck: $bangdream.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: bangdream.resetScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

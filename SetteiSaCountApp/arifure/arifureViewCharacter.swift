@@ -543,6 +543,7 @@ struct arifureViewCharacter: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetCharacter)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

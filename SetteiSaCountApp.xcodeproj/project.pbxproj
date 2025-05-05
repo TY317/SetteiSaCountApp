@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */; };
 		0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */; };
+		0F1E11E72DC8351700F69AFF /* ver310Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E62DC8351700F69AFF /* ver310Class.swift */; };
 		0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */; };
 		0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */; };
 		0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */; };
@@ -656,6 +657,7 @@
 		06BAB0A75A95FB86B1741093 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
 		0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = rezero2Assets.xcassets; sourceTree = "<group>"; };
+		0F1E11E62DC8351700F69AFF /* ver310Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver310Class.swift; sourceTree = "<group>"; };
 		0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewTop.swift; sourceTree = "<group>"; };
 		0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveruAssets.xcassets; sourceTree = "<group>"; };
 		0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewBonusHit.swift; sourceTree = "<group>"; };
@@ -2083,6 +2085,7 @@
 				0FD357692DA553680069BD1A /* ver271Class.swift */,
 				0FD357922DAB33430069BD1A /* ver280Class.swift */,
 				0F64DD642DC0C1970027315D /* ver300Class.swift */,
+				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3101,6 +3104,7 @@
 				0F64DD4B2DC07E790027315D /* dumbbellTableGoldenChallenge.swift in Sources */,
 				0F868AD12D5864A500D952D9 /* girlsSSVer2View95CiPersonal.swift in Sources */,
 				0F6BD7B22D74129E003F5563 /* arifureViewNormal.swift in Sources */,
+				0F1E11E72DC8351700F69AFF /* ver310Class.swift in Sources */,
 				0FF1560C2D604D3000B17F83 /* starHanaVer2View95CiTotal.swift in Sources */,
 				0F64DDC42DC6E2A20027315D /* unitReelSpacer.swift in Sources */,
 				0FD357822DAA32910069BD1A /* sbjTableDiceCheck.swift in Sources */,

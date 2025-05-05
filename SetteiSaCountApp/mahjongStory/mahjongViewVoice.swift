@@ -195,6 +195,7 @@ struct mahjongViewVoice: View {
                     unitButtonMinusCheck(minusCheck: $mahjong.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: mahjong.resetVoice)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

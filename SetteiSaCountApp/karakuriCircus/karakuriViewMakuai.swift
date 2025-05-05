@@ -221,6 +221,7 @@ struct karakuriViewMakuai: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $karakuri.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetMakuai)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
