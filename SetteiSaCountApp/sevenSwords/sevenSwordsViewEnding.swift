@@ -187,6 +187,7 @@ struct sevenSwordsViewEnding: View {
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetVoice)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

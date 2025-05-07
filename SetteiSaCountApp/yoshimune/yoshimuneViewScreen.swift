@@ -175,7 +175,7 @@ struct yoshimuneViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $yoshimune.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: yoshimune.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

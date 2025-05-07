@@ -32,7 +32,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "5枚役回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(1)
             // 激走チャージ 波多野A
@@ -52,7 +52,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "波多野A 回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(2)
             // ライバルモード蒲生
@@ -72,7 +72,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ライバルモード 蒲生 回数", titleFont: .title2)
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(3)
             // ライバルモード浜岡
@@ -92,7 +92,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ライバルモード 浜岡 回数", titleFont: .title2)
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(4)
             // ライバルモード榎木
@@ -112,7 +112,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ライバルモード 榎木 回数", titleFont: .title2)
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(5)
             // 黒メダル回数
@@ -132,7 +132,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "黒メダル 回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(6)
             // 青島SG ドレス回数
@@ -152,7 +152,7 @@ struct mt5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "青島SG画面 ドレス回数", titleFont: .title2)
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(7)
         }

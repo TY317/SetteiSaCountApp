@@ -31,7 +31,7 @@ struct goJug3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ぶどう回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(1)
             // ビッグ回数
@@ -50,7 +50,7 @@ struct goJug3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ビッグ回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(2)
             // REG回数
@@ -69,7 +69,7 @@ struct goJug3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "REG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(3)
             // ボーナス合算
@@ -88,7 +88,7 @@ struct goJug3View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ボーナス合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(4)
         }

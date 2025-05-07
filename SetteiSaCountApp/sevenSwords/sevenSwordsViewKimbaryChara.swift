@@ -207,6 +207,7 @@ struct sevenSwordsViewKimbaryChara: View {
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetKimbaryCharacter)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

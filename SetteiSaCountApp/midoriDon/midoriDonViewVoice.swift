@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewVoice: View {
+    @ObservedObject var ver301: Ver301
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert = false
     let selectListVoice: [String] = [
@@ -26,9 +27,12 @@ struct midoriDonViewVoice: View {
     var body: some View {
         List {
             Section {
-                Text("参考）下のボイスほど強い示唆と予想")
+                Text("X-RUSHチャレンジ終了画面でサブ液晶をタッチするとボイス発生します")
                     .foregroundStyle(Color.secondary)
                     .font(.caption)
+//                Text("参考）下のボイスほど強い示唆と予想")
+//                    .foregroundStyle(Color.secondary)
+//                    .font(.caption)
                 // //// サークルピッカー
                 Picker(selection: self.$selectedVoice) {
                     ForEach(self.selectListVoice, id: \.self) { voice in
@@ -39,6 +43,7 @@ struct midoriDonViewVoice: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
+                .popoverTip(tipVer301MidoriDonVoice())
                 
                 // //// 選択されているボイスのカウント表示
                 // デフォルト
@@ -53,7 +58,7 @@ struct midoriDonViewVoice: View {
                 // ボイス2
                 else if self.selectedVoice == self.selectListVoice[1] {
                     unitResultCountListPercent(
-                        title: "??? ボイス2",
+                        title: "偶数示唆",
                         count: $midoriDon.voiceCount2,
                         flashColor: .blue,
                         bigNumber: $midoriDon.voiceCountSum
@@ -62,34 +67,35 @@ struct midoriDonViewVoice: View {
                 // ボイス3
                 else if self.selectedVoice == self.selectListVoice[2] {
                     unitResultCountListPercent(
-                        title: "??? ボイス3",
+                        title: "奇数示唆",
                         count: $midoriDon.voiceCount3,
                         flashColor: .yellow,
                         bigNumber: $midoriDon.voiceCountSum
                     )
                 }
                 // ボイス4
-                else if self.selectedVoice == self.selectListVoice[3] {
+                else if self.selectedVoice == self.selectListVoice[3] ||
+                            self.selectedVoice == self.selectListVoice[4] {
                     unitResultCountListPercent(
-                        title: "??? ボイス4",
+                        title: "高設定示唆",
                         count: $midoriDon.voiceCount4,
                         flashColor: .green,
                         bigNumber: $midoriDon.voiceCountSum
                     )
                 }
                 // ボイス5
-                else if self.selectedVoice == self.selectListVoice[4] {
-                    unitResultCountListPercent(
-                        title: "??? ボイス5",
-                        count: $midoriDon.voiceCount5,
-                        flashColor: .red,
-                        bigNumber: $midoriDon.voiceCountSum
-                    )
-                }
+//                else if self.selectedVoice == self.selectListVoice[4] {
+//                    unitResultCountListPercent(
+//                        title: "??? ボイス5",
+//                        count: $midoriDon.voiceCount5,
+//                        flashColor: .red,
+//                        bigNumber: $midoriDon.voiceCountSum
+//                    )
+//                }
                 // ボイス6
                 else if self.selectedVoice == self.selectListVoice[5] {
                     unitResultCountListPercent(
-                        title: "??? ボイス6",
+                        title: "設定2 以上示唆",
                         count: $midoriDon.voiceCount6,
                         flashColor: .purple,
                         bigNumber: $midoriDon.voiceCountSum
@@ -98,7 +104,7 @@ struct midoriDonViewVoice: View {
                 // ボイス7
                 else if self.selectedVoice == self.selectListVoice[6] {
                     unitResultCountListPercent(
-                        title: "??? ボイス7",
+                        title: "設定4 以上示唆",
                         count: $midoriDon.voiceCount7,
                         flashColor: .brown,
                         bigNumber: $midoriDon.voiceCountSum
@@ -107,7 +113,7 @@ struct midoriDonViewVoice: View {
                 // ボイス8
                 else if self.selectedVoice == self.selectListVoice[7] {
                     unitResultCountListPercent(
-                        title: "??? ボイス8",
+                        title: "設定5 以上示唆",
                         count: $midoriDon.voiceCount8,
                         flashColor: .gray,
                         bigNumber: $midoriDon.voiceCountSum
@@ -116,7 +122,7 @@ struct midoriDonViewVoice: View {
                 // ボイス9
                 else {
                     unitResultCountListPercent(
-                        title: "??? ボイス9",
+                        title: "設定6 濃厚",
                         count: $midoriDon.voiceCount9,
                         flashColor: .orange,
                         bigNumber: $midoriDon.voiceCountSum
@@ -155,9 +161,10 @@ struct midoriDonViewVoice: View {
                     }
                     // ボイス5
                     else if self.selectedVoice == self.selectListVoice[4] {
-                        midoriDon.voiceCount5 = countUpDown(
+                        midoriDon.voiceCount4 = countUpDown(
                             minusCheck: midoriDon.minusCheck,
-                            count: midoriDon.voiceCount5
+//                            count: midoriDon.voiceCount5
+                            count: midoriDon.voiceCount4
                         )
                     }
                     // ボイス6
@@ -218,62 +225,67 @@ struct midoriDonViewVoice: View {
                 )
                 // ボイス2
                 unitResultCountListPercent(
-                    title: "??? ボイス2",
+                    title: "偶数示唆",
                     count: $midoriDon.voiceCount2,
                     flashColor: .blue,
                     bigNumber: $midoriDon.voiceCountSum
                 )
                 // ボイス3
                 unitResultCountListPercent(
-                    title: "??? ボイス3",
+                    title: "奇数示唆",
                     count: $midoriDon.voiceCount3,
                     flashColor: .yellow,
                     bigNumber: $midoriDon.voiceCountSum
                 )
-                // ボイス4
+                // ボイス4,5
                 unitResultCountListPercent(
-                    title: "??? ボイス4",
+                    title: "高設定示唆",
                     count: $midoriDon.voiceCount4,
                     flashColor: .green,
                     bigNumber: $midoriDon.voiceCountSum
                 )
                 // ボイス5
-                unitResultCountListPercent(
-                    title: "??? ボイス5",
-                    count: $midoriDon.voiceCount5,
-                    flashColor: .red,
-                    bigNumber: $midoriDon.voiceCountSum
-                )
+//                unitResultCountListPercent(
+//                    title: "??? ボイス5",
+//                    count: $midoriDon.voiceCount5,
+//                    flashColor: .red,
+//                    bigNumber: $midoriDon.voiceCountSum
+//                )
                 // ボイス6
                 unitResultCountListPercent(
-                    title: "??? ボイス6",
+                    title: "設定2 以上示唆",
                     count: $midoriDon.voiceCount6,
                     flashColor: .purple,
                     bigNumber: $midoriDon.voiceCountSum
                 )
                 // ボイス7
                 unitResultCountListPercent(
-                    title: "??? ボイス7",
+                    title: "設定4 以上示唆",
                     count: $midoriDon.voiceCount7,
                     flashColor: .brown,
                     bigNumber: $midoriDon.voiceCountSum
                 )
                 // ボイス8
                 unitResultCountListPercent(
-                    title: "??? ボイス8",
+                    title: "設定5 以上示唆",
                     count: $midoriDon.voiceCount8,
                     flashColor: .gray,
                     bigNumber: $midoriDon.voiceCountSum
                 )
                 // ボイス9
                 unitResultCountListPercent(
-                    title: "??? ボイス9",
+                    title: "設定6 濃厚",
                     count: $midoriDon.voiceCount9,
                     flashColor: .orange,
                     bigNumber: $midoriDon.voiceCountSum
                 )
             } header: {
                 Text("カウント結果")
+            }
+        }
+        .onAppear {
+            if ver301.midoriDonMenuVoiceBadgeStatus != "none" {
+                ver301.midoriDonMenuVoiceBadgeStatus = "none"
             }
         }
         .navigationTitle("X-RUSH失敗時のボイス")
@@ -285,6 +297,7 @@ struct midoriDonViewVoice: View {
                     unitButtonMinusCheck(minusCheck: $midoriDon.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: midoriDon.resetVoice)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -293,6 +306,7 @@ struct midoriDonViewVoice: View {
 
 #Preview {
     midoriDonViewVoice(
+        ver301: Ver301(),
         midoriDon: MidoriDon()
     )
 }

@@ -158,7 +158,7 @@ struct rezero2ViewScreen: View {
                 unitButtonMinusCheck(minusCheck: $rezero2.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: rezero2.resetScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

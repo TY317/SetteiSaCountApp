@@ -159,7 +159,7 @@ struct inuyashaViewAtScreen: View {
                 unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetAtScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

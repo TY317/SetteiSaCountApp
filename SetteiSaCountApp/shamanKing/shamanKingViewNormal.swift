@@ -169,6 +169,7 @@ struct shamanKingViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetNormal)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

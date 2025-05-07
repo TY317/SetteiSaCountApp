@@ -146,7 +146,7 @@ struct inuyashaViewBigScreen: View {
                 unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetBigScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

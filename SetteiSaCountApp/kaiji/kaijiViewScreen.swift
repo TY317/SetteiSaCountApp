@@ -199,7 +199,7 @@ struct kaijiViewScreen: View {
                     unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

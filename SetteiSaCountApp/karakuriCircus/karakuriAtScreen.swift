@@ -60,12 +60,14 @@ struct karakuriAtScreen: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    if karakuri.atScreenCurrentKeyword != "" {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
-                    } else {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
-                    }
+//                    if karakuri.atScreenCurrentKeyword != "" {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    } else {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
+//                    }
+                    unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
+                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $karakuri.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetAtScreen)
                 }

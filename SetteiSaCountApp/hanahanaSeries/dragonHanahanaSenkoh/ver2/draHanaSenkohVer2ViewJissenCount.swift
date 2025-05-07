@@ -357,7 +357,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                     unitButtonMinusCheck(minusCheck: $draHanaSenkoh.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: draHanaSenkoh.hanaReset)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -400,7 +400,7 @@ struct kingHanaViewTop: View {
                         unitButtonMinusCheck(minusCheck: $hana.minusCheck)
                         // データリセットボタン
                         unitButtonReset(isShowAlert: $isShowAlert, action: hana.hanaReset, message: "この機種の全データをリセットします")
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

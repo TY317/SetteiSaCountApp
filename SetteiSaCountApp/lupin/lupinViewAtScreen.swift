@@ -144,7 +144,7 @@ struct lupinViewAtScreen: View {
                 unitButtonMinusCheck(minusCheck: $lupin.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: lupin.resetAtScreen)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

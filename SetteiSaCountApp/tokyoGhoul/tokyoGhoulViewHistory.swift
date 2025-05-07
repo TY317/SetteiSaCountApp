@@ -523,6 +523,7 @@ struct tokyoGhoulViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetHistory)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

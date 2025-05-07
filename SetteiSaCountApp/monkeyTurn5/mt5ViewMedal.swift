@@ -43,6 +43,7 @@ struct mt5ViewMedal: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $mt5.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetMedal, message: "このページのデータをリセットします")
+                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

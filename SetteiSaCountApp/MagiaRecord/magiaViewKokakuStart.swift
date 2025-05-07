@@ -166,6 +166,7 @@ struct magiaViewKokakuStart: View {
                     unitButtonMinusCheck(minusCheck: $magia.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetKokakuStart)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

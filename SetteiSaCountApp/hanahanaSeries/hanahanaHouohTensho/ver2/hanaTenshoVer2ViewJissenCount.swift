@@ -359,7 +359,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                     unitButtonMinusCheck(minusCheck: $hanaTensho.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: hanaTensho.hanaReset)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

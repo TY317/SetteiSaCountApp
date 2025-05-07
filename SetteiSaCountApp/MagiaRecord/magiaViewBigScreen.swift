@@ -215,7 +215,7 @@ struct magiaViewBigScreen: View {
                     unitButtonMinusCheck(minusCheck: $magia.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetBigScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

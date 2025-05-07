@@ -31,7 +31,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ぶどう回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(1)
             // ビッグ回数
@@ -50,7 +50,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ビッグ回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(2)
             // 単独REG回数
@@ -69,7 +69,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "単独REG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(3)
             // 🍒REG回数
@@ -88,7 +88,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "🍒REG回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(4)
             // REG合算回数
@@ -107,7 +107,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "REG合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(5)
             // ボーナス合算回数
@@ -126,7 +126,7 @@ struct myJug5View95Ci: View {
                 } header: {
                     unitLabelMachineTopTitle(machineName: "ボーナス合算回数")
                 }
-                .popoverTip(tipUnit95CiViewExplain())
+//                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(6)
         }

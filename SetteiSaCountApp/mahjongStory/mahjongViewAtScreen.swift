@@ -130,7 +130,7 @@ struct mahjongViewAtScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: self.$selectedImageName)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $mahjong.minusCheck)
                     // /// リセット

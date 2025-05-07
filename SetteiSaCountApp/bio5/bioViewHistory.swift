@@ -321,6 +321,7 @@ struct bioViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $bio.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: bio.resetHistory)
+                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

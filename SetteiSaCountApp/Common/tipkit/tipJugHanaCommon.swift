@@ -75,7 +75,8 @@ struct tipUnitJugHanaCommonCountInput: Tip {
         Text("カウントの数値を直接入力したい場合はこちら")
     }
     var image: Image? {
-        Image(systemName: "lightbulb.min")
+//        Image(systemName: "lightbulb.min")
+        Image(systemName: "keyboard")
     }
 }
 

@@ -118,12 +118,14 @@ struct kaguyaViewScreen: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
-                    if kaguya.screenCurrentKeyword != "" {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
-                    } else {
-                        unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
-                    }
+//                    if kaguya.screenCurrentKeyword != "" {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    } else {
+//                        unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
+//                    }
+                    unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
+                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $kaguya.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetScreen)
                 }

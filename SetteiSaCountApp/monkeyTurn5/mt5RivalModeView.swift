@@ -43,6 +43,7 @@ struct mt5RivalModeView: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $mt5.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetRival, message: "このページのデータをリセットします")
+                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }
