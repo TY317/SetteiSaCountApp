@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewBonusScreen: View {
+    @ObservedObject var ver301: Ver301
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -26,16 +27,16 @@ struct midoriDonViewBonusScreen: View {
                 Text("ボーナス終了画面でPUSHボタンを押すと表示されます")
                     .foregroundStyle(Color.secondary)
                     .font(.caption)
-                Text("参考）右の画面ほど強い示唆と予想")
-                    .foregroundStyle(Color.secondary)
-                    .font(.caption)
+//                Text("参考）右の画面ほど強い示唆と予想")
+//                    .foregroundStyle(Color.secondary)
+//                    .font(.caption)
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
-                        // 画面1
+                        // ドン・ビリー
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[0]),
-                                upperBeltText: "画面1",
+                                upperBeltText: "ドン・ビリー",
                                 lowerBeltText: "デフォルト"
                             ),
                             screenName: self.imageNameList[0],
@@ -44,60 +45,60 @@ struct midoriDonViewBonusScreen: View {
                             minusCheck: $midoriDon.minusCheck
                         )
                         .popoverTip(tipUnitButtonScreenChoice())
-                        // 画面2
+                        // ドン・ファビオ
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[1]),
-                                upperBeltText: "画面2",
-                                lowerBeltText: "???"
+                                upperBeltText: "ドン・ファビオ",
+                                lowerBeltText: "奇数示唆"
                             ),
                             screenName: self.imageNameList[1],
                             selectedScreen: self.$selectedImageName,
                             count: $midoriDon.bonusScreenCountScreen2,
                             minusCheck: $midoriDon.minusCheck
                         )
-                        // 画面3
+                        // ドン・葉月・ビリー
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[2]),
-                                upperBeltText: "画面3",
-                                lowerBeltText: "???"
+                                upperBeltText: "ドン・葉月・ビリー",
+                                lowerBeltText: "偶数示唆"
                             ),
                             screenName: self.imageNameList[2],
                             selectedScreen: self.$selectedImageName,
                             count: $midoriDon.bonusScreenCountScreen3,
                             minusCheck: $midoriDon.minusCheck
                         )
-                        // 画面4
+                        // 葉月・マリア
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[3]),
-                                upperBeltText: "画面4",
-                                lowerBeltText: "???"
+                                upperBeltText: "葉月・マリア",
+                                lowerBeltText: "設定2 以上示唆"
                             ),
                             screenName: self.imageNameList[3],
                             selectedScreen: self.$selectedImageName,
                             count: $midoriDon.bonusScreenCountScreen4,
                             minusCheck: $midoriDon.minusCheck
                         )
-                        // 画面5
+                        // 全員集合
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[4]),
-                                upperBeltText: "画面5",
-                                lowerBeltText: "???"
+                                upperBeltText: "全員集合",
+                                lowerBeltText: "設定4 以上示唆"
                             ),
                             screenName: self.imageNameList[4],
                             selectedScreen: self.$selectedImageName,
                             count: $midoriDon.bonusScreenCountScreen5,
                             minusCheck: $midoriDon.minusCheck
                         )
-                        // 画面6
+                        // 実写ビリー
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[5]),
-                                upperBeltText: "画面6",
-                                lowerBeltText: "???"
+                                upperBeltText: "実写ビリー",
+                                lowerBeltText: "設定6 濃厚"
                             ),
                             screenName: self.imageNameList[5],
                             selectedScreen: self.$selectedImageName,
@@ -107,6 +108,7 @@ struct midoriDonViewBonusScreen: View {
                     }
                 }
                 .frame(height: 120)
+                .popoverTip(tipVer301MidoriDonScreen())
                 
                 // //// カウント結果
                 // デフォルト
@@ -116,41 +118,46 @@ struct midoriDonViewBonusScreen: View {
                     flashColor: .gray,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
-                // 画面2
+                // ドン・ファビオ
                 unitResultCountListPercent(
-                    title: "??? 画面2",
+                    title: "奇数示唆",
                     count: $midoriDon.bonusScreenCountScreen2,
                     flashColor: .blue,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
-                // 画面3
+                // ドン・葉月・ビリー
                 unitResultCountListPercent(
-                    title: "??? 画面3",
+                    title: "偶数示唆",
                     count: $midoriDon.bonusScreenCountScreen3,
                     flashColor: .yellow,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
-                // 画面4
+                // 葉月・マリア
                 unitResultCountListPercent(
-                    title: "??? 画面4",
+                    title: "設定2 以上示唆",
                     count: $midoriDon.bonusScreenCountScreen4,
                     flashColor: .green,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
-                // 画面5
+                // 全員集合
                 unitResultCountListPercent(
-                    title: "??? 画面5",
+                    title: "設定4 以上示唆",
                     count: $midoriDon.bonusScreenCountScreen5,
                     flashColor: .red,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
-                // 画面6
+                // 実写ビリー
                 unitResultCountListPercent(
-                    title: "??? 画面6",
+                    title: "設定6 濃厚",
                     count: $midoriDon.bonusScreenCountScreen6,
                     flashColor: .purple,
                     bigNumber: $midoriDon.bonusScreenCountSum
                 )
+            }
+        }
+        .onAppear {
+            if ver301.midoriDonMenuScreenBadgeStatus != "none" {
+                ver301.midoriDonMenuScreenBadgeStatus = "none"
             }
         }
         .navigationTitle("ボーナス終了画面")
@@ -174,6 +181,7 @@ struct midoriDonViewBonusScreen: View {
 
 #Preview {
     midoriDonViewBonusScreen(
+        ver301: Ver301(),
         midoriDon: MidoriDon()
     )
 }

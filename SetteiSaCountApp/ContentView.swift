@@ -51,6 +51,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteYoshimune") var isSelectedFavoriteYoshimune = true
     @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
     @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
+//    @AppStorage("isSelectedFavoriteGundamSeed") var isSelectedFavoriteGundamSeed = true
 }
 
 
@@ -92,8 +93,9 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
+    @StateObject var ver301 =  Ver301()
     @StateObject var ver300 = Ver300()
-//    @ObservedObject var ver271 = Ver271()
+//    @StateObject var ver310 = Ver310()
     @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
@@ -108,7 +110,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer310MachineAdd())
+//                TipView(tipVer310MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -140,15 +142,32 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ガンダムSEED、25年5月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGundamSeed == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(gundamSeedViewTop(
+//                                            ver310: ver310
+//                                        )),
+//                                        iconImage: Image("gundamSeedMachineIcon"),
+//                                        machineName: "SEED",
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+//                                    )
+//                                }
+                                
                                 // //// 緑ドン、25年5月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMidoriDon == false {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(midoriDonViewTop(ver300: ver300)),
+                                        linkView: AnyView(midoriDonViewTop(
+                                            ver300: ver300,
+                                            ver301: ver301
+                                        )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
-                                        badgeStatus: ver300.midoriDonMachineIconBadgeStatus
+                                        badgeStatus: ver301.midoriDonMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -497,18 +516,38 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ガンダムSEED、25年5月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGundamSeed == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(gundamSeedViewTop(
+//                                            ver310: ver310
+//                                        )),
+//                                        iconImage: Image("gundamSeedMachineIcon"),
+//                                        machineName: "ガンダムSEED",
+//                                        makerName: "SANKYO",
+//                                        releaseYear: 2025,
+//                                        releaseMonth: 5,
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+//                                    )
+//                                }
+                                
                                 // //// 緑ドン、25年5月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMidoriDon == false {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(midoriDonViewTop(ver300: ver300)),
+                                        linkView: AnyView(midoriDonViewTop(
+                                            ver300: ver300,
+                                            ver301: ver301
+                                        )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 5,
-                                        badgeStatus: ver300.midoriDonMachineIconBadgeStatus
+                                        badgeStatus: ver301.midoriDonMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -1079,6 +1118,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// ガンダムSEED、25年5月
+//                Toggle("ガンダムSEED", isOn: $favoriteSet.isSelectedFavoriteGundamSeed)
                 // //// 緑ドン、25年5月
                 Toggle("緑ドン VIVA情熱南米編", isOn: $favoriteSet.isSelectedFavoriteMidoriDon)
                 // //// アイマス、25年4月

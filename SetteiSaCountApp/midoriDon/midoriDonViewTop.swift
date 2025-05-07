@@ -9,6 +9,7 @@ import SwiftUI
 
 struct midoriDonViewTop: View {
     @ObservedObject var ver300: Ver300
+    @ObservedObject var ver301: Ver301
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
     @ObservedObject var midoriDonMemory1 = MidoriDonMemory1()
@@ -50,21 +51,25 @@ struct midoriDonViewTop: View {
                     
                     // ボーナス終了画面
                     NavigationLink(destination: midoriDonViewBonusScreen(
+                        ver301: ver301,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面"
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: ver301.midoriDonMenuScreenBadgeStatus
                         )
                     }
                     
                     // ボイス
                     NavigationLink(destination: midoriDonViewVoice(
+                        ver301: ver301,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "X-RUSH失敗時のボイス"
+                            textBody: "X-RUSHチャレンジ失敗時のボイス",
+                            badgeStatus: ver301.midoriDonMenuVoiceBadgeStatus
                         )
                     }
                 }
@@ -82,8 +87,8 @@ struct midoriDonViewTop: View {
             }
         }
         .onAppear {
-            if ver300.midoriDonMachineIconBadgeStatus != "none" {
-                ver300.midoriDonMachineIconBadgeStatus = "none"
+            if ver301.midoriDonMachineIconBadgeStatus != "none" {
+                ver301.midoriDonMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -314,6 +319,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-        ver300: Ver300()
+        ver300: Ver300(),
+        ver301: Ver301()
     )
 }
