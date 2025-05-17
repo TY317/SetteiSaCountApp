@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewBonusScreen: View {
-    @ObservedObject var ver301: Ver301
+//    @ObservedObject var ver301: Ver301
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -108,7 +108,7 @@ struct midoriDonViewBonusScreen: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer301MidoriDonScreen())
+//                .popoverTip(tipVer301MidoriDonScreen())
                 
                 // //// カウント結果
                 // デフォルト
@@ -155,11 +155,11 @@ struct midoriDonViewBonusScreen: View {
                 )
             }
         }
-        .onAppear {
-            if ver301.midoriDonMenuScreenBadgeStatus != "none" {
-                ver301.midoriDonMenuScreenBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver301.midoriDonMenuScreenBadgeStatus != "none" {
+//                ver301.midoriDonMenuScreenBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -181,7 +181,7 @@ struct midoriDonViewBonusScreen: View {
 
 #Preview {
     midoriDonViewBonusScreen(
-        ver301: Ver301(),
+//        ver301: Ver301(),
         midoriDon: MidoriDon()
     )
 }

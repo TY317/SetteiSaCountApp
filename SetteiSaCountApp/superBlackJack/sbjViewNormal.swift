@@ -43,6 +43,7 @@ struct sbjTipChanceCount: Tip {
 
 
 struct sbjViewNormal: View {
+    @ObservedObject var ver310: Ver310
 //    @ObservedObject var ver240 = Ver240()
 //    @ObservedObject var sbj = Sbj()
     @ObservedObject var sbj: Sbj
@@ -101,6 +102,20 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
+                // ピンチ目について
+                unitLinkButton(
+                    title: "ピンチ目について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ピンチ目",
+                            textBody1: "・ボーナス高確、チャイナステージ、リオチャンス高確A、ジョーカーモードはピンチ目成立時に状態の転落抽選を行う",
+                            textBody2: "・左リール青7狙い時のみピンチ目の判別が可能",
+                            textBody3: "・ピンチ目の出現率は全設定共通",
+                            tableView: AnyView(sbjTablePinchPattern())
+                        )
+                    )
+                )
+                .popoverTip(tipVer310SbjPinchMe())
             }
 //            .popoverTip(tipVer240SbjKokakuSisaUpdate())
             // //// 通常中チャンス目関連
@@ -342,11 +357,11 @@ struct sbjViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-//        .onAppear {
-//            if ver240.sbjMenuNormalBadgeStatus != "none" {
-//                ver240.sbjMenuNormalBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver310.sbjMenuNormalBadgeStatus != "none" {
+                ver310.sbjMenuNormalBadgeStatus = "none"
+            }
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -405,5 +420,8 @@ struct sbjViewNormal: View {
 }
 
 #Preview {
-    sbjViewNormal(sbj: Sbj())
+    sbjViewNormal(
+        ver310: Ver310(),
+        sbj: Sbj()
+    )
 }

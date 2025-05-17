@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct magiaViewStoryChara: View {
-//    @ObservedObject var ver280 = Ver280()
+    @ObservedObject var ver310: Ver310
     
     var body: some View {
+        TipView(tipVer310MagiaStoryChara())
         List {
             Section {
                 Text("[キャラ紹介発生条件]\n　・ATのストーリーコンプリート後にストーリー当選\n　・エンブリオ・イブ覚醒中にストーリー当選")
@@ -35,7 +37,7 @@ struct magiaViewStoryChara: View {
                         maxWidth: 50,
                         lineList: [2,2,2,2,1,2,2,2,2],
                         titleFont: .subheadline,
-                        colorList: [.white,.white,.white,.white,.tableBlue,.tableBlue,.tableBlue,.tableBlue,.personalSummerLightPurple]
+                        colorList: [.white,.white,.white,.white,.tableBlue,.personalSummerLightRed,.personalSummerLightRed,.personalSummerLightRed,.personalSummerLightPurple]
                     )
                     unitTableString(
                         columTitle: "キャラ順",
@@ -53,33 +55,36 @@ struct magiaViewStoryChara: View {
                         maxWidth: 180,
                         lineList: [2,2,2,2,1,2,2,2,2],
                         contentFont: .subheadline,
-                        colorList: [.white,.white,.white,.white,.tableBlue,.tableBlue,.tableBlue,.tableBlue,.personalSummerLightPurple]
+                        colorList: [.white,.white,.white,.white,.tableBlue,.personalSummerLightRed,.personalSummerLightRed,.personalSummerLightRed,.personalSummerLightPurple]
                     )
                     unitTableString(
                         columTitle: "示唆",
                         stringList: [
                             "デフォルト",
-                            "高設定示唆!?",
-                            "???"
+                            "高設定示唆 弱",
+                            "高設定示唆 強",
+                            "設定5\n以上濃厚"
                         ],
                         maxWidth: 100,
-                        lineList: [8,7,2],
+                        lineList: [8,1,6,2],
                         contentFont: .subheadline,
-                        colorList: [.white,.tableBlue,.personalSummerLightPurple]
+                        colorList: [.white,.tableBlue,.personalSummerLightRed,.personalSummerLightPurple]
                     )
                 }
             }
         }
-//        .onAppear {
-//            if ver280.magiaMenuStoryCharaBadgeStatus != "none" {
-//                ver280.magiaMenuStoryCharaBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver310.magiaMenuStoryCharaBadgeStatus != "none" {
+                ver310.magiaMenuStoryCharaBadgeStatus = "none"
+            }
+        }
         .navigationTitle("ストーリーのキャラ紹介")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    magiaViewStoryChara()
+    magiaViewStoryChara(
+        ver310: Ver310()
+    )
 }

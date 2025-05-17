@@ -25,9 +25,37 @@ struct commonViewNamichanTrophy: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
-            Image("commonNamichanTrophy")
-                .resizable()
-                .scaledToFit()
+            HStack(spacing: 0) {
+                Spacer()
+                unitTableString(
+                    columTitle: "",
+                    stringList: [
+                        "黒",
+                        "青",
+                        "赤",
+                        "金",
+                        "特殊柄",
+                        "虹"
+                    ],
+                    maxWidth: 100
+                )
+                unitTableString(
+                    columTitle: "示唆",
+                    stringList: [
+                        "次回ﾄﾛﾌｨｰが出現",
+                        "設定2 以上濃厚",
+                        "設定3 以上濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定6 濃厚"
+                    ],
+                    maxWidth: 200
+                )
+                Spacer()
+            }
+//            Image("commonNamichanTrophy")
+//                .resizable()
+//                .scaledToFit()
             if let textBodyAfterImage1 = textBodyAfterImage1 {
                 Text(textBodyAfterImage1)
                     .frame(maxWidth: .infinity, alignment: .leading)

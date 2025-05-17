@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct midoriDonViewTop: View {
-    @ObservedObject var ver300: Ver300
-    @ObservedObject var ver301: Ver301
+//    @ObservedObject var ver300: Ver300
+    @ObservedObject var ver310: Ver310
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
     @ObservedObject var midoriDonMemory1 = MidoriDonMemory1()
@@ -41,35 +41,37 @@ struct midoriDonViewTop: View {
                     
                     // 初当り
                     NavigationLink(destination: midoriDonViewFirstHit(
+                        ver310: ver310,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "ボーナス,AT 初当り"
+                            textBody: "ボーナス,AT 初当り",
+                            badgeStatus: ver310.midoriDonMenuFirstHitBadgeStatus
                         )
                     }
                     
                     // ボーナス終了画面
                     NavigationLink(destination: midoriDonViewBonusScreen(
-                        ver301: ver301,
+//                        ver301: ver301,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面",
-                            badgeStatus: ver301.midoriDonMenuScreenBadgeStatus
+                            textBody: "ボーナス終了画面"
+//                            badgeStatus: ver301.midoriDonMenuScreenBadgeStatus
                         )
                     }
                     
                     // ボイス
                     NavigationLink(destination: midoriDonViewVoice(
-                        ver301: ver301,
+//                        ver301: ver301,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "X-RUSHチャレンジ失敗時のボイス",
-                            badgeStatus: ver301.midoriDonMenuVoiceBadgeStatus
+                            textBody: "X-RUSHチャレンジ失敗時のボイス"
+//                            badgeStatus: ver301.midoriDonMenuVoiceBadgeStatus
                         )
                     }
                 }
@@ -87,8 +89,8 @@ struct midoriDonViewTop: View {
             }
         }
         .onAppear {
-            if ver301.midoriDonMachineIconBadgeStatus != "none" {
-                ver301.midoriDonMachineIconBadgeStatus = "none"
+            if ver310.midoriDonMachineIconBadgeStatus != "none" {
+                ver310.midoriDonMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -319,7 +321,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-        ver300: Ver300(),
-        ver301: Ver301()
+//        ver300: Ver300(),
+        ver310: Ver310()
     )
 }

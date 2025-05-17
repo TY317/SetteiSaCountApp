@@ -52,7 +52,8 @@ struct inuyashaViewAim: View {
                         unitExView5body2image(
                             title: "犬夜叉ランプでの示唆",
                             textBody1: "・狙え演出成功時の犬夜叉ランプ色で設定を示唆",
-                            image1: Image("inuyashaInuyashaLamp")
+//                            image1: Image("inuyashaInuyashaLamp")
+                            tableView: AnyView(inuyashaTableInuyashaLamp())
                         )
                     )
                 )

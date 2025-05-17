@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewTonegawaRush: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
     @ObservedObject var kaiji: Kaiji
 //    @State var isShowAlert: Bool = false
 //    let imageNameList: [String] = [
@@ -69,11 +69,11 @@ struct kaijiViewTonegawaRush: View {
                 .frame(height: 120)
             }
         }
-        .onAppear {
-            if ver300.kaijiMenuTonegawaRushBadgeStatus != "none" {
-                ver300.kaijiMenuTonegawaRushBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.kaijiMenuTonegawaRushBadgeStatus != "none" {
+//                ver300.kaijiMenuTonegawaRushBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("トネガワラッシュ中の画面示唆")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -81,7 +81,7 @@ struct kaijiViewTonegawaRush: View {
 
 #Preview {
     kaijiViewTonegawaRush(
-        ver300: Ver300(),
+//        ver300: Ver300(),
         kaiji: Kaiji()
     )
 }

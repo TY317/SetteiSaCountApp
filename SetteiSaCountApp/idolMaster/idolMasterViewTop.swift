@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct idolMasterViewTop: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
     @StateObject var idolMaster = IdolMaster()
     @State var isShowAlert: Bool = false
     @StateObject var idolMasterMemory1 = IdolMasterMemory1()
@@ -73,11 +73,11 @@ struct idolMasterViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver300.idolMasterMachineIconBadgeStatus != "none" {
-                ver300.idolMasterMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.idolMasterMachineIconBadgeStatus != "none" {
+//                ver300.idolMasterMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -245,5 +245,7 @@ struct idolMasterSubViewLoadMemory: View {
 
 
 #Preview {
-    idolMasterViewTop(ver300: Ver300())
+    idolMasterViewTop(
+//        ver300: Ver300()
+    )
 }

@@ -14,6 +14,31 @@
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
 		0F1E11F02DCB765A00F69AFF /* ver301Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */; };
+		0F1E11F22DCF32E300F69AFF /* magiaTableMagicGirlMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F12DCF32E300F69AFF /* magiaTableMagicGirlMode.swift */; };
+		0F1E11F42DCF6B5300F69AFF /* gundamSeedView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F32DCF6B5300F69AFF /* gundamSeedView95Ci.swift */; };
+		0F1E11F62DCF6BD800F69AFF /* gundamSeedViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F52DCF6BD800F69AFF /* gundamSeedViewNormal.swift */; };
+		0F1E11F82DD0105800F69AFF /* unitReelPinkBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F72DD0105800F69AFF /* unitReelPinkBar.swift */; };
+		0F1E11FA2DD0118E00F69AFF /* gundamSeedTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F92DD0118E00F69AFF /* gundamSeedTableKoyakuPattern.swift */; };
+		0F1E11FC2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11FB2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift */; };
+		0F1E11FE2DD0306000F69AFF /* gundamSeedViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11FD2DD0306000F69AFF /* gundamSeedViewScreen.swift */; };
+		0F1E12002DD04FA200F69AFF /* gundamSeedTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11FF2DD04FA200F69AFF /* gundamSeedTableFirstHit.swift */; };
+		0F1E12022DD0B9B800F69AFF /* lupinTableKiteiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12012DD0B9B800F69AFF /* lupinTableKiteiGame.swift */; };
+		0F1E12042DD0BC7F00F69AFF /* lupinTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12032DD0BC7F00F69AFF /* lupinTableFirstHit.swift */; };
+		0F1E12062DD0BD2C00F69AFF /* lupinTableCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12052DD0BD2C00F69AFF /* lupinTableCz.swift */; };
+		0F1E12082DD0BE0F00F69AFF /* lupinTableKyoCherry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12072DD0BE0F00F69AFF /* lupinTableKyoCherry.swift */; };
+		0F1E120A2DD0BF0E00F69AFF /* lupinTableChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12092DD0BF0E00F69AFF /* lupinTableChara.swift */; };
+		0F1E120C2DD0C9A700F69AFF /* inuyashaTableOfuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E120B2DD0C9A700F69AFF /* inuyashaTableOfuda.swift */; };
+		0F1E120E2DD0D13800F69AFF /* inuyashaTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E120D2DD0D13800F69AFF /* inuyashaTableKoyakuRatio.swift */; };
+		0F1E12102DD0D68C00F69AFF /* inuyashaTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E120F2DD0D68C00F69AFF /* inuyashaTableFirstHit.swift */; };
+		0F1E12122DD0D75800F69AFF /* inuyashaTableCz333.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12112DD0D75800F69AFF /* inuyashaTableCz333.swift */; };
+		0F1E12142DD37B4F00F69AFF /* inuyashaTableInuyashaLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12132DD37B4F00F69AFF /* inuyashaTableInuyashaLamp.swift */; };
+		0F1E12162DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12152DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift */; };
+		0F1E12182DD4D06000F69AFF /* mhrTableRiseZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12172DD4D06000F69AFF /* mhrTableRiseZone.swift */; };
+		0F1E121A2DD4D19700F69AFF /* mhrTableKiteiReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12192DD4D19700F69AFF /* mhrTableKiteiReplay.swift */; };
+		0F1E121C2DD61C3100F69AFF /* mhrTableKiteiPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E121B2DD61C3100F69AFF /* mhrTableKiteiPt.swift */; };
+		0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E121D2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift */; };
+		0F1E12202DD8121000F69AFF /* sbjTablePinchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E121F2DD8121000F69AFF /* sbjTablePinchPattern.swift */; };
+		0F1E12222DD819DD00F69AFF /* midoriDonTableReachReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */; };
 		0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */; };
 		0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */; };
 		0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */; };
@@ -666,6 +691,31 @@
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
 		0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver301Class.swift; sourceTree = "<group>"; };
+		0F1E11F12DCF32E300F69AFF /* magiaTableMagicGirlMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableMagicGirlMode.swift; sourceTree = "<group>"; };
+		0F1E11F32DCF6B5300F69AFF /* gundamSeedView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedView95Ci.swift; sourceTree = "<group>"; };
+		0F1E11F52DCF6BD800F69AFF /* gundamSeedViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewNormal.swift; sourceTree = "<group>"; };
+		0F1E11F72DD0105800F69AFF /* unitReelPinkBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitReelPinkBar.swift; sourceTree = "<group>"; };
+		0F1E11F92DD0118E00F69AFF /* gundamSeedTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0F1E11FB2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewFirstHit.swift; sourceTree = "<group>"; };
+		0F1E11FD2DD0306000F69AFF /* gundamSeedViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewScreen.swift; sourceTree = "<group>"; };
+		0F1E11FF2DD04FA200F69AFF /* gundamSeedTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedTableFirstHit.swift; sourceTree = "<group>"; };
+		0F1E12012DD0B9B800F69AFF /* lupinTableKiteiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinTableKiteiGame.swift; sourceTree = "<group>"; };
+		0F1E12032DD0BC7F00F69AFF /* lupinTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinTableFirstHit.swift; sourceTree = "<group>"; };
+		0F1E12052DD0BD2C00F69AFF /* lupinTableCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinTableCz.swift; sourceTree = "<group>"; };
+		0F1E12072DD0BE0F00F69AFF /* lupinTableKyoCherry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinTableKyoCherry.swift; sourceTree = "<group>"; };
+		0F1E12092DD0BF0E00F69AFF /* lupinTableChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinTableChara.swift; sourceTree = "<group>"; };
+		0F1E120B2DD0C9A700F69AFF /* inuyashaTableOfuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableOfuda.swift; sourceTree = "<group>"; };
+		0F1E120D2DD0D13800F69AFF /* inuyashaTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableKoyakuRatio.swift; sourceTree = "<group>"; };
+		0F1E120F2DD0D68C00F69AFF /* inuyashaTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableFirstHit.swift; sourceTree = "<group>"; };
+		0F1E12112DD0D75800F69AFF /* inuyashaTableCz333.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableCz333.swift; sourceTree = "<group>"; };
+		0F1E12132DD37B4F00F69AFF /* inuyashaTableInuyashaLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableInuyashaLamp.swift; sourceTree = "<group>"; };
+		0F1E12152DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaTableMeoshiVoice.swift; sourceTree = "<group>"; };
+		0F1E12172DD4D06000F69AFF /* mhrTableRiseZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrTableRiseZone.swift; sourceTree = "<group>"; };
+		0F1E12192DD4D19700F69AFF /* mhrTableKiteiReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrTableKiteiReplay.swift; sourceTree = "<group>"; };
+		0F1E121B2DD61C3100F69AFF /* mhrTableKiteiPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrTableKiteiPt.swift; sourceTree = "<group>"; };
+		0F1E121D2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedTableUnder99Ratio.swift; sourceTree = "<group>"; };
+		0F1E121F2DD8121000F69AFF /* sbjTablePinchPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjTablePinchPattern.swift; sourceTree = "<group>"; };
+		0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midoriDonTableReachReplay.swift; sourceTree = "<group>"; };
 		0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewTop.swift; sourceTree = "<group>"; };
 		0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveruAssets.xcassets; sourceTree = "<group>"; };
 		0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewBonusHit.swift; sourceTree = "<group>"; };
@@ -1362,6 +1412,13 @@
 				0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */,
 				0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */,
 				0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */,
+				0F1E11F32DCF6B5300F69AFF /* gundamSeedView95Ci.swift */,
+				0F1E11F52DCF6BD800F69AFF /* gundamSeedViewNormal.swift */,
+				0F1E11F92DD0118E00F69AFF /* gundamSeedTableKoyakuPattern.swift */,
+				0F1E11FB2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift */,
+				0F1E11FD2DD0306000F69AFF /* gundamSeedViewScreen.swift */,
+				0F1E11FF2DD04FA200F69AFF /* gundamSeedTableFirstHit.swift */,
+				0F1E121D2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift */,
 			);
 			path = gundamSeed;
 			sourceTree = "<group>";
@@ -1426,6 +1483,7 @@
 				0F64DDB02DC5FC7D0027315D /* unitReelColumn.swift */,
 				0F64DDC12DC6DF880027315D /* unitReelLongTitle.swift */,
 				0F64DDC32DC6E2A20027315D /* unitReelSpacer.swift */,
+				0F1E11F72DD0105800F69AFF /* unitReelPinkBar.swift */,
 			);
 			path = reel;
 			sourceTree = "<group>";
@@ -1444,6 +1502,7 @@
 				0F64DDCB2DC6F07A0027315D /* midoriDonTableFirstHit.swift */,
 				0F64DDCF2DC6F3BA0027315D /* midoriDonViewBonusScreen.swift */,
 				0F64DDD42DC7059F0027315D /* midoriDonViewVoice.swift */,
+				0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */,
 			);
 			path = midoriDon;
 			sourceTree = "<group>";
@@ -1664,6 +1723,7 @@
 				0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */,
 				0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */,
 				0F49521D2DB4903F00EE13CB /* magiaViewEnding.swift */,
+				0F1E11F12DCF32E300F69AFF /* magiaTableMagicGirlMode.swift */,
 			);
 			path = MagiaRecord;
 			sourceTree = "<group>";
@@ -2087,6 +2147,7 @@
 				0FD357812DAA32910069BD1A /* sbjTableDiceCheck.swift */,
 				0FD357832DAA67F70069BD1A /* sbjTableTrump.swift */,
 				0FD357852DAA76EA0069BD1A /* sbjTableEndScreen.swift */,
+				0F1E121F2DD8121000F69AFF /* sbjTablePinchPattern.swift */,
 			);
 			path = superBlackJack;
 			sourceTree = "<group>";
@@ -2104,8 +2165,8 @@
 				0FD357692DA553680069BD1A /* ver271Class.swift */,
 				0FD357922DAB33430069BD1A /* ver280Class.swift */,
 				0F64DD642DC0C1970027315D /* ver300Class.swift */,
-				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
 				0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */,
+				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -2243,6 +2304,9 @@
 				0FA0248C2D011BBA004B3FD5 /* mhrViewEndScreen.swift */,
 				0FA0248E2D011C59004B3FD5 /* mhrViewDuringBonus.swift */,
 				0FA024902D013AF5004B3FD5 /* mhrViewEnding.swift */,
+				0F1E12172DD4D06000F69AFF /* mhrTableRiseZone.swift */,
+				0F1E12192DD4D19700F69AFF /* mhrTableKiteiReplay.swift */,
+				0F1E121B2DD61C3100F69AFF /* mhrTableKiteiPt.swift */,
 			);
 			path = monsterHunterRise;
 			sourceTree = "<group>";
@@ -2262,6 +2326,12 @@
 				0FDC32642D17D76A005B3D06 /* inuyashaView95Ci.swift */,
 				0FDC326E2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift */,
 				0FDC32702D20A37E005B3D06 /* inuyashaViewKoyaku.swift */,
+				0F1E120B2DD0C9A700F69AFF /* inuyashaTableOfuda.swift */,
+				0F1E120D2DD0D13800F69AFF /* inuyashaTableKoyakuRatio.swift */,
+				0F1E120F2DD0D68C00F69AFF /* inuyashaTableFirstHit.swift */,
+				0F1E12112DD0D75800F69AFF /* inuyashaTableCz333.swift */,
+				0F1E12132DD37B4F00F69AFF /* inuyashaTableInuyashaLamp.swift */,
+				0F1E12152DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift */,
 			);
 			path = inuyasha2;
 			sourceTree = "<group>";
@@ -2278,6 +2348,11 @@
 				0FA024AB2D0B16CC004B3FD5 /* lupinSingleBonusVoice.swift */,
 				0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */,
 				0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */,
+				0F1E12012DD0B9B800F69AFF /* lupinTableKiteiGame.swift */,
+				0F1E12032DD0BC7F00F69AFF /* lupinTableFirstHit.swift */,
+				0F1E12052DD0BD2C00F69AFF /* lupinTableCz.swift */,
+				0F1E12072DD0BE0F00F69AFF /* lupinTableKyoCherry.swift */,
+				0F1E12092DD0BF0E00F69AFF /* lupinTableChara.swift */,
 			);
 			path = lupin;
 			sourceTree = "<group>";
@@ -2881,6 +2956,7 @@
 				0FD357BD2DB1389C0069BD1A /* mahjongViewFirstHit.swift in Sources */,
 				0F7D3F1F2C81C69300A3FE7D /* kabaneriViewCzBonus.swift in Sources */,
 				0F868A0A2D4279D100D952D9 /* goJug3Ver2View95CiKen.swift in Sources */,
+				0F1E12122DD0D75800F69AFF /* inuyashaTableCz333.swift in Sources */,
 				0F6BD7CB2D806908003F5563 /* bioViewTop.swift in Sources */,
 				0FD357742DAA18640069BD1A /* tokyoGhoulTableModeTable.swift in Sources */,
 				0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */,
@@ -2923,6 +2999,7 @@
 				0FD357CD2DB33A260069BD1A /* yoshimuneViewHistory.swift in Sources */,
 				0F64DDC62DC6E74E0027315D /* midoriDonTableJakuRareRatio.swift in Sources */,
 				0F868ABD2D584BA700D952D9 /* girlsSSViewTop.swift in Sources */,
+				0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */,
 				0F7F86402D9EB26400F26486 /* ver270Class.swift in Sources */,
 				0F8689E62D3D251000D952D9 /* unitResultCountListWithoutRatio.swift in Sources */,
 				0FF1561D2D67199D00B17F83 /* ver230Class.swift in Sources */,
@@ -2946,9 +3023,11 @@
 				0FD357202DA0BF6F0069BD1A /* sevenSwordsViewVoiceCustom.swift in Sources */,
 				0F6BD7D62D81AA74003F5563 /* bioViewScreen.swift in Sources */,
 				0F868A0C2D427CD100D952D9 /* goJug3Ver2View95CiStart.swift in Sources */,
+				0F1E12062DD0BD2C00F69AFF /* lupinTableCz.swift in Sources */,
 				0F868A5C2D47BB8100D952D9 /* draHanaSenkohVer2View95CiTotal.swift in Sources */,
 				0FDC32872D264452005B3D06 /* dumbbellViewGoldenChallenge.swift in Sources */,
 				0F868A752D4F5D7A00D952D9 /* sbjViewTop.swift in Sources */,
+				0F1E11F42DCF6B5300F69AFF /* gundamSeedView95Ci.swift in Sources */,
 				0FA024752CF354C0004B3FD5 /* goevaView95Ci.swift in Sources */,
 				0F64DD5B2DC091400027315D /* danvineTableAttackStartRatio.swift in Sources */,
 				0F8689EB2D4108A300D952D9 /* imJugExVer2ViewTop.swift in Sources */,
@@ -2968,11 +3047,13 @@
 				0F64DD8A2DC5C31F0027315D /* girlsSSSubViewCountInput.swift in Sources */,
 				0F64DD8C2DC5C4970027315D /* goJug3SubViewCountInput.swift in Sources */,
 				0FEC579A2D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift in Sources */,
+				0F1E12042DD0BC7F00F69AFF /* lupinTableFirstHit.swift in Sources */,
 				0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */,
 				0F868A172D44B6E100D952D9 /* happyJugV3Ver2ViewKenDataInput.swift in Sources */,
 				0FA024A82D0B137A004B3FD5 /* lupinViewRoundScreen.swift in Sources */,
 				0F64DD652DC0C1970027315D /* ver300Class.swift in Sources */,
 				0FDC32772D2386CF005B3D06 /* danvineViewSt.swift in Sources */,
+				0F1E120E2DD0D13800F69AFF /* inuyashaTableKoyakuRatio.swift in Sources */,
 				0F64DD982DC5CEAA0027315D /* starHanaSubViewCountInput.swift in Sources */,
 				0F868AB62D583CBA00D952D9 /* funky2Ver2View95CiKen.swift in Sources */,
 				0F6BD7E02D831B34003F5563 /* mrJugSubViewTableRatio.swift in Sources */,
@@ -3015,6 +3096,7 @@
 				0F8689FE2D42747900D952D9 /* goJug3Ver2ViewTop.swift in Sources */,
 				0F868AA32D57954200D952D9 /* mrJugVer2View95CiPersonal.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
+				0F1E11FC2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift in Sources */,
 				0F64DD862DC5AE390027315D /* unitButtonCountNumberInput.swift in Sources */,
 				0F64DD7A2DC105140027315D /* idolMasterViewScreen.swift in Sources */,
 				0FD357A32DAB78FF0069BD1A /* godzillaViewFirstHit.swift in Sources */,
@@ -3034,13 +3116,16 @@
 				0FA024692CF2F046004B3FD5 /* imJugExView95Ci.swift in Sources */,
 				0F868A7C2D539C5F00D952D9 /* ver210Class.swift in Sources */,
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
+				0F1E121A2DD4D19700F69AFF /* mhrTableKiteiReplay.swift in Sources */,
 				0F66FE702C8C78FC00776053 /* hokutoViewMode.swift in Sources */,
 				0FEC579E2D8EE69300FF1024 /* tokyoGhoulSubViewTableUraAt.swift in Sources */,
 				0FDC326D2D1EA219005B3D06 /* danvineViewNormalMode.swift in Sources */,
+				0F1E11FA2DD0118E00F69AFF /* gundamSeedTableKoyakuPattern.swift in Sources */,
 				0FF156492D73E9F400B17F83 /* arifureClass.swift in Sources */,
 				0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */,
 				0F868A6B2D4DA97F00D952D9 /* unitChart95CiPercentNotBinding.swift in Sources */,
 				0F868AAC2D583AB300D952D9 /* funky2Ver2ViewKenDataInput.swift in Sources */,
+				0F1E121C2DD61C3100F69AFF /* mhrTableKiteiPt.swift in Sources */,
 				0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */,
 				0F6BD7DC2D8310D0003F5563 /* bioView95Ci.swift in Sources */,
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
@@ -3059,6 +3144,7 @@
 				0F8031122C6255AB001F008E /* VVV_CZ.swift in Sources */,
 				0F64DD492DC07D240027315D /* dumbbellTableBonusFirstHit.swift in Sources */,
 				0FEC57D32D957AFA00FF1024 /* imJugExTableRatio.swift in Sources */,
+				0F1E11F62DCF6BD800F69AFF /* gundamSeedViewNormal.swift in Sources */,
 				0FDC32652D17D76A005B3D06 /* inuyashaView95Ci.swift in Sources */,
 				0FEC57C52D918E4E00FF1024 /* rslViewVoice.swift in Sources */,
 				0FEC57A02D8EE96E00FF1024 /* tokyoGhoulSubViewTableGedanReplay.swift in Sources */,
@@ -3102,6 +3188,7 @@
 				0F868AAE2D583AC100D952D9 /* funky2Ver2ViewJissenStartData.swift in Sources */,
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
 				0F868A542D47BB4100D952D9 /* draHanaSenkohVer2ViewKenDataInput.swift in Sources */,
+				0F1E12022DD0B9B800F69AFF /* lupinTableKiteiGame.swift in Sources */,
 				0FF156272D69A38800B17F83 /* tokyoGhoulViewScreen.swift in Sources */,
 				0F868AC12D584D1900D952D9 /* girlsSSClass.swift in Sources */,
 				0F6BD7C62D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift in Sources */,
@@ -3167,17 +3254,20 @@
 				0FD357A12DAB72DD0069BD1A /* godzillaViewExMovie.swift in Sources */,
 				0FDC32632D17CAD4005B3D06 /* commonViewNamichanTrophy.swift in Sources */,
 				0F64DD702DC0CDB30027315D /* idolMasterView95Ci.swift in Sources */,
+				0F1E11F82DD0105800F69AFF /* unitReelPinkBar.swift in Sources */,
 				0F64DD632DC09EFF0027315D /* danvineTableSeisenshi.swift in Sources */,
 				0F868A342D45CB7100D952D9 /* hanaTenshoVer2View95CiTotal.swift in Sources */,
 				0F8689E02D3C874F00D952D9 /* unitCountButtonVerticalDenominateAnotherDisplayNumber.swift in Sources */,
 				0F868A192D44B6F200D952D9 /* happyJugV3Ver2ViewJissenStartData.swift in Sources */,
 				0F64DD7C2DC3875E0027315D /* idolMasterViewVoice.swift in Sources */,
 				0FD357702DA9EA720069BD1A /* kaijiTableKoyaku.swift in Sources */,
+				0F1E12142DD37B4F00F69AFF /* inuyashaTableInuyashaLamp.swift in Sources */,
 				0F64DD512DC085BD0027315D /* danvineTableMode.swift in Sources */,
 				0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */,
 				0FD3576A2DA553680069BD1A /* ver271Class.swift in Sources */,
 				0F64DDD32DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift in Sources */,
 				0F654BE92C708C2000F37849 /* kingHanaViewTop.swift in Sources */,
+				0F1E12202DD8121000F69AFF /* sbjTablePinchPattern.swift in Sources */,
 				0F6BD7C82D806725003F5563 /* ver250Class.swift in Sources */,
 				0F25FC642CD3AE920005F971 /* rezero2ViewHistory.swift in Sources */,
 				0FA024A62D0B0DDC004B3FD5 /* lupinView95Ci.swift in Sources */,
@@ -3287,6 +3377,7 @@
 				0FA024832CF5F5F0004B3FD5 /* vvvView95Ci.swift in Sources */,
 				0FDC32892D2653F9005B3D06 /* dumbbellCzAtScreen.swift in Sources */,
 				0FF156432D73E2F100B17F83 /* arifureViewTop.swift in Sources */,
+				0F1E12082DD0BE0F00F69AFF /* lupinTableKyoCherry.swift in Sources */,
 				0F868AE02D5EDD1A00D952D9 /* sevenSwordsViewKimbaryChara.swift in Sources */,
 				0F868A7E2D54E73500D952D9 /* sbjClass.swift in Sources */,
 				0F3465BF2CB410D200B5D2DD /* mt5View5coin.swift in Sources */,
@@ -3344,7 +3435,9 @@
 				0FD357A52DAB793F0069BD1A /* godzillaViewScreen.swift in Sources */,
 				0FEC57D12D954CEF00FF1024 /* goJugTableRatio.swift in Sources */,
 				0FEC57CD2D953EA200FF1024 /* girlsSSTableRatio.swift in Sources */,
+				0F1E120A2DD0BF0E00F69AFF /* lupinTableChara.swift in Sources */,
 				0FD357602DA293F60069BD1A /* magiaViewFirstHit.swift in Sources */,
+				0F1E11F22DCF32E300F69AFF /* magiaTableMagicGirlMode.swift in Sources */,
 				0FD357342DA1545C0069BD1A /* hanahanaCommonTableRegTopLamp.swift in Sources */,
 				0F8689F12D41154A00D952D9 /* imJugExVer2ViewJissenCount.swift in Sources */,
 				0FDC325D2D1656D8005B3D06 /* inuyashaViewBigScreen.swift in Sources */,
@@ -3355,6 +3448,7 @@
 				0FEC57C32D918D2100FF1024 /* rslView95Ci.swift in Sources */,
 				0F7202FF2C8F19AE001A8AF2 /* godeaterViewHistory.swift in Sources */,
 				0F6BD7E82D8863A6003F5563 /* arifureSubViewTablePremiumAtHit.swift in Sources */,
+				0F1E12222DD819DD00F69AFF /* midoriDonTableReachReplay.swift in Sources */,
 				0F6BD7BA2D7888C4003F5563 /* arifureViewAfterAtKokaku.swift in Sources */,
 				0FD3573E2DA21EEC0069BD1A /* arifureTableCzMode.swift in Sources */,
 				0F868AC32D584F1A00D952D9 /* girlsSSVer2ViewKenDataInput.swift in Sources */,
@@ -3372,6 +3466,7 @@
 				0F868A1D2D44B70D00D952D9 /* happyJugV3Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868A642D490BF900D952D9 /* tipJugHanaCommon.swift in Sources */,
 				0F80312A2C6A2E24001F008E /* VVVendScreenView.swift in Sources */,
+				0F1E12162DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift in Sources */,
 				0FEC57AC2D8F96AA00FF1024 /* kaijiViewHirameki.swift in Sources */,
 				0F6BD7EA2D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift in Sources */,
 				0F80311D2C69B42A001F008E /* myFunction.swift in Sources */,
@@ -3380,6 +3475,7 @@
 				0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */,
 				0F868AA12D57945C00D952D9 /* mrJugVer2View95CiStart.swift in Sources */,
 				0F64DD8E2DC5C6470027315D /* happyJugV3SubViewCountInput.swift in Sources */,
+				0F1E12182DD4D06000F69AFF /* mhrTableRiseZone.swift in Sources */,
 				0F6BD7E22D831C05003F5563 /* unitTableDenominate.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
@@ -3387,6 +3483,7 @@
 				0F654BEF2C71670600F37849 /* kingHanaExViewBbSuika.swift in Sources */,
 				0F7E4F792D2A48FF001CC916 /* commonViewFujimaruCoin.swift in Sources */,
 				0F7E4F752D28E94D001CC916 /* acceleratorViewCz.swift in Sources */,
+				0F1E120C2DD0C9A700F69AFF /* inuyashaTableOfuda.swift in Sources */,
 				0FE23B2C2C772D04000E65D7 /* mt5GekisoView.swift in Sources */,
 				0F64DD5F2DC09C3A0027315D /* danvineTableFirstHit.swift in Sources */,
 				0F868A8A2D57373100D952D9 /* sbjViewEndScreen.swift in Sources */,
@@ -3420,10 +3517,12 @@
 				0F719BCE2C7CBFD700FAD8B8 /* mt5ViewEnding.swift in Sources */,
 				0FEC57A22D8EEE0A00FF1024 /* bioViewNormal.swift in Sources */,
 				0F64DD552DC08E890027315D /* danvineTable11Pt.swift in Sources */,
+				0F1E12002DD04FA200F69AFF /* gundamSeedTableFirstHit.swift in Sources */,
 				0F587EAA2CD50CCA0027641C /* rezero2ViewWatch.swift in Sources */,
 				0FEC57C72D94203500FF1024 /* rslViewScreen.swift in Sources */,
 				0FD3577C2DAA2CFD0069BD1A /* sbjTableNormalChance.swift in Sources */,
 				0FF156102D604EAC00B17F83 /* starHanaVer2View95CiStart.swift in Sources */,
+				0F1E12102DD0D68C00F69AFF /* inuyashaTableFirstHit.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
 				0F868A082D42793600D952D9 /* goJug3Ver2View95CiTotal.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
@@ -3445,6 +3544,7 @@
 				0F88727F2C6B4C3700AADD2B /* VVVexViewMarie.swift in Sources */,
 				0FD357932DAB33430069BD1A /* ver280Class.swift in Sources */,
 				0F868A212D44B7C700D952D9 /* happyJugV3Ver2View95CiKen.swift in Sources */,
+				0F1E11FE2DD0306000F69AFF /* gundamSeedViewScreen.swift in Sources */,
 				0FEC579C2D8ED48800FF1024 /* arifureSubViewTableEnding.swift in Sources */,
 				0F7202FB2C8F1505001A8AF2 /* godeaterViewTop.swift in Sources */,
 				0F868A5E2D47BE3B00D952D9 /* draHanaSenkohVer2View95CiKen.swift in Sources */,
@@ -3636,7 +3736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.1;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3675,7 +3775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.1;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

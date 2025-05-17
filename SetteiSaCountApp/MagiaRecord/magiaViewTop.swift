@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct magiaViewTop: View {
-    @ObservedObject var ver300: Ver300
-//    @ObservedObject var ver271 = Ver271()
+    @ObservedObject var ver310: Ver310
 //    @ObservedObject var magia = Magia()
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
@@ -31,11 +30,14 @@ struct magiaViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: magiaViewNormal(magia: magia)) {
+                    NavigationLink(destination: magiaViewNormal(
+                        ver310: ver310,
+                        magia: magia
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
-//                            badgeStatus: ver271.magiaMenuNormalBadgeStatus
+                            textBody: "通常時",
+                            badgeStatus: ver310.magiaMenuNormalBadgeStatus
                         )
                     }
                     // 初当り
@@ -48,20 +50,24 @@ struct magiaViewTop: View {
                     }
                     // BIG終了画面
                     NavigationLink(destination: magiaViewBigScreen(
-                        ver300: ver300,
+//                        ver300: ver300,
                         magia: magia
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "BIG終了画面",
-                            badgeStatus: ver300.magiaMenuBonusScreenBadgeStatus
+                            textBody: "BIG終了画面"
+//                            badgeStatus: ver300.magiaMenuBonusScreenBadgeStatus
                         )
                     }
                     // ボーナス終了後ボイス
-                    NavigationLink(destination: magiaViewVoice(magia: magia)) {
+                    NavigationLink(destination: magiaViewVoice(
+                        ver310: ver310,
+                        magia: magia
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "BIG終了後ボイス"
+                            textBody: "BIG終了後ボイス",
+                            badgeStatus: ver310.magiaMenuVoiceBadgeStatus
                         )
                     }
                     // AT終了画面
@@ -81,19 +87,24 @@ struct magiaViewTop: View {
                         )
                     }
                     // ストーリーのキャラ紹介
-                    NavigationLink(destination: magiaViewStoryChara()) {
+                    NavigationLink(destination: magiaViewStoryChara(
+                        ver310: ver310
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
-                            textBody: "ストーリーのキャラ紹介"
-//                            badgeStatus: ver280.magiaMenuStoryCharaBadgeStatus
+                            textBody: "ストーリーのキャラ紹介",
+                            badgeStatus: ver310.magiaMenuStoryCharaBadgeStatus
                         )
                     }
                     // エンディング
-                    NavigationLink(destination: magiaViewEnding(magia: magia)) {
+                    NavigationLink(destination: magiaViewEnding(
+                        ver310: ver310,
+                        magia: magia
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング"
-//                            badgeStatus: ver280.magiaMenuEndingBadgeStatus
+                            textBody: "エンディング",
+                            badgeStatus: ver310.magiaMenuEndingBadgeStatus
                         )
                     }
                 }
@@ -107,8 +118,8 @@ struct magiaViewTop: View {
             }
         }
         .onAppear {
-            if ver300.magiaMachineIconBadgeStatus != "none" {
-                ver300.magiaMachineIconBadgeStatus = "none"
+            if ver310.magiaMachineIconBadgeStatus != "none" {
+                ver310.magiaMachineIconBadgeStatus = "none"
             }
         }
         .navigationTitle("メニュー")
@@ -207,6 +218,34 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory1.bigScreenCountOver4 = magia.bigScreenCountOver4
         magiaMemory1.bigScreenCountOver5 = magia.bigScreenCountOver5
         magiaMemory1.bigScreenCountOver6 = magia.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magiaMemory1.endingCountKisuKyo = magia.endingCountKisuKyo
+        magiaMemory1.endingCountGusuKyo = magia.endingCountGusuKyo
+        magiaMemory1.endingCountHighKyo = magia.endingCountHighKyo
+        magiaMemory1.endingCountNegate2 = magia.endingCountNegate2
+        magiaMemory1.endingCountNegate3 = magia.endingCountNegate3
+        magiaMemory1.endingCountNegate4 = magia.endingCountNegate4
+        magiaMemory1.endingCountNegate1High = magia.endingCountNegate1High
+        magiaMemory1.endingCountNegate4High = magia.endingCountNegate4High
+        magiaMemory1.endingCountOver4 = magia.endingCountOver4
+        magiaMemory1.atScreenCountOver6 = magia.atScreenCountOver6
+        magiaMemory1.mgmTransferCountIroha = magia.mgmTransferCountIroha
+        magiaMemory1.mgmTransferCountYachiyo = magia.mgmTransferCountYachiyo
+        magiaMemory1.mgmTransferCountTsuruno = magia.mgmTransferCountTsuruno
+        magiaMemory1.mgmTransferCountFerishia = magia.mgmTransferCountFerishia
+        magiaMemory1.mgmTransferCountSana = magia.mgmTransferCountSana
+        magiaMemory1.mgmTransferCountKuroe = magia.mgmTransferCountKuroe
+        magiaMemory1.mgmTransferCountSum = magia.mgmTransferCountSum
+        magiaMemory1.mgmRisingCountIroha = magia.mgmRisingCountIroha
+        magiaMemory1.mgmRisingCountYachiyo = magia.mgmRisingCountYachiyo
+        magiaMemory1.mgmRisingCountTsuruno = magia.mgmRisingCountTsuruno
+        magiaMemory1.mgmRisingCountFerishia = magia.mgmRisingCountFerishia
+        magiaMemory1.mgmRisingCountSana = magia.mgmRisingCountSana
+        magiaMemory1.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
+        magiaMemory1.mgmRisingCountSum = magia.mgmRisingCountSum
     }
     func saveMemory2() {
         magiaMemory2.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -249,6 +288,34 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory2.bigScreenCountOver4 = magia.bigScreenCountOver4
         magiaMemory2.bigScreenCountOver5 = magia.bigScreenCountOver5
         magiaMemory2.bigScreenCountOver6 = magia.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magiaMemory2.endingCountKisuKyo = magia.endingCountKisuKyo
+        magiaMemory2.endingCountGusuKyo = magia.endingCountGusuKyo
+        magiaMemory2.endingCountHighKyo = magia.endingCountHighKyo
+        magiaMemory2.endingCountNegate2 = magia.endingCountNegate2
+        magiaMemory2.endingCountNegate3 = magia.endingCountNegate3
+        magiaMemory2.endingCountNegate4 = magia.endingCountNegate4
+        magiaMemory2.endingCountNegate1High = magia.endingCountNegate1High
+        magiaMemory2.endingCountNegate4High = magia.endingCountNegate4High
+        magiaMemory2.endingCountOver4 = magia.endingCountOver4
+        magiaMemory2.atScreenCountOver6 = magia.atScreenCountOver6
+        magiaMemory2.mgmTransferCountIroha = magia.mgmTransferCountIroha
+        magiaMemory2.mgmTransferCountYachiyo = magia.mgmTransferCountYachiyo
+        magiaMemory2.mgmTransferCountTsuruno = magia.mgmTransferCountTsuruno
+        magiaMemory2.mgmTransferCountFerishia = magia.mgmTransferCountFerishia
+        magiaMemory2.mgmTransferCountSana = magia.mgmTransferCountSana
+        magiaMemory2.mgmTransferCountKuroe = magia.mgmTransferCountKuroe
+        magiaMemory2.mgmTransferCountSum = magia.mgmTransferCountSum
+        magiaMemory2.mgmRisingCountIroha = magia.mgmRisingCountIroha
+        magiaMemory2.mgmRisingCountYachiyo = magia.mgmRisingCountYachiyo
+        magiaMemory2.mgmRisingCountTsuruno = magia.mgmRisingCountTsuruno
+        magiaMemory2.mgmRisingCountFerishia = magia.mgmRisingCountFerishia
+        magiaMemory2.mgmRisingCountSana = magia.mgmRisingCountSana
+        magiaMemory2.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
+        magiaMemory2.mgmRisingCountSum = magia.mgmRisingCountSum
     }
     func saveMemory3() {
         magiaMemory3.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -291,6 +358,34 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory3.bigScreenCountOver4 = magia.bigScreenCountOver4
         magiaMemory3.bigScreenCountOver5 = magia.bigScreenCountOver5
         magiaMemory3.bigScreenCountOver6 = magia.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magiaMemory3.endingCountKisuKyo = magia.endingCountKisuKyo
+        magiaMemory3.endingCountGusuKyo = magia.endingCountGusuKyo
+        magiaMemory3.endingCountHighKyo = magia.endingCountHighKyo
+        magiaMemory3.endingCountNegate2 = magia.endingCountNegate2
+        magiaMemory3.endingCountNegate3 = magia.endingCountNegate3
+        magiaMemory3.endingCountNegate4 = magia.endingCountNegate4
+        magiaMemory3.endingCountNegate1High = magia.endingCountNegate1High
+        magiaMemory3.endingCountNegate4High = magia.endingCountNegate4High
+        magiaMemory3.endingCountOver4 = magia.endingCountOver4
+        magiaMemory3.atScreenCountOver6 = magia.atScreenCountOver6
+        magiaMemory3.mgmTransferCountIroha = magia.mgmTransferCountIroha
+        magiaMemory3.mgmTransferCountYachiyo = magia.mgmTransferCountYachiyo
+        magiaMemory3.mgmTransferCountTsuruno = magia.mgmTransferCountTsuruno
+        magiaMemory3.mgmTransferCountFerishia = magia.mgmTransferCountFerishia
+        magiaMemory3.mgmTransferCountSana = magia.mgmTransferCountSana
+        magiaMemory3.mgmTransferCountKuroe = magia.mgmTransferCountKuroe
+        magiaMemory3.mgmTransferCountSum = magia.mgmTransferCountSum
+        magiaMemory3.mgmRisingCountIroha = magia.mgmRisingCountIroha
+        magiaMemory3.mgmRisingCountYachiyo = magia.mgmRisingCountYachiyo
+        magiaMemory3.mgmRisingCountTsuruno = magia.mgmRisingCountTsuruno
+        magiaMemory3.mgmRisingCountFerishia = magia.mgmRisingCountFerishia
+        magiaMemory3.mgmRisingCountSana = magia.mgmRisingCountSana
+        magiaMemory3.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
+        magiaMemory3.mgmRisingCountSum = magia.mgmRisingCountSum
     }
 }
 
@@ -362,6 +457,34 @@ struct magiaSubViewLoadMemory: View {
         magia.bigScreenCountOver4 = magiaMemory1.bigScreenCountOver4
         magia.bigScreenCountOver5 = magiaMemory1.bigScreenCountOver5
         magia.bigScreenCountOver6 = magiaMemory1.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magia.endingCountKisuKyo = magiaMemory1.endingCountKisuKyo
+        magia.endingCountGusuKyo = magiaMemory1.endingCountGusuKyo
+        magia.endingCountHighKyo = magiaMemory1.endingCountHighKyo
+        magia.endingCountNegate2 = magiaMemory1.endingCountNegate2
+        magia.endingCountNegate3 = magiaMemory1.endingCountNegate3
+        magia.endingCountNegate4 = magiaMemory1.endingCountNegate4
+        magia.endingCountNegate1High = magiaMemory1.endingCountNegate1High
+        magia.endingCountNegate4High = magiaMemory1.endingCountNegate4High
+        magia.endingCountOver4 = magiaMemory1.endingCountOver4
+        magia.atScreenCountOver6 = magiaMemory1.atScreenCountOver6
+        magia.mgmTransferCountIroha = magiaMemory1.mgmTransferCountIroha
+        magia.mgmTransferCountYachiyo = magiaMemory1.mgmTransferCountYachiyo
+        magia.mgmTransferCountTsuruno = magiaMemory1.mgmTransferCountTsuruno
+        magia.mgmTransferCountFerishia = magiaMemory1.mgmTransferCountFerishia
+        magia.mgmTransferCountSana = magiaMemory1.mgmTransferCountSana
+        magia.mgmTransferCountKuroe = magiaMemory1.mgmTransferCountKuroe
+        magia.mgmTransferCountSum = magiaMemory1.mgmTransferCountSum
+        magia.mgmRisingCountIroha = magiaMemory1.mgmRisingCountIroha
+        magia.mgmRisingCountYachiyo = magiaMemory1.mgmRisingCountYachiyo
+        magia.mgmRisingCountTsuruno = magiaMemory1.mgmRisingCountTsuruno
+        magia.mgmRisingCountFerishia = magiaMemory1.mgmRisingCountFerishia
+        magia.mgmRisingCountSana = magiaMemory1.mgmRisingCountSana
+        magia.mgmRisingCountKuroe = magiaMemory1.mgmRisingCountKuroe
+        magia.mgmRisingCountSum = magiaMemory1.mgmRisingCountSum
     }
     func loadMemory2() {
         magia.suikaCzCountSuika = magiaMemory2.suikaCzCountSuika
@@ -404,6 +527,34 @@ struct magiaSubViewLoadMemory: View {
         magia.bigScreenCountOver4 = magiaMemory2.bigScreenCountOver4
         magia.bigScreenCountOver5 = magiaMemory2.bigScreenCountOver5
         magia.bigScreenCountOver6 = magiaMemory2.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magia.endingCountKisuKyo = magiaMemory2.endingCountKisuKyo
+        magia.endingCountGusuKyo = magiaMemory2.endingCountGusuKyo
+        magia.endingCountHighKyo = magiaMemory2.endingCountHighKyo
+        magia.endingCountNegate2 = magiaMemory2.endingCountNegate2
+        magia.endingCountNegate3 = magiaMemory2.endingCountNegate3
+        magia.endingCountNegate4 = magiaMemory2.endingCountNegate4
+        magia.endingCountNegate1High = magiaMemory2.endingCountNegate1High
+        magia.endingCountNegate4High = magiaMemory2.endingCountNegate4High
+        magia.endingCountOver4 = magiaMemory2.endingCountOver4
+        magia.atScreenCountOver6 = magiaMemory2.atScreenCountOver6
+        magia.mgmTransferCountIroha = magiaMemory2.mgmTransferCountIroha
+        magia.mgmTransferCountYachiyo = magiaMemory2.mgmTransferCountYachiyo
+        magia.mgmTransferCountTsuruno = magiaMemory2.mgmTransferCountTsuruno
+        magia.mgmTransferCountFerishia = magiaMemory2.mgmTransferCountFerishia
+        magia.mgmTransferCountSana = magiaMemory2.mgmTransferCountSana
+        magia.mgmTransferCountKuroe = magiaMemory2.mgmTransferCountKuroe
+        magia.mgmTransferCountSum = magiaMemory2.mgmTransferCountSum
+        magia.mgmRisingCountIroha = magiaMemory2.mgmRisingCountIroha
+        magia.mgmRisingCountYachiyo = magiaMemory2.mgmRisingCountYachiyo
+        magia.mgmRisingCountTsuruno = magiaMemory2.mgmRisingCountTsuruno
+        magia.mgmRisingCountFerishia = magiaMemory2.mgmRisingCountFerishia
+        magia.mgmRisingCountSana = magiaMemory2.mgmRisingCountSana
+        magia.mgmRisingCountKuroe = magiaMemory2.mgmRisingCountKuroe
+        magia.mgmRisingCountSum = magiaMemory2.mgmRisingCountSum
     }
     func loadMemory3() {
         magia.suikaCzCountSuika = magiaMemory3.suikaCzCountSuika
@@ -446,11 +597,39 @@ struct magiaSubViewLoadMemory: View {
         magia.bigScreenCountOver4 = magiaMemory3.bigScreenCountOver4
         magia.bigScreenCountOver5 = magiaMemory3.bigScreenCountOver5
         magia.bigScreenCountOver6 = magiaMemory3.bigScreenCountOver6
+        
+        // //////////////
+        // ver3.1.0で追加
+        // //////////////
+        magia.endingCountKisuKyo = magiaMemory3.endingCountKisuKyo
+        magia.endingCountGusuKyo = magiaMemory3.endingCountGusuKyo
+        magia.endingCountHighKyo = magiaMemory3.endingCountHighKyo
+        magia.endingCountNegate2 = magiaMemory3.endingCountNegate2
+        magia.endingCountNegate3 = magiaMemory3.endingCountNegate3
+        magia.endingCountNegate4 = magiaMemory3.endingCountNegate4
+        magia.endingCountNegate1High = magiaMemory3.endingCountNegate1High
+        magia.endingCountNegate4High = magiaMemory3.endingCountNegate4High
+        magia.endingCountOver4 = magiaMemory3.endingCountOver4
+        magia.atScreenCountOver6 = magiaMemory3.atScreenCountOver6
+        magia.mgmTransferCountIroha = magiaMemory3.mgmTransferCountIroha
+        magia.mgmTransferCountYachiyo = magiaMemory3.mgmTransferCountYachiyo
+        magia.mgmTransferCountTsuruno = magiaMemory3.mgmTransferCountTsuruno
+        magia.mgmTransferCountFerishia = magiaMemory3.mgmTransferCountFerishia
+        magia.mgmTransferCountSana = magiaMemory3.mgmTransferCountSana
+        magia.mgmTransferCountKuroe = magiaMemory3.mgmTransferCountKuroe
+        magia.mgmTransferCountSum = magiaMemory3.mgmTransferCountSum
+        magia.mgmRisingCountIroha = magiaMemory3.mgmRisingCountIroha
+        magia.mgmRisingCountYachiyo = magiaMemory3.mgmRisingCountYachiyo
+        magia.mgmRisingCountTsuruno = magiaMemory3.mgmRisingCountTsuruno
+        magia.mgmRisingCountFerishia = magiaMemory3.mgmRisingCountFerishia
+        magia.mgmRisingCountSana = magiaMemory3.mgmRisingCountSana
+        magia.mgmRisingCountKuroe = magiaMemory3.mgmRisingCountKuroe
+        magia.mgmRisingCountSum = magiaMemory3.mgmRisingCountSum
     }
 }
 
 #Preview {
     magiaViewTop(
-        ver300: Ver300()
+        ver310: Ver310()
     )
 }

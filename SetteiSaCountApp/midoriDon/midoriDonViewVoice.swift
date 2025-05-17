@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewVoice: View {
-    @ObservedObject var ver301: Ver301
+//    @ObservedObject var ver301: Ver301
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert = false
     let selectListVoice: [String] = [
@@ -43,7 +43,7 @@ struct midoriDonViewVoice: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
-                .popoverTip(tipVer301MidoriDonVoice())
+//                .popoverTip(tipVer301MidoriDonVoice())
                 
                 // //// 選択されているボイスのカウント表示
                 // デフォルト
@@ -283,11 +283,11 @@ struct midoriDonViewVoice: View {
                 Text("カウント結果")
             }
         }
-        .onAppear {
-            if ver301.midoriDonMenuVoiceBadgeStatus != "none" {
-                ver301.midoriDonMenuVoiceBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver301.midoriDonMenuVoiceBadgeStatus != "none" {
+//                ver301.midoriDonMenuVoiceBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("X-RUSH失敗時のボイス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -306,7 +306,7 @@ struct midoriDonViewVoice: View {
 
 #Preview {
     midoriDonViewVoice(
-        ver301: Ver301(),
+//        ver301: Ver301(),
         midoriDon: MidoriDon()
     )
 }

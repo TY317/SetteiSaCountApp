@@ -38,7 +38,8 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ライズゾーン実質初当り確率",
-                            image1: Image("mhrRiseZone")
+//                            image1: Image("mhrRiseZone")
+                            tableView: AnyView(mhrTableRiseZone())
                         )
                     )
                 )
@@ -77,8 +78,9 @@ struct mhrViewHistory: View {
                             title: "規定リプレイ回数振り分け",
                             textBody1: "・アイルーだるま落としまでの規定リプレイ回数振り分けに設定差あり",
                             textBody2: "・40,80回がより設定差大きいため、本アプリでは80回以下と120回以上の2種類に分けてカウントできるようにしました",
-                            image1: Image("mhrAiruSumRatio"),
-                            image2: Image("mhrAiruRatioDetail")
+//                            image1: Image("mhrAiruSumRatio"),
+//                            image2: Image("mhrAiruRatioDetail")
+                            tableView: AnyView(mhrTableKiteiReplay())
                         )
                     )
                 )
@@ -182,9 +184,10 @@ struct mhrViewHistory: View {
                             title: "規定ポイントについて",
                             textBody1: "・4種類のモードで規定カムラポイントを管理",
                             textBody2: "・クエスト当選を契機にモード移行。モードDへ到達するまで転落はない",
-                            image1: Image("mhrPtMode"),
-                            image2Title: "モードごとのゾーン期待度",
-                            image2: Image("mhrPtZone")
+//                            image1: Image("mhrPtMode"),
+//                            image2Title: "モードごとのゾーン期待度",
+//                            image2: Image("mhrPtZone")
+                            tableView: AnyView(mhrTableKiteiPt())
                         )
                     )
                 )

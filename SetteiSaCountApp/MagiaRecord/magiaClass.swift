@@ -22,6 +22,19 @@ class Magia: ObservableObject {
         suikaCzCountSuika = 0
         suikaCzCountCz = 0
         minusCheck = false
+        
+        mgmTransferCountIroha = 0
+        mgmTransferCountYachiyo = 0
+        mgmTransferCountTsuruno = 0
+        mgmTransferCountFerishia = 0
+        mgmTransferCountSana = 0
+        mgmTransferCountKuroe = 0
+        mgmRisingCountIroha = 0
+        mgmRisingCountYachiyo = 0
+        mgmRisingCountTsuruno = 0
+        mgmRisingCountFerishia = 0
+        mgmRisingCountSana = 0
+        mgmRisingCountKuroe = 0
     }
     
     // ////////////////////////
@@ -106,17 +119,17 @@ class Magia: ObservableObject {
     // ////////////////////////
     @AppStorage("magiaAtScreenCountDefault") var atScreenCountDefault: Int = 0 {
         didSet {
-            atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246)
+            atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246, atScreenCountOver6)
         }
     }
         @AppStorage("magiaAtScreenCount356") var atScreenCount356: Int = 0 {
             didSet {
-                atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246)
+                atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246, atScreenCountOver6)
             }
         }
             @AppStorage("magiaAtScreenCount246") var atScreenCount246: Int = 0 {
                 didSet {
-                    atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246)
+                    atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246, atScreenCountOver6)
                 }
             }
     @AppStorage("magiaAtScreenCountSum") var atScreenCountSum: Int = 0
@@ -125,6 +138,7 @@ class Magia: ObservableObject {
         atScreenCountDefault = 0
         atScreenCount356 = 0
         atScreenCount246 = 0
+        atScreenCountOver6 = 0
         minusCheck = false
     }
     
@@ -195,17 +209,17 @@ class Magia: ObservableObject {
     // ///////////////////
     @AppStorage("magiaEndingCountKisu") var endingCountKisu: Int = 0 {
         didSet {
-            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
         }
     }
         @AppStorage("magiaEndingCountGusu") var endingCountGusu: Int = 0 {
             didSet {
-                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
             }
         }
             @AppStorage("magiaEndingCountHigh") var endingCountHigh: Int = 0 {
                 didSet {
-                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh)
+                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
                 }
             }
     @AppStorage("magiaEndingCountSum") var endingCountSum: Int = 0
@@ -214,6 +228,15 @@ class Magia: ObservableObject {
         endingCountKisu = 0
         endingCountGusu = 0
         endingCountHigh = 0
+        endingCountKisuKyo = 0
+        endingCountGusuKyo = 0
+        endingCountHighKyo = 0
+        endingCountNegate2 = 0
+        endingCountNegate3 = 0
+        endingCountNegate4 = 0
+        endingCountNegate1High = 0
+        endingCountNegate4High = 0
+        endingCountOver4 = 0
         minusCheck = false
     }
     
@@ -240,6 +263,144 @@ class Magia: ObservableObject {
                         bigScreenCountSum = countSum(bigScreenCount356, bigScreenCount246, bigScreenCountHigh1, bigScreenCountHigh2,bigScreenCountDefault, bigScreenCountOver2, bigScreenCountOver4, bigScreenCountOver5, bigScreenCountOver6)
                     }
                 }
+    
+    // //////////////
+    // ver3.1.0で追加
+    // //////////////
+    @AppStorage("magiaEndingCountKisuKyo") var endingCountKisuKyo: Int = 0 {
+        didSet {
+            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+        }
+    }
+        @AppStorage("magiaEndingCountGusuKyo") var endingCountGusuKyo: Int = 0 {
+            didSet {
+                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+            }
+        }
+            @AppStorage("magiaEndingCountHighKyo") var endingCountHighKyo: Int = 0 {
+                didSet {
+                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                }
+            }
+                @AppStorage("magiaEndingCountNegate2") var endingCountNegate2: Int = 0 {
+                    didSet {
+                        endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                    }
+                }
+                    @AppStorage("magiaEndingCountNegate3") var endingCountNegate3: Int = 0 {
+                        didSet {
+                            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                        }
+                    }
+                        @AppStorage("magiaEndingCountNegate4") var endingCountNegate4: Int = 0 {
+                            didSet {
+                                endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                            }
+                        }
+                            @AppStorage("magiaEndingCountNegate1High") var endingCountNegate1High: Int = 0 {
+                                didSet {
+                                    endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                                }
+                            }
+                                @AppStorage("magiaEndingCountNegate4High") var endingCountNegate4High: Int = 0 {
+                                    didSet {
+                                        endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                                    }
+                                }
+                                    @AppStorage("magiaEndingCountOver4") var endingCountOver4: Int = 0 {
+                                        didSet {
+                                            endingCountSum = countSum(endingCountKisu, endingCountGusu, endingCountHigh, endingCountKisuKyo, endingCountGusuKyo, endingCountHighKyo, endingCountNegate2, endingCountNegate3, endingCountNegate4, endingCountNegate1High, endingCountNegate4High, endingCountOver4)
+                                        }
+                                    }
+    
+    // //// AT終了画面追加
+    @AppStorage("magiaAtScreenCountOver6") var atScreenCountOver6: Int = 0 {
+        didSet {
+            atScreenCountSum = countSum(atScreenCountDefault, atScreenCount356, atScreenCount246, atScreenCountOver6)
+        }
+    }
+    
+    // //// CZ確率詳細
+    let ratioCzKuroeNegateSana: [Double] = [0.4,0.8]
+    let ratioCzNegateSanaSum: [Double] = [20.3,22.7,25.0,28.1,30.9,33.6]
+    let ratioCzMagiaSana: [Double] = [48.4]
+    let ratioCzKuroeSana: [Double] = [1.6]
+    
+    // //// 魔法少女モードのカウント
+    let ratioMgmTransferIroha: [Double] = [75,73.4,68.4,61.7,54.7,50]
+    let ratioMgmTransferYachiyo: [Double] = [5.5,6.3,9.4,10.9]
+    let ratioMgmTransferTsuruno: [Double] = [5.5,7.8,10.9]
+    let ratioMgmTransferSana: [Double] = [5.5,6.3,9.4,10.9]
+    let ratioMgmTransferFerishia: [Double] = [5.5,7.8,10.9]
+    let ratioMgmTransferKuroe: [Double] = [3.1,3.5,3.9,4.7,6.3]
+    let ratioMgmRisingIroha: [Double] = [77.7,74.2,70.3,66.4,64.1]
+    let ratioMgmRisingYachiyo: [Double] = [4.7,6.3,7.0]
+    let ratioMgmRisingTsuruno: [Double] = [3.9,5.5,7.0]
+    let ratioMgmRisingSana: [Double] = [4.7,6.3,7]
+    let ratioMgmRisingFerishia: [Double] = [3.9,5.5,7]
+    let ratioMgmRisingKuroe: [Double] = [5.1,5.5,6.3,7.0,7.8]
+    @AppStorage("magiaMgmTransferCountIroha") var mgmTransferCountIroha: Int = 0 {
+        didSet {
+            mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+        }
+    }
+        @AppStorage("magiaMgmTransferCountYachiyo") var mgmTransferCountYachiyo: Int = 0 {
+            didSet {
+                mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+            }
+        }
+            @AppStorage("magiaMgmTransferCountTsuruno") var mgmTransferCountTsuruno: Int = 0 {
+                didSet {
+                    mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+                }
+            }
+                @AppStorage("magiaMgmTransferCountFerishia") var mgmTransferCountFerishia: Int = 0 {
+                    didSet {
+                        mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+                    }
+                }
+                    @AppStorage("magiaMgmTransferCountSana") var mgmTransferCountSana: Int = 0 {
+                        didSet {
+                            mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+                        }
+                    }
+                        @AppStorage("magiaMgmTransferCountKuroe") var mgmTransferCountKuroe: Int = 0 {
+                            didSet {
+                                mgmTransferCountSum = countSum(mgmTransferCountIroha, mgmTransferCountYachiyo, mgmTransferCountTsuruno, mgmTransferCountFerishia, mgmTransferCountSana, mgmTransferCountKuroe)
+                            }
+                        }
+    @AppStorage("magiaMgmTransferCountSum") var mgmTransferCountSum: Int = 0
+    @AppStorage("magiaMgmRisingCountIroha") var mgmRisingCountIroha: Int = 0 {
+        didSet {
+            mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+        }
+    }
+        @AppStorage("magiaMgmRisingCountYachiyo") var mgmRisingCountYachiyo: Int = 0 {
+            didSet {
+                mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+            }
+        }
+            @AppStorage("magiaMgmRisingCountTsuruno") var mgmRisingCountTsuruno: Int = 0 {
+                didSet {
+                    mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+                }
+            }
+                @AppStorage("magiaMgmRisingCountFerishia") var mgmRisingCountFerishia: Int = 0 {
+                    didSet {
+                        mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+                    }
+                }
+                    @AppStorage("magiaMgmRisingCountSana") var mgmRisingCountSana: Int = 0 {
+                        didSet {
+                            mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+                        }
+                    }
+                        @AppStorage("magiaMgmRisingCountKuroe") var mgmRisingCountKuroe: Int = 0 {
+                            didSet {
+                                mgmRisingCountSum = countSum(mgmRisingCountIroha, mgmRisingCountYachiyo, mgmRisingCountTsuruno, mgmRisingCountFerishia, mgmRisingCountSana, mgmRisingCountKuroe)
+                            }
+                        }
+    @AppStorage("magiaMgmRisingCountSum") var mgmRisingCountSum: Int = 0
 }
 
 
@@ -287,6 +448,34 @@ class MagiaMemory1: ObservableObject {
     @AppStorage("magiaBigScreenCountOver4Memory1") var bigScreenCountOver4: Int = 0
     @AppStorage("magiaBigScreenCountOver5Memory1") var bigScreenCountOver5: Int = 0
     @AppStorage("magiaBigScreenCountOver6Memory1") var bigScreenCountOver6: Int = 0
+    
+    // //////////////
+    // ver3.1.0で追加
+    // //////////////
+    @AppStorage("magiaEndingCountKisuKyoMemory1") var endingCountKisuKyo: Int = 0
+    @AppStorage("magiaEndingCountGusuKyoMemory1") var endingCountGusuKyo: Int = 0
+    @AppStorage("magiaEndingCountHighKyoMemory1") var endingCountHighKyo: Int = 0
+    @AppStorage("magiaEndingCountNegate2Memory1") var endingCountNegate2: Int = 0
+    @AppStorage("magiaEndingCountNegate3Memory1") var endingCountNegate3: Int = 0
+    @AppStorage("magiaEndingCountNegate4Memory1") var endingCountNegate4: Int = 0
+    @AppStorage("magiaEndingCountNegate1HighMemory1") var endingCountNegate1High: Int = 0
+    @AppStorage("magiaEndingCountNegate4HighMemory1") var endingCountNegate4High: Int = 0
+    @AppStorage("magiaEndingCountOver4Memory1") var endingCountOver4: Int = 0
+    @AppStorage("magiaAtScreenCountOver6Memory1") var atScreenCountOver6: Int = 0
+    @AppStorage("magiaMgmTransferCountIrohaMemory1") var mgmTransferCountIroha: Int = 0
+    @AppStorage("magiaMgmTransferCountYachiyoMemory1") var mgmTransferCountYachiyo: Int = 0
+    @AppStorage("magiaMgmTransferCountTsurunoMemory1") var mgmTransferCountTsuruno: Int = 0
+    @AppStorage("magiaMgmTransferCountFerishiaMemory1") var mgmTransferCountFerishia: Int = 0
+    @AppStorage("magiaMgmTransferCountSanaMemory1") var mgmTransferCountSana: Int = 0
+    @AppStorage("magiaMgmTransferCountKuroeMemory1") var mgmTransferCountKuroe: Int = 0
+    @AppStorage("magiaMgmTransferCountSumMemory1") var mgmTransferCountSum: Int = 0
+    @AppStorage("magiaMgmRisingCountIrohaMemory1") var mgmRisingCountIroha: Int = 0
+    @AppStorage("magiaMgmRisingCountYachiyoMemory1") var mgmRisingCountYachiyo: Int = 0
+    @AppStorage("magiaMgmRisingCountTsurunoMemory1") var mgmRisingCountTsuruno: Int = 0
+    @AppStorage("magiaMgmRisingCountFerishiaMemory1") var mgmRisingCountFerishia: Int = 0
+    @AppStorage("magiaMgmRisingCountSanaMemory1") var mgmRisingCountSana: Int = 0
+    @AppStorage("magiaMgmRisingCountKuroeMemory1") var mgmRisingCountKuroe: Int = 0
+    @AppStorage("magiaMgmRisingCountSumMemory1") var mgmRisingCountSum: Int = 0
 }
 
 
@@ -334,6 +523,34 @@ class MagiaMemory2: ObservableObject {
     @AppStorage("magiaBigScreenCountOver4Memory2") var bigScreenCountOver4: Int = 0
     @AppStorage("magiaBigScreenCountOver5Memory2") var bigScreenCountOver5: Int = 0
     @AppStorage("magiaBigScreenCountOver6Memory2") var bigScreenCountOver6: Int = 0
+    
+    // //////////////
+    // ver3.1.0で追加
+    // //////////////
+    @AppStorage("magiaEndingCountKisuKyoMemory2") var endingCountKisuKyo: Int = 0
+    @AppStorage("magiaEndingCountGusuKyoMemory2") var endingCountGusuKyo: Int = 0
+    @AppStorage("magiaEndingCountHighKyoMemory2") var endingCountHighKyo: Int = 0
+    @AppStorage("magiaEndingCountNegate2Memory2") var endingCountNegate2: Int = 0
+    @AppStorage("magiaEndingCountNegate3Memory2") var endingCountNegate3: Int = 0
+    @AppStorage("magiaEndingCountNegate4Memory2") var endingCountNegate4: Int = 0
+    @AppStorage("magiaEndingCountNegate1HighMemory2") var endingCountNegate1High: Int = 0
+    @AppStorage("magiaEndingCountNegate4HighMemory2") var endingCountNegate4High: Int = 0
+    @AppStorage("magiaEndingCountOver4Memory2") var endingCountOver4: Int = 0
+    @AppStorage("magiaAtScreenCountOver6Memory2") var atScreenCountOver6: Int = 0
+    @AppStorage("magiaMgmTransferCountIrohaMemory2") var mgmTransferCountIroha: Int = 0
+    @AppStorage("magiaMgmTransferCountYachiyoMemory2") var mgmTransferCountYachiyo: Int = 0
+    @AppStorage("magiaMgmTransferCountTsurunoMemory2") var mgmTransferCountTsuruno: Int = 0
+    @AppStorage("magiaMgmTransferCountFerishiaMemory2") var mgmTransferCountFerishia: Int = 0
+    @AppStorage("magiaMgmTransferCountSanaMemory2") var mgmTransferCountSana: Int = 0
+    @AppStorage("magiaMgmTransferCountKuroeMemory2") var mgmTransferCountKuroe: Int = 0
+    @AppStorage("magiaMgmTransferCountSumMemory2") var mgmTransferCountSum: Int = 0
+    @AppStorage("magiaMgmRisingCountIrohaMemory2") var mgmRisingCountIroha: Int = 0
+    @AppStorage("magiaMgmRisingCountYachiyoMemory2") var mgmRisingCountYachiyo: Int = 0
+    @AppStorage("magiaMgmRisingCountTsurunoMemory2") var mgmRisingCountTsuruno: Int = 0
+    @AppStorage("magiaMgmRisingCountFerishiaMemory2") var mgmRisingCountFerishia: Int = 0
+    @AppStorage("magiaMgmRisingCountSanaMemory2") var mgmRisingCountSana: Int = 0
+    @AppStorage("magiaMgmRisingCountKuroeMemory2") var mgmRisingCountKuroe: Int = 0
+    @AppStorage("magiaMgmRisingCountSumMemory2") var mgmRisingCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -380,4 +597,32 @@ class MagiaMemory3: ObservableObject {
     @AppStorage("magiaBigScreenCountOver4Memory3") var bigScreenCountOver4: Int = 0
     @AppStorage("magiaBigScreenCountOver5Memory3") var bigScreenCountOver5: Int = 0
     @AppStorage("magiaBigScreenCountOver6Memory3") var bigScreenCountOver6: Int = 0
+    
+    // //////////////
+    // ver3.1.0で追加
+    // //////////////
+    @AppStorage("magiaEndingCountKisuKyoMemory3") var endingCountKisuKyo: Int = 0
+    @AppStorage("magiaEndingCountGusuKyoMemory3") var endingCountGusuKyo: Int = 0
+    @AppStorage("magiaEndingCountHighKyoMemory3") var endingCountHighKyo: Int = 0
+    @AppStorage("magiaEndingCountNegate2Memory3") var endingCountNegate2: Int = 0
+    @AppStorage("magiaEndingCountNegate3Memory3") var endingCountNegate3: Int = 0
+    @AppStorage("magiaEndingCountNegate4Memory3") var endingCountNegate4: Int = 0
+    @AppStorage("magiaEndingCountNegate1HighMemory3") var endingCountNegate1High: Int = 0
+    @AppStorage("magiaEndingCountNegate4HighMemory3") var endingCountNegate4High: Int = 0
+    @AppStorage("magiaEndingCountOver4Memory3") var endingCountOver4: Int = 0
+    @AppStorage("magiaAtScreenCountOver6Memory3") var atScreenCountOver6: Int = 0
+    @AppStorage("magiaMgmTransferCountIrohaMemory3") var mgmTransferCountIroha: Int = 0
+    @AppStorage("magiaMgmTransferCountYachiyoMemory3") var mgmTransferCountYachiyo: Int = 0
+    @AppStorage("magiaMgmTransferCountTsurunoMemory3") var mgmTransferCountTsuruno: Int = 0
+    @AppStorage("magiaMgmTransferCountFerishiaMemory3") var mgmTransferCountFerishia: Int = 0
+    @AppStorage("magiaMgmTransferCountSanaMemory3") var mgmTransferCountSana: Int = 0
+    @AppStorage("magiaMgmTransferCountKuroeMemory3") var mgmTransferCountKuroe: Int = 0
+    @AppStorage("magiaMgmTransferCountSumMemory3") var mgmTransferCountSum: Int = 0
+    @AppStorage("magiaMgmRisingCountIrohaMemory3") var mgmRisingCountIroha: Int = 0
+    @AppStorage("magiaMgmRisingCountYachiyoMemory3") var mgmRisingCountYachiyo: Int = 0
+    @AppStorage("magiaMgmRisingCountTsurunoMemory3") var mgmRisingCountTsuruno: Int = 0
+    @AppStorage("magiaMgmRisingCountFerishiaMemory3") var mgmRisingCountFerishia: Int = 0
+    @AppStorage("magiaMgmRisingCountSanaMemory3") var mgmRisingCountSana: Int = 0
+    @AppStorage("magiaMgmRisingCountKuroeMemory3") var mgmRisingCountKuroe: Int = 0
+    @AppStorage("magiaMgmRisingCountSumMemory3") var mgmRisingCountSum: Int = 0
 }

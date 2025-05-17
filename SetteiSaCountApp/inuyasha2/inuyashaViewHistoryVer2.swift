@@ -231,7 +231,8 @@ struct inuyashaViewHistoryVer2: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "CZ,AT 初当り確率",
-                            image1: Image("inuyashaHitRatio")
+//                            image1: Image("inuyashaHitRatio")
+                            tableView: AnyView(inuyashaTableFirstHit())
                         )
                     )
                 )
@@ -244,9 +245,10 @@ struct inuyashaViewHistoryVer2: View {
                             textBody2: "・333G+α以下の選択率に大きな設定差あり",
                             textBody3: "・独自に各設定でCZ100万回シミュレーションを行った結果を下記に記載（独自計算値なので参考まで）",
                             textBody4: "・このアプリでは+α=32Gと仮定し、履歴データ内で333+32=365Gを越えた回数とCZの初当り回数から333G天井越え確率を算出",
-                            image1: Image("inuyasha333Tenjo"),
-                            image2Title:"CZ回数別の333G天井選択率",
-                            image2: Image("inuyasha333Ratio")
+//                            image1: Image("inuyasha333Tenjo"),
+//                            image2Title:"CZ回数別の333G天井選択率",
+//                            image2: Image("inuyasha333Ratio")
+                            tableView: AnyView(inuyashaTableCz333())
                         )
                     )
                 )

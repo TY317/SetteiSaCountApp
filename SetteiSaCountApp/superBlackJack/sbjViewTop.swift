@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct sbjViewTop: View {
+    @ObservedObject var ver310: Ver310
 //    @ObservedObject var sbj = Sbj()
     @StateObject var sbj = Sbj()
     @State var isShowAlert: Bool = false
@@ -30,11 +31,14 @@ struct sbjViewTop: View {
                 
                 Section {
                     // 通常時の小役、高確、初当り
-                    NavigationLink(destination: sbjViewNormal(sbj: sbj)) {
+                    NavigationLink(destination: sbjViewNormal(
+                        ver310: ver310,
+                        sbj: sbj
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時 小役、高確、初当り"
-//                            badgeStatus: ver240.sbjMenuNormalBadgeStatus
+                            textBody: "通常時 小役、高確、初当り",
+                            badgeStatus: ver310.sbjMenuNormalBadgeStatus
                         )
                     }
                     // 規定ゲーム数でのステージ移行
@@ -84,11 +88,11 @@ struct sbjViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
-//        .onAppear {
-//            if ver240.sbjMachineIconBadgeStatus != "none" {
-//                ver240.sbjMachineIconBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver310.sbjMachineIconBadgeStatus != "none" {
+                ver310.sbjMachineIconBadgeStatus = "none"
+            }
+        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -399,5 +403,7 @@ struct sbjSubViewLoadMemory: View {
 }
 
 #Preview {
-    sbjViewTop()
+    sbjViewTop(
+        ver310: Ver310()
+    )
 }

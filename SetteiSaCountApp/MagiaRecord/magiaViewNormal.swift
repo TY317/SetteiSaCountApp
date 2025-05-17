@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct magiaViewNormal: View {
-//    @ObservedObject var ver271 = Ver271()
+    @ObservedObject var ver310: Ver310
 //    @ObservedObject var magia = Magia()
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
@@ -20,8 +21,11 @@ struct magiaViewNormal: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @State var selectedSegment: String = "AT終了後の移行"
+    let segmentList: [String] = ["AT終了後の移行", "いろはからの昇格"]
     
     var body: some View {
+        TipView(tipVer310MagiaMagicGirlMode())
         List {
             // //// 小役確率
             Section {
@@ -90,6 +94,7 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
+                .popoverTip(tipVer310MagiaCzRatio())
                 // //// 参考情報）魔法少女モードについて
                 unitLinkButton(
                     title: "魔法少女モードについて",
@@ -112,13 +117,319 @@ struct magiaViewNormal: View {
             } header: {
                 Text("スイカからのCZ当選")
             }
+            
+            // //// 魔法少女モードのカウント
+            Section {
+                Text("見抜けないことの方が多いと思いますが、メモ代わり程度でご使用ください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                
+                // //// 移行、昇格の選択
+                Picker("", selection: self.$selectedSegment) {
+                    ForEach(self.segmentList, id: \.self) { seg in
+                        Text(seg)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                // //// カウントボタン
+                // //// 横画面
+                if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
+                    // AT終了後の移行
+                    if self.selectedSegment == self.segmentList[0] {
+                        VStack {
+                            HStack {
+                                // いろは
+                                unitCountButtonVerticalPercent(
+                                    title: "いろは",
+                                    count: $magia.mgmTransferCountIroha,
+                                    color: .pink,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // やちよ
+                                unitCountButtonVerticalPercent(
+                                    title: "やちよ",
+                                    count: $magia.mgmTransferCountYachiyo,
+                                    color: .blue,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 鶴乃
+                                unitCountButtonVerticalPercent(
+                                    title: "鶴乃",
+                                    count: $magia.mgmTransferCountTsuruno,
+                                    color: .yellow,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+//                            }
+//                            HStack {
+                                // さな
+                                unitCountButtonVerticalPercent(
+                                    title: "さな",
+                                    count: $magia.mgmTransferCountSana,
+                                    color: .green,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // フェリシア
+                                unitCountButtonVerticalPercent(
+                                    title: "フェリシア",
+                                    count: $magia.mgmTransferCountFerishia,
+                                    color: .purple,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 黒江
+                                unitCountButtonVerticalPercent(
+                                    title: "黒江",
+                                    count: $magia.mgmTransferCountKuroe,
+                                    color: .gray,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                        }
+                    }
+                    // いろはからの昇格
+                    else {
+                        VStack {
+                            HStack {
+                                // いろは
+                                unitCountButtonVerticalPercent(
+                                    title: "いろは",
+                                    count: $magia.mgmRisingCountIroha,
+                                    color: .personalSummerLightRed,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // やちよ
+                                unitCountButtonVerticalPercent(
+                                    title: "やちよ",
+                                    count: $magia.mgmRisingCountYachiyo,
+                                    color: .personalSummerLightBlue,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 鶴乃
+                                unitCountButtonVerticalPercent(
+                                    title: "鶴乃",
+                                    count: $magia.mgmRisingCountTsuruno,
+                                    color: .personalSpringLightYellow,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+//                            }
+//                            HStack {
+                                // さな
+                                unitCountButtonVerticalPercent(
+                                    title: "さな",
+                                    count: $magia.mgmRisingCountSana,
+                                    color: .personalSummerLightGreen,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // フェリシア
+                                unitCountButtonVerticalPercent(
+                                    title: "フェリシア",
+                                    count: $magia.mgmRisingCountFerishia,
+                                    color: .personalSummerLightPurple,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 黒江
+                                unitCountButtonVerticalPercent(
+                                    title: "黒江",
+                                    count: $magia.mgmRisingCountKuroe,
+                                    color: .grayBack,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                        }
+                    }
+                }
+                // //// 縦画面
+                else {
+                    // AT終了後の移行
+                    if self.selectedSegment == self.segmentList[0] {
+                        VStack {
+                            HStack {
+                                // いろは
+                                unitCountButtonVerticalPercent(
+                                    title: "いろは",
+                                    count: $magia.mgmTransferCountIroha,
+                                    color: .pink,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // やちよ
+                                unitCountButtonVerticalPercent(
+                                    title: "やちよ",
+                                    count: $magia.mgmTransferCountYachiyo,
+                                    color: .blue,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 鶴乃
+                                unitCountButtonVerticalPercent(
+                                    title: "鶴乃",
+                                    count: $magia.mgmTransferCountTsuruno,
+                                    color: .yellow,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                            HStack {
+                                // さな
+                                unitCountButtonVerticalPercent(
+                                    title: "さな",
+                                    count: $magia.mgmTransferCountSana,
+                                    color: .green,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // フェリシア
+                                unitCountButtonVerticalPercent(
+                                    title: "フェリシア",
+                                    count: $magia.mgmTransferCountFerishia,
+                                    color: .purple,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 黒江
+                                unitCountButtonVerticalPercent(
+                                    title: "黒江",
+                                    count: $magia.mgmTransferCountKuroe,
+                                    color: .gray,
+                                    bigNumber: $magia.mgmTransferCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                        }
+                    }
+                    // いろはからの昇格
+                    else {
+                        VStack {
+                            HStack {
+                                // いろは
+                                unitCountButtonVerticalPercent(
+                                    title: "いろは",
+                                    count: $magia.mgmRisingCountIroha,
+                                    color: .personalSummerLightRed,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // やちよ
+                                unitCountButtonVerticalPercent(
+                                    title: "やちよ",
+                                    count: $magia.mgmRisingCountYachiyo,
+                                    color: .personalSummerLightBlue,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 鶴乃
+                                unitCountButtonVerticalPercent(
+                                    title: "鶴乃",
+                                    count: $magia.mgmRisingCountTsuruno,
+                                    color: .personalSpringLightYellow,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                            HStack {
+                                // さな
+                                unitCountButtonVerticalPercent(
+                                    title: "さな",
+                                    count: $magia.mgmRisingCountSana,
+                                    color: .personalSummerLightGreen,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // フェリシア
+                                unitCountButtonVerticalPercent(
+                                    title: "フェリシア",
+                                    count: $magia.mgmRisingCountFerishia,
+                                    color: .personalSummerLightPurple,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                                // 黒江
+                                unitCountButtonVerticalPercent(
+                                    title: "黒江",
+                                    count: $magia.mgmRisingCountKuroe,
+                                    color: .grayBack,
+                                    bigNumber: $magia.mgmRisingCountSum,
+                                    numberofDicimal: 1,
+                                    minusBool: $magia.minusCheck
+                                )
+                            }
+                        }
+                    }
+                }
+                
+                // //// 参考情報）魔法少女モードについて
+                unitLinkButton(
+                    title: "魔法少女モードについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "魔法少女モード",
+                            textBody1: "・通常時は6種類のモードが存在し、モードによって恩恵を得られる",
+                            textBody2: "・AT当選までモードを維持（いろはモードのみAT非当選のボーナス終了時に移行抽選）",
+                            textBody3: "・ステチェン時のアイキャッチでモードを示唆。キャラの持ち物が弱示唆で、キャラが強示唆となる",
+                            textBody4: "・モンキーターンのライバルモードに近いシステムと思われる",
+                            textBody5: "・スイカからのCZ当選については、さなモード滞在状態を意識しながらカウントするとベター",
+                            tableView: AnyView(magiaTableMode())
+                        )
+                    )
+                )
+                
+                // //// 参考情報）魔法少女モード抽選確率
+                unitLinkButton(
+                    title: "魔法少女モード抽選確率",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "魔法少女モード抽選確率",
+                            textBody1: "・AT終了後にモード移行抽選",
+                            textBody2: "・いろはモード滞在時のみAT非当選のボーナス終了時に昇格抽選あり",
+                            tableView: AnyView(magiaTableMagicGirlMode(magia: magia))
+                        )
+                    )
+                )
+            } header: {
+                Text("魔法少女モード")
+            }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-//        .onAppear {
-//            if ver271.magiaMenuNormalBadgeStatus != "none" {
-//                ver271.magiaMenuNormalBadgeStatus = "none"
-//            }
-//        }
+        .onAppear {
+            if ver310.magiaMenuNormalBadgeStatus != "none" {
+                ver310.magiaMenuNormalBadgeStatus = "none"
+            }
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -177,5 +488,8 @@ struct magiaViewNormal: View {
 }
 
 #Preview {
-    magiaViewNormal(magia: Magia())
+    magiaViewNormal(
+        ver310: Ver310(),
+        magia: Magia()
+    )
 }
