@@ -12,9 +12,14 @@ struct inuyashViewOfuda: View {
         List {
             Text("紫文字のお札の内容で設定を示唆する場合がある")
                 .foregroundStyle(Color.secondary)
-            Image("inuyashaOfuda")
-                .resizable()
-                .scaledToFit()
+//            Image("inuyashaOfuda")
+//                .resizable()
+//                .scaledToFit()
+            HStack {
+                Spacer()
+                inuyashaTableOfuda()
+                Spacer()
+            }
         }
         .navigationTitle("お札演出での示唆")
         .navigationBarTitleDisplayMode(.inline)

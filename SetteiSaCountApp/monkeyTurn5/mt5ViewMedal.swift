@@ -27,7 +27,7 @@ struct mt5ViewMedal: View {
                     }
                     // 参考情報リンク
                     unitLinkButton(title: "メダルについて", exview: AnyView(mt5ExViewMedal()))
-                        .popoverTip(mt5TipBlackMedalRatioAdd())
+//                        .popoverTip(mt5TipBlackMedalRatioAdd())
                     unitLinkButton(title: "トロフィーについて", exview: AnyView(mt5ExViewTrofy()))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 6)))

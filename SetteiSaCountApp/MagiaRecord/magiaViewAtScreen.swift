@@ -16,7 +16,8 @@ struct magiaViewAtScreen: View {
     let imageNameList: [String] = [
         "magiaAtScreenDefault",
         "magiaAtScreen356",
-        "magiaAtScreen246"
+        "magiaAtScreen246",
+        "magiaAtScreenOver6"
     ]
     var body: some View {
         List {
@@ -70,6 +71,14 @@ struct magiaViewAtScreen: View {
                             count: $magia.atScreenCount246,
                             minusCheck: $magia.minusCheck
                         )
+                        // 6濃厚
+                        unitButtonScreenChoice(
+                            image: Image(self.imageNameList[3]),
+                            keyword: self.imageNameList[3],
+                            currentKeyword: self.$selectedImageName,
+                            count: $magia.atScreenCountOver6,
+                            minusCheck: $magia.minusCheck
+                        )
                     }
                 }
                 .frame(height: 120)
@@ -95,6 +104,13 @@ struct magiaViewAtScreen: View {
                     title: "設定2,4,6 示唆",
                     count: $magia.atScreenCount246,
                     flashColor: .yellow,
+                    bigNumber: $magia.atScreenCountSum
+                )
+                // 6濃厚
+                unitResultCountListPercent(
+                    title: "設定6 濃厚",
+                    count: $magia.atScreenCountOver6,
+                    flashColor: .pink,
                     bigNumber: $magia.atScreenCountSum
                 )
             }

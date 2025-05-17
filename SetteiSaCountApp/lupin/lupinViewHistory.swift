@@ -149,7 +149,8 @@ struct lupinViewHistory: View {
                             textBody1: "・ゲーム数消化でCZや高確移行を抽選",
                             textBody2: "・天井は基本1000だが短縮天井が選ばれる場合あり。高設定ほど短縮天井の確率が上がるらしい",
                             textBody3: "・設定変更時は最大天井が700に短縮される",
-                            image1: Image("lupinGameNumber")
+                            tableView: AnyView(lupinTableKiteiGame())
+//                            image1: Image("lupinGameNumber")
                         )
                     )
                 )
@@ -200,7 +201,8 @@ struct lupinViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ボーナス、AT 初当り確率",
-                            image1: Image("lupinHitRatio")
+                            tableView: AnyView(lupinTableFirstHit())
+//                            image1: Image("lupinHitRatio")
                         )
                     )
                 )
@@ -235,7 +237,8 @@ struct lupinViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "CZ 確率、成功率",
-                            image1: Image("lupinCz")
+//                            image1: Image("lupinCz")
+                            tableView: AnyView(lupinTableCz())
                         )
                     )
                 )
@@ -266,7 +269,8 @@ struct lupinViewHistory: View {
                         unitExView5body2image(
                             title: "強🍒からの直撃率",
                             textBody1: "・このアプリでは合算での直撃回数と直撃率を算出しています",
-                            image1: Image("lupinCherry")
+//                            image1: Image("lupinCherry")
+                            tableView: AnyView(lupinTableKyoCherry())
                         )
                     )
                 )
@@ -321,8 +325,9 @@ struct lupinViewHistory: View {
                             textBody2: "・設定4は次元が別格、設定5は五エ門が別格といった特徴あり",
                             textBody3: "・不二子は設定3以上が期待でき、特に6が別格といった特徴あり",
                             textBody4: "・高設定ほどデフォルトのルパン比率が低い。設定1,2はルパン以外は20回に1回程度。設定6は5〜6回に1回程度でルパン以外が選ばれる",
-                            image1: Image("lupinSingleChara"),
-                            image2: Image("lupinSingleCharaRatio")
+//                            image1: Image("lupinSingleChara"),
+//                            image2: Image("lupinSingleCharaRatio")
+                            tableView: AnyView(lupinTableChara())
                         )
                     )
                 )

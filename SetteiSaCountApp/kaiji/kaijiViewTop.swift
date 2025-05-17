@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewTop: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver271 = Ver271()
 //    @ObservedObject var kaiji = Kaiji()
     @StateObject var kaiji = Kaiji()
@@ -31,11 +31,13 @@ struct kaijiViewTop: View {
                 
                 Section {
                     // 通常時モード
-                    NavigationLink(destination: kaijiViewMode(ver300: ver300)) {
+                    NavigationLink(destination: kaijiViewMode(
+//                        ver300: ver300
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
-                            textBody: "モード推測",
-                            badgeStatus: ver300.kaijiMenuModeBadgeStatus
+                            textBody: "モード推測"
+//                            badgeStatus: ver300.kaijiMenuModeBadgeStatus
                         )
                     }
                     // 小役
@@ -88,38 +90,38 @@ struct kaijiViewTop: View {
                     // トネガワラッシュ中の画面示唆
                     NavigationLink(
                         destination: kaijiViewTonegawaRush(
-                            ver300: ver300,
+//                            ver300: ver300,
                             kaiji: kaiji
                         )
                     ) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "トネガワラッシュ中の画面示唆",
-                            badgeStatus: ver300.kaijiMenuTonegawaRushBadgeStatus
+                            textBody: "トネガワラッシュ中の画面示唆"
+//                            badgeStatus: ver300.kaijiMenuTonegawaRushBadgeStatus
                         )
                     }
                     // ハンチョウラッシュ中の画面示唆
                     NavigationLink(
                         destination: kaijiViewHanchoRush(
-                            ver300: ver300,
+//                            ver300: ver300,
                             kaiji: kaiji
                         )
                     ) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ハンチョウラッシュ中の画面示唆",
-                            badgeStatus: ver300.kaijiMenuHanchoRushBadgeStatus
+                            textBody: "ハンチョウラッシュ中の画面示唆"
+//                            badgeStatus: ver300.kaijiMenuHanchoRushBadgeStatus
                         )
                     }
                     // エンディング
                     NavigationLink(destination: kaijiViewEnding(
-                        ver300: ver300,
+//                        ver300: ver300,
                         kaiji: kaiji
                     )) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver300.kaijiMenuVoiceBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver300.kaijiMenuVoiceBadgeStatus
                         )
                     }
                     // サミートロフィー
@@ -141,11 +143,11 @@ struct kaijiViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver300.kaijiMachineIconBadgeStatus != "none" {
-                ver300.kaijiMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.kaijiMachineIconBadgeStatus != "none" {
+//                ver300.kaijiMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -504,5 +506,7 @@ struct kaijiSubViewLoadMemory: View {
 }
 
 #Preview {
-    kaijiViewTop(ver300: Ver300())
+    kaijiViewTop(
+//        ver300: Ver300()
+    )
 }

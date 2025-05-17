@@ -23,12 +23,12 @@ struct magiaView95Ci: View {
                     unitChart95CiPercent(
                         currentCount: $magia.suikaCzCountCz,
                         bigNumber: $magia.suikaCzCountSuika,
-                        setting1Percent: magia.ratioSuikaCz[0],
-                        setting2Percent: magia.ratioSuikaCz[1],
-                        setting3Percent: magia.ratioSuikaCz[2],
-                        setting4Percent: magia.ratioSuikaCz[3],
-                        setting5Percent: magia.ratioSuikaCz[4],
-                        setting6Percent: magia.ratioSuikaCz[5]
+                        setting1Percent: magia.ratioCzNegateSanaSum[0],
+                        setting2Percent: magia.ratioCzNegateSanaSum[1],
+                        setting3Percent: magia.ratioCzNegateSanaSum[2],
+                        setting4Percent: magia.ratioCzNegateSanaSum[3],
+                        setting5Percent: magia.ratioCzNegateSanaSum[4],
+                        setting6Percent: magia.ratioCzNegateSanaSum[5]
                     )
                 )
             )

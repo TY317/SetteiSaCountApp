@@ -187,7 +187,8 @@ struct inuyashaViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "CZ,AT 初当り確率",
-                            image1: Image("inuyashaHitRatio")
+//                            image1: Image("inuyashaHitRatio")
+                            tableView: AnyView(inuyashaTableFirstHit())
                         )
                     )
                 )

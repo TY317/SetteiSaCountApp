@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewEnding: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
 //    @ObservedObject var kaiji = Kaiji()
     @ObservedObject var kaiji: Kaiji
     @State var isShowAlert = false
@@ -38,7 +38,7 @@ struct kaijiViewEnding: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
-                .popoverTip(tipVer300KaijiVoice())
+//                .popoverTip(tipVer300KaijiVoice())
 
                 // //// 選択されているボイスのカウント表示
                 // 奇数示唆
@@ -170,11 +170,11 @@ struct kaijiViewEnding: View {
                 Text("カウント結果")
             }
         }
-        .onAppear {
-            if ver300.kaijiMenuVoiceBadgeStatus != "none" {
-                ver300.kaijiMenuVoiceBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.kaijiMenuVoiceBadgeStatus != "none" {
+//                ver300.kaijiMenuVoiceBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -193,7 +193,7 @@ struct kaijiViewEnding: View {
 
 #Preview {
     kaijiViewEnding(
-        ver300: Ver300(),
+//        ver300: Ver300(),
         kaiji: Kaiji()
     )
 }

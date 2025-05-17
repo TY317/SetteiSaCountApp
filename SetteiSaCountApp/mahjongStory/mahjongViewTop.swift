@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewTop: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
 //    @ObservedObject var mahjong = Mahjong()
     @StateObject var mahjong = Mahjong()
     @State var isShowAlert: Bool = false
@@ -59,13 +59,13 @@ struct mahjongViewTop: View {
                     }
                     // ボイス
                     NavigationLink(destination: mahjongViewVoice(
-                        ver300: ver300,
+//                        ver300: ver300,
                         mahjong: mahjong
                     )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "ボーナス,AT 終了後ボイス",
-                            badgeStatus: ver300.mahjongMenuVoiceBadgeStatus
+                            textBody: "ボーナス,AT 終了後ボイス"
+//                            badgeStatus: ver300.mahjongMenuVoiceBadgeStatus
                         )
                     }
                     // 隠れ凪
@@ -87,11 +87,11 @@ struct mahjongViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver300.mahjongMachineIconBadgeStatus != "none" {
-                ver300.mahjongMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.mahjongMachineIconBadgeStatus != "none" {
+//                ver300.mahjongMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -331,6 +331,6 @@ struct mahjongSubViewLoadMemory: View {
 
 #Preview {
     mahjongViewTop(
-        ver300: Ver300()
+//        ver300: Ver300()
     )
 }

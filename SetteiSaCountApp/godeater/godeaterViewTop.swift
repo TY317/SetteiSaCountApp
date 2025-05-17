@@ -452,7 +452,7 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
 //    @ObservedObject var ver220 = Ver220()
 //    @ObservedObject var godeater = Godeater()
     @StateObject var godeater = Godeater()
@@ -467,13 +467,13 @@ struct godeaterViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: godeaterViewNormal(
-                        ver300: ver300,
+//                        ver300: ver300,
                         godeater: godeater
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時",
-                            badgeStatus: ver300.godeaterMenuNormalBadgeStatus
+                            textBody: "通常時"
+//                            badgeStatus: ver300.godeaterMenuNormalBadgeStatus
                         )
                     }
                     // AT,CZ当選履歴
@@ -511,11 +511,11 @@ struct godeaterViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
-        .onAppear {
-            if ver300.godeaterMachineIconBadgeStatus != "none" {
-                ver300.godeaterMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.godeaterMachineIconBadgeStatus != "none" {
+//                ver300.godeaterMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -869,6 +869,6 @@ struct godeaterViewLoadMemory: View {
 
 #Preview {
     godeaterViewTop(
-        ver300: Ver300()
+//        ver300: Ver300()
     )
 }

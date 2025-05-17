@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewFirstHit: View {
+    @ObservedObject var ver310: Ver310
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -36,6 +37,22 @@ struct midoriDonViewFirstHit: View {
                         )
                     )
                 )
+                // 参考情報）リーチ目リプレイ確率
+                unitLinkButton(
+                    title: "リーチ目リプレイ確率",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "リーチ目リプレイ",
+                            tableView: AnyView(midoriDonTableReachReplay())
+                        )
+                    )
+                )
+                .popoverTip(tipVer310MidoriDonReachReplay())
+            }
+        }
+        .onAppear {
+            if ver310.midoriDonMenuFirstHitBadgeStatus != "none" {
+                ver310.midoriDonMenuFirstHitBadgeStatus = "none"
             }
         }
         // //// 画面の向き情報の取得部分
@@ -96,6 +113,7 @@ struct midoriDonViewFirstHit: View {
 
 #Preview {
     midoriDonViewFirstHit(
+        ver310: Ver310(),
         midoriDon: MidoriDon()
     )
 }

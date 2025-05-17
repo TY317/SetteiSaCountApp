@@ -142,7 +142,8 @@ struct inuyashaViewVoice: View {
                             title: "目押しボイス",
                             textBody1: "・BIG入賞時にビタ押しor2コマ目押しでテンパイさせるとボイスが発生",
                             textBody2: "・ボイスの種類によって設定を示唆",
-                            image1: Image("inuyashaVoice")
+//                            image1: Image("inuyashaVoice")
+                            tableView: AnyView(inuyashaTableMeoshiVoice())
                         )
                     )
                 )

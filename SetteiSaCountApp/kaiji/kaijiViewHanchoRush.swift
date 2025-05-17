@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaijiViewHanchoRush: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
     @ObservedObject var kaiji: Kaiji
     
     var body: some View {
@@ -43,11 +43,11 @@ struct kaijiViewHanchoRush: View {
                 .frame(height: 120)
             }
         }
-        .onAppear {
-            if ver300.kaijiMenuHanchoRushBadgeStatus != "none" {
-                ver300.kaijiMenuHanchoRushBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.kaijiMenuHanchoRushBadgeStatus != "none" {
+//                ver300.kaijiMenuHanchoRushBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ハンチョウラッシュ中の画面示唆")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -55,7 +55,7 @@ struct kaijiViewHanchoRush: View {
 
 #Preview {
     kaijiViewHanchoRush(
-        ver300: Ver300(),
+//        ver300: Ver300(),
         kaiji: Kaiji()
     )
 }

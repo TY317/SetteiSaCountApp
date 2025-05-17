@@ -174,15 +174,15 @@ struct lupinSingleBonusVoice: View {
                     bigNumber: $lupin.bonusVoiceCountSum
                 )
                 // //// 参考情報
-                unitLinkButton(
-                    title: "ボイス一覧",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "ボイス一覧",
-                            image1: Image("lupinBonusVoice")
-                        )
-                    )
-                )
+//                unitLinkButton(
+//                    title: "ボイス一覧",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "ボイス一覧",
+//                            image1: Image("lupinBonusVoice")
+//                        )
+//                    )
+//                )
             } header: {
                 Text("カウント結果")
             }

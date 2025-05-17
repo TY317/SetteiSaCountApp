@@ -154,8 +154,9 @@ struct inuyashaViewKoyaku: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "小役確率、停止形",
-                            image1: Image("inuyashaKoyaku"),
-                            image2: Image("inuyashaKoyakuForm")
+//                            image1: Image("inuyashaKoyaku"),
+                            image2: Image("inuyashaKoyakuForm"),
+                            tableView: AnyView(inuyashaTableKoyakuRatio())
                         )
                     )
                 )

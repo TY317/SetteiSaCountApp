@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewNormal: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
     @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     let selectListKoyakuKind: [String] = [
@@ -136,11 +136,11 @@ struct godeaterViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
-        .onAppear {
-            if ver300.godeaterMenuNormalBadgeStatus != "none" {
-                ver300.godeaterMenuNormalBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.godeaterMenuNormalBadgeStatus != "none" {
+//                ver300.godeaterMenuNormalBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -201,7 +201,7 @@ struct godeaterViewNormal: View {
 
 #Preview {
     godeaterViewNormal(
-        ver300: Ver300(),
+//        ver300: Ver300(),
         godeater: Godeater()
     )
 }

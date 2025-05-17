@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mahjongViewVoice: View {
-    @ObservedObject var ver300: Ver300
+//    @ObservedObject var ver300: Ver300
     @ObservedObject var mahjong: Mahjong
     @State var isShowAlert = false
     let selectListVoice: [String] = [
@@ -59,7 +59,7 @@ struct mahjongViewVoice: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 120)
-                .popoverTip(tipVer300MahjongVoice())
+//                .popoverTip(tipVer300MahjongVoice())
                 
                 // //// 選択されているボイスのカウント表示
                 // 高設定示唆 弱
@@ -181,11 +181,11 @@ struct mahjongViewVoice: View {
                 Text("カウント結果")
             }
         }
-        .onAppear {
-            if ver300.mahjongMenuVoiceBadgeStatus != "none" {
-                ver300.mahjongMenuVoiceBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver300.mahjongMenuVoiceBadgeStatus != "none" {
+//                ver300.mahjongMenuVoiceBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ボーナス,AT 終了後ボイス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -204,7 +204,7 @@ struct mahjongViewVoice: View {
 
 #Preview {
     mahjongViewVoice(
-        ver300: Ver300(),
+//        ver300: Ver300(),
         mahjong: Mahjong()
     )
 }

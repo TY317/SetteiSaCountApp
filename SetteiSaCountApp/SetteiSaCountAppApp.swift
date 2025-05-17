@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 @main
 struct SetteiSaCountAppApp: App {
-//    @AppStorage("shouldResetTips") var shouldResetTips: Bool = true  // リリース前は絶対消す
+    @AppStorage("shouldResetTips") var shouldResetTips: Bool = true  // リリース前は絶対消す
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
@@ -32,29 +32,29 @@ struct SetteiSaCountAppApp: App {
     }
     
     // リリース前はこれを復活させる
-        init() {
-            try? Tips.configure()
-        }
+//        init() {
+//            try? Tips.configure()
+//        }
     
     // //// リリース前はinitとfuncを絶対消す！！！
     // Tipを毎回表示させるための機能、上のshuldResetTipsとセット
-//    init() {
-//        setupTips()
-//    }
-//    
-//    // Configure tips in the app.
-//    func setupTips() {
-//        do {
-//            if shouldResetTips {
-//                try Tips.resetDatastore()
-//            }
-//            try Tips.configure([
-//                .displayFrequency(.immediate),
-//                .datastoreLocation(.applicationDefault)
-//            ])
-//        }
-//        catch {
-//            print("Error initializing TipKit \(error.localizedDescription)")
-//        }
-//    }
+    init() {
+        setupTips()
+    }
+    
+    // Configure tips in the app.
+    func setupTips() {
+        do {
+            if shouldResetTips {
+                try Tips.resetDatastore()
+            }
+            try Tips.configure([
+                .displayFrequency(.immediate),
+                .datastoreLocation(.applicationDefault)
+            ])
+        }
+        catch {
+            print("Error initializing TipKit \(error.localizedDescription)")
+        }
+    }
 }
