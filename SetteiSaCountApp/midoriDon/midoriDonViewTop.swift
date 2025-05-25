@@ -10,7 +10,7 @@ import FirebaseAnalytics
 
 struct midoriDonViewTop: View {
     @ObservedObject var ver320: Ver320
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
     @ObservedObject var midoriDonMemory1 = MidoriDonMemory1()
@@ -56,13 +56,13 @@ struct midoriDonViewTop: View {
                     
                     // 初当り
                     NavigationLink(destination: midoriDonViewFirstHit(
-                        ver310: ver310,
+//                        ver310: ver310,
                         midoriDon: midoriDon
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "ボーナス,AT 初当り",
-                            badgeStatus: ver310.midoriDonMenuFirstHitBadgeStatus
+                            textBody: "ボーナス,AT 初当り"
+//                            badgeStatus: ver310.midoriDonMenuFirstHitBadgeStatus
                         )
                     }
                     
@@ -438,7 +438,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-        ver320: Ver320(),
-        ver310: Ver310()
+        ver320: Ver320()
+//        ver310: Ver310()
     )
 }

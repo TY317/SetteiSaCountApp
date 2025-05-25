@@ -95,7 +95,7 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @StateObject var ver310 = Ver310()
+//    @StateObject var ver310 = Ver310()
     @StateObject var ver320 = Ver320()
     @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
@@ -163,11 +163,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(gundamSeedViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
-                                        machineName: "SEED",
-                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+                                        machineName: "SEED"
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -177,8 +177,8 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320,
-                                            ver310: ver310
+                                            ver320: ver320
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
@@ -249,11 +249,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
-                                        machineName: "マギレコ",
-                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
+                                        machineName: "マギレコ"
+//                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -342,11 +342,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(sbjViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
-                                        machineName: "SBJ",
-                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
+                                        machineName: "SBJ"
+//                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -568,14 +568,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(gundamSeedViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "ガンダムSEED",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
-                                        releaseMonth: 5,
-                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+                                        releaseMonth: 5
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -585,8 +585,8 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320,
-                                            ver310: ver310
+                                            ver320: ver320
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
@@ -672,14 +672,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -787,14 +787,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(sbjViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "スーパーブラックジャック",
                                         makerName: "山佐",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 

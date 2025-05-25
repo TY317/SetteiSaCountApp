@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 struct magiaViewEnding: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     let selectListCard: [String] = [
@@ -29,7 +29,7 @@ struct magiaViewEnding: View {
     @State var selectedCard: String = "絶交階段のウワサ"
     
     var body: some View {
-        TipView(tipVer310MagiaEnding())
+//        TipView(tipVer310MagiaEnding())
         List {
             Section {
                 // //// サークルピッカー
@@ -319,11 +319,11 @@ struct magiaViewEnding: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.magiaMenuEndingBadgeStatus != "none" {
-                ver310.magiaMenuEndingBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.magiaMenuEndingBadgeStatus != "none" {
+//                ver310.magiaMenuEndingBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -342,7 +342,7 @@ struct magiaViewEnding: View {
 
 #Preview {
     magiaViewEnding(
-        ver310: Ver310(),
+//        ver310: Ver310(),
         magia: Magia()
     )
 }

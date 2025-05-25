@@ -9,10 +9,10 @@ import SwiftUI
 import TipKit
 
 struct magiaViewStoryChara: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     
     var body: some View {
-        TipView(tipVer310MagiaStoryChara())
+//        TipView(tipVer310MagiaStoryChara())
         List {
             Section {
                 Text("[キャラ紹介発生条件]\n　・ATのストーリーコンプリート後にストーリー当選\n　・エンブリオ・イブ覚醒中にストーリー当選")
@@ -81,11 +81,11 @@ struct magiaViewStoryChara: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.magiaMenuStoryCharaBadgeStatus != "none" {
-                ver310.magiaMenuStoryCharaBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.magiaMenuStoryCharaBadgeStatus != "none" {
+//                ver310.magiaMenuStoryCharaBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("ストーリーのキャラ紹介")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -93,6 +93,6 @@ struct magiaViewStoryChara: View {
 
 #Preview {
     magiaViewStoryChara(
-        ver310: Ver310()
+//        ver310: Ver310()
     )
 }

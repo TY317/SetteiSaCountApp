@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 struct magiaViewNormal: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
 //    @ObservedObject var magia = Magia()
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
@@ -25,7 +25,7 @@ struct magiaViewNormal: View {
     let segmentList: [String] = ["AT終了後の移行", "いろはからの昇格"]
     
     var body: some View {
-        TipView(tipVer310MagiaMagicGirlMode())
+//        TipView(tipVer310MagiaMagicGirlMode())
         List {
             // //// 小役確率
             Section {
@@ -94,7 +94,7 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer310MagiaCzRatio())
+//                .popoverTip(tipVer310MagiaCzRatio())
                 // //// 参考情報）魔法少女モードについて
                 unitLinkButton(
                     title: "魔法少女モードについて",
@@ -433,11 +433,11 @@ struct magiaViewNormal: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.magiaMenuNormalBadgeStatus != "none" {
-                ver310.magiaMenuNormalBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.magiaMenuNormalBadgeStatus != "none" {
+//                ver310.magiaMenuNormalBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -497,7 +497,7 @@ struct magiaViewNormal: View {
 
 #Preview {
     magiaViewNormal(
-        ver310: Ver310(),
+//        ver310: Ver310(),
         magia: Magia()
     )
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct gundamSeedViewTop: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     @StateObject var gundamSeed = GundamSeed()
     @State var isShowAlert: Bool = false
     @StateObject var gundamSeedMemory1 = GundamSeedMemory1()
@@ -79,11 +79,11 @@ struct gundamSeedViewTop: View {
 //            ])
 //            print("Firebase Analytics: gundamSeedViewTop appeared.") // デバッグ用にログ出力
 //        }
-        .onAppear {
-            if ver310.gundamSeedMachineIconBadgeStatus != "none" {
-                ver310.gundamSeedMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.gundamSeedMachineIconBadgeStatus != "none" {
+//                ver310.gundamSeedMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -343,6 +343,6 @@ struct gundamSeedSubViewLoadMemory: View {
 
 #Preview {
     gundamSeedViewTop(
-        ver310: Ver310()
+//        ver310: Ver310()
     )
 }
