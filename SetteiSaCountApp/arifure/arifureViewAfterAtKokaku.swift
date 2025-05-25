@@ -51,6 +51,14 @@ struct arifureViewAfterAtKokaku: View {
             unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 9)))
                 .popoverTip(tipUnitButtonLink95Ci())
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ありふれた職業で世界最強",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了後の高確移行")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

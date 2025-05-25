@@ -67,6 +67,14 @@ struct kabaneriViewHintDuringBonus: View {
                     Text("エピソード話数での示唆")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "甲鉄城のカバネリ",
+                screenClass: screenClass
+            )
+        }
             // //// 画面の向き情報の取得部分
             .onAppear {
                 // ビューが表示されるときにデバイスの向きを取得

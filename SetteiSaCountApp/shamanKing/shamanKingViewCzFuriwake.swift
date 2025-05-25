@@ -139,6 +139,14 @@ struct shamanKingViewCzFuriwake: View {
                 Text("前兆移行時の憑依ポイント別カウント")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "シャーマンキング",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver270.shamanKingMenuCzFuriwakeBadgeStatus != "none" {
 //                ver270.shamanKingMenuCzFuriwakeBadgeStatus = "none"

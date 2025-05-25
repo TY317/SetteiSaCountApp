@@ -199,6 +199,14 @@ struct myJug5Ver2ViewKenDataInput: View {
                 .popoverTip(tipUnitJugHanaCommonKenDataTohroku())
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マイジャグラー5",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

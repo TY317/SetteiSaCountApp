@@ -7,6 +7,7 @@
 
 import SwiftUI
 import TipKit
+import FirebaseAnalytics
 
 // /////////////////////////
 // 変数
@@ -453,6 +454,24 @@ struct mhrViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンスターハンター ライズ",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "モンスターハンター ライズ", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "mhrViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: mhrViewTop appeared.") // デバッグ用にログ出力
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -27,6 +27,14 @@ struct sbjViewEndScreen: View {
                 )
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スーパーブラックジャック",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("終了画面")
         .navigationBarTitleDisplayMode(.inline)
     }

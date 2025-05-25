@@ -140,6 +140,14 @@ struct magiaViewFirstHit: View {
 //                )
 //            )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver271.magiaMenuFirstHitBadgeStatus != "none" {
 //                ver271.magiaMenuFirstHitBadgeStatus = "none"

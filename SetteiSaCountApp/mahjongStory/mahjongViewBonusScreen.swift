@@ -124,6 +124,14 @@ struct mahjongViewBonusScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "麻雀物語",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("BIG終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

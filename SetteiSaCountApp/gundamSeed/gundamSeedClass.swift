@@ -247,7 +247,7 @@ class GundamSeed: ObservableObject {
     // 共通
     // ////////////////////////
     @AppStorage("gundamSeedMinusCheck") var minusCheck: Bool = false
-    @AppStorage("magiaSelectedMemory") var selectedMemory = "メモリー1"
+    @AppStorage("gundamSeedSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
         resetHistory()

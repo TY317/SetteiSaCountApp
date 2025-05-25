@@ -24,6 +24,14 @@ struct godeaterViewEnding: View {
                     Text("神堕")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴッドイーター リザレクション",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("エンディング")
             .navigationBarTitleDisplayMode(.inline)
 //        }

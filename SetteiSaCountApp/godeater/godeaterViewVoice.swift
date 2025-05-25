@@ -157,6 +157,14 @@ struct godeaterViewVoice: View {
                     Text("カウント結果")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴッドイーター リザレクション",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ストーリーパート後のボイス")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

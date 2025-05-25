@@ -170,6 +170,14 @@ struct kaijiViewEnding: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.kaijiMenuVoiceBadgeStatus != "none" {
 //                ver300.kaijiMenuVoiceBadgeStatus = "none"

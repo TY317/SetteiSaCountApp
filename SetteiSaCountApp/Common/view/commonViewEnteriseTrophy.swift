@@ -63,6 +63,14 @@ struct commonViewEnteriseTrophy: View {
                     .foregroundStyle(self.textColor)
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "バイオハザード5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("エンタトロフィー")
         .navigationBarTitleDisplayMode(.inline)
     }

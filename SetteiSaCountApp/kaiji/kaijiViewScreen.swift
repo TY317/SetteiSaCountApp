@@ -182,6 +182,14 @@ struct kaijiViewScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver260.kaijiMenuScreenBadgeStatus != "none" {
 //                ver260.kaijiMenuScreenBadgeStatus = "none"

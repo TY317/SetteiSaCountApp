@@ -68,6 +68,14 @@ struct mhrView95Ci: View {
             )
             .tag(3)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンスターハンター ライズ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

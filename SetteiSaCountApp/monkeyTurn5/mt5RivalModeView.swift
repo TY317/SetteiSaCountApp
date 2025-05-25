@@ -36,6 +36,14 @@ struct mt5RivalModeView: View {
                     Text("ライバルモードカウント")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ライバルモード")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

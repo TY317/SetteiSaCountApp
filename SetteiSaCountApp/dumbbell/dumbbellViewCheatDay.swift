@@ -22,6 +22,14 @@ struct dumbbellViewCheatDay: View {
 //                .resizable()
 //                .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ダンベル何キロ持てる？",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("チートデイ")
         .navigationBarTitleDisplayMode(.inline)
     }

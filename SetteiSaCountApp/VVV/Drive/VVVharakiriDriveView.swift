@@ -261,6 +261,14 @@ struct VVVharakiriDriveView: View {
                     }
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "革命機ヴァルヴレイヴ",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ハラキリドライブ")
             .navigationBarTitleDisplayMode(.inline)
             

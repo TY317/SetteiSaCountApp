@@ -136,6 +136,14 @@ struct kingHanaVer2View95CiPersonal: View {
             )
             .tag(7)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "キングハナハナ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

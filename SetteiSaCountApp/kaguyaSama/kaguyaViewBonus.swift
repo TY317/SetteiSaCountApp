@@ -200,6 +200,14 @@ struct kaguyaViewBonus: View {
             // //// 空スペース
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "かぐや様は告らせたい",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver260.kaguyaMenuBonusBadgeStatus != "none" {
 //                ver260.kaguyaMenuBonusBadgeStatus = "none"

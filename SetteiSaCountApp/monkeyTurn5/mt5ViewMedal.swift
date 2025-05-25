@@ -36,6 +36,14 @@ struct mt5ViewMedal: View {
                     Text("メダルのカウント")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("AT終了後のメダル")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

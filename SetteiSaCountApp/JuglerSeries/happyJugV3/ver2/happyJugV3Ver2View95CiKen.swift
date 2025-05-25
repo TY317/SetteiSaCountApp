@@ -87,6 +87,14 @@ struct happyJugV3Ver2View95CiKen: View {
             )
             .tag(4)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ハッピージャグラーV3",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

@@ -26,6 +26,14 @@ struct bioViewNormal: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "バイオハザード5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
     }

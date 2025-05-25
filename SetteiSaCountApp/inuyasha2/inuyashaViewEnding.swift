@@ -17,6 +17,14 @@ struct inuyashaViewEnding: View {
                 .resizable()
                 .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "犬夜叉2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
     }

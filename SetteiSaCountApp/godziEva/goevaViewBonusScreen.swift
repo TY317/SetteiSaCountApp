@@ -61,6 +61,14 @@ struct goevaViewBonusScreen: View {
                     Text("ボイス")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラvsエヴァンゲリオン",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ボーナス終了画面")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

@@ -27,6 +27,14 @@ struct rezero2ViewSnowball: View {
                 Text("複数セット率")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "Re:ゼロ season2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("チキチキ雪合戦")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

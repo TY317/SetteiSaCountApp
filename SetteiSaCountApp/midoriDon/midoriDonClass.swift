@@ -159,7 +159,42 @@ class MidoriDon: ObservableObject {
         resetKoyaku()
         resetBonusScreen()
         resetVoice()
+        resetKoyakuBonus()
     }
+    
+    // /////////////////
+    // ver3.2.0で追加
+    // /////////////////
+    @AppStorage("midoriDonNormalRareCountJakuCherry") var normalRareCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountJakuSuika") var normalRareCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareCountChance") var normalRareCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoCherry") var normalRareCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoSuika") var normalRareCountKyoSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuCherry") var normalRareHitCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuSuika") var normalRareHitCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountChance") var normalRareHitCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoCherry") var normalRareHitCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoSuika") var normalRareHitCountKyoSuika: Int = 0
+    
+    func resetKoyakuBonus() {
+        normalRareCountJakuCherry = 0
+        normalRareCountJakuSuika = 0
+        normalRareCountChance = 0
+        normalRareCountKyoCherry = 0
+        normalRareCountKyoSuika = 0
+        normalRareHitCountJakuCherry = 0
+        normalRareHitCountJakuSuika = 0
+        normalRareHitCountChance = 0
+        normalRareHitCountKyoCherry = 0
+        normalRareHitCountKyoSuika = 0
+        minusCheck = false
+    }
+    
+    let ratioKoyakuBonusJakuCherry = [0.4,0.4,0.4,0.4,0.8,0.8]
+    let ratioKoyakuBonusJakuSuika = [1.6,1.6,1.6,1.6,2.3,2.3]
+    let ratioKoyakuBonusChance = [13.7,13.7,13.7,13.7,15.7,17.2]
+    let ratioKoyakuBonusKyoCherry = [19.9,19.9,19.9,25,25,25]
+    let ratioKoyakuBonusKyoSuika = [26.6,26.6,26.6,33.2,33.2,33.2]
 }
 
 // //// メモリー1
@@ -187,6 +222,20 @@ class MidoriDonMemory1: ObservableObject {
     @AppStorage("midoriDonVoiceCountSumMemory1") var voiceCountSum: Int = 0
     @AppStorage("midoriDonMemoMemory1") var memo = ""
     @AppStorage("midoriDonDateMemory1") var dateDouble = 0.0
+    
+    // /////////////////
+    // ver3.2.0で追加
+    // /////////////////
+    @AppStorage("midoriDonNormalRareCountJakuCherryMemory1") var normalRareCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountJakuSuikaMemory1") var normalRareCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareCountChanceMemory1") var normalRareCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoCherryMemory1") var normalRareCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoSuikaMemory1") var normalRareCountKyoSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuCherryMemory1") var normalRareHitCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuSuikaMemory1") var normalRareHitCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountChanceMemory1") var normalRareHitCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoCherryMemory1") var normalRareHitCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoSuikaMemory1") var normalRareHitCountKyoSuika: Int = 0
 }
 
 // //// メモリー2
@@ -214,6 +263,20 @@ class MidoriDonMemory2: ObservableObject {
     @AppStorage("midoriDonVoiceCountSumMemory2") var voiceCountSum: Int = 0
     @AppStorage("midoriDonMemoMemory2") var memo = ""
     @AppStorage("midoriDonDateMemory2") var dateDouble = 0.0
+    
+    // /////////////////
+    // ver3.2.0で追加
+    // /////////////////
+    @AppStorage("midoriDonNormalRareCountJakuCherryMemory2") var normalRareCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountJakuSuikaMemory2") var normalRareCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareCountChanceMemory2") var normalRareCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoCherryMemory2") var normalRareCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoSuikaMemory2") var normalRareCountKyoSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuCherryMemory2") var normalRareHitCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuSuikaMemory2") var normalRareHitCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountChanceMemory2") var normalRareHitCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoCherryMemory2") var normalRareHitCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoSuikaMemory2") var normalRareHitCountKyoSuika: Int = 0
 }
 
 // //// メモリー3
@@ -241,4 +304,18 @@ class MidoriDonMemory3: ObservableObject {
     @AppStorage("midoriDonVoiceCountSumMemory3") var voiceCountSum: Int = 0
     @AppStorage("midoriDonMemoMemory3") var memo = ""
     @AppStorage("midoriDonDateMemory3") var dateDouble = 0.0
+    
+    // /////////////////
+    // ver3.2.0で追加
+    // /////////////////
+    @AppStorage("midoriDonNormalRareCountJakuCherryMemory3") var normalRareCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountJakuSuikaMemory3") var normalRareCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareCountChanceMemory3") var normalRareCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoCherryMemory3") var normalRareCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareCountKyoSuikaMemory3") var normalRareCountKyoSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuCherryMemory3") var normalRareHitCountJakuCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountJakuSuikaMemory3") var normalRareHitCountJakuSuika: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountChanceMemory3") var normalRareHitCountChance: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoCherryMemory3") var normalRareHitCountKyoCherry: Int = 0
+    @AppStorage("midoriDonNormalRareHitCountKyoSuikaMemory3") var normalRareHitCountKyoSuika: Int = 0
 }

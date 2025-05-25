@@ -129,6 +129,14 @@ struct myJug5Ver2ViewJissenCount: View {
                 Text("ゲーム数入力")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マイジャグラー5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("実戦カウント")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

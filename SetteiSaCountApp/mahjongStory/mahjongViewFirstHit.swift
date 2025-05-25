@@ -31,6 +31,14 @@ struct mahjongViewFirstHit: View {
                 Text("初当り")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "麻雀物語",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("初当り")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -236,6 +236,14 @@ struct rslViewFirstHit: View {
 //                Text("ボーナス確率")
 //            }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "レビュースタァライト",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

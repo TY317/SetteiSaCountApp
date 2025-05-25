@@ -107,6 +107,14 @@ struct godzillaViewExMovie: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("EXボーナス中のムービー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

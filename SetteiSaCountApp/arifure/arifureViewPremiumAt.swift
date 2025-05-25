@@ -111,6 +111,14 @@ struct arifureViewPremiumAt: View {
                 Text("ビッグトリガーアタック継続G数")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ありふれた職業で世界最強",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver250.arifureMenuPremiumBadgeStatus != "none" {
 //                ver250.arifureMenuPremiumBadgeStatus = "none"

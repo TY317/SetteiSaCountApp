@@ -403,6 +403,14 @@ struct acceleratorViewCz: View {
             }
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "一方通行 とある魔術の禁書目録",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

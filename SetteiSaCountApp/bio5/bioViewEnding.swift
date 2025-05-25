@@ -227,6 +227,14 @@ struct bioViewEnding: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "バイオハザード5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

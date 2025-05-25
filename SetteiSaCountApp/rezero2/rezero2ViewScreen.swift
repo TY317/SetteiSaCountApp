@@ -147,6 +147,14 @@ struct rezero2ViewScreen: View {
                 Text("AT終了画面")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "Re:ゼロ season2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

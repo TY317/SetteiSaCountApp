@@ -218,6 +218,14 @@ struct bioViewScreen: View {
                 bigNumber: $bio.screenCountSum
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "バイオハザード5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

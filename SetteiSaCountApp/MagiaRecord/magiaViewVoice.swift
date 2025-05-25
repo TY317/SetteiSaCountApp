@@ -114,6 +114,14 @@ struct magiaViewVoice: View {
             }
             
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.magiaMenuVoiceBadgeStatus != "none" {
                 ver310.magiaMenuVoiceBadgeStatus = "none"

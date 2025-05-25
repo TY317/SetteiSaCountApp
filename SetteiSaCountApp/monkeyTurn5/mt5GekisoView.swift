@@ -31,6 +31,14 @@ struct mt5GekisoView: View {
                     Text("波多野A,Bのカウント")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("激走チャージ後のセリフ")
             .navigationBarTitleDisplayMode(.inline)
             

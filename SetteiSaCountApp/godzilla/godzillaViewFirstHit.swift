@@ -96,6 +96,14 @@ struct godzillaViewFirstHit: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラ",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
             self.orientation = UIDevice.current.orientation

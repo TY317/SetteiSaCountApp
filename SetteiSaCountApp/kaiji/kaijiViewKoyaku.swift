@@ -106,6 +106,14 @@ struct kaijiViewKoyaku: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver271.kaijiMenuKoyakuBadgeStatus != "none" {
 //                ver271.kaijiMenuKoyakuBadgeStatus = "none"

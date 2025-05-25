@@ -28,6 +28,14 @@ struct toloveruViewBonus: View {
                     Text("250G以降当選での初回ボーナス種類")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ToLOVEるダークネス",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("初回ボーナス")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

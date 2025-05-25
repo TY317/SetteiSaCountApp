@@ -51,6 +51,14 @@ struct commonViewKakureNagi: View {
 //                .resizable()
 //                .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "トロフィー",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("隠れ凪")
         .navigationBarTitleDisplayMode(.inline)
     }

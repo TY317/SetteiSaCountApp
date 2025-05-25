@@ -65,6 +65,104 @@ struct midoriDonView95Ci: View {
                 )
             )
             .tag(3)
+            // 通常時レア役からのボーナス当選回数　弱チェリー
+            unitListSection95Ci(
+                grafTitle: "通常時レア役からの当選回数\n弱🍒",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $midoriDon.normalRareHitCountJakuCherry,
+                        bigNumber: $midoriDon.normalRareCountJakuCherry,
+                        setting1Percent: midoriDon.ratioKoyakuBonusJakuCherry[0],
+                        setting2Percent: midoriDon.ratioKoyakuBonusJakuCherry[1],
+                        setting3Percent: midoriDon.ratioKoyakuBonusJakuCherry[2],
+                        setting4Percent: midoriDon.ratioKoyakuBonusJakuCherry[3],
+                        setting5Percent: midoriDon.ratioKoyakuBonusJakuCherry[4],
+                        setting6Percent: midoriDon.ratioKoyakuBonusJakuCherry[5]
+                    )
+                )
+            )
+            .tag(4)
+            // 通常時レア役からのボーナス当選回数　弱スイカ
+            unitListSection95Ci(
+                grafTitle: "通常時レア役からの当選回数\n弱🍉",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $midoriDon.normalRareHitCountJakuSuika,
+                        bigNumber: $midoriDon.normalRareCountJakuSuika,
+                        setting1Percent: midoriDon.ratioKoyakuBonusJakuSuika[0],
+                        setting2Percent: midoriDon.ratioKoyakuBonusJakuSuika[1],
+                        setting3Percent: midoriDon.ratioKoyakuBonusJakuSuika[2],
+                        setting4Percent: midoriDon.ratioKoyakuBonusJakuSuika[3],
+                        setting5Percent: midoriDon.ratioKoyakuBonusJakuSuika[4],
+                        setting6Percent: midoriDon.ratioKoyakuBonusJakuSuika[5]
+                    )
+                )
+            )
+            .tag(5)
+            // 通常時レア役からのボーナス当選回数　チャンス目
+            unitListSection95Ci(
+                grafTitle: "通常時レア役からの当選回数\nチャンス目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $midoriDon.normalRareHitCountChance,
+                        bigNumber: $midoriDon.normalRareCountChance,
+                        setting1Percent: midoriDon.ratioKoyakuBonusChance[0],
+                        setting2Percent: midoriDon.ratioKoyakuBonusChance[1],
+                        setting3Percent: midoriDon.ratioKoyakuBonusChance[2],
+                        setting4Percent: midoriDon.ratioKoyakuBonusChance[3],
+                        setting5Percent: midoriDon.ratioKoyakuBonusChance[4],
+                        setting6Percent: midoriDon.ratioKoyakuBonusChance[5]
+                    )
+                )
+            )
+            .tag(6)
+            // 通常時レア役からのボーナス当選回数　強チェリー
+            unitListSection95Ci(
+                grafTitle: "通常時レア役からの当選回数\n強🍒",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $midoriDon.normalRareHitCountKyoCherry,
+                        bigNumber: $midoriDon.normalRareCountKyoCherry,
+                        setting1Percent: midoriDon.ratioKoyakuBonusKyoCherry[0],
+                        setting2Percent: midoriDon.ratioKoyakuBonusKyoCherry[1],
+                        setting3Percent: midoriDon.ratioKoyakuBonusKyoCherry[2],
+                        setting4Percent: midoriDon.ratioKoyakuBonusKyoCherry[3],
+                        setting5Percent: midoriDon.ratioKoyakuBonusKyoCherry[4],
+                        setting6Percent: midoriDon.ratioKoyakuBonusKyoCherry[5]
+                    )
+                )
+            )
+            .tag(7)
+            // 通常時レア役からのボーナス当選回数　強スイカ
+            unitListSection95Ci(
+                grafTitle: "通常時レア役からの当選回数\n強🍉",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $midoriDon.normalRareHitCountKyoSuika,
+                        bigNumber: $midoriDon.normalRareCountKyoSuika,
+                        setting1Percent: midoriDon.ratioKoyakuBonusKyoSuika[0],
+                        setting2Percent: midoriDon.ratioKoyakuBonusKyoSuika[1],
+                        setting3Percent: midoriDon.ratioKoyakuBonusKyoSuika[2],
+                        setting4Percent: midoriDon.ratioKoyakuBonusKyoSuika[3],
+                        setting5Percent: midoriDon.ratioKoyakuBonusKyoSuika[4],
+                        setting6Percent: midoriDon.ratioKoyakuBonusKyoSuika[5]
+                    )
+                )
+            )
+            .tag(8)
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "緑ドン",
+                screenClass: screenClass
+            )
         }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)

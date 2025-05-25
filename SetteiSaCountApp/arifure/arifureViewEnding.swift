@@ -165,6 +165,14 @@ struct arifureViewEnding: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ありふれた職業で世界最強",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver250.arifureMenuEndingBadgeStatus != "none" {
 //                ver250.arifureMenuEndingBadgeStatus = "none"

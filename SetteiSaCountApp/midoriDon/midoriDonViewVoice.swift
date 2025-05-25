@@ -283,6 +283,14 @@ struct midoriDonViewVoice: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "緑ドン",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver301.midoriDonMenuVoiceBadgeStatus != "none" {
 //                ver301.midoriDonMenuVoiceBadgeStatus = "none"

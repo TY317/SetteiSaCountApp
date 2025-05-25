@@ -70,6 +70,14 @@ struct mhrViewEnding: View {
                 Text("アイルーおみくじの色")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンスターハンター ライズ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("エンディング")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -87,6 +87,14 @@ struct mrJugVer2View95CiStart: View {
             )
             .tag(4)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ミスタージャグラー",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

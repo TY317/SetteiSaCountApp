@@ -50,6 +50,14 @@ struct midoriDonViewFirstHit: View {
                 .popoverTip(tipVer310MidoriDonReachReplay())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "緑ドン",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.midoriDonMenuFirstHitBadgeStatus != "none" {
                 ver310.midoriDonMenuFirstHitBadgeStatus = "none"

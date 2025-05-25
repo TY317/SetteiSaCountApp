@@ -13,6 +13,14 @@ struct lupinViewHaruruna: View {
             Text("ハルルナPUSH演出が発生すれば、どのタイミングであっても成功濃厚、かつ設定4 以上濃厚")
                 .foregroundStyle(Color.secondary)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ルパン3世 大航海者の秘宝",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ハルルナPUSH")
         .navigationBarTitleDisplayMode(.inline)
     }

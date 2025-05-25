@@ -144,6 +144,14 @@ struct tokyoGhoulViewScreen: View {
                 bigNumber: $tokyoGhoul.screenCountSum
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "東京喰種",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 
 // ///////////////////////
@@ -417,6 +418,24 @@ struct acceleratorViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "一方通行 とある魔術の禁書目録",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "一方通行 とある魔術の禁書目録", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "acceleratorViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: acceleratorViewTop appeared.") // デバッグ用にログ出力
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

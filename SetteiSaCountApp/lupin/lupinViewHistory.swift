@@ -340,6 +340,14 @@ struct lupinViewHistory: View {
 //            .popoverTip(tipVer180LupinSingleCharaRatioAdd())
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ルパン3世 大航海者の秘宝",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

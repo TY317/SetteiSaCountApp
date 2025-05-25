@@ -33,6 +33,14 @@ struct karakuriViewIchigeki: View {
                 Text("2回目以降の運命の一劇")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "からくりサーカス",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("運命の一劇")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '17.0'
 
 target 'SetteiSaCountApp' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,6 +7,7 @@ target 'SetteiSaCountApp' do
 
   # Pods for SetteiSaCountApp
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Analytics'     # 250518_add
 
   target 'SetteiSaCountAppTests' do
     inherit! :search_paths

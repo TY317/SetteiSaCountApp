@@ -135,6 +135,14 @@ struct inuyashaViewBigScreen: View {
                 Text("Big終了画面")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "犬夜叉2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("Big終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

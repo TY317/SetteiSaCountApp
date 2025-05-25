@@ -155,6 +155,14 @@ struct midoriDonViewBonusScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "緑ドン",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver301.midoriDonMenuScreenBadgeStatus != "none" {
 //                ver301.midoriDonMenuScreenBadgeStatus = "none"

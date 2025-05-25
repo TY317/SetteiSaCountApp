@@ -21,6 +21,14 @@ struct inuyashViewOfuda: View {
                 Spacer()
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "犬夜叉2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("お札演出での示唆")
         .navigationBarTitleDisplayMode(.inline)
     }

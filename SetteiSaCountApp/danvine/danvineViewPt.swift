@@ -75,6 +75,14 @@ struct danvineViewPt: View {
                 Text("規定Pt 11の選択率")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ダンバイン",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("規定ポイント")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

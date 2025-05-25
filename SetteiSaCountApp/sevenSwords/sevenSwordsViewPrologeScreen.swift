@@ -130,6 +130,14 @@ struct sevenSwordsViewPrologeScreen: View {
                 bigNumber: $sevenSwords.bonusScreenCountSum
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "七つの魔剣が支配する",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("プロローグBONUS終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

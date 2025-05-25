@@ -189,6 +189,14 @@ struct rslViewVoice: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "レビュースタァライト",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了後ボイス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

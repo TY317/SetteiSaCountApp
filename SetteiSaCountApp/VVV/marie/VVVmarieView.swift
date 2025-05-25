@@ -63,6 +63,14 @@ struct VVVmarieView: View {
                         .popoverTip(tipUnitButtonLink95Ci())
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "革命機ヴァルヴレイヴ",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("マリエ覚醒")
             .navigationBarTitleDisplayMode(.inline)
             

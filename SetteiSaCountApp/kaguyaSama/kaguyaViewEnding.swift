@@ -32,6 +32,14 @@ struct kaguyaViewEnding: View {
                 Text("エピソードのカウント")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "かぐや様は告らせたい",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("エンディングのエピソード")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

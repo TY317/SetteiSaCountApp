@@ -68,6 +68,14 @@ struct commonViewSammyTrophy: View {
                     .foregroundStyle(self.textColor)
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "トロフィー",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("サミートロフィー")
         .navigationBarTitleDisplayMode(.inline)
     }

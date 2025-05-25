@@ -181,6 +181,14 @@ struct mahjongViewVoice: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "麻雀物語",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.mahjongMenuVoiceBadgeStatus != "none" {
 //                ver300.mahjongMenuVoiceBadgeStatus = "none"

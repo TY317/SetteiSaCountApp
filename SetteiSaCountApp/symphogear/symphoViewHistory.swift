@@ -133,6 +133,14 @@ struct symphoViewHistory: View {
 //            unitClearScrollSection(spaceHeight: 250)
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "シンフォギア 正義の歌",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

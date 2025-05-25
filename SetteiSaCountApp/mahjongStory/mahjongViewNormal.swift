@@ -23,6 +23,14 @@ struct mahjongViewNormal: View {
                 )
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "麻雀物語",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -132,6 +132,14 @@ struct shamanKingViewHyoiGattai: View {
                 Text("残りHPごとの勝率")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "シャーマンキング",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("憑依合体バトル")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

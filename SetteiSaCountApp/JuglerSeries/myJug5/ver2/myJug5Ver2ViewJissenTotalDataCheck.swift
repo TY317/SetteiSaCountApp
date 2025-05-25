@@ -139,6 +139,14 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                 Text("総合結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マイジャグラー5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("総合結果確認")
         .navigationBarTitleDisplayMode(.inline)
     }

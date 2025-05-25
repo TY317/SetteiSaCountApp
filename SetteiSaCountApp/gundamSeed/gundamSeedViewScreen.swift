@@ -301,6 +301,14 @@ struct gundamSeedViewScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ガンダムSEED",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("CZ,AT 終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

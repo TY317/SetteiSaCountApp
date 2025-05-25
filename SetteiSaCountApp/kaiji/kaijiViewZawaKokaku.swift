@@ -75,6 +75,14 @@ struct kaijiViewZawaKokaku: View {
                 Text("弱レア役からの移行率")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ざわ高確")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

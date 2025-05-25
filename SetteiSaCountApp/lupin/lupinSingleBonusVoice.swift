@@ -187,6 +187,14 @@ struct lupinSingleBonusVoice: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ルパン3世 大航海者の秘宝",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス終了後のボイス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

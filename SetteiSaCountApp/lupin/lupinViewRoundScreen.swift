@@ -17,6 +17,14 @@ struct lupinViewRoundScreen: View {
                 .resizable()
                 .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ルパン3世 大航海者の秘宝",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ラウンド開始画面")
         .navigationBarTitleDisplayMode(.inline)
     }

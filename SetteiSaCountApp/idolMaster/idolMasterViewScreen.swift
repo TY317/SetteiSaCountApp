@@ -196,6 +196,14 @@ struct idolMasterViewScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイドルマスター ミリオンライブ！",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

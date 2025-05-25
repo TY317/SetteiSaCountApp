@@ -198,6 +198,14 @@ struct sevenSwordsViewKimbaryChara: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "七つの魔剣が支配する",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("キンバリーBONUS中のキャラ")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

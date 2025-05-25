@@ -48,6 +48,14 @@ struct sevenSwordsViewVoiceCustom: View {
                 )
             })
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "七つの魔剣が支配する",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver270.sevenSwordsMenuVoiceBadgeStatus != "none" {
 //                ver270.sevenSwordsMenuVoiceBadgeStatus = "none"
