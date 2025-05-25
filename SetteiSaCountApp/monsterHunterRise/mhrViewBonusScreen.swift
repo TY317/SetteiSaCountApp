@@ -105,6 +105,14 @@ struct mhrViewBonusScreen: View {
             }
 //            .popoverTip(tipVer180MhrVoiceAdd())
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンスターハンター ライズ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス確定画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -145,6 +145,14 @@ struct sbjViewGameStageChange: View {
                 Text("規定ゲーム数での移行カウント")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スーパーブラックジャック",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver240.sbjMenuGameStageChangeBadgeStatus != "none" {
 //                ver240.sbjMenuGameStageChangeBadgeStatus = "none"

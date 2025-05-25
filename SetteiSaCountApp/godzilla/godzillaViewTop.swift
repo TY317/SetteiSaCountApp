@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct godzillaViewTop: View {
 //    @ObservedObject var ver280 = Ver280()
@@ -76,6 +77,24 @@ struct godzillaViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラ",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "ゴジラ", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "godzillaViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: godzillaViewTop appeared.") // デバッグ用にログ出力
+//        }
 //        .onAppear {
 //            if ver280.godzillaMachineIconBadgeStatus != "none" {
 //                ver280.godzillaMachineIconBadgeStatus = "none"

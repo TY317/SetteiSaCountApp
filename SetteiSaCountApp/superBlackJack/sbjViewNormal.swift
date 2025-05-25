@@ -357,6 +357,14 @@ struct sbjViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スーパーブラックジャック",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.sbjMenuNormalBadgeStatus != "none" {
                 ver310.sbjMenuNormalBadgeStatus = "none"

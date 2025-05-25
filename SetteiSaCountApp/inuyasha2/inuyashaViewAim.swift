@@ -61,6 +61,14 @@ struct inuyashaViewAim: View {
                 Text("狙え成功時の犬夜叉ランプ色")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "犬夜叉2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("犬夜叉ランプ")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

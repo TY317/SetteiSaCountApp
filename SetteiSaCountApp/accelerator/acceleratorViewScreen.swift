@@ -156,6 +156,14 @@ struct acceleratorViewScreen: View {
                 Text("ビッグ,AT終了画面")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "一方通行 とある魔術の禁書目録",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ビッグ,AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -52,6 +52,14 @@ struct goevaViewAtScreen: View {
                 // カヲル
                 unitResultCountListPercent(title: "設定6濃厚", count: $goeva.atScreenKaoruCount, flashColor: .green, bigNumber: $goeva.atScreenCountSum)
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラvsエヴァンゲリオン",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("AT終了画面")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

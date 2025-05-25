@@ -38,6 +38,14 @@ struct kaguyaViewNormalMode: View {
                 Text("通常時アイキャッチ示唆")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "かぐや様は告らせたい",
+                screenClass: screenClass
+            )
+        }
     }
 }
 

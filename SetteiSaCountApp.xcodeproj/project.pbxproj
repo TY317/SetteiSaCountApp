@@ -39,6 +39,7 @@
 		0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E121D2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift */; };
 		0F1E12202DD8121000F69AFF /* sbjTablePinchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E121F2DD8121000F69AFF /* sbjTablePinchPattern.swift */; };
 		0F1E12222DD819DD00F69AFF /* midoriDonTableReachReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */; };
+		0F1E12242DD95C7000F69AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E12232DD95C7000F69AFF /* GoogleService-Info.plist */; };
 		0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */; };
 		0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */; };
 		0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */; };
@@ -445,6 +446,33 @@
 		0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */; };
 		0FA024B02D0C00F6004B3FD5 /* lupinViewAtVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */; };
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
+		0FB9CA7C2DD97641009FC6AF /* ver320Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */; };
+		0FB9CA7F2DDB6182009FC6AF /* toloveru87ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA7E2DDB6182009FC6AF /* toloveru87ViewTop.swift */; };
+		0FB9CA812DDB61B2009FC6AF /* toloveru87Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB9CA802DDB61B2009FC6AF /* toloveru87Assets.xcassets */; };
+		0FB9CA832DDB61C3009FC6AF /* toloveru87Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA822DDB61C3009FC6AF /* toloveru87Class.swift */; };
+		0FB9CA852DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA842DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift */; };
+		0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA862DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift */; };
+		0FB9CA892DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA882DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift */; };
+		0FB9CA8C2DDDA058009FC6AF /* unitPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA8B2DDDA058009FC6AF /* unitPlusButton.swift */; };
+		0FB9CA8E2DDDA5F1009FC6AF /* countUpDownFixNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA8D2DDDA5F1009FC6AF /* countUpDownFixNumber.swift */; };
+		0FB9CA902DDDAB61009FC6AF /* plusButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA8F2DDDAB61009FC6AF /* plusButtonStyle.swift */; };
+		0FB9CA922DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA912DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift */; };
+		0FB9CA962DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA952DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift */; };
+		0FB9CA982DDDE923009FC6AF /* toloveru87ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA972DDDE923009FC6AF /* toloveru87ViewFirstHit.swift */; };
+		0FB9CA9A2DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA992DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift */; };
+		0FB9CA9C2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA9B2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift */; };
+		0FB9CA9E2DDDEF6B009FC6AF /* toloveru87Table3renHarlem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA9D2DDDEF6B009FC6AF /* toloveru87Table3renHarlem.swift */; };
+		0FB9CAA02DDDF0BE009FC6AF /* toloveru87View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA9F2DDDF0BE009FC6AF /* toloveru87View95Ci.swift */; };
+		0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAA12DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift */; };
+		0FB9CAA42DE1381A009FC6AF /* toloveruTableWhisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAA32DE1381A009FC6AF /* toloveruTableWhisper.swift */; };
+		0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAA52DE13C79009FC6AF /* toloveru87ViewEndScreen.swift */; };
+		0FB9CAA82DE178C7009FC6AF /* toloveru87TablePtSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAA72DE178C7009FC6AF /* toloveru87TablePtSisa.swift */; };
+		0FB9CAAA2DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAA92DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift */; };
+		0FB9CAAC2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAAB2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift */; };
+		0FB9CAAE2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAAD2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift */; };
+		0FB9CAB02DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAAF2DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift */; };
+		0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAB12DE1AFF6009FC6AF /* FirebaseScreenLogger.swift */; };
+		0FB9CAB42DE1B620009FC6AF /* logEventFirebaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CAB32DE1B620009FC6AF /* logEventFirebaseScreen.swift */; };
 		0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */; };
 		0FD3571C2D9EBBA10069BD1A /* tokyoGhoulTable100Hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3571B2D9EBBA10069BD1A /* tokyoGhoulTable100Hit.swift */; };
 		0FD3571E2DA0BC4C0069BD1A /* danvineTableExRushStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3571D2DA0BC4C0069BD1A /* danvineTableExRushStart.swift */; };
@@ -660,9 +688,9 @@
 		0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */; };
 		0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */; };
 		0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */; };
-		8E5AC93A5DB992A735EBA11F /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */; };
-		B9566B8C0FC3F74865BF2953 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
-		DA5F7CAE87ECA671AE565E42 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */; };
+		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
+		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
+		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -683,7 +711,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06BAB0A75A95FB86B1741093 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
 		0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = rezero2Assets.xcassets; sourceTree = "<group>"; };
 		0F1E11E62DC8351700F69AFF /* ver310Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver310Class.swift; sourceTree = "<group>"; };
@@ -716,6 +743,7 @@
 		0F1E121D2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedTableUnder99Ratio.swift; sourceTree = "<group>"; };
 		0F1E121F2DD8121000F69AFF /* sbjTablePinchPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjTablePinchPattern.swift; sourceTree = "<group>"; };
 		0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midoriDonTableReachReplay.swift; sourceTree = "<group>"; };
+		0F1E12232DD95C7000F69AFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewTop.swift; sourceTree = "<group>"; };
 		0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveruAssets.xcassets; sourceTree = "<group>"; };
 		0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewBonusHit.swift; sourceTree = "<group>"; };
@@ -1126,6 +1154,33 @@
 		0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtScreen.swift; sourceTree = "<group>"; };
 		0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtVoice.swift; sourceTree = "<group>"; };
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
+		0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver320Class.swift; sourceTree = "<group>"; };
+		0FB9CA7E2DDB6182009FC6AF /* toloveru87ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewTop.swift; sourceTree = "<group>"; };
+		0FB9CA802DDB61B2009FC6AF /* toloveru87Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveru87Assets.xcassets; sourceTree = "<group>"; };
+		0FB9CA822DDB61C3009FC6AF /* toloveru87Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87Class.swift; sourceTree = "<group>"; };
+		0FB9CA842DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewDokidokiPt.swift; sourceTree = "<group>"; };
+		0FB9CA862DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruTableDokidokiDefault.swift; sourceTree = "<group>"; };
+		0FB9CA882DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruTableDokidokiPt.swift; sourceTree = "<group>"; };
+		0FB9CA8B2DDDA058009FC6AF /* unitPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitPlusButton.swift; sourceTree = "<group>"; };
+		0FB9CA8D2DDDA5F1009FC6AF /* countUpDownFixNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countUpDownFixNumber.swift; sourceTree = "<group>"; };
+		0FB9CA8F2DDDAB61009FC6AF /* plusButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plusButtonStyle.swift; sourceTree = "<group>"; };
+		0FB9CA912DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modifierBackGroundFlashBool.swift; sourceTree = "<group>"; };
+		0FB9CA952DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitButtonResetBorderedStyle.swift; sourceTree = "<group>"; };
+		0FB9CA972DDDE923009FC6AF /* toloveru87ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewFirstHit.swift; sourceTree = "<group>"; };
+		0FB9CA992DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87TableFirstHit.swift; sourceTree = "<group>"; };
+		0FB9CA9B2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewHarlem.swift; sourceTree = "<group>"; };
+		0FB9CA9D2DDDEF6B009FC6AF /* toloveru87Table3renHarlem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87Table3renHarlem.swift; sourceTree = "<group>"; };
+		0FB9CA9F2DDDF0BE009FC6AF /* toloveru87View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87View95Ci.swift; sourceTree = "<group>"; };
+		0FB9CAA12DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewDokidokiPt.swift; sourceTree = "<group>"; };
+		0FB9CAA32DE1381A009FC6AF /* toloveruTableWhisper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruTableWhisper.swift; sourceTree = "<group>"; };
+		0FB9CAA52DE13C79009FC6AF /* toloveru87ViewEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewEndScreen.swift; sourceTree = "<group>"; };
+		0FB9CAA72DE178C7009FC6AF /* toloveru87TablePtSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87TablePtSisa.swift; sourceTree = "<group>"; };
+		0FB9CAA92DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midoriDonViewKoyakuBonus.swift; sourceTree = "<group>"; };
+		0FB9CAAB2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midoriDonTableKoyakuBonus.swift; sourceTree = "<group>"; };
+		0FB9CAAD2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationHandlerModifier.swift; sourceTree = "<group>"; };
+		0FB9CAAF2DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetBadgeOnAppear.swift; sourceTree = "<group>"; };
+		0FB9CAB12DE1AFF6009FC6AF /* FirebaseScreenLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseScreenLogger.swift; sourceTree = "<group>"; };
+		0FB9CAB32DE1B620009FC6AF /* logEventFirebaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logEventFirebaseScreen.swift; sourceTree = "<group>"; };
 		0FCFCC4F2CD5D18B005F94B0 /* rezero2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewScreen.swift; sourceTree = "<group>"; };
 		0FD3571B2D9EBBA10069BD1A /* tokyoGhoulTable100Hit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulTable100Hit.swift; sourceTree = "<group>"; };
 		0FD3571D2DA0BC4C0069BD1A /* danvineTableExRushStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danvineTableExRushStart.swift; sourceTree = "<group>"; };
@@ -1341,14 +1396,15 @@
 		0FF9AC952CBA6261000C8E76 /* kaguyaViewBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewBonus.swift; sourceTree = "<group>"; };
 		0FF9AC972CBB4017000C8E76 /* kaguyaViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewReg.swift; sourceTree = "<group>"; };
 		0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewScreen.swift; sourceTree = "<group>"; };
-		4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
-		4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		77019F5716DEC1EA7C0B53B4 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D31B2E1D2D0815973B73ADD1 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F47ED2D8C2A7BBCE119000DA /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
-		F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
+		CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1356,7 +1412,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5F7CAE87ECA671AE565E42 /* Pods_SetteiSaCountApp.framework in Frameworks */,
+				4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,7 +1420,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E5AC93A5DB992A735EBA11F /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
+				97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,7 +1428,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9566B8C0FC3F74865BF2953 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
+				37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1382,12 +1438,12 @@
 		05F029BDD164F61DF798A3AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */,
-				F47ED2D8C2A7BBCE119000DA /* Pods-SetteiSaCountApp.release.xcconfig */,
-				77019F5716DEC1EA7C0B53B4 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
-				06BAB0A75A95FB86B1741093 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
-				D31B2E1D2D0815973B73ADD1 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
-				4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
+				90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */,
+				B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */,
+				6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
+				90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
+				CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
+				FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1433,6 +1489,7 @@
 				0F25C27A2C8891EB008B4707 /* toloveruViewBonus.swift */,
 				0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */,
 				0FA0247E2CF4A25A004B3FD5 /* toloveruView95Ci.swift */,
+				0FB9CAA12DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift */,
 			);
 			path = toloveru;
 			sourceTree = "<group>";
@@ -1503,6 +1560,8 @@
 				0F64DDCF2DC6F3BA0027315D /* midoriDonViewBonusScreen.swift */,
 				0F64DDD42DC7059F0027315D /* midoriDonViewVoice.swift */,
 				0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */,
+				0FB9CAA92DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift */,
+				0FB9CAAB2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift */,
 			);
 			path = midoriDon;
 			sourceTree = "<group>";
@@ -1731,12 +1790,13 @@
 		0F8030CF2C6249FC001F008E = {
 			isa = PBXGroup;
 			children = (
+				0F1E12232DD95C7000F69AFF /* GoogleService-Info.plist */,
 				0F8030DA2C6249FC001F008E /* SetteiSaCountApp */,
 				0F8030EB2C6249FE001F008E /* SetteiSaCountAppTests */,
 				0F8030F52C6249FE001F008E /* SetteiSaCountAppUITests */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
-				FB4E2CF52E2BC8A8ECB19A24 /* Frameworks */,
+				8B3C4222C8718142ABE663F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1755,6 +1815,7 @@
 			children = (
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FB9CA7D2DDB6150009FC6AF /* toloveru8.7 */,
 				0F1E11E82DC8535900F69AFF /* gundamSeed */,
 				0F64DDB42DC6D46D0027315D /* midoriDon */,
 				0F64DD662DC0C24D0027315D /* idolMaster */,
@@ -2037,6 +2098,8 @@
 			isa = PBXGroup;
 			children = (
 				0F80311C2C69B42A001F008E /* myFunction.swift */,
+				0FB9CA8D2DDDA5F1009FC6AF /* countUpDownFixNumber.swift */,
+				0FB9CAB32DE1B620009FC6AF /* logEventFirebaseScreen.swift */,
 			);
 			path = function;
 			sourceTree = "<group>";
@@ -2085,6 +2148,7 @@
 		0F868A702D4F2E5800D952D9 /* unitView */ = {
 			isa = PBXGroup;
 			children = (
+				0FB9CA932DDDCCAE009FC6AF /* button */,
 				0F64DDD12DC6F7810027315D /* screen */,
 				0F64DDA32DC5F39E0027315D /* reel */,
 				0F654BD72C6F409F00F37849 /* myViewUnit.swift */,
@@ -2114,6 +2178,7 @@
 			isa = PBXGroup;
 			children = (
 				0F80311A2C69B3BD001F008E /* myButtonStyle.swift */,
+				0FB9CA8F2DDDAB61009FC6AF /* plusButtonStyle.swift */,
 			);
 			path = buttonStyle;
 			sourceTree = "<group>";
@@ -2122,6 +2187,10 @@
 			isa = PBXGroup;
 			children = (
 				0F8872752C6AE38C00AADD2B /* myModifier.swift */,
+				0FB9CA912DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift */,
+				0FB9CAAD2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift */,
+				0FB9CAAF2DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift */,
+				0FB9CAB12DE1AFF6009FC6AF /* FirebaseScreenLogger.swift */,
 			);
 			path = modifier;
 			sourceTree = "<group>";
@@ -2167,6 +2236,7 @@
 				0F64DD642DC0C1970027315D /* ver300Class.swift */,
 				0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */,
 				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
+				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -2382,6 +2452,52 @@
 				0F64DD622DC09EFF0027315D /* danvineTableSeisenshi.swift */,
 			);
 			path = danvine;
+			sourceTree = "<group>";
+		};
+		0FB9CA7D2DDB6150009FC6AF /* toloveru8.7 */ = {
+			isa = PBXGroup;
+			children = (
+				0FB9CA7E2DDB6182009FC6AF /* toloveru87ViewTop.swift */,
+				0FB9CA802DDB61B2009FC6AF /* toloveru87Assets.xcassets */,
+				0FB9CA822DDB61C3009FC6AF /* toloveru87Class.swift */,
+				0FB9CA842DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift */,
+				0FB9CA862DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift */,
+				0FB9CA882DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift */,
+				0FB9CA972DDDE923009FC6AF /* toloveru87ViewFirstHit.swift */,
+				0FB9CA992DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift */,
+				0FB9CA9B2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift */,
+				0FB9CA9D2DDDEF6B009FC6AF /* toloveru87Table3renHarlem.swift */,
+				0FB9CA9F2DDDF0BE009FC6AF /* toloveru87View95Ci.swift */,
+				0FB9CAA32DE1381A009FC6AF /* toloveruTableWhisper.swift */,
+				0FB9CAA52DE13C79009FC6AF /* toloveru87ViewEndScreen.swift */,
+				0FB9CAA72DE178C7009FC6AF /* toloveru87TablePtSisa.swift */,
+			);
+			path = toloveru8.7;
+			sourceTree = "<group>";
+		};
+		0FB9CA8A2DDDA027009FC6AF /* plusButton */ = {
+			isa = PBXGroup;
+			children = (
+				0FB9CA8B2DDDA058009FC6AF /* unitPlusButton.swift */,
+			);
+			path = plusButton;
+			sourceTree = "<group>";
+		};
+		0FB9CA932DDDCCAE009FC6AF /* button */ = {
+			isa = PBXGroup;
+			children = (
+				0FB9CA942DDDCCCB009FC6AF /* resetButton */,
+				0FB9CA8A2DDDA027009FC6AF /* plusButton */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		0FB9CA942DDDCCCB009FC6AF /* resetButton */ = {
+			isa = PBXGroup;
+			children = (
+				0FB9CA952DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift */,
+			);
+			path = resetButton;
 			sourceTree = "<group>";
 		};
 		0FD3578B2DAB32900069BD1A /* godzilla */ = {
@@ -2649,12 +2765,12 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
-		FB4E2CF52E2BC8A8ECB19A24 /* Frameworks */ = {
+		8B3C4222C8718142ABE663F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F480122C670084796DFC2170 /* Pods_SetteiSaCountApp.framework */,
-				E9E0FCBA48787ACF3844F2CB /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
-				526C0FF725E31381BEDDCE61 /* Pods_SetteiSaCountAppTests.framework */,
+				24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */,
+				DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
+				E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2666,11 +2782,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FC2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountApp" */;
 			buildPhases = (
-				B46E885641EB85FE2FE5F538 /* [CP] Check Pods Manifest.lock */,
+				B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */,
 				0F8030D42C6249FC001F008E /* Sources */,
 				0F8030D52C6249FC001F008E /* Frameworks */,
 				0F8030D62C6249FC001F008E /* Resources */,
-				D9F8F5B250FD6014B196B402 /* [CP] Copy Pods Resources */,
+				2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */,
+				DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2685,7 +2802,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FF2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppTests" */;
 			buildPhases = (
-				151A822B53D8FDC525ECEACC /* [CP] Check Pods Manifest.lock */,
+				0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */,
 				0F8030E42C6249FE001F008E /* Sources */,
 				0F8030E52C6249FE001F008E /* Frameworks */,
 				0F8030E62C6249FE001F008E /* Resources */,
@@ -2704,11 +2821,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8031022C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppUITests" */;
 			buildPhases = (
-				1E2773371D9F4AA795D989D9 /* [CP] Check Pods Manifest.lock */,
+				72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */,
 				0F8030EE2C6249FE001F008E /* Sources */,
 				0F8030EF2C6249FE001F008E /* Frameworks */,
 				0F8030F02C6249FE001F008E /* Resources */,
-				8E5D88064FC1B9FB461FAAB8 /* [CP] Copy Pods Resources */,
+				ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */,
+				9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2797,7 +2915,9 @@
 				0FD357AE2DAE98F00069BD1A /* mahjongAssets.xcassets in Resources */,
 				0FA0249D2D05D14C004B3FD5 /* lupinAssets.xcassets in Resources */,
 				0FF156192D67195800B17F83 /* tokyoGhoulAssets.xcassets in Resources */,
+				0F1E12242DD95C7000F69AFF /* GoogleService-Info.plist in Resources */,
 				0FA024A22D05D558004B3FD5 /* danvineAssets.xcassets in Resources */,
+				0FB9CA812DDB61B2009FC6AF /* toloveru87Assets.xcassets in Resources */,
 				0F64DDB82DC6D4920027315D /* midoriDonAssets.xcassets in Resources */,
 				0F654BB82C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets in Resources */,
 				0F868A912D5789AB00D952D9 /* mrJugAssets.xcassets in Resources */,
@@ -2838,7 +2958,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		151A822B53D8FDC525ECEACC /* [CP] Check Pods Manifest.lock */ = {
+		0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2860,7 +2980,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1E2773371D9F4AA795D989D9 /* [CP] Check Pods Manifest.lock */ = {
+		2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2882,7 +3023,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E5D88064FC1B9FB461FAAB8 /* [CP] Copy Pods Resources */ = {
+		9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2903,7 +3044,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B46E885641EB85FE2FE5F538 /* [CP] Check Pods Manifest.lock */ = {
+		B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2925,7 +3066,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9F8F5B250FD6014B196B402 /* [CP] Copy Pods Resources */ = {
+		DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2946,6 +3087,27 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2958,10 +3120,12 @@
 				0F868A0A2D4279D100D952D9 /* goJug3Ver2View95CiKen.swift in Sources */,
 				0F1E12122DD0D75800F69AFF /* inuyashaTableCz333.swift in Sources */,
 				0F6BD7CB2D806908003F5563 /* bioViewTop.swift in Sources */,
+				0FB9CAA82DE178C7009FC6AF /* toloveru87TablePtSisa.swift in Sources */,
 				0FD357742DAA18640069BD1A /* tokyoGhoulTableModeTable.swift in Sources */,
 				0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */,
 				0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */,
 				0FD357B72DAFCC440069BD1A /* yoshimuneClass.swift in Sources */,
+				0FB9CAAE2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift in Sources */,
 				0FA0247B2CF49B82004B3FD5 /* kaguyaView95Ci.swift in Sources */,
 				0FF156082D604D1400B17F83 /* starHanaVer2ViewJissenCount.swift in Sources */,
 				0F8689DA2D3BB75800D952D9 /* myJug5Ver2View95CiStart.swift in Sources */,
@@ -2970,6 +3134,7 @@
 				0FD3574E2DA266280069BD1A /* shamanKingDirectAt.swift in Sources */,
 				0FEC57AA2D8F005900FF1024 /* kaijiTableZawaKokaku.swift in Sources */,
 				0F868ABA2D583E1300D952D9 /* funky2Ver2View95CiPersonal.swift in Sources */,
+				0FB9CAAA2DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift in Sources */,
 				0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */,
 				0FEC57A82D8EFB5A00FF1024 /* kaijiViewZawaKokaku.swift in Sources */,
 				0F654BCA2C6EC7FE00F37849 /* happyJugV3exView.swift in Sources */,
@@ -2982,6 +3147,7 @@
 				0F654BD82C6F409F00F37849 /* myViewUnit.swift in Sources */,
 				0F868A452D460E9100D952D9 /* kingHanaVer2ViewJissenTotalDataCheck.swift in Sources */,
 				0F64DD472DC07C870027315D /* dumbbellTableCzSecondPart.swift in Sources */,
+				0FB9CA7F2DDB6182009FC6AF /* toloveru87ViewTop.swift in Sources */,
 				0FF156002D60472600B17F83 /* unitMachinListLinkWithSfsymbol.swift in Sources */,
 				0F868A432D460E8300D952D9 /* kingHanaVer2ViewJissenCount.swift in Sources */,
 				0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */,
@@ -2992,6 +3158,7 @@
 				0F64DD942DC5CC350027315D /* funky2SubViewCountInput.swift in Sources */,
 				0F868AA62D58339C00D952D9 /* funky2Ver2ViewTop.swift in Sources */,
 				0FA024812CF4A6DC004B3FD5 /* karakuriView95Ci.swift in Sources */,
+				0FB9CA7C2DD97641009FC6AF /* ver320Class.swift in Sources */,
 				0F1E11F02DCB765A00F69AFF /* ver301Class.swift in Sources */,
 				0FD357BB2DAFCF6B0069BD1A /* mahjongViewNormal.swift in Sources */,
 				0F64DD882DC5AE9F0027315D /* mrJugSubViewCountInput.swift in Sources */,
@@ -3093,6 +3260,7 @@
 				0FD357A92DAE90C10069BD1A /* godzillaTableFirstHit.swift in Sources */,
 				0FD3579F2DAB6B580069BD1A /* commonViewGinchanTrophy.swift in Sources */,
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
+				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
 				0F8689FE2D42747900D952D9 /* goJug3Ver2ViewTop.swift in Sources */,
 				0F868AA32D57954200D952D9 /* mrJugVer2View95CiPersonal.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
@@ -3129,12 +3297,14 @@
 				0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */,
 				0F6BD7DC2D8310D0003F5563 /* bioView95Ci.swift in Sources */,
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
+				0FB9CAA42DE1381A009FC6AF /* toloveruTableWhisper.swift in Sources */,
 				0F64DDD02DC6F3BA0027315D /* midoriDonViewBonusScreen.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,
 				0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */,
 				0FF1561B2D67196C00B17F83 /* tokyoGhoulClass.swift in Sources */,
 				0FF156252D698CE900B17F83 /* tokyoGhoulViewTsukiyama.swift in Sources */,
 				0F868A882D57332D00D952D9 /* sbjViewJacTrump.swift in Sources */,
+				0FB9CAAC2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift in Sources */,
 				0F7E4F7B2D2A4C8F001CC916 /* acceleratorView95Ci.swift in Sources */,
 				0FDC328B2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift in Sources */,
 				0F64DD592DC08FFD0027315D /* danvineTableEnemyNumberSisa.swift in Sources */,
@@ -3168,6 +3338,7 @@
 				0F64DD3B2DC06B2D0027315D /* acceleratorTable3renChance.swift in Sources */,
 				0FD357522DA269EF0069BD1A /* shamanKingTableEnding.swift in Sources */,
 				0F868ADE2D5ED73F00D952D9 /* sevenSwordsView95Ci.swift in Sources */,
+				0FB9CA922DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift in Sources */,
 				0F8689E42D3CE9FC00D952D9 /* myJug5Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868AB02D583ACD00D952D9 /* funky2Ver2ViewJissenCount.swift in Sources */,
 				0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */,
@@ -3192,6 +3363,7 @@
 				0FF156272D69A38800B17F83 /* tokyoGhoulViewScreen.swift in Sources */,
 				0F868AC12D584D1900D952D9 /* girlsSSClass.swift in Sources */,
 				0F6BD7C62D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift in Sources */,
+				0FB9CA9C2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift in Sources */,
 				0FF156042D604CF400B17F83 /* starHanaVer2ViewJissenStartData.swift in Sources */,
 				0FD357282DA0F9910069BD1A /* shamanKingTableCzFuriwake.swift in Sources */,
 				0FD3575A2DA28BDC0069BD1A /* magiaClass.swift in Sources */,
@@ -3201,6 +3373,7 @@
 				0FA0246D2CF3031B004B3FD5 /* kingHanaView95Ci.swift in Sources */,
 				0F868AC52D584F2500D952D9 /* girlsSSVer2ViewJissenStartData.swift in Sources */,
 				0F868A3F2D460E6500D952D9 /* kingHanaVer2ViewKenDataInput.swift in Sources */,
+				0FB9CA962DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift in Sources */,
 				0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */,
 				0F654BC62C6E3C3600F37849 /* happyJugV3ViewTop.swift in Sources */,
 				0F868A042D42791B00D952D9 /* goJug3Ver2ViewJissenCount.swift in Sources */,
@@ -3236,6 +3409,7 @@
 				0FD357582DA28BBD0069BD1A /* magiaTableJakuCherry.swift in Sources */,
 				0FD357B02DAE98FD0069BD1A /* mahjongClass.swift in Sources */,
 				0F868A9D2D578EBA00D952D9 /* mrJugVer2View95CiTotal.swift in Sources */,
+				0FB9CA832DDB61C3009FC6AF /* toloveru87Class.swift in Sources */,
 				0FD3578A2DAA7DC60069BD1A /* sevenSwordsTableFirstHit.swift in Sources */,
 				0F868A3D2D460C9F00D952D9 /* kingHanaVer2ViewTop.swift in Sources */,
 				0FA024542CE03C66004B3FD5 /* goJug3ViewTop.swift in Sources */,
@@ -3265,6 +3439,7 @@
 				0F64DD512DC085BD0027315D /* danvineTableMode.swift in Sources */,
 				0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */,
 				0FD3576A2DA553680069BD1A /* ver271Class.swift in Sources */,
+				0FB9CA8C2DDDA058009FC6AF /* unitPlusButton.swift in Sources */,
 				0F64DDD32DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift in Sources */,
 				0F654BE92C708C2000F37849 /* kingHanaViewTop.swift in Sources */,
 				0F1E12202DD8121000F69AFF /* sbjTablePinchPattern.swift in Sources */,
@@ -3345,6 +3520,8 @@
 				0FF1563A2D7096C100B17F83 /* shamanKingViewHit.swift in Sources */,
 				0F80311B2C69B3BD001F008E /* myButtonStyle.swift in Sources */,
 				0FF156322D6CAD5100B17F83 /* shamanKingViewNormal.swift in Sources */,
+				0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */,
+				0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */,
 				0F7F86432D9EB36400F26486 /* magiaViewTop.swift in Sources */,
 				0FEC57BA2D9179EF00FF1024 /* ver260Class.swift in Sources */,
 				0F868AAA2D58386D00D952D9 /* funky2Class.swift in Sources */,
@@ -3359,6 +3536,7 @@
 				0F8689D52D3B298500D952D9 /* myJug5Ver2ViewJissenStartData.swift in Sources */,
 				0F64DDA02DC5E17A0027315D /* godeaterViewNormal.swift in Sources */,
 				0F64DD842DC467440027315D /* unitScreenOnlyDisplay.swift in Sources */,
+				0FB9CA902DDDAB61009FC6AF /* plusButtonStyle.swift in Sources */,
 				0FD3572E2DA14B680069BD1A /* hanahanaCommonTableBigSuika.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0FEC57D92D97890400FF1024 /* rslTableFirstHit.swift in Sources */,
@@ -3375,6 +3553,8 @@
 				0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */,
 				0FD357CB2DB334010069BD1A /* yoshimuneTableMode.swift in Sources */,
 				0FA024832CF5F5F0004B3FD5 /* vvvView95Ci.swift in Sources */,
+				0FB9CA8E2DDDA5F1009FC6AF /* countUpDownFixNumber.swift in Sources */,
+				0FB9CA9E2DDDEF6B009FC6AF /* toloveru87Table3renHarlem.swift in Sources */,
 				0FDC32892D2653F9005B3D06 /* dumbbellCzAtScreen.swift in Sources */,
 				0FF156432D73E2F100B17F83 /* arifureViewTop.swift in Sources */,
 				0F1E12082DD0BE0F00F69AFF /* lupinTableKyoCherry.swift in Sources */,
@@ -3415,6 +3595,7 @@
 				0FD357C92DB329BA0069BD1A /* yoshimuneView95Ci.swift in Sources */,
 				0FD357C12DB28E070069BD1A /* mahjongViewBonusScreen.swift in Sources */,
 				0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */,
+				0FB9CAB42DE1B620009FC6AF /* logEventFirebaseScreen.swift in Sources */,
 				0F868A802D54EC2500D952D9 /* sbjViewNormal.swift in Sources */,
 				0FD357B32DAFCC280069BD1A /* yoshimuneViewTop.swift in Sources */,
 				0F654BC12C6E2D3400F37849 /* myJug5exView.swift in Sources */,
@@ -3430,6 +3611,7 @@
 				0FF156342D6F3F7600B17F83 /* shamanKingViewHyoiGattai.swift in Sources */,
 				0F64DDAB2DC5F66E0027315D /* unitReelText.swift in Sources */,
 				0F8325C12C7F51A80037226E /* goevaViewAtSuika.swift in Sources */,
+				0FB9CAB02DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift in Sources */,
 				0F868A8C2D573A2E00D952D9 /* commonViewKerottoTrophy.swift in Sources */,
 				0FD357782DAA27380069BD1A /* sbjTableKokakuKiteiGame.swift in Sources */,
 				0FD357A52DAB793F0069BD1A /* godzillaViewScreen.swift in Sources */,
@@ -3461,6 +3643,7 @@
 				0F3465BD2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift in Sources */,
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FD3572A2DA1480D0069BD1A /* starHanaTableBellBonus.swift in Sources */,
+				0FB9CAA02DDDF0BE009FC6AF /* toloveru87View95Ci.swift in Sources */,
 				0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */,
 				0FD357682DA2A2090069BD1A /* magiaViewAtScreen.swift in Sources */,
 				0F868A1D2D44B70D00D952D9 /* happyJugV3Ver2ViewJissenTotalDataCheck.swift in Sources */,
@@ -3479,7 +3662,9 @@
 				0F6BD7E22D831C05003F5563 /* unitTableDenominate.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
+				0FB9CA852DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift in Sources */,
 				0F868A9F2D57925600D952D9 /* mrJugVer2View95CiKen.swift in Sources */,
+				0FB9CA9A2DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift in Sources */,
 				0F654BEF2C71670600F37849 /* kingHanaExViewBbSuika.swift in Sources */,
 				0F7E4F792D2A48FF001CC916 /* commonViewFujimaruCoin.swift in Sources */,
 				0F7E4F752D28E94D001CC916 /* acceleratorViewCz.swift in Sources */,
@@ -3525,7 +3710,9 @@
 				0F1E12102DD0D68C00F69AFF /* inuyashaTableFirstHit.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
 				0F868A082D42793600D952D9 /* goJug3Ver2View95CiTotal.swift in Sources */,
+				0FB9CA982DDDE923009FC6AF /* toloveru87ViewFirstHit.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
+				0FB9CA892DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift in Sources */,
 				0F6BD7C42D7C37C0003F5563 /* unitTableSettingIndex.swift in Sources */,
 				0F868AB22D583AD800D952D9 /* funky2Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0FA024912D013AF5004B3FD5 /* mhrViewEnding.swift in Sources */,
@@ -3536,6 +3723,7 @@
 				0F6BD7E62D88616F003F5563 /* arifureViewPremiumAt.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
+				0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */,
 				0F868A362D45CC7000D952D9 /* hanaTenshoVer2View95CiKen.swift in Sources */,
 				0FD357802DAA2FAE0069BD1A /* sbjTableKoyakuRatio.swift in Sources */,
 				0F868AD42D5E282500D952D9 /* sevenSwordsViewTop.swift in Sources */,
@@ -3712,7 +3900,7 @@
 		};
 		0F8030FD2C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DF7EE9B944AF14F63A3BA4E /* Pods-SetteiSaCountApp.debug.xcconfig */;
+			baseConfigurationReference = 90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3736,7 +3924,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3751,7 +3939,7 @@
 		};
 		0F8030FE2C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F47ED2D8C2A7BBCE119000DA /* Pods-SetteiSaCountApp.release.xcconfig */;
+			baseConfigurationReference = B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3775,7 +3963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3790,13 +3978,13 @@
 		};
 		0F8031002C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D31B2E1D2D0815973B73ADD1 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
+			baseConfigurationReference = CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3809,13 +3997,13 @@
 		};
 		0F8031012C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F3907B6C0840C12CAB6F5A1 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
+			baseConfigurationReference = FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3828,7 +4016,7 @@
 		};
 		0F8031032C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77019F5716DEC1EA7C0B53B4 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -3845,7 +4033,7 @@
 		};
 		0F8031042C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06BAB0A75A95FB86B1741093 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
+			baseConfigurationReference = 90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

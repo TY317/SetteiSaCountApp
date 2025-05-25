@@ -202,6 +202,14 @@ struct danvineViewVoice: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ダンバイン",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ST終了ボイス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

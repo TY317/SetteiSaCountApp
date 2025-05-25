@@ -96,6 +96,14 @@ struct danvineViewAttack: View {
                 Text("突入時の成功抽選")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ダンバイン",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("アタックモード")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

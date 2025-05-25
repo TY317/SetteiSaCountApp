@@ -31,7 +31,17 @@ struct toloveruViewHarlem: View {
                             .padding(.vertical)
                     }
                     // 参考情報リンク
-                    unitLinkButton(title: "ウィスパー選択率について", exview: AnyView(unitExView5body2image(title: "ウィスパー選択率", textBody1: "・ハーレムモード中の枚数選択ゾーンでウィスパー演出が選択される確率に設定差あり", image1: Image("toloveruHarlemWhisper"))))
+                    unitLinkButton(
+                        title: "ウィスパー選択率について",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "ウィスパー選択率",
+                                textBody1: "・ハーレムモード中の枚数選択ゾーンでウィスパー演出が選択される確率に設定差あり",
+//                                image1: Image("toloveruHarlemWhisper")
+                                tableView: AnyView(toloveruTableWhisper())
+                            )
+                        )
+                    )
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(toloveruView95Ci(toloveru: toloveru, selection: 1)))
                         .popoverTip(tipUnitButtonLink95Ci())
@@ -39,6 +49,14 @@ struct toloveruViewHarlem: View {
                     Text("ウィスパー選択率")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ToLOVEるダークネス",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ハーレムモード")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

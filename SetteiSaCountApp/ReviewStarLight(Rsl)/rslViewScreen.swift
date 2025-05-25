@@ -141,6 +141,14 @@ struct rslViewScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "レビュースタァライト",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

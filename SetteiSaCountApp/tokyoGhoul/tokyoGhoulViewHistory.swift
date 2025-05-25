@@ -468,6 +468,14 @@ struct tokyoGhoulViewHistory: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "東京喰種",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver250.ghoulMenuHistoryBadgeStatus != "none" {
 //                ver250.ghoulMenuHistoryBadgeStatus = "none"

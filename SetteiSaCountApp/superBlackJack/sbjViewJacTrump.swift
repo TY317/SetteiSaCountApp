@@ -27,6 +27,14 @@ struct sbjViewJacTrump: View {
                 )
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スーパーブラックジャック",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("JAC中のトランプ")
         .navigationBarTitleDisplayMode(.inline)
     }

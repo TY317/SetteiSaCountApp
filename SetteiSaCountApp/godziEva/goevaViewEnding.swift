@@ -16,6 +16,14 @@ struct goevaViewEnding: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラvsエヴァンゲリオン",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("エンディング中の示唆")
             .navigationBarTitleDisplayMode(.inline)
 //        }

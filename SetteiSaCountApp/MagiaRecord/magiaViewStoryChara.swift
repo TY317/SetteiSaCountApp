@@ -73,6 +73,14 @@ struct magiaViewStoryChara: View {
                 }
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.magiaMenuStoryCharaBadgeStatus != "none" {
                 ver310.magiaMenuStoryCharaBadgeStatus = "none"

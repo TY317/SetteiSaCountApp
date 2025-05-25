@@ -425,6 +425,14 @@ struct magiaViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.magiaMenuNormalBadgeStatus != "none" {
                 ver310.magiaMenuNormalBadgeStatus = "none"

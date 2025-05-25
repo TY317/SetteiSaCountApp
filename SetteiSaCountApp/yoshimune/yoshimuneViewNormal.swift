@@ -61,6 +61,14 @@ struct yoshimuneViewNormal: View {
                 Text("モード")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "吉宗",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
     }

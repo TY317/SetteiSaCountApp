@@ -189,6 +189,14 @@ struct hokutoViewHistory: View {
                     
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スマスロ北斗の拳",
+                screenClass: screenClass
+            )
+        }
             // //// 画面の向き情報の取得部分
             .onAppear {
                 // ビューが表示されるときにデバイスの向きを取得

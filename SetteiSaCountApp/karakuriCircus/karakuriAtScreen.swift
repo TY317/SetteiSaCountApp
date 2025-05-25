@@ -55,6 +55,14 @@ struct karakuriAtScreen: View {
                 Text("AT終了画面")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "からくりサーカス",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

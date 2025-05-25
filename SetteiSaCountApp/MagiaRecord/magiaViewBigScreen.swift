@@ -198,6 +198,14 @@ struct magiaViewBigScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.magiaMenuBonusScreenBadgeStatus != "none" {
 //                ver300.magiaMenuBonusScreenBadgeStatus = "none"

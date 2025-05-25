@@ -160,6 +160,14 @@ struct hanaTenshoVer2View95CiTotal: View {
             )
             .tag(7)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ハナハナ鳳凰天翔",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

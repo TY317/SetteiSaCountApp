@@ -21,6 +21,14 @@ struct symphoViewVoice: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "シンフォギア 正義の歌",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("AT終了後のボイス")
             .navigationBarTitleDisplayMode(.inline)
 //        }

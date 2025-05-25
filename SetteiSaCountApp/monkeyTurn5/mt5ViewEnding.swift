@@ -19,6 +19,14 @@ struct mt5ViewEnding: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("エンディング中の示唆")
             .navigationBarTitleDisplayMode(.inline)
 //        }

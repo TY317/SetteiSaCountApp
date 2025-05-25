@@ -16,6 +16,14 @@ struct rezero2ViewWatch: View {
                 .resizable()
                 .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "Re:ゼロ season2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("菜月家ステージでの時計演出")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct gundamSeedViewTop: View {
     @ObservedObject var ver310: Ver310
@@ -60,6 +61,24 @@ struct gundamSeedViewTop: View {
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4788")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ガンダムSEED",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "ガンダムSEED", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "gundamSeedViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: gundamSeedViewTop appeared.") // デバッグ用にログ出力
+//        }
         .onAppear {
             if ver310.gundamSeedMachineIconBadgeStatus != "none" {
                 ver310.gundamSeedMachineIconBadgeStatus = "none"

@@ -40,6 +40,14 @@ struct commonViewFujimaruCoin: View {
                     .foregroundStyle(self.textColor)
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "一方通行 とある魔術の禁書目録",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("藤丸コイン")
         .navigationBarTitleDisplayMode(.inline)
     }

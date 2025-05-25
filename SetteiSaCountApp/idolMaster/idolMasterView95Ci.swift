@@ -9,7 +9,17 @@ import SwiftUI
 
 struct idolMasterView95Ci: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイドルマスター ミリオンライブ！",
+                screenClass: screenClass
+            )
+        }
     }
 }
 

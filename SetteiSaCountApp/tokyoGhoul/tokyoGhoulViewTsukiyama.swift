@@ -263,6 +263,14 @@ struct tokyoGhoulViewTsukiyama: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "東京喰種",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("月山招待状での示唆")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

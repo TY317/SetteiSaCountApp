@@ -15,6 +15,14 @@ struct mt5ViewRoundScreen: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("ラウンド開始画面")
             .navigationBarTitleDisplayMode(.inline)
 //        }

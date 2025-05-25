@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct sevenSwordsViewTop: View {
 //    @ObservedObject var ver270 = Ver270()
@@ -82,6 +83,24 @@ struct sevenSwordsViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "七つの魔剣が支配する",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "七つの魔剣が支配する", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "sevenSwordsViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: sevenSwordsViewTop appeared.") // デバッグ用にログ出力
+//        }
 //        .onAppear {
 //            if ver270.sevenSwordsMachineIconBadgeStatus != "none" {
 //                ver270.sevenSwordsMachineIconBadgeStatus = "none"

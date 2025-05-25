@@ -12,6 +12,7 @@ import TipKit
 import StoreKit
 import AppTrackingTransparency
 import PDFKit
+import FirebaseAnalytics
 
 // /////////////////////////
 // 変数：お気に入り機種設定用の変数
@@ -52,6 +53,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
     @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
     @AppStorage("isSelectedFavoriteGundamSeed") var isSelectedFavoriteGundamSeed = true
+    @AppStorage("isSelectedFavoriteToloveru87") var isSelectedFavoriteToloveru87 = true
 }
 
 
@@ -93,9 +95,8 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-//    @StateObject var ver301 =  Ver301()
-//    @StateObject var ver300 = Ver300()
     @StateObject var ver310 = Ver310()
+    @StateObject var ver320 = Ver320()
     @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common = commonVar()
@@ -110,7 +111,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer310MachineAdd())
+                TipView(tipVer320MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -142,6 +143,20 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ToLOVEるTrance87、25年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru87 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(toloveru87ViewTop(
+                                            ver320: ver320
+                                        )),
+                                        iconImage: Image("toloveru87MachineIcon"),
+                                        machineName: "ToLOVEるver8.7",
+                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
+                                    )
+                                }
+                                
                                 // //// ガンダムSEED、25年5月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGundamSeed == false {
                                     
@@ -162,12 +177,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver300: ver300,
+                                            ver320: ver320,
                                             ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
-                                        badgeStatus: ver310.midoriDonMachineIconBadgeStatus
+                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -439,7 +454,15 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLoveる")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(
+                                            toloveruViewTop(
+                                                ver320: ver320
+                                            )),
+                                        iconImage: Image("toloveruMachineIcon"),
+                                        machineName: "ToLoveる",
+                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
+                                    )
                                 }
                                 
                                 // //// ゴジラvsエヴァンゲリオン、24年2月
@@ -522,6 +545,23 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ToLOVEるトランスver8.7、25年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru87 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(toloveru87ViewTop(
+                                            ver320: ver320
+                                        )),
+                                        iconImage: Image("toloveru87MachineIcon"),
+                                        machineName: "ToLOVEる TRANCE ver.8.7",
+                                        makerName: "平和",
+                                        releaseYear: 2025,
+                                        releaseMonth: 5,
+                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
+                                    )
+                                }
+                                
                                 // //// ガンダムSEED、25年5月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGundamSeed == false {
                                     
@@ -545,7 +585,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver300: ver300,
+                                            ver320: ver320,
                                             ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
@@ -553,7 +593,7 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 5,
-                                        badgeStatus: ver310.midoriDonMachineIconBadgeStatus
+                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -913,7 +953,17 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToloveru == false {
                                     // 非表示
                                 } else {
-                                    unitMachinListLink(linkView: AnyView(toloveruViewTop()), iconImage: Image("toloveruMachineIcon"), machineName: "ToLOVEるダークネス", makerName: "平和", releaseYear: 2024, releaseMonth: 6)
+                                    unitMachinListLink(
+                                        linkView: AnyView(toloveruViewTop(
+                                            ver320: ver320
+                                        )),
+                                        iconImage: Image("toloveruMachineIcon"),
+                                        machineName: "ToLOVEるダークネス",
+                                        makerName: "平和",
+                                        releaseYear: 2024,
+                                        releaseMonth: 6,
+                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
+                                    )
                                 }
                                 
                                 // //// ゴジラvsエヴァンゲリオン、24年2月
@@ -977,7 +1027,62 @@ struct ContentView: View {
                         .pickerStyle(.segmented)
                         Spacer()
                     }
+                    
+                    // //// プライバシーポリシー改訂の案内
+                    if ver320.isShowPrivacyPolicy {
+                        ZStack {
+                            Rectangle()
+                                .foregroundStyle(Color.white)
+                                .opacity(0.8)
+                            GroupBox {
+                                VStack {
+                                    Text("プライバシーポリシー改訂のお知らせ")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                    VStack {
+                                        Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
+                                        Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
+                                            Text("プライバシーポリシーはこちら")
+                                                .padding(.vertical)
+                                        }
+                                        Button {
+                                            ver320.isShowPrivacyPolicy.toggle()
+                                        } label: {
+                                            Text("承諾して閉じる")
+                                                .fontWeight(.bold)
+                                        }
+                                        .buttonStyle(BorderedProminentButtonStyle())
+                                    }
+                                    .padding(.horizontal)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
                 }
+                // 開発用
+//                .onAppear {
+//                    if ver320.isShowPrivacyPolicy == false {
+//                        ver320.isShowPrivacyPolicy.toggle()
+//                    }
+//                }
+                // //// firebaseログ
+                .onAppear {
+                    let screenClass = String(describing: Self.self)
+                    logEventFirebaseScreen(
+                        screenName: "機種選択",
+                        screenClass: screenClass
+                    )
+                }
+//                .onAppear {
+//                    // Viewが表示されたタイミングでログを送信します
+//                    Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                        AnalyticsParameterScreenName: "機種選択", // この画面の名前を識別できるように設定
+//                        AnalyticsParameterScreenClass: "ContentView" // 通常はViewのクラス名（構造体名）を設定
+//                        // その他、この画面に関連するパラメータを追加できます
+//                    ])
+//                    print("Firebase Analytics: ContentView appeared.") // デバッグ用にログ出力
+//                }
                 // //// 画面の向き情報の取得部分
                 .onAppear {
                     // ビューが表示されるときにデバイスの向きを取得
@@ -1130,6 +1235,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// ToLOVEるトランスver8.7
+                Toggle("ToLOVEる TRANCE ver.8.7", isOn: $favoriteSet.isSelectedFavoriteToloveru87)
                 // //// ガンダムSEED、25年5月
                 Toggle("ガンダムSEED", isOn: $favoriteSet.isSelectedFavoriteGundamSeed)
                 // //// 緑ドン、25年5月
@@ -1336,7 +1443,7 @@ private struct BannerView: UIViewRepresentable {
             let adRequest = GADRequest()
             // カスタムキーワードを設定
 //            adRequest.keywords = ["パチスロ", "パチンコ", "ギャンブル", "遊技場", "スマスロ", "スマパチ", "スロット"]
-            adRequest.keywords = ["パチスロ", "パチンコ", "遊技場", "スマスロ", "スマパチ", "スロット"]
+//            adRequest.keywords = ["パチスロ", "パチンコ", "遊技場", "スマスロ", "スマパチ", "スロット"]
             
             //            banner.load(GADRequest())
             banner.load(adRequest)

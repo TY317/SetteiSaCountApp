@@ -12,6 +12,14 @@ struct mhrViewDuringBonus: View {
         List {
             Text("早期討伐時に流れるキャラ紹介ムービーでエンタライオンが登場すれば設定6濃厚")
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンスターハンター ライズ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス中のキャラ紹介")
         .navigationBarTitleDisplayMode(.inline)
     }

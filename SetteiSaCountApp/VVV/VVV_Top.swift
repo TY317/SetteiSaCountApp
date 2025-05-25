@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 // //// メモリー1
 class VvvMemory1: ObservableObject {
@@ -153,6 +154,24 @@ struct VVV_Top: View {
                 }
                 .listRowBackground(Color.clear)
             }
+            // //// firebaseログ
+            .onAppear {
+                let screenClass = String(describing: Self.self)
+                logEventFirebaseScreen(
+                    screenName: "革命機ヴァルヴレイヴ",
+                    screenClass: screenClass
+                )
+            }
+            // 画面ログイベントの収集
+//            .onAppear {
+//                // Viewが表示されたタイミングでログを送信します
+//                Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                    AnalyticsParameterScreenName: "革命機ヴァルヴレイヴ", // この画面の名前を識別できるように設定
+//                    AnalyticsParameterScreenClass: "VVV_Top" // 通常はViewのクラス名（構造体名）を設定
+//                    // その他、この画面に関連するパラメータを追加できます
+//                ])
+//                print("Firebase Analytics: VVV_Top appeared.") // デバッグ用にログ出力
+//            }
             .navigationTitle("メニュー")
             .navigationBarTitleDisplayMode(.inline)
             

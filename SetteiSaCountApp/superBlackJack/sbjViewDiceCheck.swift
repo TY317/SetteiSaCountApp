@@ -270,6 +270,14 @@ struct sbjViewDiceCheck: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "スーパーブラックジャック",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver230.sbjMenuDiceCheckBadgeStatus != "none" {
 //                ver230.sbjMenuDiceCheckBadgeStatus = "none"

@@ -128,6 +128,14 @@ struct imJugExVer2ViewJissenCount: View {
                 Text("ゲーム数入力")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイムジャグラーEX",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("実戦カウント")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

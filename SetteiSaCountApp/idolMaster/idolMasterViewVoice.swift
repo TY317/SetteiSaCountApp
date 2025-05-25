@@ -25,6 +25,14 @@ struct idolMasterViewVoice: View {
                     .fontWeight(.bold)
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイドルマスター ミリオンライブ！",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("MSC終了後ボイス")
         .navigationBarTitleDisplayMode(.inline)
     }

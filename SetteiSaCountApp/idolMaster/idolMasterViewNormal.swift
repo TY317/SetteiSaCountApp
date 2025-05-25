@@ -72,6 +72,14 @@ struct idolMasterViewNormal: View {
                 Text("ボーナス直撃高確")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイドルマスター ミリオンライブ！",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -41,6 +41,14 @@ struct goevaViewAtSuika: View {
                     Text("スイカとCZ 殲滅作戦")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラvsエヴァンゲリオン",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("AT中スイカからのCZ")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

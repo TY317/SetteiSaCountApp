@@ -162,6 +162,14 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                 Text("総合結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ファンキージャグラー2",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("総合結果確認")
         .navigationBarTitleDisplayMode(.inline)
     }

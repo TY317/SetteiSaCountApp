@@ -136,6 +136,14 @@ struct godeaterViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴッドイーター リザレクション",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.godeaterMenuNormalBadgeStatus != "none" {
 //                ver300.godeaterMenuNormalBadgeStatus = "none"

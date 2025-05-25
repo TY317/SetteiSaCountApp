@@ -153,6 +153,14 @@ struct girlsSSVer2View95CiPersonal: View {
 //            )
 //            .tag(8)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ジャグラーガールズSS",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("95%信頼区間グラフ")
         .toolbarTitleDisplayMode(.inline)
         .toolbar {

@@ -123,6 +123,14 @@ struct mt5ViewHistory: View {
                 unitHeaderHistoryColumns(column2: "周期", column3: "Pt", column4: "当選契機", column5: "結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

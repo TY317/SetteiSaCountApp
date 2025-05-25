@@ -163,6 +163,14 @@ struct yoshimuneViewScreen: View {
                 bigNumber: $yoshimune.hanafudaCountSum
             )
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "吉宗",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

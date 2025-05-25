@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct rslViewTop: View {
 //    @ObservedObject var ver260 = Ver260()
@@ -61,6 +62,24 @@ struct rslViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "レビュースタァライト",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "レビュースタァライト", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "rslViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: rslViewTop appeared.") // デバッグ用にログ出力
+//        }
 //        .onAppear {
 //            if ver260.rslMachineIconBadgeStatus != "none" {
 //                ver260.rslMachineIconBadgeStatus = "none"

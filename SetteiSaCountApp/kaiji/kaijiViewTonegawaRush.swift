@@ -69,6 +69,14 @@ struct kaijiViewTonegawaRush: View {
                 .frame(height: 120)
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.kaijiMenuTonegawaRushBadgeStatus != "none" {
 //                ver300.kaijiMenuTonegawaRushBadgeStatus = "none"

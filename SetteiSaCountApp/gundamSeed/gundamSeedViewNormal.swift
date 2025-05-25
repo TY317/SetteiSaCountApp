@@ -23,6 +23,14 @@ struct gundamSeedViewNormal: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ガンダムSEED",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
     }

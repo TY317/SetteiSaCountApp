@@ -68,6 +68,14 @@ struct danvineViewNormalMode: View {
                 Text("モード")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ダンバイン",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時の演出、モード")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -111,6 +111,14 @@ struct magiaViewKokakuStart: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver280.magiaKokakuStartBadgeStatus != "none" {
 //                ver280.magiaKokakuStartBadgeStatus = "none"

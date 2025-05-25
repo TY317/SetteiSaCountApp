@@ -139,6 +139,14 @@ struct godzillaViewNormal: View {
                 Text("メニュー画面のキャラ")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

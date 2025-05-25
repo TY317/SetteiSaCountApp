@@ -15,6 +15,14 @@ struct rslViewKoyakuStyle: View {
                 .scaledToFit()
                 .frame(maxWidth: 400)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "レビュースタァライト",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("小役停止形")
         .navigationBarTitleDisplayMode(.inline)
     }

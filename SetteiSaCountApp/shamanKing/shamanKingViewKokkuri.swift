@@ -31,6 +31,14 @@ struct shamanKingViewKokkuri: View {
 //                .resizable()
 //                .scaledToFit()
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "シャーマンキング",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("たまおのコックリさん占い")
         .navigationBarTitleDisplayMode(.inline)
     }

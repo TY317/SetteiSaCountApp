@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct magiaViewTop: View {
     @ObservedObject var ver310: Ver310
@@ -117,6 +118,24 @@ struct magiaViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
+        // 画面ログイベントの収集
+//        .onAppear {
+//            // Viewが表示されたタイミングでログを送信します
+//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+//                AnalyticsParameterScreenName: "マギアレコード", // この画面の名前を識別できるように設定
+//                AnalyticsParameterScreenClass: "magiaViewTop" // 通常はViewのクラス名（構造体名）を設定
+//                // その他、この画面に関連するパラメータを追加できます
+//            ])
+//            print("Firebase Analytics: magiaViewTop appeared.") // デバッグ用にログ出力
+//        }
         .onAppear {
             if ver310.magiaMachineIconBadgeStatus != "none" {
                 ver310.magiaMachineIconBadgeStatus = "none"

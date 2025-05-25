@@ -122,6 +122,14 @@ struct kaijiViewMode: View {
                 Text("推測要素２）ざわ高確中の挙動")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "回胴黙示録カイジ 狂宴",
+                screenClass: screenClass
+            )
+        }
 //        .onAppear {
 //            if ver300.kaijiMenuModeBadgeStatus != "none" {
 //                ver300.kaijiMenuModeBadgeStatus = "none"

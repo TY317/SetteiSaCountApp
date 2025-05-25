@@ -311,6 +311,14 @@ struct magiaViewEnding: View {
                 Text("カウント結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マギアレコード",
+                screenClass: screenClass
+            )
+        }
         .onAppear {
             if ver310.magiaMenuEndingBadgeStatus != "none" {
                 ver310.magiaMenuEndingBadgeStatus = "none"

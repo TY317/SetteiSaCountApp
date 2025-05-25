@@ -84,6 +84,14 @@ struct mt5View5coin: View {
             }
             .popoverTip(mt5TipCoin5Game())
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "モンキーターン5",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("5枚役")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

@@ -25,18 +25,18 @@ class Ver310: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer310MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・ガンダムSEED")
-    }
-    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-        Image(systemName: "star")
-    }
-}
+//struct tipVer310MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・ガンダムSEED")
+//    }
+//    var image: Image? {
+////        Image(systemName: "exclamationmark.bubble")
+//        Image(systemName: "star")
+//    }
+//}
 
 // //////////////////
 // Tip:マギレコ　ボイス

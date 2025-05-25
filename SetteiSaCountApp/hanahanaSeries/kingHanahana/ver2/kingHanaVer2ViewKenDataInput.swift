@@ -199,6 +199,14 @@ struct kingHanaVer2ViewKenDataInput: View {
                 .popoverTip(tipUnitJugHanaCommonKenDataTohroku())
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "キングハナハナ",
+                screenClass: screenClass
+            )
+        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得

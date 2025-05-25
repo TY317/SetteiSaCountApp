@@ -164,6 +164,14 @@ struct godzillaViewScreen: View {
                 )
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴジラ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

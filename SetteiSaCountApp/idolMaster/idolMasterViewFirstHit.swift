@@ -30,6 +30,14 @@ struct idolMasterViewFirstHit: View {
                 Text("初当り")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "アイドルマスター ミリオンライブ！",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("CZ,ボーナス 初当り")
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -72,6 +72,14 @@ struct godeaterViewScreen: View {
                     Text("AT終了画面")
                 }
             }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "ゴッドイーター リザレクション",
+                screenClass: screenClass
+            )
+        }
             .navigationTitle("AT終了後画面")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

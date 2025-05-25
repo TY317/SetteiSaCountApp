@@ -234,6 +234,14 @@ struct kingHanaVer2ViewJissenTotalDataCheck: View {
                 Text("総合結果")
             }
         }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "キングハナハナ",
+                screenClass: screenClass
+            )
+        }
         .navigationTitle("総合結果確認")
         .navigationBarTitleDisplayMode(.inline)
     }
