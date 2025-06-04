@@ -36,7 +36,7 @@ struct goevaViewAtSuika: View {
                     unitLinkButton(title: "スイカからのCZ当選と成功について", exview: AnyView(goevaExViewAtSuika()))
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(goevaView95Ci(goeva: goeva, selection: 2)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("スイカとCZ 殲滅作戦")
                 }

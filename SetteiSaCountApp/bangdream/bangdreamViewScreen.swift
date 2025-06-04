@@ -196,7 +196,7 @@ struct bangdreamViewScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $bangdream.screenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $bangdream.minusCheck)
                 // リセット

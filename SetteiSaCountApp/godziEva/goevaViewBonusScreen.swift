@@ -75,7 +75,7 @@ struct goevaViewBonusScreen: View {
                 ToolbarItem(placement: .automatic) {
                     HStack {
                         unitButtonToolbarScreenSelectReset(currentKeyword: $goeva.bonusScreenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
                         unitButtonMinusCheck(minusCheck: $goeva.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetBonusScreen, message: "このページのデータをリセットします")
                     }

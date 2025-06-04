@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct idolMasterViewTop: View {
-//    @ObservedObject var ver300: Ver300
+    @ObservedObject var ver330: Ver330
     @StateObject var idolMaster = IdolMaster()
     @State var isShowAlert: Bool = false
     @StateObject var idolMasterMemory1 = IdolMasterMemory1()
@@ -44,10 +44,14 @@ struct idolMasterViewTop: View {
                         )
                     }
                     // 終了画面
-                    NavigationLink(destination: idolMasterViewScreen(idolMaster: idolMaster)) {
+                    NavigationLink(destination: idolMasterViewScreen(
+                        ver330: ver330,
+                        idolMaster: idolMaster
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面"
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: ver330.idolMasterMenuScreenBadgeStaus
                         )
                     }
                     // ボイス
@@ -74,6 +78,8 @@ struct idolMasterViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // バッジのリセット
+        .resetBadgeOnAppear($ver330.idolMasterMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -165,6 +171,8 @@ struct idolMasterSubViewSaveMemory: View {
         idolMasterMemory1.screenCountGold = idolMaster.screenCountGold
         idolMasterMemory1.screenCountRainbow = idolMaster.screenCountRainbow
         idolMasterMemory1.screenCountSum = idolMaster.screenCountSum
+        
+        idolMasterMemory1.screenCountGoldOver5 = idolMaster.screenCountGoldOver5
     }
     func saveMemory2() {
         idolMasterMemory2.screenCountDefault = idolMaster.screenCountDefault
@@ -178,6 +186,8 @@ struct idolMasterSubViewSaveMemory: View {
         idolMasterMemory2.screenCountGold = idolMaster.screenCountGold
         idolMasterMemory2.screenCountRainbow = idolMaster.screenCountRainbow
         idolMasterMemory2.screenCountSum = idolMaster.screenCountSum
+        
+        idolMasterMemory2.screenCountGoldOver5 = idolMaster.screenCountGoldOver5
     }
     func saveMemory3() {
         idolMasterMemory3.screenCountDefault = idolMaster.screenCountDefault
@@ -191,6 +201,8 @@ struct idolMasterSubViewSaveMemory: View {
         idolMasterMemory3.screenCountGold = idolMaster.screenCountGold
         idolMasterMemory3.screenCountRainbow = idolMaster.screenCountRainbow
         idolMasterMemory3.screenCountSum = idolMaster.screenCountSum
+        
+        idolMasterMemory3.screenCountGoldOver5 = idolMaster.screenCountGoldOver5
     }
 }
 
@@ -233,6 +245,8 @@ struct idolMasterSubViewLoadMemory: View {
         idolMaster.screenCountGold = idolMasterMemory1.screenCountGold
         idolMaster.screenCountRainbow = idolMasterMemory1.screenCountRainbow
         idolMaster.screenCountSum = idolMasterMemory1.screenCountSum
+        
+        idolMaster.screenCountGoldOver5 = idolMasterMemory1.screenCountGoldOver5
     }
     func loadMemory2() {
         idolMaster.screenCountDefault = idolMasterMemory2.screenCountDefault
@@ -246,6 +260,8 @@ struct idolMasterSubViewLoadMemory: View {
         idolMaster.screenCountGold = idolMasterMemory2.screenCountGold
         idolMaster.screenCountRainbow = idolMasterMemory2.screenCountRainbow
         idolMaster.screenCountSum = idolMasterMemory2.screenCountSum
+        
+        idolMaster.screenCountGoldOver5 = idolMasterMemory2.screenCountGoldOver5
     }
     func loadMemory3() {
         idolMaster.screenCountDefault = idolMasterMemory3.screenCountDefault
@@ -259,12 +275,14 @@ struct idolMasterSubViewLoadMemory: View {
         idolMaster.screenCountGold = idolMasterMemory3.screenCountGold
         idolMaster.screenCountRainbow = idolMasterMemory3.screenCountRainbow
         idolMaster.screenCountSum = idolMasterMemory3.screenCountSum
+        
+        idolMaster.screenCountGoldOver5 = idolMasterMemory3.screenCountGoldOver5
     }
 }
 
 
 #Preview {
     idolMasterViewTop(
-//        ver300: Ver300()
+        ver330: Ver330()
     )
 }

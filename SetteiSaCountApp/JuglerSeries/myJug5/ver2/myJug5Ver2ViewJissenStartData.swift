@@ -188,7 +188,7 @@ struct myJug5Ver2ViewJissenStartData: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiStart(myJug5: myJug5)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }

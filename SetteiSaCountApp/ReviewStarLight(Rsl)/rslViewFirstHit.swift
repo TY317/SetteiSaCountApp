@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct rslViewFirstHit: View {
+    @ObservedObject var ver330: Ver330
 //    @ObservedObject var rsl = Rsl()
     @ObservedObject var rsl: Rsl
     @State var isShowAlert: Bool = false
@@ -140,7 +141,7 @@ struct rslViewFirstHit: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(rsl: rsl, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
             }
@@ -193,9 +194,10 @@ struct rslViewFirstHit: View {
                         )
                     )
                 )
+                .popoverTip(tipVer330RslReg())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(rsl: rsl, selection: 5)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("REG当選契機別カウント")
             }
@@ -236,6 +238,8 @@ struct rslViewFirstHit: View {
 //                Text("ボーナス確率")
 //            }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver330.rslMenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -294,7 +298,7 @@ struct rslViewFirstHit: View {
                     unitButtonMinusCheck(minusCheck: $rsl.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: rsl.resetFirstHit)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -302,5 +306,8 @@ struct rslViewFirstHit: View {
 }
 
 #Preview {
-    rslViewFirstHit(rsl: Rsl())
+    rslViewFirstHit(
+        ver330: Ver330(),
+        rsl: Rsl()
+    )
 }

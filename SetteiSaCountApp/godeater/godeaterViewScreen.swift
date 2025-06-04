@@ -86,7 +86,7 @@ struct godeaterViewScreen: View {
                 ToolbarItem(placement: .automatic) {
                     HStack {
                         unitButtonToolbarScreenSelectReset(currentKeyword: $godeater.screenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
                         unitButtonMinusCheck(minusCheck: $godeater.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetScreen)
                     }

@@ -139,7 +139,7 @@ struct sevenSwordsViewBonus: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sevenSwordsView95Ci(sevenSwords: sevenSwords, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
             }

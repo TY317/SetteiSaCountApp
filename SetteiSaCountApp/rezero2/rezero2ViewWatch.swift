@@ -12,9 +12,10 @@ struct rezero2ViewWatch: View {
         List {
             Text("・設定変更後など特定のタイミングで移行する菜月家ステージでの時計演出で設定を示唆する場合あり")
             Text("・アナログ時計とセリフで表示されるためわかりやすいが、見逃さないよう注意。")
-            Image("rezero2Watch")
-                .resizable()
-                .scaledToFit()
+//            Image("rezero2Watch")
+//                .resizable()
+//                .scaledToFit()
+            rezero2TableNatsuki()
         }
         // //// firebaseログ
         .onAppear {

@@ -261,7 +261,7 @@ struct dumbbellCzAtScreen: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 8)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ・AT終了画面")
             }
@@ -326,7 +326,7 @@ struct dumbbellCzAtScreen: View {
                     unitButtonMinusCheck(minusCheck: $dumbbell.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: dumbbell.resetCzBonusScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

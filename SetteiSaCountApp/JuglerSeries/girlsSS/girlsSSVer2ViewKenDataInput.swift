@@ -191,7 +191,7 @@ struct girlsSSVer2ViewKenDataInput: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiKen(girlsSS: girlsSS)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }
@@ -257,7 +257,7 @@ struct girlsSSVer2ViewKenDataInput: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: girlsSS.resetKenDataInput)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

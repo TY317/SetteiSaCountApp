@@ -175,7 +175,7 @@ struct kaguyaViewReg: View {
                 unitLinkButton(title: "キャラ紹介シナリオの振分けについて", exview: AnyView(unitExView5body2image(title: "キャラ紹介シナリオ振分け", textBody1: "・紹介されるキャラと順番はシナリオで管理されている", textBody2: "・大仏、べツィーは設定差はなくボーナス後のモード示唆", image1: Image("kaguyaRegCharaRatio"), image2: Image("kaguyaRegCharaPattern"))))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(kaguya: kaguya, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("カウント結果")
             }
@@ -234,7 +234,7 @@ struct kaguyaViewReg: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $kaguya.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetRegChara)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

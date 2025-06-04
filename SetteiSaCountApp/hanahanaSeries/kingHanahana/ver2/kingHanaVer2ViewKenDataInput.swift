@@ -189,7 +189,7 @@ struct kingHanaVer2ViewKenDataInput: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiKen(kingHana: kingHana)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }
@@ -255,7 +255,7 @@ struct kingHanaVer2ViewKenDataInput: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: kingHana.resetKenDataInput)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

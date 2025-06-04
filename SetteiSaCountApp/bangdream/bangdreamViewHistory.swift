@@ -109,7 +109,8 @@ struct bangdreamViewHistory: View {
                             textBody2: "・現在値は打-WINで確認可能",
                             textBody3: "・直撃、ポイント特化ゾーン関連の確率には設定差ないとのことなので、高設定ほど早い周期で当たると考えられる",
                             textBody4: "・1周期の平均は62G（前兆含まず）なので、設定1で平均5.3周期、設定6で平均4.4周期程度になる計算",
-                            image1: Image("bangdreamStHit")
+//                            image1: Image("bangdreamStHit")
+                            tableView: AnyView(bangdreamTableFirstHit())
                         )
                     )
                 )
@@ -127,10 +128,22 @@ struct bangdreamViewHistory: View {
                     unitResultRatioPercent2Line(title: "周期当選確率", color: .grayBack, count: $bangdream.cycleHitCountSum, bigNumber: $bangdream.storyCountSum, numberofDicimal: 0)
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "周期到達時の当選確率について", exview: AnyView(unitExView5body2image(title: "周期到達時の当選確率", textBody1: "・ALL設定バトル動画で「周期毎のストーリーステージ期待度」に設定差があると発表", textBody2: "・赤ディスクや黒ディスクも含めた当選率なのか？詳細の説明はなし", textBody3: "・このアプリではひとまず 周期での当選回数 ÷ ストーリーステージ到達回数を参考として表示します", image1: Image("bangdreamCycleHitRatio"))))
+                unitLinkButton(
+                    title: "周期到達時の当選確率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "周期到達時の当選確率",
+                            textBody1: "・ALL設定バトル動画で「周期毎のストーリーステージ期待度」に設定差があると発表",
+                            textBody2: "・赤ディスクや黒ディスクも含めた当選率なのか？詳細の説明はなし",
+                            textBody3: "・このアプリではひとまず 周期での当選回数 ÷ ストーリーステージ到達回数を参考として表示します",
+//                            image1: Image("bangdreamCycleHitRatio")
+                            tableView: AnyView(bangdreamTableCycleRatio())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(bangdream: bangdream, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("周期当選確率")
             }
@@ -138,13 +151,45 @@ struct bangdreamViewHistory: View {
             // //// モードの概要と示唆の情報
             Section {
                 // モード概要
-                unitLinkButton(title: "通常時のモードについて", exview: AnyView(unitExView5body2image(title: "通常時のモード", textBody1: "・通常時は6つのモードで周期天井を管理", textBody2: "・設定変更時やSTやれなかった時に天井短縮あり", image1: Image("bangdreamMode"))))
+                unitLinkButton(
+                    title: "通常時のモードについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "通常時のモード",
+                            textBody1: "・通常時は6つのモードで周期天井を管理",
+                            textBody2: "・設定変更時やSTやれなかった時に天井短縮あり",
+//                            image1: Image("bangdreamMode")
+                            tableView: AnyView(bangdreamTableMode())
+                        )
+                    )
+                )
                 // 1周期目のバンドによる示唆
-                unitLinkButton(title: "示唆：1周期目のバンド", exview: AnyView(unitExView5body2image(title: "1周期目のバンドによる示唆", textBody1: "・ST終了後の1周期目に選ばれるバンドでモードを示唆", image1: Image("bangdreamModeBand"))))
+                unitLinkButton(
+                    title: "示唆：1周期目のバンド",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "1周期目のバンドによる示唆",
+                            textBody1: "・ST終了後の1周期目に選ばれるバンドでモードを示唆",
+//                            image1: Image("bangdreamModeBand")
+                            tableView: AnyView(bangdreamTableCycle1Band())
+                        )
+                    )
+                )
                 // 同一バンド連続によるしさ
                 unitLinkButton(title: "示唆：同一バンド連続", exview: AnyView(unitExView5body2image(title: "同一バンド連続による示唆", textBody1: "・バンドの移行順（セットリスト）によってモードを示唆", textBody2: "・基本は決まった順番で移行していくが、同一バンドが連続するとモードの示唆となる", image1: Image("bangdreamSetlist"))))
                 // セリフ
-                unitLinkButton(title: "示唆：ST・前兆後のセリフ", exview: AnyView(unitExView5body2image(title: "ST・前兆後のセリフによる示唆", textBody1: "・ST終了後1G目、通常時の前兆終了1G目にPUSHボタンを押すとセリフが発生", textBody2: "・セリフの内容で残り周期数を示唆", image1: Image("bangdreamVoice"))))
+                unitLinkButton(
+                    title: "示唆：ST・前兆後のセリフ",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ST・前兆後のセリフによる示唆",
+                            textBody1: "・ST終了後1G目、通常時の前兆終了1G目にPUSHボタンを押すとセリフが発生",
+                            textBody2: "・セリフの内容で残り周期数を示唆",
+//                            image1: Image("bangdreamVoice")
+                            tableView: AnyView(bangdreamTableVoice())
+                        )
+                    )
+                )
             } header: {
                 Text("通常時のモード")
             }

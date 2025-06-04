@@ -13,7 +13,16 @@ struct kaguyaViewNormalMode: View {
             // 通常時のモード
             Section {
                 unitLinkButton(title: "モードの種類", exview: AnyView(unitExView5body2image(title: "通常時のモード種類", textBody1: "・通常時は4つのモードでチャンス目の規定回数を管理", image1: Image("kaguyaMode"))))
-                unitLinkButton(title: "規定回数振り分け", exview: AnyView(unitExView5body2image(title: "規定回数振り分け", image1: Image("kaguyaChanceTimes"))))
+                unitLinkButton(
+                    title: "規定回数振り分け",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "規定回数振り分け",
+//                            image1: Image("kaguyaChanceTimes")
+                            tableView: AnyView(kaguyaTableKiteiKaisu())
+                        )
+                    )
+                )
                 unitLinkButton(title: "モード移行", exview: AnyView(unitExView5body2image(title: "モード移行", textBody1: "・モードは設定変更時、CZ後、ボーナス後に移行", textBody2: "・ビッグボーナス当選までモードダウンはない。ただし通常Dのみ通常Cへの移行がある。",image1: Image("kaguyaModeChange"))))
             } header: {
                 Text("通常時のモード")

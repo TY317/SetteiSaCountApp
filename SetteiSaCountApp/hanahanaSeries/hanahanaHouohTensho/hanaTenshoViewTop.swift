@@ -290,7 +290,7 @@ struct hanaTenshoViewTop: View {
                     unitLinkButton(title: "ベル,ボーナス確率", exview: AnyView(unitExView5body2image(title: "ベル・ボーナス確率", image1: Image("hanaTenshoBellBonus"))))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoView95Ci(selection: 1)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始めゲーム数入力
@@ -352,7 +352,7 @@ struct hanaTenshoViewTop: View {
                             unitLinkButton(title: "BIG後の鳳玉ランプについて", exview: AnyView(unitExView5body2image(title: "BIG後の鳳玉ランプ確率", image1:Image("hanaTenshoBigLamp"))))
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoView95Ci(selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、鳳玉ランプ")
                         }
@@ -368,7 +368,7 @@ struct hanaTenshoViewTop: View {
                             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(unitExView5body2image(title: "BIG中スイカ確率", image1:Image("hanaTenshoBbSuika"))))
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoView95Ci(selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
                         }
@@ -392,7 +392,7 @@ struct hanaTenshoViewTop: View {
                             unitLinkButton(title: "BIG後の鳳玉ランプについて", exview: AnyView(unitExView5body2image(title: "BIG後の鳳玉ランプ確率", image1:Image("hanaTenshoBigLamp"))))
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoView95Ci(selection: 6)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $bigClearSpaceHeight)
@@ -428,7 +428,7 @@ struct hanaTenshoViewTop: View {
                         unitLinkButton(title: "REG後の鳳玉ランプについて", exview: AnyView(unitExView5body2image(title: "REG後の鳳玉ランプ確率", textBody1: "・色によって設定を否定", image1: Image("hanaTenshoRegTopLamp"))))
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoView95Ci(selection: 7)))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
                     }

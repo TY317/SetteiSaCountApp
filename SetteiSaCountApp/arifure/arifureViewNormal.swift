@@ -177,7 +177,7 @@ struct arifureViewNormal: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("弱レア役での引鉄高確移行率")
             }
@@ -226,7 +226,7 @@ struct arifureViewNormal: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 8)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定ゲーム数100GでのCZ当選率")
             }

@@ -143,7 +143,7 @@ struct mahjongViewAtScreen: View {
                     unitButtonMinusCheck(minusCheck: $mahjong.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: mahjong.resetAtScreen)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

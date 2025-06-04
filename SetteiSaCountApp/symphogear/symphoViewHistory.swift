@@ -126,7 +126,7 @@ struct symphoViewHistory: View {
                 unitLinkButton(title: "AT,最終決戦 初当りについて", exview: AnyView(unitExView5body2image(title: "AT,最終決戦初当りについて", textBody1: "・AT初当り確率に設定差", textBody2: "・特に高確中チェリーでの当選に設定差あり。チェリーからの当選が多いほど良挙動。", textBody3: "・小役3連(リプレイ除く)で音符が降ってくる演出が出ることがあり、内部的にギアフラグモード移行の可能性あるのではとの噂あり。ギアフラグモードによってギアフラグ時の当選確率が変わる。高設定ほどギアフラグモードが良挙動するとの噂あり", textBody4: "・CZ 最終決戦の出現率に設定差あり。複数回確認でければ大チャンスか", image1: Image("symphoAtHit"), image2: Image("symphoCherryHit"))))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(sympho: sympho, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 unitHeaderHistoryColumns(column2: "ゲーム数", column3: "種類", column4: "当選契機")
             }

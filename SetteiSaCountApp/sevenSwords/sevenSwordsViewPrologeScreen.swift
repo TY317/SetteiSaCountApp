@@ -145,7 +145,7 @@ struct sevenSwordsViewPrologeScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: $sevenSwords.bonusScreenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // /// リセット

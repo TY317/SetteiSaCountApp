@@ -27,13 +27,14 @@ struct unitScreenOnlyDisplay: View {
             if self.upperBeltBool {
                 ZStack {
                     Rectangle()
-                        .frame(height: self.upperBeltHeight)
+//                        .frame(height: self.upperBeltHeight)
                         .foregroundStyle(self.upperBeltColor)
                     Text(self.upperBeltText)
                         .font(self.upperBeltFont)
                         .fontWeight(.bold)
                         .foregroundStyle(self.upperBeltTextColor)
                 }
+                .frame(height: self.upperBeltHeight)
             }
             // //// イメージ
             self.image
@@ -44,15 +45,17 @@ struct unitScreenOnlyDisplay: View {
             if self.lowerBeltBool {
                 ZStack {
                     Rectangle()
-                        .frame(height: self.lowerBeltHeight)
+//                        .frame(height: self.lowerBeltHeight)
                         .foregroundStyle(self.lowerBeltColor)
                     Text(self.lowerBeltText)
                         .font(self.lowerBeltFont)
                         .fontWeight(.bold)
                         .foregroundStyle(self.lowerBeltTextColor)
                 }
+                .frame(height: self.lowerBeltHeight)
             }
         }
+        .cornerRadius(10)
 //        .frame(height: 120)
     }
 }

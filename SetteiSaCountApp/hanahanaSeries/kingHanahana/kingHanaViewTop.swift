@@ -430,7 +430,7 @@ struct kingHanaSubAssyNormalPortraitCountSection: View {
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
         // 95%信頼区間グラフ
         unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 1)))
-            .popoverTip(tipUnitButtonLink95Ci())
+//            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -459,7 +459,7 @@ struct kingHanaSubAssyNormalLandScapeCountSection: View {
 //        Stepper("\(hana.currentGames)", value: $hana.currentGames, step: 100)
         // 95%信頼区間グラフ
         unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 1)))
-            .popoverTip(tipUnitButtonLink95Ci())
+//            .popoverTip(tipUnitButtonLink95Ci())
     }
 }
 
@@ -479,7 +479,7 @@ struct kingHanaSubAssyBigPortrait: View {
             unitLinkButton(title: "BB中のスイカについて", exview: AnyView(kingHanaExViewBbSuika()))
             // 95%信頼区間グラフ
             unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 5)))
-                .popoverTip(tipUnitButtonLink95Ci())
+//                .popoverTip(tipUnitButtonLink95Ci())
         } header: {
             Text("\nスイカ")
         }
@@ -503,7 +503,7 @@ struct kingHanaSubAssyBigPortrait: View {
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(kingHanaExViewBbLamp()))
             // 95%信頼区間グラフ
             unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 6)))
-                .popoverTip(tipUnitButtonLink95Ci())
+//                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
     
@@ -540,7 +540,7 @@ struct kingHanaSubAssyBigLandScape: View {
             unitLinkButton(title: "BIG後のフェザーランプについて", exview: AnyView(kingHanaExViewBbLamp()))
             // 95%信頼区間グラフ
             unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 5)))
-                .popoverTip(tipUnitButtonLink95Ci())
+//                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }
@@ -579,7 +579,7 @@ struct kingHanaSubAssyRegPortrait: View {
             unitLinkButton(title: "REG後のフェザーランプについて", exview: AnyView(kingHanaExViewAfterRegLamp()))
             // 95%信頼区間グラフ
             unitNaviLink95Ci(Ci95view: AnyView(kingHanaView95Ci(selection: 7)))
-                .popoverTip(tipUnitButtonLink95Ci())
+//                .popoverTip(tipUnitButtonLink95Ci())
         }
     }
 }

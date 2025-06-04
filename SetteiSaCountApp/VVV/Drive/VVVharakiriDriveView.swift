@@ -160,7 +160,7 @@ struct VVVharakiriDriveView: View {
                             })
                             // //// 95%信頼区間グラフへのリンク
                             unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             
                         }
@@ -250,7 +250,7 @@ struct VVVharakiriDriveView: View {
                             })
                             // //// 95%信頼区間グラフへのリンク
                             unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             
                         }
@@ -373,7 +373,7 @@ struct VVVharakiriDriveSubBeforeCutCountView: View {
                         Text("")
                     })
                     .buttonStyle(CountButtonStyle(color: Color("personalSummerLightBlue"), MinusBool: VVVharakiri.minusCheck))
-                    .popoverTip(VVVharakiri.tipDrive1020Button)
+//                    .popoverTip(VVVharakiri.tipDrive1020Button)
                 }
             }
             .frame(maxWidth: .infinity)

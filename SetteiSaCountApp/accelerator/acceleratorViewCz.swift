@@ -397,7 +397,7 @@ struct acceleratorViewCz: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 4)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り結果")
             }
@@ -461,7 +461,7 @@ struct acceleratorViewCz: View {
                     unitButtonMinusCheck(minusCheck: $accelerator.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: accelerator.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

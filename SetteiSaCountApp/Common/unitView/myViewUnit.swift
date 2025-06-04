@@ -1386,7 +1386,8 @@ struct unitViewSaveMemory: View {
     @Binding var isShowSaveAlert: Bool
     @FocusState var isFocused: Bool
     
-    @ObservedObject var common = commonVar()
+//    @ObservedObject var common = commonVar()
+    @AppStorage("commonAppLaunchCount") private var appLaunchCount: Int = 0
     @Environment(\.requestReview) var requestReview
     
     var body: some View {
@@ -1514,7 +1515,7 @@ struct unitViewSaveMemory: View {
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             // //// レビューリクエストの実行
                             // アプリ起動回数が10回以上ならレビューリクエストを実行
-                            if common.appLaunchCount > 10 {
+                            if self.appLaunchCount > 10 {
                                 // 現在の時刻を日本時間に合わせて取得
                                 let currentDate = Date()
                                 let calendar = Calendar.current
@@ -1526,13 +1527,15 @@ struct unitViewSaveMemory: View {
                                 // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
                                 if hour >= 15 || hour < 9 {
                                     requestReview()
+                                    print("起動回数:\(self.appLaunchCount)回")
                                     print("レビューリクエストの実行")
-                                    common.appLaunchCount = 0
+                                    self.appLaunchCount = 0
                                 } else {
+                                    print("起動回数:\(self.appLaunchCount)回")
                                     print("レビューリクエストの見送り")
                                 }
                             } else {
-                                print("起動回数不足:\(common.appLaunchCount)回")
+                                print("起動回数不足:\(self.appLaunchCount)回")
                             }
                         }
                     } message: {
@@ -2577,6 +2580,9 @@ struct unitListSection95Ci: View {
     @State var grafTitle: String
     @State var titleFont: Font = .title
     @State var grafView: AnyView
+    @AppStorage("commonAppLaunchCount") private var appLaunchCount: Int = 0
+    @Environment(\.requestReview) var requestReview
+    
     var body: some View {
         List {
             Section {
@@ -2584,7 +2590,32 @@ struct unitListSection95Ci: View {
             } header: {
                 unitLabelMachineTopTitle(machineName: self.grafTitle, titleFont: self.titleFont)
             }
-//            .popoverTip(tipUnit95CiViewExplain())
+            .onDisappear {
+                // //// レビューリクエストの実行
+                // アプリ起動回数が20回以上ならレビューリクエストを実行
+                if self.appLaunchCount > 20 {
+                    // 現在の時刻を日本時間に合わせて取得
+                    let currentDate = Date()
+                    let calendar = Calendar.current
+                    let timeZone = TimeZone(identifier: "Asia/Tokyo")!
+                    let currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
+                    // 時間のコンポーネントを取得
+                    guard let hour = currentComponents.hour else { return }
+                    // 21時から翌日の8時までの間
+                    // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
+                    if hour >= 15 || hour < 9 {
+                        requestReview()
+                        print("起動回数:\(self.appLaunchCount)回")
+                        print("レビューリクエストの実行")
+                        self.appLaunchCount = 2
+                    } else {
+                        print("起動回数:\(self.appLaunchCount)回")
+                        print("レビューリクエストの見送り")
+                    }
+                } else {
+                    print("起動回数不足:\(self.appLaunchCount)回")
+                }
+            }
         }
     }
 }

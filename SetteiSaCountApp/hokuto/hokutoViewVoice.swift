@@ -141,7 +141,7 @@ struct hokutoViewVoice: View {
                     unitLinkButton(title: "BB後のボイスについて", exview: AnyView(unitExView5body2image(title: "BB後のボイスについて", textBody1: "・AT終了後にサブ液晶をタッチ", textBody2: "・1G連時は確率が違うため除外", textBody3: "・アミバは強いと言われている", image1: Image("hokutoVoice"), image2: Image("hokutoVoice2"))))
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 4)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("カウント結果")
                 }

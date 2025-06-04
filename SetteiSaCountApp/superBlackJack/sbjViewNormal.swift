@@ -174,7 +174,7 @@ struct sbjViewNormal: View {
                     color: .personalSummerLightRed,
                     minusBool: $sbj.minusCheck
                 )
-                .popoverTip(sbjTipKokakuCount())
+//                /*.popoverTip(*/sbjTipKokakuCount())
 //                // //// 参考情報リンク
 //                // 示唆演出
 //                unitLinkButton(
@@ -329,7 +329,7 @@ struct sbjViewNormal: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
             }
@@ -420,7 +420,7 @@ struct sbjViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $sbj.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sbj.resetNormal)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

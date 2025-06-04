@@ -105,7 +105,7 @@ struct arifureViewPremiumAt: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 10)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
                 unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
             } header: {
                 Text("ビッグトリガーアタック継続G数")

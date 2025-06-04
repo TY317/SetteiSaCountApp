@@ -69,7 +69,7 @@ struct dumbbellViewKinnikuBonus: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 9)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("合いの手の人数")
             }
@@ -175,7 +175,7 @@ struct dumbbellViewKinnikuBonus: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 11)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("終了画面")
             }
@@ -276,7 +276,7 @@ struct dumbbellViewKinnikuBonus: View {
                 HStack {
                     // 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: $dumbbell.kinnikuScreenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $dumbbell.minusCheck)
                     // /// リセット

@@ -53,7 +53,7 @@ struct inuyashaViewBigScreen: View {
                                 count: $inuyasha.bigScreenCountDefault,
                                 minusCheck: $inuyasha.minusCheck
                             )
-                            .popoverTip(tipUnitButtonScreenChoice())
+//                            .popoverTip(tipUnitButtonScreenChoice())
                             // 設定2以上
                             unitButtonScreenChoice(
                                 image: Image(inuyasha.bigScreenKeywordList[3]),
@@ -149,7 +149,7 @@ struct inuyashaViewBigScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $inuyasha.bigScreenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                 // リセット

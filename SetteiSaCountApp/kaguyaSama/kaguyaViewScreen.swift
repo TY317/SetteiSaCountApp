@@ -70,7 +70,7 @@ struct kaguyaViewScreen: View {
                 unitLinkButton(title: "ボーナス終了直後のアイキャッチ", exview: AnyView(unitExView5body2image(title: "ボーナス終了直後アイキャッチ", textBody1: "・ボーナス終了直後のアイキャッチでは引戻し期待度を示唆", textBody2: "・通常時のステージチェンジなどで出るアイキャッチとは示唆が異なるので注意", image1: Image("kaguyaScreenEyecatch"))))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(kaguya: kaguya, selection: 2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ボーナス終了画面")
             }
@@ -133,7 +133,7 @@ struct kaguyaViewScreen: View {
 //                        unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
 //                    }
                     unitButtonToolbarScreenSelectReset(currentKeyword: $kaguya.screenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $kaguya.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetScreen)
                 }

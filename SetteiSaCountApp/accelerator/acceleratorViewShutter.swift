@@ -86,7 +86,7 @@ struct acceleratorViewShutter: View {
                     )
                     .padding(.vertical)
                 }
-                .popoverTip(tipUnitAcceleratorNormalChance())
+//                .popoverTip(tipUnitAcceleratorNormalChance())
                 // //// 参考情報リンク
                 unitLinkButton(
                     title: "シャッター開放率について",
@@ -100,7 +100,7 @@ struct acceleratorViewShutter: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 9)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("チャンス目からのシャッター開放")
             }
@@ -169,7 +169,7 @@ struct acceleratorViewShutter: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 10)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("シャッター開放継続G数")
             }
@@ -272,7 +272,7 @@ struct acceleratorViewShutter: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(acceleratorView95Ci(accelerator: accelerator, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("対応チャンス目成立時の抽選")
             }
@@ -370,7 +370,7 @@ struct acceleratorViewShutter: View {
                     unitButtonMinusCheck(minusCheck: $accelerator.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: accelerator.resetShutter)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

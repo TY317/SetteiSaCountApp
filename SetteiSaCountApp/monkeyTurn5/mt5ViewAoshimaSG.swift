@@ -57,7 +57,7 @@ struct mt5ViewAoshimaSG: View {
                     unitLinkButton(title: "出現確率", exview: AnyView(mt5ExViewAoshimaScreenAnalysis()))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 7)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("ラウンド開始画面")
                 }
@@ -108,7 +108,7 @@ struct mt5ViewAoshimaSG: View {
                 ToolbarItem(placement: .automatic) {
                     HStack {
                         unitButtonToolbarScreenSelectReset(currentKeyword: $mt5.AoshimaSGCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
                         unitButtonMinusCheck(minusCheck: $mt5.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetAoshima, message: "このページのデータをリセットします")
                     }

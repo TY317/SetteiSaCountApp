@@ -26,7 +26,7 @@ struct mt5GekisoView: View {
                     unitLinkButton(title: "激走チャージ後のセリフ", exview: AnyView(mt5ExViewGekiso()))
                     // 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 2)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("波多野A,Bのカウント")
                 }

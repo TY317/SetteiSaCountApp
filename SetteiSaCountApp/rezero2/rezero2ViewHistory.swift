@@ -143,10 +143,20 @@ struct rezero2ViewHistory: View {
                     unitResultRatioDenomination2Line(title: "AT確率", color: .grayBack, count: $rezero2.atHitCount, bigNumber: $rezero2.playGameSum, numberofDicimal: 0, spacerBool: false)
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "AT初当たり確率について", exview: AnyView(unitExView5body2image(title: "AT初当たり確率", textBody1: "・AT初当たり確率に設定差あり", image1: Image("rezero2AtHitRatio"))))
+                unitLinkButton(
+                    title: "AT初当たり確率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "AT初当たり確率",
+                            textBody1: "・AT初当たり確率に設定差あり",
+//                            image1: Image("rezero2AtHitRatio")
+                            tableView: AnyView(rezero2TableFirstHit())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(rezero2: rezero2, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当たり")
             }
@@ -215,7 +225,8 @@ struct rezero2ViewHistory: View {
                             textBody2: "・100Pt,200Pt〜の順に下表の抽選を繰り返し、当否を決定",
                             textBody3: "・最大1400Ptで当選。1300までの抽選に漏れたら1400は100％当選という仕組みと思われる",
                             textBody4: "・このアプリでは初当り履歴から内部的な抽選回数と当選確率を算出させています",
-                            image1: Image("rezero2PtDraw")
+//                            image1: Image("rezero2PtDraw")
+                            tableView: AnyView(rezero2TableKiteiPtRatio())
                         )
                     )
                 )
@@ -243,13 +254,14 @@ struct rezero2ViewHistory: View {
                             title: "引き戻し（死に戻り）",
                             textBody1: "・AT後32G+αで引き戻しの可能性あり",
                             textBody2: "・引き戻し確率に設定差がある",
-                            image1: Image("rezero2Comeback")
+//                            image1: Image("rezero2Comeback")
+                            tableView: AnyView(rezero2TableComeback())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(rezero2View95Ci(rezero2: rezero2, selection: 2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("引き戻し")
             }
@@ -313,7 +325,7 @@ struct rezero2ViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $rezero2.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: rezero2.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

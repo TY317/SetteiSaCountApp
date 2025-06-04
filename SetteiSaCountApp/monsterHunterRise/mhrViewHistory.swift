@@ -86,7 +86,7 @@ struct mhrViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("アイルーだるま落とし規定回数")
             }
@@ -199,9 +199,10 @@ struct mhrViewHistory: View {
                             textBody1: "・4種類のテーブルでクエスト（周期）の期待度を管理",
                             textBody2: "・テーブルはATを契機に再抽選。天国移行まで転落はない",
                             textBody3: "・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる",
-                            image1: Image("mhrTable"),
-                            image2Title: "テーブルごとの周期期待度",
-                            image2: Image("mhrTableZone")
+//                            image1: Image("mhrTable"),
+//                            image2Title: "テーブルごとの周期期待度",
+//                            image2: Image("mhrTableZone")
+                            tableView: AnyView(mhrTableQuestTable())
                         )
                     )
                 )
@@ -244,7 +245,8 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "AT初当り確率",
-                            image1: Image("mhrAtHitRatio")
+//                            image1: Image("mhrAtHitRatio")
+                            tableView: AnyView(mhrTableAtFirstHit())
                         )
                     )
                 )
@@ -256,13 +258,14 @@ struct mhrViewHistory: View {
                             title: "レア役からの直撃確率",
                             textBody1: "・レア役からの直撃確率に設定差あり",
                             textBody2: "・強レア役は現実的に起こりうる数値。複数回確認できれば高設定に期待してもいいかも",
-                            image1: Image("mhrRareHitRatio")
+//                            image1: Image("mhrRareHitRatio")
+                            tableView: AnyView(mhrTableRareDirectHit())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("AT初当り")
             }
@@ -282,13 +285,14 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ライズゾーン実質初当り確率",
-                            image1: Image("mhrRiseZone")
+//                            image1: Image("mhrRiseZone")
+                            tableView: AnyView(mhrTableRizeZoneRatio())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ライズゾーン初当り確率")
             }

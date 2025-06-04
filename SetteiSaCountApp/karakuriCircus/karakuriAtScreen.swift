@@ -75,7 +75,7 @@ struct karakuriAtScreen: View {
 //                        unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
 //                    }
                     unitButtonToolbarScreenSelectReset(currentKeyword: $karakuri.atScreenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $karakuri.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetAtScreen)
                 }

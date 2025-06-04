@@ -19,57 +19,74 @@ class IdolMaster: ObservableObject {
     // /////////////////
     // ボーナス終了画面
     // /////////////////
-    @AppStorage("idolMasterScreenCountDefault") var screenCountDefault: Int = 0 {
-        didSet {
-            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-        }
-    }
-        @AppStorage("idolMasterScreenCountKisuJaku") var screenCountKisuJaku: Int = 0 {
-            didSet {
-                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-            }
-        }
-            @AppStorage("idolMasterScreenCountKisuKyo") var screenCountKisuKyo: Int = 0 {
-                didSet {
-                    screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                }
-            }
-                @AppStorage("idolMasterScreenCountGusuJaku") var screenCountGusuJaku: Int = 0 {
-                    didSet {
-                        screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                    }
-                }
-                    @AppStorage("idolMasterScreenCountGusuKyo") var screenCountGusuKyo: Int = 0 {
-                        didSet {
-                            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                        }
-                    }
-                        @AppStorage("idolMasterScreenCountHighJaku") var screenCountHighJaku: Int = 0 {
-                            didSet {
-                                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                            }
-                        }
-                            @AppStorage("idolMasterScreenCountHighChu") var screenCountHighChu: Int = 0 {
-                                didSet {
-                                    screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                                }
-                            }
-                                @AppStorage("idolMasterScreenCountHighKyo") var screenCountHighKyo: Int = 0 {
-                                    didSet {
-                                        screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                                    }
-                                }
-                                    @AppStorage("idolMasterScreenCountGold") var screenCountGold: Int = 0 {
-                                        didSet {
-                                            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                                        }
-                                    }
-                                        @AppStorage("idolMasterScreenCountRainbow") var screenCountRainbow: Int = 0 {
-                                            didSet {
-                                                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
-                                            }
-                                        }
+    @AppStorage("idolMasterScreenCountDefault") var screenCountDefault: Int = 0 // {
+//        didSet {
+//            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//        }
+//    }
+        @AppStorage("idolMasterScreenCountKisuJaku") var screenCountKisuJaku: Int = 0 //{
+//            didSet {
+//                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//            }
+//        }
+            @AppStorage("idolMasterScreenCountKisuKyo") var screenCountKisuKyo: Int = 0 //{
+//                didSet {
+//                    screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                }
+//            }
+                @AppStorage("idolMasterScreenCountGusuJaku") var screenCountGusuJaku: Int = 0 //{
+//                    didSet {
+//                        screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                    }
+//                }
+                    @AppStorage("idolMasterScreenCountGusuKyo") var screenCountGusuKyo: Int = 0 //{
+//                        didSet {
+//                            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                        }
+//                    }
+                        @AppStorage("idolMasterScreenCountHighJaku") var screenCountHighJaku: Int = 0 //{
+//                            didSet {
+//                                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                            }
+//                        }
+                            @AppStorage("idolMasterScreenCountHighChu") var screenCountHighChu: Int = 0 //{
+//                                didSet {
+//                                    screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                                }
+//                            }
+                                @AppStorage("idolMasterScreenCountHighKyo") var screenCountHighKyo: Int = 0 //{
+//                                    didSet {
+//                                        screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                                    }
+//                                }
+                                    @AppStorage("idolMasterScreenCountGold") var screenCountGold: Int = 0 //{
+//                                        didSet {
+//                                            screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                                        }
+//                                    }
+                                        @AppStorage("idolMasterScreenCountRainbow") var screenCountRainbow: Int = 0 //{
+//                                            didSet {
+//                                                screenCountSum = countSum(screenCountDefault, screenCountKisuJaku, screenCountKisuKyo, screenCountGusuJaku, screenCountGusuKyo, screenCountHighJaku, screenCountHighChu, screenCountHighKyo, screenCountGold, screenCountRainbow)
+//                                            }
+//                                        }
+    @AppStorage("idolMasterScreenCountGoldOver5") var screenCountGoldOver5: Int = 0
     @AppStorage("idolMasterScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenCountSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountKisuJaku,
+            screenCountKisuKyo,
+            screenCountGusuJaku,
+            screenCountGusuKyo,
+            screenCountHighJaku,
+            screenCountHighChu,
+            screenCountHighKyo,
+            screenCountGold,
+            screenCountGoldOver5,
+            screenCountRainbow
+        )
+    }
     func resetScreen() {
         screenCountDefault = 0
         screenCountKisuJaku = 0
@@ -80,6 +97,7 @@ class IdolMaster: ObservableObject {
         screenCountHighChu = 0
         screenCountHighKyo = 0
         screenCountGold = 0
+        screenCountGoldOver5 = 0
         screenCountRainbow = 0
         minusCheck = false
     }
@@ -111,6 +129,8 @@ class IdolMasterMemory1: ObservableObject {
     @AppStorage("idolMasterScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("idolMasterMemoMemory1") var memo = ""
     @AppStorage("idolMasterDateMemory1") var dateDouble = 0.0
+    
+    @AppStorage("idolMasterScreenCountGoldOver5Memory1") var screenCountGoldOver5: Int = 0
 }
 
 
@@ -129,6 +149,8 @@ class IdolMasterMemory2: ObservableObject {
     @AppStorage("idolMasterScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("idolMasterMemoMemory2") var memo = ""
     @AppStorage("idolMasterDateMemory2") var dateDouble = 0.0
+    
+    @AppStorage("idolMasterScreenCountGoldOver5Memory2") var screenCountGoldOver5: Int = 0
 }
 
 
@@ -147,4 +169,6 @@ class IdolMasterMemory3: ObservableObject {
     @AppStorage("idolMasterScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("idolMasterMemoMemory3") var memo = ""
     @AppStorage("idolMasterDateMemory3") var dateDouble = 0.0
+    
+    @AppStorage("idolMasterScreenCountGoldOver5Memory3") var screenCountGoldOver5: Int = 0
 }

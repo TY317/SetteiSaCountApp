@@ -113,7 +113,7 @@ struct magiaViewNormal: View {
 //                .popoverTip(tipVer271MagiaMagicGirlMode())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("スイカからのCZ当選")
             }
