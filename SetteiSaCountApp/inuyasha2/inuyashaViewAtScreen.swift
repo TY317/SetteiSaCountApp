@@ -162,7 +162,7 @@ struct inuyashaViewAtScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $inuyasha.atScreenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                 // リセット

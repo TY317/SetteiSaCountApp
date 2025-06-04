@@ -385,7 +385,7 @@ struct imJugExVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                .popoverTip(tipUnitJugHanaCommonJissenView())
+//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: imJugExVer2View95CiTotal(imJugEx: imJugEx)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
@@ -433,7 +433,7 @@ struct imJugExVer2ViewTop: View {
                         imJugExMemory3: imJugExMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: imJugEx.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

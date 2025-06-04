@@ -60,7 +60,7 @@ struct VVVmarieView: View {
                     })
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 5)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 }
             }
         // //// firebaseログ

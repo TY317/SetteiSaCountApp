@@ -482,7 +482,7 @@ struct arifureViewCharacter: View {
 //                .popoverTip(tipVer250ArifureCharacterRatio())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 13)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("カウント結果")
             }

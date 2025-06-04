@@ -140,7 +140,7 @@ struct sbjViewGameStageChange: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 4)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定ゲーム数での移行カウント")
             }

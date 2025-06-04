@@ -46,7 +46,7 @@ struct mt5View5coin: View {
                 unitLinkButton(title: "5枚役について", exview: AnyView(unitExView5body2image(title: "5枚役", textBody1: "・5枚役の出現率に大きな設定差があるらしい", textBody2: "・AT中含めて全状態でカウント可能", textBody3: "・AT中含めてカウントの場合は液晶メニュー画面の総ゲーム数を分母とする", textBody4: "・停止形は下記画像を参照",image1: Image("mt5coin5Ratio"), image2: Image("mt5Coin5Image"))))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("5枚役のカウント")
             }
@@ -99,7 +99,7 @@ struct mt5View5coin: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $mt5.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetCoin5)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

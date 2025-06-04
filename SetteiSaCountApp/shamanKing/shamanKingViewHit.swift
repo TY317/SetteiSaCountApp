@@ -123,7 +123,7 @@ struct shamanKingViewHit: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 5)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
             }

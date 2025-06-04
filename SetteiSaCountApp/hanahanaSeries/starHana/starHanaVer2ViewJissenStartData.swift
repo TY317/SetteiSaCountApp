@@ -188,7 +188,7 @@ struct starHanaVer2ViewJissenStartData: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiStart(starHana: starHana)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }

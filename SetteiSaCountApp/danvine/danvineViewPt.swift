@@ -70,7 +70,7 @@ struct danvineViewPt: View {
                     )
                 )
                 unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("規定Pt 11の選択率")
             }

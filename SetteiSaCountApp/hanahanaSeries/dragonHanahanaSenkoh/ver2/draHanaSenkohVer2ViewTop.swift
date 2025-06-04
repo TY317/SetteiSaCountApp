@@ -532,7 +532,7 @@ struct draHanaSenkohVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                .popoverTip(tipUnitJugHanaCommonJissenView())
+//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: draHanaSenkohVer2View95CiTotal(draHanaSenkoh: draHanaSenkoh)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
@@ -580,7 +580,7 @@ struct draHanaSenkohVer2ViewTop: View {
                         draHanaSenkohMemory3: draHanaSenkohMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: draHanaSenkoh.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

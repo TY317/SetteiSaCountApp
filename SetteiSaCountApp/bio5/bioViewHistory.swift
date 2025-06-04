@@ -265,7 +265,7 @@ struct bioViewHistory: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(bioView95Ci(bio: bio, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("確率集計")
             }
@@ -329,7 +329,7 @@ struct bioViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $bio.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: bio.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

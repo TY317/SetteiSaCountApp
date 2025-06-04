@@ -34,10 +34,10 @@ class Rsl: ObservableObject {
     let ratioReg: [Double] = [621.9, 604.3, 526.3, 499.7, 465.0]
     let ratioCz: [Double] = [265.9, 254.7, 207.6, 190.3, 179.5]
     let ratioAt: [Double] = [359.6, 346.8, 277.1, 255.7, 232.5]
-    let ratioRegKirameki: [Double] = [7282, -1, -1, -1, 3449]
-    let ratioRegSuika: [Double] = [2731, -1, -1, -1, 1771]
-    let ratioRegChance: [Double] = [2341, -1, -1, -1, 1560]
-    let ratioReg3YakuSum: [Double] = [1074.5, -1, -1, -1, 770.9]
+    let ratioRegKirameki: [Double] = [7282, 6554, 4681, 4096, 3449]
+    let ratioRegSuika: [Double] = [2731, 2521, 2114, 2048, 1771]
+    let ratioRegChance: [Double] = [2341, 2341, 1820, 1638, 1560]
+    let ratioReg3YakuSum: [Double] = [1074.5, 1024.1, 808.98, 744.6, 668.6]
     @AppStorage("rslTotalGame") var totalGame: Int = 0
     @AppStorage("rslNormalGame") var normalGame: Int = 0
     @AppStorage("rslBigCount") var bigCount: Int = 0

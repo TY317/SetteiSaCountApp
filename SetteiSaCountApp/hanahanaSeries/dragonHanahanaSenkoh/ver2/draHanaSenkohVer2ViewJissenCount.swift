@@ -71,7 +71,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                     )
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 1)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始め
@@ -157,7 +157,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、フェザーランプ")
                         }
@@ -182,7 +182,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
                         }
@@ -215,7 +215,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 6)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
@@ -274,7 +274,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                         )
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 7)))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
                     }

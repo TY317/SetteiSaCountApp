@@ -149,7 +149,7 @@ struct goJug3ViewTop: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(goJug3View95Ci()))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             }
             // //// ゲーム数入力部分
             Section {

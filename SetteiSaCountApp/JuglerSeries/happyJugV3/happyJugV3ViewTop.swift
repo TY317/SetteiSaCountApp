@@ -255,7 +255,7 @@ struct happyJugV3ViewTop: View {
                         })
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(happyJugV3View95Ci()))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     }
 //                    .onTapGesture {
 //                        isFocused = false

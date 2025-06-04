@@ -147,7 +147,7 @@ struct lupinViewAtScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $lupin.atScreenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $lupin.minusCheck)
                 // リセット

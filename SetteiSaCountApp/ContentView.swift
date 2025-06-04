@@ -54,6 +54,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
     @AppStorage("isSelectedFavoriteGundamSeed") var isSelectedFavoriteGundamSeed = true
     @AppStorage("isSelectedFavoriteToloveru87") var isSelectedFavoriteToloveru87 = true
+    @AppStorage("isSelectedFavoriteIzaBancho") var isSelectedFavoriteIzaBancho = true
+    @AppStorage("isSelectedFavoriteDmc5") var isSelectedFavoriteDmc5 = true
 }
 
 
@@ -95,11 +97,12 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @StateObject var ver310 = Ver310()
+    @StateObject var ver330 = Ver330()
     @StateObject var ver320 = Ver320()
-    @StateObject private var bio = Bio()
+//    @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
-    @ObservedObject var common = commonVar()
+//    @ObservedObject var common = commonVar()
+    @ObservedObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
@@ -111,7 +114,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer320MachineAdd())
+                TipView(tipVer330MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -125,7 +128,9 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(JuglerSeriesViewTop()),
+                                        linkView: AnyView(JuglerSeriesViewTop(
+                                            common: common
+                                        )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラー"
 //                                        badgeStatus: ver210.ver210JugTopNewBadgeStatus
@@ -137,9 +142,39 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(hanahanaSeriesViewTop()),
+                                        linkView: AnyView(hanahanaSeriesViewTop(
+                                            common: common
+                                        )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ"
+                                    )
+                                }
+                                
+                                // //// デビルメイクライ、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDmc5 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(dmc5ViewTop(
+                                            ver330: ver330
+                                        )),
+                                        iconImage: Image("dmc5MachineIcon"),
+                                        machineName: "DevilMayCry5",
+                                        badgeStatus: ver330.dmc5MachineIconBadgeStaus
+                                    )
+                                }
+                                
+                                // //// いざ番長、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIzaBancho == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(izaBanchoViewTop(
+                                            ver330: ver330
+                                        )),
+                                        iconImage: Image("izaBanchoMachineIcon"),
+                                        machineName: "いざ！番長",
+                                        badgeStatus: ver330.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -163,11 +198,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(gundamSeedViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
-                                        machineName: "SEED",
-                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+                                        machineName: "SEED"
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -177,8 +212,8 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320,
-                                            ver310: ver310
+                                            ver320: ver320
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
@@ -193,11 +228,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(idolMasterViewTop(
-//                                            ver300: ver300
+                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
-                                        machineName: "アイマス"
-//                                        badgeStatus: ver300.idolMasterMachineIconBadgeStatus
+                                        machineName: "アイマス",
+                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -249,11 +284,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
-                                        machineName: "マギレコ",
-                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
+                                        machineName: "マギレコ"
+//                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -263,10 +298,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(rslViewTop()),
+                                        linkView: AnyView(rslViewTop(
+                                            ver330: ver330
+                                        )),
                                         iconImage: Image("rslMachineIcon"),
-                                        machineName: "レビュースタァライト"
-//                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                        machineName: "レビュースタァライト",
+                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer260MachineAdd())
                                 }
@@ -342,11 +379,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(sbjViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
-                                        machineName: "SBJ",
-                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
+                                        machineName: "SBJ"
+//                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -521,7 +558,9 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(JuglerSeriesViewTop()),
+                                        linkView: AnyView(JuglerSeriesViewTop(
+                                            common: common
+                                        )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラーシリーズ",
                                         makerName: "北電子",
@@ -536,12 +575,48 @@ struct ContentView: View {
                                     // 非表示
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(hanahanaSeriesViewTop()),
+                                        linkView: AnyView(hanahanaSeriesViewTop(
+                                            common: common
+                                        )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5
+                                    )
+                                }
+                                
+                                // //// デビルメイクライ、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDmc5 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(dmc5ViewTop(
+                                            ver330: ver330
+                                        )),
+                                        iconImage: Image("dmc5MachineIcon"),
+                                        machineName: "Devil May Cry5",
+                                        makerName: "エンターライズ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 6,
+                                        badgeStatus: ver330.dmc5MachineIconBadgeStaus
+                                    )
+                                }
+                                
+                                // //// いざ！番長、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIzaBancho == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(izaBanchoViewTop(
+                                            ver330: ver330
+                                        )),
+                                        iconImage: Image("izaBanchoMachineIcon"),
+                                        machineName: "いざ！番長",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 6,
+                                        badgeStatus: ver330.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -568,14 +643,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(gundamSeedViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "ガンダムSEED",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
-                                        releaseMonth: 5,
-                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
+                                        releaseMonth: 5
+//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -585,8 +660,8 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320,
-                                            ver310: ver310
+                                            ver320: ver320
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
@@ -604,14 +679,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(idolMasterViewTop(
-//                                            ver300: ver300
+                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイドルマスター",
                                         makerName: "山佐",
                                         releaseYear: 2025,
-                                        releaseMonth: 4
-//                                        badgeStatus: ver300.idolMasterMachineIconBadgeStatus
+                                        releaseMonth: 4,
+                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -672,14 +747,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 4,
-                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
+                                        releaseMonth: 4
+//                                        badgeStatus: ver310.magiaMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -689,13 +764,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(rslViewTop()),
+                                        linkView: AnyView(rslViewTop(
+                                            ver330: ver330
+                                        )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
                                         makerName: "オーイズミ",
                                         releaseYear: 2025,
-                                        releaseMonth: 3
-//                                        badgeStatus: ver260.rslMachineIconBadgeStatus
+                                        releaseMonth: 3,
+                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer260MachineAdd())
                                 }
@@ -787,14 +864,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(sbjViewTop(
-                                            ver310: ver310
+//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "スーパーブラックジャック",
                                         makerName: "山佐",
                                         releaseYear: 2025,
-                                        releaseMonth: 2,
-                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
+                                        releaseMonth: 2
+//                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1029,34 +1106,39 @@ struct ContentView: View {
                     }
                     
                     // //// プライバシーポリシー改訂の案内
-                    if ver320.isShowPrivacyPolicy {
-                        ZStack {
-                            Rectangle()
-                                .foregroundStyle(Color.white)
-                                .opacity(0.8)
-                            GroupBox {
-                                VStack {
-                                    Text("プライバシーポリシー改訂のお知らせ")
-                                        .font(.title3)
-                                        .fontWeight(.bold)
+                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
+                    if common.appLaunchCount > 1 {
+                        if ver320.isShowPrivacyPolicy {
+                            ZStack {
+                                Rectangle()
+                                    .foregroundStyle(Color.white)
+                                    .opacity(0.8)
+                                GroupBox {
                                     VStack {
-                                        Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
-                                        Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
-                                            Text("プライバシーポリシーはこちら")
-                                                .padding(.vertical)
+                                        Text("プライバシーポリシー改訂のお知らせ")
+                                            .font(.title3)
+                                            .fontWeight(.bold)
+                                        VStack {
+                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
+                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
+                                                Text("プライバシーポリシーはこちら")
+                                                    .padding(.vertical)
+                                            }
+                                            Button {
+                                                ver320.isShowPrivacyPolicy.toggle()
+                                            } label: {
+                                                Text("承諾して閉じる")
+                                                    .fontWeight(.bold)
+                                            }
+                                            .buttonStyle(BorderedProminentButtonStyle())
                                         }
-                                        Button {
-                                            ver320.isShowPrivacyPolicy.toggle()
-                                        } label: {
-                                            Text("承諾して閉じる")
-                                                .fontWeight(.bold)
-                                        }
-                                        .buttonStyle(BorderedProminentButtonStyle())
+                                        .padding(.horizontal)
                                     }
-                                    .padding(.horizontal)
                                 }
+                                .padding(.horizontal)
                             }
-                            .padding(.horizontal)
+                        } else {
+                            
                         }
                     }
                 }
@@ -1074,15 +1156,6 @@ struct ContentView: View {
                         screenClass: screenClass
                     )
                 }
-//                .onAppear {
-//                    // Viewが表示されたタイミングでログを送信します
-//                    Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                        AnalyticsParameterScreenName: "機種選択", // この画面の名前を識別できるように設定
-//                        AnalyticsParameterScreenClass: "ContentView" // 通常はViewのクラス名（構造体名）を設定
-//                        // その他、この画面に関連するパラメータを追加できます
-//                    ])
-//                    print("Firebase Analytics: ContentView appeared.") // デバッグ用にログ出力
-//                }
                 // //// 画面の向き情報の取得部分
                 .onAppear {
                     // ビューが表示されるときにデバイスの向きを取得
@@ -1202,6 +1275,12 @@ struct ContentView: View {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
+        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
+        .onAppear {
+            if common.appLaunchCount <= 1 {
+                ver320.isShowPrivacyPolicy = false
+            }
+        }
         // //// アプリがアクティブになったことを確認してトラッキング許可のポップアップを出す
 //        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
 //            ATTrackingManager.requestTrackingAuthorization() {_ in
@@ -1235,6 +1314,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// デビルメイクライ５
+                Toggle("Devil May Cry5", isOn: $favoriteSet.isSelectedFavoriteDmc5)
+                // //// いざ番長
+                Toggle("いざ！番長", isOn: $favoriteSet.isSelectedFavoriteIzaBancho)
                 // //// ToLOVEるトランスver8.7
                 Toggle("ToLOVEる TRANCE ver.8.7", isOn: $favoriteSet.isSelectedFavoriteToloveru87)
                 // //// ガンダムSEED、25年5月
@@ -1325,55 +1408,55 @@ struct favoriteSettingView: View {
 // ////////////////////////
 // ビュー：ジャグラーシリーズ
 // ////////////////////////
-struct machineListJuglerSeries: View {
-    var body: some View {
-        NavigationLink(destination: JuglerSeriesViewTop()) {
-            HStack {
-                Image("machineIconJuglerSeries")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("ジャグラーシリーズ")
-                    Text("")
-                        .font(.caption)
-//                        .foregroundColor(Color.gray)
-                        .foregroundStyle(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
+//struct machineListJuglerSeries: View {
+//    var body: some View {
+//        NavigationLink(destination: JuglerSeriesViewTop()) {
+//            HStack {
+//                Image("machineIconJuglerSeries")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 40.0)
+//                    .cornerRadius(8)
+//                VStack(alignment: .leading) {
+//                    Text("ジャグラーシリーズ")
+//                    Text("")
+//                        .font(.caption)
+////                        .foregroundColor(Color.gray)
+//                        .foregroundStyle(Color.gray)
+//                        .padding(.leading)
+//                }
+//                .padding(.leading)
+//            }
+//        }
+//    }
+//}
 
 
 // ////////////////////////
 // ビュー：ハナハナシリーズ
 // ////////////////////////
-struct machineListHanahanaSeries: View {
-    var body: some View {
-        NavigationLink(destination: hanahanaSeriesViewTop()) {
-            HStack {
-                Image("machineIconHanahanaSeries")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40.0)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text("ハナハナシリーズ")
-                    Text("")
-                        .font(.caption)
-//                        .foregroundColor(Color.gray)
-                        .foregroundStyle(Color.gray)
-                        .padding(.leading)
-                }
-                .padding(.leading)
-            }
-        }
-    }
-}
+//struct machineListHanahanaSeries: View {
+//    var body: some View {
+//        NavigationLink(destination: hanahanaSeriesViewTop()) {
+//            HStack {
+//                Image("machineIconHanahanaSeries")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 40.0)
+//                    .cornerRadius(8)
+//                VStack(alignment: .leading) {
+//                    Text("ハナハナシリーズ")
+//                    Text("")
+//                        .font(.caption)
+////                        .foregroundColor(Color.gray)
+//                        .foregroundStyle(Color.gray)
+//                        .padding(.leading)
+//                }
+//                .padding(.leading)
+//            }
+//        }
+//    }
+//}
 
 
 // ////////////////////
@@ -1436,8 +1519,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()
@@ -1495,5 +1578,7 @@ struct PDFKitView: UIViewRepresentable {
 }
 
 #Preview {
-    ContentView()
+    ContentView(
+        common: commonVar()
+    )
 }

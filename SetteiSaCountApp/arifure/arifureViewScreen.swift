@@ -131,7 +131,7 @@ struct arifureViewScreen: View {
 //                .popoverTip(tipVer250ArifureAtScreenRatio())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 14)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
@@ -196,7 +196,7 @@ struct arifureViewScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: self.$selectedImageName)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // /// リセット

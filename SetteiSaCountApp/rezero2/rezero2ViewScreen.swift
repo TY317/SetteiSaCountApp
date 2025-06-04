@@ -161,7 +161,7 @@ struct rezero2ViewScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $rezero2.screenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $rezero2.minusCheck)
                 // リセット

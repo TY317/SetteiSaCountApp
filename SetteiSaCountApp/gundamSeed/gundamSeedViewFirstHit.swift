@@ -299,7 +299,7 @@ struct gundamSeedViewFirstHit: View {
                     gundamSeed: gundamSeed,
                     selection: 1
                 )))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("確率集計")
             }

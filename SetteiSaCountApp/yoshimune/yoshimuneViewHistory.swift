@@ -235,7 +235,7 @@ struct yoshimuneViewHistory: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(yoshimuneView95Ci(yoshimune: yoshimune, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("集計結果")
             }
@@ -299,7 +299,7 @@ struct yoshimuneViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $yoshimune.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: yoshimune.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

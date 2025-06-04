@@ -290,7 +290,7 @@ struct VVVendScreenView: View {
                     })
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 2)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 }
                 .listRowBackground(Color.clear)
                 if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
@@ -343,7 +343,7 @@ struct VVVendScreenView: View {
                     HStack {
                         // 画面選択リセット
                         unitButtonToolbarScreenSelectReset(currentKeyword: $VVVendScreen.isSelectedScreen)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
                         // マイナスボタン
                         Button(action: {
                             VVVendScreen.minusCheck.toggle()
@@ -480,7 +480,7 @@ struct VVVscreenChoiceView: View {
                                     .opacity(0.5)
                                     .border(Color.green, width: 10)
                                     .cornerRadius(10)
-                                    .popoverTip(VVVendScreen.secondTip)
+//                                    .popoverTip(VVVendScreen.secondTip)
                                 Image(systemName: "plus.circle")
 //                                    .foregroundColor(Color.green)
                                     .foregroundStyle(Color.green)
@@ -497,7 +497,7 @@ struct VVVscreenChoiceView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(10)
-                            .popoverTip(VVVendScreen.fisttip)
+//                            .popoverTip(VVVendScreen.fisttip)
                     }
                 })
                 

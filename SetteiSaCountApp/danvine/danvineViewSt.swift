@@ -79,7 +79,7 @@ struct danvineViewSt: View {
                     )
                 )
                 unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 5)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ST中ボーナス 狙え演出時のランプ色")
             }

@@ -188,7 +188,7 @@ struct happyJugV3Ver2ViewKenDataInput: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiKen(happyJugV3: happyJugV3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }
@@ -254,7 +254,7 @@ struct happyJugV3Ver2ViewKenDataInput: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: happyJugV3.resetKenDataInput)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

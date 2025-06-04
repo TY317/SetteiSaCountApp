@@ -194,7 +194,7 @@ struct kabaneriViewCzBonus: View {
                     unitLinkButton(title: "CZ出現率", exview: AnyView(unitExView5body2image(title: "CZ出現率", textBody1: "・3種類のCZの合算確率で確認", textBody2: "・詳細データはマイスロで確認", image1: Image("kabaneriCzRatio"))))
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 3)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                 } header: {
                     Text("CZ出現率")
                 }
@@ -328,7 +328,7 @@ struct kabaneriViewCzBonus: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $kabaneri.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetBonus)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

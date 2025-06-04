@@ -188,7 +188,7 @@ struct imJugExVer2ViewKenDataInput: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiKen(imJugEx: imJugEx)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }
@@ -254,7 +254,7 @@ struct imJugExVer2ViewKenDataInput: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: imJugEx.resetKenDataInput)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

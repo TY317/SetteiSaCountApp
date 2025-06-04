@@ -21,15 +21,15 @@ class Ver320: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer320MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・ToLOVEる TRANCE ver.8.7")
-    }
-    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-        Image(systemName: "star")
-    }
-}
+//struct tipVer320MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・ToLOVEる TRANCE ver.8.7")
+//    }
+//    var image: Image? {
+////        Image(systemName: "exclamationmark.bubble")
+//        Image(systemName: "star")
+//    }
+//}

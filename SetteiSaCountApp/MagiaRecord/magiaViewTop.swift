@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct magiaViewTop: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
 //    @ObservedObject var magia = Magia()
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
@@ -32,13 +32,13 @@ struct magiaViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: magiaViewNormal(
-                        ver310: ver310,
+//                        ver310: ver310,
                         magia: magia
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時",
-                            badgeStatus: ver310.magiaMenuNormalBadgeStatus
+                            textBody: "通常時"
+//                            badgeStatus: ver310.magiaMenuNormalBadgeStatus
                         )
                     }
                     // 初当り
@@ -62,13 +62,13 @@ struct magiaViewTop: View {
                     }
                     // ボーナス終了後ボイス
                     NavigationLink(destination: magiaViewVoice(
-                        ver310: ver310,
+//                        ver310: ver310,
                         magia: magia
                     )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "BIG終了後ボイス",
-                            badgeStatus: ver310.magiaMenuVoiceBadgeStatus
+                            textBody: "BIG終了後ボイス"
+//                            badgeStatus: ver310.magiaMenuVoiceBadgeStatus
                         )
                     }
                     // AT終了画面
@@ -89,23 +89,23 @@ struct magiaViewTop: View {
                     }
                     // ストーリーのキャラ紹介
                     NavigationLink(destination: magiaViewStoryChara(
-                        ver310: ver310
+//                        ver310: ver310
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
-                            textBody: "ストーリーのキャラ紹介",
-                            badgeStatus: ver310.magiaMenuStoryCharaBadgeStatus
+                            textBody: "ストーリーのキャラ紹介"
+//                            badgeStatus: ver310.magiaMenuStoryCharaBadgeStatus
                         )
                     }
                     // エンディング
                     NavigationLink(destination: magiaViewEnding(
-                        ver310: ver310,
+//                        ver310: ver310,
                         magia: magia
                     )) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
-                            textBody: "エンディング",
-                            badgeStatus: ver310.magiaMenuEndingBadgeStatus
+                            textBody: "エンディング"
+//                            badgeStatus: ver310.magiaMenuEndingBadgeStatus
                         )
                     }
                 }
@@ -136,11 +136,11 @@ struct magiaViewTop: View {
 //            ])
 //            print("Firebase Analytics: magiaViewTop appeared.") // デバッグ用にログ出力
 //        }
-        .onAppear {
-            if ver310.magiaMachineIconBadgeStatus != "none" {
-                ver310.magiaMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.magiaMachineIconBadgeStatus != "none" {
+//                ver310.magiaMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -649,6 +649,6 @@ struct magiaSubViewLoadMemory: View {
 
 #Preview {
     magiaViewTop(
-        ver310: Ver310()
+//        ver310: Ver310()
     )
 }

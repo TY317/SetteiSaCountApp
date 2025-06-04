@@ -66,7 +66,7 @@ struct goevaViewAtScreen: View {
                 ToolbarItem(placement: .automatic) {
                     HStack {
                         unitButtonToolbarScreenSelectReset(currentKeyword: $goeva.atScreenCurrentKeyword)
-                            .popoverTip(tipUnitButtonScreenChoiceClear())
+//                            .popoverTip(tipUnitButtonScreenChoiceClear())
                         unitButtonMinusCheck(minusCheck: $goeva.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetAtScreen)
                     }

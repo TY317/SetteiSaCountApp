@@ -30,7 +30,8 @@ struct hanahanaSeriesViewTop: View {
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
-    @ObservedObject var common = commonVar()
+//    @ObservedObject var common = commonVar()
+    @ObservedObject var common: commonVar
     @State var lazyVGridColumns: Int = 4
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -364,5 +365,7 @@ struct machineListKingHanahana: View {
 }
 
 #Preview {
-    hanahanaSeriesViewTop()
+    hanahanaSeriesViewTop(
+        common: commonVar()
+    )
 }

@@ -43,7 +43,7 @@ struct sbjTipChanceCount: Tip {
 
 
 struct sbjViewNormal: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
 //    @ObservedObject var ver240 = Ver240()
 //    @ObservedObject var sbj = Sbj()
     @ObservedObject var sbj: Sbj
@@ -115,7 +115,7 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer310SbjPinchMe())
+//                .popoverTip(tipVer310SbjPinchMe())
             }
 //            .popoverTip(tipVer240SbjKokakuSisaUpdate())
             // //// 通常中チャンス目関連
@@ -174,7 +174,7 @@ struct sbjViewNormal: View {
                     color: .personalSummerLightRed,
                     minusBool: $sbj.minusCheck
                 )
-                .popoverTip(sbjTipKokakuCount())
+//                /*.popoverTip(*/sbjTipKokakuCount())
 //                // //// 参考情報リンク
 //                // 示唆演出
 //                unitLinkButton(
@@ -329,7 +329,7 @@ struct sbjViewNormal: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り確率")
             }
@@ -365,11 +365,11 @@ struct sbjViewNormal: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.sbjMenuNormalBadgeStatus != "none" {
-                ver310.sbjMenuNormalBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.sbjMenuNormalBadgeStatus != "none" {
+//                ver310.sbjMenuNormalBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -420,7 +420,7 @@ struct sbjViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $sbj.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sbj.resetNormal)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -429,7 +429,7 @@ struct sbjViewNormal: View {
 
 #Preview {
     sbjViewNormal(
-        ver310: Ver310(),
+//        ver310: Ver310(),
         sbj: Sbj()
     )
 }

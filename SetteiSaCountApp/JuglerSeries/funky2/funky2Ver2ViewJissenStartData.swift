@@ -188,7 +188,7 @@ struct funky2Ver2ViewJissenStartData: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiStart(funky2: funky2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("データ入力")
             }

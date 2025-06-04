@@ -109,13 +109,14 @@ struct bangdreamViewPicoAttack: View {
                             textBody2: "・レア役当選時は設定関係なく当選（バンドリンク役のみ25%）するためカウントから除外",
                             textBody3: "・駆け抜け後は当選率が上がるらしい",
                             textBody4: "・下表の確率が非駆け抜け時のものなのか？それとも駆け抜け後も含めたものなのか？は現状不明なため分けてカウントすることを推奨\n（All設定バトルでは非駆け抜け時の当選が重要なのでは といったニュアンスの発言あり）",
-                            image1: Image("bangdreamPicoAttack")
+//                            image1: Image("bangdreamPicoAttack")
+                            tableView: AnyView(bangdreamTablePicoAttack())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(bangdreamView95Ci(bangdream: bangdream, selection: 2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("トータル結果")
             }

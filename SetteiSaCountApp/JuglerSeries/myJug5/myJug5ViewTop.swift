@@ -211,7 +211,7 @@ struct myJug5ViewTop: View {
                         })
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(myJug5View95Ci()))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     }
 //                    .background(Color.clear) // これで背景をタップ可能にする
 //                    .onTapGesture {

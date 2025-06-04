@@ -171,7 +171,7 @@ struct acceleratorViewScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: $accelerator.screenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $accelerator.minusCheck)
                     // /// リセット

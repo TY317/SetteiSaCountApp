@@ -246,7 +246,7 @@ struct danvineViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(danvineView95Ci(danvine: danvine, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
             }
@@ -310,7 +310,7 @@ struct danvineViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $danvine.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: danvine.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

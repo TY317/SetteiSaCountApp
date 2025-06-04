@@ -333,7 +333,7 @@ struct sbjViewDiceCheck: View {
                     unitButtonMinusCheck(minusCheck: $sbj.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sbj.resetDiceCheck)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

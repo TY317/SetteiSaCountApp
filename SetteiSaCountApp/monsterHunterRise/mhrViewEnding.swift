@@ -62,7 +62,8 @@ struct mhrViewEnding: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "エンディング中のレア役示唆",
-                            image1: Image("mhrEnding")
+//                            image1: Image("mhrEnding")
+                            tableView: AnyView(mhrTableEnding())
                         )
                     )
                 )

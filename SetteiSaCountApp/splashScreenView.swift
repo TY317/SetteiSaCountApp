@@ -13,10 +13,11 @@ struct splashScreenView: View {
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opsity = 0.0
-    @ObservedObject var common = commonVar()
+//    @ObservedObject var common = commonVar()
+    @StateObject var common = commonVar()
     var body: some View {
         if isActive {
-            ContentView()
+            ContentView(common: common)
 //                .environmentObject(Yoshimune())
         } else {
             ZStack {

@@ -113,7 +113,7 @@ struct midoriDonViewKoyaku: View {
                     midoriDon: midoriDon,
                     selection: 1
                 )))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("小役確率")
             }

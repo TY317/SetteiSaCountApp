@@ -159,7 +159,7 @@ struct tokyoGhoulViewScreen: View {
                 HStack {
                     // //// 画面選択解除
                     unitButtonToolbarScreenSelectReset(currentKeyword: $tokyoGhoul.screenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     // //// マイナスチェック
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // /// リセット

@@ -196,7 +196,7 @@ struct vvvViewCzHistoryVer2: View {
                 unitLinkButton(title: "革命ボーナス比率について", exview: AnyView(exViewKakumeiRatioVVV()))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("革命比率")
             }

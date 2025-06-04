@@ -49,7 +49,7 @@ struct arifureViewAfterAtKokaku: View {
             )
             // 95%信頼区間グラフ
             unitNaviLink95Ci(Ci95view: AnyView(arifureView95Ci(arifure: arifure, selection: 9)))
-                .popoverTip(tipUnitButtonLink95Ci())
+//                .popoverTip(tipUnitButtonLink95Ci())
         }
         // //// firebaseログ
         .onAppear {

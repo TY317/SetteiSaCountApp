@@ -254,7 +254,7 @@ struct inuyashaViewHistoryVer2: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(inuyashaView95Ci(inuyasha: inuyasha, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
             }
@@ -318,7 +318,7 @@ struct inuyashaViewHistoryVer2: View {
                     unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

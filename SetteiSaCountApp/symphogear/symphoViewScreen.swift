@@ -77,7 +77,7 @@ struct symphoViewScreen: View {
                 unitLinkButton(title: "AT終了画面について", exview: AnyView(unitExView5body2image(title: "AT終了画面", image1: Image("symphoScreenRatio"))))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(sympho: sympho, selection: 3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             }
             
             if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
@@ -134,7 +134,7 @@ struct symphoViewScreen: View {
 //                        unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
 //                    }
                     unitButtonToolbarScreenSelectReset(currentKeyword: $sympho.screenCurrentKeyword)
-                        .popoverTip(tipUnitButtonScreenChoiceClear())
+//                        .popoverTip(tipUnitButtonScreenChoiceClear())
                     unitButtonMinusCheck(minusCheck: $sympho.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetScreen)
                 }

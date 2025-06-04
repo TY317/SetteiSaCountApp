@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 struct magiaViewVoice: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     @ObservedObject var magia: Magia
     @State var selectedSegment: String = "AT非当選時"
     let segmentList: [String] = ["AT非当選時", "AT当選時"]
@@ -23,7 +23,7 @@ struct magiaViewVoice: View {
         "⑤奇跡ってあるんだねお姉ちゃん"
     ]
     var body: some View {
-        TipView(tipVer310MagiaVoice())
+//        TipView(tipVer310MagiaVoice())
         List {
             // /// 調査中表示
 //            Section {
@@ -122,11 +122,11 @@ struct magiaViewVoice: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.magiaMenuVoiceBadgeStatus != "none" {
-                ver310.magiaMenuVoiceBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.magiaMenuVoiceBadgeStatus != "none" {
+//                ver310.magiaMenuVoiceBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("BIG終了後ボイス")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -134,7 +134,7 @@ struct magiaViewVoice: View {
 
 #Preview {
     magiaViewVoice(
-        ver310: Ver310(),
+//        ver310: Ver310(),
         magia: Magia()
     )
 }

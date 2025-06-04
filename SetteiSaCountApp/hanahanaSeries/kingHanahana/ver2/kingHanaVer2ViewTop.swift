@@ -532,7 +532,7 @@ struct kingHanaVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-                .popoverTip(tipUnitJugHanaCommonJissenView())
+//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: kingHanaVer2View95CiTotal(kingHana: kingHana)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")

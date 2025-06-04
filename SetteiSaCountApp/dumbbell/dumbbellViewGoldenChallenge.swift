@@ -95,7 +95,7 @@ struct dumbbellViewGoldenChallenge: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ゴールデンチャレンジ")
             }
@@ -159,7 +159,7 @@ struct dumbbellViewGoldenChallenge: View {
                     unitButtonMinusCheck(minusCheck: $dumbbell.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: dumbbell.resetGoldenChallenge)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

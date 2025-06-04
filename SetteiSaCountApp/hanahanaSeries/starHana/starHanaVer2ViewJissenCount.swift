@@ -71,7 +71,7 @@ struct starHanaVer2ViewJissenCount: View {
                     )
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 1)))
-                        .popoverTip(tipUnitButtonLink95Ci())
+//                        .popoverTip(tipUnitButtonLink95Ci())
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始め
@@ -159,7 +159,7 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ、フェザーランプ")
                         }
@@ -185,7 +185,7 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         } header: {
                             Text("\nスイカ")
                         }
@@ -219,7 +219,7 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 6)))
-                                .popoverTip(tipUnitButtonLink95Ci())
+//                                .popoverTip(tipUnitButtonLink95Ci())
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
@@ -280,7 +280,7 @@ struct starHanaVer2ViewJissenCount: View {
                         )
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 7)))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         Text("\nサイドランプ")
                     }

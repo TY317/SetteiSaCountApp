@@ -148,7 +148,7 @@ struct godeaterViewHistory: View {
 //                        .popoverTip(tipVer220GodEaterKyoCherryChokugeki())
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(godeater: godeater, selection: 1)))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         unitHeaderHistoryColumns(column2: "ゲーム", column3: "種類", column4: "当選契機")
                     }
@@ -260,7 +260,7 @@ struct godeaterViewHistory: View {
                         unitLinkButton(title: "初当りについて", exview: AnyView (unitExView5body2image(title: "初当りについて", textBody1: "・CZ,ATの初当り確率に設定差", textBody2: "・C Zは基本レア役からの当選。弱レア役での当選により設定差があるのではとの噂も？", textBody3: "・ATのメイン契機は規定ゲーム数。規定ゲーム数は100,200,300,450,600,750,1000。", textBody4: "・200と450での当選率に特に設定差があるのではと言われている", textBody5: "・レア役でのAT直撃にも設定差があると言われている" ,image1: Image("godeaterHit"))))
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(godeater: godeater, selection: 1)))
-                            .popoverTip(tipUnitButtonLink95Ci())
+//                            .popoverTip(tipUnitButtonLink95Ci())
                     } header: {
                         unitHeaderHistoryColumns(column2: "ゲーム", column3: "種類", column4: "当選契機")
                     }

@@ -208,7 +208,7 @@ struct lupinViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(lupinView95Ci(lupin: lupin, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("初当り")
             }
@@ -244,7 +244,7 @@ struct lupinViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(lupinView95Ci(lupin: lupin, selection: 3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ ICPO確率、成功率")
             }
@@ -276,7 +276,7 @@ struct lupinViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(lupinView95Ci(lupin: lupin, selection: 5)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("強🍒当選率")
             }
@@ -333,7 +333,7 @@ struct lupinViewHistory: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(lupinView95Ci(lupin: lupin, selection: 6)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("シングル揃い ボーナスキャラ種類")
             }
@@ -398,7 +398,7 @@ struct lupinViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $lupin.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: lupin.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -448,7 +448,7 @@ struct lupinSubViewDataInput: View {
                         selected: $lupin.selectedTriger,
                         selectList: lupin.selectListTrigger
                     )
-                    .popoverTip(tipLupinCirclePickerTrigger())
+//                    .popoverTip(tipLupinCirclePickerTrigger())
                 }
                 // サークルピッカー横並び ２段目
                 HStack {

@@ -70,7 +70,7 @@ struct toloveru87ViewHarlem: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(toloveru87View95Ci(
                     toloveru87: toloveru87, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ウィスパー選択率")
             }

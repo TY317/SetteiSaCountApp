@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewFirstHit: View {
-    @ObservedObject var ver310: Ver310
+//    @ObservedObject var ver310: Ver310
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -47,7 +47,7 @@ struct midoriDonViewFirstHit: View {
                         )
                     )
                 )
-                .popoverTip(tipVer310MidoriDonReachReplay())
+//                .popoverTip(tipVer310MidoriDonReachReplay())
             }
         }
         // //// firebaseログ
@@ -58,11 +58,11 @@ struct midoriDonViewFirstHit: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver310.midoriDonMenuFirstHitBadgeStatus != "none" {
-                ver310.midoriDonMenuFirstHitBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver310.midoriDonMenuFirstHitBadgeStatus != "none" {
+//                ver310.midoriDonMenuFirstHitBadgeStatus = "none"
+//            }
+//        }
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -121,7 +121,7 @@ struct midoriDonViewFirstHit: View {
 
 #Preview {
     midoriDonViewFirstHit(
-        ver310: Ver310(),
+//        ver310: Ver310(),
         midoriDon: MidoriDon()
     )
 }

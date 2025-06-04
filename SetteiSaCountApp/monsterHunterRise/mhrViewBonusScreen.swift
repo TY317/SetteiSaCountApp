@@ -96,7 +96,8 @@ struct mhrViewBonusScreen: View {
                         unitExView5body2image(
                             title: "特殊停止ボイスでの示唆",
                             textBody1: "・ボーナス図柄の狙えカットイン発生時のリール停止時に特殊ボイスで設定を示唆する場合あり",
-                            image1: Image("mhrVoice")
+//                            image1: Image("mhrVoice")
+                            tableView: AnyView(mhrTableVoice())
                         )
                     )
                 )
@@ -119,7 +120,7 @@ struct mhrViewBonusScreen: View {
             HStack {
                 // 画面選択解除
                 unitButtonToolbarScreenSelectReset(currentKeyword: $mhr.bonusScreenCurrentKeyword)
-                    .popoverTip(tipUnitButtonScreenChoiceClear())
+//                    .popoverTip(tipUnitButtonScreenChoiceClear())
                 // マイナスチェック
                 unitButtonMinusCheck(minusCheck: $mhr.minusCheck)
                 // リセット

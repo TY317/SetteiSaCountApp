@@ -224,7 +224,7 @@ struct dumbbellViewHistory: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 2)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("CZ関連まとめ")
             }
@@ -239,7 +239,7 @@ struct dumbbellViewHistory: View {
                         color: .personalSummerLightRed,
                         minusBool: $dumbbell.minusCheck
                     )
-                    .popoverTip(dumbbellTipWithoutCzBonusCount())
+//                    .popoverTip(dumbbellTipWithoutCzBonusCount())
                     // ボーナス確率
                     unitResultRatioDenomination2Line(
                         title: "ボーナス確率",
@@ -262,7 +262,7 @@ struct dumbbellViewHistory: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(dumbbellView95Ci(dumbbell: dumbbell, selection: 1)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
                 Text("ボーナス初当り")
             }
@@ -326,7 +326,7 @@ struct dumbbellViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $dumbbell.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: dumbbell.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
