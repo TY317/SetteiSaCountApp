@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct toloveru87ViewTop: View {
-    @ObservedObject var ver320: Ver320
+//    @ObservedObject var ver320: Ver320
     @StateObject var toloveru87 = Toloveru87()
     @State var isShowAlert: Bool = false
     @StateObject var toloveru87Memory1 = Toloveru87Memory1()
@@ -95,11 +95,11 @@ struct toloveru87ViewTop: View {
 //            ])
 //            print("Firebase Analytics: toloveru87ViewTop appeared.") // デバッグ用にログ出力
 //        }
-        .onAppear {
-            if ver320.toloveru87MachineIconBadgeStaus != "none" {
-                ver320.toloveru87MachineIconBadgeStaus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver320.toloveru87MachineIconBadgeStaus != "none" {
+//                ver320.toloveru87MachineIconBadgeStaus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -237,7 +237,7 @@ struct toloveru87SubViewLoadMemory: View {
 
 #Preview {
     toloveru87ViewTop(
-        ver320: Ver320(),
+//        ver320: Ver320(),
         toloveru87: Toloveru87()
     )
 }

@@ -165,7 +165,7 @@ class ToloveruMemory3: ObservableObject {
 
 
 struct toloveruViewTop: View {
-    @ObservedObject var ver320: Ver320
+//    @ObservedObject var ver320: Ver320
 //    @ObservedObject var toloveru = Toloveru()
     @StateObject var toloveru = Toloveru()
     @State var isShowAlert = false
@@ -179,13 +179,13 @@ struct toloveruViewTop: View {
                 Section {
                     // ドキドキポイント
                     NavigationLink(destination: toloveruViewDokidokiPt(
-                        ver320: ver320,
+//                        ver320: ver320,
                         toloveru: toloveru
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bolt.heart",
-                            textBody: "どきどきポイント",
-                            badgeStatus: ver320.toloveruMenuDokidokiBadgeStaus
+                            textBody: "どきどきポイント"
+//                            badgeStatus: ver320.toloveruMenuDokidokiBadgeStaus
                         )
                     }
                     // 楽園計画初当たり
@@ -234,11 +234,11 @@ struct toloveruViewTop: View {
 //            ])
 //            print("Firebase Analytics: toloveruViewTop appeared.") // デバッグ用にログ出力
 //        }
-        .onAppear {
-            if ver320.toloveruMachineIconBadgeStaus != "none" {
-                ver320.toloveruMachineIconBadgeStaus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver320.toloveruMachineIconBadgeStaus != "none" {
+//                ver320.toloveruMachineIconBadgeStaus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -431,6 +431,6 @@ struct toloveruViewLoadMemory: View {
 
 #Preview {
     toloveruViewTop(
-        ver320: Ver320()
+//        ver320: Ver320()
     )
 }

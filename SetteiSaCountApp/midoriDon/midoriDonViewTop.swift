@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct midoriDonViewTop: View {
-    @ObservedObject var ver320: Ver320
+//    @ObservedObject var ver320: Ver320
 //    @ObservedObject var ver310: Ver310
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
@@ -43,14 +43,14 @@ struct midoriDonViewTop: View {
                     // 通常時レア役からの当選
                     NavigationLink {
                         midoriDonViewKoyakuBonus(
-                            ver320: ver320,
+//                            ver320: ver320,
                             midoriDon: midoriDon
                         )
                     } label: {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時レア役からのボーナス当選",
-                            badgeStatus: ver320.midoriDonMenuKoyakuBonusBadgeStatus
+                            textBody: "通常時レア役からのボーナス当選"
+//                            badgeStatus: ver320.midoriDonMenuKoyakuBonusBadgeStatus
                         )
                     }
                     
@@ -121,11 +121,11 @@ struct midoriDonViewTop: View {
 //            ])
 //            print("Firebase Analytics: midoriDonViewTop appeared.") // デバッグ用にログ出力
 //        }
-        .onAppear {
-            if ver320.midoriDonMachineIconBadgeStatus != "none" {
-                ver320.midoriDonMachineIconBadgeStatus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver320.midoriDonMachineIconBadgeStatus != "none" {
+//                ver320.midoriDonMachineIconBadgeStatus = "none"
+//            }
+//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -438,7 +438,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-        ver320: Ver320()
+//        ver320: Ver320()
 //        ver310: Ver310()
     )
 }

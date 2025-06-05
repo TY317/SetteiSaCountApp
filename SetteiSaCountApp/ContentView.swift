@@ -184,11 +184,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(toloveru87ViewTop(
-                                            ver320: ver320
+//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
-                                        machineName: "ToLOVEるver8.7",
-                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
+                                        machineName: "ToLOVEるver8.7"
+//                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -212,12 +212,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320
+//                                            ver320: ver320
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
-                                        machineName: "緑ドン",
-                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
+                                        machineName: "緑ドン"
+//                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -494,11 +494,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             toloveruViewTop(
-                                                ver320: ver320
+//                                                ver320: ver320
                                             )),
                                         iconImage: Image("toloveruMachineIcon"),
-                                        machineName: "ToLoveる",
-                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
+                                        machineName: "ToLoveる"
+//                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -626,14 +626,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toloveru87ViewTop(
-                                            ver320: ver320
+//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
                                         machineName: "ToLOVEる TRANCE ver.8.7",
                                         makerName: "平和",
                                         releaseYear: 2025,
-                                        releaseMonth: 5,
-                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
+                                        releaseMonth: 5
+//                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -660,15 +660,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver320: ver320
+//                                            ver320: ver320
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 5,
-                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
+                                        releaseMonth: 5
+//                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -1032,14 +1032,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toloveruViewTop(
-                                            ver320: ver320
+//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveruMachineIcon"),
                                         machineName: "ToLOVEるダークネス",
                                         makerName: "平和",
                                         releaseYear: 2024,
-                                        releaseMonth: 6,
-                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
+                                        releaseMonth: 6
+//                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
                                     )
                                 }
                                 

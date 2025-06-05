@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toloveruViewDokidokiPt: View {
-    @ObservedObject var ver320: Ver320
+//    @ObservedObject var ver320: Ver320
     @ObservedObject var toloveru: Toloveru
     @State var isShowAlert = false
     @State var isShowAlertLeft = false
@@ -196,11 +196,11 @@ struct toloveruViewDokidokiPt: View {
                 screenClass: screenClass
             )
         }
-        .onAppear {
-            if ver320.toloveruMenuDokidokiBadgeStaus != "none" {
-                ver320.toloveruMenuDokidokiBadgeStaus = "none"
-            }
-        }
+//        .onAppear {
+//            if ver320.toloveruMenuDokidokiBadgeStaus != "none" {
+//                ver320.toloveruMenuDokidokiBadgeStaus = "none"
+//            }
+//        }
         .navigationTitle("どきどきポイント")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -217,7 +217,7 @@ struct toloveruViewDokidokiPt: View {
 
 #Preview {
     toloveruViewDokidokiPt(
-        ver320: Ver320(),
+//        ver320: Ver320(),
         toloveru: Toloveru()
     )
 }
