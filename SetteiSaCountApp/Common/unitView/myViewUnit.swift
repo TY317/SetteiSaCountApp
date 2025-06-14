@@ -21,154 +21,154 @@ struct myViewUnit: View {
 // ////////////////////////////
 // ビュー：機種選択ページの機種リスト
 // ////////////////////////////
-struct unitMachinListLink: View {
-    @State var linkView: AnyView
-    @State var iconImage: Image
-    @State var machineName: String
-    @State var makerName: String
-    @State var releaseYear: Int
-    @State var releaseMonth: Int
-    var badgeStatus: String = "none"
-    let newBadgeBgColor: Color = .yellow
-    let updateBadgeColor: Color = .red
-    
-    var body: some View {
-        NavigationLink(destination: self.linkView) {
-            HStack(spacing: 10.0) {
-                ZStack {
-                    // アイコン部分
-                    self.iconImage
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 40.0)
-                        .cornerRadius(8)
-                        .padding(.trailing, 5.0)
-                    // newバッジ部分
-                    if self.badgeStatus == "new" {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
-                                        .cornerRadius(11.0)
-                                        .frame(width: 44.0, height: 24.0)
-                                    Rectangle()
-                                        .foregroundStyle(self.newBadgeBgColor)
-                                        .cornerRadius(10.0)
-                                        .frame(width: 40.0, height: 20.0)
-                                    Text("NEW")
-                                        .foregroundStyle(Color.blue)
-                                        .font(.caption)
-                                        .fontWeight(.bold)
-                                }
-                            }
-                            Spacer()
-                        }
-                    }
-                    // updateバッジ部分
-                    else if self.badgeStatus == "update" {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                ZStack {
-                                    Circle()
-                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
-                                        .frame(width: 25.0, height: 25.0)
-                                    Circle()
-                                        .foregroundStyle(self.updateBadgeColor)
-                                        .frame(width: 20.0, height: 20.0)
-                                }
-                            }
-                            Spacer()
-                        }
-                    }
-                }
-                .frame(width: 45.0)
-                VStack(alignment: .leading) {
-                    Text(self.machineName)
-                    Text("\(self.makerName) , \(String(self.releaseYear))年 \(self.releaseMonth)月")
-                        .font(.caption)
-                        .foregroundStyle(Color.gray)
-                        .padding(.leading)
-                }
-//                .padding(.leading)
-            }
-        }
-    }
-}
+//struct unitMachinListLink: View {
+//    @State var linkView: AnyView
+//    @State var iconImage: Image
+//    @State var machineName: String
+//    @State var makerName: String
+//    @State var releaseYear: Int
+//    @State var releaseMonth: Int
+//    var badgeStatus: String = "none"
+//    let newBadgeBgColor: Color = .yellow
+//    let updateBadgeColor: Color = .red
+//    
+//    var body: some View {
+//        NavigationLink(destination: self.linkView) {
+//            HStack(spacing: 10.0) {
+//                ZStack {
+//                    // アイコン部分
+//                    self.iconImage
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+////                        .frame(width: 40.0)
+//                        .cornerRadius(8)
+//                        .padding(.trailing, 5.0)
+//                    // newバッジ部分
+//                    if self.badgeStatus == "new" {
+//                        VStack {
+//                            HStack {
+//                                Spacer()
+//                                ZStack {
+//                                    Rectangle()
+//                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
+//                                        .cornerRadius(11.0)
+//                                        .frame(width: 44.0, height: 24.0)
+//                                    Rectangle()
+//                                        .foregroundStyle(self.newBadgeBgColor)
+//                                        .cornerRadius(10.0)
+//                                        .frame(width: 40.0, height: 20.0)
+//                                    Text("NEW")
+//                                        .foregroundStyle(Color.blue)
+//                                        .font(.caption)
+//                                        .fontWeight(.bold)
+//                                }
+//                            }
+//                            Spacer()
+//                        }
+//                    }
+//                    // updateバッジ部分
+//                    else if self.badgeStatus == "update" {
+//                        VStack {
+//                            HStack {
+//                                Spacer()
+//                                ZStack {
+//                                    Circle()
+//                                        .foregroundStyle(Color(UIColor.secondarySystemGroupedBackground))
+//                                        .frame(width: 25.0, height: 25.0)
+//                                    Circle()
+//                                        .foregroundStyle(self.updateBadgeColor)
+//                                        .frame(width: 20.0, height: 20.0)
+//                                }
+//                            }
+//                            Spacer()
+//                        }
+//                    }
+//                }
+//                .frame(width: 45.0)
+//                VStack(alignment: .leading) {
+//                    Text(self.machineName)
+//                    Text("\(self.makerName) , \(String(self.releaseYear))年 \(self.releaseMonth)月")
+//                        .font(.caption)
+//                        .foregroundStyle(Color.gray)
+//                        .padding(.leading)
+//                }
+////                .padding(.leading)
+//            }
+//        }
+//    }
+//}
 
 // //////////////////////////
 // ビュー：機種選択ページ　アイコン表示用のリンク
 // //////////////////////////
-struct unitMachineIconLink: View {
-    @State var linkView: AnyView
-    @State var iconImage: Image
-    @State var machineName: String
-    var badgeStatus: String = "none"
-    let newBadgeBgColor: Color = .yellow
-    let updateBadgeColor: Color = .red
-    
-    var body: some View {
-        NavigationLink(destination: self.linkView) {
-            ZStack {
-                // アイコン本体部分
-                VStack {
-                    self.iconImage
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(13.0)
+//struct unitMachineIconLink: View {
+//    @State var linkView: AnyView
+//    @State var iconImage: Image
+//    @State var machineName: String
+//    var badgeStatus: String = "none"
+//    let newBadgeBgColor: Color = .yellow
+//    let updateBadgeColor: Color = .red
+//    
+//    var body: some View {
+//        NavigationLink(destination: self.linkView) {
+//            ZStack {
+//                // アイコン本体部分
+//                VStack {
+//                    self.iconImage
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .cornerRadius(13.0)
+////                        .padding(.horizontal, 4.0)
 //                        .padding(.horizontal, 4.0)
-                        .padding(.horizontal, 4.0)
-                        .padding(.top, 4.0)
-                    Text(self.machineName)
-                        .font(.caption)
-                        .lineLimit(1)
-                        .foregroundStyle(Color.primary)
-                }
-                // newバッジ部分
-                if self.badgeStatus == "new" {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            ZStack {
-                                Rectangle()
-                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
-                                    .cornerRadius(11.25)
-                                    .frame(width: 45.0, height: 25.0)
-                                Rectangle()
-                                    .foregroundStyle(self.newBadgeBgColor)
-                                    .cornerRadius(10.0)
-                                    .frame(width: 40.0, height: 20.0)
-                                Text("NEW")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-                // updateバッジ部分
-                else if self.badgeStatus == "update" {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            ZStack {
-                                Circle()
-                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
-                                    .frame(width: 25.0, height: 25.0)
-                                Circle()
-                                    .foregroundStyle(self.updateBadgeColor)
-                                    .frame(width: 20.0, height: 20.0)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-            }
-        }
-    }
-}
+//                        .padding(.top, 4.0)
+//                    Text(self.machineName)
+//                        .font(.caption)
+//                        .lineLimit(1)
+//                        .foregroundStyle(Color.primary)
+//                }
+//                // newバッジ部分
+//                if self.badgeStatus == "new" {
+//                    VStack {
+//                        HStack {
+//                            Spacer()
+//                            ZStack {
+//                                Rectangle()
+//                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
+//                                    .cornerRadius(11.25)
+//                                    .frame(width: 45.0, height: 25.0)
+//                                Rectangle()
+//                                    .foregroundStyle(self.newBadgeBgColor)
+//                                    .cornerRadius(10.0)
+//                                    .frame(width: 40.0, height: 20.0)
+//                                Text("NEW")
+//                                    .font(.caption)
+//                                    .fontWeight(.bold)
+//                            }
+//                        }
+//                        Spacer()
+//                    }
+//                }
+//                // updateバッジ部分
+//                else if self.badgeStatus == "update" {
+//                    VStack {
+//                        HStack {
+//                            Spacer()
+//                            ZStack {
+//                                Circle()
+//                                    .foregroundStyle(Color(UIColor.systemGroupedBackground))
+//                                    .frame(width: 25.0, height: 25.0)
+//                                Circle()
+//                                    .foregroundStyle(self.updateBadgeColor)
+//                                    .frame(width: 20.0, height: 20.0)
+//                            }
+//                        }
+//                        Spacer()
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 // //////////////////////////
 // ビュー：参考情報リンクボタン

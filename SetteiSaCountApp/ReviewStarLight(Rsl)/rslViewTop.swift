@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct rslViewTop: View {
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
 //    @ObservedObject var ver260 = Ver260()
 //    @ObservedObject var rsl = Rsl()
     @StateObject var rsl = Rsl()
@@ -31,13 +31,13 @@ struct rslViewTop: View {
                     }
                     // CZ,ボーナス、AT初当り
                     NavigationLink(destination: rslViewFirstHit(
-                        ver330: ver330,
+//                        ver330: ver330,
                         rsl: rsl
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "CZ,ボーナス,AT 初当り",
-                            badgeStatus: ver330.rslMenuFirstHitBadgeStaus
+//                            badgeStatus: ver330.rslMenuFirstHitBadgeStaus
                         )
                     }
                     // ボーナス終了画面
@@ -68,7 +68,7 @@ struct rslViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver330.rslMachineIconBadgeStaus)
+//        .resetBadgeOnAppear($ver330.rslMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -344,6 +344,6 @@ struct rslSubViewLoadMemory: View {
 
 #Preview {
     rslViewTop(
-        ver330: Ver330()
+//        ver330: Ver330()
     )
 }

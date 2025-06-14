@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct idolMasterViewTop: View {
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
     @StateObject var idolMaster = IdolMaster()
     @State var isShowAlert: Bool = false
     @StateObject var idolMasterMemory1 = IdolMasterMemory1()
@@ -45,13 +45,13 @@ struct idolMasterViewTop: View {
                     }
                     // 終了画面
                     NavigationLink(destination: idolMasterViewScreen(
-                        ver330: ver330,
+//                        ver330: ver330,
                         idolMaster: idolMaster
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス終了画面",
-                            badgeStatus: ver330.idolMasterMenuScreenBadgeStaus
+//                            badgeStatus: ver330.idolMasterMenuScreenBadgeStaus
                         )
                     }
                     // ボイス
@@ -79,7 +79,7 @@ struct idolMasterViewTop: View {
             }
         }
         // バッジのリセット
-        .resetBadgeOnAppear($ver330.idolMasterMachineIconBadgeStaus)
+//        .resetBadgeOnAppear($ver330.idolMasterMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -283,6 +283,6 @@ struct idolMasterSubViewLoadMemory: View {
 
 #Preview {
     idolMasterViewTop(
-        ver330: Ver330()
+//        ver330: Ver330()
     )
 }

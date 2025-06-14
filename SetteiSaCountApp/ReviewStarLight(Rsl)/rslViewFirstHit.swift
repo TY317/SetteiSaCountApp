@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct rslViewFirstHit: View {
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
 //    @ObservedObject var rsl = Rsl()
     @ObservedObject var rsl: Rsl
     @State var isShowAlert: Bool = false
@@ -194,7 +194,7 @@ struct rslViewFirstHit: View {
                         )
                     )
                 )
-                .popoverTip(tipVer330RslReg())
+//                .popoverTip(tipVer330RslReg())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(rslView95Ci(rsl: rsl, selection: 5)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
@@ -239,7 +239,7 @@ struct rslViewFirstHit: View {
 //            }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver330.rslMenuFirstHitBadgeStaus)
+//        .resetBadgeOnAppear($ver330.rslMenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -307,7 +307,7 @@ struct rslViewFirstHit: View {
 
 #Preview {
     rslViewFirstHit(
-        ver330: Ver330(),
+//        ver330: Ver330(),
         rsl: Rsl()
     )
 }

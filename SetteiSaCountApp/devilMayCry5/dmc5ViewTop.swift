@@ -9,7 +9,7 @@ import SwiftUI
 
 struct dmc5ViewTop: View {
     @ObservedObject var ver340: Ver340
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
     @StateObject var dmc5Memory1 = Dmc5Memory1()
@@ -352,6 +352,6 @@ struct dmc5SubViewLoadMemory: View {
 #Preview {
     dmc5ViewTop(
         ver340: Ver340(),
-        ver330: Ver330(),
+//        ver330: Ver330(),
     )
 }

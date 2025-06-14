@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct idolMasterViewScreen: View {
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
     @ObservedObject var idolMaster: IdolMaster
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -268,7 +268,7 @@ struct idolMasterViewScreen: View {
             }
         }
         // バッジリセット
-        .resetBadgeOnAppear($ver330.idolMasterMenuScreenBadgeStaus)
+//        .resetBadgeOnAppear($ver330.idolMasterMenuScreenBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -315,7 +315,7 @@ struct idolMasterViewScreen: View {
 
 #Preview {
     idolMasterViewScreen(
-        ver330: Ver330(),
+//        ver330: Ver330(),
         idolMaster: IdolMaster()
     )
 }

@@ -98,7 +98,7 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @StateObject var ver330 = Ver330()
+//    @StateObject var ver330 = Ver330()
     @StateObject var ver320 = Ver320()
     @StateObject var ver340 = Ver340()
 //    @StateObject private var bio = Bio()
@@ -173,7 +173,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
                                             ver340: ver340,
-                                            ver330: ver330,
+//                                            ver330: ver330,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
@@ -187,7 +187,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330,
+//                                            ver330: ver330,
                                             ver340: ver340,
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
@@ -245,11 +245,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(idolMasterViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイマス",
-                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -316,11 +316,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(rslViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
-                                        badgeStatus: ver330.rslMachineIconBadgeStaus
+//                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer260MachineAdd())
                                 }
@@ -627,7 +627,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
                                             ver340: ver340,
-                                            ver330: ver330,
+//                                            ver330: ver330,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
@@ -644,7 +644,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330,
+//                                            ver330: ver330,
                                             ver340: ver340
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
@@ -715,14 +715,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(idolMasterViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイドルマスター",
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -801,14 +801,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(rslViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
                                         makerName: "オーイズミ",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver330.rslMachineIconBadgeStaus
+//                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer260MachineAdd())
                                 }

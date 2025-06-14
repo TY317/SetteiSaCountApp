@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewTop: View {
-    @ObservedObject var ver330: Ver330
+//    @ObservedObject var ver330: Ver330
     @ObservedObject var ver340: Ver340
     @StateObject var izaBancho = IzaBancho()
     @State var isShowAlert: Bool = false
@@ -298,7 +298,7 @@ struct izaBanchoSubViewLoadMemory: View {
 
 #Preview {
     izaBanchoViewTop(
-        ver330: Ver330(),
+//        ver330: Ver330(),
         ver340: Ver340(),
     )
 }
