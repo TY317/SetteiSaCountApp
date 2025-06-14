@@ -15,7 +15,13 @@ struct izaBanchoTableCommonBellA: View {
             unitTableSettingIndex()
             unitTableDenominate(
                 columTitle: "共通ベルA",
-                denominateList: izaBancho.ratioCommonBellA
+                denominateList: izaBancho.ratioCommonBellA,
+                numberofDicimal: 1,
+            )
+            unitTableDenominate(
+                columTitle: "弱🍒",
+                denominateList: izaBancho.ratioJakuCherry,
+                numberofDicimal: 1,
             )
         }
     }

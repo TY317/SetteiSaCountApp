@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewNormal: View {
+    @ObservedObject var ver340: Ver340
     @ObservedObject var izaBancho: IzaBancho
     var body: some View {
         List {
@@ -28,12 +29,15 @@ struct izaBanchoViewNormal: View {
                 )
                 // 共通ベルA確率について
                 unitLinkButton(
-                    title: "共通ベルA確率について",
+//                    title: "共通ベルA確率について",
+                    // //// ver3.4.0で更新
+                    title: "設定差のある小役について",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "共通ベルA確率",
-                            textBody1: "・ナビなし時に上段に揃うベルに設定差あり",
-                            textBody2: "・ナビあり時などは上段揃いではないため、自力でのカウントは難しいが、ダイトモで現在値確認できる",
+                            title: "設定差のある小役",
+                            textBody1: "・共通ベルAと弱🍒に設定差あり",
+                            textBody2: "・共通ベルAはナビなし時に上段に揃うベル",
+                            textBody3: "・ナビあり時などは上段揃いではないため、自力でのカウントは難しいが、ダイトモで現在値確認できる",
                             tableView: AnyView(
                                 izaBanchoTableCommonBellA(
                                     izaBancho: izaBancho
@@ -42,6 +46,7 @@ struct izaBanchoViewNormal: View {
                         )
                     )
                 )
+                .popoverTip(tipVer340IzaBanchoKorakuRatio())
             } header: {
                 Text("小役確率")
             }
@@ -77,6 +82,8 @@ struct izaBanchoViewNormal: View {
                 Text("モード")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver340.izaBanchoMenuNormalBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -92,6 +99,7 @@ struct izaBanchoViewNormal: View {
 
 #Preview {
     izaBanchoViewNormal(
-        izaBancho: IzaBancho()
+        ver340: Ver340(),
+        izaBancho: IzaBancho(),
     )
 }

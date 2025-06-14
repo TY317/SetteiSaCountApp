@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct midoriDonViewTop: View {
-//    @ObservedObject var ver320: Ver320
+    @ObservedObject var ver340: Ver340
 //    @ObservedObject var ver310: Ver310
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
@@ -89,6 +89,18 @@ struct midoriDonViewTop: View {
 //                            badgeStatus: ver301.midoriDonMenuVoiceBadgeStatus
                         )
                     }
+                    
+                    // エンディング
+                    NavigationLink(destination: midoriDonViewEnding(
+                        ver340: ver340,
+                        midoriDon: midoriDon,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: ver340.midoriDonMenuEndingBadgeStatus,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
@@ -111,21 +123,8 @@ struct midoriDonViewTop: View {
                 screenClass: screenClass
             )
         }
-//        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "緑ドン", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "midoriDonViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: midoriDonViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver320.midoriDonMachineIconBadgeStatus != "none" {
-//                ver320.midoriDonMachineIconBadgeStatus = "none"
-//            }
-//        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver340.midoriDonMachineIconBadgeStatus)
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -438,7 +437,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-//        ver320: Ver320()
+        ver340: Ver340()
 //        ver310: Ver310()
     )
 }

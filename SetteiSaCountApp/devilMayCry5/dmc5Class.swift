@@ -18,12 +18,12 @@ class Dmc5: ObservableObject {
     @AppStorage("dmc5BonusCount") var bonusCount: Int = 0
     @AppStorage("dmc5StCount") var stCount: Int = 0
     
-    func resetFirstHit() {
-        normalGame = 0
-        bonusCount = 0
-        stCount = 0
-        minusCheck = false
-    }
+//    func resetFirstHit() {
+//        normalGame = 0
+//        bonusCount = 0
+//        stCount = 0
+//        minusCheck = false
+//    }
     
     // ///////////////
     // 終了画面
@@ -69,6 +69,7 @@ class Dmc5: ObservableObject {
         screenCountOver4 = 0
         screenCountOver5 = 0
         screenCountOver6 = 0
+        screenCountSumFunc()
         minusCheck = false
     }
     
@@ -80,8 +81,71 @@ class Dmc5: ObservableObject {
     @AppStorage("dmc5SelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        resetFirstHit()
+//        resetFirstHit()
         resetScreen()
+        resetHistory()
+    }
+    
+    // //////////////////
+    // ver3.4.0で追加
+    // 初当り履歴
+    // //////////////////
+    // 選択肢の設定
+    let selectListBonusKind: [String] = ["DMC", "エピソード"]
+    let selectListTrigger: [String] = ["CZ", "ゲーム数", "直撃", "天井", "その他"]
+    let selectListStHit: [String] = ["当選", "ハズレ"]
+    
+    // 選択結果
+    @AppStorage("dmc5SelectedBonusKind") var selectedBonusKind: String = "DMC"
+    @AppStorage("dmc5SelectedTrigger") var selectedTrigger: String = "CZ"
+    @AppStorage("dmc5SelectedStHit") var selectedStHit: String = "当選"
+    @AppStorage("dmc5InputGame") var inputGame: Int = 0
+    
+    // ゲーム数配列
+    let gameArrayKey: String = "dmc5GameArrayKey"
+    @AppStorage("dmc5GameArrayKey") var gameArrayData: Data?
+    // 種類配列
+    let bonusKindArrayKey: String = "dmc5BonusKindArrayKey"
+    @AppStorage("dmc5BonusKindArrayKey") var bonusKindArrayData: Data?
+    // 当選契機配列
+    let triggerArrayKey: String = "dmc5TriggerArrayKey"
+    @AppStorage("dmc5TriggerArrayKey") var triggerArrayData: Data?
+    // ST結果配列
+    let stHitArrayKey: String = "dmc5StHitArrayKey"
+    @AppStorage("dmc5StHitArrayKey") var stHitArrayData: Data?
+    
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: bonusKindArrayData, addData: selectedBonusKind, key: bonusKindArrayKey)
+        arrayStringAddData(arrayData: triggerArrayData, addData: selectedTrigger, key: triggerArrayKey)
+        arrayStringAddData(arrayData: stHitArrayData, addData: selectedStHit, key: stHitArrayKey)
+        addRemoveCommon()
+    }
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: bonusKindArrayData, key: bonusKindArrayKey)
+        arrayStringRemoveLast(arrayData: triggerArrayData, key: triggerArrayKey)
+        arrayStringRemoveLast(arrayData: stHitArrayData, key: stHitArrayKey)
+        addRemoveCommon()
+    }
+    
+    func resetHistory() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: bonusKindArrayData, key: bonusKindArrayKey)
+        arrayStringRemoveAll(arrayData: triggerArrayData, key: triggerArrayKey)
+        arrayStringRemoveAll(arrayData: stHitArrayData, key: stHitArrayKey)
+        addRemoveCommon()
+        inputGame = 0
+        minusCheck = false
+    }
+    
+    func addRemoveCommon() {
+        normalGame = arraySumPlayGameResetWordOne(gameArrayData: gameArrayData, bonusArrayData: stHitArrayData, resetWord: selectListStHit[0])
+        bonusCount = arrayStringAllDataCount(arrayData: bonusKindArrayData)
+        stCount = arrayStringDataCount(arrayData: stHitArrayData, countString: selectListStHit[0])
     }
 }
 
@@ -105,6 +169,16 @@ class Dmc5Memory1: ObservableObject {
     @AppStorage("dmc5ScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("dmc5MemoMemory1") var memo = ""
     @AppStorage("dmc5DateMemory1") var dateDouble = 0.0
+    
+    // //////////////////
+    // ver3.4.0で追加
+    // 初当り履歴
+    // //////////////////
+    // 選択肢の設定
+    @AppStorage("dmc5GameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("dmc5BonusKindArrayKeyMemory1") var bonusKindArrayData: Data?
+    @AppStorage("dmc5TriggerArrayKeyMemory1") var triggerArrayData: Data?
+    @AppStorage("dmc5StHitArrayKeyMemory1") var stHitArrayData: Data?
 }
 
 
@@ -127,6 +201,16 @@ class Dmc5Memory2: ObservableObject {
     @AppStorage("dmc5ScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("dmc5MemoMemory2") var memo = ""
     @AppStorage("dmc5DateMemory2") var dateDouble = 0.0
+    
+    // //////////////////
+    // ver3.4.0で追加
+    // 初当り履歴
+    // //////////////////
+    // 選択肢の設定
+    @AppStorage("dmc5GameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("dmc5BonusKindArrayKeyMemory2") var bonusKindArrayData: Data?
+    @AppStorage("dmc5TriggerArrayKeyMemory2") var triggerArrayData: Data?
+    @AppStorage("dmc5StHitArrayKeyMemory2") var stHitArrayData: Data?
 }
 
 
@@ -149,4 +233,14 @@ class Dmc5Memory3: ObservableObject {
     @AppStorage("dmc5ScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("dmc5MemoMemory3") var memo = ""
     @AppStorage("dmc5DateMemory3") var dateDouble = 0.0
+    
+    // //////////////////
+    // ver3.4.0で追加
+    // 初当り履歴
+    // //////////////////
+    // 選択肢の設定
+    @AppStorage("dmc5GameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("dmc5BonusKindArrayKeyMemory3") var bonusKindArrayData: Data?
+    @AppStorage("dmc5TriggerArrayKeyMemory3") var triggerArrayData: Data?
+    @AppStorage("dmc5StHitArrayKeyMemory3") var stHitArrayData: Data?
 }

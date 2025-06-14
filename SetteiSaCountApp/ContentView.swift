@@ -56,6 +56,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteToloveru87") var isSelectedFavoriteToloveru87 = true
     @AppStorage("isSelectedFavoriteIzaBancho") var isSelectedFavoriteIzaBancho = true
     @AppStorage("isSelectedFavoriteDmc5") var isSelectedFavoriteDmc5 = true
+    @AppStorage("isSelectedFavoriteGuiltyCrown2") var isSelectedFavoriteGuiltyCrown2 = true
 }
 
 
@@ -99,6 +100,7 @@ class commonVar: ObservableObject {
 struct ContentView: View {
     @StateObject var ver330 = Ver330()
     @StateObject var ver320 = Ver320()
+    @StateObject var ver340 = Ver340()
 //    @StateObject private var bio = Bio()
     @ObservedObject var favoriteSet = favoriteSetVar()
 //    @ObservedObject var common = commonVar()
@@ -114,7 +116,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer330MachineAdd())
+                TipView(tipVer340MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -150,17 +152,32 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ギルティクラウン、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGuiltyCrown2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(guiltyCrown2ViewTop(
+                                            ver340: ver340
+                                        )),
+                                        iconImage: Image("guiltyCrown2MachineIcon"),
+                                        machineName: "ギルクラ2",
+                                        badgeStatus: ver340.guiltyCrown2MachineIconBadgeStaus
+                                    )
+                                }
+                                
                                 // //// デビルメイクライ、25年6月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDmc5 == false {
                                     
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
-                                            ver330: ver330
+                                            ver340: ver340,
+                                            ver330: ver330,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-                                        badgeStatus: ver330.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver340.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -170,11 +187,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330
+                                            ver330: ver330,
+                                            ver340: ver340,
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
-                                        badgeStatus: ver330.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: ver340.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -212,14 +230,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver320: ver320
+                                            ver340: ver340
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
-                                        machineName: "緑ドン"
-//                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
+                                        machineName: "緑ドン",
+                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
-//                                        .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// アイマス、25年4月
@@ -586,20 +603,38 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ギルティクラウン、25年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGuiltyCrown2 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(guiltyCrown2ViewTop(
+                                            ver340: ver340
+                                        )),
+                                        iconImage: Image("guiltyCrown2MachineIcon"),
+                                        machineName: "ギルティクラウン2",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2025,
+                                        releaseMonth: 6,
+                                        badgeStatus: ver340.guiltyCrown2MachineIconBadgeStaus
+                                    )
+                                }
+                                
                                 // //// デビルメイクライ、25年6月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDmc5 == false {
                                     
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
-                                            ver330: ver330
+                                            ver340: ver340,
+                                            ver330: ver330,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver330.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver340.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -609,14 +644,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330
+                                            ver330: ver330,
+                                            ver340: ver340
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
                                         makerName: "大都技研",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver330.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: ver340.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -660,15 +696,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver320: ver320
+                                            ver340: ver340
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 5
-//                                        badgeStatus: ver320.midoriDonMachineIconBadgeStatus
+                                        releaseMonth: 5,
+                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -1314,6 +1350,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// ギルティクラウン2
+                Toggle("ギルティクラウン2", isOn: $favoriteSet.isSelectedFavoriteGuiltyCrown2)
                 // //// デビルメイクライ５
                 Toggle("Devil May Cry5", isOn: $favoriteSet.isSelectedFavoriteDmc5)
                 // //// いざ番長
