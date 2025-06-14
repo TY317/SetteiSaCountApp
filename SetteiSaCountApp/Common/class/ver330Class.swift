@@ -22,18 +22,18 @@ class Ver330: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer330MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・いざ！番長\n・Devil May Cry5")
-    }
-    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-        Image(systemName: "star")
-    }
-}
+//struct tipVer330MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・いざ！番長\n・Devil May Cry5")
+//    }
+//    var image: Image? {
+////        Image(systemName: "exclamationmark.bubble")
+//        Image(systemName: "star")
+//    }
+//}
 
 // //////////////////
 // Tip:レビュースタァライト　設定差のあるREG

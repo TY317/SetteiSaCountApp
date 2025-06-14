@@ -363,7 +363,7 @@ struct gundamSeedViewFirstHit: View {
                     unitButtonMinusCheck(minusCheck: $gundamSeed.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: gundamSeed.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

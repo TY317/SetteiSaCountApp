@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct dmc5ViewTop: View {
+    @ObservedObject var ver340: Ver340
     @ObservedObject var ver330: Ver330
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
@@ -30,11 +31,13 @@ struct dmc5ViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: dmc5ViewFristHit(
-                        dmc5: dmc5
+                        ver340: ver340,
+                        dmc5: dmc5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: ver340.dmc5MenuFirstHitBadgeStaus,
                         )
                     }
                     // ボーナス終了画面
@@ -79,7 +82,7 @@ struct dmc5ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver330.dmc5MachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver340.dmc5MachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -158,6 +161,16 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory1.screenCountOver5 = dmc5.screenCountOver5
         dmc5Memory1.screenCountOver6 = dmc5.screenCountOver6
         dmc5Memory1.screenCountSum = dmc5.screenCountSum
+        
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        dmc5Memory1.gameArrayData = dmc5.gameArrayData
+        dmc5Memory1.bonusKindArrayData = dmc5.bonusKindArrayData
+        dmc5Memory1.triggerArrayData = dmc5.triggerArrayData
+        dmc5Memory1.stHitArrayData = dmc5.stHitArrayData
     }
     func saveMemory2() {
         dmc5Memory2.normalGame = dmc5.normalGame
@@ -175,6 +188,15 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory2.screenCountOver5 = dmc5.screenCountOver5
         dmc5Memory2.screenCountOver6 = dmc5.screenCountOver6
         dmc5Memory2.screenCountSum = dmc5.screenCountSum
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        dmc5Memory2.gameArrayData = dmc5.gameArrayData
+        dmc5Memory2.bonusKindArrayData = dmc5.bonusKindArrayData
+        dmc5Memory2.triggerArrayData = dmc5.triggerArrayData
+        dmc5Memory2.stHitArrayData = dmc5.stHitArrayData
     }
     func saveMemory3() {
         dmc5Memory3.normalGame = dmc5.normalGame
@@ -192,6 +214,16 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory3.screenCountOver5 = dmc5.screenCountOver5
         dmc5Memory3.screenCountOver6 = dmc5.screenCountOver6
         dmc5Memory3.screenCountSum = dmc5.screenCountSum
+        
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        dmc5Memory3.gameArrayData = dmc5.gameArrayData
+        dmc5Memory3.bonusKindArrayData = dmc5.bonusKindArrayData
+        dmc5Memory3.triggerArrayData = dmc5.triggerArrayData
+        dmc5Memory3.stHitArrayData = dmc5.stHitArrayData
     }
 }
 
@@ -238,6 +270,20 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.screenCountOver5 = dmc5Memory1.screenCountOver5
         dmc5.screenCountOver6 = dmc5Memory1.screenCountOver6
         dmc5.screenCountSum = dmc5Memory1.screenCountSum
+        
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        let memoryGameArrayData = decodeIntArray(from: dmc5Memory1.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: dmc5.gameArrayKey)
+        let memoryBonusKindArrayData = decodeStringArray(from: dmc5Memory1.bonusKindArrayData)
+        saveArray(memoryBonusKindArrayData, forKey: dmc5.bonusKindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: dmc5Memory1.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: dmc5.triggerArrayKey)
+        let memoryStHitArrayData = decodeStringArray(from: dmc5Memory1.stHitArrayData)
+        saveArray(memoryStHitArrayData, forKey: dmc5.stHitArrayKey)
     }
     func loadMemory2() {
         dmc5.normalGame = dmc5Memory2.normalGame
@@ -255,6 +301,20 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.screenCountOver5 = dmc5Memory2.screenCountOver5
         dmc5.screenCountOver6 = dmc5Memory2.screenCountOver6
         dmc5.screenCountSum = dmc5Memory2.screenCountSum
+        
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        let memoryGameArrayData = decodeIntArray(from: dmc5Memory2.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: dmc5.gameArrayKey)
+        let memoryBonusKindArrayData = decodeStringArray(from: dmc5Memory2.bonusKindArrayData)
+        saveArray(memoryBonusKindArrayData, forKey: dmc5.bonusKindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: dmc5Memory2.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: dmc5.triggerArrayKey)
+        let memoryStHitArrayData = decodeStringArray(from: dmc5Memory2.stHitArrayData)
+        saveArray(memoryStHitArrayData, forKey: dmc5.stHitArrayKey)
     }
     func loadMemory3() {
         dmc5.normalGame = dmc5Memory3.normalGame
@@ -272,11 +332,26 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.screenCountOver5 = dmc5Memory3.screenCountOver5
         dmc5.screenCountOver6 = dmc5Memory3.screenCountOver6
         dmc5.screenCountSum = dmc5Memory3.screenCountSum
+        
+        // //////////////////
+        // ver3.4.0で追加
+        // 初当り履歴
+        // //////////////////
+        // 選択肢の設定
+        let memoryGameArrayData = decodeIntArray(from: dmc5Memory3.gameArrayData)
+        saveArray(memoryGameArrayData, forKey: dmc5.gameArrayKey)
+        let memoryBonusKindArrayData = decodeStringArray(from: dmc5Memory3.bonusKindArrayData)
+        saveArray(memoryBonusKindArrayData, forKey: dmc5.bonusKindArrayKey)
+        let memoryTriggerArrayData = decodeStringArray(from: dmc5Memory3.triggerArrayData)
+        saveArray(memoryTriggerArrayData, forKey: dmc5.triggerArrayKey)
+        let memoryStHitArrayData = decodeStringArray(from: dmc5Memory3.stHitArrayData)
+        saveArray(memoryStHitArrayData, forKey: dmc5.stHitArrayKey)
     }
 }
 
 #Preview {
     dmc5ViewTop(
-        ver330: Ver330()
+        ver340: Ver340(),
+        ver330: Ver330(),
     )
 }

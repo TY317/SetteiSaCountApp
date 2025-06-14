@@ -39,7 +39,7 @@ struct mhrViewHistory: View {
                         unitExView5body2image(
                             title: "ライズゾーン実質初当り確率",
 //                            image1: Image("mhrRiseZone")
-                            tableView: AnyView(mhrTableRiseZone())
+                            tableView: AnyView(mhrTableRizeZoneRatio())
                         )
                     )
                 )

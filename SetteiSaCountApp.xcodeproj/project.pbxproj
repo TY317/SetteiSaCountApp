@@ -437,6 +437,21 @@
 		0F9A4F832DEC2F21003B6337 /* dmc5ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F822DEC2F21003B6337 /* dmc5ViewScreen.swift */; };
 		0F9A4F852DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F842DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift */; };
 		0F9A4F872DEDD93E003B6337 /* dmc5ViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F862DEDD93E003B6337 /* dmc5ViewVoice.swift */; };
+		0F9A4F8A2DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F892DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift */; };
+		0F9A4F8C2DF1C6BA003B6337 /* guiltyCrown2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F8B2DF1C6BA003B6337 /* guiltyCrown2Class.swift */; };
+		0F9A4F8E2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9A4F8D2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets */; };
+		0F9A4F902DF1C6F0003B6337 /* ver340Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F8F2DF1C6F0003B6337 /* ver340Class.swift */; };
+		0F9A4F922DF1CEFC003B6337 /* guiltyCrown2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F912DF1CEFC003B6337 /* guiltyCrown2View95Ci.swift */; };
+		0F9A4F942DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F932DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift */; };
+		0F9A4F962DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F952DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift */; };
+		0F9A4F982DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F972DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift */; };
+		0F9A4F9A2DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F992DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift */; };
+		0F9A4F9C2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F9B2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift */; };
+		0F9A4F9E2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F9D2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift */; };
+		0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4F9F2DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift */; };
+		0F9A4FA22DF41688003B6337 /* guiltyCrown2ViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4FA12DF41688003B6337 /* guiltyCrown2ViewAtScreen.swift */; };
+		0F9A4FA42DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4FA32DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift */; };
+		0F9A4FA62DF55EF8003B6337 /* midoriDonViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A4FA52DF55EF8003B6337 /* midoriDonViewEnding.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1191,6 +1206,21 @@
 		0F9A4F822DEC2F21003B6337 /* dmc5ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dmc5ViewScreen.swift; sourceTree = "<group>"; };
 		0F9A4F842DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitButtonScreenChoiceVer3.swift; sourceTree = "<group>"; };
 		0F9A4F862DEDD93E003B6337 /* dmc5ViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dmc5ViewVoice.swift; sourceTree = "<group>"; };
+		0F9A4F892DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2ViewTop.swift; sourceTree = "<group>"; };
+		0F9A4F8B2DF1C6BA003B6337 /* guiltyCrown2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2Class.swift; sourceTree = "<group>"; };
+		0F9A4F8D2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = guiltyCrown2Assets.xcassets; sourceTree = "<group>"; };
+		0F9A4F8F2DF1C6F0003B6337 /* ver340Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver340Class.swift; sourceTree = "<group>"; };
+		0F9A4F912DF1CEFC003B6337 /* guiltyCrown2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2View95Ci.swift; sourceTree = "<group>"; };
+		0F9A4F932DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2ViewNormal.swift; sourceTree = "<group>"; };
+		0F9A4F952DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2TableReplayPattern.swift; sourceTree = "<group>"; };
+		0F9A4F972DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2TableBellPattern.swift; sourceTree = "<group>"; };
+		0F9A4F992DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2TableRarePattern.swift; sourceTree = "<group>"; };
+		0F9A4F9B2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2ViewFirstHit.swift; sourceTree = "<group>"; };
+		0F9A4F9D2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2TableFirstHit.swift; sourceTree = "<group>"; };
+		0F9A4F9F2DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2ViewBonusScreen.swift; sourceTree = "<group>"; };
+		0F9A4FA12DF41688003B6337 /* guiltyCrown2ViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2ViewAtScreen.swift; sourceTree = "<group>"; };
+		0F9A4FA32DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guiltyCrown2TableBonusScreenSisa.swift; sourceTree = "<group>"; };
+		0F9A4FA52DF55EF8003B6337 /* midoriDonViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midoriDonViewEnding.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -1659,6 +1689,7 @@
 				0F1E12212DD819DD00F69AFF /* midoriDonTableReachReplay.swift */,
 				0FB9CAA92DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift */,
 				0FB9CAAB2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift */,
+				0F9A4FA52DF55EF8003B6337 /* midoriDonViewEnding.swift */,
 			);
 			path = midoriDon;
 			sourceTree = "<group>";
@@ -1934,6 +1965,7 @@
 			children = (
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0F9A4F882DF1C666003B6337 /* guiltyCrown2 */,
 				0F9A4F6D2DEBF1B0003B6337 /* devilMayCry5 */,
 				0F6FB9032DEA84EE00207855 /* izaBancho */,
 				0FB9CA7D2DDB6150009FC6AF /* toloveru8.7 */,
@@ -2359,6 +2391,7 @@
 				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F6FB8DF2DE3406E00207855 /* ver330Class.swift */,
+				0F9A4F8F2DF1C6F0003B6337 /* ver340Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -2478,6 +2511,26 @@
 				0F9A4F862DEDD93E003B6337 /* dmc5ViewVoice.swift */,
 			);
 			path = devilMayCry5;
+			sourceTree = "<group>";
+		};
+		0F9A4F882DF1C666003B6337 /* guiltyCrown2 */ = {
+			isa = PBXGroup;
+			children = (
+				0F9A4F892DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift */,
+				0F9A4F8B2DF1C6BA003B6337 /* guiltyCrown2Class.swift */,
+				0F9A4F8D2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets */,
+				0F9A4F912DF1CEFC003B6337 /* guiltyCrown2View95Ci.swift */,
+				0F9A4F932DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift */,
+				0F9A4F952DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift */,
+				0F9A4F972DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift */,
+				0F9A4F992DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift */,
+				0F9A4F9B2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift */,
+				0F9A4F9D2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift */,
+				0F9A4F9F2DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift */,
+				0F9A4FA12DF41688003B6337 /* guiltyCrown2ViewAtScreen.swift */,
+				0F9A4FA32DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift */,
+			);
+			path = guiltyCrown2;
 			sourceTree = "<group>";
 		};
 		0FA024412CDB9242004B3FD5 /* bangdream */ = {
@@ -3085,6 +3138,7 @@
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
+				0F9A4F8E2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets in Resources */,
 				0F9A4F732DEBF1F0003B6337 /* dmc5Assets.xcassets in Resources */,
 				0F6BD7D22D806AA5003F5563 /* kaijiAssets.xcassets in Resources */,
 				0FDC32832D260767005B3D06 /* dumbbellAssets.xcassets in Resources */,
@@ -3288,6 +3342,7 @@
 				0F8689DA2D3BB75800D952D9 /* myJug5Ver2View95CiStart.swift in Sources */,
 				0FA024632CF2AD43004B3FD5 /* goJug3View95Ci.swift in Sources */,
 				0FDC326F2D1FA7B5005B3D06 /* inuyashaViewHistoryVer2.swift in Sources */,
+				0F9A4F922DF1CEFC003B6337 /* guiltyCrown2View95Ci.swift in Sources */,
 				0FD3574E2DA266280069BD1A /* shamanKingDirectAt.swift in Sources */,
 				0FEC57AA2D8F005900FF1024 /* kaijiTableZawaKokaku.swift in Sources */,
 				0F868ABA2D583E1300D952D9 /* funky2Ver2View95CiPersonal.swift in Sources */,
@@ -3304,6 +3359,7 @@
 				0F6FB8E62DE5E29D00207855 /* mhrTableRareDirectHit.swift in Sources */,
 				0F64DDD52DC7059F0027315D /* midoriDonViewVoice.swift in Sources */,
 				0FF155FA2D60320100B17F83 /* starHanaViewTop.swift in Sources */,
+				0F9A4F8C2DF1C6BA003B6337 /* guiltyCrown2Class.swift in Sources */,
 				0F654BD82C6F409F00F37849 /* myViewUnit.swift in Sources */,
 				0F868A452D460E9100D952D9 /* kingHanaVer2ViewJissenTotalDataCheck.swift in Sources */,
 				0F64DD472DC07C870027315D /* dumbbellTableCzSecondPart.swift in Sources */,
@@ -3461,6 +3517,7 @@
 				0F868A6B2D4DA97F00D952D9 /* unitChart95CiPercentNotBinding.swift in Sources */,
 				0F868AAC2D583AB300D952D9 /* funky2Ver2ViewKenDataInput.swift in Sources */,
 				0F1E121C2DD61C3100F69AFF /* mhrTableKiteiPt.swift in Sources */,
+				0F9A4F9E2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift in Sources */,
 				0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */,
 				0F9318892DEAA5DB00511BEF /* izaBanchoTableBBChokugeki.swift in Sources */,
 				0F6BD7DC2D8310D0003F5563 /* bioView95Ci.swift in Sources */,
@@ -3488,6 +3545,7 @@
 				0FEC57C52D918E4E00FF1024 /* rslViewVoice.swift in Sources */,
 				0FEC57A02D8EE96E00FF1024 /* tokyoGhoulSubViewTableGedanReplay.swift in Sources */,
 				0F9A4F852DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift in Sources */,
+				0F9A4F962DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift in Sources */,
 				0F64DD762DC0FA3C0027315D /* idolMasterViewFirstHit.swift in Sources */,
 				0F868A1F2D44B71A00D952D9 /* happyJugV3Ver2View95CiTotal.swift in Sources */,
 				0F9318792DEA8A6500511BEF /* izaBanchoViewNormal.swift in Sources */,
@@ -3553,13 +3611,16 @@
 				0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */,
 				0F654BC62C6E3C3600F37849 /* happyJugV3ViewTop.swift in Sources */,
 				0F868A042D42791B00D952D9 /* goJug3Ver2ViewJissenCount.swift in Sources */,
+				0F9A4F8A2DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift in Sources */,
 				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
 				0F868AB42D583AE400D952D9 /* funky2Ver2View95CiTotal.swift in Sources */,
 				0FA024792CF4999A004B3FD5 /* rezero2View95Ci.swift in Sources */,
 				0F868A602D47BF0300D952D9 /* draHanaSenkohVer2View95CiStart.swift in Sources */,
 				0F64DD7E2DC435EC0027315D /* kaijiTableModeRatio.swift in Sources */,
+				0F9A4F9C2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift in Sources */,
 				0F868A272D45167200D952D9 /* unitResultHanrei.swift in Sources */,
+				0F9A4FA42DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift in Sources */,
 				0F64DD4B2DC07E790027315D /* dumbbellTableGoldenChallenge.swift in Sources */,
 				0F868AD12D5864A500D952D9 /* girlsSSVer2View95CiPersonal.swift in Sources */,
 				0F6BD7B22D74129E003F5563 /* arifureViewNormal.swift in Sources */,
@@ -3705,6 +3766,7 @@
 				0FF1563A2D7096C100B17F83 /* shamanKingViewHit.swift in Sources */,
 				0F80311B2C69B3BD001F008E /* myButtonStyle.swift in Sources */,
 				0FF156322D6CAD5100B17F83 /* shamanKingViewNormal.swift in Sources */,
+				0F9A4F9A2DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift in Sources */,
 				0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */,
 				0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */,
 				0F7F86432D9EB36400F26486 /* magiaViewTop.swift in Sources */,
@@ -3764,11 +3826,13 @@
 				0FF156302D6B55A100B17F83 /* shamanKingView95Ci.swift in Sources */,
 				0FF156212D69618E00B17F83 /* unitPickerMenuString.swift in Sources */,
 				0F64DD9A2DC5D0A50027315D /* draHanaSenkohSubViewCountInput.swift in Sources */,
+				0F9A4FA62DF55EF8003B6337 /* midoriDonViewEnding.swift in Sources */,
 				0F868A102D44917A00D952D9 /* unitTextBackCaluculateStatus.swift in Sources */,
 				0FD357422DA25BE90069BD1A /* arifureTableAfterKokaku.swift in Sources */,
 				0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
 				0FD357AC2DAE98DE0069BD1A /* mahjongViewTop.swift in Sources */,
+				0F9A4F982DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift in Sources */,
 				0FD357862DAA76EA0069BD1A /* sbjTableEndScreen.swift in Sources */,
 				0FD357402DA227B70069BD1A /* arifureTableHeavenHit.swift in Sources */,
 				0F64DD3F2DC06E1F0027315D /* acceleratorTableTaidenModeRatio.swift in Sources */,
@@ -3784,6 +3848,7 @@
 				0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */,
 				0FB9CAB42DE1B620009FC6AF /* logEventFirebaseScreen.swift in Sources */,
 				0F868A802D54EC2500D952D9 /* sbjViewNormal.swift in Sources */,
+				0F9A4F902DF1C6F0003B6337 /* ver340Class.swift in Sources */,
 				0FD357B32DAFCC280069BD1A /* yoshimuneViewTop.swift in Sources */,
 				0F654BC12C6E2D3400F37849 /* myJug5exView.swift in Sources */,
 				0F868A2E2D45CB5000D952D9 /* hanaTenshoVer2ViewJissenStartData.swift in Sources */,
@@ -3813,6 +3878,7 @@
 				0F8689F12D41154A00D952D9 /* imJugExVer2ViewJissenCount.swift in Sources */,
 				0F9A4F6F2DEBF1D6003B6337 /* dmc5ViewTop.swift in Sources */,
 				0FDC325D2D1656D8005B3D06 /* inuyashaViewBigScreen.swift in Sources */,
+				0F9A4F942DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift in Sources */,
 				0F64DD922DC5C9A10027315D /* myJug5SubViewCountInput.swift in Sources */,
 				0F868AC72D584F3100D952D9 /* girlsSSVer2ViewJissenCount.swift in Sources */,
 				0FD3577E2DAA2DF70069BD1A /* sbjTableFirstHit.swift in Sources */,
@@ -3863,6 +3929,7 @@
 				0F7E4F792D2A48FF001CC916 /* commonViewFujimaruCoin.swift in Sources */,
 				0F7E4F752D28E94D001CC916 /* acceleratorViewCz.swift in Sources */,
 				0F1E120C2DD0C9A700F69AFF /* inuyashaTableOfuda.swift in Sources */,
+				0F9A4FA22DF41688003B6337 /* guiltyCrown2ViewAtScreen.swift in Sources */,
 				0FE23B2C2C772D04000E65D7 /* mt5GekisoView.swift in Sources */,
 				0F64DD5F2DC09C3A0027315D /* danvineTableFirstHit.swift in Sources */,
 				0F868A8A2D57373100D952D9 /* sbjViewEndScreen.swift in Sources */,
@@ -3922,6 +3989,7 @@
 				0F6BD7E62D88616F003F5563 /* arifureViewPremiumAt.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
+				0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */,
 				0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */,
 				0F868A362D45CC7000D952D9 /* hanaTenshoVer2View95CiKen.swift in Sources */,
 				0FD357802DAA2FAE0069BD1A /* sbjTableKoyakuRatio.swift in Sources */,
@@ -4124,7 +4192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.0;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -4163,7 +4231,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.0;
+				MARKETING_VERSION = 3.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

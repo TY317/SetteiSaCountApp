@@ -1514,8 +1514,8 @@ struct unitViewSaveMemory: View {
                             }
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             // //// レビューリクエストの実行
-                            // アプリ起動回数が10回以上ならレビューリクエストを実行
-                            if self.appLaunchCount > 10 {
+                            // アプリ起動回数が20回以上ならレビューリクエストを実行
+                            if self.appLaunchCount > 20 {
                                 // 現在の時刻を日本時間に合わせて取得
                                 let currentDate = Date()
                                 let calendar = Calendar.current
@@ -1529,7 +1529,7 @@ struct unitViewSaveMemory: View {
                                     requestReview()
                                     print("起動回数:\(self.appLaunchCount)回")
                                     print("レビューリクエストの実行")
-                                    self.appLaunchCount = 0
+                                    self.appLaunchCount = 2
                                 } else {
                                     print("起動回数:\(self.appLaunchCount)回")
                                     print("レビューリクエストの見送り")

@@ -11,11 +11,11 @@ import SwiftUI
 
 class Ver320: ObservableObject {
     @AppStorage("ver320IsShowPrivacyPolicy") var isShowPrivacyPolicy: Bool = true
-    @AppStorage("ver320Toloveru87MachineIconBadgeStaus") var toloveru87MachineIconBadgeStaus: String = "new"
-    @AppStorage("ver320ToloveruMachineIconBadgeStaus") var toloveruMachineIconBadgeStaus: String = "update"
-    @AppStorage("ver320ToloveruMenuDokidokiBadgeStaus") var toloveruMenuDokidokiBadgeStaus: String = "new"
-    @AppStorage("ver320MidoriDonMachineIconBadgeStatus") var midoriDonMachineIconBadgeStatus: String = "update"
-    @AppStorage("ver320MidoriDonMenuKoyakuBonusBadgeStatus") var midoriDonMenuKoyakuBonusBadgeStatus: String = "new"
+//    @AppStorage("ver320Toloveru87MachineIconBadgeStaus") var toloveru87MachineIconBadgeStaus: String = "new"
+//    @AppStorage("ver320ToloveruMachineIconBadgeStaus") var toloveruMachineIconBadgeStaus: String = "update"
+//    @AppStorage("ver320ToloveruMenuDokidokiBadgeStaus") var toloveruMenuDokidokiBadgeStaus: String = "new"
+//    @AppStorage("ver320MidoriDonMachineIconBadgeStatus") var midoriDonMachineIconBadgeStatus: String = "update"
+//    @AppStorage("ver320MidoriDonMenuKoyakuBonusBadgeStatus") var midoriDonMenuKoyakuBonusBadgeStatus: String = "new"
 }
 
 // //////////////////

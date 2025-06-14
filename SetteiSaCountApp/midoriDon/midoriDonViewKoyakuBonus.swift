@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct midoriDonViewKoyakuBonus: View {
-    @ObservedObject var ver320: Ver320
+//    @ObservedObject var ver320: Ver320
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert = false
     let selectListKoyakuKind: [String] = [
@@ -226,7 +226,7 @@ struct midoriDonViewKoyakuBonus: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver320.midoriDonMenuKoyakuBonusBadgeStatus)
+//        .resetBadgeOnAppear($ver320.midoriDonMenuKoyakuBonusBadgeStatus)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,
@@ -312,7 +312,7 @@ struct midoriDonViewKoyakuBonus: View {
 
 #Preview {
     midoriDonViewKoyakuBonus(
-        ver320: Ver320(),
+//        ver320: Ver320(),
         midoriDon: MidoriDon()
     )
 }
