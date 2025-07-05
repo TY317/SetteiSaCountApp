@@ -26,6 +26,9 @@ struct shamanKingViewScreen: View {
                     )
                 )
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

@@ -72,7 +72,14 @@ struct mt5GekisoView: View {
 // /////////////////////////////
 struct mt5ExViewGekiso: View {
     var body: some View {
-        unitExView5body2image(title: "激走チャージ後のセリフ", textBody1: "・サブ液晶をタッチして確認。設定示唆とモード示唆", textBody2: "・デフォルトの波多野A、Bの振り分けに設定差あるため、この2つはカウント。設定5はこれでかなり見抜けるらしい", image1: Image("mt5GekisoHatano"), image2: Image("mt5GekisoAll"))
+        unitExView5body2image(
+            title: "激走チャージ後のセリフ",
+            textBody1: "・サブ液晶をタッチして確認。設定示唆とモード示唆",
+            textBody2: "・デフォルトの波多野A、Bの振り分けに設定差あるため、この2つはカウント。設定5はこれでかなり見抜けるらしい",
+//            image1: Image("mt5GekisoHatano"),
+//            image2: Image("mt5GekisoAll")
+            tableView: AnyView(mt5TableGekisoVoice())
+        )
     }
 }
 

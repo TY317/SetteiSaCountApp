@@ -14,6 +14,42 @@ struct izaBanchoView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 刺客ゾーン　青成功回数
+            unitListSection95Ci(
+                grafTitle: "刺客ゾーン 成功回数\n青",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $izaBancho.czResultCountBlueHit,
+                        bigNumber: $izaBancho.czResultCountBlueSum,
+                        setting1Percent: izaBancho.ratioCzEffectBlue[0],
+                        setting2Percent: izaBancho.ratioCzEffectBlue[1],
+                        setting3Percent: izaBancho.ratioCzEffectBlue[2],
+                        setting4Percent: izaBancho.ratioCzEffectBlue[3],
+                        setting5Percent: izaBancho.ratioCzEffectBlue[4],
+                        setting6Percent: izaBancho.ratioCzEffectBlue[5]
+                    )
+                )
+            )
+            .tag(2)
+            // 刺客ゾーン　黄成功回数
+            unitListSection95Ci(
+                grafTitle: "刺客ゾーン 成功回数\n黄",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $izaBancho.czResultCountYellowHit,
+                        bigNumber: $izaBancho.czResultCountYellowSum,
+                        setting1Percent: izaBancho.ratioCzEffectYellow[0],
+                        setting2Percent: izaBancho.ratioCzEffectYellow[1],
+                        setting3Percent: izaBancho.ratioCzEffectYellow[2],
+                        setting4Percent: izaBancho.ratioCzEffectYellow[3],
+                        setting5Percent: izaBancho.ratioCzEffectYellow[4],
+                        setting6Percent: izaBancho.ratioCzEffectYellow[5]
+                    )
+                )
+            )
+            .tag(3)
             // 初当り回数
             unitListSection95Ci(
                 grafTitle: "初当り回数",

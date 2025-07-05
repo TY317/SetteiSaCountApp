@@ -17,7 +17,18 @@ struct toloveruViewHarlem: View {
             List {
                 // //// ボーナス3連での当選
                 Section {
-                    unitLinkButton(title: "ボーナス3連での上位当選について", exview: AnyView(unitExView5body2image(title: "3連当選についての噂", textBody1: "・高設定ほどボーナス3連目での上位当選しにくいとの噂あり。設定6は数%程度との噂もあり。3連での上位当選が複数回確認されたら黄信号かも。", textBody2: "・設定2のみ数値公表あり（下図参照）", image1: Image("toloveruHarlem3renHit"))))
+                    unitLinkButton(
+                        title: "ボーナス3連での上位当選について",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "3連当選についての噂",
+                                textBody1: "・高設定ほどボーナス3連目での上位当選しにくいとの噂あり。設定6は数%程度との噂もあり。3連での上位当選が複数回確認されたら黄信号かも。",
+                                textBody2: "・設定2のみ数値公表あり（下図参照）",
+//                                image1: Image("toloveruHarlem3renHit")
+                                tableView: AnyView(toloveruTable3RenJohi())
+                            )
+                        )
+                    )
                 } header: {
                     Text("ボーナス3連での上位当選")
                 }

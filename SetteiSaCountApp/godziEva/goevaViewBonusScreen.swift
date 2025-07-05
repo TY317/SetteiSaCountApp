@@ -56,7 +56,18 @@ struct goevaViewBonusScreen: View {
                 
                 // //// 終了時ボイス
                 Section {
-                    unitLinkButton(title: "終了時のボイスについて", exview: AnyView(unitExView5body2image(title: "ボーナス終了時のボイス", textBody1: "・AT非当選時のボイスが対象", textBody2: "・PUSHボタンを押して確認", image1: Image("goevaBonusVoice"))))
+                    unitLinkButton(
+                        title: "終了時のボイスについて",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "ボーナス終了時のボイス",
+                                textBody1: "・AT非当選時のボイスが対象",
+                                textBody2: "・PUSHボタンを押して確認",
+//                                image1: Image("goevaBonusVoice")
+                                tableView: AnyView(goevaTableVoice())
+                            )
+                        )
+                    )
                 } header: {
                     Text("ボイス")
                 }

@@ -21,6 +21,9 @@ struct dumbbellViewCheatDay: View {
 //            Image("dumbbellCalorieSisa")
 //                .resizable()
 //                .scaledToFit()
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

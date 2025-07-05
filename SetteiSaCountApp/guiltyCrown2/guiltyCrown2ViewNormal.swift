@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewNormal: View {
+    @ObservedObject var ver350: Ver350
     @ObservedObject var guiltyCrown2: GuiltyCrown2
     let selectListStage: [String] = [
         "学校",
@@ -98,6 +99,10 @@ struct guiltyCrown2ViewNormal: View {
         "当該ゲームでのモードアップ濃厚",
     ]
     
+    let segmentListSuika: [String] = ["弱🍉", "強🍉"]
+    @State var selectedSegmentSuika: String = "弱🍉"
+    @State var isShowAlert = false
+    
     var body: some View {
         List {
             // //// 小役関連
@@ -167,6 +172,99 @@ struct guiltyCrown2ViewNormal: View {
                 Text("モード")
             }
             
+            // スイカからのボーナス当選
+            Section {
+                // //// スイカ種類の選択
+                Picker("", selection: self.$selectedSegmentSuika) {
+                    ForEach(self.segmentListSuika, id: \.self) { suika in
+                        Text(suika)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                // //// カウントボタン
+                // 弱スイカ
+                if self.selectedSegmentSuika == self.segmentListSuika[0] {
+                    HStack {
+                        // 弱スイカカウント
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "弱🍉",
+                            count: $guiltyCrown2.suikaBonusCountJaku,
+                            color: .personalSummerLightGreen,
+                            minusBool: $guiltyCrown2.minusCheck
+                        )
+                        // 弱スイカボーナス
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "ボーナス当選",
+                            count: $guiltyCrown2.suikaBonusCountJakuBonus,
+                            color: .personalSummerLightRed,
+                            minusBool: $guiltyCrown2.minusCheck
+                        )
+                    }
+                }
+                // 強スイカ
+                else {
+                    HStack {
+                        // 強スイカカウント
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "強🍉",
+                            count: $guiltyCrown2.suikaBonusCountKyo,
+                            color: .green,
+                            minusBool: $guiltyCrown2.minusCheck
+                        )
+                        // 強スイカボーナス
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "ボーナス当選",
+                            count: $guiltyCrown2.suikaBonusCountKyoBonus,
+                            color: .red,
+                            minusBool: $guiltyCrown2.minusCheck
+                        )
+                    }
+                }
+                
+                // //// 当選率結果
+                HStack {
+                    // 弱スイカ
+                    unitResultRatioPercent2Line(
+                        title: "弱🍉当選率",
+                        count: $guiltyCrown2.suikaBonusCountJakuBonus,
+                        bigNumber: $guiltyCrown2.suikaBonusCountJaku,
+                        numberofDicimal: 1,
+                    )
+                    // 強スイカ
+                    unitResultRatioPercent2Line(
+                        title: "強🍉当選率",
+                        count: $guiltyCrown2.suikaBonusCountKyoBonus,
+                        bigNumber: $guiltyCrown2.suikaBonusCountKyo,
+                        numberofDicimal: 0,
+                    )
+                }
+                
+                // //// 参考情報）スイカ契機の当選率
+                unitLinkButton(
+                    title: "スイカ契機のボーナス当選について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "スイカ契機のボーナス当選",
+                            tableView: AnyView(guiltyCrown2TableSuikaBonus(guiltyCrown2: guiltyCrown2)),
+                        )
+                    )
+                )
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        guiltyCrown2View95Ci(
+                            guiltyCrown2: guiltyCrown2,
+                            selection: 1
+                        )
+                    )
+                )
+            } header: {
+                Text("スイカ契機のボーナス当選")
+                    .popoverTip(tipVer350GuiltyCrownSuikaBonus())
+            }
+//            .popoverTip(tipVer350GuiltyCrownSuikaBonus())
+            
             // //// ボイス示唆
             Section {
                 Text("・レゾナンスナビで「NEXT」→「CHANCE」時、ボタンPUSHで発生するボイスでVCモードを示唆\n・滞在ステージで示唆が変化するためステージも合わせて選択して下さい")
@@ -222,6 +320,8 @@ struct guiltyCrown2ViewNormal: View {
                 Text("ボイスでのVCモード示唆")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver350.guiltyCrown2MenuNormalBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -232,6 +332,17 @@ struct guiltyCrown2ViewNormal: View {
         }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                HStack {
+                    // マイナスチェック
+                    unitButtonMinusCheck(minusCheck: $guiltyCrown2.minusCheck)
+                    // リセットボタン
+                    unitButtonReset(isShowAlert: $isShowAlert, action: guiltyCrown2.resetNormal)
+//                        .popoverTip(tipUnitButtonReset())
+                }
+            }
+        }
     }
     
     func selectedSisaList(stage: String) -> [String] {
@@ -246,6 +357,7 @@ struct guiltyCrown2ViewNormal: View {
 
 #Preview {
     guiltyCrown2ViewNormal(
+        ver350: Ver350(),
         guiltyCrown2: GuiltyCrown2()
     )
 }

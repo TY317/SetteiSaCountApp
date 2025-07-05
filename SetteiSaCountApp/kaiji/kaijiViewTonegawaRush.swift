@@ -68,6 +68,9 @@ struct kaijiViewTonegawaRush: View {
                 }
                 .frame(height: 120)
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

@@ -60,7 +60,16 @@ struct goevaNormalSuika: View {
                 
                 // //// メニュー画面
                 Section {
-                    unitLinkButton(title: "メニュー画面示唆", exview: AnyView(unitExView5body2image(title: "メニュー画面示唆", image1: Image("goevaMenuScreen"))))
+                    unitLinkButton(
+                        title: "メニュー画面示唆",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "メニュー画面示唆",
+//                                image1: Image("goevaMenuScreen")
+                                tableView: AnyView(goevaTableMenuScreen())
+                            )
+                        )
+                    )
                 } header: {
                     Text("メニュー画面")
                 }
@@ -136,7 +145,12 @@ struct goevaNormalSuika: View {
 // /////////////////////////////
 struct goevaExViewNormalSuika: View {
     var body: some View {
-        unitExView5body2image(title: "スイカからのCZ アスカvsレイ", textBody1: "・スイカからのCZ アスカvsレイの当選率に設定差あり", image1: Image("goevaNormalSuika"))
+        unitExView5body2image(
+            title: "スイカからのCZ アスカvsレイ",
+            textBody1: "・スイカからのCZ アスカvsレイの当選率に設定差あり",
+//            image1: Image("goevaNormalSuika")
+            tableView: AnyView(goevaTableSuikaCz())
+        )
     }
 }
 
@@ -146,7 +160,14 @@ struct goevaExViewNormalSuika: View {
 // /////////////////////////
 struct goevaExViewHenni: View {
     var body: some View {
-        unitExView5body2image(title: "変異の内訳", textBody1: "・変異の内訳に設定差があるという噂あり", textBody2: "・高設定ほど上位の変異が出やすいという噂", textBody3: "→設定1の数値を下回らないのがいい台かも", image1: Image("goevaNormalHenni"))
+        unitExView5body2image(
+            title: "変異の内訳",
+            textBody1: "・変異の内訳に設定差があるという噂あり",
+            textBody2: "・高設定ほど上位の変異が出やすいという噂",
+            textBody3: "→設定1の数値を下回らないのがいい台かも",
+//            image1: Image("goevaNormalHenni"))
+            tableView: AnyView(goevaTableHenni())
+        )
     }
 }
 

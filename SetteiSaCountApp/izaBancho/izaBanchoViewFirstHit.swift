@@ -304,7 +304,14 @@ struct izaBanchoViewFirstHit: View {
                     )
                 )
                 // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(izaBanchoView95Ci(izaBancho: izaBancho, selection: 1)))
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        izaBanchoView95Ci(
+                            izaBancho: izaBancho,
+                            selection: 1
+                        )
+                    )
+                )
             } header: {
                 Text("初当り確率集計")
             }

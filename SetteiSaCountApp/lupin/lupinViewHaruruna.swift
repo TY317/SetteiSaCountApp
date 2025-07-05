@@ -12,6 +12,9 @@ struct lupinViewHaruruna: View {
         List {
             Text("ハルルナPUSH演出が発生すれば、どのタイミングであっても成功濃厚、かつ設定4 以上濃厚")
                 .foregroundStyle(Color.secondary)
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

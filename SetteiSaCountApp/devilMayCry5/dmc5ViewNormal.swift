@@ -57,6 +57,9 @@ struct dmc5ViewNormal: View {
             } header: {
                 Text("モード")
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

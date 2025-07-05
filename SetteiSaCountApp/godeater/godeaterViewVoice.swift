@@ -152,7 +152,18 @@ struct godeaterViewVoice: View {
                     // シオ
                     unitResultCountListPercent(title: "設定5以上", count: $godeater.voiceShioCount, flashColor: .red, bigNumber: $godeater.voiceCountSum)
                     // 参考情報
-                    unitLinkButton(title: "ストーリーパート後のボイスについて", exview: AnyView(unitExView5body2image(title: "ストーリーパート後のボイス", textBody1: "・ストーリーパート終了画面でサブ液晶にタッチで確認", textBody2: "・高設定は、3回に1回はデフォルト以外になるくらいの感じらしい(噂)", image1: Image("godeaterVoice"))))
+                    unitLinkButton(
+                        title: "ストーリーパート後のボイスについて",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "ストーリーパート後のボイス",
+                                textBody1: "・ストーリーパート終了画面でサブ液晶にタッチで確認",
+                                textBody2: "・高設定は、3回に1回はデフォルト以外になるくらいの感じらしい(噂)",
+//                                image1: Image("godeaterVoice")
+                                tableView: AnyView(godeaterTableVoice(godeater: godeater))
+                            )
+                        )
+                    )
                 } header: {
                     Text("カウント結果")
                 }

@@ -30,6 +30,9 @@ struct shamanKingViewKokkuri: View {
 //            Image("shamanKingTamao")
 //                .resizable()
 //                .scaledToFit()
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

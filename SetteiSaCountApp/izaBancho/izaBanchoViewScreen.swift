@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewScreen: View {
+    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -25,14 +26,14 @@ struct izaBanchoViewScreen: View {
     var body: some View {
         List {
             Section {
-                VStack {
-                    Text("・右にいくほど強い示唆と予想")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("・小太郎 大泣きは試打動画では結構な頻度で出現。番長4のハンバーグのような示唆と予想")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .foregroundStyle(Color.secondary)
-                .font(.caption)
+//                VStack {
+//                    Text("・右にいくほど強い示唆と予想")
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                    Text("・小太郎 大泣きは試打動画では結構な頻度で出現。番長4のハンバーグのような示唆と予想")
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                }
+//                .foregroundStyle(Color.secondary)
+//                .font(.caption)
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
                         // デフォルト
@@ -47,13 +48,13 @@ struct izaBanchoViewScreen: View {
                             count: $izaBancho.screenCountDefault,
                             minusCheck: $izaBancho.minusCheck
                         )
-                        .popoverTip(tipUnitButtonScreenChoice())
+//                        .popoverTip(tipUnitButtonScreenChoice())
                         // 小太郎大泣き
                         unitButtonScreenChoiceVer2(
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[1]),
                                 upperBeltText: "小太郎 大泣き",
-                                lowerBeltText: "???"
+                                lowerBeltText: "偶数示唆"
                             ),
                             screenName: self.imageNameList[1],
                             selectedScreen: self.$selectedImageName,
@@ -65,7 +66,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[2]),
                                 upperBeltText: "護摩行",
-                                lowerBeltText: "???"
+                                lowerBeltText: "高設定示唆"
                             ),
                             screenName: self.imageNameList[2],
                             selectedScreen: self.$selectedImageName,
@@ -77,7 +78,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[3]),
                                 upperBeltText: "刺客集合",
-                                lowerBeltText: "???"
+                                lowerBeltText: "設定2 以上濃厚"
                             ),
                             screenName: self.imageNameList[3],
                             selectedScreen: self.$selectedImageName,
@@ -89,7 +90,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[4]),
                                 upperBeltText: "小太郎",
-                                lowerBeltText: "???"
+                                lowerBeltText: "設定4 以上濃厚"
                             ),
                             screenName: self.imageNameList[4],
                             selectedScreen: self.$selectedImageName,
@@ -101,7 +102,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[5]),
                                 upperBeltText: "青龍",
-                                lowerBeltText: "???"
+                                lowerBeltText: "設定3,4,6 濃厚"
                             ),
                             screenName: self.imageNameList[5],
                             selectedScreen: self.$selectedImageName,
@@ -113,7 +114,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[6]),
                                 upperBeltText: "朱雀",
-                                lowerBeltText: "???"
+                                lowerBeltText: "設定 2,5,6 濃厚"
                             ),
                             screenName: self.imageNameList[6],
                             selectedScreen: self.$selectedImageName,
@@ -125,7 +126,7 @@ struct izaBanchoViewScreen: View {
                             screen: unitScreenOnlyDisplay(
                                 image: Image(self.imageNameList[7]),
                                 upperBeltText: "露天風呂",
-                                lowerBeltText: "???"
+                                lowerBeltText: "設定6 濃厚"
                             ),
                             screenName: self.imageNameList[7],
                             selectedScreen: self.$selectedImageName,
@@ -135,6 +136,7 @@ struct izaBanchoViewScreen: View {
                     }
                 }
                 .frame(height: 120)
+                .popoverTip(tipVer350IzaBanchoScreen())
                 
                 // //// カウント結果
                 // デフォルト
@@ -146,55 +148,57 @@ struct izaBanchoViewScreen: View {
                 )
                 // 小太郎大泣き
                 unitResultCountListPercent(
-                    title: "???(小太郎 大泣き)",
+                    title: "偶数示唆",
                     count: $izaBancho.screenCountScreen2,
                     flashColor: .yellow,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 護摩業
                 unitResultCountListPercent(
-                    title: "???(護摩行)",
+                    title: "高設定示唆",
                     count: $izaBancho.screenCountScreen3,
                     flashColor: .blue,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 刺客集合
                 unitResultCountListPercent(
-                    title: "???(刺客集合)",
+                    title: "設定2 以上濃厚\n出現率：2<3<4以上",
                     count: $izaBancho.screenCountScreen4,
                     flashColor: .green,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 小太郎
                 unitResultCountListPercent(
-                    title: "???(小太郎)",
+                    title: "設定4 以上濃厚\n出現率：4=5=6",
                     count: $izaBancho.screenCountScreen5,
                     flashColor: .red,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 青龍
                 unitResultCountListPercent(
-                    title: "???(青龍)",
+                    title: "設定3,4,6 濃厚\n出現率：3<4,6",
                     count: $izaBancho.screenCountScreen6,
                     flashColor: .purple,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 朱雀
                 unitResultCountListPercent(
-                    title: "???(朱雀)",
+                    title: "設定2,5,6 濃厚\n出現率：2<6<5",
                     count: $izaBancho.screenCountScreen7,
                     flashColor: .gray,
                     bigNumber: $izaBancho.screenCountSum
                 )
                 // 露天風呂
                 unitResultCountListPercent(
-                    title: "???(露天風呂)",
+                    title: "設定6 濃厚",
                     count: $izaBancho.screenCountScreen8,
                     flashColor: .orange,
                     bigNumber: $izaBancho.screenCountSum
                 )
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver350.izaBanchoMenuScreenBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -224,6 +228,7 @@ struct izaBanchoViewScreen: View {
 
 #Preview {
     izaBanchoViewScreen(
+        ver350: Ver350(),
         izaBancho: IzaBancho()
     )
 }

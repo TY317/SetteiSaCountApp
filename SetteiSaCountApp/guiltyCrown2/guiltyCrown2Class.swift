@@ -75,6 +75,62 @@ class GuiltyCrown2: ObservableObject {
     func resetAll() {
         resetBonusScreen()
         resetAtScreen()
+        resetNormal()
+        resetFirstHit()
+    }
+    
+    // ////////////////////
+    // ver3.5.0で追加
+    // ////////////////////
+    // //// スイカでのボーナス当選率
+    let ratioSuikaBonusJaku: [Double] = [2.0,2.0,2.0,2.7,3.4,4.2]
+    let ratioSuikaBonusKyo: [Double] = [30,30.6,31.1,32.5,34.4,36.1]
+    @AppStorage("guiltyCrown2SuikaBonusCountJaku") var suikaBonusCountJaku: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuBonus") var suikaBonusCountJakuBonus: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyo") var suikaBonusCountKyo: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoBonus") var suikaBonusCountKyoBonus: Int = 0
+    
+    func resetNormal() {
+        suikaBonusCountJaku = 0
+        suikaBonusCountJakuBonus = 0
+        suikaBonusCountKyo = 0
+        suikaBonusCountKyoBonus = 0
+        minusCheck = false
+    }
+    
+    // //// スイカ契機ボーナス詳細
+    let ratioJakuRedIshoku: [Double] = [16384,16384,16384,9362.3,6553.6,5041.2]
+    let ratioKyoRed: [Double] = [5461.3,5041.2,4681.1,4369.1,3855.0,3449.2]
+    let ratioKyoWhite: [Double] = [2730.6,2621.4,2520.6,2427.2,2259.8,2114.0]
+    let ratioKyoWhiteIshoku: [Double] = [3640.8,3640.8,3640.8,3120.7,2730.6,2427.2]
+    let ratioDetailSum: [Double] = [1129.9,1092.2,1057.0,936.2,819.2,728.1]
+    let ratioRed7: [Double] = [1213.6,1191.6,1170.3,1149.8,1110.8,1074.4]
+    let ratioWhite7: [Double] = [1213.6,1191.6,1170.3,1149.8,1110.8,1074.4]
+    let ratioRedIshoku: [Double] = [1310.7,1310.7,1310.7,1236.5,1170.3,1110.8]
+    let ratioWhiteIshoku: [Double] = [1310.7,1310.7,1310.7,1236.5,1170.3,1110.8]
+    @AppStorage("guiltyCrown2BonusDetailCountJakuRedIshoku") var bonusDetailCountJakuRedIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoRed") var bonusDetailCountKyoRed: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhite") var bonusDetailCountKyoWhite: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteIshoku") var bonusDetailCountKyoWhiteIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountSum") var bonusDetailCountSum: Int = 0
+    @AppStorage("guiltyCrown2NormalGame") var normalGame: Int = 0
+    func bonusDetailCountSumFunc() {
+        bonusDetailCountSum = countSum(
+            bonusDetailCountJakuRedIshoku,
+            bonusDetailCountKyoRed,
+            bonusDetailCountKyoWhite,
+            bonusDetailCountKyoWhiteIshoku,
+        )
+    }
+    
+    func resetFirstHit() {
+        bonusDetailCountJakuRedIshoku = 0
+        bonusDetailCountKyoRed = 0
+        bonusDetailCountKyoWhite = 0
+        bonusDetailCountKyoWhiteIshoku = 0
+        bonusDetailCountSum = 0
+        normalGame = 0
+        minusCheck = false
     }
 }
 
@@ -90,6 +146,20 @@ class GuiltyCrown2Memory1: ObservableObject {
     @AppStorage("guiltyCrown2AtScreenCountSumMemory1") var atScreenCountSum: Int = 0
     @AppStorage("guiltyCrown2MemoMemory1") var memo = ""
     @AppStorage("guiltyCrown2DateMemory1") var dateDouble = 0.0
+    
+    // ////////////////////
+    // ver3.5.0で追加
+    // ////////////////////
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuMemory1") var suikaBonusCountJaku: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuBonusMemory1") var suikaBonusCountJakuBonus: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoMemory1") var suikaBonusCountKyo: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoBonusMemory1") var suikaBonusCountKyoBonus: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountJakuRedIshokuMemory1") var bonusDetailCountJakuRedIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoRedMemory1") var bonusDetailCountKyoRed: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteMemory1") var bonusDetailCountKyoWhite: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteIshokuMemory1") var bonusDetailCountKyoWhiteIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountSumMemory1") var bonusDetailCountSum: Int = 0
+    @AppStorage("guiltyCrown2NormalGameMemory1") var normalGame: Int = 0
 }
 
 
@@ -105,6 +175,20 @@ class GuiltyCrown2Memory2: ObservableObject {
     @AppStorage("guiltyCrown2AtScreenCountSumMemory2") var atScreenCountSum: Int = 0
     @AppStorage("guiltyCrown2MemoMemory2") var memo = ""
     @AppStorage("guiltyCrown2DateMemory2") var dateDouble = 0.0
+    
+    // ////////////////////
+    // ver3.5.0で追加
+    // ////////////////////
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuMemory2") var suikaBonusCountJaku: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuBonusMemory2") var suikaBonusCountJakuBonus: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoMemory2") var suikaBonusCountKyo: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoBonusMemory2") var suikaBonusCountKyoBonus: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountJakuRedIshokuMemory2") var bonusDetailCountJakuRedIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoRedMemory2") var bonusDetailCountKyoRed: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteMemory2") var bonusDetailCountKyoWhite: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteIshokuMemory2") var bonusDetailCountKyoWhiteIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountSumMemory2") var bonusDetailCountSum: Int = 0
+    @AppStorage("guiltyCrown2NormalGameMemory2") var normalGame: Int = 0
 }
 
 
@@ -120,4 +204,18 @@ class GuiltyCrown2Memory3: ObservableObject {
     @AppStorage("guiltyCrown2AtScreenCountSumMemory3") var atScreenCountSum: Int = 0
     @AppStorage("guiltyCrown2MemoMemory3") var memo = ""
     @AppStorage("guiltyCrown2DateMemory3") var dateDouble = 0.0
+    
+    // ////////////////////
+    // ver3.5.0で追加
+    // ////////////////////
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuMemory3") var suikaBonusCountJaku: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountJakuBonusMemory3") var suikaBonusCountJakuBonus: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoMemory3") var suikaBonusCountKyo: Int = 0
+    @AppStorage("guiltyCrown2SuikaBonusCountKyoBonusMemory3") var suikaBonusCountKyoBonus: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountJakuRedIshokuMemory3") var bonusDetailCountJakuRedIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoRedMemory3") var bonusDetailCountKyoRed: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteMemory3") var bonusDetailCountKyoWhite: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountKyoWhiteIshokuMemory3") var bonusDetailCountKyoWhiteIshoku: Int = 0
+    @AppStorage("guiltyCrown2BonusDetailCountSumMemory3") var bonusDetailCountSum: Int = 0
+    @AppStorage("guiltyCrown2NormalGameMemory3") var normalGame: Int = 0
 }

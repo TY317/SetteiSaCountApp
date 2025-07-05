@@ -65,9 +65,29 @@ struct kaguyaViewScreen: View {
                 // 設定6
                 unitResultCountListPercent(title: "設定6 濃厚", count: $kaguya.screenCountGoldWedding, flashColor: .orange, bigNumber: $kaguya.screenCountSum)
                 // //// 参考情報リンク
-                unitLinkButton(title: "ボーナス終了画面について", exview: AnyView(unitExView5body2image(title: "ボーナス終了画面", image1: Image("kaguyaScreenRatio"))))
+                unitLinkButton(
+                    title: "ボーナス終了画面について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ボーナス終了画面",
+//                            image1: Image("kaguyaScreenRatio")
+                            tableView: AnyView(kaguyaTableScreen())
+                        )
+                    )
+                )
                 // //// 参考情報リンク　アイキャッチ
-                unitLinkButton(title: "ボーナス終了直後のアイキャッチ", exview: AnyView(unitExView5body2image(title: "ボーナス終了直後アイキャッチ", textBody1: "・ボーナス終了直後のアイキャッチでは引戻し期待度を示唆", textBody2: "・通常時のステージチェンジなどで出るアイキャッチとは示唆が異なるので注意", image1: Image("kaguyaScreenEyecatch"))))
+                unitLinkButton(
+                    title: "ボーナス終了直後のアイキャッチ",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "ボーナス終了直後アイキャッチ",
+                            textBody1: "・ボーナス終了直後のアイキャッチでは引戻し期待度を示唆",
+                            textBody2: "・通常時のステージチェンジなどで出るアイキャッチとは示唆が異なるので注意",
+//                            image1: Image("kaguyaScreenEyecatch")
+                            tableView: AnyView(kaguyaTableEyeCatch())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(kaguya: kaguya, selection: 2)))
 //                    .popoverTip(tipUnitButtonLink95Ci())

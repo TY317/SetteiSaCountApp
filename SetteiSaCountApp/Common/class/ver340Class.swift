@@ -24,17 +24,17 @@ class Ver340: ObservableObject {
 // //////////////////
 // Tip：機種追加
 // //////////////////
-struct tipVer340MachineAdd: Tip {
-    var title: Text {
-        Text("機種追加！")
-    }
-    var message: Text? {
-        Text("・ギルティクラウン2")
-    }
-    var image: Image? {
-        Image(systemName: "star")
-    }
-}
+//struct tipVer340MachineAdd: Tip {
+//    var title: Text {
+//        Text("機種追加！")
+//    }
+//    var message: Text? {
+//        Text("・ギルティクラウン2")
+//    }
+//    var image: Image? {
+//        Image(systemName: "star")
+//    }
+//}
 
 
 // //////////////////

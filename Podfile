@@ -8,6 +8,7 @@ target 'SetteiSaCountApp' do
   # Pods for SetteiSaCountApp
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'     # 250518_add
+  pod 'Firebase/Crashlytics'   # 250621_add
 
   target 'SetteiSaCountAppTests' do
     inherit! :search_paths

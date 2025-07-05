@@ -24,6 +24,9 @@ struct idolMasterViewVoice: View {
                     .font(.title2)
                     .fontWeight(.bold)
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

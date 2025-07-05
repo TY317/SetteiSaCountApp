@@ -15,7 +15,6 @@ class IzaBancho: ObservableObject {
     let ratioCommonBellA: [Double] = [74.9,-1,-1,-1,-1,-1]
     
     
-    
     // /////////////////
     // 初当り
     // /////////////////
@@ -91,6 +90,7 @@ class IzaBancho: ObservableObject {
     func resetAll() {
         resetScreen()
         resetHistory()
+        resetCz()
     }
     
     // //////////////////
@@ -156,6 +156,40 @@ class IzaBancho: ObservableObject {
     
     // //// 弱チェリー確率
     let ratioJakuCherry: [Double] = [79.9,-1,-1,-1,-1,-1]
+    
+    // /////////////
+    // ver3.5.0で追加
+    // /////////////
+    let ratioCzEffectBlue: [Double] = [1.0,-1,-1,-1,-1,3.0]
+    let ratioCzEffectYellow: [Double] = [10,-1,-1,-1,-1,15]
+    @AppStorage("izaBanchoCzResultCountBlueMiss") var czResultCountBlueMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueHit") var czResultCountBlueHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueSum") var czResultCountBlueSum: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowMiss") var czResultCountYellowMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowHit") var czResultCountYellowHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowSum") var czResultCountYellowSum: Int = 0
+    
+    func czResultCountSumFunc() {
+        czResultCountBlueSum = countSum(
+            czResultCountBlueMiss,
+            czResultCountBlueHit,
+        )
+        
+        czResultCountYellowSum = countSum(
+            czResultCountYellowMiss,
+            czResultCountYellowHit,
+        )
+    }
+    
+    func resetCz() {
+        czResultCountBlueMiss = 0
+        czResultCountBlueHit = 0
+        czResultCountBlueSum = 0
+        czResultCountYellowMiss = 0
+        czResultCountYellowHit = 0
+        czResultCountYellowSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -179,6 +213,16 @@ class IzaBanchoMemory1: ObservableObject {
     @AppStorage("izaBanchoFirstHitCountMemory1") var firstHitCount: Int = 0
     @AppStorage("izaBanchoMemoMemory1") var memo = ""
     @AppStorage("izaBanchoDateMemory1") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.5.0で追加
+    // /////////////
+    @AppStorage("izaBanchoCzResultCountBlueMissMemory1") var czResultCountBlueMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueHitMemory1") var czResultCountBlueHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueSumMemory1") var czResultCountBlueSum: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowMissMemory1") var czResultCountYellowMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowHitMemory1") var czResultCountYellowHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowSumMemory1") var czResultCountYellowSum: Int = 0
 }
 
 
@@ -202,6 +246,16 @@ class IzaBanchoMemory2: ObservableObject {
     @AppStorage("izaBanchoFirstHitCountMemory2") var firstHitCount: Int = 0
     @AppStorage("izaBanchoMemoMemory2") var memo = ""
     @AppStorage("izaBanchoDateMemory2") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.5.0で追加
+    // /////////////
+    @AppStorage("izaBanchoCzResultCountBlueMissMemory2") var czResultCountBlueMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueHitMemory2") var czResultCountBlueHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueSumMemory2") var czResultCountBlueSum: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowMissMemory2") var czResultCountYellowMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowHitMemory2") var czResultCountYellowHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowSumMemory2") var czResultCountYellowSum: Int = 0
 }
 
 
@@ -225,4 +279,14 @@ class IzaBanchoMemory3: ObservableObject {
     @AppStorage("izaBanchoFirstHitCountMemory3") var firstHitCount: Int = 0
     @AppStorage("izaBanchoMemoMemory3") var memo = ""
     @AppStorage("izaBanchoDateMemory3") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.5.0で追加
+    // /////////////
+    @AppStorage("izaBanchoCzResultCountBlueMissMemory3") var czResultCountBlueMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueHitMemory3") var czResultCountBlueHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountBlueSumMemory3") var czResultCountBlueSum: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowMissMemory3") var czResultCountYellowMiss: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowHitMemory3") var czResultCountYellowHit: Int = 0
+    @AppStorage("izaBanchoCzResultCountYellowSumMemory3") var czResultCountYellowSum: Int = 0
 }

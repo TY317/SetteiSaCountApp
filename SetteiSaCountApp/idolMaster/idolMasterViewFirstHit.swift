@@ -29,6 +29,9 @@ struct idolMasterViewFirstHit: View {
             } header: {
                 Text("初当り")
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

@@ -22,6 +22,9 @@ struct gundamSeedViewNormal: View {
                     )
                 )
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

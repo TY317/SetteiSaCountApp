@@ -57,6 +57,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteIzaBancho") var isSelectedFavoriteIzaBancho = true
     @AppStorage("isSelectedFavoriteDmc5") var isSelectedFavoriteDmc5 = true
     @AppStorage("isSelectedFavoriteGuiltyCrown2") var isSelectedFavoriteGuiltyCrown2 = true
+    @AppStorage("isSelectedFavoriteEvaYakusoku") var isSelectedFavoriteEvaYakusoku = true
+    @AppStorage("isSelectedFavoriteWatakon") var isSelectedFavoriteWatakon = true
 }
 
 
@@ -98,12 +100,10 @@ class commonVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
-    @StateObject var ver330 = Ver330()
     @StateObject var ver320 = Ver320()
     @StateObject var ver340 = Ver340()
-//    @StateObject private var bio = Bio()
+    @StateObject var ver350 = Ver350()
     @ObservedObject var favoriteSet = favoriteSetVar()
-//    @ObservedObject var common = commonVar()
     @ObservedObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
@@ -116,7 +116,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer340MachineAdd())
+                TipView(tipVer350MachineAdd())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -152,17 +152,47 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// エヴァ約束の扉、25年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEvaYakusoku == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(evaYakusokuViewTop(
+                                            ver350: ver350
+                                        )),
+                                        iconImage: Image("evaYakusokuMachineIcon"),
+                                        machineName: "ヱヴァ約束",
+                                        badgeStatus: ver350.evaYakusokuMachineIconBadgeStaus,
+                                        btBadgeBool: true,
+                                    )
+                                }
+                                
+                                // //// 私の幸せな結婚、25年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteWatakon == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(watakonViewTop(
+                                            ver350: ver350
+                                        )),
+                                        iconImage: Image("watakonMachineIcon"),
+                                        machineName: "わた婚",
+                                        badgeStatus: ver350.watakonMachineIconBadgeStaus,
+                                    )
+                                }
+                                
                                 // //// ギルティクラウン、25年6月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGuiltyCrown2 == false {
                                     
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-                                            ver340: ver340
+                                            ver340: ver340,
+                                            ver350: ver350,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルクラ2",
-                                        badgeStatus: ver340.guiltyCrown2MachineIconBadgeStaus
+                                        badgeStatus: ver350.guiltyCrown2MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -173,11 +203,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
                                             ver340: ver340,
-                                            ver330: ver330,
+                                            ver350: ver350,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-                                        badgeStatus: ver340.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver350.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -187,12 +217,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330,
+                                            ver350: ver350,
                                             ver340: ver340,
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
-                                        badgeStatus: ver340.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -245,11 +275,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(idolMasterViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイマス",
-                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer300MachineAdd())
                                 }
@@ -316,11 +346,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(rslViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
-                                        badgeStatus: ver330.rslMachineIconBadgeStaus
+//                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                        .popoverTip(tipVer260MachineAdd())
                                 }
@@ -603,20 +633,56 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// エヴァ約束、25年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEvaYakusoku == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(evaYakusokuViewTop(
+                                            ver350: ver350
+                                        )),
+                                        iconImage: Image("evaYakusokuMachineIcon"),
+                                        machineName: "ヱヴァンゲリヲン〜約束の扉〜",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2025,
+                                        releaseMonth: 7,
+                                        badgeStatus: ver350.evaYakusokuMachineIconBadgeStaus,
+                                        btBadgeBool: true,
+                                    )
+                                }
+                                
+                                // //// 私の幸せな結婚、25年7月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteWatakon == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(watakonViewTop(
+                                            ver350: ver350
+                                        )),
+                                        iconImage: Image("watakonMachineIcon"),
+                                        machineName: "わたしの幸せな結婚",
+                                        makerName: "コナミ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 7,
+                                        badgeStatus: ver350.watakonMachineIconBadgeStaus,
+                                    )
+                                }
+                                
                                 // //// ギルティクラウン、25年6月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGuiltyCrown2 == false {
                                     
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-                                            ver340: ver340
+                                            ver340: ver340,
+                                            ver350: ver350,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルティクラウン2",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver340.guiltyCrown2MachineIconBadgeStaus
+                                        badgeStatus: ver350.guiltyCrown2MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -627,14 +693,14 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
                                             ver340: ver340,
-                                            ver330: ver330,
+                                            ver350: ver350,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver340.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver350.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -644,7 +710,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(izaBanchoViewTop(
-                                            ver330: ver330,
+                                            ver350: ver350,
                                             ver340: ver340
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
@@ -652,7 +718,7 @@ struct ContentView: View {
                                         makerName: "大都技研",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver340.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -715,14 +781,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(idolMasterViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイドルマスター",
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -801,14 +867,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(rslViewTop(
-                                            ver330: ver330
+//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
                                         makerName: "オーイズミ",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver330.rslMachineIconBadgeStaus
+//                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
 //                                    .popoverTip(tipVer260MachineAdd())
                                 }
@@ -1350,6 +1416,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // //// エヴァ約束の扉
+                Toggle("ヱヴァンゲリヲン〜約束の扉〜", isOn: $favoriteSet.isSelectedFavoriteEvaYakusoku)
+                // //// 私の幸せな結婚
+                Toggle("わたしの幸せな結婚", isOn: $favoriteSet.isSelectedFavoriteWatakon)
                 // //// ギルティクラウン2
                 Toggle("ギルティクラウン2", isOn: $favoriteSet.isSelectedFavoriteGuiltyCrown2)
                 // //// デビルメイクライ５
@@ -1526,7 +1596,8 @@ struct favoriteSettingView: View {
 
 
 // [START create_banner_view]
-private struct BannerView: UIViewRepresentable {
+//private struct BannerView: UIViewRepresentable {
+struct BannerView: UIViewRepresentable {
     let adSize: GADAdSize
     
     init(_ adSize: GADAdSize) {
@@ -1557,8 +1628,8 @@ private struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

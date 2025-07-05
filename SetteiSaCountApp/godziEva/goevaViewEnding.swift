@@ -12,9 +12,11 @@ struct goevaViewEnding: View {
 //        NavigationView {
             List {
                 Text("レア役時のボイスで設定を示唆")
-                Image("goevaEnding")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                goevaTableEndingVoice()
+                    .frame(maxWidth: .infinity, alignment: .center)
+//                Image("goevaEnding")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
             }
         // //// firebaseログ
         .onAppear {

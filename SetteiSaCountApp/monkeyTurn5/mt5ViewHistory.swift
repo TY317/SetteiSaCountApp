@@ -118,7 +118,9 @@ struct mt5ViewHistory: View {
                 }
                 
                 // 参考情報へのリンク
-                unitLinkButton(title: "周期、モードについて", exview: AnyView(mt5ExViewMode()))
+                unitLinkButton(
+                    title: "周期、モードについて",
+                    exview: AnyView(mt5ExViewMode()))
             } header: {
                 unitHeaderHistoryColumns(column2: "周期", column3: "Pt", column4: "当選契機", column5: "結果")
             }
@@ -272,7 +274,17 @@ struct mt5HistoryDataInputView: View {
 // //////////////////////////
 struct mt5ExViewMode: View {
     var body: some View {
-        unitExView5body2image(title: "周期・モードについて", textBody1: "・高設定は3周期以上ハマりにくい。低設定は5,6周期に簡単にいく", textBody2: "・高設定ほど222ptが選ばれやすい。666ptが選ばれるとマイナスポイント", textBody3: "・弱レア役での直撃は設定4以上確定。直撃時は大体バイブなど、かなり強い演出が伴う", textBody4: "・モードB以上の示唆は300Gくらい回せば結構出る。出なければAの可能性高い", textBody5: "・通常のモードはA・B・天国の３種類", image1: Image("mt5Mode"), image2: Image("mt5ModeEnshutu"))
+        unitExView5body2image(
+            title: "周期・モードについて",
+            textBody1: "・高設定は3周期以上ハマりにくい。低設定は5,6周期に簡単にいく",
+            textBody2: "・高設定ほど222ptが選ばれやすい。666ptが選ばれるとマイナスポイント",
+            textBody3: "・弱レア役での直撃は設定4以上確定。直撃時は大体バイブなど、かなり強い演出が伴う",
+            textBody4: "・モードB以上の示唆は300Gくらい回せば結構出る。出なければAの可能性高い",
+            textBody5: "・通常のモードはA・B・天国の３種類",
+//            image1: Image("mt5Mode"),
+//            image2: Image("mt5ModeEnshutu")
+            tableView: AnyView(mt5TableMode())
+        )
     }
 }
 

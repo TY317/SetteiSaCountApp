@@ -25,6 +25,9 @@ struct bioViewNormal: View {
                     )
                 )
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

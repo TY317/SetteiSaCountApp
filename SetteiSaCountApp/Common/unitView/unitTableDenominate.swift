@@ -35,6 +35,7 @@ struct unitTableDenominate: View {
                     .background(Color.columnTitle)
 //                    .font(.title3)
                     .font(self.titleFont)
+                    .minimumScaleFactor(0.7)
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭
                             .stroke(Color.black, lineWidth: 1) // 黒色の線を追加
@@ -61,14 +62,17 @@ struct unitTableDenominate: View {
                                 Text("約")
                                     .foregroundStyle(Color.black)
                                     .font(self.unitFont)
+                                    .minimumScaleFactor(0.7)
                             }
                             Text("1/")
                                 .foregroundStyle(Color.black)
                                 .font(self.unitFont)
+                                .minimumScaleFactor(0.7)
                             Text("\(String(format: "%.\(self.numberofDicimal)f", self.denominateList[index]))")
                                 .fontWeight(.bold)
 //                                .font(.title3)
                                 .font(self.contentFont)
+                                .minimumScaleFactor(0.7)
                                 .foregroundStyle(Color.black)
                         }
                         // 0より小さい場合は？

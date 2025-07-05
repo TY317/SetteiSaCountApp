@@ -26,7 +26,7 @@ struct dmc5TipHistoryInput: Tip {
 
 
 struct dmc5ViewFristHit: View {
-    @ObservedObject var ver340: Ver340
+    @ObservedObject var ver350: Ver350
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -227,6 +227,19 @@ struct dmc5ViewFristHit: View {
                         )
                     )
                 )
+                // 謎ダンテCZについて
+                unitLinkButton(
+                    title: "謎ダンテCZについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "謎ダンテCZ",
+                            textBody1: "・CZ周期の到達やチャンス目の成立に関係なく急にダンテCZが出現することがある＝謎ダンテ",
+                            textBody2: "・CZ周期到達前にダンテCZの煽りが発生し、ダンテCZ当選したら謎ダンテの期待度アップ",
+                            tableView: AnyView(dmc5TableNazoDante())
+                        )
+                    )
+                )
+                .popoverTip(tipVer350Dmc5NazoCz())
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "液晶G数",
@@ -360,7 +373,7 @@ struct dmc5ViewFristHit: View {
 //            }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.dmc5MenuFirstHitBadgeStaus)
+        .resetBadgeOnAppear($ver350.dmc5MenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -392,7 +405,7 @@ struct dmc5ViewFristHit: View {
                     unitButtonMinusCheck(minusCheck: $dmc5.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: dmc5.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -401,7 +414,7 @@ struct dmc5ViewFristHit: View {
 
 #Preview {
     dmc5ViewFristHit(
-        ver340: Ver340(),
+        ver350: Ver350(),
         dmc5: Dmc5(),
     )
 }

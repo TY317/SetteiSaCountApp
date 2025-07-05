@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewTop: View {
-    @ObservedObject var ver330: Ver330
+    @ObservedObject var ver350: Ver350
     @ObservedObject var ver340: Ver340
     @StateObject var izaBancho = IzaBancho()
     @State var isShowAlert: Bool = false
@@ -31,13 +31,24 @@ struct izaBanchoViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: izaBanchoViewNormal(
-                        ver340: ver340,
+                        ver350: ver350,
                         izaBancho: izaBancho,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver340.izaBanchoMenuNormalBadgeStaus,
+                            badgeStatus: ver350.izaBanchoMenuNormalBadgeStaus,
+                        )
+                    }
+                    // CZ
+                    NavigationLink(destination: izaBanchoViewCz(
+                        ver350: ver350,
+                        izaBancho: izaBancho,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.fencing",
+                            textBody: "刺客ゾーン",
+                            badgeStatus: ver350.izaBanchoMenuCzBadgeStaus,
                         )
                     }
                     // 初当り
@@ -62,11 +73,13 @@ struct izaBanchoViewTop: View {
                     }
                     // AT終了画面
                     NavigationLink(destination: izaBanchoViewScreen(
+                        ver350: ver350,
                         izaBancho: izaBancho
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面"
+                            textBody: "AT終了画面",
+                            badgeStatus: ver350.izaBanchoMenuScreenBadgeStaus,
                         )
                     }
                 }
@@ -74,7 +87,7 @@ struct izaBanchoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: izaBanchoView95Ci(
                     izaBancho: izaBancho,
-                    selection: 1
+                    selection: 2,
                 )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
@@ -84,7 +97,7 @@ struct izaBanchoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.izaBanchoMachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver350.izaBanchoMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -165,6 +178,16 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory1.atCount = izaBancho.atCount
         izaBanchoMemory1.bonusCount = izaBancho.bonusCount
         izaBanchoMemory1.firstHitCount = izaBancho.firstHitCount
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBanchoMemory1.czResultCountBlueMiss = izaBancho.czResultCountBlueMiss
+        izaBanchoMemory1.czResultCountBlueHit = izaBancho.czResultCountBlueHit
+        izaBanchoMemory1.czResultCountBlueSum = izaBancho.czResultCountBlueSum
+        izaBanchoMemory1.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
+        izaBanchoMemory1.czResultCountYellowHit = izaBancho.czResultCountYellowHit
+        izaBanchoMemory1.czResultCountYellowSum = izaBancho.czResultCountYellowSum
     }
     func saveMemory2() {
         izaBanchoMemory2.screenCountDefault = izaBancho.screenCountDefault
@@ -183,6 +206,16 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory2.atCount = izaBancho.atCount
         izaBanchoMemory2.bonusCount = izaBancho.bonusCount
         izaBanchoMemory2.firstHitCount = izaBancho.firstHitCount
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBanchoMemory2.czResultCountBlueMiss = izaBancho.czResultCountBlueMiss
+        izaBanchoMemory2.czResultCountBlueHit = izaBancho.czResultCountBlueHit
+        izaBanchoMemory2.czResultCountBlueSum = izaBancho.czResultCountBlueSum
+        izaBanchoMemory2.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
+        izaBanchoMemory2.czResultCountYellowHit = izaBancho.czResultCountYellowHit
+        izaBanchoMemory2.czResultCountYellowSum = izaBancho.czResultCountYellowSum
     }
     func saveMemory3() {
         izaBanchoMemory3.screenCountDefault = izaBancho.screenCountDefault
@@ -201,6 +234,16 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory3.atCount = izaBancho.atCount
         izaBanchoMemory3.bonusCount = izaBancho.bonusCount
         izaBanchoMemory3.firstHitCount = izaBancho.firstHitCount
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBanchoMemory3.czResultCountBlueMiss = izaBancho.czResultCountBlueMiss
+        izaBanchoMemory3.czResultCountBlueHit = izaBancho.czResultCountBlueHit
+        izaBanchoMemory3.czResultCountBlueSum = izaBancho.czResultCountBlueSum
+        izaBanchoMemory3.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
+        izaBanchoMemory3.czResultCountYellowHit = izaBancho.czResultCountYellowHit
+        izaBanchoMemory3.czResultCountYellowSum = izaBancho.czResultCountYellowSum
     }
 }
 
@@ -251,6 +294,16 @@ struct izaBanchoSubViewLoadMemory: View {
         saveArray(memoryBonusKindArrayData, forKey: izaBancho.bonusKindArrayKey)
         let memoryTriggerArrayData = decodeStringArray(from: izaBanchoMemory1.triggerArrayData)
         saveArray(memoryTriggerArrayData, forKey: izaBancho.triggerArrayKey)
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBancho.czResultCountBlueMiss = izaBanchoMemory1.czResultCountBlueMiss
+        izaBancho.czResultCountBlueHit = izaBanchoMemory1.czResultCountBlueHit
+        izaBancho.czResultCountBlueSum = izaBanchoMemory1.czResultCountBlueSum
+        izaBancho.czResultCountYellowMiss = izaBanchoMemory1.czResultCountYellowMiss
+        izaBancho.czResultCountYellowHit = izaBanchoMemory1.czResultCountYellowHit
+        izaBancho.czResultCountYellowSum = izaBanchoMemory1.czResultCountYellowSum
     }
     func loadMemory2() {
         izaBancho.screenCountDefault = izaBanchoMemory2.screenCountDefault
@@ -272,6 +325,16 @@ struct izaBanchoSubViewLoadMemory: View {
         saveArray(memoryBonusKindArrayData, forKey: izaBancho.bonusKindArrayKey)
         let memoryTriggerArrayData = decodeStringArray(from: izaBanchoMemory2.triggerArrayData)
         saveArray(memoryTriggerArrayData, forKey: izaBancho.triggerArrayKey)
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBancho.czResultCountBlueMiss = izaBanchoMemory2.czResultCountBlueMiss
+        izaBancho.czResultCountBlueHit = izaBanchoMemory2.czResultCountBlueHit
+        izaBancho.czResultCountBlueSum = izaBanchoMemory2.czResultCountBlueSum
+        izaBancho.czResultCountYellowMiss = izaBanchoMemory2.czResultCountYellowMiss
+        izaBancho.czResultCountYellowHit = izaBanchoMemory2.czResultCountYellowHit
+        izaBancho.czResultCountYellowSum = izaBanchoMemory2.czResultCountYellowSum
     }
     func loadMemory3() {
         izaBancho.screenCountDefault = izaBanchoMemory3.screenCountDefault
@@ -293,12 +356,22 @@ struct izaBanchoSubViewLoadMemory: View {
         saveArray(memoryBonusKindArrayData, forKey: izaBancho.bonusKindArrayKey)
         let memoryTriggerArrayData = decodeStringArray(from: izaBanchoMemory3.triggerArrayData)
         saveArray(memoryTriggerArrayData, forKey: izaBancho.triggerArrayKey)
+        
+        // /////////////
+        // ver3.5.0で追加
+        // /////////////
+        izaBancho.czResultCountBlueMiss = izaBanchoMemory3.czResultCountBlueMiss
+        izaBancho.czResultCountBlueHit = izaBanchoMemory3.czResultCountBlueHit
+        izaBancho.czResultCountBlueSum = izaBanchoMemory3.czResultCountBlueSum
+        izaBancho.czResultCountYellowMiss = izaBanchoMemory3.czResultCountYellowMiss
+        izaBancho.czResultCountYellowHit = izaBanchoMemory3.czResultCountYellowHit
+        izaBancho.czResultCountYellowSum = izaBanchoMemory3.czResultCountYellowSum
     }
 }
 
 #Preview {
     izaBanchoViewTop(
-        ver330: Ver330(),
+        ver350: Ver350(),
         ver340: Ver340(),
     )
 }
