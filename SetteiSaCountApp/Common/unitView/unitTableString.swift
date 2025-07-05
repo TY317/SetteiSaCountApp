@@ -45,6 +45,7 @@ struct unitTableString: View {
                     .background(Color.columnTitle)
 //                    .font(.title3)
                     .font(self.titleFont)
+                    .minimumScaleFactor(0.7)
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭
                             .stroke(Color.black, lineWidth: 1) // 黒色の線を追加
@@ -74,6 +75,7 @@ struct unitTableString: View {
 //                        .foregroundStyle(Color.black)
                         .foregroundStyle(contentTextColor(ind: index))
                         .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.7)
                 }
                 .frame(height: lineNumber(ind: index))
                 .frame(maxWidth: self.maxWidth)

@@ -77,7 +77,12 @@ struct goevaViewAtSuika: View {
 
 struct goevaExViewAtSuika: View {
     var body: some View {
-        unitExView5body2image(title: "AT中スイカからのCZ", textBody1: "・AT中のスイカからのCZ当選とCZ成功に設定差", image1: Image("goevaAtSuika"))
+        unitExView5body2image(
+            title: "AT中スイカからのCZ",
+            textBody1: "・AT中のスイカからのCZ当選とCZ成功に設定差",
+//            image1: Image("goevaAtSuika")
+            tableView: AnyView(goevaTableAtSuika())
+        )
     }
 }
 

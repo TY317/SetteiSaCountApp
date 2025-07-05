@@ -49,6 +49,9 @@ struct midoriDonViewFirstHit: View {
                 )
 //                .popoverTip(tipVer310MidoriDonReachReplay())
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

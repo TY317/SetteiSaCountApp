@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewNormal: View {
-    @ObservedObject var ver340: Ver340
+    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
     var body: some View {
         List {
@@ -46,7 +46,6 @@ struct izaBanchoViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer340IzaBanchoKorakuRatio())
             } header: {
                 Text("小役確率")
             }
@@ -81,9 +80,39 @@ struct izaBanchoViewNormal: View {
             } header: {
                 Text("モード")
             }
+            
+            // //// 刀レベル
+            Section {
+                // 参考情報）概要
+                unitLinkButton(
+                    title: "刀レベルについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "刀レベル",
+                            textBody1: "・抜刀時（刀ポイントMAX時）のCZ、AT当選率を管理するレベル",
+                            textBody2: "・レベルは1〜3の3段階で、CZ・AT非当選だった場合は昇格抽選が行われる",
+                            tableView: AnyView(izaBanchoTableKatanaLevel())
+                        )
+                    )
+                )
+                // 参考情報）AT当選率
+                unitLinkButton(
+                    title: "抜刀時のAT当選率について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "抜刀時のAT当選率",
+                            textBody1: "・レベル1,2でのAT当選率に設定差あり",
+                            tableView: AnyView(izaBanchoTableKatanaAtHit())
+                        )
+                    )
+                )
+            } header: {
+                Text("刀レベル")
+                    .popoverTip(tipVer350IzaBanchoKatana())
+            }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.izaBanchoMenuNormalBadgeStaus)
+        .resetBadgeOnAppear($ver350.izaBanchoMenuNormalBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -99,7 +128,7 @@ struct izaBanchoViewNormal: View {
 
 #Preview {
     izaBanchoViewNormal(
-        ver340: Ver340(),
+        ver350: Ver350(),
         izaBancho: IzaBancho(),
     )
 }

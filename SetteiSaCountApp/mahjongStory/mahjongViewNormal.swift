@@ -22,6 +22,9 @@ struct mahjongViewNormal: View {
                     )
                 )
             )
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

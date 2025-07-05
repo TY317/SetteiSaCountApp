@@ -74,7 +74,16 @@ struct symphoViewScreen: View {
                 // 金枠
                 unitResultCountListPercent(title: "設定6", count: $sympho.screenCountGold, flashColor: .brown, bigNumber: $sympho.screenCountSum)
                 // //// 参考情報リンク
-                unitLinkButton(title: "AT終了画面について", exview: AnyView(unitExView5body2image(title: "AT終了画面", image1: Image("symphoScreenRatio"))))
+                unitLinkButton(
+                    title: "AT終了画面について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "AT終了画面",
+//                            image1: Image("symphoScreenRatio")
+                            tableView: AnyView(symphoTableScreen())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(symphoView95Ci(sympho: sympho, selection: 3)))
 //                    .popoverTip(tipUnitButtonLink95Ci())

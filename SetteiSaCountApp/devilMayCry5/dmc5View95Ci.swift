@@ -48,6 +48,24 @@ struct dmc5View95Ci: View {
                 )
             )
             .tag(2)
+            // ブラッディバトル当選回数
+            unitListSection95Ci(
+                grafTitle: "シングルチャンス目\nブラッディバトル当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dmc5.dmcBonusCountBattle,
+                        bigNumber: $dmc5.dmcBonusCountChance,
+                        setting1Percent: dmc5.ratioDmcBonusChanceBattle[0],
+                        setting2Percent: dmc5.ratioDmcBonusChanceBattle[1],
+                        setting3Percent: dmc5.ratioDmcBonusChanceBattle[2],
+                        setting4Percent: dmc5.ratioDmcBonusChanceBattle[3],
+                        setting5Percent: dmc5.ratioDmcBonusChanceBattle[4],
+                        setting6Percent: dmc5.ratioDmcBonusChanceBattle[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

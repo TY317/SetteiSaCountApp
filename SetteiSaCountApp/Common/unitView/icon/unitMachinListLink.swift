@@ -40,7 +40,8 @@ struct unitMachinListLink: View {
                                     .offset(x: -4, y: -4)
                             }
                         }
-                        .cornerRadius(8)
+//                        .cornerRadius(8)
+                        .cornerRadius(10)   // ver3.5.0 iOS26に合わせて修正
                         .padding(.trailing, 5.0)
                     // newバッジ部分
                     if self.badgeStatus == "new" {
@@ -98,15 +99,22 @@ struct unitMachinListLink: View {
 }
 
 #Preview {
-    unitMachinListLink(
-        linkView: AnyView(evaYakusokuViewTop()),
-        iconImage: Image("evaYakusokuMachineIcon"),
-        machineName: "ヱヴァンゲリオン〜約束の扉〜",
-        makerName: "ビスティ",
-        releaseYear: 2025,
-        releaseMonth: 7,
-        badgeStatus: "update",
-        btBadgeBool: true,
-    )
-    .frame(height: 60)
+    ZStack {
+        Image("shapeAppIcon")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 40)
+            .offset(x: -119, y: 0)
+        unitMachinListLink(
+            linkView: AnyView(unitReelDefault()),
+            iconImage: Image("evaYakusokuMachineIcon"),
+            machineName: "ヱヴァンゲリオン〜約束の扉〜",
+            makerName: "ビスティ",
+            releaseYear: 2025,
+            releaseMonth: 7,
+            badgeStatus: "none",
+            btBadgeBool: true,
+        )
+        .frame(height: 60)
+    }
 }

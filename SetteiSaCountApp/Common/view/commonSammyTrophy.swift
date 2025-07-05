@@ -67,6 +67,9 @@ struct commonViewSammyTrophy: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

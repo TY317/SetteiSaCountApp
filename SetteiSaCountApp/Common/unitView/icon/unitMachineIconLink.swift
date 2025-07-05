@@ -40,7 +40,8 @@ struct unitMachineIconLink: View {
                                     .offset(x: -6, y: -6)
                             }
                         }
-                        .cornerRadius(13.0)
+//                        .cornerRadius(13.0)
+                        .cornerRadius(16.0)     // ver3.5.0 iOS26に合わせて修正
                         .padding(.horizontal, 4.0)
                         .padding(.top, 4.0)
                     Text(self.machineName)
@@ -93,12 +94,23 @@ struct unitMachineIconLink: View {
 }
 
 #Preview {
-    unitMachineIconLink(
-        linkView: AnyView(evaYakusokuViewTop()),
-        iconImage: Image("evaYakusokuMachineIcon"),
-        machineName: "ヱヴァ約束",
-        badgeStatus: "none",
-        btBadgeBool: true,
-    )
-    .frame(width: 70, height: 90)
+    ZStack {
+        Image("shapeAppIcon")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 62)
+            .offset(x: -1, y: -8)
+        unitMachineIconLink(
+            linkView: AnyView(unitReelDefault()),
+            iconImage: Image("shapeAppIcon"),
+            machineName: "ヱヴァ約束",
+            badgeStatus: "none",
+            btBadgeBool: true,
+        )
+        .frame(width: 70, height: 90)
+//        Image("shapeAppIcon")
+//            .resizable()
+//            .scaledToFit()
+//            .frame(width: 70)
+    }
 }

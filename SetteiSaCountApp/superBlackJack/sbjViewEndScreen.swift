@@ -26,6 +26,9 @@ struct sbjViewEndScreen: View {
                     )
                 )
             )
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

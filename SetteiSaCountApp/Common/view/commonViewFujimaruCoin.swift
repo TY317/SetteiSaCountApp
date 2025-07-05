@@ -26,9 +26,32 @@ struct commonViewFujimaruCoin: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
-            Image("commonFujimaruCoin")
-                .resizable()
-                .scaledToFit()
+//            Image("commonFujimaruCoin")
+//                .resizable()
+//                .scaledToFit()
+            HStack(spacing: 0) {
+                unitTableString(
+                    columTitle: "コイン色",
+                    stringList: [
+                        "銅",
+                        "銀",
+                        "金",
+                        "デンジャー柄",
+                        "虹",
+                    ]
+                )
+                unitTableString(
+                    columTitle: "示唆",
+                    stringList: [
+                        "設定2 以上濃厚",
+                        "設定3 以上濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定6 濃厚",
+                    ]
+                )
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
             if let textBodyAfterImage1 = textBodyAfterImage1 {
                 Text(textBodyAfterImage1)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,6 +62,9 @@ struct commonViewFujimaruCoin: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

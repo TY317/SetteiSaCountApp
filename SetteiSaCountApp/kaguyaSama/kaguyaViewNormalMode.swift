@@ -29,8 +29,27 @@ struct kaguyaViewNormalMode: View {
             }
             // ミニ藤原の示唆
             Section {
-                unitLinkButton(title: "衣装チェンジによる示唆", exview: AnyView(unitExView5body2image(title: "衣装チェンジによる示唆", textBody1: "・「変身！」セリフ経由の衣装チェンジが対象。CZ後などでの衣装チェンジは対象外", image1: Image("kaguyaClothChange"))), detent: .large)
-                unitLinkButton(title: "セリフによる示唆", exview: AnyView(unitExView5body2image(title: "セリフによる示唆", image1: Image("kaguyaFujiwaraComent"))), detent: .large)
+                unitLinkButton(
+                    title: "衣装チェンジによる示唆",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "衣装チェンジによる示唆",
+                            textBody1: "・「変身！」セリフ経由の衣装チェンジが対象。CZ後などでの衣装チェンジは対象外",
+//                            image1: Image("kaguyaClothChange")
+                            tableView: AnyView(kaguyaSamaTableClothChange())
+                        )
+                    )
+                    , detent: .large)
+                unitLinkButton(
+                    title: "セリフによる示唆",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "セリフによる示唆",
+//                            image1: Image("kaguyaFujiwaraComent")
+                            tableView: AnyView(kaguyaSamaTableFujiwaraComment())
+                        )
+                    )
+                    , detent: .large)
             } header: {
                 Text("ミニ藤原の示唆")
             }
@@ -42,7 +61,18 @@ struct kaguyaViewNormalMode: View {
             }
             // 通常時のアイキャッチ
             Section {
-                unitLinkButton(title: "通常時のアイキャッチについて", exview: AnyView(unitExView5body2image(title: "通常時アイキャッチ", textBody1: "・次回ビッグの期待度を示唆", textBody2: "・ボーナス終了直後のアイキャッチは示唆が異なるため注意", image1: Image("kaguyaNormalEyecatch"))))
+                unitLinkButton(
+                    title: "通常時のアイキャッチについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "通常時アイキャッチ",
+                            textBody1: "・次回ビッグの期待度を示唆",
+                            textBody2: "・ボーナス終了直後のアイキャッチは示唆が異なるため注意",
+//                            image1: Image("kaguyaNormalEyecatch")
+                            tableView: AnyView(kaguyaSamaTableNormalEyeCatch())
+                        )
+                    )
+                )
             } header: {
                 Text("通常時アイキャッチ示唆")
             }

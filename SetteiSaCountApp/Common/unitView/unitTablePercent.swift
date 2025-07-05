@@ -44,6 +44,7 @@ struct unitTablePercent: View {
                     .fontWeight(.bold)
                     .background(Color.columnTitle)
                     .font(self.titleFont)
+                    .minimumScaleFactor(0.7)
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭
                             .stroke(Color.black, lineWidth: 1) // 黒色の線を追加
@@ -75,15 +76,18 @@ struct unitTablePercent: View {
                                 .fontWeight(.bold)
                                 .font(self.contentFont)
                                 .foregroundStyle(Color.black)
+                                .minimumScaleFactor(0.7)
                             Text("%")
                                 .foregroundStyle(Color.black)
                                 .font(self.unitFont)
+                                .minimumScaleFactor(0.7)
                         }
                         else if self.percentList[index] < 0 {
                             Text("?")
                                 .fontWeight(.bold)
                                 .font(self.contentFont)
                                 .foregroundStyle(Color.black)
+                                .minimumScaleFactor(0.7)
                         }
                         // 0の場合はー
                         else {
@@ -91,6 +95,7 @@ struct unitTablePercent: View {
                                 .fontWeight(.bold)
                                 .font(self.contentFont)
                                 .foregroundStyle(Color.black)
+                                .minimumScaleFactor(0.7)
                         }
                     }
                     .frame(height: lineNumber(ind: index))

@@ -36,6 +36,9 @@ struct toloveru87ViewFirstHit: View {
                     )
                 )
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

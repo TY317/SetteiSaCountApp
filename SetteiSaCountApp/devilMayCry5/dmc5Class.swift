@@ -84,6 +84,7 @@ class Dmc5: ObservableObject {
 //        resetFirstHit()
         resetScreen()
         resetHistory()
+        resetDmcBonus()
     }
     
     // //////////////////
@@ -147,6 +148,20 @@ class Dmc5: ObservableObject {
         bonusCount = arrayStringAllDataCount(arrayData: bonusKindArrayData)
         stCount = arrayStringDataCount(arrayData: stHitArrayData, countString: selectListStHit[0])
     }
+    
+    // ////////////////
+    // ver3.5.0で追加
+    // ////////////////
+    // DMCボーナス中のバトル当選
+    let ratioDmcBonusChanceBattle: [Double] = [21.8,21.8,22.6,22.6,28.2,28.2]
+    let ratioDmcBonusAnyBattle: [Double] = [1,1,1.6,1.6,2.4,2.4]
+    @AppStorage("dmc5DmcBonusCountChance") var dmcBonusCountChance: Int = 0
+    @AppStorage("dmc5DmcBonusCountBattle") var dmcBonusCountBattle: Int = 0
+    func resetDmcBonus() {
+        dmcBonusCountChance = 0
+        dmcBonusCountBattle = 0
+        minusCheck = false
+    }
 }
 
 
@@ -179,6 +194,12 @@ class Dmc5Memory1: ObservableObject {
     @AppStorage("dmc5BonusKindArrayKeyMemory1") var bonusKindArrayData: Data?
     @AppStorage("dmc5TriggerArrayKeyMemory1") var triggerArrayData: Data?
     @AppStorage("dmc5StHitArrayKeyMemory1") var stHitArrayData: Data?
+    
+    // ////////////////
+    // ver3.5.0で追加
+    // ////////////////
+    @AppStorage("dmc5DmcBonusCountChanceMemory1") var dmcBonusCountChance: Int = 0
+    @AppStorage("dmc5DmcBonusCountBattleMemory1") var dmcBonusCountBattle: Int = 0
 }
 
 
@@ -211,6 +232,12 @@ class Dmc5Memory2: ObservableObject {
     @AppStorage("dmc5BonusKindArrayKeyMemory2") var bonusKindArrayData: Data?
     @AppStorage("dmc5TriggerArrayKeyMemory2") var triggerArrayData: Data?
     @AppStorage("dmc5StHitArrayKeyMemory2") var stHitArrayData: Data?
+    
+    // ////////////////
+    // ver3.5.0で追加
+    // ////////////////
+    @AppStorage("dmc5DmcBonusCountChanceMemory2") var dmcBonusCountChance: Int = 0
+    @AppStorage("dmc5DmcBonusCountBattleMemory2") var dmcBonusCountBattle: Int = 0
 }
 
 
@@ -243,4 +270,10 @@ class Dmc5Memory3: ObservableObject {
     @AppStorage("dmc5BonusKindArrayKeyMemory3") var bonusKindArrayData: Data?
     @AppStorage("dmc5TriggerArrayKeyMemory3") var triggerArrayData: Data?
     @AppStorage("dmc5StHitArrayKeyMemory3") var stHitArrayData: Data?
+    
+    // ////////////////
+    // ver3.5.0で追加
+    // ////////////////
+    @AppStorage("dmc5DmcBonusCountChanceMemory3") var dmcBonusCountChance: Int = 0
+    @AppStorage("dmc5DmcBonusCountBattleMemory3") var dmcBonusCountBattle: Int = 0
 }

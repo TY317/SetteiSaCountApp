@@ -27,7 +27,19 @@ struct kaguyaViewEnding: View {
                     unitCountButtonVerticalPercent(title: "\nかぐや", count: $kaguya.endingCountKaguya, color: .personalSummerLightRed, bigNumber: $kaguya.endingCountSum, numberofDicimal: 0, minusBool: $kaguya.minusCheck)
                 }
                 // 参考情報リンク
-                unitLinkButton(title: "エンディングのエピソードについて", exview: AnyView(unitExView5body2image(title: "エンディングのエピソード", textBody1: "・エピソード種類で設定を示唆", textBody2: "・風船、恋の行方がデフォルト。かぐや、白銀が高設定＆奇偶示唆", textBody3: "・大量上乗せなどで早期にエンディング到達時は、2人の恋の行方が選択されるらしい。枚数など詳しい条件は不明。", image1: Image("kaguyaEnding"))))
+                unitLinkButton(
+                    title: "エンディングのエピソードについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "エンディングのエピソード",
+                            textBody1: "・エピソード種類で設定を示唆",
+                            textBody2: "・風船、恋の行方がデフォルト。かぐや、白銀が高設定＆奇偶示唆",
+                            textBody3: "・大量上乗せなどで早期にエンディング到達時は、2人の恋の行方が選択されるらしい。枚数など詳しい条件は不明。",
+//                            image1: Image("kaguyaEnding")
+                            tableView: AnyView(kaguyaTableEnding())
+                        )
+                    )
+                )
             } header: {
                 Text("エピソードのカウント")
             }

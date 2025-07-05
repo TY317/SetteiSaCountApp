@@ -9,6 +9,7 @@ import SwiftUI
 
 struct guiltyCrown2ViewTop: View {
     @ObservedObject var ver340: Ver340
+    @ObservedObject var ver350: Ver350
     @StateObject var guiltyCrown2 = GuiltyCrown2()
     @State var isShowAlert: Bool = false
     @StateObject var guiltyCrown2Memory1 = GuiltyCrown2Memory1()
@@ -30,21 +31,26 @@ struct guiltyCrown2ViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: guiltyCrown2ViewNormal(
+                        ver350: ver350,
                         guiltyCrown2: guiltyCrown2,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: ver350.guiltyCrown2MenuNormalBadgeStaus,
                         )
                     }
                     
                     // 初当り
                     NavigationLink(destination: guiltyCrown2ViewFirstHit(
+                        ver350: ver350,
                         guiltyCrown2: guiltyCrown2,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り")
+                            textBody: "初当り",
+                            badgeStatus: ver350.guiltyCrown2MenuFirstHitBadgeStaus,
+                        )
                     }
                     
                     // BIG終了画面
@@ -69,19 +75,19 @@ struct guiltyCrown2ViewTop: View {
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: guiltyCrown2View95Ci(
-//                    guiltyCrown2: guiltyCrown2,
-//                    selection: 1
-//                )) {
-//                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
-//                }
+                NavigationLink(destination: guiltyCrown2View95Ci(
+                    guiltyCrown2: guiltyCrown2,
+                    selection: 1
+                )) {
+                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4790")
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.guiltyCrown2MachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver350.guiltyCrown2MachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -154,6 +160,20 @@ struct guiltyCrown2SubViewSaveMemory: View {
         guiltyCrown2Memory1.atScreenCountOver4 = guiltyCrown2.atScreenCountOver4
         guiltyCrown2Memory1.atScreenCountOver6 = guiltyCrown2.atScreenCountOver6
         guiltyCrown2Memory1.atScreenCountSum = guiltyCrown2.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2Memory1.suikaBonusCountJaku = guiltyCrown2.suikaBonusCountJaku
+        guiltyCrown2Memory1.suikaBonusCountJakuBonus = guiltyCrown2.suikaBonusCountJakuBonus
+        guiltyCrown2Memory1.suikaBonusCountKyo = guiltyCrown2.suikaBonusCountKyo
+        guiltyCrown2Memory1.suikaBonusCountKyoBonus = guiltyCrown2.suikaBonusCountKyoBonus
+        guiltyCrown2Memory1.bonusDetailCountJakuRedIshoku = guiltyCrown2.bonusDetailCountJakuRedIshoku
+        guiltyCrown2Memory1.bonusDetailCountKyoRed = guiltyCrown2.bonusDetailCountKyoRed
+        guiltyCrown2Memory1.bonusDetailCountKyoWhite = guiltyCrown2.bonusDetailCountKyoWhite
+        guiltyCrown2Memory1.bonusDetailCountKyoWhiteIshoku = guiltyCrown2.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2Memory1.bonusDetailCountSum = guiltyCrown2.bonusDetailCountSum
+        guiltyCrown2Memory1.normalGame = guiltyCrown2.normalGame
     }
     func saveMemory2() {
         guiltyCrown2Memory2.bonusScreenCountBlack = guiltyCrown2.bonusScreenCountBlack
@@ -164,6 +184,20 @@ struct guiltyCrown2SubViewSaveMemory: View {
         guiltyCrown2Memory2.atScreenCountOver4 = guiltyCrown2.atScreenCountOver4
         guiltyCrown2Memory2.atScreenCountOver6 = guiltyCrown2.atScreenCountOver6
         guiltyCrown2Memory2.atScreenCountSum = guiltyCrown2.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2Memory2.suikaBonusCountJaku = guiltyCrown2.suikaBonusCountJaku
+        guiltyCrown2Memory2.suikaBonusCountJakuBonus = guiltyCrown2.suikaBonusCountJakuBonus
+        guiltyCrown2Memory2.suikaBonusCountKyo = guiltyCrown2.suikaBonusCountKyo
+        guiltyCrown2Memory2.suikaBonusCountKyoBonus = guiltyCrown2.suikaBonusCountKyoBonus
+        guiltyCrown2Memory2.bonusDetailCountJakuRedIshoku = guiltyCrown2.bonusDetailCountJakuRedIshoku
+        guiltyCrown2Memory2.bonusDetailCountKyoRed = guiltyCrown2.bonusDetailCountKyoRed
+        guiltyCrown2Memory2.bonusDetailCountKyoWhite = guiltyCrown2.bonusDetailCountKyoWhite
+        guiltyCrown2Memory2.bonusDetailCountKyoWhiteIshoku = guiltyCrown2.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2Memory2.bonusDetailCountSum = guiltyCrown2.bonusDetailCountSum
+        guiltyCrown2Memory2.normalGame = guiltyCrown2.normalGame
     }
     func saveMemory3() {
         guiltyCrown2Memory3.bonusScreenCountBlack = guiltyCrown2.bonusScreenCountBlack
@@ -174,6 +208,20 @@ struct guiltyCrown2SubViewSaveMemory: View {
         guiltyCrown2Memory3.atScreenCountOver4 = guiltyCrown2.atScreenCountOver4
         guiltyCrown2Memory3.atScreenCountOver6 = guiltyCrown2.atScreenCountOver6
         guiltyCrown2Memory3.atScreenCountSum = guiltyCrown2.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2Memory3.suikaBonusCountJaku = guiltyCrown2.suikaBonusCountJaku
+        guiltyCrown2Memory3.suikaBonusCountJakuBonus = guiltyCrown2.suikaBonusCountJakuBonus
+        guiltyCrown2Memory3.suikaBonusCountKyo = guiltyCrown2.suikaBonusCountKyo
+        guiltyCrown2Memory3.suikaBonusCountKyoBonus = guiltyCrown2.suikaBonusCountKyoBonus
+        guiltyCrown2Memory3.bonusDetailCountJakuRedIshoku = guiltyCrown2.bonusDetailCountJakuRedIshoku
+        guiltyCrown2Memory3.bonusDetailCountKyoRed = guiltyCrown2.bonusDetailCountKyoRed
+        guiltyCrown2Memory3.bonusDetailCountKyoWhite = guiltyCrown2.bonusDetailCountKyoWhite
+        guiltyCrown2Memory3.bonusDetailCountKyoWhiteIshoku = guiltyCrown2.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2Memory3.bonusDetailCountSum = guiltyCrown2.bonusDetailCountSum
+        guiltyCrown2Memory3.normalGame = guiltyCrown2.normalGame
     }
 }
 
@@ -213,6 +261,20 @@ struct guiltyCrown2SubViewLoadMemory: View {
         guiltyCrown2.atScreenCountOver4 = guiltyCrown2Memory1.atScreenCountOver4
         guiltyCrown2.atScreenCountOver6 = guiltyCrown2Memory1.atScreenCountOver6
         guiltyCrown2.atScreenCountSum = guiltyCrown2Memory1.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2.suikaBonusCountJaku = guiltyCrown2Memory1.suikaBonusCountJaku
+        guiltyCrown2.suikaBonusCountJakuBonus = guiltyCrown2Memory1.suikaBonusCountJakuBonus
+        guiltyCrown2.suikaBonusCountKyo = guiltyCrown2Memory1.suikaBonusCountKyo
+        guiltyCrown2.suikaBonusCountKyoBonus = guiltyCrown2Memory1.suikaBonusCountKyoBonus
+        guiltyCrown2.bonusDetailCountJakuRedIshoku = guiltyCrown2Memory1.bonusDetailCountJakuRedIshoku
+        guiltyCrown2.bonusDetailCountKyoRed = guiltyCrown2Memory1.bonusDetailCountKyoRed
+        guiltyCrown2.bonusDetailCountKyoWhite = guiltyCrown2Memory1.bonusDetailCountKyoWhite
+        guiltyCrown2.bonusDetailCountKyoWhiteIshoku = guiltyCrown2Memory1.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2.bonusDetailCountSum = guiltyCrown2Memory1.bonusDetailCountSum
+        guiltyCrown2.normalGame = guiltyCrown2Memory1.normalGame
     }
     func loadMemory2() {
         guiltyCrown2.bonusScreenCountBlack = guiltyCrown2Memory2.bonusScreenCountBlack
@@ -223,6 +285,20 @@ struct guiltyCrown2SubViewLoadMemory: View {
         guiltyCrown2.atScreenCountOver4 = guiltyCrown2Memory2.atScreenCountOver4
         guiltyCrown2.atScreenCountOver6 = guiltyCrown2Memory2.atScreenCountOver6
         guiltyCrown2.atScreenCountSum = guiltyCrown2Memory2.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2.suikaBonusCountJaku = guiltyCrown2Memory2.suikaBonusCountJaku
+        guiltyCrown2.suikaBonusCountJakuBonus = guiltyCrown2Memory2.suikaBonusCountJakuBonus
+        guiltyCrown2.suikaBonusCountKyo = guiltyCrown2Memory2.suikaBonusCountKyo
+        guiltyCrown2.suikaBonusCountKyoBonus = guiltyCrown2Memory2.suikaBonusCountKyoBonus
+        guiltyCrown2.bonusDetailCountJakuRedIshoku = guiltyCrown2Memory2.bonusDetailCountJakuRedIshoku
+        guiltyCrown2.bonusDetailCountKyoRed = guiltyCrown2Memory2.bonusDetailCountKyoRed
+        guiltyCrown2.bonusDetailCountKyoWhite = guiltyCrown2Memory2.bonusDetailCountKyoWhite
+        guiltyCrown2.bonusDetailCountKyoWhiteIshoku = guiltyCrown2Memory2.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2.bonusDetailCountSum = guiltyCrown2Memory2.bonusDetailCountSum
+        guiltyCrown2.normalGame = guiltyCrown2Memory2.normalGame
     }
     func loadMemory3() {
         guiltyCrown2.bonusScreenCountBlack = guiltyCrown2Memory3.bonusScreenCountBlack
@@ -233,11 +309,26 @@ struct guiltyCrown2SubViewLoadMemory: View {
         guiltyCrown2.atScreenCountOver4 = guiltyCrown2Memory3.atScreenCountOver4
         guiltyCrown2.atScreenCountOver6 = guiltyCrown2Memory3.atScreenCountOver6
         guiltyCrown2.atScreenCountSum = guiltyCrown2Memory3.atScreenCountSum
+        
+        // ////////////////////
+        // ver3.5.0で追加
+        // ////////////////////
+        guiltyCrown2.suikaBonusCountJaku = guiltyCrown2Memory3.suikaBonusCountJaku
+        guiltyCrown2.suikaBonusCountJakuBonus = guiltyCrown2Memory3.suikaBonusCountJakuBonus
+        guiltyCrown2.suikaBonusCountKyo = guiltyCrown2Memory3.suikaBonusCountKyo
+        guiltyCrown2.suikaBonusCountKyoBonus = guiltyCrown2Memory3.suikaBonusCountKyoBonus
+        guiltyCrown2.bonusDetailCountJakuRedIshoku = guiltyCrown2Memory3.bonusDetailCountJakuRedIshoku
+        guiltyCrown2.bonusDetailCountKyoRed = guiltyCrown2Memory3.bonusDetailCountKyoRed
+        guiltyCrown2.bonusDetailCountKyoWhite = guiltyCrown2Memory3.bonusDetailCountKyoWhite
+        guiltyCrown2.bonusDetailCountKyoWhiteIshoku = guiltyCrown2Memory3.bonusDetailCountKyoWhiteIshoku
+        guiltyCrown2.bonusDetailCountSum = guiltyCrown2Memory3.bonusDetailCountSum
+        guiltyCrown2.normalGame = guiltyCrown2Memory3.normalGame
     }
 }
 
 #Preview {
     guiltyCrown2ViewTop(
-        ver340: Ver340()
+        ver340: Ver340(),
+        ver350: Ver350(),
     )
 }

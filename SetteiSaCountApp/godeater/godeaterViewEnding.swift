@@ -23,6 +23,9 @@ struct godeaterViewEnding: View {
                 } header: {
                     Text("神堕")
                 }
+                
+                // //// 広告
+                unitAdBannerMediumRectangle()
             }
         // //// firebaseログ
         .onAppear {

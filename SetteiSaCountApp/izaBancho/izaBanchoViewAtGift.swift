@@ -17,6 +17,9 @@ struct izaBanchoViewAtGift: View {
                 Text("・AT突入時の成敗報酬は高設定ほど優遇されるらしい")
                 Text("・優遇の詳細は現状不明だが、「青7」や「将軍」、「絶頂」がより多く、より早いタイミングに出現するのではと予想される")
             }
+            
+            // //// 広告
+            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

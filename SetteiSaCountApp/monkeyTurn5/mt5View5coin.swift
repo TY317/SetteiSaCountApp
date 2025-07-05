@@ -43,7 +43,21 @@ struct mt5View5coin: View {
                         .padding(.vertical)
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "5枚役について", exview: AnyView(unitExView5body2image(title: "5枚役", textBody1: "・5枚役の出現率に大きな設定差があるらしい", textBody2: "・AT中含めて全状態でカウント可能", textBody3: "・AT中含めてカウントの場合は液晶メニュー画面の総ゲーム数を分母とする", textBody4: "・停止形は下記画像を参照",image1: Image("mt5coin5Ratio"), image2: Image("mt5Coin5Image"))))
+                unitLinkButton(
+                    title: "5枚役について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "5枚役",
+                            textBody1: "・5枚役の出現率に大きな設定差があるらしい",
+                            textBody2: "・AT中含めて全状態でカウント可能",
+                            textBody3: "・AT中含めてカウントの場合は液晶メニュー画面の総ゲーム数を分母とする",
+                            textBody4: "・停止形は下記画像を参照",
+//                            image1: Image("mt5coin5Ratio"),
+//                            image2: Image("mt5Coin5Image")
+                            tableView: AnyView(mt5Table5Coin())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
