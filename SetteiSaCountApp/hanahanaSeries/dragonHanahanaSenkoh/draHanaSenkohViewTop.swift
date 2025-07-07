@@ -394,7 +394,7 @@ struct draHanaSenkohViewTop: View {
                             // //// データ保存
                             unitButtonSaveMemory(saveView: AnyView(draHanaSenkohViewSaveMemory(hana: hana, hanaMemory1: hanaMemory1, hanaMemory2: hanaMemory2, hanaMemory3: hanaMemory3)))
                         }
-                        .popoverTip(tipUnitButtonMemory())
+//                        .popoverTip(tipUnitButtonMemory())
                         // マイナスボタン
                         unitButtonMinusCheck(minusCheck: $hana.minusCheck)
                         // データリセットボタン

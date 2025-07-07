@@ -75,7 +75,7 @@ struct toloveruViewHarlem: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $toloveru.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: toloveru.resetHarlem)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

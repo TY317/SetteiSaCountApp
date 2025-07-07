@@ -102,7 +102,7 @@ struct karakuriViewStage: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $karakuri.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetStage)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

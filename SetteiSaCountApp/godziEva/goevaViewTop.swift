@@ -371,7 +371,7 @@ struct goevaViewTop: View {
                             goevaMemory3: goevaMemory3
                         )))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetAll, message: "この機種のデータを全てリセットします")
 //                        .popoverTip(tipUnitButtonReset())
                 }

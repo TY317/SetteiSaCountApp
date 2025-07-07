@@ -249,7 +249,7 @@ struct happyJugV3Ver2ViewJissenStartData: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: happyJugV3.resetStartData)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

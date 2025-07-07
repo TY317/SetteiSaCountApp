@@ -479,7 +479,7 @@ struct danvineViewTop: View {
                         danvineMemory3: danvineMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: danvine.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

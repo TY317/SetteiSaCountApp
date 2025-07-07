@@ -795,7 +795,7 @@ struct inuyasha2ViewTop: View {
                         inuyashaMemory3: inuyashaMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

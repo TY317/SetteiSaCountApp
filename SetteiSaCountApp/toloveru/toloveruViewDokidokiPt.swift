@@ -208,7 +208,7 @@ struct toloveruViewDokidokiPt: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $toloveru.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: toloveru.resetDokiDokiPoint)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

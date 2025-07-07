@@ -104,7 +104,7 @@ struct yoshimuneViewTop: View {
                         yoshimuneMemory3: yoshimuneMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: yoshimune.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

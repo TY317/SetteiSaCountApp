@@ -102,7 +102,7 @@ struct watakonViewTop: View {
                         watakonMemory3: watakonMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: watakon.resetAll, message: "この機種のデータを全てリセットします")
             }

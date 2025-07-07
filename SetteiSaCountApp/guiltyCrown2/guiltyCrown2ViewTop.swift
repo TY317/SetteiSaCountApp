@@ -116,7 +116,7 @@ struct guiltyCrown2ViewTop: View {
                         guiltyCrown2Memory3: guiltyCrown2Memory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: guiltyCrown2.resetAll, message: "この機種のデータを全てリセットします")
             }

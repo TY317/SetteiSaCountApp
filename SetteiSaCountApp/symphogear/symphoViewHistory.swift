@@ -216,7 +216,7 @@ struct symphoViewHistory: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $sympho.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

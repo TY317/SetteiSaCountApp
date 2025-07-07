@@ -92,7 +92,7 @@ struct kaijiViewZawaKokaku: View {
                     unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetZawaKokaku)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

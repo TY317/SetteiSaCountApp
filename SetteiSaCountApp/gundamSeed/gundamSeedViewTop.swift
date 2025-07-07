@@ -104,7 +104,7 @@ struct gundamSeedViewTop: View {
                         gundamSeedMemory3: gundamSeedMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: gundamSeed.resetAll, message: "この機種のデータを全てリセットします")
             }

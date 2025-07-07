@@ -252,7 +252,7 @@ struct girlsSSVer2ViewJissenStartData: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: girlsSS.resetStartData)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

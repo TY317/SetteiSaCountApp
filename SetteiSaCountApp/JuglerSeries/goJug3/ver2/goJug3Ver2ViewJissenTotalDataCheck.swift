@@ -95,7 +95,7 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(goJug3Ver2View95CiTotal(goJug3: goJug3)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $goJug3.currentGames)
                 // 自分でプレイ

@@ -48,7 +48,7 @@ struct karakuriViewIchigeki: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $karakuri.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetIchigeki)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

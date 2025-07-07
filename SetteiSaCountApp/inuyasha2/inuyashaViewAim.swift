@@ -78,7 +78,7 @@ struct inuyashaViewAim: View {
                     unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetInuyashaLamp)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

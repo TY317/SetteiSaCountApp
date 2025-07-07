@@ -231,7 +231,7 @@ struct hokutoViewHistory: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetHistory)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

@@ -187,7 +187,7 @@ struct kaijiViewTop: View {
                         kaijiMemory3: kaijiMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

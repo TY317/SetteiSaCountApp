@@ -44,7 +44,7 @@ struct rezero2ViewSnowball: View {
                     unitButtonMinusCheck(minusCheck: $rezero2.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: rezero2.resetSnowball)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

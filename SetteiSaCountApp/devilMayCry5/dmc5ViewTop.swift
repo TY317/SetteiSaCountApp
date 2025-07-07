@@ -122,7 +122,7 @@ struct dmc5ViewTop: View {
                         dmc5Memory3: dmc5Memory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: dmc5.resetAll, message: "この機種のデータを全てリセットします")
             }

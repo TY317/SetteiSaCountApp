@@ -203,7 +203,7 @@ struct sevenSwordsViewBonus: View {
                     unitButtonMinusCheck(minusCheck: $sevenSwords.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sevenSwords.resetBonusSt)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

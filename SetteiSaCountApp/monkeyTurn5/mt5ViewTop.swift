@@ -497,7 +497,7 @@ struct mt5ViewTop: View {
                                 mt5Memory3: mt5Memory3
                             )))
                         }
-                        .popoverTip(tipUnitButtonMemory())
+//                        .popoverTip(tipUnitButtonMemory())
                         unitButtonReset(isShowAlert: $isShowAlert, action: mt5.resetAll, message: "この機種の全ページのデータは完全に消去されます")
 //                            .popoverTip(tipUnitButtonReset())
                     }

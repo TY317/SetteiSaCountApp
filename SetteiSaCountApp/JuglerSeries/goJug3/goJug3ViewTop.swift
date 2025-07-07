@@ -239,7 +239,7 @@ struct goJug3ViewTop: View {
                             )
                         )
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonMinusCheck(minusCheck: $jug.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: jug.reset)
 //                        .popoverTip(tipUnitButtonReset())

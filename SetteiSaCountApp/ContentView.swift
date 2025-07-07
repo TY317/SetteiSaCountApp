@@ -1314,7 +1314,7 @@ struct ContentView: View {
 //                                        .popoverTip(tipUnitButtonIconDisplayMode())
                                 }
                             }
-                            .popoverTip(tipUnitButtonIconDisplayMode())
+//                            .popoverTip(tipUnitButtonIconDisplayMode())
                             
                             // お気に入り設定ボタン
                             Button(action: {

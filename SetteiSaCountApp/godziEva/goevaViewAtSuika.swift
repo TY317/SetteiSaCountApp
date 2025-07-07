@@ -56,7 +56,7 @@ struct goevaViewAtSuika: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $goeva.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetAtSuika)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

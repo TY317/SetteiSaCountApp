@@ -106,7 +106,7 @@ struct tokyoGhoulViewTop: View {
                         tokyoGhoulMemory3: tokyoGhoulMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())

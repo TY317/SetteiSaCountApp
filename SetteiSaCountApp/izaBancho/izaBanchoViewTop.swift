@@ -126,7 +126,7 @@ struct izaBanchoViewTop: View {
                         izaBanchoMemory3: izaBanchoMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: izaBancho.resetAll, message: "この機種のデータを全てリセットします")
             }

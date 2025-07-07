@@ -556,7 +556,7 @@ struct godeaterViewTop: View {
                             godeaterMemory3: godeaterMemory3
                         )))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetAll, message: "この機種の全データをリセットします")
 //                        .popoverTip(tipUnitButtonReset())
                 }

@@ -250,7 +250,7 @@ struct funky2Ver2ViewJissenStartData: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: funky2.resetStartData)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

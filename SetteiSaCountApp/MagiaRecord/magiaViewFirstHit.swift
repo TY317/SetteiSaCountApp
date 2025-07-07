@@ -203,7 +203,7 @@ struct magiaViewFirstHit: View {
 //                    unitButtonMinusCheck(minusCheck: $magia.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetFirstHit)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

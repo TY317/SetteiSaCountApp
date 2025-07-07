@@ -250,7 +250,7 @@ struct inuyashaViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

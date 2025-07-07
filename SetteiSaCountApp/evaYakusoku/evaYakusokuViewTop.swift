@@ -123,7 +123,7 @@ struct evaYakusokuViewTop: View {
                         evaYakusokuMemory3: evaYakusokuMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetAll, message: "この機種のデータを全てリセットします")
             }

@@ -135,7 +135,7 @@ struct hokutoViewBbBell: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetBbBell)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

@@ -155,7 +155,7 @@ struct hokutoViewNormalKoyaku: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetNormalKoyaku)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

@@ -582,7 +582,7 @@ struct hanaTenshoVer2ViewTop: View {
                         hanaTenshoMemory3: hanaTenshoMemory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: hanaTensho.resetAll, message: "この機種のデータを全てリセットします")
 //                    .popoverTip(tipUnitButtonReset())
