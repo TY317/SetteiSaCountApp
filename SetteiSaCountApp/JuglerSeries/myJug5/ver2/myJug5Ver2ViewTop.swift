@@ -282,6 +282,87 @@ class MyJug5: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////////////
+    // ベイズ推定テスト開発
+    // ////////////////
+    @Published var bellEnable: Bool = true
+    @AppStorage("myJug5BayesEnableBig") var bayesEnableBig: Bool = true
+    @AppStorage("myJug5BayesEnableReg") var bayesEnableReg: Bool = true
+    @AppStorage("myJug5BayesEnableRegDetail") var bayesEnableRegDetail: Bool = true
+    @AppStorage("myJug5BayesEnableBell") var bayesEnableBell: Bool = true
+    var settingRatio: [Double] = [28.49,42.25,20.7,6.83,1.30,0.44]
+    // //// 各要素の対数尤度を算出
+    var logPostBellFunc: [Double] {
+        return bayesLogPostDenominate(
+            denoList: denominateListBell,
+            countNumber: kenBellBackCalculationCount,
+            bigNumber: kenGameIput,
+            enable: bellEnable,
+        )
+    }
+    var logPostBell: [Double] {
+        let settingNumber = denominateListBell.count     // 設定の数を確率リストから取得
+        var logPost = [Double](repeating: 0, count: settingNumber)     // 対数尤度を格納するリストを準備しておく
+        for (i, deno) in denominateListBell.enumerated() {
+            let pBell = 1.0 / deno
+            let bell = Double(kenBellBackCalculationCount)
+            let game = Double(kenGameIput)
+            logPost[i] = bell * log(pBell) + (game-bell) * log(1-pBell)
+        }
+        return logPost
+    }
+    
+    // //// 全要素の対数尤度と事前確率対数を合算
+    var logPostSum: [Double] {
+        let settingNumber = settingRatio.count
+        var logPost = [Double](repeating: 0, count: settingNumber)
+        for (i, sr) in settingRatio.enumerated() {
+            logPost[i] = logPostBell[i] + log(sr/100)
+        }
+        return logPost
+    }
+    
+    // //// 事後確率を算出
+    var settingGuess: [Double] {
+        let maxLL = logPostSum.max() ?? 0
+        let unnormalizedProbability: [Double] = logPostSum.map{ exp($0-maxLL) }
+        let upSum = unnormalizedProbability.reduce(0, +)
+        let normalizedProbability: [Double] = unnormalizedProbability.map { $0 / upSum }
+        return normalizedProbability
+    }
+    
+    // //// 各要素の対数尤度を算出
+    var logPostReg: [Double] {
+        let settingNumber = denominateListRegSum.count     // 設定の数を確率リストから取得
+        var logPost = [Double](repeating: 0, count: settingNumber)     // 対数尤度を格納するリストを準備しておく
+        for (i, deno) in denominateListRegSum.enumerated() {
+            let pReg = 1.0 / deno
+            let reg = Double(kenRegCountInput)
+            let game = Double(kenGameIput)
+            logPost[i] = reg * log(pReg) + (game-reg) * log(1-pReg)
+        }
+        return logPost
+    }
+    
+    // //// 全要素の対数尤度と事前確率対数を合算
+    var logPostSumReg: [Double] {
+        let settingNumber = settingRatio.count
+        var logPost = [Double](repeating: 0, count: settingNumber)
+        for (i, sr) in settingRatio.enumerated() {
+            logPost[i] = logPostReg[i] + log(sr/100)
+        }
+        return logPost
+    }
+    
+    // //// 事後確率を算出
+    var settingGuessReg: [Double] {
+        let maxLL = logPostSumReg.max() ?? 0
+        let unnormalizedProbability: [Double] = logPostSumReg.map{ exp($0-maxLL) }
+        let upSum = unnormalizedProbability.reduce(0, +)
+        let normalizedProbability: [Double] = unnormalizedProbability.map { $0 / upSum }
+        return normalizedProbability
+    }
 }
 
 
@@ -450,6 +531,16 @@ struct myJug5Ver2ViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4029")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // ベイズ推定テスト開発
+                NavigationLink(destination: myJug5ViewBeyesTest(
+                    myJug5: myJug5,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "",
+                        textBody: "ベイス推定テスト開発"
+                    )
+                }
             }
         }
         // //// firebaseログ

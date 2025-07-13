@@ -441,6 +441,9 @@
 		0F88727D2C6B2D2300AADD2B /* VVVmarieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F88727C2C6B2D2300AADD2B /* VVVmarieView.swift */; };
 		0F88727F2C6B4C3700AADD2B /* VVVexViewMarie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F88727E2C6B4C3700AADD2B /* VVVexViewMarie.swift */; };
 		0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8872812C6B5F0D00AADD2B /* VVVharakiriDriveView.swift */; };
+		0F8935722E1A1A8200BF6FBE /* myJug5ViewBeyesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935712E1A1A8200BF6FBE /* myJug5ViewBeyesTest.swift */; };
+		0F8935752E1A4FC000BF6FBE /* bayesLogPostDenominate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935742E1A4FC000BF6FBE /* bayesLogPostDenominate.swift */; };
+		0F8935782E1A94A200BF6FBE /* unitTableSettingGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935772E1A94A200BF6FBE /* unitTableSettingGuess.swift */; };
 		0F89357A2E1E92E400BF6FBE /* commonViewArisuTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935792E1E92E400BF6FBE /* commonViewArisuTrophy.swift */; };
 		0F89357C2E1E95DF00BF6FBE /* ver351Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89357B2E1E95DF00BF6FBE /* ver351Class.swift */; };
 		0F89357E2E1E968500BF6FBE /* watakonViewBonusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89357D2E1E968500BF6FBE /* watakonViewBonusScreen.swift */; };
@@ -1275,6 +1278,9 @@
 		0F88727C2C6B2D2300AADD2B /* VVVmarieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVmarieView.swift; sourceTree = "<group>"; };
 		0F88727E2C6B4C3700AADD2B /* VVVexViewMarie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVexViewMarie.swift; sourceTree = "<group>"; };
 		0F8872812C6B5F0D00AADD2B /* VVVharakiriDriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVharakiriDriveView.swift; sourceTree = "<group>"; };
+		0F8935712E1A1A8200BF6FBE /* myJug5ViewBeyesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5ViewBeyesTest.swift; sourceTree = "<group>"; };
+		0F8935742E1A4FC000BF6FBE /* bayesLogPostDenominate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bayesLogPostDenominate.swift; sourceTree = "<group>"; };
+		0F8935772E1A94A200BF6FBE /* unitTableSettingGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTableSettingGuess.swift; sourceTree = "<group>"; };
 		0F8935792E1E92E400BF6FBE /* commonViewArisuTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewArisuTrophy.swift; sourceTree = "<group>"; };
 		0F89357B2E1E95DF00BF6FBE /* ver351Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver351Class.swift; sourceTree = "<group>"; };
 		0F89357D2E1E968500BF6FBE /* watakonViewBonusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonViewBonusScreen.swift; sourceTree = "<group>"; };
@@ -2335,6 +2341,7 @@
 				0F8689E72D3E7EC300D952D9 /* myJug5Ver2View95CiTotal.swift */,
 				0F64DD8F2DC5C7CA0027315D /* myJug5TableRatio.swift */,
 				0F64DD912DC5C9A10027315D /* myJug5SubViewCountInput.swift */,
+				0F8935712E1A1A8200BF6FBE /* myJug5ViewBeyesTest.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2449,6 +2456,7 @@
 		0F868A6C2D4F2D7B00D952D9 /* function */ = {
 			isa = PBXGroup;
 			children = (
+				0F8935732E1A4CCB00BF6FBE /* bayes */,
 				0F80311C2C69B42A001F008E /* myFunction.swift */,
 				0FB9CA8D2DDDA5F1009FC6AF /* countUpDownFixNumber.swift */,
 				0FB9CAB32DE1B620009FC6AF /* logEventFirebaseScreen.swift */,
@@ -2501,6 +2509,7 @@
 		0F868A702D4F2E5800D952D9 /* unitView */ = {
 			isa = PBXGroup;
 			children = (
+				0F8935762E1A948500BF6FBE /* table */,
 				0F89358A2E22903B00BF6FBE /* countDirectInput */,
 				0FB2096D2E1244560029D940 /* ad */,
 				0FB2096A2E1213B20029D940 /* gameNumberInput */,
@@ -2692,6 +2701,20 @@
 			path = Drive;
 			sourceTree = "<group>";
 		};
+		0F8935732E1A4CCB00BF6FBE /* bayes */ = {
+			isa = PBXGroup;
+			children = (
+				0F8935742E1A4FC000BF6FBE /* bayesLogPostDenominate.swift */,
+			);
+			path = bayes;
+			sourceTree = "<group>";
+		};
+		0F8935762E1A948500BF6FBE /* table */ = {
+			isa = PBXGroup;
+			children = (
+				0F8935772E1A94A200BF6FBE /* unitTableSettingGuess.swift */,
+			);
+			path = table;
 		0F8935852E21F8CA00BF6FBE /* toolBarButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -3772,6 +3795,7 @@
 				0F868A232D44BB3700D952D9 /* happyJugV3Ver2View95CiStart.swift in Sources */,
 				0F6B59C62DFDAD6A00DB1A2B /* kaguyaTableEyeCatch.swift in Sources */,
 				0F8689F52D41156D00D952D9 /* imJugExVer2View95CiTotal.swift in Sources */,
+				0F8935752E1A4FC000BF6FBE /* bayesLogPostDenominate.swift in Sources */,
 				0F8689FB2D42591100D952D9 /* imJugExVer2View95CiPersonal.swift in Sources */,
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
 				0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */,
@@ -3993,6 +4017,7 @@
 				0F1E11F82DD0105800F69AFF /* unitReelPinkBar.swift in Sources */,
 				0F64DD632DC09EFF0027315D /* danvineTableSeisenshi.swift in Sources */,
 				0F868A342D45CB7100D952D9 /* hanaTenshoVer2View95CiTotal.swift in Sources */,
+				0F8935722E1A1A8200BF6FBE /* myJug5ViewBeyesTest.swift in Sources */,
 				0F8689E02D3C874F00D952D9 /* unitCountButtonVerticalDenominateAnotherDisplayNumber.swift in Sources */,
 				0F868A192D44B6F200D952D9 /* happyJugV3Ver2ViewJissenStartData.swift in Sources */,
 				0F64DD7C2DC3875E0027315D /* idolMasterViewVoice.swift in Sources */,
@@ -4332,6 +4357,7 @@
 				0F6FB8F42DE7306300207855 /* bangdreamTableCycle1Band.swift in Sources */,
 				0F64DD332DC0657C0027315D /* acceleratorTableShutterOpen.swift in Sources */,
 				0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */,
+				0F8935782E1A94A200BF6FBE /* unitTableSettingGuess.swift in Sources */,
 				0F6BD7E62D88616F003F5563 /* arifureViewPremiumAt.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
