@@ -395,7 +395,7 @@ struct hokutoViewTop: View {
                             hokutoMemory3: hokutoMemory3
                         )))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetAll, message: "この機種の全データをリセットします")
 //                        .popoverTip(tipUnitButtonReset())
                 }

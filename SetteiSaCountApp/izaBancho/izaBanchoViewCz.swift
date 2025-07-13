@@ -158,7 +158,7 @@ struct izaBanchoViewCz: View {
                     unitButtonMinusCheck(minusCheck: $izaBancho.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: izaBancho.resetCz)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

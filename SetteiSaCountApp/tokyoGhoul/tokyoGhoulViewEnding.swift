@@ -541,7 +541,7 @@ struct tokyoGhoulViewEnding: View {
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetEnding)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

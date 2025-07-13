@@ -87,7 +87,7 @@ struct mhrViewEnding: View {
                 unitButtonMinusCheck(minusCheck: $mhr.minusCheck)
                 // リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mhr.resetEnding)
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }

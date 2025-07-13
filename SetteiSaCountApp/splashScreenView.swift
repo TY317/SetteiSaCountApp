@@ -42,6 +42,9 @@ struct splashScreenView: View {
                     }
                 }
             }
+            .onAppear {
+                common.saveInitialVersionIfNeeded()
+            }
         }
     }
 }

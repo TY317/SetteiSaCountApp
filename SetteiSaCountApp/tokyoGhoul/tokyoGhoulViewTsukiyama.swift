@@ -280,7 +280,7 @@ struct tokyoGhoulViewTsukiyama: View {
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetTsukiyama)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

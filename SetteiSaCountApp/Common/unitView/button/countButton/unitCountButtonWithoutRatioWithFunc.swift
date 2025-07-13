@@ -16,6 +16,7 @@ struct unitCountButtonWithoutRatioWithFunc: View {
     @State var flushBool: Bool?
     var vSpaceBool: Bool = false
     let action: () -> Void
+    var vstackSpacing: CGFloat = 2
     
     var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ struct unitCountButtonWithoutRatioWithFunc: View {
                 }
             }
             // //// ボタンと表示部分
-            VStack(spacing: 5) {
+            VStack(spacing: self.vstackSpacing) {
                 // タイトル
                 Text(self.title)
                     .multilineTextAlignment(.center)

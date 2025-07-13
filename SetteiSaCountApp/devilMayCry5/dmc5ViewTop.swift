@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct dmc5ViewTop: View {
-    @ObservedObject var ver340: Ver340
     @ObservedObject var ver350: Ver350
+    @ObservedObject var ver351: Ver351
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
     @StateObject var dmc5Memory1 = Dmc5Memory1()
@@ -27,6 +27,17 @@ struct dmc5ViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時"
+                        )
+                    }
+                    // CZ当選周期
+                    NavigationLink(destination: dmc5ViewCzCycle(
+                        ver351: ver351,
+                        dmc5: dmc5,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "dot.scope",
+                            textBody: "CZ当選周期",
+                            badgeStatus: ver351.dmc5MenuCzCycleBadge,
                         )
                     }
                     // 初当り
@@ -83,7 +94,7 @@ struct dmc5ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: dmc5View95Ci(
                     dmc5: dmc5,
-                    selection: 1
+                    selection: 4,
                 )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
@@ -93,7 +104,7 @@ struct dmc5ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.dmc5MachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver351.dmc5MachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -122,7 +133,7 @@ struct dmc5ViewTop: View {
                         dmc5Memory3: dmc5Memory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: dmc5.resetAll, message: "この機種のデータを全てリセットします")
             }
@@ -188,6 +199,17 @@ struct dmc5SubViewSaveMemory: View {
         // ////////////////
         dmc5Memory1.dmcBonusCountChance = dmc5.dmcBonusCountChance
         dmc5Memory1.dmcBonusCountBattle = dmc5.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5Memory1.czCycleCountHit1 = dmc5.czCycleCountHit1
+        dmc5Memory1.czCycleCountHit2to4 = dmc5.czCycleCountHit2to4
+        dmc5Memory1.czCycleCountHit5to7 = dmc5.czCycleCountHit5to7
+        dmc5Memory1.czCycleCountHit8to10 = dmc5.czCycleCountHit8to10
+        dmc5Memory1.czHitCountUpTo4 = dmc5.czHitCountUpTo4
+        dmc5Memory1.czHitCountUpTo7 = dmc5.czHitCountUpTo7
+        dmc5Memory1.czHitCountAll = dmc5.czHitCountAll
     }
     func saveMemory2() {
         dmc5Memory2.normalGame = dmc5.normalGame
@@ -220,6 +242,17 @@ struct dmc5SubViewSaveMemory: View {
         // ////////////////
         dmc5Memory2.dmcBonusCountChance = dmc5.dmcBonusCountChance
         dmc5Memory2.dmcBonusCountBattle = dmc5.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5Memory2.czCycleCountHit1 = dmc5.czCycleCountHit1
+        dmc5Memory2.czCycleCountHit2to4 = dmc5.czCycleCountHit2to4
+        dmc5Memory2.czCycleCountHit5to7 = dmc5.czCycleCountHit5to7
+        dmc5Memory2.czCycleCountHit8to10 = dmc5.czCycleCountHit8to10
+        dmc5Memory2.czHitCountUpTo4 = dmc5.czHitCountUpTo4
+        dmc5Memory2.czHitCountUpTo7 = dmc5.czHitCountUpTo7
+        dmc5Memory2.czHitCountAll = dmc5.czHitCountAll
     }
     func saveMemory3() {
         dmc5Memory3.normalGame = dmc5.normalGame
@@ -253,6 +286,17 @@ struct dmc5SubViewSaveMemory: View {
         // ////////////////
         dmc5Memory3.dmcBonusCountChance = dmc5.dmcBonusCountChance
         dmc5Memory3.dmcBonusCountBattle = dmc5.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5Memory3.czCycleCountHit1 = dmc5.czCycleCountHit1
+        dmc5Memory3.czCycleCountHit2to4 = dmc5.czCycleCountHit2to4
+        dmc5Memory3.czCycleCountHit5to7 = dmc5.czCycleCountHit5to7
+        dmc5Memory3.czCycleCountHit8to10 = dmc5.czCycleCountHit8to10
+        dmc5Memory3.czHitCountUpTo4 = dmc5.czHitCountUpTo4
+        dmc5Memory3.czHitCountUpTo7 = dmc5.czHitCountUpTo7
+        dmc5Memory3.czHitCountAll = dmc5.czHitCountAll
     }
 }
 
@@ -319,6 +363,17 @@ struct dmc5SubViewLoadMemory: View {
         // ////////////////
         dmc5.dmcBonusCountChance = dmc5Memory1.dmcBonusCountChance
         dmc5.dmcBonusCountBattle = dmc5Memory1.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5.czCycleCountHit1 = dmc5Memory1.czCycleCountHit1
+        dmc5.czCycleCountHit2to4 = dmc5Memory1.czCycleCountHit2to4
+        dmc5.czCycleCountHit5to7 = dmc5Memory1.czCycleCountHit5to7
+        dmc5.czCycleCountHit8to10 = dmc5Memory1.czCycleCountHit8to10
+        dmc5.czHitCountUpTo4 = dmc5Memory1.czHitCountUpTo4
+        dmc5.czHitCountUpTo7 = dmc5Memory1.czHitCountUpTo7
+        dmc5.czHitCountAll = dmc5Memory1.czHitCountAll
     }
     func loadMemory2() {
         dmc5.normalGame = dmc5Memory2.normalGame
@@ -356,6 +411,17 @@ struct dmc5SubViewLoadMemory: View {
         // ////////////////
         dmc5.dmcBonusCountChance = dmc5Memory2.dmcBonusCountChance
         dmc5.dmcBonusCountBattle = dmc5Memory2.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5.czCycleCountHit1 = dmc5Memory2.czCycleCountHit1
+        dmc5.czCycleCountHit2to4 = dmc5Memory2.czCycleCountHit2to4
+        dmc5.czCycleCountHit5to7 = dmc5Memory2.czCycleCountHit5to7
+        dmc5.czCycleCountHit8to10 = dmc5Memory2.czCycleCountHit8to10
+        dmc5.czHitCountUpTo4 = dmc5Memory2.czHitCountUpTo4
+        dmc5.czHitCountUpTo7 = dmc5Memory2.czHitCountUpTo7
+        dmc5.czHitCountAll = dmc5Memory2.czHitCountAll
     }
     func loadMemory3() {
         dmc5.normalGame = dmc5Memory3.normalGame
@@ -393,12 +459,23 @@ struct dmc5SubViewLoadMemory: View {
         // ////////////////
         dmc5.dmcBonusCountChance = dmc5Memory3.dmcBonusCountChance
         dmc5.dmcBonusCountBattle = dmc5Memory3.dmcBonusCountBattle
+        
+        // ////////////////
+        // ver3.5.1で追加
+        // ////////////////
+        dmc5.czCycleCountHit1 = dmc5Memory3.czCycleCountHit1
+        dmc5.czCycleCountHit2to4 = dmc5Memory3.czCycleCountHit2to4
+        dmc5.czCycleCountHit5to7 = dmc5Memory3.czCycleCountHit5to7
+        dmc5.czCycleCountHit8to10 = dmc5Memory3.czCycleCountHit8to10
+        dmc5.czHitCountUpTo4 = dmc5Memory3.czHitCountUpTo4
+        dmc5.czHitCountUpTo7 = dmc5Memory3.czHitCountUpTo7
+        dmc5.czHitCountAll = dmc5Memory3.czHitCountAll
     }
 }
 
 #Preview {
     dmc5ViewTop(
-        ver340: Ver340(),
         ver350: Ver350(),
+        ver351: Ver351(),
     )
 }

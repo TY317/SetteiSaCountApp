@@ -311,7 +311,7 @@ struct shamanKingViewEnding: View {
                     unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetEnding)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

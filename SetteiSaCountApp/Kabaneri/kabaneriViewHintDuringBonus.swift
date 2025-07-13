@@ -109,7 +109,7 @@ struct kabaneriViewHintDuringBonus: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $kabaneri.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetHintDuringBonus)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

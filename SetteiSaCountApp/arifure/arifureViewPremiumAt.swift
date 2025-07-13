@@ -174,7 +174,7 @@ struct arifureViewPremiumAt: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetPremium)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

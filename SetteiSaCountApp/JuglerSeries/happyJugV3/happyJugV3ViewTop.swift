@@ -350,7 +350,7 @@ struct happyJugV3ViewTop: View {
                             // //// データ保存
                             unitButtonSaveMemory(saveView: AnyView(happyJugV3ViewSaveMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
                         }
-                        .popoverTip(tipUnitButtonMemory())
+//                        .popoverTip(tipUnitButtonMemory())
                         // マイナスボタン
                         Button(action: {
                             jug.minusCheck.toggle()

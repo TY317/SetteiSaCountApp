@@ -149,7 +149,7 @@ struct shamanKingViewHyoiGattai: View {
                     unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetHyoiGattai)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

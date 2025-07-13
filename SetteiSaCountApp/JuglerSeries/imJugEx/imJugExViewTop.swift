@@ -235,7 +235,7 @@ struct imJugExViewTop: View {
                         // //// データ保存
                         unitButtonSaveMemory(saveView: AnyView(imJugExViewSaveMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonMinusCheck(minusCheck: $jug.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: jug.reset)
 //                        .popoverTip(tipUnitButtonReset())

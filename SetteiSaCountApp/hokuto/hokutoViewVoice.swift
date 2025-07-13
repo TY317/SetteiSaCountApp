@@ -195,7 +195,7 @@ struct hokutoViewVoice: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetVoice)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

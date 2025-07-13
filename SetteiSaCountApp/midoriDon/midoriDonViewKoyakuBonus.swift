@@ -303,7 +303,7 @@ struct midoriDonViewKoyakuBonus: View {
                     unitButtonMinusCheck(minusCheck: $midoriDon.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: midoriDon.resetKoyakuBonus)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -333,7 +333,7 @@ struct magiaViewEnding: View {
                     unitButtonMinusCheck(minusCheck: $magia.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetEnding)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -161,7 +161,7 @@ struct shamanKingViewCzFuriwake: View {
                     unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetCzFuriwake)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -85,6 +85,7 @@ class Dmc5: ObservableObject {
         resetScreen()
         resetHistory()
         resetDmcBonus()
+        resetCzCycle()
     }
     
     // //////////////////
@@ -162,6 +163,49 @@ class Dmc5: ObservableObject {
         dmcBonusCountBattle = 0
         minusCheck = false
     }
+    
+    // ////////////////
+    // ver3.5.1で追加
+    // ////////////////
+    let ratioCzCycleUpTo1: [Double] = [33.2,33.6,34,37.5,39.1,41]
+    let ratioCzCycleUpTo4: [Double] = [68.5,69.2,69.8,75.7,77.3,79.4]
+    let ratioCzCycleUpTo7: [Double] = [85.1,85.7,86.2,90.5,91.6,92.8]
+    @AppStorage("dmc5CzCycleCountHit1") var czCycleCountHit1: Int = 0
+    @AppStorage("dmc5CzCycleCountHit2to4") var czCycleCountHit2to4: Int = 0
+    @AppStorage("dmc5CzCycleCountHit5to7") var czCycleCountHit5to7: Int = 0
+    @AppStorage("dmc5CzCycleCountHit8to10") var czCycleCountHit8to10: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo4") var czHitCountUpTo4: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo7") var czHitCountUpTo7: Int = 0
+    @AppStorage("dmc5CzHitCountAll") var czHitCountAll: Int = 0
+    
+    func czCycleSumFunc() {
+        czHitCountAll = countSum(
+            czCycleCountHit1,
+            czCycleCountHit2to4,
+            czCycleCountHit5to7,
+            czCycleCountHit8to10,
+        )
+        czHitCountUpTo4 = countSum(
+            czCycleCountHit1,
+            czCycleCountHit2to4,
+        )
+        czHitCountUpTo7 = countSum(
+            czCycleCountHit1,
+            czCycleCountHit2to4,
+            czCycleCountHit5to7,
+        )
+    }
+    
+    func resetCzCycle() {
+        czCycleCountHit1 = 0
+        czCycleCountHit2to4 = 0
+        czCycleCountHit5to7 = 0
+        czCycleCountHit8to10 = 0
+        czHitCountUpTo4 = 0
+        czHitCountUpTo7 = 0
+        czHitCountAll = 0
+        minusCheck = false
+    }
 }
 
 
@@ -200,6 +244,17 @@ class Dmc5Memory1: ObservableObject {
     // ////////////////
     @AppStorage("dmc5DmcBonusCountChanceMemory1") var dmcBonusCountChance: Int = 0
     @AppStorage("dmc5DmcBonusCountBattleMemory1") var dmcBonusCountBattle: Int = 0
+    
+    // ////////////////
+    // ver3.5.1で追加
+    // ////////////////
+    @AppStorage("dmc5CzCycleCountHit1Memory1") var czCycleCountHit1: Int = 0
+    @AppStorage("dmc5CzCycleCountHit2to4Memory1") var czCycleCountHit2to4: Int = 0
+    @AppStorage("dmc5CzCycleCountHit5to7Memory1") var czCycleCountHit5to7: Int = 0
+    @AppStorage("dmc5CzCycleCountHit8to10Memory1") var czCycleCountHit8to10: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo4Memory1") var czHitCountUpTo4: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo7Memory1") var czHitCountUpTo7: Int = 0
+    @AppStorage("dmc5CzHitCountAllMemory1") var czHitCountAll: Int = 0
 }
 
 
@@ -238,6 +293,17 @@ class Dmc5Memory2: ObservableObject {
     // ////////////////
     @AppStorage("dmc5DmcBonusCountChanceMemory2") var dmcBonusCountChance: Int = 0
     @AppStorage("dmc5DmcBonusCountBattleMemory2") var dmcBonusCountBattle: Int = 0
+    
+    // ////////////////
+    // ver3.5.1で追加
+    // ////////////////
+    @AppStorage("dmc5CzCycleCountHit1Memory2") var czCycleCountHit1: Int = 0
+    @AppStorage("dmc5CzCycleCountHit2to4Memory2") var czCycleCountHit2to4: Int = 0
+    @AppStorage("dmc5CzCycleCountHit5to7Memory2") var czCycleCountHit5to7: Int = 0
+    @AppStorage("dmc5CzCycleCountHit8to10Memory2") var czCycleCountHit8to10: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo4Memory2") var czHitCountUpTo4: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo7Memory2") var czHitCountUpTo7: Int = 0
+    @AppStorage("dmc5CzHitCountAllMemory2") var czHitCountAll: Int = 0
 }
 
 
@@ -276,4 +342,15 @@ class Dmc5Memory3: ObservableObject {
     // ////////////////
     @AppStorage("dmc5DmcBonusCountChanceMemory3") var dmcBonusCountChance: Int = 0
     @AppStorage("dmc5DmcBonusCountBattleMemory3") var dmcBonusCountBattle: Int = 0
+    
+    // ////////////////
+    // ver3.5.1で追加
+    // ////////////////
+    @AppStorage("dmc5CzCycleCountHit1Memory3") var czCycleCountHit1: Int = 0
+    @AppStorage("dmc5CzCycleCountHit2to4Memory3") var czCycleCountHit2to4: Int = 0
+    @AppStorage("dmc5CzCycleCountHit5to7Memory3") var czCycleCountHit5to7: Int = 0
+    @AppStorage("dmc5CzCycleCountHit8to10Memory3") var czCycleCountHit8to10: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo4Memory3") var czHitCountUpTo4: Int = 0
+    @AppStorage("dmc5CzHitCountUpTo7Memory3") var czHitCountUpTo7: Int = 0
+    @AppStorage("dmc5CzHitCountAllMemory3") var czHitCountAll: Int = 0
 }

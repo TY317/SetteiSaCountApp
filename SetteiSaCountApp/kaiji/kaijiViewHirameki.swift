@@ -238,7 +238,7 @@ struct kaijiViewHirameki: View {
                     unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetHirameki)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

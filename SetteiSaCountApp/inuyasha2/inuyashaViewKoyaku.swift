@@ -257,7 +257,7 @@ struct inuyashaViewKoyaku: View {
                     unitButtonMinusCheck(minusCheck: $inuyasha.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetKoyaku)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

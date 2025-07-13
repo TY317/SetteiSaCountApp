@@ -167,7 +167,7 @@ struct kabaneriViewIkoma: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $kabaneri.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetIcoma)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

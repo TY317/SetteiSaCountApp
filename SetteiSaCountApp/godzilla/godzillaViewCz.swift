@@ -137,7 +137,7 @@ struct godzillaViewCz: View {
                     unitButtonMinusCheck(minusCheck: $godzilla.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: godzilla.resetCz)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

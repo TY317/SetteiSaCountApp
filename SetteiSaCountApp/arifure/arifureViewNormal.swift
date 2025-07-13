@@ -290,7 +290,7 @@ struct arifureViewNormal: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetNormal)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -183,7 +183,7 @@ struct godeaterViewVoice: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: godeater.$minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetVoice)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

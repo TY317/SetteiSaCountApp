@@ -244,7 +244,7 @@ struct bioViewEnding: View {
                     unitButtonMinusCheck(minusCheck: $bio.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: bio.resetEnding)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

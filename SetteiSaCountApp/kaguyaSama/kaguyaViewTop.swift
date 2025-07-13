@@ -519,7 +519,7 @@ struct kaguyaViewTop: View {
                         )))
     //                        .popoverTip(tipUnitButtonSaveMemory())
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     // //// データリセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetAll, message: "この機種のデータを全てリセットします")
 //                        .popoverTip(tipUnitButtonReset())
