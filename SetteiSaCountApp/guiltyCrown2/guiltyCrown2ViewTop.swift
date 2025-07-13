@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewTop: View {
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
     @ObservedObject var ver350: Ver350
     @StateObject var guiltyCrown2 = GuiltyCrown2()
     @State var isShowAlert: Bool = false
@@ -328,7 +328,7 @@ struct guiltyCrown2SubViewLoadMemory: View {
 
 #Preview {
     guiltyCrown2ViewTop(
-        ver340: Ver340(),
+//        ver340: Ver340(),
         ver350: Ver350(),
     )
 }

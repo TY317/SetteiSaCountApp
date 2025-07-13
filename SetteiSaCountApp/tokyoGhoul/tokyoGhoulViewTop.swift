@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
-//    @ObservedObject var ver250 = Ver250()
+    @ObservedObject var ver351: Ver351
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @StateObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
@@ -29,11 +29,15 @@ struct tokyoGhoulViewTop: View {
                         )
                     }
                     // CZ,AT 初当り履歴
-                    NavigationLink(destination: tokyoGhoulViewHistory(tokyoGhoul: tokyoGhoul)) {
+                    NavigationLink(
+                        destination: tokyoGhoulViewHistory(
+                            ver351: ver351,
+                            tokyoGhoul: tokyoGhoul
+                        )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "CZ,AT 初当り履歴"
-//                            badgeStatus: ver250.ghoulMenuHistoryBadgeStatus
+                            textBody: "CZ,AT 初当り履歴",
+                            badgeStatus: ver351.ghoulMenuFirstHitBadge,
                         )
                     }
                     // AT終了画面
@@ -63,6 +67,8 @@ struct tokyoGhoulViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver351.ghoulMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -521,5 +527,7 @@ struct tokyoGhoulSubViewLoadMemory: View {
 }
 
 #Preview {
-    tokyoGhoulViewTop()
+    tokyoGhoulViewTop(
+        ver351: Ver351(),
+    )
 }

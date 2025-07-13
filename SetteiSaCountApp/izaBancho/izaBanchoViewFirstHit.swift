@@ -27,7 +27,7 @@ struct izaBanchoTipHistoryInput: Tip {
 
 
 struct izaBanchoViewFirstHit: View {
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
     @ObservedObject var izaBancho: IzaBancho
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -318,7 +318,7 @@ struct izaBanchoViewFirstHit: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.izaBanchoMenuFirstHitBadgeStaus)
+//        .resetBadgeOnAppear($ver340.izaBanchoMenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -358,7 +358,7 @@ struct izaBanchoViewFirstHit: View {
 
 #Preview {
     izaBanchoViewFirstHit(
-        ver340: Ver340(),
+//        ver340: Ver340(),
         izaBancho: IzaBancho()
     )
 }

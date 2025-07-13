@@ -9,6 +9,7 @@ import SwiftUI
 
 struct watakonViewTop: View {
     @ObservedObject var ver350: Ver350
+    @ObservedObject var ver351: Ver351
     @StateObject var watakon = Watakon()
     @State var isShowAlert: Bool = false
     @StateObject var watakonMemory1 = WatakonMemory1()
@@ -48,6 +49,18 @@ struct watakonViewTop: View {
                         )
                     }
                     
+                    // ボーナス終了画面
+                    NavigationLink(destination: watakonViewBonusScreen(
+                        ver351: ver351,
+                        watakon: watakon,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: ver351.watakonMenuBonusScreenBadgeStaus,
+                        )
+                    }
+                    
                     // AT終了画面
                     NavigationLink(destination: watakonViewScreen(
                         watakon: watakon,
@@ -55,6 +68,14 @@ struct watakonViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面"
+                        )
+                    }
+                    
+                    // トロフィー
+                    NavigationLink(destination: commonViewArisuTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "アリストロフィー"
                         )
                     }
                 }
@@ -73,7 +94,7 @@ struct watakonViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.watakonMachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver351.watakonMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -225,5 +246,6 @@ struct watakonSubViewLoadMemory: View {
 #Preview {
     watakonViewTop(
         ver350: Ver350(),
+        ver351: Ver351(),
     )
 }

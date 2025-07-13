@@ -9,7 +9,7 @@ import SwiftUI
 
 struct izaBanchoViewTop: View {
     @ObservedObject var ver350: Ver350
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
     @StateObject var izaBancho = IzaBancho()
     @State var isShowAlert: Bool = false
     @StateObject var izaBanchoMemory1 = IzaBanchoMemory1()
@@ -53,13 +53,13 @@ struct izaBanchoViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: izaBanchoViewFirstHit(
-                        ver340: ver340,
+//                        ver340: ver340,
                         izaBancho: izaBancho,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver340.izaBanchoMenuFirstHitBadgeStaus,
+//                            badgeStatus: ver340.izaBanchoMenuFirstHitBadgeStaus,
                         )
                     }
                     // AT中
@@ -372,6 +372,6 @@ struct izaBanchoSubViewLoadMemory: View {
 #Preview {
     izaBanchoViewTop(
         ver350: Ver350(),
-        ver340: Ver340(),
+//        ver340: Ver340(),
     )
 }

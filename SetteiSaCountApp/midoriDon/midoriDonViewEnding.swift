@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct midoriDonViewEnding: View {
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
     @ObservedObject var midoriDon: MidoriDon
     @State var isShowAlert = false
     
@@ -133,7 +133,7 @@ struct midoriDonViewEnding: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.midoriDonMenuEndingBadgeStatus)
+//        .resetBadgeOnAppear($ver340.midoriDonMenuEndingBadgeStatus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -149,7 +149,7 @@ struct midoriDonViewEnding: View {
 
 #Preview {
     midoriDonViewEnding(
-        ver340: Ver340(),
+//        ver340: Ver340(),
         midoriDon: MidoriDon()
     )
 }

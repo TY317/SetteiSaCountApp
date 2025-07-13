@@ -56,14 +56,24 @@ struct evaYakusokuViewFirstHit: View {
                         title: "BIG合算",
                         count: $evaYakusoku.bonusCountBigSum,
                         bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // REG
+                    unitResultRatioDenomination2Line(
+                        title: "REG",
+                        count: $evaYakusoku.bonusCountReg,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                     // ボーナス合算
                     unitResultRatioDenomination2Line(
                         title: "ボーナス合算",
                         count: $evaYakusoku.bonusCountAllSum,
                         bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
                 // //// 参考情報）初当り確率
@@ -141,6 +151,38 @@ struct evaYakusokuViewFirstHit: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 HStack {
+                    // カウント値直接入力
+                    unitToolbarButtonCountDirectInput(
+                        inputView: {
+                            // BB
+                            unitTextFieldNumberInputWithUnit(
+                                title: "BB",
+                                inputValue: $evaYakusoku.bonusCountBig
+                            )
+                            .focused($isFocused)
+                            .onChange(of: evaYakusoku.bonusCountBig) {
+                                evaYakusoku.bonusSumFunc()
+                            }
+                            // SBB
+                            unitTextFieldNumberInputWithUnit(
+                                title: "SBB",
+                                inputValue: $evaYakusoku.bonusCountSBig,
+                            )
+                            .focused($isFocused)
+                            .onChange(of: evaYakusoku.bonusCountSBig) {
+                                evaYakusoku.bonusSumFunc()
+                            }
+                            // REG
+                            unitTextFieldNumberInputWithUnit(
+                                title: "REG",
+                                inputValue: $evaYakusoku.bonusCountReg,
+                            )
+                            .focused($isFocused)
+                            .onChange(of: evaYakusoku.bonusCountReg) {
+                                evaYakusoku.bonusSumFunc()
+                            }
+                        }, focus: self.$isFocused
+                    )
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
                     // リセットボタン

@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct midoriDonViewTop: View {
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
 //    @ObservedObject var ver310: Ver310
     @StateObject var midoriDon = MidoriDon()
     @State var isShowAlert: Bool = false
@@ -92,13 +92,13 @@ struct midoriDonViewTop: View {
                     
                     // エンディング
                     NavigationLink(destination: midoriDonViewEnding(
-                        ver340: ver340,
+//                        ver340: ver340,
                         midoriDon: midoriDon,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング",
-                            badgeStatus: ver340.midoriDonMenuEndingBadgeStatus,
+//                            badgeStatus: ver340.midoriDonMenuEndingBadgeStatus,
                         )
                     }
                 }
@@ -124,7 +124,7 @@ struct midoriDonViewTop: View {
             )
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver340.midoriDonMachineIconBadgeStatus)
+//        .resetBadgeOnAppear($ver340.midoriDonMachineIconBadgeStatus)
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -437,7 +437,7 @@ struct midoriDonSubViewLoadMemory: View {
 
 #Preview {
     midoriDonViewTop(
-        ver340: Ver340()
+//        ver340: Ver340()
 //        ver310: Ver310()
     )
 }

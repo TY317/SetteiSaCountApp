@@ -42,6 +42,7 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
+    @ObservedObject var ver351: Ver351
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
 //    @ObservedObject var ver250 = Ver250()
@@ -73,19 +74,19 @@ struct tokyoGhoulViewHistory: View {
                     unitText: "Ｇ"
                 )
                 .focused($isFocused)
-                .toolbar {
-                    ToolbarItem(placement: .keyboard) {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                isFocused = false
-                            }, label: {
-                                Text("完了")
-                                    .fontWeight(.bold)
-                            })
-                        }
-                    }
-                }
+//                .toolbar {
+//                    ToolbarItem(placement: .keyboard) {
+//                        HStack {
+//                            Spacer()
+//                            Button(action: {
+//                                isFocused = false
+//                            }, label: {
+//                                Text("完了")
+//                                    .fontWeight(.bold)
+//                            })
+//                        }
+//                    }
+//                }
                 // //// CZ選択肢
                 if tokyoGhoul.selectedSegment == tokyoGhoul.selectListSegment[0] {
                     unitPickerMenuString(
@@ -160,9 +161,19 @@ struct tokyoGhoulViewHistory: View {
                     }
                 }
             } header: {
-                Text("初当り登録")
+                HStack {
+                    Text("初当り登録")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "初当り登録",
+                            textBody1: "CZ当選、AT直撃ごとに入力して下さい。入力結果から",
+                            textBody2: "・CZ初当り確率",
+                            textBody3: "・AT初当り確率　を算出します",
+                        )
+                    }
+                }
             }
-            .popoverTip(tokyoGhoulTipHistoryInput())
+//            .popoverTip(tokyoGhoulTipHistoryInput())
             
             // //// 参考情報セクション
             Section {
@@ -428,6 +439,17 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
+                // //// 参考情報）リプレイからのAT直撃について
+                unitLinkButton(
+                    title: "リプレイからのAT直撃について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "リプレイからのAT直撃",
+                            tableView: AnyView(tokyoGhoulTableReplayAtHit())
+                        )
+                    )
+                )
+                .popoverTip(tipVer351GhoulReplayAt())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
@@ -438,8 +460,19 @@ struct tokyoGhoulViewHistory: View {
             // //// 100G以内の当選率
             Section {
                 // 朝一データ除外のトグルスイッチ
-                Toggle("朝一データ除外", isOn: $tokyoGhoul.morningModeEnable)
-                    .popoverTip(tokyoGhoulTipMorningMode())
+                Toggle(isOn: $tokyoGhoul.morningModeEnable) {
+                    HStack {
+                        Text("朝一データ除外")
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "朝一データ除外",
+                                textBody1: "設定変更時に移行する朝一モードを除外した当選率が対象のため、朝一稼働でリセットされる店舗ではスイッチをONにして下さい"
+                            )
+                        }
+                    }
+                }
+//                Toggle("朝一データ除外", isOn: $tokyoGhoul.morningModeEnable)
+//                    .popoverTip(tokyoGhoulTipMorningMode())
                 // 確率結果
                 unitResultRatioPercent2Line(
                     title: "100G以内当選率",
@@ -464,10 +497,20 @@ struct tokyoGhoulViewHistory: View {
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 6)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
             } header: {
-                Text("100G以内での当選率")
+                HStack {
+                    Text("100G以内での当選率")
+//                    unitToolbarButtonQuestion {
+//                        unitExView5body2image(
+//                            title: "100G以内での当選",
+//                            textBody1: "設定変更時に移行する朝一モードを除外した当選率が対象のため、朝一稼働でリセットされる店舗ではスイッチをONにして下さい"
+//                        )
+//                    }
+                }
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver351.ghoulMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -525,13 +568,31 @@ struct tokyoGhoulViewHistory: View {
         .navigationTitle("CZ,AT 初当り")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+//            ToolbarItem(placement: .topBarLeading) {
+//                unitToolbarButtonQuestion {
+//                    unitExView5body2image(
+//                        title: "履歴入力",
+//                        textbody1: "CZ当選、AT直撃ごとに入力して下さい。入力結果から\n・CZ初当り確率\n・AT初当り確率　を算出します"
+//                    )
+//                }
+//            }
             ToolbarItem(placement: .automatic) {
                 HStack {
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetHistory)
-//                        .popoverTip(tipUnitButtonReset())
+                }
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
                 }
             }
         }
@@ -539,5 +600,8 @@ struct tokyoGhoulViewHistory: View {
 }
 
 #Preview {
-    tokyoGhoulViewHistory(tokyoGhoul: TokyoGhoul())
+    tokyoGhoulViewHistory(
+        ver351: Ver351(),
+        tokyoGhoul: TokyoGhoul()
+    )
 }
