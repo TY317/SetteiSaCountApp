@@ -159,7 +159,7 @@ struct kaijiViewFirstHit: View {
                     unitButtonMinusCheck(minusCheck: $kaiji.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaiji.resetFirstHit)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

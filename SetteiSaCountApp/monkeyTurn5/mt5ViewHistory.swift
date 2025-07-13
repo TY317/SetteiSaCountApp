@@ -183,7 +183,7 @@ struct mt5ViewHistory: View {
                     unitButtonMinusCheck(minusCheck:$mt5.minusCheck)
                     // データリセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: mt5.historyReset, message: "このページのデータをリセットします")
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

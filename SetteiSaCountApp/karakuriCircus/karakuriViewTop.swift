@@ -482,7 +482,7 @@ struct karakuriViewTop: View {
                         )))
 //                            .popoverTip(tipUnitButtonSaveMemory())
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     // //// データリセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: karakuri.resetAll, message: "この機種のデータを全てリセットします")
 //                        .popoverTip(tipUnitButtonReset())

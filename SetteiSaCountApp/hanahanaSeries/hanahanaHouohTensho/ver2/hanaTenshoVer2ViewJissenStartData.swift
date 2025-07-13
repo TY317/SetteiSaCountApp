@@ -250,7 +250,7 @@ struct hanaTenshoVer2ViewJissenStartData: View {
                 HStack {
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: hanaTensho.resetStartData)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

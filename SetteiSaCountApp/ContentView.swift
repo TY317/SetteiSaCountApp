@@ -94,6 +94,23 @@ class commonVar: ObservableObject {
     }
     @Environment(\.requestReview) var requestReview
     @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
+    
+    // ////////////////
+    // ver3.5.1で追加
+    // 初回起動時のバージョン情報を保存しておく
+    // ////////////////
+    @AppStorage("commonFirstLaunchAppVersion") var firstLaunchAppVersion: String?
+    
+    func saveInitialVersionIfNeeded() {
+        // すでに保存されていたら何もしない
+        guard firstLaunchAppVersion == nil else { return }
+        
+        // 現在のバージョンを取得
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            firstLaunchAppVersion = version
+            print("初回起動バージョンを保存: \(version)")
+        }
+    }
 }
 
 // /////////////////////////
@@ -101,8 +118,9 @@ class commonVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-    @StateObject var ver340 = Ver340()
+//    @StateObject var ver340 = Ver340()
     @StateObject var ver350 = Ver350()
+    @StateObject var ver351 = Ver351()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -158,11 +176,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-                                            ver350: ver350
+                                            ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァ約束",
-                                        badgeStatus: ver350.evaYakusokuMachineIconBadgeStaus,
+                                        badgeStatus: ver351.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -173,11 +192,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(watakonViewTop(
-                                            ver350: ver350
+                                            ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わた婚",
-                                        badgeStatus: ver350.watakonMachineIconBadgeStaus,
+                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -187,7 +207,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-                                            ver340: ver340,
+//                                            ver340: ver340,
                                             ver350: ver350,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
@@ -202,12 +222,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
-                                            ver340: ver340,
                                             ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-                                        badgeStatus: ver350.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver351.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -218,7 +238,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(izaBanchoViewTop(
                                             ver350: ver350,
-                                            ver340: ver340,
+//                                            ver340: ver340,
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
@@ -260,12 +280,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver340: ver340
+//                                            ver340: ver340
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
-                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
+//                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -400,10 +420,12 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(tokyoGhoulViewTop()),
+                                        linkView: AnyView(tokyoGhoulViewTop(
+                                            ver351: ver351,
+                                        )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
-                                        machineName: "東京喰種"
-//                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
+                                        machineName: "東京喰種",
+                                        badgeStatus: ver351.ghoulMachineIconBadge,
                                     )
 //                                        .popoverTip(tipVer230MachineAdd())
                                 }
@@ -639,14 +661,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-                                            ver350: ver350
+                                            ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァンゲリヲン〜約束の扉〜",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-                                        badgeStatus: ver350.evaYakusokuMachineIconBadgeStaus,
+                                        badgeStatus: ver351.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -657,14 +680,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(watakonViewTop(
-                                            ver350: ver350
+                                            ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わたしの幸せな結婚",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-                                        badgeStatus: ver350.watakonMachineIconBadgeStaus,
+                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -674,7 +698,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-                                            ver340: ver340,
+//                                            ver340: ver340,
                                             ver350: ver350,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
@@ -692,15 +716,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
-                                            ver340: ver340,
                                             ver350: ver350,
+                                            ver351: ver351,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver350.dmc5MachineIconBadgeStaus
+                                        badgeStatus: ver351.dmc5MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -711,7 +735,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(izaBanchoViewTop(
                                             ver350: ver350,
-                                            ver340: ver340
+//                                            ver340: ver340
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
@@ -762,7 +786,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-                                            ver340: ver340
+//                                            ver340: ver340
 //                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
@@ -770,7 +794,7 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 5,
-                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
+//                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
 //                                    .popoverTip(tipVer300MachineAdd())
                                 }
@@ -933,13 +957,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(tokyoGhoulViewTop()),
+                                        linkView: AnyView(tokyoGhoulViewTop(
+                                            ver351: ver351,
+                                        )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
                                         makerName: "Spiky",
                                         releaseYear: 2025,
-                                        releaseMonth: 2
-//                                        badgeStatus: ver250.ghoulMachineIconBadgeStatus
+                                        releaseMonth: 2,
+                                        badgeStatus: ver351.ghoulMachineIconBadge,
 //                                        badgeStatus: "update"
                                     )
 //                                    .popoverTip(tipVer230MachineAdd())
@@ -1314,7 +1340,7 @@ struct ContentView: View {
 //                                        .popoverTip(tipUnitButtonIconDisplayMode())
                                 }
                             }
-                            .popoverTip(tipUnitButtonIconDisplayMode())
+//                            .popoverTip(tipUnitButtonIconDisplayMode())
                             
                             // お気に入り設定ボタン
                             Button(action: {
@@ -1628,8 +1654,8 @@ struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

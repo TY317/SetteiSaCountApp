@@ -177,7 +177,7 @@ struct midoriDonViewKoyaku: View {
                     unitButtonMinusCheck(minusCheck: $midoriDon.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: midoriDon.resetKoyaku)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

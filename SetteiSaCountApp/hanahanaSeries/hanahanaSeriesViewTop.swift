@@ -239,7 +239,7 @@ struct hanahanaSeriesViewTop: View {
                             }
                             else {
                                 Image(systemName: "rectangle.grid.2x2")
-                                    .popoverTip(tipUnitButtonIconDisplayMode())
+//                                    .popoverTip(tipUnitButtonIconDisplayMode())
                             }
                         }
                         // お気に入り設定ボタン

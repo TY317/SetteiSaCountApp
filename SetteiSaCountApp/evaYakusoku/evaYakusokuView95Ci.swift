@@ -9,11 +9,62 @@ import SwiftUI
 
 struct evaYakusokuView95Ci: View {
     @ObservedObject var evaYakusoku: EvaYakusoku
-    @State var selection = 1
+    @State var selection = 4
     @State var isShow95CiExplain = false
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // //// ベル回数
+            unitListSection95Ci(
+                grafTitle: "🔔回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $evaYakusoku.koyakuCountBell,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        setting1Denominate: evaYakusoku.ratioBell[0],
+                        setting2Denominate: evaYakusoku.ratioBell[1],
+                        setting3Denominate: evaYakusoku.ratioBell[2],
+                        setting4Denominate: evaYakusoku.ratioBell[3],
+                        setting5Denominate: evaYakusoku.ratioBell[4],
+                        setting6Denominate: evaYakusoku.ratioBell[5]
+                    )
+                )
+            )
+            .tag(4)
+            // //// チェリー回数
+            unitListSection95Ci(
+                grafTitle: "🍒回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $evaYakusoku.koyakuCountCherry,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        setting1Denominate: evaYakusoku.ratioCherry[0],
+                        setting2Denominate: evaYakusoku.ratioCherry[1],
+                        setting3Denominate: evaYakusoku.ratioCherry[2],
+                        setting4Denominate: evaYakusoku.ratioCherry[3],
+                        setting5Denominate: evaYakusoku.ratioCherry[4],
+                        setting6Denominate: evaYakusoku.ratioCherry[5]
+                    )
+                )
+            )
+            .tag(5)
+            // //// スイカ合算回数
+            unitListSection95Ci(
+                grafTitle: "強弱🍉回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $evaYakusoku.koyakuCountSuikaSum,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        setting1Denominate: evaYakusoku.ratioSuikaSum[0],
+                        setting2Denominate: evaYakusoku.ratioSuikaSum[1],
+                        setting3Denominate: evaYakusoku.ratioSuikaSum[2],
+                        setting4Denominate: evaYakusoku.ratioSuikaSum[3],
+                        setting5Denominate: evaYakusoku.ratioSuikaSum[4],
+                        setting6Denominate: evaYakusoku.ratioSuikaSum[5]
+                    )
+                )
+            )
+            .tag(6)
             // //// ビッグ合算回数
             unitListSection95Ci(
                 grafTitle: "BIG合算回数",
@@ -79,7 +130,6 @@ struct evaYakusokuView95Ci: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
-                    .popoverTip(tipUnitButton95CiExplain())
             }
         }
         .tabViewStyle(.page)

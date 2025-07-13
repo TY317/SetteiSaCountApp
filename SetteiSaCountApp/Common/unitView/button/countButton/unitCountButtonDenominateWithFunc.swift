@@ -22,6 +22,7 @@ struct unitCountButtonDenominateWithFunc: View {
     }
     @State var minusColor: Color = .red
     let action: () -> Void
+    var vstackSpacing: CGFloat = 2
     
     var body: some View {
         ZStack {
@@ -52,7 +53,7 @@ struct unitCountButtonDenominateWithFunc: View {
                 }
             }
             // //// ボタンと表示部分
-            VStack(spacing: 5) {
+            VStack(spacing: self.vstackSpacing) {
                 // タイトル
                 Text(self.title)
                 // 確率
@@ -97,15 +98,27 @@ struct unitCountButtonDenominateWithFunc: View {
     @Previewable @State var buttonCountSum: Int = 1000
     @Previewable @State var minusCheck: Bool = false
     @Previewable @State var sumNumber: Int = 0
-    unitCountButtonDenominateWithFunc(
-        title: "弱スイカ",
-        count: $buttonCount,
-        color: .green,
-        bigNumber: $buttonCountSum,
-        numberofDicimal: 0,
-        minusBool: $minusCheck,
-        action: testFunc
-    )
+    HStack {
+        unitCountButtonDenominateWithFunc(
+            title: "弱スイカ",
+            count: $buttonCount,
+            color: .green,
+            bigNumber: $buttonCountSum,
+            numberofDicimal: 0,
+            minusBool: $minusCheck,
+            action: testFunc
+        )
+        unitCountButtonDenominateWithFunc(
+            title: "弱スイカ",
+            count: $buttonCount,
+            color: .green,
+            bigNumber: $buttonCountSum,
+            numberofDicimal: 0,
+            minusBool: $minusCheck,
+            action: testFunc,
+            vstackSpacing: 1,
+        )
+    }
 }
 
 

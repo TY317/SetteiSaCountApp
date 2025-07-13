@@ -353,7 +353,7 @@ struct symphoViewTop: View {
                             symphoMemory3: symphoMemory3
                         )))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: sympho.resetAll, message: "この機種のデータを全てリセットします")
 //                        .popoverTip(tipUnitButtonReset())
                 }

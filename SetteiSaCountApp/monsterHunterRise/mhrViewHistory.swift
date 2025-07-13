@@ -356,7 +356,7 @@ struct mhrViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $mhr.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: mhr.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

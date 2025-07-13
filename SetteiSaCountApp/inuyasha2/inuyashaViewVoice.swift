@@ -166,7 +166,7 @@ struct inuyashaViewVoice: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: inuyasha.$minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: inuyasha.resetVoice)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

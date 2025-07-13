@@ -254,7 +254,7 @@ struct vvvViewCzHistoryVer2: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $vvv.MinusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: vvv.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -139,7 +139,7 @@ struct hokutoView95Ci: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
-                    .popoverTip(tipUnitButton95CiExplain())
+//                    .popoverTip(tipUnitButton95CiExplain())
             }
         }
         .tabViewStyle(.page)

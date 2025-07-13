@@ -59,7 +59,7 @@ struct kaguyaViewEnding: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: $kaguya.minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetEnding)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

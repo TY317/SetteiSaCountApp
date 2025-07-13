@@ -110,7 +110,7 @@ struct dmc5ViewDmcBonus: View {
                         isShowAlert: $isShowAlert,
                         action: dmc5.resetDmcBonus,
                     )
-                    .popoverTip(tipUnitButtonReset())
+//                    .popoverTip(tipUnitButtonReset())
                 }
             }
         }

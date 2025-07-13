@@ -205,7 +205,7 @@ struct danvineViewSt: View {
                     unitButtonMinusCheck(minusCheck: $danvine.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: danvine.resetSt)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

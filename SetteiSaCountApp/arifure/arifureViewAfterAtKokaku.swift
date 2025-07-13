@@ -68,7 +68,7 @@ struct arifureViewAfterAtKokaku: View {
                     unitButtonMinusCheck(minusCheck: $arifure.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: arifure.resetAfterKokaku)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

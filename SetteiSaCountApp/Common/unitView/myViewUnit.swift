@@ -185,11 +185,7 @@ struct unitLinkButton: View {
             Button(action: {
                 self.isShowExView.toggle()
             }, label: {
-    //            Text(">> \(self.title)")
-    //                .foregroundColor(Color.blue)
-    //                .frame(maxWidth: .infinity, alignment: .trailing)
                 Text(">> \(self.title)")
-//                    .foregroundColor(Color.blue)
                     .foregroundStyle(Color.blue)
             })
             .sheet(isPresented: $isShowExView, content: {
@@ -218,6 +214,7 @@ struct unitCountButtonVerticalWithoutRatio: View {
 //        let deno = Double(bigNumber) / Double(count)
 //        return count > 0 ? deno : 0.0
 //    }
+    var vstackSpacing: CGFloat = 2
     
     var body: some View {
         ZStack {
@@ -250,7 +247,7 @@ struct unitCountButtonVerticalWithoutRatio: View {
                 }
             }
             // //// ボタンと表示部分
-            VStack(spacing: 5) {
+            VStack(spacing: self.vstackSpacing) {
                 // タイトル
                 Text(self.title)
                     .multilineTextAlignment(.center)
@@ -303,6 +300,7 @@ struct unitCountButtonVerticalDenominate: View {
         return count > 0 ? deno : 0.0
     }
     @State var minusColor: Color = .red
+    var vstackSpacing: CGFloat = 2
     
     var body: some View {
         ZStack {
@@ -334,7 +332,7 @@ struct unitCountButtonVerticalDenominate: View {
                 }
             }
             // //// ボタンと表示部分
-            VStack(spacing: 5) {
+            VStack(spacing: self.vstackSpacing) {
                 // タイトル
                 Text(self.title)
                 // 確率
@@ -390,6 +388,7 @@ struct unitCountButtonVerticalPercent: View {
         let rat = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? rat : 0.0
     }
+    var vstackSpacing: CGFloat = 2
     
     var body: some View {
         ZStack {
@@ -422,7 +421,7 @@ struct unitCountButtonVerticalPercent: View {
                 }
             }
             // //// ボタンと表示部分
-            VStack(spacing: 5) {
+            VStack(spacing: self.vstackSpacing) {
                 // タイトル
                 Text(self.title)
                     .multilineTextAlignment(.center)
@@ -766,6 +765,8 @@ struct unitExView5body2image: View {
     @State var image2Title: String?
     @State var image2: Image?
     @State var tableView: AnyView?
+    let textFont: Font = .body
+    let textColor: Color = .primary
     
     var body: some View {
         NavigationView {
@@ -774,22 +775,32 @@ struct unitExView5body2image: View {
                     if let textBody1 = textBody1 {
                         Text(textBody1)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(self.textFont)
+                            .foregroundStyle(self.textColor)
                     }
                     if let textBody2 = textBody2 {
                         Text(textBody2)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(self.textFont)
+                            .foregroundStyle(self.textColor)
                     }
                     if let textBody3 = textBody3 {
                         Text(textBody3)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(self.textFont)
+                            .foregroundStyle(self.textColor)
                     }
                     if let textBody4 = textBody4 {
                         Text(textBody4)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(self.textFont)
+                            .foregroundStyle(self.textColor)
                     }
                     if let textBody5 = textBody5 {
                         Text(textBody5)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(self.textFont)
+                            .foregroundStyle(self.textColor)
                     }
                     if let image1Title = image1Title {
                         Text(image1Title)

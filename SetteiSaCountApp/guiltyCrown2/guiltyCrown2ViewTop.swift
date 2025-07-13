@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewTop: View {
-    @ObservedObject var ver340: Ver340
+//    @ObservedObject var ver340: Ver340
     @ObservedObject var ver350: Ver350
     @StateObject var guiltyCrown2 = GuiltyCrown2()
     @State var isShowAlert: Bool = false
@@ -116,7 +116,7 @@ struct guiltyCrown2ViewTop: View {
                         guiltyCrown2Memory3: guiltyCrown2Memory3
                     )))
                 }
-                .popoverTip(tipUnitButtonMemory())
+//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: guiltyCrown2.resetAll, message: "この機種のデータを全てリセットします")
             }
@@ -328,7 +328,7 @@ struct guiltyCrown2SubViewLoadMemory: View {
 
 #Preview {
     guiltyCrown2ViewTop(
-        ver340: Ver340(),
+//        ver340: Ver340(),
         ver350: Ver350(),
     )
 }

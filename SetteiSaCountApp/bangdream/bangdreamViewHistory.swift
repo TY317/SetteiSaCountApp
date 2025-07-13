@@ -253,7 +253,7 @@ struct bangdreamViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $bangdream.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: bangdream.resetHistory)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

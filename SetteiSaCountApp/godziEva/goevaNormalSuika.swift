@@ -121,7 +121,7 @@ struct goevaNormalSuika: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $goeva.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: goeva.resetNormalSuika, message: "このページのデータをリセットします")
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

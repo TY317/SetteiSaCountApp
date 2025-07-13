@@ -105,7 +105,7 @@ struct kabaneriMumei: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $kabaneri.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: kabaneri.resetMumei)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

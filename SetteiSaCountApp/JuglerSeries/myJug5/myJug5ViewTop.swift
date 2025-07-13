@@ -310,7 +310,7 @@ struct myJug5ViewTop: View {
                                 // //// メモリー保存
                                 unitButtonSaveMemory(saveView: AnyView(myJug5ViewSaveMemory(jug: jug, jugMemory1: jugMemory1, jugMemory2: jugMemory2, jugMemory3: jugMemory3)))
                             }
-                            .popoverTip(tipUnitButtonMemory())
+//                            .popoverTip(tipUnitButtonMemory())
                             // マイナスボタン
                             Button(action: {
                                 jug.minusCheck.toggle()

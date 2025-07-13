@@ -153,7 +153,7 @@ struct godzillaViewFirstHit: View {
                     unitButtonMinusCheck(minusCheck: $godzilla.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: godzilla.resetFirstHit)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

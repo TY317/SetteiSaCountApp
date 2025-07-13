@@ -260,7 +260,7 @@ struct toloveruViewTop: View {
                             toloveruMemory3: toloveruMemory3
                         )))
                     }
-                    .popoverTip(tipUnitButtonMemory())
+//                    .popoverTip(tipUnitButtonMemory())
                     unitButtonReset(isShowAlert: $isShowAlert, action: toloveru.resetAll, message: "この機種の全データをリセットします")
 //                        .popoverTip(tipUnitButtonReset())
                 }

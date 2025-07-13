@@ -43,7 +43,7 @@ struct toloveruViewBonus: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $toloveru.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: toloveru.resetBonus)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

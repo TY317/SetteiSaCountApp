@@ -110,7 +110,7 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiTotal(imJugEx: imJugEx)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $imJugEx.currentGames)
                 // 自分でプレイ

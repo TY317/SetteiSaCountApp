@@ -363,7 +363,7 @@ struct godeaterViewHistory: View {
                     HStack {
                         unitButtonMinusCheck(minusCheck: $godeater.minusCheck)
                         unitButtonReset(isShowAlert: $isShowAlert, action: godeater.resetHistory)
-                            .popoverTip(tipUnitButtonReset())
+//                            .popoverTip(tipUnitButtonReset())
                     }
                 }
             }

@@ -180,7 +180,7 @@ struct bangdreamViewPicoAttack: View {
                     unitButtonMinusCheck(minusCheck: $bangdream.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: bangdream.resetPicoAttack)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

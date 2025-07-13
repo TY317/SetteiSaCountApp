@@ -185,7 +185,7 @@ struct VVV_Top: View {
                             // //// データ保存
                             unitButtonSaveMemory(saveView: AnyView(vvvViewSaveMemory()))
                         }
-                        .popoverTip(tipUnitButtonMemory())
+//                        .popoverTip(tipUnitButtonMemory())
                         // データリセットボタン
                         Button("リセット", systemImage: "arrow.clockwise.square") {
                             isShowAlert = true

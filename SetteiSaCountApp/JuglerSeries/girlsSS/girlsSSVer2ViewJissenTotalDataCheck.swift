@@ -133,7 +133,7 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiTotal(girlsSS: girlsSS)))
-                    .popoverTip(tipUnitButtonLink95Ci())
+//                    .popoverTip(tipUnitButtonLink95Ci())
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $girlsSS.currentGames)
                 // 自分でプレイ

@@ -202,7 +202,7 @@ struct lupinSingleBonusVoice: View {
                 HStack {
                     unitButtonMinusCheck(minusCheck: lupin.$minusCheck)
                     unitButtonReset(isShowAlert: $isShowAlert, action: lupin.resetBonusVoice)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

@@ -167,7 +167,7 @@ struct sbjViewGameStageChange: View {
                     unitButtonMinusCheck(minusCheck: $sbj.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: sbj.resetGameChange)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }

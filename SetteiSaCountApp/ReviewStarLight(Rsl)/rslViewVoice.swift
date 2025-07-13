@@ -206,7 +206,7 @@ struct rslViewVoice: View {
                     unitButtonMinusCheck(minusCheck: $rsl.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: rsl.resetVoice)
-                        .popoverTip(tipUnitButtonReset())
+//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
