@@ -264,6 +264,7 @@
 		0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */; };
 		0F7546B92C95C0820007A277 /* symphoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B82C95C0820007A277 /* symphoViewTop.swift */; };
 		0F7546BB2C95C1060007A277 /* symphoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7546BA2C95C1060007A277 /* symphoAssets.xcassets */; };
+		0F7C9FC32E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */; };
 		0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F152C80A6A500A3FE7D /* goevaViewEnding.swift */; };
 		0F7D3F192C80B67F00A3FE7D /* kabaneriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7D3F182C80B67F00A3FE7D /* kabaneriAssets.xcassets */; };
 		0F7D3F1B2C80B70C00A3FE7D /* kabaneriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3F1A2C80B70C00A3FE7D /* kabaneriViewTop.swift */; };
@@ -451,6 +452,7 @@
 		0F8935892E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935882E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift */; };
 		0F89358C2E22909000BF6FBE /* unitSheetCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */; };
 		0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */; };
+		0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */; };
 		0F9318732DEA855300511BEF /* izaBanchoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */; };
 		0F9318752DEA857100511BEF /* izaBanchoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318742DEA857100511BEF /* izaBanchoClass.swift */; };
 		0F9318772DEA858200511BEF /* izaBanchoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */; };
@@ -1095,6 +1097,7 @@
 		0F7546B82C95C0820007A277 /* symphoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewTop.swift; sourceTree = "<group>"; };
 		0F7546BA2C95C1060007A277 /* symphoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = symphoAssets.xcassets; sourceTree = "<group>"; };
 		0F77326B2C6C91FB00A87FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLinkButtonViewBuilder.swift; sourceTree = "<group>"; };
 		0F7D3F152C80A6A500A3FE7D /* goevaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goevaViewEnding.swift; sourceTree = "<group>"; };
 		0F7D3F182C80B67F00A3FE7D /* kabaneriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kabaneriAssets.xcassets; sourceTree = "<group>"; };
 		0F7D3F1A2C80B70C00A3FE7D /* kabaneriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriViewTop.swift; sourceTree = "<group>"; };
@@ -1285,6 +1288,7 @@
 		0F8935882E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitSheetCountDirectInput.swift; sourceTree = "<group>"; };
 		0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonCountDirectInput.swift; sourceTree = "<group>"; };
+		0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5ViewBayseTest.swift; sourceTree = "<group>"; };
 		0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewTop.swift; sourceTree = "<group>"; };
 		0F9318742DEA857100511BEF /* izaBanchoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoClass.swift; sourceTree = "<group>"; };
 		0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = izaBanchoAssets.xcassets; sourceTree = "<group>"; };
@@ -2088,6 +2092,14 @@
 			path = symphogear;
 			sourceTree = "<group>";
 		};
+		0F7C9FC12E2B810100F22EA0 /* linkButton */ = {
+			isa = PBXGroup;
+			children = (
+				0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */,
+			);
+			path = linkButton;
+			sourceTree = "<group>";
+		};
 		0F7D3F172C80B66B00A3FE7D /* Kabaneri */ = {
 			isa = PBXGroup;
 			children = (
@@ -2335,6 +2347,7 @@
 				0F8689E72D3E7EC300D952D9 /* myJug5Ver2View95CiTotal.swift */,
 				0F64DD8F2DC5C7CA0027315D /* myJug5TableRatio.swift */,
 				0F64DD912DC5C9A10027315D /* myJug5SubViewCountInput.swift */,
+				0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2939,6 +2952,7 @@
 		0FB9CA932DDDCCAE009FC6AF /* button */ = {
 			isa = PBXGroup;
 			children = (
+				0F7C9FC12E2B810100F22EA0 /* linkButton */,
 				0F8935852E21F8CA00BF6FBE /* toolBarButton */,
 				0FB209572E0FDB6C0029D940 /* countButton */,
 				0FB9CA942DDDCCCB009FC6AF /* resetButton */,
@@ -3654,6 +3668,7 @@
 				0FB9CA7F2DDB6182009FC6AF /* toloveru87ViewTop.swift in Sources */,
 				0FF156002D60472600B17F83 /* unitMachinListLinkWithSfsymbol.swift in Sources */,
 				0FB209812E16B4DA0029D940 /* dmc5TableNazoDante.swift in Sources */,
+				0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */,
 				0F868A432D460E8300D952D9 /* kingHanaVer2ViewJissenCount.swift in Sources */,
 				0F9A4F752DEC14EE003B6337 /* dmc5View95Ci.swift in Sources */,
 				0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */,
@@ -3962,6 +3977,7 @@
 				0F6BD7BE2D7BC1F9003F5563 /* sbjViewGameStageChange.swift in Sources */,
 				0F64DDAD2DC5F78D0027315D /* unitReelAny.swift in Sources */,
 				0F25C27B2C8891EB008B4707 /* toloveruViewBonus.swift in Sources */,
+				0F7C9FC32E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift in Sources */,
 				0F6FB8E42DE5E1B200207855 /* mhrTableAtFirstHit.swift in Sources */,
 				0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */,
 				0FD357582DA28BBD0069BD1A /* magiaTableJakuCherry.swift in Sources */,
@@ -4541,7 +4557,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.1;
+				MARKETING_VERSION = 3.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -4581,7 +4597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.1;
+				MARKETING_VERSION = 3.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

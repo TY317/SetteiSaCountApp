@@ -447,6 +447,11 @@ struct myJug5Ver2ViewTop: View {
                 NavigationLink(destination: myJug5Ver2View95CiTotal(myJug5: myJug5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                NavigationLink(destination: myJug5ViewBayseTest(
+                    myJug5: myJug5,
+                )) {
+                    Text("ベイステスト")
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4029")
 //                    .popoverTip(tipVer220AddLink())
