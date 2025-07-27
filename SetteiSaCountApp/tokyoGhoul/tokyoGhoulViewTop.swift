@@ -10,6 +10,7 @@ import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
     @ObservedObject var ver351: Ver351
+    @ObservedObject var ver352: Ver352
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @StateObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
@@ -22,10 +23,14 @@ struct tokyoGhoulViewTop: View {
             List {
                 Section {
                     // 月山招待状
-                    NavigationLink(destination: tokyoGhoulViewTsukiyama(tokyoGhoul: tokyoGhoul)) {
+                    NavigationLink(destination: tokyoGhoulViewTsukiyama(
+                        ver352: ver352,
+                        tokyoGhoul: tokyoGhoul
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "envelope.fill",
-                            textBody: "通常時 月山招待状での示唆"
+                            textBody: "通常時 月山招待状での示唆",
+                            badgeStatus: ver352.tokyoGhoulMenuTsukiyamaBadge,
                         )
                     }
                     // CZ,AT 初当り履歴
@@ -68,7 +73,7 @@ struct tokyoGhoulViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.ghoulMachineIconBadge)
+        .resetBadgeOnAppear($ver352.tokyoGhoulMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -529,5 +534,6 @@ struct tokyoGhoulSubViewLoadMemory: View {
 #Preview {
     tokyoGhoulViewTop(
         ver351: Ver351(),
+        ver352: Ver352(),
     )
 }

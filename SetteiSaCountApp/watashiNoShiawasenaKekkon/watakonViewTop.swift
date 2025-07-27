@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct watakonViewTop: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var ver351: Ver351
     @StateObject var watakon = Watakon()
     @State var isShowAlert: Bool = false
@@ -245,7 +245,7 @@ struct watakonSubViewLoadMemory: View {
 
 #Preview {
     watakonViewTop(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         ver351: Ver351(),
     )
 }

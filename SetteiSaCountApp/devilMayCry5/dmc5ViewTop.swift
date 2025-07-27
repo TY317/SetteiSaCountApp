@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct dmc5ViewTop: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var ver351: Ver351
+    @ObservedObject var ver352: Ver352
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
     @StateObject var dmc5Memory1 = Dmc5Memory1()
@@ -42,24 +43,24 @@ struct dmc5ViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: dmc5ViewFristHit(
-                        ver350: ver350,
+//                        ver350: ver350,
                         dmc5: dmc5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver350.dmc5MenuFirstHitBadgeStaus,
+//                            badgeStatus: ver350.dmc5MenuFirstHitBadgeStaus,
                         )
                     }
                     // DMCボーナス中のバトル当選
                     NavigationLink(destination: dmc5ViewDmcBonus(
-                        ver350: ver350,
+//                        ver350: ver350,
                         dmc5: dmc5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "figure.boxing",
                             textBody: "DMCボーナス中のバトル当選",
-                            badgeStatus: ver350.dmc5MenuDMCBonusBadgeStaus,
+//                            badgeStatus: ver350.dmc5MenuDMCBonusBadgeStaus,
                         )
                     }
                     // ボーナス終了画面
@@ -71,13 +72,27 @@ struct dmc5ViewTop: View {
                             textBody: "DMCボーナス終了画面"
                         )
                     }
-                    // 上位ST中のセリフ
-                    NavigationLink(destination: dmc5ViewVoice(
+                    // ST
+                    NavigationLink(destination: dmc5ViewSt(
+                        ver352: ver352,
                         dmc5: dmc5
                     )) {
                         unitLabelMenu(
-                            imageSystemName: "message.fill",
-                            textBody: "上位ST中のセリフ"
+                            imageSystemName: "rosette",
+                            textBody: "ST",
+                            badgeStatus: ver352.dmc5MenuStBadge,
+                        )
+                    }
+                    // 上位ST中のセリフ
+                    NavigationLink(destination: dmc5ViewVoice(
+                        ver352: ver352,
+                        dmc5: dmc5
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "rosette",
+//                            textBody: "上位ST中のセリフ"
+                            textBody: "上位ST",
+                            badgeStatus: ver352.dmc5MenuPremiumStBadge,
                         )
                     }
                     // エンタトロフィー
@@ -104,7 +119,7 @@ struct dmc5ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.dmc5MachineIconBadgeStaus)
+        .resetBadgeOnAppear($ver352.dmc5MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -210,6 +225,19 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory1.czHitCountUpTo4 = dmc5.czHitCountUpTo4
         dmc5Memory1.czHitCountUpTo7 = dmc5.czHitCountUpTo7
         dmc5Memory1.czHitCountAll = dmc5.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5Memory1.premiumStEmblemCount2 = dmc5.premiumStEmblemCount2
+        dmc5Memory1.premiumStEmblemCount3 = dmc5.premiumStEmblemCount3
+        dmc5Memory1.premiumStEmblemCountSum = dmc5.premiumStEmblemCountSum
+        dmc5Memory1.premiumStEmblemCountRed = dmc5.premiumStEmblemCountRed
+        dmc5Memory1.premiumStEmblemCountGold = dmc5.premiumStEmblemCountGold
+        dmc5Memory1.premiumStEmblemCountColorSum = dmc5.premiumStEmblemCountColorSum
+        dmc5Memory1.stEmblemCountRed = dmc5.stEmblemCountRed
+        dmc5Memory1.stEmblemCountGold = dmc5.stEmblemCountGold
+        dmc5Memory1.stEmblemCountColorSum = dmc5.stEmblemCountColorSum
     }
     func saveMemory2() {
         dmc5Memory2.normalGame = dmc5.normalGame
@@ -253,6 +281,19 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory2.czHitCountUpTo4 = dmc5.czHitCountUpTo4
         dmc5Memory2.czHitCountUpTo7 = dmc5.czHitCountUpTo7
         dmc5Memory2.czHitCountAll = dmc5.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5Memory2.premiumStEmblemCount2 = dmc5.premiumStEmblemCount2
+        dmc5Memory2.premiumStEmblemCount3 = dmc5.premiumStEmblemCount3
+        dmc5Memory2.premiumStEmblemCountSum = dmc5.premiumStEmblemCountSum
+        dmc5Memory2.premiumStEmblemCountRed = dmc5.premiumStEmblemCountRed
+        dmc5Memory2.premiumStEmblemCountGold = dmc5.premiumStEmblemCountGold
+        dmc5Memory2.premiumStEmblemCountColorSum = dmc5.premiumStEmblemCountColorSum
+        dmc5Memory2.stEmblemCountRed = dmc5.stEmblemCountRed
+        dmc5Memory2.stEmblemCountGold = dmc5.stEmblemCountGold
+        dmc5Memory2.stEmblemCountColorSum = dmc5.stEmblemCountColorSum
     }
     func saveMemory3() {
         dmc5Memory3.normalGame = dmc5.normalGame
@@ -297,6 +338,19 @@ struct dmc5SubViewSaveMemory: View {
         dmc5Memory3.czHitCountUpTo4 = dmc5.czHitCountUpTo4
         dmc5Memory3.czHitCountUpTo7 = dmc5.czHitCountUpTo7
         dmc5Memory3.czHitCountAll = dmc5.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5Memory3.premiumStEmblemCount2 = dmc5.premiumStEmblemCount2
+        dmc5Memory3.premiumStEmblemCount3 = dmc5.premiumStEmblemCount3
+        dmc5Memory3.premiumStEmblemCountSum = dmc5.premiumStEmblemCountSum
+        dmc5Memory3.premiumStEmblemCountRed = dmc5.premiumStEmblemCountRed
+        dmc5Memory3.premiumStEmblemCountGold = dmc5.premiumStEmblemCountGold
+        dmc5Memory3.premiumStEmblemCountColorSum = dmc5.premiumStEmblemCountColorSum
+        dmc5Memory3.stEmblemCountRed = dmc5.stEmblemCountRed
+        dmc5Memory3.stEmblemCountGold = dmc5.stEmblemCountGold
+        dmc5Memory3.stEmblemCountColorSum = dmc5.stEmblemCountColorSum
     }
 }
 
@@ -374,6 +428,19 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.czHitCountUpTo4 = dmc5Memory1.czHitCountUpTo4
         dmc5.czHitCountUpTo7 = dmc5Memory1.czHitCountUpTo7
         dmc5.czHitCountAll = dmc5Memory1.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5.premiumStEmblemCount2 = dmc5Memory1.premiumStEmblemCount2
+        dmc5.premiumStEmblemCount3 = dmc5Memory1.premiumStEmblemCount3
+        dmc5.premiumStEmblemCountSum = dmc5Memory1.premiumStEmblemCountSum
+        dmc5.premiumStEmblemCountRed = dmc5Memory1.premiumStEmblemCountRed
+        dmc5.premiumStEmblemCountGold = dmc5Memory1.premiumStEmblemCountGold
+        dmc5.premiumStEmblemCountColorSum = dmc5Memory1.premiumStEmblemCountColorSum
+        dmc5.stEmblemCountRed = dmc5Memory1.stEmblemCountRed
+        dmc5.stEmblemCountGold = dmc5Memory1.stEmblemCountGold
+        dmc5.stEmblemCountColorSum = dmc5Memory1.stEmblemCountColorSum
     }
     func loadMemory2() {
         dmc5.normalGame = dmc5Memory2.normalGame
@@ -422,6 +489,19 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.czHitCountUpTo4 = dmc5Memory2.czHitCountUpTo4
         dmc5.czHitCountUpTo7 = dmc5Memory2.czHitCountUpTo7
         dmc5.czHitCountAll = dmc5Memory2.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5.premiumStEmblemCount2 = dmc5Memory2.premiumStEmblemCount2
+        dmc5.premiumStEmblemCount3 = dmc5Memory2.premiumStEmblemCount3
+        dmc5.premiumStEmblemCountSum = dmc5Memory2.premiumStEmblemCountSum
+        dmc5.premiumStEmblemCountRed = dmc5Memory2.premiumStEmblemCountRed
+        dmc5.premiumStEmblemCountGold = dmc5Memory2.premiumStEmblemCountGold
+        dmc5.premiumStEmblemCountColorSum = dmc5Memory2.premiumStEmblemCountColorSum
+        dmc5.stEmblemCountRed = dmc5Memory2.stEmblemCountRed
+        dmc5.stEmblemCountGold = dmc5Memory2.stEmblemCountGold
+        dmc5.stEmblemCountColorSum = dmc5Memory2.stEmblemCountColorSum
     }
     func loadMemory3() {
         dmc5.normalGame = dmc5Memory3.normalGame
@@ -470,12 +550,26 @@ struct dmc5SubViewLoadMemory: View {
         dmc5.czHitCountUpTo4 = dmc5Memory3.czHitCountUpTo4
         dmc5.czHitCountUpTo7 = dmc5Memory3.czHitCountUpTo7
         dmc5.czHitCountAll = dmc5Memory3.czHitCountAll
+        
+        // ///////////////
+        // ver3.5.2で追加
+        // ///////////////
+        dmc5.premiumStEmblemCount2 = dmc5Memory3.premiumStEmblemCount2
+        dmc5.premiumStEmblemCount3 = dmc5Memory3.premiumStEmblemCount3
+        dmc5.premiumStEmblemCountSum = dmc5Memory3.premiumStEmblemCountSum
+        dmc5.premiumStEmblemCountRed = dmc5Memory3.premiumStEmblemCountRed
+        dmc5.premiumStEmblemCountGold = dmc5Memory3.premiumStEmblemCountGold
+        dmc5.premiumStEmblemCountColorSum = dmc5Memory3.premiumStEmblemCountColorSum
+        dmc5.stEmblemCountRed = dmc5Memory3.stEmblemCountRed
+        dmc5.stEmblemCountGold = dmc5Memory3.stEmblemCountGold
+        dmc5.stEmblemCountColorSum = dmc5Memory3.stEmblemCountColorSum
     }
 }
 
 #Preview {
     dmc5ViewTop(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         ver351: Ver351(),
+        ver352: Ver352(),
     )
 }

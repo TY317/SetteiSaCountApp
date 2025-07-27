@@ -155,6 +155,9 @@ class Magia: ObservableObject {
         resetFirstHit()
         resetKokakuStart()
         resetEnding()
+        resetMitama()
+        resetEpisode()
+        resetStoryOrder()
     }
     
     // ///////////////////////
@@ -401,6 +404,111 @@ class Magia: ObservableObject {
                             }
                         }
     @AppStorage("magiaMgmRisingCountSum") var mgmRisingCountSum: Int = 0
+    
+    // /////////////
+    // ver3.5.2で追加
+    // /////////////
+    // //// みたまボーナス関連
+    let ratioMitamaLevel2: [Double] = [0.8,1.2,2.3,4.7,6.3,7.8]
+    let ratioMitamaLevel3: [Double] = [5.1,6.3,7.8,9.4,10.9,12.5]
+    @AppStorage("magiaMitamaAtCountHit") var mitamaAtCountHit: Int = 0
+    @AppStorage("magiaMitamaAtCountMiss") var mitamaAtCountMiss: Int = 0
+    @AppStorage("magiaMitamaAtCountSum") var mitamaAtCountSum: Int = 0
+    
+    func mitamaSumFunc() {
+        mitamaAtCountSum = countSum(
+            mitamaAtCountHit,
+            mitamaAtCountMiss,
+        )
+    }
+    
+    func resetMitama() {
+        mitamaAtCountHit = 0
+        mitamaAtCountMiss = 0
+        mitamaAtCountSum = 0
+        minusCheck = false
+    }
+    
+    // //// エピソードボーナス関連
+    let ratioEpisodeYachiyo: [Double] = [28.1,32.7,23.4,28.1,17.2,23.4]
+    let ratioEpisodeTsuruno: [Double] = [28.1,23.4,31.3,15.6,21.9,14.1]
+    let ratioEpisodeSana: [Double] = [21.9,21.9,21.9,31.3,23.4,31.3]
+    let ratioEpisodeFerishia: [Double] = [21.9,21.9,21.9,23.4,31.3,25.0]
+    let ratioEpisodeKuroe: [Double] = [0.1,0.1,1.6,1.6,6.3,6.3]
+    @AppStorage("magiaEpisodeCountYachiyo") var episodeCountYachiyo: Int = 0
+    @AppStorage("magiaEpisodeCountTsuruno") var episodeCountTsuruno: Int = 0
+    @AppStorage("magiaEpisodeCountSana") var episodeCountSana: Int = 0
+    @AppStorage("magiaEpisodeCountFerishia") var episodeCountFerishia: Int = 0
+    @AppStorage("magiaEpisodeCountKuroe") var episodeCountKuroe: Int = 0
+    @AppStorage("magiaEpisodeCountSum") var episodeCountSum: Int = 0
+    
+    func episodeSumFunc() {
+        episodeCountSum = countSum(
+            episodeCountYachiyo,
+            episodeCountTsuruno,
+            episodeCountSana,
+            episodeCountFerishia,
+            episodeCountKuroe,
+        )
+    }
+    
+    func resetEpisode() {
+        episodeCountYachiyo = 0
+        episodeCountTsuruno = 0
+        episodeCountSana = 0
+        episodeCountFerishia = 0
+        episodeCountKuroe = 0
+        episodeCountSum = 0
+        minusCheck = false
+    }
+    
+    // //// ストーリー順番関連
+    let orderArrayKey: String = "magiaOrderArrayKey"
+    @AppStorage("magiaOrderArrayKey") var orderArrayData: Data?
+    @AppStorage("magiaStoryOrderCountKisuJaku") var storyOrderCountKisuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountKisu") var storyOrderCountKisu: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuHigh") var storyOrderCountKisuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuJaku") var storyOrderCountGusuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountGusu") var storyOrderCountGusu: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuHigh") var storyOrderCountGusuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1") var storyOrderCountNegate1: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate2") var storyOrderCountNegate2: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate3") var storyOrderCountNegate3: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1High") var storyOrderCountNegate1High: Int = 0
+    @AppStorage("magiaStoryOrderCountOver5") var storyOrderCountOver5: Int = 0
+    @AppStorage("magiaStoryOrderCountSum") var storyOrderCountSum: Int = 0
+    
+    func storyOrderSumFunc() {
+        storyOrderCountSum = countSum(
+            storyOrderCountKisuJaku,
+            storyOrderCountKisu,
+            storyOrderCountKisuHigh,
+            storyOrderCountGusuJaku,
+            storyOrderCountGusu,
+            storyOrderCountGusuHigh,
+            storyOrderCountNegate1,
+            storyOrderCountNegate2,
+            storyOrderCountNegate3,
+            storyOrderCountNegate1High,
+            storyOrderCountOver5,
+        )
+    }
+    
+    func resetStoryOrder() {
+        storyOrderCountKisuJaku = 0
+        storyOrderCountKisu = 0
+        storyOrderCountKisuHigh = 0
+        storyOrderCountGusuJaku = 0
+        storyOrderCountGusu = 0
+        storyOrderCountGusuHigh = 0
+        storyOrderCountNegate1 = 0
+        storyOrderCountNegate2 = 0
+        storyOrderCountNegate3 = 0
+        storyOrderCountNegate1High = 0
+        storyOrderCountOver5 = 0
+        storyOrderCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -476,6 +584,31 @@ class MagiaMemory1: ObservableObject {
     @AppStorage("magiaMgmRisingCountSanaMemory1") var mgmRisingCountSana: Int = 0
     @AppStorage("magiaMgmRisingCountKuroeMemory1") var mgmRisingCountKuroe: Int = 0
     @AppStorage("magiaMgmRisingCountSumMemory1") var mgmRisingCountSum: Int = 0
+    
+    // /////////////
+    // ver3.5.2で追加
+    // /////////////
+    @AppStorage("magiaMitamaAtCountHitMemory1") var mitamaAtCountHit: Int = 0
+    @AppStorage("magiaMitamaAtCountMissMemory1") var mitamaAtCountMiss: Int = 0
+    @AppStorage("magiaMitamaAtCountSumMemory1") var mitamaAtCountSum: Int = 0
+    @AppStorage("magiaEpisodeCountYachiyoMemory1") var episodeCountYachiyo: Int = 0
+    @AppStorage("magiaEpisodeCountTsurunoMemory1") var episodeCountTsuruno: Int = 0
+    @AppStorage("magiaEpisodeCountSanaMemory1") var episodeCountSana: Int = 0
+    @AppStorage("magiaEpisodeCountFerishiaMemory1") var episodeCountFerishia: Int = 0
+    @AppStorage("magiaEpisodeCountKuroeMemory1") var episodeCountKuroe: Int = 0
+    @AppStorage("magiaEpisodeCountSumMemory1") var episodeCountSum: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuJakuMemory1") var storyOrderCountKisuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuMemory1") var storyOrderCountKisu: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuHighMemory1") var storyOrderCountKisuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuJakuMemory1") var storyOrderCountGusuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuMemory1") var storyOrderCountGusu: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuHighMemory1") var storyOrderCountGusuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1Memory1") var storyOrderCountNegate1: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate2Memory1") var storyOrderCountNegate2: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate3Memory1") var storyOrderCountNegate3: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1HighMemory1") var storyOrderCountNegate1High: Int = 0
+    @AppStorage("magiaStoryOrderCountOver5Memory1") var storyOrderCountOver5: Int = 0
+    @AppStorage("magiaStoryOrderCountSumMemory1") var storyOrderCountSum: Int = 0
 }
 
 
@@ -551,6 +684,31 @@ class MagiaMemory2: ObservableObject {
     @AppStorage("magiaMgmRisingCountSanaMemory2") var mgmRisingCountSana: Int = 0
     @AppStorage("magiaMgmRisingCountKuroeMemory2") var mgmRisingCountKuroe: Int = 0
     @AppStorage("magiaMgmRisingCountSumMemory2") var mgmRisingCountSum: Int = 0
+    
+    // /////////////
+    // ver3.5.2で追加
+    // /////////////
+    @AppStorage("magiaMitamaAtCountHitMemory2") var mitamaAtCountHit: Int = 0
+    @AppStorage("magiaMitamaAtCountMissMemory2") var mitamaAtCountMiss: Int = 0
+    @AppStorage("magiaMitamaAtCountSumMemory2") var mitamaAtCountSum: Int = 0
+    @AppStorage("magiaEpisodeCountYachiyoMemory2") var episodeCountYachiyo: Int = 0
+    @AppStorage("magiaEpisodeCountTsurunoMemory2") var episodeCountTsuruno: Int = 0
+    @AppStorage("magiaEpisodeCountSanaMemory2") var episodeCountSana: Int = 0
+    @AppStorage("magiaEpisodeCountFerishiaMemory2") var episodeCountFerishia: Int = 0
+    @AppStorage("magiaEpisodeCountKuroeMemory2") var episodeCountKuroe: Int = 0
+    @AppStorage("magiaEpisodeCountSumMemory2") var episodeCountSum: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuJakuMemory2") var storyOrderCountKisuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuMemory2") var storyOrderCountKisu: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuHighMemory2") var storyOrderCountKisuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuJakuMemory2") var storyOrderCountGusuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuMemory2") var storyOrderCountGusu: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuHighMemory2") var storyOrderCountGusuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1Memory2") var storyOrderCountNegate1: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate2Memory2") var storyOrderCountNegate2: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate3Memory2") var storyOrderCountNegate3: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1HighMemory2") var storyOrderCountNegate1High: Int = 0
+    @AppStorage("magiaStoryOrderCountOver5Memory2") var storyOrderCountOver5: Int = 0
+    @AppStorage("magiaStoryOrderCountSumMemory2") var storyOrderCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -625,4 +783,29 @@ class MagiaMemory3: ObservableObject {
     @AppStorage("magiaMgmRisingCountSanaMemory3") var mgmRisingCountSana: Int = 0
     @AppStorage("magiaMgmRisingCountKuroeMemory3") var mgmRisingCountKuroe: Int = 0
     @AppStorage("magiaMgmRisingCountSumMemory3") var mgmRisingCountSum: Int = 0
+    
+    // /////////////
+    // ver3.5.2で追加
+    // /////////////
+    @AppStorage("magiaMitamaAtCountHitMemory3") var mitamaAtCountHit: Int = 0
+    @AppStorage("magiaMitamaAtCountMissMemory3") var mitamaAtCountMiss: Int = 0
+    @AppStorage("magiaMitamaAtCountSumMemory3") var mitamaAtCountSum: Int = 0
+    @AppStorage("magiaEpisodeCountYachiyoMemory3") var episodeCountYachiyo: Int = 0
+    @AppStorage("magiaEpisodeCountTsurunoMemory3") var episodeCountTsuruno: Int = 0
+    @AppStorage("magiaEpisodeCountSanaMemory3") var episodeCountSana: Int = 0
+    @AppStorage("magiaEpisodeCountFerishiaMemory3") var episodeCountFerishia: Int = 0
+    @AppStorage("magiaEpisodeCountKuroeMemory3") var episodeCountKuroe: Int = 0
+    @AppStorage("magiaEpisodeCountSumMemory3") var episodeCountSum: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuJakuMemory3") var storyOrderCountKisuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuMemory3") var storyOrderCountKisu: Int = 0
+    @AppStorage("magiaStoryOrderCountKisuHighMemory3") var storyOrderCountKisuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuJakuMemory3") var storyOrderCountGusuJaku: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuMemory3") var storyOrderCountGusu: Int = 0
+    @AppStorage("magiaStoryOrderCountGusuHighMemory3") var storyOrderCountGusuHigh: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1Memory3") var storyOrderCountNegate1: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate2Memory3") var storyOrderCountNegate2: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate3Memory3") var storyOrderCountNegate3: Int = 0
+    @AppStorage("magiaStoryOrderCountNegate1HighMemory3") var storyOrderCountNegate1High: Int = 0
+    @AppStorage("magiaStoryOrderCountOver5Memory3") var storyOrderCountOver5: Int = 0
+    @AppStorage("magiaStoryOrderCountSumMemory3") var storyOrderCountSum: Int = 0
 }

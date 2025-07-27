@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct magiaViewTop: View {
-//    @ObservedObject var ver310: Ver310
+    @ObservedObject var ver352: Ver352
 //    @ObservedObject var magia = Magia()
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
@@ -49,6 +49,28 @@ struct magiaViewTop: View {
 //                            badgeStatus: ver271.magiaMenuFirstHitBadgeStatus
                         )
                     }
+                    // みたまボーナス
+                    NavigationLink(destination: magiaViewMitama(
+                        ver352: ver352,
+                        magia: magia,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "rosette",
+                            textBody: "みたまボーナス",
+                            badgeStatus: ver352.magiaMenuMitamaBadge,
+                        )
+                    }
+                    // エピソードボーナス
+                    NavigationLink(destination: magiaViewEpisode(
+                        ver352: ver352,
+                        magia: magia,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.3.fill",
+                            textBody: "エピソードボーナス",
+                            badgeStatus: ver352.magiaMenuEpisodeBadge,
+                        )
+                    }
                     // BIG終了画面
                     NavigationLink(destination: magiaViewBigScreen(
 //                        ver300: ver300,
@@ -69,6 +91,17 @@ struct magiaViewTop: View {
                             imageSystemName: "message.fill",
                             textBody: "BIG終了後ボイス"
 //                            badgeStatus: ver310.magiaMenuVoiceBadgeStatus
+                        )
+                    }
+                    // ストーリーの順番
+                    NavigationLink(destination: magiaViewStoryOrder(
+                        ver352: ver352,
+                        magia: magia,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "movieclapper.fill",
+                            textBody: "ストーリーの順番",
+                            badgeStatus: ver352.magiaMenuStoryOrderBadge,
                         )
                     }
                     // AT終了画面
@@ -108,6 +141,13 @@ struct magiaViewTop: View {
 //                            badgeStatus: ver310.magiaMenuEndingBadgeStatus
                         )
                     }
+                    // トロフィー
+                    NavigationLink(destination: commonViewUniversalPlate()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ユニバプレート"
+                        )
+                    }
                 }
                 // 設定推測グラフ
                 NavigationLink(destination: magiaView95Ci(magia: magia)) {
@@ -118,6 +158,8 @@ struct magiaViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver352.magiaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -265,6 +307,31 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory1.mgmRisingCountSana = magia.mgmRisingCountSana
         magiaMemory1.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
         magiaMemory1.mgmRisingCountSum = magia.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magiaMemory1.mitamaAtCountHit = magia.mitamaAtCountHit
+        magiaMemory1.mitamaAtCountMiss = magia.mitamaAtCountMiss
+        magiaMemory1.mitamaAtCountSum = magia.mitamaAtCountSum
+        magiaMemory1.episodeCountYachiyo = magia.episodeCountYachiyo
+        magiaMemory1.episodeCountTsuruno = magia.episodeCountTsuruno
+        magiaMemory1.episodeCountSana = magia.episodeCountSana
+        magiaMemory1.episodeCountFerishia = magia.episodeCountFerishia
+        magiaMemory1.episodeCountKuroe = magia.episodeCountKuroe
+        magiaMemory1.episodeCountSum = magia.episodeCountSum
+        magiaMemory1.storyOrderCountKisuJaku = magia.storyOrderCountKisuJaku
+        magiaMemory1.storyOrderCountKisu = magia.storyOrderCountKisu
+        magiaMemory1.storyOrderCountKisuHigh = magia.storyOrderCountKisuHigh
+        magiaMemory1.storyOrderCountGusuJaku = magia.storyOrderCountGusuJaku
+        magiaMemory1.storyOrderCountGusu = magia.storyOrderCountGusu
+        magiaMemory1.storyOrderCountGusuHigh = magia.storyOrderCountGusuHigh
+        magiaMemory1.storyOrderCountNegate1 = magia.storyOrderCountNegate1
+        magiaMemory1.storyOrderCountNegate2 = magia.storyOrderCountNegate2
+        magiaMemory1.storyOrderCountNegate3 = magia.storyOrderCountNegate3
+        magiaMemory1.storyOrderCountNegate1High = magia.storyOrderCountNegate1High
+        magiaMemory1.storyOrderCountOver5 = magia.storyOrderCountOver5
+        magiaMemory1.storyOrderCountSum = magia.storyOrderCountSum
     }
     func saveMemory2() {
         magiaMemory2.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -335,6 +402,31 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory2.mgmRisingCountSana = magia.mgmRisingCountSana
         magiaMemory2.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
         magiaMemory2.mgmRisingCountSum = magia.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magiaMemory2.mitamaAtCountHit = magia.mitamaAtCountHit
+        magiaMemory2.mitamaAtCountMiss = magia.mitamaAtCountMiss
+        magiaMemory2.mitamaAtCountSum = magia.mitamaAtCountSum
+        magiaMemory2.episodeCountYachiyo = magia.episodeCountYachiyo
+        magiaMemory2.episodeCountTsuruno = magia.episodeCountTsuruno
+        magiaMemory2.episodeCountSana = magia.episodeCountSana
+        magiaMemory2.episodeCountFerishia = magia.episodeCountFerishia
+        magiaMemory2.episodeCountKuroe = magia.episodeCountKuroe
+        magiaMemory2.episodeCountSum = magia.episodeCountSum
+        magiaMemory2.storyOrderCountKisuJaku = magia.storyOrderCountKisuJaku
+        magiaMemory2.storyOrderCountKisu = magia.storyOrderCountKisu
+        magiaMemory2.storyOrderCountKisuHigh = magia.storyOrderCountKisuHigh
+        magiaMemory2.storyOrderCountGusuJaku = magia.storyOrderCountGusuJaku
+        magiaMemory2.storyOrderCountGusu = magia.storyOrderCountGusu
+        magiaMemory2.storyOrderCountGusuHigh = magia.storyOrderCountGusuHigh
+        magiaMemory2.storyOrderCountNegate1 = magia.storyOrderCountNegate1
+        magiaMemory2.storyOrderCountNegate2 = magia.storyOrderCountNegate2
+        magiaMemory2.storyOrderCountNegate3 = magia.storyOrderCountNegate3
+        magiaMemory2.storyOrderCountNegate1High = magia.storyOrderCountNegate1High
+        magiaMemory2.storyOrderCountOver5 = magia.storyOrderCountOver5
+        magiaMemory2.storyOrderCountSum = magia.storyOrderCountSum
     }
     func saveMemory3() {
         magiaMemory3.suikaCzCountSuika = magia.suikaCzCountSuika
@@ -405,6 +497,31 @@ struct magiaSubViewSaveMemory: View {
         magiaMemory3.mgmRisingCountSana = magia.mgmRisingCountSana
         magiaMemory3.mgmRisingCountKuroe = magia.mgmRisingCountKuroe
         magiaMemory3.mgmRisingCountSum = magia.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magiaMemory3.mitamaAtCountHit = magia.mitamaAtCountHit
+        magiaMemory3.mitamaAtCountMiss = magia.mitamaAtCountMiss
+        magiaMemory3.mitamaAtCountSum = magia.mitamaAtCountSum
+        magiaMemory3.episodeCountYachiyo = magia.episodeCountYachiyo
+        magiaMemory3.episodeCountTsuruno = magia.episodeCountTsuruno
+        magiaMemory3.episodeCountSana = magia.episodeCountSana
+        magiaMemory3.episodeCountFerishia = magia.episodeCountFerishia
+        magiaMemory3.episodeCountKuroe = magia.episodeCountKuroe
+        magiaMemory3.episodeCountSum = magia.episodeCountSum
+        magiaMemory3.storyOrderCountKisuJaku = magia.storyOrderCountKisuJaku
+        magiaMemory3.storyOrderCountKisu = magia.storyOrderCountKisu
+        magiaMemory3.storyOrderCountKisuHigh = magia.storyOrderCountKisuHigh
+        magiaMemory3.storyOrderCountGusuJaku = magia.storyOrderCountGusuJaku
+        magiaMemory3.storyOrderCountGusu = magia.storyOrderCountGusu
+        magiaMemory3.storyOrderCountGusuHigh = magia.storyOrderCountGusuHigh
+        magiaMemory3.storyOrderCountNegate1 = magia.storyOrderCountNegate1
+        magiaMemory3.storyOrderCountNegate2 = magia.storyOrderCountNegate2
+        magiaMemory3.storyOrderCountNegate3 = magia.storyOrderCountNegate3
+        magiaMemory3.storyOrderCountNegate1High = magia.storyOrderCountNegate1High
+        magiaMemory3.storyOrderCountOver5 = magia.storyOrderCountOver5
+        magiaMemory3.storyOrderCountSum = magia.storyOrderCountSum
     }
 }
 
@@ -504,6 +621,31 @@ struct magiaSubViewLoadMemory: View {
         magia.mgmRisingCountSana = magiaMemory1.mgmRisingCountSana
         magia.mgmRisingCountKuroe = magiaMemory1.mgmRisingCountKuroe
         magia.mgmRisingCountSum = magiaMemory1.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magia.mitamaAtCountHit = magiaMemory1.mitamaAtCountHit
+        magia.mitamaAtCountMiss = magiaMemory1.mitamaAtCountMiss
+        magia.mitamaAtCountSum = magiaMemory1.mitamaAtCountSum
+        magia.episodeCountYachiyo = magiaMemory1.episodeCountYachiyo
+        magia.episodeCountTsuruno = magiaMemory1.episodeCountTsuruno
+        magia.episodeCountSana = magiaMemory1.episodeCountSana
+        magia.episodeCountFerishia = magiaMemory1.episodeCountFerishia
+        magia.episodeCountKuroe = magiaMemory1.episodeCountKuroe
+        magia.episodeCountSum = magiaMemory1.episodeCountSum
+        magia.storyOrderCountKisuJaku = magiaMemory1.storyOrderCountKisuJaku
+        magia.storyOrderCountKisu = magiaMemory1.storyOrderCountKisu
+        magia.storyOrderCountKisuHigh = magiaMemory1.storyOrderCountKisuHigh
+        magia.storyOrderCountGusuJaku = magiaMemory1.storyOrderCountGusuJaku
+        magia.storyOrderCountGusu = magiaMemory1.storyOrderCountGusu
+        magia.storyOrderCountGusuHigh = magiaMemory1.storyOrderCountGusuHigh
+        magia.storyOrderCountNegate1 = magiaMemory1.storyOrderCountNegate1
+        magia.storyOrderCountNegate2 = magiaMemory1.storyOrderCountNegate2
+        magia.storyOrderCountNegate3 = magiaMemory1.storyOrderCountNegate3
+        magia.storyOrderCountNegate1High = magiaMemory1.storyOrderCountNegate1High
+        magia.storyOrderCountOver5 = magiaMemory1.storyOrderCountOver5
+        magia.storyOrderCountSum = magiaMemory1.storyOrderCountSum
     }
     func loadMemory2() {
         magia.suikaCzCountSuika = magiaMemory2.suikaCzCountSuika
@@ -574,6 +716,31 @@ struct magiaSubViewLoadMemory: View {
         magia.mgmRisingCountSana = magiaMemory2.mgmRisingCountSana
         magia.mgmRisingCountKuroe = magiaMemory2.mgmRisingCountKuroe
         magia.mgmRisingCountSum = magiaMemory2.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magia.mitamaAtCountHit = magiaMemory2.mitamaAtCountHit
+        magia.mitamaAtCountMiss = magiaMemory2.mitamaAtCountMiss
+        magia.mitamaAtCountSum = magiaMemory2.mitamaAtCountSum
+        magia.episodeCountYachiyo = magiaMemory2.episodeCountYachiyo
+        magia.episodeCountTsuruno = magiaMemory2.episodeCountTsuruno
+        magia.episodeCountSana = magiaMemory2.episodeCountSana
+        magia.episodeCountFerishia = magiaMemory2.episodeCountFerishia
+        magia.episodeCountKuroe = magiaMemory2.episodeCountKuroe
+        magia.episodeCountSum = magiaMemory2.episodeCountSum
+        magia.storyOrderCountKisuJaku = magiaMemory2.storyOrderCountKisuJaku
+        magia.storyOrderCountKisu = magiaMemory2.storyOrderCountKisu
+        magia.storyOrderCountKisuHigh = magiaMemory2.storyOrderCountKisuHigh
+        magia.storyOrderCountGusuJaku = magiaMemory2.storyOrderCountGusuJaku
+        magia.storyOrderCountGusu = magiaMemory2.storyOrderCountGusu
+        magia.storyOrderCountGusuHigh = magiaMemory2.storyOrderCountGusuHigh
+        magia.storyOrderCountNegate1 = magiaMemory2.storyOrderCountNegate1
+        magia.storyOrderCountNegate2 = magiaMemory2.storyOrderCountNegate2
+        magia.storyOrderCountNegate3 = magiaMemory2.storyOrderCountNegate3
+        magia.storyOrderCountNegate1High = magiaMemory2.storyOrderCountNegate1High
+        magia.storyOrderCountOver5 = magiaMemory2.storyOrderCountOver5
+        magia.storyOrderCountSum = magiaMemory2.storyOrderCountSum
     }
     func loadMemory3() {
         magia.suikaCzCountSuika = magiaMemory3.suikaCzCountSuika
@@ -644,11 +811,36 @@ struct magiaSubViewLoadMemory: View {
         magia.mgmRisingCountSana = magiaMemory3.mgmRisingCountSana
         magia.mgmRisingCountKuroe = magiaMemory3.mgmRisingCountKuroe
         magia.mgmRisingCountSum = magiaMemory3.mgmRisingCountSum
+        
+        // /////////////
+        // ver3.5.2で追加
+        // /////////////
+        magia.mitamaAtCountHit = magiaMemory3.mitamaAtCountHit
+        magia.mitamaAtCountMiss = magiaMemory3.mitamaAtCountMiss
+        magia.mitamaAtCountSum = magiaMemory3.mitamaAtCountSum
+        magia.episodeCountYachiyo = magiaMemory3.episodeCountYachiyo
+        magia.episodeCountTsuruno = magiaMemory3.episodeCountTsuruno
+        magia.episodeCountSana = magiaMemory3.episodeCountSana
+        magia.episodeCountFerishia = magiaMemory3.episodeCountFerishia
+        magia.episodeCountKuroe = magiaMemory3.episodeCountKuroe
+        magia.episodeCountSum = magiaMemory3.episodeCountSum
+        magia.storyOrderCountKisuJaku = magiaMemory3.storyOrderCountKisuJaku
+        magia.storyOrderCountKisu = magiaMemory3.storyOrderCountKisu
+        magia.storyOrderCountKisuHigh = magiaMemory3.storyOrderCountKisuHigh
+        magia.storyOrderCountGusuJaku = magiaMemory3.storyOrderCountGusuJaku
+        magia.storyOrderCountGusu = magiaMemory3.storyOrderCountGusu
+        magia.storyOrderCountGusuHigh = magiaMemory3.storyOrderCountGusuHigh
+        magia.storyOrderCountNegate1 = magiaMemory3.storyOrderCountNegate1
+        magia.storyOrderCountNegate2 = magiaMemory3.storyOrderCountNegate2
+        magia.storyOrderCountNegate3 = magiaMemory3.storyOrderCountNegate3
+        magia.storyOrderCountNegate1High = magiaMemory3.storyOrderCountNegate1High
+        magia.storyOrderCountOver5 = magiaMemory3.storyOrderCountOver5
+        magia.storyOrderCountSum = magiaMemory3.storyOrderCountSum
     }
 }
 
 #Preview {
     magiaViewTop(
-//        ver310: Ver310()
+        ver352: Ver352()
     )
 }

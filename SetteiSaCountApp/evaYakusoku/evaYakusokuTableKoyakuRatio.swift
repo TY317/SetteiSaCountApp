@@ -37,11 +37,11 @@ struct evaYakusokuTableKoyakuRatio: View {
                     denominateList: evaYakusoku.ratioReachMeYaku,
                     numberofDicimal: 0,
                 )
-                unitTableDenominate(
-                    columTitle: "暴走リプレイ",
-                    denominateList: evaYakusoku.ratioBosoReplay,
-                    numberofDicimal: 0,
-                )
+//                unitTableDenominate(
+//                    columTitle: "暴走リプレイ",
+//                    denominateList: evaYakusoku.ratioBosoReplay,
+//                    numberofDicimal: 0,
+//                )
 //                unitTableDenominate(
 //                    columTitle: "全役合算",
 //                    denominateList: evaYakusoku.ratioSuikaSum,

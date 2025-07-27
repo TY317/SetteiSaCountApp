@@ -28,12 +28,15 @@ class EvaYakusoku: ObservableObject {
         bonusCountBigSum = countSum(
             bonusCountSBig,
             bonusCountBig,
+            bonusCountSBigBlue,
         )
         
         bonusCountAllSum = countSum(
             bonusCountSBig,
             bonusCountBig,
             bonusCountReg,
+            bonusCountSBigBlue,
+            koyakuCountBoso,
         )
     }
     
@@ -47,6 +50,9 @@ class EvaYakusoku: ObservableObject {
         gameNumberCurrent = 0
         gameNumberPlay = 0
         minusCheck = false
+        
+        bonusCountSBigBlue = 0
+        koyakuCountBoso = 0
     }
     
     // ////////////////////////
@@ -69,7 +75,7 @@ class EvaYakusoku: ObservableObject {
     let ratioCherry: [Double] = [60,-1,-1,-1,-1,-1]
     let ratioSuikaSum: [Double] = [66.6,-1,-1,-1,-1,-1]
     let ratioReachMeYaku: [Double] = [528.5,-1,-1,-1,-1,-1]
-    let ratioBosoReplay: [Double] = [5957.8,-1,-1,-1,-1,-1]
+    let ratioBosoReplay: [Double] = [5957.8,5461.3,5041.2,4681.1,4369.1,4096.0]
     @AppStorage("evaYakusokuKoyakuCountBell") var koyakuCountBell: Int = 0
     @AppStorage("evaYakusokuKoyakuCountCherry") var koyakuCountCherry: Int = 0
     @AppStorage("evaYakusokuKoyakuCountSuikaSum") var koyakuCountSuikaSum: Int = 0
@@ -83,7 +89,7 @@ class EvaYakusoku: ObservableObject {
             koyakuCountCherry,
             koyakuCountSuikaSum,
             koyakuCountReach,
-            koyakuCountBoso,
+//            koyakuCountBoso,
         )
     }
     
@@ -92,13 +98,22 @@ class EvaYakusoku: ObservableObject {
         koyakuCountCherry = 0
         koyakuCountSuikaSum = 0
         koyakuCountReach = 0
-        koyakuCountBoso = 0
+//        koyakuCountBoso = 0
         koyakuCountAllSum = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
         minusCheck = false
     }
+    
+    // ///////////
+    // ver3.5.2で追加
+    // ///////////
+    // ボーナス詳細
+    @AppStorage("evaYakusokuBonusCountSBigBlue") var bonusCountSBigBlue: Int = 0
+    let ratioYellowBB: [Double] = [520.1,508,478.4,448.9,414.8,390.1]
+    let ratioRedSBB: [Double] = [1985.9,1560.4,1872.5,1524.1,1771.2,1424.7]
+    let ratioBlueSBB: [Double] = [1365.3,1524.1,1365.3,1524.1,1365.3,1560.4]
 }
 
 
@@ -125,6 +140,11 @@ class EvaYakusokuMemory1: ObservableObject {
     @AppStorage("evaYakusokuKoyakuCountReachMemory1") var koyakuCountReach: Int = 0
     @AppStorage("evaYakusokuKoyakuCountBosoMemory1") var koyakuCountBoso: Int = 0
     @AppStorage("evaYakusokuKoyakuCountAllSumMemory1") var koyakuCountAllSum: Int = 0
+    
+    // ///////////
+    // ver3.5.2で追加
+    // ///////////
+    @AppStorage("evaYakusokuBonusCountSBigBlueMemory1") var bonusCountSBigBlue: Int = 0
 }
 
 // //// メモリー2
@@ -150,6 +170,11 @@ class EvaYakusokuMemory2: ObservableObject {
     @AppStorage("evaYakusokuKoyakuCountReachMemory2") var koyakuCountReach: Int = 0
     @AppStorage("evaYakusokuKoyakuCountBosoMemory2") var koyakuCountBoso: Int = 0
     @AppStorage("evaYakusokuKoyakuCountAllSumMemory2") var koyakuCountAllSum: Int = 0
+    
+    // ///////////
+    // ver3.5.2で追加
+    // ///////////
+    @AppStorage("evaYakusokuBonusCountSBigBlueMemory2") var bonusCountSBigBlue: Int = 0
 }
 
 // //// メモリー3
@@ -175,4 +200,9 @@ class EvaYakusokuMemory3: ObservableObject {
     @AppStorage("evaYakusokuKoyakuCountReachMemory3") var koyakuCountReach: Int = 0
     @AppStorage("evaYakusokuKoyakuCountBosoMemory3") var koyakuCountBoso: Int = 0
     @AppStorage("evaYakusokuKoyakuCountAllSumMemory3") var koyakuCountAllSum: Int = 0
+    
+    // ///////////
+    // ver3.5.2で追加
+    // ///////////
+    @AppStorage("evaYakusokuBonusCountSBigBlueMemory3") var bonusCountSBigBlue: Int = 0
 }

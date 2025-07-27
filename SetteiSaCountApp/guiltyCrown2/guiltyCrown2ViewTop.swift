@@ -9,7 +9,7 @@ import SwiftUI
 
 struct guiltyCrown2ViewTop: View {
 //    @ObservedObject var ver340: Ver340
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @StateObject var guiltyCrown2 = GuiltyCrown2()
     @State var isShowAlert: Bool = false
     @StateObject var guiltyCrown2Memory1 = GuiltyCrown2Memory1()
@@ -31,25 +31,25 @@ struct guiltyCrown2ViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: guiltyCrown2ViewNormal(
-                        ver350: ver350,
+//                        ver350: ver350,
                         guiltyCrown2: guiltyCrown2,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver350.guiltyCrown2MenuNormalBadgeStaus,
+//                            badgeStatus: ver350.guiltyCrown2MenuNormalBadgeStaus,
                         )
                     }
                     
                     // 初当り
                     NavigationLink(destination: guiltyCrown2ViewFirstHit(
-                        ver350: ver350,
+//                        ver350: ver350,
                         guiltyCrown2: guiltyCrown2,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver350.guiltyCrown2MenuFirstHitBadgeStaus,
+//                            badgeStatus: ver350.guiltyCrown2MenuFirstHitBadgeStaus,
                         )
                     }
                     
@@ -87,7 +87,7 @@ struct guiltyCrown2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.guiltyCrown2MachineIconBadgeStaus)
+//        .resetBadgeOnAppear($ver350.guiltyCrown2MachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -329,6 +329,6 @@ struct guiltyCrown2SubViewLoadMemory: View {
 #Preview {
     guiltyCrown2ViewTop(
 //        ver340: Ver340(),
-        ver350: Ver350(),
+//        ver350: Ver350(),
     )
 }

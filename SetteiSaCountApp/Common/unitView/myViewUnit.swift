@@ -1149,9 +1149,11 @@ struct unitButtonScreenChoiceForDataInput: View {
 // ビュー：カウント結果のリスト表示
 // /////////////////////////////
 struct unitResultCountListPercent: View {
-    @State var title: String
+//    @State var title: String
+    var title: String
     @Binding var count: Int
-    @State var flashColor: Color
+//    @State var flashColor: Color
+    var flashColor: Color
     @Binding var bigNumber: Int
     @State var numberofDigit: Int = 1
     var ratio: Double {
