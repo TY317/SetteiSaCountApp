@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewFirstHit: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var guiltyCrown2: GuiltyCrown2
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -178,13 +178,13 @@ struct guiltyCrown2ViewFirstHit: View {
                 )
             } header: {
                 Text("スイカ契機 設定差のあるボーナス")
-                    .popoverTip(tipVer350GuiltyCrownSuikaBonusDetail())
+//                    .popoverTip(tipVer350GuiltyCrownSuikaBonusDetail())
             }
             
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.guiltyCrown2MenuFirstHitBadgeStaus)
+//        .resetBadgeOnAppear($ver350.guiltyCrown2MenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -225,7 +225,7 @@ struct guiltyCrown2ViewFirstHit: View {
 
 #Preview {
     guiltyCrown2ViewFirstHit(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         guiltyCrown2: GuiltyCrown2(),
     )
 }

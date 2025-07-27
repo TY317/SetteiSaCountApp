@@ -26,7 +26,7 @@ struct dmc5TipHistoryInput: Tip {
 
 
 struct dmc5ViewFristHit: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -239,7 +239,7 @@ struct dmc5ViewFristHit: View {
                         )
                     )
                 )
-                .popoverTip(tipVer350Dmc5NazoCz())
+//                .popoverTip(tipVer350Dmc5NazoCz())
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "液晶G数",
@@ -373,7 +373,7 @@ struct dmc5ViewFristHit: View {
 //            }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.dmc5MenuFirstHitBadgeStaus)
+//        .resetBadgeOnAppear($ver350.dmc5MenuFirstHitBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -414,7 +414,7 @@ struct dmc5ViewFristHit: View {
 
 #Preview {
     dmc5ViewFristHit(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         dmc5: Dmc5(),
     )
 }

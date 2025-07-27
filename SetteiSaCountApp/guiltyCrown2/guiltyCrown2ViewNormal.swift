@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewNormal: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var guiltyCrown2: GuiltyCrown2
     let selectListStage: [String] = [
         "学校",
@@ -261,7 +261,7 @@ struct guiltyCrown2ViewNormal: View {
                 )
             } header: {
                 Text("スイカ契機のボーナス当選")
-                    .popoverTip(tipVer350GuiltyCrownSuikaBonus())
+//                    .popoverTip(tipVer350GuiltyCrownSuikaBonus())
             }
 //            .popoverTip(tipVer350GuiltyCrownSuikaBonus())
             
@@ -321,7 +321,7 @@ struct guiltyCrown2ViewNormal: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.guiltyCrown2MenuNormalBadgeStaus)
+//        .resetBadgeOnAppear($ver350.guiltyCrown2MenuNormalBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -357,7 +357,7 @@ struct guiltyCrown2ViewNormal: View {
 
 #Preview {
     guiltyCrown2ViewNormal(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         guiltyCrown2: GuiltyCrown2()
     )
 }

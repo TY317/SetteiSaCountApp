@@ -8,19 +8,39 @@
 import SwiftUI
 
 struct evaYakusokuViewFirstHit: View {
+    @ObservedObject var ver352: Ver352
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 2
     
     var body: some View {
         List {
             // //// ボーナス回数カウント
             Section {
-                // //// カウントボタン横並び
-                HStack {
-                    // BB
+                // //// カウントボタン横並び（ver3.5.2以降）
+                let gridItem = Array(
+                    repeating: GridItem(
+                        .flexible(minimum: 80, maximum: 150),
+                        spacing: 5,
+                        alignment: .center,
+                    ),
+                    count: self.lazyVGridCount
+                )
+                LazyVGrid(columns: gridItem) {
+                    // 黄BB
                     unitCountButtonDenominateWithFunc(
-                        title: "BB",
+                        title: "黄BB",
                         count: $evaYakusoku.bonusCountBig,
                         color: .personalSpringLightYellow,
                         bigNumber: $evaYakusoku.gameNumberPlay,
@@ -28,9 +48,10 @@ struct evaYakusokuViewFirstHit: View {
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
                     )
-                    // SBB
+                    .padding(.bottom)
+                    // 赤SBB
                     unitCountButtonDenominateWithFunc(
-                        title: "SBB",
+                        title: "赤SBB",
                         count: $evaYakusoku.bonusCountSBig,
                         color: .personalSummerLightRed,
                         bigNumber: $evaYakusoku.gameNumberPlay,
@@ -38,43 +59,102 @@ struct evaYakusokuViewFirstHit: View {
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
                     )
-                    // REG
+                    .padding(.bottom)
+                    // 青SBB
                     unitCountButtonDenominateWithFunc(
-                        title: "REG",
-                        count: $evaYakusoku.bonusCountReg,
+                        title: "青SBB",
+                        count: $evaYakusoku.bonusCountSBigBlue,
                         color: .personalSummerLightBlue,
                         bigNumber: $evaYakusoku.gameNumberPlay,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
                     )
-                }
-                // //// 確率結果横並び
-                HStack {
-                    // BB合算
-                    unitResultRatioDenomination2Line(
-                        title: "BIG合算",
-                        count: $evaYakusoku.bonusCountBigSum,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 0,
-                        spacerBool: false,
-                    )
+                    .padding(.bottom)
                     // REG
-                    unitResultRatioDenomination2Line(
+                    unitCountButtonDenominateWithFunc(
                         title: "REG",
                         count: $evaYakusoku.bonusCountReg,
+                        color: .personalSummerLightGreen,
                         bigNumber: $evaYakusoku.gameNumberPlay,
                         numberofDicimal: 0,
-                        spacerBool: false,
+                        minusBool: $evaYakusoku.minusCheck,
+                        action: evaYakusoku.bonusSumFunc
                     )
-                    // ボーナス合算
+                    .padding(.bottom)
+                    // 暴走
+                    unitCountButtonDenominateWithFunc(
+                        title: "暴走モード",
+                        count: $evaYakusoku.koyakuCountBoso,
+                        color: .personalSummerLightPurple,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        numberofDicimal: 0,
+                        minusBool: $evaYakusoku.minusCheck,
+                        action: evaYakusoku.bonusSumFunc
+                    )
+                    .padding(.bottom)
+                }
+                // //// カウントボタン横並び
+//                HStack {
+//                    // BB
+//                    unitCountButtonDenominateWithFunc(
+//                        title: "BB",
+//                        count: $evaYakusoku.bonusCountBig,
+//                        color: .personalSpringLightYellow,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        minusBool: $evaYakusoku.minusCheck,
+//                        action: evaYakusoku.bonusSumFunc
+//                    )
+//                    // SBB
+//                    unitCountButtonDenominateWithFunc(
+//                        title: "SBB",
+//                        count: $evaYakusoku.bonusCountSBig,
+//                        color: .personalSummerLightRed,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        minusBool: $evaYakusoku.minusCheck,
+//                        action: evaYakusoku.bonusSumFunc
+//                    )
+//                    // REG
+//                    unitCountButtonDenominateWithFunc(
+//                        title: "REG",
+//                        count: $evaYakusoku.bonusCountReg,
+//                        color: .personalSummerLightBlue,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        minusBool: $evaYakusoku.minusCheck,
+//                        action: evaYakusoku.bonusSumFunc
+//                    )
+//                }
+                // //// 確率結果横並び
+                HStack {
+//                    // BB合算
+//                    unitResultRatioDenomination2Line(
+//                        title: "BIG合算",
+//                        count: $evaYakusoku.bonusCountBigSum,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        spacerBool: false,
+//                    )
+//                    // REG
+//                    unitResultRatioDenomination2Line(
+//                        title: "REG",
+//                        count: $evaYakusoku.bonusCountReg,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        spacerBool: false,
+//                    )
+                    Spacer()
+                    // 初当り合算
                     unitResultRatioDenomination2Line(
-                        title: "ボーナス合算",
+                        title: "初当り合算",
                         count: $evaYakusoku.bonusCountAllSum,
                         bigNumber: $evaYakusoku.gameNumberPlay,
                         numberofDicimal: 0,
                         spacerBool: false,
                     )
+                    Spacer()
                 }
                 // //// 参考情報）初当り確率
                 unitLinkButton(
@@ -102,6 +182,7 @@ struct evaYakusokuViewFirstHit: View {
                 
             } header: {
                 Text("初当り")
+                    .popoverTip(tipVer352EvaYakusokuFirstHit())
             }
             
             Section {
@@ -137,7 +218,11 @@ struct evaYakusokuViewFirstHit: View {
             } header: {
                 Text("ゲーム数入力")
             }
+            
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver352.evaYakusokuMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -146,6 +231,20 @@ struct evaYakusokuViewFirstHit: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("初当り")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -195,6 +294,7 @@ struct evaYakusokuViewFirstHit: View {
 
 #Preview {
     evaYakusokuViewFirstHit(
+        ver352: Ver352(),
         evaYakusoku: EvaYakusoku(),
     )
 }

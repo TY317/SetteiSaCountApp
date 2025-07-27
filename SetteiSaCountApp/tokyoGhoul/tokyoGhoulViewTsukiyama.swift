@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewTsukiyama: View {
+    @ObservedObject var ver352: Ver352
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var isShowAlert = false
@@ -176,10 +177,12 @@ struct tokyoGhoulViewTsukiyama: View {
                             textBody1: "・通常時50G消化毎に発生する演出",
                             textBody2: "・液晶左下に表示される",
                             textBody3: "・青、緑、赤文字はCZまでの残りゲーム数を示唆",
-                            textBody4: "・一部のパターンで設定を示唆する"
+                            textBody4: "・一部のパターンで設定を示唆する",
+                            tableView: AnyView(tokyoGhoulTableTsukiyama())
                         )
                     )
                 )
+                .popoverTip(tipVer352GhoulTsukiyama())
                 unitLinkButton(
                     title: "通常時のモードについて",
                     exview: AnyView(
@@ -189,7 +192,6 @@ struct tokyoGhoulViewTsukiyama: View {
                             textBody2: "・モード移行契機はCZ失敗時",
                             textBody3: "・天国以外は転落なし",
                             tableView: AnyView(tokyoGhoulTableModeTable())
-//                            image1: Image("tokyoGhoulCzTable")
                         )
                     )
                 )
@@ -263,6 +265,8 @@ struct tokyoGhoulViewTsukiyama: View {
                 Text("カウント結果")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver352.tokyoGhoulMenuTsukiyamaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -288,5 +292,8 @@ struct tokyoGhoulViewTsukiyama: View {
 }
 
 #Preview {
-    tokyoGhoulViewTsukiyama(tokyoGhoul: TokyoGhoul())
+    tokyoGhoulViewTsukiyama(
+        ver352: Ver352(),
+        tokyoGhoul: TokyoGhoul()
+    )
 }

@@ -9,8 +9,9 @@ import SwiftUI
 import FirebaseCrashlytics
 
 struct evaYakusokuViewTop: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var ver351: Ver351
+    @ObservedObject var ver352: Ver352
     @StateObject var evaYakusoku = EvaYakusoku()
     @State var isShowAlert: Bool = false
     @StateObject var evaYakusokuMemory1 = EvaYakusokuMemory1()
@@ -40,11 +41,13 @@ struct evaYakusokuViewTop: View {
                     
                     // 初当り
                     NavigationLink(destination: evaYakusokuViewFirstHit(
+                        ver352: ver352,
                         evaYakusoku: evaYakusoku,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: ver352.evaYakusokuMenuFirstHitBadge
                         )
                     }
                     
@@ -97,7 +100,7 @@ struct evaYakusokuViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.evaYakusokuMachineIconBadge)
+        .resetBadgeOnAppear($ver352.evaYakusokuMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -126,7 +129,6 @@ struct evaYakusokuViewTop: View {
                         evaYakusokuMemory3: evaYakusokuMemory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetAll, message: "この機種のデータを全てリセットします")
             }
@@ -181,6 +183,11 @@ struct evaYakusokuSubViewSaveMemory: View {
         evaYakusokuMemory1.koyakuCountReach = evaYakusoku.koyakuCountReach
         evaYakusokuMemory1.koyakuCountBoso = evaYakusoku.koyakuCountBoso
         evaYakusokuMemory1.koyakuCountAllSum = evaYakusoku.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusokuMemory1.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
     }
     func saveMemory2() {
         evaYakusokuMemory2.bonusCountSBig = evaYakusoku.bonusCountSBig
@@ -202,6 +209,11 @@ struct evaYakusokuSubViewSaveMemory: View {
         evaYakusokuMemory2.koyakuCountReach = evaYakusoku.koyakuCountReach
         evaYakusokuMemory2.koyakuCountBoso = evaYakusoku.koyakuCountBoso
         evaYakusokuMemory2.koyakuCountAllSum = evaYakusoku.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusokuMemory2.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
     }
     func saveMemory3() {
         evaYakusokuMemory3.bonusCountSBig = evaYakusoku.bonusCountSBig
@@ -223,6 +235,11 @@ struct evaYakusokuSubViewSaveMemory: View {
         evaYakusokuMemory3.koyakuCountReach = evaYakusoku.koyakuCountReach
         evaYakusokuMemory3.koyakuCountBoso = evaYakusoku.koyakuCountBoso
         evaYakusokuMemory3.koyakuCountAllSum = evaYakusoku.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusokuMemory3.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
     }
 }
 
@@ -273,6 +290,11 @@ struct evaYakusokuSubViewLoadMemory: View {
         evaYakusoku.koyakuCountReach = evaYakusokuMemory1.koyakuCountReach
         evaYakusoku.koyakuCountBoso = evaYakusokuMemory1.koyakuCountBoso
         evaYakusoku.koyakuCountAllSum = evaYakusokuMemory1.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory1.bonusCountSBigBlue
     }
     func loadMemory2() {
         evaYakusoku.bonusCountSBig = evaYakusokuMemory2.bonusCountSBig
@@ -294,6 +316,11 @@ struct evaYakusokuSubViewLoadMemory: View {
         evaYakusoku.koyakuCountReach = evaYakusokuMemory2.koyakuCountReach
         evaYakusoku.koyakuCountBoso = evaYakusokuMemory2.koyakuCountBoso
         evaYakusoku.koyakuCountAllSum = evaYakusokuMemory2.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory2.bonusCountSBigBlue
     }
     func loadMemory3() {
         evaYakusoku.bonusCountSBig = evaYakusokuMemory3.bonusCountSBig
@@ -315,12 +342,18 @@ struct evaYakusokuSubViewLoadMemory: View {
         evaYakusoku.koyakuCountReach = evaYakusokuMemory3.koyakuCountReach
         evaYakusoku.koyakuCountBoso = evaYakusokuMemory3.koyakuCountBoso
         evaYakusoku.koyakuCountAllSum = evaYakusokuMemory3.koyakuCountAllSum
+        
+        // ///////////
+        // ver3.5.2で追加
+        // ///////////
+        evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory3.bonusCountSBigBlue
     }
 }
 
 #Preview {
     evaYakusokuViewTop(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         ver351: Ver351(),
+        ver352: Ver352(),
     )
 }

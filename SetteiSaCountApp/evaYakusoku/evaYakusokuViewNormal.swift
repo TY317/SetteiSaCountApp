@@ -84,17 +84,17 @@ struct evaYakusokuViewNormal: View {
                         action: evaYakusoku.koyakuSumFunc
                     )
                     .padding(.bottom)
-                    // 暴走リプレイ
-                    unitCountButtonDenominateWithFunc(
-                        title: "暴走リプ",
-                        count: $evaYakusoku.koyakuCountBoso,
-                        color: .personalSummerLightPurple,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 0,
-                        minusBool: $evaYakusoku.minusCheck,
-                        action: evaYakusoku.koyakuSumFunc
-                    )
-                    .padding(.bottom)
+//                    // 暴走リプレイ
+//                    unitCountButtonDenominateWithFunc(
+//                        title: "暴走リプ",
+//                        count: $evaYakusoku.koyakuCountBoso,
+//                        color: .personalSummerLightPurple,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        numberofDicimal: 0,
+//                        minusBool: $evaYakusoku.minusCheck,
+//                        action: evaYakusoku.koyakuSumFunc
+//                    )
+//                    .padding(.bottom)
                 }
                 // 小役停止形
                 unitLinkButton(

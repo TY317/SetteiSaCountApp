@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewNormal: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
     var body: some View {
         List {
@@ -108,11 +108,11 @@ struct izaBanchoViewNormal: View {
                 )
             } header: {
                 Text("刀レベル")
-                    .popoverTip(tipVer350IzaBanchoKatana())
+//                    .popoverTip(tipVer350IzaBanchoKatana())
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.izaBanchoMenuNormalBadgeStaus)
+//        .resetBadgeOnAppear($ver350.izaBanchoMenuNormalBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -128,7 +128,7 @@ struct izaBanchoViewNormal: View {
 
 #Preview {
     izaBanchoViewNormal(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         izaBancho: IzaBancho(),
     )
 }

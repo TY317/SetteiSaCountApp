@@ -65,23 +65,74 @@ struct evaYakusokuView95Ci: View {
                 )
             )
             .tag(6)
-            // //// ビッグ合算回数
+//            // //// ビッグ合算回数
+//            unitListSection95Ci(
+//                grafTitle: "BIG合算回数",
+//                grafView: AnyView(
+//                    unitChart95CiDenominate(
+//                        currentCount: $evaYakusoku.bonusCountBigSum,
+//                        bigNumber: $evaYakusoku.gameNumberPlay,
+//                        setting1Denominate: evaYakusoku.ratioBigSum[0],
+//                        setting2Denominate: evaYakusoku.ratioBigSum[1],
+//                        setting3Denominate: evaYakusoku.ratioBigSum[2],
+//                        setting4Denominate: evaYakusoku.ratioBigSum[3],
+//                        setting5Denominate: evaYakusoku.ratioBigSum[4],
+//                        setting6Denominate: evaYakusoku.ratioBigSum[5]
+//                    )
+//                )
+//            )
+//            .tag(1)
+            // //// 黄ビッグ合算回数
             unitListSection95Ci(
-                grafTitle: "BIG合算回数",
+                grafTitle: "黄BB回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $evaYakusoku.bonusCountBigSum,
+                        currentCount: $evaYakusoku.bonusCountBig,
                         bigNumber: $evaYakusoku.gameNumberPlay,
-                        setting1Denominate: evaYakusoku.ratioBigSum[0],
-                        setting2Denominate: evaYakusoku.ratioBigSum[1],
-                        setting3Denominate: evaYakusoku.ratioBigSum[2],
-                        setting4Denominate: evaYakusoku.ratioBigSum[3],
-                        setting5Denominate: evaYakusoku.ratioBigSum[4],
-                        setting6Denominate: evaYakusoku.ratioBigSum[5]
+                        setting1Denominate: evaYakusoku.ratioYellowBB[0],
+                        setting2Denominate: evaYakusoku.ratioYellowBB[1],
+                        setting3Denominate: evaYakusoku.ratioYellowBB[2],
+                        setting4Denominate: evaYakusoku.ratioYellowBB[3],
+                        setting5Denominate: evaYakusoku.ratioYellowBB[4],
+                        setting6Denominate: evaYakusoku.ratioYellowBB[5]
                     )
                 )
             )
             .tag(1)
+            // //// 赤SBB回数
+            unitListSection95Ci(
+                grafTitle: "赤SBB回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $evaYakusoku.bonusCountSBig,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        setting1Denominate: evaYakusoku.ratioRedSBB[0],
+                        setting2Denominate: evaYakusoku.ratioRedSBB[1],
+                        setting3Denominate: evaYakusoku.ratioRedSBB[2],
+                        setting4Denominate: evaYakusoku.ratioRedSBB[3],
+                        setting5Denominate: evaYakusoku.ratioRedSBB[4],
+                        setting6Denominate: evaYakusoku.ratioRedSBB[5]
+                    )
+                )
+            )
+            .tag(7)
+            // //// 青SBB回数
+            unitListSection95Ci(
+                grafTitle: "青SBB回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $evaYakusoku.bonusCountSBigBlue,
+                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        setting1Denominate: evaYakusoku.ratioBlueSBB[0],
+                        setting2Denominate: evaYakusoku.ratioBlueSBB[1],
+                        setting3Denominate: evaYakusoku.ratioBlueSBB[2],
+                        setting4Denominate: evaYakusoku.ratioBlueSBB[3],
+                        setting5Denominate: evaYakusoku.ratioBlueSBB[4],
+                        setting6Denominate: evaYakusoku.ratioBlueSBB[5]
+                    )
+                )
+            )
+            .tag(8)
             // //// REG合算回数
             unitListSection95Ci(
                 grafTitle: "REG回数",
@@ -101,7 +152,7 @@ struct evaYakusokuView95Ci: View {
             .tag(2)
             // //// ボーナス合算回数
             unitListSection95Ci(
-                grafTitle: "ボーナス合算回数",
+                grafTitle: "初当り合算回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountAllSum,

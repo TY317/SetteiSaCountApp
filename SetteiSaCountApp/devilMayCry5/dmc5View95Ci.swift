@@ -120,6 +120,60 @@ struct dmc5View95Ci: View {
                 )
             )
             .tag(3)
+            // ST エンブレム種別
+            unitListSection95Ci(
+                grafTitle: "ST開始時 エンブレム\n赤 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dmc5.stEmblemCountRed,
+                        bigNumber: $dmc5.stEmblemCountColorSum,
+                        setting1Percent: dmc5.ratioStEmblemRed[0],
+                        setting2Percent: dmc5.ratioStEmblemRed[1],
+                        setting3Percent: dmc5.ratioStEmblemRed[2],
+                        setting4Percent: dmc5.ratioStEmblemRed[3],
+                        setting5Percent: dmc5.ratioStEmblemRed[4],
+                        setting6Percent: dmc5.ratioStEmblemRed[5]
+                    )
+                )
+            )
+            .tag(9)
+            // 上位ST エンブレム2個点灯回数
+            unitListSection95Ci(
+                grafTitle: "上位ST中 エンブレム\n2個点灯回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dmc5.premiumStEmblemCount2,
+                        bigNumber: $dmc5.premiumStEmblemCountSum,
+                        setting1Percent: dmc5.ratioEmblem2[0],
+                        setting2Percent: dmc5.ratioEmblem2[1],
+                        setting3Percent: dmc5.ratioEmblem2[2],
+                        setting4Percent: dmc5.ratioEmblem2[3],
+                        setting5Percent: dmc5.ratioEmblem2[4],
+                        setting6Percent: dmc5.ratioEmblem2[5]
+                    )
+                )
+            )
+            .tag(7)
+            // 上位ST エンブレム種別
+            unitListSection95Ci(
+                grafTitle: "上位ST開始時 エンブレム\n赤 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $dmc5.premiumStEmblemCountRed,
+                        bigNumber: $dmc5.premiumStEmblemCountColorSum,
+                        setting1Percent: dmc5.ratioPremiumEmblemRed[0],
+                        setting2Percent: dmc5.ratioPremiumEmblemRed[1],
+                        setting3Percent: dmc5.ratioPremiumEmblemRed[2],
+                        setting4Percent: dmc5.ratioPremiumEmblemRed[3],
+                        setting5Percent: dmc5.ratioPremiumEmblemRed[4],
+                        setting6Percent: dmc5.ratioPremiumEmblemRed[5]
+                    )
+                )
+            )
+            .tag(8)
         }
         // //// firebaseログ
         .onAppear {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewCz: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
     let selectListSegment: [String] = ["青","黄"]
     @State var selectedSegment: String = "青"
@@ -126,7 +126,7 @@ struct izaBanchoViewCz: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.izaBanchoMenuCzBadgeStaus)
+//        .resetBadgeOnAppear($ver350.izaBanchoMenuCzBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -167,7 +167,7 @@ struct izaBanchoViewCz: View {
 
 #Preview {
     izaBanchoViewCz(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         izaBancho: IzaBancho()
     )
 }

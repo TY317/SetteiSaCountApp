@@ -86,6 +86,8 @@ class Dmc5: ObservableObject {
         resetHistory()
         resetDmcBonus()
         resetCzCycle()
+        resetPremiumSt()
+        resetSt()
     }
     
     // //////////////////
@@ -206,6 +208,65 @@ class Dmc5: ObservableObject {
         czHitCountAll = 0
         minusCheck = false
     }
+    
+    // ///////////////
+    // ver3.5.2で追加
+    // ///////////////
+    // 上位ST中のエンブレム点灯個数
+    let ratioEmblem2: [Double] = [46.9,45.3,44.5,43.8,41.4,35.9]
+    let ratioEmblem3: [Double] = [53.1,54.7,55.5,56.2,58.6,64.1]
+    @AppStorage("dmc5PremiumStEmblemCount2") var premiumStEmblemCount2: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCount3") var premiumStEmblemCount3: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountSum") var premiumStEmblemCountSum: Int = 0
+    
+    // エンブレムの種類
+    let ratioPremiumEmblemRed: [Double] = [67.0,66.0,66.0,56.0,56.0,56.0]
+    let ratioPremiumEmblemGold: [Double] = [33,34,34,44,44,44]
+    @AppStorage("dmc5PremiumStEmblemCountRed") var premiumStEmblemCountRed: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountGold") var premiumStEmblemCountGold: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountColorSum") var premiumStEmblemCountColorSum: Int = 0
+    
+    func premiumStEmblemCountSumFunc() {
+        premiumStEmblemCountSum = countSum(
+            premiumStEmblemCount2,
+            premiumStEmblemCount3,
+        )
+        premiumStEmblemCountColorSum = countSum(
+            premiumStEmblemCountRed,
+            premiumStEmblemCountGold,
+        )
+    }
+    
+    func resetPremiumSt() {
+        premiumStEmblemCount2 = 0
+        premiumStEmblemCount3 = 0
+        premiumStEmblemCountSum = 0
+        minusCheck = false
+        premiumStEmblemCountRed = 0
+        premiumStEmblemCountGold = 0
+        premiumStEmblemCountColorSum = 0
+    }
+    
+    // ST中のエンブレム種類
+    let ratioStEmblemRed: [Double] = [72.7,71.1,70.3,69.1,68,66.8]
+    let ratioStEmblemGold: [Double] = [27.3,28.9,29.7,30.9,32,33.2]
+    @AppStorage("dmc5StEmblemCountRed") var stEmblemCountRed: Int = 0
+    @AppStorage("dmc5StEmblemCountGold") var stEmblemCountGold: Int = 0
+    @AppStorage("dmc5StEmblemCountColorSum") var stEmblemCountColorSum: Int = 0
+    
+    func stEmblemCountSumFunc() {
+        stEmblemCountColorSum = countSum(
+            stEmblemCountRed,
+            stEmblemCountGold,
+        )
+    }
+    
+    func resetSt() {
+        stEmblemCountRed = 0
+        stEmblemCountGold = 0
+        stEmblemCountColorSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -255,6 +316,19 @@ class Dmc5Memory1: ObservableObject {
     @AppStorage("dmc5CzHitCountUpTo4Memory1") var czHitCountUpTo4: Int = 0
     @AppStorage("dmc5CzHitCountUpTo7Memory1") var czHitCountUpTo7: Int = 0
     @AppStorage("dmc5CzHitCountAllMemory1") var czHitCountAll: Int = 0
+    
+    // ///////////////
+    // ver3.5.2で追加
+    // ///////////////
+    @AppStorage("dmc5PremiumStEmblemCount2Memory1") var premiumStEmblemCount2: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCount3Memory1") var premiumStEmblemCount3: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountSumMemory1") var premiumStEmblemCountSum: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountRedMemory1") var premiumStEmblemCountRed: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountGoldMemory1") var premiumStEmblemCountGold: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountColorSumMemory1") var premiumStEmblemCountColorSum: Int = 0
+    @AppStorage("dmc5StEmblemCountRedMemory1") var stEmblemCountRed: Int = 0
+    @AppStorage("dmc5StEmblemCountGoldMemory1") var stEmblemCountGold: Int = 0
+    @AppStorage("dmc5StEmblemCountColorSumMemory1") var stEmblemCountColorSum: Int = 0
 }
 
 
@@ -304,6 +378,19 @@ class Dmc5Memory2: ObservableObject {
     @AppStorage("dmc5CzHitCountUpTo4Memory2") var czHitCountUpTo4: Int = 0
     @AppStorage("dmc5CzHitCountUpTo7Memory2") var czHitCountUpTo7: Int = 0
     @AppStorage("dmc5CzHitCountAllMemory2") var czHitCountAll: Int = 0
+    
+    // ///////////////
+    // ver3.5.2で追加
+    // ///////////////
+    @AppStorage("dmc5PremiumStEmblemCount2Memory2") var premiumStEmblemCount2: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCount3Memory2") var premiumStEmblemCount3: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountSumMemory2") var premiumStEmblemCountSum: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountRedMemory2") var premiumStEmblemCountRed: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountGoldMemory2") var premiumStEmblemCountGold: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountColorSumMemory2") var premiumStEmblemCountColorSum: Int = 0
+    @AppStorage("dmc5StEmblemCountRedMemory2") var stEmblemCountRed: Int = 0
+    @AppStorage("dmc5StEmblemCountGoldMemory2") var stEmblemCountGold: Int = 0
+    @AppStorage("dmc5StEmblemCountColorSumMemory2") var stEmblemCountColorSum: Int = 0
 }
 
 
@@ -353,4 +440,17 @@ class Dmc5Memory3: ObservableObject {
     @AppStorage("dmc5CzHitCountUpTo4Memory3") var czHitCountUpTo4: Int = 0
     @AppStorage("dmc5CzHitCountUpTo7Memory3") var czHitCountUpTo7: Int = 0
     @AppStorage("dmc5CzHitCountAllMemory3") var czHitCountAll: Int = 0
+    
+    // ///////////////
+    // ver3.5.2で追加
+    // ///////////////
+    @AppStorage("dmc5PremiumStEmblemCount2Memory3") var premiumStEmblemCount2: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCount3Memory3") var premiumStEmblemCount3: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountSumMemory3") var premiumStEmblemCountSum: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountRedMemory3") var premiumStEmblemCountRed: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountGoldMemory3") var premiumStEmblemCountGold: Int = 0
+    @AppStorage("dmc5PremiumStEmblemCountColorSumMemory3") var premiumStEmblemCountColorSum: Int = 0
+    @AppStorage("dmc5StEmblemCountRedMemory3") var stEmblemCountRed: Int = 0
+    @AppStorage("dmc5StEmblemCountGoldMemory3") var stEmblemCountGold: Int = 0
+    @AppStorage("dmc5StEmblemCountColorSumMemory3") var stEmblemCountColorSum: Int = 0
 }

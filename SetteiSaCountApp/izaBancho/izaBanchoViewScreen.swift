@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewScreen: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -136,7 +136,7 @@ struct izaBanchoViewScreen: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer350IzaBanchoScreen())
+//                .popoverTip(tipVer350IzaBanchoScreen())
                 
                 // //// カウント結果
                 // デフォルト
@@ -198,7 +198,7 @@ struct izaBanchoViewScreen: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.izaBanchoMenuScreenBadgeStaus)
+//        .resetBadgeOnAppear($ver350.izaBanchoMenuScreenBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -228,7 +228,7 @@ struct izaBanchoViewScreen: View {
 
 #Preview {
     izaBanchoViewScreen(
-        ver350: Ver350(),
+//        ver350: Ver350(),
         izaBancho: IzaBancho()
     )
 }

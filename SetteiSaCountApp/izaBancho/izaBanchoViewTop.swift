@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewTop: View {
-    @ObservedObject var ver350: Ver350
+//    @ObservedObject var ver350: Ver350
 //    @ObservedObject var ver340: Ver340
     @StateObject var izaBancho = IzaBancho()
     @State var isShowAlert: Bool = false
@@ -31,24 +31,24 @@ struct izaBanchoViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: izaBanchoViewNormal(
-                        ver350: ver350,
+//                        ver350: ver350,
                         izaBancho: izaBancho,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver350.izaBanchoMenuNormalBadgeStaus,
+//                            badgeStatus: ver350.izaBanchoMenuNormalBadgeStaus,
                         )
                     }
                     // CZ
                     NavigationLink(destination: izaBanchoViewCz(
-                        ver350: ver350,
+//                        ver350: ver350,
                         izaBancho: izaBancho,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "figure.fencing",
                             textBody: "刺客ゾーン",
-                            badgeStatus: ver350.izaBanchoMenuCzBadgeStaus,
+//                            badgeStatus: ver350.izaBanchoMenuCzBadgeStaus,
                         )
                     }
                     // 初当り
@@ -73,13 +73,13 @@ struct izaBanchoViewTop: View {
                     }
                     // AT終了画面
                     NavigationLink(destination: izaBanchoViewScreen(
-                        ver350: ver350,
+//                        ver350: ver350,
                         izaBancho: izaBancho
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面",
-                            badgeStatus: ver350.izaBanchoMenuScreenBadgeStaus,
+//                            badgeStatus: ver350.izaBanchoMenuScreenBadgeStaus,
                         )
                     }
                 }
@@ -97,7 +97,7 @@ struct izaBanchoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver350.izaBanchoMachineIconBadgeStaus)
+//        .resetBadgeOnAppear($ver350.izaBanchoMachineIconBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -371,7 +371,7 @@ struct izaBanchoSubViewLoadMemory: View {
 
 #Preview {
     izaBanchoViewTop(
-        ver350: Ver350(),
+//        ver350: Ver350(),
 //        ver340: Ver340(),
     )
 }
