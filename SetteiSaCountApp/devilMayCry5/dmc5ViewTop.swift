@@ -9,7 +9,7 @@ import SwiftUI
 
 struct dmc5ViewTop: View {
 //    @ObservedObject var ver350: Ver350
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
     @ObservedObject var ver352: Ver352
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
@@ -32,13 +32,13 @@ struct dmc5ViewTop: View {
                     }
                     // CZ当選周期
                     NavigationLink(destination: dmc5ViewCzCycle(
-                        ver351: ver351,
+//                        ver351: ver351,
                         dmc5: dmc5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "dot.scope",
                             textBody: "CZ当選周期",
-                            badgeStatus: ver351.dmc5MenuCzCycleBadge,
+//                            badgeStatus: ver351.dmc5MenuCzCycleBadge,
                         )
                     }
                     // 初当り
@@ -569,7 +569,7 @@ struct dmc5SubViewLoadMemory: View {
 #Preview {
     dmc5ViewTop(
 //        ver350: Ver350(),
-        ver351: Ver351(),
+//        ver351: Ver351(),
         ver352: Ver352(),
     )
 }

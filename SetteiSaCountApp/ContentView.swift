@@ -118,7 +118,7 @@ class commonVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-    @StateObject var ver351 = Ver351()
+//    @StateObject var ver351 = Ver351()
     @StateObject var ver352 = Ver352()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common: commonVar
@@ -175,7 +175,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
@@ -192,11 +192,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(watakonViewTop(
 //                                            ver350: ver350,
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わた婚",
-                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
+//                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -222,7 +222,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
 //                                            ver350: ver350,
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
@@ -421,7 +421,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
@@ -663,7 +663,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver350: ver350,
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
@@ -683,14 +683,14 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(watakonViewTop(
 //                                            ver350: ver350,
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わたしの幸せな結婚",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
+//                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -719,7 +719,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
 //                                            ver350: ver350,
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
@@ -961,7 +961,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-                                            ver351: ver351,
+//                                            ver351: ver351,
                                             ver352: ver352,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),

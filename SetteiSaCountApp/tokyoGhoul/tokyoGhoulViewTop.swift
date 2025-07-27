@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
     @ObservedObject var ver352: Ver352
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @StateObject var tokyoGhoul = TokyoGhoul()
@@ -36,13 +36,13 @@ struct tokyoGhoulViewTop: View {
                     // CZ,AT 初当り履歴
                     NavigationLink(
                         destination: tokyoGhoulViewHistory(
-                            ver351: ver351,
+//                            ver351: ver351,
                             tokyoGhoul: tokyoGhoul
                         )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT 初当り履歴",
-                            badgeStatus: ver351.ghoulMenuFirstHitBadge,
+//                            badgeStatus: ver351.ghoulMenuFirstHitBadge,
                         )
                     }
                     // AT終了画面
@@ -533,7 +533,7 @@ struct tokyoGhoulSubViewLoadMemory: View {
 
 #Preview {
     tokyoGhoulViewTop(
-        ver351: Ver351(),
+//        ver351: Ver351(),
         ver352: Ver352(),
     )
 }
