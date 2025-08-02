@@ -32,3 +32,18 @@ struct tipVer360YoshimuneCommonTawara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：機種追加
+// //////////////////
+struct tipVer360MachineAdd: Tip {
+    var title: Text {
+        Text("機種追加！")
+    }
+    var message: Text? {
+        Text("・ダーリン・イン・ザ・フランキス\n・転生したら剣でした")
+    }
+    var image: Image? {
+        Image(systemName: "star")
+    }
+}
