@@ -22,8 +22,8 @@ struct evaYakusokuViewNormal: View {
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
     let lazyVGridCountPortrait: Int = 3
-    let lazyVGridCountLandscape: Int = 5
-    @State var lazyVGridCount: Int = 2
+    let lazyVGridCountLandscape: Int = 4
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {

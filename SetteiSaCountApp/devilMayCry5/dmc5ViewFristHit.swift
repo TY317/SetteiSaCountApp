@@ -43,7 +43,7 @@ struct dmc5ViewFristHit: View {
     @State var lazyVGridCount: Int = 3
     
     var body: some View {
-        TipView(dmc5TipHistoryInput())
+//        TipView(dmc5TipHistoryInput())
         List {
             // 履歴登録
             Section {
@@ -132,7 +132,17 @@ struct dmc5ViewFristHit: View {
                     }
                 }
             } header: {
-                Text("初当り登録")
+                HStack {
+                    Text("初当り登録")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "初当り登録",
+                            textBody1: "ボーナス、ST直撃当選ごとに入力して下さい",
+                            textBody2: "ゲーム数は液晶ゲーム数を入力して下さい",
+                            textBody3: "入力結果から\n　・ボーナス初当り確率\n　・ST初当り確率\nを算出します",
+                        )
+                    }
+                }
             }
             
             // //// 履歴表示

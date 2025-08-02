@@ -59,6 +59,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGuiltyCrown2") var isSelectedFavoriteGuiltyCrown2 = true
     @AppStorage("isSelectedFavoriteEvaYakusoku") var isSelectedFavoriteEvaYakusoku = true
     @AppStorage("isSelectedFavoriteWatakon") var isSelectedFavoriteWatakon = true
+    @AppStorage("isSelectedFavoriteDarling") var isSelectedFavoriteDarling = true
+    @AppStorage("isSelectedFavoriteReSword") var isSelectedFavoriteReSword = true
 }
 
 
@@ -120,6 +122,7 @@ struct ContentView: View {
     @StateObject var ver320 = Ver320()
 //    @StateObject var ver351 = Ver351()
     @StateObject var ver352 = Ver352()
+    @StateObject var ver360 = Ver360()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -169,6 +172,34 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ダーリンインザフランキス、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDarling == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(darlingViewTop(
+                                            ver360: ver360,
+                                        )),
+                                        iconImage: Image("darlingMachineIcon"),
+                                        machineName: "ダリフラ",
+                                        badgeStatus: ver360.darlingMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 転生したら剣でした、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteReSword == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(reSwordViewTop(
+                                            ver360: ver360,
+                                        )),
+                                        iconImage: Image("reSwordMachineIcon"),
+                                        machineName: "転剣",
+                                        badgeStatus: ver360.reSwordMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// エヴァ約束の扉、25年7月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEvaYakusoku == false {
                                     
@@ -206,12 +237,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-//                                            ver340: ver340,
-//                                            ver350: ver350,
+                                            ver360: ver360,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルクラ2",
-//                                        badgeStatus: ver350.guiltyCrown2MachineIconBadgeStaus
+                                        badgeStatus: ver360.guiltyCrown2MachineIconBadge,
                                     )
                                 }
                                 
@@ -309,12 +339,13 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(yoshimuneViewTop()),
+                                        linkView: AnyView(yoshimuneViewTop(
+                                            ver360: ver360,
+                                        )),
                                         iconImage: Image("yoshimuneMachineIcon"),
-                                        machineName: "吉宗"
-//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        machineName: "吉宗",
+                                        badgeStatus: ver360.yoshimuneMachineIconBadge,
                                     )
-//                                        .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -656,6 +687,41 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ダーリンインザフランキス、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteDarling == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(darlingViewTop(
+                                            ver360: ver360,
+                                        )),
+                                        iconImage: Image("darlingMachineIcon"),
+                                        machineName: "ダーリン・イン・ザ・フランキス",
+                                        machineNameFont: .subheadline,
+                                        makerName: "Spiky",
+                                        releaseYear: 2025,
+                                        releaseMonth: 8,
+                                        badgeStatus: ver360.darlingMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 転生したら剣でした、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteReSword == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(reSwordViewTop(
+                                            ver360: ver360,
+                                        )),
+                                        iconImage: Image("reSwordMachineIcon"),
+                                        machineName: "転生したら剣でした",
+                                        makerName: "コナミ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 8,
+                                        badgeStatus: ver360.reSwordMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// エヴァ約束、25年7月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEvaYakusoku == false {
                                     
@@ -700,15 +766,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-//                                            ver340: ver340,
-//                                            ver350: ver350,
+                                            ver360: ver360,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルティクラウン2",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver350.guiltyCrown2MachineIconBadgeStaus
+                                        badgeStatus: ver360.guiltyCrown2MachineIconBadge,
                                     )
                                 }
                                 
@@ -825,13 +890,15 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(yoshimuneViewTop()),
+                                        linkView: AnyView(yoshimuneViewTop(
+                                            ver360: ver360,
+                                        )),
                                         iconImage: Image("yoshimuneMachineIcon"),
                                         machineName: "吉宗",
                                         makerName: "大都技研",
                                         releaseYear: 2025,
-                                        releaseMonth: 4
-//                                        badgeStatus: ver280.yoshimuneMachineIconBadgeStatus
+                                        releaseMonth: 4,
+                                        badgeStatus: ver360.yoshimuneMachineIconBadge,
                                     )
 //                                    .popoverTip(tipVer280MachineAdd())
                                 }
@@ -1446,6 +1513,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ダーリンインザフランキス
+                Toggle("ダーリン・イン・ザ・フランキス", isOn: $favoriteSet.isSelectedFavoriteDarling)
+                // 転生したら剣でした
+                Toggle("転生したら剣でした", isOn: $favoriteSet.isSelectedFavoriteReSword)
                 // //// エヴァ約束の扉
                 Toggle("ヱヴァンゲリヲン〜約束の扉〜", isOn: $favoriteSet.isSelectedFavoriteEvaYakusoku)
                 // //// 私の幸せな結婚

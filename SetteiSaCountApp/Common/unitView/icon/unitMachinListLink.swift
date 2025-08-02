@@ -11,6 +11,7 @@ struct unitMachinListLink: View {
     @State var linkView: AnyView
     @State var iconImage: Image
     @State var machineName: String
+    var machineNameFont: Font = .body
     @State var makerName: String
     @State var releaseYear: Int
     @State var releaseMonth: Int
@@ -87,6 +88,7 @@ struct unitMachinListLink: View {
                 .frame(width: 45.0)
                 VStack(alignment: .leading) {
                     Text(self.machineName)
+                        .font(self.machineNameFont)
                     Text("\(self.makerName) , \(String(self.releaseYear))年 \(self.releaseMonth)月")
                         .font(.caption)
                         .foregroundStyle(Color.gray)
