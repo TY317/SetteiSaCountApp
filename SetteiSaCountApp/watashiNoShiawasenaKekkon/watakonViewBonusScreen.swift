@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct watakonViewBonusScreen: View {
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
     @ObservedObject var watakon: Watakon
     
     var body: some View {
@@ -45,7 +45,7 @@ struct watakonViewBonusScreen: View {
             .frame(maxWidth: .infinity, alignment: .center)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.watakonMenuBonusScreenBadgeStaus)
+//        .resetBadgeOnAppear($ver351.watakonMenuBonusScreenBadgeStaus)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -61,7 +61,7 @@ struct watakonViewBonusScreen: View {
 
 #Preview {
     watakonViewBonusScreen(
-        ver351: Ver351(),
+//        ver351: Ver351(),
         watakon: Watakon(),
     )
 }

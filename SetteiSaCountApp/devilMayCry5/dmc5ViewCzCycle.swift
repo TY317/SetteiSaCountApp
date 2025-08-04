@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct dmc5ViewCzCycle: View {
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -122,7 +122,7 @@ struct dmc5ViewCzCycle: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.dmc5MenuCzCycleBadge)
+//        .resetBadgeOnAppear($ver351.dmc5MenuCzCycleBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -162,7 +162,7 @@ struct dmc5ViewCzCycle: View {
 
 #Preview {
     dmc5ViewCzCycle(
-        ver351: Ver351(),
+//        ver351: Ver351(),
         dmc5: Dmc5(),
     )
 }

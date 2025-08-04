@@ -522,6 +522,7 @@ struct unitResultRatioDenomination2Line: View {
     @Binding var bigNumber: Int
     @State var numberofDicimal: Int
     @State var spacerBool: Bool = true
+    var fontTitle: Font = .body
     var fontResult: Font = .title
     var fontBunshi: Font = .body
     var denomination: Double {
@@ -548,6 +549,7 @@ struct unitResultRatioDenomination2Line: View {
             }
             VStack {
                 Text(self.title)
+                    .font(self.fontTitle)
                 HStack(spacing: 0) {
                     Text("\(self.count > 0 ? 1 : 0)/")
 //                        .font(.title3)
@@ -923,6 +925,10 @@ struct unitHeaderHistoryColumnsWithoutTimes: View {
     var column3: String?
     var column4: String?
     var column5: String?
+    var column2MaxWidth: CGFloat = .infinity
+    var column3MaxWidth: CGFloat = .infinity
+    var column4MaxWidth: CGFloat = .infinity
+    var column5MaxWidth: CGFloat = .infinity
     
     
     var body: some View {
@@ -931,19 +937,23 @@ struct unitHeaderHistoryColumnsWithoutTimes: View {
 //                .frame(width: column1Width)
             if let column2 = column2 {
                 Text(column2)
-                    .frame(maxWidth: .infinity)
+//                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: self.column2MaxWidth)
             }
             if let column3 = column3 {
                 Text(column3)
-                    .frame(maxWidth: .infinity)
+//                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: self.column3MaxWidth)
             }
             if let column4 = column4 {
                 Text(column4)
-                    .frame(maxWidth: .infinity)
+//                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: self.column4MaxWidth)
             }
             if let column5 = column5 {
                 Text(column5)
-                    .frame(maxWidth: .infinity)
+//                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: self.column5MaxWidth)
             }
         }
     }

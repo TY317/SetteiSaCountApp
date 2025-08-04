@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct yoshimuneViewTop: View {
-//    @ObservedObject var ver280: Ver280
-//    @StateObject var ver280 = Ver280()
+    @ObservedObject var ver360: Ver360
     @StateObject var yoshimune = Yoshimune()
 //    @State var yoshimune = Yoshimune()
 //    @State private var reloadID = UUID() // <- これが再生成トリガー
@@ -24,11 +23,23 @@ struct yoshimuneViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 注意事項
+                    Text("大都吉宗CITYの利用を前提としています\n遊技前に大都吉宗CITYを開始してください")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                } header: {
+                    unitLabelMachineTopTitle(machineName: "吉宗")
+                }
+                
+                Section {
                     // 通常時
-                    NavigationLink(destination: yoshimuneViewNormal()) {
+                    NavigationLink(destination: yoshimuneViewNormal(
+                        ver360: ver360,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: ver360.yoshimuneMenuNormalBadge,
                         )
                     }
                     // 初当り履歴
@@ -46,8 +57,8 @@ struct yoshimuneViewTop: View {
                             textBody: "ボーナス終了画面"
                         )
                     }
-                } header: {
-                    unitLabelMachineTopTitle(machineName: "吉宗")
+//                } header: {
+//                    unitLabelMachineTopTitle(machineName: "吉宗")
                 }
                 
                 // 設定推測グラフ
@@ -60,6 +71,8 @@ struct yoshimuneViewTop: View {
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver360.yoshimuneMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -334,5 +347,7 @@ struct yoshimuneSubViewLoadMemory: View {
 }
 
 #Preview {
-    yoshimuneViewTop()
+    yoshimuneViewTop(
+        ver360: Ver360(),
+    )
 }

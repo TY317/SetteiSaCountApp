@@ -9,7 +9,7 @@ import SwiftUI
 //import GoogleMobileAds
 
 struct evaYakusokuViewNormal: View {
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -22,8 +22,8 @@ struct evaYakusokuViewNormal: View {
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
     let lazyVGridCountPortrait: Int = 3
-    let lazyVGridCountLandscape: Int = 5
-    @State var lazyVGridCount: Int = 2
+    let lazyVGridCountLandscape: Int = 4
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {
@@ -132,7 +132,7 @@ struct evaYakusokuViewNormal: View {
                 )
             } header: {
                 Text("小役")
-                    .popoverTip(tipVer351EvaYakusokuKoyaku())
+//                    .popoverTip(tipVer351EvaYakusokuKoyaku())
             }
             
             // //// ゲーム数入力
@@ -172,7 +172,7 @@ struct evaYakusokuViewNormal: View {
             //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.evaYakusokuMenuNormalBadge)
+//        .resetBadgeOnAppear($ver351.evaYakusokuMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -298,7 +298,7 @@ struct evaYakusokuViewNormal: View {
 
 #Preview {
     evaYakusokuViewNormal(
-        ver351: Ver351(),
+//        ver351: Ver351(),
         evaYakusoku: EvaYakusoku(),
     )
 }

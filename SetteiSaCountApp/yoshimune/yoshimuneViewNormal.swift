@@ -8,19 +8,47 @@
 import SwiftUI
 
 struct yoshimuneViewNormal: View {
+    @ObservedObject var ver360: Ver360
     var body: some View {
         List {
+            // //// 共通俵
+            Section {
+                // //// 注意書き
+                Text("現在値は大都吉宗CITYで確認してください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.footnote)
+                // //// 参考情報）共通俵
+                unitLinkButtonViewBuilder(sheetTitle: "共通俵") {
+                    VStack {
+                        Text("・斜めに揃う共通俵に設定差あり")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "共通俵",
+                                denominateList: [819.2,744.7,682.7,585.1,512.0,455.1]
+                            )
+                        }
+                    }
+                }
+            } header: {
+                Text("共通俵")
+                    .popoverTip(tipVer360YoshimuneCommonTawara())
+            }
+            
             // //// 小役停止形
             Section {
                 unitLinkButton(
-                    title: "小役停止形",
+                    title: "レア役停止形",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "小役停止形",
+                            title: "レア役停止形",
                             image1: Image("yoshimuneKoyakuPattern")
                         )
                     )
                 )
+            } header: {
+                Text("レア役")
             }
             
             // //// モード
@@ -61,6 +89,8 @@ struct yoshimuneViewNormal: View {
                 Text("モード")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver360.yoshimuneMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -75,5 +105,7 @@ struct yoshimuneViewNormal: View {
 }
 
 #Preview {
-    yoshimuneViewNormal()
+    yoshimuneViewNormal(
+        ver360: Ver360(),
+    )
 }

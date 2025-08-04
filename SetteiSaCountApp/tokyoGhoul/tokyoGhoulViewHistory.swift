@@ -42,7 +42,7 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
-    @ObservedObject var ver351: Ver351
+//    @ObservedObject var ver351: Ver351
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
 //    @ObservedObject var ver250 = Ver250()
@@ -449,7 +449,7 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-                .popoverTip(tipVer351GhoulReplayAt())
+//                .popoverTip(tipVer351GhoulReplayAt())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
@@ -510,7 +510,7 @@ struct tokyoGhoulViewHistory: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver351.ghoulMenuFirstHitBadge)
+//        .resetBadgeOnAppear($ver351.ghoulMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -601,7 +601,7 @@ struct tokyoGhoulViewHistory: View {
 
 #Preview {
     tokyoGhoulViewHistory(
-        ver351: Ver351(),
+//        ver351: Ver351(),
         tokyoGhoul: TokyoGhoul()
     )
 }
