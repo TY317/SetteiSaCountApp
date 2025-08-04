@@ -37,6 +37,34 @@ struct darlingViewTop: View {
                             textBody: "初当り"
                         )
                     }
+                    
+                    // ボーナス高確率終了画面
+                    NavigationLink(destination: darlingViewScreen(
+                        darling: darling,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス高確率終了画面"
+                        )
+                    }
+                    
+                    // エンディング
+                    NavigationLink(destination: darlingViewEnding(
+                        darling: darling,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング"
+                        )
+                    }
+                    
+                    // トロフィー
+                    NavigationLink(destination: commonViewNamichanTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ナミちゃんトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: darling.machineName,
@@ -129,6 +157,13 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory1.czCount = darling.czCount
         darlingMemory1.bonusCount = darling.bonusCount
         darlingMemory1.kokakuCount = darling.kokakuCount
+        darlingMemory1.endingCountDefault = darling.endingCountDefault
+        darlingMemory1.endingCount13sisa = darling.endingCount13sisa
+        darlingMemory1.endingCount245sisa = darling.endingCount245sisa
+        darlingMemory1.endingCount5sisa = darling.endingCount5sisa
+        darlingMemory1.endingCountOver2 = darling.endingCountOver2
+        darlingMemory1.endingCountOver6 = darling.endingCountOver6
+        darlingMemory1.endingCountSum = darling.endingCountSum
     }
     func saveMemory2() {
         darlingMemory2.gameArrayData = darling.gameArrayData
@@ -139,6 +174,13 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory2.czCount = darling.czCount
         darlingMemory2.bonusCount = darling.bonusCount
         darlingMemory2.kokakuCount = darling.kokakuCount
+        darlingMemory2.endingCountDefault = darling.endingCountDefault
+        darlingMemory2.endingCount13sisa = darling.endingCount13sisa
+        darlingMemory2.endingCount245sisa = darling.endingCount245sisa
+        darlingMemory2.endingCount5sisa = darling.endingCount5sisa
+        darlingMemory2.endingCountOver2 = darling.endingCountOver2
+        darlingMemory2.endingCountOver6 = darling.endingCountOver6
+        darlingMemory2.endingCountSum = darling.endingCountSum
     }
     func saveMemory3() {
         darlingMemory3.gameArrayData = darling.gameArrayData
@@ -149,6 +191,13 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory3.czCount = darling.czCount
         darlingMemory3.bonusCount = darling.bonusCount
         darlingMemory3.kokakuCount = darling.kokakuCount
+        darlingMemory3.endingCountDefault = darling.endingCountDefault
+        darlingMemory3.endingCount13sisa = darling.endingCount13sisa
+        darlingMemory3.endingCount245sisa = darling.endingCount245sisa
+        darlingMemory3.endingCount5sisa = darling.endingCount5sisa
+        darlingMemory3.endingCountOver2 = darling.endingCountOver2
+        darlingMemory3.endingCountOver6 = darling.endingCountOver6
+        darlingMemory3.endingCountSum = darling.endingCountSum
     }
 }
 
@@ -192,6 +241,13 @@ struct darlingSubViewLoadMemory: View {
         darling.czCount = darlingMemory1.czCount
         darling.bonusCount = darlingMemory1.bonusCount
         darling.kokakuCount = darlingMemory1.kokakuCount
+        darling.endingCountDefault = darlingMemory1.endingCountDefault
+        darling.endingCount13sisa = darlingMemory1.endingCount13sisa
+        darling.endingCount245sisa = darlingMemory1.endingCount245sisa
+        darling.endingCount5sisa = darlingMemory1.endingCount5sisa
+        darling.endingCountOver2 = darlingMemory1.endingCountOver2
+        darling.endingCountOver6 = darlingMemory1.endingCountOver6
+        darling.endingCountSum = darlingMemory1.endingCountSum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: darlingMemory2.gameArrayData)
@@ -206,6 +262,13 @@ struct darlingSubViewLoadMemory: View {
         darling.czCount = darlingMemory2.czCount
         darling.bonusCount = darlingMemory2.bonusCount
         darling.kokakuCount = darlingMemory2.kokakuCount
+        darling.endingCountDefault = darlingMemory2.endingCountDefault
+        darling.endingCount13sisa = darlingMemory2.endingCount13sisa
+        darling.endingCount245sisa = darlingMemory2.endingCount245sisa
+        darling.endingCount5sisa = darlingMemory2.endingCount5sisa
+        darling.endingCountOver2 = darlingMemory2.endingCountOver2
+        darling.endingCountOver6 = darlingMemory2.endingCountOver6
+        darling.endingCountSum = darlingMemory2.endingCountSum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: darlingMemory3.gameArrayData)
@@ -220,6 +283,13 @@ struct darlingSubViewLoadMemory: View {
         darling.czCount = darlingMemory3.czCount
         darling.bonusCount = darlingMemory3.bonusCount
         darling.kokakuCount = darlingMemory3.kokakuCount
+        darling.endingCountDefault = darlingMemory3.endingCountDefault
+        darling.endingCount13sisa = darlingMemory3.endingCount13sisa
+        darling.endingCount245sisa = darlingMemory3.endingCount245sisa
+        darling.endingCount5sisa = darlingMemory3.endingCount5sisa
+        darling.endingCountOver2 = darlingMemory3.endingCountOver2
+        darling.endingCountOver6 = darlingMemory3.endingCountOver6
+        darling.endingCountSum = darlingMemory3.endingCountSum
     }
 }
 

@@ -93,6 +93,39 @@ class Darling: ObservableObject {
         kokakuCount = arrayStringDataCount(arrayData: kokakuHitArrayData, countString: selectListKokakuHit[1])
     }
     
+    // //////////////
+    // エンディング
+    // //////////////
+    @AppStorage("darlingEndingCountDefault") var endingCountDefault: Int = 0
+    @AppStorage("darlingEndingCount13sisa") var endingCount13sisa: Int = 0
+    @AppStorage("darlingEndingCount245sisa") var endingCount245sisa: Int = 0
+    @AppStorage("darlingEndingCount5sisa") var endingCount5sisa: Int = 0
+    @AppStorage("darlingEndingCountOver2") var endingCountOver2: Int = 0
+    @AppStorage("darlingEndingCountOver6") var endingCountOver6: Int = 0
+    @AppStorage("darlingEndingCountSum") var endingCountSum: Int = 0
+    
+    func eindingSumFunc() {
+        endingCountSum = countSum(
+            endingCountDefault,
+            endingCount13sisa,
+            endingCount245sisa,
+            endingCount5sisa,
+            endingCountOver2,
+            endingCountOver6,
+        )
+    }
+    
+    func resetEnding() {
+        endingCountDefault = 0
+        endingCount13sisa = 0
+        endingCount245sisa = 0
+        endingCount5sisa = 0
+        endingCountOver2 = 0
+        endingCountOver6 = 0
+        endingCountSum = 0
+        minusCheck = false
+    }
+    
     // ////////////////////////
     // 共通
     // ////////////////////////
@@ -102,6 +135,7 @@ class Darling: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetEnding()
     }
 }
 
@@ -116,6 +150,13 @@ class DarlingMemory1: ObservableObject {
     @AppStorage("darlingCzCountMemory1") var czCount: Int = 0
     @AppStorage("darlingBonusCountMemory1") var bonusCount: Int = 0
     @AppStorage("darlingKokakuCountMemory1") var kokakuCount: Int = 0
+    @AppStorage("darlingEndingCountDefaultMemory1") var endingCountDefault: Int = 0
+    @AppStorage("darlingEndingCount13sisaMemory1") var endingCount13sisa: Int = 0
+    @AppStorage("darlingEndingCount245sisaMemory1") var endingCount245sisa: Int = 0
+    @AppStorage("darlingEndingCount5sisaMemory1") var endingCount5sisa: Int = 0
+    @AppStorage("darlingEndingCountOver2Memory1") var endingCountOver2: Int = 0
+    @AppStorage("darlingEndingCountOver6Memory1") var endingCountOver6: Int = 0
+    @AppStorage("darlingEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("darlingMemoMemory1") var memo = ""
     @AppStorage("darlingDateMemory1") var dateDouble = 0.0
 }
@@ -130,6 +171,13 @@ class DarlingMemory2: ObservableObject {
     @AppStorage("darlingCzCountMemory2") var czCount: Int = 0
     @AppStorage("darlingBonusCountMemory2") var bonusCount: Int = 0
     @AppStorage("darlingKokakuCountMemory2") var kokakuCount: Int = 0
+    @AppStorage("darlingEndingCountDefaultMemory2") var endingCountDefault: Int = 0
+    @AppStorage("darlingEndingCount13sisaMemory2") var endingCount13sisa: Int = 0
+    @AppStorage("darlingEndingCount245sisaMemory2") var endingCount245sisa: Int = 0
+    @AppStorage("darlingEndingCount5sisaMemory2") var endingCount5sisa: Int = 0
+    @AppStorage("darlingEndingCountOver2Memory2") var endingCountOver2: Int = 0
+    @AppStorage("darlingEndingCountOver6Memory2") var endingCountOver6: Int = 0
+    @AppStorage("darlingEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("darlingMemoMemory2") var memo = ""
     @AppStorage("darlingDateMemory2") var dateDouble = 0.0
 }
@@ -144,6 +192,13 @@ class DarlingMemory3: ObservableObject {
     @AppStorage("darlingCzCountMemory3") var czCount: Int = 0
     @AppStorage("darlingBonusCountMemory3") var bonusCount: Int = 0
     @AppStorage("darlingKokakuCountMemory3") var kokakuCount: Int = 0
+    @AppStorage("darlingEndingCountDefaultMemory3") var endingCountDefault: Int = 0
+    @AppStorage("darlingEndingCount13sisaMemory3") var endingCount13sisa: Int = 0
+    @AppStorage("darlingEndingCount245sisaMemory3") var endingCount245sisa: Int = 0
+    @AppStorage("darlingEndingCount5sisaMemory3") var endingCount5sisa: Int = 0
+    @AppStorage("darlingEndingCountOver2Memory3") var endingCountOver2: Int = 0
+    @AppStorage("darlingEndingCountOver6Memory3") var endingCountOver6: Int = 0
+    @AppStorage("darlingEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("darlingMemoMemory3") var memo = ""
     @AppStorage("darlingDateMemory3") var dateDouble = 0.0
 }

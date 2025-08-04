@@ -23,6 +23,18 @@ struct darlingViewNormal: View {
                 Text("小役")
             }
             
+            // //// フランクス高確謎当り
+//            Section {
+//                unitLinkButtonViewBuilder(sheetTitle: "フランクス高確 謎当り") {
+//                    VStack {
+//                        Text("・レア役を引かずにビーチステージにいない状態でフランクス高確に当選する、いわゆる謎当りに設定差があると思われる")
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                    }
+//                }
+//            } header: {
+//                Text("フランクス高確 謎当り")
+//            }
+            
             unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
