@@ -770,6 +770,7 @@
 		0FEB2E102E3F4DB6004C5F45 /* reSwordTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB2E0F2E3F4DB6004C5F45 /* reSwordTableRareCz.swift */; };
 		0FEB2E122E3F75C9004C5F45 /* darlingViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB2E112E3F75C9004C5F45 /* darlingViewScreen.swift */; };
 		0FEB2E142E3F7E29004C5F45 /* darlingViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB2E132E3F7E29004C5F45 /* darlingViewEnding.swift */; };
+		0FEB2E162E437643004C5F45 /* ver361Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB2E152E437643004C5F45 /* ver361Class.swift */; };
 		0FEC57962D8E36AB00FF1024 /* arifureSubViewTableBta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57952D8E36AB00FF1024 /* arifureSubViewTableBta.swift */; };
 		0FEC57982D8E4A0200FF1024 /* arifureSubViewTableChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57972D8E4A0200FF1024 /* arifureSubViewTableChara.swift */; };
 		0FEC579A2D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57992D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift */; };
@@ -1644,6 +1645,7 @@
 		0FEB2E0F2E3F4DB6004C5F45 /* reSwordTableRareCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reSwordTableRareCz.swift; sourceTree = "<group>"; };
 		0FEB2E112E3F75C9004C5F45 /* darlingViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darlingViewScreen.swift; sourceTree = "<group>"; };
 		0FEB2E132E3F7E29004C5F45 /* darlingViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darlingViewEnding.swift; sourceTree = "<group>"; };
+		0FEB2E152E437643004C5F45 /* ver361Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver361Class.swift; sourceTree = "<group>"; };
 		0FEC57952D8E36AB00FF1024 /* arifureSubViewTableBta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureSubViewTableBta.swift; sourceTree = "<group>"; };
 		0FEC57972D8E4A0200FF1024 /* arifureSubViewTableChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureSubViewTableChara.swift; sourceTree = "<group>"; };
 		0FEC57992D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureSubViewTableAtEndScreen.swift; sourceTree = "<group>"; };
@@ -2735,6 +2737,7 @@
 				0F89357B2E1E95DF00BF6FBE /* ver351Class.swift */,
 				0F97D8C62E2CBB9A0088B652 /* ver352Class.swift */,
 				0F815FB72E35D8120086127D /* ver360Class.swift */,
+				0FEB2E152E437643004C5F45 /* ver361Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3943,6 +3946,7 @@
 				0FD3579D2DAB46150069BD1A /* godzillaTableCzMonster.swift in Sources */,
 				0FD357A92DAE90C10069BD1A /* godzillaTableFirstHit.swift in Sources */,
 				0FD3579F2DAB6B580069BD1A /* commonViewGinchanTrophy.swift in Sources */,
+				0FEB2E162E437643004C5F45 /* ver361Class.swift in Sources */,
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
 				0FB209592E0FDB9E0029D940 /* unitCountButtonDenominateWithFunc.swift in Sources */,

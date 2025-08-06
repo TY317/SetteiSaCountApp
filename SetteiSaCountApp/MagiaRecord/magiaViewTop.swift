@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct magiaViewTop: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
 //    @ObservedObject var magia = Magia()
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
@@ -51,24 +51,24 @@ struct magiaViewTop: View {
                     }
                     // みたまボーナス
                     NavigationLink(destination: magiaViewMitama(
-                        ver352: ver352,
+//                        ver352: ver352,
                         magia: magia,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "rosette",
                             textBody: "みたまボーナス",
-                            badgeStatus: ver352.magiaMenuMitamaBadge,
+//                            badgeStatus: ver352.magiaMenuMitamaBadge,
                         )
                     }
                     // エピソードボーナス
                     NavigationLink(destination: magiaViewEpisode(
-                        ver352: ver352,
+//                        ver352: ver352,
                         magia: magia,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
                             textBody: "エピソードボーナス",
-                            badgeStatus: ver352.magiaMenuEpisodeBadge,
+//                            badgeStatus: ver352.magiaMenuEpisodeBadge,
                         )
                     }
                     // BIG終了画面
@@ -95,13 +95,13 @@ struct magiaViewTop: View {
                     }
                     // ストーリーの順番
                     NavigationLink(destination: magiaViewStoryOrder(
-                        ver352: ver352,
+//                        ver352: ver352,
                         magia: magia,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "movieclapper.fill",
                             textBody: "ストーリーの順番",
-                            badgeStatus: ver352.magiaMenuStoryOrderBadge,
+//                            badgeStatus: ver352.magiaMenuStoryOrderBadge,
                         )
                     }
                     // AT終了画面
@@ -159,7 +159,7 @@ struct magiaViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.magiaMachineIconBadge)
+//        .resetBadgeOnAppear($ver352.magiaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -841,6 +841,6 @@ struct magiaSubViewLoadMemory: View {
 
 #Preview {
     magiaViewTop(
-        ver352: Ver352()
+//        ver352: Ver352()
     )
 }

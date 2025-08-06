@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewMitama: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     
@@ -73,7 +73,7 @@ struct magiaViewMitama: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.magiaMenuMitamaBadge)
+//        .resetBadgeOnAppear($ver352.magiaMenuMitamaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -99,7 +99,7 @@ struct magiaViewMitama: View {
 
 #Preview {
     magiaViewMitama(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         magia: Magia(),
     )
 }

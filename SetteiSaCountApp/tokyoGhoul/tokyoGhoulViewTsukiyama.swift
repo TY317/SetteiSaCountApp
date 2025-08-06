@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewTsukiyama: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
 //    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var isShowAlert = false
@@ -182,7 +182,7 @@ struct tokyoGhoulViewTsukiyama: View {
                         )
                     )
                 )
-                .popoverTip(tipVer352GhoulTsukiyama())
+//                .popoverTip(tipVer352GhoulTsukiyama())
                 unitLinkButton(
                     title: "通常時のモードについて",
                     exview: AnyView(
@@ -266,7 +266,7 @@ struct tokyoGhoulViewTsukiyama: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.tokyoGhoulMenuTsukiyamaBadge)
+//        .resetBadgeOnAppear($ver352.tokyoGhoulMenuTsukiyamaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -293,7 +293,7 @@ struct tokyoGhoulViewTsukiyama: View {
 
 #Preview {
     tokyoGhoulViewTsukiyama(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         tokyoGhoul: TokyoGhoul()
     )
 }

@@ -121,7 +121,7 @@ class commonVar: ObservableObject {
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
 //    @StateObject var ver351 = Ver351()
-    @StateObject var ver352 = Ver352()
+//    @StateObject var ver352 = Ver352()
     @StateObject var ver360 = Ver360()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common: commonVar
@@ -207,11 +207,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァ約束",
-                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
+//                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -253,11 +253,11 @@ struct ContentView: View {
                                         linkView: AnyView(dmc5ViewTop(
 //                                            ver350: ver350,
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-                                        badgeStatus: ver352.dmc5MachineIconBadge,
+//                                        badgeStatus: ver352.dmc5MachineIconBadge,
                                     )
                                 }
                                 
@@ -382,11 +382,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver352: ver352
+//                                            ver352: ver352
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver352.magiaMachineIconBadge,
+//                                        badgeStatus: ver352.magiaMachineIconBadge,
                                     )
 //                                        .popoverTip(tipVer270MachineAdd())
                                 }
@@ -453,11 +453,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
+//                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
                                     )
 //                                        .popoverTip(tipVer230MachineAdd())
                                 }
@@ -730,14 +730,14 @@ struct ContentView: View {
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver350: ver350,
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァンゲリヲン〜約束の扉〜",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
+//                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -785,14 +785,14 @@ struct ContentView: View {
                                         linkView: AnyView(dmc5ViewTop(
 //                                            ver350: ver350,
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-                                        badgeStatus: ver352.dmc5MachineIconBadge,
+//                                        badgeStatus: ver352.dmc5MachineIconBadge,
                                     )
                                 }
                                 
@@ -943,14 +943,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver352: ver352
+//                                            ver352: ver352
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver352.magiaMachineIconBadge,
+//                                        badgeStatus: ver352.magiaMachineIconBadge,
                                     )
 //                                    .popoverTip(tipVer270MachineAdd())
                                 }
@@ -1029,14 +1029,14 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
 //                                            ver351: ver351,
-                                            ver352: ver352,
+//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
+//                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
 //                                        badgeStatus: "update"
                                     )
 //                                    .popoverTip(tipVer230MachineAdd())

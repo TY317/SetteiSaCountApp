@@ -10,7 +10,7 @@ import SwiftUI
 struct dmc5ViewTop: View {
 //    @ObservedObject var ver350: Ver350
 //    @ObservedObject var ver351: Ver351
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
     @StateObject var dmc5Memory1 = Dmc5Memory1()
@@ -74,25 +74,25 @@ struct dmc5ViewTop: View {
                     }
                     // ST
                     NavigationLink(destination: dmc5ViewSt(
-                        ver352: ver352,
+//                        ver352: ver352,
                         dmc5: dmc5
                     )) {
                         unitLabelMenu(
                             imageSystemName: "rosette",
                             textBody: "ST",
-                            badgeStatus: ver352.dmc5MenuStBadge,
+//                            badgeStatus: ver352.dmc5MenuStBadge,
                         )
                     }
                     // 上位ST中のセリフ
                     NavigationLink(destination: dmc5ViewVoice(
-                        ver352: ver352,
+//                        ver352: ver352,
                         dmc5: dmc5
                     )) {
                         unitLabelMenu(
                             imageSystemName: "rosette",
 //                            textBody: "上位ST中のセリフ"
                             textBody: "上位ST",
-                            badgeStatus: ver352.dmc5MenuPremiumStBadge,
+//                            badgeStatus: ver352.dmc5MenuPremiumStBadge,
                         )
                     }
                     // エンタトロフィー
@@ -119,7 +119,7 @@ struct dmc5ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.dmc5MachineIconBadge)
+//        .resetBadgeOnAppear($ver352.dmc5MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -570,6 +570,6 @@ struct dmc5SubViewLoadMemory: View {
     dmc5ViewTop(
 //        ver350: Ver350(),
 //        ver351: Ver351(),
-        ver352: Ver352(),
+//        ver352: Ver352(),
     )
 }

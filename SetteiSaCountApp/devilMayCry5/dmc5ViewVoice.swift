@@ -9,12 +9,12 @@ import SwiftUI
 import TipKit
 
 struct dmc5ViewVoice: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
     
     var body: some View {
-        TipView(tipVer352Dmc5Emblem())
+//        TipView(tipVer352Dmc5Emblem())
         List {
             // //// エンブレム点灯
             Section {
@@ -169,7 +169,7 @@ struct dmc5ViewVoice: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.dmc5MenuPremiumStBadge)
+//        .resetBadgeOnAppear($ver352.dmc5MenuPremiumStBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -195,7 +195,7 @@ struct dmc5ViewVoice: View {
 
 #Preview {
     dmc5ViewVoice(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         dmc5: Dmc5()
     )
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct dmc5ViewSt: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
     
@@ -66,7 +66,7 @@ struct dmc5ViewSt: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.dmc5MenuStBadge)
+//        .resetBadgeOnAppear($ver352.dmc5MenuStBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -92,7 +92,7 @@ struct dmc5ViewSt: View {
 
 #Preview {
     dmc5ViewSt(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         dmc5: Dmc5(),
     )
 }

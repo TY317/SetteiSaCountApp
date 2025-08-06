@@ -11,7 +11,7 @@ import FirebaseCrashlytics
 struct evaYakusokuViewTop: View {
 //    @ObservedObject var ver350: Ver350
 //    @ObservedObject var ver351: Ver351
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @StateObject var evaYakusoku = EvaYakusoku()
     @State var isShowAlert: Bool = false
     @StateObject var evaYakusokuMemory1 = EvaYakusokuMemory1()
@@ -41,13 +41,13 @@ struct evaYakusokuViewTop: View {
                     
                     // 初当り
                     NavigationLink(destination: evaYakusokuViewFirstHit(
-                        ver352: ver352,
+//                        ver352: ver352,
                         evaYakusoku: evaYakusoku,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver352.evaYakusokuMenuFirstHitBadge
+//                            badgeStatus: ver352.evaYakusokuMenuFirstHitBadge
                         )
                     }
                     
@@ -100,7 +100,7 @@ struct evaYakusokuViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.evaYakusokuMachineIconBadge)
+//        .resetBadgeOnAppear($ver352.evaYakusokuMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -354,6 +354,6 @@ struct evaYakusokuSubViewLoadMemory: View {
     evaYakusokuViewTop(
 //        ver350: Ver350(),
 //        ver351: Ver351(),
-        ver352: Ver352(),
+//        ver352: Ver352(),
     )
 }

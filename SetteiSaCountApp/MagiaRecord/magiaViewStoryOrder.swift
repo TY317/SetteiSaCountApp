@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewStoryOrder: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var magia: Magia
     let firstChoice: [Int] = [1,2,3,4,5]
     @State var firstSelected: Int = 1
@@ -361,7 +361,7 @@ struct magiaViewStoryOrder: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.magiaMenuStoryOrderBadge)
+//        .resetBadgeOnAppear($ver352.magiaMenuStoryOrderBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -473,7 +473,7 @@ struct magiaViewStoryOrder: View {
 
 #Preview {
     magiaViewStoryOrder(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         magia: Magia(),
     )
 }
