@@ -151,7 +151,64 @@ class ReSword: ObservableObject {
     func resetAll() {
         resetNormal()
         resetAtScreen()
+        resetCharaCount()
+        resetFranSleepCount()
     }
+    
+    // ///////////////
+    // ver3.6.1で追加
+    // ///////////////
+    // //// キャラカウント
+    @AppStorage("reSwordCharaCountDefault") var charaCountDefault: Int = 0
+    @AppStorage("reSwordCharaCountHighJaku") var charaCountHighJaku: Int = 0
+    @AppStorage("reSwordCharaCountHighKyo") var charaCountHighKyo: Int = 0
+    @AppStorage("reSwordCharaCountOver2") var charaCountOver2: Int = 0
+    @AppStorage("reSwordCharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("reSwordCharaCountOver6") var charaCountOver6: Int = 0
+    @AppStorage("reSwordCharaCountSum") var charaCountSum: Int = 0
+    
+    func charaCountSumFunc() {
+        charaCountSum = countSum(
+            charaCountDefault,
+            charaCountHighJaku,
+            charaCountHighKyo,
+            charaCountOver2,
+            charaCountOver4,
+            charaCountOver6,
+        )
+    }
+    
+    func resetCharaCount() {
+        charaCountDefault = 0
+        charaCountHighJaku = 0
+        charaCountHighKyo = 0
+        charaCountOver2 = 0
+        charaCountOver4 = 0
+        charaCountOver6 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+    
+    // //// フランお休み中
+    let ratioSleepAt: [Double] = [9,10,11,12,13,14]
+    @AppStorage("reSwordFranSleepCountMiss") var franSleepCountMiss: Int = 0
+    @AppStorage("reSwordFranSleepCountHit") var franSleepCountHit: Int = 0
+    @AppStorage("reSwordFranSleepCountSum") var franSleepCountSum: Int = 0
+    
+    func franSleepCountSumFunc() {
+        franSleepCountSum = countSum(
+            franSleepCountMiss,
+            franSleepCountHit,
+        )
+    }
+    
+    func resetFranSleepCount() {
+        franSleepCountMiss = 0
+        franSleepCountHit = 0
+        franSleepCountSum = 0
+        minusCheck = false
+    }
+    
 }
 
 
@@ -187,6 +244,20 @@ class ReSwordMemory1: ObservableObject {
     @AppStorage("reSwordAtScreenCountSumMemory1") var atScreenCountSum: Int = 0
     @AppStorage("reSwordMemoMemory1") var memo = ""
     @AppStorage("reSwordDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.6.1で追加
+    // ///////////////
+    @AppStorage("reSwordCharaCountDefaultMemory1") var charaCountDefault: Int = 0
+    @AppStorage("reSwordCharaCountHighJakuMemory1") var charaCountHighJaku: Int = 0
+    @AppStorage("reSwordCharaCountHighKyoMemory1") var charaCountHighKyo: Int = 0
+    @AppStorage("reSwordCharaCountOver2Memory1") var charaCountOver2: Int = 0
+    @AppStorage("reSwordCharaCountOver4Memory1") var charaCountOver4: Int = 0
+    @AppStorage("reSwordCharaCountOver6Memory1") var charaCountOver6: Int = 0
+    @AppStorage("reSwordCharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("reSwordFranSleepCountMissMemory1") var franSleepCountMiss: Int = 0
+    @AppStorage("reSwordFranSleepCountHitMemory1") var franSleepCountHit: Int = 0
+    @AppStorage("reSwordFranSleepCountSumMemory1") var franSleepCountSum: Int = 0
 }
 
 
@@ -222,6 +293,20 @@ class ReSwordMemory2: ObservableObject {
     @AppStorage("reSwordAtScreenCountSumMemory2") var atScreenCountSum: Int = 0
     @AppStorage("reSwordMemoMemory2") var memo = ""
     @AppStorage("reSwordDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.6.1で追加
+    // ///////////////
+    @AppStorage("reSwordCharaCountDefaultMemory2") var charaCountDefault: Int = 0
+    @AppStorage("reSwordCharaCountHighJakuMemory2") var charaCountHighJaku: Int = 0
+    @AppStorage("reSwordCharaCountHighKyoMemory2") var charaCountHighKyo: Int = 0
+    @AppStorage("reSwordCharaCountOver2Memory2") var charaCountOver2: Int = 0
+    @AppStorage("reSwordCharaCountOver4Memory2") var charaCountOver4: Int = 0
+    @AppStorage("reSwordCharaCountOver6Memory2") var charaCountOver6: Int = 0
+    @AppStorage("reSwordCharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("reSwordFranSleepCountMissMemory2") var franSleepCountMiss: Int = 0
+    @AppStorage("reSwordFranSleepCountHitMemory2") var franSleepCountHit: Int = 0
+    @AppStorage("reSwordFranSleepCountSumMemory2") var franSleepCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -256,4 +341,18 @@ class ReSwordMemory3: ObservableObject {
     @AppStorage("reSwordAtScreenCountSumMemory3") var atScreenCountSum: Int = 0
     @AppStorage("reSwordMemoMemory3") var memo = ""
     @AppStorage("reSwordDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.6.1で追加
+    // ///////////////
+    @AppStorage("reSwordCharaCountDefaultMemory3") var charaCountDefault: Int = 0
+    @AppStorage("reSwordCharaCountHighJakuMemory3") var charaCountHighJaku: Int = 0
+    @AppStorage("reSwordCharaCountHighKyoMemory3") var charaCountHighKyo: Int = 0
+    @AppStorage("reSwordCharaCountOver2Memory3") var charaCountOver2: Int = 0
+    @AppStorage("reSwordCharaCountOver4Memory3") var charaCountOver4: Int = 0
+    @AppStorage("reSwordCharaCountOver6Memory3") var charaCountOver6: Int = 0
+    @AppStorage("reSwordCharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("reSwordFranSleepCountMissMemory3") var franSleepCountMiss: Int = 0
+    @AppStorage("reSwordFranSleepCountHitMemory3") var franSleepCountHit: Int = 0
+    @AppStorage("reSwordFranSleepCountSumMemory3") var franSleepCountSum: Int = 0
 }

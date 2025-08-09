@@ -123,6 +123,7 @@ struct ContentView: View {
 //    @StateObject var ver351 = Ver351()
 //    @StateObject var ver352 = Ver352()
     @StateObject var ver360 = Ver360()
+    @StateObject var ver361 = Ver361()
     @ObservedObject var favoriteSet = favoriteSetVar()
     @ObservedObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
@@ -193,10 +194,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(reSwordViewTop(
                                             ver360: ver360,
+                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転剣",
-                                        badgeStatus: ver360.reSwordMachineIconBadge,
+                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 
@@ -712,13 +714,14 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(reSwordViewTop(
                                             ver360: ver360,
+                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転生したら剣でした",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver360.reSwordMachineIconBadge,
+                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 

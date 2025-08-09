@@ -13,7 +13,42 @@ struct reSwordView95Ci: View {
     @State var isShow95CiExplain = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: self.$selection) {
+            // フランおやすみ中のAT当選回数
+            unitListSection95Ci(
+                grafTitle: "フランおやすみ中\nAT当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $reSword.franSleepCountHit,
+                        bigNumber: $reSword.franSleepCountSum,
+                        setting1Percent: reSword.ratioSleepAt[0],
+                        setting2Percent: reSword.ratioSleepAt[1],
+                        setting3Percent: reSword.ratioSleepAt[2],
+                        setting4Percent: reSword.ratioSleepAt[3],
+                        setting5Percent: reSword.ratioSleepAt[4],
+                        setting6Percent: reSword.ratioSleepAt[5]
+                    )
+                )
+            )
+            .tag(1)
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: reSword.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("95%信頼区間グラフ")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
+            }
+        }
+        .tabViewStyle(.page)
     }
 }
 

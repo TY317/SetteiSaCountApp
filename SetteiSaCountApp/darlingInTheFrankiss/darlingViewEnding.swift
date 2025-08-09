@@ -26,10 +26,13 @@ struct darlingViewEnding: View {
     @State var selectedCard: String = "イク(白)"
     let cardSisa: [String] = [
         "デフォルト",
-        "1・3 示唆",
-        "2・4・5 示唆",
-        "5 示唆\n1・6 示唆弱",
-        "2 以上濃厚\n4・6 示唆",
+//        "1・3 示唆",
+        "奇数示唆 弱",
+//        "2・4・5 示唆",
+        "高設定示唆 弱",
+//        "5 示唆\n1・6 示唆弱",
+        "高設定示唆 中",
+        "2 以上濃厚\n高設定示唆 強",
         "6 濃厚",
     ]
     let ilustList: [String] = [
@@ -43,7 +46,8 @@ struct darlingViewEnding: View {
     ]
     @State var selectedIlust: String = "屋内風景"
     let ilustSisa: [String] = [
-        "1示唆 強",
+//        "1示唆 強",
+        "デフォルト",
         "2示唆 強",
         "3示唆 強",
         "4示唆 強",
