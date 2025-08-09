@@ -85,7 +85,11 @@ struct mt5ExViewRival: View {
 // ////////////////////////
 struct mt5ExViewFnaken: View {
     var body: some View {
-        unitExView5body2image(title: "舟券での示唆", image1: Image("mt5Funaken"))
+        unitExView5body2image(
+            title: "舟券での示唆",
+//            image1: Image("mt5Funaken")
+            tableView: AnyView(mt5TableFunaken())
+        )
     }
 }
 

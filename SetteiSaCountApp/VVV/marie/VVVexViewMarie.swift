@@ -20,6 +20,7 @@ struct VVVexViewMarie: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text(" (通常は最低保証で1回はHOLDが出る。\n  内部的にマリエ覚醒確定時のみ最低保証が出ない)")
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom)
 //                    Text("・CZ、決戦ボーナスではモードダウンはない")
 //                        .frame(maxWidth: .infinity, alignment: .leading)
     //                Text("・ATか革命ボーナスを引くまでモードダウンはない")
@@ -32,10 +33,17 @@ struct VVVexViewMarie: View {
     //                    .frame(maxWidth: .infinity, alignment: .leading)
     //                Text("　→いいキャラが出る → いいモードにいる可能性アップ → 高設定の期待UP？")
     //                    .frame(maxWidth: .infinity, alignment: .leading)
-                    Image("VVVmarieRatio")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding([.top, .bottom, .trailing])
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "内部マリエ覚醒",
+                            percentList: [5,6,7,9,10,13]
+                        )
+                    }
+//                    Image("VVVmarieRatio")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .padding([.top, .bottom, .trailing])
                         
 //                    Image("modeChange")
 //                        .resizable()
@@ -44,7 +52,8 @@ struct VVVexViewMarie: View {
                         
                     Spacer()
                 }
-                .padding(.leading)
+//                .padding(.leading)
+                .padding(.horizontal)
             }
             // //// タイトル
             .navigationTitle("マリエ覚醒について")

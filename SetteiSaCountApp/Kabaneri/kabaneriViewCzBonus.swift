@@ -191,7 +191,18 @@ struct kabaneriViewCzBonus: View {
                         unitResultRatioDenomination2Line(title: "CZ確率", color: .grayBack, count: $kabaneri.czHitCount, bigNumber: $kabaneri.historyPlayGame, numberofDicimal: 0)
                     }
 //                    Text("CZ回数、ゲーム数はマイスロで確認")
-                    unitLinkButton(title: "CZ出現率", exview: AnyView(unitExView5body2image(title: "CZ出現率", textBody1: "・3種類のCZの合算確率で確認", textBody2: "・詳細データはマイスロで確認", image1: Image("kabaneriCzRatio"))))
+                    unitLinkButton(
+                        title: "CZ出現率",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "CZ出現率",
+                                textBody1: "・3種類のCZの合算確率で確認",
+                                textBody2: "・詳細データはマイスロで確認",
+//                                image1: Image("kabaneriCzRatio")
+                                tableView: AnyView(kabaneriTableCzRatio())
+                            )
+                        )
+                    )
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 3)))
 //                        .popoverTip(tipUnitButtonLink95Ci())
@@ -200,7 +211,20 @@ struct kabaneriViewCzBonus: View {
                 }
                 // //// ボーナスランク
                 Section {
-                    unitLinkButton(title: "ボーナスランクについて", exview: AnyView(unitExView5body2image(title: "ボーナスランクについて", textBody1: "・1〜6の6段階がある", textBody2: "・高設定は低いランクからスタートしやすい。特に設定6は最初のボーナスは駿城になりやすい", textBody3: "・駿城失敗後、CZ失敗後にランクアップを抽選。高設定ほどランクアップしやすい", image1: Image("kabaneriBonusRankStart"), image2: Image("kabaneriBonusRankUp"))))
+                    unitLinkButton(
+                        title: "ボーナスランクについて",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "ボーナスランクについて",
+                                textBody1: "・1〜6の6段階がある",
+                                textBody2: "・高設定は低いランクからスタートしやすい。特に設定6は最初のボーナスは駿城になりやすい",
+                                textBody3: "・駿城失敗後、CZ失敗後にランクアップを抽選。高設定ほどランクアップしやすい",
+                                image1: Image("kabaneriBonusRankStart"),
+//                                image2: Image("kabaneriBonusRankUp")
+                                tableView: AnyView(kabaneriTableBonusRank())
+                            )
+                        )
+                    )
                     unitLinkButton(title: "駿城後、キリ番のキャラでの示唆", exview: AnyView(unitExView5body2image(title: "キャラごとのランク示唆", textBody1: "・駿城ボーナス失敗後と100Gなどのキリ番（サブ液晶）のキャラでボーナスランクを示唆", textBody2: "・キャラ毎の示唆内容は共通", image1: Image("kabaneriBonusRankChara"))))
                 } header: {
                     Text("ボーナスランク")
@@ -276,7 +300,16 @@ struct kabaneriViewCzBonus: View {
                         }
                     }
                     // 参考情報リンク
-                    unitLinkButton(title: "規定ゲーム数での当選率", exview: AnyView(unitExView5body2image(title: "規定ゲーム数での当選率", image1: Image("kabaneriBonusGHitAll"))))
+                    unitLinkButton(
+                        title: "規定ゲーム数での当選率",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "規定ゲーム数での当選率",
+//                                image1: Image("kabaneriBonusGHitAll")
+                                tableView: AnyView(kabaneriTableKiteiGame()),
+                            )
+                        )
+                    )
                 } header: {
                     Text("規定ゲーム数でのボーナス当選")
                 }

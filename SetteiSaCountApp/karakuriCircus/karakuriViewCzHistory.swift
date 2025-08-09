@@ -115,9 +115,31 @@ struct karakuriViewCzHistory: View {
                     Spacer()
                 }
                 // //// 参考情報リンク
-                unitLinkButton(title: "モードについて", exview: AnyView(unitExView5body2image(title: "通常時のモード", textBody1: "・通常時は4つのモードで管理", textBody2: "・設定6はモードAと天国が4割弱ずつで残りがB,Cといった内訳らしい", textBody3: "・設定6はモードAでも200Gが非常に強いらしい。天国割合も高いため、400のゾーンまでに当選する割合は70％程度あるらしい。1000Gを超える割合は5％程度らしいので、1000を超えたら黄色信号か。", image1: Image("karakuriMode"))))
+                unitLinkButton(
+                    title: "モードについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "通常時のモード",
+                            textBody1: "・通常時は4つのモードで管理",
+                            textBody2: "・設定6はモードAと天国が4割弱ずつで残りがB,Cといった内訳らしい",
+                            textBody3: "・設定6はモードAでも200Gが非常に強いらしい。天国割合も高いため、400のゾーンまでに当選する割合は70％程度あるらしい。1000Gを超える割合は5％程度らしいので、1000を超えたら黄色信号か。",
+//                            image1: Image("karakuriMode")
+                            tableView: AnyView(karakuriTableMode())
+                        )
+                    )
+                )
                 // //// 参考情報リンク
-                unitLinkButton(title: "スポットライト演出の示唆について", exview: AnyView(unitExView5body2image(title: "スポットライト演出の示唆", textBody1: "・からくりエピソード失敗後、CZ失敗後、AT終了後の画面転換時に発生するスポットライト演出の種類によって次の規定G数を示唆", image1: Image("karakuriSpotLight"))))
+                unitLinkButton(
+                    title: "スポットライト演出の示唆について",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "スポットライト演出の示唆",
+                            textBody1: "・からくりエピソード失敗後、CZ失敗後、AT終了後の画面転換時に発生するスポットライト演出の種類によって次の規定G数を示唆",
+//                            image1: Image("karakuriSpotLight")
+                            tableView: AnyView(karakuriTableSpotLight())
+                        )
+                    )
+                )
             } header: {
                 unitHeaderHistoryColumns(column2: "ゾーン", column3: "当選契機", column4: "示唆画面")
             }

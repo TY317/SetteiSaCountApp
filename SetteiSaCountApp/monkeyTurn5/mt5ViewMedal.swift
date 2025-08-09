@@ -75,7 +75,15 @@ struct mt5ViewMedal: View {
 // //////////////////////////
 struct mt5ExViewMedal: View {
     var body: some View {
-        unitExView5body2image(title: "メダルについて", textBody1: "・黄色メダル以上は示唆としてかなり大事らしい", textBody2: "・黄メダル30%以上が欲しい", textBody3: "・AT9回で青2回、黄2回で若干弱い というくらいの感触らしい", image1: Image("mt5Medal"), image2: Image("mt5BlackMedal"))
+        unitExView5body2image(
+            title: "メダルについて",
+            textBody1: "・黄色メダル以上は示唆としてかなり大事らしい",
+            textBody2: "・黄メダル30%以上が欲しい",
+            textBody3: "・AT9回で青2回、黄2回で若干弱い というくらいの感触らしい",
+//            image1: Image("mt5Medal"),
+//            image2: Image("mt5BlackMedal")
+            tableView: AnyView(mt5TableMedal())
+        )
     }
 }
 // //////////////////
@@ -99,7 +107,11 @@ struct mt5TipBlackMedalRatioAdd: Tip {
 // //////////////////////////
 struct mt5ExViewTrofy: View {
     var body: some View {
-        unitExView5body2image(title: "トロフィーについて", image1: Image("mt5Trofy"))
+        unitExView5body2image(
+            title: "トロフィーについて",
+//            image1: Image("mt5Trofy")
+            tableView: AnyView(mt5TableTrophy())
+        )
     }
 }
 

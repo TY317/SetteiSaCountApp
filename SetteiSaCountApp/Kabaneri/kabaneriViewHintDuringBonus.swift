@@ -53,7 +53,18 @@ struct kabaneriViewHintDuringBonus: View {
                         }
                     }
                     // 参考情報へのリンク
-                    unitLinkButton(title: "キャラ紹介での示唆について", exview: AnyView(unitExView5body2image(title: "キャラ紹介での示唆", textBody1: "・ボーナス中のキャラ紹介のキャラによって設定を示唆", textBody2: "・男性キャラが奇数示唆、女性キャラが偶数示唆", image1: Image("kabaneriCharacterIntroduce"))))
+                    unitLinkButton(
+                        title: "キャラ紹介での示唆について",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "キャラ紹介での示唆",
+                                textBody1: "・ボーナス中のキャラ紹介のキャラによって設定を示唆",
+                                textBody2: "・男性キャラが奇数示唆、女性キャラが偶数示唆",
+//                                image1: Image("kabaneriCharacterIntroduce")
+                                tableView: AnyView(kabaneriTableCharaFemale()),
+                            )
+                        )
+                    )
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(kabaneriView95Ci(kabaneri: kabaneri, selection: 9)))
 //                        .popoverTip(tipUnitButtonLink95Ci())

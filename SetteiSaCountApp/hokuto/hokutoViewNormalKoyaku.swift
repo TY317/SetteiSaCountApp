@@ -55,7 +55,20 @@ struct hokutoViewNormalKoyaku: View {
                         }
                     }
                     // 参考情報へのリンク
-                    unitLinkButton(title: "ナビなしベルについて", exview: AnyView(unitExView5body2image(title: "通常時のベル", textBody1: "・押し順は中・右・左を遵守", textBody2: "・中段に平行揃いするベルに設定差があると言われている", textBody3: "・斜めベルとの比率も指標になるため、斜め揃いもカウントを推奨", textBody4: "・通常時ゲーム数はマイスロを参照", image1: Image("hokutoNormalBell"))))
+                    unitLinkButton(
+                        title: "ナビなしベルについて",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "通常時のベル",
+                                textBody1: "・押し順は中・右・左を遵守",
+                                textBody2: "・中段に平行揃いするベルに設定差があると言われている",
+                                textBody3: "・斜めベルとの比率も指標になるため、斜め揃いもカウントを推奨",
+                                textBody4: "・通常時ゲーム数はマイスロを参照",
+//                                image1: Image("hokutoNormalBell")
+                                tableView: AnyView(hokutoTableNormalBell())
+                            )
+                        )
+                    )
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 1)))
 //                        .popoverTip(tipUnitButtonLink95Ci())
@@ -108,7 +121,16 @@ struct hokutoViewNormalKoyaku: View {
                 // //// レア役の情報
                 Section {
                     Text("レア役の確率はマイスロで確認")
-                    unitLinkButton(title: "レア役について", exview: AnyView(unitExView5body2image(title: "通常時のレア役確率", image1: Image("hokutoNormalRare"))))
+                    unitLinkButton(
+                        title: "レア役について",
+                        exview: AnyView(
+                            unitExView5body2image(
+                                title: "通常時のレア役確率",
+//                                image1: Image("hokutoNormalRare")
+                                tableView: AnyView(hokutoTableRareKoyakuRatio())
+                            )
+                        )
+                    )
                 } header: {
                     Text("レア役")
                 }
