@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct reSwordViewAtScreen: View {
+    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -29,11 +30,11 @@ struct reSwordViewAtScreen: View {
     ]
     let lowerBeltTextList: [String] = [
         "デフォルト",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 以上濃厚",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
     ]
     let flashColorList: [Color] = [
         .gray,
@@ -83,13 +84,17 @@ struct reSwordViewAtScreen: View {
                     }
                 }
                 .frame(height: 120)
+                .popoverTip(tipVer361ReSwordScreen())
                 
                 // //// カウント結果
-                ForEach(self.sisaList.indices, id: \.self) { index in
-                    if self.sisaList.indices.contains(index) &&
+//                ForEach(self.sisaList.indices, id: \.self) { index in
+                ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
+//                    if self.sisaList.indices.contains(index) &&
+                    if self.lowerBeltTextList.indices.contains(index) &&
                         self.flashColorList.indices.contains(index) {
                         unitResultCountListPercent(
-                            title: self.sisaList[index],
+//                            title: self.sisaList[index],
+                            title: self.lowerBeltTextList[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $reSword.atScreenCountSum,
@@ -98,6 +103,8 @@ struct reSwordViewAtScreen: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver361.reSwordMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -141,6 +148,7 @@ struct reSwordViewAtScreen: View {
 
 #Preview {
     reSwordViewAtScreen(
+        ver361: Ver361(),
         reSword: ReSword(),
     )
 }

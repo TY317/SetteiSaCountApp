@@ -146,7 +146,11 @@ struct mt5ExViewAoshimaSpFreeze: View {
 // ///////////////////////////////
 struct mt5ExViewAoshimaScreenAnalysis: View {
     var body: some View {
-        unitExView5body2image(title: "出現確率", image1: Image("mt5AoshimaSGScreenAnalysis"))
+        unitExView5body2image(
+            title: "出現確率",
+//            image1: Image("mt5AoshimaSGScreenAnalysis")
+            tableView: AnyView(mt5TableAoshimaScreen()),
+        )
     }
 }
 

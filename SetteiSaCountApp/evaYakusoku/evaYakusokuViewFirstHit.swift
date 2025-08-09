@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct evaYakusokuViewFirstHit: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -182,7 +182,7 @@ struct evaYakusokuViewFirstHit: View {
                 
             } header: {
                 Text("初当り")
-                    .popoverTip(tipVer352EvaYakusokuFirstHit())
+//                    .popoverTip(tipVer352EvaYakusokuFirstHit())
             }
             
             Section {
@@ -222,7 +222,7 @@ struct evaYakusokuViewFirstHit: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.evaYakusokuMenuFirstHitBadge)
+//        .resetBadgeOnAppear($ver352.evaYakusokuMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -294,7 +294,7 @@ struct evaYakusokuViewFirstHit: View {
 
 #Preview {
     evaYakusokuViewFirstHit(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         evaYakusoku: EvaYakusoku(),
     )
 }

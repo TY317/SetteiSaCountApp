@@ -12,12 +12,19 @@ struct unitCountSubmitButton: View {
     @Binding var minusCheck: Bool
 //    @State var flushBool: Bool = false
     let action: () -> Void
+    let flushAction: () -> Void
     var body: some View {
         Button {
+            if self.minusCheck {
+                flushAction()
+            }
             self.count = countUpDown(
                 minusCheck: self.minusCheck,
                 count: self.count
             )
+            if self.minusCheck == false {
+                flushAction()
+            }
             action()
         } label: {
             HStack {
@@ -43,7 +50,8 @@ struct unitCountSubmitButton: View {
     unitCountSubmitButton(
         count: $countInt,
         minusCheck: $minusCheck,
-        action: testFunc
+        action: testFunc,
+        flushAction: testFunc,
     )
     Text("\(countInt)")
 }

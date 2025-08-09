@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewEpisode: View {
-    @ObservedObject var ver352: Ver352
+//    @ObservedObject var ver352: Ver352
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -101,7 +101,7 @@ struct magiaViewEpisode: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver352.magiaMenuEpisodeBadge)
+//        .resetBadgeOnAppear($ver352.magiaMenuEpisodeBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -151,7 +151,7 @@ struct magiaViewEpisode: View {
 
 #Preview {
     magiaViewEpisode(
-        ver352: Ver352(),
+//        ver352: Ver352(),
         magia: Magia(),
     )
 }

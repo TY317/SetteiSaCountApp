@@ -22,6 +22,7 @@ struct VVVexViewDrive: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("→有利切断前はドライブ出なくても焦らずに\n　とはいえ、高設定は切断前でもドライブ\n　しやすいので、切断前に確認できれば好材料")
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom)
     //                Text("・ATか革命ボーナスを引くまでモードダウンはない")
     //                    .frame(maxWidth: .infinity, alignment: .leading)
     //                Text("・モード移行に設定差があると言われている")
@@ -32,10 +33,25 @@ struct VVVexViewDrive: View {
     //                    .frame(maxWidth: .infinity, alignment: .leading)
     //                Text("　→いいキャラが出る → いいモードにいる可能性アップ → 高設定の期待UP？")
     //                    .frame(maxWidth: .infinity, alignment: .leading)
-                    Image("VVVharakiriRatio")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding([.top, .bottom, .trailing])
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableString(
+                            columTitle: "ハラキリドライブ",
+                            stringList: [
+                                "1/10〜15",
+                                "↓",
+                                "↓",
+                                "↓",
+                                "↓",
+                                "1/4程度",
+                            ],
+                            maxWidth: 200,
+                        )
+                    }
+//                    Image("VVVharakiriRatio")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .padding([.top, .bottom, .trailing])
                         
 //                    Image("modeChange")
 //                        .resizable()

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct reSwordViewStory: View {
+    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     
     var body: some View {
@@ -52,14 +53,61 @@ struct reSwordViewStory: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text("・話数の数字が大きいほど高設定の期待度UP")
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("・12話出現で設定4 以上濃厚")
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             } header: {
                 Text("ストーリー紹介")
             }
             
-            unitAdBannerMediumRectangle()
+            // //// ゴブリンスタンピード
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "ランクA,S時のランプ色") {
+                    VStack {
+                        Text("・ランクA,Sの場合にランプ色で設定を示唆")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("・ゴブリンスタンピード終了画面でチャンスボタンを押すと筐体両サイドのランプ色が変化")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "",
+                                stringList: [
+                                    "白",
+                                    "青",
+                                    "黄",
+                                    "緑",
+                                    "赤",
+                                    "紫",
+                                    "虹",
+                                ],
+                                maxWidth: 80,
+                            )
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: [
+                                    "デフォルト",
+                                    "奇数示唆",
+                                    "偶数示唆",
+                                    "高設定示唆",
+                                    "設定2 以上濃厚",
+                                    "設定4 以上濃厚",
+                                    "設定6 濃厚",
+                                ],
+                                maxWidth: 200,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer361ReSwordAt())
+            } header: {
+                Text("ゴブリンスタンピード")
+            }
+            
+//            unitAdBannerMediumRectangle()
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver361.reSwordMenuAtBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -75,6 +123,7 @@ struct reSwordViewStory: View {
 
 #Preview {
     reSwordViewStory(
+        ver361: Ver361(),
         reSword: ReSword(),
     )
 }

@@ -18,6 +18,7 @@ struct exViewKakumeiRatioVVV: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("・設定6は約7割が革命と言われている")
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom)
 //                    Text("・モードによって天井規定ゲーム数が異なる")
 //                        .frame(maxWidth: .infinity, alignment: .leading)
 //                    Text("・CZ、決戦ボーナスではモードダウンはない")
@@ -32,10 +33,26 @@ struct exViewKakumeiRatioVVV: View {
     //                    .frame(maxWidth: .infinity, alignment: .leading)
     //                Text("　→いいキャラが出る → いいモードにいる可能性アップ → 高設定の期待UP？")
     //                    .frame(maxWidth: .infinity, alignment: .leading)
-                    Image("kakumeiRatio")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.all)
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "",
+                            stringList: [
+                                "革命ボーナス",
+                                "決戦ボーナス",
+                            ]
+                        )
+                        unitTableString(
+                            columTitle: "設定6",
+                            stringList: [
+                                "65〜70%",
+                                "35〜30%",
+                            ],
+                        )
+                    }
+//                    Image("kakumeiRatio")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .padding(.all)
                         
 //                    Image("modeChange")
 //                        .resizable()

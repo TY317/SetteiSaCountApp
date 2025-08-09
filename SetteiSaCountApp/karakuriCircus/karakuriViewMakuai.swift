@@ -168,7 +168,19 @@ struct karakuriViewMakuai: View {
                 // 確率の算出
                 unitResultRatioDenomination2Line(title: "通常幕間出現率", color: .grayBack, count: $karakuri.makuaiCount, bigNumber: $karakuri.makuaiPlayGame, numberofDicimal: 0)
                 // 参考情報リンク
-                unitLinkButton(title: "通常時の幕間チャンスについて", exview: AnyView(unitExView5body2image(title: "通常時の幕間チャンス", textBody1: "・通常時からくりレア役（スイカ）契機の幕間チャンス出現率に設定差あり", textBody2: "・高設定ほどスイカの規定回数が少ない回数が選ばれやすいと思われる", textBody3: "・スイカの出現確率が約1/100なので設定6では規定回数の平均が10回程度になる計算", image1: Image("karakuriMakuai"))))
+                unitLinkButton(
+                    title: "通常時の幕間チャンスについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "通常時の幕間チャンス",
+                            textBody1: "・通常時からくりレア役（スイカ）契機の幕間チャンス出現率に設定差あり",
+                            textBody2: "・高設定ほどスイカの規定回数が少ない回数が選ばれやすいと思われる",
+                            textBody3: "・スイカの出現確率が約1/100なので設定6では規定回数の平均が10回程度になる計算",
+//                            image1: Image("karakuriMakuai")
+                            tableView: AnyView(karakuriTableMakuai())
+                        )
+                    )
+                )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(karakuri: karakuri, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())

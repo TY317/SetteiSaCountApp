@@ -35,6 +35,7 @@ struct unitLinkButtonViewBuilder<destination: View>: View {
                 NavigationView {
                     ScrollView {
                         self.destination()
+                            .padding(.bottom, 40)
                     }
                     .padding(.horizontal)
                     // //// タイトル

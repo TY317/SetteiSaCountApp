@@ -9,6 +9,7 @@ import SwiftUI
 
 struct reSwordViewTop: View {
     @ObservedObject var ver360: Ver360
+    @ObservedObject var ver361: Ver361
     @StateObject var reSword = ReSword()
     @State var isShowAlert: Bool = false
     @StateObject var reSwordMemory1 = ReSwordMemory1()
@@ -60,31 +61,49 @@ struct reSwordViewTop: View {
                     
                     // フランボーナス中のキャラ紹介
                     NavigationLink(destination: reSwordViewFranChara(
+                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
-                            textBody: "フランボーナス中のキャラ紹介"
+                            textBody: "フランボーナス中のキャラ紹介",
+                            badgeStatus: ver361.reSwordMenuFranCharaBadge,
                         )
                     }
                     
                     // X転剣ボーナス中のストーリー
                     NavigationLink(destination: reSwordViewStory(
+                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "book.closed.fill",
-                            textBody: "AT中"
+                            textBody: "AT中",
+                            badgeStatus: ver361.reSwordMenuAtBadge,
                         )
                     }
                     
                     // AT終了画面
                     NavigationLink(destination: reSwordViewAtScreen(
+                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT終了画面"
+                            textBody: "AT終了画面",
+                            badgeStatus: ver361.reSwordMenuScreenBadge,
+                        )
+                    }
+                    
+                    // フランお休み中
+                    NavigationLink(destination: reSwordViewFranSleep(
+                        ver361: ver361,
+                        reSword: reSword,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "moon.zzz.fill",
+                            textBody: "フランおやすみ中",
+                            badgeStatus: ver361.reSwordMenuFranSleepBadge,
                         )
                     }
                     
@@ -97,16 +116,16 @@ struct reSwordViewTop: View {
                     }
                 }
                 
-//                // 設定推測グラフ
-//                NavigationLink(destination: reSwordView95Ci(
-//                    reSword: reSword,
-//                    selection: 1
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                // 設定推測グラフ
+                NavigationLink(destination: reSwordView95Ci(
+                    reSword: reSword,
+                    selection: 1
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4843"
@@ -114,7 +133,7 @@ struct reSwordViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.reSwordMachineIconBadge)
+        .resetBadgeOnAppear($ver361.reSwordMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -209,6 +228,20 @@ struct reSwordSubViewSaveMemory: View {
         reSwordMemory1.atScreenCount5 = reSword.atScreenCount5
         reSwordMemory1.atScreenCount6 = reSword.atScreenCount6
         reSwordMemory1.atScreenCountSum = reSword.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSwordMemory1.charaCountDefault = reSword.charaCountDefault
+        reSwordMemory1.charaCountHighJaku = reSword.charaCountHighJaku
+        reSwordMemory1.charaCountHighKyo = reSword.charaCountHighKyo
+        reSwordMemory1.charaCountOver2 = reSword.charaCountOver2
+        reSwordMemory1.charaCountOver4 = reSword.charaCountOver4
+        reSwordMemory1.charaCountOver6 = reSword.charaCountOver6
+        reSwordMemory1.charaCountSum = reSword.charaCountSum
+        reSwordMemory1.franSleepCountMiss = reSword.franSleepCountMiss
+        reSwordMemory1.franSleepCountHit = reSword.franSleepCountHit
+        reSwordMemory1.franSleepCountSum = reSword.franSleepCountSum
     }
     func saveMemory2() {
         reSwordMemory2.zoneCount350Miss = reSword.zoneCount350Miss
@@ -239,6 +272,20 @@ struct reSwordSubViewSaveMemory: View {
         reSwordMemory2.atScreenCount5 = reSword.atScreenCount5
         reSwordMemory2.atScreenCount6 = reSword.atScreenCount6
         reSwordMemory2.atScreenCountSum = reSword.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSwordMemory2.charaCountDefault = reSword.charaCountDefault
+        reSwordMemory2.charaCountHighJaku = reSword.charaCountHighJaku
+        reSwordMemory2.charaCountHighKyo = reSword.charaCountHighKyo
+        reSwordMemory2.charaCountOver2 = reSword.charaCountOver2
+        reSwordMemory2.charaCountOver4 = reSword.charaCountOver4
+        reSwordMemory2.charaCountOver6 = reSword.charaCountOver6
+        reSwordMemory2.charaCountSum = reSword.charaCountSum
+        reSwordMemory2.franSleepCountMiss = reSword.franSleepCountMiss
+        reSwordMemory2.franSleepCountHit = reSword.franSleepCountHit
+        reSwordMemory2.franSleepCountSum = reSword.franSleepCountSum
     }
     func saveMemory3() {
         reSwordMemory3.zoneCount350Miss = reSword.zoneCount350Miss
@@ -269,6 +316,20 @@ struct reSwordSubViewSaveMemory: View {
         reSwordMemory3.atScreenCount5 = reSword.atScreenCount5
         reSwordMemory3.atScreenCount6 = reSword.atScreenCount6
         reSwordMemory3.atScreenCountSum = reSword.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSwordMemory3.charaCountDefault = reSword.charaCountDefault
+        reSwordMemory3.charaCountHighJaku = reSword.charaCountHighJaku
+        reSwordMemory3.charaCountHighKyo = reSword.charaCountHighKyo
+        reSwordMemory3.charaCountOver2 = reSword.charaCountOver2
+        reSwordMemory3.charaCountOver4 = reSword.charaCountOver4
+        reSwordMemory3.charaCountOver6 = reSword.charaCountOver6
+        reSwordMemory3.charaCountSum = reSword.charaCountSum
+        reSwordMemory3.franSleepCountMiss = reSword.franSleepCountMiss
+        reSwordMemory3.franSleepCountHit = reSword.franSleepCountHit
+        reSwordMemory3.franSleepCountSum = reSword.franSleepCountSum
     }
 }
 
@@ -328,6 +389,20 @@ struct reSwordSubViewLoadMemory: View {
         reSword.atScreenCount5 = reSwordMemory1.atScreenCount5
         reSword.atScreenCount6 = reSwordMemory1.atScreenCount6
         reSword.atScreenCountSum = reSwordMemory1.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSword.charaCountDefault = reSwordMemory1.charaCountDefault
+        reSword.charaCountHighJaku = reSwordMemory1.charaCountHighJaku
+        reSword.charaCountHighKyo = reSwordMemory1.charaCountHighKyo
+        reSword.charaCountOver2 = reSwordMemory1.charaCountOver2
+        reSword.charaCountOver4 = reSwordMemory1.charaCountOver4
+        reSword.charaCountOver6 = reSwordMemory1.charaCountOver6
+        reSword.charaCountSum = reSwordMemory1.charaCountSum
+        reSword.franSleepCountMiss = reSwordMemory1.franSleepCountMiss
+        reSword.franSleepCountHit = reSwordMemory1.franSleepCountHit
+        reSword.franSleepCountSum = reSwordMemory1.franSleepCountSum
     }
     func loadMemory2() {
         reSword.zoneCount350Miss = reSwordMemory2.zoneCount350Miss
@@ -358,6 +433,20 @@ struct reSwordSubViewLoadMemory: View {
         reSword.atScreenCount5 = reSwordMemory2.atScreenCount5
         reSword.atScreenCount6 = reSwordMemory2.atScreenCount6
         reSword.atScreenCountSum = reSwordMemory2.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSword.charaCountDefault = reSwordMemory2.charaCountDefault
+        reSword.charaCountHighJaku = reSwordMemory2.charaCountHighJaku
+        reSword.charaCountHighKyo = reSwordMemory2.charaCountHighKyo
+        reSword.charaCountOver2 = reSwordMemory2.charaCountOver2
+        reSword.charaCountOver4 = reSwordMemory2.charaCountOver4
+        reSword.charaCountOver6 = reSwordMemory2.charaCountOver6
+        reSword.charaCountSum = reSwordMemory2.charaCountSum
+        reSword.franSleepCountMiss = reSwordMemory2.franSleepCountMiss
+        reSword.franSleepCountHit = reSwordMemory2.franSleepCountHit
+        reSword.franSleepCountSum = reSwordMemory2.franSleepCountSum
     }
     func loadMemory3() {
         reSword.zoneCount350Miss = reSwordMemory3.zoneCount350Miss
@@ -388,11 +477,26 @@ struct reSwordSubViewLoadMemory: View {
         reSword.atScreenCount5 = reSwordMemory3.atScreenCount5
         reSword.atScreenCount6 = reSwordMemory3.atScreenCount6
         reSword.atScreenCountSum = reSwordMemory3.atScreenCountSum
+        
+        // ///////////////
+        // ver3.6.1で追加
+        // ///////////////
+        reSword.charaCountDefault = reSwordMemory3.charaCountDefault
+        reSword.charaCountHighJaku = reSwordMemory3.charaCountHighJaku
+        reSword.charaCountHighKyo = reSwordMemory3.charaCountHighKyo
+        reSword.charaCountOver2 = reSwordMemory3.charaCountOver2
+        reSword.charaCountOver4 = reSwordMemory3.charaCountOver4
+        reSword.charaCountOver6 = reSwordMemory3.charaCountOver6
+        reSword.charaCountSum = reSwordMemory3.charaCountSum
+        reSword.franSleepCountMiss = reSwordMemory3.franSleepCountMiss
+        reSword.franSleepCountHit = reSwordMemory3.franSleepCountHit
+        reSword.franSleepCountSum = reSwordMemory3.franSleepCountSum
     }
 }
 
 #Preview {
     reSwordViewTop(
         ver360: Ver360(),
+        ver361: Ver361(),
     )
 }

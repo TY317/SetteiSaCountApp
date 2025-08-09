@@ -28,11 +28,18 @@ struct unitCountSubmitWithResult: View {
         unitCountSubmitButton(
             count: self.$count,
             minusCheck: self.$minusCheck,
-            action: actionFunc
+//            action: actionFunc,
+            action: action,
+            flushAction: flushToggle,
         )
     }
     private func actionFunc() {
         action()
+        if count > 0 {
+            self.flushTrigger.toggle()
+        }
+    }
+    private func flushToggle() {
         if count > 0 {
             self.flushTrigger.toggle()
         }
