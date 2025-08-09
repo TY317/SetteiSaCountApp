@@ -64,7 +64,8 @@ struct reSwordViewFranChara: View {
                         title: sisaText(chara: chara),
                         count: bindingCount(chara: chara),
                         flashColor: flushColor(chara: chara),
-                        bigNumber: $reSword.charaCountSum
+                        bigNumber: $reSword.charaCountSum,
+                        numberofDigit: 0,
                     )
                 }
             } header: {

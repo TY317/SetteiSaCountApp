@@ -48,3 +48,18 @@ struct tipVer361ReSwordChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：転剣　ゴブリンスターンピー度
+// //////////////////
+struct tipVer361ReSwordAt: Tip {
+    var title: Text {
+        Text("解析情報追加")
+    }
+    var message: Text? {
+        Text("ゴブリンスタンピード終了画面でのランプ示唆詳細が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

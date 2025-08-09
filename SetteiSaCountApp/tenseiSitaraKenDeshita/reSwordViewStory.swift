@@ -99,6 +99,7 @@ struct reSwordViewStory: View {
                         }
                     }
                 }
+                .popoverTip(tipVer361ReSwordAt())
             } header: {
                 Text("ゴブリンスタンピード")
             }
