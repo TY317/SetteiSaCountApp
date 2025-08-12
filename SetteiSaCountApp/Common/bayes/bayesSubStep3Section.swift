@@ -26,7 +26,7 @@ struct bayesSubStep3Section: View {
                 }
                 Button("OK", role: .destructive) {
                     viewModel.isAdDismissed = false
-                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+//                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                     if viewModel.interstitialAd == nil {
                         
                     } else {

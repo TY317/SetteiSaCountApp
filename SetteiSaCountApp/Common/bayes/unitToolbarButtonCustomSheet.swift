@@ -42,7 +42,7 @@ struct unitToolbarButtonCustomSheet: View {
                                 Text("設定\(self.settingList[index]): ")
 //                                Stepper(value: self.bindingGuess()[index], in: 0...999) {
                                 if bindingGuess().indices.contains(index) {
-                                    Stepper(value: bindingGuess()[index], in: 0...999) {
+                                    Stepper {
                                         HStack {
                                             let total: Int = self.selectGuess().reduce(0, +)
                                             let guess: Double = Double(self.selectGuess()[index]) / Double(total) * 100
@@ -54,7 +54,46 @@ struct unitToolbarButtonCustomSheet: View {
                                             Text("(\(guess, specifier: "%.1f")%)")
                                                 .frame(maxWidth: .infinity, alignment: .center)
                                         }
+                                    } onIncrement: {
+//                                        self.selectGuess()[index] += 1
+                                        if self.selectedCustom == self.customList[0] {
+                                            self.guessCustom1[index] += 1
+                                        } else if self.selectedCustom == self.customList[1] {
+                                            self.guessCustom2[index] += 1
+                                        } else {
+                                            self.guessCustom3[index] += 1
+                                        }
+                                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                                    } onDecrement: {
+                                        if self.selectGuess()[index] > 0 {
+//                                            self.selectGuess()[index] -= 1
+                                            if self.selectedCustom == self.customList[0] {
+                                                self.guessCustom1[index] -= 1
+                                            } else if self.selectedCustom == self.customList[1] {
+                                                self.guessCustom2[index] -= 1
+                                            } else {
+                                                self.guessCustom3[index] -= 1
+                                            }
+                                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                                        }
                                     }
+
+//                                    Stepper(
+//                                        value: bindingGuess()[index],
+//                                        in: 0...999,
+//                                    ) {
+//                                        HStack {
+//                                            let total: Int = self.selectGuess().reduce(0, +)
+//                                            let guess: Double = Double(self.selectGuess()[index]) / Double(total) * 100
+//                                            Text("\(self.selectGuess()[index])")
+//                                                .font(.title2)
+//                                                .fontWeight(.bold)
+//                                                .frame(maxWidth: .infinity, alignment: .center)
+//                                                .offset(x: 20)
+//                                            Text("(\(guess, specifier: "%.1f")%)")
+//                                                .frame(maxWidth: .infinity, alignment: .center)
+//                                        }
+//                                    }
                                 }
                             }
                         }
@@ -76,6 +115,8 @@ struct unitToolbarButtonCustomSheet: View {
                             }
                         }
                     }
+                    // バイブレーションさせる
+//                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                 }
                 // //// ツールバー閉じるボタン
                 .toolbar {
