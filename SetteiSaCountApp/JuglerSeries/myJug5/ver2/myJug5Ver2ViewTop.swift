@@ -383,7 +383,8 @@ class MyJug5Memory3: ObservableObject {
 
 
 struct myJug5Ver2ViewTop: View {
-//    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     @StateObject var myJug5 = MyJug5()
     @State var isShowAlert: Bool = false
     @StateObject var myJug5Memory1 = MyJug5Memory1()
@@ -442,19 +443,33 @@ struct myJug5Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: myJug5Ver2View95CiTotal(myJug5: myJug5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: myJug5ViewBayes(
+                    myJug5: myJug5,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値"
+                    )
+                }
 //                NavigationLink(destination: myJug5ViewBayseTest(
 //                    myJug5: myJug5,
+//                    bayes: bayes,
+//                    viewModel: viewModel,
 //                )) {
-//                    Text("ベイステスト")
+//                    unitLabelMenu(
+//                        imageSystemName: "percent",
+//                        textBody: "設定期待値(旧)"
+//                    )
 //                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4029")
-//                    .popoverTip(tipVer220AddLink())
             }
         }
         // //// firebaseログ
@@ -465,16 +480,6 @@ struct myJug5Ver2ViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "マイジャグラー5", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "myJug5Ver2ViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: myJug5Ver2ViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -495,10 +500,8 @@ struct myJug5Ver2ViewTop: View {
                         myJug5Memory3: myJug5Memory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: myJug5.resetAll, message: "この機種のデータを全てリセットします")
-//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }
@@ -732,5 +735,8 @@ struct myJug5SubViewLoadMemory: View {
 
 
 #Preview {
-    myJug5Ver2ViewTop()
+    myJug5Ver2ViewTop(
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

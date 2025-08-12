@@ -27,6 +27,8 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
 // /////////////////////////
 struct JuglerSeriesViewTop: View {
 //    @ObservedObject var ver210 = Ver210()
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @ObservedObject var favoriteSet = JuglerSeriesfavoriteSetVar()
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
@@ -92,7 +94,10 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(myJug5Ver2ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
+                                unitMachineIconLink(linkView: AnyView(myJug5Ver2ViewTop(
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグ5")
                             }
                             
                             // //// ファンキージャグラー、2021年10月
@@ -177,7 +182,10 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMyJug5 == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(myJug5Ver2ViewTop()), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
+                                unitMachinListLink(linkView: AnyView(myJug5Ver2ViewTop(
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )), iconImage: Image("machineIconMyJug5"), machineName: "マイジャグラー5", makerName: "北電子", releaseYear: 2021, releaseMonth: 12)
                             }
                             
                             // //// ファンキージャグラー2
@@ -406,6 +414,8 @@ struct machineListMyJug5: View {
 
 #Preview {
     JuglerSeriesViewTop(
-        common: commonVar()
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+        common: commonVar(),
     )
 }
