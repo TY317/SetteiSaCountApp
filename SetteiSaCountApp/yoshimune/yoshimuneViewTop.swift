@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct yoshimuneViewTop: View {
-    @ObservedObject var ver360: Ver360
+//    @ObservedObject var ver360: Ver360
     @StateObject var yoshimune = Yoshimune()
 //    @State var yoshimune = Yoshimune()
 //    @State private var reloadID = UUID() // <- これが再生成トリガー
@@ -34,12 +34,12 @@ struct yoshimuneViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: yoshimuneViewNormal(
-                        ver360: ver360,
+//                        ver360: ver360,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver360.yoshimuneMenuNormalBadge,
+//                            badgeStatus: ver360.yoshimuneMenuNormalBadge,
                         )
                     }
                     // 初当り履歴
@@ -72,7 +72,7 @@ struct yoshimuneViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.yoshimuneMachineIconBadge)
+//        .resetBadgeOnAppear($ver360.yoshimuneMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -348,6 +348,6 @@ struct yoshimuneSubViewLoadMemory: View {
 
 #Preview {
     yoshimuneViewTop(
-        ver360: Ver360(),
+//        ver360: Ver360(),
     )
 }

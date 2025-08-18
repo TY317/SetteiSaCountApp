@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewTop: View {
-    @ObservedObject var ver360: Ver360
+//    @ObservedObject var ver360: Ver360
     @StateObject var guiltyCrown2 = GuiltyCrown2()
     @State var isShowAlert: Bool = false
     @StateObject var guiltyCrown2Memory1 = GuiltyCrown2Memory1()
@@ -64,13 +64,13 @@ struct guiltyCrown2ViewTop: View {
                     
                     // AT中
                     NavigationLink(destination: guiltyCrown2ViewAt(
-                        ver360: ver360,
+//                        ver360: ver360,
                         guiltyCrown2: guiltyCrown2,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "star.fill",
                             textBody: "AT中",
-                            badgeStatus: ver360.guiltyCrown2MenuAtBadge,
+//                            badgeStatus: ver360.guiltyCrown2MenuAtBadge,
                         )
                     }
                     
@@ -98,7 +98,7 @@ struct guiltyCrown2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.guiltyCrown2MachineIconBadge)
+//        .resetBadgeOnAppear($ver360.guiltyCrown2MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -339,6 +339,6 @@ struct guiltyCrown2SubViewLoadMemory: View {
 
 #Preview {
     guiltyCrown2ViewTop(
-        ver360: Ver360(),
+//        ver360: Ver360(),
     )
 }

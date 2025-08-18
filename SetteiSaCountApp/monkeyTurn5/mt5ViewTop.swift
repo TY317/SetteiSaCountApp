@@ -399,6 +399,9 @@ class Mt5Memory3: ObservableObject {
 // ビュー：メインビュー
 // //////////////////////
 struct mt5ViewTop: View {
+    @ObservedObject var ver370: Ver370
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
 //    @ObservedObject var mt5 = Mt5()
     @StateObject var mt5 = Mt5()
     @State var isShowAlert = false
@@ -431,8 +434,15 @@ struct mt5ViewTop: View {
                         unitLabelMenu(imageSystemName: "person.2", textBody: "ライバルモード")
                     }
                     // ラウンド開始画面の示唆
-                    NavigationLink(destination: mt5ViewRoundScreen()) {
-                        unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ラウンド開始画面示唆")
+                    NavigationLink(destination: mt5ViewRoundScreen(
+                        ver370: ver370,
+                        mt5: mt5,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle",
+                            textBody: "ラウンド開始画面示唆",
+                            badgeStatus: ver370.mt5MenuRoundScreenBadge,
+                        )
                     }
                     // AT終了後のメダル
                     NavigationLink(destination: mt5ViewMedal(mt5: mt5)) {
@@ -454,10 +464,25 @@ struct mt5ViewTop: View {
                 NavigationLink(destination: mt5View95Ci(mt5: mt5)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: mt5ViewBayes(
+                    ver370: ver370,
+                    mt5: mt5,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver370.mt5MenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4450")
-//                    .popoverTip(tipVer220AddLink())
             }
+            // //// バッジのリセット
+            .resetBadgeOnAppear($ver370.mt5MachineIconBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -745,5 +770,9 @@ struct mt5ViewLoadMemory: View {
 }
 
 #Preview {
-    mt5ViewTop()
+    mt5ViewTop(
+        ver370: Ver370(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

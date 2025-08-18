@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct reSwordViewTop: View {
-    @ObservedObject var ver360: Ver360
+//    @ObservedObject var ver360: Ver360
     @ObservedObject var ver361: Ver361
     @StateObject var reSword = ReSword()
     @State var isShowAlert: Bool = false
@@ -496,7 +496,7 @@ struct reSwordSubViewLoadMemory: View {
 
 #Preview {
     reSwordViewTop(
-        ver360: Ver360(),
+//        ver360: Ver360(),
         ver361: Ver361(),
     )
 }

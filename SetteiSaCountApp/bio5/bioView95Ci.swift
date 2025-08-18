@@ -49,6 +49,24 @@ struct bioView95Ci: View {
                 )
             )
             .tag(2)
+            // インフェクション回数
+            unitListSection95Ci(
+                grafTitle: "中段7揃い\nインフェクション回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bio.infectionCountHit,
+                        bigNumber: $bio.infectionCountSum,
+                        setting1Percent: bio.ratioInfection[0],
+                        setting2Percent: bio.ratioInfection[1],
+                        setting3Percent: bio.ratioInfection[2],
+                        setting4Percent: bio.ratioInfection[3],
+                        setting5Percent: bio.ratioInfection[4],
+                        setting6Percent: bio.ratioInfection[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

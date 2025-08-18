@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct bioViewTop: View {
-//    @ObservedObject var ver250 = Ver250()
-//    @ObservedObject var bio = Bio()
+    @ObservedObject var ver370: Ver370
     @StateObject var bio = Bio()
     @State var isShowAlert: Bool = false
     @StateObject var bioMemory1 = BioMemory1()
@@ -33,6 +32,17 @@ struct bioViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT初当り"
+                        )
+                    }
+                    // AT中
+                    NavigationLink(destination: bioViewAt(
+                        ver370: ver370,
+                        bio: bio,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "allergens.fill",
+                            textBody: "AT開始時",
+                            badgeStatus: ver370.bioMenuAtBadge,
                         )
                     }
                     // AT終了画面
@@ -65,9 +75,10 @@ struct bioViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4754")
-//                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver370.bioMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -176,6 +187,13 @@ struct bioSubViewSaveMemory: View {
         bioMemory1.endingCountOver5 = bio.endingCountOver5
         bioMemory1.endingCountOver6 = bio.endingCountOver6
         bioMemory1.endingCountSum = bio.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bioMemory1.infectionCountMiss = bio.infectionCountMiss
+        bioMemory1.infectionCountHit = bio.infectionCountHit
+        bioMemory1.infectionCountSum = bio.infectionCountSum
     }
     func saveMemory2() {
         bioMemory2.gameArrayData = bio.gameArrayData
@@ -206,6 +224,13 @@ struct bioSubViewSaveMemory: View {
         bioMemory2.endingCountOver5 = bio.endingCountOver5
         bioMemory2.endingCountOver6 = bio.endingCountOver6
         bioMemory2.endingCountSum = bio.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bioMemory2.infectionCountMiss = bio.infectionCountMiss
+        bioMemory2.infectionCountHit = bio.infectionCountHit
+        bioMemory2.infectionCountSum = bio.infectionCountSum
     }
     func saveMemory3() {
         bioMemory3.gameArrayData = bio.gameArrayData
@@ -236,6 +261,13 @@ struct bioSubViewSaveMemory: View {
         bioMemory3.endingCountOver5 = bio.endingCountOver5
         bioMemory3.endingCountOver6 = bio.endingCountOver6
         bioMemory3.endingCountSum = bio.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bioMemory3.infectionCountMiss = bio.infectionCountMiss
+        bioMemory3.infectionCountHit = bio.infectionCountHit
+        bioMemory3.infectionCountSum = bio.infectionCountSum
     }
 }
 
@@ -301,6 +333,13 @@ struct bioSubViewLoadMemory: View {
         bio.endingCountOver5 = bioMemory1.endingCountOver5
         bio.endingCountOver6 = bioMemory1.endingCountOver6
         bio.endingCountSum = bioMemory1.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bio.infectionCountMiss = bioMemory1.infectionCountMiss
+        bio.infectionCountHit = bioMemory1.infectionCountHit
+        bio.infectionCountSum = bioMemory1.infectionCountSum
     }
     func loadMemory2() {
         let memoryGameArrayData = decodeIntArray(from: bioMemory2.gameArrayData)
@@ -337,6 +376,13 @@ struct bioSubViewLoadMemory: View {
         bio.endingCountOver5 = bioMemory2.endingCountOver5
         bio.endingCountOver6 = bioMemory2.endingCountOver6
         bio.endingCountSum = bioMemory2.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bio.infectionCountMiss = bioMemory2.infectionCountMiss
+        bio.infectionCountHit = bioMemory2.infectionCountHit
+        bio.infectionCountSum = bioMemory2.infectionCountSum
     }
     func loadMemory3() {
         let memoryGameArrayData = decodeIntArray(from: bioMemory3.gameArrayData)
@@ -373,9 +419,18 @@ struct bioSubViewLoadMemory: View {
         bio.endingCountOver5 = bioMemory3.endingCountOver5
         bio.endingCountOver6 = bioMemory3.endingCountOver6
         bio.endingCountSum = bioMemory3.endingCountSum
+        
+        // ///////////////
+        // ver3.7.0で追加
+        // ///////////////
+        bio.infectionCountMiss = bioMemory3.infectionCountMiss
+        bio.infectionCountHit = bioMemory3.infectionCountHit
+        bio.infectionCountSum = bioMemory3.infectionCountSum
     }
 }
 
 #Preview {
-    bioViewTop()
+    bioViewTop(
+        ver370: Ver370(),
+    )
 }

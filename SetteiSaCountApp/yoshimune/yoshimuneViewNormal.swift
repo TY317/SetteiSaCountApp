@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct yoshimuneViewNormal: View {
-    @ObservedObject var ver360: Ver360
+//    @ObservedObject var ver360: Ver360
     var body: some View {
         List {
             // //// 共通俵
@@ -33,7 +33,7 @@ struct yoshimuneViewNormal: View {
                 }
             } header: {
                 Text("共通俵")
-                    .popoverTip(tipVer360YoshimuneCommonTawara())
+//                    .popoverTip(tipVer360YoshimuneCommonTawara())
             }
             
             // //// 小役停止形
@@ -90,7 +90,7 @@ struct yoshimuneViewNormal: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.yoshimuneMenuNormalBadge)
+//        .resetBadgeOnAppear($ver360.yoshimuneMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -106,6 +106,6 @@ struct yoshimuneViewNormal: View {
 
 #Preview {
     yoshimuneViewNormal(
-        ver360: Ver360(),
+//        ver360: Ver360(),
     )
 }
