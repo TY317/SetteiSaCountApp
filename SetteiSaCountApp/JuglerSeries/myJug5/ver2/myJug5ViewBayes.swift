@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct myJug5ViewBayes: View {
+    @ObservedObject var ver370: Ver370
     @ObservedObject var myJug5: MyJug5
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     // //// 設定判別要素の設定
@@ -23,14 +24,18 @@ struct myJug5ViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var selectedBeforeGuessPattern: String = "ｼﾞｬｸﾞﾗｰﾃﾞﾌｫﾙﾄ"
+    
     var body: some View {
         List {
             // //// STEP1
             bayesSubStep1Section(
                 bayes: bayes,
+                settingList: self.settingList,
                 guessCustom1: self.$guessCustom1,
                 guessCustom2: self.$guessCustom2,
                 guessCustom3: self.$guessCustom3,
+                selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
             )
             
             // //// STEP2
@@ -54,6 +59,11 @@ struct myJug5ViewBayes: View {
                         textBody1: "・ONの場合、自分の実戦分については単独・🍒重複の確率を考慮した計算をします",
                     )
                 }
+                .onChange(of: self.regDetailEnable) { oldValue, newValue in
+                    if newValue == true {
+                        self.regEnable = true
+                    }
+                }
                 // ぶどう
                 unitToggleWithQuestion(
                     enable: self.$bellEnable,
@@ -71,6 +81,16 @@ struct myJug5ViewBayes: View {
                 self.resultGuess = bayesRatio()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver370.myJug5MenuBayesBadge)
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: "マイジャグラー5",
+                screenClass: screenClass
+            )
+        }
         // //// 画面表示時の処理
         .onAppear {
             // 広告をロードしとく
@@ -79,8 +99,17 @@ struct myJug5ViewBayes: View {
             }
             // カスタム配分を配列にしとく
             self.guessCustom1 = decodeIntArrayFromString(stringData: bayes.guess6Custom1JSON)
+            if self.guessCustom1.count != self.settingList.count {
+                self.guessCustom1 = Array(repeating: 1, count: self.settingList.count)
+            }
             self.guessCustom2 = decodeIntArrayFromString(stringData: bayes.guess6Custom2JSON)
+            if self.guessCustom2.count != self.settingList.count {
+                self.guessCustom2 = Array(repeating: 1, count: self.settingList.count)
+            }
             self.guessCustom3 = decodeIntArrayFromString(stringData: bayes.guess6Custom3JSON)
+            if self.guessCustom3.count != self.settingList.count {
+                self.guessCustom3 = Array(repeating: 1, count: self.settingList.count)
+            }
         }
         .onChange(of: viewModel.isAdDismissed) {
             if viewModel.isAdDismissed {
@@ -100,10 +129,12 @@ struct myJug5ViewBayes: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 unitToolbarButtonCustomSheet(
+                    settingList: self.settingList,
                     bayes: bayes,
                     guessCustom1: self.$guessCustom1,
                     guessCustom2: self.$guessCustom2,
-                    guessCustom3: self.$guessCustom3
+                    guessCustom3: self.$guessCustom3,
+                    selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
                 )
             }
             ToolbarItem(placement: .automatic) {
@@ -188,7 +219,8 @@ struct myJug5ViewBayes: View {
         // 事前確率の対数尤度
         let logPostBefore = logPostBeforeFunc(
             guess: selectedGuess(
-                pattern: bayes.selectedBeforeGuessPattern
+//                pattern: bayes.selectedBeforeGuessPattern
+                pattern: self.selectedBeforeGuessPattern
             )
         )
         
@@ -224,6 +256,7 @@ struct myJug5ViewBayes: View {
 
 #Preview {
     myJug5ViewBayes(
+        ver370: Ver370(),
         myJug5: MyJug5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

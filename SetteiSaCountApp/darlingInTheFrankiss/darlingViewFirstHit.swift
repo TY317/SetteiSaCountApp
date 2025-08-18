@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct darlingViewFirstHit: View {
+    @ObservedObject var ver370: Ver370
     @ObservedObject var darling: Darling
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -112,10 +113,22 @@ struct darlingViewFirstHit: View {
                         unitExView5body2image(
                             title: "初当り登録",
                             textBody1: "CZ,ボーナス初当りごとに登録して下さい",
-                            textBody2: "履歴から\n　　・CZ確率\n　　・ボーナス確率\n　　・ボーナス高確率確率\nを算出します"
+                            textBody2: "ゲーム数は液晶ゲーム数を入力して下さい",
+                            textBody3: "履歴から\n　　・CZ確率\n　　・ボーナス確率\n　　・ボーナス高確率確率\nを算出します",
                         )
                     }
                 }
+            }
+            
+            // //// 設定差参考情報
+            Section {
+                // CZスタート時のレベル
+                unitLinkButtonViewBuilder(sheetTitle: "CZスタート時のレベル") {
+                    VStack {
+                        Text("・CZのレベル4(緑)、レベル5(赤)スタートは高設定ほど優遇")
+                    }
+                }
+                .popoverTip(tipVer370DarlingCzLevel())
             }
             
             // //// 履歴表示
@@ -286,6 +299,8 @@ struct darlingViewFirstHit: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver370.darlingMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -336,6 +351,7 @@ struct darlingViewFirstHit: View {
 
 #Preview {
     darlingViewFirstHit(
+        ver370: Ver370(),
         darling: Darling(),
     )
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct guiltyCrown2ViewAt: View {
-    @ObservedObject var ver360: Ver360
+//    @ObservedObject var ver360: Ver360
     @ObservedObject var guiltyCrown2: GuiltyCrown2
     
     var body: some View {
@@ -39,7 +39,7 @@ struct guiltyCrown2ViewAt: View {
             unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.guiltyCrown2MenuAtBadge)
+//        .resetBadgeOnAppear($ver360.guiltyCrown2MenuAtBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -55,7 +55,7 @@ struct guiltyCrown2ViewAt: View {
 
 #Preview {
     guiltyCrown2ViewAt(
-        ver360: Ver360(),
+//        ver360: Ver360(),
         guiltyCrown2: GuiltyCrown2(),
     )
 }

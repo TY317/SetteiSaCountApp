@@ -13,6 +13,7 @@ struct bayesSubStep1Section: View {
     @Binding var guessCustom1: [Int]
     @Binding var guessCustom2: [Int]
     @Binding var guessCustom3: [Int]
+    @Binding var selectedBeforeGuessPattern: String
     
     var body: some View {
         // //// step1)設定配分
@@ -20,21 +21,25 @@ struct bayesSubStep1Section: View {
             // パターン選択
             unitPickerMenuString(
                 title: "設定配分パターン",
-                selected: bayes.$selectedBeforeGuessPattern,
+//                selected: bayes.$selectedBeforeGuessPattern,
+                selected: self.$selectedBeforeGuessPattern,
                 selectlist: bayes.guessPatternList,
             )
             // 配分表
             HStack(spacing: 0) {
-                let guessArray = selectedBeforeGuess(pattern: bayes.selectedBeforeGuessPattern)
+//                let guessArray = selectedBeforeGuess(pattern: bayes.selectedBeforeGuessPattern)
+                let guessArray = guessArrayBefore()
                 ForEach(guessArray.indices, id: \.self) { index in
                     let total: Double = Double(guessArray.reduce(0, +))
                     let guess: Double = Double(guessArray[index]) / total * 100
-                    unitTablePercent(
-                        columTitle: "設定\(self.settingList[index])",
-                        percentList: [guess],
-                        titleFont: .body,
-                        colorList: [.white],
-                    )
+                    if self.settingList.indices.contains(index) {
+                        unitTablePercent(
+                            columTitle: "設定\(self.settingList[index])",
+                            percentList: [guess],
+                            titleFont: .body,
+                            colorList: [.white],
+                        )
+                    }
                 }
             }
         } header: {
@@ -66,18 +71,46 @@ struct bayesSubStep1Section: View {
         default: return bayes.guess6Default
         }
     }
+    
+    func selectedBeforeGuess5(pattern: String) -> [Int] {
+        switch pattern {
+        case bayes.guessPatternList[0]: return bayes.guess5Default
+        case bayes.guessPatternList[1]: return bayes.guess5JugDefault
+        case bayes.guessPatternList[2]: return bayes.guess5Evenly
+        case bayes.guessPatternList[3]: return bayes.guess5Half
+        case bayes.guessPatternList[4]: return bayes.guess5Quater
+        case bayes.guessPatternList[5]: return self.guessCustom1
+        case bayes.guessPatternList[6]: return self.guessCustom2
+        case bayes.guessPatternList[7]: return self.guessCustom3
+        default: return bayes.guess5Default
+        }
+    }
+    func guessArrayBefore() -> [Int] {
+        var guessArray: [Int] = []
+        if self.settingList.count == 5 {
+//            guessArray = selectedBeforeGuess5(pattern: bayes.selectedBeforeGuessPattern)
+            guessArray = selectedBeforeGuess5(pattern: self.selectedBeforeGuessPattern)
+        } else {
+//            guessArray = selectedBeforeGuess(pattern: bayes.selectedBeforeGuessPattern)
+            guessArray = selectedBeforeGuess(pattern: self.selectedBeforeGuessPattern)
+        }
+        
+        return guessArray
+    }
 }
 
 #Preview {
     @Previewable @State var guess1: [Int] = [1,1,1,1,1,1]
     @Previewable @State var guess2: [Int] = [1,1,1,1,1,1]
     @Previewable @State var guess3: [Int] = [1,1,1,1,1,1]
+    @Previewable @State var guessPattern: String = "デフォルト"
     List {
         bayesSubStep1Section(
             bayes: Bayes(),
             guessCustom1: $guess1,
             guessCustom2: $guess2,
             guessCustom3: $guess3,
+            selectedBeforeGuessPattern: $guessPattern,
         )
     }
 }

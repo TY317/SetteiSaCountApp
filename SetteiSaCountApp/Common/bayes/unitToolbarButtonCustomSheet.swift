@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct unitToolbarButtonCustomSheet: View {
+    var settingList: [Int] = [1,2,3,4,5,6]
     @ObservedObject var bayes: Bayes
     @Binding var guessCustom1: [Int]
     @Binding var guessCustom2: [Int]
     @Binding var guessCustom3: [Int]
-    var settingList: [Int] = [1,2,3,4,5,6]
+    @Binding var selectedBeforeGuessPattern: String
     
     @State var isShowcustomSheet: Bool = false
     @State var selectedCustom: String = ""
@@ -104,8 +105,19 @@ struct unitToolbarButtonCustomSheet: View {
                 .onChange(of: selectGuess()) {
                     if let data = try? JSONEncoder().encode(self.selectGuess()),
                        let str = String(data: data, encoding: .utf8) {
+                        // 5段階設定の場合
+                        if self.settingList.count == 5 {
+                            if self.selectedCustom == self.customList[0] {
+                                bayes.guess5Custom1JSON = str
+                            } else if self.selectedCustom == self.customList[1] {
+                                bayes.guess5Custom2JSON = str
+                            } else {
+                                bayes.guess5Custom3JSON = str
+                            }
+                        }
                         // 6段階設定の場合
-                        if self.settingList == [1,2,3,4,5,6] {
+//                        if self.settingList == [1,2,3,4,5,6] {
+                        else {
                             if self.selectedCustom == self.customList[0] {
                                 bayes.guess6Custom1JSON = str
                             } else if self.selectedCustom == self.customList[1] {
@@ -138,9 +150,11 @@ struct unitToolbarButtonCustomSheet: View {
 //                    self.guessCustom3 = decodeIntArrayFromString(stringData: bayes.guess6Custom3JSON)
                     
                     // パターンの選択状態に合わせて表示の初期値を変更
-                    if bayes.selectedBeforeGuessPattern == self.customList[1] {
+//                    if bayes.selectedBeforeGuessPattern == self.customList[1] {
+                    if self.selectedBeforeGuessPattern == self.customList[1] {
                         self.selectedCustom = self.customList[1]
-                    } else if bayes.selectedBeforeGuessPattern == self.customList[2] {
+//                    } else if bayes.selectedBeforeGuessPattern == self.customList[2] {
+                    } else if self.selectedBeforeGuessPattern == self.customList[2] {
                         self.selectedCustom = self.customList[2]
                     } else {
                         self.selectedCustom = self.customList[0]
@@ -173,10 +187,12 @@ struct unitToolbarButtonCustomSheet: View {
     @Previewable @State var guess: [Int] = [1,1,1,1,1,1]
     @Previewable @State var guess2: [Int] = [1,2,3,4,5,6]
     @Previewable @State var guess3: [Int] = [6,5,4,3,2,1]
+    @Previewable @State var guessPattern: String = "デフォルト"
     unitToolbarButtonCustomSheet(
         bayes: Bayes(),
         guessCustom1: $guess,
         guessCustom2: $guess2,
         guessCustom3: $guess3,
+        selectedBeforeGuessPattern: $guessPattern,
     )
 }

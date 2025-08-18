@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewTop: View {
-    @ObservedObject var ver360: Ver360
+    @ObservedObject var ver370: Ver370
     @StateObject var darling = Darling()
     @State var isShowAlert: Bool = false
     @StateObject var darlingMemory1 = DarlingMemory1()
@@ -30,11 +30,13 @@ struct darlingViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: darlingViewFirstHit(
+                        ver370: ver370,
                         darling: darling,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: ver370.darlingMenuFirstHitBadge,
                         )
                     }
                     
@@ -86,7 +88,7 @@ struct darlingViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver360.darlingMachineIconBadge)
+        .resetBadgeOnAppear($ver370.darlingMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -295,6 +297,6 @@ struct darlingSubViewLoadMemory: View {
 
 #Preview {
     darlingViewTop(
-        ver360: Ver360(),
+        ver370: Ver370(),
     )
 }

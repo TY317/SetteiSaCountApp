@@ -271,6 +271,30 @@ class Bio: ObservableObject {
         resetScreen()
         resetEnding()
         resetHistory()
+        resetAt()
+    }
+    
+    // ///////////////
+    // ver3.7.0で追加
+    // ///////////////
+    // 中段揃い時のインフェクション当選
+    let ratioInfection: [Double] = [16.7,16.7,17.5,19.8,20.2,21.8]
+    @AppStorage("bioInfectionCountMiss") var infectionCountMiss: Int = 0
+    @AppStorage("bioInfectionCountHit") var infectionCountHit: Int = 0
+    @AppStorage("bioInfectionCountSum") var infectionCountSum: Int = 0
+    
+    func infectionSumFunc() {
+        infectionCountSum = countSum(
+            infectionCountMiss,
+            infectionCountHit,
+        )
+    }
+    
+    func resetAt() {
+        infectionCountMiss = 0
+        infectionCountHit = 0
+        infectionCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -306,6 +330,13 @@ class BioMemory1: ObservableObject {
     @AppStorage("bioEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("bioMemoMemory1") var memo = ""
     @AppStorage("bioDateMemory1") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.7.0で追加
+    // ///////////////
+    @AppStorage("bioInfectionCountMissMemory1") var infectionCountMiss: Int = 0
+    @AppStorage("bioInfectionCountHitMemory1") var infectionCountHit: Int = 0
+    @AppStorage("bioInfectionCountSumMemory1") var infectionCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -340,6 +371,13 @@ class BioMemory2: ObservableObject {
     @AppStorage("bioEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("bioMemoMemory2") var memo = ""
     @AppStorage("bioDateMemory2") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.7.0で追加
+    // ///////////////
+    @AppStorage("bioInfectionCountMissMemory2") var infectionCountMiss: Int = 0
+    @AppStorage("bioInfectionCountHitMemory2") var infectionCountHit: Int = 0
+    @AppStorage("bioInfectionCountSumMemory2") var infectionCountSum: Int = 0
 }
 
 
@@ -375,4 +413,11 @@ class BioMemory3: ObservableObject {
     @AppStorage("bioEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("bioMemoMemory3") var memo = ""
     @AppStorage("bioDateMemory3") var dateDouble = 0.0
+    
+    // ///////////////
+    // ver3.7.0で追加
+    // ///////////////
+    @AppStorage("bioInfectionCountMissMemory3") var infectionCountMiss: Int = 0
+    @AppStorage("bioInfectionCountHitMemory3") var infectionCountHit: Int = 0
+    @AppStorage("bioInfectionCountSumMemory3") var infectionCountSum: Int = 0
 }

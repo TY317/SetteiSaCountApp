@@ -12,6 +12,7 @@ func logPostDenoBino(
     ratio: [Double],
     Count: Int,
     bigNumber: Int,
+    epsilon: Double = 1e-12,
 ) -> [Double] {
     // 中身が全部0のリストを準備しておく
     var logPostList = [Double](repeating: 0, count: ratio.count)
@@ -23,7 +24,7 @@ func logPostDenoBino(
     // 各設定の尤度を計算
     for (i, deno) in ratio.enumerated() {
         let p: Double = 1.0 / deno
-        logPostList[i] = Count * log(p) + (bigNumber - Count) * log(1.0 - p)
+        logPostList[i] = Count * log(p+epsilon) + (bigNumber - Count) * log(1.0 - p + epsilon)
     }
     
     return logPostList

@@ -21,7 +21,7 @@ struct bayesResultView: View {
             List {
                 // //// 事後確率とグラフの表示
                 Section {
-                    // 設定ごとの確率テーベル
+                    // 設定ごとの確率テーブル
                     HStack(spacing: 0) {
                         ForEach(self.settingList.indices, id: \.self) { index in
                             if self.resultGuess.indices.contains(index) {
@@ -88,7 +88,7 @@ struct bayesResultView: View {
                     }
                     unitLinkButtonViewBuilder(sheetTitle: "機械割", linkText: "機械割") {
                         HStack(spacing: 0) {
-                            unitTableSettingIndex()
+                            unitTableSettingIndex(settingList: self.settingList)
                             unitTablePercent(
                                 columTitle: "機械割",
                                 percentList: self.payoutList,
@@ -130,7 +130,8 @@ struct bayesResultView: View {
     func averageSetting() -> Double {
         var ave: Double = 0
         for (i, res) in resultGuess.enumerated() {
-            ave += Double(i+1) * res/100
+//            ave += Double(i+1) * res/100
+            ave += Double(self.settingList[i]) * res/100
         }
         return ave
     }
