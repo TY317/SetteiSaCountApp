@@ -19,8 +19,8 @@ final class InterstitialViewModel: NSObject,ObservableObject,GADFullScreenConten
     func loadAd() async {
         do {
             interstitialAd = try await GADInterstitialAd.load(
-                withAdUnitID: "ca-app-pub-3940256099942544/4411468910",     // テスト用
-                //                withAdUnitID: "ca-app-pub-2339669527176370/6732998451",     // 本番用
+//                withAdUnitID: "ca-app-pub-3940256099942544/4411468910",     // テスト用
+                withAdUnitID: "ca-app-pub-2339669527176370/6732998451",     // 本番用
                 request: GADRequest()
             )
             // [START set_the_delegate]
