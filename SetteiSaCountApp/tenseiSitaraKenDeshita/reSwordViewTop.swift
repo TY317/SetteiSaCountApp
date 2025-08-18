@@ -9,7 +9,7 @@ import SwiftUI
 
 struct reSwordViewTop: View {
 //    @ObservedObject var ver360: Ver360
-    @ObservedObject var ver361: Ver361
+//    @ObservedObject var ver361: Ver361
     @StateObject var reSword = ReSword()
     @State var isShowAlert: Bool = false
     @StateObject var reSwordMemory1 = ReSwordMemory1()
@@ -61,49 +61,49 @@ struct reSwordViewTop: View {
                     
                     // フランボーナス中のキャラ紹介
                     NavigationLink(destination: reSwordViewFranChara(
-                        ver361: ver361,
+//                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.2.fill",
                             textBody: "フランボーナス中のキャラ紹介",
-                            badgeStatus: ver361.reSwordMenuFranCharaBadge,
+//                            badgeStatus: ver361.reSwordMenuFranCharaBadge,
                         )
                     }
                     
                     // X転剣ボーナス中のストーリー
                     NavigationLink(destination: reSwordViewStory(
-                        ver361: ver361,
+//                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "book.closed.fill",
                             textBody: "AT中",
-                            badgeStatus: ver361.reSwordMenuAtBadge,
+//                            badgeStatus: ver361.reSwordMenuAtBadge,
                         )
                     }
                     
                     // AT終了画面
                     NavigationLink(destination: reSwordViewAtScreen(
-                        ver361: ver361,
+//                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "AT終了画面",
-                            badgeStatus: ver361.reSwordMenuScreenBadge,
+//                            badgeStatus: ver361.reSwordMenuScreenBadge,
                         )
                     }
                     
                     // フランお休み中
                     NavigationLink(destination: reSwordViewFranSleep(
-                        ver361: ver361,
+//                        ver361: ver361,
                         reSword: reSword,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "moon.zzz.fill",
                             textBody: "フランおやすみ中",
-                            badgeStatus: ver361.reSwordMenuFranSleepBadge,
+//                            badgeStatus: ver361.reSwordMenuFranSleepBadge,
                         )
                     }
                     
@@ -133,7 +133,7 @@ struct reSwordViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver361.reSwordMachineIconBadge)
+//        .resetBadgeOnAppear($ver361.reSwordMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -497,6 +497,6 @@ struct reSwordSubViewLoadMemory: View {
 #Preview {
     reSwordViewTop(
 //        ver360: Ver360(),
-        ver361: Ver361(),
+//        ver361: Ver361(),
     )
 }

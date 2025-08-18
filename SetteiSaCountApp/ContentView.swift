@@ -121,7 +121,7 @@ class commonVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-    @StateObject var ver361 = Ver361()
+//    @StateObject var ver361 = Ver361()
     @StateObject var ver370 = Ver370()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
@@ -138,7 +138,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer370MachineAddver2())
+//                TipView(tipVer370MachineAddver2())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -198,11 +198,11 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(reSwordViewTop(
 //                                            ver360: ver360,
-                                            ver361: ver361,
+//                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転剣",
-                                        badgeStatus: ver361.reSwordMachineIconBadge,
+//                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 
@@ -747,14 +747,14 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(reSwordViewTop(
 //                                            ver360: ver360,
-                                            ver361: ver361,
+//                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転生したら剣でした",
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver361.reSwordMachineIconBadge,
+//                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 

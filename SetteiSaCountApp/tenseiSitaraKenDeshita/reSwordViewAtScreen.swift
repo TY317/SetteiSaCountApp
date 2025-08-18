@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct reSwordViewAtScreen: View {
-    @ObservedObject var ver361: Ver361
+//    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -84,7 +84,7 @@ struct reSwordViewAtScreen: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer361ReSwordScreen())
+//                .popoverTip(tipVer361ReSwordScreen())
                 
                 // //// カウント結果
 //                ForEach(self.sisaList.indices, id: \.self) { index in
@@ -104,7 +104,7 @@ struct reSwordViewAtScreen: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver361.reSwordMenuScreenBadge)
+//        .resetBadgeOnAppear($ver361.reSwordMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -148,7 +148,7 @@ struct reSwordViewAtScreen: View {
 
 #Preview {
     reSwordViewAtScreen(
-        ver361: Ver361(),
+//        ver361: Ver361(),
         reSword: ReSword(),
     )
 }
