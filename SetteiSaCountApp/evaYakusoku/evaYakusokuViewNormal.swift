@@ -9,7 +9,7 @@ import SwiftUI
 //import GoogleMobileAds
 
 struct evaYakusokuViewNormal: View {
-//    @ObservedObject var ver351: Ver351
+    @ObservedObject var ver380: Ver380
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -120,7 +120,11 @@ struct evaYakusokuViewNormal: View {
                         )
                     )
                 )
-                
+                // 重複確率
+                unitLinkButtonViewBuilder(sheetTitle: "ボーナス重複当選率") {
+                    evaYakusokuTableKoyakuChofuku(evaYakusoku: evaYakusoku)
+                }
+                .popoverTip(tipVer380EvaYakusokuNormal())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
@@ -132,7 +136,6 @@ struct evaYakusokuViewNormal: View {
                 )
             } header: {
                 Text("小役")
-//                    .popoverTip(tipVer351EvaYakusokuKoyaku())
             }
             
             // //// ゲーム数入力
@@ -172,7 +175,7 @@ struct evaYakusokuViewNormal: View {
             //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver351.evaYakusokuMenuNormalBadge)
+        .resetBadgeOnAppear($ver380.evaYakusokuMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -236,45 +239,6 @@ struct evaYakusokuViewNormal: View {
                         },
                         focus: $isFocused
                     )
-//                    unitButtonCountNumberInput(
-//                        inputView: AnyView(
-//                            unitSheetCountDirectInput(
-//                                inputView: {
-//                                    // ベル
-//                                    unitTextFieldNumberInputWithUnit(
-//                                        title: "🔔",
-//                                        inputValue: $evaYakusoku.koyakuCountBell
-//                                    )
-//                                    .focused(self.$isFocused)
-//                                    // チェリー
-//                                    unitTextFieldNumberInputWithUnit(
-//                                        title: "🍒",
-//                                        inputValue: $evaYakusoku.koyakuCountCherry
-//                                    )
-//                                    .focused(self.$isFocused)
-//                                    // 強弱スイカ
-//                                    unitTextFieldNumberInputWithUnit(
-//                                        title: "強弱🍉",
-//                                        inputValue: $evaYakusoku.koyakuCountSuikaSum
-//                                    )
-//                                    .focused(self.$isFocused)
-//                                    // リーチ目役
-//                                    unitTextFieldNumberInputWithUnit(
-//                                        title: "リーチ目役",
-//                                        inputValue: $evaYakusoku.koyakuCountReach
-//                                    )
-//                                    .focused(self.$isFocused)
-//                                    // 暴走リプレイ
-//                                    unitTextFieldNumberInputWithUnit(
-//                                        title: "暴走リプレイ",
-//                                        inputValue: $evaYakusoku.koyakuCountBoso
-//                                    )
-//                                    .focused(self.$isFocused)
-//                                },
-//                                focus: $isFocused
-//                            )
-//                        )
-//                    )
                     // マイナスチェック
                     unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
                     // リセットボタン
@@ -298,7 +262,7 @@ struct evaYakusokuViewNormal: View {
 
 #Preview {
     evaYakusokuViewNormal(
-//        ver351: Ver351(),
+        ver380: Ver380(),
         evaYakusoku: EvaYakusoku(),
     )
 }

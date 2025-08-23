@@ -414,23 +414,37 @@ struct mt5ViewTop: View {
             List {
                 Section {
                     // ５枚役
-                    NavigationLink(destination: mt5View5coin(mt5: mt5)) {
+                    NavigationLink(destination: mt5View5coin(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "5.circle",
                             textBody: "５枚役"
                         )
                     }
-//                    .popoverTip(mt5TipAdd5Coins())
                     // 周期履歴
                     NavigationLink(destination: mt5ViewHistory(mt5: mt5)) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "周期履歴")
                     }
                     // 激走チャージ後のセリフ
-                    NavigationLink(destination: mt5GekisoView(mt5: mt5)) {
+                    NavigationLink(destination: mt5GekisoView(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "message", textBody: "激走チャージ後のセリフ")
                     }
                     // ライバルモード
-                    NavigationLink(destination: mt5RivalModeView(mt5: mt5)) {
+                    NavigationLink(destination: mt5RivalModeView(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "person.2", textBody: "ライバルモード")
                     }
                     // ラウンド開始画面の示唆
@@ -445,11 +459,21 @@ struct mt5ViewTop: View {
                         )
                     }
                     // AT終了後のメダル
-                    NavigationLink(destination: mt5ViewMedal(mt5: mt5)) {
+                    NavigationLink(destination: mt5ViewMedal(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "medal", textBody: "AT終了後のメダル")
                     }
                     // 青島SG
-                    NavigationLink(destination: mt5ViewAoshimaSG(mt5: mt5)) {
+                    NavigationLink(destination: mt5ViewAoshimaSG(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "sailboat", textBody: "青島SG")
                     }
                     // エンディング

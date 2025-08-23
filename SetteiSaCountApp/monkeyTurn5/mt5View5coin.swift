@@ -26,8 +26,10 @@ struct mt5TipCoin5Game: Tip {
 }
 
 struct mt5View5coin: View {
-//    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -60,7 +62,34 @@ struct mt5View5coin: View {
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 1)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mt5ViewBayes(
+                        ver370: ver370,
+                        mt5: mt5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+//                NavigationStack {
+//                    NavigationLink {
+//                        mt5ViewBayes(
+//                            ver370: ver370,
+//                            mt5: mt5,
+//                            bayes: bayes,
+//                            viewModel: viewModel,
+//                        )
+//                    } label: {
+//                        HStack {
+//                            Spacer()
+//                            Image(systemName: "gauge.open.with.lines.needle.33percent")
+//                                .font(.title2)
+//                                .foregroundStyle(Color.blue)
+//                        }
+//                    }
+//
+//                }
             } header: {
                 Text("5枚役のカウント")
             }
@@ -122,5 +151,10 @@ struct mt5View5coin: View {
 
 
 #Preview {
-    mt5View5coin(mt5: Mt5())
+    mt5View5coin(
+        ver370: Ver370(),
+        mt5: Mt5(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

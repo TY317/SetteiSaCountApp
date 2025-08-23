@@ -31,8 +31,8 @@ struct commonViewNamichanTrophy: View {
                     columTitle: "",
                     stringList: [
                         "黒",
-                        "青",
-                        "赤",
+                        "銅",
+                        "銀",
                         "金",
                         "特殊柄",
                         "虹"

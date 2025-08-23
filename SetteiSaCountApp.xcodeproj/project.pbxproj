@@ -815,6 +815,10 @@
 		0FDF23812E51FD6B00249CAC /* enenTableBigScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23802E51FD6B00249CAC /* enenTableBigScreen.swift */; };
 		0FDF23832E52025200249CAC /* enenViewAdora.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23822E52025200249CAC /* enenViewAdora.swift */; };
 		0FDF23852E520C9D00249CAC /* enenTableAdoraRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23842E520C9D00249CAC /* enenTableAdoraRatio.swift */; };
+		0FDF23872E53525000249CAC /* ver380Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23862E53525000249CAC /* ver380Class.swift */; };
+		0FDF23892E53585700249CAC /* tokyoGhoulViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23882E53585700249CAC /* tokyoGhoulViewBayes.swift */; };
+		0FDF238B2E54B0AA00249CAC /* hokutoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF238A2E54B0AA00249CAC /* hokutoViewBayes.swift */; };
+		0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF238C2E58992D00249CAC /* unitNaviLinkBayes.swift */; };
 		0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */; };
 		0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */; };
 		0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */; };
@@ -909,6 +913,7 @@
 		0FF1564B2D73ECB600B17F83 /* arifureView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1564A2D73ECB600B17F83 /* arifureView95Ci.swift */; };
 		0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF187872CBF985700224A49 /* imJugExViewTop.swift */; };
 		0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF187892CBF98BF00224A49 /* imJugExAssets.xcassets */; };
+		0FF3690D2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3690C2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
@@ -1752,6 +1757,10 @@
 		0FDF23802E51FD6B00249CAC /* enenTableBigScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableBigScreen.swift; sourceTree = "<group>"; };
 		0FDF23822E52025200249CAC /* enenViewAdora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewAdora.swift; sourceTree = "<group>"; };
 		0FDF23842E520C9D00249CAC /* enenTableAdoraRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableAdoraRatio.swift; sourceTree = "<group>"; };
+		0FDF23862E53525000249CAC /* ver380Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver380Class.swift; sourceTree = "<group>"; };
+		0FDF23882E53585700249CAC /* tokyoGhoulViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulViewBayes.swift; sourceTree = "<group>"; };
+		0FDF238A2E54B0AA00249CAC /* hokutoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoViewBayes.swift; sourceTree = "<group>"; };
+		0FDF238C2E58992D00249CAC /* unitNaviLinkBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitNaviLinkBayes.swift; sourceTree = "<group>"; };
 		0FE23B1F2C717970000E65D7 /* kingHanaExViewRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B212C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaExViewAfterRegLamp.swift; sourceTree = "<group>"; };
 		0FE23B252C74CA81000E65D7 /* mt5ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5ViewTop.swift; sourceTree = "<group>"; };
@@ -1846,6 +1855,7 @@
 		0FF1564A2D73ECB600B17F83 /* arifureView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureView95Ci.swift; sourceTree = "<group>"; };
 		0FF187872CBF985700224A49 /* imJugExViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExViewTop.swift; sourceTree = "<group>"; };
 		0FF187892CBF98BF00224A49 /* imJugExAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = imJugExAssets.xcassets; sourceTree = "<group>"; };
+		0FF3690C2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuTableKoyakuChofuku.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
@@ -2158,6 +2168,7 @@
 				0FB2097C2E154E170029D940 /* evaYakusokuViewBtMovie.swift */,
 				0FB2097E2E1551710029D940 /* evaYakusokuViewScreen.swift */,
 				0F8935882E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift */,
+				0FF3690C2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift */,
 			);
 			path = evaYakusoku;
 			sourceTree = "<group>";
@@ -2312,6 +2323,7 @@
 			isa = PBXGroup;
 			children = (
 				0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */,
+				0FDF238C2E58992D00249CAC /* unitNaviLinkBayes.swift */,
 			);
 			path = linkButton;
 			sourceTree = "<group>";
@@ -2546,6 +2558,7 @@
 				0FCF78A12E472CAE0000748B /* hokutoTableRareKoyakuRatio.swift */,
 				0FCF78A32E472E0E0000748B /* hokutoTableFirstHit.swift */,
 				0FCF78A52E472F580000748B /* hokutoTableBBBell.swift */,
+				0FDF238A2E54B0AA00249CAC /* hokutoViewBayes.swift */,
 			);
 			path = hokuto;
 			sourceTree = "<group>";
@@ -2890,6 +2903,7 @@
 				0F815FB72E35D8120086127D /* ver360Class.swift */,
 				0FEB2E152E437643004C5F45 /* ver361Class.swift */,
 				0FC14A7F2E4B58E800F85D84 /* ver370Class.swift */,
+				0FDF23862E53525000249CAC /* ver380Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3501,6 +3515,7 @@
 				0FD357752DAA21B50069BD1A /* tokyoGhoulTableCzEndScreen.swift */,
 				0F8935832E21F03900BF6FBE /* tokyoGhoulTableReplayAtHit.swift */,
 				0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */,
+				0FDF23882E53585700249CAC /* tokyoGhoulViewBayes.swift */,
 			);
 			path = tokyoGhoul;
 			sourceTree = "<group>";
@@ -4585,11 +4600,13 @@
 				0F868A562D47BB5100D952D9 /* draHanaSenkohVer2ViewJissenStartData.swift in Sources */,
 				0FA0247F2CF4A25A004B3FD5 /* toloveruView95Ci.swift in Sources */,
 				0FA024672CF2C7C8004B3FD5 /* myJug5View95Ci.swift in Sources */,
+				0FF3690D2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift in Sources */,
 				0FF156302D6B55A100B17F83 /* shamanKingView95Ci.swift in Sources */,
 				0FF156212D69618E00B17F83 /* unitPickerMenuString.swift in Sources */,
 				0F64DD9A2DC5D0A50027315D /* draHanaSenkohSubViewCountInput.swift in Sources */,
 				0F9A4FA62DF55EF8003B6337 /* midoriDonViewEnding.swift in Sources */,
 				0F868A102D44917A00D952D9 /* unitTextBackCaluculateStatus.swift in Sources */,
+				0FDF23872E53525000249CAC /* ver380Class.swift in Sources */,
 				0FD357422DA25BE90069BD1A /* arifureTableAfterKokaku.swift in Sources */,
 				0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
@@ -4710,6 +4727,7 @@
 				0F1E12182DD4D06000F69AFF /* mhrTableRiseZone.swift in Sources */,
 				0FDF237B2E51EEA800249CAC /* enenViewDendosha.swift in Sources */,
 				0F6BD7E22D831C05003F5563 /* unitTableDenominate.swift in Sources */,
+				0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
 				0FB9CA852DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift in Sources */,
@@ -4778,6 +4796,7 @@
 				0FD3577C2DAA2CFD0069BD1A /* sbjTableNormalChance.swift in Sources */,
 				0F6B59BE2DFD824300DB1A2B /* kaguyaSamaTableClothChange.swift in Sources */,
 				0FDF23832E52025200249CAC /* enenViewAdora.swift in Sources */,
+				0FDF238B2E54B0AA00249CAC /* hokutoViewBayes.swift in Sources */,
 				0FF156102D604EAC00B17F83 /* starHanaVer2View95CiStart.swift in Sources */,
 				0F1E12102DD0D68C00F69AFF /* inuyashaTableFirstHit.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
@@ -4818,6 +4837,7 @@
 				0F7202FB2C8F1505001A8AF2 /* godeaterViewTop.swift in Sources */,
 				0F93188D2DEAA9E700511BEF /* izaBanchoViewAtGift.swift in Sources */,
 				0F868A5E2D47BE3B00D952D9 /* draHanaSenkohVer2View95CiKen.swift in Sources */,
+				0FDF23892E53585700249CAC /* tokyoGhoulViewBayes.swift in Sources */,
 				0FB2095F2E101F6F0029D940 /* dmc5TableDmcBonus.swift in Sources */,
 				0F89357E2E1E968500BF6FBE /* watakonViewBonusScreen.swift in Sources */,
 				0F868A992D578E9400D952D9 /* mrJugVer2ViewJissenCount.swift in Sources */,
@@ -5009,7 +5029,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.7.0;
+				MARKETING_VERSION = 3.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -5049,7 +5069,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.7.0;
+				MARKETING_VERSION = 3.7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

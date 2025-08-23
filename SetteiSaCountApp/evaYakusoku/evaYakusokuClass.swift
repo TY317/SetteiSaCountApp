@@ -114,6 +114,17 @@ class EvaYakusoku: ObservableObject {
     let ratioYellowBB: [Double] = [520.1,508,478.4,448.9,414.8,390.1]
     let ratioRedSBB: [Double] = [1985.9,1560.4,1872.5,1524.1,1771.2,1424.7]
     let ratioBlueSBB: [Double] = [1365.3,1524.1,1365.3,1524.1,1365.3,1560.4]
+    
+    // ///////////
+    // ver3.8.0で追加
+    // ///////////
+    let ratioChofukuHazure: [Double] = [0.02,0.02,0.03,0.03,0.04,0.06]
+    let ratioChofukuReplay: [Double] = [0.13,0.13,0.13,0.14,0.17,0.19]
+    let ratioChofukuBell: [Double] = [0.01,0.02,0.04,0.06,0.08,0.1]
+    let ratioChofukuJakuSuika: [Double] = [1.82,1.91,1.97,2.23,2.31,2.54]
+    let ratioChofukuKyoSuika: [Double] = [30.8,32.1,32.5,32.9,33.8,34.6]
+    let ratioChofukuCherry: [Double] = [10.3,10.6,10.7,11.1,11.0,11.4]
+    let ratioChofuku: [Double] = [10.3,10.6,10.7,11.1,11.0,11.4]
 }
 
 

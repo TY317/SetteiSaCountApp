@@ -123,6 +123,7 @@ struct ContentView: View {
     @StateObject var ver320 = Ver320()
 //    @StateObject var ver361 = Ver361()
     @StateObject var ver370 = Ver370()
+    @StateObject var ver380 = Ver380()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
     @ObservedObject var favoriteSet = favoriteSetVar()
@@ -138,7 +139,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-//                TipView(tipVer370MachineAddver2())
+                TipView(tipVer380MachineAddver2())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -212,12 +213,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-//                                            ver351: ver351,
-//                                            ver352: ver352,
+                                            ver380: ver380,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァ約束",
-//                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
+                                        badgeStatus: ver380.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -459,14 +459,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver351: ver351,
-//                                            ver352: ver352,
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-//                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
+                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
                                     )
-//                                        .popoverTip(tipVer230MachineAdd())
                                 }
                                 
                                 // //// シャーマンキング、25年2月
@@ -660,7 +660,17 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(
+                                            hokutoViewTop(
+                                                ver380: ver380,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )),
+                                        iconImage: Image("machineIconHokuto"),
+                                        machineName: "北斗の拳",
+                                        badgeStatus: ver380.hokutoMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// ヴァルヴレイヴ、22年11月
@@ -764,16 +774,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
-//                                            ver352: ver352,
+                                            ver380: ver380,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァンゲリヲン〜約束の扉〜",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-//                                        badgeStatus: ver352.evaYakusokuMachineIconBadge,
+                                        badgeStatus: ver380.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -1065,18 +1073,17 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver351: ver351,
-//                                            ver352: ver352,
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-//                                        badgeStatus: ver352.tokyoGhoulMachineIconBadge,
-//                                        badgeStatus: "update"
+                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
                                     )
-//                                    .popoverTip(tipVer230MachineAdd())
                                 }
                                 
                                 // //// シャーマンキング、25年2月
@@ -1336,7 +1343,21 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokuto == false {
                                     // 非表示
                                 } else {
-                                    unitMachinListLink(linkView: AnyView(hokutoViewTop()), iconImage: Image("machineIconHokuto"), machineName: "北斗の拳", makerName: "サミー", releaseYear: 2023, releaseMonth: 4)
+                                    unitMachinListLink(
+                                        linkView: AnyView(
+                                            hokutoViewTop(
+                                                ver380: ver380,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )
+                                        ),
+                                        iconImage: Image("machineIconHokuto"),
+                                        machineName: "北斗の拳",
+                                        makerName: "サミー",
+                                        releaseYear: 2023,
+                                        releaseMonth: 4,
+                                        badgeStatus: ver380.hokutoMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// ヴァルヴレイヴ、22年11月

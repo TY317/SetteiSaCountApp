@@ -9,7 +9,10 @@ import SwiftUI
 
 struct mt5RivalModeView: View {
 //    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     
     var body: some View {
@@ -31,7 +34,15 @@ struct mt5RivalModeView: View {
                     unitLinkButton(title: "舟券での示唆", exview: AnyView(mt5ExViewFnaken()))
                     // 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 3)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        mt5ViewBayes(
+                            ver370: ver370,
+                            mt5: mt5,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 } header: {
                     Text("ライバルモードカウント")
                 }
@@ -94,5 +105,10 @@ struct mt5ExViewFnaken: View {
 }
 
 #Preview {
-    mt5RivalModeView(mt5: Mt5())
+    mt5RivalModeView(
+        ver370: Ver370(),
+        mt5: Mt5(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

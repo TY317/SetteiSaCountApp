@@ -10,7 +10,10 @@ import TipKit
 
 struct mt5ViewAoshimaSG: View {
 //    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @State var tips = tipUnitButtonScreenChoice()
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -58,6 +61,15 @@ struct mt5ViewAoshimaSG: View {
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 7)))
 //                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        mt5ViewBayes(
+                            ver370: ver370,
+                            mt5: mt5,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 } header: {
                     Text("ラウンド開始画面")
                 }
@@ -155,5 +167,10 @@ struct mt5ExViewAoshimaScreenAnalysis: View {
 }
 
 #Preview {
-    mt5ViewAoshimaSG(mt5: Mt5())
+    mt5ViewAoshimaSG(
+        ver370: Ver370(),
+        mt5: Mt5(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }
