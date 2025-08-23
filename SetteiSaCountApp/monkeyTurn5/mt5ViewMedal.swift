@@ -10,7 +10,10 @@ import TipKit
 
 struct mt5ViewMedal: View {
 //    @ObservedObject var mt5 = Mt5()
+    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     
     var body: some View {
@@ -27,11 +30,18 @@ struct mt5ViewMedal: View {
                     }
                     // 参考情報リンク
                     unitLinkButton(title: "メダルについて", exview: AnyView(mt5ExViewMedal()))
-//                        .popoverTip(mt5TipBlackMedalRatioAdd())
                     unitLinkButton(title: "トロフィーについて", exview: AnyView(mt5ExViewTrofy()))
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(mt5View95Ci(mt5: mt5, selection: 6)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        mt5ViewBayes(
+                            ver370: ver370,
+                            mt5: mt5,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 } header: {
                     Text("メダルのカウント")
                 }
@@ -116,5 +126,10 @@ struct mt5ExViewTrofy: View {
 }
 
 #Preview {
-    mt5ViewMedal(mt5: Mt5())
+    mt5ViewMedal(
+        ver370: Ver370(),
+        mt5: Mt5(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

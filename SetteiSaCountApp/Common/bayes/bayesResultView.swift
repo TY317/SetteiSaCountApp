@@ -52,6 +52,8 @@ struct bayesResultView: View {
                         }
                     }
                     .frame(height: 200)
+                } header: {
+                    Text("設定別期待値")
                 }
                 
                 // //// 期待値
@@ -97,7 +99,7 @@ struct bayesResultView: View {
                         }
                     }
                 } header: {
-                    Text("期待値")
+                    Text("平均期待値")
                 }
             }
             .navigationTitle("計算結果")

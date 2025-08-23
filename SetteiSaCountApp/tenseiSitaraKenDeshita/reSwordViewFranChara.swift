@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct reSwordViewFranChara: View {
-    @ObservedObject var ver361: Ver361
+//    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     @State var isShowAlert = false
     @State var selectedChara: String = "青"
@@ -43,7 +43,7 @@ struct reSwordViewFranChara: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 150)
-                .popoverTip(tipVer361ReSwordChara())
+//                .popoverTip(tipVer361ReSwordChara())
                 // 示唆＆登録ボタン
                 unitCountSubmitWithResult(
                     title: sisaText(chara: self.selectedChara),
@@ -73,7 +73,7 @@ struct reSwordViewFranChara: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver361.reSwordMenuFranCharaBadge)
+//        .resetBadgeOnAppear($ver361.reSwordMenuFranCharaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -135,7 +135,7 @@ struct reSwordViewFranChara: View {
 
 #Preview {
     reSwordViewFranChara(
-        ver361: Ver361(),
+//        ver361: Ver361(),
         reSword: ReSword(),
     )
 }

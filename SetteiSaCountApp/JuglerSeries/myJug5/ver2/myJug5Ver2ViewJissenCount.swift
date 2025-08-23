@@ -9,7 +9,10 @@ import SwiftUI
 
 struct myJug5Ver2ViewJissenCount: View {
 //    @ObservedObject var myJug5 = MyJug5()
+    @ObservedObject var ver370: Ver370
     @ObservedObject var myJug5: MyJug5
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     
@@ -86,7 +89,15 @@ struct myJug5Ver2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(myJug5Ver2View95CiPersonal(myJug5: myJug5)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    myJug5ViewBayes(
+                        ver370: ver370,
+                        myJug5: myJug5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -162,5 +173,10 @@ struct myJug5Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    myJug5Ver2ViewJissenCount(myJug5: MyJug5())
+    myJug5Ver2ViewJissenCount(
+        ver370: Ver370(),
+        myJug5: MyJug5(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

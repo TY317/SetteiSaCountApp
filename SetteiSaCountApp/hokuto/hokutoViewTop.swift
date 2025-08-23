@@ -49,6 +49,11 @@ class Hokuto: ObservableObject {
         normalStartGame = 0
         normalCurrentGame = 0
         minusCheck = false
+        totalGame = 0
+        rareCountSuikaJaku = 0
+        rareCountSuikaKyo = 0
+        rareCountSuikaSum = 0
+        rareCount2Cherry = 0
     }
     
     
@@ -219,6 +224,15 @@ class Hokuto: ObservableObject {
         resetBbBell()
         resetVoice()
     }
+    
+    // ////////////
+    // ver3.8.0で追加
+    // ////////////
+    @AppStorage("hokutoTotalGame") var totalGame: Int = 0
+    @AppStorage("hokutoRareCountSuikaJaku") var rareCountSuikaJaku: Int = 0
+    @AppStorage("hokutoRareCountSuikaKyo") var rareCountSuikaKyo: Int = 0
+    @AppStorage("hokutoRareCountSuikaSum") var rareCountSuikaSum: Int = 0
+    @AppStorage("hokutoRareCount2Cherry") var rareCount2Cherry: Int = 0
 }
 
 
@@ -251,6 +265,15 @@ class HokutoMemory1: ObservableObject {
     @AppStorage("hokutoVoiceCountSumMemory1") var voiceCountSum = 0
     @AppStorage("hokutoMemoMemory1") var memo = ""
     @AppStorage("hokutoDateMemory1") var dateDouble = 0.0
+    
+    // ////////////
+    // ver3.8.0で追加
+    // ////////////
+    @AppStorage("hokutoTotalGameMemory1") var totalGame: Int = 0
+    @AppStorage("hokutoRareCountSuikaJakuMemory1") var rareCountSuikaJaku: Int = 0
+    @AppStorage("hokutoRareCountSuikaKyoMemory1") var rareCountSuikaKyo: Int = 0
+    @AppStorage("hokutoRareCountSuikaSumMemory1") var rareCountSuikaSum: Int = 0
+    @AppStorage("hokutoRareCount2CherryMemory1") var rareCount2Cherry: Int = 0
 }
 
 // //// メモリー2
@@ -282,6 +305,15 @@ class HokutoMemory2: ObservableObject {
     @AppStorage("hokutoVoiceCountSumMemory2") var voiceCountSum = 0
     @AppStorage("hokutoMemoMemory2") var memo = ""
     @AppStorage("hokutoDateMemory2") var dateDouble = 0.0
+    
+    // ////////////
+    // ver3.8.0で追加
+    // ////////////
+    @AppStorage("hokutoTotalGameMemory2") var totalGame: Int = 0
+    @AppStorage("hokutoRareCountSuikaJakuMemory2") var rareCountSuikaJaku: Int = 0
+    @AppStorage("hokutoRareCountSuikaKyoMemory2") var rareCountSuikaKyo: Int = 0
+    @AppStorage("hokutoRareCountSuikaSumMemory2") var rareCountSuikaSum: Int = 0
+    @AppStorage("hokutoRareCount2CherryMemory2") var rareCount2Cherry: Int = 0
 }
 
 // //// メモリー3
@@ -313,11 +345,22 @@ class HokutoMemory3: ObservableObject {
     @AppStorage("hokutoVoiceCountSumMemory3") var voiceCountSum = 0
     @AppStorage("hokutoMemoMemory3") var memo = ""
     @AppStorage("hokutoDateMemory3") var dateDouble = 0.0
+    
+    // ////////////
+    // ver3.8.0で追加
+    // ////////////
+    @AppStorage("hokutoTotalGameMemory3") var totalGame: Int = 0
+    @AppStorage("hokutoRareCountSuikaJakuMemory3") var rareCountSuikaJaku: Int = 0
+    @AppStorage("hokutoRareCountSuikaKyoMemory3") var rareCountSuikaKyo: Int = 0
+    @AppStorage("hokutoRareCountSuikaSumMemory3") var rareCountSuikaSum: Int = 0
+    @AppStorage("hokutoRareCount2CherryMemory3") var rareCount2Cherry: Int = 0
 }
 
 
 struct hokutoViewTop: View {
-//    @ObservedObject var hokuto = Hokuto()
+    @ObservedObject var ver380: Ver380
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var hokuto = Hokuto()
     @State var isShowAlert = false
     @StateObject var hokutoMemory1 = HokutoMemory1()
@@ -329,20 +372,51 @@ struct hokutoViewTop: View {
             List {
                 Section {
                     // 通常時子役
-                    NavigationLink(destination: hokutoViewNormalKoyaku(hokuto: hokuto)) {
-                        unitLabelMenu(imageSystemName: "bell", textBody: "通常時小役")
+                    NavigationLink(destination: hokutoViewNormalKoyaku(
+                        ver380: ver380,
+                        hokuto: hokuto,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell",
+                            textBody: "通常時小役",
+                            badgeStatus: ver380.hokutoMenuNormalBadge,
+                        )
                     }
                     // バトルボーナス初当たり履歴
-                    NavigationLink(destination: hokutoViewHistory(hokuto: hokuto)) {
+                    NavigationLink(destination: hokutoViewHistory(
+                        ver380: ver380,
+                        hokuto: hokuto,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "バトルボーナス初当たり履歴")
                     }
                     // バトルボーナス中のベル
-                    NavigationLink(destination: hokutoViewBbBell(hokuto: hokuto)) {
+                    NavigationLink(destination: hokutoViewBbBell(
+                        ver380: ver380,
+                        hokuto: hokuto,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "bell.fill", textBody: "バトルボーナス中のベル")
                     }
                     // バトルボーナス後のボイス
-                    NavigationLink(destination: hokutoViewVoice(hokuto: hokuto)) {
+                    NavigationLink(destination: hokutoViewVoice(
+                        ver380: ver380,
+                        hokuto: hokuto,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "message", textBody: "バトルボーナス後のボイス")
+                    }
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewSammyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "サミートロフィー"
+                        )
                     }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "スマスロ北斗の拳")
@@ -351,11 +425,27 @@ struct hokutoViewTop: View {
                 NavigationLink(destination: hokutoView95Ci(hokuto: hokuto)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: hokutoViewBayes(
+                    ver380: ver380,
+                    hokuto: hokuto,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4301")
 //                    .popoverTip(tipVer220AddLink())
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver380.hokutoMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -457,6 +547,15 @@ struct hokutoViewSaveMemory: View {
         hokutoMemory1.voiceKenCount = hokuto.voiceKenCount
         hokutoMemory1.voiceYuriaCount = hokuto.voiceYuriaCount
         hokutoMemory1.voiceCountSum = hokuto.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokutoMemory1.totalGame = hokuto.totalGame
+        hokutoMemory1.rareCountSuikaJaku = hokuto.rareCountSuikaJaku
+        hokutoMemory1.rareCountSuikaKyo = hokuto.rareCountSuikaKyo
+        hokutoMemory1.rareCountSuikaSum = hokuto.rareCountSuikaSum
+        hokutoMemory1.rareCount2Cherry = hokuto.rareCount2Cherry
     }
     func saveMemory2() {
         hokutoMemory2.normalBellNanameCount = hokuto.normalBellNanameCount
@@ -484,6 +583,15 @@ struct hokutoViewSaveMemory: View {
         hokutoMemory2.voiceKenCount = hokuto.voiceKenCount
         hokutoMemory2.voiceYuriaCount = hokuto.voiceYuriaCount
         hokutoMemory2.voiceCountSum = hokuto.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokutoMemory2.totalGame = hokuto.totalGame
+        hokutoMemory2.rareCountSuikaJaku = hokuto.rareCountSuikaJaku
+        hokutoMemory2.rareCountSuikaKyo = hokuto.rareCountSuikaKyo
+        hokutoMemory2.rareCountSuikaSum = hokuto.rareCountSuikaSum
+        hokutoMemory2.rareCount2Cherry = hokuto.rareCount2Cherry
     }
     func saveMemory3() {
         hokutoMemory3.normalBellNanameCount = hokuto.normalBellNanameCount
@@ -511,6 +619,15 @@ struct hokutoViewSaveMemory: View {
         hokutoMemory3.voiceKenCount = hokuto.voiceKenCount
         hokutoMemory3.voiceYuriaCount = hokuto.voiceYuriaCount
         hokutoMemory3.voiceCountSum = hokuto.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokutoMemory3.totalGame = hokuto.totalGame
+        hokutoMemory3.rareCountSuikaJaku = hokuto.rareCountSuikaJaku
+        hokutoMemory3.rareCountSuikaKyo = hokuto.rareCountSuikaKyo
+        hokutoMemory3.rareCountSuikaSum = hokuto.rareCountSuikaSum
+        hokutoMemory3.rareCount2Cherry = hokuto.rareCount2Cherry
     }
 }
 
@@ -573,6 +690,15 @@ struct hokutoViewLoadMemory: View {
         hokuto.voiceKenCount = hokutoMemory1.voiceKenCount
         hokuto.voiceYuriaCount = hokutoMemory1.voiceYuriaCount
         hokuto.voiceCountSum = hokutoMemory1.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokuto.totalGame = hokutoMemory1.totalGame
+        hokuto.rareCountSuikaJaku = hokutoMemory1.rareCountSuikaJaku
+        hokuto.rareCountSuikaKyo = hokutoMemory1.rareCountSuikaKyo
+        hokuto.rareCountSuikaSum = hokutoMemory1.rareCountSuikaSum
+        hokuto.rareCount2Cherry = hokutoMemory1.rareCount2Cherry
     }
     func loadMemory2() {
         hokuto.normalBellNanameCount = hokutoMemory2.normalBellNanameCount
@@ -606,6 +732,15 @@ struct hokutoViewLoadMemory: View {
         hokuto.voiceKenCount = hokutoMemory2.voiceKenCount
         hokuto.voiceYuriaCount = hokutoMemory2.voiceYuriaCount
         hokuto.voiceCountSum = hokutoMemory2.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokuto.totalGame = hokutoMemory2.totalGame
+        hokuto.rareCountSuikaJaku = hokutoMemory2.rareCountSuikaJaku
+        hokuto.rareCountSuikaKyo = hokutoMemory2.rareCountSuikaKyo
+        hokuto.rareCountSuikaSum = hokutoMemory2.rareCountSuikaSum
+        hokuto.rareCount2Cherry = hokutoMemory2.rareCount2Cherry
     }
     func loadMemory3() {
         hokuto.normalBellNanameCount = hokutoMemory3.normalBellNanameCount
@@ -639,10 +774,23 @@ struct hokutoViewLoadMemory: View {
         hokuto.voiceKenCount = hokutoMemory3.voiceKenCount
         hokuto.voiceYuriaCount = hokutoMemory3.voiceYuriaCount
         hokuto.voiceCountSum = hokutoMemory3.voiceCountSum
+        
+        // ////////////
+        // ver3.8.0で追加
+        // ////////////
+        hokuto.totalGame = hokutoMemory3.totalGame
+        hokuto.rareCountSuikaJaku = hokutoMemory3.rareCountSuikaJaku
+        hokuto.rareCountSuikaKyo = hokutoMemory3.rareCountSuikaKyo
+        hokuto.rareCountSuikaSum = hokutoMemory3.rareCountSuikaSum
+        hokuto.rareCount2Cherry = hokutoMemory3.rareCount2Cherry
     }
 }
 
 
 #Preview {
-    hokutoViewTop()
+    hokutoViewTop(
+        ver380: Ver380(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

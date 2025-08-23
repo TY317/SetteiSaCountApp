@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct reSwordViewStory: View {
-    @ObservedObject var ver361: Ver361
+//    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     
     var body: some View {
@@ -99,7 +99,7 @@ struct reSwordViewStory: View {
                         }
                     }
                 }
-                .popoverTip(tipVer361ReSwordAt())
+//                .popoverTip(tipVer361ReSwordAt())
             } header: {
                 Text("ゴブリンスタンピード")
             }
@@ -107,7 +107,7 @@ struct reSwordViewStory: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver361.reSwordMenuAtBadge)
+//        .resetBadgeOnAppear($ver361.reSwordMenuAtBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -123,7 +123,7 @@ struct reSwordViewStory: View {
 
 #Preview {
     reSwordViewStory(
-        ver361: Ver361(),
+//        ver361: Ver361(),
         reSword: ReSword(),
     )
 }

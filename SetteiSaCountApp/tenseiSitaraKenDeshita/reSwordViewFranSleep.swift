@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct reSwordViewFranSleep: View {
-    @ObservedObject var ver361: Ver361
+//    @ObservedObject var ver361: Ver361
     @ObservedObject var reSword: ReSword
     @State var isShowAlert = false
     
@@ -76,7 +76,7 @@ struct reSwordViewFranSleep: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver361.reSwordMenuFranSleepBadge)
+//        .resetBadgeOnAppear($ver361.reSwordMenuFranSleepBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -102,7 +102,7 @@ struct reSwordViewFranSleep: View {
 
 #Preview {
     reSwordViewFranSleep(
-        ver361: Ver361(),
+//        ver361: Ver361(),
         reSword: ReSword(),
     )
 }

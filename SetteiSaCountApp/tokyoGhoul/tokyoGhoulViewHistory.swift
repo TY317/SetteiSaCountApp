@@ -42,10 +42,10 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
-//    @ObservedObject var ver351: Ver351
-//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var ver380: Ver380
     @ObservedObject var tokyoGhoul: TokyoGhoul
-//    @ObservedObject var ver250 = Ver250()
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -452,7 +452,15 @@ struct tokyoGhoulViewHistory: View {
 //                .popoverTip(tipVer351GhoulReplayAt())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    tokyoGhoulViewBayes(
+                        ver380: ver380,
+                        tokyoGhoul: tokyoGhoul,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("初当り確率")
             }
@@ -495,7 +503,15 @@ struct tokyoGhoulViewHistory: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 6)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    tokyoGhoulViewBayes(
+                        ver380: ver380,
+                        tokyoGhoul: tokyoGhoul,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 HStack {
                     Text("100G以内での当選率")
@@ -601,7 +617,9 @@ struct tokyoGhoulViewHistory: View {
 
 #Preview {
     tokyoGhoulViewHistory(
-//        ver351: Ver351(),
-        tokyoGhoul: TokyoGhoul()
+        ver380: Ver380(),
+        tokyoGhoul: TokyoGhoul(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

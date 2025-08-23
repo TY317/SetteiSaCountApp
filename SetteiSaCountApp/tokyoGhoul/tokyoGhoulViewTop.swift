@@ -9,9 +9,9 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
-//    @ObservedObject var ver351: Ver351
-//    @ObservedObject var ver352: Ver352
-//    @ObservedObject var tokyoGhoul = TokyoGhoul()
+    @ObservedObject var ver380: Ver380
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var tokyoGhoul = TokyoGhoul()
     @State var isShowAlert: Bool = false
     @StateObject var tokyoGhoulMemory1 = TokyoGhoulMemory1()
@@ -36,8 +36,10 @@ struct tokyoGhoulViewTop: View {
                     // CZ,AT 初当り履歴
                     NavigationLink(
                         destination: tokyoGhoulViewHistory(
-//                            ver351: ver351,
-                            tokyoGhoul: tokyoGhoul
+                            ver380: ver380,
+                            tokyoGhoul: tokyoGhoul,
+                            bayes: bayes,
+                            viewModel: viewModel,
                         )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
@@ -60,6 +62,13 @@ struct tokyoGhoulViewTop: View {
 //                            badgeStatus: ver240.tokyoGhoulMenuEndingBadgeStatus
                         )
                     }
+                    // トロフィー
+                    NavigationLink(destination: commonViewNamichanTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ナミちゃんトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "東京喰種")
                 }
@@ -67,13 +76,26 @@ struct tokyoGhoulViewTop: View {
                 NavigationLink(destination: tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: tokyoGhoulViewBayes(
+                    ver380: ver380,
+                    tokyoGhoul: tokyoGhoul,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4742")
-//                    .popoverTip(tipVer220AddLink())
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.tokyoGhoulMachineIconBadge)
+        .resetBadgeOnAppear($ver380.tokyoGhoulMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -82,21 +104,6 @@ struct tokyoGhoulViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "東京喰種", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "tokyoGhoulViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: tokyoGhoulViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver250.ghoulMachineIconBadgeStatus != "none" {
-//                ver250.ghoulMachineIconBadgeStatus = "none"
-//            }
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -117,10 +124,8 @@ struct tokyoGhoulViewTop: View {
                         tokyoGhoulMemory3: tokyoGhoulMemory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetAll, message: "この機種のデータを全てリセットします")
-//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }
@@ -533,7 +538,8 @@ struct tokyoGhoulSubViewLoadMemory: View {
 
 #Preview {
     tokyoGhoulViewTop(
-//        ver351: Ver351(),
-//        ver352: Ver352(),
+        ver380: Ver380(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

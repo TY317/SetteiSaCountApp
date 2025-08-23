@@ -12,6 +12,8 @@ struct hokutoView95Ci: View {
     @ObservedObject var hokuto: Hokuto
     @State var selection = 1
     @State var isShow95CiExplain = false
+    let ratioSuikaSum: [Double] = [86.1,85.7,82.6,78.3,76.1]
+    let ratio2Cherry: [Double] = [210.1,204.8,199.8,195,190.5]
     
     var body: some View {
         TabView(selection: $selection) {
@@ -33,6 +35,42 @@ struct hokutoView95Ci: View {
                 )
             )
             .tag(1)
+            // スイカ合算回数
+            unitListSection95Ci(
+                grafTitle: "🍉合算回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hokuto.rareCountSuikaSum,
+                        bigNumber: $hokuto.totalGame,
+                        setting1Denominate: self.ratioSuikaSum[0],
+                        setting2Denominate: self.ratioSuikaSum[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Denominate: self.ratioSuikaSum[2],
+                        setting5Denominate: self.ratioSuikaSum[3],
+                        setting6Denominate: self.ratioSuikaSum[4]
+                    )
+                )
+            )
+            .tag(7)
+            // 中段チェリー回数
+            unitListSection95Ci(
+                grafTitle: "中段🍒回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hokuto.rareCount2Cherry,
+                        bigNumber: $hokuto.totalGame,
+                        setting1Denominate: self.ratio2Cherry[0],
+                        setting2Denominate: self.ratio2Cherry[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Denominate: self.ratio2Cherry[2],
+                        setting5Denominate: self.ratio2Cherry[3],
+                        setting6Denominate: self.ratio2Cherry[4]
+                    )
+                )
+            )
+            .tag(8)
             // バトルボーナス初当たり回数
             unitListSection95Ci(
                 grafTitle: "バトルボーナス初当り回数",

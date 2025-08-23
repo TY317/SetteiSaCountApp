@@ -426,14 +426,24 @@ struct myJug5Ver2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: myJug5Ver2ViewJissenCount(myJug5: myJug5)) {
+                    NavigationLink(destination: myJug5Ver2ViewJissenCount(
+                        ver370: ver370,
+                        myJug5: myJug5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: myJug5Ver2ViewJissenTotalDataCheck(myJug5: myJug5)) {
+                    NavigationLink(destination: myJug5Ver2ViewJissenTotalDataCheck(
+                        ver370: ver370,
+                        myJug5: myJug5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"

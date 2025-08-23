@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct hokutoViewHistory: View {
-//    @ObservedObject var hokuto = Hokuto()
+    @ObservedObject var ver380: Ver380
     @ObservedObject var hokuto: Hokuto
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var isShowAlert = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -17,191 +19,196 @@ struct hokutoViewHistory: View {
     @FocusState var isFocused: Bool
     
     var body: some View {
-//        NavigationView {
-            List {
-                // //// 履歴
-                Section {
-                    // ////履歴表示
-                    // //// 縦画面
-                    if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
-                        ScrollView {
-                            // //// 配列のデータ数が0以上なら履歴表示
-                            let gameArray = decodeIntArray(from: hokuto.gameArrayData)
-                            if gameArray.count > 0 {
-                                ForEach(gameArray.indices, id: \.self) { index in
-                                    let viewIndex = gameArray.count - index - 1
-                                    HStack {
-                                        // 回数
-                                        Text("\(viewIndex+1)")
-                                            .frame(width: 40.0)
-                                        // ゲーム数
-                                        if gameArray.indices.contains(viewIndex) {
-                                            Text("\(gameArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                        // モード
-                                        let modeArray = decodeStringArray(from: hokuto.modeArrayData)
-                                        if modeArray.indices.contains(viewIndex) {
-                                            Text("\(modeArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                        // 契機
-                                        let triggerArray = decodeStringArray(from: hokuto.triggerArrayData)
-                                        if triggerArray.indices.contains(viewIndex) {
-                                            Text("\(triggerArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                    }
-                                    Divider()
-                                }
-                            }
-                            // //// 配列のデータ数が0なら履歴なしを表示
-                            else {
+        List {
+            // //// 履歴
+            Section {
+                // ////履歴表示
+                // //// 縦画面
+                if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
+                    ScrollView {
+                        // //// 配列のデータ数が0以上なら履歴表示
+                        let gameArray = decodeIntArray(from: hokuto.gameArrayData)
+                        if gameArray.count > 0 {
+                            ForEach(gameArray.indices, id: \.self) { index in
+                                let viewIndex = gameArray.count - index - 1
                                 HStack {
-                                    Spacer()
-                                    Text("履歴なし")
-                                        .font(.title)
-                                    Spacer()
+                                    // 回数
+                                    Text("\(viewIndex+1)")
+                                        .frame(width: 40.0)
+                                    // ゲーム数
+                                    if gameArray.indices.contains(viewIndex) {
+                                        Text("\(gameArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // モード
+                                    let modeArray = decodeStringArray(from: hokuto.modeArrayData)
+                                    if modeArray.indices.contains(viewIndex) {
+                                        Text("\(modeArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 契機
+                                    let triggerArray = decodeStringArray(from: hokuto.triggerArrayData)
+                                    if triggerArray.indices.contains(viewIndex) {
+                                        Text("\(triggerArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
                                 }
-                                .padding(.top)
+                                Divider()
                             }
                         }
-                        .frame(height: 300)
-                    }
-                    // //// 横画面
-//                    else if orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape) {
-                    else {
-                        ScrollView {
-                            // //// 配列のデータ数が0以上なら履歴表示
-                            let gameArray = decodeIntArray(from: hokuto.gameArrayData)
-                            if gameArray.count > 0 {
-                                ForEach(gameArray.indices, id: \.self) { index in
-                                    let viewIndex = gameArray.count - index - 1
-                                    HStack {
-                                        // 回数
-                                        Text("\(viewIndex+1)")
-                                            .frame(width: 40.0)
-                                        // ゲーム数
-                                        if gameArray.indices.contains(viewIndex) {
-                                            Text("\(gameArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                        // モード
-                                        let modeArray = decodeStringArray(from: hokuto.modeArrayData)
-                                        if modeArray.indices.contains(viewIndex) {
-                                            Text("\(modeArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                        // 契機
-                                        let triggerArray = decodeStringArray(from: hokuto.triggerArrayData)
-                                        if triggerArray.indices.contains(viewIndex) {
-                                            Text("\(triggerArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        } else {
-                                            Text("-")
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                    }
-                                    Divider()
-                                }
+                        // //// 配列のデータ数が0なら履歴なしを表示
+                        else {
+                            HStack {
+                                Spacer()
+                                Text("履歴なし")
+                                    .font(.title)
+                                Spacer()
                             }
-                            // //// 配列のデータ数が0なら履歴なしを表示
-                            else {
+                            .padding(.top)
+                        }
+                    }
+                    .frame(height: 300)
+                }
+                // //// 横画面
+                else {
+                    ScrollView {
+                        // //// 配列のデータ数が0以上なら履歴表示
+                        let gameArray = decodeIntArray(from: hokuto.gameArrayData)
+                        if gameArray.count > 0 {
+                            ForEach(gameArray.indices, id: \.self) { index in
+                                let viewIndex = gameArray.count - index - 1
                                 HStack {
-                                    Spacer()
-                                    Text("履歴なし")
-                                        .font(.title)
-                                    Spacer()
+                                    // 回数
+                                    Text("\(viewIndex+1)")
+                                        .frame(width: 40.0)
+                                    // ゲーム数
+                                    if gameArray.indices.contains(viewIndex) {
+                                        Text("\(gameArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // モード
+                                    let modeArray = decodeStringArray(from: hokuto.modeArrayData)
+                                    if modeArray.indices.contains(viewIndex) {
+                                        Text("\(modeArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 契機
+                                    let triggerArray = decodeStringArray(from: hokuto.triggerArrayData)
+                                    if triggerArray.indices.contains(viewIndex) {
+                                        Text("\(triggerArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        Text("-")
+                                            .frame(maxWidth: .infinity)
+                                    }
                                 }
-                                .padding(.top)
+                                Divider()
                             }
                         }
-                        .frame(height: 150)
-                    }
-                    
-                    // //// 登録、1行削除ボタン
-                    HStack {
-                        Spacer()
-                        // ボタン
-                        Button(action: {
-                            if hokuto.minusCheck {
-                                let gameArray = decodeIntArray(from: hokuto.gameArrayData)
-                                if gameArray.count > 0 {
-                                    hokuto.removeLastHistory()
-                                    UINotificationFeedbackGenerator().notificationOccurred(.warning)
-                                }
-                            } else {
-                                isShowDataInputView.toggle()
+                        // //// 配列のデータ数が0なら履歴なしを表示
+                        else {
+                            HStack {
+                                Spacer()
+                                Text("履歴なし")
+                                    .font(.title)
+                                Spacer()
                             }
-                        }, label: {
-                            if hokuto.minusCheck {
-                                Image(systemName: "minus")
-                            } else {
-                                Image(systemName: "plus")
+                            .padding(.top)
+                        }
+                    }
+                    .frame(height: 150)
+                }
+                
+                // //// 登録、1行削除ボタン
+                HStack {
+                    Spacer()
+                    // ボタン
+                    Button(action: {
+                        if hokuto.minusCheck {
+                            let gameArray = decodeIntArray(from: hokuto.gameArrayData)
+                            if gameArray.count > 0 {
+                                hokuto.removeLastHistory()
+                                UINotificationFeedbackGenerator().notificationOccurred(.warning)
                             }
-                        })
-                        .buttonStyle(PlusDeleatButtonStyle(MinusBool: hokuto.minusCheck))
-                        .sheet(isPresented: $isShowDataInputView, content: {
-                            hokutoSubViewDataInput(hokuto: hokuto)
-                                .presentationDetents([.medium])
-                        })
-                        Spacer()
-                    }
-                    // //// 結果表示
-                    HStack {
-                        // 初当たり回数
-                        unitResultCount2Line(title: "初当たり回数", color: .grayBack, count: $hokuto.bbHitCount)
-                        // 初当たり確率
-                        unitResultRatioDenomination2Line(title: "初当たり確率", color: .grayBack, count: $hokuto.bbHitCount, bigNumber: $hokuto.bbGameSum, numberofDicimal: 0)
-                    }
-                    // //// 参考情報のリンク
-                    unitLinkButton(
-                        title: "バトルボーナス初当たりについて",
-                        exview: AnyView(
-                            unitExView5body2image(
-                                title: "BB初当たり",
-                                textBody1: "・初当たり確率に設定差",
-                                textBody2: "・天国中の弱スイカ、角チェでの当選に設定差",
-                                textBody3: "弱レア役でのモード移行にも設定差",
-                                textBody4: "・天井短縮や謎当たりにも大きな設定差があるらしい。800仮天井のヒット率は設定6で3割くらい、設定1で1割未満くらいとの噂も",
-//                                image1: Image("hokutoBbHit")
-                                tableView: AnyView(hokutoTableFirstHit())
-                            )
+                        } else {
+                            isShowDataInputView.toggle()
+                        }
+                    }, label: {
+                        if hokuto.minusCheck {
+                            Image(systemName: "minus")
+                        } else {
+                            Image(systemName: "plus")
+                        }
+                    })
+                    .buttonStyle(PlusDeleatButtonStyle(MinusBool: hokuto.minusCheck))
+                    .sheet(isPresented: $isShowDataInputView, content: {
+                        hokutoSubViewDataInput(hokuto: hokuto)
+                            .presentationDetents([.medium])
+                    })
+                    Spacer()
+                }
+                // //// 結果表示
+                HStack {
+                    // 初当たり回数
+                    unitResultCount2Line(title: "初当たり回数", color: .grayBack, count: $hokuto.bbHitCount)
+                    // 初当たり確率
+                    unitResultRatioDenomination2Line(title: "初当たり確率", color: .grayBack, count: $hokuto.bbHitCount, bigNumber: $hokuto.bbGameSum, numberofDicimal: 0)
+                }
+                // //// 参考情報のリンク
+                unitLinkButton(
+                    title: "バトルボーナス初当たりについて",
+                    exview: AnyView(
+                        unitExView5body2image(
+                            title: "BB初当たり",
+                            textBody1: "・初当たり確率に設定差",
+                            textBody2: "・天国中の弱スイカ、角チェでの当選に設定差",
+                            textBody3: "弱レア役でのモード移行にも設定差",
+                            textBody4: "・天井短縮や謎当たりにも大きな設定差があるらしい。800仮天井のヒット率は設定6で3割くらい、設定1で1割未満くらいとの噂も",
+                            tableView: AnyView(hokutoTableFirstHit())
                         )
                     )
-                    // //// 95%信頼区間グラフへのリンク
-                    unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 2)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
-                } header: {
-                    unitHeaderHistoryColumns(column2: "ゲーム", column3: "モード", column4: "当選契機")
+                )
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(Ci95view: AnyView(hokutoView95Ci(hokuto: hokuto, selection: 2)))
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hokutoViewBayes(
+                        ver380: ver380,
+                        hokuto: hokuto,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
-                if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
-                    unitClearScrollSection(spaceHeight: 250)
-                } else {
-                    
-                }
+            } header: {
+                unitHeaderHistoryColumns(column2: "ゲーム", column3: "モード", column4: "当選契機")
             }
+            if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
+                unitClearScrollSection(spaceHeight: 250)
+            } else {
+                
+            }
+        }
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -210,9 +217,19 @@ struct hokutoViewHistory: View {
                 screenClass: screenClass
             )
         }
-            // //// 画面の向き情報の取得部分
-            .onAppear {
-                // ビューが表示されるときにデバイスの向きを取得
+        // //// 画面の向き情報の取得部分
+        .onAppear {
+            // ビューが表示されるときにデバイスの向きを取得
+            self.orientation = UIDevice.current.orientation
+            // 向きがフラットでなければlastOrientationの値を更新
+            if self.orientation.isFlat {
+                
+            }
+            else {
+                self.lastOrientation = self.orientation
+            }
+            // デバイスの向きの変更を監視する
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
                 self.orientation = UIDevice.current.orientation
                 // 向きがフラットでなければlastOrientationの値を更新
                 if self.orientation.isFlat {
@@ -221,44 +238,22 @@ struct hokutoViewHistory: View {
                 else {
                     self.lastOrientation = self.orientation
                 }
-                // デバイスの向きの変更を監視する
-                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
-                    self.orientation = UIDevice.current.orientation
-                    // 向きがフラットでなければlastOrientationの値を更新
-                    if self.orientation.isFlat {
-                        
-                    }
-                    else {
-                        self.lastOrientation = self.orientation
-                    }
+            }
+        }
+        .onDisappear {
+            // ビューが非表示になるときに監視を解除
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        }
+        .navigationTitle("BB初当たり履歴")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                HStack {
+                    unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
+                    unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetHistory)
                 }
             }
-            .onDisappear {
-                // ビューが非表示になるときに監視を解除
-                NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
-            }
-            .navigationTitle("BB初当たり履歴")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    HStack {
-                        unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
-                        unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetHistory)
-//                            .popoverTip(tipUnitButtonReset())
-                    }
-                }
-            }
-//        }
-//        .navigationTitle("BB初当たり履歴")
-//        .navigationBarTitleDisplayMode(.inline)
-//        .toolbar {
-//            ToolbarItem(placement: .automatic) {
-//                HStack {
-//                    unitButtonMinusCheck(minusCheck: $hokuto.minusCheck)
-//                    unitButtonReset(isShowAlert: $isShowAlert, action: hokuto.resetHistory)
-//                }
-//            }
-//        }
+        }
     }
 }
 
@@ -326,5 +321,10 @@ struct hokutoSubViewDataInput: View {
 }
 
 #Preview {
-    hokutoViewHistory(hokuto: Hokuto())
+    hokutoViewHistory(
+        ver380: Ver380(),
+        hokuto: Hokuto(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }
