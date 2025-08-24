@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mt5ViewBayes: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
     
     // 機種ごとに見直し
@@ -83,7 +83,7 @@ struct mt5ViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.mt5MenuBayesBadge)
+//        .resetBadgeOnAppear($ver370.mt5MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -265,7 +265,7 @@ struct mt5ViewBayes: View {
 
 #Preview {
     mt5ViewBayes(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         mt5: Mt5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

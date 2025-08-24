@@ -27,7 +27,7 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
 // /////////////////////////
 struct JuglerSeriesViewTop: View {
 //    @ObservedObject var ver210 = Ver210()
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @ObservedObject var favoriteSet = JuglerSeriesfavoriteSetVar()
@@ -95,12 +95,12 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(linkView: AnyView(myJug5Ver2ViewTop(
-                                    ver370: ver370,
+//                                    ver370: ver370,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )), iconImage: Image("machineIconMyJug5"),
                                                     machineName: "マイジャグ5",
-                                                    badgeStatus: ver370.jugSeriesBadge,
+//                                                    badgeStatus: ver370.jugSeriesBadge,
                                 )
                             }
                             
@@ -187,7 +187,7 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(linkView: AnyView(myJug5Ver2ViewTop(
-                                    ver370: ver370,
+//                                    ver370: ver370,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )), iconImage: Image("machineIconMyJug5"),
@@ -195,7 +195,7 @@ struct JuglerSeriesViewTop: View {
                                                    makerName: "北電子",
                                                    releaseYear: 2021,
                                                    releaseMonth: 12,
-                                                   badgeStatus: ver370.jugSeriesBadge,
+//                                                   badgeStatus: ver370.jugSeriesBadge,
                                 )
                             }
                             
@@ -425,7 +425,7 @@ struct machineListMyJug5: View {
 
 #Preview {
     JuglerSeriesViewTop(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
         common: commonVar(),

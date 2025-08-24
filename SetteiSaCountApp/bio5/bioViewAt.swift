@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct bioViewAt: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var bio: Bio
     @State var isShowAlert = false
     var body: some View {
@@ -78,7 +78,7 @@ struct bioViewAt: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.bioMenuAtBadge)
+//        .resetBadgeOnAppear($ver370.bioMenuAtBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -104,7 +104,7 @@ struct bioViewAt: View {
 
 #Preview {
     bioViewAt(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         bio: Bio(),
     )
 }

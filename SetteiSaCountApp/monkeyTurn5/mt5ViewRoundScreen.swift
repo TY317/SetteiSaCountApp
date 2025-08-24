@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mt5ViewRoundScreen: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
     let sinarioList: [String] = [
         "駆け出し",
@@ -48,7 +48,7 @@ struct mt5ViewRoundScreen: View {
                         )
                     }
                 }
-                .popoverTip(tipVer370Mt5SinarioRatio())
+//                .popoverTip(tipVer370Mt5SinarioRatio())
                 // 洞口滞在時
                 unitLinkButtonViewBuilder(sheetTitle: "ライバルモード洞口滞在時", linkText: "ライバルモード洞口滞在時") {
                     HStack(spacing: 0) {
@@ -72,7 +72,7 @@ struct mt5ViewRoundScreen: View {
                 .aspectRatio(contentMode: .fit)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.mt5MenuRoundScreenBadge)
+//        .resetBadgeOnAppear($ver370.mt5MenuRoundScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -88,7 +88,7 @@ struct mt5ViewRoundScreen: View {
 
 #Preview {
     mt5ViewRoundScreen(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         mt5: Mt5(),
     )
 }

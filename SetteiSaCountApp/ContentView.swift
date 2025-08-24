@@ -122,7 +122,7 @@ class commonVar: ObservableObject {
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
 //    @StateObject var ver361 = Ver361()
-    @StateObject var ver370 = Ver370()
+//    @StateObject var ver370 = Ver370()
     @StateObject var ver380 = Ver380()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
@@ -154,14 +154,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                             common: common,
                                         )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラー",
-                                        badgeStatus: ver370.jugSeriesBadge,
+//                                        badgeStatus: ver370.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -184,11 +184,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-                                        badgeStatus: ver370.darlingMachineIconBadge,
+//                                        badgeStatus: ver370.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -418,11 +418,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(bioViewTop(
-                                            ver370: ver370
+//                                            ver370: ver370
                                         )),
                                         iconImage: Image("bioMachineIcon"),
                                         machineName: "バイオ5",
-                                        badgeStatus: ver370.bioMachineIconBadge,
+//                                        badgeStatus: ver370.bioMachineIconBadge,
                                     )
                                 }
                                 
@@ -616,11 +616,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                         )),
                                         iconImage: Image("enenMachineIcon"),
                                         machineName: "スマスロ炎炎",
-                                        badgeStatus: ver370.enenMachineIconBadge,
+//                                        badgeStatus: ver370.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -638,14 +638,14 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             mt5ViewTop(
-                                                ver370: ver370,
+//                                                ver370: ver370,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
                                         ),
                                         iconImage: Image("mt5MachineIconWhite"),
                                         machineName: "モンキー5",
-                                        badgeStatus: ver370.mt5MachineIconBadge,
+//                                        badgeStatus: ver370.mt5MachineIconBadge,
                                     )
                                 }
                                 
@@ -702,7 +702,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                             common: common,
@@ -712,7 +712,7 @@ struct ContentView: View {
                                         makerName: "北電子",
                                         releaseYear: 96,
                                         releaseMonth: 12,
-                                        badgeStatus: ver370.jugSeriesBadge,
+//                                        badgeStatus: ver370.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -738,7 +738,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダーリン・イン・ザ・フランキス",
@@ -746,7 +746,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver370.darlingMachineIconBadge,
+//                                        badgeStatus: ver370.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1023,14 +1023,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(bioViewTop(
-                                            ver370: ver370
+//                                            ver370: ver370
                                         )),
                                         iconImage: Image("bioMachineIcon"),
                                         machineName: "バイオハザード5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-                                        badgeStatus: ver370.bioMachineIconBadge,
+//                                        badgeStatus: ver370.bioMachineIconBadge,
                                     )
                                 }
                                 
@@ -1292,7 +1292,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver370: ver370,
+//                                            ver370: ver370,
                                         )),
                                         iconImage: Image("enenMachineIcon"),
                                         machineName: "スマスロ炎炎ノ消防隊",
@@ -1300,7 +1300,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 5,
-                                        badgeStatus: ver370.enenMachineIconBadge,
+//                                        badgeStatus: ver370.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1318,7 +1318,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(
                                             mt5ViewTop(
-                                                ver370: ver370,
+//                                                ver370: ver370,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -1328,7 +1328,7 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2023,
                                         releaseMonth: 12,
-                                        badgeStatus: ver370.mt5MachineIconBadge,
+//                                        badgeStatus: ver370.mt5MachineIconBadge,
                                     )
                                 }
                                 

@@ -26,7 +26,7 @@ struct mt5TipCoin5Game: Tip {
 }
 
 struct mt5View5coin: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
@@ -66,7 +66,7 @@ struct mt5View5coin: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mt5ViewBayes(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -152,7 +152,7 @@ struct mt5View5coin: View {
 
 #Preview {
     mt5View5coin(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         mt5: Mt5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

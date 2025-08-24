@@ -399,7 +399,7 @@ class Mt5Memory3: ObservableObject {
 // ビュー：メインビュー
 // //////////////////////
 struct mt5ViewTop: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
 //    @ObservedObject var mt5 = Mt5()
@@ -415,7 +415,7 @@ struct mt5ViewTop: View {
                 Section {
                     // ５枚役
                     NavigationLink(destination: mt5View5coin(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -431,7 +431,7 @@ struct mt5ViewTop: View {
                     }
                     // 激走チャージ後のセリフ
                     NavigationLink(destination: mt5GekisoView(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -440,7 +440,7 @@ struct mt5ViewTop: View {
                     }
                     // ライバルモード
                     NavigationLink(destination: mt5RivalModeView(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -449,18 +449,18 @@ struct mt5ViewTop: View {
                     }
                     // ラウンド開始画面の示唆
                     NavigationLink(destination: mt5ViewRoundScreen(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle",
                             textBody: "ラウンド開始画面示唆",
-                            badgeStatus: ver370.mt5MenuRoundScreenBadge,
+//                            badgeStatus: ver370.mt5MenuRoundScreenBadge,
                         )
                     }
                     // AT終了後のメダル
                     NavigationLink(destination: mt5ViewMedal(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -469,7 +469,7 @@ struct mt5ViewTop: View {
                     }
                     // 青島SG
                     NavigationLink(destination: mt5ViewAoshimaSG(
-                        ver370: ver370,
+//                        ver370: ver370,
                         mt5: mt5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -490,7 +490,7 @@ struct mt5ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: mt5ViewBayes(
-                    ver370: ver370,
+//                    ver370: ver370,
                     mt5: mt5,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -498,7 +498,7 @@ struct mt5ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver370.mt5MenuBayesBadge,
+//                        badgeStatus: ver370.mt5MenuBayesBadge,
                     )
                 }
                 
@@ -506,7 +506,7 @@ struct mt5ViewTop: View {
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4450")
             }
             // //// バッジのリセット
-            .resetBadgeOnAppear($ver370.mt5MachineIconBadge)
+//            .resetBadgeOnAppear($ver370.mt5MachineIconBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -795,7 +795,7 @@ struct mt5ViewLoadMemory: View {
 
 #Preview {
     mt5ViewTop(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

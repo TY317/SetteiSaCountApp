@@ -383,7 +383,7 @@ class MyJug5Memory3: ObservableObject {
 
 
 struct myJug5Ver2ViewTop: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
     @StateObject var myJug5 = MyJug5()
@@ -427,7 +427,7 @@ struct myJug5Ver2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: myJug5Ver2ViewJissenCount(
-                        ver370: ver370,
+//                        ver370: ver370,
                         myJug5: myJug5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -439,7 +439,7 @@ struct myJug5Ver2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: myJug5Ver2ViewJissenTotalDataCheck(
-                        ver370: ver370,
+//                        ver370: ver370,
                         myJug5: myJug5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -460,7 +460,7 @@ struct myJug5Ver2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: myJug5ViewBayes(
-                    ver370: ver370,
+//                    ver370: ver370,
                     myJug5: myJug5,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -468,7 +468,7 @@ struct myJug5Ver2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver370.myJug5MenuBayesBadge,
+//                        badgeStatus: ver370.myJug5MenuBayesBadge,
                     )
                 }
 //                NavigationLink(destination: myJug5ViewBayseTest(
@@ -486,7 +486,7 @@ struct myJug5Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.jugSeriesBadge)
+//        .resetBadgeOnAppear($ver370.jugSeriesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -751,7 +751,7 @@ struct myJug5SubViewLoadMemory: View {
 
 #Preview {
     myJug5Ver2ViewTop(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
