@@ -18,6 +18,9 @@ class Ver380: ObservableObject {
     @AppStorage("ver380EvaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "update"
     @AppStorage("ver380EvaYakusokuMenuNormalBadge") var evaYakusokuMenuNormalBadge: String = "update"
     @AppStorage("ver380AzurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "new"
+    @AppStorage("ver380DarlingMachineIconBadge") var darlingMachineIconBadge: String = "update"
+    @AppStorage("ver380DarlingMenuNormalBadge") var darlingMenuNormalBadge: String = "update"
+    @AppStorage("ver380DarlingMenuCzBadge") var darlingMenuCzBadge: String = "new"
 }
 
 // //////////////////
@@ -77,3 +80,19 @@ struct tipVer380EvaYakusokuNormal: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：ダリフラ　高確移行率
+// //////////////////
+struct tipVer380DarlingKokaku: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("フランクス高確移行率の設定差が判明したので、高確移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+

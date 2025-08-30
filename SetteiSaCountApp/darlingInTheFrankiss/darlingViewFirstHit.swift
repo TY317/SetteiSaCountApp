@@ -121,15 +121,15 @@ struct darlingViewFirstHit: View {
             }
             
             // //// 設定差参考情報
-            Section {
-                // CZスタート時のレベル
-                unitLinkButtonViewBuilder(sheetTitle: "CZスタート時のレベル") {
-                    VStack {
-                        Text("・CZのレベル4(緑)、レベル5(赤)スタートは高設定ほど優遇")
-                    }
-                }
-//                .popoverTip(tipVer370DarlingCzLevel())
-            }
+//            Section {
+//                // CZスタート時のレベル
+//                unitLinkButtonViewBuilder(sheetTitle: "CZスタート時のレベル") {
+//                    VStack {
+//                        Text("・CZのレベル4(緑)、レベル5(赤)スタートは高設定ほど優遇")
+//                    }
+//                }
+////                .popoverTip(tipVer370DarlingCzLevel())
+//            }
             
             // //// 履歴表示
             Section {

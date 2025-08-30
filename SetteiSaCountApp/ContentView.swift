@@ -201,11 +201,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
-//                                            ver370: ver370,
+                                            ver380: ver380,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-//                                        badgeStatus: ver370.darlingMachineIconBadge,
+                                        badgeStatus: ver380.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -775,7 +775,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
-//                                            ver370: ver370,
+                                            ver380: ver380,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダーリン・イン・ザ・フランキス",
@@ -783,7 +783,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-//                                        badgeStatus: ver370.darlingMachineIconBadge,
+                                        badgeStatus: ver380.darlingMachineIconBadge,
                                     )
                                 }
                                 

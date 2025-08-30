@@ -8,7 +8,23 @@
 import SwiftUI
 
 struct darlingViewNormal: View {
+    @ObservedObject var ver380: Ver380
     @ObservedObject var darling: Darling
+    @State var selectedSegment: String = "🍒"
+    let segmentList: [String] = ["🍒", "チャンス目"]
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 300.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 300.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
+    @State var isShowAlert = false
+    
     var body: some View {
         List {
             // //// 小役関連
@@ -23,20 +39,121 @@ struct darlingViewNormal: View {
                 Text("小役")
             }
             
-            // //// フランクス高確謎当り
-//            Section {
-//                unitLinkButtonViewBuilder(sheetTitle: "フランクス高確 謎当り") {
-//                    VStack {
-//                        Text("・レア役を引かずにビーチステージにいない状態でフランクス高確に当選する、いわゆる謎当りに設定差があると思われる")
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                    }
-//                }
-//            } header: {
-//                Text("フランクス高確 謎当り")
-//            }
+            // //// フランクス高確移行率
+            Section {
+                // 注意書き
+                Text("高確集中状態での抽選はカウント対象外")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // セグメントピッカー
+                Picker("", selection: self.$selectedSegment) {
+                    ForEach(self.segmentList, id: \.self) { segment in
+                        Text(segment)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .popoverTip(tipVer380DarlingKokaku())
+                
+                // カウントボタン横並び
+                // チェリー
+                if self.selectedSegment == self.segmentList[0] {
+                    HStack {
+                        // 移行なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行なし",
+                            count: $darling.kokakuCountCherryMiss,
+                            color: .personalSummerLightRed,
+                            minusBool: $darling.minusCheck) {
+                                darling.kokakuCountSumFunc()
+                            }
+                        // 移行あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行あり",
+                            count: $darling.kokakuCountCherryHit,
+                            color: .red,
+                            minusBool: $darling.minusCheck) {
+                                darling.kokakuCountSumFunc()
+                            }
+                    }
+                }
+                // チャンス目
+                else {
+                    HStack {
+                        // 移行なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行なし",
+                            count: $darling.kokakuCountChanceMiss,
+                            color: .personalSummerLightPurple,
+                            minusBool: $darling.minusCheck) {
+                                darling.kokakuCountSumFunc()
+                            }
+                        // 移行あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行あり",
+                            count: $darling.kokakuCountChanceHit,
+                            color: .purple,
+                            minusBool: $darling.minusCheck) {
+                                darling.kokakuCountSumFunc()
+                            }
+                    }
+                }
+                // 結果横並び
+                HStack {
+                    // チェリー
+                    unitResultRatioPercent2Line(
+                        title: "🍒",
+                        count: $darling.kokakuCountCherryHit,
+                        bigNumber: $darling.kokakuCountCherrySum,
+                        numberofDicimal: 0
+                    )
+                    // チャンス目
+                    unitResultRatioPercent2Line(
+                        title: "チャンス目",
+                        count: $darling.kokakuCountChanceHit,
+                        bigNumber: $darling.kokakuCountChanceSum,
+                        numberofDicimal: 0
+                    )
+                }
+                // 参考情報）フランクス高確移行率
+                unitLinkButtonViewBuilder(sheetTitle: "フランクス高確移行率") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・高確集中状態を除く通常状態からの移行率に設定差")
+                            Text("・🍒、チャンス目以外からでも稀に移行する")
+                        }
+                        .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "🍒",
+                                percentList: darling.ratioKokakuCherry
+                            )
+                            unitTablePercent(
+                                columTitle: "チャンス目",
+                                percentList: darling.ratioKokakuChance
+                            )
+                        }
+                    }
+                }
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        darlingView95Ci(
+                            darling: darling,
+                            selection: 4,
+                        )
+                    )
+                )
+            } header: {
+                Text("フランクス高確移行率")
+            }
             
-            unitAdBannerMediumRectangle()
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+            
+//            unitAdBannerMediumRectangle()
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver380.darlingMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -45,13 +162,38 @@ struct darlingViewNormal: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                HStack {
+                    // マイナスチェック
+                    unitButtonMinusCheck(minusCheck: $darling.minusCheck)
+                    // リセットボタン
+                    unitButtonReset(isShowAlert: $isShowAlert, action: darling.resetNormal)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     darlingViewNormal(
+        ver380: Ver380(),
         darling: Darling(),
     )
 }

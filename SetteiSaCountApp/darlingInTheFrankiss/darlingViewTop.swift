@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewTop: View {
-//    @ObservedObject var ver370: Ver370
+    @ObservedObject var ver380: Ver380
     @StateObject var darling = Darling()
     @State var isShowAlert: Bool = false
     @StateObject var darlingMemory1 = DarlingMemory1()
@@ -21,11 +21,13 @@ struct darlingViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: darlingViewNormal(
+                        ver380: ver380,
                         darling: darling,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: ver380.darlingMenuNormalBadge,
                         )
                     }
                     // 初当り
@@ -39,7 +41,17 @@ struct darlingViewTop: View {
 //                            badgeStatus: ver370.darlingMenuFirstHitBadge,
                         )
                     }
-                    
+                    // CZ 開始時の初期レベル
+                    NavigationLink(destination: darlingViewCz(
+                        ver380: ver380,
+                        darling: darling,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "dot.scope",
+                            textBody: "CZ 開始時の初期レベル",
+                            badgeStatus: ver380.darlingMenuCzBadge,
+                        )
+                    }
                     // ボーナス高確率終了画面
                     NavigationLink(destination: darlingViewScreen(
                         darling: darling,
@@ -95,7 +107,7 @@ struct darlingViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver370.darlingMachineIconBadge)
+        .resetBadgeOnAppear($ver380.darlingMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -173,6 +185,22 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory1.endingCountOver2 = darling.endingCountOver2
         darlingMemory1.endingCountOver6 = darling.endingCountOver6
         darlingMemory1.endingCountSum = darling.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darlingMemory1.kokakuCountCherryMiss = darling.kokakuCountCherryMiss
+        darlingMemory1.kokakuCountCherryHit = darling.kokakuCountCherryHit
+        darlingMemory1.kokakuCountCherrySum = darling.kokakuCountCherrySum
+        darlingMemory1.kokakuCountChanceMiss = darling.kokakuCountChanceMiss
+        darlingMemory1.kokakuCountChanceHit = darling.kokakuCountChanceHit
+        darlingMemory1.kokakuCountChanceSum = darling.kokakuCountChanceSum
+        darlingMemory1.czLevelCountWhite = darling.czLevelCountWhite
+        darlingMemory1.czLevelCountBlue = darling.czLevelCountBlue
+        darlingMemory1.czLevelCountYellow = darling.czLevelCountYellow
+        darlingMemory1.czLevelCountGreen = darling.czLevelCountGreen
+        darlingMemory1.czLevelCountRed = darling.czLevelCountRed
+        darlingMemory1.czLevelCountSum = darling.czLevelCountSum
     }
     func saveMemory2() {
         darlingMemory2.gameArrayData = darling.gameArrayData
@@ -190,6 +218,22 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory2.endingCountOver2 = darling.endingCountOver2
         darlingMemory2.endingCountOver6 = darling.endingCountOver6
         darlingMemory2.endingCountSum = darling.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darlingMemory2.kokakuCountCherryMiss = darling.kokakuCountCherryMiss
+        darlingMemory2.kokakuCountCherryHit = darling.kokakuCountCherryHit
+        darlingMemory2.kokakuCountCherrySum = darling.kokakuCountCherrySum
+        darlingMemory2.kokakuCountChanceMiss = darling.kokakuCountChanceMiss
+        darlingMemory2.kokakuCountChanceHit = darling.kokakuCountChanceHit
+        darlingMemory2.kokakuCountChanceSum = darling.kokakuCountChanceSum
+        darlingMemory2.czLevelCountWhite = darling.czLevelCountWhite
+        darlingMemory2.czLevelCountBlue = darling.czLevelCountBlue
+        darlingMemory2.czLevelCountYellow = darling.czLevelCountYellow
+        darlingMemory2.czLevelCountGreen = darling.czLevelCountGreen
+        darlingMemory2.czLevelCountRed = darling.czLevelCountRed
+        darlingMemory2.czLevelCountSum = darling.czLevelCountSum
     }
     func saveMemory3() {
         darlingMemory3.gameArrayData = darling.gameArrayData
@@ -207,6 +251,22 @@ struct darlingSubViewSaveMemory: View {
         darlingMemory3.endingCountOver2 = darling.endingCountOver2
         darlingMemory3.endingCountOver6 = darling.endingCountOver6
         darlingMemory3.endingCountSum = darling.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darlingMemory3.kokakuCountCherryMiss = darling.kokakuCountCherryMiss
+        darlingMemory3.kokakuCountCherryHit = darling.kokakuCountCherryHit
+        darlingMemory3.kokakuCountCherrySum = darling.kokakuCountCherrySum
+        darlingMemory3.kokakuCountChanceMiss = darling.kokakuCountChanceMiss
+        darlingMemory3.kokakuCountChanceHit = darling.kokakuCountChanceHit
+        darlingMemory3.kokakuCountChanceSum = darling.kokakuCountChanceSum
+        darlingMemory3.czLevelCountWhite = darling.czLevelCountWhite
+        darlingMemory3.czLevelCountBlue = darling.czLevelCountBlue
+        darlingMemory3.czLevelCountYellow = darling.czLevelCountYellow
+        darlingMemory3.czLevelCountGreen = darling.czLevelCountGreen
+        darlingMemory3.czLevelCountRed = darling.czLevelCountRed
+        darlingMemory3.czLevelCountSum = darling.czLevelCountSum
     }
 }
 
@@ -257,6 +317,22 @@ struct darlingSubViewLoadMemory: View {
         darling.endingCountOver2 = darlingMemory1.endingCountOver2
         darling.endingCountOver6 = darlingMemory1.endingCountOver6
         darling.endingCountSum = darlingMemory1.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darling.kokakuCountCherryMiss = darlingMemory1.kokakuCountCherryMiss
+        darling.kokakuCountCherryHit = darlingMemory1.kokakuCountCherryHit
+        darling.kokakuCountCherrySum = darlingMemory1.kokakuCountCherrySum
+        darling.kokakuCountChanceMiss = darlingMemory1.kokakuCountChanceMiss
+        darling.kokakuCountChanceHit = darlingMemory1.kokakuCountChanceHit
+        darling.kokakuCountChanceSum = darlingMemory1.kokakuCountChanceSum
+        darling.czLevelCountWhite = darlingMemory1.czLevelCountWhite
+        darling.czLevelCountBlue = darlingMemory1.czLevelCountBlue
+        darling.czLevelCountYellow = darlingMemory1.czLevelCountYellow
+        darling.czLevelCountGreen = darlingMemory1.czLevelCountGreen
+        darling.czLevelCountRed = darlingMemory1.czLevelCountRed
+        darling.czLevelCountSum = darlingMemory1.czLevelCountSum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: darlingMemory2.gameArrayData)
@@ -278,6 +354,22 @@ struct darlingSubViewLoadMemory: View {
         darling.endingCountOver2 = darlingMemory2.endingCountOver2
         darling.endingCountOver6 = darlingMemory2.endingCountOver6
         darling.endingCountSum = darlingMemory2.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darling.kokakuCountCherryMiss = darlingMemory2.kokakuCountCherryMiss
+        darling.kokakuCountCherryHit = darlingMemory2.kokakuCountCherryHit
+        darling.kokakuCountCherrySum = darlingMemory2.kokakuCountCherrySum
+        darling.kokakuCountChanceMiss = darlingMemory2.kokakuCountChanceMiss
+        darling.kokakuCountChanceHit = darlingMemory2.kokakuCountChanceHit
+        darling.kokakuCountChanceSum = darlingMemory2.kokakuCountChanceSum
+        darling.czLevelCountWhite = darlingMemory2.czLevelCountWhite
+        darling.czLevelCountBlue = darlingMemory2.czLevelCountBlue
+        darling.czLevelCountYellow = darlingMemory2.czLevelCountYellow
+        darling.czLevelCountGreen = darlingMemory2.czLevelCountGreen
+        darling.czLevelCountRed = darlingMemory2.czLevelCountRed
+        darling.czLevelCountSum = darlingMemory2.czLevelCountSum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: darlingMemory3.gameArrayData)
@@ -299,11 +391,27 @@ struct darlingSubViewLoadMemory: View {
         darling.endingCountOver2 = darlingMemory3.endingCountOver2
         darling.endingCountOver6 = darlingMemory3.endingCountOver6
         darling.endingCountSum = darlingMemory3.endingCountSum
+        
+        // ///////////
+        // ver3.8.0で追加
+        // ///////////
+        darling.kokakuCountCherryMiss = darlingMemory3.kokakuCountCherryMiss
+        darling.kokakuCountCherryHit = darlingMemory3.kokakuCountCherryHit
+        darling.kokakuCountCherrySum = darlingMemory3.kokakuCountCherrySum
+        darling.kokakuCountChanceMiss = darlingMemory3.kokakuCountChanceMiss
+        darling.kokakuCountChanceHit = darlingMemory3.kokakuCountChanceHit
+        darling.kokakuCountChanceSum = darlingMemory3.kokakuCountChanceSum
+        darling.czLevelCountWhite = darlingMemory3.czLevelCountWhite
+        darling.czLevelCountBlue = darlingMemory3.czLevelCountBlue
+        darling.czLevelCountYellow = darlingMemory3.czLevelCountYellow
+        darling.czLevelCountGreen = darlingMemory3.czLevelCountGreen
+        darling.czLevelCountRed = darlingMemory3.czLevelCountRed
+        darling.czLevelCountSum = darlingMemory3.czLevelCountSum
     }
 }
 
 #Preview {
     darlingViewTop(
-//        ver370: Ver370(),
+        ver380: Ver380(),
     )
 }
