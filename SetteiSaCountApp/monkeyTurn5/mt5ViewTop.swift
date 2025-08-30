@@ -504,6 +504,13 @@ struct mt5ViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4450")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©河合克敏 ・ 小学館／モンキーターンプロジェクト")
+                    Text("©YAMASA")
+                    Text("©YAMASA NEXT")
+                }
             }
             // //// バッジのリセット
 //            .resetBadgeOnAppear($ver370.mt5MachineIconBadge)

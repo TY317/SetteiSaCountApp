@@ -153,6 +153,12 @@ struct VVV_Top: View {
                     Text("")
                 }
                 .listRowBackground(Color.clear)
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©︎SUNRISE/VVV Committee")
+                    Text("©︎SANKYO")
+                }
             }
             // //// firebaseログ
             .onAppear {

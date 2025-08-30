@@ -416,6 +416,12 @@ struct acceleratorViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4686")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©2017 鎌池和馬／KADOKAWA　アスキー・メディアワークス／PROJECT-INDEX Ⅲ")
+                    Text("©2018 鎌池和馬／冬川基／KADOKAWA／PROJECT-RAILGUN T")
+                }
             }
         }
         // //// firebaseログ

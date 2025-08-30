@@ -113,6 +113,11 @@ struct midoriDonViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4763")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©UNIVERSAL ENTERTAINMENT")
+                }
             }
         }
         // //// firebaseログ

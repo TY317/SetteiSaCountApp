@@ -62,6 +62,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteDarling") var isSelectedFavoriteDarling = true
     @AppStorage("isSelectedFavoriteReSword") var isSelectedFavoriteReSword = true
     @AppStorage("isSelectedFavoriteEnen") var isSelectedFavoriteEnen = true
+    @AppStorage("isSelectedFavoriteAzurLane") var isSelectedFavoriteAzurLane = true
 }
 
 
@@ -175,6 +176,22 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ"
+                                    )
+                                }
+                                
+                                // //// アズールレーン、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAzurLane == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(azurLaneViewTop(
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("azurLaneMachineIcon"),
+                                        machineName: "アズレン",
+                                        badgeStatus: ver380.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -729,6 +746,26 @@ struct ContentView: View {
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5
+                                    )
+                                }
+                                
+                                // //// アズールレーン、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAzurLane == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(azurLaneViewTop(
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("azurLaneMachineIcon"),
+                                        machineName: "アズールレーン",
+//                                        machineNameFont: .subheadline,
+                                        makerName: "京楽",
+                                        releaseYear: 2025,
+                                        releaseMonth: 8,
+                                        badgeStatus: ver380.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -1603,6 +1640,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // アズールレーン
+                Toggle("アズールレーン", isOn: $favoriteSet.isSelectedFavoriteAzurLane)
                 // ダーリンインザフランキス
                 Toggle("ダーリン・イン・ザ・フランキス", isOn: $favoriteSet.isSelectedFavoriteDarling)
                 // 転生したら剣でした

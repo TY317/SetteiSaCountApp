@@ -510,6 +510,14 @@ struct godeaterViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4602")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("GOD EATER™Series & ©Bandai Namco Entertainment Inc.")
+                    Text("©Bandai Namco Sevens Inc.")
+                    Text("©SEVENLEAGUE")
+                    Text("©YAMASA NEXT")
+                }
             }
         }
         // //// firebaseログ

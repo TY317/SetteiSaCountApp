@@ -92,6 +92,13 @@ struct tokyoGhoulViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4742")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©石田スイ／集英社・東京喰種製作委員会")
+                    Text("©SPIKY")
+                    Text("©CROSSALPHA")
+                }
             }
         }
         // //// バッジのリセット

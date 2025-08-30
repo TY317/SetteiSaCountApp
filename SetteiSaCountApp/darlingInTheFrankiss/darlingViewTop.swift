@@ -85,6 +85,13 @@ struct darlingViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4855"
                 )
+                
+                // コピーライト
+                unitSectionCopyright {
+                    Text("©ダーリン・イン・ザ・フランキス製作委員会")
+                    Text("©︎SPIKY")
+                    Text("©︎CROSSALPHA")
+                }
             }
         }
         // //// バッジのリセット

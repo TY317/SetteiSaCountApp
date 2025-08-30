@@ -91,6 +91,12 @@ struct watakonViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4803"
                 )
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©2023 顎木あくみ・月岡月穂／KADOKAWA／\n  「わたしの幸せな結婚」製作委員会")
+                    Text("©Konami Amusement")
+                }
             }
         }
         // //// バッジのリセット

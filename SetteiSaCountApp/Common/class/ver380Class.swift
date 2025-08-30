@@ -17,22 +17,36 @@ class Ver380: ObservableObject {
     @AppStorage("ver380HokutoMenuNormalBadge") var hokutoMenuNormalBadge: String = "update"
     @AppStorage("ver380EvaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "update"
     @AppStorage("ver380EvaYakusokuMenuNormalBadge") var evaYakusokuMenuNormalBadge: String = "update"
+    @AppStorage("ver380AzurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "new"
 }
 
 // //////////////////
 // Tip：機種追加
 // //////////////////
+//struct tipVer380MachineAddver2: Tip {
+//    var title: Text {
+//        Text("機種,機能追加！")
+//    }
+//    var message: Text? {
+//        Text("・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
+//    }
+//    var image: Image? {
+//        Image(systemName: "star")
+//    }
+//}
+
 struct tipVer380MachineAddver2: Tip {
     var title: Text {
         Text("機種,機能追加！")
     }
     var message: Text? {
-        Text("・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
+        Text("・アズールレーンを追加\n・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
     }
     var image: Image? {
         Image(systemName: "star")
     }
 }
+
 
 // //////////////////
 // Tip：ダリフラ　CZ開始レベル

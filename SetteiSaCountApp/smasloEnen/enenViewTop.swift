@@ -91,6 +91,12 @@ struct enenViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4555"
                 )
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©︎大久保篤／講談社")
+                    Text("©︎大久保篤・講談社／特殊消防隊動画広報課")
+                }
             }
         }
         // //// バッジのリセット

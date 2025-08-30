@@ -214,6 +214,11 @@ struct toloveruViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4571")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©矢吹健太朗・長谷見沙貴／集英社・とらぶるダークネス製作委員会")
+                }
             }
         }
         // //// firebaseログ

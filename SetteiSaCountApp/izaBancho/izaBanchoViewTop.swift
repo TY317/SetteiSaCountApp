@@ -94,6 +94,11 @@ struct izaBanchoViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4805")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©DAITO GIKEN,INC.")
+                }
             }
         }
         // //// バッジのリセット

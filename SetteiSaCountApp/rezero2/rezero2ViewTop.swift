@@ -544,6 +544,12 @@ struct rezero2ViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4658")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活2製作委員会")
+                    Text("©DAITO GIKEN,INC.")
+                }
             }
         }
         // //// firebaseログ

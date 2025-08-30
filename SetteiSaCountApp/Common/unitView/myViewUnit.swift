@@ -1172,6 +1172,7 @@ struct unitResultCountListPercent: View {
     }
     let titleColor: Color = .primary
     let numberColor: Color = .secondary
+    var titleFont: Font = .body
     
     var body: some View {
         ZStack {
@@ -1181,6 +1182,7 @@ struct unitResultCountListPercent: View {
                 Text(title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.titleColor)
+                    .font(self.titleFont)
                 HStack {
                     Text("\(count)")
                         .frame(maxWidth: .infinity, alignment: .center)

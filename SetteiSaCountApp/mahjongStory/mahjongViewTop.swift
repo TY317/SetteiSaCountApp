@@ -86,6 +86,11 @@ struct mahjongViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4777")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©OLYMPIA")
+                }
             }
         }
         // //// firebaseログ
