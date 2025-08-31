@@ -116,6 +116,11 @@ struct dmc5ViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4814")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©CAPCOM")
+                }
             }
         }
         // //// バッジのリセット

@@ -59,6 +59,11 @@ struct gundamSeedViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4788")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©︎創通・サンライズ")
+                }
             }
         }
         // //// firebaseログ

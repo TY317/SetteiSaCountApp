@@ -755,6 +755,13 @@ struct inuyasha2ViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4690")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©高橋留美子/小学館・読売テレビ・サンライズ2000&2009")
+                    Text("©SPIKY")
+                    Text("©CROSSALPHA")
+                }
             }
         }
         // //// firebaseログ

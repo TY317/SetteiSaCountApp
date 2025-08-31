@@ -142,6 +142,18 @@ struct kaijiViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4734")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©福本伸行／講談社")
+                    Text("©福本伸行・萩原天晴・三好智樹・橋本智広／講談社")
+                    Text("©福本伸行・萩原天晴・上原求・新井和也／講談社")
+                    Text("©福本伸行／講談社・VAP・マッドハウス・NTV・D.N.ドリームパートナーズ")
+                    Text("©福本伸行／講談社・VAP・NTV")
+                    Text("©福本伸行・萩原天晴・三好智樹・橋本智広／講談社・帝愛グループ 広報部")
+                    Text("©福本伸行・萩原天晴・上原求・新井和也／講談社・帝愛グループ 広報部")
+                    Text("©Sammy")
+                }
             }
         }
         // //// firebaseログ

@@ -69,6 +69,11 @@ struct yoshimuneViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4778")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©DAITO GIKEN,INC.")
+                }
             }
         }
         // //// バッジのリセット

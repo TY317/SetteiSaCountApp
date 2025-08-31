@@ -471,6 +471,11 @@ struct kaguyaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4618")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©赤坂アカ／集英社・かぐや様は告らせたい製作委員会")
+                }
             }
         }
         // //// firebaseログ

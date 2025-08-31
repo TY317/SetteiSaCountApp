@@ -9,7 +9,7 @@ import SwiftUI
 
 struct mt5GekisoView: View {
 //    @ObservedObject var mt5 = Mt5()
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var mt5: Mt5
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
@@ -33,7 +33,7 @@ struct mt5GekisoView: View {
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
                         mt5ViewBayes(
-                            ver370: ver370,
+//                            ver370: ver370,
                             mt5: mt5,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -97,7 +97,7 @@ struct mt5ExViewGekiso: View {
 
 #Preview {
     mt5GekisoView(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         mt5: Mt5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

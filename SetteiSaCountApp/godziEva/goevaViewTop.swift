@@ -330,6 +330,12 @@ struct goevaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4501")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©カラー")
+                    Text("TM & ©TOHO CO., LTD.")
+                }
             }
         }
         // //// firebaseログ

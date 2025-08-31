@@ -453,7 +453,9 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
-//    @ObservedObject var ver300: Ver300
+    @ObservedObject var ver380: Ver380
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
 //    @ObservedObject var ver220 = Ver220()
 //    @ObservedObject var godeater = Godeater()
     @StateObject var godeater = Godeater()
@@ -468,8 +470,10 @@ struct godeaterViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: godeaterViewNormal(
-//                        ver300: ver300,
-                        godeater: godeater
+                        ver380: ver380,
+                        godeater: godeater,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
@@ -478,7 +482,12 @@ struct godeaterViewTop: View {
                         )
                     }
                     // AT,CZ当選履歴
-                    NavigationLink(destination: godeaterViewHistory(godeater: godeater)) {
+                    NavigationLink(destination: godeaterViewHistory(
+                        ver380: ver380,
+                        godeater: godeater,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT,CZ 当選履歴"
@@ -507,11 +516,35 @@ struct godeaterViewTop: View {
                 )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: godeaterViewBayes(
+                    ver380: ver380,
+                    godeater: godeater,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver380.godeaterMenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4602")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("GOD EATER™Series & ©Bandai Namco Entertainment Inc.")
+                    Text("©Bandai Namco Sevens Inc.")
+                    Text("©SEVENLEAGUE")
+                    Text("©YAMASA NEXT")
+                }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver380.godeaterMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -888,6 +921,8 @@ struct godeaterViewLoadMemory: View {
 
 #Preview {
     godeaterViewTop(
-//        ver300: Ver300()
+        ver380: Ver380(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

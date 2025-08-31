@@ -88,6 +88,13 @@ struct shamanKingViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4719")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©武井宏之／講談社")
+                    Text("©武井宏之・講談社／SHAMAN KING Project.・テレビ東京")
+                    Text("©UNIVERSAL ENTERTAINMENT")
+                }
             }
         }
         // //// firebaseログ

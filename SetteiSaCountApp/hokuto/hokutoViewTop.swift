@@ -435,13 +435,20 @@ struct hokutoViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
+                        badgeStatus: ver380.hokutoMenuBayesBadge,
                     )
                 }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4301")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©︎武論尊・原哲夫／コアミックス 1983")
+                    Text("©︎COAMIX 2007 版権許諾証YRA-114")
+                    Text("©︎Sammy")
+                }
             }
         }
         // //// バッジのリセット

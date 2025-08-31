@@ -520,6 +520,11 @@ struct lupinViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4689")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©モンキー・パンチ／TMS・NTV")
+                }
             }
         }
         // //// firebaseログ

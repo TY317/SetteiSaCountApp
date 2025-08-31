@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct bioViewTop: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @StateObject var bio = Bio()
     @State var isShowAlert: Bool = false
     @StateObject var bioMemory1 = BioMemory1()
@@ -36,13 +36,13 @@ struct bioViewTop: View {
                     }
                     // AT中
                     NavigationLink(destination: bioViewAt(
-                        ver370: ver370,
+//                        ver370: ver370,
                         bio: bio,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "allergens.fill",
                             textBody: "AT開始時",
-                            badgeStatus: ver370.bioMenuAtBadge,
+//                            badgeStatus: ver370.bioMenuAtBadge,
                         )
                     }
                     // AT終了画面
@@ -75,10 +75,15 @@ struct bioViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4754")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©CAPCOM")
+                }
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.bioMachineIconBadge)
+//        .resetBadgeOnAppear($ver370.bioMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -431,6 +436,6 @@ struct bioSubViewLoadMemory: View {
 
 #Preview {
     bioViewTop(
-        ver370: Ver370(),
+//        ver370: Ver370(),
     )
 }

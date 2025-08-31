@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewNormal: View {
-//    @ObservedObject var ver300: Ver300
+    @ObservedObject var ver380: Ver380
     @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     let selectListKoyakuKind: [String] = [
@@ -24,6 +24,8 @@ struct godeaterViewNormal: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -131,6 +133,15 @@ struct godeaterViewNormal: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(godeater: godeater, selection: 3)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    godeaterViewBayes(
+                        ver380: ver380,
+                        godeater: godeater,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("通常時小役からのCZ当選率")
             }
@@ -209,7 +220,9 @@ struct godeaterViewNormal: View {
 
 #Preview {
     godeaterViewNormal(
-//        ver300: Ver300(),
-        godeater: Godeater()
+        ver380: Ver380(),
+        godeater: Godeater(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

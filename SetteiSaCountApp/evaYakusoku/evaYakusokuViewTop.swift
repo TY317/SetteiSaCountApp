@@ -95,6 +95,11 @@ struct evaYakusokuViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4830")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©カラー")
+                }
             }
         }
         // //// バッジのリセット

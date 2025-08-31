@@ -75,6 +75,12 @@ struct godzillaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4752")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("TM & © TOHO CO., LTD.")
+                    Text("©2023 TOHO CO., LTD.")
+                }
             }
         }
         // //// firebaseログ

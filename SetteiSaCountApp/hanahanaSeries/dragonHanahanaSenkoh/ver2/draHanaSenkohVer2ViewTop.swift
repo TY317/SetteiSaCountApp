@@ -540,6 +540,11 @@ struct draHanaSenkohVer2ViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4453")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // コピーライト
+                unitSectionCopyright {
+                    Text("©PIONEER")
+                }
             }
         }
         // //// firebaseログ

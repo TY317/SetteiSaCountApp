@@ -76,6 +76,14 @@ struct idolMasterViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4753")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("THE IDOLM@STER™& ©Bandai Namco Entertainment Inc.")
+                    Text("©Bandai Namco Sevens Inc.")
+                    Text("©YAMASA")
+                    Text("©YAMASA NEXT")
+                }
             }
         }
         // バッジのリセット

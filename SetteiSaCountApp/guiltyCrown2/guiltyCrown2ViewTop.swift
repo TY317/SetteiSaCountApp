@@ -95,6 +95,12 @@ struct guiltyCrown2ViewTop: View {
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4790")
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©ギルティクラウン製作委員会")
+                    Text("©UNIVERSAL ENTERTAINMENT")
+                }
             }
         }
         // //// バッジのリセット

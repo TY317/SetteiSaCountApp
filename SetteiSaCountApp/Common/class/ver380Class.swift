@@ -17,22 +17,43 @@ class Ver380: ObservableObject {
     @AppStorage("ver380HokutoMenuNormalBadge") var hokutoMenuNormalBadge: String = "update"
     @AppStorage("ver380EvaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "update"
     @AppStorage("ver380EvaYakusokuMenuNormalBadge") var evaYakusokuMenuNormalBadge: String = "update"
+    @AppStorage("ver380AzurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "new"
+    @AppStorage("ver380DarlingMachineIconBadge") var darlingMachineIconBadge: String = "update"
+    @AppStorage("ver380DarlingMenuNormalBadge") var darlingMenuNormalBadge: String = "update"
+    @AppStorage("ver380DarlingMenuCzBadge") var darlingMenuCzBadge: String = "new"
+    @AppStorage("ver380GodeaterMachineIconBadge") var godeaterMachineIconBadge: String = "update"
+    @AppStorage("ver380GodeaterMenuBayesBadge") var godeaterMenuBayesBadge: String = "new"
+    @AppStorage("ver380KarakuriMachineIconBadge") var karakuriMachineIconBadge: String = "update"
+    @AppStorage("ver380KarakuriMenuBayesBadge") var karakuriMenuBayesBadge: String = "new"
 }
 
 // //////////////////
 // Tip：機種追加
 // //////////////////
+//struct tipVer380MachineAddver2: Tip {
+//    var title: Text {
+//        Text("機種,機能追加！")
+//    }
+//    var message: Text? {
+//        Text("・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
+//    }
+//    var image: Image? {
+//        Image(systemName: "star")
+//    }
+//}
+
 struct tipVer380MachineAddver2: Tip {
     var title: Text {
         Text("機種,機能追加！")
     }
     var message: Text? {
-        Text("・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
+        Text("・アズールレーンを追加\n・設定期待値の対応機種追加\n　　・ゴッドイーター\n　　・からくりサーカス")
     }
     var image: Image? {
         Image(systemName: "star")
     }
 }
+
 
 // //////////////////
 // Tip：ダリフラ　CZ開始レベル
@@ -63,3 +84,19 @@ struct tipVer380EvaYakusokuNormal: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：ダリフラ　高確移行率
+// //////////////////
+struct tipVer380DarlingKokaku: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("フランクス高確移行率の設定差が判明したので、高確移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+

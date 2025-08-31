@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewTop: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @StateObject var enen = Enen()
     @State var isShowAlert: Bool = false
     @StateObject var enenMemory1 = EnenMemory1()
@@ -91,10 +91,16 @@ struct enenViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4555"
                 )
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©︎大久保篤／講談社")
+                    Text("©︎大久保篤・講談社／特殊消防隊動画広報課")
+                }
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.enenMachineIconBadge)
+//        .resetBadgeOnAppear($ver370.enenMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -445,6 +451,6 @@ struct enenSubViewLoadMemory: View {
 
 #Preview {
     enenViewTop(
-        ver370: Ver370(),
+//        ver370: Ver370(),
     )
 }

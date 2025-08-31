@@ -77,6 +77,11 @@ struct starHanaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4680")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // コピーライト
+                unitSectionCopyright {
+                    Text("©PIONEER")
+                }
             }
         }
         // //// firebaseログ

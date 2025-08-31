@@ -156,6 +156,12 @@ struct magiaViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4745")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©Magica Quartet/Aniplex･Magia Record Anime Partners")
+                    Text("©UNIVERSAL ENTERTAINMENT")
+                }
             }
         }
         // //// バッジのリセット

@@ -64,6 +64,60 @@ struct darlingView95Ci: View {
                 )
             )
             .tag(3)
+            // フランクス高確　チェリーからの移行回数
+            unitListSection95Ci(
+                grafTitle: "フランクス高確\n🍒からの移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.kokakuCountCherryHit,
+                        bigNumber: $darling.kokakuCountCherrySum,
+                        setting1Percent: darling.ratioKokakuCherry[0],
+                        setting2Percent: darling.ratioKokakuCherry[1],
+                        setting3Percent: darling.ratioKokakuCherry[2],
+                        setting4Percent: darling.ratioKokakuCherry[3],
+                        setting5Percent: darling.ratioKokakuCherry[4],
+                        setting6Percent: darling.ratioKokakuCherry[5]
+                    )
+                )
+            )
+            .tag(4)
+            // フランクス高確　チャンス目からの移行回数
+            unitListSection95Ci(
+                grafTitle: "フランクス高確\nチャンス目からの移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.kokakuCountChanceHit,
+                        bigNumber: $darling.kokakuCountChanceSum,
+                        setting1Percent: darling.ratioKokakuChance[0],
+                        setting2Percent: darling.ratioKokakuChance[1],
+                        setting3Percent: darling.ratioKokakuChance[2],
+                        setting4Percent: darling.ratioKokakuChance[3],
+                        setting5Percent: darling.ratioKokakuChance[4],
+                        setting6Percent: darling.ratioKokakuChance[5]
+                    )
+                )
+            )
+            .tag(5)
+            // CZ初期レベル　白回数
+            unitListSection95Ci(
+                grafTitle: "CZ初期レベル\n白 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czLevelCountWhite,
+                        bigNumber: $darling.czLevelCountSum,
+                        setting1Percent: darling.ratioCzLevelWhite[0],
+                        setting2Percent: darling.ratioCzLevelWhite[1],
+                        setting3Percent: darling.ratioCzLevelWhite[2],
+                        setting4Percent: darling.ratioCzLevelWhite[3],
+                        setting5Percent: darling.ratioCzLevelWhite[4],
+                        setting6Percent: darling.ratioCzLevelWhite[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

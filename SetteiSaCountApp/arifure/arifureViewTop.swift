@@ -84,6 +84,11 @@ struct arifureViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4715")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©Ryo shirakome, OVERLAP/ARIFURETA Project")
+                }
             }
         }
         // //// firebaseログ

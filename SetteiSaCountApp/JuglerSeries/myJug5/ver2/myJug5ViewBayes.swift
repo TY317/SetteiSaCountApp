@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct myJug5ViewBayes: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var myJug5: MyJug5
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     // //// 設定判別要素の設定
@@ -82,7 +82,7 @@ struct myJug5ViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.myJug5MenuBayesBadge)
+//        .resetBadgeOnAppear($ver370.myJug5MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -256,7 +256,7 @@ struct myJug5ViewBayes: View {
 
 #Preview {
     myJug5ViewBayes(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         myJug5: MyJug5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

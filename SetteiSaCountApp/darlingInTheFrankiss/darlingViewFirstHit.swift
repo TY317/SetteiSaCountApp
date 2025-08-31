@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewFirstHit: View {
-    @ObservedObject var ver370: Ver370
+//    @ObservedObject var ver370: Ver370
     @ObservedObject var darling: Darling
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -121,15 +121,15 @@ struct darlingViewFirstHit: View {
             }
             
             // //// 設定差参考情報
-            Section {
-                // CZスタート時のレベル
-                unitLinkButtonViewBuilder(sheetTitle: "CZスタート時のレベル") {
-                    VStack {
-                        Text("・CZのレベル4(緑)、レベル5(赤)スタートは高設定ほど優遇")
-                    }
-                }
-                .popoverTip(tipVer370DarlingCzLevel())
-            }
+//            Section {
+//                // CZスタート時のレベル
+//                unitLinkButtonViewBuilder(sheetTitle: "CZスタート時のレベル") {
+//                    VStack {
+//                        Text("・CZのレベル4(緑)、レベル5(赤)スタートは高設定ほど優遇")
+//                    }
+//                }
+////                .popoverTip(tipVer370DarlingCzLevel())
+//            }
             
             // //// 履歴表示
             Section {
@@ -300,7 +300,7 @@ struct darlingViewFirstHit: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver370.darlingMenuFirstHitBadge)
+//        .resetBadgeOnAppear($ver370.darlingMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -351,7 +351,7 @@ struct darlingViewFirstHit: View {
 
 #Preview {
     darlingViewFirstHit(
-        ver370: Ver370(),
+//        ver370: Ver370(),
         darling: Darling(),
     )
 }

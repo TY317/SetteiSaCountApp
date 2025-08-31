@@ -87,6 +87,13 @@ struct sbjViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4712")
 //                    .popoverTip(tipVer220AddLink())
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©コーエーテクモウェーブ")
+                    Text("©SEVENLEAGUE")
+                    Text("©YAMASA NEXT")
+                }
             }
         }
         // //// firebaseログ

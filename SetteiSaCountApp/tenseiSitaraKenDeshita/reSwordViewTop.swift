@@ -130,6 +130,12 @@ struct reSwordViewTop: View {
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4843"
                 )
+                
+                // copyright
+                unitSectionCopyright {
+                    Text("©棚架ユウ・るろお／マイクロマガジン社／転剣製作委員会")
+                    Text("©Konami Amusement")
+                }
             }
         }
         // //// バッジのリセット
