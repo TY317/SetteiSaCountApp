@@ -167,6 +167,15 @@ struct godeaterViewHistory: View {
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(godeater: godeater, selection: 1)))
 //                            .popoverTip(tipUnitButtonLink95Ci())
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            godeaterViewBayes(
+                                ver380: ver380,
+                                godeater: godeater,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
                     } header: {
                         unitHeaderHistoryColumns(column2: "ゲーム", column3: "種類", column4: "当選契機")
                     }
