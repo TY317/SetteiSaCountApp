@@ -89,7 +89,7 @@ struct darlingView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $darling.kokakuCountChanceHit,
-                        bigNumber: $darling.kokakuCountChanceHit,
+                        bigNumber: $darling.kokakuCountChanceSum,
                         setting1Percent: darling.ratioKokakuChance[0],
                         setting2Percent: darling.ratioKokakuChance[1],
                         setting3Percent: darling.ratioKokakuChance[2],

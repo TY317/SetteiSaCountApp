@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct karakuriViewEnding: View {
+    @ObservedObject var ver380: Ver380
 //    @ObservedObject var karakuri = Karakuri()
     @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
@@ -16,6 +17,8 @@ struct karakuriViewEnding: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     
     var body: some View {
         List {
@@ -62,6 +65,15 @@ struct karakuriViewEnding: View {
                 }
                 // //// 参考情報リンク
                 unitLinkButton(title: "エンディング中の示唆について", exview: AnyView(unitExView5body2image(title: "エンディング中 レア役時のランプ色", textBody1: "・エンディング中のレア役成立時に上部ランプの色で設定を示唆", textBody2: "※ 弱レア役と強レア役で振分けに差があるが、微差のため分けてカウントする機能は設けていません", image1Title: "[弱レア役成立時]", image1: Image("karakuriEndingJaku"), image2Title: "[強レア役成立時]", image2: Image("karakuriEndingKyou"))))
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    karakuriViewBayes(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("レア役時のランプ色")
             }
@@ -127,5 +139,10 @@ struct karakuriViewEnding: View {
 }
 
 #Preview {
-    karakuriViewEnding(karakuri: Karakuri())
+    karakuriViewEnding(
+        ver380: Ver380(),
+        karakuri: Karakuri(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

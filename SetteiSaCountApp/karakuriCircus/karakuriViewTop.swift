@@ -392,6 +392,9 @@ class KarakuriMemory3: ObservableObject {
 
 
 struct karakuriViewTop: View {
+    @ObservedObject var ver380: Ver380
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
 //    @ObservedObject var karakuri = Karakuri()
     @StateObject var karakuri = Karakuri()
     @State var isShowAlert = false
@@ -406,7 +409,13 @@ struct karakuriViewTop: View {
             List {
                 Section {
                     // スイカと幕間チャンス
-                    NavigationLink(destination: karakuriViewMakuai(karakuri: karakuri)) {
+                    NavigationLink(
+                        destination: karakuriViewMakuai(
+                            ver380: ver380,
+                            karakuri: karakuri,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )) {
                         unitLabelMenu(imageSystemName: "curtains.closed", textBody: "スイカと通常幕間チャンス")
                     }
                     // CZ初当たり履歴
@@ -414,7 +423,12 @@ struct karakuriViewTop: View {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "CZ初当たり履歴")
                     }
                     // AT中のステージ
-                    NavigationLink(destination: karakuriViewStage(karakuri: karakuri)) {
+                    NavigationLink(destination: karakuriViewStage(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "robotic.vacuum", textBody: "AT中のステージ")
                     }
                     // AT終了画面
@@ -426,7 +440,12 @@ struct karakuriViewTop: View {
                         unitLabelMenu(imageSystemName: "party.popper", textBody: "運命の一劇")
                     }
                     // エンディング
-                    NavigationLink(destination: karakuriViewEnding(karakuri: karakuri)) {
+                    NavigationLink(destination: karakuriViewEnding(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
                     }
                 } header: {
@@ -435,6 +454,19 @@ struct karakuriViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: karakuriView95Ci(karakuri: karakuri)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: karakuriViewBayes(
+                    ver380: ver380,
+                    karakuri: karakuri,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver380.karakuriMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4360")
@@ -446,6 +478,8 @@ struct karakuriViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver380.karakuriMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -788,5 +822,9 @@ struct karakuriViewLoadMemory: View {
 }
 
 #Preview {
-    karakuriViewTop()
+    karakuriViewTop(
+        ver380: Ver380(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

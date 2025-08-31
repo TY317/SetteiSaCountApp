@@ -435,7 +435,7 @@ struct hokutoViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
+                        badgeStatus: ver380.hokutoMenuBayesBadge,
                     )
                 }
                 

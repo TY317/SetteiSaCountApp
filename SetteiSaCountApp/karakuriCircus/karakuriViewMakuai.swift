@@ -41,6 +41,7 @@ struct karakuriMakuaiGame: Tip {
 
 
 struct karakuriViewMakuai: View {
+    @ObservedObject var ver380: Ver380
 //    @ObservedObject var karakuri = Karakuri()
     @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
@@ -48,6 +49,9 @@ struct karakuriViewMakuai: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
     var body: some View {
         List {
             // //// カウント部分
@@ -184,6 +188,15 @@ struct karakuriViewMakuai: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(karakuri: karakuri, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    karakuriViewBayes(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("現在ゲーム数と幕間出現率")
             }
@@ -249,5 +262,10 @@ struct karakuriViewMakuai: View {
 }
 
 #Preview {
-    karakuriViewMakuai(karakuri: Karakuri())
+    karakuriViewMakuai(
+        ver380: Ver380(),
+        karakuri: Karakuri(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

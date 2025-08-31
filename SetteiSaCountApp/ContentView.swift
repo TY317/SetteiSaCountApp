@@ -604,11 +604,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(godeaterViewTop(
-//                                            ver300: ver300
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("godeaterMachinIcon"),
-                                        machineName: "ゴッドイーター"
-//                                        badgeStatus: ver300.godeaterMachineIconBadgeStatus
+                                        machineName: "ゴッドイーター",
+                                        badgeStatus: ver380.godeaterMachineIconBadge,
                                     )
                                 }
                                 
@@ -670,7 +672,18 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
                                     // 非表示
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(
+                                            karakuriViewTop(
+                                                ver380: ver380,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )
+                                        ),
+                                        iconImage: Image("karakuriMachineIcon"),
+                                        machineName: "からくりサーカス",
+                                        badgeStatus: ver380.karakuriMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// 北斗の拳、23年4月
@@ -1296,14 +1309,16 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(godeaterViewTop(
-//                                            ver300: ver300
+                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("godeaterMachinIcon"),
                                         machineName: "ゴッドイーター リザレクション",
                                         makerName: "山佐",
                                         releaseYear: 2024,
-                                        releaseMonth: 7
-//                                        badgeStatus: ver300.godeaterMachineIconBadgeStatus
+                                        releaseMonth: 7,
+                                        badgeStatus: ver380.godeaterMachineIconBadge,
                                     )
                                 }
                                 // //// ToLOVEるダークネス、24年6月
@@ -1373,7 +1388,21 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKarakuri == false {
                                     // 非表示
                                 } else {
-                                    unitMachinListLink(linkView: AnyView(karakuriViewTop()), iconImage: Image("karakuriMachineIcon"), machineName: "からくりサーカス", makerName: "SANKYO", releaseYear: 2023, releaseMonth: 7)
+                                    unitMachinListLink(
+                                        linkView: AnyView(
+                                            karakuriViewTop(
+                                                ver380: ver380,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )
+                                        ),
+                                        iconImage: Image("karakuriMachineIcon"),
+                                        machineName: "からくりサーカス",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2023,
+                                        releaseMonth: 7,
+                                        badgeStatus: ver380.karakuriMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// 北斗の拳、23年4月

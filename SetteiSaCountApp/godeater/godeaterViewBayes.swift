@@ -1,22 +1,23 @@
 //
-//  azurLaneViewBayes.swift
+//  godeaterViewBayes.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2025/08/24.
+//  Created by 横田徹 on 2025/08/30.
 //
 
 import SwiftUI
 
-struct azurLaneViewBayes: View {
-    @ObservedObject var azurLane: AzurLane
+struct godeaterViewBayes: View {
+    @ObservedObject var ver380: Ver380
+    @ObservedObject var godeater: Godeater
     
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
-    let payoutList: [Double] = [97.9, 98.6, 100.7, 105.3, 110.6, 114.9]
-    @State var jakuRareEnable: Bool = true
+    let payoutList: [Double] = [97.9, 98.9, 101.1, 105.6, 110.0, 114.9]
+    @State var rareCzEnable: Bool = true
     @State var firstHitEnable: Bool = true
+    @State var voiceEnable: Bool = true
     @State var screenEnable: Bool = true
-    @State var startModeEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -47,35 +48,35 @@ struct azurLaneViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                // 弱レア役確率
-                unitToggleWithQuestion(enable: self.$jakuRareEnable, title: "弱レア役確率") {
-                    unitExView5body2image(
-                        title: "弱レア役確率",
-                        textBody1: "・弱🍒、弱🍉の出現確率を計算要素に加えます",
-                    )
-                }
+                // レア役からのCZ当選率
+                unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのCZ当選率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
                         title: "初当り確率",
-                        textBody1: "・ボーナス、AT初当り確率を計算要素に加えます",
+                        textBody1: "・CZ、ATの初当り確率を計算要素に加えます"
                     )
                 }
-                // 終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT終了画面") {
+                // ボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "ストリーパート後のボイス") {
                     unitExView5body2image(
-                        title: "終了画面",
-                        textBody1: "・確定系のみ反映させます"
+                        title: "ストーリーパート後のボイス",
+                        textBody1: "・確定系のみ反映させます",
                     )
                 }
-                // AT後の高確スタート
-                unitToggleWithQuestion(enable: self.$startModeEnable, title: "AT後の高確スタート")
-                // 玉ちゃんトロフィー
-                DisclosureGroup("玉ちゃんトロフィー") {
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                // ケロットトロフィー
+                DisclosureGroup("ケロットトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
                     unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
                     unitToggleWithQuestion(enable: self.$over4Check, title: "金")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "ゼブラ柄")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄")
                     unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }
@@ -85,11 +86,13 @@ struct azurLaneViewBayes: View {
                 self.resultGuess = bayesRatio()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver380.godeaterMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: azurLane.machineName,
+                screenName: "ゴッドイーター リザレクション",
                 screenClass: screenClass
             )
         }
@@ -137,57 +140,107 @@ struct azurLaneViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // 弱チェリー
-        var logPostJakuCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.jakuRareEnable {
-            logPostJakuCherry = logPostDenoBino(
-                ratio: azurLane.ratioJakuCherry,
-                Count: azurLane.koyakuCountJakuCherry,
-                bigNumber: azurLane.gameNumberPlay
+        // チャンス目CZ
+        var logPostChanceCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareCzEnable {
+            logPostChanceCz = logPostPercentBino(
+                ratio: godeater.ratioChanceCzHit,
+                Count: godeater.normalChanceCountCzHit,
+                bigNumber: godeater.normalChanceCountSeiritu
             )
         }
-        // 弱スイカ
-        var logPostJakuSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.jakuRareEnable {
-            logPostJakuSuika = logPostDenoBino(
-                ratio: azurLane.ratioJakuSuika,
-                Count: azurLane.koyakuCountJakuSuika,
-                bigNumber: azurLane.gameNumberPlay
+        // 弱チェリ、スイカCZ
+        var logPostCherrySuikaCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareCzEnable {
+            logPostCherrySuikaCz = logPostPercentBino(
+                ratio: godeater.ratioCherrySuikaCzHit,
+                Count: godeater.normalCountCzHit,
+                bigNumber: godeater.normalCountCherrySuikaSum
             )
         }
-        // ボーナス初当り
-        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        
+        // CZ初当り
+        var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
-            logPostBonus = logPostDenoBino(
-                ratio: azurLane.ratioBonus,
-                Count: azurLane.bonusCount,
-                bigNumber: azurLane.gameNormalNumberPlay
+            logPostCz = logPostDenoBino(
+                ratio: [392.0,378.3,359.1,343.4,324.3,310.6],
+                Count: godeater.czHitCount,
+                bigNumber: godeater.playGame
             )
         }
+        
         // AT初当り
         var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
             logPostAt = logPostDenoBino(
-                ratio: azurLane.ratioAt,
-                Count: azurLane.atCount,
-                bigNumber: azurLane.gameNormalNumberPlay
+                ratio: [351.9,344.5,330.1,317.1,302.2,290.3],
+                Count: godeater.atHitCount,
+                bigNumber: godeater.playGame
             )
         }
-        // 終了画面
+        
+        // ボイス
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            // 2,3否定
+            if godeater.voiceYuCount > 0 {
+                logPostVoice[1] = -Double.infinity
+                logPostVoice[2] = -Double.infinity
+            }
+            // 偶数濃厚
+            if godeater.voiceErinaCount > 0 {
+                logPostVoice[0] = -Double.infinity
+                logPostVoice[2] = -Double.infinity
+                logPostVoice[4] = -Double.infinity
+            }
+            // 設定２以上
+            if godeater.voiceRindoCount > 0 {
+                logPostVoice[0] = -Double.infinity
+            }
+            // 設定５以上
+            if godeater.voiceShioCount > 0 {
+                logPostVoice[0] = -Double.infinity
+                logPostVoice[1] = -Double.infinity
+                logPostVoice[2] = -Double.infinity
+                logPostVoice[3] = -Double.infinity
+            }
+        }
+        
+        // AT終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
-            // ２以上
-            if azurLane.screenCountOver2 > 0 {
-                logPostScreen[0] = -Double.infinity
+            // 2,3,4否定
+            if godeater.screenCountYu > 0 {
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
             }
-            // 4以上
-            if azurLane.screenCountOver4 > 0 {
+            // 3以上濃厚
+            if godeater.screenCountRindo > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+            }
+            // ４以上濃厚
+            if godeater.screenCountShio > 0 {
                 logPostScreen[0] = -Double.infinity
                 logPostScreen[1] = -Double.infinity
                 logPostScreen[2] = -Double.infinity
             }
-            // 6以上
-            if azurLane.screenCountOver6 > 0 {
+            // 偶数濃厚
+            if godeater.screenCountCafe > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+            // ５以上濃厚
+            if godeater.screenCountAll > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+            }
+            // ６濃厚
+            if godeater.screenCountMinichara > 0 {
                 logPostScreen[0] = -Double.infinity
                 logPostScreen[1] = -Double.infinity
                 logPostScreen[2] = -Double.infinity
@@ -195,21 +248,7 @@ struct azurLaneViewBayes: View {
                 logPostScreen[4] = -Double.infinity
             }
         }
-        // AT後の高確スタート
-        var logPostStartMode: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.startModeEnable {
-            logPostStartMode = logPostPercentMulti(
-                countList: [
-                    azurLane.startModeCountHigh,
-                    azurLane.startModeCountChoHigh,
-                ],
-                ratioList: [
-                    azurLane.ratioStartHigh,
-                    azurLane.ratioStartChoHigh,
-                ],
-                bigNumber: azurLane.startModeCountSum
-            )
-        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -247,12 +286,12 @@ struct azurLaneViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            logPostJakuCherry,
-            logPostJakuSuika,
-            logPostBonus,
+            logPostChanceCz,
+            logPostCherrySuikaCz,
+            logPostCz,
             logPostAt,
+            logPostVoice,
             logPostScreen,
-            logPostStartMode,
             logPostTrophy,
             logPostBefore,
         ])
@@ -280,8 +319,9 @@ struct azurLaneViewBayes: View {
 }
 
 #Preview {
-    azurLaneViewBayes(
-        azurLane: AzurLane(),
+    godeaterViewBayes(
+        ver380: Ver380(),
+        godeater: Godeater(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

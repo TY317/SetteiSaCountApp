@@ -21,6 +21,10 @@ class Ver380: ObservableObject {
     @AppStorage("ver380DarlingMachineIconBadge") var darlingMachineIconBadge: String = "update"
     @AppStorage("ver380DarlingMenuNormalBadge") var darlingMenuNormalBadge: String = "update"
     @AppStorage("ver380DarlingMenuCzBadge") var darlingMenuCzBadge: String = "new"
+    @AppStorage("ver380GodeaterMachineIconBadge") var godeaterMachineIconBadge: String = "update"
+    @AppStorage("ver380GodeaterMenuBayesBadge") var godeaterMenuBayesBadge: String = "new"
+    @AppStorage("ver380KarakuriMachineIconBadge") var karakuriMachineIconBadge: String = "update"
+    @AppStorage("ver380KarakuriMenuBayesBadge") var karakuriMenuBayesBadge: String = "new"
 }
 
 // //////////////////
@@ -43,7 +47,7 @@ struct tipVer380MachineAddver2: Tip {
         Text("機種,機能追加！")
     }
     var message: Text? {
-        Text("・アズールレーンを追加\n・設定期待値の対応機種追加\n　　・東京喰種\n　　・スマスロ北斗の拳")
+        Text("・アズールレーンを追加\n・設定期待値の対応機種追加\n　　・ゴッドイーター\n　　・からくりサーカス")
     }
     var image: Image? {
         Image(systemName: "star")

@@ -92,6 +92,13 @@ struct azurLaneViewTop: View {
                             textBody: "AT終了後の高確スタート"
                         )
                     }
+                    // 玉ちゃんトロフィー
+                    NavigationLink(destination: commonViewTamachanTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "玉ちゃんトロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

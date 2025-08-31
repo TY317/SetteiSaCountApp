@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct karakuriViewStage: View {
+    @ObservedObject var ver380: Ver380
 //    @ObservedObject var karakuri = Karakuri()
     @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     @State var spaceHeight = 200.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     
     var body: some View {
         List {
@@ -39,6 +42,15 @@ struct karakuriViewStage: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(karakuriView95Ci(karakuri: karakuri, selection: 2)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    karakuriViewBayes(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("AT開始時のステージ")
             }
@@ -57,6 +69,15 @@ struct karakuriViewStage: View {
                 }
                 // //// 参考情報リンク
                 unitLinkButton(title: "ステージ示唆（激情成功2回後）", exview: AnyView(unitExView5body2image(title: "ステージ示唆（激情ジャッジ成功2回後）", textBody1: "・AT中のステージは勝、鳴海の2種類があり移行順番で設定を示唆", textBody2: "・激情ジャッジ成功でステージ移行", textBody3: "・ステージ移行先で高設定を示唆", image1: Image("karakuriTable"))))
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    karakuriViewBayes(
+                        ver380: ver380,
+                        karakuri: karakuri,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("激情ジャッジ成功2回後")
             }
@@ -122,5 +143,10 @@ struct karakuriViewStage: View {
 }
 
 #Preview {
-    karakuriViewStage(karakuri: Karakuri())
+    karakuriViewStage(
+        ver380: Ver380(),
+        karakuri: Karakuri(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

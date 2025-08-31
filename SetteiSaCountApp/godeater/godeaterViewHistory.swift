@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct godeaterViewHistory: View {
-//    @ObservedObject var ver220 = Ver220()
+    @ObservedObject var ver380 = Ver380()
 //    @ObservedObject var godeater = Godeater()
     @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
 //        NavigationView {
@@ -316,6 +318,15 @@ struct godeaterViewHistory: View {
                         // //// 95%信頼区間グラフへのリンク
                         unitNaviLink95Ci(Ci95view: AnyView(godeaterView95Ci(godeater: godeater, selection: 1)))
 //                            .popoverTip(tipUnitButtonLink95Ci())
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            godeaterViewBayes(
+                                ver380: ver380,
+                                godeater: godeater,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
                     } header: {
                         unitHeaderHistoryColumns(column2: "ゲーム", column3: "種類", column4: "当選契機")
                     }
@@ -464,5 +475,10 @@ struct godeaterSubViewDataInput: View {
 
 
 #Preview {
-    godeaterViewHistory(godeater: Godeater())
+    godeaterViewHistory(
+        ver380: Ver380(),
+        godeater: Godeater(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -198,6 +198,7 @@ class AzurLane: ObservableObject {
         resetFirstHit()
         resetKaga()
         resetScreen()
+        resetKokakuStart()
     }
 }
 
