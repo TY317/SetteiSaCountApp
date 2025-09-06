@@ -9,6 +9,7 @@ import SwiftUI
 
 struct darlingViewNormal: View {
     @ObservedObject var ver380: Ver380
+    @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     @State var selectedSegment: String = "🍒"
     let segmentList: [String] = ["🍒", "チャンス目"]
@@ -24,6 +25,8 @@ struct darlingViewNormal: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     @State var isShowAlert = false
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -144,6 +147,15 @@ struct darlingViewNormal: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    darlingViewBayes(
+                        ver390: ver390,
+                        darling: darling,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("フランクス高確移行率")
             }
@@ -194,6 +206,9 @@ struct darlingViewNormal: View {
 #Preview {
     darlingViewNormal(
         ver380: Ver380(),
+        ver390: Ver390(),
         darling: Darling(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

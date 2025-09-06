@@ -205,6 +205,70 @@ class Darling: ObservableObject {
         czLevelCountRed = 0
         czLevelCountSum = 0
         minusCheck = false
+        
+        czFLCountWhiteMiss = 0
+        czFLCountWhiteHit = 0
+        czFLCountWhiteSum = 0
+        czFLCountBlueMiss = 0
+        czFLCountBlueHit = 0
+        czFLCountBlueSum = 0
+        czFLCountYellowMiss = 0
+        czFLCountYellowHit = 0
+        czFLCountYellowSum = 0
+        czFLCountGreenMiss = 0
+        czFLCountGreenHit = 0
+        czFLCountGreenSum = 0
+        czFLCountRedMiss = 0
+        czFLCountRedHit = 0
+        czFLCountRedSum = 0
+    }
+    
+    // ///////////
+    // ver3.9.0で追加
+    // ///////////
+    // CZ最終レベル別の当選率
+    let ratioCzFLWhite: [Double] = [2.3,4.3,5.5,7,9.8,12.5]
+    let ratioCzFLBlue: [Double] = [5.9,8.1,9.5,11.3,14.5,17.5]
+    let ratioCzFLYellow: [Double] = [20.3,22.9,24.5,26.4,30.1,33.5]
+    let ratioCzFLGreen: [Double] = [50,52.9,54.7,57,61.1,65]
+    let ratioCzFLRed: [Double] = [85.9,87.4,88.3,89.4,91.4,93.3]
+    @AppStorage("darlingCzFLCountWhiteMiss") var czFLCountWhiteMiss: Int = 0
+    @AppStorage("darlingCzFLCountWhiteHit") var czFLCountWhiteHit: Int = 0
+    @AppStorage("darlingCzFLCountWhiteSum") var czFLCountWhiteSum: Int = 0
+    @AppStorage("darlingCzFLCountBlueMiss") var czFLCountBlueMiss: Int = 0
+    @AppStorage("darlingCzFLCountBlueHit") var czFLCountBlueHit: Int = 0
+    @AppStorage("darlingCzFLCountBlueSum") var czFLCountBlueSum: Int = 0
+    @AppStorage("darlingCzFLCountYellowMiss") var czFLCountYellowMiss: Int = 0
+    @AppStorage("darlingCzFLCountYellowHit") var czFLCountYellowHit: Int = 0
+    @AppStorage("darlingCzFLCountYellowSum") var czFLCountYellowSum: Int = 0
+    @AppStorage("darlingCzFLCountGreenMiss") var czFLCountGreenMiss: Int = 0
+    @AppStorage("darlingCzFLCountGreenHit") var czFLCountGreenHit: Int = 0
+    @AppStorage("darlingCzFLCountGreenSum") var czFLCountGreenSum: Int = 0
+    @AppStorage("darlingCzFLCountRedMiss") var czFLCountRedMiss: Int = 0
+    @AppStorage("darlingCzFLCountRedHit") var czFLCountRedHit: Int = 0
+    @AppStorage("darlingCzFLCountRedSum") var czFLCountRedSum: Int = 0
+    
+    func czFLCountSumFunc() {
+        czFLCountWhiteSum = countSum(
+            czFLCountWhiteMiss,
+            czFLCountWhiteHit,
+        )
+        czFLCountBlueSum = countSum(
+            czFLCountBlueMiss,
+            czFLCountBlueHit,
+        )
+        czFLCountYellowSum = countSum(
+            czFLCountYellowMiss,
+            czFLCountYellowHit,
+        )
+        czFLCountGreenSum = countSum(
+            czFLCountGreenMiss,
+            czFLCountGreenHit,
+        )
+        czFLCountRedSum = countSum(
+            czFLCountRedMiss,
+            czFLCountRedHit,
+        )
     }
 }
 
@@ -244,6 +308,25 @@ class DarlingMemory1: ObservableObject {
     @AppStorage("darlingCzLevelCountGreenMemory1") var czLevelCountGreen: Int = 0
     @AppStorage("darlingCzLevelCountRedMemory1") var czLevelCountRed: Int = 0
     @AppStorage("darlingCzLevelCountSumMemory1") var czLevelCountSum: Int = 0
+    
+    // ///////////
+    // ver3.9.0で追加
+    // ///////////
+    @AppStorage("darlingCzFLCountWhiteMissMemory1") var czFLCountWhiteMiss: Int = 0
+    @AppStorage("darlingCzFLCountWhiteHitMemory1") var czFLCountWhiteHit: Int = 0
+    @AppStorage("darlingCzFLCountWhiteSumMemory1") var czFLCountWhiteSum: Int = 0
+    @AppStorage("darlingCzFLCountBlueMissMemory1") var czFLCountBlueMiss: Int = 0
+    @AppStorage("darlingCzFLCountBlueHitMemory1") var czFLCountBlueHit: Int = 0
+    @AppStorage("darlingCzFLCountBlueSumMemory1") var czFLCountBlueSum: Int = 0
+    @AppStorage("darlingCzFLCountYellowMissMemory1") var czFLCountYellowMiss: Int = 0
+    @AppStorage("darlingCzFLCountYellowHitMemory1") var czFLCountYellowHit: Int = 0
+    @AppStorage("darlingCzFLCountYellowSumMemory1") var czFLCountYellowSum: Int = 0
+    @AppStorage("darlingCzFLCountGreenMissMemory1") var czFLCountGreenMiss: Int = 0
+    @AppStorage("darlingCzFLCountGreenHitMemory1") var czFLCountGreenHit: Int = 0
+    @AppStorage("darlingCzFLCountGreenSumMemory1") var czFLCountGreenSum: Int = 0
+    @AppStorage("darlingCzFLCountRedMissMemory1") var czFLCountRedMiss: Int = 0
+    @AppStorage("darlingCzFLCountRedHitMemory1") var czFLCountRedHit: Int = 0
+    @AppStorage("darlingCzFLCountRedSumMemory1") var czFLCountRedSum: Int = 0
 }
 
 // //// メモリー2
@@ -281,6 +364,25 @@ class DarlingMemory2: ObservableObject {
     @AppStorage("darlingCzLevelCountGreenMemory2") var czLevelCountGreen: Int = 0
     @AppStorage("darlingCzLevelCountRedMemory2") var czLevelCountRed: Int = 0
     @AppStorage("darlingCzLevelCountSumMemory2") var czLevelCountSum: Int = 0
+    
+    // ///////////
+    // ver3.9.0で追加
+    // ///////////
+    @AppStorage("darlingCzFLCountWhiteMissMemory2") var czFLCountWhiteMiss: Int = 0
+    @AppStorage("darlingCzFLCountWhiteHitMemory2") var czFLCountWhiteHit: Int = 0
+    @AppStorage("darlingCzFLCountWhiteSumMemory2") var czFLCountWhiteSum: Int = 0
+    @AppStorage("darlingCzFLCountBlueMissMemory2") var czFLCountBlueMiss: Int = 0
+    @AppStorage("darlingCzFLCountBlueHitMemory2") var czFLCountBlueHit: Int = 0
+    @AppStorage("darlingCzFLCountBlueSumMemory2") var czFLCountBlueSum: Int = 0
+    @AppStorage("darlingCzFLCountYellowMissMemory2") var czFLCountYellowMiss: Int = 0
+    @AppStorage("darlingCzFLCountYellowHitMemory2") var czFLCountYellowHit: Int = 0
+    @AppStorage("darlingCzFLCountYellowSumMemory2") var czFLCountYellowSum: Int = 0
+    @AppStorage("darlingCzFLCountGreenMissMemory2") var czFLCountGreenMiss: Int = 0
+    @AppStorage("darlingCzFLCountGreenHitMemory2") var czFLCountGreenHit: Int = 0
+    @AppStorage("darlingCzFLCountGreenSumMemory2") var czFLCountGreenSum: Int = 0
+    @AppStorage("darlingCzFLCountRedMissMemory2") var czFLCountRedMiss: Int = 0
+    @AppStorage("darlingCzFLCountRedHitMemory2") var czFLCountRedHit: Int = 0
+    @AppStorage("darlingCzFLCountRedSumMemory2") var czFLCountRedSum: Int = 0
 }
 
 // //// メモリー3
@@ -318,4 +420,23 @@ class DarlingMemory3: ObservableObject {
     @AppStorage("darlingCzLevelCountGreenMemory3") var czLevelCountGreen: Int = 0
     @AppStorage("darlingCzLevelCountRedMemory3") var czLevelCountRed: Int = 0
     @AppStorage("darlingCzLevelCountSumMemory3") var czLevelCountSum: Int = 0
+    
+    // ///////////
+    // ver3.9.0で追加
+    // ///////////
+    @AppStorage("darlingCzFLCountWhiteMissMemory3") var czFLCountWhiteMiss: Int = 0
+    @AppStorage("darlingCzFLCountWhiteHitMemory3") var czFLCountWhiteHit: Int = 0
+    @AppStorage("darlingCzFLCountWhiteSumMemory3") var czFLCountWhiteSum: Int = 0
+    @AppStorage("darlingCzFLCountBlueMissMemory3") var czFLCountBlueMiss: Int = 0
+    @AppStorage("darlingCzFLCountBlueHitMemory3") var czFLCountBlueHit: Int = 0
+    @AppStorage("darlingCzFLCountBlueSumMemory3") var czFLCountBlueSum: Int = 0
+    @AppStorage("darlingCzFLCountYellowMissMemory3") var czFLCountYellowMiss: Int = 0
+    @AppStorage("darlingCzFLCountYellowHitMemory3") var czFLCountYellowHit: Int = 0
+    @AppStorage("darlingCzFLCountYellowSumMemory3") var czFLCountYellowSum: Int = 0
+    @AppStorage("darlingCzFLCountGreenMissMemory3") var czFLCountGreenMiss: Int = 0
+    @AppStorage("darlingCzFLCountGreenHitMemory3") var czFLCountGreenHit: Int = 0
+    @AppStorage("darlingCzFLCountGreenSumMemory3") var czFLCountGreenSum: Int = 0
+    @AppStorage("darlingCzFLCountRedMissMemory3") var czFLCountRedMiss: Int = 0
+    @AppStorage("darlingCzFLCountRedHitMemory3") var czFLCountRedHit: Int = 0
+    @AppStorage("darlingCzFLCountRedSumMemory3") var czFLCountRedSum: Int = 0
 }

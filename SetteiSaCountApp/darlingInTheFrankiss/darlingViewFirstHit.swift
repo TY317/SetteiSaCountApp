@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewFirstHit: View {
-//    @ObservedObject var ver370: Ver370
+    @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -27,7 +27,8 @@ struct darlingViewFirstHit: View {
     let maxWidth3: CGFloat = .infinity
     let maxWidth4: CGFloat = .infinity
     let maxWidth5: CGFloat = 60
-    
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     
     var body: some View {
@@ -294,6 +295,15 @@ struct darlingViewFirstHit: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    darlingViewBayes(
+                        ver390: ver390,
+                        darling: darling,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("確率集計")
             }
@@ -351,7 +361,9 @@ struct darlingViewFirstHit: View {
 
 #Preview {
     darlingViewFirstHit(
-//        ver370: Ver370(),
+        ver390: Ver390(),
         darling: Darling(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

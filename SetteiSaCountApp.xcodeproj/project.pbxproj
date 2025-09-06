@@ -668,6 +668,29 @@
 		0FC14A9A2E4F054600F85D84 /* enenTableModeMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC14A992E4F054600F85D84 /* enenTableModeMorning.swift */; };
 		0FC14A9C2E4F081800F85D84 /* enenTableModeNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC14A9B2E4F081800F85D84 /* enenTableModeNormal.swift */; };
 		0FC14A9E2E4F2AFF00F85D84 /* enenView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC14A9D2E4F2AFF00F85D84 /* enenView95Ci.swift */; };
+		0FC71FD72E66FB66000DD53B /* ver390Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FD62E66FB66000DD53B /* ver390Class.swift */; };
+		0FC71FDA2E66FC55000DD53B /* toreveViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FD92E66FC55000DD53B /* toreveViewTop.swift */; };
+		0FC71FDC2E66FC6B000DD53B /* ToreveClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FDB2E66FC6B000DD53B /* ToreveClass.swift */; };
+		0FC71FDE2E66FC76000DD53B /* toreveAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC71FDD2E66FC76000DD53B /* toreveAssets.xcassets */; };
+		0FC71FE02E67006C000DD53B /* toreveViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FDF2E67006C000DD53B /* toreveViewNormal.swift */; };
+		0FC71FE22E670265000DD53B /* toreveTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FE12E670265000DD53B /* toreveTableKoyakuPattern.swift */; };
+		0FC71FE42E685875000DD53B /* toreveViewCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FE32E685875000DD53B /* toreveViewCycle.swift */; };
+		0FC71FE72E686156000DD53B /* unitPickerMenuIntToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FE62E686156000DD53B /* unitPickerMenuIntToString.swift */; };
+		0FC71FEA2E6864DE000DD53B /* unitButtonSubmitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FE92E6864DE000DD53B /* unitButtonSubmitLabel.swift */; };
+		0FC71FEC2E6868B8000DD53B /* unitLabelHistoryZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FEB2E6868B8000DD53B /* unitLabelHistoryZero.swift */; };
+		0FC71FEE2E687013000DD53B /* toreveTablePtTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FED2E687013000DD53B /* toreveTablePtTable.swift */; };
+		0FC71FF02E687286000DD53B /* toreveTableCycleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FEF2E687286000DD53B /* toreveTableCycleTable.swift */; };
+		0FC71FF22E69BD00000DD53B /* toreveViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FF12E69BD00000DD53B /* toreveViewFirstHit.swift */; };
+		0FC71FF42E69C7C2000DD53B /* toreveTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FF32E69C7C2000DD53B /* toreveTableFirstHit.swift */; };
+		0FC71FF62E6B26A0000DD53B /* toreveView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FF52E6B26A0000DD53B /* toreveView95Ci.swift */; };
+		0FC71FF82E6B26AF000DD53B /* toreveViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FF72E6B26AF000DD53B /* toreveViewBayes.swift */; };
+		0FC71FFA2E6BBB1D000DD53B /* logPostDenoMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FF92E6BBB1D000DD53B /* logPostDenoMulti.swift */; };
+		0FC71FFC2E6BC3FD000DD53B /* toreveViewTomanChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FFB2E6BC3FD000DD53B /* toreveViewTomanChallenge.swift */; };
+		0FC71FFE2E6BC7C6000DD53B /* toreveViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71FFD2E6BC7C6000DD53B /* toreveViewScreen.swift */; };
+		0FC720022E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC720012E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift */; };
+		0FC720042E6BDEFB000DD53B /* toreveViewRevenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC720032E6BDEFB000DD53B /* toreveViewRevenge.swift */; };
+		0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC720052E6BE927000DD53B /* toreveViewPremiumAt.swift */; };
+		0FC720082E6C079F000DD53B /* darlingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC720072E6C079F000DD53B /* darlingViewBayes.swift */; };
 		0FCF788E2E46D6A90000748B /* reSwordViewFranSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */; };
 		0FCF78902E46F2AD0000748B /* mt5TableFunaken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */; };
 		0FCF78922E470A5E0000748B /* mt5TableMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF78912E470A5E0000748B /* mt5TableMedal.swift */; };
@@ -1630,6 +1653,29 @@
 		0FC14A992E4F054600F85D84 /* enenTableModeMorning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableModeMorning.swift; sourceTree = "<group>"; };
 		0FC14A9B2E4F081800F85D84 /* enenTableModeNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableModeNormal.swift; sourceTree = "<group>"; };
 		0FC14A9D2E4F2AFF00F85D84 /* enenView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenView95Ci.swift; sourceTree = "<group>"; };
+		0FC71FD62E66FB66000DD53B /* ver390Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver390Class.swift; sourceTree = "<group>"; };
+		0FC71FD92E66FC55000DD53B /* toreveViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewTop.swift; sourceTree = "<group>"; };
+		0FC71FDB2E66FC6B000DD53B /* ToreveClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToreveClass.swift; sourceTree = "<group>"; };
+		0FC71FDD2E66FC76000DD53B /* toreveAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toreveAssets.xcassets; sourceTree = "<group>"; };
+		0FC71FDF2E67006C000DD53B /* toreveViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewNormal.swift; sourceTree = "<group>"; };
+		0FC71FE12E670265000DD53B /* toreveTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0FC71FE32E685875000DD53B /* toreveViewCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewCycle.swift; sourceTree = "<group>"; };
+		0FC71FE62E686156000DD53B /* unitPickerMenuIntToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitPickerMenuIntToString.swift; sourceTree = "<group>"; };
+		0FC71FE92E6864DE000DD53B /* unitButtonSubmitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitButtonSubmitLabel.swift; sourceTree = "<group>"; };
+		0FC71FEB2E6868B8000DD53B /* unitLabelHistoryZero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelHistoryZero.swift; sourceTree = "<group>"; };
+		0FC71FED2E687013000DD53B /* toreveTablePtTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTablePtTable.swift; sourceTree = "<group>"; };
+		0FC71FEF2E687286000DD53B /* toreveTableCycleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableCycleTable.swift; sourceTree = "<group>"; };
+		0FC71FF12E69BD00000DD53B /* toreveViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewFirstHit.swift; sourceTree = "<group>"; };
+		0FC71FF32E69C7C2000DD53B /* toreveTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableFirstHit.swift; sourceTree = "<group>"; };
+		0FC71FF52E6B26A0000DD53B /* toreveView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveView95Ci.swift; sourceTree = "<group>"; };
+		0FC71FF72E6B26AF000DD53B /* toreveViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewBayes.swift; sourceTree = "<group>"; };
+		0FC71FF92E6BBB1D000DD53B /* logPostDenoMulti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logPostDenoMulti.swift; sourceTree = "<group>"; };
+		0FC71FFB2E6BC3FD000DD53B /* toreveViewTomanChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewTomanChallenge.swift; sourceTree = "<group>"; };
+		0FC71FFD2E6BC7C6000DD53B /* toreveViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewScreen.swift; sourceTree = "<group>"; };
+		0FC720012E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelHeaderScreenCount.swift; sourceTree = "<group>"; };
+		0FC720032E6BDEFB000DD53B /* toreveViewRevenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewRevenge.swift; sourceTree = "<group>"; };
+		0FC720052E6BE927000DD53B /* toreveViewPremiumAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewPremiumAt.swift; sourceTree = "<group>"; };
+		0FC720072E6C079F000DD53B /* darlingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darlingViewBayes.swift; sourceTree = "<group>"; };
 		0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reSwordViewFranSleep.swift; sourceTree = "<group>"; };
 		0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableFunaken.swift; sourceTree = "<group>"; };
 		0FCF78912E470A5E0000748B /* mt5TableMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableMedal.swift; sourceTree = "<group>"; };
@@ -2094,6 +2140,7 @@
 			children = (
 				0F64DDD22DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift */,
 				0F9A4F842DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift */,
+				0FC720012E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -2451,6 +2498,7 @@
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FC71FD82E66FC39000DD53B /* tokyoRevengers */,
 				0FF3690E2E5AF252002BE0CE /* azurLane */,
 				0FC14A8E2E4ED12900F85D84 /* smasloEnen */,
 				0F815FCC2E3B8AEF0086127D /* tenseiSitaraKenDeshita */,
@@ -2854,6 +2902,7 @@
 		0F868A702D4F2E5800D952D9 /* unitView */ = {
 			isa = PBXGroup;
 			children = (
+				0FC71FE52E6860E4000DD53B /* picker */,
 				0FF3692D2E629095002BE0CE /* copyright */,
 				0F76552C2E3492F700B0CF0F /* result */,
 				0F89358A2E22903B00BF6FBE /* countDirectInput */,
@@ -2882,6 +2931,7 @@
 				0FD357712DAA161E0069BD1A /* unitTableGameIndex.swift */,
 				0F64DD832DC467440027315D /* unitScreenOnlyDisplay.swift */,
 				0F64DD852DC5AE390027315D /* unitButtonCountNumberInput.swift */,
+				0FC71FEB2E6868B8000DD53B /* unitLabelHistoryZero.swift */,
 			);
 			path = unitView;
 			sourceTree = "<group>";
@@ -2950,6 +3000,7 @@
 				0FEB2E152E437643004C5F45 /* ver361Class.swift */,
 				0FC14A7F2E4B58E800F85D84 /* ver370Class.swift */,
 				0FDF23862E53525000249CAC /* ver380Class.swift */,
+				0FC71FD62E66FB66000DD53B /* ver390Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3322,6 +3373,7 @@
 		0FB9CA932DDDCCAE009FC6AF /* button */ = {
 			isa = PBXGroup;
 			children = (
+				0FC71FE82E686480000DD53B /* submitButton */,
 				0F7C9FC12E2B810100F22EA0 /* linkButton */,
 				0F8935852E21F8CA00BF6FBE /* toolBarButton */,
 				0FB209572E0FDB6C0029D940 /* countButton */,
@@ -3346,6 +3398,7 @@
 				0FC14A752E4A088200F85D84 /* logPostBeforeFunc.swift */,
 				0FC14A862E4C712E00F85D84 /* logPostPercentBino.swift */,
 				0FC14A882E4C82B600F85D84 /* logPostPercentMulti.swift */,
+				0FC71FF92E6BBB1D000DD53B /* logPostDenoMulti.swift */,
 			);
 			path = func;
 			sourceTree = "<group>";
@@ -3372,6 +3425,45 @@
 				0FDF23842E520C9D00249CAC /* enenTableAdoraRatio.swift */,
 			);
 			path = smasloEnen;
+			sourceTree = "<group>";
+		};
+		0FC71FD82E66FC39000DD53B /* tokyoRevengers */ = {
+			isa = PBXGroup;
+			children = (
+				0FC71FD92E66FC55000DD53B /* toreveViewTop.swift */,
+				0FC71FDB2E66FC6B000DD53B /* ToreveClass.swift */,
+				0FC71FDD2E66FC76000DD53B /* toreveAssets.xcassets */,
+				0FC71FDF2E67006C000DD53B /* toreveViewNormal.swift */,
+				0FC71FE12E670265000DD53B /* toreveTableKoyakuPattern.swift */,
+				0FC71FE32E685875000DD53B /* toreveViewCycle.swift */,
+				0FC71FED2E687013000DD53B /* toreveTablePtTable.swift */,
+				0FC71FEF2E687286000DD53B /* toreveTableCycleTable.swift */,
+				0FC71FF12E69BD00000DD53B /* toreveViewFirstHit.swift */,
+				0FC71FF32E69C7C2000DD53B /* toreveTableFirstHit.swift */,
+				0FC71FF52E6B26A0000DD53B /* toreveView95Ci.swift */,
+				0FC71FF72E6B26AF000DD53B /* toreveViewBayes.swift */,
+				0FC71FFB2E6BC3FD000DD53B /* toreveViewTomanChallenge.swift */,
+				0FC71FFD2E6BC7C6000DD53B /* toreveViewScreen.swift */,
+				0FC720032E6BDEFB000DD53B /* toreveViewRevenge.swift */,
+				0FC720052E6BE927000DD53B /* toreveViewPremiumAt.swift */,
+			);
+			path = tokyoRevengers;
+			sourceTree = "<group>";
+		};
+		0FC71FE52E6860E4000DD53B /* picker */ = {
+			isa = PBXGroup;
+			children = (
+				0FC71FE62E686156000DD53B /* unitPickerMenuIntToString.swift */,
+			);
+			path = picker;
+			sourceTree = "<group>";
+		};
+		0FC71FE82E686480000DD53B /* submitButton */ = {
+			isa = PBXGroup;
+			children = (
+				0FC71FE92E6864DE000DD53B /* unitButtonSubmitLabel.swift */,
+			);
+			path = submitButton;
 			sourceTree = "<group>";
 		};
 		0FD3578B2DAB32900069BD1A /* godzilla */ = {
@@ -3652,6 +3744,7 @@
 				0FF369272E627098002BE0CE /* azurLaneTableMode.swift */,
 				0FF369292E6278C2002BE0CE /* azurLaneViewKokakuStart.swift */,
 				0FF3692B2E62827D002BE0CE /* azurLaneTableModeSisa.swift */,
+				0FC720072E6C079F000DD53B /* darlingViewBayes.swift */,
 			);
 			path = azurLane;
 			sourceTree = "<group>";
@@ -3845,6 +3938,7 @@
 				0F9318772DEA858200511BEF /* izaBanchoAssets.xcassets in Resources */,
 				0F1E12242DD95C7000F69AFF /* GoogleService-Info.plist in Resources */,
 				0FA024A22D05D558004B3FD5 /* danvineAssets.xcassets in Resources */,
+				0FC71FDE2E66FC76000DD53B /* toreveAssets.xcassets in Resources */,
 				0FB9CA812DDB61B2009FC6AF /* toloveru87Assets.xcassets in Resources */,
 				0F64DDB82DC6D4920027315D /* midoriDonAssets.xcassets in Resources */,
 				0F654BB82C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets in Resources */,
@@ -4171,6 +4265,7 @@
 				0FD357502DA267690069BD1A /* shamanKingTableEndScreen.swift in Sources */,
 				0FCF78942E470C050000748B /* mt5TableTrophy.swift in Sources */,
 				0FD357C52DB319210069BD1A /* mahjongViewVoice.swift in Sources */,
+				0FC71FFA2E6BBB1D000DD53B /* logPostDenoMulti.swift in Sources */,
 				0FF1562A2D6B4F7800B17F83 /* shamanKingViewTop.swift in Sources */,
 				0FDF23812E51FD6B00249CAC /* enenTableBigScreen.swift in Sources */,
 				0FD357202DA0BF6F0069BD1A /* sevenSwordsViewVoiceCustom.swift in Sources */,
@@ -4193,7 +4288,9 @@
 				0F868ACD2D58621300D952D9 /* girlsSSVer2View95CiKen.swift in Sources */,
 				0FEC57982D8E4A0200FF1024 /* arifureSubViewTableChara.swift in Sources */,
 				0F93188F2DEAAA6F00511BEF /* izaBanchoViewScreen.swift in Sources */,
+				0FC71FF02E687286000DD53B /* toreveTableCycleTable.swift in Sources */,
 				0F64DD532DC08D500027315D /* danvineTableKiteiPoint.swift in Sources */,
+				0FC71FF22E69BD00000DD53B /* toreveViewFirstHit.swift in Sources */,
 				0F80903E2C83DC2D0061480F /* hokutoViewTop.swift in Sources */,
 				0FD357D12DB37CD70069BD1A /* yoshimuneViewScreen.swift in Sources */,
 				0F6BD7DE2D83170E003F5563 /* bioViewHistory.swift in Sources */,
@@ -4232,6 +4329,7 @@
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0F868ACF2D5863F100D952D9 /* girlsSSVer2View95CiStart.swift in Sources */,
 				0FD3573C2DA2151D0069BD1A /* kaijiViewRedBig.swift in Sources */,
+				0FC71FDA2E66FC55000DD53B /* toreveViewTop.swift in Sources */,
 				0FD357562DA288330069BD1A /* magiaViewNormal.swift in Sources */,
 				0F868ADA2D5E2CA700D952D9 /* sevenSwordsClass.swift in Sources */,
 				0FB209672E10DDC10029D940 /* evaYakusokuTableFirstHit.swift in Sources */,
@@ -4239,6 +4337,7 @@
 				0FCFCC502CD5D18B005F94B0 /* rezero2ViewScreen.swift in Sources */,
 				0F8031182C697910001F008E /* splashScreenView.swift in Sources */,
 				0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */,
+				0FC71FDC2E66FC6B000DD53B /* ToreveClass.swift in Sources */,
 				0FEC57D72D97794500FF1024 /* rslViewFirstHit.swift in Sources */,
 				0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */,
 				0F6B59E12E06A41500DB1A2B /* goevaTableHenni.swift in Sources */,
@@ -4277,6 +4376,7 @@
 				0F1E11FC2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift in Sources */,
 				0F9A4F772DEC1573003B6337 /* dmc5ViewNormal.swift in Sources */,
 				0F64DD862DC5AE390027315D /* unitButtonCountNumberInput.swift in Sources */,
+				0FC71FD72E66FB66000DD53B /* ver390Class.swift in Sources */,
 				0F7655272E3476FD00B0CF0F /* countUpDownInout.swift in Sources */,
 				0F64DD7A2DC105140027315D /* idolMasterViewScreen.swift in Sources */,
 				0FD357A32DAB78FF0069BD1A /* godzillaViewFirstHit.swift in Sources */,
@@ -4316,6 +4416,7 @@
 				0F815FD82E3B91D80086127D /* reSwordTableKoyakuPattern.swift in Sources */,
 				0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */,
 				0FB9CAA42DE1381A009FC6AF /* toloveruTableWhisper.swift in Sources */,
+				0FC71FE42E685875000DD53B /* toreveViewCycle.swift in Sources */,
 				0F64DDD02DC6F3BA0027315D /* midoriDonViewBonusScreen.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,
 				0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */,
@@ -4361,6 +4462,7 @@
 				0F64DD822DC440D70027315D /* kaijiViewHanchoRush.swift in Sources */,
 				0FD357242DA0CDF60069BD1A /* kaijiTableModeStageChange.swift in Sources */,
 				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
+				0FC71FFE2E6BC7C6000DD53B /* toreveViewScreen.swift in Sources */,
 				0F6B59BA2DFD2F6400DB1A2B /* unitMachinListLink.swift in Sources */,
 				0F8689DC2D3BD26800D952D9 /* unitButtonRecordKenToStart.swift in Sources */,
 				0F815FCE2E3B8B120086127D /* reSwordViewTop.swift in Sources */,
@@ -4375,6 +4477,7 @@
 				0F868ADE2D5ED73F00D952D9 /* sevenSwordsView95Ci.swift in Sources */,
 				0FCF78962E470D040000748B /* mt5TableAoshimaScreen.swift in Sources */,
 				0FB9CA922DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift in Sources */,
+				0FC720022E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift in Sources */,
 				0F8689E42D3CE9FC00D952D9 /* myJug5Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868AB02D583ACD00D952D9 /* funky2Ver2ViewJissenCount.swift in Sources */,
 				0F6FB8EE2DE72D6D00207855 /* bangdreamTableFirstHit.swift in Sources */,
@@ -4446,6 +4549,7 @@
 				0F868A272D45167200D952D9 /* unitResultHanrei.swift in Sources */,
 				0F9A4FA42DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift in Sources */,
 				0F64DD4B2DC07E790027315D /* dumbbellTableGoldenChallenge.swift in Sources */,
+				0FC71FF62E6B26A0000DD53B /* toreveView95Ci.swift in Sources */,
 				0FB209562E0FD3790029D940 /* guiltyCrown2TableSuikaBonus.swift in Sources */,
 				0F868AD12D5864A500D952D9 /* girlsSSVer2View95CiPersonal.swift in Sources */,
 				0F6B59EB2E07DD9A00DB1A2B /* mt5Table5Coin.swift in Sources */,
@@ -4491,10 +4595,12 @@
 				0F654BEB2C70A10B00F37849 /* kingHanaExViewBellBonus.swift in Sources */,
 				0F868ACB2D584F4600D952D9 /* girlsSSVer2View95CiTotal.swift in Sources */,
 				0F868A022D42790E00D952D9 /* goJug3Ver2ViewJissenStartData.swift in Sources */,
+				0FC71FF82E6B26AF000DD53B /* toreveViewBayes.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
 				0F6FB8F82DE7341B00207855 /* bangdreamTablePicoAttack.swift in Sources */,
 				0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */,
 				0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */,
+				0FC71FEE2E687013000DD53B /* toreveTablePtTable.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,
 				0F9A798E2E48CBFE00D996CA /* decodeIntArrayFromString.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
@@ -4502,6 +4608,7 @@
 				0FF156362D6F4CF500B17F83 /* shamanKingViewKokkuri.swift in Sources */,
 				0FD357A12DAB72DD0069BD1A /* godzillaViewExMovie.swift in Sources */,
 				0F6B59E32E06AA4200DB1A2B /* goevaTableVoice.swift in Sources */,
+				0FC71FE02E67006C000DD53B /* toreveViewNormal.swift in Sources */,
 				0F7655252E32E93200B0CF0F /* magiaViewStoryOrder.swift in Sources */,
 				0FDC32632D17CAD4005B3D06 /* commonViewNamichanTrophy.swift in Sources */,
 				0F64DD702DC0CDB30027315D /* idolMasterView95Ci.swift in Sources */,
@@ -4546,6 +4653,8 @@
 				0FA0247D2CF49E1F004B3FD5 /* symphoView95Ci.swift in Sources */,
 				0F8689E22D3CE67D00D952D9 /* myJug5Ver2View95CiPersonal.swift in Sources */,
 				0F868A412D460E7500D952D9 /* kingHanaVer2ViewJissenStartData.swift in Sources */,
+				0FC720042E6BDEFB000DD53B /* toreveViewRevenge.swift in Sources */,
+				0FC71FEA2E6864DE000DD53B /* unitButtonSubmitLabel.swift in Sources */,
 				0F9A4F7F2DEC2229003B6337 /* dmc5ViewFristHit.swift in Sources */,
 				0FDC327D2D23DC80005B3D06 /* commonSammyTrophy.swift in Sources */,
 				0FCF78AE2E4767C70000748B /* kabaneriTableBonusRank.swift in Sources */,
@@ -4580,6 +4689,7 @@
 				0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */,
 				0F868A8F2D57899800D952D9 /* mrJugViewTop.swift in Sources */,
 				0F868A2C2D45CB4400D952D9 /* hanaTenshoVer2ViewKenDataInput.swift in Sources */,
+				0FC71FE72E686156000DD53B /* unitPickerMenuIntToString.swift in Sources */,
 				0F6BD7D82D81BA21003F5563 /* bioViewEnding.swift in Sources */,
 				0F815FCB2E38FDD70086127D /* arraySumGameNotResetWordOne.swift in Sources */,
 				0F592CDE2D1441C000E79883 /* inuyashaViewAim.swift in Sources */,
@@ -4680,6 +4790,7 @@
 				0FCF78922E470A5E0000748B /* mt5TableMedal.swift in Sources */,
 				0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */,
 				0FB209712E1279530029D940 /* watakonViewFirstHit.swift in Sources */,
+				0FC71FEC2E6868B8000DD53B /* unitLabelHistoryZero.swift in Sources */,
 				0F868AC92D584F3B00D952D9 /* girlsSSVer2ViewJissenTotalDataCheck.swift in Sources */,
 				0F64DD9E2DC5D27E0027315D /* hanaTenshoSubViewCountInput.swift in Sources */,
 				0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */,
@@ -4710,6 +4821,7 @@
 				0F64DDA52DC5F4340027315D /* unitReelDefault.swift in Sources */,
 				0FC14A9A2E4F054600F85D84 /* enenTableModeMorning.swift in Sources */,
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
+				0FC71FF42E69C7C2000DD53B /* toreveTableFirstHit.swift in Sources */,
 				0FC14A722E49A70700F85D84 /* logPostDenoBino.swift in Sources */,
 				0F9A4F812DEC2CD3003B6337 /* dmc5TableFirstHit.swift in Sources */,
 				0FF369222E61DB7A002BE0CE /* azurLaneViewKaga.swift in Sources */,
@@ -4726,6 +4838,7 @@
 				0FD357B32DAFCC280069BD1A /* yoshimuneViewTop.swift in Sources */,
 				0F654BC12C6E2D3400F37849 /* myJug5exView.swift in Sources */,
 				0F868A2E2D45CB5000D952D9 /* hanaTenshoVer2ViewJissenStartData.swift in Sources */,
+				0FC720082E6C079F000DD53B /* darlingViewBayes.swift in Sources */,
 				0F654BBA2C6DD39E00F37849 /* JuglerSeriesViewTop.swift in Sources */,
 				0FA0248B2D01145C004B3FD5 /* mhrViewBonusScreen.swift in Sources */,
 				0FCF78AC2E4766960000748B /* kabaneriTableCzRatio.swift in Sources */,
@@ -4861,6 +4974,7 @@
 				0F8031252C69F87D001F008E /* exViewMimizuVVV.swift in Sources */,
 				0FD357912DAB330B0069BD1A /* godzillaClass.swift in Sources */,
 				0F9A79902E48CE5A00D996CA /* unitToolbarButtonCustomSheet.swift in Sources */,
+				0FC71FFC2E6BC3FD000DD53B /* toreveViewTomanChallenge.swift in Sources */,
 				0F8689ED2D41152300D952D9 /* imJugExVer2ViewKenDataInput.swift in Sources */,
 				0F6BD7B62D75E25B003F5563 /* arifureViewCharacter.swift in Sources */,
 				0F9318812DEA9E5F00511BEF /* izaBanchoTableMode.swift in Sources */,
@@ -4894,11 +5008,13 @@
 				0FDF238B2E54B0AA00249CAC /* hokutoViewBayes.swift in Sources */,
 				0FF3692C2E62827D002BE0CE /* azurLaneTableModeSisa.swift in Sources */,
 				0FF156102D604EAC00B17F83 /* starHanaVer2View95CiStart.swift in Sources */,
+				0FC71FE22E670265000DD53B /* toreveTableKoyakuPattern.swift in Sources */,
 				0F1E12102DD0D68C00F69AFF /* inuyashaTableFirstHit.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
 				0F868A082D42793600D952D9 /* goJug3Ver2View95CiTotal.swift in Sources */,
 				0FB9CA982DDDE923009FC6AF /* toloveru87ViewFirstHit.swift in Sources */,
 				0FCF78B02E4769440000748B /* kabaneriTableKiteiGame.swift in Sources */,
+				0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */,
 				0F6B59D62E06566600DB1A2B /* godeaterTableKyoCherryChokugeki.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
 				0FB9CA892DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift in Sources */,
