@@ -424,13 +424,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver352: ver352
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-//                                        badgeStatus: ver352.magiaMachineIconBadge,
+                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
-//                                        .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -581,7 +582,17 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
                                     
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(mhrViewTop()), iconImage: Image("mhrMachineIcon"), machineName: "モンハンライズ")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(
+                                            mhrViewTop(
+                                                ver390: ver390,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )),
+                                        iconImage: Image("mhrMachineIcon"),
+                                        machineName: "モンハンライズ",
+                                        badgeStatus:ver390.mhrMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -603,10 +614,14 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(kaguyaViewTop()),
+                                        linkView: AnyView(kaguyaViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("kaguyaMachineIcon"),
-                                        machineName: "かぐや様"
-//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        machineName: "かぐや様",
+                                        badgeStatus: ver390.kaguyaMachineIconBadge
                                     )
                                 }
                                 
@@ -1078,16 +1093,17 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver352: ver352
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver352.magiaMachineIconBadge,
+                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
-//                                    .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -1299,12 +1315,17 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(mhrViewTop()),
+                                        linkView: AnyView(mhrViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("mhrMachineIcon"),
                                         machineName: "モンスターハンター ライズ",
                                         makerName: "アデリオン",
                                         releaseYear: 2024,
-                                        releaseMonth: 11
+                                        releaseMonth: 11,
+                                        badgeStatus: ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -1328,13 +1349,17 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(kaguyaViewTop()),
+                                        linkView: AnyView(kaguyaViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("kaguyaMachineIcon"),
                                         machineName: "かぐや様は告らせたい",
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
-                                        releaseMonth: 9
-//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        releaseMonth: 9,
+                                        badgeStatus: ver390.kaguyaMachineIconBadge,
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月

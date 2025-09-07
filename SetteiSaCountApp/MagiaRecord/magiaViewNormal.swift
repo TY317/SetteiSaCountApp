@@ -9,8 +9,7 @@ import SwiftUI
 import TipKit
 
 struct magiaViewNormal: View {
-//    @ObservedObject var ver310: Ver310
-//    @ObservedObject var magia = Magia()
+    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -23,6 +22,8 @@ struct magiaViewNormal: View {
     @State var spaceHeight = 250.0
     @State var selectedSegment: String = "AT終了後の移行"
     let segmentList: [String] = ["AT終了後の移行", "いろはからの昇格"]
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
 //        TipView(tipVer310MagiaMagicGirlMode())
@@ -110,10 +111,17 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
-//                .popoverTip(tipVer271MagiaMagicGirlMode())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 1)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("スイカからのCZ当選")
             }
@@ -420,6 +428,15 @@ struct magiaViewNormal: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("魔法少女モード")
             }
@@ -497,7 +514,9 @@ struct magiaViewNormal: View {
 
 #Preview {
     magiaViewNormal(
-//        ver310: Ver310(),
-        magia: Magia()
+        ver390: Ver390(),
+        magia: Magia(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

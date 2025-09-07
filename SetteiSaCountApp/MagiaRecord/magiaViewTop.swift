@@ -9,13 +9,14 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct magiaViewTop: View {
-//    @ObservedObject var ver352: Ver352
-//    @ObservedObject var magia = Magia()
+    @ObservedObject var ver390: Ver390
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
     @StateObject var magiaMemory1 = MagiaMemory1()
     @StateObject var magiaMemory2 = MagiaMemory2()
     @StateObject var magiaMemory3 = MagiaMemory3()
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -32,8 +33,10 @@ struct magiaViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: magiaViewNormal(
-//                        ver310: ver310,
-                        magia: magia
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
@@ -42,7 +45,12 @@ struct magiaViewTop: View {
                         )
                     }
                     // 初当り
-                    NavigationLink(destination: magiaViewFirstHit(magia: magia)) {
+                    NavigationLink(destination: magiaViewFirstHit(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
@@ -51,8 +59,10 @@ struct magiaViewTop: View {
                     }
                     // みたまボーナス
                     NavigationLink(destination: magiaViewMitama(
-//                        ver352: ver352,
+                        ver390: ver390,
                         magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "rosette",
@@ -62,8 +72,10 @@ struct magiaViewTop: View {
                     }
                     // エピソードボーナス
                     NavigationLink(destination: magiaViewEpisode(
-//                        ver352: ver352,
+                        ver390: ver390,
                         magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
@@ -113,7 +125,12 @@ struct magiaViewTop: View {
                         )
                     }
                     // ボーナス,AT後の高確スタート
-                    NavigationLink(destination: magiaViewKokakuStart(magia: magia)) {
+                    NavigationLink(destination: magiaViewKokakuStart(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "ビッグ,AT後の高確スタート"
@@ -153,6 +170,19 @@ struct magiaViewTop: View {
                 NavigationLink(destination: magiaView95Ci(magia: magia)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: magiaViewBayes(
+                    ver390: ver390,
+                    magia: magia,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver390.magiaMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4745")
 //                    .popoverTip(tipVer220AddLink())
@@ -165,7 +195,7 @@ struct magiaViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.magiaMachineIconBadge)
+        .resetBadgeOnAppear($ver390.magiaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -174,21 +204,6 @@ struct magiaViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "マギアレコード", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "magiaViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: magiaViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver310.magiaMachineIconBadgeStatus != "none" {
-//                ver310.magiaMachineIconBadgeStatus = "none"
-//            }
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -209,10 +224,8 @@ struct magiaViewTop: View {
                         magiaMemory3: magiaMemory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: magia.resetAll, message: "この機種のデータを全てリセットします")
-//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }
@@ -847,6 +860,8 @@ struct magiaSubViewLoadMemory: View {
 
 #Preview {
     magiaViewTop(
-//        ver352: Ver352()
+        ver390: Ver390(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

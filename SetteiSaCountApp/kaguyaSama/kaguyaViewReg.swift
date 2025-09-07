@@ -24,6 +24,7 @@ struct kaguyaTipRegCharaSelect: Tip {
 }
 
 struct kaguyaViewReg: View {
+    @ObservedObject var ver390: Ver390
 //    @ObservedObject var kaguya = KaguyaSama()
     @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
@@ -32,6 +33,8 @@ struct kaguyaViewReg: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -176,6 +179,15 @@ struct kaguyaViewReg: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(kaguyaView95Ci(kaguya: kaguya, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kaguyaViewBayes(
+                        ver390: ver390,
+                        kaguya: kaguya,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
@@ -242,5 +254,10 @@ struct kaguyaViewReg: View {
 }
 
 #Preview {
-    kaguyaViewReg(kaguya: KaguyaSama())
+    kaguyaViewReg(
+        ver390: Ver390(),
+        kaguya: KaguyaSama(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

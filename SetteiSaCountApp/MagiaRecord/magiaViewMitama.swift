@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct magiaViewMitama: View {
-//    @ObservedObject var ver352: Ver352
+    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         List {
@@ -67,6 +69,15 @@ struct magiaViewMitama: View {
                         }
                     }
                 }
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("ウワサバトル発展時のAT当選")
             }
@@ -99,7 +110,9 @@ struct magiaViewMitama: View {
 
 #Preview {
     magiaViewMitama(
-//        ver352: Ver352(),
+        ver390: Ver390(),
         magia: Magia(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

@@ -38,6 +38,7 @@ struct toreveViewRevenge: View {
                         lineList: [3,2],
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
             }
         }
         // //// firebaseログ

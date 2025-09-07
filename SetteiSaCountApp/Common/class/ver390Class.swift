@@ -11,9 +11,15 @@ import TipKit
 
 class Ver390: ObservableObject {
     @AppStorage("ver390ToreveMachineIconBadge") var toreveMachineIconBadge: String = "new"
+    @AppStorage("ver390KaguyaMachineIconBadge") var kaguyaMachineIconBadge: String = "update"
+    @AppStorage("ver390MhrMachineIconBadge") var mhrMachineIconBadge: String = "update"
     @AppStorage("ver390DarlingMachineIconBadge") var darlingMachineIconBadge: String = "update"
     @AppStorage("ver390DarlingMenuCzBadgeBadge") var darlingMenuCzBadge: String = "update"
     @AppStorage("ver390DarlingMenuBayesBadge") var darlingMenuBayesBadge: String = "new"
+    @AppStorage("ver390KaguyaMenuBayesBadge") var kaguyaMenuBayesBadge: String = "new"
+    @AppStorage("ver390MhrMenuBayesBadge") var mhrMenuBayesBadge: String = "new"
+    @AppStorage("ver390MagiaMachineIconBadge") var magiaMachineIconBadge: String = "update"
+    @AppStorage("ver390MagiaMenuBayesBadge") var magiaMenuBayesBadge: String = "new"
 }
 
 
@@ -22,7 +28,7 @@ struct tipVer390UpdateInfo: Tip {
         Text("機種,機能追加！")
     }
     var message: Text? {
-        Text("・東京リベンジャーズを追加\n・設定期待値の対応機種追加\n　　・ダーリン・イン・ザ・フランキス")
+        Text("・東京リベンジャーズを追加\n・設定期待値の対応機種追加\n　　・ダーリン・イン・ザ・フランキス\n　　・かぐや様は告らせたい\n　　・モンスターハンターライズ")
     }
     var image: Image? {
         Image(systemName: "star")

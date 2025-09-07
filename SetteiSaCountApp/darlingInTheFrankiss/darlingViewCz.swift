@@ -218,6 +218,7 @@ struct darlingViewCz: View {
                     ForEach(self.titleList, id: \.self) { color in
                         unitResultRatioPercent2Line(
                             title: color,
+                            color: backColor(color: color),
                             count: bindingFLCountHit(color: color),
                             bigNumber: bindingFLCountSum(color: color),
                             numberofDicimal: 0,
@@ -279,6 +280,8 @@ struct darlingViewCz: View {
             } header: {
                 Text("最終レベル別の当選率")
             }
+            
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($ver390.darlingMenuCzBadge)
@@ -366,6 +369,16 @@ struct darlingViewCz: View {
         case self.titleList[3]: return darling.$czFLCountGreenSum
         case self.titleList[4]: return darling.$czFLCountRedSum
         default: return .constant(0)
+        }
+    }
+    func backColor(color: String) -> Color {
+        switch color {
+        case self.titleList[0]: return .grayBack
+        case self.titleList[1]: return .personalSummerLightBlue
+        case self.titleList[2]: return .personalSpringLightYellow
+        case self.titleList[3]: return .personalSummerLightGreen
+        case self.titleList[4]: return .personalSummerLightRed
+        default: return .grayBack
         }
     }
 //    func buttonColorHit(index: Int) -> Color {

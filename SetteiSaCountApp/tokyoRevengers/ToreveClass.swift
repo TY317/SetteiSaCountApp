@@ -157,3 +157,87 @@ class Toreve: ObservableObject {
         resetScreen()
     }
 }
+
+// //// メモリー1
+class ToreveMemory1: ObservableObject {
+    @AppStorage("toreveCycleArrayKeyMemory1") var cycleArrayData: Data?
+    @AppStorage("torevePtArrayKeyMemory1") var ptArrayData: Data?
+    @AppStorage("toreveTriggerArrayKeyMemory1") var triggerArrayData: Data?
+    @AppStorage("toreveResultArrayKeyMemory1") var resultArrayData: Data?
+    @AppStorage("toreveNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("toreveCzCountMidNightMemory1") var czCountMidNight: Int = 0
+    @AppStorage("toreveCzCountKisakiMemory1") var czCountKisaki: Int = 0
+    @AppStorage("toreveCzCountSumMemory1") var czCountSum: Int = 0
+    @AppStorage("toreveTomanRushCountMemory1") var tomanRushCount: Int = 0
+    @AppStorage("toreveTomanChallengeCountMemory1") var tomanChallengeCount: Int = 0
+    @AppStorage("toreveFirstHitCountMemory1") var firstHitCount: Int = 0
+    @AppStorage("toreveScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("toreveScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("toreveScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("toreveScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("toreveScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("toreveScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("toreveScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("toreveScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("toreveScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("toreveScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("toreveScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("toreveMemoMemory1") var memo = ""
+    @AppStorage("toreveDateMemory1") var dateDouble = 0.0
+}
+
+// //// メモリー2
+class ToreveMemory2: ObservableObject {
+    @AppStorage("toreveCycleArrayKeyMemory2") var cycleArrayData: Data?
+    @AppStorage("torevePtArrayKeyMemory2") var ptArrayData: Data?
+    @AppStorage("toreveTriggerArrayKeyMemory2") var triggerArrayData: Data?
+    @AppStorage("toreveResultArrayKeyMemory2") var resultArrayData: Data?
+    @AppStorage("toreveNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("toreveCzCountMidNightMemory2") var czCountMidNight: Int = 0
+    @AppStorage("toreveCzCountKisakiMemory2") var czCountKisaki: Int = 0
+    @AppStorage("toreveCzCountSumMemory2") var czCountSum: Int = 0
+    @AppStorage("toreveTomanRushCountMemory2") var tomanRushCount: Int = 0
+    @AppStorage("toreveTomanChallengeCountMemory2") var tomanChallengeCount: Int = 0
+    @AppStorage("toreveFirstHitCountMemory2") var firstHitCount: Int = 0
+    @AppStorage("toreveScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("toreveScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("toreveScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("toreveScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("toreveScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("toreveScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("toreveScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("toreveScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("toreveScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("toreveScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("toreveScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("toreveMemoMemory2") var memo = ""
+    @AppStorage("toreveDateMemory2") var dateDouble = 0.0
+}
+
+// //// メモリー3
+class ToreveMemory3: ObservableObject {
+    @AppStorage("toreveCycleArrayKeyMemory3") var cycleArrayData: Data?
+    @AppStorage("torevePtArrayKeyMemory3") var ptArrayData: Data?
+    @AppStorage("toreveTriggerArrayKeyMemory3") var triggerArrayData: Data?
+    @AppStorage("toreveResultArrayKeyMemory3") var resultArrayData: Data?
+    @AppStorage("toreveNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("toreveCzCountMidNightMemory3") var czCountMidNight: Int = 0
+    @AppStorage("toreveCzCountKisakiMemory3") var czCountKisaki: Int = 0
+    @AppStorage("toreveCzCountSumMemory3") var czCountSum: Int = 0
+    @AppStorage("toreveTomanRushCountMemory3") var tomanRushCount: Int = 0
+    @AppStorage("toreveTomanChallengeCountMemory3") var tomanChallengeCount: Int = 0
+    @AppStorage("toreveFirstHitCountMemory3") var firstHitCount: Int = 0
+    @AppStorage("toreveScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("toreveScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("toreveScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("toreveScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("toreveScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("toreveScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("toreveScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("toreveScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("toreveScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("toreveScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("toreveScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("toreveMemoMemory3") var memo = ""
+    @AppStorage("toreveDateMemory3") var dateDouble = 0.0
+}

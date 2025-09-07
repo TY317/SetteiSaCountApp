@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct mhrViewHistory: View {
+    @ObservedObject var ver390: Ver390
 //    @ObservedObject var mhr = Mhr()
     @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
@@ -21,6 +22,8 @@ struct mhrViewHistory: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -87,6 +90,15 @@ struct mhrViewHistory: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 3)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mhrViewBayes(
+                        ver390: ver390,
+                        mhr: mhr,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("アイルーだるま落とし規定回数")
             }
@@ -266,6 +278,15 @@ struct mhrViewHistory: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mhrViewBayes(
+                        ver390: ver390,
+                        mhr: mhr,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("AT初当り")
             }
@@ -293,6 +314,15 @@ struct mhrViewHistory: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 2)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mhrViewBayes(
+                        ver390: ver390,
+                        mhr: mhr,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("ライズゾーン初当り確率")
             }
@@ -437,5 +467,10 @@ struct mhrSubViewDataInput: View {
 }
 
 #Preview {
-    mhrViewHistory(mhr: Mhr())
+    mhrViewHistory(
+        ver390: Ver390(),
+        mhr: Mhr(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

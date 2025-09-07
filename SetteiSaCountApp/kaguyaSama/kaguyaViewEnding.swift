@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct kaguyaViewEnding: View {
+    @ObservedObject var ver390: Ver390
 //    @ObservedObject var kaguya = KaguyaSama()
     @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -40,6 +43,15 @@ struct kaguyaViewEnding: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kaguyaViewBayes(
+                        ver390: ver390,
+                        kaguya: kaguya,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("エピソードのカウント")
             }
@@ -67,5 +79,10 @@ struct kaguyaViewEnding: View {
 }
 
 #Preview {
-    kaguyaViewEnding(kaguya: KaguyaSama())
+    kaguyaViewEnding(
+        ver390: Ver390(),
+        kaguya: KaguyaSama(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

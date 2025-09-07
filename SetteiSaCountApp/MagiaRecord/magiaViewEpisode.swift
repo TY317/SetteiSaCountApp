@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewEpisode: View {
-//    @ObservedObject var ver352: Ver352
+    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -30,6 +30,8 @@ struct magiaViewEpisode: View {
         .personalSummerLightPurple,
         .gray
     ]
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         List {
@@ -95,6 +97,15 @@ struct magiaViewEpisode: View {
                         }
                     }
                 }
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("エピソード種類")
             }
@@ -151,7 +162,9 @@ struct magiaViewEpisode: View {
 
 #Preview {
     magiaViewEpisode(
-//        ver352: Ver352(),
+        ver390: Ver390(),
         magia: Magia(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }
