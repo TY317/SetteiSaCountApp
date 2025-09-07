@@ -17,6 +17,7 @@ struct unitTableDenominate: View {
     var lineList: [Int] = [1,1,1,1,1,1]
     var titleFont: Font = .title3
     var contentFont: Font = .title3
+    var colorList: [Color]?
     let valueHstackSpacing: CGFloat = 3
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
@@ -114,10 +115,19 @@ struct unitTableDenominate: View {
     
     private func backColor(ind: Int) -> Color {
         var textBackColor: Color = .white
-        if ind % 2 == 0 {
-            textBackColor = Color.tableBlue
-        } else {
-            textBackColor = Color.white
+        if let colorList = colorList {
+            if colorList.indices.contains(ind) {
+                textBackColor = colorList[ind]
+            } else {
+                textBackColor = .white
+            }
+        }
+        else {
+            if ind % 2 == 0 {
+                textBackColor = Color.tableBlue
+            } else {
+                textBackColor = Color.white
+            }
         }
         
         return textBackColor

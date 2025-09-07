@@ -63,6 +63,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteReSword") var isSelectedFavoriteReSword = true
     @AppStorage("isSelectedFavoriteEnen") var isSelectedFavoriteEnen = true
     @AppStorage("isSelectedFavoriteAzurLane") var isSelectedFavoriteAzurLane = true
+    @AppStorage("isSelectedFavoriteToreve") var isSelectedFavoriteToreve = true
 }
 
 
@@ -122,9 +123,8 @@ class commonVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-//    @StateObject var ver361 = Ver361()
-//    @StateObject var ver370 = Ver370()
     @StateObject var ver380 = Ver380()
+    @StateObject var ver390 = Ver390()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
     @ObservedObject var favoriteSet = favoriteSetVar()
@@ -140,7 +140,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer380MachineAddver2())
+                TipView(tipVer390UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -179,6 +179,22 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 東京リベンジャーズ、25年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(toreveViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("toreveMachineIcon"),
+                                        machineName: "東リベ",
+                                        badgeStatus: ver390.toreveMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// アズールレーン、25年8月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAzurLane == false {
                                     
@@ -202,10 +218,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
                                             ver380: ver380,
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-                                        badgeStatus: ver380.darlingMachineIconBadge,
+                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -405,13 +424,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver352: ver352
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-//                                        badgeStatus: ver352.magiaMachineIconBadge,
+                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
-//                                        .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -562,7 +582,17 @@ struct ContentView: View {
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
                                     
                                 } else {
-                                    unitMachineIconLink(linkView: AnyView(mhrViewTop()), iconImage: Image("mhrMachineIcon"), machineName: "モンハンライズ")
+                                    unitMachineIconLink(
+                                        linkView: AnyView(
+                                            mhrViewTop(
+                                                ver390: ver390,
+                                                bayes: bayes,
+                                                viewModel: viewModel,
+                                            )),
+                                        iconImage: Image("mhrMachineIcon"),
+                                        machineName: "モンハンライズ",
+                                        badgeStatus:ver390.mhrMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// バンドリ、24年11月
@@ -584,10 +614,14 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(kaguyaViewTop()),
+                                        linkView: AnyView(kaguyaViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("kaguyaMachineIcon"),
-                                        machineName: "かぐや様"
-//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        machineName: "かぐや様",
+                                        badgeStatus: ver390.kaguyaMachineIconBadge
                                     )
                                 }
                                 
@@ -763,6 +797,25 @@ struct ContentView: View {
                                 }
                                 
                                 // //// アズールレーン、25年8月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(toreveViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("toreveMachineIcon"),
+                                        machineName: "東京リベンジャーズ",
+                                        makerName: "サミー",
+                                        releaseYear: 2025,
+                                        releaseMonth: 9,
+                                        badgeStatus: ver390.toreveMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// アズールレーン、25年8月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAzurLane == false {
                                     
                                 } else {
@@ -789,6 +842,9 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
                                             ver380: ver380,
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダーリン・イン・ザ・フランキス",
@@ -796,7 +852,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver380.darlingMachineIconBadge,
+                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1037,16 +1093,17 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver352: ver352
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギアレコード",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver352.magiaMachineIconBadge,
+                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
-//                                    .popoverTip(tipVer270MachineAdd())
                                 }
                                 
                                 // //// レビュースタァライト、25年3月
@@ -1258,12 +1315,17 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(mhrViewTop()),
+                                        linkView: AnyView(mhrViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("mhrMachineIcon"),
                                         machineName: "モンスターハンター ライズ",
                                         makerName: "アデリオン",
                                         releaseYear: 2024,
-                                        releaseMonth: 11
+                                        releaseMonth: 11,
+                                        badgeStatus: ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -1287,13 +1349,17 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(kaguyaViewTop()),
+                                        linkView: AnyView(kaguyaViewTop(
+                                            ver390: ver390,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("kaguyaMachineIcon"),
                                         machineName: "かぐや様は告らせたい",
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
-                                        releaseMonth: 9
-//                                        badgeStatus: ver260.kaguyaMachineIconBadgeStatus
+                                        releaseMonth: 9,
+                                        badgeStatus: ver390.kaguyaMachineIconBadge,
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
@@ -1669,6 +1735,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 東京リベンジャーズ
+                Toggle("東京リベンジャーズ", isOn: $favoriteSet.isSelectedFavoriteToreve)
                 // アズールレーン
                 Toggle("アズールレーン", isOn: $favoriteSet.isSelectedFavoriteAzurLane)
                 // ダーリンインザフランキス
@@ -1889,8 +1957,8 @@ struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()

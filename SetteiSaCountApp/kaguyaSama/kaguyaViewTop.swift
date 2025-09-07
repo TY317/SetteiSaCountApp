@@ -423,7 +423,7 @@ class KaguyaMemory3: ObservableObject {
 
 
 struct kaguyaViewTop: View {
-//    @ObservedObject var ver260 = Ver260()
+    @ObservedObject var ver390 = Ver390()
 //    @ObservedObject var kaguya = KaguyaSama()
     @StateObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
@@ -432,6 +432,8 @@ struct kaguyaViewTop: View {
     @StateObject var kaguyaMemory1 = KaguyaMemory1()
     @StateObject var kaguyaMemory2 = KaguyaMemory2()
     @StateObject var kaguyaMemory3 = KaguyaMemory3()
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -450,15 +452,30 @@ struct kaguyaViewTop: View {
                         )
                     }
                     // REG中のキャラ紹介
-                    NavigationLink(destination: kaguyaViewReg(kaguya: kaguya)) {
+                    NavigationLink(destination: kaguyaViewReg(
+                        ver390: ver390,
+                        kaguya: kaguya,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "person.3.sequence", textBody: "REG中のキャラ紹介")
                     }
                     // ボーナス終了画面
-                    NavigationLink(destination: kaguyaViewScreen(kaguya: kaguya)) {
+                    NavigationLink(destination: kaguyaViewScreen(
+                        ver390: ver390,
+                        kaguya: kaguya,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "photo.on.rectangle", textBody: "ボーナス終了画面")
                     }
                     // エンディング
-                    NavigationLink(destination: kaguyaViewEnding(kaguya: kaguya)) {
+                    NavigationLink(destination: kaguyaViewEnding(
+                        ver390: ver390,
+                        kaguya: kaguya,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "flag.checkered", textBody: "エンディング")
                     }
                 } header: {
@@ -467,6 +484,19 @@ struct kaguyaViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: kaguyaView95Ci(kaguya: kaguya)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: kaguyaViewBayes(
+                    ver390: ver390,
+                    kaguya: kaguya,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver390.kaguyaMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4618")
@@ -478,6 +508,8 @@ struct kaguyaViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver390.kaguyaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -486,21 +518,6 @@ struct kaguyaViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "かぐや様は告らせたい", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "kaguyaViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: kaguyaViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver260.kaguyaMachineIconBadgeStatus != "none" {
-//                ver260.kaguyaMachineIconBadgeStatus = "none"
-//            }
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -514,7 +531,6 @@ struct kaguyaViewTop: View {
                             kaguyaMemory2: kaguyaMemory2,
                             kaguyaMemory3: kaguyaMemory3
                         )))
-    //                        .popoverTip(tipUnitButtonLoadMemory())
                         // //// データ保存
                         unitButtonSaveMemory(saveView: AnyView(kaguyaViewSaveMemory(
                             kaguya: kaguya,
@@ -522,12 +538,9 @@ struct kaguyaViewTop: View {
                             kaguyaMemory2: kaguyaMemory2,
                             kaguyaMemory3: kaguyaMemory3
                         )))
-    //                        .popoverTip(tipUnitButtonSaveMemory())
                     }
-//                    .popoverTip(tipUnitButtonMemory())
                     // //// データリセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: kaguya.resetAll, message: "この機種のデータを全てリセットします")
-//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -860,5 +873,9 @@ struct kaguyaViewLoadMemory: View {
 }
 
 #Preview {
-    kaguyaViewTop()
+    kaguyaViewTop(
+        ver390: Ver390(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

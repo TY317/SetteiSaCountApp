@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct magiaViewFirstHit: View {
-//    @ObservedObject var ver271 = Ver271()
-//    @ObservedObject var magia = Magia()
+    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -21,6 +20,8 @@ struct magiaViewFirstHit: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         List {
@@ -115,6 +116,15 @@ struct magiaViewFirstHit: View {
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 2)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("初当り")
             }
@@ -211,5 +221,10 @@ struct magiaViewFirstHit: View {
 }
 
 #Preview {
-    magiaViewFirstHit(magia: Magia())
+    magiaViewFirstHit(
+        ver390: Ver390(),
+        magia: Magia(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

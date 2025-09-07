@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct magiaViewKokakuStart: View {
-//    @ObservedObject var ver280 = Ver280()
-//    @ObservedObject var magia = Magia()
+    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -22,6 +21,8 @@ struct magiaViewKokakuStart: View {
     @State var spaceHeight = 250.0
     @State var selectedSegment: String = "ビッグ後"
     let segmentList: [String] = ["ビッグ後", "AT後"]
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         List {
@@ -108,6 +109,15 @@ struct magiaViewKokakuStart: View {
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(magiaView95Ci(magia: magia, selection: 4)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    magiaViewBayes(
+                        ver390: ver390,
+                        magia: magia,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
@@ -182,5 +192,10 @@ struct magiaViewKokakuStart: View {
 }
 
 #Preview {
-    magiaViewKokakuStart(magia: Magia())
+    magiaViewKokakuStart(
+        ver390: Ver390(),
+        magia: Magia(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

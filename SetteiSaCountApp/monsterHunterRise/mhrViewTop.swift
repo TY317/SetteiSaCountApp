@@ -395,19 +395,26 @@ class MhrMemory3: ObservableObject {
 }
 
 struct mhrViewTop: View {
-//    @ObservedObject var mhr = Mhr()
+    @ObservedObject var ver390 = Ver390()
     @StateObject var mhr = Mhr()
     @State var isShowAlert: Bool = false
     @StateObject var mhrMemory1 = MhrMemory1()
     @StateObject var mhrMemory2 = MhrMemory2()
     @StateObject var mhrMemory3 = MhrMemory3()
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // AT初当り履歴
-                    NavigationLink(destination: mhrViewHistory(mhr: mhr)) {
+                    NavigationLink(destination: mhrViewHistory(
+                        ver390: ver390,
+                        mhr: mhr,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "AT初当たり履歴"
@@ -442,6 +449,13 @@ struct mhrViewTop: View {
                             textBody: "エンディング"
                         )
                     }
+                    // エンタトロフィー
+                    NavigationLink(destination: commonViewEnteriseTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "エンタトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: "モンスターハンター ライズ", titleFont: .title2)
                 }
@@ -449,9 +463,21 @@ struct mhrViewTop: View {
                 NavigationLink(destination: mhrView95Ci(mhr: mhr)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: mhrViewBayes(
+                    ver390: ver390,
+                    mhr: mhr,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver390.mhrMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4676")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // copyright
                 unitSectionCopyright {
@@ -459,6 +485,8 @@ struct mhrViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver390.mhrMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -467,16 +495,6 @@ struct mhrViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "モンスターハンター ライズ", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "mhrViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: mhrViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -497,10 +515,8 @@ struct mhrViewTop: View {
                         mhrMemory3: mhrMemory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mhr.resetAll, message: "この機種のデータを全てリセットします")
-//                    .popoverTip(tipUnitButtonReset())
             }
         }
     }
@@ -784,5 +800,9 @@ struct mhrSubViewLoadMemory: View {
 
 
 #Preview {
-    mhrViewTop()
+    mhrViewTop(
+        ver390: Ver390(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

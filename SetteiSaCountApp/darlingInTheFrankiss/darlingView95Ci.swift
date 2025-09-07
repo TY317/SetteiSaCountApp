@@ -118,6 +118,96 @@ struct darlingView95Ci: View {
                 )
             )
             .tag(6)
+            // CZ最終レベル　白成功回数
+            unitListSection95Ci(
+                grafTitle: "CZ最終レベル\n白 成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czFLCountWhiteHit,
+                        bigNumber: $darling.czFLCountWhiteSum,
+                        setting1Percent: darling.ratioCzFLWhite[0],
+                        setting2Percent: darling.ratioCzFLWhite[1],
+                        setting3Percent: darling.ratioCzFLWhite[2],
+                        setting4Percent: darling.ratioCzFLWhite[3],
+                        setting5Percent: darling.ratioCzFLWhite[4],
+                        setting6Percent: darling.ratioCzFLWhite[5]
+                    )
+                )
+            )
+            .tag(7)
+            // CZ最終レベル　青成功回数
+            unitListSection95Ci(
+                grafTitle: "CZ最終レベル\n青 成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czFLCountBlueHit,
+                        bigNumber: $darling.czFLCountBlueSum,
+                        setting1Percent: darling.ratioCzFLBlue[0],
+                        setting2Percent: darling.ratioCzFLBlue[1],
+                        setting3Percent: darling.ratioCzFLBlue[2],
+                        setting4Percent: darling.ratioCzFLBlue[3],
+                        setting5Percent: darling.ratioCzFLBlue[4],
+                        setting6Percent: darling.ratioCzFLBlue[5]
+                    )
+                )
+            )
+            .tag(8)
+            // CZ最終レベル　黄色成功回数
+            unitListSection95Ci(
+                grafTitle: "CZ最終レベル\n黄 成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czFLCountYellowHit,
+                        bigNumber: $darling.czFLCountYellowSum,
+                        setting1Percent: darling.ratioCzFLYellow[0],
+                        setting2Percent: darling.ratioCzFLYellow[1],
+                        setting3Percent: darling.ratioCzFLYellow[2],
+                        setting4Percent: darling.ratioCzFLYellow[3],
+                        setting5Percent: darling.ratioCzFLYellow[4],
+                        setting6Percent: darling.ratioCzFLYellow[5]
+                    )
+                )
+            )
+            .tag(9)
+            // CZ最終レベル　緑成功回数
+            unitListSection95Ci(
+                grafTitle: "CZ最終レベル\n緑 成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czFLCountGreenHit,
+                        bigNumber: $darling.czFLCountGreenSum,
+                        setting1Percent: darling.ratioCzFLGreen[0],
+                        setting2Percent: darling.ratioCzFLGreen[1],
+                        setting3Percent: darling.ratioCzFLGreen[2],
+                        setting4Percent: darling.ratioCzFLGreen[3],
+                        setting5Percent: darling.ratioCzFLGreen[4],
+                        setting6Percent: darling.ratioCzFLGreen[5]
+                    )
+                )
+            )
+            .tag(10)
+            // CZ最終レベル　赤成功回数
+            unitListSection95Ci(
+                grafTitle: "CZ最終レベル\n赤 成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $darling.czFLCountRedHit,
+                        bigNumber: $darling.czFLCountRedSum,
+                        setting1Percent: darling.ratioCzFLRed[0],
+                        setting2Percent: darling.ratioCzFLRed[1],
+                        setting3Percent: darling.ratioCzFLRed[2],
+                        setting4Percent: darling.ratioCzFLRed[3],
+                        setting5Percent: darling.ratioCzFLRed[4],
+                        setting6Percent: darling.ratioCzFLRed[5]
+                    )
+                )
+            )
+            .tag(11)
         }
         // //// firebaseログ
         .onAppear {
