@@ -28,7 +28,7 @@ struct tipVer390UpdateInfo: Tip {
         Text("機種,機能追加！")
     }
     var message: Text? {
-        Text("・東京リベンジャーズを追加\n・設定期待値の対応機種追加\n　　・ダーリン・イン・ザ・フランキス\n　　・かぐや様は告らせたい\n　　・モンスターハンターライズ")
+        Text("・東京リベンジャーズを追加\n・設定期待値の対応機種追加\n　　・ダーリン・イン・ザ・フランキス\n　　・マギアレコード\n　　・かぐや様は告らせたい\n　　・モンスターハンターライズ")
     }
     var image: Image? {
         Image(systemName: "star")
