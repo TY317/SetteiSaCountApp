@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct karakuriViewBayes: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var karakuri: Karakuri
     
     // 機種ごとに見直し
@@ -85,7 +85,7 @@ struct karakuriViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.karakuriMenuBayesBadge)
+//        .resetBadgeOnAppear($ver380.karakuriMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -262,7 +262,7 @@ struct karakuriViewBayes: View {
 
 #Preview {
     karakuriViewBayes(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         karakuri: Karakuri(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

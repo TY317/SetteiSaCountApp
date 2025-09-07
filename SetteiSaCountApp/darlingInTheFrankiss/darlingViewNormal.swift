@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewNormal: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     @State var selectedSegment: String = "🍒"
@@ -55,7 +55,7 @@ struct darlingViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer380DarlingKokaku())
+//                .popoverTip(tipVer380DarlingKokaku())
                 
                 // カウントボタン横並び
                 // チェリー
@@ -165,7 +165,7 @@ struct darlingViewNormal: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.darlingMenuNormalBadge)
+//        .resetBadgeOnAppear($ver380.darlingMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -205,7 +205,7 @@ struct darlingViewNormal: View {
 
 #Preview {
     darlingViewNormal(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         ver390: Ver390(),
         darling: Darling(),
         bayes: Bayes(),

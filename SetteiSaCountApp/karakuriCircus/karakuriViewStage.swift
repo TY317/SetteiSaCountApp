@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct karakuriViewStage: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
 //    @ObservedObject var karakuri = Karakuri()
     @ObservedObject var karakuri: Karakuri
     @State var isShowAlert: Bool = false
@@ -45,7 +45,7 @@ struct karakuriViewStage: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     karakuriViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         karakuri: karakuri,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -72,7 +72,7 @@ struct karakuriViewStage: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     karakuriViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         karakuri: karakuri,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -144,7 +144,7 @@ struct karakuriViewStage: View {
 
 #Preview {
     karakuriViewStage(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         karakuri: Karakuri(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

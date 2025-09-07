@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseCrashlytics
 
 struct evaYakusokuViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @StateObject var evaYakusoku = EvaYakusoku()
     @State var isShowAlert: Bool = false
     @StateObject var evaYakusokuMemory1 = EvaYakusokuMemory1()
@@ -27,13 +27,13 @@ struct evaYakusokuViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: evaYakusokuViewNormal(
-                        ver380: ver380,
+//                        ver380: ver380,
                         evaYakusoku: evaYakusoku,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver380.evaYakusokuMenuNormalBadge,
+//                            badgeStatus: ver380.evaYakusokuMenuNormalBadge,
                         )
                     }
                     
@@ -103,7 +103,7 @@ struct evaYakusokuViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.evaYakusokuMachineIconBadge)
+//        .resetBadgeOnAppear($ver380.evaYakusokuMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -355,6 +355,6 @@ struct evaYakusokuSubViewLoadMemory: View {
 
 #Preview {
     evaYakusokuViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
     )
 }

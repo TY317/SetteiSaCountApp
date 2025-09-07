@@ -9,7 +9,7 @@ import SwiftUI
 //import GoogleMobileAds
 
 struct evaYakusokuViewNormal: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -124,7 +124,7 @@ struct evaYakusokuViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "ボーナス重複当選率") {
                     evaYakusokuTableKoyakuChofuku(evaYakusoku: evaYakusoku)
                 }
-                .popoverTip(tipVer380EvaYakusokuNormal())
+//                .popoverTip(tipVer380EvaYakusokuNormal())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
@@ -175,7 +175,7 @@ struct evaYakusokuViewNormal: View {
             //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.evaYakusokuMenuNormalBadge)
+//        .resetBadgeOnAppear($ver380.evaYakusokuMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -262,7 +262,7 @@ struct evaYakusokuViewNormal: View {
 
 #Preview {
     evaYakusokuViewNormal(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         evaYakusoku: EvaYakusoku(),
     )
 }

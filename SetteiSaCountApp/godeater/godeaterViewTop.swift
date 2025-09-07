@@ -453,7 +453,7 @@ class GodeaterMemory3: ObservableObject {
 
 
 struct godeaterViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
 //    @ObservedObject var ver220 = Ver220()
@@ -470,7 +470,7 @@ struct godeaterViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: godeaterViewNormal(
-                        ver380: ver380,
+//                        ver380: ver380,
                         godeater: godeater,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -483,7 +483,7 @@ struct godeaterViewTop: View {
                     }
                     // AT,CZ当選履歴
                     NavigationLink(destination: godeaterViewHistory(
-                        ver380: ver380,
+//                        ver380: ver380,
                         godeater: godeater,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -518,7 +518,7 @@ struct godeaterViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: godeaterViewBayes(
-                    ver380: ver380,
+//                    ver380: ver380,
                     godeater: godeater,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -526,7 +526,7 @@ struct godeaterViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver380.godeaterMenuBayesBadge,
+//                        badgeStatus: ver380.godeaterMenuBayesBadge,
                     )
                 }
                 
@@ -544,7 +544,7 @@ struct godeaterViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.godeaterMachineIconBadge)
+//        .resetBadgeOnAppear($ver380.godeaterMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -921,7 +921,7 @@ struct godeaterViewLoadMemory: View {
 
 #Preview {
     godeaterViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

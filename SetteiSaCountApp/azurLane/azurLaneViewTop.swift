@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var azurLane = AzurLane()
@@ -134,7 +134,7 @@ struct azurLaneViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.azurLaneMachineIconBadge)
+//        .resetBadgeOnAppear($ver380.azurLaneMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -437,7 +437,7 @@ struct azurLaneSubViewLoadMemory: View {
 
 #Preview {
     azurLaneViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var ver390: Ver390
     @StateObject var darling = Darling()
     @State var isShowAlert: Bool = false
@@ -24,7 +24,7 @@ struct darlingViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: darlingViewNormal(
-                        ver380: ver380,
+//                        ver380: ver380,
                         ver390: ver390,
                         darling: darling,
                         bayes: bayes,
@@ -33,7 +33,7 @@ struct darlingViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver380.darlingMenuNormalBadge,
+//                            badgeStatus: ver380.darlingMenuNormalBadge,
                         )
                     }
                     // 初当り
@@ -550,7 +550,7 @@ struct darlingSubViewLoadMemory: View {
 
 #Preview {
     darlingViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

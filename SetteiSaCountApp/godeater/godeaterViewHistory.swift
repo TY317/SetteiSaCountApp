@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewHistory: View {
-    @ObservedObject var ver380 = Ver380()
+//    @ObservedObject var ver380 = Ver380()
 //    @ObservedObject var godeater = Godeater()
     @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
@@ -170,7 +170,7 @@ struct godeaterViewHistory: View {
                         // //// 設定期待値へのリンク
                         unitNaviLinkBayes {
                             godeaterViewBayes(
-                                ver380: ver380,
+//                                ver380: ver380,
                                 godeater: godeater,
                                 bayes: bayes,
                                 viewModel: viewModel,
@@ -330,7 +330,7 @@ struct godeaterViewHistory: View {
                         // //// 設定期待値へのリンク
                         unitNaviLinkBayes {
                             godeaterViewBayes(
-                                ver380: ver380,
+//                                ver380: ver380,
                                 godeater: godeater,
                                 bayes: bayes,
                                 viewModel: viewModel,
@@ -485,7 +485,7 @@ struct godeaterSubViewDataInput: View {
 
 #Preview {
     godeaterViewHistory(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         godeater: Godeater(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
