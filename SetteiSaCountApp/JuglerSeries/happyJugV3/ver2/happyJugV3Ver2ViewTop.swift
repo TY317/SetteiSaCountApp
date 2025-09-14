@@ -424,12 +424,15 @@ class HappyJugV3Memory3: ObservableObject {
 }
 
 struct happyJugV3Ver2ViewTop: View {
+    @ObservedObject var ver391: Ver391
 //    @ObservedObject var happyJugV3 = HappyJugV3()
     @StateObject var happyJugV3 = HappyJugV3()
     @State var isShowAlert: Bool = false
     @StateObject var happyJugV3Memory1 = HappyJugV3Memory1()
     @StateObject var happyJugV3Memory2 = HappyJugV3Memory2()
     @StateObject var happyJugV3Memory3 = HappyJugV3Memory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -465,14 +468,24 @@ struct happyJugV3Ver2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: happyJugV3Ver2ViewJissenCount(happyJugV3: happyJugV3)) {
+                    NavigationLink(destination: happyJugV3Ver2ViewJissenCount(
+                        ver391: ver391,
+                        happyJugV3: happyJugV3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck(happyJugV3: happyJugV3)) {
+                    NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        happyJugV3: happyJugV3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -488,6 +501,19 @@ struct happyJugV3Ver2ViewTop: View {
                 NavigationLink(destination: happyJugV3Ver2View95CiTotal(happyJugV3: happyJugV3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: happyJugV3ViewBayes(
+                    ver391: ver391,
+                    happyJugV3: happyJugV3,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.happyJugV3MenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4230")
 //                    .popoverTip(tipVer220AddLink())
@@ -498,6 +524,8 @@ struct happyJugV3Ver2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.happyJugV3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -784,5 +812,9 @@ struct happyJugV3SubViewLoadMemory: View {
 }
 
 #Preview {
-    happyJugV3Ver2ViewTop()
+    happyJugV3Ver2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct funky2Ver2ViewJissenCount: View {
-//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var funky2: Funky2
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -20,6 +20,8 @@ struct funky2Ver2ViewJissenCount: View {
     let spaceHeightPortrait = 100.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 100.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -198,7 +200,15 @@ struct funky2Ver2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(funky2Ver2View95CiPersonal(funky2: funky2)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    funky2ViewBayes(
+                        ver391: ver391,
+                        funky2: funky2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -316,5 +326,10 @@ struct funky2Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    funky2Ver2ViewJissenCount(funky2: Funky2())
+    funky2Ver2ViewJissenCount(
+        ver391: Ver391(),
+        funky2: Funky2(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -968,6 +968,19 @@
 		0FF9AC9A2CBCE30B000C8E76 /* kaguyaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */; };
 		0FFAB85D2E6D0A3600296A4F /* mhrViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB85C2E6D0A3600296A4F /* mhrViewBayes.swift */; };
 		0FFAB85F2E6D176B00296A4F /* magiaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB85E2E6D176B00296A4F /* magiaViewBayes.swift */; };
+		0FFAB8612E6DB3A400296A4F /* ver391Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8602E6DB3A400296A4F /* ver391Class.swift */; };
+		0FFAB8632E6F10F400296A4F /* mrJugViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8622E6F10F400296A4F /* mrJugViewBayes.swift */; };
+		0FFAB8652E7061CC00296A4F /* girlsSSViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8642E7061CC00296A4F /* girlsSSViewBayes.swift */; };
+		0FFAB8672E719AC200296A4F /* goJug3ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8662E719AC200296A4F /* goJug3ViewBayes.swift */; };
+		0FFAB8692E719E4400296A4F /* happyJugV3ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8682E719E4400296A4F /* happyJugV3ViewBayes.swift */; };
+		0FFAB86B2E71A17700296A4F /* funky2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB86A2E71A17700296A4F /* funky2ViewBayes.swift */; };
+		0FFAB86D2E71A47E00296A4F /* imJugExViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB86C2E71A47E00296A4F /* imJugExViewBayes.swift */; };
+		0FFAB86F2E72F52B00296A4F /* starHanaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB86E2E72F52B00296A4F /* starHanaViewBayes.swift */; };
+		0FFAB8712E74F3D700296A4F /* draHanaSenkohViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8702E74F3D700296A4F /* draHanaSenkohViewBayes.swift */; };
+		0FFAB8732E74F9F200296A4F /* kingHanaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8722E74F9F200296A4F /* kingHanaViewBayes.swift */; };
+		0FFAB8752E75017D00296A4F /* hanaTenshoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */; };
+		0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8762E752E9200296A4F /* VVVViewBayes.swift */; };
+		0FFAB8792E75577900296A4F /* enenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8782E75577900296A4F /* enenViewBayes.swift */; };
 		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
 		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
@@ -1956,6 +1969,19 @@
 		0FF9AC992CBCE30B000C8E76 /* kaguyaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewScreen.swift; sourceTree = "<group>"; };
 		0FFAB85C2E6D0A3600296A4F /* mhrViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrViewBayes.swift; sourceTree = "<group>"; };
 		0FFAB85E2E6D176B00296A4F /* magiaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8602E6DB3A400296A4F /* ver391Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver391Class.swift; sourceTree = "<group>"; };
+		0FFAB8622E6F10F400296A4F /* mrJugViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mrJugViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8642E7061CC00296A4F /* girlsSSViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = girlsSSViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8662E719AC200296A4F /* goJug3ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goJug3ViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8682E719E4400296A4F /* happyJugV3ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3ViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB86A2E71A17700296A4F /* funky2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2ViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB86C2E71A47E00296A4F /* imJugExViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB86E2E72F52B00296A4F /* starHanaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8702E74F3D700296A4F /* draHanaSenkohViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = draHanaSenkohViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8722E74F9F200296A4F /* kingHanaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8762E752E9200296A4F /* VVVViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB8782E75577900296A4F /* enenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewBayes.swift; sourceTree = "<group>"; };
 		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2596,6 +2622,7 @@
 				0F80310F2C6251AB001F008E /* VVV_Top.swift */,
 				0F8872792C6B1CDC00AADD2B /* VVVTip.swift */,
 				0FA024822CF5F5F0004B3FD5 /* vvvView95Ci.swift */,
+				0FFAB8762E752E9200296A4F /* VVVViewBayes.swift */,
 			);
 			path = VVV;
 			sourceTree = "<group>";
@@ -2756,6 +2783,7 @@
 				0F8689FA2D42591100D952D9 /* imJugExVer2View95CiPersonal.swift */,
 				0FEC57D22D957AFA00FF1024 /* imJugExTableRatio.swift */,
 				0F64DD952DC5CD880027315D /* imJugExSubViewCountInput.swift */,
+				0FFAB86C2E71A47E00296A4F /* imJugExViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2774,6 +2802,7 @@
 				0F868A0D2D42F91E00D952D9 /* goJug3Ver2View95CiPersonal.swift */,
 				0FEC57D02D954CEF00FF1024 /* goJugTableRatio.swift */,
 				0F64DD8B2DC5C4970027315D /* goJug3SubViewCountInput.swift */,
+				0FFAB8662E719AC200296A4F /* goJug3ViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2791,6 +2820,7 @@
 				0F868A222D44BB3700D952D9 /* happyJugV3Ver2View95CiStart.swift */,
 				0F868A242D44BC0B00D952D9 /* happyJugV3Ver2View95CiPersonal.swift */,
 				0F64DD8D2DC5C6470027315D /* happyJugV3SubViewCountInput.swift */,
+				0FFAB8682E719E4400296A4F /* happyJugV3ViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2809,6 +2839,7 @@
 				0F868A392D45D43C00D952D9 /* hanaTenshoVer2View95CiPersonal.swift */,
 				0FD357392DA1FD110069BD1A /* hanaTenshoTableBellBonus.swift */,
 				0F64DD9D2DC5D27E0027315D /* hanaTenshoSubViewCountInput.swift */,
+				0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2827,6 +2858,7 @@
 				0F868A4C2D46104E00D952D9 /* kingHanaVer2View95CiPersonal.swift */,
 				0FD357372DA1F8C00069BD1A /* kingHanaTableBellBonus.swift */,
 				0F64DD9B2DC5D1AF0027315D /* kingHanaSubViewCountInput.swift */,
+				0FFAB8722E74F9F200296A4F /* kingHanaViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -2845,6 +2877,7 @@
 				0F868A612D47BF8D00D952D9 /* draHanaSenkohVer2View95CiPersonal.swift */,
 				0FD357352DA159C20069BD1A /* draHanaSenkohTableBellBonus.swift */,
 				0F64DD992DC5D0A50027315D /* draHanaSenkohSubViewCountInput.swift */,
+				0FFAB8702E74F3D700296A4F /* draHanaSenkohViewBayes.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -3009,6 +3042,7 @@
 				0FC14A7F2E4B58E800F85D84 /* ver370Class.swift */,
 				0FDF23862E53525000249CAC /* ver380Class.swift */,
 				0FC71FD62E66FB66000DD53B /* ver390Class.swift */,
+				0FFAB8602E6DB3A400296A4F /* ver391Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3029,6 +3063,7 @@
 				0F868AA22D57954200D952D9 /* mrJugVer2View95CiPersonal.swift */,
 				0F6BD7DF2D831B34003F5563 /* mrJugSubViewTableRatio.swift */,
 				0F64DD872DC5AE9F0027315D /* mrJugSubViewCountInput.swift */,
+				0FFAB8622E6F10F400296A4F /* mrJugViewBayes.swift */,
 			);
 			path = mrJug;
 			sourceTree = "<group>";
@@ -3049,6 +3084,7 @@
 				0F868AB92D583E1300D952D9 /* funky2Ver2View95CiPersonal.swift */,
 				0FEC57CE2D9542FC00FF1024 /* funky2TableRatio.swift */,
 				0F64DD932DC5CC350027315D /* funky2SubViewCountInput.swift */,
+				0FFAB86A2E71A17700296A4F /* funky2ViewBayes.swift */,
 			);
 			path = funky2;
 			sourceTree = "<group>";
@@ -3069,6 +3105,7 @@
 				0F868AD02D5864A500D952D9 /* girlsSSVer2View95CiPersonal.swift */,
 				0FEC57CC2D953EA200FF1024 /* girlsSSTableRatio.swift */,
 				0F64DD892DC5C31F0027315D /* girlsSSSubViewCountInput.swift */,
+				0FFAB8642E7061CC00296A4F /* girlsSSViewBayes.swift */,
 			);
 			path = girlsSS;
 			sourceTree = "<group>";
@@ -3432,6 +3469,7 @@
 				0FDF23802E51FD6B00249CAC /* enenTableBigScreen.swift */,
 				0FDF23822E52025200249CAC /* enenViewAdora.swift */,
 				0FDF23842E520C9D00249CAC /* enenTableAdoraRatio.swift */,
+				0FFAB8782E75577900296A4F /* enenViewBayes.swift */,
 			);
 			path = smasloEnen;
 			sourceTree = "<group>";
@@ -3638,6 +3676,7 @@
 				0FF156112D604F6500B17F83 /* starHanaVer2View95CiPersonal.swift */,
 				0FD357292DA1480D0069BD1A /* starHanaTableBellBonus.swift */,
 				0F64DD972DC5CEAA0027315D /* starHanaSubViewCountInput.swift */,
+				0FFAB86E2E72F52B00296A4F /* starHanaViewBayes.swift */,
 			);
 			path = starHana;
 			sourceTree = "<group>";
@@ -4183,6 +4222,7 @@
 				0FB9CAA82DE178C7009FC6AF /* toloveru87TablePtSisa.swift in Sources */,
 				0FD357742DAA18640069BD1A /* tokyoGhoulTableModeTable.swift in Sources */,
 				0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */,
+				0FFAB86B2E71A17700296A4F /* funky2ViewBayes.swift in Sources */,
 				0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */,
 				0FD357B72DAFCC440069BD1A /* yoshimuneClass.swift in Sources */,
 				0FB9CAAE2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift in Sources */,
@@ -4201,6 +4241,7 @@
 				0FB9CAAA2DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift in Sources */,
 				0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */,
 				0F815FBD2E35D8D30086127D /* DarlingClass.swift in Sources */,
+				0FFAB8652E7061CC00296A4F /* girlsSSViewBayes.swift in Sources */,
 				0FEC57A82D8EFB5A00FF1024 /* kaijiViewZawaKokaku.swift in Sources */,
 				0F8935872E21F8F900BF6FBE /* unitToolbarButtonQuestion.swift in Sources */,
 				0F654BCA2C6EC7FE00F37849 /* happyJugV3exView.swift in Sources */,
@@ -4239,6 +4280,7 @@
 				0F64DD942DC5CC350027315D /* funky2SubViewCountInput.swift in Sources */,
 				0F868AA62D58339C00D952D9 /* funky2Ver2ViewTop.swift in Sources */,
 				0FA024812CF4A6DC004B3FD5 /* karakuriView95Ci.swift in Sources */,
+				0FFAB8792E75577900296A4F /* enenViewBayes.swift in Sources */,
 				0FB9CA7C2DD97641009FC6AF /* ver320Class.swift in Sources */,
 				0F815FD02E3B8B260086127D /* ReSwordClass.swift in Sources */,
 				0F1E11F02DCB765A00F69AFF /* ver301Class.swift in Sources */,
@@ -4250,6 +4292,7 @@
 				0F868ABD2D584BA700D952D9 /* girlsSSViewTop.swift in Sources */,
 				0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */,
 				0F8689E62D3D251000D952D9 /* unitResultCountListWithoutRatio.swift in Sources */,
+				0FFAB8752E75017D00296A4F /* hanaTenshoViewBayes.swift in Sources */,
 				0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */,
 				0F6B59D42E06554300DB1A2B /* godeaterTableRareHit.swift in Sources */,
 				0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */,
@@ -4296,6 +4339,7 @@
 				0FEC57B42D8FBCD400FF1024 /* kaijiView95Ci.swift in Sources */,
 				0F868ACD2D58621300D952D9 /* girlsSSVer2View95CiKen.swift in Sources */,
 				0FEC57982D8E4A0200FF1024 /* arifureSubViewTableChara.swift in Sources */,
+				0FFAB8732E74F9F200296A4F /* kingHanaViewBayes.swift in Sources */,
 				0F93188F2DEAAA6F00511BEF /* izaBanchoViewScreen.swift in Sources */,
 				0FC71FF02E687286000DD53B /* toreveTableCycleTable.swift in Sources */,
 				0F64DD532DC08D500027315D /* danvineTableKiteiPoint.swift in Sources */,
@@ -4467,6 +4511,7 @@
 				0FC14A842E4C100900F85D84 /* bayesOnAppearModifier.swift in Sources */,
 				0F868A2A2D45C1A800D952D9 /* hanaTenshoVer2ViewTop.swift in Sources */,
 				0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */,
+				0FFAB86D2E71A47E00296A4F /* imJugExViewBayes.swift in Sources */,
 				0F8689F92D42562600D952D9 /* imJugExVer2View95CiStart.swift in Sources */,
 				0F64DD822DC440D70027315D /* kaijiViewHanchoRush.swift in Sources */,
 				0FD357242DA0CDF60069BD1A /* kaijiTableModeStageChange.swift in Sources */,
@@ -4649,6 +4694,7 @@
 				0FEB2E122E3F75C9004C5F45 /* darlingViewScreen.swift in Sources */,
 				0FF369242E61E952002BE0CE /* azurLaneViewAkashi.swift in Sources */,
 				0FF1560A2D604D2300B17F83 /* starHanaVer2ViewJissenTotalDataCheck.swift in Sources */,
+				0FFAB8692E719E4400296A4F /* happyJugV3ViewBayes.swift in Sources */,
 				0FA024AC2D0B16CC004B3FD5 /* lupinSingleBonusVoice.swift in Sources */,
 				0FF1564B2D73ECB600B17F83 /* arifureView95Ci.swift in Sources */,
 				0F8689EF2D41153700D952D9 /* imJugExVer2ViewJissenStartData.swift in Sources */,
@@ -4762,6 +4808,7 @@
 				0F64DD842DC467440027315D /* unitScreenOnlyDisplay.swift in Sources */,
 				0FB9CA902DDDAB61009FC6AF /* plusButtonStyle.swift in Sources */,
 				0F6B59DB2E06A17F00DB1A2B /* toloveruTableFirstHit.swift in Sources */,
+				0FFAB8612E6DB3A400296A4F /* ver391Class.swift in Sources */,
 				0FD3572E2DA14B680069BD1A /* hanahanaCommonTableBigSuika.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0FEC57D92D97890400FF1024 /* rslTableFirstHit.swift in Sources */,
@@ -4781,6 +4828,7 @@
 				0FD357CB2DB334010069BD1A /* yoshimuneTableMode.swift in Sources */,
 				0FC14A962E4EFF4B00F85D84 /* enenViewNormal.swift in Sources */,
 				0F6B59DD2E06A28500DB1A2B /* toloveruTable3RenJohi.swift in Sources */,
+				0FFAB8632E6F10F400296A4F /* mrJugViewBayes.swift in Sources */,
 				0FA024832CF5F5F0004B3FD5 /* vvvView95Ci.swift in Sources */,
 				0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */,
 				0FB9CA8E2DDDA5F1009FC6AF /* countUpDownFixNumber.swift in Sources */,
@@ -4918,6 +4966,7 @@
 				0F9318832DEAA0C400511BEF /* izaBanchoTableModeSuisoku.swift in Sources */,
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FCF78A82E47643D0000748B /* kabaneriTableChance.swift in Sources */,
+				0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */,
 				0FD3572A2DA1480D0069BD1A /* starHanaTableBellBonus.swift in Sources */,
 				0F9318852DEAA2A700511BEF /* izaBanchoViewFirstHit.swift in Sources */,
 				0FB9CAA02DDDF0BE009FC6AF /* toloveru87View95Ci.swift in Sources */,
@@ -4989,6 +5038,7 @@
 				0F8689ED2D41152300D952D9 /* imJugExVer2ViewKenDataInput.swift in Sources */,
 				0F6BD7B62D75E25B003F5563 /* arifureViewCharacter.swift in Sources */,
 				0F9318812DEA9E5F00511BEF /* izaBanchoTableMode.swift in Sources */,
+				0FFAB8672E719AC200296A4F /* goJug3ViewBayes.swift in Sources */,
 				0FD357222DA0C8400069BD1A /* kaijiViewMode.swift in Sources */,
 				0FD3571C2D9EBBA10069BD1A /* tokyoGhoulTable100Hit.swift in Sources */,
 				0F64DD3D2DC06D220027315D /* acceleratorTableGameMode.swift in Sources */,
@@ -5028,10 +5078,12 @@
 				0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */,
 				0F6B59D62E06566600DB1A2B /* godeaterTableKyoCherryChokugeki.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
+				0FFAB8712E74F3D700296A4F /* draHanaSenkohViewBayes.swift in Sources */,
 				0FB9CA892DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift in Sources */,
 				0F6BD7C42D7C37C0003F5563 /* unitTableSettingIndex.swift in Sources */,
 				0F868AB22D583AD800D952D9 /* funky2Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F89357C2E1E95DF00BF6FBE /* ver351Class.swift in Sources */,
+				0FFAB86F2E72F52B00296A4F /* starHanaViewBayes.swift in Sources */,
 				0FEB2E0E2E3E421B004C5F45 /* reSwordTableRareBonus.swift in Sources */,
 				0FC7200A2E6C618A000DD53B /* kaguyaViewBayes.swift in Sources */,
 				0FA024912D013AF5004B3FD5 /* mhrViewEnding.swift in Sources */,

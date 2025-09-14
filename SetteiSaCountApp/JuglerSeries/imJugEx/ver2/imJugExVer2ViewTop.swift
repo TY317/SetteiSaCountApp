@@ -326,12 +326,15 @@ class ImJugExMemory3: ObservableObject {
 
 
 struct imJugExVer2ViewTop: View {
+    @ObservedObject var ver391: Ver391
 //    @ObservedObject var imJugEx = ImJugEx()
     @StateObject var imJugEx = ImJugEx()
     @State var isShowAlert: Bool = false
     @StateObject var imJugExMemory1 = ImJugExMemory1()
     @StateObject var imJugExMemory2 = ImJugExMemory2()
     @StateObject var imJugExMemory3 = ImJugExMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -367,14 +370,24 @@ struct imJugExVer2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: imJugExVer2ViewJissenCount(imJugEx: imJugEx)) {
+                    NavigationLink(destination: imJugExVer2ViewJissenCount(
+                        ver391: ver391,
+                        imJugEx: imJugEx,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck(imJugEx: imJugEx)) {
+                    NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        imJugEx: imJugEx,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -390,6 +403,19 @@ struct imJugExVer2ViewTop: View {
                 NavigationLink(destination: imJugExVer2View95CiTotal(imJugEx: imJugEx)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: imJugExViewBayes(
+                    ver391: ver391,
+                    imJugEx: imJugEx,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.imJugExMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/3626")
 //                    .popoverTip(tipVer220AddLink())
@@ -400,6 +426,8 @@ struct imJugExVer2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.imJugExMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -675,5 +703,9 @@ struct imJugExSubViewLoadMemory: View {
 
 
 #Preview {
-    imJugExVer2ViewTop()
+    imJugExVer2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

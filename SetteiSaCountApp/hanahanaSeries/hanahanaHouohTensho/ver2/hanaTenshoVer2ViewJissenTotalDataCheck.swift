@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var hanaTensho = HanaTensho()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var hanaTensho: HanaTensho
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -190,7 +192,15 @@ struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
 //                unitLinkButton(title: "REG中のサイドランプ確率", exview: AnyView(unitExView5body2image(title: "REG中のサイドランプ確率", textBody1: "・REG中に1回だけ確認可能", textBody2: "・左リール中段に白７ビタ押し", textBody3: "　成功したら中・右にスイカを狙う", textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する", image1: Image("hanaTenshoRegSideLamp"))))
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiTotal(hanaTensho: hanaTensho)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hanaTenshoViewBayes(
+                        ver391: ver391,
+                        hanaTensho: hanaTensho,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $hanaTensho.currentGames)
                 // 自分でプレイ
@@ -247,5 +257,10 @@ struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    hanaTenshoVer2ViewJissenTotalDataCheck(hanaTensho: HanaTensho())
+    hanaTenshoVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        hanaTensho: HanaTensho(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

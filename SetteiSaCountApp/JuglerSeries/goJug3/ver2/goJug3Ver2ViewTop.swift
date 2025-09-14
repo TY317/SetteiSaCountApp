@@ -358,12 +358,15 @@ class GoJug3Memory3: ObservableObject {
 }
 
 struct goJug3Ver2ViewTop: View {
+    @ObservedObject var ver391: Ver391
 //    @ObservedObject var goJug3 = GoJug3()
     @StateObject var goJug3 = GoJug3()
     @State var isShowAlert: Bool = false
     @StateObject var goJug3Memory1 = GoJug3Memory1()
     @StateObject var goJug3Memory2 = GoJug3Memory2()
     @StateObject var goJug3Memory3 = GoJug3Memory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -399,14 +402,24 @@ struct goJug3Ver2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: goJug3Ver2ViewJissenCount(goJug3: goJug3)) {
+                    NavigationLink(destination: goJug3Ver2ViewJissenCount(
+                        ver391: ver391,
+                        goJug3: goJug3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: goJug3Ver2ViewJissenTotalDataCheck(goJug3: goJug3)) {
+                    NavigationLink(destination: goJug3Ver2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        goJug3: goJug3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -422,6 +435,19 @@ struct goJug3Ver2ViewTop: View {
                 NavigationLink(destination: goJug3Ver2View95CiTotal(goJug3: goJug3)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: goJug3ViewBayes(
+                    ver391: ver391,
+                    goJug3: goJug3,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.goJug3MenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4375")
 //                    .popoverTip(tipVer220AddLink())
@@ -432,6 +458,8 @@ struct goJug3Ver2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.goJug3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -694,5 +722,9 @@ struct goJug3SubViewLoadMemory: View {
 }
 
 #Preview {
-    goJug3Ver2ViewTop()
+    goJug3Ver2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

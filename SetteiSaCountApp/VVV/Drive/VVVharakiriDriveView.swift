@@ -94,11 +94,17 @@ class VVVharakiriVar: ObservableObject {
 // ビュー：メインビュー
 // ///////////////////////
 struct VVVharakiriDriveView: View {
-    @ObservedObject var VVVharakiri = VVVharakiriVar()
+    @ObservedObject var ver391: Ver391
+    @ObservedObject var VVVendScreen: VVVendScreenVar
+    @ObservedObject var VVVmarie: VVVmarieVar
+    @ObservedObject var VVVharakiri: VVVharakiriVar
+    @ObservedObject var vvv: vvvCzHistory
+//    @ObservedObject var VVVharakiri = VVVharakiriVar()
     @State var isShowAlert = false
     @State var isShowExviewDrive = false
     @State var isShowExViewRoundScreen = false
-//    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
 //        NavigationView {
@@ -160,7 +166,18 @@ struct VVVharakiriDriveView: View {
                             })
                             // //// 95%信頼区間グラフへのリンク
                             unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                VVVViewBayes(
+                                    ver391: ver391,
+                                    VVVendScreen: VVVendScreen,
+                                    VVVmarie: VVVmarie,
+                                    VVVharakiri: VVVharakiri,
+                                    vvv: vvv,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             
                         }
@@ -250,7 +267,18 @@ struct VVVharakiriDriveView: View {
                             })
                             // //// 95%信頼区間グラフへのリンク
                             unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 6)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                VVVViewBayes(
+                                    ver391: ver391,
+                                    VVVendScreen: VVVendScreen,
+                                    VVVmarie: VVVmarie,
+                                    VVVharakiri: VVVharakiri,
+                                    vvv: vvv,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             
                         }
@@ -549,5 +577,13 @@ func VVVfuncResetDrive(VVVharakiri: VVVharakiriVar) {
 }
 
 #Preview {
-    VVVharakiriDriveView()
+    VVVharakiriDriveView(
+        ver391: Ver391(),
+        VVVendScreen: VVVendScreenVar(),
+        VVVmarie: VVVmarieVar(),
+        VVVharakiri: VVVharakiriVar(),
+        vvv: vvvCzHistory(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

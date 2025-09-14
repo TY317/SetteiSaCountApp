@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct enenViewRegScreen: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -66,6 +67,9 @@ struct enenViewRegScreen: View {
     let maxWidth3: CGFloat = .infinity
     let maxWidth4: CGFloat = .infinity
     let maxWidth5: CGFloat = 60
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
     var body: some View {
         List {
             Section {
@@ -124,6 +128,15 @@ struct enenViewRegScreen: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    enenViewBayes(
+                        ver391: ver391,
+                        enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 HStack {
                     Text("画面カウント")
@@ -195,6 +208,9 @@ struct enenViewRegScreen: View {
 
 #Preview {
     enenViewRegScreen(
+        ver391: Ver391(),
         enen: Enen(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

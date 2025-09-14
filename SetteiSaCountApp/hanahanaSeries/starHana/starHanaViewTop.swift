@@ -9,13 +9,14 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct starHanaViewTop: View {
-//    @ObservedObject var ver220 = Ver220()
-//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var ver391: Ver391
     @StateObject var starHana = StarHana()
     @State var isShowAlert: Bool = false
     @StateObject var starHanaMemory1 = StarHanaMemory1()
     @StateObject var starHanaMemory2 = StarHanaMemory2()
     @StateObject var starHanaMemory3 = StarHanaMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -51,14 +52,24 @@ struct starHanaViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: starHanaVer2ViewJissenCount(starHana: starHana)) {
+                    NavigationLink(destination: starHanaVer2ViewJissenCount(
+                        ver391: ver391,
+                        starHana: starHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: starHanaVer2ViewJissenTotalDataCheck(starHana: starHana)) {
+                    NavigationLink(destination: starHanaVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        starHana: starHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -73,6 +84,19 @@ struct starHanaViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: starHanaVer2View95CiTotal(starHana: starHana)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: starHanaViewBayes(
+                    ver391: ver391,
+                    starHana: starHana,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.starHanaMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4680")
@@ -435,5 +459,9 @@ struct starHanaSubViewLoadMemory: View {
 }
 
 #Preview {
-    starHanaViewTop()
+    starHanaViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

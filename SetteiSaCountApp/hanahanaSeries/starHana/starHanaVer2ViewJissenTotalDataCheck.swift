@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var starHana: StarHana
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -187,7 +189,15 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiTotal(starHana: starHana)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    starHanaViewBayes(
+                        ver391: ver391,
+                        starHana: starHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $starHana.currentGames)
                 // 自分でプレイ
@@ -244,5 +254,10 @@ struct starHanaVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    starHanaVer2ViewJissenTotalDataCheck(starHana: StarHana())
+    starHanaVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        starHana: StarHana(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

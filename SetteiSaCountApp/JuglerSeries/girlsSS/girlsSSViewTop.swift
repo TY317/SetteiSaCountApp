@@ -9,13 +9,14 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct girlsSSViewTop: View {
-//    @ObservedObject var ver210 = Ver210()
-//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var ver391: Ver391
     @StateObject var girlsSS = GirlsSS()
     @State var isShowAlert: Bool = false
     @StateObject var girlsSSMemory1 = GirlsSSMemory1()
     @StateObject var girlsSSMemory2 = GirlsSSMemory2()
     @StateObject var girlsSSMemory3 = GirlsSSMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -51,14 +52,24 @@ struct girlsSSViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: girlsSSVer2ViewJissenCount(girlsSS: girlsSS)) {
+                    NavigationLink(destination: girlsSSVer2ViewJissenCount(
+                        ver391: ver391,
+                        girlsSS: girlsSS,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: girlsSSVer2ViewJissenTotalDataCheck(girlsSS: girlsSS)) {
+                    NavigationLink(destination: girlsSSVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        girlsSS: girlsSS,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -69,10 +80,22 @@ struct girlsSSViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: girlsSSVer2View95CiTotal(girlsSS: girlsSS)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: girlsSSViewBayes(
+                    ver391: ver391,
+                    girlsSS: girlsSS,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.girlsSSMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4540")
@@ -84,6 +107,8 @@ struct girlsSSViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.girlsSSMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -375,5 +400,9 @@ struct girlsSSSubViewLoadMemory: View {
 }
 
 #Preview {
-    girlsSSViewTop()
+    girlsSSViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

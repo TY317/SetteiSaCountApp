@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenCount: View {
-//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var mrJug: MrJug
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -20,6 +20,8 @@ struct mrJugVer2ViewJissenCount: View {
     let spaceHeightPortrait = 100.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 100.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -38,81 +40,81 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $mrJug.minusCheck
                         )
-                        // BIG
-                        unitCountButtonVerticalDenominate(
-                            title: "BIG",
-                            count: $mrJug.personalBigCountSum,
-                            color: .personalSummerLightRed,
-                            bigNumber: $mrJug.playGame,
-                            numberofDicimal: 0,
-                            minusBool: $mrJug.minusCheck
-                        )
-//                        // 単独BIG
+//                        // BIG
 //                        unitCountButtonVerticalDenominate(
-//                            title: "単独BIG",
-//                            count: $mrJug.personalAloneBigCount,
+//                            title: "BIG",
+//                            count: $mrJug.personalBigCountSum,
 //                            color: .personalSummerLightRed,
 //                            bigNumber: $mrJug.playGame,
 //                            numberofDicimal: 0,
 //                            minusBool: $mrJug.minusCheck
 //                        )
-//                        // 🍒BIG
-//                        unitCountButtonVerticalDenominate(
-//                            title: "🍒BIG",
-//                            count: $mrJug.personalCherryBigCount,
-//                            color: .personalSpringLightYellow,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            minusBool: $mrJug.minusCheck,
-//                            flushColor: .yellow
-//                        )
-                        // REG
+                        // 単独BIG
                         unitCountButtonVerticalDenominate(
-                            title: "REG",
-                            count: $mrJug.personalRegCountSum,
-                            color: .personalSummerLightBlue,
+                            title: "単独BIG",
+                            count: $mrJug.personalAloneBigCount,
+                            color: .personalSummerLightRed,
                             bigNumber: $mrJug.playGame,
                             numberofDicimal: 0,
                             minusBool: $mrJug.minusCheck
                         )
-//                        // 単独REG
+                        // 🍒BIG
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒BIG",
+                            count: $mrJug.personalCherryBigCount,
+                            color: .personalSpringLightYellow,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck,
+                            flushColor: .yellow
+                        )
+//                        // REG
 //                        unitCountButtonVerticalDenominate(
-//                            title: "単独REG",
-//                            count: $mrJug.personalAloneRegCount,
+//                            title: "REG",
+//                            count: $mrJug.personalRegCountSum,
 //                            color: .personalSummerLightBlue,
 //                            bigNumber: $mrJug.playGame,
 //                            numberofDicimal: 0,
 //                            minusBool: $mrJug.minusCheck
 //                        )
-//                        // 🍒REG
-//                        unitCountButtonVerticalDenominate(
-//                            title: "🍒REG",
-//                            count: $mrJug.personalCherryRegCount,
-//                            color: .personalSummerLightPurple,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            minusBool: $mrJug.minusCheck
-//                        )
+                        // 単独REG
+                        unitCountButtonVerticalDenominate(
+                            title: "単独REG",
+                            count: $mrJug.personalAloneRegCount,
+                            color: .personalSummerLightBlue,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck
+                        )
+                        // 🍒REG
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒REG",
+                            count: $mrJug.personalCherryRegCount,
+                            color: .personalSummerLightPurple,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck
+                        )
                     }
                     // //// 結果
                     HStack {
-//                        // BIG合算
-//                        unitResultRatioDenomination2Line(
-//                            title: "BIG合算",
-//                            count: $mrJug.personalBigCountSum,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            spacerBool: false
-//                        )
-//                        // REG合算
-//                        unitResultRatioDenomination2Line(
-//                            title: "REG合算",
-//                            count: $mrJug.personalRegCountSum,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            spacerBool: false
-//                        )
-                        Spacer()
+                        // BIG合算
+                        unitResultRatioDenomination2Line(
+                            title: "BIG合算",
+                            count: $mrJug.personalBigCountSum,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                        // REG合算
+                        unitResultRatioDenomination2Line(
+                            title: "REG合算",
+                            count: $mrJug.personalRegCountSum,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+//                        Spacer()
                         // ボーナス合算
                         unitResultRatioDenomination2Line(
                             title: "ボーナス合算",
@@ -121,7 +123,7 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 0,
                             spacerBool: false
                         )
-                        Spacer()
+//                        Spacer()
                     }
                 }
                 // //// 縦画面
@@ -138,84 +140,84 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $mrJug.minusCheck
                         )
-                        // BIG
-                        unitCountButtonVerticalDenominate(
-                            title: "BIG",
-                            count: $mrJug.personalBigCountSum,
-                            color: .personalSummerLightRed,
-                            bigNumber: $mrJug.playGame,
-                            numberofDicimal: 0,
-                            minusBool: $mrJug.minusCheck
-                        )
-                        // REG
-                        unitCountButtonVerticalDenominate(
-                            title: "REG",
-                            count: $mrJug.personalRegCountSum,
-                            color: .personalSummerLightBlue,
-                            bigNumber: $mrJug.playGame,
-                            numberofDicimal: 0,
-                            minusBool: $mrJug.minusCheck
-                        )
-                    }
-//                    // 2段目
-//                    HStack {
-//                        // 単独BIG
+//                        // BIG
 //                        unitCountButtonVerticalDenominate(
-//                            title: "単独BIG",
-//                            count: $mrJug.personalAloneBigCount,
+//                            title: "BIG",
+//                            count: $mrJug.personalBigCountSum,
 //                            color: .personalSummerLightRed,
 //                            bigNumber: $mrJug.playGame,
 //                            numberofDicimal: 0,
 //                            minusBool: $mrJug.minusCheck
 //                        )
-//                        // 🍒BIG
+//                        // REG
 //                        unitCountButtonVerticalDenominate(
-//                            title: "🍒BIG",
-//                            count: $mrJug.personalCherryBigCount,
-//                            color: .personalSpringLightYellow,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            minusBool: $mrJug.minusCheck,
-//                            flushColor: .yellow
-//                        )
-//                        // 単独REG
-//                        unitCountButtonVerticalDenominate(
-//                            title: "単独REG",
-//                            count: $mrJug.personalAloneRegCount,
+//                            title: "REG",
+//                            count: $mrJug.personalRegCountSum,
 //                            color: .personalSummerLightBlue,
 //                            bigNumber: $mrJug.playGame,
 //                            numberofDicimal: 0,
 //                            minusBool: $mrJug.minusCheck
 //                        )
-//                        // 🍒REG
-//                        unitCountButtonVerticalDenominate(
-//                            title: "🍒REG",
-//                            count: $mrJug.personalCherryRegCount,
-//                            color: .personalSummerLightPurple,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            minusBool: $mrJug.minusCheck
-//                        )
-//                    }
+                    }
+                    // 2段目
+                    HStack {
+                        // 単独BIG
+                        unitCountButtonVerticalDenominate(
+                            title: "単独BIG",
+                            count: $mrJug.personalAloneBigCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck
+                        )
+                        // 🍒BIG
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒BIG",
+                            count: $mrJug.personalCherryBigCount,
+                            color: .personalSpringLightYellow,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck,
+                            flushColor: .yellow
+                        )
+                        // 単独REG
+                        unitCountButtonVerticalDenominate(
+                            title: "単独REG",
+                            count: $mrJug.personalAloneRegCount,
+                            color: .personalSummerLightBlue,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck
+                        )
+                        // 🍒REG
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒REG",
+                            count: $mrJug.personalCherryRegCount,
+                            color: .personalSummerLightPurple,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            minusBool: $mrJug.minusCheck
+                        )
+                    }
                     // //// 結果
                     HStack {
-//                        // BIG合算
-//                        unitResultRatioDenomination2Line(
-//                            title: "BIG合算",
-//                            count: $mrJug.personalBigCountSum,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            spacerBool: false
-//                        )
-//                        // REG合算
-//                        unitResultRatioDenomination2Line(
-//                            title: "REG合算",
-//                            count: $mrJug.personalRegCountSum,
-//                            bigNumber: $mrJug.playGame,
-//                            numberofDicimal: 0,
-//                            spacerBool: false
-//                        )
-                        Spacer()
+                        // BIG合算
+                        unitResultRatioDenomination2Line(
+                            title: "BIG合算",
+                            count: $mrJug.personalBigCountSum,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+                        // REG合算
+                        unitResultRatioDenomination2Line(
+                            title: "REG合算",
+                            count: $mrJug.personalRegCountSum,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 0,
+                            spacerBool: false
+                        )
+//                        Spacer()
                         // ボーナス合算
                         unitResultRatioDenomination2Line(
                             title: "ボーナス合算",
@@ -224,7 +226,7 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 0,
                             spacerBool: false
                         )
-                        Spacer()
+//                        Spacer()
                     }
                 }
                 // //// 参考情報リンク
@@ -239,7 +241,15 @@ struct mrJugVer2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiPersonal(mrJug: mrJug)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mrJugViewBayes(
+                        ver391: ver391,
+                        mrJug: mrJug,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -357,5 +367,10 @@ struct mrJugVer2ViewJissenCount: View {
 }
 
 #Preview {
-    mrJugVer2ViewJissenCount(mrJug: MrJug())
+    mrJugVer2ViewJissenCount(
+        ver391: Ver391(),
+        mrJug: MrJug(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -98,7 +98,7 @@ class VvvMemory3: ObservableObject {
 
 struct VVV_Top: View {
     @State var isShowAlert = false
-//    @ObservedObject var cz = czVar()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var VVVendScreen = VVVendScreenVar()
     @ObservedObject var VVVmarie = VVVmarieVar()
     @ObservedObject var VVVharakiri = VVVharakiriVar()
@@ -106,28 +106,62 @@ struct VVV_Top: View {
     @ObservedObject var vvvMemory1 = VvvMemory1()
     @ObservedObject var vvvMemory2 = VvvMemory2()
     @ObservedObject var vvvMemory3 = VvvMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
                     // CZ当選履歴
-                    NavigationLink(destination: vvvViewCzHistoryVer2()) {//VVV_CZ()) {
+                    NavigationLink(destination: vvvViewCzHistoryVer2(
+                        ver391: ver391,
+                        VVVendScreen: VVVendScreen,
+                        VVVmarie: VVVmarie,
+                        VVVharakiri: VVVharakiri,
+                        vvv: vvv,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {//VVV_CZ()) {
                         unitLabelMenu(imageSystemName: "pencil.and.list.clipboard", textBody: "CZ,ボーナス当選履歴")
                     }
                     
                     // CZ,ボーナス終了画面
-                    NavigationLink(destination: VVVendScreenView()) {
+                    NavigationLink(destination: VVVendScreenView(
+                        ver391: ver391,
+                        VVVendScreen: VVVendScreen,
+                        VVVmarie: VVVmarie,
+                        VVVharakiri: VVVharakiri,
+                        vvv: vvv,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "photo.stack", textBody: "CZ,ボーナス終了画面")
                     }
                     
                     // 革命ボーナス中のマリエ覚醒
-                    NavigationLink(destination: VVVmarieView()) {
+                    NavigationLink(destination: VVVmarieView(
+                        ver391: ver391,
+                        VVVendScreen: VVVendScreen,
+                        VVVmarie: VVVmarie,
+                        VVVharakiri: VVVharakiri,
+                        vvv: vvv,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "infinity", textBody: "革命ボーナス中のマリエ覚醒")
                     }
                     
                     // ハラキリドライブ
-                    NavigationLink(destination: VVVharakiriDriveView()) {
+                    NavigationLink(destination: VVVharakiriDriveView(
+                        ver391: ver391,
+                        VVVendScreen: VVVendScreen,
+                        VVVmarie: VVVmarie,
+                        VVVharakiri: VVVharakiri,
+                        vvv: vvv,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(imageSystemName: "50.square", textBody: "ハラキリドライブ")
                     }
                 } header: {
@@ -136,7 +170,6 @@ struct VVV_Top: View {
                         Text("革命機ヴァルヴレイヴ")
                             .font(.title)
                             .fontWeight(.bold)
-//                            .foregroundColor(.primary)
                             .foregroundStyle(Color.primary)
                         Spacer()
                     }
@@ -146,9 +179,24 @@ struct VVV_Top: View {
                 NavigationLink(destination: vvvView95Ci()) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: VVVViewBayes(
+                    ver391: ver391,
+                    VVVendScreen: VVVendScreen,
+                    VVVmarie: VVVmarie,
+                    VVVharakiri: VVVharakiri,
+                    vvv: vvv,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.VVVMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4244")
-//                    .popoverTip(tipVer220AddLink())
                 Section {
                     Text("")
                 }
@@ -160,6 +208,8 @@ struct VVV_Top: View {
                     Text("©︎SANKYO")
                 }
             }
+            // //// バッジのリセット
+            .resetBadgeOnAppear($ver391.vvvMachineIconBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -168,16 +218,6 @@ struct VVV_Top: View {
                     screenClass: screenClass
                 )
             }
-            // 画面ログイベントの収集
-//            .onAppear {
-//                // Viewが表示されたタイミングでログを送信します
-//                Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                    AnalyticsParameterScreenName: "革命機ヴァルヴレイヴ", // この画面の名前を識別できるように設定
-//                    AnalyticsParameterScreenClass: "VVV_Top" // 通常はViewのクラス名（構造体名）を設定
-//                    // その他、この画面に関連するパラメータを追加できます
-//                ])
-//                print("Firebase Analytics: VVV_Top appeared.") // デバッグ用にログ出力
-//            }
             .navigationTitle("メニュー")
             .navigationBarTitleDisplayMode(.inline)
             
@@ -191,7 +231,6 @@ struct VVV_Top: View {
                             // //// データ保存
                             unitButtonSaveMemory(saveView: AnyView(vvvViewSaveMemory()))
                         }
-//                        .popoverTip(tipUnitButtonMemory())
                         // データリセットボタン
                         Button("リセット", systemImage: "arrow.clockwise.square") {
                             isShowAlert = true
@@ -201,7 +240,7 @@ struct VVV_Top: View {
                                 
                             }
                             Button("リセット", role: .destructive) {
-//                                VVVfuncResetCz(cz: cz)
+                                //                                VVVfuncResetCz(cz: cz)
                                 VVVfuncResetEndScreen(VVVendScreen: VVVendScreen)
                                 VVVfuncResetMarie(VVVmarie: VVVmarie)
                                 VVVfuncResetDrive(VVVharakiri: VVVharakiri)
@@ -436,5 +475,9 @@ struct vvvViewLoadMemory: View {
 }
 
 #Preview {
-    VVV_Top()
+    VVV_Top(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

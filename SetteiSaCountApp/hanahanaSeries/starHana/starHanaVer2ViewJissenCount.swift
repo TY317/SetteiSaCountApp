@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenCount: View {
-//    @ObservedObject var starHana = StarHana()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var starHana: StarHana
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -22,6 +22,8 @@ struct starHanaVer2ViewJissenCount: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         ZStack {
@@ -71,7 +73,15 @@ struct starHanaVer2ViewJissenCount: View {
                     )
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 1)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        starHanaViewBayes(
+                            ver391: ver391,
+                            starHana: starHana,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始め
@@ -159,7 +169,15 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                starHanaViewBayes(
+                                    ver391: ver391,
+                                    starHana: starHana,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ、フェザーランプ")
                         }
@@ -185,7 +203,15 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                starHanaViewBayes(
+                                    ver391: ver391,
+                                    starHana: starHana,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ")
                         }
@@ -219,7 +245,15 @@ struct starHanaVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 6)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                starHanaViewBayes(
+                                    ver391: ver391,
+                                    starHana: starHana,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
@@ -280,7 +314,15 @@ struct starHanaVer2ViewJissenCount: View {
                         )
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(starHanaVer2View95CiPersonal(starHana: starHana, selection: 7)))
-//                            .popoverTip(tipUnitButtonLink95Ci())
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            starHanaViewBayes(
+                                ver391: ver391,
+                                starHana: starHana,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
                     } header: {
                         Text("\nサイドランプ")
                     }
@@ -379,5 +421,10 @@ struct starHanaVer2ViewJissenCount: View {
 }
 
 #Preview {
-    starHanaVer2ViewJissenCount(starHana: StarHana())
+    starHanaVer2ViewJissenCount(
+        ver391: Ver391(),
+        starHana: StarHana(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

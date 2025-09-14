@@ -98,7 +98,7 @@ struct dmc5ViewDmcBonus: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-        .navigationTitle("初当り")
+        .navigationTitle("DMCボーナス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {

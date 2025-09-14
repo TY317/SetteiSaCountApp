@@ -474,12 +474,14 @@ class HanaTenshoMemory3: ObservableObject {
 }
 
 struct hanaTenshoVer2ViewTop: View {
-//    @ObservedObject var hanaTensho = HanaTensho()
+    @ObservedObject var ver391: Ver391
     @StateObject var hanaTensho = HanaTensho()
     @State var isShowAlert: Bool = false
     @StateObject var hanaTenshoMemory1 = HanaTenshoMemory1()
     @StateObject var hanaTenshoMemory2 = HanaTenshoMemory2()
     @StateObject var hanaTenshoMemory3 = HanaTenshoMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -516,14 +518,24 @@ struct hanaTenshoVer2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: hanaTenshoVer2ViewJissenCount(hanaTensho: hanaTensho)) {
+                    NavigationLink(destination: hanaTenshoVer2ViewJissenCount(
+                        ver391: ver391,
+                        hanaTensho: hanaTensho,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: hanaTenshoVer2ViewJissenTotalDataCheck(hanaTensho: hanaTensho)) {
+                    NavigationLink(destination: hanaTenshoVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        hanaTensho: hanaTensho,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -538,6 +550,19 @@ struct hanaTenshoVer2ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: hanaTenshoVer2View95CiTotal(hanaTensho: hanaTensho)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: hanaTenshoViewBayes(
+                    ver391: ver391,
+                    hanaTensho: hanaTensho,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.hanaTenshoMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4014")
@@ -895,5 +920,9 @@ struct hanaTenshoSubViewLoadMemory: View {
 }
 
 #Preview {
-    hanaTenshoVer2ViewTop()
+    hanaTenshoVer2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -30,10 +30,17 @@ class VVVmarieVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////
 struct VVVmarieView: View {
+    @ObservedObject var ver391: Ver391
+    @ObservedObject var VVVendScreen: VVVendScreenVar
+    @ObservedObject var VVVmarie: VVVmarieVar
+    @ObservedObject var VVVharakiri: VVVharakiriVar
+    @ObservedObject var vvv: vvvCzHistory
     @ObservedObject var cz = czVar()
-    @ObservedObject var VVVmarie = VVVmarieVar()
+//    @ObservedObject var VVVmarie = VVVmarieVar()
     @State var isShowAlert = false
     @State var isShowExView = false
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
 //        NavigationView {
@@ -60,7 +67,18 @@ struct VVVmarieView: View {
                     })
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 5)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        VVVViewBayes(
+                            ver391: ver391,
+                            VVVendScreen: VVVendScreen,
+                            VVVmarie: VVVmarie,
+                            VVVharakiri: VVVharakiri,
+                            vvv: vvv,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 }
             }
         // //// firebaseログ
@@ -250,5 +268,13 @@ func VVVfuncResetMarie(VVVmarie: VVVmarieVar) {
 
 
 #Preview {
-    VVVmarieView()
+    VVVmarieView(
+        ver391: Ver391(),
+        VVVendScreen: VVVendScreenVar(),
+        VVVmarie: VVVmarieVar(),
+        VVVharakiri: VVVharakiriVar(),
+        vvv: vvvCzHistory(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }
