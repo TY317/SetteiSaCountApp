@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct toreveViewScreen: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -39,15 +40,15 @@ struct toreveViewScreen: View {
     ]
     let lowerBeltTextList: [String] = [
         "デフォルト",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
+        "偶数示唆",
+        "高設定示唆 強",
+        "設定4 以上濃厚",
+        "奇数示唆",
+        "高設定示唆 弱",
+        "設定2 以上濃厚",
+        "設定3 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
     ]
     let flashColorList: [Color] = [
         .gray,
@@ -63,16 +64,17 @@ struct toreveViewScreen: View {
     ]
     let sisaText: [String] = [
         "デフォルト",
-        "赤背景 3人",
-        "赤背景 5人",
-        "炎背景",
-        "青背景 2人",
-        "青背景 5人",
-        "水色背景 2人",
-        "黄枠",
-        "紫枠 夏祭り",
-        "金枠 結成写真",
+        "偶数示唆",
+        "高設定示唆 強",
+        "設定4 以上濃厚",
+        "奇数示唆",
+        "高設定示唆 弱",
+        "設定2 以上濃厚",
+        "設定3 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
     ]
+    let indexList: [Int] = [0,1,4,5,2,6,7,3,8,9]
     
     var body: some View {
         List {
@@ -92,7 +94,8 @@ struct toreveViewScreen: View {
                 // //// 画面カウントボタン
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
-                        ForEach(self.imageNameList.indices, id: \.self) { index in
+//                        ForEach(self.imageNameList.indices, id: \.self) { index in
+                        ForEach(self.indexList, id: \.self) { index in
                             if self.imageNameList.indices.contains(index) &&
                                 self.upperBeltTextList.indices.contains(index) &&
                                 self.lowerBeltTextList.indices.contains(index) {
@@ -115,9 +118,11 @@ struct toreveViewScreen: View {
                     }
                 }
                 .frame(height: 170)
+                .popoverTip(tipVer391ToreveScreen())
                 
                 // //// カウント結果
-                ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
+//                ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
+                ForEach(self.indexList, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
                         self.flashColorList.indices.contains(index) &&
                         self.sisaText.indices.contains(index) {
@@ -137,6 +142,8 @@ struct toreveViewScreen: View {
                 unitLabelHeaderScreenCount()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.toreveMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -184,6 +191,7 @@ struct toreveViewScreen: View {
 
 #Preview {
     toreveViewScreen(
+        ver391: Ver391(),
         toreve: Toreve(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

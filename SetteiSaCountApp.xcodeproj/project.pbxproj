@@ -480,6 +480,7 @@
 		0F89358C2E22909000BF6FBE /* unitSheetCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */; };
 		0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */; };
 		0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */; };
+		0F8955202E7E6A8800539050 /* toreveViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */; };
 		0F9318732DEA855300511BEF /* izaBanchoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */; };
 		0F9318752DEA857100511BEF /* izaBanchoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318742DEA857100511BEF /* izaBanchoClass.swift */; };
 		0F9318772DEA858200511BEF /* izaBanchoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */; };
@@ -981,6 +982,8 @@
 		0FFAB8752E75017D00296A4F /* hanaTenshoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */; };
 		0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8762E752E9200296A4F /* VVVViewBayes.swift */; };
 		0FFAB8792E75577900296A4F /* enenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8782E75577900296A4F /* enenViewBayes.swift */; };
+		0FFAB87B2E76A00600296A4F /* toreveViewStartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB87A2E76A00600296A4F /* toreveViewStartScreen.swift */; };
+		0FFAB87D2E76B02300296A4F /* toreveTableMiniChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB87C2E76B02300296A4F /* toreveTableMiniChara.swift */; };
 		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
 		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
@@ -1481,6 +1484,7 @@
 		0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitSheetCountDirectInput.swift; sourceTree = "<group>"; };
 		0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonCountDirectInput.swift; sourceTree = "<group>"; };
 		0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5ViewBayseTest.swift; sourceTree = "<group>"; };
+		0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewEnding.swift; sourceTree = "<group>"; };
 		0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewTop.swift; sourceTree = "<group>"; };
 		0F9318742DEA857100511BEF /* izaBanchoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoClass.swift; sourceTree = "<group>"; };
 		0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = izaBanchoAssets.xcassets; sourceTree = "<group>"; };
@@ -1982,6 +1986,8 @@
 		0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoViewBayes.swift; sourceTree = "<group>"; };
 		0FFAB8762E752E9200296A4F /* VVVViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVVViewBayes.swift; sourceTree = "<group>"; };
 		0FFAB8782E75577900296A4F /* enenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewBayes.swift; sourceTree = "<group>"; };
+		0FFAB87A2E76A00600296A4F /* toreveViewStartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewStartScreen.swift; sourceTree = "<group>"; };
+		0FFAB87C2E76B02300296A4F /* toreveTableMiniChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableMiniChara.swift; sourceTree = "<group>"; };
 		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -3493,6 +3499,9 @@
 				0FC71FFD2E6BC7C6000DD53B /* toreveViewScreen.swift */,
 				0FC720032E6BDEFB000DD53B /* toreveViewRevenge.swift */,
 				0FC720052E6BE927000DD53B /* toreveViewPremiumAt.swift */,
+				0FFAB87A2E76A00600296A4F /* toreveViewStartScreen.swift */,
+				0FFAB87C2E76B02300296A4F /* toreveTableMiniChara.swift */,
+				0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */,
 			);
 			path = tokyoRevengers;
 			sourceTree = "<group>";
@@ -4217,6 +4226,7 @@
 				0F7D3F1F2C81C69300A3FE7D /* kabaneriViewCzBonus.swift in Sources */,
 				0F868A0A2D4279D100D952D9 /* goJug3Ver2View95CiKen.swift in Sources */,
 				0F1E12122DD0D75800F69AFF /* inuyashaTableCz333.swift in Sources */,
+				0FFAB87B2E76A00600296A4F /* toreveViewStartScreen.swift in Sources */,
 				0FEB2E082E3E2598004C5F45 /* reSwordViewFranChara.swift in Sources */,
 				0F6BD7CB2D806908003F5563 /* bioViewTop.swift in Sources */,
 				0FB9CAA82DE178C7009FC6AF /* toloveru87TablePtSisa.swift in Sources */,
@@ -4862,6 +4872,7 @@
 				0FF3690D2E597F30002BE0CE /* evaYakusokuTableKoyakuChofuku.swift in Sources */,
 				0FF156302D6B55A100B17F83 /* shamanKingView95Ci.swift in Sources */,
 				0FF156212D69618E00B17F83 /* unitPickerMenuString.swift in Sources */,
+				0FFAB87D2E76B02300296A4F /* toreveTableMiniChara.swift in Sources */,
 				0F64DD9A2DC5D0A50027315D /* draHanaSenkohSubViewCountInput.swift in Sources */,
 				0F9A4FA62DF55EF8003B6337 /* midoriDonViewEnding.swift in Sources */,
 				0F868A102D44917A00D952D9 /* unitTextBackCaluculateStatus.swift in Sources */,
@@ -4916,6 +4927,7 @@
 				0F868A8C2D573A2E00D952D9 /* commonViewKerottoTrophy.swift in Sources */,
 				0FD357782DAA27380069BD1A /* sbjTableKokakuKiteiGame.swift in Sources */,
 				0FB209632E10B7A10029D940 /* evaYakusokuViewNormal.swift in Sources */,
+				0F8955202E7E6A8800539050 /* toreveViewEnding.swift in Sources */,
 				0FD357A52DAB793F0069BD1A /* godzillaViewScreen.swift in Sources */,
 				0FEC57D12D954CEF00FF1024 /* goJugTableRatio.swift in Sources */,
 				0FEC57CD2D953EA200FF1024 /* girlsSSTableRatio.swift in Sources */,

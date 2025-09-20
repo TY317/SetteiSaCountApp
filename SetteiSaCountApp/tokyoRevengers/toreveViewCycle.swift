@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct toreveViewCycle: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -21,6 +22,8 @@ struct toreveViewCycle: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @State var selectedSegment: String = "モードA"
+    let segmentList: [String] = ["モードA","モードB","チャンス","天国"]
     
     var body: some View {
         List {
@@ -141,7 +144,7 @@ struct toreveViewCycle: View {
                     VStack{
                         VStack(alignment: .leading) {
                             Text("・通常時、AT中は5種類のモードで周期を管理")
-                            Text("・高設定ほど良いモードが選ばれやすい")
+                            Text("・高設定ほど良いモードが選ばれやすいが、これだけで設定判別できるほどの大きな差はないとのこと")
                             Text("・通常時は東卍チャンス、東卍ラッシュ当選時に次回周期抽選")
                             Text("・AT中は東卍アタック当選時に次回周期抽選")
                             Text("・通常時からATへ移行時モードは再抽選されるがポイントは引き継がれる")
@@ -185,10 +188,79 @@ struct toreveViewCycle: View {
                 unitLinkButtonViewBuilder(sheetTitle: "周期の期待度テーブル") {
                     toreveTableCycleTable()
                 }
+                // ミニキャラセリフの示唆
+                unitLinkButtonViewBuilder(sheetTitle: "ミニキャラセリフの示唆") {
+                    toreveTableMiniChara()
+                }
+                .popoverTip(tipVer391ToreveCycle())
+                // 初当たり時の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "初当たり時の振分け") {
+                    VStack {
+                        // セグメントピッカー
+                        Picker("", selection: self.$selectedSegment) {
+                            ForEach(self.segmentList, id: \.self) { mode in
+                                Text(mode)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(.bottom)
+                        if self.selectedSegment == self.segmentList[0] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioModeAChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioModeARush
+                                )
+                            }
+                        } else if self.selectedSegment == self.segmentList[1] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioModeBChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioModeBRush
+                                )
+                            }
+                        } else if self.selectedSegment == self.segmentList[2] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioChanceChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioChanceRush
+                                )
+                            }
+                        } else {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioHeavenChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioHeavenRush
+                                )
+                            }
+                        }
+                    }
+                }
             } header: {
                 Text("周期モード")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.toreveMenuCycleBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -228,6 +300,7 @@ struct toreveViewCycle: View {
 
 #Preview {
     toreveViewCycle(
+        ver391: Ver391(),
         toreve: Toreve(),
     )
 }

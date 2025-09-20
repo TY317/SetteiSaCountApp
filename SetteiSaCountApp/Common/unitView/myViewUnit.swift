@@ -583,6 +583,7 @@ struct unitResultRatioPercent2Line: View {
         return bigNumber > 0 ? ra : 0.0
     }
     var maxWidth: CGFloat = 200
+    var titelFont: Font = .body
     
     var body: some View {
         ZStack {
@@ -603,6 +604,7 @@ struct unitResultRatioPercent2Line: View {
             VStack {
                 Text(self.title)
                     .multilineTextAlignment(.center)
+                    .font(self.titelFont)
                 HStack(spacing: 0) {
                     Text("\(String(format: "%.\(numberofDicimal)f", self.ratio))")
                         .font(.title)

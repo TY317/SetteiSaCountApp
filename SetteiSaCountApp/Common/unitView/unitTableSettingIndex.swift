@@ -10,11 +10,12 @@ import SwiftUI
 struct unitTableSettingIndex: View {
     var settingList: [Int] = [1,2,3,4,5,6]
     var numberofDicimal: Int = 0
-    var maxWidth: CGFloat = 55.0
+    var maxWidth: CGFloat = 50.0
     var titleLine: Int = 1
     var lineList: [Int] = [1,1,1,1,1,1]
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
+    let horizontalPadding: CGFloat = 3.0
     let lineHeight: CGFloat = 29  // ver270で25から29へ変更。代わりに垂直padding無くした
     
     var body: some View {
@@ -24,6 +25,7 @@ struct unitTableSettingIndex: View {
                 .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                 .frame(maxWidth: self.maxWidth)
 //                .padding(.vertical, self.verticlaPadding)
+                .padding(.horizontal, self.horizontalPadding)
                 .foregroundStyle(Color.clear)
                 .fontWeight(.bold)
                 .background(Color.clear)
@@ -38,14 +40,17 @@ struct unitTableSettingIndex: View {
                         Text("設定")
                             .foregroundStyle(Color.black)
                             .font(.footnote)
+                            .minimumScaleFactor(0.7)
                         Text("\(self.settingList[index])")
                             .fontWeight(.bold)
                             .font(.title3)
                             .foregroundStyle(Color.black)
+                            .minimumScaleFactor(0.7)
                     }
                     .frame(height: lineNumber(ind: index))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)
+                    .padding(.horizontal, self.horizontalPadding)
                     .background(backColor(ind: index))
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭
@@ -96,5 +101,7 @@ struct unitTableSettingIndex: View {
 }
 
 #Preview {
-    unitTableSettingIndex()
+    unitTableSettingIndex(
+        maxWidth: 40,
+    )
 }

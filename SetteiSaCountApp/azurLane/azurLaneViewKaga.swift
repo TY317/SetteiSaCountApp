@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewKaga: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @State var selectedCharaList: [String] = ["ジャベリン","ラフィー","綾波","Z23","エンタープライズ"]
@@ -44,11 +45,13 @@ struct azurLaneViewKaga: View {
                 )
                 .onChange(of: self.selectedCharaList[0]) { oldValue, newValue in
                     // ジャベリンスタート
-                    if self.selectedCharaList[0] == self.firstList[0] {
+//                    if self.selectedCharaList[0] == self.firstList[0] {
+                    if newValue == self.firstList[0] {
                         self.selectedCharaList = self.senarioList[0]
                     }
                     // エンタープライズスタート
-                    if self.selectedCharaList[0] == self.firstList[1] {
+//                    if self.selectedCharaList[0] == self.firstList[1] {
+                    else if newValue == self.firstList[1] {
                         self.selectedCharaList = self.senarioList[2]
                     }
                     // ベルファストスタート
@@ -123,7 +126,41 @@ struct azurLaneViewKaga: View {
             } header: {
                 Text("カウント結果")
             }
+            
+            // 裏ボタン
+            Section {
+                VStack(alignment: .leading) {
+                    Text("・後半ジャッジ成功時の次ゲームにPUSHボタン押すと専用ボイスが発生する可能性あり")
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                }
+                HStack(spacing: 0) {
+                    unitTableString(
+                        columTitle: "",
+                        stringList: [
+                            "たぁーのしいなぁー！",
+                            "赤城の愛、 受け止めてくださるかしら？",
+                        ],
+                        lineList: [1,2],
+                    )
+                    unitTableString(
+                        columTitle: "示唆",
+                        stringList: [
+                            "設定5 以上濃厚",
+                            "設定6 濃厚",
+                        ],
+                        lineList: [1,2],
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer391AzurLaneKagaUra())
+            } header: {
+                Text("裏ボタン")
+                    .popoverTip(tipVer391AzurLaneKaga())
+            }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.azurLaneMenuKagaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -182,6 +219,7 @@ struct azurLaneViewKaga: View {
 
 #Preview {
     azurLaneViewKaga(
+        ver391: Ver391(),
         azurLane: AzurLane(),
     )
 }

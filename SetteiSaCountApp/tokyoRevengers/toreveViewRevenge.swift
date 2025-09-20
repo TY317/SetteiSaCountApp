@@ -16,6 +16,8 @@ struct toreveViewRevenge: View {
                 VStack(alignment: .leading) {
                     Text("・前兆やAT終了後などの引き戻し")
                     Text("・高設定ほど発生確率が高い")
+                    Text("・決戦前夜、東卍チャンス終了後のリベンジは発生すれば高設定への期待度アップ")
+                    Text("・東卍ラッシュ後のリベンジは設定差あるが、低設定でも普通に発生する確率のようなので過信は禁物")
                 }
                 HStack(spacing: 0) {
                     unitTableString(

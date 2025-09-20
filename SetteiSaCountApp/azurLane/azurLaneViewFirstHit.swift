@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct azurLaneViewFirstHit: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var azurLane: AzurLane
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 300.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 300.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 4
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {
@@ -21,12 +33,31 @@ struct azurLaneViewFirstHit: View {
                 Text("現在値、履歴はぱちログで確認して入力して下さい")
                     .foregroundStyle(Color.secondary)
                     .font(.footnote)
-                // アズールレーンボーナス
+//                // アズールレーンボーナス
+//                unitTextFieldNumberInputWithUnit(
+//                    title: "アズールレーンBONUS",
+//                    inputValue: $azurLane.bonusCount,
+//                )
+//                .focused($isFocused)
+                // アズールレーンボーナス 白７
                 unitTextFieldNumberInputWithUnit(
-                    title: "アズールレーンBONUS",
-                    inputValue: $azurLane.bonusCount,
+                    title: "アズールレーンBONUS 白7",
+                    inputValue: $azurLane.bonusCountWhite,
                 )
                 .focused($isFocused)
+                .onChange(of: azurLane.bonusCountWhite) { oldValue, newValue in
+                    azurLane.bonusSumFunc()
+                }
+                .popoverTip(tipVer391AzurLaneBonus())
+                // アズールレーンボーナス 青７
+                unitTextFieldNumberInputWithUnit(
+                    title: "アズールレーンBONUS 青7",
+                    inputValue: $azurLane.bonusCountBlue,
+                )
+                .focused($isFocused)
+                .onChange(of: azurLane.bonusCountBlue) { oldValue, newValue in
+                    azurLane.bonusSumFunc()
+                }
                 // アズールレーンラッシュ
                 unitTextFieldNumberInputWithUnit(
                     title: "アズールレーンRUSH",
@@ -34,20 +65,48 @@ struct azurLaneViewFirstHit: View {
                 )
                 .focused($isFocused)
                 // 確率横並び
-                HStack {
+                let gridItem = Array(
+                    repeating: GridItem(
+                        .flexible(minimum: 80, maximum: 150),
+                        spacing: 5,
+                        alignment: .center,
+                    ),
+                    count: self.lazyVGridCount
+                )
+                LazyVGrid(columns: gridItem) {
+//                HStack {
+                    // 白７
+                    unitResultRatioDenomination2Line(
+                        title: "白7",
+                        count: $azurLane.bonusCountWhite,
+                        bigNumber: $azurLane.gameNormalNumberPlay,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 青７
+                    unitResultRatioDenomination2Line(
+                        title: "青7",
+                        count: $azurLane.bonusCountBlue,
+                        bigNumber: $azurLane.gameNormalNumberPlay,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
                     // ボーナス
                     unitResultRatioDenomination2Line(
-                        title: "ボーナス",
+//                        title: "ボーナス",
+                        title: "合算",
                         count: $azurLane.bonusCount,
                         bigNumber: $azurLane.gameNormalNumberPlay,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                     // AT
                     unitResultRatioDenomination2Line(
                         title: "AT",
                         count: $azurLane.atCount,
                         bigNumber: $azurLane.gameNormalNumberPlay,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
                 // 参考情報）初当り確率
@@ -55,7 +114,15 @@ struct azurLaneViewFirstHit: View {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTableDenominate(
-                            columTitle: "ボーナス",
+                            columTitle: "白7",
+                            denominateList: azurLane.ratioBonusWhite
+                        )
+                        unitTableDenominate(
+                            columTitle: "青7",
+                            denominateList: azurLane.ratioBonusBlue
+                        )
+                        unitTableDenominate(
+                            columTitle: "合算",
                             denominateList: azurLane.ratioBonus,
                         )
                         unitTableDenominate(
@@ -107,7 +174,7 @@ struct azurLaneViewFirstHit: View {
                     Ci95view: AnyView(
                         azurLaneView95Ci(
                             azurLane: azurLane,
-                            selection: 4,
+                            selection: 7,
                         )
                     )
                 )
@@ -167,6 +234,8 @@ struct azurLaneViewFirstHit: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.azurLaneMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -175,6 +244,20 @@ struct azurLaneViewFirstHit: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("初当り")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -203,6 +286,7 @@ struct azurLaneViewFirstHit: View {
 
 #Preview {
     azurLaneViewFirstHit(
+        ver391: Ver391(),
         azurLane: AzurLane(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

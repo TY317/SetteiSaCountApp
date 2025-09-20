@@ -190,12 +190,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
                                             ver390: ver390,
+                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("toreveMachineIcon"),
                                         machineName: "東リベ",
-                                        badgeStatus: ver390.toreveMachineIconBadge,
+                                        badgeStatus: ver391.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -205,13 +206,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(azurLaneViewTop(
-//                                            ver380: ver380,
+                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("azurLaneMachineIcon"),
                                         machineName: "アズレン",
-//                                        badgeStatus: ver380.azurLaneMachineIconBadge,
+                                        badgeStatus: ver391.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -815,13 +816,14 @@ struct ContentView: View {
                                     )
                                 }
                                 
-                                // //// アズールレーン、25年8月
+                                // //// 東京リベンジャーズ、25年9月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
                                     
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
                                             ver390: ver390,
+                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -830,7 +832,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 9,
-                                        badgeStatus: ver390.toreveMachineIconBadge,
+                                        badgeStatus: ver391.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -840,7 +842,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(azurLaneViewTop(
-//                                            ver380: ver380,
+                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -850,7 +852,7 @@ struct ContentView: View {
                                         makerName: "京楽",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-//                                        badgeStatus: ver380.azurLaneMachineIconBadge,
+                                        badgeStatus: ver391.azurLaneMachineIconBadge,
                                     )
                                 }
                                 

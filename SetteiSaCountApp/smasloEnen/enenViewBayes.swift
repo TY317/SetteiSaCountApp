@@ -163,9 +163,9 @@ struct enenViewBayes: View {
                     enen.charaCountNegate2,
                     enen.charaCountNegate4,
                     enen.charaCountNegate5,
-                    enen.charaCountOver6,
                     enen.charaCountOver4,
                     enen.charaCountOver5,
+                    enen.charaCountOver6,
                 ], ratioList: [
                     [44,42,40,31,28],
                     [12,20,12,25,15],

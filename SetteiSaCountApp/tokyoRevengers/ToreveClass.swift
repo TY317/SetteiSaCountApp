@@ -155,6 +155,93 @@ class Toreve: ObservableObject {
         resetHistory()
         resetFirstHit()
         resetScreen()
+        resetNormal()
+        resetTomanChance()
+        resetEnding()
+    }
+    
+    // /////////////
+    // ver3.9.1で追加
+    // /////////////
+    // 共通ベル
+    let ratioBell: [Double] = [99.3, -1,-1,-1,-1,-1]
+    @AppStorage("toreveGameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("toreveGameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("toreveGameNumberPlay") var gameNumberPlay: Int = 0
+    @AppStorage("toreveBellCount") var bellCount: Int = 0
+    
+    func resetNormal() {
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
+        bellCount = 0
+        minusCheck = false
+    }
+    // レア役からのCZ当選率
+    let ratioNormalChanceMidNight: [Double] = [4.7,-1,-1,-1,-1,-1]
+    let ratioNormalKyoCherryMidNight: [Double] = [20.3,-1,-1,-1,-1,-1]
+    let ratioHighChanceMidNight: [Double] = [31.3,-1,-1,-1,-1,-1]
+    let ratioHighKyoCherryMidNight: [Double] = [50.0,-1,-1,-1,-1,-1]
+    let ratioNormalManjiKisaki: [Double] = [0.8,-1,-1,-1,-1,-1]
+    let ratioHighManjiKisaki: [Double] = [9.8,-1,-1,-1,-1,-1]
+    
+    // モードごとの当選先振分け
+    let ratioModeAChance: [Double] = [54.7,-1,-1,-1,-1,-1]
+    let ratioModeARush: [Double] = [45.3,-1,-1,-1,-1,-1]
+    let ratioModeBChance: [Double] = [59.8,-1,-1,-1,-1,-1]
+    let ratioModeBRush: [Double] = [40.2,-1,-1,-1,-1,-1]
+    let ratioChanceChance: [Double] = [39.8,-1,-1,-1,-1,-1]
+    let ratioChanceRush: [Double] = [60.2,-1,-1,-1,-1,-1]
+    let ratioHeavenChance: [Double] = [39.8,-1,-1,-1,-1,-1]
+    let ratioHeavenRush: [Double] = [60.2,-1,-1,-1,-1,-1]
+    
+    // 東卍チャンス中の昇格
+    let ratioAtRiseManji: [Double] = [10.2,-1,-1,-1,-1,-1]
+    let ratioAtRiseChance: [Double] = [31.3,-1,-1,-1,-1,-1]
+    let ratioAtRiseKyoCherry: [Double] = [66.4,-1,-1,-1,-1,-1]
+    @AppStorage("toreveAtRiseCountManji") var atRiseCountManji: Int = 0
+    @AppStorage("toreveAtRiseCountManjiRise") var atRiseCountManjiRise: Int = 0
+    @AppStorage("toreveAtRiseCountChance") var atRiseCountChance: Int = 0
+    @AppStorage("toreveAtRiseCountChanceRise") var atRiseCountChanceRise: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherry") var atRiseCountKyoCherry: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryRise") var atRiseCountKyoCherryRise: Int = 0
+    
+    func resetTomanChance() {
+        atRiseCountManji = 0
+        atRiseCountManjiRise = 0
+        atRiseCountChance = 0
+        atRiseCountChanceRise = 0
+        atRiseCountKyoCherry = 0
+        atRiseCountKyoCherryRise = 0
+        minusCheck = false
+    }
+    
+    // エンディング
+    @AppStorage("toreveEndingCountBlue") var endingCountBlue: Int = 0
+    @AppStorage("toreveEndingCountYellow") var endingCountYellow: Int = 0
+    @AppStorage("toreveEndingCountGreen") var endingCountGreen: Int = 0
+    @AppStorage("toreveEndingCountRed") var endingCountRed: Int = 0
+    @AppStorage("toreveEndingCountRainbow") var endingCountRainbow: Int = 0
+    @AppStorage("toreveEndingCountSum") var endingCountSum: Int = 0
+    
+    func endingCountSumFunc() {
+        endingCountSum = countSum(
+            endingCountBlue,
+            endingCountYellow,
+            endingCountGreen,
+            endingCountRed,
+            endingCountRainbow,
+        )
+    }
+    
+    func resetEnding() {
+        endingCountBlue = 0
+        endingCountYellow = 0
+        endingCountGreen = 0
+        endingCountRed = 0
+        endingCountRainbow = 0
+        endingCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -184,6 +271,26 @@ class ToreveMemory1: ObservableObject {
     @AppStorage("toreveScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("toreveMemoMemory1") var memo = ""
     @AppStorage("toreveDateMemory1") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.9.1で追加
+    // /////////////
+    @AppStorage("toreveGameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("toreveGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("toreveGameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("toreveBellCountMemory1") var bellCount: Int = 0
+    @AppStorage("toreveAtRiseCountManjiMemory1") var atRiseCountManji: Int = 0
+    @AppStorage("toreveAtRiseCountManjiRiseMemory1") var atRiseCountManjiRise: Int = 0
+    @AppStorage("toreveAtRiseCountChanceMemory1") var atRiseCountChance: Int = 0
+    @AppStorage("toreveAtRiseCountChanceRiseMemory1") var atRiseCountChanceRise: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryMemory1") var atRiseCountKyoCherry: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryRiseMemory1") var atRiseCountKyoCherryRise: Int = 0
+    @AppStorage("toreveEndingCountBlueMemory1") var endingCountBlue: Int = 0
+    @AppStorage("toreveEndingCountYellowMemory1") var endingCountYellow: Int = 0
+    @AppStorage("toreveEndingCountGreenMemory1") var endingCountGreen: Int = 0
+    @AppStorage("toreveEndingCountRedMemory1") var endingCountRed: Int = 0
+    @AppStorage("toreveEndingCountRainbowMemory1") var endingCountRainbow: Int = 0
+    @AppStorage("toreveEndingCountSumMemory1") var endingCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -212,6 +319,26 @@ class ToreveMemory2: ObservableObject {
     @AppStorage("toreveScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("toreveMemoMemory2") var memo = ""
     @AppStorage("toreveDateMemory2") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.9.1で追加
+    // /////////////
+    @AppStorage("toreveGameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("toreveGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("toreveGameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("toreveBellCountMemory2") var bellCount: Int = 0
+    @AppStorage("toreveAtRiseCountManjiMemory2") var atRiseCountManji: Int = 0
+    @AppStorage("toreveAtRiseCountManjiRiseMemory2") var atRiseCountManjiRise: Int = 0
+    @AppStorage("toreveAtRiseCountChanceMemory2") var atRiseCountChance: Int = 0
+    @AppStorage("toreveAtRiseCountChanceRiseMemory2") var atRiseCountChanceRise: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryMemory2") var atRiseCountKyoCherry: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryRiseMemory2") var atRiseCountKyoCherryRise: Int = 0
+    @AppStorage("toreveEndingCountBlueMemory2") var endingCountBlue: Int = 0
+    @AppStorage("toreveEndingCountYellowMemory2") var endingCountYellow: Int = 0
+    @AppStorage("toreveEndingCountGreenMemory2") var endingCountGreen: Int = 0
+    @AppStorage("toreveEndingCountRedMemory2") var endingCountRed: Int = 0
+    @AppStorage("toreveEndingCountRainbowMemory2") var endingCountRainbow: Int = 0
+    @AppStorage("toreveEndingCountSumMemory2") var endingCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -240,4 +367,24 @@ class ToreveMemory3: ObservableObject {
     @AppStorage("toreveScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("toreveMemoMemory3") var memo = ""
     @AppStorage("toreveDateMemory3") var dateDouble = 0.0
+    
+    // /////////////
+    // ver3.9.1で追加
+    // /////////////
+    @AppStorage("toreveGameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("toreveGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("toreveGameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("toreveBellCountMemory3") var bellCount: Int = 0
+    @AppStorage("toreveAtRiseCountManjiMemory3") var atRiseCountManji: Int = 0
+    @AppStorage("toreveAtRiseCountManjiRiseMemory3") var atRiseCountManjiRise: Int = 0
+    @AppStorage("toreveAtRiseCountChanceMemory3") var atRiseCountChance: Int = 0
+    @AppStorage("toreveAtRiseCountChanceRiseMemory3") var atRiseCountChanceRise: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryMemory3") var atRiseCountKyoCherry: Int = 0
+    @AppStorage("toreveAtRiseCountKyoCherryRiseMemory3") var atRiseCountKyoCherryRise: Int = 0
+    @AppStorage("toreveEndingCountBlueMemory3") var endingCountBlue: Int = 0
+    @AppStorage("toreveEndingCountYellowMemory3") var endingCountYellow: Int = 0
+    @AppStorage("toreveEndingCountGreenMemory3") var endingCountGreen: Int = 0
+    @AppStorage("toreveEndingCountRedMemory3") var endingCountRed: Int = 0
+    @AppStorage("toreveEndingCountRainbowMemory3") var endingCountRainbow: Int = 0
+    @AppStorage("toreveEndingCountSumMemory3") var endingCountSum: Int = 0
 }
