@@ -17,6 +17,7 @@ struct azurLaneViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var startModeEnable: Bool = true
+    @State var akashiEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -66,6 +67,13 @@ struct azurLaneViewBayes: View {
                     unitExView5body2image(
                         title: "終了画面",
                         textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // 明石チャレンジ
+                unitToggleWithQuestion(enable: self.$akashiEnable, title: "明石チャレンジ") {
+                    unitExView5body2image(
+                        title: "明石チャレンジ",
+                        textBody1: "・告知ゲーム数の振分けを計算要素に加えます",
                     )
                 }
                 // AT後の高確スタート
@@ -155,15 +163,33 @@ struct azurLaneViewBayes: View {
                 bigNumber: azurLane.gameNumberPlay
             )
         }
-        // ボーナス初当り
-        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        // 白７確率
+        var logPostBonusWhite: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
-            logPostBonus = logPostDenoBino(
-                ratio: azurLane.ratioBonus,
-                Count: azurLane.bonusCount,
+            logPostBonusWhite = logPostDenoBino(
+                ratio: azurLane.ratioBonusWhite,
+                Count: azurLane.bonusCountWhite,
                 bigNumber: azurLane.gameNormalNumberPlay
             )
         }
+        // 白７確率
+        var logPostBonusBlue: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostBonusBlue = logPostDenoBino(
+                ratio: azurLane.ratioBonusBlue,
+                Count: azurLane.bonusCountBlue,
+                bigNumber: azurLane.gameNormalNumberPlay
+            )
+        }
+//        // ボーナス初当り
+//        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        if self.firstHitEnable {
+//            logPostBonus = logPostDenoBino(
+//                ratio: azurLane.ratioBonus,
+//                Count: azurLane.bonusCount,
+//                bigNumber: azurLane.gameNormalNumberPlay
+//            )
+//        }
         // AT初当り
         var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
@@ -171,6 +197,21 @@ struct azurLaneViewBayes: View {
                 ratio: azurLane.ratioAt,
                 Count: azurLane.atCount,
                 bigNumber: azurLane.gameNormalNumberPlay
+            )
+        }
+        // 明石チャレンジ
+        var logPostAkashi: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.akashiEnable {
+            logPostAkashi = logPostPercentMulti(
+                countList: [
+                    azurLane.akashiCountKisu,
+                    azurLane.akashiCountGusu,
+                    azurLane.akashiCountLast,
+                ], ratioList: [
+                    azurLane.ratioAkashiKisu,
+                    azurLane.ratioAkashiGusu,
+                    azurLane.ratioAkashiLast,
+                ], bigNumber: azurLane.akashiCountSum
             )
         }
         // 終了画面
@@ -249,8 +290,11 @@ struct azurLaneViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostJakuCherry,
             logPostJakuSuika,
-            logPostBonus,
+            logPostBonusWhite,
+            logPostBonusBlue,
+//            logPostBonus,
             logPostAt,
+            logPostAkashi,
             logPostScreen,
             logPostStartMode,
             logPostTrophy,

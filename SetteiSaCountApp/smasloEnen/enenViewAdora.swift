@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct enenViewAdora: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     @State var selectedChara: String = "森羅日下部"
@@ -38,6 +39,8 @@ struct enenViewAdora: View {
     let maxWidth3: CGFloat = .infinity
     let maxWidth4: CGFloat = .infinity
     let maxWidth5: CGFloat = 60
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -90,6 +93,15 @@ struct enenViewAdora: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    enenViewBayes(
+                        ver391: ver391,
+                        enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
@@ -181,6 +193,9 @@ struct enenViewAdora: View {
 
 #Preview {
     enenViewAdora(
+        ver391: Ver391(),
         enen: Enen(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

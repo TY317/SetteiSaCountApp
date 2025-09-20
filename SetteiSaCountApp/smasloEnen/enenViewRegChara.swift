@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct enenViewRegChara: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     @State var selectedCharaList: [String] = [
@@ -72,6 +73,9 @@ struct enenViewRegChara: View {
     let maxWidth3: CGFloat = .infinity
     let maxWidth4: CGFloat = .infinity
     let maxWidth5: CGFloat = 60
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
     var body: some View {
         List {
             // //// キャラ選択
@@ -341,6 +345,15 @@ struct enenViewRegChara: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    enenViewBayes(
+                        ver391: ver391,
+                        enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
@@ -436,6 +449,9 @@ struct enenViewRegChara: View {
 
 #Preview {
     enenViewRegChara(
+        ver391: Ver391(),
         enen: Enen(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

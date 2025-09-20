@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct kingHanaVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var kingHana: KingHana
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -191,7 +193,15 @@ struct kingHanaVer2ViewJissenTotalDataCheck: View {
 //                unitLinkButton(title: "REG中のサイドランプ確率", exview: AnyView(unitExView5body2image(title: "REG中のサイドランプ確率", textBody1: "・REG中に1回だけ確認可能", textBody2: "・左リール中段に白７ビタ押し", textBody3: "　成功したら中・右にスイカを狙う", textBody4: "・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する", image1: Image("kingHanaRegLampAnalysis"))))
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(kingHanaVer2View95CiTotal(kingHana: kingHana)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kingHanaViewBayes(
+                        ver391: ver391,
+                        kingHana: kingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $kingHana.currentGames)
                 // 自分でプレイ
@@ -248,5 +258,10 @@ struct kingHanaVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    kingHanaVer2ViewJissenTotalDataCheck(kingHana: KingHana())
+    kingHanaVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        kingHana: KingHana(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewBayes: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var godeater: Godeater
     
     // 機種ごとに見直し
@@ -87,7 +87,7 @@ struct godeaterViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.godeaterMenuBayesBadge)
+//        .resetBadgeOnAppear($ver380.godeaterMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -320,7 +320,7 @@ struct godeaterViewBayes: View {
 
 #Preview {
     godeaterViewBayes(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         godeater: Godeater(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

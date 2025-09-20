@@ -65,6 +65,40 @@ struct azurLaneView95Ci: View {
                 )
             )
             .tag(3)
+            // ボーナス白７回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス白7回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $azurLane.bonusCountWhite,
+                        bigNumber: $azurLane.gameNormalNumberPlay,
+                        setting1Denominate: azurLane.ratioBonusWhite[0],
+                        setting2Denominate: azurLane.ratioBonusWhite[1],
+                        setting3Denominate: azurLane.ratioBonusWhite[2],
+                        setting4Denominate: azurLane.ratioBonusWhite[3],
+                        setting5Denominate: azurLane.ratioBonusWhite[4],
+                        setting6Denominate: azurLane.ratioBonusWhite[5]
+                    )
+                )
+            )
+            .tag(7)
+            // ボーナス青７回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス青7回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $azurLane.bonusCountBlue,
+                        bigNumber: $azurLane.gameNormalNumberPlay,
+                        setting1Denominate: azurLane.ratioBonusBlue[0],
+                        setting2Denominate: azurLane.ratioBonusBlue[1],
+                        setting3Denominate: azurLane.ratioBonusBlue[2],
+                        setting4Denominate: azurLane.ratioBonusBlue[3],
+                        setting5Denominate: azurLane.ratioBonusBlue[4],
+                        setting6Denominate: azurLane.ratioBonusBlue[5]
+                    )
+                )
+            )
+            .tag(8)
             // ボーナス回数
             unitListSection95Ci(
                 grafTitle: "ボーナス回数",
@@ -99,6 +133,23 @@ struct azurLaneView95Ci: View {
                 )
             )
             .tag(5)
+            // 明石チャレンジ　奇数ゲーム数　告知回数
+            unitListSection95Ci(
+                grafTitle: "明石チャレンジ\n奇数ゲーム 告知回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $azurLane.akashiCountKisu,
+                        bigNumber: $azurLane.akashiCountSum,
+                        setting1Percent: azurLane.ratioAkashiKisu[0],
+                        setting2Percent: azurLane.ratioAkashiKisu[1],
+                        setting3Percent: azurLane.ratioAkashiKisu[2],
+                        setting4Percent: azurLane.ratioAkashiKisu[3],
+                        setting5Percent: azurLane.ratioAkashiKisu[4],
+                        setting6Percent: azurLane.ratioAkashiKisu[5]
+                    )
+                )
+            )
+            .tag(9)
             // AT後の高確スタート回数
             unitListSection95Ci(
                 grafTitle: "AT後の高確スタート回数",
@@ -117,6 +168,7 @@ struct azurLaneView95Ci: View {
                 )
             )
             .tag(6)
+            
         }
         // //// firebaseログ
         .onAppear {

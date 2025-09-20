@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 struct hokutoViewBbBell: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var hokuto: Hokuto
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -73,7 +73,7 @@ struct hokutoViewBbBell: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     hokutoViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -164,7 +164,7 @@ struct hokutoViewBbBell: View {
 
 #Preview {
     hokutoViewBbBell(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         hokuto: Hokuto(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

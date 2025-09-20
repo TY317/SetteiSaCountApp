@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hanaTenshoVer2ViewJissenCount: View {
-//    @ObservedObject var hanaTensho = HanaTensho()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var hanaTensho: HanaTensho
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -22,6 +22,8 @@ struct hanaTenshoVer2ViewJissenCount: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         ZStack {
@@ -71,7 +73,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
                     )
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiPersonal(hanaTensho: hanaTensho, selection: 1)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        hanaTenshoViewBayes(
+                            ver391: ver391,
+                            hanaTensho: hanaTensho,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始め
@@ -157,7 +167,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiPersonal(hanaTensho: hanaTensho, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                hanaTenshoViewBayes(
+                                    ver391: ver391,
+                                    hanaTensho: hanaTensho,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ、鳳玉ランプ")
                         }
@@ -183,7 +201,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
 //                            unitLinkButton(title: "BB中のスイカについて", exview: AnyView(unitExView5body2image(title: "BIG中スイカ確率", image1:Image("hanaTenshoBbSuika"))))
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiPersonal(hanaTensho: hanaTensho, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                hanaTenshoViewBayes(
+                                    ver391: ver391,
+                                    hanaTensho: hanaTensho,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ")
                         }
@@ -217,7 +243,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
 //                            unitLinkButton(title: "BIG後の鳳玉ランプについて", exview: AnyView(unitExView5body2image(title: "BIG後の鳳玉ランプ確率", image1:Image("hanaTenshoBigLamp"))))
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiPersonal(hanaTensho: hanaTensho, selection: 6)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                hanaTenshoViewBayes(
+                                    ver391: ver391,
+                                    hanaTensho: hanaTensho,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
@@ -276,7 +310,15 @@ struct hanaTenshoVer2ViewJissenCount: View {
                         )
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(hanaTenshoVer2View95CiPersonal(hanaTensho: hanaTensho, selection: 7)))
-//                            .popoverTip(tipUnitButtonLink95Ci())
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            hanaTenshoViewBayes(
+                                ver391: ver391,
+                                hanaTensho: hanaTensho,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
                     } header: {
                         Text("\nサイドランプ")
                     }
@@ -375,5 +417,10 @@ struct hanaTenshoVer2ViewJissenCount: View {
 }
 
 #Preview {
-    hanaTenshoVer2ViewJissenCount(hanaTensho: HanaTensho())
+    hanaTenshoVer2ViewJissenCount(
+        ver391: Ver391(),
+        hanaTensho: HanaTensho(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

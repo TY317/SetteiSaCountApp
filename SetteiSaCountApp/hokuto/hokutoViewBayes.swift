@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hokutoViewBayes: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var hokuto: Hokuto
     
     // 機種ごとに見直し
@@ -88,7 +88,7 @@ struct hokutoViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.hokutoMenuBayesBadge)
+//        .resetBadgeOnAppear($ver380.hokutoMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -281,7 +281,7 @@ struct hokutoViewBayes: View {
 
 #Preview {
     hokutoViewBayes(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         hokuto: Hokuto(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct imJugExVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var imJugEx = ImJugEx()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var imJugEx: ImJugEx
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
     var body: some View {
         List {
             Section {
@@ -110,7 +113,15 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiTotal(imJugEx: imJugEx)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    imJugExViewBayes(
+                        ver391: ver391,
+                        imJugEx: imJugEx,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $imJugEx.currentGames)
                 // 自分でプレイ
@@ -151,5 +162,10 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    imJugExVer2ViewJissenTotalDataCheck(imJugEx: ImJugEx())
+    imJugExVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        imJugEx: ImJugEx(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

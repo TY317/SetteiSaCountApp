@@ -9,6 +9,7 @@ import SwiftUI
 
 struct toreveViewTop: View {
     @ObservedObject var ver390: Ver390
+    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var toreve = Toreve()
@@ -33,20 +34,24 @@ struct toreveViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: toreveViewNormal(
+                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: ver391.toreveMenuNormalBadge,
                         )
                     }
                     // 周期履歴
                     NavigationLink(destination: toreveViewCycle(
+                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "周期履歴",
+                            badgeStatus: ver391.toreveMenuCycleBadge,
                         )
                     }
                     // 初当り
@@ -62,22 +67,37 @@ struct toreveViewTop: View {
                     }
                     // 東卍チャンス
                     NavigationLink(destination: toreveViewTomanChallenge(
+                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "figure.stairs",
-                            textBody: "東卍チャンス"
+                            textBody: "東卍チャンス",
+                            badgeStatus: ver391.toreveMenuTomanChallengeBadge,
+                        )
+                    }
+                    // ATセット開始画面
+                    NavigationLink(destination: toreveViewStartScreen(
+                        ver391: ver391,
+                        toreve: toreve,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "東卍ラッシュ",
+                            badgeStatus: ver391.toreveMenuStartScreenBadge,
                         )
                     }
                     // AT終了画面
                     NavigationLink(destination: toreveViewScreen(
+                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "終了画面"
+                            textBody: "終了画面",
+                            badgeStatus: ver391.toreveMenuScreenBadge,
                         )
                     }
                     // リベンジ
@@ -97,6 +117,19 @@ struct toreveViewTop: View {
                             imageSystemName: "smoke.fill",
                             textBody: "東卍ラッシュバースト")
                     }
+                    // エンディング
+                    NavigationLink(destination: toreveViewEnding(
+                        ver391: ver391,
+                        toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: ver391.toreveMenuEndingBadge,
+                        )
+                    }
                     // サミートロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(
@@ -109,7 +142,7 @@ struct toreveViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: toreveView95Ci(
                     toreve: toreve,
-                    selection: 1
+                    selection: 7,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -140,7 +173,7 @@ struct toreveViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.toreveMachineIconBadge)
+        .resetBadgeOnAppear($ver391.toreveMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -229,6 +262,26 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory1.screenCount9 = toreve.screenCount9
         toreveMemory1.screenCount10 = toreve.screenCount10
         toreveMemory1.screenCountSum = toreve.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreveMemory1.gameNumberStart = toreve.gameNumberStart
+        toreveMemory1.gameNumberCurrent = toreve.gameNumberCurrent
+        toreveMemory1.gameNumberPlay = toreve.gameNumberPlay
+        toreveMemory1.bellCount = toreve.bellCount
+        toreveMemory1.atRiseCountManji = toreve.atRiseCountManji
+        toreveMemory1.atRiseCountManjiRise = toreve.atRiseCountManjiRise
+        toreveMemory1.atRiseCountChance = toreve.atRiseCountChance
+        toreveMemory1.atRiseCountChanceRise = toreve.atRiseCountChanceRise
+        toreveMemory1.atRiseCountKyoCherry = toreve.atRiseCountKyoCherry
+        toreveMemory1.atRiseCountKyoCherryRise = toreve.atRiseCountKyoCherryRise
+        toreveMemory1.endingCountBlue = toreve.endingCountBlue
+        toreveMemory1.endingCountYellow = toreve.endingCountYellow
+        toreveMemory1.endingCountGreen = toreve.endingCountGreen
+        toreveMemory1.endingCountRed = toreve.endingCountRed
+        toreveMemory1.endingCountRainbow = toreve.endingCountRainbow
+        toreveMemory1.endingCountSum = toreve.endingCountSum
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -253,6 +306,26 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory2.screenCount9 = toreve.screenCount9
         toreveMemory2.screenCount10 = toreve.screenCount10
         toreveMemory2.screenCountSum = toreve.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreveMemory2.gameNumberStart = toreve.gameNumberStart
+        toreveMemory2.gameNumberCurrent = toreve.gameNumberCurrent
+        toreveMemory2.gameNumberPlay = toreve.gameNumberPlay
+        toreveMemory2.bellCount = toreve.bellCount
+        toreveMemory2.atRiseCountManji = toreve.atRiseCountManji
+        toreveMemory2.atRiseCountManjiRise = toreve.atRiseCountManjiRise
+        toreveMemory2.atRiseCountChance = toreve.atRiseCountChance
+        toreveMemory2.atRiseCountChanceRise = toreve.atRiseCountChanceRise
+        toreveMemory2.atRiseCountKyoCherry = toreve.atRiseCountKyoCherry
+        toreveMemory2.atRiseCountKyoCherryRise = toreve.atRiseCountKyoCherryRise
+        toreveMemory2.endingCountBlue = toreve.endingCountBlue
+        toreveMemory2.endingCountYellow = toreve.endingCountYellow
+        toreveMemory2.endingCountGreen = toreve.endingCountGreen
+        toreveMemory2.endingCountRed = toreve.endingCountRed
+        toreveMemory2.endingCountRainbow = toreve.endingCountRainbow
+        toreveMemory2.endingCountSum = toreve.endingCountSum
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -277,6 +350,26 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory3.screenCount9 = toreve.screenCount9
         toreveMemory3.screenCount10 = toreve.screenCount10
         toreveMemory3.screenCountSum = toreve.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreveMemory3.gameNumberStart = toreve.gameNumberStart
+        toreveMemory3.gameNumberCurrent = toreve.gameNumberCurrent
+        toreveMemory3.gameNumberPlay = toreve.gameNumberPlay
+        toreveMemory3.bellCount = toreve.bellCount
+        toreveMemory3.atRiseCountManji = toreve.atRiseCountManji
+        toreveMemory3.atRiseCountManjiRise = toreve.atRiseCountManjiRise
+        toreveMemory3.atRiseCountChance = toreve.atRiseCountChance
+        toreveMemory3.atRiseCountChanceRise = toreve.atRiseCountChanceRise
+        toreveMemory3.atRiseCountKyoCherry = toreve.atRiseCountKyoCherry
+        toreveMemory3.atRiseCountKyoCherryRise = toreve.atRiseCountKyoCherryRise
+        toreveMemory3.endingCountBlue = toreve.endingCountBlue
+        toreveMemory3.endingCountYellow = toreve.endingCountYellow
+        toreveMemory3.endingCountGreen = toreve.endingCountGreen
+        toreveMemory3.endingCountRed = toreve.endingCountRed
+        toreveMemory3.endingCountRainbow = toreve.endingCountRainbow
+        toreveMemory3.endingCountSum = toreve.endingCountSum
     }
 }
 
@@ -338,6 +431,26 @@ struct toreveSubViewLoadMemory: View {
         toreve.screenCount9 = toreveMemory1.screenCount9
         toreve.screenCount10 = toreveMemory1.screenCount10
         toreve.screenCountSum = toreveMemory1.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreve.gameNumberStart = toreveMemory1.gameNumberStart
+        toreve.gameNumberCurrent = toreveMemory1.gameNumberCurrent
+        toreve.gameNumberPlay = toreveMemory1.gameNumberPlay
+        toreve.bellCount = toreveMemory1.bellCount
+        toreve.atRiseCountManji = toreveMemory1.atRiseCountManji
+        toreve.atRiseCountManjiRise = toreveMemory1.atRiseCountManjiRise
+        toreve.atRiseCountChance = toreveMemory1.atRiseCountChance
+        toreve.atRiseCountChanceRise = toreveMemory1.atRiseCountChanceRise
+        toreve.atRiseCountKyoCherry = toreveMemory1.atRiseCountKyoCherry
+        toreve.atRiseCountKyoCherryRise = toreveMemory1.atRiseCountKyoCherryRise
+        toreve.endingCountBlue = toreveMemory1.endingCountBlue
+        toreve.endingCountYellow = toreveMemory1.endingCountYellow
+        toreve.endingCountGreen = toreveMemory1.endingCountGreen
+        toreve.endingCountRed = toreveMemory1.endingCountRed
+        toreve.endingCountRainbow = toreveMemory1.endingCountRainbow
+        toreve.endingCountSum = toreveMemory1.endingCountSum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -370,6 +483,26 @@ struct toreveSubViewLoadMemory: View {
         toreve.screenCount9 = toreveMemory2.screenCount9
         toreve.screenCount10 = toreveMemory2.screenCount10
         toreve.screenCountSum = toreveMemory2.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreve.gameNumberStart = toreveMemory2.gameNumberStart
+        toreve.gameNumberCurrent = toreveMemory2.gameNumberCurrent
+        toreve.gameNumberPlay = toreveMemory2.gameNumberPlay
+        toreve.bellCount = toreveMemory2.bellCount
+        toreve.atRiseCountManji = toreveMemory2.atRiseCountManji
+        toreve.atRiseCountManjiRise = toreveMemory2.atRiseCountManjiRise
+        toreve.atRiseCountChance = toreveMemory2.atRiseCountChance
+        toreve.atRiseCountChanceRise = toreveMemory2.atRiseCountChanceRise
+        toreve.atRiseCountKyoCherry = toreveMemory2.atRiseCountKyoCherry
+        toreve.atRiseCountKyoCherryRise = toreveMemory2.atRiseCountKyoCherryRise
+        toreve.endingCountBlue = toreveMemory2.endingCountBlue
+        toreve.endingCountYellow = toreveMemory2.endingCountYellow
+        toreve.endingCountGreen = toreveMemory2.endingCountGreen
+        toreve.endingCountRed = toreveMemory2.endingCountRed
+        toreve.endingCountRainbow = toreveMemory2.endingCountRainbow
+        toreve.endingCountSum = toreveMemory2.endingCountSum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -402,12 +535,33 @@ struct toreveSubViewLoadMemory: View {
         toreve.screenCount9 = toreveMemory3.screenCount9
         toreve.screenCount10 = toreveMemory3.screenCount10
         toreve.screenCountSum = toreveMemory3.screenCountSum
+        
+        // /////////////
+        // ver3.9.1で追加
+        // /////////////
+        toreve.gameNumberStart = toreveMemory3.gameNumberStart
+        toreve.gameNumberCurrent = toreveMemory3.gameNumberCurrent
+        toreve.gameNumberPlay = toreveMemory3.gameNumberPlay
+        toreve.bellCount = toreveMemory3.bellCount
+        toreve.atRiseCountManji = toreveMemory3.atRiseCountManji
+        toreve.atRiseCountManjiRise = toreveMemory3.atRiseCountManjiRise
+        toreve.atRiseCountChance = toreveMemory3.atRiseCountChance
+        toreve.atRiseCountChanceRise = toreveMemory3.atRiseCountChanceRise
+        toreve.atRiseCountKyoCherry = toreveMemory3.atRiseCountKyoCherry
+        toreve.atRiseCountKyoCherryRise = toreveMemory3.atRiseCountKyoCherryRise
+        toreve.endingCountBlue = toreveMemory3.endingCountBlue
+        toreve.endingCountYellow = toreveMemory3.endingCountYellow
+        toreve.endingCountGreen = toreveMemory3.endingCountGreen
+        toreve.endingCountRed = toreveMemory3.endingCountRed
+        toreve.endingCountRainbow = toreveMemory3.endingCountRainbow
+        toreve.endingCountSum = toreveMemory3.endingCountSum
     }
 }
 
 #Preview {
     toreveViewTop(
         ver390: Ver390(),
+        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

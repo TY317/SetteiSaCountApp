@@ -12,7 +12,7 @@ struct toreveTableFirstHit: View {
     
     var body: some View {
         VStack {
-            Text("・CZにも設定差あり\n　特に稀咲陰謀は設定差が大きい")
+            Text("・CZにも設定差あり\n　特に稀咲陰謀は設定差が大きい\n　通常時チャンス目からのCZ当選は高設定の期待度アップ")
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack(spacing: 0) {
                 unitTableSettingIndex()

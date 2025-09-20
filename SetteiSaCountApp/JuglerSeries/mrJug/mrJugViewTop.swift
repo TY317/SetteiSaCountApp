@@ -9,13 +9,14 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct mrJugViewTop: View {
-//    @ObservedObject var ver210 = Ver210()
-//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var ver391: Ver391
     @StateObject var mrJug = MrJug()
     @State var isShowAlert: Bool = false
     @StateObject var mrJugMemory1 = MrJugMemory1()
     @StateObject var mrJugMemory2 = MrJugMemory2()
     @StateObject var mrJugMemory3 = MrJugMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -51,14 +52,24 @@ struct mrJugViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: mrJugVer2ViewJissenCount(mrJug: mrJug)) {
+                    NavigationLink(destination: mrJugVer2ViewJissenCount(
+                        ver391: ver391,
+                        mrJug: mrJug,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: mrJugVer2ViewJissenTotalDataCheck(mrJug: mrJug)) {
+                    NavigationLink(destination: mrJugVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        mrJug: mrJug,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -74,6 +85,19 @@ struct mrJugViewTop: View {
                 NavigationLink(destination: mrJugVer2View95CiTotal(mrJug: mrJug)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: mrJugViewBayes(
+                    ver391: ver391,
+                    mrJug: mrJug,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.mrJugMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4588")
 //                    .popoverTip(tipVer220AddLink())
@@ -84,6 +108,8 @@ struct mrJugViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.mrJugMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -375,5 +401,9 @@ struct mrJugSubViewLoadMemory: View {
 
 
 #Preview {
-    mrJugViewTop()
+    mrJugViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

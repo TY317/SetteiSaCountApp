@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var girlsSS: GirlsSS
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -133,7 +135,15 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiTotal(girlsSS: girlsSS)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    girlsSSViewBayes(
+                        ver391: ver391,
+                        girlsSS: girlsSS,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $girlsSS.currentGames)
                 // 自分でプレイ
@@ -178,5 +188,10 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    girlsSSVer2ViewJissenTotalDataCheck(girlsSS: GirlsSS())
+    girlsSSVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        girlsSS: GirlsSS(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

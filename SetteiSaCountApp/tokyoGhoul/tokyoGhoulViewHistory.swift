@@ -42,7 +42,7 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -455,7 +455,7 @@ struct tokyoGhoulViewHistory: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     tokyoGhoulViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         tokyoGhoul: tokyoGhoul,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -506,7 +506,7 @@ struct tokyoGhoulViewHistory: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     tokyoGhoulViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         tokyoGhoul: tokyoGhoul,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -617,7 +617,7 @@ struct tokyoGhoulViewHistory: View {
 
 #Preview {
     tokyoGhoulViewHistory(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         tokyoGhoul: TokyoGhoul(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

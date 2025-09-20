@@ -473,12 +473,14 @@ class DraHanaSenkohMemory3: ObservableObject {
 }
 
 struct draHanaSenkohVer2ViewTop: View {
-//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var ver391: Ver391
     @StateObject var draHanaSenkoh = DraHanaSenkoh()
     @State var isShowAlert: Bool = false
     @StateObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
     @StateObject var draHanaSenkohMemory2 = DraHanaSenkohMemory2()
     @StateObject var draHanaSenkohMemory3 = DraHanaSenkohMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -514,14 +516,24 @@ struct draHanaSenkohVer2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: draHanaSenkohVer2ViewJissenCount(draHanaSenkoh: draHanaSenkoh)) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewJissenCount(
+                        ver391: ver391,
+                        draHanaSenkoh: draHanaSenkoh,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: draHanaSenkohVer2ViewJissenTotalDataCheck(draHanaSenkoh: draHanaSenkoh)) {
+                    NavigationLink(destination: draHanaSenkohVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        draHanaSenkoh: draHanaSenkoh,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -536,6 +548,19 @@ struct draHanaSenkohVer2ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: draHanaSenkohVer2View95CiTotal(draHanaSenkoh: draHanaSenkoh)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: draHanaSenkohViewBayes(
+                    ver391: ver391,
+                    draHanaSenkoh: draHanaSenkoh,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.draHanaSenkohMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4453")
@@ -893,5 +918,9 @@ struct draHanaSenkohSubViewLoadMemory: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewTop()
+    draHanaSenkohVer2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

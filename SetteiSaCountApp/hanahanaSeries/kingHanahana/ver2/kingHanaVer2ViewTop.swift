@@ -473,12 +473,14 @@ class KingHanaMemory3: ObservableObject {
 }
 
 struct kingHanaVer2ViewTop: View {
-//    @ObservedObject var kingHana = KingHana()
+    @ObservedObject var ver391: Ver391
     @StateObject var kingHana = KingHana()
     @State var isShowAlert: Bool = false
     @StateObject var kingHanaMemory1 = KingHanaMemory1()
     @StateObject var kingHanaMemory2 = KingHanaMemory2()
     @StateObject var kingHanaMemory3 = KingHanaMemory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -514,14 +516,24 @@ struct kingHanaVer2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: kingHanaVer2ViewJissenCount(kingHana: kingHana)) {
+                    NavigationLink(destination: kingHanaVer2ViewJissenCount(
+                        ver391: ver391,
+                        kingHana: kingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: kingHanaVer2ViewJissenTotalDataCheck(kingHana: kingHana)) {
+                    NavigationLink(destination: kingHanaVer2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        kingHana: kingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -536,6 +548,19 @@ struct kingHanaVer2ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: kingHanaVer2View95CiTotal(kingHana: kingHana)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
+                }
+                // 設定期待値計算
+                NavigationLink(destination: kingHanaViewBayes(
+                    ver391: ver391,
+                    kingHana: kingHana,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.kingHanaMenuBayesBadge,
+                    )
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4311")
@@ -893,5 +918,9 @@ struct kingHanaSubViewLoadMemory: View {
 }
 
 #Preview {
-    kingHanaVer2ViewTop()
+    kingHanaVer2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

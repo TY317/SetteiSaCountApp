@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct happyJugV3Ver2ViewJissenCount: View {
-//    @ObservedObject var happyJugV3 = HappyJugV3()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var happyJugV3: HappyJugV3
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -20,6 +20,8 @@ struct happyJugV3Ver2ViewJissenCount: View {
     let spaceHeightPortrait = 100.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 100.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -197,7 +199,15 @@ struct happyJugV3Ver2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(happyJugV3Ver2View95CiPersonal(happyJugV3: happyJugV3)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    happyJugV3ViewBayes(
+                        ver391: ver391,
+                        happyJugV3: happyJugV3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -315,5 +325,10 @@ struct happyJugV3Ver2ViewJissenCount: View {
 }
 
 #Preview {
-    happyJugV3Ver2ViewJissenCount(happyJugV3: HappyJugV3())
+    happyJugV3Ver2ViewJissenCount(
+        ver391: Ver391(),
+        happyJugV3: HappyJugV3(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

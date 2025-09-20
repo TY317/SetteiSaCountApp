@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenCount: View {
-//    @ObservedObject var girlsSS = GirlsSS()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var girlsSS: GirlsSS
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -20,6 +20,8 @@ struct girlsSSVer2ViewJissenCount: View {
     let spaceHeightPortrait = 100.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 100.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -218,7 +220,15 @@ struct girlsSSVer2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(girlsSSVer2View95CiPersonal(girlsSS: girlsSS)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    girlsSSViewBayes(
+                        ver391: ver391,
+                        girlsSS: girlsSS,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -336,5 +346,10 @@ struct girlsSSVer2ViewJissenCount: View {
 }
 
 #Preview {
-    girlsSSVer2ViewJissenCount(girlsSS: GirlsSS())
+    girlsSSVer2ViewJissenCount(
+        ver391: Ver391(),
+        girlsSS: GirlsSS(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

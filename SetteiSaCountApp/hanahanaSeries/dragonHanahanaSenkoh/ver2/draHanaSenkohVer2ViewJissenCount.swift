@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewJissenCount: View {
-//    @ObservedObject var draHanaSenkoh = DraHanaSenkoh()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -22,6 +22,8 @@ struct draHanaSenkohVer2ViewJissenCount: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         ZStack {
@@ -71,7 +73,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                     )
                     // 95%信頼区間グラフ
                     unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 1)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        draHanaSenkohViewBayes(
+                            ver391: ver391,
+                            draHanaSenkoh: draHanaSenkoh,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                     // //// 縦横共通 参考情報、ゲーム数入力
                     Section {
                         // 打ち始め
@@ -157,7 +167,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                draHanaSenkohViewBayes(
+                                    ver391: ver391,
+                                    draHanaSenkoh: draHanaSenkoh,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ、フェザーランプ")
                         }
@@ -182,7 +200,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 5)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                draHanaSenkohViewBayes(
+                                    ver391: ver391,
+                                    draHanaSenkoh: draHanaSenkoh,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         } header: {
                             Text("\nスイカ")
                         }
@@ -215,7 +241,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             )
                             // 95%信頼区間グラフ
                             unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 6)))
-//                                .popoverTip(tipUnitButtonLink95Ci())
+                            // //// 設定期待値へのリンク
+                            unitNaviLinkBayes {
+                                draHanaSenkohViewBayes(
+                                    ver391: ver391,
+                                    draHanaSenkoh: draHanaSenkoh,
+                                    bayes: bayes,
+                                    viewModel: viewModel,
+                                )
+                            }
                         }
                     }
                     unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
@@ -274,7 +308,15 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                         )
                         // 95%信頼区間グラフ
                         unitNaviLink95Ci(Ci95view: AnyView(draHanaSenkohVer2View95CiPersonal(draHanaSenkoh: draHanaSenkoh, selection: 7)))
-//                            .popoverTip(tipUnitButtonLink95Ci())
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            draHanaSenkohViewBayes(
+                                ver391: ver391,
+                                draHanaSenkoh: draHanaSenkoh,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
                     } header: {
                         Text("\nサイドランプ")
                     }
@@ -373,5 +415,10 @@ struct draHanaSenkohVer2ViewJissenCount: View {
 }
 
 #Preview {
-    draHanaSenkohVer2ViewJissenCount(draHanaSenkoh: DraHanaSenkoh())
+    draHanaSenkohVer2ViewJissenCount(
+        ver391: Ver391(),
+        draHanaSenkoh: DraHanaSenkoh(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

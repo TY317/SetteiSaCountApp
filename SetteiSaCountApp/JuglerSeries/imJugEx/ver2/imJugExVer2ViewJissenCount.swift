@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct imJugExVer2ViewJissenCount: View {
-//    @ObservedObject var imJugEx = ImJugEx()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var imJugEx: ImJugEx
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -85,7 +87,15 @@ struct imJugExVer2ViewJissenCount: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(imJugExVer2View95CiPersonal(imJugEx: imJugEx)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    imJugExViewBayes(
+                        ver391: ver391,
+                        imJugEx: imJugEx,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("小役,ボーナス カウント")
             }
@@ -161,5 +171,10 @@ struct imJugExVer2ViewJissenCount: View {
 }
 
 #Preview {
-    imJugExVer2ViewJissenCount(imJugEx: ImJugEx())
+    imJugExVer2ViewJissenCount(
+        ver391: Ver391(),
+        imJugEx: ImJugEx(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

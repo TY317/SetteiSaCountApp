@@ -14,6 +14,23 @@ struct toreveView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 共通ベル回数
+            unitListSection95Ci(
+                grafTitle: "共通🔔回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $toreve.bellCount,
+                        bigNumber: $toreve.gameNumberPlay,
+                        setting1Denominate: toreve.ratioBell[0],
+                        setting2Denominate: toreve.ratioBell[1],
+                        setting3Denominate: toreve.ratioBell[2],
+                        setting4Denominate: toreve.ratioBell[3],
+                        setting5Denominate: toreve.ratioBell[4],
+                        setting6Denominate: toreve.ratioBell[5]
+                    )
+                )
+            )
+            .tag(7)
             // CZ ミッドナイト回数
             unitListSection95Ci(
                 grafTitle: "CZ ミッドナイト回数",

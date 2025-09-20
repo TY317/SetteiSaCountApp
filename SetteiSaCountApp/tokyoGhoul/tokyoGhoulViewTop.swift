@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var tokyoGhoul = TokyoGhoul()
@@ -36,7 +36,7 @@ struct tokyoGhoulViewTop: View {
                     // CZ,AT 初当り履歴
                     NavigationLink(
                         destination: tokyoGhoulViewHistory(
-                            ver380: ver380,
+//                            ver380: ver380,
                             tokyoGhoul: tokyoGhoul,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -78,7 +78,7 @@ struct tokyoGhoulViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: tokyoGhoulViewBayes(
-                    ver380: ver380,
+//                    ver380: ver380,
                     tokyoGhoul: tokyoGhoul,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -86,7 +86,7 @@ struct tokyoGhoulViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
+//                        badgeStatus: ver380.tokyoGhoulMenuBayesBadge,
                     )
                 }
                 
@@ -102,7 +102,7 @@ struct tokyoGhoulViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.tokyoGhoulMachineIconBadge)
+//        .resetBadgeOnAppear($ver380.tokyoGhoulMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -545,7 +545,7 @@ struct tokyoGhoulSubViewLoadMemory: View {
 
 #Preview {
     tokyoGhoulViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

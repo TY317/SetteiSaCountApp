@@ -9,13 +9,14 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct funky2Ver2ViewTop: View {
-//    @ObservedObject var ver210 = Ver210()
-//    @ObservedObject var funky2 = Funky2()
+    @ObservedObject var ver391: Ver391
     @StateObject var funky2 = Funky2()
     @State var isShowAlert: Bool = false
     @StateObject var funky2Memory1 = Funky2Memory1()
     @StateObject var funky2Memory2 = Funky2Memory2()
     @StateObject var funky2Memory3 = Funky2Memory3()
+    @ObservedObject var bayes: Bayes
+    @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -51,14 +52,24 @@ struct funky2Ver2ViewTop: View {
                         )
                     }
                     // 実戦カウント
-                    NavigationLink(destination: funky2Ver2ViewJissenCount(funky2: funky2)) {
+                    NavigationLink(destination: funky2Ver2ViewJissenCount(
+                        ver391: ver391,
+                        funky2: funky2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
                             textBody: "実戦カウント"
                         )
                     }
                     // トータル結果確認
-                    NavigationLink(destination: funky2Ver2ViewJissenTotalDataCheck(funky2: funky2)) {
+                    NavigationLink(destination: funky2Ver2ViewJissenTotalDataCheck(
+                        ver391: ver391,
+                        funky2: funky2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "airplane.arrival",
                             textBody: "総合結果確認"
@@ -74,6 +85,19 @@ struct funky2Ver2ViewTop: View {
                 NavigationLink(destination: funky2Ver2View95CiTotal(funky2: funky2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: funky2ViewBayes(
+                    ver391: ver391,
+                    funky2: funky2,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.funky2MenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/3961")
 //                    .popoverTip(tipVer220AddLink())
@@ -84,6 +108,8 @@ struct funky2Ver2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($ver391.funky2MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -92,16 +118,6 @@ struct funky2Ver2ViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "ファンキージャグラー2", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "funky2Ver2ViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: funky2Ver2ViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -122,17 +138,10 @@ struct funky2Ver2ViewTop: View {
                         funky2Memory3: funky2Memory3
                     )))
                 }
-//                .popoverTip(tipUnitButtonMemory())
                 // データリセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: funky2.resetAll, message: "この機種のデータを全てリセットします")
-//                    .popoverTip(tipUnitButtonReset())
             }
         }
-//        .onAppear {
-//            if ver210.ver210Funky2NewBadgeStatus != "none" {
-//                ver210.ver210Funky2NewBadgeStatus = "none"
-//            }
-//        }
     }
 }
 
@@ -374,5 +383,9 @@ struct funky2SubViewLoadMemory: View {
 }
 
 #Preview {
-    funky2Ver2ViewTop()
+    funky2Ver2ViewTop(
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -82,6 +82,8 @@ class AzurLane: ObservableObject {
         gameNormalNumberCurrent = 0
         gameNormalNumberPlay = 0
         minusCheck = false
+        bonusCountWhite = 0
+        bonusCountBlue = 0
     }
     
     // ////////////
@@ -199,6 +201,41 @@ class AzurLane: ObservableObject {
         resetKaga()
         resetScreen()
         resetKokakuStart()
+        resetAkashi()
+    }
+    
+    // //////////////
+    // ver3.9.1で追加
+    // //////////////
+    // 白・青の詳細入力機能
+    let ratioBonusWhite: [Double] = [175.4,174.7,173.6,172.0,170.5,168.7]
+    let ratioBonusBlue: [Double] = [3665.8,3544.0,3056.6,2581.4,2331.5,2075.6]
+    @AppStorage("azurLaneBonusCountWhite") var bonusCountWhite: Int = 0
+    @AppStorage("azurLaneBonusCountBlue") var bonusCountBlue: Int = 0
+    
+    func bonusSumFunc() {
+        bonusCount = bonusCountWhite + bonusCountBlue
+    }
+    
+    // 明石チャレンジ
+    let ratioAkashiKisu: [Double] = [72.0,18.0,72.0,18.0,72.0,18.0]
+    let ratioAkashiGusu: [Double] = [18.0,72.0,18.0,72.0,18.0,72.0]
+    let ratioAkashiLast: [Double] = [10.0,10.0,10.0,10.0,10.0,10.0]
+    @AppStorage("azurLaneAkashiCountKisu") var akashiCountKisu: Int = 0
+    @AppStorage("azurLaneAkashiCountGusu") var akashiCountGusu: Int = 0
+    @AppStorage("azurLaneAkashiCountLast") var akashiCountLast: Int = 0
+    @AppStorage("azurLaneAkashiCountSum") var akashiCountSum: Int = 0
+    
+    func akashiCountSumFunc() {
+        akashiCountSum = akashiCountKisu + akashiCountGusu + akashiCountLast
+    }
+    
+    func resetAkashi() {
+        akashiCountKisu = 0
+        akashiCountGusu = 0
+        akashiCountLast = 0
+        akashiCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -238,6 +275,16 @@ class AzurLaneMemory1: ObservableObject {
     @AppStorage("azurLaneStartModeCountSumMemory1") var startModeCountSum: Int = 0
     @AppStorage("azurLaneMemoMemory1") var memo = ""
     @AppStorage("azurLaneDateMemory1") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.9.1で追加
+    // //////////////
+    @AppStorage("azurLaneBonusCountWhiteMemory1") var bonusCountWhite: Int = 0
+    @AppStorage("azurLaneBonusCountBlueMemory1") var bonusCountBlue: Int = 0
+    @AppStorage("azurLaneAkashiCountKisuMemory1") var akashiCountKisu: Int = 0
+    @AppStorage("azurLaneAkashiCountGusuMemory1") var akashiCountGusu: Int = 0
+    @AppStorage("azurLaneAkashiCountLastMemory1") var akashiCountLast: Int = 0
+    @AppStorage("azurLaneAkashiCountSumMemory1") var akashiCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -276,6 +323,16 @@ class AzurLaneMemory2: ObservableObject {
     @AppStorage("azurLaneStartModeCountSumMemory2") var startModeCountSum: Int = 0
     @AppStorage("azurLaneMemoMemory2") var memo = ""
     @AppStorage("azurLaneDateMemory2") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.9.1で追加
+    // //////////////
+    @AppStorage("azurLaneBonusCountWhiteMemory2") var bonusCountWhite: Int = 0
+    @AppStorage("azurLaneBonusCountBlueMemory2") var bonusCountBlue: Int = 0
+    @AppStorage("azurLaneAkashiCountKisuMemory2") var akashiCountKisu: Int = 0
+    @AppStorage("azurLaneAkashiCountGusuMemory2") var akashiCountGusu: Int = 0
+    @AppStorage("azurLaneAkashiCountLastMemory2") var akashiCountLast: Int = 0
+    @AppStorage("azurLaneAkashiCountSumMemory2") var akashiCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -314,4 +371,14 @@ class AzurLaneMemory3: ObservableObject {
     @AppStorage("azurLaneStartModeCountSumMemory3") var startModeCountSum: Int = 0
     @AppStorage("azurLaneMemoMemory3") var memo = ""
     @AppStorage("azurLaneDateMemory3") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.9.1で追加
+    // //////////////
+    @AppStorage("azurLaneBonusCountWhiteMemory3") var bonusCountWhite: Int = 0
+    @AppStorage("azurLaneBonusCountBlueMemory3") var bonusCountBlue: Int = 0
+    @AppStorage("azurLaneAkashiCountKisuMemory3") var akashiCountKisu: Int = 0
+    @AppStorage("azurLaneAkashiCountGusuMemory3") var akashiCountGusu: Int = 0
+    @AppStorage("azurLaneAkashiCountLastMemory3") var akashiCountLast: Int = 0
+    @AppStorage("azurLaneAkashiCountSumMemory3") var akashiCountSum: Int = 0
 }

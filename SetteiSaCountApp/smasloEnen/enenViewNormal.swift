@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct enenViewNormal: View {
+    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     let segmentList: [String] = ["十字目変換", "強🍒"]
@@ -27,6 +28,8 @@ struct enenViewNormal: View {
     let maxWidth3: CGFloat = .infinity
     let maxWidth4: CGFloat = .infinity
     let maxWidth5: CGFloat = 60
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -154,6 +157,15 @@ struct enenViewNormal: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    enenViewBayes(
+                        ver391: ver391,
+                        enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 HStack {
                     Text("レア役からのボーナス当選率")
@@ -208,6 +220,9 @@ struct enenViewNormal: View {
 
 #Preview {
     enenViewNormal(
+        ver391: Ver391(),
         enen: Enen(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

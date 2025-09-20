@@ -17,12 +17,14 @@ struct unitTableGameIndex: View {
     var contentFont: Font = .title3
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
+    let horizontalPadding: CGFloat = 3.0
     let lineHeight: CGFloat = 29
     var body: some View {
         VStack(spacing: 0) {
             Text(" ")
                 .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                 .frame(maxWidth: self.maxWidth)
+                .padding(.horizontal, self.horizontalPadding)
                 .foregroundStyle(Color.clear)
                 .fontWeight(.bold)
                 .background(Color.clear)
@@ -38,12 +40,15 @@ struct unitTableGameIndex: View {
 //                            .font(.title3)
                             .font(self.contentFont)
                             .foregroundStyle(Color.black)
+                            .minimumScaleFactor(0.7)
                         Text("G")
                             .foregroundStyle(Color.black)
                             .font(self.unitFont)
+                            .minimumScaleFactor(0.7)
                     }
                     .frame(height: lineNumber(ind: index))
                     .frame(maxWidth: self.maxWidth)
+                    .padding(.horizontal, self.horizontalPadding)
                     .background(backColor(ind: index))
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭
@@ -75,6 +80,9 @@ struct unitTableGameIndex: View {
     }
 }
 
-//#Preview {
-//    unitTableGameIndex()
-//}
+#Preview {
+    unitTableGameIndex(
+        gameList: [100,200,1000,],
+        maxWidth: 50,
+    )
+}

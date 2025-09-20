@@ -26,8 +26,7 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////////
 struct JuglerSeriesViewTop: View {
-//    @ObservedObject var ver210 = Ver210()
-//    @ObservedObject var ver370: Ver370
+    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @ObservedObject var favoriteSet = JuglerSeriesfavoriteSetVar()
@@ -53,10 +52,14 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(
-                                    linkView: AnyView(mrJugViewTop()),
+                                    linkView: AnyView(mrJugViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("mrJugMachineIcon"),
-                                    machineName: "ミスター"
-//                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
+                                    machineName: "ミスター",
+                                    badgeStatus: ver391.mrJugMachineIconBadge,
                                 )
                             }
                             
@@ -65,10 +68,14 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(
-                                    linkView: AnyView(girlsSSViewTop()),
+                                    linkView: AnyView(girlsSSViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("girlsSSMachineIcon"),
-                                    machineName: "ガールズSS"
-//                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
+                                    machineName: "ガールズSS",
+                                    badgeStatus: ver391.girlsSSMachineIconBadge,
                                 )
                             }
                             
@@ -77,9 +84,14 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(
-                                    linkView: AnyView(goJug3Ver2ViewTop()),
+                                    linkView: AnyView(goJug3Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("goJug3MachineIcon"),
-                                    machineName: "ゴージャグ3"
+                                    machineName: "ゴージャグ3",
+                                    badgeStatus: ver391.goJug3MachineIconBadge,
                                 )
                             }
                             
@@ -87,7 +99,16 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(happyJugV3Ver2ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピーV3")
+                                unitMachineIconLink(
+                                    linkView: AnyView(happyJugV3Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("machineIconHappyJugV3"),
+                                    machineName: "ハッピーV3",
+                                    badgeStatus: ver391.happyJugV3MachineIconBadge,
+                                )
                             }
                             
                             // //// マイジャグラー５
@@ -109,10 +130,14 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachineIconLink(
-                                    linkView: AnyView(funky2Ver2ViewTop()),
+                                    linkView: AnyView(funky2Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("funky2MachineIcon"),
-                                    machineName: "ファンキー2"
-//                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
+                                    machineName: "ファンキー2",
+                                    badgeStatus: ver391.funky2MachineIconBadge,
                                 )
                             }
                             
@@ -120,7 +145,16 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
                                 // 非表示
                             } else {
-                                unitMachineIconLink(linkView: AnyView(imJugExVer2ViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムEX")
+                                unitMachineIconLink(
+                                    linkView: AnyView(imJugExVer2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("imJugExMachinIcon"),
+                                    machineName: "アイムEX",
+                                    badgeStatus: ver391.imJugExMachineIconBadge,
+                                )
                             }
                         }
                     }
@@ -136,13 +170,17 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(
-                                    linkView: AnyView(mrJugViewTop()),
+                                    linkView: AnyView(mrJugViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("mrJugMachineIcon"),
                                     machineName: "ミスタージャグラー",
                                     makerName: "北電子",
                                     releaseYear: 2024,
-                                    releaseMonth: 7
-//                                    badgeStatus: ver210.ver210MrJugNewBadgeStatus
+                                    releaseMonth: 7,
+                                    badgeStatus: ver391.mrJugMachineIconBadge,
                                 )
                             }
                             
@@ -151,13 +189,17 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(
-                                    linkView: AnyView(girlsSSViewTop()),
+                                    linkView: AnyView(girlsSSViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("girlsSSMachineIcon"),
                                     machineName: "ジャグラーガールズSS",
                                     makerName: "北電子",
                                     releaseYear: 2024,
-                                    releaseMonth: 4
-//                                    badgeStatus: ver210.ver210GirlsSSNewBadgeStatus
+                                    releaseMonth: 4,
+                                    badgeStatus: ver391.girlsSSMachineIconBadge,
                                 )
                             }
                             
@@ -166,12 +208,17 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(
-                                    linkView: AnyView(goJug3Ver2ViewTop()),
+                                    linkView: AnyView(goJug3Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("goJug3MachineIcon"),
                                     machineName: "ゴーゴージャグラー3",
                                     makerName: "北電子",
                                     releaseYear: 2023,
-                                    releaseMonth: 7
+                                    releaseMonth: 7,
+                                    badgeStatus: ver391.goJug3MachineIconBadge,
                                 )
                             }
                             
@@ -179,7 +226,19 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedHappyJugV3 == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(happyJugV3Ver2ViewTop()), iconImage: Image("machineIconHappyJugV3"), machineName: "ハッピージャグラーV3", makerName: "北電子", releaseYear: 2022, releaseMonth: 10)
+                                unitMachinListLink(
+                                    linkView: AnyView(happyJugV3Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("machineIconHappyJugV3"),
+                                    machineName: "ハッピージャグラーV3",
+                                    makerName: "北電子",
+                                    releaseYear: 2022,
+                                    releaseMonth: 10,
+                                    badgeStatus: ver391.happyJugV3MachineIconBadge,
+                                )
                             }
                             
                             // //// マイジャグラー５
@@ -204,13 +263,17 @@ struct JuglerSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 unitMachinListLink(
-                                    linkView: AnyView(funky2Ver2ViewTop()),
+                                    linkView: AnyView(funky2Ver2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
                                     iconImage: Image("funky2MachineIcon"),
                                     machineName: "ファンキージャグラー2",
                                     makerName: "北電子",
                                     releaseYear: 2021,
-                                    releaseMonth: 10
-//                                    badgeStatus: ver210.ver210Funky2NewBadgeStatus
+                                    releaseMonth: 10,
+                                    badgeStatus: ver391.funky2MachineIconBadge,
                                 )
                             }
                             
@@ -218,7 +281,19 @@ struct JuglerSeriesViewTop: View {
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedImJugEx == false {
                                 // 非表示
                             } else {
-                                unitMachinListLink(linkView: AnyView(imJugExVer2ViewTop()), iconImage: Image("imJugExMachinIcon"), machineName: "アイムジャグラーEX", makerName: "北電子", releaseYear: 2020, releaseMonth: 12)
+                                unitMachinListLink(
+                                    linkView: AnyView(imJugExVer2ViewTop(
+                                        ver391: ver391,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("imJugExMachinIcon"),
+                                    machineName: "アイムジャグラーEX",
+                                    makerName: "北電子",
+                                    releaseYear: 2020,
+                                    releaseMonth: 12,
+                                    badgeStatus: ver391.imJugExMachineIconBadge,
+                                )
                             }
                             
                         } header: {
@@ -241,6 +316,8 @@ struct JuglerSeriesViewTop: View {
                     Spacer()
                 }
             }
+            // //// バッジのリセット
+            .resetBadgeOnAppear($ver391.jugSeriesBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -425,7 +502,7 @@ struct machineListMyJug5: View {
 
 #Preview {
     JuglerSeriesViewTop(
-//        ver370: Ver370(),
+        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
         common: commonVar(),

@@ -358,7 +358,7 @@ class HokutoMemory3: ObservableObject {
 
 
 struct hokutoViewTop: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var hokuto = Hokuto()
@@ -373,7 +373,7 @@ struct hokutoViewTop: View {
                 Section {
                     // 通常時子役
                     NavigationLink(destination: hokutoViewNormalKoyaku(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -381,12 +381,12 @@ struct hokutoViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell",
                             textBody: "通常時小役",
-                            badgeStatus: ver380.hokutoMenuNormalBadge,
+//                            badgeStatus: ver380.hokutoMenuNormalBadge,
                         )
                     }
                     // バトルボーナス初当たり履歴
                     NavigationLink(destination: hokutoViewHistory(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -395,7 +395,7 @@ struct hokutoViewTop: View {
                     }
                     // バトルボーナス中のベル
                     NavigationLink(destination: hokutoViewBbBell(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -404,7 +404,7 @@ struct hokutoViewTop: View {
                     }
                     // バトルボーナス後のボイス
                     NavigationLink(destination: hokutoViewVoice(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -427,7 +427,7 @@ struct hokutoViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: hokutoViewBayes(
-                    ver380: ver380,
+//                    ver380: ver380,
                     hokuto: hokuto,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -435,7 +435,7 @@ struct hokutoViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver380.hokutoMenuBayesBadge,
+//                        badgeStatus: ver380.hokutoMenuBayesBadge,
                     )
                 }
                 
@@ -452,7 +452,7 @@ struct hokutoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.hokutoMachineIconBadge)
+//        .resetBadgeOnAppear($ver380.hokutoMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -796,7 +796,7 @@ struct hokutoViewLoadMemory: View {
 
 #Preview {
     hokutoViewTop(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

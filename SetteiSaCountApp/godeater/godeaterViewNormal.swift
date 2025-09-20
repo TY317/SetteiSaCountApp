@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct godeaterViewNormal: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var godeater: Godeater
     @State var isShowAlert = false
     let selectListKoyakuKind: [String] = [
@@ -136,7 +136,7 @@ struct godeaterViewNormal: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     godeaterViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         godeater: godeater,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -220,7 +220,7 @@ struct godeaterViewNormal: View {
 
 #Preview {
     godeaterViewNormal(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         godeater: Godeater(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct enenViewTop: View {
-//    @ObservedObject var ver370: Ver370
+    @ObservedObject var ver391: Ver391
     @StateObject var enen = Enen()
     @State var isShowAlert: Bool = false
     @StateObject var enenMemory1 = EnenMemory1()
     @StateObject var enenMemory2 = EnenMemory2()
     @StateObject var enenMemory3 = EnenMemory3()
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationStack {
@@ -21,7 +23,10 @@ struct enenViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: enenViewNormal(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
@@ -30,7 +35,10 @@ struct enenViewTop: View {
                     }
                     // REG中のキャラ
                     NavigationLink(destination: enenViewRegChara(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.3.fill",
@@ -39,7 +47,10 @@ struct enenViewTop: View {
                     }
                     // ボーナス終了画面
                     NavigationLink(destination: enenViewRegScreen(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
@@ -48,7 +59,10 @@ struct enenViewTop: View {
                     }
                     // 伝道者の影
                     NavigationLink(destination: enenViewDendosha(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "ant.fill",
@@ -57,7 +71,10 @@ struct enenViewTop: View {
                     }
                     // 炎炎ボーナス終了画面
                     NavigationLink(destination: enenViewBigScreen(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
@@ -66,7 +83,10 @@ struct enenViewTop: View {
                     }
                     // アドラバースト
                     NavigationLink(destination: enenViewAdora(
+                        ver391: ver391,
                         enen: enen,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "flame.fill",
@@ -87,7 +107,19 @@ struct enenViewTop: View {
                         textBody: "設定推測グラフ"
                     )
                 }
-                
+                // 設定期待値計算
+                NavigationLink(destination: enenViewBayes(
+                    ver391: ver391,
+                    enen: enen,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: ver391.enenMenuBayesBadge,
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4555"
                 )
@@ -100,7 +132,7 @@ struct enenViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver370.enenMachineIconBadge)
+        .resetBadgeOnAppear($ver391.enenMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -451,6 +483,8 @@ struct enenSubViewLoadMemory: View {
 
 #Preview {
     enenViewTop(
-//        ver370: Ver370(),
+        ver391: Ver391(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

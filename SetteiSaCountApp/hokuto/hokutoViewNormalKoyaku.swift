@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hokutoViewNormalKoyaku: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var hokuto: Hokuto
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -82,7 +82,7 @@ struct hokutoViewNormalKoyaku: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     hokutoViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -139,7 +139,7 @@ struct hokutoViewNormalKoyaku: View {
                     unitText: "Ｇ",
                 )
                 .focused($isFocused)
-                .popoverTip(tipVer380hokutoNormal())
+//                .popoverTip(tipVer380hokutoNormal())
                 // 弱スイカ
                 unitTextFieldNumberInputWithUnit(
                     title: "弱🍉",
@@ -195,7 +195,7 @@ struct hokutoViewNormalKoyaku: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     hokutoViewBayes(
-                        ver380: ver380,
+//                        ver380: ver380,
                         hokuto: hokuto,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -207,7 +207,7 @@ struct hokutoViewNormalKoyaku: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.hokutoMenuNormalBadge)
+//        .resetBadgeOnAppear($ver380.hokutoMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -272,7 +272,7 @@ struct hokutoViewNormalKoyaku: View {
 
 #Preview {
     hokutoViewNormalKoyaku(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         hokuto: Hokuto(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenTotalDataCheck: View {
-//    @ObservedObject var mrJug = MrJug()
+    @ObservedObject var ver391: Ver391
     @ObservedObject var mrJug: MrJug
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -80,44 +82,44 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                         spacerBool: false
                     )
                 }
-//                // 確率3段目
-//                HStack {
-//                    // 単独BIG
-//                    unitResultRatioDenomination2Line(
-//                        title: "単独BIG",
-//                        count: $mrJug.personalAloneBigCount,
-//                        bigNumber: $mrJug.playGame,
-//                        numberofDicimal: 0,
-//                        spacerBool: false
-//                    )
-//                    // 🍒REG
-//                    unitResultRatioDenomination2Line(
-//                        title: "🍒BIG",
-//                        count: $mrJug.personalCherryBigCount,
-//                        bigNumber: $mrJug.playGame,
-//                        numberofDicimal: 0,
-//                        spacerBool: false
-//                    )
-//                }
-//                // 確率4段目
-//                HStack {
-//                    // 単独REG
-//                    unitResultRatioDenomination2Line(
-//                        title: "単独REG",
-//                        count: $mrJug.personalAloneRegCount,
-//                        bigNumber: $mrJug.playGame,
-//                        numberofDicimal: 0,
-//                        spacerBool: false
-//                    )
-//                    // 🍒REG
-//                    unitResultRatioDenomination2Line(
-//                        title: "🍒REG",
-//                        count: $mrJug.personalCherryRegCount,
-//                        bigNumber: $mrJug.playGame,
-//                        numberofDicimal: 0,
-//                        spacerBool: false
-//                    )
-//                }
+                // 確率3段目
+                HStack {
+                    // 単独BIG
+                    unitResultRatioDenomination2Line(
+                        title: "単独BIG",
+                        count: $mrJug.personalAloneBigCount,
+                        bigNumber: $mrJug.playGame,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                    // 🍒REG
+                    unitResultRatioDenomination2Line(
+                        title: "🍒BIG",
+                        count: $mrJug.personalCherryBigCount,
+                        bigNumber: $mrJug.playGame,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                }
+                // 確率4段目
+                HStack {
+                    // 単独REG
+                    unitResultRatioDenomination2Line(
+                        title: "単独REG",
+                        count: $mrJug.personalAloneRegCount,
+                        bigNumber: $mrJug.playGame,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                    // 🍒REG
+                    unitResultRatioDenomination2Line(
+                        title: "🍒REG",
+                        count: $mrJug.personalCherryRegCount,
+                        bigNumber: $mrJug.playGame,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                }
                 // //// 参考情報リンク
                 unitLinkButton(
                     title: "設定差情報",
@@ -130,7 +132,15 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(mrJugVer2View95CiTotal(mrJug: mrJug)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    mrJugViewBayes(
+                        ver391: ver391,
+                        mrJug: mrJug,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 // 総ゲーム数
                 unitResultCountListWithoutRatio(title: "総ゲーム数", count: $mrJug.currentGames)
                 // 自分でプレイ
@@ -147,16 +157,16 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                 }
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $mrJug.totalBigCount)
-//                // 内 単独BIG
-//                unitResultCountListWithoutRatio(title: "  (内  単独)", count: $mrJug.personalAloneBigCount)
-//                // 内 🍒BIG
-//                unitResultCountListWithoutRatio(title: "  (内  チェリー重複)", count: $mrJug.personalCherryBigCount)
+                // 内 単独BIG
+                unitResultCountListWithoutRatio(title: "  (内  単独)", count: $mrJug.personalAloneBigCount)
+                // 内 🍒BIG
+                unitResultCountListWithoutRatio(title: "  (内  チェリー重複)", count: $mrJug.personalCherryBigCount)
                 // REG
                 unitResultCountListWithoutRatio(title: "REG回数", count: $mrJug.totalRegCount)
-//                // 内 単独REG
-//                unitResultCountListWithoutRatio(title: "  (内  単独)", count: $mrJug.personalAloneRegCount)
-//                // 内 🍒REG
-//                unitResultCountListWithoutRatio(title: "  (内  チェリー重複)", count: $mrJug.personalCherryRegCount)
+                // 内 単独REG
+                unitResultCountListWithoutRatio(title: "  (内  単独)", count: $mrJug.personalAloneRegCount)
+                // 内 🍒REG
+                unitResultCountListWithoutRatio(title: "  (内  チェリー重複)", count: $mrJug.personalCherryRegCount)
             } header: {
                 Text("総合結果")
             }
@@ -175,5 +185,10 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
 }
 
 #Preview {
-    mrJugVer2ViewJissenTotalDataCheck(mrJug: MrJug())
+    mrJugVer2ViewJissenTotalDataCheck(
+        ver391: Ver391(),
+        mrJug: MrJug(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

@@ -24,12 +24,16 @@ struct unitTablePercent: View {
     var maxWidth: CGFloat = 150.0
     var titleLine: Int = 1
     var lineList: [Int] = [1,1,1,1,1,1]
-    var titleFont: Font = .title3
+//    var titleFont: Font = .title3
+    var titleFont: Font = .body
     var contentFont: Font = .title3
+//    var contentFont: Font = .body
     var colorList: [Color]?
     let valueHstackSpacing: CGFloat = 2 // ver270で5から2へ変更
-    let unitFont: Font = .footnote
+//    let unitFont: Font = .footnote
+    let unitFont: Font = .caption
     let verticlaPadding: CGFloat = 2.0
+    let horizontalPadding: CGFloat = 3.0
     let lineHeight: CGFloat = 29  // ver270で25から29へ変更。代わりに垂直padding無くした
     
     var body: some View {
@@ -40,6 +44,7 @@ struct unitTablePercent: View {
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)
+                    .padding(.horizontal, self.horizontalPadding)
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
                     .background(Color.columnTitle)
@@ -54,6 +59,7 @@ struct unitTablePercent: View {
                     .frame(height: (self.lineHeight*CGFloat(self.titleLine)))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)
+                    .padding(.horizontal, self.horizontalPadding)
                     .foregroundStyle(Color.clear)
                     .fontWeight(.bold)
                     .background(Color.clear)
@@ -101,6 +107,7 @@ struct unitTablePercent: View {
                     .frame(height: lineNumber(ind: index))
                     .frame(maxWidth: self.maxWidth)
 //                    .padding(.vertical, self.verticlaPadding)
+                    .padding(.horizontal, self.horizontalPadding)
                     .background(backColor(ind: index))
                     .overlay(
                         RoundedRectangle(cornerRadius: 0) // 四角の輪郭

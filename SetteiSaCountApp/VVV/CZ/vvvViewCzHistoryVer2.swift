@@ -79,7 +79,12 @@ class vvvCzHistory: ObservableObject {
 }
 
 struct vvvViewCzHistoryVer2: View {
-    @ObservedObject var vvv = vvvCzHistory()
+    @ObservedObject var ver391: Ver391
+    @ObservedObject var VVVendScreen: VVVendScreenVar
+    @ObservedObject var VVVmarie: VVVmarieVar
+    @ObservedObject var VVVharakiri: VVVharakiriVar
+    @ObservedObject var vvv: vvvCzHistory
+//    @ObservedObject var vvv = vvvCzHistory()
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -90,6 +95,8 @@ struct vvvViewCzHistoryVer2: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -196,7 +203,18 @@ struct vvvViewCzHistoryVer2: View {
                 unitLinkButton(title: "革命ボーナス比率について", exview: AnyView(exViewKakumeiRatioVVV()))
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 1)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    VVVViewBayes(
+                        ver391: ver391,
+                        VVVendScreen: VVVendScreen,
+                        VVVmarie: VVVmarie,
+                        VVVharakiri: VVVharakiri,
+                        vvv: vvv,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("革命比率")
             }
@@ -312,5 +330,13 @@ struct vvvSubViewDataInput: View {
 }
 
 #Preview {
-    vvvViewCzHistoryVer2()
+    vvvViewCzHistoryVer2(
+        ver391: Ver391(),
+        VVVendScreen: VVVendScreenVar(),
+        VVVmarie: VVVmarieVar(),
+        VVVharakiri: VVVharakiriVar(),
+        vvv: vvvCzHistory(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

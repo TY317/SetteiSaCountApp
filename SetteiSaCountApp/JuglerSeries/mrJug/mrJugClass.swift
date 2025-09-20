@@ -51,41 +51,41 @@ class MrJug: ObservableObject {
         118.7
     ]
     
-//    let denominateListBigAlone: [Double] = [
-//        437,
-//        431,
-//        412,
-//        415,
-//        377,
-//        345
-//    ]
-//    
-//    let denominateListBigCherry: [Double] = [
-//        1489,
-//        1489,
-//        1489,
-//        1214,
-//        1214,
-//        1214
-//    ]
-//    
-//    let denominateListRegAlone: [Double] = [
-//        636,
-//        570,
-//        533,
-//        478,
-//        437,
-//        426
-//    ]
-//    
-//    let denominateListRegCherry: [Double] = [
-//        1057,
-//        993,
-//        886,
-//        809,
-//        728,
-//        643
-//    ]
+    let denominateListBigAlone: [Double] = [
+        354.19,
+        352.74,
+        341.66,
+        330.01,
+        320.22,
+        313.88,
+    ]
+    
+    let denominateListBigCherry: [Double] = [
+        1688.53,
+        1681.62,
+        1655.12,
+        1508.25,
+        1410.02,
+        1385.39,
+    ]
+    
+    let denominateListRegAlone: [Double] = [
+        517.48,
+        480.53,
+        447.2,
+        384.32,
+        329.41,
+        298.65,
+    ]
+    
+    let denominateListRegCherry: [Double] = [
+        1620.67,
+        1599.82,
+        1503.26,
+        1411.79,
+        1357.06,
+        1331.13,
+    ]
     
     // ////////////////////////
     // 見

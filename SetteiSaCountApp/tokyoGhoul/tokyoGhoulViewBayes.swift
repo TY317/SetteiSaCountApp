@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct tokyoGhoulViewBayes: View {
-    @ObservedObject var ver380: Ver380
+//    @ObservedObject var ver380: Ver380
     @ObservedObject var tokyoGhoul: TokyoGhoul
     
     // 機種ごとに見直し
@@ -99,7 +99,7 @@ struct tokyoGhoulViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver380.tokyoGhoulMenuBayesBadge)
+//        .resetBadgeOnAppear($ver380.tokyoGhoulMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -372,7 +372,7 @@ struct tokyoGhoulViewBayes: View {
 
 #Preview {
     tokyoGhoulViewBayes(
-        ver380: Ver380(),
+//        ver380: Ver380(),
         tokyoGhoul: TokyoGhoul(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

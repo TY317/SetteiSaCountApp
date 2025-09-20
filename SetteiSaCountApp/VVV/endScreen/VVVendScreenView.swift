@@ -123,12 +123,18 @@ class VVVendScreenVar: ObservableObject {
 // ビュー：メインビュー
 // ///////////////////////
 struct VVVendScreenView: View {
-    @ObservedObject var VVVendScreen = VVVendScreenVar()
+    @ObservedObject var ver391: Ver391
+    @ObservedObject var VVVendScreen: VVVendScreenVar
+    @ObservedObject var VVVmarie: VVVmarieVar
+    @ObservedObject var VVVharakiri: VVVharakiriVar
+    @ObservedObject var vvv: vvvCzHistory
+//    @ObservedObject var VVVendScreen = VVVendScreenVar()
     @State var isShowAlert = false
     @State var isShowexView = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
-//    private var tip = VVVendScreenTip()
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
 //        NavigationView {
@@ -290,7 +296,18 @@ struct VVVendScreenView: View {
                     })
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(Ci95view: AnyView(vvvView95Ci(selection: 2)))
-//                        .popoverTip(tipUnitButtonLink95Ci())
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        VVVViewBayes(
+                            ver391: ver391,
+                            VVVendScreen: VVVendScreen,
+                            VVVmarie: VVVmarie,
+                            VVVharakiri: VVVharakiri,
+                            vvv: vvv,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 }
                 .listRowBackground(Color.clear)
                 if orientation.isPortrait || (orientation.isFlat && lastOrientation.isPortrait) {
@@ -419,7 +436,8 @@ struct VVVendScreenView: View {
 // ビュー：画面選択部分
 // /////////////////////
 struct VVVscreenChoiceView: View {
-    @ObservedObject var VVVendScreen = VVVendScreenVar()
+//    @ObservedObject var VVVendScreen = VVVendScreenVar()
+    @ObservedObject var VVVendScreen: VVVendScreenVar
 //    private var fisttip = VVVendScreenfistTip()
     
     var body: some View {
@@ -1043,5 +1061,13 @@ func VVVfuncResetEndScreen(VVVendScreen: VVVendScreenVar) {
 }
 
 #Preview {
-    VVVendScreenView()
+    VVVendScreenView(
+        ver391: Ver391(),
+        VVVendScreen: VVVendScreenVar(),
+        VVVmarie: VVVmarieVar(),
+        VVVharakiri: VVVharakiriVar(),
+        vvv: vvvCzHistory(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }
