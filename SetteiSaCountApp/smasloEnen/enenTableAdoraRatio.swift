@@ -10,12 +10,12 @@ import SwiftUI
 struct enenTableAdoraRatio: View {
     @ObservedObject var enen: Enen
     let sisaList: [String] = [
-        "設定2・5 示唆",
-        "設定1・4・6 示唆",
-        "設定2 以上濃厚",
-        "設定1・4・6 濃厚",
-        "設定4 以上濃厚",
-        "設定5 以上濃厚",
+        "2・5 示唆",
+        "1・4・6 示唆",
+        "2 以上濃厚",
+        "1・4・6 濃厚",
+        "4 以上濃厚",
+        "5 以上濃厚",
     ]
     let maxWidth: CGFloat = 45
     
