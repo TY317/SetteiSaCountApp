@@ -17,8 +17,9 @@ struct splashScreenView: View {
     @StateObject var common = commonVar()
     var body: some View {
         if isActive {
-            ContentView(common: common)
-//                .environmentObject(Yoshimune())
+//            ContentView(common: common)
+            ContentView()
+                .environmentObject(common)
         } else {
             ZStack {
                 Image("splashLogo2")
@@ -33,6 +34,10 @@ struct splashScreenView: View {
                             self.opsity = 1.0
                         }
                         common.appLaunchCountUp()
+                        common.lastLaunchAppVersion = nil
+//                        common.lastLaunchAppVersion = "3.9.1"
+                        common.ver3100FirstLaunch()
+                        common.saveAppVersions()
                     }
             }
             .onAppear {
@@ -42,9 +47,13 @@ struct splashScreenView: View {
                     }
                 }
             }
-            .onAppear {
-                common.saveInitialVersionIfNeeded()
-            }
+//            .onAppear {
+//                common.saveInitialVersionIfNeeded()
+//                common.lastLaunchAppVersion = nil
+//                common.lastLaunchAppVersion = "3.9.1"
+//                common.ver3100FirstLaunch()
+//                common.saveAppVersions()
+//            }
         }
     }
 }

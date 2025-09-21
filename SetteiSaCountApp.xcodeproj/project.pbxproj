@@ -340,6 +340,7 @@
 		0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8325BE2C7F3BE10037226E /* goevaViewBonusScreen.swift */; };
 		0F8325C12C7F51A80037226E /* goevaViewAtSuika.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8325C02C7F51A80037226E /* goevaViewAtSuika.swift */; };
 		0F8325C32C7F5BC90037226E /* goevaViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8325C22C7F5BC90037226E /* goevaViewAtScreen.swift */; };
+		0F8571772E7FB8EA00BDC2CE /* versionStringToNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8571762E7FB8EA00BDC2CE /* versionStringToNumbers.swift */; };
 		0F8689CF2D33497B00D952D9 /* myJug5Ver2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8689CE2D33497B00D952D9 /* myJug5Ver2ViewTop.swift */; };
 		0F8689D12D334CF400D952D9 /* myJug5Ver2ViewKenDataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8689D02D334CF400D952D9 /* myJug5Ver2ViewKenDataInput.swift */; };
 		0F8689D32D3B22B800D952D9 /* myJug5Ver2View95CiKen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8689D22D3B22B800D952D9 /* myJug5Ver2View95CiKen.swift */; };
@@ -481,6 +482,7 @@
 		0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */; };
 		0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */; };
 		0F8955202E7E6A8800539050 /* toreveViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */; };
+		0F8955262E7EDBE000539050 /* commonVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8955252E7EDBE000539050 /* commonVar.swift */; };
 		0F9318732DEA855300511BEF /* izaBanchoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */; };
 		0F9318752DEA857100511BEF /* izaBanchoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318742DEA857100511BEF /* izaBanchoClass.swift */; };
 		0F9318772DEA858200511BEF /* izaBanchoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */; };
@@ -1344,6 +1346,7 @@
 		0F8325BE2C7F3BE10037226E /* goevaViewBonusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goevaViewBonusScreen.swift; sourceTree = "<group>"; };
 		0F8325C02C7F51A80037226E /* goevaViewAtSuika.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goevaViewAtSuika.swift; sourceTree = "<group>"; };
 		0F8325C22C7F5BC90037226E /* goevaViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goevaViewAtScreen.swift; sourceTree = "<group>"; };
+		0F8571762E7FB8EA00BDC2CE /* versionStringToNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = versionStringToNumbers.swift; sourceTree = "<group>"; };
 		0F8689CE2D33497B00D952D9 /* myJug5Ver2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5Ver2ViewTop.swift; sourceTree = "<group>"; };
 		0F8689D02D334CF400D952D9 /* myJug5Ver2ViewKenDataInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5Ver2ViewKenDataInput.swift; sourceTree = "<group>"; };
 		0F8689D22D3B22B800D952D9 /* myJug5Ver2View95CiKen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5Ver2View95CiKen.swift; sourceTree = "<group>"; };
@@ -1485,6 +1488,7 @@
 		0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonCountDirectInput.swift; sourceTree = "<group>"; };
 		0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5ViewBayseTest.swift; sourceTree = "<group>"; };
 		0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewEnding.swift; sourceTree = "<group>"; };
+		0F8955252E7EDBE000539050 /* commonVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonVar.swift; sourceTree = "<group>"; };
 		0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewTop.swift; sourceTree = "<group>"; };
 		0F9318742DEA857100511BEF /* izaBanchoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoClass.swift; sourceTree = "<group>"; };
 		0F9318762DEA858200511BEF /* izaBanchoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = izaBanchoAssets.xcassets; sourceTree = "<group>"; };
@@ -2898,6 +2902,7 @@
 				0F815FCA2E38FDD70086127D /* arraySumGameNotResetWordOne.swift */,
 				0F9A798D2E48CBFE00D996CA /* decodeIntArrayFromString.swift */,
 				0FC14A732E49E40900F85D84 /* arraySumDouble.swift */,
+				0F8571762E7FB8EA00BDC2CE /* versionStringToNumbers.swift */,
 			);
 			path = function;
 			sourceTree = "<group>";
@@ -3049,6 +3054,7 @@
 				0FDF23862E53525000249CAC /* ver380Class.swift */,
 				0FC71FD62E66FB66000DD53B /* ver390Class.swift */,
 				0FFAB8602E6DB3A400296A4F /* ver391Class.swift */,
+				0F8955252E7EDBE000539050 /* commonVar.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -4312,6 +4318,7 @@
 				0FB209892E18AA910029D940 /* unitCountButtonWithoutRatioWithFunc.swift in Sources */,
 				0F64DD962DC5CD880027315D /* imJugExSubViewCountInput.swift in Sources */,
 				0FCF789E2E4713DB0000748B /* karakuriTableStage.swift in Sources */,
+				0F8571772E7FB8EA00BDC2CE /* versionStringToNumbers.swift in Sources */,
 				0FF156122D604F6500B17F83 /* starHanaVer2View95CiPersonal.swift in Sources */,
 				0F89357A2E1E92E400BF6FBE /* commonViewArisuTrophy.swift in Sources */,
 				0FA0248F2D011C59004B3FD5 /* mhrViewDuringBonus.swift in Sources */,
@@ -4666,6 +4673,7 @@
 				0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */,
 				0FC71FEE2E687013000DD53B /* toreveTablePtTable.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,
+				0F8955262E7EDBE000539050 /* commonVar.swift in Sources */,
 				0F9A798E2E48CBFE00D996CA /* decodeIntArrayFromString.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
 				0F868AE42D5F0CCB00D952D9 /* sevenSwordsViewStScreen.swift in Sources */,
@@ -5317,7 +5325,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.9.1;
+				MARKETING_VERSION = 3.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -5357,7 +5365,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.9.1;
+				MARKETING_VERSION = 3.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

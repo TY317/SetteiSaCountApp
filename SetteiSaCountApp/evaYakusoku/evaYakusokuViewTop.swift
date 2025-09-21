@@ -15,6 +15,7 @@ struct evaYakusokuViewTop: View {
     @StateObject var evaYakusokuMemory1 = EvaYakusokuMemory1()
     @StateObject var evaYakusokuMemory2 = EvaYakusokuMemory2()
     @StateObject var evaYakusokuMemory3 = EvaYakusokuMemory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
 //        List {
@@ -103,7 +104,7 @@ struct evaYakusokuViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver380.evaYakusokuMachineIconBadge)
+        .resetBadgeOnAppear(common.$evaYakusokuMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
