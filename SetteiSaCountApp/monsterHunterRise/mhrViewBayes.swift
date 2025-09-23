@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mhrViewBayes: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var mhr: Mhr
     
     // 機種ごとに見直し
@@ -88,7 +88,7 @@ struct mhrViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.mhrMenuBayesBadge)
+//        .resetBadgeOnAppear($ver390.mhrMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -275,7 +275,7 @@ struct mhrViewBayes: View {
 
 #Preview {
     mhrViewBayes(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         mhr: Mhr(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

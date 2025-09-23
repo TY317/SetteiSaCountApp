@@ -423,7 +423,7 @@ class KaguyaMemory3: ObservableObject {
 
 
 struct kaguyaViewTop: View {
-    @ObservedObject var ver390 = Ver390()
+//    @ObservedObject var ver390 = Ver390()
 //    @ObservedObject var kaguya = KaguyaSama()
     @StateObject var kaguya = KaguyaSama()
     @State var isShowAlert: Bool = false
@@ -453,7 +453,7 @@ struct kaguyaViewTop: View {
                     }
                     // REG中のキャラ紹介
                     NavigationLink(destination: kaguyaViewReg(
-                        ver390: ver390,
+//                        ver390: ver390,
                         kaguya: kaguya,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -462,7 +462,7 @@ struct kaguyaViewTop: View {
                     }
                     // ボーナス終了画面
                     NavigationLink(destination: kaguyaViewScreen(
-                        ver390: ver390,
+//                        ver390: ver390,
                         kaguya: kaguya,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -471,7 +471,7 @@ struct kaguyaViewTop: View {
                     }
                     // エンディング
                     NavigationLink(destination: kaguyaViewEnding(
-                        ver390: ver390,
+//                        ver390: ver390,
                         kaguya: kaguya,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -487,7 +487,7 @@ struct kaguyaViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: kaguyaViewBayes(
-                    ver390: ver390,
+//                    ver390: ver390,
                     kaguya: kaguya,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -495,7 +495,7 @@ struct kaguyaViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver390.kaguyaMenuBayesBadge,
+//                        badgeStatus: ver390.kaguyaMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -509,7 +509,7 @@ struct kaguyaViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.kaguyaMachineIconBadge)
+//        .resetBadgeOnAppear($ver390.kaguyaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -874,7 +874,7 @@ struct kaguyaViewLoadMemory: View {
 
 #Preview {
     kaguyaViewTop(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

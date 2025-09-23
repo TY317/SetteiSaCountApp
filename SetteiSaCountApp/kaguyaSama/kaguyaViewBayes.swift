@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaguyaViewBayes: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var kaguya: KaguyaSama
     
     // 機種ごとに見直し
@@ -63,7 +63,7 @@ struct kaguyaViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.kaguyaMenuBayesBadge)
+//        .resetBadgeOnAppear($ver390.kaguyaMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -242,7 +242,7 @@ struct kaguyaViewBayes: View {
 
 #Preview {
     kaguyaViewBayes(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         kaguya: KaguyaSama(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

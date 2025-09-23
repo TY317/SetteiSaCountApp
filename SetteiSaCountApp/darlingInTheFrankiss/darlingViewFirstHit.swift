@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewFirstHit: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -298,7 +298,7 @@ struct darlingViewFirstHit: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     darlingViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -361,7 +361,7 @@ struct darlingViewFirstHit: View {
 
 #Preview {
     darlingViewFirstHit(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         darling: Darling(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

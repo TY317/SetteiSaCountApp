@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewTop: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
@@ -560,7 +560,7 @@ struct toreveSubViewLoadMemory: View {
 
 #Preview {
     toreveViewTop(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

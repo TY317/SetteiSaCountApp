@@ -395,7 +395,7 @@ class MhrMemory3: ObservableObject {
 }
 
 struct mhrViewTop: View {
-    @ObservedObject var ver390 = Ver390()
+//    @ObservedObject var ver390 = Ver390()
     @StateObject var mhr = Mhr()
     @State var isShowAlert: Bool = false
     @StateObject var mhrMemory1 = MhrMemory1()
@@ -410,7 +410,7 @@ struct mhrViewTop: View {
                 Section {
                     // AT初当り履歴
                     NavigationLink(destination: mhrViewHistory(
-                        ver390: ver390,
+//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -465,7 +465,7 @@ struct mhrViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: mhrViewBayes(
-                    ver390: ver390,
+//                    ver390: ver390,
                     mhr: mhr,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -473,7 +473,7 @@ struct mhrViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver390.mhrMenuBayesBadge,
+//                        badgeStatus: ver390.mhrMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -486,7 +486,7 @@ struct mhrViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.mhrMachineIconBadge)
+//        .resetBadgeOnAppear($ver390.mhrMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -801,7 +801,7 @@ struct mhrSubViewLoadMemory: View {
 
 #Preview {
     mhrViewTop(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -139,7 +139,7 @@ class favoriteSetVar: ObservableObject {
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-    @StateObject var ver390 = Ver390()
+//    @StateObject var ver390 = Ver390()
     @StateObject var ver391 = Ver391()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
@@ -206,7 +206,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
@@ -240,13 +240,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
 //                                            ver380: ver380,
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-                                        badgeStatus: ver390.darlingMachineIconBadge,
+//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -448,13 +448,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver390.magiaMachineIconBadge,
+//                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
                                 }
                                 
@@ -609,13 +609,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             mhrViewTop(
-                                                ver390: ver390,
+//                                                ver390: ver390,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )),
                                         iconImage: Image("mhrMachineIcon"),
                                         machineName: "モンハンライズ",
-                                        badgeStatus:ver390.mhrMachineIconBadge,
+//                                        badgeStatus:ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -639,13 +639,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaguyaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("kaguyaMachineIcon"),
                                         machineName: "かぐや様",
-                                        badgeStatus: ver390.kaguyaMachineIconBadge
+//                                        badgeStatus: ver390.kaguyaMachineIconBadge
                                     )
                                 }
                                 
@@ -841,7 +841,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
@@ -882,7 +882,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
 //                                            ver380: ver380,
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -892,7 +892,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver390.darlingMachineIconBadge,
+//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1135,7 +1135,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1144,7 +1144,7 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver390.magiaMachineIconBadge,
+//                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1358,7 +1358,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(mhrViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1367,7 +1367,7 @@ struct ContentView: View {
                                         makerName: "アデリオン",
                                         releaseYear: 2024,
                                         releaseMonth: 11,
-                                        badgeStatus: ver390.mhrMachineIconBadge,
+//                                        badgeStatus: ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -1392,7 +1392,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(kaguyaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1401,7 +1401,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 9,
-                                        badgeStatus: ver390.kaguyaMachineIconBadge,
+//                                        badgeStatus: ver390.kaguyaMachineIconBadge,
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
