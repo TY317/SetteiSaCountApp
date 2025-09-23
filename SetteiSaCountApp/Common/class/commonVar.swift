@@ -79,39 +79,25 @@ class commonVar: ObservableObject {
     
     // //// エヴァ約束の扉
     @AppStorage("evaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "none"
+    @AppStorage("evaYakusokuMenuNormalBadge") var evaYakusokuMenuNormalBadge: String = "none"
+    @AppStorage("evaYakusokuMenuBayesBadge") var evaYakusokuMenuBayesBadge: String = "none"
     
     
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
-//    func versionStringToNumbers(_ version: String) -> [Int] {
-//        return version.split(separator: ".").compactMap { Int($0) }
-//    }
-
-    func isVersion(_ version: String, lessThan target: String) -> Bool {
-        let v1 = versionStringToNumbers(version)
-        let v2 = versionStringToNumbers(target)
-
-        for i in 0..<max(v1.count, v2.count) {
-            let num1 = i < v1.count ? v1[i] : 0
-            let num2 = i < v2.count ? v2[i] : 0
-            if num1 < num2 { return true }
-            if num1 > num2 { return false }
-        }
-        return false // 同じなら false
-    }
-    
-    
     func ver3100FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.10.0"
         
         if firstLaunchAppVersion != nil {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersion(lastVersion, lessThan: targetVersion) {
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 evaYakusokuMachineIconBadge = "update"
+                evaYakusokuMenuNormalBadge = "update"
+                evaYakusokuMenuBayesBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

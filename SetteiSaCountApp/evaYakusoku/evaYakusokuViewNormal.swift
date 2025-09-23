@@ -22,13 +22,26 @@ struct evaYakusokuViewNormal: View {
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
     let lazyVGridCountPortrait: Int = 3
-    let lazyVGridCountLandscape: Int = 4
+    let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @EnvironmentObject var common: commonVar
+    @State var selectedSegment: String = "小役カウント"
+    let segmentList: [String] = ["小役カウント", "重複当選"]
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
             // //// 小役関連
             Section {
+                // //// セグメントピッカー
+                Picker("", selection: self.$selectedSegment) {
+                    ForEach(self.segmentList, id: \.self) { segment in
+                        Text(segment)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .popoverTip(tipVer3100EvaYakusokuNormal())
                 // //// カウントボタン横並び
                 let gridItem = Array(
                     repeating: GridItem(
@@ -39,63 +52,116 @@ struct evaYakusokuViewNormal: View {
                     count: self.lazyVGridCount
                 )
                 LazyVGrid(columns: gridItem) {
-                    // ベル
-                    unitCountButtonDenominateWithFunc(
-                        title: "🔔",
-                        count: $evaYakusoku.koyakuCountBell,
-                        color: .personalSpringLightYellow,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 2,
-                        minusBool: $evaYakusoku.minusCheck,
-                        flushColor: .yellow,
-                        action: evaYakusoku.koyakuSumFunc
-                    )
-                    .padding(.bottom)
-                    // チェリー
-                    unitCountButtonDenominateWithFunc(
-                        title: "🍒",
-                        count: $evaYakusoku.koyakuCountCherry,
-                        color: .personalSummerLightRed,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 1,
-                        minusBool: $evaYakusoku.minusCheck,
-                        action: evaYakusoku.koyakuSumFunc
-                    )
-                    .padding(.bottom)
-                    // スイカ
-                    unitCountButtonDenominateWithFunc(
-                        title: "強弱🍉",
-                        count: $evaYakusoku.koyakuCountSuikaSum,
-                        color: .personalSummerLightGreen,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 1,
-                        minusBool: $evaYakusoku.minusCheck,
-                        action: evaYakusoku.koyakuSumFunc
-                    )
-                    .padding(.bottom)
-                    // リーチ目役
-                    unitCountButtonDenominateWithFunc(
-                        title: "リーチ目役",
-                        count: $evaYakusoku.koyakuCountReach,
-                        color: .personalSummerLightBlue,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
-                        numberofDicimal: 0,
-                        minusBool: $evaYakusoku.minusCheck,
-                        action: evaYakusoku.koyakuSumFunc
-                    )
-                    .padding(.bottom)
-//                    // 暴走リプレイ
-//                    unitCountButtonDenominateWithFunc(
-//                        title: "暴走リプ",
-//                        count: $evaYakusoku.koyakuCountBoso,
-//                        color: .personalSummerLightPurple,
-//                        bigNumber: $evaYakusoku.gameNumberPlay,
-//                        numberofDicimal: 0,
-//                        minusBool: $evaYakusoku.minusCheck,
-//                        action: evaYakusoku.koyakuSumFunc
-//                    )
-//                    .padding(.bottom)
+                    // //// 小役カウント
+                    if self.selectedSegment == self.segmentList[0] {
+                        // ベル
+                        unitCountButtonDenominateWithFunc(
+                            title: "🔔",
+                            count: $evaYakusoku.koyakuCountBell,
+                            color: .personalSpringLightYellow,
+                            bigNumber: $evaYakusoku.gameNumberPlay,
+                            numberofDicimal: 2,
+                            minusBool: $evaYakusoku.minusCheck,
+                            flushColor: .yellow,
+                            action: evaYakusoku.koyakuSumFunc
+                        )
+                        .padding(.bottom)
+                        // チェリー
+                        unitCountButtonDenominateWithFunc(
+                            title: "🍒",
+                            count: $evaYakusoku.koyakuCountCherry,
+                            color: .personalSummerLightRed,
+                            bigNumber: $evaYakusoku.gameNumberPlay,
+                            numberofDicimal: 1,
+                            minusBool: $evaYakusoku.minusCheck,
+                            action: evaYakusoku.koyakuSumFunc
+                        )
+                        .padding(.bottom)
+                        // スイカ
+                        unitCountButtonDenominateWithFunc(
+                            title: "弱🍉",
+                            count: $evaYakusoku.koyakuCountSuikaJaku,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $evaYakusoku.gameNumberPlay,
+                            numberofDicimal: 1,
+                            minusBool: $evaYakusoku.minusCheck,
+                            action: evaYakusoku.koyakuSumFunc
+                        )
+                        .padding(.bottom)
+                        // 強スイカ
+                        unitCountButtonDenominateWithFunc(
+                            title: "強🍉",
+                            count: $evaYakusoku.koyakuCountSuikaKyo,
+                            color: .personalSummerLightPurple,
+                            bigNumber: $evaYakusoku.gameNumberPlay,
+                            numberofDicimal: 1,
+                            minusBool: $evaYakusoku.minusCheck,
+                            action: evaYakusoku.koyakuSumFunc
+                        )
+                        .padding(.bottom)
+                        // リーチ目役
+                        unitCountButtonDenominateWithFunc(
+                            title: "リーチ目役",
+                            count: $evaYakusoku.koyakuCountReach,
+                            color: .personalSummerLightBlue,
+                            bigNumber: $evaYakusoku.gameNumberPlay,
+                            numberofDicimal: 0,
+                            minusBool: $evaYakusoku.minusCheck,
+                            action: evaYakusoku.koyakuSumFunc
+                        )
+                        .padding(.bottom)
+                    }
+                    // //// 重複カウント
+                    else {
+                        // ベル
+                        unitCountButtonVerticalPercent(
+                            title: "🔔",
+                            count: $evaYakusoku.chofukuCountBell,
+                            color: .yellow,
+                            bigNumber: $evaYakusoku.koyakuCountBell,
+                            numberofDicimal: 2,
+                            minusBool: $evaYakusoku.minusCheck
+                        )
+                        .padding(.bottom)
+                        // チェリー
+                        unitCountButtonVerticalPercent(
+                            title: "🍒",
+                            count: $evaYakusoku.chofukuCountCherry,
+                            color: .red,
+                            bigNumber: $evaYakusoku.koyakuCountCherry,
+                            numberofDicimal: 0,
+                            minusBool: $evaYakusoku.minusCheck
+                        )
+                        .padding(.bottom)
+                        // 弱スイカ
+                        unitCountButtonVerticalPercent(
+                            title: "弱🍉",
+                            count: $evaYakusoku.chofukuCountSuikaJaku,
+                            color: .green,
+                            bigNumber: $evaYakusoku.koyakuCountSuikaJaku,
+                            numberofDicimal: 0,
+                            minusBool: $evaYakusoku.minusCheck
+                        )
+                        .padding(.bottom)
+                        // 強スイカ
+                        unitCountButtonVerticalPercent(
+                            title: "強🍉",
+                            count: $evaYakusoku.chofukuCountSuikaKyo,
+                            color: .purple,
+                            bigNumber: $evaYakusoku.koyakuCountSuikaKyo,
+                            numberofDicimal: 0,
+                            minusBool: $evaYakusoku.minusCheck
+                        )
+                        .padding(.bottom)
+                    }
                 }
+                // スイカ合算確率
+                unitResultRatioDenomination2Line(
+                    title: "🍉合算",
+                    count: $evaYakusoku.koyakuCountSuikaSum,
+                    bigNumber: $evaYakusoku.gameNumberPlay,
+                    numberofDicimal: 1,
+                )
                 // 小役停止形
                 unitLinkButton(
                     title: "小役停止形",
@@ -124,7 +190,6 @@ struct evaYakusokuViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "ボーナス重複当選率") {
                     evaYakusokuTableKoyakuChofuku(evaYakusoku: evaYakusoku)
                 }
-//                .popoverTip(tipVer380EvaYakusokuNormal())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
@@ -134,8 +199,25 @@ struct evaYakusokuViewNormal: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    evaYakusokuViewBayes(
+                        evaYakusoku: evaYakusoku,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
-                Text("小役")
+                HStack {
+                    Text("小役")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "小役、重複カウント",
+                            textBody1: "・小役カウントでは小役成立ごとにカウントして下さい",
+                            textBody2: "・重複当選ではボーナス重複当選ごとにカウントして下さい。小役のカウント数と重複回数から重複当選率を算出します",
+                        )
+                    }
+                }
             }
             
             // //// ゲーム数入力
@@ -175,7 +257,7 @@ struct evaYakusokuViewNormal: View {
             //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver380.evaYakusokuMenuNormalBadge)
+        .resetBadgeOnAppear($common.evaYakusokuMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -264,5 +346,8 @@ struct evaYakusokuViewNormal: View {
     evaYakusokuViewNormal(
 //        ver380: Ver380(),
         evaYakusoku: EvaYakusoku(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

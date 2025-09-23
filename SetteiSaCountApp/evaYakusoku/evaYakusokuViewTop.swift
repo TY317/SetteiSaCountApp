@@ -16,6 +16,8 @@ struct evaYakusokuViewTop: View {
     @StateObject var evaYakusokuMemory2 = EvaYakusokuMemory2()
     @StateObject var evaYakusokuMemory3 = EvaYakusokuMemory3()
     @EnvironmentObject var common: commonVar
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
 //        List {
@@ -30,11 +32,13 @@ struct evaYakusokuViewTop: View {
                     NavigationLink(destination: evaYakusokuViewNormal(
 //                        ver380: ver380,
                         evaYakusoku: evaYakusoku,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-//                            badgeStatus: ver380.evaYakusokuMenuNormalBadge,
+                            badgeStatus: common.evaYakusokuMenuNormalBadge,
                         )
                     }
                     
@@ -42,6 +46,8 @@ struct evaYakusokuViewTop: View {
                     NavigationLink(destination: evaYakusokuViewFirstHit(
 //                        ver352: ver352,
                         evaYakusoku: evaYakusoku,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
@@ -93,6 +99,18 @@ struct evaYakusokuViewTop: View {
                 )) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                // 設定期待値計算
+                NavigationLink(destination: evaYakusokuViewBayes(
+                    evaYakusoku: evaYakusoku,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.evaYakusokuMenuBayesBadge,
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4830")
@@ -102,9 +120,10 @@ struct evaYakusokuViewTop: View {
                     Text("©カラー")
                 }
             }
+//            .listRowInsets(EdgeInsets(top: 0, leading: 100, bottom: 50, trailing: 16))
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear(common.$evaYakusokuMachineIconBadge)
+        .resetBadgeOnAppear($common.evaYakusokuMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -357,5 +376,8 @@ struct evaYakusokuSubViewLoadMemory: View {
 #Preview {
     evaYakusokuViewTop(
 //        ver380: Ver380(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

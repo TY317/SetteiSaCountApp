@@ -23,6 +23,8 @@ struct evaYakusokuViewFirstHit: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 2
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -179,6 +181,14 @@ struct evaYakusokuViewFirstHit: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    evaYakusokuViewBayes(
+                        evaYakusoku: evaYakusoku,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 
             } header: {
                 Text("初当り")
@@ -296,5 +306,7 @@ struct evaYakusokuViewFirstHit: View {
     evaYakusokuViewFirstHit(
 //        ver352: Ver352(),
         evaYakusoku: EvaYakusoku(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
 }

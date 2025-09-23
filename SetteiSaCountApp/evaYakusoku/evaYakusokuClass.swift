@@ -91,6 +91,7 @@ class EvaYakusoku: ObservableObject {
             koyakuCountReach,
 //            koyakuCountBoso,
         )
+        koyakuCountSuikaSum = koyakuCountSuikaJaku + koyakuCountSuikaKyo
     }
     
     func resetNormal() {
@@ -104,6 +105,12 @@ class EvaYakusoku: ObservableObject {
         gameNumberCurrent = 0
         gameNumberPlay = 0
         minusCheck = false
+        koyakuCountSuikaJaku = 0
+        koyakuCountSuikaKyo = 0
+        chofukuCountBell = 0
+        chofukuCountCherry = 0
+        chofukuCountSuikaJaku = 0
+        chofukuCountSuikaKyo = 0
     }
     
     // ///////////
@@ -125,6 +132,18 @@ class EvaYakusoku: ObservableObject {
     let ratioChofukuKyoSuika: [Double] = [30.8,32.1,32.5,32.9,33.8,34.6]
     let ratioChofukuCherry: [Double] = [10.3,10.6,10.7,11.1,11.0,11.4]
     let ratioChofuku: [Double] = [10.3,10.6,10.7,11.1,11.0,11.4]
+    
+    // ///////////
+    // ver3.10.1で追加
+    // ///////////
+    // 強弱スイカ分けてカウント
+    @AppStorage("evaYakusokuKoyakuCountSuikaJaku") var koyakuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuKoyakuCountSuikaKyo") var koyakuCountSuikaKyo: Int = 0
+    // 重複当選率カウント
+    @AppStorage("evaYakusokuChofukuCountBell") var chofukuCountBell: Int = 0
+    @AppStorage("evaYakusokuChofukuCountCherry") var chofukuCountCherry: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaJaku") var chofukuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaKyo") var chofukuCountSuikaKyo: Int = 0
 }
 
 

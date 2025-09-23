@@ -272,6 +272,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァ約束",
@@ -919,6 +921,8 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァンゲリヲン〜約束の扉〜",
@@ -1687,6 +1691,34 @@ struct ContentView: View {
                             }
 //                            .popoverTip(tipUnitButtonIconDisplayMode())
                             
+//                            // お気に入り設定ボタン
+//                            Button(action: {
+//                                isShowFavoriteSettingView.toggle()
+//                            }, label: {
+//                                Image(systemName: "gearshape.fill")
+//                            })
+//                            .sheet(isPresented: $isShowFavoriteSettingView, content: {
+//                                favoriteSettingView()
+//                            })
+                        }
+                    }
+//                    ToolbarSpacer()
+                    ToolbarItem(placement: .automatic) {
+                        HStack {
+                            // 表示モード切り替えボタン
+//                            Button {
+//                                common.iconDisplayMode.toggle()
+//                            } label: {
+//                                if common.iconDisplayMode {
+//                                    Image(systemName: "list.bullet")
+//                                }
+//                                else {
+//                                    Image(systemName: "rectangle.grid.2x2")
+////                                        .popoverTip(tipUnitButtonIconDisplayMode())
+//                                }
+//                            }
+////                            .popoverTip(tipUnitButtonIconDisplayMode())
+                            
                             // お気に入り設定ボタン
                             Button(action: {
                                 isShowFavoriteSettingView.toggle()
@@ -2071,4 +2103,5 @@ struct PDFKitView: UIViewRepresentable {
     ContentView(
 //        common: commonVar()
     )
+    .environmentObject(commonVar())
 }
