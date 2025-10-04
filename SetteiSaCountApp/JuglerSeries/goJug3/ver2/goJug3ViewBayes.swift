@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct goJug3ViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var goJug3: GoJug3
     
     // 機種ごとに見直し
@@ -111,7 +111,7 @@ struct goJug3ViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.goJug3MenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.goJug3MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -305,7 +305,7 @@ struct goJug3ViewBayes: View {
 
 #Preview {
     goJug3ViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         goJug3: GoJug3(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

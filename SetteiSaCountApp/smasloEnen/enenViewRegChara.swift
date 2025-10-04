@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewRegChara: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     @State var selectedCharaList: [String] = [
@@ -348,7 +348,7 @@ struct enenViewRegChara: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     enenViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -449,7 +449,7 @@ struct enenViewRegChara: View {
 
 #Preview {
     enenViewRegChara(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

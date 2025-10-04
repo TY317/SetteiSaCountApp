@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewAdora: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     @State var selectedChara: String = "森羅日下部"
@@ -96,7 +96,7 @@ struct enenViewAdora: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     enenViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -193,7 +193,7 @@ struct enenViewAdora: View {
 
 #Preview {
     enenViewAdora(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

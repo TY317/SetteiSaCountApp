@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewAkashi: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert: Bool = false
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -58,7 +58,7 @@ struct azurLaneViewAkashi: View {
                             azurLane.akashiCountSumFunc()
                         }
                 }
-                .popoverTip(tipVer391AzurLaneAkashi())
+//                .popoverTip(tipVer391AzurLaneAkashi())
                 
                 // 参考情報）振り分け
                 unitLinkButtonViewBuilder(sheetTitle: "告知G数の振分け") {
@@ -103,7 +103,7 @@ struct azurLaneViewAkashi: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.azurLaneMenuAkashiBadge)
+//        .resetBadgeOnAppear($ver391.azurLaneMenuAkashiBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -129,7 +129,7 @@ struct azurLaneViewAkashi: View {
 
 #Preview {
     azurLaneViewAkashi(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         azurLane: AzurLane(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

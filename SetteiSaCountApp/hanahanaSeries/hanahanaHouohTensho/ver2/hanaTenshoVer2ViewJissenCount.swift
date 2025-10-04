@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hanaTenshoVer2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var hanaTensho: HanaTensho
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -76,7 +76,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
                         hanaTenshoViewBayes(
-                            ver391: ver391,
+//                            ver391: ver391,
                             hanaTensho: hanaTensho,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -170,7 +170,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 hanaTenshoViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     hanaTensho: hanaTensho,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -204,7 +204,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 hanaTenshoViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     hanaTensho: hanaTensho,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -246,7 +246,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 hanaTenshoViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     hanaTensho: hanaTensho,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -313,7 +313,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
                         // //// 設定期待値へのリンク
                         unitNaviLinkBayes {
                             hanaTenshoViewBayes(
-                                ver391: ver391,
+//                                ver391: ver391,
                                 hanaTensho: hanaTensho,
                                 bayes: bayes,
                                 viewModel: viewModel,
@@ -418,7 +418,7 @@ struct hanaTenshoVer2ViewJissenCount: View {
 
 #Preview {
     hanaTenshoVer2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         hanaTensho: HanaTensho(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

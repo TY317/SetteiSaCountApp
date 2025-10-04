@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct girlsSSViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var girlsSS: GirlsSS
     
     // 機種ごとに見直し
@@ -110,7 +110,7 @@ struct girlsSSViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.girlsSSMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.girlsSSMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -304,7 +304,7 @@ struct girlsSSViewBayes: View {
 
 #Preview {
     girlsSSViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         girlsSS: GirlsSS(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

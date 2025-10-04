@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct starHanaViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var starHana = StarHana()
     @State var isShowAlert: Bool = false
     @StateObject var starHanaMemory1 = StarHanaMemory1()
@@ -53,7 +53,7 @@ struct starHanaViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: starHanaVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         starHana: starHana,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -65,7 +65,7 @@ struct starHanaViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: starHanaVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         starHana: starHana,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -87,7 +87,7 @@ struct starHanaViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: starHanaViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     starHana: starHana,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -95,7 +95,7 @@ struct starHanaViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.starHanaMenuBayesBadge,
+//                        badgeStatus: ver391.starHanaMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -460,7 +460,7 @@ struct starHanaSubViewLoadMemory: View {
 
 #Preview {
     starHanaViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -358,7 +358,7 @@ class GoJug3Memory3: ObservableObject {
 }
 
 struct goJug3Ver2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
 //    @ObservedObject var goJug3 = GoJug3()
     @StateObject var goJug3 = GoJug3()
     @State var isShowAlert: Bool = false
@@ -403,7 +403,7 @@ struct goJug3Ver2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: goJug3Ver2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         goJug3: goJug3,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -415,7 +415,7 @@ struct goJug3Ver2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: goJug3Ver2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         goJug3: goJug3,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -437,7 +437,7 @@ struct goJug3Ver2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: goJug3ViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     goJug3: goJug3,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -445,7 +445,7 @@ struct goJug3Ver2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.goJug3MenuBayesBadge,
+//                        badgeStatus: ver391.goJug3MenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -459,7 +459,7 @@ struct goJug3Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.goJug3MachineIconBadge)
+//        .resetBadgeOnAppear($ver391.goJug3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -723,7 +723,7 @@ struct goJug3SubViewLoadMemory: View {
 
 #Preview {
     goJug3Ver2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

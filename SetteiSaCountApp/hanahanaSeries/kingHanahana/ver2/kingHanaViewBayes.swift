@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kingHanaViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var kingHana: KingHana
     
     // 機種ごとに見直し
@@ -73,7 +73,7 @@ struct kingHanaViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.kingHanaMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.kingHanaMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -251,9 +251,9 @@ struct kingHanaViewBayes: View {
 
 #Preview {
     kingHanaViewBayes(
-        ver391: Ver391(),
         kingHana: KingHana(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
 }
+

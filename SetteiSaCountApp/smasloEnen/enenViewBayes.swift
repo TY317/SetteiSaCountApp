@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     
     // 機種ごとに見直し
@@ -80,7 +80,7 @@ struct enenViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.enenMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.enenMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -327,7 +327,7 @@ struct enenViewBayes: View {
 
 #Preview {
     enenViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

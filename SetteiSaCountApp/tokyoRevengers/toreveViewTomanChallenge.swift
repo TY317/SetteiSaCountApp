@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewTomanChallenge: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @State var selectedSegment: String = "卍目・弱レア役"
     let segmentList: [String] = ["卍目・弱レア役", "チャンス目", "強🍒"]
@@ -152,7 +152,7 @@ struct toreveViewTomanChallenge: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMenuTomanChallengeBadge)
+//        .resetBadgeOnAppear($ver391.toreveMenuTomanChallengeBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -192,7 +192,7 @@ struct toreveViewTomanChallenge: View {
 
 #Preview {
     toreveViewTomanChallenge(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
     )
 }

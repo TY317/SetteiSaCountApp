@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct funky2Ver2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var funky2 = Funky2()
     @State var isShowAlert: Bool = false
     @StateObject var funky2Memory1 = Funky2Memory1()
@@ -53,7 +53,7 @@ struct funky2Ver2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: funky2Ver2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         funky2: funky2,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -65,7 +65,7 @@ struct funky2Ver2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: funky2Ver2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         funky2: funky2,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -87,7 +87,7 @@ struct funky2Ver2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: funky2ViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     funky2: funky2,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -95,7 +95,7 @@ struct funky2Ver2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.funky2MenuBayesBadge,
+//                        badgeStatus: ver391.funky2MenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -109,7 +109,7 @@ struct funky2Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.funky2MachineIconBadge)
+//        .resetBadgeOnAppear($ver391.funky2MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -384,7 +384,7 @@ struct funky2SubViewLoadMemory: View {
 
 #Preview {
     funky2Ver2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

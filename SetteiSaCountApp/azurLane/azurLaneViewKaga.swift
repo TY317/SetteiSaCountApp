@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewKaga: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @State var selectedCharaList: [String] = ["ジャベリン","ラフィー","綾波","Z23","エンタープライズ"]
@@ -153,14 +153,14 @@ struct azurLaneViewKaga: View {
                     )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
-                .popoverTip(tipVer391AzurLaneKagaUra())
+//                .popoverTip(tipVer391AzurLaneKagaUra())
             } header: {
                 Text("裏ボタン")
-                    .popoverTip(tipVer391AzurLaneKaga())
+//                    .popoverTip(tipVer391AzurLaneKaga())
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.azurLaneMenuKagaBadge)
+//        .resetBadgeOnAppear($ver391.azurLaneMenuKagaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -219,7 +219,7 @@ struct azurLaneViewKaga: View {
 
 #Preview {
     azurLaneViewKaga(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         azurLane: AzurLane(),
     )
 }

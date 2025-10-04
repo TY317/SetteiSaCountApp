@@ -9,7 +9,7 @@ import SwiftUI
 
 struct toreveViewNormal: View {
     @EnvironmentObject var common: commonVar
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -400,7 +400,7 @@ struct toreveViewNormal: View {
 
 #Preview {
     toreveViewNormal(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

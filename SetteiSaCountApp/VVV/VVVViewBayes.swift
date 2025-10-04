@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VVVViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var VVVendScreen: VVVendScreenVar
     @ObservedObject var VVVmarie: VVVmarieVar
     @ObservedObject var VVVharakiri: VVVharakiriVar
@@ -74,7 +74,7 @@ struct VVVViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.VVVMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.VVVMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -220,7 +220,7 @@ struct VVVViewBayes: View {
 
 #Preview {
     VVVViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         VVVendScreen: VVVendScreenVar(),
         VVVmarie: VVVmarieVar(),
         VVVharakiri: VVVharakiriVar(),

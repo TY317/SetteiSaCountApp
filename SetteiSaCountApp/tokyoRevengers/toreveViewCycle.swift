@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewCycle: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @State var isShowAlert: Bool = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -192,7 +192,7 @@ struct toreveViewCycle: View {
                 unitLinkButtonViewBuilder(sheetTitle: "ミニキャラセリフの示唆") {
                     toreveTableMiniChara()
                 }
-                .popoverTip(tipVer391ToreveCycle())
+//                .popoverTip(tipVer391ToreveCycle())
                 // 初当たり時の振分け
                 unitLinkButtonViewBuilder(sheetTitle: "初当たり時の振分け") {
                     VStack {
@@ -260,7 +260,7 @@ struct toreveViewCycle: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMenuCycleBadge)
+//        .resetBadgeOnAppear($ver391.toreveMenuCycleBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -300,7 +300,7 @@ struct toreveViewCycle: View {
 
 #Preview {
     toreveViewCycle(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
     )
 }

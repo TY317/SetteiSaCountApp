@@ -9,7 +9,7 @@ import SwiftUI
 
 struct toreveViewTop: View {
 //    @ObservedObject var ver390: Ver390
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var toreve = Toreve()
@@ -35,7 +35,7 @@ struct toreveViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: toreveViewNormal(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -48,13 +48,13 @@ struct toreveViewTop: View {
                     }
                     // 周期履歴
                     NavigationLink(destination: toreveViewCycle(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "周期履歴",
-                            badgeStatus: ver391.toreveMenuCycleBadge,
+//                            badgeStatus: ver391.toreveMenuCycleBadge,
                         )
                     }
                     // 初当り
@@ -71,29 +71,29 @@ struct toreveViewTop: View {
                     }
                     // 東卍チャンス
                     NavigationLink(destination: toreveViewTomanChallenge(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "figure.stairs",
                             textBody: "東卍チャンス",
-                            badgeStatus: ver391.toreveMenuTomanChallengeBadge,
+//                            badgeStatus: ver391.toreveMenuTomanChallengeBadge,
                         )
                     }
                     // ATセット開始画面
                     NavigationLink(destination: toreveViewStartScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "東卍ラッシュ",
-                            badgeStatus: ver391.toreveMenuStartScreenBadge,
+//                            badgeStatus: ver391.toreveMenuStartScreenBadge,
                         )
                     }
                     // AT終了画面
                     NavigationLink(destination: toreveViewScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -101,7 +101,7 @@ struct toreveViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "終了画面",
-                            badgeStatus: ver391.toreveMenuScreenBadge,
+//                            badgeStatus: ver391.toreveMenuScreenBadge,
                         )
                     }
                     // リベンジ
@@ -123,7 +123,7 @@ struct toreveViewTop: View {
                     }
                     // エンディング
                     NavigationLink(destination: toreveViewEnding(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -131,7 +131,7 @@ struct toreveViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング",
-                            badgeStatus: ver391.toreveMenuEndingBadge,
+//                            badgeStatus: ver391.toreveMenuEndingBadge,
                         )
                     }
                     // サミートロフィー
@@ -602,7 +602,7 @@ struct toreveSubViewLoadMemory: View {
 #Preview {
     toreveViewTop(
 //        ver390: Ver390(),
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

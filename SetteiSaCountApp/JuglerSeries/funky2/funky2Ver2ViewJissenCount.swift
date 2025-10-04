@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct funky2Ver2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var funky2: Funky2
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -203,7 +203,7 @@ struct funky2Ver2ViewJissenCount: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     funky2ViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         funky2: funky2,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -327,7 +327,7 @@ struct funky2Ver2ViewJissenCount: View {
 
 #Preview {
     funky2Ver2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         funky2: Funky2(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

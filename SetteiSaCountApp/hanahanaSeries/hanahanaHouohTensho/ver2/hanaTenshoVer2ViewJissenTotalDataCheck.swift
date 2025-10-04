@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var hanaTensho: HanaTensho
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -195,7 +195,7 @@ struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     hanaTenshoViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         hanaTensho: hanaTensho,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -258,7 +258,7 @@ struct hanaTenshoVer2ViewJissenTotalDataCheck: View {
 
 #Preview {
     hanaTenshoVer2ViewJissenTotalDataCheck(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         hanaTensho: HanaTensho(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

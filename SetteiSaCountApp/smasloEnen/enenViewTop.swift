@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var enen = Enen()
     @State var isShowAlert: Bool = false
     @StateObject var enenMemory1 = EnenMemory1()
@@ -23,7 +23,7 @@ struct enenViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: enenViewNormal(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -35,7 +35,7 @@ struct enenViewTop: View {
                     }
                     // REG中のキャラ
                     NavigationLink(destination: enenViewRegChara(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -47,7 +47,7 @@ struct enenViewTop: View {
                     }
                     // ボーナス終了画面
                     NavigationLink(destination: enenViewRegScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -59,7 +59,7 @@ struct enenViewTop: View {
                     }
                     // 伝道者の影
                     NavigationLink(destination: enenViewDendosha(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -71,7 +71,7 @@ struct enenViewTop: View {
                     }
                     // 炎炎ボーナス終了画面
                     NavigationLink(destination: enenViewBigScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -83,7 +83,7 @@ struct enenViewTop: View {
                     }
                     // アドラバースト
                     NavigationLink(destination: enenViewAdora(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -109,7 +109,7 @@ struct enenViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: enenViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     enen: enen,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -117,7 +117,7 @@ struct enenViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.enenMenuBayesBadge,
+//                        badgeStatus: ver391.enenMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -132,7 +132,7 @@ struct enenViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.enenMachineIconBadge)
+//        .resetBadgeOnAppear($ver391.enenMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -483,7 +483,7 @@ struct enenSubViewLoadMemory: View {
 
 #Preview {
     enenViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

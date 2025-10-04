@@ -474,7 +474,7 @@ class HanaTenshoMemory3: ObservableObject {
 }
 
 struct hanaTenshoVer2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var hanaTensho = HanaTensho()
     @State var isShowAlert: Bool = false
     @StateObject var hanaTenshoMemory1 = HanaTenshoMemory1()
@@ -519,7 +519,7 @@ struct hanaTenshoVer2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: hanaTenshoVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         hanaTensho: hanaTensho,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -531,7 +531,7 @@ struct hanaTenshoVer2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: hanaTenshoVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         hanaTensho: hanaTensho,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -553,7 +553,7 @@ struct hanaTenshoVer2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: hanaTenshoViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     hanaTensho: hanaTensho,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -561,7 +561,7 @@ struct hanaTenshoVer2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.hanaTenshoMenuBayesBadge,
+//                        badgeStatus: ver391.hanaTenshoMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -921,7 +921,7 @@ struct hanaTenshoSubViewLoadMemory: View {
 
 #Preview {
     hanaTenshoVer2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

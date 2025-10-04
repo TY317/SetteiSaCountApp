@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewDendosha: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     @State var selectedSegment: String = "十字目変換"
@@ -133,7 +133,7 @@ struct enenViewDendosha: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     enenViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -193,7 +193,7 @@ struct enenViewDendosha: View {
 
 #Preview {
     enenViewDendosha(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

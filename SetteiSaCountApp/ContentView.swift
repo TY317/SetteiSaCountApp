@@ -141,7 +141,7 @@ class favoriteSetVar: ObservableObject {
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
 //    @StateObject var ver390 = Ver390()
-    @StateObject var ver391 = Ver391()
+//    @StateObject var ver391 = Ver391()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
     @ObservedObject var favoriteSet = favoriteSetVar()
@@ -173,7 +173,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -189,14 +189,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
-                                        badgeStatus: ver391.hanaSeriesBadge,
+//                                        badgeStatus: ver391.hanaSeriesBadge,
                                     )
                                 }
                                 
@@ -223,7 +223,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
 //                                            ver390: ver390,
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -239,13 +239,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(azurLaneViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("azurLaneMachineIcon"),
                                         machineName: "アズレン",
-                                        badgeStatus: ver391.azurLaneMachineIconBadge,
+//                                        badgeStatus: ver391.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -709,13 +709,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("enenMachineIcon"),
                                         machineName: "スマスロ炎炎",
-                                        badgeStatus: ver391.enenMachineIconBadge,
+//                                        badgeStatus: ver391.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -785,13 +785,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(VVV_Top(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("machineIconVVV"),
                                         machineName: "ヴヴヴ",
-                                        badgeStatus: ver391.vvvMachineIconBadge,
+//                                        badgeStatus: ver391.vvvMachineIconBadge,
                                     )
                                 }
                                 
@@ -817,7 +817,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
@@ -837,7 +837,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
@@ -847,7 +847,7 @@ struct ContentView: View {
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5,
-                                        badgeStatus: ver391.hanaSeriesBadge,
+//                                        badgeStatus: ver391.hanaSeriesBadge,
                                     )
                                 }
                                 
@@ -877,7 +877,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
 //                                            ver390: ver390,
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -896,7 +896,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(azurLaneViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -906,7 +906,7 @@ struct ContentView: View {
                                         makerName: "京楽",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver391.azurLaneMachineIconBadge,
+//                                        badgeStatus: ver391.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -1487,7 +1487,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1497,7 +1497,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 5,
-                                        badgeStatus: ver391.enenMachineIconBadge,
+//                                        badgeStatus: ver391.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1577,7 +1577,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(VVV_Top(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1586,7 +1586,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2022,
                                         releaseMonth: 11,
-                                        badgeStatus: ver391.vvvMachineIconBadge,
+//                                        badgeStatus: ver391.vvvMachineIconBadge,
                                     )
                                 }
                                 

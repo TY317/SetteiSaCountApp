@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var azurLane = AzurLane()
@@ -43,7 +43,7 @@ struct azurLaneViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: azurLaneViewFirstHit(
-                        ver391: ver391,
+//                        ver391: ver391,
                         azurLane: azurLane,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -51,23 +51,23 @@ struct azurLaneViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver391.azurLaneMenuFirstHitBadge,
+//                            badgeStatus: ver391.azurLaneMenuFirstHitBadge,
                         )
                     }
                     // ボーナス中 加賀バトル
                     NavigationLink(destination: azurLaneViewKaga(
-                        ver391: ver391,
+//                        ver391: ver391,
                         azurLane: azurLane,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.3",
                             textBody: "ボーナス中 加賀バトル",
-                            badgeStatus: ver391.azurLaneMenuKagaBadge,
+//                            badgeStatus: ver391.azurLaneMenuKagaBadge,
                         )
                     }
                     // ボーナス中 明石チャレンジ
                     NavigationLink(destination: azurLaneViewAkashi(
-                        ver391: ver391,
+//                        ver391: ver391,
                         azurLane: azurLane,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -75,7 +75,7 @@ struct azurLaneViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "wrench.adjustable.fill",
                             textBody: "ボーナス中 明石チャレンジ",
-                            badgeStatus: ver391.azurLaneMenuAkashiBadge,
+//                            badgeStatus: ver391.azurLaneMenuAkashiBadge,
                         )
                     }
                     // ボーナス、AT終了画面
@@ -142,7 +142,7 @@ struct azurLaneViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.azurLaneMachineIconBadge)
+//        .resetBadgeOnAppear($ver391.azurLaneMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -505,7 +505,7 @@ struct azurLaneSubViewLoadMemory: View {
 
 #Preview {
     azurLaneViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

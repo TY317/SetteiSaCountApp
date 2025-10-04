@@ -98,7 +98,7 @@ class VvvMemory3: ObservableObject {
 
 struct VVV_Top: View {
     @State var isShowAlert = false
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var VVVendScreen = VVVendScreenVar()
     @ObservedObject var VVVmarie = VVVmarieVar()
     @ObservedObject var VVVharakiri = VVVharakiriVar()
@@ -115,7 +115,7 @@ struct VVV_Top: View {
                 Section {
                     // CZ当選履歴
                     NavigationLink(destination: vvvViewCzHistoryVer2(
-                        ver391: ver391,
+//                        ver391: ver391,
                         VVVendScreen: VVVendScreen,
                         VVVmarie: VVVmarie,
                         VVVharakiri: VVVharakiri,
@@ -128,7 +128,7 @@ struct VVV_Top: View {
                     
                     // CZ,ボーナス終了画面
                     NavigationLink(destination: VVVendScreenView(
-                        ver391: ver391,
+//                        ver391: ver391,
                         VVVendScreen: VVVendScreen,
                         VVVmarie: VVVmarie,
                         VVVharakiri: VVVharakiri,
@@ -141,7 +141,7 @@ struct VVV_Top: View {
                     
                     // 革命ボーナス中のマリエ覚醒
                     NavigationLink(destination: VVVmarieView(
-                        ver391: ver391,
+//                        ver391: ver391,
                         VVVendScreen: VVVendScreen,
                         VVVmarie: VVVmarie,
                         VVVharakiri: VVVharakiri,
@@ -154,7 +154,7 @@ struct VVV_Top: View {
                     
                     // ハラキリドライブ
                     NavigationLink(destination: VVVharakiriDriveView(
-                        ver391: ver391,
+//                        ver391: ver391,
                         VVVendScreen: VVVendScreen,
                         VVVmarie: VVVmarie,
                         VVVharakiri: VVVharakiri,
@@ -181,7 +181,7 @@ struct VVV_Top: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: VVVViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     VVVendScreen: VVVendScreen,
                     VVVmarie: VVVmarie,
                     VVVharakiri: VVVharakiri,
@@ -192,7 +192,7 @@ struct VVV_Top: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.VVVMenuBayesBadge,
+//                        badgeStatus: ver391.VVVMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -209,7 +209,7 @@ struct VVV_Top: View {
                 }
             }
             // //// バッジのリセット
-            .resetBadgeOnAppear($ver391.vvvMachineIconBadge)
+//            .resetBadgeOnAppear($ver391.vvvMachineIconBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -476,7 +476,7 @@ struct vvvViewLoadMemory: View {
 
 #Preview {
     VVV_Top(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -473,7 +473,7 @@ class KingHanaMemory3: ObservableObject {
 }
 
 struct kingHanaVer2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var kingHana = KingHana()
     @State var isShowAlert: Bool = false
     @StateObject var kingHanaMemory1 = KingHanaMemory1()
@@ -517,7 +517,7 @@ struct kingHanaVer2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: kingHanaVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         kingHana: kingHana,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -529,7 +529,7 @@ struct kingHanaVer2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: kingHanaVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+                        //                        ver391: ver391,
                         kingHana: kingHana,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -551,15 +551,14 @@ struct kingHanaVer2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: kingHanaViewBayes(
-                    ver391: ver391,
+                    //                    ver391: ver391,
                     kingHana: kingHana,
                     bayes: bayes,
                     viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
-                        textBody: "設定期待値",
-                        badgeStatus: ver391.kingHanaMenuBayesBadge,
+                        textBody: "設定期待値"
                     )
                 }
                 // 解析サイトへのリンク
@@ -919,8 +918,8 @@ struct kingHanaSubViewLoadMemory: View {
 
 #Preview {
     kingHanaVer2ViewTop(
-        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
 }
+

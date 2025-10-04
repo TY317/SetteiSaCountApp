@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewBigScreen: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert: Bool = false
     @State var selectedImageName: String = ""
@@ -122,7 +122,7 @@ struct enenViewBigScreen: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     enenViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -199,7 +199,7 @@ struct enenViewBigScreen: View {
 
 #Preview {
     enenViewBigScreen(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
