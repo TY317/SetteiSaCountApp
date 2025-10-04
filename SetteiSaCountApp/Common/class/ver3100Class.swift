@@ -9,6 +9,19 @@ import Foundation
 import SwiftUI
 import TipKit
 
+struct tipVer3100UpdateInfo: Tip {
+    var title: Text {
+        Text("機種,機能追加！")
+//        Text("機能追加！")
+    }
+    var message: Text? {
+        Text("・機種追加\n　　・クレアの秘宝伝\n　　・ウルトラミラクルジャグラー\n・設定期待値の対応機種追加\n　　・BTエヴァ")
+    }
+    var image: Image? {
+        Image(systemName: "star")
+    }
+}
+
 // //////////////////
 // Tip：エヴァ
 // //////////////////
