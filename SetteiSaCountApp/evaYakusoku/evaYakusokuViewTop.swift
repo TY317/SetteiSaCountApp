@@ -20,17 +20,11 @@ struct evaYakusokuViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     
     var body: some View {
-//        List {
-//            Button("クラッシュを発生させる") {
-//                fatalError("テストクラッシュ")
-//            }
-//        }
         NavigationStack {
             List {
                 Section {
                     // 通常時
                     NavigationLink(destination: evaYakusokuViewNormal(
-//                        ver380: ver380,
                         evaYakusoku: evaYakusoku,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -44,7 +38,6 @@ struct evaYakusokuViewTop: View {
                     
                     // 初当り
                     NavigationLink(destination: evaYakusokuViewFirstHit(
-//                        ver352: ver352,
                         evaYakusoku: evaYakusoku,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -52,7 +45,7 @@ struct evaYakusokuViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-//                            badgeStatus: ver352.evaYakusokuMenuFirstHitBadge
+                            badgeStatus: common.evaYakusokuMenuFirstHitBadge,
                         )
                     }
                     
@@ -211,6 +204,16 @@ struct evaYakusokuSubViewSaveMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusokuMemory1.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusokuMemory1.koyakuCountSuikaJaku = evaYakusoku.koyakuCountSuikaJaku
+        evaYakusokuMemory1.koyakuCountSuikaKyo = evaYakusoku.koyakuCountSuikaKyo
+        evaYakusokuMemory1.chofukuCountBell = evaYakusoku.chofukuCountBell
+        evaYakusokuMemory1.chofukuCountCherry = evaYakusoku.chofukuCountCherry
+        evaYakusokuMemory1.chofukuCountSuikaJaku = evaYakusoku.chofukuCountSuikaJaku
+        evaYakusokuMemory1.chofukuCountSuikaKyo = evaYakusoku.chofukuCountSuikaKyo
     }
     func saveMemory2() {
         evaYakusokuMemory2.bonusCountSBig = evaYakusoku.bonusCountSBig
@@ -237,6 +240,16 @@ struct evaYakusokuSubViewSaveMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusokuMemory2.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusokuMemory2.koyakuCountSuikaJaku = evaYakusoku.koyakuCountSuikaJaku
+        evaYakusokuMemory2.koyakuCountSuikaKyo = evaYakusoku.koyakuCountSuikaKyo
+        evaYakusokuMemory2.chofukuCountBell = evaYakusoku.chofukuCountBell
+        evaYakusokuMemory2.chofukuCountCherry = evaYakusoku.chofukuCountCherry
+        evaYakusokuMemory2.chofukuCountSuikaJaku = evaYakusoku.chofukuCountSuikaJaku
+        evaYakusokuMemory2.chofukuCountSuikaKyo = evaYakusoku.chofukuCountSuikaKyo
     }
     func saveMemory3() {
         evaYakusokuMemory3.bonusCountSBig = evaYakusoku.bonusCountSBig
@@ -263,6 +276,16 @@ struct evaYakusokuSubViewSaveMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusokuMemory3.bonusCountSBigBlue = evaYakusoku.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusokuMemory3.koyakuCountSuikaJaku = evaYakusoku.koyakuCountSuikaJaku
+        evaYakusokuMemory3.koyakuCountSuikaKyo = evaYakusoku.koyakuCountSuikaKyo
+        evaYakusokuMemory3.chofukuCountBell = evaYakusoku.chofukuCountBell
+        evaYakusokuMemory3.chofukuCountCherry = evaYakusoku.chofukuCountCherry
+        evaYakusokuMemory3.chofukuCountSuikaJaku = evaYakusoku.chofukuCountSuikaJaku
+        evaYakusokuMemory3.chofukuCountSuikaKyo = evaYakusoku.chofukuCountSuikaKyo
     }
 }
 
@@ -318,6 +341,16 @@ struct evaYakusokuSubViewLoadMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory1.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusoku.koyakuCountSuikaJaku = evaYakusokuMemory1.koyakuCountSuikaJaku
+        evaYakusoku.koyakuCountSuikaKyo = evaYakusokuMemory1.koyakuCountSuikaKyo
+        evaYakusoku.chofukuCountBell = evaYakusokuMemory1.chofukuCountBell
+        evaYakusoku.chofukuCountCherry = evaYakusokuMemory1.chofukuCountCherry
+        evaYakusoku.chofukuCountSuikaJaku = evaYakusokuMemory1.chofukuCountSuikaJaku
+        evaYakusoku.chofukuCountSuikaKyo = evaYakusokuMemory1.chofukuCountSuikaKyo
     }
     func loadMemory2() {
         evaYakusoku.bonusCountSBig = evaYakusokuMemory2.bonusCountSBig
@@ -344,6 +377,16 @@ struct evaYakusokuSubViewLoadMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory2.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusoku.koyakuCountSuikaJaku = evaYakusokuMemory2.koyakuCountSuikaJaku
+        evaYakusoku.koyakuCountSuikaKyo = evaYakusokuMemory2.koyakuCountSuikaKyo
+        evaYakusoku.chofukuCountBell = evaYakusokuMemory2.chofukuCountBell
+        evaYakusoku.chofukuCountCherry = evaYakusokuMemory2.chofukuCountCherry
+        evaYakusoku.chofukuCountSuikaJaku = evaYakusokuMemory2.chofukuCountSuikaJaku
+        evaYakusoku.chofukuCountSuikaKyo = evaYakusokuMemory2.chofukuCountSuikaKyo
     }
     func loadMemory3() {
         evaYakusoku.bonusCountSBig = evaYakusokuMemory3.bonusCountSBig
@@ -370,6 +413,16 @@ struct evaYakusokuSubViewLoadMemory: View {
         // ver3.5.2で追加
         // ///////////
         evaYakusoku.bonusCountSBigBlue = evaYakusokuMemory3.bonusCountSBigBlue
+        
+        // ///////////
+        // ver3.10.0で追加
+        // ///////////
+        evaYakusoku.koyakuCountSuikaJaku = evaYakusokuMemory3.koyakuCountSuikaJaku
+        evaYakusoku.koyakuCountSuikaKyo = evaYakusokuMemory3.koyakuCountSuikaKyo
+        evaYakusoku.chofukuCountBell = evaYakusokuMemory3.chofukuCountBell
+        evaYakusoku.chofukuCountCherry = evaYakusokuMemory3.chofukuCountCherry
+        evaYakusoku.chofukuCountSuikaJaku = evaYakusokuMemory3.chofukuCountSuikaJaku
+        evaYakusoku.chofukuCountSuikaKyo = evaYakusokuMemory3.chofukuCountSuikaKyo
     }
 }
 

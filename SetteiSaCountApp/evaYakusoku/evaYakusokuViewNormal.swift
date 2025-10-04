@@ -300,10 +300,22 @@ struct evaYakusokuViewNormal: View {
                                 inputValue: $evaYakusoku.koyakuCountCherry
                             )
                             .focused(self.$isFocused)
+//                            // 強弱スイカ
+//                            unitTextFieldNumberInputWithUnit(
+//                                title: "強弱🍉",
+//                                inputValue: $evaYakusoku.koyakuCountSuikaSum
+//                            )
+//                            .focused(self.$isFocused)
+                            // 弱スイカ
+                            unitTextFieldNumberInputWithUnit(
+                                title: "弱🍉",
+                                inputValue: $evaYakusoku.koyakuCountSuikaJaku
+                            )
+                            .focused(self.$isFocused)
                             // 強弱スイカ
                             unitTextFieldNumberInputWithUnit(
-                                title: "強弱🍉",
-                                inputValue: $evaYakusoku.koyakuCountSuikaSum
+                                title: "強🍉",
+                                inputValue: $evaYakusoku.koyakuCountSuikaKyo
                             )
                             .focused(self.$isFocused)
                             // リーチ目役

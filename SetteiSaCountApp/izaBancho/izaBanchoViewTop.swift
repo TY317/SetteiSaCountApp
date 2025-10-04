@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct izaBanchoViewTop: View {
-//    @ObservedObject var ver350: Ver350
-//    @ObservedObject var ver340: Ver340
+    @EnvironmentObject var common: commonVar
     @StateObject var izaBancho = IzaBancho()
     @State var isShowAlert: Bool = false
     @StateObject var izaBanchoMemory1 = IzaBanchoMemory1()
@@ -53,13 +52,12 @@ struct izaBanchoViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: izaBanchoViewFirstHit(
-//                        ver340: ver340,
                         izaBancho: izaBancho,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-//                            badgeStatus: ver340.izaBanchoMenuFirstHitBadgeStaus,
+                            badgeStatus: common.izaBanchoMenuFirstHitBadge,
                         )
                     }
                     // AT中
@@ -102,7 +100,7 @@ struct izaBanchoViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver350.izaBanchoMachineIconBadgeStaus)
+        .resetBadgeOnAppear($common.izaBanchoMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -193,6 +191,11 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory1.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
         izaBanchoMemory1.czResultCountYellowHit = izaBancho.czResultCountYellowHit
         izaBanchoMemory1.czResultCountYellowSum = izaBancho.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBanchoMemory1.chokugekiCount = izaBancho.chokugekiCount
     }
     func saveMemory2() {
         izaBanchoMemory2.screenCountDefault = izaBancho.screenCountDefault
@@ -221,6 +224,11 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory2.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
         izaBanchoMemory2.czResultCountYellowHit = izaBancho.czResultCountYellowHit
         izaBanchoMemory2.czResultCountYellowSum = izaBancho.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBanchoMemory2.chokugekiCount = izaBancho.chokugekiCount
     }
     func saveMemory3() {
         izaBanchoMemory3.screenCountDefault = izaBancho.screenCountDefault
@@ -249,6 +257,11 @@ struct izaBanchoSubViewSaveMemory: View {
         izaBanchoMemory3.czResultCountYellowMiss = izaBancho.czResultCountYellowMiss
         izaBanchoMemory3.czResultCountYellowHit = izaBancho.czResultCountYellowHit
         izaBanchoMemory3.czResultCountYellowSum = izaBancho.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBanchoMemory3.chokugekiCount = izaBancho.chokugekiCount
     }
 }
 
@@ -309,6 +322,11 @@ struct izaBanchoSubViewLoadMemory: View {
         izaBancho.czResultCountYellowMiss = izaBanchoMemory1.czResultCountYellowMiss
         izaBancho.czResultCountYellowHit = izaBanchoMemory1.czResultCountYellowHit
         izaBancho.czResultCountYellowSum = izaBanchoMemory1.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBancho.chokugekiCount = izaBanchoMemory1.chokugekiCount
     }
     func loadMemory2() {
         izaBancho.screenCountDefault = izaBanchoMemory2.screenCountDefault
@@ -340,6 +358,11 @@ struct izaBanchoSubViewLoadMemory: View {
         izaBancho.czResultCountYellowMiss = izaBanchoMemory2.czResultCountYellowMiss
         izaBancho.czResultCountYellowHit = izaBanchoMemory2.czResultCountYellowHit
         izaBancho.czResultCountYellowSum = izaBanchoMemory2.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBancho.chokugekiCount = izaBanchoMemory2.chokugekiCount
     }
     func loadMemory3() {
         izaBancho.screenCountDefault = izaBanchoMemory3.screenCountDefault
@@ -371,12 +394,17 @@ struct izaBanchoSubViewLoadMemory: View {
         izaBancho.czResultCountYellowMiss = izaBanchoMemory3.czResultCountYellowMiss
         izaBancho.czResultCountYellowHit = izaBanchoMemory3.czResultCountYellowHit
         izaBancho.czResultCountYellowSum = izaBanchoMemory3.czResultCountYellowSum
+        
+        // ////////////
+        // ver3.10.0
+        // ////////////
+        izaBancho.chokugekiCount = izaBanchoMemory3.chokugekiCount
     }
 }
 
 #Preview {
     izaBanchoViewTop(
-//        ver350: Ver350(),
-//        ver340: Ver340(),
+
     )
+    .environmentObject(commonVar())
 }

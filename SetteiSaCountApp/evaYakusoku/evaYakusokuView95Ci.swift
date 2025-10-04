@@ -88,7 +88,7 @@ struct evaYakusokuView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountBig,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         setting1Denominate: evaYakusoku.ratioYellowBB[0],
                         setting2Denominate: evaYakusoku.ratioYellowBB[1],
                         setting3Denominate: evaYakusoku.ratioYellowBB[2],
@@ -105,7 +105,7 @@ struct evaYakusokuView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountSBig,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         setting1Denominate: evaYakusoku.ratioRedSBB[0],
                         setting2Denominate: evaYakusoku.ratioRedSBB[1],
                         setting3Denominate: evaYakusoku.ratioRedSBB[2],
@@ -122,7 +122,7 @@ struct evaYakusokuView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountSBigBlue,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         setting1Denominate: evaYakusoku.ratioBlueSBB[0],
                         setting2Denominate: evaYakusoku.ratioBlueSBB[1],
                         setting3Denominate: evaYakusoku.ratioBlueSBB[2],
@@ -139,7 +139,7 @@ struct evaYakusokuView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountReg,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         setting1Denominate: evaYakusoku.ratioReg[0],
                         setting2Denominate: evaYakusoku.ratioReg[1],
                         setting3Denominate: evaYakusoku.ratioReg[2],
@@ -156,7 +156,7 @@ struct evaYakusokuView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $evaYakusoku.bonusCountAllSum,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         setting1Denominate: evaYakusoku.ratioBonusSum[0],
                         setting2Denominate: evaYakusoku.ratioBonusSum[1],
                         setting3Denominate: evaYakusoku.ratioBonusSum[2],

@@ -134,7 +134,7 @@ class EvaYakusoku: ObservableObject {
     let ratioChofuku: [Double] = [10.3,10.6,10.7,11.1,11.0,11.4]
     
     // ///////////
-    // ver3.10.1で追加
+    // ver3.10.0で追加
     // ///////////
     // 強弱スイカ分けてカウント
     @AppStorage("evaYakusokuKoyakuCountSuikaJaku") var koyakuCountSuikaJaku: Int = 0
@@ -175,6 +175,16 @@ class EvaYakusokuMemory1: ObservableObject {
     // ver3.5.2で追加
     // ///////////
     @AppStorage("evaYakusokuBonusCountSBigBlueMemory1") var bonusCountSBigBlue: Int = 0
+    
+    // ///////////
+    // ver3.10.0で追加
+    // ///////////
+    @AppStorage("evaYakusokuKoyakuCountSuikaJakuMemory1") var koyakuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuKoyakuCountSuikaKyoMemory1") var koyakuCountSuikaKyo: Int = 0
+    @AppStorage("evaYakusokuChofukuCountBellMemory1") var chofukuCountBell: Int = 0
+    @AppStorage("evaYakusokuChofukuCountCherryMemory1") var chofukuCountCherry: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaJakuMemory1") var chofukuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaKyoMemory1") var chofukuCountSuikaKyo: Int = 0
 }
 
 // //// メモリー2
@@ -205,6 +215,16 @@ class EvaYakusokuMemory2: ObservableObject {
     // ver3.5.2で追加
     // ///////////
     @AppStorage("evaYakusokuBonusCountSBigBlueMemory2") var bonusCountSBigBlue: Int = 0
+    
+    // ///////////
+    // ver3.10.0で追加
+    // ///////////
+    @AppStorage("evaYakusokuKoyakuCountSuikaJakuMemory2") var koyakuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuKoyakuCountSuikaKyoMemory2") var koyakuCountSuikaKyo: Int = 0
+    @AppStorage("evaYakusokuChofukuCountBellMemory2") var chofukuCountBell: Int = 0
+    @AppStorage("evaYakusokuChofukuCountCherryMemory2") var chofukuCountCherry: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaJakuMemory2") var chofukuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaKyoMemory2") var chofukuCountSuikaKyo: Int = 0
 }
 
 // //// メモリー3
@@ -235,4 +255,14 @@ class EvaYakusokuMemory3: ObservableObject {
     // ver3.5.2で追加
     // ///////////
     @AppStorage("evaYakusokuBonusCountSBigBlueMemory3") var bonusCountSBigBlue: Int = 0
+    
+    // ///////////
+    // ver3.10.0で追加
+    // ///////////
+    @AppStorage("evaYakusokuKoyakuCountSuikaJakuMemory3") var koyakuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuKoyakuCountSuikaKyoMemory3") var koyakuCountSuikaKyo: Int = 0
+    @AppStorage("evaYakusokuChofukuCountBellMemory3") var chofukuCountBell: Int = 0
+    @AppStorage("evaYakusokuChofukuCountCherryMemory3") var chofukuCountCherry: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaJakuMemory3") var chofukuCountSuikaJaku: Int = 0
+    @AppStorage("evaYakusokuChofukuCountSuikaKyoMemory3") var chofukuCountSuikaKyo: Int = 0
 }

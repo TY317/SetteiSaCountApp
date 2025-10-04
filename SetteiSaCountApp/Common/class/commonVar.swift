@@ -76,12 +76,29 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バッジ
     // //////////////////////////////////////
+    // //// ジャグラーシリーズ
+    @AppStorage("jugSeriesBadge") var jugSeriesBadge: String = "none"
+    // //// ウルトラミラクルジャグラー
+    @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
+    
+    // //// クレアの秘宝伝
+    @AppStorage("creaMachineIconBadge") var creaMachineIconBadge: String = "none"
+    
+    // //// 東京リベンジャーズ
+    @AppStorage("toreveMachineIconBadge") var toreveMachineIconBadge: String = "none"
+    @AppStorage("toreveMenuFirstHitBadge") var toreveMenuFirstHitBadge: String = "none"
+    @AppStorage("toreveMenuNormalBadge") var toreveMenuNormalBadge: String = "none"
+    @AppStorage("toreveMenuBayesBadge") var toreveMenuBayesBadge: String = "none"
     
     // //// エヴァ約束の扉
     @AppStorage("evaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "none"
     @AppStorage("evaYakusokuMenuNormalBadge") var evaYakusokuMenuNormalBadge: String = "none"
     @AppStorage("evaYakusokuMenuBayesBadge") var evaYakusokuMenuBayesBadge: String = "none"
+    @AppStorage("evaYakusokuMenuFirstHitBadge") var evaYakusokuMenuFirstHitBadge: String = "none"
     
+    // //// いざ番長
+    @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
+    @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
     
     
     // //////////////////////////////////////
@@ -98,6 +115,16 @@ class commonVar: ObservableObject {
                 evaYakusokuMachineIconBadge = "update"
                 evaYakusokuMenuNormalBadge = "update"
                 evaYakusokuMenuBayesBadge = "new"
+                creaMachineIconBadge = "new"
+                toreveMachineIconBadge = "update"
+                toreveMenuFirstHitBadge = "update"
+                toreveMenuNormalBadge = "update"
+                toreveMenuBayesBadge = "update"
+                evaYakusokuMenuFirstHitBadge = "update"
+                urmiraMachineIconBadge = "new"
+                jugSeriesBadge = "new"
+                izaBanchoMachineIconBadge = "update"
+                izaBanchoMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

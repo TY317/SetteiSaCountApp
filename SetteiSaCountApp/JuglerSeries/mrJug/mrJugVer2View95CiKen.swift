@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct mrJugVer2View95CiKen: View {
-//    @ObservedObject var mrJug = MrJug()
     @ObservedObject var mrJug: MrJug
     @State var selection = 1
     @State var isShow95CiExplain = false
@@ -100,7 +99,6 @@ struct mrJugVer2View95CiKen: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
-//                    .popoverTip(tipUnitButton95CiExplain())
             }
         }
         .tabViewStyle(.page)

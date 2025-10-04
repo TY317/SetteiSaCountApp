@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenStartData: View {
-//    @ObservedObject var mrJug = MrJug()
     @ObservedObject var mrJug: MrJug
     @FocusState var isFocused: Bool
     @State var isShowAlert = false

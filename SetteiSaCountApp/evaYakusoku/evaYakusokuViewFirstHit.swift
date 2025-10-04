@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct evaYakusokuViewFirstHit: View {
+    @EnvironmentObject var common: commonVar
 //    @ObservedObject var ver352: Ver352
     @ObservedObject var evaYakusoku: EvaYakusoku
     @State var isShowAlert = false
@@ -30,6 +31,17 @@ struct evaYakusokuViewFirstHit: View {
         List {
             // //// ボーナス回数カウント
             Section {
+                // 現在入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "現在ゲーム数",
+                    inputValue: $evaYakusoku.gameNumberCurrent,
+                    unitText: "Ｇ"
+                )
+                .focused(self.$isFocused)
+                .onChange(of: evaYakusoku.gameNumberCurrent) {
+                    let playGame = evaYakusoku.gameNumberCurrent - evaYakusoku.gameNumberStart
+                    evaYakusoku.gameNumberPlay = playGame > 0 ? playGame : 0
+                }
                 // //// カウントボタン横並び（ver3.5.2以降）
                 let gridItem = Array(
                     repeating: GridItem(
@@ -45,7 +57,7 @@ struct evaYakusokuViewFirstHit: View {
                         title: "黄BB",
                         count: $evaYakusoku.bonusCountBig,
                         color: .personalSpringLightYellow,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
@@ -56,7 +68,7 @@ struct evaYakusokuViewFirstHit: View {
                         title: "赤SBB",
                         count: $evaYakusoku.bonusCountSBig,
                         color: .personalSummerLightRed,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
@@ -67,7 +79,7 @@ struct evaYakusokuViewFirstHit: View {
                         title: "青SBB",
                         count: $evaYakusoku.bonusCountSBigBlue,
                         color: .personalSummerLightBlue,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
@@ -78,7 +90,7 @@ struct evaYakusokuViewFirstHit: View {
                         title: "REG",
                         count: $evaYakusoku.bonusCountReg,
                         color: .personalSummerLightGreen,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
@@ -89,7 +101,7 @@ struct evaYakusokuViewFirstHit: View {
                         title: "暴走モード",
                         count: $evaYakusoku.koyakuCountBoso,
                         color: .personalSummerLightPurple,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         minusBool: $evaYakusoku.minusCheck,
                         action: evaYakusoku.bonusSumFunc
@@ -152,7 +164,7 @@ struct evaYakusokuViewFirstHit: View {
                     unitResultRatioDenomination2Line(
                         title: "初当り合算",
                         count: $evaYakusoku.bonusCountAllSum,
-                        bigNumber: $evaYakusoku.gameNumberPlay,
+                        bigNumber: $evaYakusoku.gameNumberCurrent,
                         numberofDicimal: 0,
                         spacerBool: false,
                     )
@@ -191,48 +203,56 @@ struct evaYakusokuViewFirstHit: View {
                 }
                 
             } header: {
-                Text("初当り")
-//                    .popoverTip(tipVer352EvaYakusokuFirstHit())
+                HStack {
+                    Text("初当り")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "初当り",
+                            textBody1: "・ゲーム数は現在の総ゲーム数を入力して下さい",
+                            textBody2: "・前任者分含めた総ボーナス回数でカウントして下さい。台のメニュー画面で確認できます",
+                        )
+                    }
+                    .popoverTip(tipVer3100EvaFirstHit())
+                }
             }
             
-            Section {
-                // //// ゲーム数入力
-                // 打ち始め入力
-                unitTextFieldNumberInputWithUnit(
-                    title: "打ち始め",
-                    inputValue: $evaYakusoku.gameNumberStart,
-                    unitText: "Ｇ"
-                )
-                .keyboardDoneToolbar(focus: self.$isFocused)
-                .onChange(of: evaYakusoku.gameNumberStart) {
-                    let playGame = evaYakusoku.gameNumberCurrent - evaYakusoku.gameNumberStart
-                    evaYakusoku.gameNumberPlay = playGame > 0 ? playGame : 0
-                }
-                // 現在入力
-                unitTextFieldNumberInputWithUnit(
-                    title: "現在",
-                    inputValue: $evaYakusoku.gameNumberCurrent,
-                    unitText: "Ｇ"
-                )
-//                .keyboardDoneToolbar(focus: self.$isFocused)    // 同じページで2つ使うとバグ発生
-                .focused(self.$isFocused)
-                .onChange(of: evaYakusoku.gameNumberCurrent) {
-                    let playGame = evaYakusoku.gameNumberCurrent - evaYakusoku.gameNumberStart
-                    evaYakusoku.gameNumberPlay = playGame > 0 ? playGame : 0
-                }
-                // プレイ数
-                unitTextGameNumberWithoutInput(
-                    gameNumber: evaYakusoku.gameNumberPlay
-                )
-                
-            } header: {
-                Text("ゲーム数入力")
-            }
+//            Section {
+//                // //// ゲーム数入力
+//                // 打ち始め入力
+//                unitTextFieldNumberInputWithUnit(
+//                    title: "打ち始め",
+//                    inputValue: $evaYakusoku.gameNumberStart,
+//                    unitText: "Ｇ"
+//                )
+//                .keyboardDoneToolbar(focus: self.$isFocused)
+//                .onChange(of: evaYakusoku.gameNumberStart) {
+//                    let playGame = evaYakusoku.gameNumberCurrent - evaYakusoku.gameNumberStart
+//                    evaYakusoku.gameNumberPlay = playGame > 0 ? playGame : 0
+//                }
+//                // 現在入力
+//                unitTextFieldNumberInputWithUnit(
+//                    title: "現在",
+//                    inputValue: $evaYakusoku.gameNumberCurrent,
+//                    unitText: "Ｇ"
+//                )
+//                .focused(self.$isFocused)
+//                .onChange(of: evaYakusoku.gameNumberCurrent) {
+//                    let playGame = evaYakusoku.gameNumberCurrent - evaYakusoku.gameNumberStart
+//                    evaYakusoku.gameNumberPlay = playGame > 0 ? playGame : 0
+//                }
+//                // プレイ数
+//                unitTextGameNumberWithoutInput(
+//                    gameNumber: evaYakusoku.gameNumberPlay
+//                )
+//                
+//            } header: {
+//                Text("ゲーム数入力")
+//            }
             
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.evaYakusokuMenuFirstHitBadge)
+        .resetBadgeOnAppear($common.evaYakusokuMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -265,7 +285,7 @@ struct evaYakusokuViewFirstHit: View {
                         inputView: {
                             // BB
                             unitTextFieldNumberInputWithUnit(
-                                title: "BB",
+                                title: "黄BB",
                                 inputValue: $evaYakusoku.bonusCountBig
                             )
                             .focused($isFocused)
@@ -274,8 +294,17 @@ struct evaYakusokuViewFirstHit: View {
                             }
                             // SBB
                             unitTextFieldNumberInputWithUnit(
-                                title: "SBB",
+                                title: "赤SBB",
                                 inputValue: $evaYakusoku.bonusCountSBig,
+                            )
+                            .focused($isFocused)
+                            .onChange(of: evaYakusoku.bonusCountSBig) {
+                                evaYakusoku.bonusSumFunc()
+                            }
+                            // 青SBB
+                            unitTextFieldNumberInputWithUnit(
+                                title: "青SBB",
+                                inputValue: $evaYakusoku.bonusCountSBigBlue,
                             )
                             .focused($isFocused)
                             .onChange(of: evaYakusoku.bonusCountSBig) {
@@ -290,12 +319,40 @@ struct evaYakusokuViewFirstHit: View {
                             .onChange(of: evaYakusoku.bonusCountReg) {
                                 evaYakusoku.bonusSumFunc()
                             }
+                            // 暴走モード
+                            unitTextFieldNumberInputWithUnit(
+                                title: "暴走モード",
+                                inputValue: $evaYakusoku.koyakuCountBoso,
+                            )
+                            .focused($isFocused)
+                            .onChange(of: evaYakusoku.bonusCountReg) {
+                                evaYakusoku.bonusSumFunc()
+                            }
                         }, focus: self.$isFocused
                     )
                     // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
+//                    unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
                     // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetFirstHit)
+//                    unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetFirstHit)
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
                 }
             }
         }
@@ -309,4 +366,5 @@ struct evaYakusokuViewFirstHit: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

@@ -13,6 +13,17 @@ struct toreveViewTomanChallenge: View {
     @State var selectedSegment: String = "卍目・弱レア役"
     let segmentList: [String] = ["卍目・弱レア役", "チャンス目", "強🍒"]
     @State var isShowAlert: Bool = false
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 300.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 300.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 2
     
     var body: some View {
         List {
@@ -137,7 +148,7 @@ struct toreveViewTomanChallenge: View {
             } header: {
                 Text("AT昇格率")
             }
-            
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
@@ -150,6 +161,20 @@ struct toreveViewTomanChallenge: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("東卍チャンス")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

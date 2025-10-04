@@ -35,7 +35,8 @@ struct CountButtonStyle: ButtonStyle {
     var MinusBool = false
     var Vsize = 70.0
     var Hsize = 70.0
-    var Rsize = 10.0
+//    var Rsize = 10.0
+    var Rsize = 15.0
     
     func makeBody(configuration: Configuration) -> some View {
         ZStack {

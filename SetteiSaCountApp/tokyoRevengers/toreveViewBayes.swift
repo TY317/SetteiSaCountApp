@@ -15,9 +15,10 @@ struct toreveViewBayes: View {
     let payoutList: [Double] = [97.8, 98.8, 101.4, 106.3, 111.2, 114.9]
     @State var firstHitEnable: Bool = true
     @State var screenEnable: Bool = true
-    
+    @State var chanceCzEnable: Bool = true
     
     // 全機種共通
+    @EnvironmentObject var common: commonVar
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
@@ -46,11 +47,13 @@ struct toreveViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // チャンス目からのCZ当選率
+                unitToggleWithQuestion(enable: self.$chanceCzEnable, title: "チャンス目からのCZ当選率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
                         title: "初当り確率",
-                        textBody1: "・東卍チャンス、東卍ラッシュの初当り確率を計算要素に加えます",
+                        textBody1: "・東卍チャンス、東卍ラッシュ、ミッドナイトモード、稀咲陰謀の初当り確率を計算要素に加えます",
                     )
                 }
                 // 終了画面
@@ -75,6 +78,8 @@ struct toreveViewBayes: View {
                 self.resultGuess = bayesRatio()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.toreveMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -138,6 +143,32 @@ struct toreveViewBayes: View {
                     toreve.ratioTomanChallenge,
                     toreve.ratioTomanRush,
                 ], bigNumber: toreve.normalGame
+            )
+        }
+        var logPostMidNight: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostMidNight = logPostDenoBino(
+                ratio: toreve.ratioCzMidNight,
+                Count: toreve.czCountMidNight,
+                bigNumber: toreve.normalGame
+            )
+        }
+        // 綺咲陰謀
+        var logPostKisaki: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostKisaki = logPostDenoBino(
+                ratio: toreve.ratioCzKisaki,
+                Count: toreve.czCountKisaki,
+                bigNumber: toreve.normalGame
+            )
+        }
+        // チャンス目からのCZ当選率
+        var logPostChanceCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chanceCzEnable {
+            logPostChanceCz = logPostPercentBino(
+                ratio: toreve.ratioNormalChanceMidNight,
+                Count: toreve.chanceCzCountCzHit,
+                bigNumber: toreve.chanceCzCountChance
             )
         }
         // 終了画面
@@ -208,6 +239,9 @@ struct toreveViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
             logPostScreen,
+            logPostKisaki,
+            logPostChanceCz,
+            logPostMidNight,
             
             logPostTrophy,
             logPostBefore,
@@ -241,4 +275,5 @@ struct toreveViewBayes: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

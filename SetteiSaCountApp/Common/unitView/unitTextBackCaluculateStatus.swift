@@ -10,7 +10,7 @@ import SwiftUI
 struct unitTextBackCaluculateStatus: View {
     let enableStatus: Bool
     let textColor: Color = .secondary
-    let textAlignment: Alignment = .center
+    var textAlignment: Alignment = .center
     
     var body: some View {
         if self.enableStatus {

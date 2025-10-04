@@ -14,9 +14,17 @@ struct izaBanchoTableBBChokugeki: View {
         HStack(spacing: 0) {
             unitTableSettingIndex()
             unitTableDenominate(
-                columTitle: "番長ボーナス直撃",
+                columTitle: "赤7",
+                denominateList: izaBancho.ratioBBChokugekiRed,
+            )
+            unitTableDenominate(
+                columTitle: "青7",
+                denominateList: izaBancho.ratioBBChokugekiBlue,
+            )
+            unitTableDenominate(
+                columTitle: "合算",
                 denominateList: izaBancho.ratioBBChokugeki,
-                maxWidth: 200
+//                maxWidth: 200
             )
         }
     }

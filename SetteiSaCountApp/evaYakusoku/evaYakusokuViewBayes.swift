@@ -166,7 +166,7 @@ struct evaYakusokuViewBayes: View {
                     evaYakusoku.ratioReg,
                     evaYakusoku.ratioBosoReplay,
                 ],
-                bigNumber: evaYakusoku.gameNumberPlay
+                bigNumber: evaYakusoku.gameNumberCurrent
             )
         }
         // トロフィー

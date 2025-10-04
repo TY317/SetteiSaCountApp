@@ -64,6 +64,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteEnen") var isSelectedFavoriteEnen = true
     @AppStorage("isSelectedFavoriteAzurLane") var isSelectedFavoriteAzurLane = true
     @AppStorage("isSelectedFavoriteToreve") var isSelectedFavoriteToreve = true
+    @AppStorage("isSelectedFavoriteCrea") var isSelectedFavoriteCrea = true
 }
 
 
@@ -175,11 +176,10 @@ struct ContentView: View {
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラー",
-                                        badgeStatus: ver391.jugSeriesBadge,
+                                        badgeStatus: common.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -200,6 +200,22 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// クレアの秘宝伝、25年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteCrea == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(creaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("creaMachineIcon"),
+                                        machineName: "クレアBT",
+                                        badgeStatus: common.creaMachineIconBadge,
+                                        btBadgeBool: true,
+                                    )
+                                }
+                                
                                 // //// 東京リベンジャーズ、25年9月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
                                     
@@ -213,7 +229,7 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("toreveMachineIcon"),
                                         machineName: "東リベ",
-                                        badgeStatus: ver391.toreveMachineIconBadge,
+                                        badgeStatus: common.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -338,7 +354,7 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
-//                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: common.izaBanchoMachineIconBadge,
                                     )
                                 }
                                 
@@ -811,7 +827,7 @@ struct ContentView: View {
                                         makerName: "北電子",
                                         releaseYear: 96,
                                         releaseMonth: 12,
-                                        badgeStatus: ver391.jugSeriesBadge,
+                                        badgeStatus: common.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -835,6 +851,25 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// クレアの秘宝伝、25年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteCrea == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(creaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("creaMachineIcon"),
+                                        machineName: "クレアの秘宝伝BT",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 9,
+                                        badgeStatus: common.creaMachineIconBadge,
+                                        btBadgeBool: true,
+                                    )
+                                }
+                                
                                 // //// 東京リベンジャーズ、25年9月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
                                     
@@ -851,7 +886,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 9,
-                                        badgeStatus: ver391.toreveMachineIconBadge,
+                                        badgeStatus: common.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -1002,7 +1037,7 @@ struct ContentView: View {
                                         makerName: "大都技研",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: common.izaBanchoMachineIconBadge,
                                     )
                                 }
                                 
@@ -1819,6 +1854,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // クレアの秘宝伝
+                Toggle("クレアの秘宝伝BT", isOn: $favoriteSet.isSelectedFavoriteCrea)
                 // 東京リベンジャーズ
                 Toggle("東京リベンジャーズ", isOn: $favoriteSet.isSelectedFavoriteToreve)
                 // アズールレーン

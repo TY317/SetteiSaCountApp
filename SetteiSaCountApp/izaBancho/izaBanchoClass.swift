@@ -19,7 +19,9 @@ class IzaBancho: ObservableObject {
     // 初当り
     // /////////////////
     let ratioFirstHit: [Double] = [386.9,368.5,375.8,332.4,351.6,312.1]
-    let ratioBBChokugeki: [Double] = [-1,-1,-1,-1,-1,-1]
+    let ratioBBChokugeki: [Double] = [7866,6923,5970,2660,3214,2247]
+    let ratioBBChokugekiRed: [Double] = [8156,7387,6694,2940,3697,2496]
+    let ratioBBChokugekiBlue: [Double] = [220772,110027,55196,27930,24607,22561]
     
     
     // /////////////////
@@ -152,6 +154,12 @@ class IzaBancho: ObservableObject {
         atCount = arrayStringDataCount(arrayData: bonusKindArrayData, countString: selectListBonusKind[0])
         bonusCount = arrayStringDataCount(arrayData: bonusKindArrayData, countString: selectListBonusKind[1])
         firstHitCount = atCount + bonusCount
+        chokugekiCount = arrayString2Array2AndDataCount(
+            array1Data: bonusKindArrayData,
+            array2Data: triggerArrayData,
+            key1: selectListBonusKind[1],
+            key2: selectListTrigger[2],
+        )
     }
     
     // //// 弱チェリー確率
@@ -190,6 +198,11 @@ class IzaBancho: ObservableObject {
         czResultCountYellowSum = 0
         minusCheck = false
     }
+    
+    // ////////////
+    // ver3.10.0
+    // ////////////
+    @AppStorage("izaBanchoChokugekiCount") var chokugekiCount: Int = 0
 }
 
 
@@ -223,6 +236,11 @@ class IzaBanchoMemory1: ObservableObject {
     @AppStorage("izaBanchoCzResultCountYellowMissMemory1") var czResultCountYellowMiss: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowHitMemory1") var czResultCountYellowHit: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowSumMemory1") var czResultCountYellowSum: Int = 0
+    
+    // ////////////
+    // ver3.10.0
+    // ////////////
+    @AppStorage("izaBanchoChokugekiCountMemory1") var chokugekiCount: Int = 0
 }
 
 
@@ -256,6 +274,11 @@ class IzaBanchoMemory2: ObservableObject {
     @AppStorage("izaBanchoCzResultCountYellowMissMemory2") var czResultCountYellowMiss: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowHitMemory2") var czResultCountYellowHit: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowSumMemory2") var czResultCountYellowSum: Int = 0
+    
+    // ////////////
+    // ver3.10.0
+    // ////////////
+    @AppStorage("izaBanchoChokugekiCountMemory2") var chokugekiCount: Int = 0
 }
 
 
@@ -289,4 +312,9 @@ class IzaBanchoMemory3: ObservableObject {
     @AppStorage("izaBanchoCzResultCountYellowMissMemory3") var czResultCountYellowMiss: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowHitMemory3") var czResultCountYellowHit: Int = 0
     @AppStorage("izaBanchoCzResultCountYellowSumMemory3") var czResultCountYellowSum: Int = 0
+    
+    // ////////////
+    // ver3.10.0
+    // ////////////
+    @AppStorage("izaBanchoChokugekiCountMemory3") var chokugekiCount: Int = 0
 }
