@@ -3128,10 +3128,10 @@
 			isa = PBXGroup;
 			children = (
 				0F64DD642DC0C1970027315D /* ver300Class.swift */,
-				0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */,
 				0F1E11E62DC8351700F69AFF /* ver310Class.swift */,
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F6FB8DF2DE3406E00207855 /* ver330Class.swift */,
+				0F1E11EF2DCB765A00F69AFF /* ver301Class.swift */,
 				0F9A4F8F2DF1C6F0003B6337 /* ver340Class.swift */,
 				0F6B59BB2DFD703C00DB1A2B /* ver350Class.swift */,
 				0F89357B2E1E95DF00BF6FBE /* ver351Class.swift */,
