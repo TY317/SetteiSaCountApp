@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewEpisode: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
@@ -100,7 +100,7 @@ struct magiaViewEpisode: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     magiaViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -162,7 +162,7 @@ struct magiaViewEpisode: View {
 
 #Preview {
     magiaViewEpisode(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         magia: Magia(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

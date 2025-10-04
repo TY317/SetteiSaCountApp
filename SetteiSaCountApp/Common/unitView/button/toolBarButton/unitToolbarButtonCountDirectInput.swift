@@ -46,9 +46,7 @@ struct unitToolbarButtonCountDirectInput<inputView: View>: View {
                             }, label: {
                                 Text("完了")
                                     .fontWeight(.bold)
-//                                    .foregroundStyle(Color.blue)
                             })
-//                            .foregroundStyle(Color.blue)
                         }
                     }
                 }

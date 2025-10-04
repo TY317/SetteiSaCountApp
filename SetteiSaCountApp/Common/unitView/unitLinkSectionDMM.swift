@@ -45,6 +45,7 @@ struct unitLinkSectionDMM: View {
                     Spacer()
                 }
             }
+            .padding(.vertical, -10.0)
         } footer: {
             Text(self.footerText)
         }

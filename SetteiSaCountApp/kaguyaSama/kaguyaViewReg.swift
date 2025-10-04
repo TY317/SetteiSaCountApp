@@ -24,7 +24,7 @@ struct kaguyaTipRegCharaSelect: Tip {
 }
 
 struct kaguyaViewReg: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
 //    @ObservedObject var kaguya = KaguyaSama()
     @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
@@ -182,7 +182,7 @@ struct kaguyaViewReg: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     kaguyaViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         kaguya: kaguya,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -255,7 +255,7 @@ struct kaguyaViewReg: View {
 
 #Preview {
     kaguyaViewReg(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         kaguya: KaguyaSama(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

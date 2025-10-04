@@ -9,7 +9,7 @@ import SwiftUI
 
 struct darlingViewTop: View {
 //    @ObservedObject var ver380: Ver380
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @StateObject var darling = Darling()
     @State var isShowAlert: Bool = false
     @StateObject var darlingMemory1 = DarlingMemory1()
@@ -25,7 +25,7 @@ struct darlingViewTop: View {
                     // 通常時
                     NavigationLink(destination: darlingViewNormal(
 //                        ver380: ver380,
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -38,7 +38,7 @@ struct darlingViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: darlingViewFirstHit(
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -51,7 +51,7 @@ struct darlingViewTop: View {
                     }
                     // CZ 開始時の初期レベル
                     NavigationLink(destination: darlingViewCz(
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -59,7 +59,7 @@ struct darlingViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "dot.scope",
                             textBody: "CZ コネクトチャンス",
-                            badgeStatus: ver390.darlingMenuCzBadge,
+//                            badgeStatus: ver390.darlingMenuCzBadge,
                         )
                     }
                     // ボーナス高確率終了画面
@@ -106,7 +106,7 @@ struct darlingViewTop: View {
                 
                 // 設定期待値計算
                 NavigationLink(destination: darlingViewBayes(
-                    ver390: ver390,
+//                    ver390: ver390,
                     darling: darling,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -114,7 +114,7 @@ struct darlingViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver390.darlingMenuBayesBadge,
+//                        badgeStatus: ver390.darlingMenuBayesBadge,
                     )
                 }
                 
@@ -131,7 +131,7 @@ struct darlingViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.darlingMachineIconBadge)
+//        .resetBadgeOnAppear($ver390.darlingMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -551,7 +551,7 @@ struct darlingSubViewLoadMemory: View {
 #Preview {
     darlingViewTop(
 //        ver380: Ver380(),
-        ver390: Ver390(),
+//        ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

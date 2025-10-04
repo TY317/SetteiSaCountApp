@@ -11,23 +11,23 @@ import TipKit
 // //////////////////
 // Tip：履歴入力の説明
 // //////////////////
-struct izaBanchoTipHistoryInput: Tip {
-    var title: Text {
-        Text("履歴入力")
-    }
-    
-    var message: Text? {
-        Text("AT,通常ボーナス当選ごとに入力して下さい。入力結果から\n・AT初当り確率\n・通常ボーナス初当り確率\n・合算初当り確率　を算出します")
-    }
-    var image: Image? {
-        Image(systemName: "lightbulb.min")
-    }
-}
+//struct izaBanchoTipHistoryInput: Tip {
+//    var title: Text {
+//        Text("履歴入力")
+//    }
+//    
+//    var message: Text? {
+//        Text("AT,通常ボーナス当選ごとに入力して下さい。入力結果から\n・AT初当り確率\n・通常ボーナス初当り確率\n・合算初当り確率　を算出します")
+//    }
+//    var image: Image? {
+//        Image(systemName: "lightbulb.min")
+//    }
+//}
 
 
 
 struct izaBanchoViewFirstHit: View {
-//    @ObservedObject var ver340: Ver340
+    @EnvironmentObject var common: commonVar
     @ObservedObject var izaBancho: IzaBancho
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -44,7 +44,7 @@ struct izaBanchoViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     
     var body: some View {
-        TipView(izaBanchoTipHistoryInput())
+//        TipView(izaBanchoTipHistoryInput())
         List {
             Section {
                 Text("現在値はダイトモで確認して下さい")
@@ -150,7 +150,15 @@ struct izaBanchoViewFirstHit: View {
                     }
                 }
             } header: {
-                Text("初当り登録")
+                HStack {
+                    Text("初当り登録")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "初当り登録",
+                            textBody1: "AT,通常ボーナス当選ごとに入力して下さい。入力結果から\n・AT初当り確率\n・通常ボーナス初当り確率\n・合算初当り確率　を算出します"
+                        )
+                    }
+                }
             }
             
             // //// 履歴表示
@@ -273,6 +281,14 @@ struct izaBanchoViewFirstHit: View {
                         spacerBool: false,
                     )
                 }
+                // 直撃確率
+                unitResultRatioDenomination2Line(
+                    title: "ボーナス直撃",
+                    count: $izaBancho.chokugekiCount,
+                    bigNumber: $izaBancho.playGameSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer3100IzaBanchoChokugeki())
                 // 初当り確率
                 unitLinkButton(
                     title: "初当り確率",
@@ -318,7 +334,7 @@ struct izaBanchoViewFirstHit: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver340.izaBanchoMenuFirstHitBadgeStaus)
+        .resetBadgeOnAppear($common.izaBanchoMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -358,7 +374,7 @@ struct izaBanchoViewFirstHit: View {
 
 #Preview {
     izaBanchoViewFirstHit(
-//        ver340: Ver340(),
         izaBancho: IzaBancho()
     )
+    .environmentObject(commonVar())
 }

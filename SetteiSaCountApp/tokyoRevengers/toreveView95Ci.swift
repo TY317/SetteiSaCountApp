@@ -31,6 +31,24 @@ struct toreveView95Ci: View {
                 )
             )
             .tag(7)
+            // チャンス目からのCZ当選回数
+            unitListSection95Ci(
+                grafTitle: "通常チャンス目からのCZ当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $toreve.chanceCzCountCzHit,
+                        bigNumber: $toreve.chanceCzCountChance,
+                        setting1Percent: toreve.ratioNormalChanceMidNight[0],
+                        setting2Percent: toreve.ratioNormalChanceMidNight[1],
+                        setting3Percent: toreve.ratioNormalChanceMidNight[2],
+                        setting4Percent: toreve.ratioNormalChanceMidNight[3],
+                        setting5Percent: toreve.ratioNormalChanceMidNight[4],
+                        setting6Percent: toreve.ratioNormalChanceMidNight[5]
+                    )
+                )
+            )
+            .tag(8)
             // CZ ミッドナイト回数
             unitListSection95Ci(
                 grafTitle: "CZ ミッドナイト回数",

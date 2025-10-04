@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct magiaViewTop: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @StateObject var magia = Magia()
     @State var isShowAlert: Bool = false
     @StateObject var magiaMemory1 = MagiaMemory1()
@@ -33,7 +33,7 @@ struct magiaViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: magiaViewNormal(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -46,7 +46,7 @@ struct magiaViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: magiaViewFirstHit(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -59,7 +59,7 @@ struct magiaViewTop: View {
                     }
                     // みたまボーナス
                     NavigationLink(destination: magiaViewMitama(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -72,7 +72,7 @@ struct magiaViewTop: View {
                     }
                     // エピソードボーナス
                     NavigationLink(destination: magiaViewEpisode(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -126,7 +126,7 @@ struct magiaViewTop: View {
                     }
                     // ボーナス,AT後の高確スタート
                     NavigationLink(destination: magiaViewKokakuStart(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -172,7 +172,7 @@ struct magiaViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: magiaViewBayes(
-                    ver390: ver390,
+//                    ver390: ver390,
                     magia: magia,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -180,7 +180,7 @@ struct magiaViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver390.magiaMenuBayesBadge,
+//                        badgeStatus: ver390.magiaMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -195,7 +195,7 @@ struct magiaViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.magiaMachineIconBadge)
+//        .resetBadgeOnAppear($ver390.magiaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -860,7 +860,7 @@ struct magiaSubViewLoadMemory: View {
 
 #Preview {
     magiaViewTop(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

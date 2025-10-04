@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct kaguyaViewEnding: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
 //    @ObservedObject var kaguya = KaguyaSama()
     @ObservedObject var kaguya: KaguyaSama
     @State var isShowAlert = false
@@ -46,7 +46,7 @@ struct kaguyaViewEnding: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     kaguyaViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         kaguya: kaguya,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -80,7 +80,7 @@ struct kaguyaViewEnding: View {
 
 #Preview {
     kaguyaViewEnding(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         kaguya: KaguyaSama(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

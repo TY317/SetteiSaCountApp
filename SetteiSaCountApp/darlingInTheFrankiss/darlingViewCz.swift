@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewCz: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -97,7 +97,7 @@ struct darlingViewCz: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     darlingViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -116,7 +116,7 @@ struct darlingViewCz: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer390DarlingCz())
+//                .popoverTip(tipVer390DarlingCz())
                 // カウントボタン横並び
                 HStack {
                     // 白
@@ -271,7 +271,7 @@ struct darlingViewCz: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     darlingViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         darling: darling,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -284,7 +284,7 @@ struct darlingViewCz: View {
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.darlingMenuCzBadge)
+//        .resetBadgeOnAppear($ver390.darlingMenuCzBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -395,7 +395,7 @@ struct darlingViewCz: View {
 
 #Preview {
     darlingViewCz(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         darling: Darling(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

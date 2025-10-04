@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewTop: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
@@ -17,6 +17,7 @@ struct toreveViewTop: View {
     @StateObject var toreveMemory1 = ToreveMemory1()
     @StateObject var toreveMemory2 = ToreveMemory2()
     @StateObject var toreveMemory3 = ToreveMemory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -36,11 +37,13 @@ struct toreveViewTop: View {
                     NavigationLink(destination: toreveViewNormal(
                         ver391: ver391,
                         toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-                            badgeStatus: ver391.toreveMenuNormalBadge,
+                            badgeStatus: common.toreveMenuNormalBadge,
                         )
                     }
                     // 周期履歴
@@ -62,7 +65,8 @@ struct toreveViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: common.toreveMenuFirstHitBadge,
                         )
                     }
                     // 東卍チャンス
@@ -158,6 +162,7 @@ struct toreveViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.toreveMenuBayesBadge,
                     )
                 }
                 
@@ -173,7 +178,7 @@ struct toreveViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMachineIconBadge)
+        .resetBadgeOnAppear($common.toreveMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -282,6 +287,12 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory1.endingCountRed = toreve.endingCountRed
         toreveMemory1.endingCountRainbow = toreve.endingCountRainbow
         toreveMemory1.endingCountSum = toreve.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreveMemory1.chanceCzCountChance = toreve.chanceCzCountChance
+        toreveMemory1.chanceCzCountCzHit = toreve.chanceCzCountCzHit
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -326,6 +337,12 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory2.endingCountRed = toreve.endingCountRed
         toreveMemory2.endingCountRainbow = toreve.endingCountRainbow
         toreveMemory2.endingCountSum = toreve.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreveMemory2.chanceCzCountChance = toreve.chanceCzCountChance
+        toreveMemory2.chanceCzCountCzHit = toreve.chanceCzCountCzHit
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -370,6 +387,12 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory3.endingCountRed = toreve.endingCountRed
         toreveMemory3.endingCountRainbow = toreve.endingCountRainbow
         toreveMemory3.endingCountSum = toreve.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreveMemory3.chanceCzCountChance = toreve.chanceCzCountChance
+        toreveMemory3.chanceCzCountCzHit = toreve.chanceCzCountCzHit
     }
 }
 
@@ -451,6 +474,12 @@ struct toreveSubViewLoadMemory: View {
         toreve.endingCountRed = toreveMemory1.endingCountRed
         toreve.endingCountRainbow = toreveMemory1.endingCountRainbow
         toreve.endingCountSum = toreveMemory1.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreve.chanceCzCountChance = toreveMemory1.chanceCzCountChance
+        toreve.chanceCzCountCzHit = toreveMemory1.chanceCzCountCzHit
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -503,6 +532,12 @@ struct toreveSubViewLoadMemory: View {
         toreve.endingCountRed = toreveMemory2.endingCountRed
         toreve.endingCountRainbow = toreveMemory2.endingCountRainbow
         toreve.endingCountSum = toreveMemory2.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreve.chanceCzCountChance = toreveMemory2.chanceCzCountChance
+        toreve.chanceCzCountCzHit = toreveMemory2.chanceCzCountCzHit
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -555,14 +590,21 @@ struct toreveSubViewLoadMemory: View {
         toreve.endingCountRed = toreveMemory3.endingCountRed
         toreve.endingCountRainbow = toreveMemory3.endingCountRainbow
         toreve.endingCountSum = toreveMemory3.endingCountSum
+        
+        // ///////////////
+        // ver3.10.0で追加
+        // ///////////////
+        toreve.chanceCzCountChance = toreveMemory3.chanceCzCountChance
+        toreve.chanceCzCountCzHit = toreveMemory3.chanceCzCountCzHit
     }
 }
 
 #Preview {
     toreveViewTop(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

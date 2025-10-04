@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mhrViewHistory: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
 //    @ObservedObject var mhr = Mhr()
     @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
@@ -93,7 +93,7 @@ struct mhrViewHistory: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -281,7 +281,7 @@ struct mhrViewHistory: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -317,7 +317,7 @@ struct mhrViewHistory: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -468,7 +468,7 @@ struct mhrSubViewDataInput: View {
 
 #Preview {
     mhrViewHistory(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         mhr: Mhr(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

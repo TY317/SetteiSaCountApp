@@ -69,9 +69,9 @@ class Toreve: ObservableObject {
     // //////////////
     // 初当り
     // //////////////
-    let ratioCzMidNight: [Double] = [1278.4,-1,-1,-1,-1,-1]
-    let ratioCzKisaki: [Double] = [14520.4,-1,-1,-1,-1,-1]
-    let ratioCzSum: [Double] = [1174.9,-1,-1,-1,-1,-1]
+    let ratioCzMidNight: [Double] = [1278.4,1258.6,1164.5,1017.7,1017.7,982.4]
+    let ratioCzKisaki: [Double] = [14520.4,12128.4,9935.2,6586.5,6451.1,5841.0]
+    let ratioCzSum: [Double] = [1174.9,1140.2,1042.3,881.5,879.0,840.9]
     let ratioTomanChallenge: [Double] = [681.5,679.7,673.3,669.4,677.9,672.5]
     let ratioTomanRush: [Double] = [482.2,474.7,456.9,414.0,393.8,373.1]
     let ratioFirstHit: [Double] = [282.4,279.5,272.2,255.8,249.1,240.1]
@@ -176,14 +176,16 @@ class Toreve: ObservableObject {
         gameNumberPlay = 0
         bellCount = 0
         minusCheck = false
+        chanceCzCountChance = 0
+        chanceCzCountCzHit = 0
     }
     // レア役からのCZ当選率
-    let ratioNormalChanceMidNight: [Double] = [4.7,-1,-1,-1,-1,-1]
-    let ratioNormalKyoCherryMidNight: [Double] = [20.3,-1,-1,-1,-1,-1]
-    let ratioHighChanceMidNight: [Double] = [31.3,-1,-1,-1,-1,-1]
-    let ratioHighKyoCherryMidNight: [Double] = [50.0,-1,-1,-1,-1,-1]
-    let ratioNormalManjiKisaki: [Double] = [0.8,-1,-1,-1,-1,-1]
-    let ratioHighManjiKisaki: [Double] = [9.8,-1,-1,-1,-1,-1]
+    let ratioNormalChanceMidNight: [Double] = [4.7,5.1,7.0,10.9,11.3,12.5]
+    let ratioNormalKyoCherryMidNight: [Double] = [20.3,20.3,20.3,20.3,20.3,20.3,]
+    let ratioHighChanceMidNight: [Double] = [31.3,31.3,31.3,31.3,31.3,31.3,]
+    let ratioHighKyoCherryMidNight: [Double] = [50.0,50.0,50.0,50.0,50.0,50.0,]
+    let ratioNormalManjiKisaki: [Double] = [0.8,1.2,1.6,2.3,2.3,2.7]
+    let ratioHighManjiKisaki: [Double] = [9.8,10.2,11.7,18.0,18.8,20.3]
     
     // モードごとの当選先振分け
     let ratioModeAChance: [Double] = [54.7,-1,-1,-1,-1,-1]
@@ -243,6 +245,12 @@ class Toreve: ObservableObject {
         endingCountSum = 0
         minusCheck = false
     }
+    
+    // ///////////////
+    // ver3.10.0で追加
+    // ///////////////
+    @AppStorage("toreveChanceCzCountChance") var chanceCzCountChance: Int = 0
+    @AppStorage("toreveChanceCzCountCzHit") var chanceCzCountCzHit: Int = 0
 }
 
 // //// メモリー1
@@ -291,6 +299,12 @@ class ToreveMemory1: ObservableObject {
     @AppStorage("toreveEndingCountRedMemory1") var endingCountRed: Int = 0
     @AppStorage("toreveEndingCountRainbowMemory1") var endingCountRainbow: Int = 0
     @AppStorage("toreveEndingCountSumMemory1") var endingCountSum: Int = 0
+    
+    // ///////////////
+    // ver3.10.0で追加
+    // ///////////////
+    @AppStorage("toreveChanceCzCountChanceMemory1") var chanceCzCountChance: Int = 0
+    @AppStorage("toreveChanceCzCountCzHitMemory1") var chanceCzCountCzHit: Int = 0
 }
 
 // //// メモリー2
@@ -339,6 +353,12 @@ class ToreveMemory2: ObservableObject {
     @AppStorage("toreveEndingCountRedMemory2") var endingCountRed: Int = 0
     @AppStorage("toreveEndingCountRainbowMemory2") var endingCountRainbow: Int = 0
     @AppStorage("toreveEndingCountSumMemory2") var endingCountSum: Int = 0
+    
+    // ///////////////
+    // ver3.10.0で追加
+    // ///////////////
+    @AppStorage("toreveChanceCzCountChanceMemory2") var chanceCzCountChance: Int = 0
+    @AppStorage("toreveChanceCzCountCzHitMemory2") var chanceCzCountCzHit: Int = 0
 }
 
 // //// メモリー3
@@ -387,4 +407,10 @@ class ToreveMemory3: ObservableObject {
     @AppStorage("toreveEndingCountRedMemory3") var endingCountRed: Int = 0
     @AppStorage("toreveEndingCountRainbowMemory3") var endingCountRainbow: Int = 0
     @AppStorage("toreveEndingCountSumMemory3") var endingCountSum: Int = 0
+    
+    // ///////////////
+    // ver3.10.0で追加
+    // ///////////////
+    @AppStorage("toreveChanceCzCountChanceMemory3") var chanceCzCountChance: Int = 0
+    @AppStorage("toreveChanceCzCountCzHitMemory3") var chanceCzCountCzHit: Int = 0
 }

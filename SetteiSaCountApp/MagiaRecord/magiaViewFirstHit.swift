@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewFirstHit: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -119,7 +119,7 @@ struct magiaViewFirstHit: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     magiaViewBayes(
-                        ver390: ver390,
+//                        ver390: ver390,
                         magia: magia,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -222,7 +222,7 @@ struct magiaViewFirstHit: View {
 
 #Preview {
     magiaViewFirstHit(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         magia: Magia(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

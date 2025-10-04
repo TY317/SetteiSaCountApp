@@ -64,71 +64,89 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteEnen") var isSelectedFavoriteEnen = true
     @AppStorage("isSelectedFavoriteAzurLane") var isSelectedFavoriteAzurLane = true
     @AppStorage("isSelectedFavoriteToreve") var isSelectedFavoriteToreve = true
+    @AppStorage("isSelectedFavoriteCrea") var isSelectedFavoriteCrea = true
 }
 
 
 // /////////////////////////
 // 変数：コモン
 // /////////////////////////
-class commonVar: ObservableObject {
-    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = true      // アイコン表示の切り替え
-    let lazyVGridSize: CGFloat = 70
-    let lazyVGridSpacing: CGFloat = 20
-    let lazyVGridColumnsPortlait: Int = 4
-    let lazyVGridColumnsLandscape: Int = 7
-    
-    // ///////////////////////
-    // 起動回数カウント
-    // ///////////////////////
-    @AppStorage("commonAppLaunchCount") var appLaunchCount: Int = 0
-    @AppStorage("commonAppLaunchCountUpLastDateDouble") var appLaunchCountUpLastDateDouble: Double = 0.0
-    
-    // //// 1日1回アプリ起動回数をカウントアップさせる
-    func appLaunchCountUp() {
-        // 現在時の取得
-        let nowDate = Date()
-        let nowDateDouble = nowDate.timeIntervalSince1970
-        // 最終カウントアップ時から20時間経過していたらカウントアップさせる
-        if (nowDateDouble - appLaunchCountUpLastDateDouble) > 72000 {
-            appLaunchCount += 1
-            appLaunchCountUpLastDateDouble = nowDateDouble
-            print("カウントアップ： \(appLaunchCount) 回")
-        } else {
-            print("カウントアップなし")
-        }
-    }
-    @Environment(\.requestReview) var requestReview
-    @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
-    
-    // ////////////////
-    // ver3.5.1で追加
-    // 初回起動時のバージョン情報を保存しておく
-    // ////////////////
-    @AppStorage("commonFirstLaunchAppVersion") var firstLaunchAppVersion: String?
-    
-    func saveInitialVersionIfNeeded() {
-        // すでに保存されていたら何もしない
-        guard firstLaunchAppVersion == nil else { return }
-        
-        // 現在のバージョンを取得
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            firstLaunchAppVersion = version
-            print("初回起動バージョンを保存: \(version)")
-        }
-    }
-}
+//class commonVar: ObservableObject {
+//    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = true      // アイコン表示の切り替え
+//    let lazyVGridSize: CGFloat = 70
+//    let lazyVGridSpacing: CGFloat = 20
+//    let lazyVGridColumnsPortlait: Int = 4
+//    let lazyVGridColumnsLandscape: Int = 7
+//    
+//    // ///////////////////////
+//    // 起動回数カウント
+//    // ///////////////////////
+//    @AppStorage("commonAppLaunchCount") var appLaunchCount: Int = 0
+//    @AppStorage("commonAppLaunchCountUpLastDateDouble") var appLaunchCountUpLastDateDouble: Double = 0.0
+//    
+//    // //// 1日1回アプリ起動回数をカウントアップさせる
+//    func appLaunchCountUp() {
+//        // 現在時の取得
+//        let nowDate = Date()
+//        let nowDateDouble = nowDate.timeIntervalSince1970
+//        // 最終カウントアップ時から20時間経過していたらカウントアップさせる
+//        if (nowDateDouble - appLaunchCountUpLastDateDouble) > 72000 {
+//            appLaunchCount += 1
+//            appLaunchCountUpLastDateDouble = nowDateDouble
+//            print("カウントアップ： \(appLaunchCount) 回")
+//        } else {
+//            print("カウントアップなし")
+//        }
+//    }
+//    @Environment(\.requestReview) var requestReview
+//    @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
+//    
+//    // ////////////////
+//    // ver3.5.1で追加
+//    // 初回起動時のバージョン情報を保存しておく
+//    // ////////////////
+//    @AppStorage("commonFirstLaunchAppVersion") var firstLaunchAppVersion: String?
+////    @AppStorage("commonLastLaunchAppVersion") var lastLaunchAppVersion: String?
+//    
+//    func saveInitialVersionIfNeeded() {
+//        // すでに保存されていたら何もしない
+//        guard firstLaunchAppVersion == nil else { return }
+//        
+//        // 現在のバージョンを取得
+//        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+//            firstLaunchAppVersion = version
+//            print("初回起動バージョンを保存: \(version)")
+//        }
+//    }
+////    func saveAppVersions() {
+////        // 現在のバージョンを取得
+////        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+////            
+////            // 初回起動バージョンは一度だけ保存
+////            if firstLaunchAppVersion == nil {
+////                firstLaunchAppVersion = version
+////                print("初回起動バージョンを保存: \(version)")
+////            }
+////            
+////            // 最新起動バージョンは毎回更新
+////            lastLaunchAppVersion = version
+////            print("最新起動バージョンを更新: \(version)")
+////        }
+////    }
+//}
 
 // /////////////////////////
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-    @StateObject var ver390 = Ver390()
+//    @StateObject var ver390 = Ver390()
     @StateObject var ver391 = Ver391()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
     @ObservedObject var favoriteSet = favoriteSetVar()
-    @ObservedObject var common: commonVar
+//    @ObservedObject var common: commonVar
+    @EnvironmentObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
@@ -140,7 +158,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer391UpdateInfo())
+                TipView(tipVer3100UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -158,11 +176,10 @@ struct ContentView: View {
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-                                            common: common,
                                         )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラー",
-                                        badgeStatus: ver391.jugSeriesBadge,
+                                        badgeStatus: common.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -175,11 +192,27 @@ struct ContentView: View {
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-                                            common: common,
+//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: ver391.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// クレアの秘宝伝、25年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteCrea == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(creaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("creaMachineIcon"),
+                                        machineName: "クレアBT",
+                                        badgeStatus: common.creaMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -189,14 +222,14 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("toreveMachineIcon"),
                                         machineName: "東リベ",
-                                        badgeStatus: ver391.toreveMachineIconBadge,
+                                        badgeStatus: common.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -223,13 +256,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
 //                                            ver380: ver380,
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-                                        badgeStatus: ver390.darlingMachineIconBadge,
+//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -255,10 +288,12 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァ約束",
-//                                        badgeStatus: ver380.evaYakusokuMachineIconBadge,
+                                        badgeStatus: common.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -319,7 +354,7 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
-//                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: common.izaBanchoMachineIconBadge,
                                     )
                                 }
                                 
@@ -429,13 +464,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("magiaMachineIcon"),
                                         machineName: "マギレコ",
-                                        badgeStatus: ver390.magiaMachineIconBadge,
+//                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
                                 }
                                 
@@ -590,13 +625,13 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             mhrViewTop(
-                                                ver390: ver390,
+//                                                ver390: ver390,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )),
                                         iconImage: Image("mhrMachineIcon"),
                                         machineName: "モンハンライズ",
-                                        badgeStatus:ver390.mhrMachineIconBadge,
+//                                        badgeStatus:ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -620,13 +655,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaguyaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("kaguyaMachineIcon"),
                                         machineName: "かぐや様",
-                                        badgeStatus: ver390.kaguyaMachineIconBadge
+//                                        badgeStatus: ver390.kaguyaMachineIconBadge
                                     )
                                 }
                                 
@@ -785,14 +820,14 @@ struct ContentView: View {
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-                                            common: common,
+//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラーシリーズ",
                                         makerName: "北電子",
                                         releaseYear: 96,
                                         releaseMonth: 12,
-                                        badgeStatus: ver391.jugSeriesBadge,
+                                        badgeStatus: common.jugSeriesBadge,
                                     )
                                 }
                                 
@@ -805,7 +840,7 @@ struct ContentView: View {
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-                                            common: common,
+//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
@@ -816,13 +851,32 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// クレアの秘宝伝、25年9月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteCrea == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(creaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("creaMachineIcon"),
+                                        machineName: "クレアの秘宝伝BT",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 9,
+                                        badgeStatus: common.creaMachineIconBadge,
+                                        btBadgeBool: true,
+                                    )
+                                }
+                                
                                 // //// 東京リベンジャーズ、25年9月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteToreve == false {
                                     
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
@@ -832,7 +886,7 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 9,
-                                        badgeStatus: ver391.toreveMachineIconBadge,
+                                        badgeStatus: common.toreveMachineIconBadge,
                                     )
                                 }
                                 
@@ -863,7 +917,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
 //                                            ver380: ver380,
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -873,7 +927,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver390.darlingMachineIconBadge,
+//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -902,13 +956,15 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
 //                                            ver380: ver380,
+                                            bayes: bayes,
+                                            viewModel: viewModel,
                                         )),
                                         iconImage: Image("evaYakusokuMachineIcon"),
                                         machineName: "ヱヴァンゲリヲン〜約束の扉〜",
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-//                                        badgeStatus: ver380.evaYakusokuMachineIconBadge,
+                                        badgeStatus: common.evaYakusokuMachineIconBadge,
                                         btBadgeBool: true,
                                     )
                                 }
@@ -981,7 +1037,7 @@ struct ContentView: View {
                                         makerName: "大都技研",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver350.izaBanchoMachineIconBadgeStaus
+                                        badgeStatus: common.izaBanchoMachineIconBadge,
                                     )
                                 }
                                 
@@ -1114,7 +1170,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1123,7 +1179,7 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-                                        badgeStatus: ver390.magiaMachineIconBadge,
+//                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1337,7 +1393,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(mhrViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1346,7 +1402,7 @@ struct ContentView: View {
                                         makerName: "アデリオン",
                                         releaseYear: 2024,
                                         releaseMonth: 11,
-                                        badgeStatus: ver390.mhrMachineIconBadge,
+//                                        badgeStatus: ver390.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -1371,7 +1427,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(kaguyaViewTop(
-                                            ver390: ver390,
+//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1380,7 +1436,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 9,
-                                        badgeStatus: ver390.kaguyaMachineIconBadge,
+//                                        badgeStatus: ver390.kaguyaMachineIconBadge,
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
@@ -1670,6 +1726,34 @@ struct ContentView: View {
                             }
 //                            .popoverTip(tipUnitButtonIconDisplayMode())
                             
+//                            // お気に入り設定ボタン
+//                            Button(action: {
+//                                isShowFavoriteSettingView.toggle()
+//                            }, label: {
+//                                Image(systemName: "gearshape.fill")
+//                            })
+//                            .sheet(isPresented: $isShowFavoriteSettingView, content: {
+//                                favoriteSettingView()
+//                            })
+                        }
+                    }
+//                    ToolbarSpacer()
+                    ToolbarItem(placement: .automatic) {
+                        HStack {
+                            // 表示モード切り替えボタン
+//                            Button {
+//                                common.iconDisplayMode.toggle()
+//                            } label: {
+//                                if common.iconDisplayMode {
+//                                    Image(systemName: "list.bullet")
+//                                }
+//                                else {
+//                                    Image(systemName: "rectangle.grid.2x2")
+////                                        .popoverTip(tipUnitButtonIconDisplayMode())
+//                                }
+//                            }
+////                            .popoverTip(tipUnitButtonIconDisplayMode())
+                            
                             // お気に入り設定ボタン
                             Button(action: {
                                 isShowFavoriteSettingView.toggle()
@@ -1770,6 +1854,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // クレアの秘宝伝
+                Toggle("クレアの秘宝伝BT", isOn: $favoriteSet.isSelectedFavoriteCrea)
                 // 東京リベンジャーズ
                 Toggle("東京リベンジャーズ", isOn: $favoriteSet.isSelectedFavoriteToreve)
                 // アズールレーン
@@ -1992,8 +2078,8 @@ struct BannerView: UIViewRepresentable {
         private(set) lazy var bannerView: GADBannerView = {
             let banner = GADBannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
             let adRequest = GADRequest()
@@ -2052,6 +2138,7 @@ struct PDFKitView: UIViewRepresentable {
 
 #Preview {
     ContentView(
-        common: commonVar()
+//        common: commonVar()
     )
+    .environmentObject(commonVar())
 }

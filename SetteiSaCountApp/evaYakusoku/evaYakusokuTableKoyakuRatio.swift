@@ -25,7 +25,7 @@ struct evaYakusokuTableKoyakuRatio: View {
                     numberofDicimal: 1,
                 )
                 unitTableDenominate(
-                    columTitle: "強弱🍉",
+                    columTitle: "🍉合算",
                     denominateList: evaYakusoku.ratioSuikaSum,
                     numberofDicimal: 1,
                 )

@@ -67,6 +67,23 @@ struct izaBanchoView95Ci: View {
                 )
             )
             .tag(1)
+            // 直撃回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス直撃回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $izaBancho.chokugekiCount,
+                        bigNumber: $izaBancho.playGameSum,
+                        setting1Denominate: izaBancho.ratioBBChokugeki[0],
+                        setting2Denominate: izaBancho.ratioBBChokugeki[1],
+                        setting3Denominate: izaBancho.ratioBBChokugeki[2],
+                        setting4Denominate: izaBancho.ratioBBChokugeki[3],
+                        setting5Denominate: izaBancho.ratioBBChokugeki[4],
+                        setting6Denominate: izaBancho.ratioBBChokugeki[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

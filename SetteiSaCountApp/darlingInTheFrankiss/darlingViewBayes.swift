@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct darlingViewBayes: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var darling: Darling
     
     // 機種ごとに見直し
@@ -88,7 +88,7 @@ struct darlingViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.darlingMenuBayesBadge)
+//        .resetBadgeOnAppear($ver390.darlingMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -341,7 +341,7 @@ struct darlingViewBayes: View {
 
 #Preview {
     darlingViewBayes(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         darling: Darling(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

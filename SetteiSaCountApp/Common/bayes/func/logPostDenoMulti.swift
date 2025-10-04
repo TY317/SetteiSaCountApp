@@ -35,7 +35,8 @@ func logPostDenoMulti(
     // 設定ごとの計算ループ
     for i in 0..<settingNumber {
         // 残り(other)の確率を計算
-        let totalRatio = ratioList.reduce(0.0) { $0 + ($1[i]/100.0) }   // 引数で与えられた確率の合算
+//        let totalRatio = ratioList.reduce(0.0) { $0 + ($1[i]/100.0) }   // 引数で与えられた確率の合算
+        let totalRatio = ratioList.reduce(0.0) { $0 + $1[i] }   // 引数で与えられた確率の合算
         let pOther = max(1.0 - totalRatio, 0.0)   // 上記合算以外の確率
         let otherCount = bigNumberDouble - countListDouble.reduce(0, +)   // カウント値以外の数を算出
         

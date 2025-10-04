@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct magiaViewBayes: View {
-    @ObservedObject var ver390: Ver390
+//    @ObservedObject var ver390: Ver390
     @ObservedObject var magia: Magia
     
     // 機種ごとに見直し
@@ -127,7 +127,7 @@ struct magiaViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver390.magiaMenuBayesBadge)
+//        .resetBadgeOnAppear($ver390.magiaMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -453,7 +453,7 @@ struct magiaViewBayes: View {
 
 #Preview {
     magiaViewBayes(
-        ver390: Ver390(),
+//        ver390: Ver390(),
         magia: Magia(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

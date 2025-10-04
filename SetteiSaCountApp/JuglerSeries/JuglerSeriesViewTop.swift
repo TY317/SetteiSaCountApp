@@ -19,6 +19,7 @@ class JuglerSeriesfavoriteSetVar: ObservableObject {
     @AppStorage("isSelectedMrJug") var isSelectedMrJug = true
     @AppStorage("isSelectedFunky2") var isSelectedFunky2 = true
     @AppStorage("isSelectedGirlsSS") var isSelectedGirlsSS = true
+    @AppStorage("isSelectedUrmira") var isSelectedUrmira = true
 }
 
 
@@ -33,7 +34,8 @@ struct JuglerSeriesViewTop: View {
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
-    @ObservedObject var common: commonVar
+//    @ObservedObject var common: commonVar
+    @EnvironmentObject var common: commonVar
     @State var lazyVGridColumns: Int = 4
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -47,6 +49,20 @@ struct JuglerSeriesViewTop: View {
                             .frame(height: 40)
                             .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                            // //// ウルトラミラクルジャグラー、2024年　12月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedUrmira == false {
+                                // 非表示
+                            } else {
+                                unitMachineIconLink(
+                                    linkView: AnyView(urmiraViewTop(
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("urmiraMachineIcon"),
+                                    machineName: "ウルミラ",
+                                    badgeStatus: common.urmiraMachineIconBadge,
+                                )
+                            }
                             // //// ミスタージャグラー、2024年　7月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMrJug == false {
                                 // 非表示
@@ -165,6 +181,23 @@ struct JuglerSeriesViewTop: View {
                     // //// 機種リスト表示部分
                     List {
                         Section {
+                            // //// ウルトラミラクルジャグラー、2024年 12月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedUrmira == false {
+                                // 非表示
+                            } else {
+                                unitMachinListLink(
+                                    linkView: AnyView(urmiraViewTop(
+                                        bayes: bayes,
+                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("urmiraMachineIcon"),
+                                    machineName: "ウルトラミラクルジャグラー",
+                                    makerName: "北電子",
+                                    releaseYear: 2024,
+                                    releaseMonth: 12,
+                                    badgeStatus: common.urmiraMachineIconBadge,
+                                )
+                            }
                             // //// ミスタージャグラー、2024年 7月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedMrJug == false {
                                 // 非表示
@@ -317,7 +350,7 @@ struct JuglerSeriesViewTop: View {
                 }
             }
             // //// バッジのリセット
-            .resetBadgeOnAppear($ver391.jugSeriesBadge)
+            .resetBadgeOnAppear($common.jugSeriesBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -414,6 +447,8 @@ struct juglerSeriesfavoriteSettingView: View {
     var body: some View {
         NavigationView {
             List {
+                // //// ウルトラミラクルジャグラー、2024年　12月
+                Toggle("ウルトラミラクルジャグラー", isOn: $favoriteSet.isSelectedUrmira)
                 // //// ミスタージャグラー、2024年　7月
                 Toggle("ミスタージャグラー", isOn: $favoriteSet.isSelectedMrJug)
                 // //// ガールズSS、2024年4月
@@ -505,6 +540,6 @@ struct machineListMyJug5: View {
         ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
-        common: commonVar(),
+//        common: commonVar(),
     )
 }

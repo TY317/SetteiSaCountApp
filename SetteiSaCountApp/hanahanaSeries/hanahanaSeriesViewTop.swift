@@ -33,7 +33,8 @@ struct hanahanaSeriesViewTop: View {
     @State var isSelectedDisplayMode = "お気に入り"
     @State var isShowFavoriteSettingView = false
 //    @ObservedObject var common = commonVar()
-    @ObservedObject var common: commonVar
+//    @ObservedObject var common: commonVar
+    @EnvironmentObject var common: commonVar
     @State var lazyVGridColumns: Int = 4
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -432,6 +433,6 @@ struct machineListKingHanahana: View {
         ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
-        common: commonVar(),
+//        common: commonVar(),
     )
 }

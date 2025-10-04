@@ -10,6 +10,8 @@ import SwiftUI
 struct bayesSubStep3Section: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @State var isShowAlert: Bool = false
+    @State private var isShowAdNotReadyAlert: Bool = false
+    @Environment(\.dismiss) private var dismiss
     let action: () -> Void
     var body: some View {
         Section {
@@ -27,8 +29,9 @@ struct bayesSubStep3Section: View {
                 Button("OK", role: .destructive) {
                     viewModel.isAdDismissed = false
 //                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+//                    viewModel.interstitialAd = nil
                     if viewModel.interstitialAd == nil {
-                        
+                        isShowAdNotReadyAlert = true
                     } else {
                         viewModel.showAd()
                         action()
@@ -41,6 +44,14 @@ struct bayesSubStep3Section: View {
             Text("STEP3) 期待値計算")
         }
         .listRowBackground(Color.clear)
+        .alert("広告の準備ができていません", isPresented: self.$isShowAdNotReadyAlert) {
+            Button("前のページへ戻る") {
+                dismiss()
+            }
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("前のページに戻ってから、再度このページを開いてください。")
+        }
     }
 }
 
@@ -53,3 +64,4 @@ struct bayesSubStep3Section: View {
         }
     }
 }
+
