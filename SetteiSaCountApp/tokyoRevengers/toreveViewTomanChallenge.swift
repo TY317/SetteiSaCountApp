@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewTomanChallenge: View {
-//    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @ObservedObject var toreve: Toreve
     @State var selectedSegment: String = "卍目・弱レア役"
     let segmentList: [String] = ["卍目・弱レア役", "チャンス目", "強🍒"]
@@ -24,24 +24,26 @@ struct toreveViewTomanChallenge: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 2
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
             Section {
                 // セグメントピッカー
-                Picker("", selection: self.$selectedSegment) {
-                    ForEach(self.segmentList, id: \.self) { koyaku in
-                        Text(koyaku)
-                    }
-                }
-                .pickerStyle(.segmented)
+//                Picker("", selection: self.$selectedSegment) {
+//                    ForEach(self.segmentList, id: \.self) { koyaku in
+//                        Text(koyaku)
+//                    }
+//                }
+//                .pickerStyle(.segmented)
                 // カウントボタン横並び
                 // 卍目、弱レア役
-                if self.selectedSegment == self.segmentList[0] {
+//                if self.selectedSegment == self.segmentList[0] {
                     HStack {
                         // 小役カウント
                         unitCountButtonVerticalWithoutRatio(
-                            title: "小役成立",
+                            title: "弱🍒・🍉成立",
                             count: $toreve.atRiseCountManji,
                             color: .personalSummerLightGreen,
                             minusBool: $toreve.minusCheck
@@ -54,95 +56,132 @@ struct toreveViewTomanChallenge: View {
                             minusBool: $toreve.minusCheck
                         )
                     }
-                }
-                // チャンス目
-                else if self.selectedSegment == self.segmentList[1] {
-                    HStack {
-                        // 小役カウント
-                        unitCountButtonVerticalWithoutRatio(
-                            title: "小役成立",
-                            count: $toreve.atRiseCountChance,
-                            color: .personalSummerLightPurple,
-                            minusBool: $toreve.minusCheck
-                        )
-                        // 小役カウント
-                        unitCountButtonVerticalWithoutRatio(
-                            title: "AT昇格",
-                            count: $toreve.atRiseCountChanceRise,
-                            color: .purple,
-                            minusBool: $toreve.minusCheck
-                        )
-                    }
-                }
-                // 強チェリー
-                else {
-                    HStack {
-                        // 小役カウント
-                        unitCountButtonVerticalWithoutRatio(
-                            title: "小役成立",
-                            count: $toreve.atRiseCountKyoCherry,
-                            color: .personalSummerLightRed,
-                            minusBool: $toreve.minusCheck
-                        )
-                        // 小役カウント
-                        unitCountButtonVerticalWithoutRatio(
-                            title: "AT昇格",
-                            count: $toreve.atRiseCountKyoCherryRise,
-                            color: .red,
-                            minusBool: $toreve.minusCheck
-                        )
-                    }
-                }
+                    .popoverTip(tipVer3110ToreveAtRise())
+//                }
+//                // チャンス目
+//                else if self.selectedSegment == self.segmentList[1] {
+//                    HStack {
+//                        // 小役カウント
+//                        unitCountButtonVerticalWithoutRatio(
+//                            title: "小役成立",
+//                            count: $toreve.atRiseCountChance,
+//                            color: .personalSummerLightPurple,
+//                            minusBool: $toreve.minusCheck
+//                        )
+//                        // 小役カウント
+//                        unitCountButtonVerticalWithoutRatio(
+//                            title: "AT昇格",
+//                            count: $toreve.atRiseCountChanceRise,
+//                            color: .purple,
+//                            minusBool: $toreve.minusCheck
+//                        )
+//                    }
+//                }
+//                // 強チェリー
+//                else {
+//                    HStack {
+//                        // 小役カウント
+//                        unitCountButtonVerticalWithoutRatio(
+//                            title: "小役成立",
+//                            count: $toreve.atRiseCountKyoCherry,
+//                            color: .personalSummerLightRed,
+//                            minusBool: $toreve.minusCheck
+//                        )
+//                        // 小役カウント
+//                        unitCountButtonVerticalWithoutRatio(
+//                            title: "AT昇格",
+//                            count: $toreve.atRiseCountKyoCherryRise,
+//                            color: .red,
+//                            minusBool: $toreve.minusCheck
+//                        )
+//                    }
+//                }
                 // 確率横並び
-                HStack {
+//                HStack {
                     // 卍目
                     unitResultRatioPercent2Line(
-                        title: self.segmentList[0],
+                        title: "弱🍒・🍉からの昇格率",
                         count: $toreve.atRiseCountManjiRise,
                         bigNumber: $toreve.atRiseCountManji,
                         numberofDicimal: 0,
                         spacerBool: false,
-                        titelFont: .subheadline,
+//                        titelFont: .subheadline,
                     )
-                    // チャンス目
-                    unitResultRatioPercent2Line(
-                        title: self.segmentList[1],
-                        count: $toreve.atRiseCountChanceRise,
-                        bigNumber: $toreve.atRiseCountChance,
-                        numberofDicimal: 0,
-                        spacerBool: false,
-                    )
-                    // 強チェリー
-                    unitResultRatioPercent2Line(
-                        title: self.segmentList[2],
-                        count: $toreve.atRiseCountKyoCherryRise,
-                        bigNumber: $toreve.atRiseCountKyoCherry,
-                        numberofDicimal: 0,
-                        spacerBool: false,
-                    )
-                }
+                    .frame(maxWidth: .infinity, alignment: .center)
+//                    // チャンス目
+//                    unitResultRatioPercent2Line(
+//                        title: self.segmentList[1],
+//                        count: $toreve.atRiseCountChanceRise,
+//                        bigNumber: $toreve.atRiseCountChance,
+//                        numberofDicimal: 0,
+//                        spacerBool: false,
+//                    )
+//                    // 強チェリー
+//                    unitResultRatioPercent2Line(
+//                        title: self.segmentList[2],
+//                        count: $toreve.atRiseCountKyoCherryRise,
+//                        bigNumber: $toreve.atRiseCountKyoCherry,
+//                        numberofDicimal: 0,
+//                        spacerBool: false,
+//                    )
+//                }
                 // 参考情報）AT昇格率
                 unitLinkButtonViewBuilder(sheetTitle: "AT昇格率") {
                     VStack {
-                        Text("・レア役から東卍アタック、AT、上位AT、ロングフリーズに当選する可能性あるが、設定差があるのはATのみ")
-                            .padding(.bottom)
+                        VStack(alignment: .leading){
+                            Text("・弱🍒・🍉からのAT昇格率に設定差あり")
+                            Text("・卍目、チャンス目、強🍒からの昇格率には設定差なし")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom)
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
                             unitTablePercent(
-                                columTitle: "卍目・弱レア役",
-                                percentList: toreve.ratioAtRiseManji,
-                                titleFont: .subheadline,
+                                columTitle: "弱🍒・🍉",
+                                percentList: toreve.ratioAtRiseJakuRare
+                            )
+                        }
+                        .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "卍目",
+                                percentList: [toreve.ratioAtRiseManji[0]],
+//                                titleFont: .subheadline,
+                                lineList: [6],
+                                colorList: [.white],
                             )
                             unitTablePercent(
                                 columTitle: "チャンス目",
-                                percentList: toreve.ratioAtRiseChance
+                                percentList: [toreve.ratioAtRiseChance[0]],
+                                lineList: [6],
+                                colorList: [.white],
                             )
                             unitTablePercent(
                                 columTitle: "強🍒",
-                                percentList: toreve.ratioAtRiseKyoCherry
+                                percentList: [toreve.ratioAtRiseKyoCherry[0]],
+                                lineList: [6],
+                                colorList: [.white],
                             )
                         }
                     }
+                }
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        toreveView95Ci(
+                            toreve: toreve,
+                            selection: 9,
+                        )
+                    )
+                )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    toreveViewBayes(
+                        toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
 //                Text("・東卍チャンス中の東卍ラッシュ当選（昇格？）は高設定ほど優遇されている\n・弱めのレア役から東卍ラッシュに当選すれば高設定の期待度アップ")
             } header: {
@@ -152,7 +191,7 @@ struct toreveViewTomanChallenge: View {
 //            unitAdBannerMediumRectangle()
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.toreveMenuTomanChallengeBadge)
+        .resetBadgeOnAppear($common.toreveMenuTomanChallengeBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -179,12 +218,12 @@ struct toreveViewTomanChallenge: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // //// マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
-                    // /// リセット
-                    unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetTomanChance)
-                }
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetTomanChance)
             }
         }
     }
@@ -192,7 +231,9 @@ struct toreveViewTomanChallenge: View {
 
 #Preview {
     toreveViewTomanChallenge(
-//        ver391: Ver391(),
         toreve: Toreve(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

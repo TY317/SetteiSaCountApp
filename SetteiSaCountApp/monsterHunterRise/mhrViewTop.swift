@@ -395,7 +395,7 @@ class MhrMemory3: ObservableObject {
 }
 
 struct mhrViewTop: View {
-//    @ObservedObject var ver390 = Ver390()
+    @EnvironmentObject var common: commonVar
     @StateObject var mhr = Mhr()
     @State var isShowAlert: Bool = false
     @StateObject var mhrMemory1 = MhrMemory1()
@@ -410,16 +410,15 @@ struct mhrViewTop: View {
                 Section {
                     // AT初当り履歴
                     NavigationLink(destination: mhrViewHistory(
-//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "AT初当たり履歴"
+                            textBody: "AT初当たり履歴",
+                            badgeStatus: common.mhrMenuFirstHitBadge,
                         )
-//                        .popoverTip(tipVer200MhrUpdateInfo())
                     }
                     // ボーナス確定画面
                     NavigationLink(destination: mhrViewBonusScreen(mhr: mhr)) {
@@ -486,7 +485,7 @@ struct mhrViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver390.mhrMachineIconBadge)
+        .resetBadgeOnAppear($common.mhrMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -801,8 +800,8 @@ struct mhrSubViewLoadMemory: View {
 
 #Preview {
     mhrViewTop(
-//        ver390: Ver390(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

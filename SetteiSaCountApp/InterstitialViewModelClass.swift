@@ -10,18 +10,23 @@ import SwiftUI
 import GoogleMobileAds
 
 
-final class InterstitialViewModel: NSObject,ObservableObject,GADFullScreenContentDelegate {
+//final class InterstitialViewModel: NSObject,ObservableObject,GADFullScreenContentDelegate {
+//final class InterstitialViewModel: NSObject,ObservableObject,FullScreenContentDelegate {
+final class InterstitialViewModel: NSObject,ObservableObject,FullScreenContentDelegate {
     //    private var interstitialAd: GADInterstitialAd?
-    var interstitialAd: GADInterstitialAd?
+//    var interstitialAd: GADInterstitialAd?
+    var interstitialAd: InterstitialAd?
     @Published var isAdDismissed: Bool = false   // 結果シート表示の発火用
     private var didHandleDismiss = false   // handleの二重呼び出し防止用
     
     func loadAd() async {
         do {
-            interstitialAd = try await GADInterstitialAd.load(
-                withAdUnitID: "ca-app-pub-3940256099942544/4411468910",     // テスト用
-//                withAdUnitID: "ca-app-pub-2339669527176370/6732998451",     // 本番用
-                request: GADRequest()
+//            interstitialAd = try await GADInterstitialAd.load(
+            interstitialAd = try await InterstitialAd.load(
+                with: "ca-app-pub-3940256099942544/4411468910",     // テスト用
+//                with: "ca-app-pub-2339669527176370/6732998451",     // 本番用
+//                request: GADRequest()
+                request: Request()
             )
             // [START set_the_delegate]
             interstitialAd?.fullScreenContentDelegate = self
@@ -38,29 +43,34 @@ final class InterstitialViewModel: NSObject,ObservableObject,GADFullScreenConten
             return print("Ad wasn't ready.")
         }
         
-        interstitialAd.present(fromRootViewController: nil)
+//        interstitialAd.present(fromRootViewController: nil)
+        interstitialAd.present(from: nil)
     }
     // [END show_ad]
     
     // MARK: - GADFullScreenContentDelegate methods
     
     // [START ad_events]
-    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+//    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+    func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
         print("\(#function) called")
     }
     
-    func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {
+//    func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {
+    func adDidRecordClick(_ ad: FullScreenPresentingAd) {
         print("\(#function) called")
     }
     
     func ad(
-        _ ad: GADFullScreenPresentingAd,
+//        _ ad: GADFullScreenPresentingAd,
+        _ ad: FullScreenPresentingAd,
         didFailToPresentFullScreenContentWithError error: Error
     ) {
         print("\(#function) called")
     }
     
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
         print("\(#function) called")
     }
     
@@ -81,12 +91,14 @@ final class InterstitialViewModel: NSObject,ObservableObject,GADFullScreenConten
     // //// willDismissで発火の変更前
     
     // //// willDismissで発火の変更後
-    func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//    func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
         print("\(#function) called")
         handleAdDismiss()
     }
     
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
         print("\(#function) called")
         handleAdDismiss()
     }

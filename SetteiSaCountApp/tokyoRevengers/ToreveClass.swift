@@ -158,13 +158,14 @@ class Toreve: ObservableObject {
         resetNormal()
         resetTomanChance()
         resetEnding()
+        resetRevenge()
     }
     
     // /////////////
     // ver3.9.1で追加
     // /////////////
     // 共通ベル
-    let ratioBell: [Double] = [99.3, -1,-1,-1,-1,-1]
+    let ratioBell: [Double] = [99.3, 96.4,89.8,84,79,77.1]
     @AppStorage("toreveGameNumberStart") var gameNumberStart: Int = 0
     @AppStorage("toreveGameNumberCurrent") var gameNumberCurrent: Int = 0
     @AppStorage("toreveGameNumberPlay") var gameNumberPlay: Int = 0
@@ -251,6 +252,69 @@ class Toreve: ObservableObject {
     // ///////////////
     @AppStorage("toreveChanceCzCountChance") var chanceCzCountChance: Int = 0
     @AppStorage("toreveChanceCzCountCzHit") var chanceCzCountCzHit: Int = 0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    // リベンジ
+    let ratioRevengeZenya34NoizeNone: [Double] = [99.2,98.4,96.9,96.1,94.5,93.8]
+    let ratioRevengeZenya34NoizeHit: [Double] = [0.8,1.6,3.1,3.9,5.5,6.2]
+    let ratioRevengeZenya5NoizeNone: [Double] = [97.7,96.9,95.3,94.5,93,92.2]
+    let ratioRevengeZenya5NoizeHit: [Double] = [2.3,3.1,4.7,5.5,7,7.8]
+    let ratioRevengeChance2RevengeNone: [Double] = [97.7,96.9,96.5,94.9,94.5,94.1]
+    let ratioRevengeChance2RevengeHit: [Double] = [2.3,3.1,3.5,5.1,5.5,5.9]
+    let ratioRevengeChance3RevengeNone: [Double] = [97.7,96.9,96.5,94.9,94.5,94.1]
+    let ratioRevengeChance3RevengeHit: [Double] = [2.3,3.1,3.5,5.1,5.5,5.9]
+    @AppStorage("toreveRevengeCountZenya34NoizeNone") var revengeCountZenya34NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya34NoizeHit") var revengeCountZenya34NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya34Sum") var revengeCountZenya34Sum: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeNone") var revengeCountZenya5NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeHit") var revengeCountZenya5NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya5Sum") var revengeCountZenya5Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance2None") var revengeCountChance2None: Int = 0
+    @AppStorage("toreveRevengeCountChance2Hit") var revengeCountChance2Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance2Sum") var revengeCountChance2Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance3None") var revengeCountChance3None: Int = 0
+    @AppStorage("toreveRevengeCountChance3Hit") var revengeCountChance3Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance3Sum") var revengeCountChance3Sum: Int = 0
+    
+    func revengeCountSumFunc() {
+        revengeCountZenya34Sum = countSum(
+            revengeCountZenya34NoizeNone,
+            revengeCountZenya34NoizeHit,
+        )
+        revengeCountZenya5Sum = countSum(
+            revengeCountZenya5NoizeNone,
+            revengeCountZenya5NoizeHit,
+        )
+        revengeCountChance2Sum = countSum(
+            revengeCountChance2None,
+            revengeCountChance2Hit,
+        )
+        revengeCountChance3Sum = countSum(
+            revengeCountChance3None,
+            revengeCountChance3Hit,
+        )
+    }
+    
+    func resetRevenge() {
+        revengeCountZenya34NoizeNone = 0
+        revengeCountZenya34NoizeHit = 0
+        revengeCountZenya34Sum = 0
+        revengeCountZenya5NoizeNone = 0
+        revengeCountZenya5NoizeHit = 0
+        revengeCountZenya5Sum = 0
+        revengeCountChance2None = 0
+        revengeCountChance2Hit = 0
+        revengeCountChance2Sum = 0
+        revengeCountChance3None = 0
+        revengeCountChance3Hit = 0
+        revengeCountChance3Sum = 0
+        minusCheck = false
+    }
+    
+    // 東卍チャンスからの昇格
+    let ratioAtRiseJakuRare: [Double] = [10.2,10.5,10.9,12.5,14.8,16.4]
 }
 
 // //// メモリー1
@@ -305,6 +369,22 @@ class ToreveMemory1: ObservableObject {
     // ///////////////
     @AppStorage("toreveChanceCzCountChanceMemory1") var chanceCzCountChance: Int = 0
     @AppStorage("toreveChanceCzCountCzHitMemory1") var chanceCzCountCzHit: Int = 0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("toreveRevengeCountZenya34NoizeNoneMemory1") var revengeCountZenya34NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya34NoizeHitMemory1") var revengeCountZenya34NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya34SumMemory1") var revengeCountZenya34Sum: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeNoneMemory1") var revengeCountZenya5NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeHitMemory1") var revengeCountZenya5NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya5SumMemory1") var revengeCountZenya5Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance2NoneMemory1") var revengeCountChance2None: Int = 0
+    @AppStorage("toreveRevengeCountChance2HitMemory1") var revengeCountChance2Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance2SumMemory1") var revengeCountChance2Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance3NoneMemory1") var revengeCountChance3None: Int = 0
+    @AppStorage("toreveRevengeCountChance3HitMemory1") var revengeCountChance3Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance3SumMemory1") var revengeCountChance3Sum: Int = 0
 }
 
 // //// メモリー2
@@ -359,6 +439,22 @@ class ToreveMemory2: ObservableObject {
     // ///////////////
     @AppStorage("toreveChanceCzCountChanceMemory2") var chanceCzCountChance: Int = 0
     @AppStorage("toreveChanceCzCountCzHitMemory2") var chanceCzCountCzHit: Int = 0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("toreveRevengeCountZenya34NoizeNoneMemory2") var revengeCountZenya34NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya34NoizeHitMemory2") var revengeCountZenya34NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya34SumMemory2") var revengeCountZenya34Sum: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeNoneMemory2") var revengeCountZenya5NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeHitMemory2") var revengeCountZenya5NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya5SumMemory2") var revengeCountZenya5Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance2NoneMemory2") var revengeCountChance2None: Int = 0
+    @AppStorage("toreveRevengeCountChance2HitMemory2") var revengeCountChance2Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance2SumMemory2") var revengeCountChance2Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance3NoneMemory2") var revengeCountChance3None: Int = 0
+    @AppStorage("toreveRevengeCountChance3HitMemory2") var revengeCountChance3Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance3SumMemory2") var revengeCountChance3Sum: Int = 0
 }
 
 // //// メモリー3
@@ -413,4 +509,20 @@ class ToreveMemory3: ObservableObject {
     // ///////////////
     @AppStorage("toreveChanceCzCountChanceMemory3") var chanceCzCountChance: Int = 0
     @AppStorage("toreveChanceCzCountCzHitMemory3") var chanceCzCountCzHit: Int = 0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("toreveRevengeCountZenya34NoizeNoneMemory3") var revengeCountZenya34NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya34NoizeHitMemory3") var revengeCountZenya34NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya34SumMemory3") var revengeCountZenya34Sum: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeNoneMemory3") var revengeCountZenya5NoizeNone: Int = 0
+    @AppStorage("toreveRevengeCountZenya5NoizeHitMemory3") var revengeCountZenya5NoizeHit: Int = 0
+    @AppStorage("toreveRevengeCountZenya5SumMemory3") var revengeCountZenya5Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance2NoneMemory3") var revengeCountChance2None: Int = 0
+    @AppStorage("toreveRevengeCountChance2HitMemory3") var revengeCountChance2Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance2SumMemory3") var revengeCountChance2Sum: Int = 0
+    @AppStorage("toreveRevengeCountChance3NoneMemory3") var revengeCountChance3None: Int = 0
+    @AppStorage("toreveRevengeCountChance3HitMemory3") var revengeCountChance3Hit: Int = 0
+    @AppStorage("toreveRevengeCountChance3SumMemory3") var revengeCountChance3Sum: Int = 0
 }

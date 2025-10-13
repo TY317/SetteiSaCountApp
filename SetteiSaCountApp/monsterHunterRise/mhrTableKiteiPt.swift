@@ -62,58 +62,80 @@ struct mhrTableKiteiPt: View {
                     titleFont: .body,
                     contentFont: .body
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "モードA",
-                    stringList: [
-                        "▲",
-                        "◯",
-                        "▲",
-                        "◯",
-                        "▲",
-                        "天井"
-                    ],
-                    titleFont: .body,
-                    contentFont: .body
+                    percentList: [0.8,30.1,0.4,30.1,0.4,38.2],
+                    numberofDicimal: 1,
                 )
-                unitTableString(
+//                unitTableString(
+//                    columTitle: "モードA",
+//                    stringList: [
+//                        "▲",
+//                        "◯",
+//                        "▲",
+//                        "◯",
+//                        "▲",
+//                        "天井"
+//                    ],
+//                    titleFont: .body,
+//                    contentFont: .body
+//                )
+                unitTablePercent(
                     columTitle: "モードB",
-                    stringList: [
-                        "▲",
-                        "▲",
-                        "◎",
-                        "▲",
-                        "天井",
-                        "-"
-                    ],
-                    titleFont: .body,
-                    contentFont: .body
+                    percentList: [0.8,0.4,43.4,0.4,55.0,0],
+                    numberofDicimal: 1,
+                    colorList: [.tableBlue,.white,.tableBlue,.white,.tableBlue,.gray]
                 )
-                unitTableString(
+//                unitTableString(
+//                    columTitle: "モードB",
+//                    stringList: [
+//                        "▲",
+//                        "▲",
+//                        "◎",
+//                        "▲",
+//                        "天井",
+//                        "-"
+//                    ],
+//                    titleFont: .body,
+//                    contentFont: .body
+//                )
+                unitTablePercent(
                     columTitle: "モードC",
-                    stringList: [
-                        "▲",
-                        "◯",
-                        "△",
-                        "◯",
-                        "△",
-                        "天井"
-                    ],
-                    titleFont: .body,
-                    contentFont: .body
+                    percentList: [0.8,28.9,6.3,28.9,6.3,28.8],
+                    numberofDicimal: 1,
                 )
-                unitTableString(
+//                unitTableString(
+//                    columTitle: "モードC",
+//                    stringList: [
+//                        "▲",
+//                        "◯",
+//                        "△",
+//                        "◯",
+//                        "△",
+//                        "天井"
+//                    ],
+//                    titleFont: .body,
+//                    contentFont: .body
+//                )
+                unitTablePercent(
                     columTitle: "モードD",
-                    stringList: [
-                        "天井",
-                        "-",
-                        "-",
-                        "-",
-                        "-",
-                        "-"
-                    ],
-                    titleFont: .body,
-                    contentFont: .body
+                    percentList: [100,0,0,0,0,0],
+                    numberofDicimal: 0,
+                    colorList: [.tableBlue,.gray,.gray,.gray,.gray,.gray,]
                 )
+//                unitTableString(
+//                    columTitle: "モードD",
+//                    stringList: [
+//                        "天井",
+//                        "-",
+//                        "-",
+//                        "-",
+//                        "-",
+//                        "-"
+//                    ],
+//                    titleFont: .body,
+//                    contentFont: .body
+//                )
             }
             Text("期待度：◎ > ◯ > △ > ▲")
                 .frame(maxWidth: .infinity, alignment: .trailing)

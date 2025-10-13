@@ -14,7 +14,8 @@ class AzurLane: ObservableObject {
     // /////////////
     let ratioJakuCherry: [Double] = [79,78,77.1,75.3,74.5,72]
     let ratioJakuSuika: [Double] = [104,102.4,100.8,99.3,97.8,96.4]
-    let ratioJakuRareSum: [Double] = [44.9,44.3,43.7,42.8,42.3,41.2]
+//    let ratioJakuRareSum: [Double] = [44.9,44.3,43.7,42.8,42.3,41.2]
+    let ratioJakuRareSum: [Double] = [14.8,14.6,14.2,13.8,13.5,13.0]
     @AppStorage("azurLaneKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
     @AppStorage("azurLaneKoyakuCountJakuSuika") var koyakuCountJakuSuika: Int = 0
     @AppStorage("azurLaneKoyakuCountSum") var koyakuCountSum: Int = 0
@@ -28,6 +29,7 @@ class AzurLane: ObservableObject {
         koyakuCountSum = countSum(
             koyakuCountJakuCherry,
             koyakuCountJakuSuika,
+            koyakuCountCommonBell,
         )
     }
     
@@ -39,6 +41,7 @@ class AzurLane: ObservableObject {
         gameNumberCurrent = 0
         gameNumberPlay = 0
         minusCheck = false
+        koyakuCountCommonBell = 0
     }
     
     // ボーナス当選率
@@ -103,6 +106,7 @@ class AzurLane: ObservableObject {
             kagaCountGusu,
             kagaCount46sisa,
             kagaCount56sisa,
+            kagaCountDefaultGusu,
         )
     }
     
@@ -114,6 +118,7 @@ class AzurLane: ObservableObject {
         kagaCount56sisa = 0
         kagaCountSum = 0
         minusCheck = false
+        kagaCountDefaultGusu = 0
     }
     
     // /////////////
@@ -143,6 +148,17 @@ class AzurLane: ObservableObject {
             screenCountRemain5,
             screenCountRemain3,
             screenCountRemain1,
+            screenCountDefaultGusu,
+        )
+        
+        screenCountSetteiSum = countSum(
+            screenCountDefault,
+            screenCountHighJaku,
+            screenCountHighKyo,
+            screenCountOver2,
+            screenCountOver4,
+            screenCountOver6,
+            screenCountDefaultGusu,
         )
     }
     
@@ -159,6 +175,8 @@ class AzurLane: ObservableObject {
         screenCountRemain1 = 0
         screenCountSum = 0
         minusCheck = false
+        screenCountDefaultGusu = 0
+        screenCountSetteiSum = 0
     }
     
     // ////////////
@@ -237,6 +255,31 @@ class AzurLane: ObservableObject {
         akashiCountSum = 0
         minusCheck = false
     }
+    
+    // ////////////
+    // ver3.11.0で追加
+    // ////////////
+    // 共通ベル
+    let ratioCommonBell: [Double] = [22.1,21.7,21.0,20.4,19.8,18.9]
+    @AppStorage("azurLaneKoyakuCountCommonBell") var koyakuCountCommonBell: Int = 0
+    // 加賀バトル
+    let ratioKagaDefaultKisu: [Double] = [41.5,33.2,49.8,32.9,50.0,32.5]
+    let ratioKagaDefaultGusu: [Double] = [41.5,49.8,33.2,49.3,32.3,48.8]
+    let ratioKagaKisu: [Double] = [10,5,10,5,10,5]
+    let ratioKagaGusu: [Double] = [5,10,5,10,5,10]
+    let ratioKaga46Sisa: [Double] = [1,1,1,1.6,1.2,1.9]
+    let ratioKaga56Sisa: [Double] = [1,1,1,1.2,1.5,1.9]
+    @AppStorage("azurLaneKagaCountDefaultGusu") var kagaCountDefaultGusu: Int = 0
+    // 終了画面
+    let ratioScreenDefaultKisu: [Double] = [43.3,33.4,50.1,29.4,43.6,28.7]
+    let ratioScreenDefaultGusu: [Double] = [43.3,50.1,33.4,44.1,29.1,43.0]
+    let ratioScreenHighJaku: [Double] = [12.5,12.5,12.5,20,20.6,21.3]
+    let ratioScreenHighKyo: [Double] = [1,1,1,3.2,3.5,3.6]
+    let ratioScreenOver2: [Double] = [0,3,3,3,3,3]
+    let ratioScreenOver4: [Double] = [0,0,0,0.2,0.2,0.2]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1]
+    @AppStorage("azurLaneScreenCountDefaultGusu") var screenCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountSetteiSum") var screenCountSetteiSum: Int = 0
 }
 
 // //// メモリー1
@@ -285,6 +328,14 @@ class AzurLaneMemory1: ObservableObject {
     @AppStorage("azurLaneAkashiCountGusuMemory1") var akashiCountGusu: Int = 0
     @AppStorage("azurLaneAkashiCountLastMemory1") var akashiCountLast: Int = 0
     @AppStorage("azurLaneAkashiCountSumMemory1") var akashiCountSum: Int = 0
+    
+    // ////////////
+    // ver3.11.0で追加
+    // ////////////
+    @AppStorage("azurLaneKoyakuCountCommonBellMemory1") var koyakuCountCommonBell: Int = 0
+    @AppStorage("azurLaneKagaCountDefaultGusuMemory1") var kagaCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountDefaultGusuMemory1") var screenCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountSetteiSumMemory1") var screenCountSetteiSum: Int = 0
 }
 
 // //// メモリー2
@@ -333,6 +384,14 @@ class AzurLaneMemory2: ObservableObject {
     @AppStorage("azurLaneAkashiCountGusuMemory2") var akashiCountGusu: Int = 0
     @AppStorage("azurLaneAkashiCountLastMemory2") var akashiCountLast: Int = 0
     @AppStorage("azurLaneAkashiCountSumMemory2") var akashiCountSum: Int = 0
+    
+    // ////////////
+    // ver3.11.0で追加
+    // ////////////
+    @AppStorage("azurLaneKoyakuCountCommonBellMemory2") var koyakuCountCommonBell: Int = 0
+    @AppStorage("azurLaneKagaCountDefaultGusuMemory2") var kagaCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountDefaultGusuMemory2") var screenCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountSetteiSumMemory2") var screenCountSetteiSum: Int = 0
 }
 
 // //// メモリー3
@@ -381,4 +440,12 @@ class AzurLaneMemory3: ObservableObject {
     @AppStorage("azurLaneAkashiCountGusuMemory3") var akashiCountGusu: Int = 0
     @AppStorage("azurLaneAkashiCountLastMemory3") var akashiCountLast: Int = 0
     @AppStorage("azurLaneAkashiCountSumMemory3") var akashiCountSum: Int = 0
+    
+    // ////////////
+    // ver3.11.0で追加
+    // ////////////
+    @AppStorage("azurLaneKoyakuCountCommonBellMemory3") var koyakuCountCommonBell: Int = 0
+    @AppStorage("azurLaneKagaCountDefaultGusuMemory3") var kagaCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountDefaultGusuMemory3") var screenCountDefaultGusu: Int = 0
+    @AppStorage("azurLaneScreenCountSetteiSumMemory3") var screenCountSetteiSum: Int = 0
 }

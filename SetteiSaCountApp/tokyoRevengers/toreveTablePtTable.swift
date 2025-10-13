@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct toreveTablePtTable: View {
+    @State var selectedKind: String = "通常時"
+    let kindList: [String] = ["通常時", "東卍ラッシュ中"]
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -16,6 +18,12 @@ struct toreveTablePtTable: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.bottom)
+            Picker("", selection: self.$selectedKind) {
+                ForEach(self.kindList, id: \.self) { kind in
+                    Text(kind)
+                }
+            }
+            .pickerStyle(.segmented)
             Text("[1周期目]")
                 .font(.title2)
             HStack(spacing: 0) {
@@ -30,56 +38,81 @@ struct toreveTablePtTable: View {
                     ],
                     maxWidth: 80,
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "通常A",
-                    stringList: [
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [12.5,87.5,0,0,0],
+                    colorList: [.tableBlue, .white, .gray,.gray,.gray,]
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "通常B",
-                    stringList: [
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [12.5,87.5,0,0,0],
+                    colorList: [.tableBlue, .white, .gray,.gray,.gray,]
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "チャンス",
-                    stringList: [
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [12.5,87.5,0,0,0],
+                    colorList: [.tableBlue, .white, .gray,.gray,.gray,]
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "天国",
-                    stringList: [
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [12.5,87.5,0,0,0],
+                    colorList: [.tableBlue, .white, .gray,.gray,.gray,]
                 )
-                unitTableString(
+                unitTablePercent(
                     columTitle: "特殊",
-                    stringList: [
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [12.5,87.5,0,0,0],
+                    colorList: [.tableBlue, .white, .gray,.gray,.gray,]
                 )
+//                unitTableString(
+//                    columTitle: "通常A",
+//                    stringList: [
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "通常B",
+//                    stringList: [
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "チャンス",
+//                    stringList: [
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "天国",
+//                    stringList: [
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "特殊",
+//                    stringList: [
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
             }
             .padding(.bottom)
             Text("[2〜6周期目]")
@@ -96,56 +129,92 @@ struct toreveTablePtTable: View {
                     ],
                     maxWidth: 80,
                 )
-                unitTableString(
-                    columTitle: "通常A",
-                    stringList: [
-                        "◯",
-                        "△",
-                        "◎",
-                        "△",
-                        "天井",
-                    ]
-                )
-                unitTableString(
+                if self.selectedKind == self.kindList[0] {
+                    unitTablePercent(
+                        columTitle: "通常A",
+                        percentList: [9.8,3.1,43,3.1,41],
+                    )
+                } else {
+                    unitTablePercent(
+                        columTitle: "通常A",
+                        percentList: [9.8,3.1,46.9,3.1,37.1],
+                    )
+                }
+                unitTablePercent(
                     columTitle: "通常B",
-                    stringList: [
-                        "△",
-                        "◯",
-                        "天井",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [6.3,25,68.6,0,0],
+                    colorList: [.tableBlue,.white,.tableBlue,.gray,.gray]
                 )
-                unitTableString(
-                    columTitle: "チャンス",
-                    stringList: [
-                        "◯",
-                        "△",
-                        "◎",
-                        "△",
-                        "天井",
-                    ]
-                )
-                unitTableString(
+                if self.selectedKind == self.kindList[0] {
+                    unitTablePercent(
+                        columTitle: "チャンス",
+                        percentList: [9.8,3.1,34.4,3.1,49.6],
+                    )
+                } else {
+                    unitTablePercent(
+                        columTitle: "チャンス",
+                        percentList: [9.8,3.1,46.9,3.1,37.1],
+                    )
+                }
+                unitTablePercent(
                     columTitle: "天国",
-                    stringList: [
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                        "grayOut",
-                    ]
+                    percentList: [0,0,0,0,0],
+                    colorList: [.gray,.gray,.gray,.gray,.gray,]
                 )
-                unitTableString(
-                    columTitle: "特殊",
-                    stringList: [
-                        "◯",
-                        "◯",
-                        "◯",
-                        "◯",
-                        "天井",
-                    ]
+                unitTablePercent(
+                    columTitle: "チャンス",
+                    percentList: [15.6,15.6,15.6,15.6,37.5],
                 )
+//                unitTableString(
+//                    columTitle: "通常A",
+//                    stringList: [
+//                        "◯",
+//                        "△",
+//                        "◎",
+//                        "△",
+//                        "天井",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "通常B",
+//                    stringList: [
+//                        "△",
+//                        "◯",
+//                        "天井",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "チャンス",
+//                    stringList: [
+//                        "◯",
+//                        "△",
+//                        "◎",
+//                        "△",
+//                        "天井",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "天国",
+//                    stringList: [
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                        "grayOut",
+//                    ]
+//                )
+//                unitTableString(
+//                    columTitle: "特殊",
+//                    stringList: [
+//                        "◯",
+//                        "◯",
+//                        "◯",
+//                        "◯",
+//                        "天井",
+//                    ]
+//                )
             }
         }
     }

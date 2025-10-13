@@ -31,11 +31,11 @@ struct toreveViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3100ToreveChanceCz())
+//                .popoverTip(tipVer3100ToreveChanceCz())
                 // 共通ベル
                 if self.selectedItem == self.selectList[0] {
                     // 注意書き
-                    Text("左1stで上段平行に揃う共通ベルに設定差あり\nAT中は判別不可なのでカウントは通常時のみ")
+                    Text("通常時に左1stで上段平行に揃う共通ベルに設定差あり\nAT中はセグなし15枚ベルがそのフラグという噂あり")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
                     // カウントボタン
@@ -103,8 +103,8 @@ struct toreveViewNormal: View {
                     VStack {
                         // 注意書き
                         VStack(alignment: .leading) {
-                            Text("・左1stで上段平行に揃う共通🔔に設定差あり")
-                            Text("・AT中は押し順ナビが出て判別できないケースがあるため、カウントは通常時のみ可能")
+                            Text("・通常時に左1stで上段平行に揃う共通🔔に設定差あり")
+                            Text("・AT中は押し順ナビが出て停止系では判別できないケースがあるが、セグなし15枚ベルが共通ベルフラグと言われているのでカウントに加えられるかも！？")
                         }
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
@@ -115,6 +115,7 @@ struct toreveViewNormal: View {
                         }
                     }
                 }
+                .popoverTip(tipVer3110ToreveCommonBell())
                 // 参考情報）レア役からのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
                     VStack {

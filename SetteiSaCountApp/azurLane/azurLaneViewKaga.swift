@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewKaga: View {
-//    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @State var selectedCharaList: [String] = ["ジャベリン","ラフィー","綾波","Z23","エンタープライズ"]
@@ -23,13 +23,16 @@ struct azurLaneViewKaga: View {
         ["ジャベリン","ラフィー","綾波","Z23","オイゲン"],
     ]
     let sisaList: [String] = [
-        "デフォルト",
+        "デフォ 奇数示唆 弱",
         "奇数示唆",
         "偶数示唆",
         "設定4・6示唆",
         "設定5・6示唆",
+        "デフォ 偶数示唆 弱",
     ]
-    let resultIndexList: [Int] = [1,2,3,4,5]
+    let resultIndexList: [Int] = [0,1,2,3,4,5]
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
     var body: some View {
         List {
@@ -123,6 +126,20 @@ struct azurLaneViewKaga: View {
                         numberofDigit: 0,
                     )
                 }
+                
+                // 参考情報）シナリオ振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "シナリオ振り分け") {
+                    azurLaneTableKagaRatio(azurLane: azurLane)
+                }
+                .popoverTip(tipVer3110AzurLaneKaga())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    azurLaneViewBayes(
+                        azurLane: azurLane,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
@@ -153,14 +170,12 @@ struct azurLaneViewKaga: View {
                     )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
-//                .popoverTip(tipVer391AzurLaneKagaUra())
             } header: {
                 Text("裏ボタン")
-//                    .popoverTip(tipVer391AzurLaneKaga())
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.azurLaneMenuKagaBadge)
+        .resetBadgeOnAppear($common.azurLaneMenuKagaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -185,7 +200,7 @@ struct azurLaneViewKaga: View {
     private func sisaText(charaList: [String]) -> String {
         switch charaList {
         case self.senarioList[0]: return self.sisaList[0]
-        case self.senarioList[1]: return self.sisaList[0]
+        case self.senarioList[1]: return self.sisaList[5]
         case self.senarioList[2]: return self.sisaList[1]
         case self.senarioList[3]: return self.sisaList[2]
         case self.senarioList[4]: return self.sisaList[3]
@@ -196,7 +211,7 @@ struct azurLaneViewKaga: View {
     private func bindingForCount(charaList: [String]) -> Binding<Int> {
         switch charaList {
         case self.senarioList[0]: return azurLane.$kagaCountDefault
-        case self.senarioList[1]: return azurLane.$kagaCountDefault
+        case self.senarioList[1]: return azurLane.$kagaCountDefaultGusu
         case self.senarioList[2]: return azurLane.$kagaCountKisu
         case self.senarioList[3]: return azurLane.$kagaCountGusu
         case self.senarioList[4]: return azurLane.$kagaCount46sisa
@@ -219,7 +234,9 @@ struct azurLaneViewKaga: View {
 
 #Preview {
     azurLaneViewKaga(
-//        ver391: Ver391(),
         azurLane: AzurLane(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

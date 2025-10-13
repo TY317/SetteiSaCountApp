@@ -18,7 +18,8 @@ struct unitAdBannerMediumRectangle: View {
 //            }
 //            .listRowBackground(Color.clear)
             Section {
-                BannerView(GADAdSizeMediumRectangle)   // ★ 300×250
+//                BannerView(GADAdSizeMediumRectangle)   // ★ 300×250
+                BannerAdView(AdSizeMediumRectangle)   // ★ 300×250
                     .frame(width: 300, height: 250)     // セル高さを固定
                     .frame(maxWidth: .infinity)         // 横中央寄せ
             } header: {

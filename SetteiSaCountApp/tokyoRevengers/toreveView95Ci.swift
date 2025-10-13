@@ -151,6 +151,24 @@ struct toreveView95Ci: View {
                 )
             )
             .tag(6)
+            // 東卍チャンス　AT昇格回数
+            unitListSection95Ci(
+                grafTitle: "東卍チャンス\n弱🍒・スイカからの昇格回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $toreve.atRiseCountManjiRise,
+                        bigNumber: $toreve.atRiseCountManji,
+                        setting1Percent: toreve.ratioAtRiseJakuRare[0],
+                        setting2Percent: toreve.ratioAtRiseJakuRare[1],
+                        setting3Percent: toreve.ratioAtRiseJakuRare[2],
+                        setting4Percent: toreve.ratioAtRiseJakuRare[3],
+                        setting5Percent: toreve.ratioAtRiseJakuRare[4],
+                        setting6Percent: toreve.ratioAtRiseJakuRare[5]
+                    )
+                )
+            )
+            .tag(9)
         }
         // //// firebaseログ
         .onAppear {

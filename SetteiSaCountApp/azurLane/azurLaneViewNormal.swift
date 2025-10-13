@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewNormal: View {
+    @EnvironmentObject var common: commonVar
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -41,6 +42,17 @@ struct azurLaneViewNormal: View {
                 
                 // カウントボタン横並び
                 HStack {
+                    // 共通ベル
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "共通🔔",
+                        count: $azurLane.koyakuCountCommonBell,
+                        color: .personalSpringLightYellow,
+                        minusBool: $azurLane.minusCheck,
+                        flushColor: .yellow,
+                    ) {
+                        azurLane.koyakuSumFunc()
+                    }
+                    .popoverTip(tipVer3110AzurLaneNormal())
                     // 弱🍒
                     unitCountButtonWithoutRatioWithFunc(
                         title: "弱🍒",
@@ -62,23 +74,41 @@ struct azurLaneViewNormal: View {
                 }
                 
                 // 確率結果横並び
-                HStack {
-                    // 弱🍒
-                    unitResultRatioDenomination2Line(
-                        title: "弱🍒",
-                        count: $azurLane.koyakuCountJakuCherry,
-                        bigNumber: $azurLane.gameNumberPlay,
-                        numberofDicimal: 1,
-                        spacerBool: false,
-                    )
-                    // 弱🍉
-                    unitResultRatioDenomination2Line(
-                        title: "弱🍉",
-                        count: $azurLane.koyakuCountJakuSuika,
-                        bigNumber: $azurLane.gameNumberPlay,
-                        numberofDicimal: 1,
-                        spacerBool: false,
-                    )
+                VStack {
+                    HStack {
+                        // 共通🔔
+                        unitResultRatioDenomination2Line(
+                            title: "共通🔔",
+                            count: $azurLane.koyakuCountCommonBell,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+                        // 弱🍒
+                        unitResultRatioDenomination2Line(
+                            title: "弱🍒",
+                            count: $azurLane.koyakuCountJakuCherry,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+                        // 弱🍉
+                        unitResultRatioDenomination2Line(
+                            title: "弱🍉",
+                            count: $azurLane.koyakuCountJakuSuika,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+//                        // 合算
+//                        unitResultRatioDenomination2Line(
+//                            title: "合算",
+//                            count: $azurLane.koyakuCountSum,
+//                            bigNumber: $azurLane.gameNumberPlay,
+//                            numberofDicimal: 1,
+//                            spacerBool: false,
+//                        )
+                    }
                     // 合算
                     unitResultRatioDenomination2Line(
                         title: "合算",
@@ -94,12 +124,16 @@ struct azurLaneViewNormal: View {
                     azurLaneTableKoyakuPattern()
                 }
                 // 弱レア役確率
-                unitLinkButtonViewBuilder(sheetTitle: "弱レア役確率") {
+                unitLinkButtonViewBuilder(sheetTitle: "設定差のある小役確率") {
                     VStack {
-                        Text("・弱レア役の確率に設定差あり")
+                        Text("・共通ベル、弱レア役の確率に設定差あり")
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "共通🔔",
+                                denominateList: azurLane.ratioCommonBell
+                            )
                             unitTableDenominate(
                                 columTitle: "弱🍒",
                                 denominateList: azurLane.ratioJakuCherry,
@@ -124,7 +158,7 @@ struct azurLaneViewNormal: View {
                     Ci95view: AnyView(
                         azurLaneView95Ci(
                             azurLane: azurLane,
-                            selection: 1,
+                            selection: 10,
                         )
                     )
                 )
@@ -293,4 +327,5 @@ struct azurLaneViewNormal: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

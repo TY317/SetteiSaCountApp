@@ -15,6 +15,8 @@ class commonVar: ObservableObject {
     let lazyVGridColumnsPortlait: Int = 4
     let lazyVGridColumnsLandscape: Int = 7
     
+    let screenScrollHeight: CGFloat = 130
+    
     // ///////////////////////
     // 起動回数カウント
     // ///////////////////////
@@ -80,7 +82,8 @@ class commonVar: ObservableObject {
     @AppStorage("jugSeriesBadge") var jugSeriesBadge: String = "none"
     // //// ウルトラミラクルジャグラー
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
-    
+    // //// 新鬼武者３
+    @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
     // //// クレアの秘宝伝
     @AppStorage("creaMachineIconBadge") var creaMachineIconBadge: String = "none"
     
@@ -89,6 +92,17 @@ class commonVar: ObservableObject {
     @AppStorage("toreveMenuFirstHitBadge") var toreveMenuFirstHitBadge: String = "none"
     @AppStorage("toreveMenuNormalBadge") var toreveMenuNormalBadge: String = "none"
     @AppStorage("toreveMenuBayesBadge") var toreveMenuBayesBadge: String = "none"
+    @AppStorage("toreveMenuRevengeBadge") var toreveMenuRevengeBadge: String = "none"
+    @AppStorage("toreveMenuBurstBadge") var toreveMenuBurstBadge: String = "none"
+    @AppStorage("toreveMenuTomanChallengeBadge") var toreveMenuTomanChallengeBadge: String = "none"
+    @AppStorage("toreveMenuCycleBadge") var toreveMenuCycleBadge: String = "none"
+    
+    // //// アズールレーン
+    @AppStorage("azurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "none"
+    @AppStorage("azurLaneMenuNormalBadge") var azurLaneMenuNormalBadge: String = "none"
+    @AppStorage("azurLaneMenuBayesBadge") var azurLaneMenuBayesBadge: String = "none"
+    @AppStorage("azurLaneMenuKagaBadge") var azurLaneMenuKagaBadge: String = "none"
+    @AppStorage("azurLaneMenuScreenBadge") var azurLaneMenuScreenBadge: String = "none"
     
     // //// エヴァ約束の扉
     @AppStorage("evaYakusokuMachineIconBadge") var evaYakusokuMachineIconBadge: String = "none"
@@ -100,10 +114,46 @@ class commonVar: ObservableObject {
     @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
     @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
     
+    // //// モンスターハンターライズ
+    @AppStorage("mhrMachineIconBadge") var mhrMachineIconBadge: String = "none"
+    @AppStorage("mhrMenuFirstHitBadge") var mhrMenuFirstHitBadge: String = "none"
+    
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3110FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.11.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                newOni3MachineIconBadge = "new"
+                azurLaneMachineIconBadge = "update"
+                azurLaneMenuNormalBadge = "update"
+                azurLaneMenuBayesBadge = "update"
+                azurLaneMenuKagaBadge = "update"
+                azurLaneMenuScreenBadge = "update"
+                toreveMachineIconBadge = "update"
+                toreveMenuRevengeBadge = "update"
+                toreveMenuBayesBadge = "update"
+                toreveMenuBurstBadge = "update"
+                toreveMenuTomanChallengeBadge = "update"
+                toreveMenuCycleBadge = "update"
+                toreveMenuNormalBadge = "update"
+                mhrMachineIconBadge = "update"
+                mhrMenuFirstHitBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3100FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.10.0"
