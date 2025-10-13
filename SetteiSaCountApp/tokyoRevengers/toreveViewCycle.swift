@@ -264,7 +264,7 @@ struct toreveViewCycle: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.toreveMenuCycleBadge)
+        .resetBadgeOnAppear($common.toreveMenuCycleBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

@@ -64,13 +64,6 @@ struct azurLaneViewBayes: View {
                         textBody1: "・ボーナス、AT初当り確率を計算要素に加えます",
                     )
                 }
-                // 終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT終了画面") {
-                    unitExView5body2image(
-                        title: "終了画面",
-                        textBody1: "・終了画面の振り分けを計算要素に加えます"
-                    )
-                }
                 // 加賀バトル
                 unitToggleWithQuestion(enable: self.$kagaEnable, title: "加賀バトル") {
                     unitExView5body2image(
@@ -83,6 +76,13 @@ struct azurLaneViewBayes: View {
                     unitExView5body2image(
                         title: "明石チャレンジ",
                         textBody1: "・告知ゲーム数の振分けを計算要素に加えます",
+                    )
+                }
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・終了画面の振り分けを計算要素に加えます"
                     )
                 }
                 // AT後の高確スタート

@@ -549,6 +549,8 @@
 		0F9D9BCF2E9BC78C00450B23 /* newOni3ViewBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BCE2E9BC78C00450B23 /* newOni3ViewBonus.swift */; };
 		0F9D9BD12E9BCCD900450B23 /* newOni3ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BD02E9BCCD900450B23 /* newOni3ViewEnding.swift */; };
 		0F9D9BD32E9C7C0C00450B23 /* toreveTableModeRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BD22E9C7C0C00450B23 /* toreveTableModeRatio.swift */; };
+		0F9D9BD52E9D285C00450B23 /* unitTextFieldNumberInputWithUnitEnumFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BD42E9D285C00450B23 /* unitTextFieldNumberInputWithUnitEnumFocus.swift */; };
+		0F9D9BD72E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BD62E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1604,6 +1606,8 @@
 		0F9D9BCE2E9BC78C00450B23 /* newOni3ViewBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newOni3ViewBonus.swift; sourceTree = "<group>"; };
 		0F9D9BD02E9BCCD900450B23 /* newOni3ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newOni3ViewEnding.swift; sourceTree = "<group>"; };
 		0F9D9BD22E9C7C0C00450B23 /* toreveTableModeRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableModeRatio.swift; sourceTree = "<group>"; };
+		0F9D9BD42E9D285C00450B23 /* unitTextFieldNumberInputWithUnitEnumFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTextFieldNumberInputWithUnitEnumFocus.swift; sourceTree = "<group>"; };
+		0F9D9BD62E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonCountDirectInputEnumFocus.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3299,6 +3303,8 @@
 		0F89358A2E22903B00BF6FBE /* countDirectInput */ = {
 			isa = PBXGroup;
 			children = (
+				0F9D9BD42E9D285C00450B23 /* unitTextFieldNumberInputWithUnitEnumFocus.swift */,
+				0F9D9BD62E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift */,
 				0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */,
 			);
 			path = countDirectInput;
@@ -4750,6 +4756,7 @@
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F64DDC22DC6DF880027315D /* unitReelLongTitle.swift in Sources */,
 				0F868A5A2D47BB7100D952D9 /* draHanaSenkohVer2ViewJissenTotalDataCheck.swift in Sources */,
+				0F9D9BD72E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift in Sources */,
 				0F9318872DEAA44400511BEF /* izaBanchoTableFirstHit.swift in Sources */,
 				0FD3577A2DAA2A710069BD1A /* sbjTableHawaiiStage.swift in Sources */,
 				0FD3574C2DA265370069BD1A /* shamanKingTableEpisode.swift in Sources */,
@@ -5067,6 +5074,7 @@
 				0F868AE02D5EDD1A00D952D9 /* sevenSwordsViewKimbaryChara.swift in Sources */,
 				0F868A7E2D54E73500D952D9 /* sbjClass.swift in Sources */,
 				0F3465BF2CB410D200B5D2DD /* mt5View5coin.swift in Sources */,
+				0F9D9BD52E9D285C00450B23 /* unitTextFieldNumberInputWithUnitEnumFocus.swift in Sources */,
 				0F64DD612DC09DB80027315D /* danvineTableAimLamp.swift in Sources */,
 				0FF9AC962CBA6261000C8E76 /* kaguyaViewBonus.swift in Sources */,
 				0F868A932D578C1C00D952D9 /* mrJugClass.swift in Sources */,

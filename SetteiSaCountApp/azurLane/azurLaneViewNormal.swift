@@ -25,6 +25,7 @@ struct azurLaneViewNormal: View {
     @State var lazyVGridCount: Int = 3
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @State var isShowInputView: Bool = false
     
     var body: some View {
         List {
@@ -273,6 +274,8 @@ struct azurLaneViewNormal: View {
                 Text("モード")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.azurLaneMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

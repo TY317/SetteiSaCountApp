@@ -12,7 +12,7 @@ struct creaViewNormal: View {
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var isShowAlert: Bool = false
-    @FocusState var isFocused: Bool
+    @FocusState var focusedField: CreaField?
     @State var selectedSegment: String = "小役カウント"
     let segmentList: [String] = ["小役カウント", "重複当選"]
     let kindList: [String] = ["🔔","🍒","🍉","ﾁｬﾝｽ目"]
@@ -20,6 +20,12 @@ struct creaViewNormal: View {
     let dicimalListChofuku: [Int] = [1,1,1,0]
     let colorList: [Color] = [.personalSpringLightYellow, .personalSummerLightRed, .personalSummerLightGreen, .personalSummerLightPurple]
     let flushColorList: [Color] = [.yellow, .red, .green, .purple]
+    
+    enum CreaField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
     
     var body: some View {
         List {
@@ -126,7 +132,7 @@ struct creaViewNormal: View {
                     inputValue: $crea.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: crea.gameNumberStart) {
                     let playGame = crea.gameNumberCurrent - crea.gameNumberStart
                     crea.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -137,7 +143,7 @@ struct creaViewNormal: View {
                     inputValue: $crea.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: crea.gameNumberCurrent) {
                     let playGame = crea.gameNumberCurrent - crea.gameNumberStart
                     crea.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -166,23 +172,22 @@ struct creaViewNormal: View {
         .toolbar {
             // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
-//                unitToolbarButtonCountDirectInput(inputView: {
-//                    unitTextFieldNumberInputWithUnit(title: "🔔", inputValue: $crea.koyakuCountBell)
-//                        .focused(self.$isFocused)
-//                }, focus: $isFocused)
-                unitToolbarButtonCountDirectInput(
+                UnitToolbarButtonCountDirectInputEnumFocus<CreaField, AnyView>(
+                    focus: $focusedField,
                     inputView: {
-                        ForEach(self.kindList.indices, id: \.self) { index in
-                            if self.kindList.indices.contains(index) {
-                                unitTextFieldNumberInputWithUnit(
-                                    title: self.kindList[index],
-                                    inputValue: bindingCount(index)
-                                )
-                                .focused(self.$isFocused)
+                        AnyView(
+                            ForEach(self.kindList.indices, id: \.self) { index in
+                                if self.kindList.indices.contains(index) {
+                                    UnitTextFieldNumberInputWithUnitEnumFocus<CreaField>(
+                                        title: self.kindList[index],
+                                        inputValue: bindingCount(index),
+                                        focusedField: $focusedField,
+                                        thisField: .count(index)
+                                    )
+                                }
                             }
-                        }
-                    },
-                    focus: $isFocused
+                        )
+                    }
                 )
             }
             ToolbarItem(placement: .automatic) {
@@ -197,7 +202,8 @@ struct creaViewNormal: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)

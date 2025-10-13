@@ -327,87 +327,87 @@ struct mhrViewHistory: View {
                             unitTableSettingIndex()
                             if self.selectedTable == self.tableList[0] {
                                 unitTablePercent(
-                                    columTitle: "テーブルAへ",
+                                    columTitle: "Aへ",
                                     percentList: [50,48.8,47.7,34,27.4,25]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルBへ",
+                                    columTitle: "Bへ",
                                     percentList: [22.7,23,23.4,23.8,24.2,25],
 //                                    lineList: [6],
 //                                    colorList: [.white]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルCへ",
+                                    columTitle: "Cへ",
                                     percentList: [7,7.4,7.8,18.8,24.2,25],
                                     numberofDicimal: 1,
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルDへ",
+                                    columTitle: "Dへ",
                                     percentList: [20.3,20.8,21.1,23.4,24.2,25],
 //                                    numberofDicimal: 1,
                                 )
                             } else if self.selectedTable == self.tableList[1] {
                                 unitTablePercent(
-                                    columTitle: "テーブルAへ",
+                                    columTitle: "Aへ",
                                     percentList: [0,0,0,0,0,0],
                                     colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルBへ",
+                                    columTitle: "Bへ",
                                     percentList: [50,49.2,48.4,39,35.2,33.6],
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルCへ",
+                                    columTitle: "Cへ",
                                     percentList: [25,25.4,25.8,30.5,32.4,33.2],
 //                                    lineList: [6],
 //                                    colorList: [.white],
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルDへ",
+                                    columTitle: "Dへ",
                                     percentList: [25,25.4,25.8,30.5,32.4,33.2],
 //                                    numberofDicimal: 1,
                                 )
                             } else if self.selectedTable == self.tableList[2] {
                                 unitTablePercent(
-                                    columTitle: "テーブルAへ",
+                                    columTitle: "Aへ",
                                     percentList: [0,0,0,0,0,0],
                                     colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルBへ",
+                                    columTitle: "Bへ",
                                     percentList: [0,0,0,0,0,0],
                                     colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルCへ",
+                                    columTitle: "Cへ",
                                     percentList: [25,24.6,24.2,22.3,20.7,19.9],
 //                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルDへ",
+                                    columTitle: "Dへ",
                                     percentList: [75,75.4,75.8,77.7,79.3,80.1],
 //                                    lineList: [6],
 //                                    colorList: [.white],
                                 )
                             } else {
                                 unitTablePercent(
-                                    columTitle: "テーブルAへ",
+                                    columTitle: "Aへ",
                                     percentList: [50,49.2,48.4,36.8,31.7,30.1]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルBへ",
+                                    columTitle: "Bへ",
                                     percentList: [6.3,6.7,7.1,9.4,11.8,12.5],
                                     numberofDicimal: 1,
 //                                    lineList: [6],
 //                                    colorList: [.white]
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルCへ",
+                                    columTitle: "Cへ",
                                     percentList: [6.3,6.7,7.1,16.4,19.1,20],
                                     numberofDicimal: 1,
                                 )
                                 unitTablePercent(
-                                    columTitle: "テーブルDへ",
+                                    columTitle: "Dへ",
                                     percentList: [37.4],
                                     numberofDicimal: 0,
                                     lineList: [6],
@@ -417,18 +417,18 @@ struct mhrViewHistory: View {
                         }
                     }
                 }
-                unitLinkButton(
-                    title: "クエストテーブルについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "クエストテーブルについて",
-                            textBody1: "・4種類のテーブルでクエスト（周期）の期待度を管理",
-                            textBody2: "・テーブルはATを契機に再抽選。天国移行まで転落はない",
-                            textBody3: "・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる",
-                            tableView: AnyView(mhrTableQuestTable())
-                        )
-                    )
-                )
+//                unitLinkButton(
+//                    title: "クエストテーブルについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "クエストテーブルについて",
+//                            textBody1: "・4種類のテーブルでクエスト（周期）の期待度を管理",
+//                            textBody2: "・テーブルはATを契機に再抽選。天国移行まで転落はない",
+//                            textBody3: "・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる",
+//                            tableView: AnyView(mhrTableQuestTable())
+//                        )
+//                    )
+//                )
             } header: {
                 unitHeaderHistoryColumns(
                     column2: "実ゲーム数",

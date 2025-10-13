@@ -11,7 +11,7 @@ struct azurLaneTableScreenRatio: View {
     @ObservedObject var azurLane: AzurLane
     let lowerBeltTextList: [String] = [
         "デフォ 奇数示唆 弱",
-        "デフォ 奇数示唆 弱",
+        "デフォ 偶数示唆 弱",
         "高設定示唆 弱",
         "高設定示唆 強",
         "設定2 以上濃厚",
