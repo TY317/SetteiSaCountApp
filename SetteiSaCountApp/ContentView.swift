@@ -1646,42 +1646,42 @@ struct ContentView: View {
                         Spacer()
                     }
                     
-                    // //// プライバシーポリシー改訂の案内
-                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
-                    if common.appLaunchCount > 1 {
-                        if ver320.isShowPrivacyPolicy {
-                            ZStack {
-                                Rectangle()
-                                    .foregroundStyle(Color.white)
-                                    .opacity(0.8)
-                                GroupBox {
-                                    VStack {
-                                        Text("プライバシーポリシー改訂のお知らせ")
-                                            .font(.title3)
-                                            .fontWeight(.bold)
-                                        VStack {
-                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
-                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
-                                                Text("プライバシーポリシーはこちら")
-                                                    .padding(.vertical)
-                                            }
-                                            Button {
-                                                ver320.isShowPrivacyPolicy.toggle()
-                                            } label: {
-                                                Text("承諾して閉じる")
-                                                    .fontWeight(.bold)
-                                            }
-                                            .buttonStyle(BorderedProminentButtonStyle())
-                                        }
-                                        .padding(.horizontal)
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        } else {
-                            
-                        }
-                    }
+//                    // //// プライバシーポリシー改訂の案内
+//                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
+//                    if common.appLaunchCount > 1 {
+//                        if ver320.isShowPrivacyPolicy {
+//                            ZStack {
+//                                Rectangle()
+//                                    .foregroundStyle(Color.white)
+//                                    .opacity(0.8)
+//                                GroupBox {
+//                                    VStack {
+//                                        Text("プライバシーポリシー改訂のお知らせ")
+//                                            .font(.title3)
+//                                            .fontWeight(.bold)
+//                                        VStack {
+//                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
+//                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
+//                                                Text("プライバシーポリシーはこちら")
+//                                                    .padding(.vertical)
+//                                            }
+//                                            Button {
+//                                                ver320.isShowPrivacyPolicy.toggle()
+//                                            } label: {
+//                                                Text("承諾して閉じる")
+//                                                    .fontWeight(.bold)
+//                                            }
+//                                            .buttonStyle(BorderedProminentButtonStyle())
+//                                        }
+//                                        .padding(.horizontal)
+//                                    }
+//                                }
+//                                .padding(.horizontal)
+//                            }
+//                        } else {
+//                            
+//                        }
+//                    }
                 }
                 // 開発用
 //                .onAppear {
@@ -1840,12 +1840,12 @@ struct ContentView: View {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
-        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
-        .onAppear {
-            if common.appLaunchCount <= 1 {
-                ver320.isShowPrivacyPolicy = false
-            }
-        }
+//        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
+//        .onAppear {
+//            if common.appLaunchCount <= 1 {
+//                ver320.isShowPrivacyPolicy = false
+//            }
+//        }
         // //// アプリがアクティブになったことを確認してトラッキング許可のポップアップを出す
 //        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
 //            ATTrackingManager.requestTrackingAuthorization() {_ in
