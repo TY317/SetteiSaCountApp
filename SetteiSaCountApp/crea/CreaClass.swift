@@ -135,6 +135,20 @@ class Crea: ObservableObject {
         resetBonus()
         resetRegCard()
         resetStamp()
+        resetBt()
+    }
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    let ratioBtHazure: [Double] = [420.1,420.1,420.1,30.0,30.0,30.0,]
+    @AppStorage("creaBtGame") var btGame: Int = 0
+    @AppStorage("creaBtHazure") var btHazure: Int = 0
+    
+    func resetBt() {
+        btGame = 0
+        btHazure = 0
+        minusCheck = false
     }
 }
 
@@ -167,6 +181,12 @@ class CreaMemory1: ObservableObject {
     @AppStorage("creaStampCountSumMemory1") var stampCountSum: Int = 0
     @AppStorage("creaMemoMemory1") var memo = ""
     @AppStorage("creaDateMemory1") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("creaBtGameMemory1") var btGame: Int = 0
+    @AppStorage("creaBtHazureMemory1") var btHazure: Int = 0
 }
 
 // メモリー2
@@ -198,6 +218,12 @@ class CreaMemory2: ObservableObject {
     @AppStorage("creaStampCountSumMemory2") var stampCountSum: Int = 0
     @AppStorage("creaMemoMemory2") var memo = ""
     @AppStorage("creaDateMemory2") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("creaBtGameMemory2") var btGame: Int = 0
+    @AppStorage("creaBtHazureMemory2") var btHazure: Int = 0
 }
 
 // メモリー3
@@ -229,4 +255,10 @@ class CreaMemory3: ObservableObject {
     @AppStorage("creaStampCountSumMemory3") var stampCountSum: Int = 0
     @AppStorage("creaMemoMemory3") var memo = ""
     @AppStorage("creaDateMemory3") var dateDouble = 0.0
+    
+    // //////////////
+    // ver3.11.0で追加
+    // //////////////
+    @AppStorage("creaBtGameMemory3") var btGame: Int = 0
+    @AppStorage("creaBtHazureMemory3") var btHazure: Int = 0
 }

@@ -15,6 +15,7 @@ struct creaViewBayes: View {
     let payoutList: [Double] = [98.1, 99.2, 101.2, 103.7, 106.6, 112.3]
     @State var bonusEnable: Bool = true
     @State var regCardEnable: Bool = true
+    @State var btHazureEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -59,6 +60,8 @@ struct creaViewBayes: View {
                         textBody1: "・確定系のみ反映させます",
                     )
                 }
+                // BT中のハズレ
+                unitToggleWithQuestion(enable: self.$btHazureEnable, title: "BT中のハズレ")
                 // サミートロフィー
                 DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -155,6 +158,15 @@ struct creaViewBayes: View {
                 logPostRegCard[4] = -Double.infinity
             }
         }
+        // BT中のハズレ
+        var logPostBtHazure: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.btHazureEnable {
+            logPostBtHazure = logPostDenoBino(
+                ratio: crea.ratioBtHazure,
+                Count: crea.btHazure,
+                bigNumber: crea.btGame
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -194,6 +206,7 @@ struct creaViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
             logPostRegCard,
+            logPostBtHazure,
             
             logPostTrophy,
             logPostBefore,

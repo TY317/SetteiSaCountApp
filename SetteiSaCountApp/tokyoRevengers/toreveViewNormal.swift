@@ -19,6 +19,12 @@ struct toreveViewNormal: View {
     let selectList: [String] = ["共通ベル", "通常時チャンス目"]
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    enum ToreveField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: ToreveField?
     
     var body: some View {
         List {
@@ -218,7 +224,8 @@ struct toreveViewNormal: View {
                     inputValue: $toreve.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: toreve.gameNumberStart) {
                     let playGame = toreve.gameNumberCurrent - toreve.gameNumberStart
                     toreve.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -229,7 +236,8 @@ struct toreveViewNormal: View {
                     inputValue: $toreve.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: toreve.gameNumberCurrent) {
                     let playGame = toreve.gameNumberCurrent - toreve.gameNumberStart
                     toreve.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -376,19 +384,47 @@ struct toreveViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // //// マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
-                    // /// リセット
-                    unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetNormal)
+                UnitToolbarButtonCountDirectInputEnumFocus(focus: $focusedField) {
+                    // 共通🔔
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "共通🔔",
+                        inputValue: $toreve.bellCount,
+                        focusedField: $focusedField,
+                        thisField: .count(0)
+                    )
+                    // チャンス目
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "チャンス目",
+                        inputValue: $toreve.chanceCzCountChance,
+                        focusedField: $focusedField,
+                        thisField: .count(1)
+                    )
+                    // CZ当選
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "CZ当選",
+                        inputValue: $toreve.chanceCzCountCzHit,
+                        focusedField: $focusedField,
+                        thisField: .count(2)
+                    )
                 }
+            }
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetNormal)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+//                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)

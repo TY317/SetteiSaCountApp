@@ -84,8 +84,13 @@ class commonVar: ObservableObject {
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
+    
+    // //// 主役は銭形5
+    @AppStorage("zeni5MachineIconBadge") var zeni5MachineIconBadge: String = "none"
+    
     // //// クレアの秘宝伝
     @AppStorage("creaMachineIconBadge") var creaMachineIconBadge: String = "none"
+    @AppStorage("creaMenuBtBadge") var creaMenuBtBadge: String = "none"
     
     // //// 東京リベンジャーズ
     @AppStorage("toreveMachineIconBadge") var toreveMachineIconBadge: String = "none"
@@ -145,6 +150,9 @@ class commonVar: ObservableObject {
                 toreveMenuNormalBadge = "update"
                 mhrMachineIconBadge = "update"
                 mhrMenuFirstHitBadge = "update"
+                zeni5MachineIconBadge = "new"
+                creaMenuBtBadge = "new"
+                creaMachineIconBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

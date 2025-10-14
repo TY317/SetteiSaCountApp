@@ -27,6 +27,13 @@ struct azurLaneViewNormal: View {
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var isShowInputView: Bool = false
     
+    enum AzurLaneField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: AzurLaneField?
+    
     var body: some View {
         List {
             // //// 小役関連
@@ -193,7 +200,8 @@ struct azurLaneViewNormal: View {
                     inputValue: $azurLane.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: azurLane.gameNumberStart) {
                     let playGame = azurLane.gameNumberCurrent - azurLane.gameNumberStart
                     azurLane.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -204,7 +212,8 @@ struct azurLaneViewNormal: View {
                     inputValue: $azurLane.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: azurLane.gameNumberCurrent) {
                     let playGame = azurLane.gameNumberCurrent - azurLane.gameNumberStart
                     azurLane.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -301,19 +310,47 @@ struct azurLaneViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $azurLane.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: azurLane.resetNormal)
+                UnitToolbarButtonCountDirectInputEnumFocus(focus: $focusedField) {
+                    // 共通ベル
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "共通🔔",
+                        inputValue: $azurLane.koyakuCountCommonBell,
+                        focusedField: $focusedField,
+                        thisField: .count(0)
+                    )
+                    // 弱チェリー
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "弱🍒",
+                        inputValue: $azurLane.koyakuCountJakuCherry,
+                        focusedField: $focusedField,
+                        thisField: .count(1)
+                    )
+                    // 弱スイカ
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "弱🍉",
+                        inputValue: $azurLane.koyakuCountJakuSuika,
+                        focusedField: $focusedField,
+                        thisField: .count(2)
+                    )
                 }
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $azurLane.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: azurLane.resetNormal)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+//                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)
