@@ -189,13 +189,64 @@ struct zeni5SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-        
+        zeni5Memory1.normalGame = zeni5.normalGame
+        zeni5Memory1.firstHitCount = zeni5.firstHitCount
+        zeni5Memory1.screenCountDefault = zeni5.screenCountDefault
+        zeni5Memory1.screenCountZeni1 = zeni5.screenCountZeni1
+        zeni5Memory1.screenCountZeni2 = zeni5.screenCountZeni2
+        zeni5Memory1.screenCountOver3 = zeni5.screenCountOver3
+        zeni5Memory1.screenCountOver4 = zeni5.screenCountOver4
+        zeni5Memory1.screenCountOver5 = zeni5.screenCountOver5
+        zeni5Memory1.screenCountOver6 = zeni5.screenCountOver6
+        zeni5Memory1.screenCountSum = zeni5.screenCountSum
+        zeni5Memory1.endingCountDefault = zeni5.endingCountDefault
+        zeni5Memory1.endingCount2 = zeni5.endingCount2
+        zeni5Memory1.endingCount3 = zeni5.endingCount3
+        zeni5Memory1.endingCount4 = zeni5.endingCount4
+        zeni5Memory1.endingCount5 = zeni5.endingCount5
+        zeni5Memory1.endingCount6 = zeni5.endingCount6
+        zeni5Memory1.endingCount7 = zeni5.endingCount7
+        zeni5Memory1.endingCountSum = zeni5.endingCountSum
     }
     func saveMemory2() {
-        
+        zeni5Memory2.normalGame = zeni5.normalGame
+        zeni5Memory2.firstHitCount = zeni5.firstHitCount
+        zeni5Memory2.screenCountDefault = zeni5.screenCountDefault
+        zeni5Memory2.screenCountZeni1 = zeni5.screenCountZeni1
+        zeni5Memory2.screenCountZeni2 = zeni5.screenCountZeni2
+        zeni5Memory2.screenCountOver3 = zeni5.screenCountOver3
+        zeni5Memory2.screenCountOver4 = zeni5.screenCountOver4
+        zeni5Memory2.screenCountOver5 = zeni5.screenCountOver5
+        zeni5Memory2.screenCountOver6 = zeni5.screenCountOver6
+        zeni5Memory2.screenCountSum = zeni5.screenCountSum
+        zeni5Memory2.endingCountDefault = zeni5.endingCountDefault
+        zeni5Memory2.endingCount2 = zeni5.endingCount2
+        zeni5Memory2.endingCount3 = zeni5.endingCount3
+        zeni5Memory2.endingCount4 = zeni5.endingCount4
+        zeni5Memory2.endingCount5 = zeni5.endingCount5
+        zeni5Memory2.endingCount6 = zeni5.endingCount6
+        zeni5Memory2.endingCount7 = zeni5.endingCount7
+        zeni5Memory2.endingCountSum = zeni5.endingCountSum
     }
     func saveMemory3() {
-        
+        zeni5Memory3.normalGame = zeni5.normalGame
+        zeni5Memory3.firstHitCount = zeni5.firstHitCount
+        zeni5Memory3.screenCountDefault = zeni5.screenCountDefault
+        zeni5Memory3.screenCountZeni1 = zeni5.screenCountZeni1
+        zeni5Memory3.screenCountZeni2 = zeni5.screenCountZeni2
+        zeni5Memory3.screenCountOver3 = zeni5.screenCountOver3
+        zeni5Memory3.screenCountOver4 = zeni5.screenCountOver4
+        zeni5Memory3.screenCountOver5 = zeni5.screenCountOver5
+        zeni5Memory3.screenCountOver6 = zeni5.screenCountOver6
+        zeni5Memory3.screenCountSum = zeni5.screenCountSum
+        zeni5Memory3.endingCountDefault = zeni5.endingCountDefault
+        zeni5Memory3.endingCount2 = zeni5.endingCount2
+        zeni5Memory3.endingCount3 = zeni5.endingCount3
+        zeni5Memory3.endingCount4 = zeni5.endingCount4
+        zeni5Memory3.endingCount5 = zeni5.endingCount5
+        zeni5Memory3.endingCount6 = zeni5.endingCount6
+        zeni5Memory3.endingCount7 = zeni5.endingCount7
+        zeni5Memory3.endingCountSum = zeni5.endingCountSum
     }
 }
 
@@ -227,13 +278,64 @@ struct zeni5SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        
+        zeni5.normalGame = zeni5Memory1.normalGame
+        zeni5.firstHitCount = zeni5Memory1.firstHitCount
+        zeni5.screenCountDefault = zeni5Memory1.screenCountDefault
+        zeni5.screenCountZeni1 = zeni5Memory1.screenCountZeni1
+        zeni5.screenCountZeni2 = zeni5Memory1.screenCountZeni2
+        zeni5.screenCountOver3 = zeni5Memory1.screenCountOver3
+        zeni5.screenCountOver4 = zeni5Memory1.screenCountOver4
+        zeni5.screenCountOver5 = zeni5Memory1.screenCountOver5
+        zeni5.screenCountOver6 = zeni5Memory1.screenCountOver6
+        zeni5.screenCountSum = zeni5Memory1.screenCountSum
+        zeni5.endingCountDefault = zeni5Memory1.endingCountDefault
+        zeni5.endingCount2 = zeni5Memory1.endingCount2
+        zeni5.endingCount3 = zeni5Memory1.endingCount3
+        zeni5.endingCount4 = zeni5Memory1.endingCount4
+        zeni5.endingCount5 = zeni5Memory1.endingCount5
+        zeni5.endingCount6 = zeni5Memory1.endingCount6
+        zeni5.endingCount7 = zeni5Memory1.endingCount7
+        zeni5.endingCountSum = zeni5Memory1.endingCountSum
     }
     func loadMemory2() {
-        
+        zeni5.normalGame = zeni5Memory2.normalGame
+        zeni5.firstHitCount = zeni5Memory2.firstHitCount
+        zeni5.screenCountDefault = zeni5Memory2.screenCountDefault
+        zeni5.screenCountZeni1 = zeni5Memory2.screenCountZeni1
+        zeni5.screenCountZeni2 = zeni5Memory2.screenCountZeni2
+        zeni5.screenCountOver3 = zeni5Memory2.screenCountOver3
+        zeni5.screenCountOver4 = zeni5Memory2.screenCountOver4
+        zeni5.screenCountOver5 = zeni5Memory2.screenCountOver5
+        zeni5.screenCountOver6 = zeni5Memory2.screenCountOver6
+        zeni5.screenCountSum = zeni5Memory2.screenCountSum
+        zeni5.endingCountDefault = zeni5Memory2.endingCountDefault
+        zeni5.endingCount2 = zeni5Memory2.endingCount2
+        zeni5.endingCount3 = zeni5Memory2.endingCount3
+        zeni5.endingCount4 = zeni5Memory2.endingCount4
+        zeni5.endingCount5 = zeni5Memory2.endingCount5
+        zeni5.endingCount6 = zeni5Memory2.endingCount6
+        zeni5.endingCount7 = zeni5Memory2.endingCount7
+        zeni5.endingCountSum = zeni5Memory2.endingCountSum
     }
     func loadMemory3() {
-        
+        zeni5.normalGame = zeni5Memory3.normalGame
+        zeni5.firstHitCount = zeni5Memory3.firstHitCount
+        zeni5.screenCountDefault = zeni5Memory3.screenCountDefault
+        zeni5.screenCountZeni1 = zeni5Memory3.screenCountZeni1
+        zeni5.screenCountZeni2 = zeni5Memory3.screenCountZeni2
+        zeni5.screenCountOver3 = zeni5Memory3.screenCountOver3
+        zeni5.screenCountOver4 = zeni5Memory3.screenCountOver4
+        zeni5.screenCountOver5 = zeni5Memory3.screenCountOver5
+        zeni5.screenCountOver6 = zeni5Memory3.screenCountOver6
+        zeni5.screenCountSum = zeni5Memory3.screenCountSum
+        zeni5.endingCountDefault = zeni5Memory3.endingCountDefault
+        zeni5.endingCount2 = zeni5Memory3.endingCount2
+        zeni5.endingCount3 = zeni5Memory3.endingCount3
+        zeni5.endingCount4 = zeni5Memory3.endingCount4
+        zeni5.endingCount5 = zeni5Memory3.endingCount5
+        zeni5.endingCount6 = zeni5Memory3.endingCount6
+        zeni5.endingCount7 = zeni5Memory3.endingCount7
+        zeni5.endingCountSum = zeni5Memory3.endingCountSum
     }
 }
 

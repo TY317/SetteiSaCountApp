@@ -37,6 +37,7 @@ struct zeni5TableMode: View {
                     stringList: ["◯","天井","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut","grayOut"]
                 )
             }
+            Text("期待度：◎ > ◯ > △ > ▲")
         }
     }
 }

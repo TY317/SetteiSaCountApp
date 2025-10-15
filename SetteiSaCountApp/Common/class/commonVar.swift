@@ -119,6 +119,10 @@ class commonVar: ObservableObject {
     @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
     @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
     
+    // //// デビルメイクライ
+    @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
+    @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
+    
     // //// モンスターハンターライズ
     @AppStorage("mhrMachineIconBadge") var mhrMachineIconBadge: String = "none"
     @AppStorage("mhrMenuFirstHitBadge") var mhrMenuFirstHitBadge: String = "none"
@@ -153,6 +157,8 @@ class commonVar: ObservableObject {
                 zeni5MachineIconBadge = "new"
                 creaMenuBtBadge = "new"
                 creaMachineIconBadge = "update"
+                dmc5MachineIconBadge = "update"
+                dmc5MenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct dmc5ViewTop: View {
-//    @ObservedObject var ver350: Ver350
-//    @ObservedObject var ver351: Ver351
-//    @ObservedObject var ver352: Ver352
+    @EnvironmentObject var common: commonVar
     @StateObject var dmc5 = Dmc5()
     @State var isShowAlert: Bool = false
     @StateObject var dmc5Memory1 = Dmc5Memory1()
@@ -43,13 +41,12 @@ struct dmc5ViewTop: View {
                     }
                     // 初当り
                     NavigationLink(destination: dmc5ViewFristHit(
-//                        ver350: ver350,
                         dmc5: dmc5,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-//                            badgeStatus: ver350.dmc5MenuFirstHitBadgeStaus,
+                            badgeStatus: common.dmc5MenuFirstHitBadge,
                         )
                     }
                     // DMCボーナス中のバトル当選
@@ -124,7 +121,7 @@ struct dmc5ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.dmc5MachineIconBadge)
+        .resetBadgeOnAppear($common.dmc5MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -573,8 +570,6 @@ struct dmc5SubViewLoadMemory: View {
 
 #Preview {
     dmc5ViewTop(
-//        ver350: Ver350(),
-//        ver351: Ver351(),
-//        ver352: Ver352(),
     )
+    .environmentObject(commonVar())
 }

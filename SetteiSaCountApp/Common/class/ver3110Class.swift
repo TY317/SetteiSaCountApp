@@ -156,3 +156,18 @@ struct tipVer3110MhrMode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：デビルメイクライ
+// //////////////////
+struct tipVer3110DmcMode: Tip {
+    var title: Text {
+        Text("情報追加")
+    }
+    var message: Text? {
+        Text("モード、ゾーンごとの当選率設定差詳細が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

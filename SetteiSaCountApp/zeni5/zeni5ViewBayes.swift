@@ -187,6 +187,7 @@ struct zeni5ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

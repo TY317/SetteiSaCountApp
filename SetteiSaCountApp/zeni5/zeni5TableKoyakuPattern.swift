@@ -114,6 +114,11 @@ struct zeni5TableKoyakuPattern: View {
                 )
                 unitReelSpacer()
             }
+            HStack {
+                Text("●")
+                    .foregroundStyle(Color.blue)
+                Text("：プラム")
+            }
         }
     }
 }

@@ -43,7 +43,6 @@ class Zeni5: ObservableObject {
             screenCountOver4,
             screenCountOver5,
             screenCountOver6,
-            screenCountSum,
         )
     }
     

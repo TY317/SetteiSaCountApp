@@ -55,7 +55,7 @@ struct zeni5ViewFirstHit: View {
                 // 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                     HStack(spacing: 0) {
-                        unitTableSettingIndex()
+                        unitTableSettingIndex(settingList: [2,3,4,5,6])
                         unitTableDenominate(
                             columTitle: "初当りボーナス",
                             denominateList: zeni5.ratioFirstHit

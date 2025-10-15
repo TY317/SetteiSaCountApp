@@ -294,13 +294,10 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
-//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-//                                        badgeStatus: ver352.dmc5MachineIconBadge,
+                                        badgeStatus: common.dmc5MachineIconBadge,
                                     )
                                 }
                                 
@@ -1004,16 +1001,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
-//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver352.dmc5MachineIconBadge,
+                                        badgeStatus: common.dmc5MachineIconBadge,
                                     )
                                 }
                                 
