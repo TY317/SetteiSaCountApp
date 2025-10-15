@@ -49,6 +49,7 @@ struct toreveViewPremiumAt: View {
 //                            maxWidth: self.maxWidth,
                         )
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
                 
                 // 天上天下
@@ -66,6 +67,7 @@ struct toreveViewPremiumAt: View {
 //                            maxWidth: self.maxWidth,
                         )
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
 //                VStack(alignment: .leading) {
 //                    Text("・天上天下唯我独尊 成功時の一部で当選")

@@ -33,6 +33,7 @@ struct newOni3ViewBonus: View {
                         maxWidth: 250,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
             } header: {
                 Text("ナビボイス")
             }

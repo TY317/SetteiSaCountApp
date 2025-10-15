@@ -108,6 +108,8 @@ struct zeni5ViewScreen: View {
                         )
                     }
                 }
+            } header: {
+                unitLabelHeaderScreenCount()
             }
         }
         // //// firebaseログ

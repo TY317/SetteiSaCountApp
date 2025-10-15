@@ -15,7 +15,7 @@ struct tipVer3110UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・機種追加\n　　・新鬼武者3\n　　・主役は銭形5")
+        Text("・新鬼武者3\n・主役は銭形5\n・東リべ、アズレン 他大量更新")
     }
     var image: Image? {
         Image(systemName: "star")
