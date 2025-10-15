@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewFirstHit: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var azurLane: AzurLane
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -48,7 +48,7 @@ struct azurLaneViewFirstHit: View {
                 .onChange(of: azurLane.bonusCountWhite) { oldValue, newValue in
                     azurLane.bonusSumFunc()
                 }
-                .popoverTip(tipVer391AzurLaneBonus())
+//                .popoverTip(tipVer391AzurLaneBonus())
                 // アズールレーンボーナス 青７
                 unitTextFieldNumberInputWithUnit(
                     title: "アズールレーンBONUS 青7",
@@ -235,7 +235,7 @@ struct azurLaneViewFirstHit: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.azurLaneMenuFirstHitBadge)
+//        .resetBadgeOnAppear($ver391.azurLaneMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -286,7 +286,7 @@ struct azurLaneViewFirstHit: View {
 
 #Preview {
     azurLaneViewFirstHit(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         azurLane: AzurLane(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

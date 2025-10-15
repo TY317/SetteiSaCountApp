@@ -94,7 +94,7 @@ class VVVharakiriVar: ObservableObject {
 // ビュー：メインビュー
 // ///////////////////////
 struct VVVharakiriDriveView: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var VVVendScreen: VVVendScreenVar
     @ObservedObject var VVVmarie: VVVmarieVar
     @ObservedObject var VVVharakiri: VVVharakiriVar
@@ -169,7 +169,7 @@ struct VVVharakiriDriveView: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 VVVViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     VVVendScreen: VVVendScreen,
                                     VVVmarie: VVVmarie,
                                     VVVharakiri: VVVharakiri,
@@ -270,7 +270,7 @@ struct VVVharakiriDriveView: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 VVVViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     VVVendScreen: VVVendScreen,
                                     VVVmarie: VVVmarie,
                                     VVVharakiri: VVVharakiri,
@@ -578,7 +578,7 @@ func VVVfuncResetDrive(VVVharakiri: VVVharakiriVar) {
 
 #Preview {
     VVVharakiriDriveView(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         VVVendScreen: VVVendScreenVar(),
         VVVmarie: VVVmarieVar(),
         VVVharakiri: VVVharakiriVar(),

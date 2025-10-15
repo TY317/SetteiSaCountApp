@@ -16,6 +16,9 @@ struct toreveViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var chanceCzEnable: Bool = true
+    @State var revengeEnable: Bool = true
+    @State var atRiseEnable: Bool = true
+    @State var bellEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -47,6 +50,8 @@ struct toreveViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 共通ベル
+                unitToggleWithQuestion(enable: self.$bellEnable, title: "共通ベル確率")
                 // チャンス目からのCZ当選率
                 unitToggleWithQuestion(enable: self.$chanceCzEnable, title: "チャンス目からのCZ当選率")
                 // 初当り確率
@@ -56,11 +61,25 @@ struct toreveViewBayes: View {
                         textBody1: "・東卍チャンス、東卍ラッシュ、ミッドナイトモード、稀咲陰謀の初当り確率を計算要素に加えます",
                     )
                 }
+                // 東卍チャンス　昇格
+                unitToggleWithQuestion(enable: self.$atRiseEnable, title: "東卍チャンス中のAT昇格率") {
+                    unitExView5body2image(
+                        title: "東卍チャンス中のAT昇格率",
+                        textBody1: "・弱🍒・🍉からのAT昇格率を計算要素に加えます"
+                    )
+                }
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
                         textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                // リベンジ
+                unitToggleWithQuestion(enable: self.$revengeEnable, title: "リベンジ") {
+                    unitExView5body2image(
+                        title: "リベンジ",
+                        textBody1: "・決戦前夜後のノイズ発生率、東卍チャンス後のリベンジ発生率を計算要素に加えます"
                     )
                 }
                 // サミートロフィー
@@ -200,6 +219,60 @@ struct toreveViewBayes: View {
                 logPostScreen[4] = -Double.infinity
             }
         }
+        // リベンジ 決戦前夜３、４周期
+        var logPostRevengeZenya34: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.revengeEnable {
+            logPostRevengeZenya34 = logPostPercentBino(
+                ratio: toreve.ratioRevengeZenya34NoizeHit,
+                Count: toreve.revengeCountZenya34NoizeHit,
+                bigNumber: toreve.revengeCountZenya34Sum
+            )
+        }
+        // リベンジ 決戦前夜５周期
+        var logPostRevengeZenya5: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.revengeEnable {
+            logPostRevengeZenya5 = logPostPercentBino(
+                ratio: toreve.ratioRevengeZenya5NoizeHit,
+                Count: toreve.revengeCountZenya5NoizeHit,
+                bigNumber: toreve.revengeCountZenya5Sum
+            )
+        }
+        // リベンジ 東卍チャンス2スルー
+        var logPostRevengeChance2: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.revengeEnable {
+            logPostRevengeChance2 = logPostPercentBino(
+                ratio: toreve.ratioRevengeChance2RevengeHit,
+                Count: toreve.revengeCountChance2Hit,
+                bigNumber: toreve.revengeCountChance2Sum
+            )
+        }
+        // リベンジ 東卍チャンス3スルー
+        var logPostRevengeChance3: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.revengeEnable {
+            logPostRevengeChance3 = logPostPercentBino(
+                ratio: toreve.ratioRevengeChance3RevengeHit,
+                Count: toreve.revengeCountChance3Hit,
+                bigNumber: toreve.revengeCountChance3Sum
+            )
+        }
+        // AT昇格率
+        var logPostAtRise: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.atRiseEnable {
+            logPostAtRise = logPostPercentBino(
+                ratio: toreve.ratioAtRiseJakuRare,
+                Count: toreve.atRiseCountManjiRise,
+                bigNumber: toreve.atRiseCountManji
+            )
+        }
+        // 共通ベル
+        var logPostCommonBell: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bellEnable {
+            logPostCommonBell = logPostDenoBino(
+                ratio: toreve.ratioBell,
+                Count: toreve.bellCount,
+                bigNumber: toreve.gameNumberPlay
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -242,6 +315,12 @@ struct toreveViewBayes: View {
             logPostKisaki,
             logPostChanceCz,
             logPostMidNight,
+            logPostRevengeZenya34,
+            logPostRevengeZenya5,
+            logPostRevengeChance2,
+            logPostRevengeChance3,
+            logPostAtRise,
+            logPostCommonBell,
             
             logPostTrophy,
             logPostBefore,

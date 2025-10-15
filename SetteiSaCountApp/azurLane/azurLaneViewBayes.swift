@@ -18,8 +18,10 @@ struct azurLaneViewBayes: View {
     @State var screenEnable: Bool = true
     @State var startModeEnable: Bool = true
     @State var akashiEnable: Bool = true
+    @State var kagaEnable: Bool = true
     
     // 全機種共通
+    @EnvironmentObject var common: commonVar
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
@@ -49,10 +51,10 @@ struct azurLaneViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // 弱レア役確率
-                unitToggleWithQuestion(enable: self.$jakuRareEnable, title: "弱レア役確率") {
+                unitToggleWithQuestion(enable: self.$jakuRareEnable, title: "小役確率") {
                     unitExView5body2image(
-                        title: "弱レア役確率",
-                        textBody1: "・弱🍒、弱🍉の出現確率を計算要素に加えます",
+                        title: "小役確率",
+                        textBody1: "・共通🔔、弱🍒、弱🍉の出現確率を計算要素に加えます",
                     )
                 }
                 // 初当り確率
@@ -62,11 +64,11 @@ struct azurLaneViewBayes: View {
                         textBody1: "・ボーナス、AT初当り確率を計算要素に加えます",
                     )
                 }
-                // 終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT終了画面") {
+                // 加賀バトル
+                unitToggleWithQuestion(enable: self.$kagaEnable, title: "加賀バトル") {
                     unitExView5body2image(
-                        title: "終了画面",
-                        textBody1: "・確定系のみ反映させます"
+                        title: "加賀バトル",
+                        textBody1: "シナリオ振り分けを計算要素に加えます"
                     )
                 }
                 // 明石チャレンジ
@@ -74,6 +76,13 @@ struct azurLaneViewBayes: View {
                     unitExView5body2image(
                         title: "明石チャレンジ",
                         textBody1: "・告知ゲーム数の振分けを計算要素に加えます",
+                    )
+                }
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・終了画面の振り分けを計算要素に加えます"
                     )
                 }
                 // AT後の高確スタート
@@ -93,6 +102,8 @@ struct azurLaneViewBayes: View {
                 self.resultGuess = bayesRatio()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.azurLaneMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -145,22 +156,37 @@ struct azurLaneViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // 弱チェリー
-        var logPostJakuCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        // 弱チェリー
+//        var logPostJakuCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        if self.jakuRareEnable {
+//            logPostJakuCherry = logPostDenoBino(
+//                ratio: azurLane.ratioJakuCherry,
+//                Count: azurLane.koyakuCountJakuCherry,
+//                bigNumber: azurLane.gameNumberPlay
+//            )
+//        }
+//        // 弱スイカ
+//        var logPostJakuSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        if self.jakuRareEnable {
+//            logPostJakuSuika = logPostDenoBino(
+//                ratio: azurLane.ratioJakuSuika,
+//                Count: azurLane.koyakuCountJakuSuika,
+//                bigNumber: azurLane.gameNumberPlay
+//            )
+//        }
+        // 小役確率
+        var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.jakuRareEnable {
-            logPostJakuCherry = logPostDenoBino(
-                ratio: azurLane.ratioJakuCherry,
-                Count: azurLane.koyakuCountJakuCherry,
-                bigNumber: azurLane.gameNumberPlay
-            )
-        }
-        // 弱スイカ
-        var logPostJakuSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.jakuRareEnable {
-            logPostJakuSuika = logPostDenoBino(
-                ratio: azurLane.ratioJakuSuika,
-                Count: azurLane.koyakuCountJakuSuika,
-                bigNumber: azurLane.gameNumberPlay
+            logPostKoyaku = logPostDenoMulti(
+                countList: [
+                    azurLane.koyakuCountCommonBell,
+                    azurLane.koyakuCountJakuCherry,
+                    azurLane.koyakuCountJakuSuika,
+                ], denoList: [
+                    azurLane.ratioCommonBell,
+                    azurLane.ratioJakuCherry,
+                    azurLane.ratioJakuSuika,
+                ], bigNumber: azurLane.gameNumberPlay
             )
         }
         // 白７確率
@@ -217,24 +243,43 @@ struct azurLaneViewBayes: View {
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
-            // ２以上
-            if azurLane.screenCountOver2 > 0 {
-                logPostScreen[0] = -Double.infinity
-            }
-            // 4以上
-            if azurLane.screenCountOver4 > 0 {
-                logPostScreen[0] = -Double.infinity
-                logPostScreen[1] = -Double.infinity
-                logPostScreen[2] = -Double.infinity
-            }
-            // 6以上
-            if azurLane.screenCountOver6 > 0 {
-                logPostScreen[0] = -Double.infinity
-                logPostScreen[1] = -Double.infinity
-                logPostScreen[2] = -Double.infinity
-                logPostScreen[3] = -Double.infinity
-                logPostScreen[4] = -Double.infinity
-            }
+//            // ２以上
+//            if azurLane.screenCountOver2 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//            }
+//            // 4以上
+//            if azurLane.screenCountOver4 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//                logPostScreen[1] = -Double.infinity
+//                logPostScreen[2] = -Double.infinity
+//            }
+//            // 6以上
+//            if azurLane.screenCountOver6 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//                logPostScreen[1] = -Double.infinity
+//                logPostScreen[2] = -Double.infinity
+//                logPostScreen[3] = -Double.infinity
+//                logPostScreen[4] = -Double.infinity
+//            }
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    azurLane.screenCountDefault,
+                    azurLane.screenCountDefaultGusu,
+                    azurLane.screenCountHighJaku,
+                    azurLane.screenCountHighKyo,
+                    azurLane.screenCountOver2,
+                    azurLane.screenCountOver4,
+                    azurLane.screenCountOver6,
+                ], ratioList: [
+                    azurLane.ratioScreenDefaultKisu,
+                    azurLane.ratioScreenDefaultGusu,
+                    azurLane.ratioScreenHighJaku,
+                    azurLane.ratioScreenHighKyo,
+                    azurLane.ratioScreenOver2,
+                    azurLane.ratioScreenOver4,
+                    azurLane.ratioScreenOver6,
+                ], bigNumber: azurLane.screenCountSetteiSum
+            )
         }
         // AT後の高確スタート
         var logPostStartMode: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -249,6 +294,27 @@ struct azurLaneViewBayes: View {
                     azurLane.ratioStartChoHigh,
                 ],
                 bigNumber: azurLane.startModeCountSum
+            )
+        }
+        // 加賀バトル
+        var logPostKaga: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.kagaEnable {
+            logPostKaga = logPostPercentMulti(
+                countList: [
+                    azurLane.kagaCountDefault,
+                    azurLane.kagaCountDefaultGusu,
+                    azurLane.kagaCountKisu,
+                    azurLane.kagaCountGusu,
+                    azurLane.kagaCount46sisa,
+                    azurLane.kagaCount56sisa,
+                ], ratioList: [
+                    azurLane.ratioKagaDefaultKisu,
+                    azurLane.ratioKagaDefaultGusu,
+                    azurLane.ratioKagaKisu,
+                    azurLane.ratioKagaGusu,
+                    azurLane.ratioKaga46Sisa,
+                    azurLane.ratioKaga56Sisa,
+                ], bigNumber: azurLane.kagaCountSum
             )
         }
         // トロフィー
@@ -288,8 +354,9 @@ struct azurLaneViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            logPostJakuCherry,
-            logPostJakuSuika,
+//            logPostJakuCherry,
+//            logPostJakuSuika,
+            logPostKoyaku,
             logPostBonusWhite,
             logPostBonusBlue,
 //            logPostBonus,
@@ -299,6 +366,7 @@ struct azurLaneViewBayes: View {
             logPostStartMode,
             logPostTrophy,
             logPostBefore,
+            logPostKaga
         ])
         
         // 事後確率の算出
@@ -329,4 +397,5 @@ struct azurLaneViewBayes: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

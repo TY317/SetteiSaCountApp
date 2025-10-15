@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct starHanaVer2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var starHana: StarHana
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -76,7 +76,7 @@ struct starHanaVer2ViewJissenCount: View {
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
                         starHanaViewBayes(
-                            ver391: ver391,
+//                            ver391: ver391,
                             starHana: starHana,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -172,7 +172,7 @@ struct starHanaVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 starHanaViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     starHana: starHana,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -206,7 +206,7 @@ struct starHanaVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 starHanaViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     starHana: starHana,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -248,7 +248,7 @@ struct starHanaVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 starHanaViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     starHana: starHana,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -317,7 +317,7 @@ struct starHanaVer2ViewJissenCount: View {
                         // //// 設定期待値へのリンク
                         unitNaviLinkBayes {
                             starHanaViewBayes(
-                                ver391: ver391,
+//                                ver391: ver391,
                                 starHana: starHana,
                                 bayes: bayes,
                                 viewModel: viewModel,
@@ -422,7 +422,7 @@ struct starHanaVer2ViewJissenCount: View {
 
 #Preview {
     starHanaVer2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         starHana: StarHana(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

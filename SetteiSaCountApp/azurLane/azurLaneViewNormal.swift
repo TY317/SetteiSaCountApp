@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewNormal: View {
+    @EnvironmentObject var common: commonVar
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -24,6 +25,14 @@ struct azurLaneViewNormal: View {
     @State var lazyVGridCount: Int = 3
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @State var isShowInputView: Bool = false
+    
+    enum AzurLaneField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: AzurLaneField?
     
     var body: some View {
         List {
@@ -41,6 +50,17 @@ struct azurLaneViewNormal: View {
                 
                 // カウントボタン横並び
                 HStack {
+                    // 共通ベル
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "共通🔔",
+                        count: $azurLane.koyakuCountCommonBell,
+                        color: .personalSpringLightYellow,
+                        minusBool: $azurLane.minusCheck,
+                        flushColor: .yellow,
+                    ) {
+                        azurLane.koyakuSumFunc()
+                    }
+                    .popoverTip(tipVer3110AzurLaneNormal())
                     // 弱🍒
                     unitCountButtonWithoutRatioWithFunc(
                         title: "弱🍒",
@@ -62,23 +82,41 @@ struct azurLaneViewNormal: View {
                 }
                 
                 // 確率結果横並び
-                HStack {
-                    // 弱🍒
-                    unitResultRatioDenomination2Line(
-                        title: "弱🍒",
-                        count: $azurLane.koyakuCountJakuCherry,
-                        bigNumber: $azurLane.gameNumberPlay,
-                        numberofDicimal: 1,
-                        spacerBool: false,
-                    )
-                    // 弱🍉
-                    unitResultRatioDenomination2Line(
-                        title: "弱🍉",
-                        count: $azurLane.koyakuCountJakuSuika,
-                        bigNumber: $azurLane.gameNumberPlay,
-                        numberofDicimal: 1,
-                        spacerBool: false,
-                    )
+                VStack {
+                    HStack {
+                        // 共通🔔
+                        unitResultRatioDenomination2Line(
+                            title: "共通🔔",
+                            count: $azurLane.koyakuCountCommonBell,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+                        // 弱🍒
+                        unitResultRatioDenomination2Line(
+                            title: "弱🍒",
+                            count: $azurLane.koyakuCountJakuCherry,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+                        // 弱🍉
+                        unitResultRatioDenomination2Line(
+                            title: "弱🍉",
+                            count: $azurLane.koyakuCountJakuSuika,
+                            bigNumber: $azurLane.gameNumberPlay,
+                            numberofDicimal: 1,
+                            spacerBool: false,
+                        )
+//                        // 合算
+//                        unitResultRatioDenomination2Line(
+//                            title: "合算",
+//                            count: $azurLane.koyakuCountSum,
+//                            bigNumber: $azurLane.gameNumberPlay,
+//                            numberofDicimal: 1,
+//                            spacerBool: false,
+//                        )
+                    }
                     // 合算
                     unitResultRatioDenomination2Line(
                         title: "合算",
@@ -94,12 +132,16 @@ struct azurLaneViewNormal: View {
                     azurLaneTableKoyakuPattern()
                 }
                 // 弱レア役確率
-                unitLinkButtonViewBuilder(sheetTitle: "弱レア役確率") {
+                unitLinkButtonViewBuilder(sheetTitle: "設定差のある小役確率") {
                     VStack {
-                        Text("・弱レア役の確率に設定差あり")
+                        Text("・共通ベル、弱レア役の確率に設定差あり")
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "共通🔔",
+                                denominateList: azurLane.ratioCommonBell
+                            )
                             unitTableDenominate(
                                 columTitle: "弱🍒",
                                 denominateList: azurLane.ratioJakuCherry,
@@ -124,7 +166,7 @@ struct azurLaneViewNormal: View {
                     Ci95view: AnyView(
                         azurLaneView95Ci(
                             azurLane: azurLane,
-                            selection: 1,
+                            selection: 10,
                         )
                     )
                 )
@@ -158,7 +200,8 @@ struct azurLaneViewNormal: View {
                     inputValue: $azurLane.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: azurLane.gameNumberStart) {
                     let playGame = azurLane.gameNumberCurrent - azurLane.gameNumberStart
                     azurLane.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -169,7 +212,8 @@ struct azurLaneViewNormal: View {
                     inputValue: $azurLane.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: azurLane.gameNumberCurrent) {
                     let playGame = azurLane.gameNumberCurrent - azurLane.gameNumberStart
                     azurLane.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -239,6 +283,8 @@ struct azurLaneViewNormal: View {
                 Text("モード")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.azurLaneMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -264,19 +310,47 @@ struct azurLaneViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $azurLane.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: azurLane.resetNormal)
+                UnitToolbarButtonCountDirectInputEnumFocus(focus: $focusedField) {
+                    // 共通ベル
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "共通🔔",
+                        inputValue: $azurLane.koyakuCountCommonBell,
+                        focusedField: $focusedField,
+                        thisField: .count(0)
+                    )
+                    // 弱チェリー
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "弱🍒",
+                        inputValue: $azurLane.koyakuCountJakuCherry,
+                        focusedField: $focusedField,
+                        thisField: .count(1)
+                    )
+                    // 弱スイカ
+                    UnitTextFieldNumberInputWithUnitEnumFocus<AzurLaneField>(
+                        title: "弱🍉",
+                        inputValue: $azurLane.koyakuCountJakuSuika,
+                        focusedField: $focusedField,
+                        thisField: .count(2)
+                    )
                 }
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $azurLane.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: azurLane.resetNormal)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+//                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)
@@ -293,4 +367,5 @@ struct azurLaneViewNormal: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

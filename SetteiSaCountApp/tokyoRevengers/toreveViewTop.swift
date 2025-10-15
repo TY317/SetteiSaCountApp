@@ -9,7 +9,7 @@ import SwiftUI
 
 struct toreveViewTop: View {
 //    @ObservedObject var ver390: Ver390
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var toreve = Toreve()
@@ -35,7 +35,6 @@ struct toreveViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: toreveViewNormal(
-                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -48,13 +47,12 @@ struct toreveViewTop: View {
                     }
                     // 周期履歴
                     NavigationLink(destination: toreveViewCycle(
-                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "周期履歴",
-                            badgeStatus: ver391.toreveMenuCycleBadge,
+                            badgeStatus: common.toreveMenuCycleBadge,
                         )
                     }
                     // 初当り
@@ -71,29 +69,30 @@ struct toreveViewTop: View {
                     }
                     // 東卍チャンス
                     NavigationLink(destination: toreveViewTomanChallenge(
-                        ver391: ver391,
                         toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "figure.stairs",
                             textBody: "東卍チャンス",
-                            badgeStatus: ver391.toreveMenuTomanChallengeBadge,
+                            badgeStatus: common.toreveMenuTomanChallengeBadge,
                         )
                     }
                     // ATセット開始画面
                     NavigationLink(destination: toreveViewStartScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "東卍ラッシュ",
-                            badgeStatus: ver391.toreveMenuStartScreenBadge,
+//                            badgeStatus: ver391.toreveMenuStartScreenBadge,
                         )
                     }
                     // AT終了画面
                     NavigationLink(destination: toreveViewScreen(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -101,16 +100,19 @@ struct toreveViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "終了画面",
-                            badgeStatus: ver391.toreveMenuScreenBadge,
+//                            badgeStatus: ver391.toreveMenuScreenBadge,
                         )
                     }
                     // リベンジ
                     NavigationLink(destination: toreveViewRevenge(
                         toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "arrow.trianglehead.2.counterclockwise",
-                            textBody: "リベンジ"
+                            textBody: "リベンジ",
+                            badgeStatus: common.toreveMenuRevengeBadge,
                         )
                     }
                     // 上位AT
@@ -119,11 +121,13 @@ struct toreveViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "smoke.fill",
-                            textBody: "東卍ラッシュバースト")
+                            textBody: "東卍ラッシュバースト",
+                            badgeStatus: common.toreveMenuBurstBadge,
+                        )
                     }
                     // エンディング
                     NavigationLink(destination: toreveViewEnding(
-                        ver391: ver391,
+//                        ver391: ver391,
                         toreve: toreve,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -131,7 +135,7 @@ struct toreveViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング",
-                            badgeStatus: ver391.toreveMenuEndingBadge,
+//                            badgeStatus: ver391.toreveMenuEndingBadge,
                         )
                     }
                     // サミートロフィー
@@ -293,6 +297,22 @@ struct toreveSubViewSaveMemory: View {
         // ///////////////
         toreveMemory1.chanceCzCountChance = toreve.chanceCzCountChance
         toreveMemory1.chanceCzCountCzHit = toreve.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreveMemory1.revengeCountZenya34NoizeNone = toreve.revengeCountZenya34NoizeNone
+        toreveMemory1.revengeCountZenya34NoizeHit = toreve.revengeCountZenya34NoizeHit
+        toreveMemory1.revengeCountZenya34Sum = toreve.revengeCountZenya34Sum
+        toreveMemory1.revengeCountZenya5NoizeNone = toreve.revengeCountZenya5NoizeNone
+        toreveMemory1.revengeCountZenya5NoizeHit = toreve.revengeCountZenya5NoizeHit
+        toreveMemory1.revengeCountZenya5Sum = toreve.revengeCountZenya5Sum
+        toreveMemory1.revengeCountChance2None = toreve.revengeCountChance2None
+        toreveMemory1.revengeCountChance2Hit = toreve.revengeCountChance2Hit
+        toreveMemory1.revengeCountChance2Sum = toreve.revengeCountChance2Sum
+        toreveMemory1.revengeCountChance3None = toreve.revengeCountChance3None
+        toreveMemory1.revengeCountChance3Hit = toreve.revengeCountChance3Hit
+        toreveMemory1.revengeCountChance3Sum = toreve.revengeCountChance3Sum
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -343,6 +363,22 @@ struct toreveSubViewSaveMemory: View {
         // ///////////////
         toreveMemory2.chanceCzCountChance = toreve.chanceCzCountChance
         toreveMemory2.chanceCzCountCzHit = toreve.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreveMemory2.revengeCountZenya34NoizeNone = toreve.revengeCountZenya34NoizeNone
+        toreveMemory2.revengeCountZenya34NoizeHit = toreve.revengeCountZenya34NoizeHit
+        toreveMemory2.revengeCountZenya34Sum = toreve.revengeCountZenya34Sum
+        toreveMemory2.revengeCountZenya5NoizeNone = toreve.revengeCountZenya5NoizeNone
+        toreveMemory2.revengeCountZenya5NoizeHit = toreve.revengeCountZenya5NoizeHit
+        toreveMemory2.revengeCountZenya5Sum = toreve.revengeCountZenya5Sum
+        toreveMemory2.revengeCountChance2None = toreve.revengeCountChance2None
+        toreveMemory2.revengeCountChance2Hit = toreve.revengeCountChance2Hit
+        toreveMemory2.revengeCountChance2Sum = toreve.revengeCountChance2Sum
+        toreveMemory2.revengeCountChance3None = toreve.revengeCountChance3None
+        toreveMemory2.revengeCountChance3Hit = toreve.revengeCountChance3Hit
+        toreveMemory2.revengeCountChance3Sum = toreve.revengeCountChance3Sum
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -393,6 +429,22 @@ struct toreveSubViewSaveMemory: View {
         // ///////////////
         toreveMemory3.chanceCzCountChance = toreve.chanceCzCountChance
         toreveMemory3.chanceCzCountCzHit = toreve.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreveMemory3.revengeCountZenya34NoizeNone = toreve.revengeCountZenya34NoizeNone
+        toreveMemory3.revengeCountZenya34NoizeHit = toreve.revengeCountZenya34NoizeHit
+        toreveMemory3.revengeCountZenya34Sum = toreve.revengeCountZenya34Sum
+        toreveMemory3.revengeCountZenya5NoizeNone = toreve.revengeCountZenya5NoizeNone
+        toreveMemory3.revengeCountZenya5NoizeHit = toreve.revengeCountZenya5NoizeHit
+        toreveMemory3.revengeCountZenya5Sum = toreve.revengeCountZenya5Sum
+        toreveMemory3.revengeCountChance2None = toreve.revengeCountChance2None
+        toreveMemory3.revengeCountChance2Hit = toreve.revengeCountChance2Hit
+        toreveMemory3.revengeCountChance2Sum = toreve.revengeCountChance2Sum
+        toreveMemory3.revengeCountChance3None = toreve.revengeCountChance3None
+        toreveMemory3.revengeCountChance3Hit = toreve.revengeCountChance3Hit
+        toreveMemory3.revengeCountChance3Sum = toreve.revengeCountChance3Sum
     }
 }
 
@@ -480,6 +532,22 @@ struct toreveSubViewLoadMemory: View {
         // ///////////////
         toreve.chanceCzCountChance = toreveMemory1.chanceCzCountChance
         toreve.chanceCzCountCzHit = toreveMemory1.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreve.revengeCountZenya34NoizeNone = toreveMemory1.revengeCountZenya34NoizeNone
+        toreve.revengeCountZenya34NoizeHit = toreveMemory1.revengeCountZenya34NoizeHit
+        toreve.revengeCountZenya34Sum = toreveMemory1.revengeCountZenya34Sum
+        toreve.revengeCountZenya5NoizeNone = toreveMemory1.revengeCountZenya5NoizeNone
+        toreve.revengeCountZenya5NoizeHit = toreveMemory1.revengeCountZenya5NoizeHit
+        toreve.revengeCountZenya5Sum = toreveMemory1.revengeCountZenya5Sum
+        toreve.revengeCountChance2None = toreveMemory1.revengeCountChance2None
+        toreve.revengeCountChance2Hit = toreveMemory1.revengeCountChance2Hit
+        toreve.revengeCountChance2Sum = toreveMemory1.revengeCountChance2Sum
+        toreve.revengeCountChance3None = toreveMemory1.revengeCountChance3None
+        toreve.revengeCountChance3Hit = toreveMemory1.revengeCountChance3Hit
+        toreve.revengeCountChance3Sum = toreveMemory1.revengeCountChance3Sum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -538,6 +606,22 @@ struct toreveSubViewLoadMemory: View {
         // ///////////////
         toreve.chanceCzCountChance = toreveMemory2.chanceCzCountChance
         toreve.chanceCzCountCzHit = toreveMemory2.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreve.revengeCountZenya34NoizeNone = toreveMemory2.revengeCountZenya34NoizeNone
+        toreve.revengeCountZenya34NoizeHit = toreveMemory2.revengeCountZenya34NoizeHit
+        toreve.revengeCountZenya34Sum = toreveMemory2.revengeCountZenya34Sum
+        toreve.revengeCountZenya5NoizeNone = toreveMemory2.revengeCountZenya5NoizeNone
+        toreve.revengeCountZenya5NoizeHit = toreveMemory2.revengeCountZenya5NoizeHit
+        toreve.revengeCountZenya5Sum = toreveMemory2.revengeCountZenya5Sum
+        toreve.revengeCountChance2None = toreveMemory2.revengeCountChance2None
+        toreve.revengeCountChance2Hit = toreveMemory2.revengeCountChance2Hit
+        toreve.revengeCountChance2Sum = toreveMemory2.revengeCountChance2Sum
+        toreve.revengeCountChance3None = toreveMemory2.revengeCountChance3None
+        toreve.revengeCountChance3Hit = toreveMemory2.revengeCountChance3Hit
+        toreve.revengeCountChance3Sum = toreveMemory2.revengeCountChance3Sum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -596,13 +680,29 @@ struct toreveSubViewLoadMemory: View {
         // ///////////////
         toreve.chanceCzCountChance = toreveMemory3.chanceCzCountChance
         toreve.chanceCzCountCzHit = toreveMemory3.chanceCzCountCzHit
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        toreve.revengeCountZenya34NoizeNone = toreveMemory3.revengeCountZenya34NoizeNone
+        toreve.revengeCountZenya34NoizeHit = toreveMemory3.revengeCountZenya34NoizeHit
+        toreve.revengeCountZenya34Sum = toreveMemory3.revengeCountZenya34Sum
+        toreve.revengeCountZenya5NoizeNone = toreveMemory3.revengeCountZenya5NoizeNone
+        toreve.revengeCountZenya5NoizeHit = toreveMemory3.revengeCountZenya5NoizeHit
+        toreve.revengeCountZenya5Sum = toreveMemory3.revengeCountZenya5Sum
+        toreve.revengeCountChance2None = toreveMemory3.revengeCountChance2None
+        toreve.revengeCountChance2Hit = toreveMemory3.revengeCountChance2Hit
+        toreve.revengeCountChance2Sum = toreveMemory3.revengeCountChance2Sum
+        toreve.revengeCountChance3None = toreveMemory3.revengeCountChance3None
+        toreve.revengeCountChance3Hit = toreveMemory3.revengeCountChance3Hit
+        toreve.revengeCountChance3Sum = toreveMemory3.revengeCountChance3Sum
     }
 }
 
 #Preview {
     toreveViewTop(
 //        ver390: Ver390(),
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenTotalDataCheck: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var girlsSS: GirlsSS
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -138,7 +138,7 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     girlsSSViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         girlsSS: girlsSS,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -189,7 +189,7 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
 
 #Preview {
     girlsSSVer2ViewJissenTotalDataCheck(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         girlsSS: GirlsSS(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

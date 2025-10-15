@@ -25,7 +25,7 @@ class hanahanaSeriesfavoriteSetVar: ObservableObject {
 // ビュー：メインビュー
 // //////////////////////
 struct hanahanaSeriesViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @ObservedObject var favoriteSet = hanahanaSeriesfavoriteSetVar()
@@ -54,7 +54,7 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachineIconLinkWithSfsymbol(
                                     linkView: AnyView(starHanaViewTop(
-                                        ver391: ver391,
+//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -69,7 +69,7 @@ struct hanahanaSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 NavigationLink(destination: draHanaSenkohVer2ViewTop(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )) {
@@ -97,7 +97,7 @@ struct hanahanaSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 NavigationLink(destination: kingHanaVer2ViewTop(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )) {
@@ -125,7 +125,7 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(
                                     linkView: AnyView(hanaTenshoVer2ViewTop(
-                                        ver391: ver391,
+//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -149,7 +149,7 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachinListLinkWithSfsymbol(
                                     linkView: AnyView(starHanaViewTop(
-                                        ver391: ver391,
+//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -168,7 +168,7 @@ struct hanahanaSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 machineListDragonHanahanaSenkoh(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )
@@ -179,7 +179,7 @@ struct hanahanaSeriesViewTop: View {
                                 // 非表示
                             } else {
                                 machineListKingHanahana(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     bayes: bayes,
                                     viewModel: viewModel,
                                 )
@@ -191,7 +191,7 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachinListLink(
                                     linkView: AnyView(hanaTenshoVer2ViewTop(
-                                        ver391: ver391,
+//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -225,7 +225,7 @@ struct hanahanaSeriesViewTop: View {
                 }
             }
             // //// バッジのリセット
-            .resetBadgeOnAppear($ver391.hanaSeriesBadge)
+//            .resetBadgeOnAppear($ver391.hanaSeriesBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -354,13 +354,13 @@ struct hanahanaSeriesfavoriteSettingView: View {
 // ビュー：機種リスト、ドラゴンハナハナ閃光, 23年12月
 // ////////////////////////
 struct machineListDragonHanahanaSenkoh: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationLink(destination: draHanaSenkohVer2ViewTop(
-            ver391: ver391,
+//            ver391: ver391,
             bayes: bayes,
             viewModel: viewModel,
         )) {
@@ -394,13 +394,13 @@ struct machineListDragonHanahanaSenkoh: View {
 // ビュー：機種リスト、キングハナハナ, 23年3月
 // ////////////////////////
 struct machineListKingHanahana: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
     
     var body: some View {
         NavigationLink(destination: kingHanaVer2ViewTop(
-            ver391: ver391,
+//            ver391: ver391,
             bayes: bayes,
             viewModel: viewModel,
         )) {
@@ -430,7 +430,7 @@ struct machineListKingHanahana: View {
 
 #Preview {
     hanahanaSeriesViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
 //        common: commonVar(),

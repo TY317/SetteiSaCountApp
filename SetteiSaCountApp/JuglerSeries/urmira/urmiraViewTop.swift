@@ -22,7 +22,10 @@ struct urmiraViewTop: View {
                 Section {
                     
                 } header: {
-                    unitLabelMachineTopTitle(machineName: "ジャグラーガールズSS")
+                    unitLabelMachineTopTitle(
+                        machineName: urmira.machineName,
+                        titleFont: .title2,
+                    )
                 }
                 
                 // //// 見

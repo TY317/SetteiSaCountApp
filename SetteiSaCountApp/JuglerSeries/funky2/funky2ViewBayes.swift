@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct funky2ViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var funky2: Funky2
     
     // 機種ごとに見直し
@@ -109,7 +109,7 @@ struct funky2ViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.funky2MenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.funky2MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -303,7 +303,7 @@ struct funky2ViewBayes: View {
 
 #Preview {
     funky2ViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         funky2: Funky2(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

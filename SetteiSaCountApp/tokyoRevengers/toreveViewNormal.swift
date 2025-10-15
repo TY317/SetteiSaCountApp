@@ -9,7 +9,7 @@ import SwiftUI
 
 struct toreveViewNormal: View {
     @EnvironmentObject var common: commonVar
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -19,6 +19,12 @@ struct toreveViewNormal: View {
     let selectList: [String] = ["共通ベル", "通常時チャンス目"]
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    enum ToreveField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: ToreveField?
     
     var body: some View {
         List {
@@ -31,11 +37,11 @@ struct toreveViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3100ToreveChanceCz())
+//                .popoverTip(tipVer3100ToreveChanceCz())
                 // 共通ベル
                 if self.selectedItem == self.selectList[0] {
                     // 注意書き
-                    Text("左1stで上段平行に揃う共通ベルに設定差あり\nAT中は判別不可なのでカウントは通常時のみ")
+                    Text("通常時に左1stで上段平行に揃う共通ベルに設定差あり\nAT中はセグなし15枚ベルがそのフラグという噂あり")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
                     // カウントボタン
@@ -103,8 +109,8 @@ struct toreveViewNormal: View {
                     VStack {
                         // 注意書き
                         VStack(alignment: .leading) {
-                            Text("・左1stで上段平行に揃う共通🔔に設定差あり")
-                            Text("・AT中は押し順ナビが出て判別できないケースがあるため、カウントは通常時のみ可能")
+                            Text("・通常時に左1stで上段平行に揃う共通🔔に設定差あり")
+                            Text("・AT中は押し順ナビが出て停止系では判別できないケースがあるが、セグなし15枚ベルが共通ベルフラグと言われているのでカウントに加えられるかも！？")
                         }
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
@@ -115,6 +121,7 @@ struct toreveViewNormal: View {
                         }
                     }
                 }
+                .popoverTip(tipVer3110ToreveCommonBell())
                 // 参考情報）レア役からのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
                     VStack {
@@ -217,7 +224,8 @@ struct toreveViewNormal: View {
                     inputValue: $toreve.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: toreve.gameNumberStart) {
                     let playGame = toreve.gameNumberCurrent - toreve.gameNumberStart
                     toreve.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -228,7 +236,8 @@ struct toreveViewNormal: View {
                     inputValue: $toreve.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: toreve.gameNumberCurrent) {
                     let playGame = toreve.gameNumberCurrent - toreve.gameNumberStart
                     toreve.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -375,19 +384,47 @@ struct toreveViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // //// マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
-                    // /// リセット
-                    unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetNormal)
+                UnitToolbarButtonCountDirectInputEnumFocus(focus: $focusedField) {
+                    // 共通🔔
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "共通🔔",
+                        inputValue: $toreve.bellCount,
+                        focusedField: $focusedField,
+                        thisField: .count(0)
+                    )
+                    // チャンス目
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "チャンス目",
+                        inputValue: $toreve.chanceCzCountChance,
+                        focusedField: $focusedField,
+                        thisField: .count(1)
+                    )
+                    // CZ当選
+                    UnitTextFieldNumberInputWithUnitEnumFocus(
+                        title: "CZ当選",
+                        inputValue: $toreve.chanceCzCountCzHit,
+                        focusedField: $focusedField,
+                        thisField: .count(2)
+                    )
                 }
+            }
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $toreve.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: toreve.resetNormal)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+//                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)
@@ -400,7 +437,7 @@ struct toreveViewNormal: View {
 
 #Preview {
     toreveViewNormal(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

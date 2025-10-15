@@ -473,7 +473,7 @@ class DraHanaSenkohMemory3: ObservableObject {
 }
 
 struct draHanaSenkohVer2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var draHanaSenkoh = DraHanaSenkoh()
     @State var isShowAlert: Bool = false
     @StateObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
@@ -517,7 +517,7 @@ struct draHanaSenkohVer2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: draHanaSenkohVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         draHanaSenkoh: draHanaSenkoh,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -529,7 +529,7 @@ struct draHanaSenkohVer2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: draHanaSenkohVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         draHanaSenkoh: draHanaSenkoh,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -551,7 +551,7 @@ struct draHanaSenkohVer2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: draHanaSenkohViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     draHanaSenkoh: draHanaSenkoh,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -559,7 +559,7 @@ struct draHanaSenkohVer2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.draHanaSenkohMenuBayesBadge,
+//                        badgeStatus: ver391.draHanaSenkohMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -919,7 +919,7 @@ struct draHanaSenkohSubViewLoadMemory: View {
 
 #Preview {
     draHanaSenkohVer2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

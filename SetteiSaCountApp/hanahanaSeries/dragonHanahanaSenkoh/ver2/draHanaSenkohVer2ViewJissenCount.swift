@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct draHanaSenkohVer2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var draHanaSenkoh: DraHanaSenkoh
     let displayMode = ["通常時", "BIG", "REG"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "通常時"
@@ -76,7 +76,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
                         draHanaSenkohViewBayes(
-                            ver391: ver391,
+//                            ver391: ver391,
                             draHanaSenkoh: draHanaSenkoh,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -170,7 +170,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 draHanaSenkohViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     draHanaSenkoh: draHanaSenkoh,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -203,7 +203,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 draHanaSenkohViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     draHanaSenkoh: draHanaSenkoh,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -244,7 +244,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                             // //// 設定期待値へのリンク
                             unitNaviLinkBayes {
                                 draHanaSenkohViewBayes(
-                                    ver391: ver391,
+//                                    ver391: ver391,
                                     draHanaSenkoh: draHanaSenkoh,
                                     bayes: bayes,
                                     viewModel: viewModel,
@@ -311,7 +311,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
                         // //// 設定期待値へのリンク
                         unitNaviLinkBayes {
                             draHanaSenkohViewBayes(
-                                ver391: ver391,
+//                                ver391: ver391,
                                 draHanaSenkoh: draHanaSenkoh,
                                 bayes: bayes,
                                 viewModel: viewModel,
@@ -416,7 +416,7 @@ struct draHanaSenkohVer2ViewJissenCount: View {
 
 #Preview {
     draHanaSenkohVer2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         draHanaSenkoh: DraHanaSenkoh(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

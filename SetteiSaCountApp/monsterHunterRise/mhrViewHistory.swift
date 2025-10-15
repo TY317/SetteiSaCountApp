@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct mhrViewHistory: View {
-//    @ObservedObject var ver390: Ver390
-//    @ObservedObject var mhr = Mhr()
+    @EnvironmentObject var common: commonVar
     @ObservedObject var mhr: Mhr
     @State var isShowAlert: Bool = false
     @State var isShowDataInputView = false
@@ -24,7 +23,10 @@ struct mhrViewHistory: View {
     @State var spaceHeight = 250.0
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
-    
+    @State var selectedMode: String = "モードA"
+    let modeList: [String] = ["モードA","モードB","モードC","モードD",]
+    @State var selectedTable: String = "テーブルA"
+    let tableList: [String] = ["テーブルA","テーブルB","テーブルC","テーブルD",]
     var body: some View {
         List {
             // //// ライズゾーンカウント
@@ -41,7 +43,6 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ライズゾーン実質初当り確率",
-//                            image1: Image("mhrRiseZone")
                             tableView: AnyView(mhrTableRizeZoneRatio())
                         )
                     )
@@ -49,7 +50,6 @@ struct mhrViewHistory: View {
             } header: {
                 Text("ライズゾーン初当り回数")
             }
-//            .popoverTip(tipVer180MhrRiseZoneCountAdd())
             
             // //// アイルーだるま落とし規定回数のカウント
             Section {
@@ -81,19 +81,15 @@ struct mhrViewHistory: View {
                             title: "規定リプレイ回数振り分け",
                             textBody1: "・アイルーだるま落としまでの規定リプレイ回数振り分けに設定差あり",
                             textBody2: "・40,80回がより設定差大きいため、本アプリでは80回以下と120回以上の2種類に分けてカウントできるようにしました",
-//                            image1: Image("mhrAiruSumRatio"),
-//                            image2: Image("mhrAiruRatioDetail")
                             tableView: AnyView(mhrTableKiteiReplay())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 3)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -102,7 +98,6 @@ struct mhrViewHistory: View {
             } header: {
                 Text("アイルーだるま落とし規定回数")
             }
-//            .popoverTip(tipVer200MhrAiruAdd())
             // //// 履歴表示
             Section {
                 ScrollView {
@@ -189,35 +184,251 @@ struct mhrViewHistory: View {
                     Spacer()
                 }
                 // //// 参考情報リンク
-                unitLinkButton(
-                    title: "規定ポイントについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "規定ポイントについて",
-                            textBody1: "・4種類のモードで規定カムラポイントを管理",
-                            textBody2: "・クエスト当選を契機にモード移行。モードDへ到達するまで転落はない",
-//                            image1: Image("mhrPtMode"),
-//                            image2Title: "モードごとのゾーン期待度",
-//                            image2: Image("mhrPtZone")
-                            tableView: AnyView(mhrTableKiteiPt())
-                        )
-                    )
-                )
-                unitLinkButton(
-                    title: "クエストテーブルについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "クエストテーブルについて",
-                            textBody1: "・4種類のテーブルでクエスト（周期）の期待度を管理",
-                            textBody2: "・テーブルはATを契機に再抽選。天国移行まで転落はない",
-                            textBody3: "・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる",
-//                            image1: Image("mhrTable"),
-//                            image2Title: "テーブルごとの周期期待度",
-//                            image2: Image("mhrTableZone")
-                            tableView: AnyView(mhrTableQuestTable())
-                        )
-                    )
-                )
+                unitLinkButtonViewBuilder(sheetTitle: "規定ポイント") {
+                    VStack(alignment: .center) {
+                        VStack {
+                            Text("・4種類のモードで規定カムラポイントを管理")
+                            Text("・クエスト当選を契機にモード移行。モードDへ到達するまで転落はない")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        mhrTableKiteiPt()
+                            .padding(.vertical)
+                        Text("[滞在モードごとの移行率]")
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        Picker("", selection: self.$selectedMode) {
+                            ForEach(self.modeList, id: \.self) { mode in
+                                Text(mode)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            if self.selectedMode == self.modeList[0] {
+                                unitTablePercent(
+                                    columTitle: "モードAへ",
+                                    percentList: [50,48.8,47.7,40.6,35.9,34.3]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードBへ",
+                                    percentList: [40.6],
+                                    lineList: [6],
+                                    colorList: [.white]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードCへ",
+                                    percentList: [6.3,7,7.8,14.1,18,18.8],
+                                    numberofDicimal: 1,
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードDへ",
+                                    percentList: [3.1,3.5,3.9,4.7,5.5,6.3],
+                                    numberofDicimal: 1,
+                                )
+                            } else if self.selectedMode == self.modeList[1] {
+                                unitTablePercent(
+                                    columTitle: "モードAへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードBへ",
+                                    percentList: [50,49.6,49.2,47.7,44.5,43.8],
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードCへ",
+                                    percentList: [43.8],
+                                    lineList: [6],
+                                    colorList: [.white],
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードDへ",
+                                    percentList: [6.3,6.6,7,8.5,11.7,12.4],
+                                    numberofDicimal: 1,
+                                )
+                            } else if self.selectedMode == self.modeList[2] {
+                                unitTablePercent(
+                                    columTitle: "モードAへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードBへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードCへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードDへ",
+                                    percentList: [100],
+                                    lineList: [6],
+                                    colorList: [.white],
+                                )
+                            } else {
+                                unitTablePercent(
+                                    columTitle: "モードAへ",
+                                    percentList: [50,46.5,43,35.9,32,30.4]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードBへ",
+                                    percentList: [34.4],
+                                    lineList: [6],
+                                    colorList: [.white]
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードCへ",
+                                    percentList: [3.1,3.5,3.9,4.7,5.5,6.3],
+                                    numberofDicimal: 1,
+                                )
+                                unitTablePercent(
+                                    columTitle: "モードDへ",
+                                    percentList: [12.5,15.6,18.7,25,28.1,28.9],
+                                    numberofDicimal: 0,
+                                )
+                            }
+                        }
+                    }
+                }
+                .popoverTip(tipVer3110MhrMode())
+//                unitLinkButton(
+//                    title: "規定ポイントについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "規定ポイントについて",
+//                            textBody1: "・4種類のモードで規定カムラポイントを管理",
+//                            textBody2: "・クエスト当選を契機にモード移行。モードDへ到達するまで転落はない",
+//                            tableView: AnyView(mhrTableKiteiPt())
+//                        )
+//                    )
+//                )
+                unitLinkButtonViewBuilder(sheetTitle: "クエストテーブル") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・4種類のテーブルでクエスト（周期）の期待度を管理")
+                            Text("・テーブルはATを契機に再抽選。天国移行まで転落はない")
+                            Text("・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる")
+                        }
+                        .padding(.bottom)
+                        mhrTableQuestTable()
+                            .padding(.bottom)
+                        Text("[滞在テーブルごとの移行率]")
+                            .font(.title2)
+                        Picker("", selection: self.$selectedTable) {
+                            ForEach(self.tableList, id: \.self) { table in
+                                Text(table)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            if self.selectedTable == self.tableList[0] {
+                                unitTablePercent(
+                                    columTitle: "Aへ",
+                                    percentList: [50,48.8,47.7,34,27.4,25]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Bへ",
+                                    percentList: [22.7,23,23.4,23.8,24.2,25],
+//                                    lineList: [6],
+//                                    colorList: [.white]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Cへ",
+                                    percentList: [7,7.4,7.8,18.8,24.2,25],
+                                    numberofDicimal: 1,
+                                )
+                                unitTablePercent(
+                                    columTitle: "Dへ",
+                                    percentList: [20.3,20.8,21.1,23.4,24.2,25],
+//                                    numberofDicimal: 1,
+                                )
+                            } else if self.selectedTable == self.tableList[1] {
+                                unitTablePercent(
+                                    columTitle: "Aへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Bへ",
+                                    percentList: [50,49.2,48.4,39,35.2,33.6],
+                                )
+                                unitTablePercent(
+                                    columTitle: "Cへ",
+                                    percentList: [25,25.4,25.8,30.5,32.4,33.2],
+//                                    lineList: [6],
+//                                    colorList: [.white],
+                                )
+                                unitTablePercent(
+                                    columTitle: "Dへ",
+                                    percentList: [25,25.4,25.8,30.5,32.4,33.2],
+//                                    numberofDicimal: 1,
+                                )
+                            } else if self.selectedTable == self.tableList[2] {
+                                unitTablePercent(
+                                    columTitle: "Aへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Bへ",
+                                    percentList: [0,0,0,0,0,0],
+                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Cへ",
+                                    percentList: [25,24.6,24.2,22.3,20.7,19.9],
+//                                    colorList: [.gray,.gray,.gray,.gray,.gray,.gray,]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Dへ",
+                                    percentList: [75,75.4,75.8,77.7,79.3,80.1],
+//                                    lineList: [6],
+//                                    colorList: [.white],
+                                )
+                            } else {
+                                unitTablePercent(
+                                    columTitle: "Aへ",
+                                    percentList: [50,49.2,48.4,36.8,31.7,30.1]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Bへ",
+                                    percentList: [6.3,6.7,7.1,9.4,11.8,12.5],
+                                    numberofDicimal: 1,
+//                                    lineList: [6],
+//                                    colorList: [.white]
+                                )
+                                unitTablePercent(
+                                    columTitle: "Cへ",
+                                    percentList: [6.3,6.7,7.1,16.4,19.1,20],
+                                    numberofDicimal: 1,
+                                )
+                                unitTablePercent(
+                                    columTitle: "Dへ",
+                                    percentList: [37.4],
+                                    numberofDicimal: 0,
+                                    lineList: [6],
+                                    colorList: [.white]
+                                )
+                            }
+                        }
+                    }
+                }
+//                unitLinkButton(
+//                    title: "クエストテーブルについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "クエストテーブルについて",
+//                            textBody1: "・4種類のテーブルでクエスト（周期）の期待度を管理",
+//                            textBody2: "・テーブルはATを契機に再抽選。天国移行まで転落はない",
+//                            textBody3: "・天国中にCZや直撃でボーナス当選した場合、次回も天国濃厚となる",
+//                            tableView: AnyView(mhrTableQuestTable())
+//                        )
+//                    )
+//                )
             } header: {
                 unitHeaderHistoryColumns(
                     column2: "実ゲーム数",
@@ -257,7 +468,6 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "AT初当り確率",
-//                            image1: Image("mhrAtHitRatio")
                             tableView: AnyView(mhrTableAtFirstHit())
                         )
                     )
@@ -270,18 +480,15 @@ struct mhrViewHistory: View {
                             title: "レア役からの直撃確率",
                             textBody1: "・レア役からの直撃確率に設定差あり",
                             textBody2: "・強レア役は現実的に起こりうる数値。複数回確認できれば高設定に期待してもいいかも",
-//                            image1: Image("mhrRareHitRatio")
                             tableView: AnyView(mhrTableRareDirectHit())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 1)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -306,18 +513,15 @@ struct mhrViewHistory: View {
                     exview: AnyView(
                         unitExView5body2image(
                             title: "ライズゾーン実質初当り確率",
-//                            image1: Image("mhrRiseZone")
                             tableView: AnyView(mhrTableRizeZoneRatio())
                         )
                     )
                 )
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(Ci95view: AnyView(mhrView95Ci(mhr: mhr, selection: 2)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mhrViewBayes(
-//                        ver390: ver390,
                         mhr: mhr,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -328,6 +532,8 @@ struct mhrViewHistory: View {
             }
             unitClearScrollSectionBinding(spaceHeight: $spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.mhrMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -386,7 +592,6 @@ struct mhrViewHistory: View {
                     unitButtonMinusCheck(minusCheck: $mhr.minusCheck)
                     // /// リセット
                     unitButtonReset(isShowAlert: $isShowAlert, action: mhr.resetHistory)
-//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -468,9 +673,9 @@ struct mhrSubViewDataInput: View {
 
 #Preview {
     mhrViewHistory(
-//        ver390: Ver390(),
         mhr: Mhr(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

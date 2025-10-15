@@ -30,7 +30,7 @@ class VVVmarieVar: ObservableObject {
 // ビュー：メインビュー
 // /////////////////////
 struct VVVmarieView: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var VVVendScreen: VVVendScreenVar
     @ObservedObject var VVVmarie: VVVmarieVar
     @ObservedObject var VVVharakiri: VVVharakiriVar
@@ -70,7 +70,7 @@ struct VVVmarieView: View {
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
                         VVVViewBayes(
-                            ver391: ver391,
+//                            ver391: ver391,
                             VVVendScreen: VVVendScreen,
                             VVVmarie: VVVmarie,
                             VVVharakiri: VVVharakiri,
@@ -269,7 +269,7 @@ func VVVfuncResetMarie(VVVmarie: VVVmarieVar) {
 
 #Preview {
     VVVmarieView(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         VVVendScreen: VVVendScreenVar(),
         VVVmarie: VVVmarieVar(),
         VVVharakiri: VVVharakiriVar(),

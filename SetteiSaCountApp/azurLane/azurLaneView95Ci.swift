@@ -14,6 +14,23 @@ struct azurLaneView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 共通ベル回数
+            unitListSection95Ci(
+                grafTitle: "共通🔔回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $azurLane.koyakuCountCommonBell,
+                        bigNumber: $azurLane.gameNumberPlay,
+                        setting1Denominate: azurLane.ratioCommonBell[0],
+                        setting2Denominate: azurLane.ratioCommonBell[1],
+                        setting3Denominate: azurLane.ratioCommonBell[2],
+                        setting4Denominate: azurLane.ratioCommonBell[3],
+                        setting5Denominate: azurLane.ratioCommonBell[4],
+                        setting6Denominate: azurLane.ratioCommonBell[5]
+                    )
+                )
+            )
+            .tag(10)
             // 弱チェリー回数
             unitListSection95Ci(
                 grafTitle: "弱🍒回数",

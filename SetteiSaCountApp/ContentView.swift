@@ -65,87 +65,19 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteAzurLane") var isSelectedFavoriteAzurLane = true
     @AppStorage("isSelectedFavoriteToreve") var isSelectedFavoriteToreve = true
     @AppStorage("isSelectedFavoriteCrea") var isSelectedFavoriteCrea = true
+    @AppStorage("isSelectedFavoriteNewOni3") var isSelectedFavoriteNewOni3 = true
+    @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
 }
 
-
-// /////////////////////////
-// 変数：コモン
-// /////////////////////////
-//class commonVar: ObservableObject {
-//    @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = true      // アイコン表示の切り替え
-//    let lazyVGridSize: CGFloat = 70
-//    let lazyVGridSpacing: CGFloat = 20
-//    let lazyVGridColumnsPortlait: Int = 4
-//    let lazyVGridColumnsLandscape: Int = 7
-//    
-//    // ///////////////////////
-//    // 起動回数カウント
-//    // ///////////////////////
-//    @AppStorage("commonAppLaunchCount") var appLaunchCount: Int = 0
-//    @AppStorage("commonAppLaunchCountUpLastDateDouble") var appLaunchCountUpLastDateDouble: Double = 0.0
-//    
-//    // //// 1日1回アプリ起動回数をカウントアップさせる
-//    func appLaunchCountUp() {
-//        // 現在時の取得
-//        let nowDate = Date()
-//        let nowDateDouble = nowDate.timeIntervalSince1970
-//        // 最終カウントアップ時から20時間経過していたらカウントアップさせる
-//        if (nowDateDouble - appLaunchCountUpLastDateDouble) > 72000 {
-//            appLaunchCount += 1
-//            appLaunchCountUpLastDateDouble = nowDateDouble
-//            print("カウントアップ： \(appLaunchCount) 回")
-//        } else {
-//            print("カウントアップなし")
-//        }
-//    }
-//    @Environment(\.requestReview) var requestReview
-//    @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
-//    
-//    // ////////////////
-//    // ver3.5.1で追加
-//    // 初回起動時のバージョン情報を保存しておく
-//    // ////////////////
-//    @AppStorage("commonFirstLaunchAppVersion") var firstLaunchAppVersion: String?
-////    @AppStorage("commonLastLaunchAppVersion") var lastLaunchAppVersion: String?
-//    
-//    func saveInitialVersionIfNeeded() {
-//        // すでに保存されていたら何もしない
-//        guard firstLaunchAppVersion == nil else { return }
-//        
-//        // 現在のバージョンを取得
-//        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-//            firstLaunchAppVersion = version
-//            print("初回起動バージョンを保存: \(version)")
-//        }
-//    }
-////    func saveAppVersions() {
-////        // 現在のバージョンを取得
-////        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-////            
-////            // 初回起動バージョンは一度だけ保存
-////            if firstLaunchAppVersion == nil {
-////                firstLaunchAppVersion = version
-////                print("初回起動バージョンを保存: \(version)")
-////            }
-////            
-////            // 最新起動バージョンは毎回更新
-////            lastLaunchAppVersion = version
-////            print("最新起動バージョンを更新: \(version)")
-////        }
-////    }
-//}
 
 // /////////////////////////
 // ビュー：メインビュー
 // /////////////////////////
 struct ContentView: View {
     @StateObject var ver320 = Ver320()
-//    @StateObject var ver390 = Ver390()
-    @StateObject var ver391 = Ver391()
     @StateObject var bayes = Bayes()
     @StateObject var viewModel = InterstitialViewModel()
     @ObservedObject var favoriteSet = favoriteSetVar()
-//    @ObservedObject var common: commonVar
     @EnvironmentObject var common: commonVar
     let displayMode = ["お気に入り", "全機種"]     // 機種リストの表示モード選択肢
     @State var isSelectedDisplayMode = "お気に入り"
@@ -158,7 +90,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3100UpdateInfo())
+                TipView(tipVer3110UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -173,7 +105,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -189,14 +121,44 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
-                                        badgeStatus: ver391.hanaSeriesBadge,
+//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 新鬼武者３、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(newOni3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("newOni3MachineIcon"),
+                                        machineName: "新鬼武者3",
+                                        badgeStatus: common.newOni3MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 銭形5、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteZeni5 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(zeni5ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("zeni5MachineIcon"),
+                                        machineName: "銭形5",
+                                        badgeStatus: common.zeni5MachineIconBadge,
                                     )
                                 }
                                 
@@ -223,7 +185,7 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
 //                                            ver390: ver390,
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -239,13 +201,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(azurLaneViewTop(
-                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("azurLaneMachineIcon"),
                                         machineName: "アズレン",
-                                        badgeStatus: ver391.azurLaneMachineIconBadge,
+                                        badgeStatus: common.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -333,13 +294,10 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(dmc5ViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
-//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "DevilMayCry5",
-//                                        badgeStatus: ver352.dmc5MachineIconBadge,
+                                        badgeStatus: common.dmc5MachineIconBadge,
                                     )
                                 }
                                 
@@ -625,13 +583,12 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             mhrViewTop(
-//                                                ver390: ver390,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )),
                                         iconImage: Image("mhrMachineIcon"),
                                         machineName: "モンハンライズ",
-//                                        badgeStatus:ver390.mhrMachineIconBadge,
+                                        badgeStatus:common.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -709,13 +666,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("enenMachineIcon"),
                                         machineName: "スマスロ炎炎",
-                                        badgeStatus: ver391.enenMachineIconBadge,
+//                                        badgeStatus: ver391.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -785,13 +742,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(VVV_Top(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("machineIconVVV"),
                                         machineName: "ヴヴヴ",
-                                        badgeStatus: ver391.vvvMachineIconBadge,
+//                                        badgeStatus: ver391.vvvMachineIconBadge,
                                     )
                                 }
                                 
@@ -817,7 +774,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
@@ -837,7 +794,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
 //                                            common: common,
@@ -847,7 +804,43 @@ struct ContentView: View {
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5,
-                                        badgeStatus: ver391.hanaSeriesBadge,
+//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 新鬼武者３、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(newOni3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("newOni3MachineIcon"),
+                                        machineName: "新鬼武者3",
+                                        makerName: "エンターライズ",
+                                        releaseYear: 2025,
+                                        releaseMonth: 10,
+                                        badgeStatus: common.newOni3MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 銭形5、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteZeni5 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(zeni5ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("zeni5MachineIcon"),
+                                        machineName: "主役は銭形5",
+                                        makerName: "平和",
+                                        releaseYear: 2025,
+                                        releaseMonth: 10,
+                                        badgeStatus: common.zeni5MachineIconBadge,
                                     )
                                 }
                                 
@@ -877,7 +870,7 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
 //                                            ver390: ver390,
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -896,17 +889,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(azurLaneViewTop(
-                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("azurLaneMachineIcon"),
                                         machineName: "アズールレーン",
-//                                        machineNameFont: .subheadline,
                                         makerName: "京楽",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-                                        badgeStatus: ver391.azurLaneMachineIconBadge,
+                                        badgeStatus: common.azurLaneMachineIconBadge,
                                     )
                                 }
                                 
@@ -1010,16 +1001,13 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(dmc5ViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
-//                                            ver352: ver352,
                                         )),
                                         iconImage: Image("dmc5MachineIcon"),
                                         machineName: "Devil May Cry5",
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver352.dmc5MachineIconBadge,
+                                        badgeStatus: common.dmc5MachineIconBadge,
                                     )
                                 }
                                 
@@ -1393,7 +1381,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(mhrViewTop(
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1402,7 +1389,7 @@ struct ContentView: View {
                                         makerName: "アデリオン",
                                         releaseYear: 2024,
                                         releaseMonth: 11,
-//                                        badgeStatus: ver390.mhrMachineIconBadge,
+                                        badgeStatus: common.mhrMachineIconBadge,
                                     )
                                 }
                                 
@@ -1487,7 +1474,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(enenViewTop(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1497,7 +1484,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 5,
-                                        badgeStatus: ver391.enenMachineIconBadge,
+//                                        badgeStatus: ver391.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1577,7 +1564,7 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(VVV_Top(
-                                            ver391: ver391,
+//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1586,7 +1573,7 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2022,
                                         releaseMonth: 11,
-                                        badgeStatus: ver391.vvvMachineIconBadge,
+//                                        badgeStatus: ver391.vvvMachineIconBadge,
                                     )
                                 }
                                 
@@ -1617,42 +1604,42 @@ struct ContentView: View {
                         Spacer()
                     }
                     
-                    // //// プライバシーポリシー改訂の案内
-                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
-                    if common.appLaunchCount > 1 {
-                        if ver320.isShowPrivacyPolicy {
-                            ZStack {
-                                Rectangle()
-                                    .foregroundStyle(Color.white)
-                                    .opacity(0.8)
-                                GroupBox {
-                                    VStack {
-                                        Text("プライバシーポリシー改訂のお知らせ")
-                                            .font(.title3)
-                                            .fontWeight(.bold)
-                                        VStack {
-                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
-                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
-                                                Text("プライバシーポリシーはこちら")
-                                                    .padding(.vertical)
-                                            }
-                                            Button {
-                                                ver320.isShowPrivacyPolicy.toggle()
-                                            } label: {
-                                                Text("承諾して閉じる")
-                                                    .fontWeight(.bold)
-                                            }
-                                            .buttonStyle(BorderedProminentButtonStyle())
-                                        }
-                                        .padding(.horizontal)
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        } else {
-                            
-                        }
-                    }
+//                    // //// プライバシーポリシー改訂の案内
+//                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
+//                    if common.appLaunchCount > 1 {
+//                        if ver320.isShowPrivacyPolicy {
+//                            ZStack {
+//                                Rectangle()
+//                                    .foregroundStyle(Color.white)
+//                                    .opacity(0.8)
+//                                GroupBox {
+//                                    VStack {
+//                                        Text("プライバシーポリシー改訂のお知らせ")
+//                                            .font(.title3)
+//                                            .fontWeight(.bold)
+//                                        VStack {
+//                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
+//                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
+//                                                Text("プライバシーポリシーはこちら")
+//                                                    .padding(.vertical)
+//                                            }
+//                                            Button {
+//                                                ver320.isShowPrivacyPolicy.toggle()
+//                                            } label: {
+//                                                Text("承諾して閉じる")
+//                                                    .fontWeight(.bold)
+//                                            }
+//                                            .buttonStyle(BorderedProminentButtonStyle())
+//                                        }
+//                                        .padding(.horizontal)
+//                                    }
+//                                }
+//                                .padding(.horizontal)
+//                            }
+//                        } else {
+//                            
+//                        }
+//                    }
                 }
                 // 開発用
 //                .onAppear {
@@ -1769,27 +1756,22 @@ struct ContentView: View {
             }
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
-                //                ZStack {
-                //                    Rectangle()
-                //                        .foregroundStyle(Color(UIColor.systemGroupedBackground))
-                //                        .ignoresSafeArea()
-                //                        .frame(height: 50)
-                //                    AdMobBannerView()
-                //                        .frame(width: 320,height: 50)     // 320*50が基本サイズ？50だといい感じ
-                //                }
                 GeometryReader { geometry in
-                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
+//                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
+                    let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
                     
                     ZStack {
                         Rectangle()
                             .foregroundStyle(Color(UIColor.systemGroupedBackground))
                             .ignoresSafeArea()
-                        BannerView(adSize)
+//                        BannerView(adSize)
+                        BannerAdView(adSize)
                             .frame(height: adSize.size.height)
                     }
                     .frame(height: adSize.size.height)
                 }
-                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+//                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
+                .frame(height: currentOrientationAnchoredAdaptiveBanner(width: UIScreen.main.bounds.width).size.height)
             }
         }
         
@@ -1806,7 +1788,8 @@ struct ContentView: View {
             // トラッキング許可のポップアップを出す
             if common.trackingRequested == false {
                 ATTrackingManager.requestTrackingAuthorization() {_ in
-                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+//                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+                    MobileAds.shared.start(completionHandler: nil)
                 }
                 common.trackingRequested = true
             }
@@ -1815,12 +1798,12 @@ struct ContentView: View {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
-        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
-        .onAppear {
-            if common.appLaunchCount <= 1 {
-                ver320.isShowPrivacyPolicy = false
-            }
-        }
+//        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
+//        .onAppear {
+//            if common.appLaunchCount <= 1 {
+//                ver320.isShowPrivacyPolicy = false
+//            }
+//        }
         // //// アプリがアクティブになったことを確認してトラッキング許可のポップアップを出す
 //        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
 //            ATTrackingManager.requestTrackingAuthorization() {_ in
@@ -1854,6 +1837,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 新鬼武者３
+                Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
+                // 銭形５
+                Toggle("主役は銭形5", isOn: $favoriteSet.isSelectedFavoriteZeni5)
                 // クレアの秘宝伝
                 Toggle("クレアの秘宝伝BT", isOn: $favoriteSet.isSelectedFavoriteCrea)
                 // 東京リベンジャーズ
@@ -1963,94 +1950,15 @@ struct favoriteSettingView: View {
 }
 
 
-// ////////////////////////
-// ビュー：ジャグラーシリーズ
-// ////////////////////////
-//struct machineListJuglerSeries: View {
-//    var body: some View {
-//        NavigationLink(destination: JuglerSeriesViewTop()) {
-//            HStack {
-//                Image("machineIconJuglerSeries")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 40.0)
-//                    .cornerRadius(8)
-//                VStack(alignment: .leading) {
-//                    Text("ジャグラーシリーズ")
-//                    Text("")
-//                        .font(.caption)
-////                        .foregroundColor(Color.gray)
-//                        .foregroundStyle(Color.gray)
-//                        .padding(.leading)
-//                }
-//                .padding(.leading)
-//            }
-//        }
-//    }
-//}
-
-
-// ////////////////////////
-// ビュー：ハナハナシリーズ
-// ////////////////////////
-//struct machineListHanahanaSeries: View {
-//    var body: some View {
-//        NavigationLink(destination: hanahanaSeriesViewTop()) {
-//            HStack {
-//                Image("machineIconHanahanaSeries")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 40.0)
-//                    .cornerRadius(8)
-//                VStack(alignment: .leading) {
-//                    Text("ハナハナシリーズ")
-//                    Text("")
-//                        .font(.caption)
-////                        .foregroundColor(Color.gray)
-//                        .foregroundStyle(Color.gray)
-//                        .padding(.leading)
-//                }
-//                .padding(.leading)
-//            }
-//        }
-//    }
-//}
-
-
-// ////////////////////
-// バナー広告の設定
-// ////////////////////
-//struct AdMobBannerView: UIViewRepresentable {
-//    func makeUIView(context: Context) -> GADBannerView {
-//        let banner = GADBannerView(adSize: GADAdSizeBanner) // インスタンスを生成
-//        // 諸々の設定をしていく
-//        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト用広告ID
-////        banner.adUnitID = "ca-app-pub-3940256099942544/2435281174" // テスト用広告ID2
-////        banner.adUnitID = "ca-app-pub-2339669527176370/9695161925" // 本番用広告ID
-//        banner.rootViewController = getRootViewController() // 修正部分
-//        banner.load(GADRequest())
-//        return banner // 最終的にインスタンスを返す
-//    }
-//
-//    func updateUIView(_ uiView: GADBannerView, context: Context) {
-//        // 特にないのでメソッドだけ用意
-//    }
-//
-//    private func getRootViewController() -> UIViewController? {
-//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//            return windowScene.windows.filter { $0.isKeyWindow }.first?.rootViewController
-//        }
-//        return nil
-//    }
-//}
-
-
 // [START create_banner_view]
 //private struct BannerView: UIViewRepresentable {
-struct BannerView: UIViewRepresentable {
-    let adSize: GADAdSize
+//struct BannerView: UIViewRepresentable {
+struct BannerAdView: UIViewRepresentable {
+//    let adSize: GADAdSize
+    let adSize: AdSize
     
-    init(_ adSize: GADAdSize) {
+//    init(_ adSize: GADAdSize) {
+    init(_ adSize: AdSize) {
         self.adSize = adSize
     }
     
@@ -2059,10 +1967,12 @@ struct BannerView: UIViewRepresentable {
         // frame size changes; wrapping in a UIView container insulates the GADBannerView from size
         // changes that impact the view returned from makeUIView.
         let view = UIView()
+//        view.addSubview(context.coordinator.bannerView)
         view.addSubview(context.coordinator.bannerView)
         return view
     }
     
+//    func updateUIView(_ uiView: UIView, context: Context) {
     func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.bannerView.adSize = adSize
     }
@@ -2073,16 +1983,20 @@ struct BannerView: UIViewRepresentable {
     // [END create_banner_view]
     
     // [START create_banner]
-    class BannerCoordinator: NSObject, GADBannerViewDelegate {
+//    class BannerCoordinator: NSObject, GADBannerViewDelegate {
+    class BannerCoordinator: NSObject, BannerViewDelegate {
         
-        private(set) lazy var bannerView: GADBannerView = {
-            let banner = GADBannerView(adSize: parent.adSize)
+//        private(set) lazy var bannerView: GADBannerView = {
+        private(set) lazy var bannerView: BannerView = {
+//            let banner = GADBannerView(adSize: parent.adSize)
+            let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
-            let adRequest = GADRequest()
+//            let adRequest = GADRequest()
+            let adRequest = Request()
             // カスタムキーワードを設定
 //            adRequest.keywords = ["パチスロ", "パチンコ", "ギャンブル", "遊技場", "スマスロ", "スマパチ", "スロット"]
 //            adRequest.keywords = ["パチスロ", "パチンコ", "遊技場", "スマスロ", "スマパチ", "スロット"]
@@ -2096,20 +2010,24 @@ struct BannerView: UIViewRepresentable {
             return banner
         }()
         
-        let parent: BannerView
+//        let parent: BannerView
+        let parent: BannerAdView
         
-        init(_ parent: BannerView) {
+//        init(_ parent: BannerView) {
+        init(_ parent: BannerAdView) {
             self.parent = parent
         }
         // [END create_banner]
         
         // MARK: - GADBannerViewDelegate methods
         
-        func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        func bannerViewDidReceiveAd(_ bannerView: BannerView) {
             print("DID RECEIVE AD.")
         }
         
-        func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//        func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
             print("FAILED TO RECEIVE AD: \(error.localizedDescription)")
         }
     }

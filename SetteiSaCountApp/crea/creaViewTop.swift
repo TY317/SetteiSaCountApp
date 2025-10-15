@@ -63,6 +63,18 @@ struct creaViewTop: View {
                             textBody: "REG中のカード"
                         )
                     }
+                    // BT中のハズレ
+                    NavigationLink(destination: creaViewBt(
+                        crea: crea,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "BT中",
+                            badgeStatus: common.creaMenuBtBadge,
+                        )
+                    }
                     // BIG
                     NavigationLink(destination: creaViewStamp(
                         crea: crea,
@@ -224,6 +236,12 @@ struct creaSubViewSaveMemory: View {
         creaMemory1.stampCountHighJaku = crea.stampCountHighJaku
         creaMemory1.stampCountHighKyo = crea.stampCountHighKyo
         creaMemory1.stampCountSum = crea.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        creaMemory1.btGame = crea.btGame
+        creaMemory1.btHazure = crea.btHazure
     }
     func saveMemory2() {
         creaMemory2.koyakuCountBell = crea.koyakuCountBell
@@ -251,6 +269,12 @@ struct creaSubViewSaveMemory: View {
         creaMemory2.stampCountHighJaku = crea.stampCountHighJaku
         creaMemory2.stampCountHighKyo = crea.stampCountHighKyo
         creaMemory2.stampCountSum = crea.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        creaMemory2.btGame = crea.btGame
+        creaMemory2.btHazure = crea.btHazure
     }
     func saveMemory3() {
         creaMemory3.koyakuCountBell = crea.koyakuCountBell
@@ -278,6 +302,12 @@ struct creaSubViewSaveMemory: View {
         creaMemory3.stampCountHighJaku = crea.stampCountHighJaku
         creaMemory3.stampCountHighKyo = crea.stampCountHighKyo
         creaMemory3.stampCountSum = crea.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        creaMemory3.btGame = crea.btGame
+        creaMemory3.btHazure = crea.btHazure
     }
 }
 
@@ -334,6 +364,12 @@ struct creaSubViewLoadMemory: View {
         crea.stampCountHighJaku = creaMemory1.stampCountHighJaku
         crea.stampCountHighKyo = creaMemory1.stampCountHighKyo
         crea.stampCountSum = creaMemory1.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        crea.btGame = creaMemory1.btGame
+        crea.btHazure = creaMemory1.btHazure
     }
     func loadMemory2() {
         crea.koyakuCountBell = creaMemory2.koyakuCountBell
@@ -361,6 +397,12 @@ struct creaSubViewLoadMemory: View {
         crea.stampCountHighJaku = creaMemory2.stampCountHighJaku
         crea.stampCountHighKyo = creaMemory2.stampCountHighKyo
         crea.stampCountSum = creaMemory2.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        crea.btGame = creaMemory2.btGame
+        crea.btHazure = creaMemory2.btHazure
     }
     func loadMemory3() {
         crea.koyakuCountBell = creaMemory3.koyakuCountBell
@@ -388,6 +430,12 @@ struct creaSubViewLoadMemory: View {
         crea.stampCountHighJaku = creaMemory3.stampCountHighJaku
         crea.stampCountHighKyo = creaMemory3.stampCountHighKyo
         crea.stampCountSum = creaMemory3.stampCountSum
+        
+        // //////////////
+        // ver3.11.0で追加
+        // //////////////
+        crea.btGame = creaMemory3.btGame
+        crea.btHazure = creaMemory3.btHazure
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct enenViewNormal: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var enen: Enen
     @State var isShowAlert = false
     let segmentList: [String] = ["十字目変換", "強🍒"]
@@ -160,7 +160,7 @@ struct enenViewNormal: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     enenViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         enen: enen,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -220,7 +220,7 @@ struct enenViewNormal: View {
 
 #Preview {
     enenViewNormal(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         enen: Enen(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

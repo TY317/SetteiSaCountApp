@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewStartScreen: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     
     var body: some View {
@@ -157,7 +157,7 @@ struct toreveViewStartScreen: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMenuStartScreenBadge)
+//        .resetBadgeOnAppear($ver391.toreveMenuStartScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -173,7 +173,7 @@ struct toreveViewStartScreen: View {
 
 #Preview {
     toreveViewStartScreen(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
     )
 }

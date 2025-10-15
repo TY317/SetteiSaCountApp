@@ -1683,7 +1683,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Google-Mobile-Ads-SDK
 
-Copyright 2024 Google LLC
+Copyright 2025 Google LLC
+
+## GoogleAdsOnDeviceConversion
+
+Copyright 2024 Google
 
 ## GoogleAppMeasurement
 
@@ -1897,7 +1901,7 @@ Copyright 2022 Google
 
 ## GoogleUserMessagingPlatform
 
-Copyright 2024 Google LLC
+Copyright 2025 Google LLC
 
 ## GoogleUtilities
 

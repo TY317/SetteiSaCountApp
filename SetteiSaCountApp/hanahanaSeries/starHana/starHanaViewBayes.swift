@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct starHanaViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var starHana: StarHana
     
     // 機種ごとに見直し
@@ -73,7 +73,7 @@ struct starHanaViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.starHanaMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.starHanaMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -251,7 +251,7 @@ struct starHanaViewBayes: View {
 
 #Preview {
     starHanaViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         starHana: StarHana(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

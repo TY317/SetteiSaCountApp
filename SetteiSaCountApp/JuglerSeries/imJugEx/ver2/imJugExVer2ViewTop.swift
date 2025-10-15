@@ -326,7 +326,7 @@ class ImJugExMemory3: ObservableObject {
 
 
 struct imJugExVer2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
 //    @ObservedObject var imJugEx = ImJugEx()
     @StateObject var imJugEx = ImJugEx()
     @State var isShowAlert: Bool = false
@@ -371,7 +371,7 @@ struct imJugExVer2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: imJugExVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         imJugEx: imJugEx,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -383,7 +383,7 @@ struct imJugExVer2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         imJugEx: imJugEx,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -405,7 +405,7 @@ struct imJugExVer2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: imJugExViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     imJugEx: imJugEx,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -413,7 +413,7 @@ struct imJugExVer2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.imJugExMenuBayesBadge,
+//                        badgeStatus: ver391.imJugExMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -427,7 +427,7 @@ struct imJugExVer2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.imJugExMachineIconBadge)
+//        .resetBadgeOnAppear($ver391.imJugExMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -704,7 +704,7 @@ struct imJugExSubViewLoadMemory: View {
 
 #Preview {
     imJugExVer2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

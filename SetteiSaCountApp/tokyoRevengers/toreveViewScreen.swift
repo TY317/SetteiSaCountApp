@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewScreen: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -118,7 +118,7 @@ struct toreveViewScreen: View {
                     }
                 }
                 .frame(height: 170)
-                .popoverTip(tipVer391ToreveScreen())
+//                .popoverTip(tipVer391ToreveScreen())
                 
                 // //// カウント結果
 //                ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
@@ -143,7 +143,7 @@ struct toreveViewScreen: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMenuScreenBadge)
+//        .resetBadgeOnAppear($ver391.toreveMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -191,7 +191,7 @@ struct toreveViewScreen: View {
 
 #Preview {
     toreveViewScreen(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

@@ -13,6 +13,7 @@ struct unitResultCountListWithoutRatio: View {
     let titleColor: Color = .primary
     let numberColor: Color = .secondary
     var flashColor: Color = .clear
+    var titleFont: Font = .body
     
     var body: some View {
         ZStack {
@@ -22,6 +23,7 @@ struct unitResultCountListWithoutRatio: View {
                 Text(self.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(self.titleColor)
+                    .font(self.titleFont)
                 Text("\(self.count)")
                     .frame(maxWidth: .infinity, alignment: .center)
                     .foregroundStyle(self.numberColor)

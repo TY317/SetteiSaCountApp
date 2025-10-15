@@ -12,15 +12,20 @@ struct commonViewKakureNagi: View {
         List {
 //            Text("打-WINで1000G消化ごとに抽選で設定示唆が出現するため要チェック")
 //                .foregroundStyle(.secondary)
-            Text("打-WINで設定示唆セリフが出現することがある")
-                .foregroundStyle(.secondary)
-                .font(.caption)
-            Text("1000G消化ごとに出現抽選されるため、定期的にチェックを推奨")
-                .foregroundStyle(.secondary)
-                .font(.caption)
-            Text("セリフの色で設定を示唆")
-                .foregroundStyle(.secondary)
-                .font(.caption)
+            VStack(alignment: .leading){
+                Text("・打-WINで設定示唆セリフが出現することがある")
+//                    .foregroundStyle(.secondary)
+//                    .font(.caption)
+                Text("・1000G消化ごとに出現抽選されるため、定期的にチェックを推奨")
+//                    .foregroundStyle(.secondary)
+//                    .font(.caption)
+                Text("・セリフの色で設定を示唆")
+//                    .foregroundStyle(.secondary)
+//                    .font(.caption)
+            }
+            .foregroundStyle(.secondary)
+            .font(.caption)
+            
             HStack(spacing: 0) {
                 Spacer()
                 unitTableString(

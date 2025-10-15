@@ -424,7 +424,7 @@ class HappyJugV3Memory3: ObservableObject {
 }
 
 struct happyJugV3Ver2ViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
 //    @ObservedObject var happyJugV3 = HappyJugV3()
     @StateObject var happyJugV3 = HappyJugV3()
     @State var isShowAlert: Bool = false
@@ -469,7 +469,7 @@ struct happyJugV3Ver2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: happyJugV3Ver2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         happyJugV3: happyJugV3,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -481,7 +481,7 @@ struct happyJugV3Ver2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         happyJugV3: happyJugV3,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -503,7 +503,7 @@ struct happyJugV3Ver2ViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: happyJugV3ViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     happyJugV3: happyJugV3,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -511,7 +511,7 @@ struct happyJugV3Ver2ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.happyJugV3MenuBayesBadge,
+//                        badgeStatus: ver391.happyJugV3MenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -525,7 +525,7 @@ struct happyJugV3Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.happyJugV3MachineIconBadge)
+//        .resetBadgeOnAppear($ver391.happyJugV3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -813,7 +813,7 @@ struct happyJugV3SubViewLoadMemory: View {
 
 #Preview {
     happyJugV3Ver2ViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct hanaTenshoViewBayes: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var hanaTensho: HanaTensho
     
     // 機種ごとに見直し
@@ -73,7 +73,7 @@ struct hanaTenshoViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.hanaTenshoMenuBayesBadge)
+//        .resetBadgeOnAppear($ver391.hanaTenshoMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -251,7 +251,7 @@ struct hanaTenshoViewBayes: View {
 
 #Preview {
     hanaTenshoViewBayes(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         hanaTensho: HanaTensho(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

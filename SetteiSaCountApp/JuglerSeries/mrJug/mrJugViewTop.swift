@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct mrJugViewTop: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @StateObject var mrJug = MrJug()
     @State var isShowAlert: Bool = false
     @StateObject var mrJugMemory1 = MrJugMemory1()
@@ -53,7 +53,7 @@ struct mrJugViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: mrJugVer2ViewJissenCount(
-                        ver391: ver391,
+//                        ver391: ver391,
                         mrJug: mrJug,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -65,7 +65,7 @@ struct mrJugViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: mrJugVer2ViewJissenTotalDataCheck(
-                        ver391: ver391,
+//                        ver391: ver391,
                         mrJug: mrJug,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -87,7 +87,7 @@ struct mrJugViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: mrJugViewBayes(
-                    ver391: ver391,
+//                    ver391: ver391,
                     mrJug: mrJug,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -95,7 +95,7 @@ struct mrJugViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-                        badgeStatus: ver391.mrJugMenuBayesBadge,
+//                        badgeStatus: ver391.mrJugMenuBayesBadge,
                     )
                 }
                 // 解析サイトへのリンク
@@ -109,7 +109,7 @@ struct mrJugViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.mrJugMachineIconBadge)
+//        .resetBadgeOnAppear($ver391.mrJugMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -402,7 +402,7 @@ struct mrJugSubViewLoadMemory: View {
 
 #Preview {
     mrJugViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

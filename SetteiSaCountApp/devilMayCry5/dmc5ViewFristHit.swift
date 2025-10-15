@@ -41,6 +41,9 @@ struct dmc5ViewFristHit: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @State var selectedItem: String = "100G"
+    let itemList: [String] = ["100G","200G","300G","400G","500G","600G","700G","800G","900G","1000G",]
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
 //        TipView(dmc5TipHistoryInput())
@@ -226,17 +229,74 @@ struct dmc5ViewFristHit: View {
                 }
                 .frame(height: self.scrollViewHeight)
                 // モード基本情報
-                unitLinkButton(
-                    title: "通常時のモードについて",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "通常時のモード",
-                            textBody1: "・4つのモードで規定ゲーム数を管理",
-                            textBody2: "・ゾーン外（100Gごと以外）のゲーム数でのボーナス当選は高設定の可能性がアップする",
-                            tableView: AnyView(dmc5TableMode())
-                        )
-                    )
-                )
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・4つのモードで規定ゲーム数を管理")
+                        }
+                        .padding(.bottom)
+                        Text("[ゾーンごとの期待度]")
+                            .font(.title2)
+                        HStack {
+                            Text("ゾーン選択：")
+                            Picker(selection: self.$selectedItem) {
+                                ForEach(self.itemList, id: \.self) { item in
+                                    Text(item)
+                                }
+                            } label: {
+                                Text("ゾーン：\(self.selectedItem)")
+                            }
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "通常A",
+                                percentList: modeARatio(zone: self.selectedItem),
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "通常B",
+                                percentList: modeBRatio(zone: self.selectedItem),
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "通常C",
+                                percentList: modeCRatio(zone: self.selectedItem),
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "天国",
+                                percentList: modeDRatio(zone: self.selectedItem),
+                                numberofDicimal: 1,
+                            )
+//                            if self.selectedItem == self.itemList[0] {
+//                                unitTablePercent(
+//                                    columTitle: "天国",
+//                                    percentList: [100],
+//                                    lineList: [6],
+//                                    colorList: [.white]
+//                                )
+//                            } else {
+//                                unitTableString(
+//                                    columTitle: "天国",
+//                                    stringList: ["grayOut","grayOut","grayOut","grayOut","grayOut",]
+//                                )
+//                            }
+                        }
+                    }
+                }
+                .popoverTip(tipVer3110DmcMode())
+//                unitLinkButton(
+//                    title: "通常時のモードについて",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "通常時のモード",
+//                            textBody1: "・4つのモードで規定ゲーム数を管理",
+//                            textBody2: "・ゾーン外（100Gごと以外）のゲーム数でのボーナス当選は高設定の可能性がアップする",
+//                            tableView: AnyView(dmc5TableMode())
+//                        )
+//                    )
+//                )
                 // 謎ダンテCZについて
                 unitLinkButton(
                     title: "謎ダンテCZについて",
@@ -312,78 +372,9 @@ struct dmc5ViewFristHit: View {
                 Text("確率集計")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
-//            Section {
-//                // 通常ゲーム数入力
-//                unitTextFieldNumberInputWithUnit(
-//                    title: "通常ゲーム数",
-//                    inputValue: $dmc5.normalGame,
-//                    unitText: "Ｇ"
-//                )
-//                .focused($isFocused)
-//                .toolbar {
-//                    ToolbarItem(placement: .keyboard) {
-//                        HStack {
-//                            Spacer()
-//                            Button(action: {
-//                                isFocused = false
-//                            }, label: {
-//                                Text("完了")
-//                                    .fontWeight(.bold)
-//                            })
-//                        }
-//                    }
-//                }
-//                // //// カウント横並び
-//                HStack {
-//                    // ボーナス
-//                    unitCountButtonVerticalDenominate(
-//                        title: "ボーナス",
-//                        count: $dmc5.bonusCount,
-//                        color: .personalSummerLightRed,
-//                        bigNumber: $dmc5.normalGame,
-//                        numberofDicimal: 0,
-//                        minusBool: $dmc5.minusCheck
-//                    )
-//                    // ST
-//                    unitCountButtonVerticalDenominate(
-//                        title: "ST",
-//                        count: $dmc5.stCount,
-//                        color: .personalSummerLightPurple,
-//                        bigNumber: $dmc5.normalGame,
-//                        numberofDicimal: 0,
-//                        minusBool: $dmc5.minusCheck
-//                    )
-//                }
-//                
-//                // //// 参考情報）初当り確率
-//                unitLinkButton(
-//                    title: "初当り確率",
-//                    exview: AnyView(
-//                        unitExView5body2image(
-//                            title: "初当り確率",
-//                            tableView: AnyView(
-//                                dmc5TableFirstHit(
-//                                    dmc5: dmc5
-//                                )
-//                            )
-//                        )
-//                    )
-//                )
-//                // //// 95%信頼区間グラフへのリンク
-//                unitNaviLink95Ci(
-//                    Ci95view: AnyView(
-//                        dmc5View95Ci(
-//                            dmc5: dmc5,
-//                            selection: 1
-//                        )
-//                    )
-//                )
-//            } header: {
-//                Text("初当りカウント")
-//            }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver350.dmc5MenuFirstHitBadgeStaus)
+        .resetBadgeOnAppear($common.dmc5MenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -420,11 +411,72 @@ struct dmc5ViewFristHit: View {
             }
         }
     }
+    
+    func modeARatio(zone: String) -> [Double] {
+        switch zone {
+        case self.itemList[0]: return [35.0,35.2,35.3,39.4,39.9,41.8]
+        case self.itemList[1]: return [35.0,35.2,35.3,39.4,39.9,41.8]
+        case self.itemList[2]: return [0.9,0.9,0.9,1.8,1.9,2.3]
+        case self.itemList[3]: return [0.9,0.9,1,2.2,2.4,3]
+        case self.itemList[4]: return [15.6,15.8,15.9,20.7,21.3,23.4]
+        case self.itemList[5]: return [24.1,24.3,24.4,28.5,29.1,30.9]
+        case self.itemList[6]: return [0.9,0.9,0.9,1.7,1.8,2.1]
+        case self.itemList[7]: return [0.9,0.9,0.9,1.7,1.8,2.1]
+        case self.itemList[8]: return [0.9,0.9,0.9,1.7,1.8,2.1]
+        case self.itemList[9]: return [100,100,100,100,100,100]
+        default: return [0,0,0,0,0,0]
+        }
+    }
+    func modeBRatio(zone: String) -> [Double] {
+        switch zone {
+        case self.itemList[0]: return [35,35.2,35.3,39.6,40.1,42]
+        case self.itemList[1]: return [39.7,39.8,40,44.3,44.8,46.7]
+        case self.itemList[2]: return [0.9,0.9,1,2.2,2.4,3]
+        case self.itemList[3]: return [50.8,51,51.2,57.4,58.2,60.9]
+        case self.itemList[4]: return [0.8,0.8,0.8,0.8,0.8,0.9]
+        case self.itemList[5]: return [50.7,50.8,51,56.1,56.7,58.9]
+        case self.itemList[6]: return [0.8,0.8,0.8,0.9,0.9,0.9,]
+        case self.itemList[7]: return [0.9,1,1,2.6,2.8,3.5]
+        case self.itemList[8]: return [100,100,100,100,100,100,]
+        case self.itemList[9]: return [0,0,0,0,0,0,]
+        default: return [0,0,0,0,0,0]
+        }
+    }
+    func modeCRatio(zone: String) -> [Double] {
+        switch zone {
+        case self.itemList[0]: return [37.4,37.5,37.6,41.9,42.5,44.4]
+        case self.itemList[1]: return [37.4,37.5,37.6,41.9,42.5,44.4]
+        case self.itemList[2]: return [40.2,40.2,40.3,41.5,41.7,42.3]
+        case self.itemList[3]: return [0.8,0.8,0.8,0.8,0.8,0.9]
+        case self.itemList[4]: return [21.1,21.2,21.4,26.3,26.9,29]
+        case self.itemList[5]: return [25.7,25.8,25.9,30.1,30.6,32.4]
+        case self.itemList[6]: return [0.8,0.8,0.8,0.8,0.8,0.9]
+        case self.itemList[7]: return [100,100,100,100,100,100,]
+        case self.itemList[8]: return [0,0,0,0,0,0,]
+        case self.itemList[9]: return [0,0,0,0,0,0,]
+        default: return [0,0,0,0,0,0]
+        }
+    }
+    func modeDRatio(zone: String) -> [Double] {
+        switch zone {
+        case self.itemList[0]: return [100,100,100,100,100,100,]
+        case self.itemList[1]: return [0,0,0,0,0,0,]
+        case self.itemList[2]: return [0,0,0,0,0,0,]
+        case self.itemList[3]: return [0,0,0,0,0,0,]
+        case self.itemList[4]: return [0,0,0,0,0,0,]
+        case self.itemList[5]: return [0,0,0,0,0,0,]
+        case self.itemList[6]: return [0,0,0,0,0,0,]
+        case self.itemList[7]: return [0,0,0,0,0,0,]
+        case self.itemList[8]: return [0,0,0,0,0,0,]
+        case self.itemList[9]: return [0,0,0,0,0,0,]
+        default: return [0,0,0,0,0,0]
+        }
+    }
 }
 
 #Preview {
     dmc5ViewFristHit(
-//        ver350: Ver350(),
         dmc5: Dmc5(),
     )
+    .environmentObject(commonVar())
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct girlsSSVer2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var girlsSS: GirlsSS
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -223,7 +223,7 @@ struct girlsSSVer2ViewJissenCount: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     girlsSSViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         girlsSS: girlsSS,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -347,7 +347,7 @@ struct girlsSSVer2ViewJissenCount: View {
 
 #Preview {
     girlsSSVer2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         girlsSS: GirlsSS(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

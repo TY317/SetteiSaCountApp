@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewTop: View {
-    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var azurLane = AzurLane()
@@ -38,12 +38,13 @@ struct azurLaneViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.azurLaneMenuNormalBadge,
                         )
                     }
                     // 初当り
                     NavigationLink(destination: azurLaneViewFirstHit(
-                        ver391: ver391,
+//                        ver391: ver391,
                         azurLane: azurLane,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -51,23 +52,24 @@ struct azurLaneViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
-                            badgeStatus: ver391.azurLaneMenuFirstHitBadge,
+//                            badgeStatus: ver391.azurLaneMenuFirstHitBadge,
                         )
                     }
                     // ボーナス中 加賀バトル
                     NavigationLink(destination: azurLaneViewKaga(
-                        ver391: ver391,
                         azurLane: azurLane,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "person.3",
                             textBody: "ボーナス中 加賀バトル",
-                            badgeStatus: ver391.azurLaneMenuKagaBadge,
+                            badgeStatus: common.azurLaneMenuKagaBadge,
                         )
                     }
                     // ボーナス中 明石チャレンジ
                     NavigationLink(destination: azurLaneViewAkashi(
-                        ver391: ver391,
+//                        ver391: ver391,
                         azurLane: azurLane,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -75,7 +77,7 @@ struct azurLaneViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "wrench.adjustable.fill",
                             textBody: "ボーナス中 明石チャレンジ",
-                            badgeStatus: ver391.azurLaneMenuAkashiBadge,
+//                            badgeStatus: ver391.azurLaneMenuAkashiBadge,
                         )
                     }
                     // ボーナス、AT終了画面
@@ -86,7 +88,8 @@ struct azurLaneViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス,AT終了画面"
+                            textBody: "ボーナス,AT終了画面",
+                            badgeStatus: common.azurLaneMenuScreenBadge,
                         )
                     }
                     // AT終了後の高確スタート
@@ -112,7 +115,7 @@ struct azurLaneViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: azurLaneView95Ci(
                     azurLane: azurLane,
-                    selection: 1
+                    selection: 10,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -128,6 +131,7 @@ struct azurLaneViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.azurLaneMenuBayesBadge,
                     )
                 }
                 
@@ -142,7 +146,7 @@ struct azurLaneViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.azurLaneMachineIconBadge)
+        .resetBadgeOnAppear($common.azurLaneMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -251,6 +255,14 @@ struct azurLaneSubViewSaveMemory: View {
         azurLaneMemory1.akashiCountGusu = azurLane.akashiCountGusu
         azurLaneMemory1.akashiCountLast = azurLane.akashiCountLast
         azurLaneMemory1.akashiCountSum = azurLane.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLaneMemory1.koyakuCountCommonBell = azurLane.koyakuCountCommonBell
+        azurLaneMemory1.kagaCountDefaultGusu = azurLane.kagaCountDefaultGusu
+        azurLaneMemory1.screenCountDefaultGusu = azurLane.screenCountDefaultGusu
+        azurLaneMemory1.screenCountSetteiSum = azurLane.screenCountSetteiSum
     }
     func saveMemory2() {
         azurLaneMemory2.koyakuCountJakuCherry = azurLane.koyakuCountJakuCherry
@@ -295,6 +307,14 @@ struct azurLaneSubViewSaveMemory: View {
         azurLaneMemory2.akashiCountGusu = azurLane.akashiCountGusu
         azurLaneMemory2.akashiCountLast = azurLane.akashiCountLast
         azurLaneMemory2.akashiCountSum = azurLane.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLaneMemory2.koyakuCountCommonBell = azurLane.koyakuCountCommonBell
+        azurLaneMemory2.kagaCountDefaultGusu = azurLane.kagaCountDefaultGusu
+        azurLaneMemory2.screenCountDefaultGusu = azurLane.screenCountDefaultGusu
+        azurLaneMemory2.screenCountSetteiSum = azurLane.screenCountSetteiSum
     }
     func saveMemory3() {
         azurLaneMemory3.koyakuCountJakuCherry = azurLane.koyakuCountJakuCherry
@@ -339,6 +359,14 @@ struct azurLaneSubViewSaveMemory: View {
         azurLaneMemory3.akashiCountGusu = azurLane.akashiCountGusu
         azurLaneMemory3.akashiCountLast = azurLane.akashiCountLast
         azurLaneMemory3.akashiCountSum = azurLane.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLaneMemory3.koyakuCountCommonBell = azurLane.koyakuCountCommonBell
+        azurLaneMemory3.kagaCountDefaultGusu = azurLane.kagaCountDefaultGusu
+        azurLaneMemory3.screenCountDefaultGusu = azurLane.screenCountDefaultGusu
+        azurLaneMemory3.screenCountSetteiSum = azurLane.screenCountSetteiSum
     }
 }
 
@@ -412,6 +440,14 @@ struct azurLaneSubViewLoadMemory: View {
         azurLane.akashiCountGusu = azurLaneMemory1.akashiCountGusu
         azurLane.akashiCountLast = azurLaneMemory1.akashiCountLast
         azurLane.akashiCountSum = azurLaneMemory1.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLane.koyakuCountCommonBell = azurLaneMemory1.koyakuCountCommonBell
+        azurLane.kagaCountDefaultGusu = azurLaneMemory1.kagaCountDefaultGusu
+        azurLane.screenCountDefaultGusu = azurLaneMemory1.screenCountDefaultGusu
+        azurLane.screenCountSetteiSum = azurLaneMemory1.screenCountSetteiSum
     }
     func loadMemory2() {
         azurLane.koyakuCountJakuCherry = azurLaneMemory2.koyakuCountJakuCherry
@@ -456,6 +492,14 @@ struct azurLaneSubViewLoadMemory: View {
         azurLane.akashiCountGusu = azurLaneMemory2.akashiCountGusu
         azurLane.akashiCountLast = azurLaneMemory2.akashiCountLast
         azurLane.akashiCountSum = azurLaneMemory2.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLane.koyakuCountCommonBell = azurLaneMemory2.koyakuCountCommonBell
+        azurLane.kagaCountDefaultGusu = azurLaneMemory2.kagaCountDefaultGusu
+        azurLane.screenCountDefaultGusu = azurLaneMemory2.screenCountDefaultGusu
+        azurLane.screenCountSetteiSum = azurLaneMemory2.screenCountSetteiSum
     }
     func loadMemory3() {
         azurLane.koyakuCountJakuCherry = azurLaneMemory3.koyakuCountJakuCherry
@@ -500,13 +544,22 @@ struct azurLaneSubViewLoadMemory: View {
         azurLane.akashiCountGusu = azurLaneMemory3.akashiCountGusu
         azurLane.akashiCountLast = azurLaneMemory3.akashiCountLast
         azurLane.akashiCountSum = azurLaneMemory3.akashiCountSum
+        
+        // ////////////
+        // ver3.11.0で追加
+        // ////////////
+        azurLane.koyakuCountCommonBell = azurLaneMemory3.koyakuCountCommonBell
+        azurLane.kagaCountDefaultGusu = azurLaneMemory3.kagaCountDefaultGusu
+        azurLane.screenCountDefaultGusu = azurLaneMemory3.screenCountDefaultGusu
+        azurLane.screenCountSetteiSum = azurLaneMemory3.screenCountSetteiSum
     }
 }
 
 #Preview {
     azurLaneViewTop(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

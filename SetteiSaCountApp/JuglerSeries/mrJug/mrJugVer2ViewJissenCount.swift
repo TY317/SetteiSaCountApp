@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct mrJugVer2ViewJissenCount: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var mrJug: MrJug
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
@@ -244,7 +244,7 @@ struct mrJugVer2ViewJissenCount: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     mrJugViewBayes(
-                        ver391: ver391,
+//                        ver391: ver391,
                         mrJug: mrJug,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -368,7 +368,7 @@ struct mrJugVer2ViewJissenCount: View {
 
 #Preview {
     mrJugVer2ViewJissenCount(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         mrJug: MrJug(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

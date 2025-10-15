@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct azurLaneViewScreen: View {
+    @EnvironmentObject var common: commonVar
     @ObservedObject var azurLane: AzurLane
     @State var isShowAlert = false
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -40,8 +41,8 @@ struct azurLaneViewScreen: View {
         "セイレーン",
     ]
     let lowerBeltTextList: [String] = [
-        "デフォルト",
-        "デフォルト",
+        "デフォ 奇数示唆 弱",
+        "デフォ 偶数示唆 弱",
         "高設定示唆 弱",
         "高設定示唆 強",
         "設定2 以上濃厚",
@@ -65,19 +66,6 @@ struct azurLaneViewScreen: View {
         .personalSummerLightRed,
         .personalSummerLightPurple,
     ]
-//    let lowerFont: [Font] = [
-//        .body,
-//        .body,
-//        .body,
-//        .body,
-//        .body,
-//        .body,
-//        .body,
-//        .caption,
-//        .caption,
-//        .caption,
-//        .caption,
-//    ]
     var body: some View {
         List {
             Section {
@@ -124,34 +112,55 @@ struct azurLaneViewScreen: View {
                     }
                 }
                 .frame(height: 155)
+                .popoverTip(tipVer3110AzurLaneScreen())
                 
                 // //// カウント結果
                 ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
                         self.flashColorList.indices.contains(index) {
-                        if index == 0 {
-                            
-                        }
-                        else if index < 7 {
+//                        if index == 0 {
+//                            
+//                        }
+//                        else if index < 7 {
+                        if index < 7 {
                             unitResultCountListPercent(
                                 title: self.lowerBeltTextList[index],
                                 count: bindingForScreenCount(index: index),
                                 flashColor: self.flashColorList[index],
-                                bigNumber: $azurLane.screenCountSum,
+                                bigNumber: $azurLane.screenCountSetteiSum,
                                 numberofDigit: 0,
                                 titleFont: .body,
                             )
                         } else {
-                            unitResultCountListPercent(
+                            unitResultCountListWithoutRatio(
                                 title: self.lowerBeltTextList[index],
                                 count: bindingForScreenCount(index: index),
                                 flashColor: self.flashColorList[index],
-                                bigNumber: $azurLane.screenCountSum,
-                                numberofDigit: 0,
                                 titleFont: .caption,
                             )
+//                            unitResultCountListPercent(
+//                                title: self.lowerBeltTextList[index],
+//                                count: bindingForScreenCount(index: index),
+//                                flashColor: self.flashColorList[index],
+//                                bigNumber: $azurLane.screenCountSum,
+//                                numberofDigit: 0,
+//                                titleFont: .caption,
+//                            )
                         }
                     }
+                }
+                
+                // 参考情報）画面振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面振り分け") {
+                    azurLaneTableScreenRatio(azurLane: azurLane)
+                }
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    azurLaneViewBayes(
+                        azurLane: azurLane,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
             } header: {
                 HStack {
@@ -167,6 +176,8 @@ struct azurLaneViewScreen: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.azurLaneMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -175,7 +186,7 @@ struct azurLaneViewScreen: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("通常時")
+        .navigationTitle("終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
@@ -198,7 +209,7 @@ struct azurLaneViewScreen: View {
     func bindingForScreenCount(index: Int) -> Binding<Int> {
         switch index {
         case 0: return $azurLane.screenCountDefault
-        case 1: return $azurLane.screenCountDefault
+        case 1: return $azurLane.screenCountDefaultGusu
         case 2: return $azurLane.screenCountHighJaku
         case 3: return $azurLane.screenCountHighKyo
         case 4: return $azurLane.screenCountOver2
@@ -219,4 +230,5 @@ struct azurLaneViewScreen: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

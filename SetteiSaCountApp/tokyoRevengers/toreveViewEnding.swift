@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct toreveViewEnding: View {
-    @ObservedObject var ver391: Ver391
+//    @ObservedObject var ver391: Ver391
     @ObservedObject var toreve: Toreve
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
@@ -56,7 +56,7 @@ struct toreveViewEnding: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($ver391.toreveMenuEndingBadge)
+//        .resetBadgeOnAppear($ver391.toreveMenuEndingBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -115,7 +115,7 @@ struct toreveViewEnding: View {
 
 #Preview {
     toreveViewEnding(
-        ver391: Ver391(),
+//        ver391: Ver391(),
         toreve: Toreve(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
