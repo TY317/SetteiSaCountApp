@@ -67,6 +67,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteCrea") var isSelectedFavoriteCrea = true
     @AppStorage("isSelectedFavoriteNewOni3") var isSelectedFavoriteNewOni3 = true
     @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
+    @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
 }
 
 
@@ -129,6 +130,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
 //                                        badgeStatus: ver391.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// VVV2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(vvv2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("vvv2MachineIcon"),
+                                        machineName: "ヴヴヴ2",
+                                        badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
                                 
@@ -805,6 +821,24 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
 //                                        badgeStatus: ver391.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// VVV2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(vvv2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("vvv2MachineIcon"),
+                                        machineName: "革命機ヴァルヴレイヴ2",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
                                 
@@ -1837,6 +1871,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // vvv2
+                Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５

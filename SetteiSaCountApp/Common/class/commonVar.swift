@@ -82,6 +82,8 @@ class commonVar: ObservableObject {
     @AppStorage("jugSeriesBadge") var jugSeriesBadge: String = "none"
     // //// ウルトラミラクルジャグラー
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
+    // //// VVV2
+    @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
     
@@ -131,6 +133,24 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3120FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.12.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                vvv2MachineIconBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3110FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.11.0"
