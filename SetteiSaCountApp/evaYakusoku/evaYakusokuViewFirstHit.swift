@@ -212,7 +212,7 @@ struct evaYakusokuViewFirstHit: View {
                             textBody2: "・前任者分含めた総ボーナス回数でカウントして下さい。台のメニュー画面で確認できます",
                         )
                     }
-                    .popoverTip(tipVer3100EvaFirstHit())
+//                    .popoverTip(tipVer3100EvaFirstHit())
                 }
             }
             

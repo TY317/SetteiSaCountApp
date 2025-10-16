@@ -288,7 +288,7 @@ struct izaBanchoViewFirstHit: View {
                     bigNumber: $izaBancho.playGameSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer3100IzaBanchoChokugeki())
+//                .popoverTip(tipVer3100IzaBanchoChokugeki())
                 // 初当り確率
                 unitLinkButton(
                     title: "初当り確率",

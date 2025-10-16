@@ -137,7 +137,7 @@ struct toreveViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率", linkText: "初当り確率") {
                     toreveTableFirstHit(toreve: toreve)
                 }
-                .popoverTip(tipVer3100ToreveKisaki())
+//                .popoverTip(tipVer3100ToreveKisaki())
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
