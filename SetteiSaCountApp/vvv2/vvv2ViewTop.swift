@@ -40,6 +40,8 @@ struct vvv2ViewTop: View {
                             textBody: "初当り"
                         )
                     }
+                } header: {
+                    unitLabelMachineTopTitle(machineName: vvv2.machineName)
                 }
                 
                 // 設定推測グラフ
