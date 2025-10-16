@@ -570,6 +570,7 @@
 		0F9D9BFB2EA0CB2900450B23 /* vvv2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFA2EA0CB2900450B23 /* vvv2ViewBayes.swift */; };
 		0F9D9BFD2EA0D17000450B23 /* vvv2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */; };
 		0F9D9BFF2EA0D1F600450B23 /* vvv2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */; };
+		0F9D9C012EA0D28000450B23 /* ver3120Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C002EA0D28000450B23 /* ver3120Class.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1646,6 +1647,7 @@
 		0F9D9BFA2EA0CB2900450B23 /* vvv2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewBayes.swift; sourceTree = "<group>"; };
 		0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewNormal.swift; sourceTree = "<group>"; };
 		0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewFirstHit.swift; sourceTree = "<group>"; };
+		0F9D9C002EA0D28000450B23 /* ver3120Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3120Class.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3227,6 +3229,7 @@
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA3832D2E81882C001E293E /* ver3100Class.swift */,
 				0FCCC5172E93EDB100CE164D /* ver3110Class.swift */,
+				0F9D9C002EA0D28000450B23 /* ver3120Class.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -4736,6 +4739,7 @@
 				0F815FBB2E35D8B90086127D /* darlingViewTop.swift in Sources */,
 				0FA024692CF2F046004B3FD5 /* imJugExView95Ci.swift in Sources */,
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
+				0F9D9C012EA0D28000450B23 /* ver3120Class.swift in Sources */,
 				0F1E121A2DD4D19700F69AFF /* mhrTableKiteiReplay.swift in Sources */,
 				0FCCC50E2E91EC5200CE164D /* NewOni3Class.swift in Sources */,
 				0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */,
