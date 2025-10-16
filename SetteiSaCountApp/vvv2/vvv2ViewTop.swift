@@ -18,7 +18,28 @@ struct vvv2ViewTop: View {
         NavigationStack {
             List {
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: vvv2ViewNormal(
+                        vvv2: vvv2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時"
+                        )
+                    }
+                    // 初当り
+                    NavigationLink(destination: vvv2ViewFirstHit(
+                        vvv2: vvv2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

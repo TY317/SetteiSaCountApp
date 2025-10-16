@@ -568,6 +568,8 @@
 		0F9D9BF72EA0C46000450B23 /* vvv2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9D9BF62EA0C46000450B23 /* vvv2Assets.xcassets */; };
 		0F9D9BF92EA0CAB500450B23 /* vvv2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BF82EA0CAB500450B23 /* vvv2View95Ci.swift */; };
 		0F9D9BFB2EA0CB2900450B23 /* vvv2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFA2EA0CB2900450B23 /* vvv2ViewBayes.swift */; };
+		0F9D9BFD2EA0D17000450B23 /* vvv2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */; };
+		0F9D9BFF2EA0D1F600450B23 /* vvv2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1642,6 +1644,8 @@
 		0F9D9BF62EA0C46000450B23 /* vvv2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = vvv2Assets.xcassets; sourceTree = "<group>"; };
 		0F9D9BF82EA0CAB500450B23 /* vvv2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2View95Ci.swift; sourceTree = "<group>"; };
 		0F9D9BFA2EA0CB2900450B23 /* vvv2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewBayes.swift; sourceTree = "<group>"; };
+		0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewNormal.swift; sourceTree = "<group>"; };
+		0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewFirstHit.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3439,6 +3443,8 @@
 				0F9D9BF62EA0C46000450B23 /* vvv2Assets.xcassets */,
 				0F9D9BF82EA0CAB500450B23 /* vvv2View95Ci.swift */,
 				0F9D9BFA2EA0CB2900450B23 /* vvv2ViewBayes.swift */,
+				0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */,
+				0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */,
 			);
 			path = vvv2;
 			sourceTree = "<group>";
@@ -5048,6 +5054,7 @@
 				0F6FB8EA2DE5EE4700207855 /* mhrTableVoice.swift in Sources */,
 				0F51C63F2E8412C80006794A /* creaViewBayes.swift in Sources */,
 				0FEC57A62D8EFA2B00FF1024 /* kaijiClass.swift in Sources */,
+				0F9D9BFF2EA0D1F600450B23 /* vvv2ViewFirstHit.swift in Sources */,
 				0FD357972DAB38BF0069BD1A /* godzillaView95Ci.swift in Sources */,
 				0FD357A72DAE86EE0069BD1A /* godzillaTableTansakuZone.swift in Sources */,
 				0FE23B302C776976000E65D7 /* mt5ViewMedal.swift in Sources */,
@@ -5199,6 +5206,7 @@
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
 				0FC71FF42E69C7C2000DD53B /* toreveTableFirstHit.swift in Sources */,
 				0FC14A722E49A70700F85D84 /* logPostDenoBino.swift in Sources */,
+				0F9D9BFD2EA0D17000450B23 /* vvv2ViewNormal.swift in Sources */,
 				0F9A4F812DEC2CD3003B6337 /* dmc5TableFirstHit.swift in Sources */,
 				0FF369222E61DB7A002BE0CE /* azurLaneViewKaga.swift in Sources */,
 				0FD357842DAA67F70069BD1A /* sbjTableTrump.swift in Sources */,
