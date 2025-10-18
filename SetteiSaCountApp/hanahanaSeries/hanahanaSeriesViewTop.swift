@@ -73,6 +73,7 @@ struct hanahanaSeriesViewTop: View {
                                     )),
                                     iconImage: Image("machineImageDragonHanahanaSenkoh2"),
                                     machineName: "ドラゴン閃光",
+                                    badgeStatus: common.draHanaSenkohMachineIconBadge,
                                     sfSymbolName: "bolt.fill",
                                 )
 //                                NavigationLink(destination: draHanaSenkohVer2ViewTop(
@@ -191,7 +192,7 @@ struct hanahanaSeriesViewTop: View {
                                     makerName: "パイオニア",
                                     releaseYear: 2023,
                                     releaseMonth: 12,
-//                                    badgeStatus: ver391.starHanaMachineIconBadge,
+                                    badgeStatus: common.draHanaSenkohMachineIconBadge,
                                     sfSymbolName: "bolt.fill"
                                 )
 //                                machineListDragonHanahanaSenkoh(

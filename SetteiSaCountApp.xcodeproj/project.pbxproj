@@ -591,6 +591,8 @@
 		0F9D9C282EA3A49200450B23 /* imJugExVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */; };
 		0F9D9C2A2EA3C5F200450B23 /* starHanaViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C292EA3C5F200450B23 /* starHanaViewShimaData.swift */; };
 		0F9D9C2C2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C2B2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift */; };
+		0F9D9C2E2EA4559200450B23 /* draHanaSenkohViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C2D2EA4559200450B23 /* draHanaSenkohViewShimaData.swift */; };
+		0F9D9C302EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C2F2EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1688,6 +1690,8 @@
 		0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C292EA3C5F200450B23 /* starHanaViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C2B2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaVer2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C2D2EA4559200450B23 /* draHanaSenkohViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = draHanaSenkohViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C2F2EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = draHanaSenkohVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3107,6 +3111,8 @@
 				0FD357352DA159C20069BD1A /* draHanaSenkohTableBellBonus.swift */,
 				0F64DD992DC5D0A50027315D /* draHanaSenkohSubViewCountInput.swift */,
 				0FFAB8702E74F3D700296A4F /* draHanaSenkohViewBayes.swift */,
+				0F9D9C2D2EA4559200450B23 /* draHanaSenkohViewShimaData.swift */,
+				0F9D9C2F2EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -4643,6 +4649,7 @@
 				0FFAB8752E75017D00296A4F /* hanaTenshoViewBayes.swift in Sources */,
 				0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */,
 				0F6B59D42E06554300DB1A2B /* godeaterTableRareHit.swift in Sources */,
+				0F9D9C302EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift in Sources */,
 				0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */,
 				0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */,
 				0F815FD42E3B8FA90086127D /* reSwordViewNormal.swift in Sources */,
@@ -4780,6 +4787,7 @@
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0FC14A802E4B58E800F85D84 /* ver370Class.swift in Sources */,
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
+				0F9D9C2E2EA4559200450B23 /* draHanaSenkohViewShimaData.swift in Sources */,
 				0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */,
 				0FB209592E0FDB9E0029D940 /* unitCountButtonDenominateWithFunc.swift in Sources */,
 				0F9D9C052EA313A100450B23 /* unitResultListCountNotBinding.swift in Sources */,
