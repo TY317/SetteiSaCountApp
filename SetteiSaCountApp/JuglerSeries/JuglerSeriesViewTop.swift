@@ -146,13 +146,12 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(
                                     linkView: AnyView(funky2Ver2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
                                     iconImage: Image("funky2MachineIcon"),
                                     machineName: "ファンキー2",
-//                                    badgeStatus: ver391.funky2MachineIconBadge,
+                                    badgeStatus: common.funky2MachineIconBadge,
                                 )
                             }
                             
@@ -295,7 +294,6 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachinListLink(
                                     linkView: AnyView(funky2Ver2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -304,7 +302,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2021,
                                     releaseMonth: 10,
-//                                    badgeStatus: ver391.funky2MachineIconBadge,
+                                    badgeStatus: common.funky2MachineIconBadge,
                                 )
                             }
                             

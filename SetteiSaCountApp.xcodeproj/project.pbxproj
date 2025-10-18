@@ -586,6 +586,8 @@
 		0F9D9C1C2EA349E400450B23 /* goJug3Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1B2EA349E400450B23 /* goJug3Ver2View95CiShima.swift */; };
 		0F9D9C1E2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1D2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift */; };
 		0F9D9C202EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */; };
+		0F9D9C222EA3A13B00450B23 /* funky2ViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C212EA3A13B00450B23 /* funky2ViewShimaData.swift */; };
+		0F9D9C242EA3A1A600450B23 /* funky2Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1678,6 +1680,8 @@
 		0F9D9C1B2EA349E400450B23 /* goJug3Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goJug3Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C1D2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3ViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3Ver2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C212EA3A13B00450B23 /* funky2ViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2ViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3313,6 +3317,8 @@
 				0FEC57CE2D9542FC00FF1024 /* funky2TableRatio.swift */,
 				0F64DD932DC5CC350027315D /* funky2SubViewCountInput.swift */,
 				0FFAB86A2E71A17700296A4F /* funky2ViewBayes.swift */,
+				0F9D9C212EA3A13B00450B23 /* funky2ViewShimaData.swift */,
+				0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */,
 			);
 			path = funky2;
 			sourceTree = "<group>";
@@ -4925,6 +4931,7 @@
 				0F6BD7C62D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift in Sources */,
 				0FB9CA9C2DDDEE0A009FC6AF /* toloveru87ViewHarlem.swift in Sources */,
 				0F93188B2DEAA86C00511BEF /* izaBanchoView95Ci.swift in Sources */,
+				0F9D9C242EA3A1A600450B23 /* funky2Ver2View95CiShima.swift in Sources */,
 				0FC14A7E2E4ADBEA00F85D84 /* bayesInfoButtonBayes.swift in Sources */,
 				0FF156042D604CF400B17F83 /* starHanaVer2ViewJissenStartData.swift in Sources */,
 				0F6B59EF2E08207E00DB1A2B /* mt5TableGekisoVoice.swift in Sources */,
@@ -5144,6 +5151,7 @@
 				0FD357722DAA161E0069BD1A /* unitTableGameIndex.swift in Sources */,
 				0FD357662DA29EA70069BD1A /* magiaViewVoice.swift in Sources */,
 				0F868A0E2D42F91E00D952D9 /* goJug3Ver2View95CiPersonal.swift in Sources */,
+				0F9D9C222EA3A13B00450B23 /* funky2ViewShimaData.swift in Sources */,
 				0FB209792E1548EF0029D940 /* unitReelGrayMark.swift in Sources */,
 				0F6B59E92E07D09200DB1A2B /* goevaTableEndingVoice.swift in Sources */,
 				0FD3571E2DA0BC4C0069BD1A /* danvineTableExRushStart.swift in Sources */,
