@@ -122,14 +122,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
-//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                        badgeStatus: common.hanaSeriesBadge,
                                     )
                                 }
                                 
@@ -810,17 +808,15 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5,
-//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                        badgeStatus: common.hanaSeriesBadge,
                                     )
                                 }
                                 

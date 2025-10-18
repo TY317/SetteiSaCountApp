@@ -489,7 +489,6 @@
 		0F8935892E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8935882E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift */; };
 		0F89358C2E22909000BF6FBE /* unitSheetCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */; };
 		0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */; };
-		0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */; };
 		0F8955202E7E6A8800539050 /* toreveViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */; };
 		0F8955262E7EDBE000539050 /* commonVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8955252E7EDBE000539050 /* commonVar.swift */; };
 		0F9318732DEA855300511BEF /* izaBanchoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */; };
@@ -1585,7 +1584,6 @@
 		0F8935882E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0F89358B2E22909000BF6FBE /* unitSheetCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitSheetCountDirectInput.swift; sourceTree = "<group>"; };
 		0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonCountDirectInput.swift; sourceTree = "<group>"; };
-		0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5ViewBayseTest.swift; sourceTree = "<group>"; };
 		0F89551F2E7E6A8800539050 /* toreveViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewEnding.swift; sourceTree = "<group>"; };
 		0F8955252E7EDBE000539050 /* commonVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonVar.swift; sourceTree = "<group>"; };
 		0F9318722DEA855300511BEF /* izaBanchoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewTop.swift; sourceTree = "<group>"; };
@@ -2982,7 +2980,6 @@
 				0F8689E72D3E7EC300D952D9 /* myJug5Ver2View95CiTotal.swift */,
 				0F64DD8F2DC5C7CA0027315D /* myJug5TableRatio.swift */,
 				0F64DD912DC5C9A10027315D /* myJug5SubViewCountInput.swift */,
-				0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */,
 				0F5FBBC72E4823E8004124A2 /* bayesTestCustomGuessSheet.swift */,
 				0F9A79892E48B6DF00D996CA /* myJug5ViewBayes.swift */,
 				0F9D9C022EA10D6900450B23 /* myJugViewShimaData.swift */,
@@ -4603,7 +4600,6 @@
 				0FF156002D60472600B17F83 /* unitMachinListLinkWithSfsymbol.swift in Sources */,
 				0FB209812E16B4DA0029D940 /* dmc5TableNazoDante.swift in Sources */,
 				0F815FC92E360BB10086127D /* unitReelWhiteBar.swift in Sources */,
-				0F8935902E236BB500BF6FBE /* myJug5ViewBayseTest.swift in Sources */,
 				0F9D9BD32E9C7C0C00450B23 /* toreveTableModeRatio.swift in Sources */,
 				0F868A432D460E8300D952D9 /* kingHanaVer2ViewJissenCount.swift in Sources */,
 				0F9A4F752DEC14EE003B6337 /* dmc5View95Ci.swift in Sources */,
