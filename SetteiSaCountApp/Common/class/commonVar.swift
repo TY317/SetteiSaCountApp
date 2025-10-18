@@ -17,6 +17,8 @@ class commonVar: ObservableObject {
     
     let screenScrollHeight: CGFloat = 130
     
+    let shimaInitialColumn: Int = 5    // 島合算確認ページのイニシャル行数
+    
     // ///////////////////////
     // 起動回数カウント
     // ///////////////////////
@@ -82,6 +84,8 @@ class commonVar: ObservableObject {
     @AppStorage("jugSeriesBadge") var jugSeriesBadge: String = "none"
     // //// ウルトラミラクルジャグラー
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
+    // //// マイジャグ
+    @AppStorage("myJug5MenuShimaBadge") var myJug5MenuShimaBadge = "none"
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
     // //// 新鬼武者３
@@ -142,6 +146,7 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 vvv2MachineIconBadge = "new"
+                myJug5MenuShimaBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

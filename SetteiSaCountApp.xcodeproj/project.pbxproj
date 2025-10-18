@@ -571,6 +571,10 @@
 		0F9D9BFD2EA0D17000450B23 /* vvv2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */; };
 		0F9D9BFF2EA0D1F600450B23 /* vvv2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */; };
 		0F9D9C012EA0D28000450B23 /* ver3120Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C002EA0D28000450B23 /* ver3120Class.swift */; };
+		0F9D9C032EA10D6900450B23 /* myJugViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C022EA10D6900450B23 /* myJugViewShimaData.swift */; };
+		0F9D9C052EA313A100450B23 /* unitResultListCountNotBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C042EA313A100450B23 /* unitResultListCountNotBinding.swift */; };
+		0F9D9C072EA315BC00450B23 /* unitResultDenoNotBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C062EA315BC00450B23 /* unitResultDenoNotBinding.swift */; };
+		0F9D9C092EA31AE100450B23 /* myJug5Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C082EA31AE100450B23 /* myJug5Ver2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1648,6 +1652,10 @@
 		0F9D9BFC2EA0D17000450B23 /* vvv2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewNormal.swift; sourceTree = "<group>"; };
 		0F9D9BFE2EA0D1F600450B23 /* vvv2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewFirstHit.swift; sourceTree = "<group>"; };
 		0F9D9C002EA0D28000450B23 /* ver3120Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3120Class.swift; sourceTree = "<group>"; };
+		0F9D9C022EA10D6900450B23 /* myJugViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJugViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C042EA313A100450B23 /* unitResultListCountNotBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitResultListCountNotBinding.swift; sourceTree = "<group>"; };
+		0F9D9C062EA315BC00450B23 /* unitResultDenoNotBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitResultDenoNotBinding.swift; sourceTree = "<group>"; };
+		0F9D9C082EA31AE100450B23 /* myJug5Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJug5Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -2612,6 +2620,8 @@
 			isa = PBXGroup;
 			children = (
 				0F76552D2E34934000B0CF0F /* unitResultListPercentBoolFlush.swift */,
+				0F9D9C042EA313A100450B23 /* unitResultListCountNotBinding.swift */,
+				0F9D9C062EA315BC00450B23 /* unitResultDenoNotBinding.swift */,
 			);
 			path = result;
 			sourceTree = "<group>";
@@ -2945,6 +2955,8 @@
 				0F89358F2E236BB500BF6FBE /* myJug5ViewBayseTest.swift */,
 				0F5FBBC72E4823E8004124A2 /* bayesTestCustomGuessSheet.swift */,
 				0F9A79892E48B6DF00D996CA /* myJug5ViewBayes.swift */,
+				0F9D9C022EA10D6900450B23 /* myJugViewShimaData.swift */,
+				0F9D9C082EA31AE100450B23 /* myJug5Ver2View95CiShima.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -4711,6 +4723,7 @@
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
 				0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */,
 				0FB209592E0FDB9E0029D940 /* unitCountButtonDenominateWithFunc.swift in Sources */,
+				0F9D9C052EA313A100450B23 /* unitResultListCountNotBinding.swift in Sources */,
 				0F8689FE2D42747900D952D9 /* goJug3Ver2ViewTop.swift in Sources */,
 				0F868AA32D57954200D952D9 /* mrJugVer2View95CiPersonal.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
@@ -4771,6 +4784,7 @@
 				0F868A882D57332D00D952D9 /* sbjViewJacTrump.swift in Sources */,
 				0FB9CAAC2DE18E7E009FC6AF /* midoriDonTableKoyakuBonus.swift in Sources */,
 				0F7E4F7B2D2A4C8F001CC916 /* acceleratorView95Ci.swift in Sources */,
+				0F9D9C092EA31AE100450B23 /* myJug5Ver2View95CiShima.swift in Sources */,
 				0FDC328B2D26708F005B3D06 /* dumbbellViewKinnikuBonus.swift in Sources */,
 				0F64DD592DC08FFD0027315D /* danvineTableEnemyNumberSisa.swift in Sources */,
 				0FD357C72DB3297E0069BD1A /* yoshimuneViewNormal.swift in Sources */,
@@ -4995,6 +5009,7 @@
 				0FB9CA8C2DDDA058009FC6AF /* unitPlusButton.swift in Sources */,
 				0FDF237F2E51F87F00249CAC /* enenTableRegScreen.swift in Sources */,
 				0F51C63D2E84123F0006794A /* creaView95Ci.swift in Sources */,
+				0F9D9C072EA315BC00450B23 /* unitResultDenoNotBinding.swift in Sources */,
 				0FDBDAE72E8D4D8200197B94 /* urmiraView95CiPersonal.swift in Sources */,
 				0F64DDD32DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift in Sources */,
 				0FC14A8D2E4EB76900F85D84 /* bioViewAt.swift in Sources */,
@@ -5111,6 +5126,7 @@
 				0FF156322D6CAD5100B17F83 /* shamanKingViewNormal.swift in Sources */,
 				0F9A4F9A2DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift in Sources */,
 				0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */,
+				0F9D9C032EA10D6900450B23 /* myJugViewShimaData.swift in Sources */,
 				0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */,
 				0F7F86432D9EB36400F26486 /* magiaViewTop.swift in Sources */,
 				0F9A4F872DEDD93E003B6337 /* dmc5ViewVoice.swift in Sources */,
@@ -5651,7 +5667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.11.0;
+				MARKETING_VERSION = 3.12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -5691,7 +5707,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.11.0;
+				MARKETING_VERSION = 3.12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
