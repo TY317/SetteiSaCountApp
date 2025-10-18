@@ -117,13 +117,12 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(
                                     linkView: AnyView(happyJugV3Ver2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
                                     iconImage: Image("machineIconHappyJugV3"),
                                     machineName: "ハッピーV3",
-//                                    badgeStatus: ver391.happyJugV3MachineIconBadge,
+                                    badgeStatus: common.happyJugV3MachineIconBadge,
                                 )
                             }
                             
@@ -261,7 +260,6 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachinListLink(
                                     linkView: AnyView(happyJugV3Ver2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -270,7 +268,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2022,
                                     releaseMonth: 10,
-//                                    badgeStatus: ver391.happyJugV3MachineIconBadge,
+                                    badgeStatus: common.happyJugV3MachineIconBadge,
                                 )
                             }
                             

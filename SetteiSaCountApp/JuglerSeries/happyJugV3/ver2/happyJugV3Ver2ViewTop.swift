@@ -310,6 +310,7 @@ class HappyJugV3: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ハッピージャグラーV3"
     @AppStorage("happyJugV3MinusCheck") var minusCheck: Bool = false
     @AppStorage("happyJugV3SelectedMemory") var selectedMemory = "メモリー1"
     
@@ -318,6 +319,14 @@ class HappyJugV3: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("happyJugV3ShimaGames") var shimaGames: Int = 0
+    @AppStorage("happyJugV3ShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("happyJugV3ShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("happyJugV3ShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -433,6 +442,7 @@ struct happyJugV3Ver2ViewTop: View {
     @StateObject var happyJugV3Memory3 = HappyJugV3Memory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -452,12 +462,35 @@ struct happyJugV3Ver2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: happyJugV3ViewShimaData(
+                        happyJugV3: happyJugV3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.happyJugV3MenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    HStack {
+                        Text("見")
+                            .fontWeight(.bold)
+                            .font(.headline)
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "見",
+                                textBody1: "・空き台のデータ確認にご利用下さい",
+                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+                            )
+                        }
+                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -525,7 +558,7 @@ struct happyJugV3Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.happyJugV3MachineIconBadge)
+        .resetBadgeOnAppear($common.happyJugV3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -534,16 +567,6 @@ struct happyJugV3Ver2ViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "ハッピージャグラーV3", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "happyJugV3Ver2ViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: happyJugV3Ver2ViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -817,4 +840,5 @@ struct happyJugV3SubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

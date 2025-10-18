@@ -584,6 +584,8 @@
 		0F9D9C182EA346CD00450B23 /* girlsSSVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C172EA346CD00450B23 /* girlsSSVer2View95CiShima.swift */; };
 		0F9D9C1A2EA3499900450B23 /* goJug3ViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C192EA3499900450B23 /* goJug3ViewShimaData.swift */; };
 		0F9D9C1C2EA349E400450B23 /* goJug3Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1B2EA349E400450B23 /* goJug3Ver2View95CiShima.swift */; };
+		0F9D9C1E2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1D2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift */; };
+		0F9D9C202EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1674,6 +1676,8 @@
 		0F9D9C172EA346CD00450B23 /* girlsSSVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = girlsSSVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C192EA3499900450B23 /* goJug3ViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goJug3ViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C1B2EA349E400450B23 /* goJug3Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goJug3Ver2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C1D2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3ViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3033,6 +3037,8 @@
 				0F868A242D44BC0B00D952D9 /* happyJugV3Ver2View95CiPersonal.swift */,
 				0F64DD8D2DC5C6470027315D /* happyJugV3SubViewCountInput.swift */,
 				0FFAB8682E719E4400296A4F /* happyJugV3ViewBayes.swift */,
+				0F9D9C1D2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift */,
+				0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -4646,6 +4652,7 @@
 				0FCF78942E470C050000748B /* mt5TableTrophy.swift in Sources */,
 				0FD357C52DB319210069BD1A /* mahjongViewVoice.swift in Sources */,
 				0FC71FFA2E6BBB1D000DD53B /* logPostDenoMulti.swift in Sources */,
+				0F9D9C1E2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift in Sources */,
 				0FF1562A2D6B4F7800B17F83 /* shamanKingViewTop.swift in Sources */,
 				0FDF23812E51FD6B00249CAC /* enenTableBigScreen.swift in Sources */,
 				0FD357202DA0BF6F0069BD1A /* sevenSwordsViewVoiceCustom.swift in Sources */,
@@ -5141,6 +5148,7 @@
 				0F6B59E92E07D09200DB1A2B /* goevaTableEndingVoice.swift in Sources */,
 				0FD3571E2DA0BC4C0069BD1A /* danvineTableExRushStart.swift in Sources */,
 				0FD357542DA2874A0069BD1A /* magiaView95Ci.swift in Sources */,
+				0F9D9C202EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift in Sources */,
 				0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */,
 				0FEC57AE2D8FA18400FF1024 /* kaijiTableHirameki.swift in Sources */,
 				0FDC32752D2293AF005B3D06 /* danvineViewAttack.swift in Sources */,
