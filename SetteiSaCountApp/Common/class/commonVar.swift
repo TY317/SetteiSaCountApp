@@ -103,6 +103,11 @@ class commonVar: ObservableObject {
     // //// ファンキージャグラー
     @AppStorage("funky2MachineIconBadge") var funky2MachineIconBadge: String = "none"
     @AppStorage("funky2MenuShimaBadge") var funky2MenuShimaBadge: String = "none"
+    // //// アイムジャグラー
+    @AppStorage("imJugExMachineIconBadge") var imJugExMachineIconBadge: String = "none"
+    @AppStorage("imJugExMenuShimaBadge") var imJugExMenuShimaBadge: String = "none"
+    
+    
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
     // //// 新鬼武者３
@@ -178,6 +183,8 @@ class commonVar: ObservableObject {
                 happyJugV3MenuShimaBadge = "new"
                 funky2MachineIconBadge = "update"
                 funky2MenuShimaBadge = "new"
+                imJugExMachineIconBadge = "update"
+                imJugExMenuShimaBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

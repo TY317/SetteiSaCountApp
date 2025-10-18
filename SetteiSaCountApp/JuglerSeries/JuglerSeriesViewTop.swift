@@ -161,13 +161,12 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(
                                     linkView: AnyView(imJugExVer2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
                                     iconImage: Image("imJugExMachinIcon"),
                                     machineName: "アイムEX",
-//                                    badgeStatus: ver391.imJugExMachineIconBadge,
+                                    badgeStatus: common.imJugExMachineIconBadge,
                                 )
                             }
                         }
@@ -312,7 +311,6 @@ struct JuglerSeriesViewTop: View {
                             } else {
                                 unitMachinListLink(
                                     linkView: AnyView(imJugExVer2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -321,7 +319,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2020,
                                     releaseMonth: 12,
-//                                    badgeStatus: ver391.imJugExMachineIconBadge,
+                                    badgeStatus: common.imJugExMachineIconBadge,
                                 )
                             }
                             

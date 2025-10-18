@@ -588,6 +588,8 @@
 		0F9D9C202EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */; };
 		0F9D9C222EA3A13B00450B23 /* funky2ViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C212EA3A13B00450B23 /* funky2ViewShimaData.swift */; };
 		0F9D9C242EA3A1A600450B23 /* funky2Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */; };
+		0F9D9C262EA3A43D00450B23 /* imJugExViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C252EA3A43D00450B23 /* imJugExViewShimaData.swift */; };
+		0F9D9C282EA3A49200450B23 /* imJugExVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1682,6 +1684,8 @@
 		0F9D9C1F2EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happyJugV3Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C212EA3A13B00450B23 /* funky2ViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2ViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2Ver2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C252EA3A43D00450B23 /* imJugExViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3002,6 +3006,8 @@
 				0FEC57D22D957AFA00FF1024 /* imJugExTableRatio.swift */,
 				0F64DD952DC5CD880027315D /* imJugExSubViewCountInput.swift */,
 				0FFAB86C2E71A47E00296A4F /* imJugExViewBayes.swift */,
+				0F9D9C252EA3A43D00450B23 /* imJugExViewShimaData.swift */,
+				0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -5219,6 +5225,7 @@
 				0F6B59F42E0C16CD00DB1A2B /* watakonClass.swift in Sources */,
 				0FD357462DA260480069BD1A /* shamanKingTableReplayCounter.swift in Sources */,
 				0F8090442C84027D0061480F /* hokutoViewHistory.swift in Sources */,
+				0F9D9C282EA3A49200450B23 /* imJugExVer2View95CiShima.swift in Sources */,
 				0F868A622D47BF8D00D952D9 /* draHanaSenkohVer2View95CiPersonal.swift in Sources */,
 				0F6BD7D42D806B97003F5563 /* bioClass.swift in Sources */,
 				0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */,
@@ -5523,6 +5530,7 @@
 				0FF1561F2D694DE800B17F83 /* tokyoGhoulViewHistory.swift in Sources */,
 				0F64DDA72DC5F50D0027315D /* unitReelReplay.swift in Sources */,
 				0FB1B6DA2E9873B900D8DD11 /* azurLaneTableScreenRatio.swift in Sources */,
+				0F9D9C262EA3A43D00450B23 /* imJugExViewShimaData.swift in Sources */,
 				0F88727F2C6B4C3700AADD2B /* VVVexViewMarie.swift in Sources */,
 				0FCCC50C2E91EC4700CE164D /* newOni3ViewTop.swift in Sources */,
 				0FBED79C2E989C4000AA3751 /* toreveTableRevengeZenya.swift in Sources */,
