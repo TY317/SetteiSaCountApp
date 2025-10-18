@@ -203,6 +203,8 @@ struct imJugExViewShimaData: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.imJugExMenuShimaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

@@ -203,6 +203,8 @@ struct urmiraViewShimaData: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.urmiraMenuShimaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

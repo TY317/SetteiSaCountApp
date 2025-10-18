@@ -211,6 +211,8 @@ struct girlsSSViewShimaData: View {
                 screenClass: screenClass
             )
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.girlsSSMenuShimaBadge)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,

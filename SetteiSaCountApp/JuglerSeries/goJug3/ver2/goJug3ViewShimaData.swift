@@ -203,6 +203,8 @@ struct goJug3ViewShimaData: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.goJug3MenuShimaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

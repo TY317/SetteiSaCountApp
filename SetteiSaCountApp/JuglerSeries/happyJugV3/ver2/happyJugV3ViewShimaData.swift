@@ -201,6 +201,8 @@ struct happyJugV3ViewShimaData: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.happyJugV3MenuShimaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
