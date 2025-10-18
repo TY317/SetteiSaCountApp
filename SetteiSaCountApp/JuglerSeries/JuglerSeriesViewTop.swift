@@ -137,7 +137,7 @@ struct JuglerSeriesViewTop: View {
                                     viewModel: viewModel,
                                 )), iconImage: Image("machineIconMyJug5"),
                                                     machineName: "マイジャグ5",
-//                                                    badgeStatus: ver370.jugSeriesBadge,
+                                                    badgeStatus: common.myJug5MachineIconBadge,
                                 )
                             }
                             

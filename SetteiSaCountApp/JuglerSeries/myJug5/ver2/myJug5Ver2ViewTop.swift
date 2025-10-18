@@ -400,6 +400,7 @@ struct myJug5Ver2ViewTop: View {
     @StateObject var myJug5Memory1 = MyJug5Memory1()
     @StateObject var myJug5Memory2 = MyJug5Memory2()
     @StateObject var myJug5Memory3 = MyJug5Memory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -427,7 +428,8 @@ struct myJug5Ver2ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "waveform.path.ecg.magnifyingglass",
-                            textBody: "島データ確認"
+                            textBody: "島データ確認",
+                            badgeStatus: common.myJug5MenuShimaBadge,
                         )
                     }
                 } header: {
@@ -521,7 +523,7 @@ struct myJug5Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver370.jugSeriesBadge)
+        .resetBadgeOnAppear($common.myJug5MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -790,4 +792,5 @@ struct myJug5SubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

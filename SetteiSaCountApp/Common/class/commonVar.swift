@@ -85,6 +85,7 @@ class commonVar: ObservableObject {
     // //// ウルトラミラクルジャグラー
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
     // //// マイジャグ
+    @AppStorage("myJug5MachineIconBadge") var myJug5MachineIconBadge: String = "none"
     @AppStorage("myJug5MenuShimaBadge") var myJug5MenuShimaBadge = "none"
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
@@ -147,6 +148,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 vvv2MachineIconBadge = "new"
                 myJug5MenuShimaBadge = "new"
+                jugSeriesBadge = "update"
+                myJug5MachineIconBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
