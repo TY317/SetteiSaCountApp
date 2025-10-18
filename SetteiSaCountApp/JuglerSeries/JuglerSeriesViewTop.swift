@@ -91,7 +91,7 @@ struct JuglerSeriesViewTop: View {
                                     )),
                                     iconImage: Image("girlsSSMachineIcon"),
                                     machineName: "ガールズSS",
-//                                    badgeStatus: ver391.girlsSSMachineIconBadge,
+                                    badgeStatus: common.girlsSSMachineIconBadge,
                                 )
                             }
                             
@@ -232,7 +232,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2024,
                                     releaseMonth: 4,
-//                                    badgeStatus: ver391.girlsSSMachineIconBadge,
+                                    badgeStatus: common.girlsSSMachineIconBadge,
                                 )
                             }
                             

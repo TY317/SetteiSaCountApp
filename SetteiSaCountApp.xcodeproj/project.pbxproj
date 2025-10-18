@@ -580,6 +580,8 @@
 		0F9D9C102EA33FBD00450B23 /* urmiraVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C0F2EA33FBD00450B23 /* urmiraVer2View95CiShima.swift */; };
 		0F9D9C122EA342B300450B23 /* mrJugViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C112EA342B300450B23 /* mrJugViewShimaData.swift */; };
 		0F9D9C142EA3430C00450B23 /* mrJugVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C132EA3430C00450B23 /* mrJugVer2View95CiShima.swift */; };
+		0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C152EA3468E00450B23 /* girlsSSViewShimaData.swift */; };
+		0F9D9C182EA346CD00450B23 /* girlsSSVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C172EA346CD00450B23 /* girlsSSVer2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1666,6 +1668,8 @@
 		0F9D9C0F2EA33FBD00450B23 /* urmiraVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urmiraVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C112EA342B300450B23 /* mrJugViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mrJugViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C132EA3430C00450B23 /* mrJugVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mrJugVer2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C152EA3468E00450B23 /* girlsSSViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = girlsSSViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C172EA346CD00450B23 /* girlsSSVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = girlsSSVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3318,6 +3322,8 @@
 				0FEC57CC2D953EA200FF1024 /* girlsSSTableRatio.swift */,
 				0F64DD892DC5C31F0027315D /* girlsSSSubViewCountInput.swift */,
 				0FFAB8642E7061CC00296A4F /* girlsSSViewBayes.swift */,
+				0F9D9C152EA3468E00450B23 /* girlsSSViewShimaData.swift */,
+				0F9D9C172EA346CD00450B23 /* girlsSSVer2View95CiShima.swift */,
 			);
 			path = girlsSS;
 			sourceTree = "<group>";
@@ -4673,6 +4679,7 @@
 				0F64DD8A2DC5C31F0027315D /* girlsSSSubViewCountInput.swift in Sources */,
 				0F64DD8C2DC5C4970027315D /* goJug3SubViewCountInput.swift in Sources */,
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
+				0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */,
 				0FB2097B2E154B210029D940 /* evaYakusokuViewRegChara.swift in Sources */,
 				0F6B59FA2E0C1C8F00DB1A2B /* watakonTableKoyakuPattern.swift in Sources */,
 				0FCCC5182E93EDB100CE164D /* ver3110Class.swift in Sources */,
@@ -5106,6 +5113,7 @@
 				0F868A2C2D45CB4400D952D9 /* hanaTenshoVer2ViewKenDataInput.swift in Sources */,
 				0FC71FE72E686156000DD53B /* unitPickerMenuIntToString.swift in Sources */,
 				0F6BD7D82D81BA21003F5563 /* bioViewEnding.swift in Sources */,
+				0F9D9C182EA346CD00450B23 /* girlsSSVer2View95CiShima.swift in Sources */,
 				0F815FCB2E38FDD70086127D /* arraySumGameNotResetWordOne.swift in Sources */,
 				0F592CDE2D1441C000E79883 /* inuyashaViewAim.swift in Sources */,
 				0FEC57B82D8FCF2800FF1024 /* kaijiViewEnding.swift in Sources */,

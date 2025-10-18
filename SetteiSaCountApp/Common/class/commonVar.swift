@@ -88,6 +88,9 @@ class commonVar: ObservableObject {
     // //// Mrジャグラー
     @AppStorage("mrJugMachineIconBadge") var mrJugMachineIconBadge: String = "none"
     @AppStorage("mrJugMenuShimaBadge") var mrJugMenuShimaBadge: String = "none"
+    // //// ガールズ
+    @AppStorage("girlsSSMachineIconBadge") var girlsSSMachineIconBadge: String = "none"
+    @AppStorage("girlsSSMenuShimaBadge") var girlsSSMenuShimaBadge: String = "none"
     // //// マイジャグ
     @AppStorage("myJug5MachineIconBadge") var myJug5MachineIconBadge: String = "none"
     @AppStorage("myJug5MenuShimaBadge") var myJug5MenuShimaBadge = "none"
@@ -158,6 +161,8 @@ class commonVar: ObservableObject {
                 urmiraMenuShimaBadge = "new"
                 mrJugMachineIconBadge = "update"
                 mrJugMenuShimaBadge = "new"
+                girlsSSMachineIconBadge = "update"
+                girlsSSMenuShimaBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

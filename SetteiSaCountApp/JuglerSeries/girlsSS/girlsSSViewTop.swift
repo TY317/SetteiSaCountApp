@@ -17,6 +17,7 @@ struct girlsSSViewTop: View {
     @StateObject var girlsSSMemory3 = GirlsSSMemory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -36,12 +37,35 @@ struct girlsSSViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: girlsSSViewShimaData(
+                        girlsSS: girlsSS,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.girlsSSMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    HStack {
+                        Text("見")
+                            .fontWeight(.bold)
+                            .font(.headline)
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "見",
+                                textBody1: "・空き台のデータ確認にご利用下さい",
+                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+                            )
+                        }
+                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -108,7 +132,7 @@ struct girlsSSViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.girlsSSMachineIconBadge)
+        .resetBadgeOnAppear($common.girlsSSMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -405,4 +429,5 @@ struct girlsSSSubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

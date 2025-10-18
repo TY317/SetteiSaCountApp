@@ -310,6 +310,7 @@ class GirlsSS: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ジャグラーガールズSS"
     @AppStorage("girlsSSMinusCheck") var minusCheck: Bool = false
     @AppStorage("girlsSSSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -318,6 +319,14 @@ class GirlsSS: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("girlsSSShimaGames") var shimaGames: Int = 0
+    @AppStorage("girlsSSShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("girlsSSShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("girlsSSShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
