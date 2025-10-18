@@ -589,6 +589,8 @@
 		0F9D9C242EA3A1A600450B23 /* funky2Ver2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */; };
 		0F9D9C262EA3A43D00450B23 /* imJugExViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C252EA3A43D00450B23 /* imJugExViewShimaData.swift */; };
 		0F9D9C282EA3A49200450B23 /* imJugExVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */; };
+		0F9D9C2A2EA3C5F200450B23 /* starHanaViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C292EA3C5F200450B23 /* starHanaViewShimaData.swift */; };
+		0F9D9C2C2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C2B2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1684,6 +1686,8 @@
 		0F9D9C232EA3A1A600450B23 /* funky2Ver2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funky2Ver2View95CiShima.swift; sourceTree = "<group>"; };
 		0F9D9C252EA3A43D00450B23 /* imJugExViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C272EA3A49200450B23 /* imJugExVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imJugExVer2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C292EA3C5F200450B23 /* starHanaViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C2B2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -4005,6 +4009,8 @@
 				0FD357292DA1480D0069BD1A /* starHanaTableBellBonus.swift */,
 				0F64DD972DC5CEAA0027315D /* starHanaSubViewCountInput.swift */,
 				0FFAB86E2E72F52B00296A4F /* starHanaViewBayes.swift */,
+				0F9D9C292EA3C5F200450B23 /* starHanaViewShimaData.swift */,
+				0F9D9C2B2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift */,
 			);
 			path = starHana;
 			sourceTree = "<group>";
@@ -4581,6 +4587,7 @@
 				0FEC57A82D8EFB5A00FF1024 /* kaijiViewZawaKokaku.swift in Sources */,
 				0F8935872E21F8F900BF6FBE /* unitToolbarButtonQuestion.swift in Sources */,
 				0F654BCA2C6EC7FE00F37849 /* happyJugV3exView.swift in Sources */,
+				0F9D9C2C2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift in Sources */,
 				0FA024772CF495D3004B3FD5 /* bangdreamView95Ci.swift in Sources */,
 				0FD3572C2DA14ACC0069BD1A /* hanahanaCommonClass.swift in Sources */,
 				0F9A4F792DEC1631003B6337 /* dmc5TableKoyakuPattern.swift in Sources */,
@@ -5092,6 +5099,7 @@
 				0FEC57C92D94F53800FF1024 /* kaguyaTableRed7Ratio.swift in Sources */,
 				0FF156232D69752400B17F83 /* tokyoGhoulView95Ci.swift in Sources */,
 				0FCF789C2E4712C10000748B /* karakuriTableSpotLight.swift in Sources */,
+				0F9D9C2A2EA3C5F200450B23 /* starHanaViewShimaData.swift in Sources */,
 				0FA0247D2CF49E1F004B3FD5 /* symphoView95Ci.swift in Sources */,
 				0F8689E22D3CE67D00D952D9 /* myJug5Ver2View95CiPersonal.swift in Sources */,
 				0F868A412D460E7500D952D9 /* kingHanaVer2ViewJissenStartData.swift in Sources */,

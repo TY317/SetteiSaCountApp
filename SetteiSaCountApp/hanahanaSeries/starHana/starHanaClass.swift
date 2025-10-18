@@ -325,6 +325,7 @@ class StarHana: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "スターハナハナ"
     @AppStorage("starHanaMinusCheck") var minusCheck: Bool = false
     @AppStorage("starHanaSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -333,6 +334,14 @@ class StarHana: ObservableObject {
         resetStartData()
         hanaReset()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("starHanaShimaGames") var shimaGames: Int = 0
+    @AppStorage("starHanaShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("starHanaShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("starHanaShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
