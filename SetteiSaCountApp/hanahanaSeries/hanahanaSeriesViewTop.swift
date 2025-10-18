@@ -57,6 +57,7 @@ struct hanahanaSeriesViewTop: View {
                                     )),
                                     iconImage: Image("starHanaMachineIcon"),
                                     machineName: "スターハナハナ",
+                                    badgeStatus: common.starHanaMachineIconBadge,
                                     sfSymbolName: "star.fill",
                                 )
                             }
@@ -171,7 +172,7 @@ struct hanahanaSeriesViewTop: View {
                                     makerName: "パイオニア",
                                     releaseYear: 2025,
                                     releaseMonth: 1,
-//                                    badgeStatus: ver391.starHanaMachineIconBadge,
+                                    badgeStatus: common.starHanaMachineIconBadge,
                                     sfSymbolName: "star.fill"
                                 )
                             }

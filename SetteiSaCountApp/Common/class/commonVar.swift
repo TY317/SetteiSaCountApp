@@ -109,7 +109,9 @@ class commonVar: ObservableObject {
     
     // //// ハナハナシリーズ
     @AppStorage("hanaSeriesBadge") var hanaSeriesBadge: String = "none"
-    
+    // //// スターハナハナ
+    @AppStorage("starHanaMachineIconBadge") var starHanaMachineIconBadge: String = "none"
+    @AppStorage("starHanaMenuShimaBadge") var starHanaMenuShimaBadge: String = "none"
     
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
@@ -189,6 +191,8 @@ class commonVar: ObservableObject {
                 imJugExMachineIconBadge = "update"
                 imJugExMenuShimaBadge = "new"
                 hanaSeriesBadge = "update"
+                starHanaMachineIconBadge = "update"
+                starHanaMenuShimaBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
