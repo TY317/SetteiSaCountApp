@@ -50,7 +50,7 @@ struct myJug5Ver2View95CiShima: View {
             .tag(3)
             // REG回数
             unitListSection95Ci(
-                grafTitle: "見\n ボーナス合算回数",
+                grafTitle: "島データ\n ボーナス合算回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $myJug5.shimaBonusSum,

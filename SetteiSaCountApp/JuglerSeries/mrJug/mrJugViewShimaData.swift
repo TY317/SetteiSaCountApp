@@ -1,24 +1,24 @@
 //
-//  myJugViewShimaData.swift
+//  mrJugViewShimaData.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2025/10/16.
+//  Created by 横田徹 on 2025/10/18.
 //
 
 import SwiftUI
 
-struct myJugViewShimaData: View {
+struct mrJugViewShimaData: View {
     @EnvironmentObject var common: commonVar
-    @ObservedObject var myJug5: MyJug5
+    @ObservedObject var mrJug: MrJug
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @State private var shimaGames: [Int] = []
     @State private var shimaBigs: [Int] = []
     @State private var shimaRegs: [Int] = []
-    @AppStorage("myJug5ShimaGameJSON") var shimaGameJSON: String = "[0,0,0,0,0]"
-    @AppStorage("myJug5ShimaBigJSON") var shimaBigJSON: String = "[0,0,0,0,0]"
-    @AppStorage("myJug5ShimaRegJSON") var shimaRegJSON: String = "[0,0,0,0,0]"
+    @AppStorage("mrJugShimaGameJSON") var shimaGameJSON: String = "[0,0,0,0,0]"
+    @AppStorage("mrJugShimaBigJSON") var shimaBigJSON: String = "[0,0,0,0,0]"
+    @AppStorage("mrJugShimaRegJSON") var shimaRegJSON: String = "[0,0,0,0,0]"
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     let scrollViewHeightPortrait = 250.0
@@ -184,10 +184,8 @@ struct myJugViewShimaData: View {
                     title: "設定差情報",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "\(myJug5.machineName)設定差",
-                            tableView: AnyView(
-                                myJug5TableRatio(myJug5: myJug5)
-                            )
+                            title: "ミスタージャグラー設定差",
+                            tableView: AnyView(mrJugSubViewTableRatio(mrJug: mrJug))
                         )
                     )
                 )
@@ -195,7 +193,7 @@ struct myJugViewShimaData: View {
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
-                        myJug5Ver2View95CiShima(myJug5: myJug5)
+                        mrJugVer2View95CiShima(mrJug: mrJug)
                     )
                 )
             } header: {
@@ -207,7 +205,7 @@ struct myJugViewShimaData: View {
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: myJug5.machineName,
+                screenName: mrJug.machineName,
                 screenClass: screenClass
             )
         }
@@ -268,23 +266,23 @@ struct myJugViewShimaData: View {
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaGameJSON = str
-                myJug5.shimaGames = shimaGames.reduce(0, +)
+                mrJug.shimaGames = shimaGames.reduce(0, +)
             }
         }
         .onChange(of: self.shimaBigs) { oldValue, newValue in
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaBigJSON = str
-                myJug5.shimaBigs = shimaBigs.reduce(0, +)
-                myJug5.shimaBonusSum = myJug5.shimaBigs + myJug5.shimaRegs
+                mrJug.shimaBigs = shimaBigs.reduce(0, +)
+                mrJug.shimaBonusSum = mrJug.shimaBigs + mrJug.shimaRegs
             }
         }
         .onChange(of: self.shimaRegs) { oldValue, newValue in
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaRegJSON = str
-                myJug5.shimaRegs = shimaRegs.reduce(0, +)
-                myJug5.shimaBonusSum = myJug5.shimaBigs + myJug5.shimaRegs
+                mrJug.shimaRegs = shimaRegs.reduce(0, +)
+                mrJug.shimaBonusSum = mrJug.shimaBigs + mrJug.shimaRegs
             }
         }
     }
@@ -326,20 +324,11 @@ struct myJugViewShimaData: View {
     }
 }
 
-//private func numberPadField(placeholder: String, value: Binding<String>) -> some View {
-//    TextField(placeholder, text: value)
-//        .keyboardType(.numberPad)
-//        .multilineTextAlignment(.center)
-//        .textFieldStyle(.roundedBorder)
-//        .frame(maxWidth: .infinity)
-//}
-
 #Preview {
-    myJugViewShimaData(
-        myJug5: MyJug5(),
+    mrJugViewShimaData(
+        mrJug: MrJug(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
     .environmentObject(commonVar())
 }
-

@@ -75,7 +75,7 @@ struct JuglerSeriesViewTop: View {
                                     )),
                                     iconImage: Image("mrJugMachineIcon"),
                                     machineName: "ミスター",
-//                                    badgeStatus: ver391.mrJugMachineIconBadge,
+                                    badgeStatus: common.mrJugMachineIconBadge,
                                 )
                             }
                             
@@ -213,7 +213,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2024,
                                     releaseMonth: 7,
-//                                    badgeStatus: ver391.mrJugMachineIconBadge,
+                                    badgeStatus: common.mrJugMachineIconBadge,
                                 )
                             }
                             
@@ -287,7 +287,7 @@ struct JuglerSeriesViewTop: View {
                                                    makerName: "北電子",
                                                    releaseYear: 2021,
                                                    releaseMonth: 12,
-//                                                   badgeStatus: ver370.jugSeriesBadge,
+                                                   badgeStatus: common.myJug5MachineIconBadge,
                                 )
                             }
                             

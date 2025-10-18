@@ -1,24 +1,24 @@
 //
-//  myJugViewShimaData.swift
+//  urmiraViewShimaData.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2025/10/16.
+//  Created by 横田徹 on 2025/10/18.
 //
 
 import SwiftUI
 
-struct myJugViewShimaData: View {
+struct urmiraViewShimaData: View {
     @EnvironmentObject var common: commonVar
-    @ObservedObject var myJug5: MyJug5
+    @ObservedObject var urmira: Urmira
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @State private var shimaGames: [Int] = []
     @State private var shimaBigs: [Int] = []
     @State private var shimaRegs: [Int] = []
-    @AppStorage("myJug5ShimaGameJSON") var shimaGameJSON: String = "[0,0,0,0,0]"
-    @AppStorage("myJug5ShimaBigJSON") var shimaBigJSON: String = "[0,0,0,0,0]"
-    @AppStorage("myJug5ShimaRegJSON") var shimaRegJSON: String = "[0,0,0,0,0]"
+    @AppStorage("urmiraShimaGameJSON") var shimaGameJSON: String = "[0,0,0,0,0]"
+    @AppStorage("urmiraShimaBigJSON") var shimaBigJSON: String = "[0,0,0,0,0]"
+    @AppStorage("urmiraShimaRegJSON") var shimaRegJSON: String = "[0,0,0,0,0]"
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     let scrollViewHeightPortrait = 250.0
@@ -86,7 +86,7 @@ struct myJugViewShimaData: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         // ゲーム数
                         if self.shimaGames.indices.contains(index) {
-//                            numberPadField(
+//                            urmira(
                             unitTextFieldShima(
                                 placeholder: "G",
                                 value: Binding(
@@ -98,7 +98,7 @@ struct myJugViewShimaData: View {
                         }
                         // BIG
                         if self.shimaBigs.indices.contains(index) {
-//                            numberPadField(
+//                            urmira(
                             unitTextFieldShima(
                                 placeholder: "B",
                                 value: Binding(
@@ -110,7 +110,7 @@ struct myJugViewShimaData: View {
                         }
                         if self.shimaRegs.indices.contains(index) {
                             // REG
-//                            numberPadField(
+//                            urmira(
                             unitTextFieldShima(
                                 placeholder: "R",
                                 value: Binding(
@@ -184,9 +184,9 @@ struct myJugViewShimaData: View {
                     title: "設定差情報",
                     exview: AnyView(
                         unitExView5body2image(
-                            title: "\(myJug5.machineName)設定差",
+                            title: "\(urmira.machineName)設定差",
                             tableView: AnyView(
-                                myJug5TableRatio(myJug5: myJug5)
+                                urmiraTableRatio(urmira: urmira)
                             )
                         )
                     )
@@ -195,7 +195,7 @@ struct myJugViewShimaData: View {
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
-                        myJug5Ver2View95CiShima(myJug5: myJug5)
+                        urmiraVer2View95CiShima(urmira: urmira)
                     )
                 )
             } header: {
@@ -207,7 +207,7 @@ struct myJugViewShimaData: View {
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: myJug5.machineName,
+                screenName: urmira.machineName,
                 screenClass: screenClass
             )
         }
@@ -268,23 +268,23 @@ struct myJugViewShimaData: View {
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaGameJSON = str
-                myJug5.shimaGames = shimaGames.reduce(0, +)
+                urmira.shimaGames = shimaGames.reduce(0, +)
             }
         }
         .onChange(of: self.shimaBigs) { oldValue, newValue in
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaBigJSON = str
-                myJug5.shimaBigs = shimaBigs.reduce(0, +)
-                myJug5.shimaBonusSum = myJug5.shimaBigs + myJug5.shimaRegs
+                urmira.shimaBigs = shimaBigs.reduce(0, +)
+                urmira.shimaBonusSum = urmira.shimaBigs + urmira.shimaRegs
             }
         }
         .onChange(of: self.shimaRegs) { oldValue, newValue in
             if let data = try? JSONEncoder().encode(newValue),
                let str = String(data: data, encoding: .utf8) {
                 self.shimaRegJSON = str
-                myJug5.shimaRegs = shimaRegs.reduce(0, +)
-                myJug5.shimaBonusSum = myJug5.shimaBigs + myJug5.shimaRegs
+                urmira.shimaRegs = shimaRegs.reduce(0, +)
+                urmira.shimaBonusSum = urmira.shimaBigs + urmira.shimaRegs
             }
         }
     }
@@ -326,20 +326,11 @@ struct myJugViewShimaData: View {
     }
 }
 
-//private func numberPadField(placeholder: String, value: Binding<String>) -> some View {
-//    TextField(placeholder, text: value)
-//        .keyboardType(.numberPad)
-//        .multilineTextAlignment(.center)
-//        .textFieldStyle(.roundedBorder)
-//        .frame(maxWidth: .infinity)
-//}
-
 #Preview {
-    myJugViewShimaData(
-        myJug5: MyJug5(),
+    urmiraViewShimaData(
+        urmira: Urmira(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
     .environmentObject(commonVar())
 }
-
