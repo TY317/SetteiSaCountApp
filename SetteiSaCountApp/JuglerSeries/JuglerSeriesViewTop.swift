@@ -107,7 +107,7 @@ struct JuglerSeriesViewTop: View {
                                     )),
                                     iconImage: Image("goJug3MachineIcon"),
                                     machineName: "ゴージャグ3",
-//                                    badgeStatus: ver391.goJug3MachineIconBadge,
+                                    badgeStatus: common.goJug3MachineIconBadge,
                                 )
                             }
                             
@@ -251,7 +251,7 @@ struct JuglerSeriesViewTop: View {
                                     makerName: "北電子",
                                     releaseYear: 2023,
                                     releaseMonth: 7,
-//                                    badgeStatus: ver391.goJug3MachineIconBadge,
+                                    badgeStatus: common.goJug3MachineIconBadge,
                                 )
                             }
                             

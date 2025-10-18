@@ -256,6 +256,7 @@ class GoJug3: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ゴーゴージャグラー3"
     @AppStorage("goJug3MinusCheck") var minusCheck: Bool = false
     @AppStorage("goJug3SelectedMemory") var selectedMemory = "メモリー1"
     
@@ -264,6 +265,14 @@ class GoJug3: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("goJug3ShimaGames") var shimaGames: Int = 0
+    @AppStorage("goJug3ShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("goJug3ShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("goJug3ShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -367,6 +376,7 @@ struct goJug3Ver2ViewTop: View {
     @StateObject var goJug3Memory3 = GoJug3Memory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -386,12 +396,35 @@ struct goJug3Ver2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: goJug3ViewShimaData(
+                        goJug3: goJug3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.goJug3MenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    HStack {
+                        Text("見")
+                            .fontWeight(.bold)
+                            .font(.headline)
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "見",
+                                textBody1: "・空き台のデータ確認にご利用下さい",
+                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+                            )
+                        }
+                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -450,7 +483,6 @@ struct goJug3Ver2ViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4375")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // コピーライト
                 unitSectionCopyright {
@@ -459,7 +491,7 @@ struct goJug3Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.goJug3MachineIconBadge)
+        .resetBadgeOnAppear($common.goJug3MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -468,16 +500,6 @@ struct goJug3Ver2ViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "ゴーゴージャグラー3", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "goJug3Ver2ViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: goJug3Ver2ViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -727,4 +749,5 @@ struct goJug3SubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
