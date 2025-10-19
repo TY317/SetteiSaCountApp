@@ -51,19 +51,20 @@ struct mrJugViewTop: View {
                         )
                     }
                 } header: {
-                    HStack {
-                        Text("見")
-                            .fontWeight(.bold)
-                            .font(.headline)
-                        unitToolbarButtonQuestion {
-                            unitExView5body2image(
-                                title: "見",
-                                textBody1: "・空き台のデータ確認にご利用下さい",
-                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
-                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
-                            )
-                        }
-                    }
+                    unitHeaderLabelKen()
+//                    HStack {
+//                        Text("見")
+//                            .fontWeight(.bold)
+//                            .font(.headline)
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "見",
+//                                textBody1: "・空き台のデータ確認にご利用下さい",
+//                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+//                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+//                            )
+//                        }
+//                    }
                 }
 //                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
