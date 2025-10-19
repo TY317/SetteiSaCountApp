@@ -329,6 +329,7 @@ class KingHana: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "キングハナハナ"
     @AppStorage("kingHanaMinusCheck") var minusCheck: Bool = false
     @AppStorage("kingHanaSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -337,6 +338,14 @@ class KingHana: ObservableObject {
         resetStartData()
         hanaReset()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("kingHanaShimaGames") var shimaGames: Int = 0
+    @AppStorage("kingHanaShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("kingHanaShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("kingHanaShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -473,7 +482,7 @@ class KingHanaMemory3: ObservableObject {
 }
 
 struct kingHanaVer2ViewTop: View {
-//    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @StateObject var kingHana = KingHana()
     @State var isShowAlert: Bool = false
     @StateObject var kingHanaMemory1 = KingHanaMemory1()
@@ -500,12 +509,23 @@ struct kingHanaVer2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: kingHanaViewShimaData(
+                        kingHana: kingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.kingHanaMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -571,6 +591,8 @@ struct kingHanaVer2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.kingHanaMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -921,5 +943,6 @@ struct kingHanaSubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
 

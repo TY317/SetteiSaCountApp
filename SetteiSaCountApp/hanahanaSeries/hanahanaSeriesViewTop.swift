@@ -110,6 +110,7 @@ struct hanahanaSeriesViewTop: View {
                                     )),
                                     iconImage: Image("kingHanaMachineIcon"),
                                     machineName: "キングハナハナ",
+                                    badgeStatus: common.kingHanaMachineIconBadge,
                                     sfSymbolName: "crown.fill",
                                 )
 //                                NavigationLink(destination: kingHanaVer2ViewTop(
@@ -216,6 +217,7 @@ struct hanahanaSeriesViewTop: View {
                                     makerName: "パイオニア",
                                     releaseYear: 2023,
                                     releaseMonth: 3,
+                                    badgeStatus: common.kingHanaMachineIconBadge,
 //                                    badgeStatus: ver391.starHanaMachineIconBadge,
                                     sfSymbolName: "crown.fill"
                                 )
