@@ -142,13 +142,12 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachineIconLink(
                                     linkView: AnyView(hanaTenshoVer2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
                                     iconImage: Image("hanatenshoMachineIcon"),
                                     machineName: "鳳凰 天翔",
-//                                    badgeStatus: ver391.hanaTenshoMachineIconBadge,
+                                    badgeStatus: common.hanaTenshoMachineIconBadge,
                                 )
                             }
                         }
@@ -234,7 +233,6 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachinListLink(
                                     linkView: AnyView(hanaTenshoVer2ViewTop(
-//                                        ver391: ver391,
                                         bayes: bayes,
                                         viewModel: viewModel,
                                     )),
@@ -243,6 +241,7 @@ struct hanahanaSeriesViewTop: View {
                                     makerName: "パイオニア",
                                     releaseYear: 2022,
                                     releaseMonth: 1,
+                                    badgeStatus: common.hanaTenshoMachineIconBadge,
 //                                    badgeStatus: ver391.hanaTenshoMachineIconBadge,
                                 )
                             }

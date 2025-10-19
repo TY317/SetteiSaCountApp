@@ -330,6 +330,7 @@ class HanaTensho: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ハナハナ鳳凰天翔"
     @AppStorage("hanaTenshoMinusCheck") var minusCheck: Bool = false
     @AppStorage("hanaTenshoSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -338,6 +339,14 @@ class HanaTensho: ObservableObject {
         resetStartData()
         hanaReset()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("hanaTenshoShimaGames") var shimaGames: Int = 0
+    @AppStorage("hanaTenshoShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("hanaTenshoShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("hanaTenshoShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -474,7 +483,7 @@ class HanaTenshoMemory3: ObservableObject {
 }
 
 struct hanaTenshoVer2ViewTop: View {
-//    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @StateObject var hanaTensho = HanaTensho()
     @State var isShowAlert: Bool = false
     @StateObject var hanaTenshoMemory1 = HanaTenshoMemory1()
@@ -501,12 +510,26 @@ struct hanaTenshoVer2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: hanaTenshoViewShimaData(
+                        hanaTensho: hanaTensho,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.hanaTenshoMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
+//                    Text("見")
+//                        .fontWeight(.bold)
+//                        .font(.headline)
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 
                 // //// 実戦
                 Section {
@@ -574,6 +597,8 @@ struct hanaTenshoVer2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.hanaTenshoMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -921,8 +946,8 @@ struct hanaTenshoSubViewLoadMemory: View {
 
 #Preview {
     hanaTenshoVer2ViewTop(
-//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

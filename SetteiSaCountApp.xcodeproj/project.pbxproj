@@ -596,6 +596,8 @@
 		0F9D9C322EA459A300450B23 /* unitHeaderLabelKen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C312EA459A300450B23 /* unitHeaderLabelKen.swift */; };
 		0F9D9C342EA4617A00450B23 /* kingHanaViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C332EA4617A00450B23 /* kingHanaViewShimaData.swift */; };
 		0F9D9C362EA4626F00450B23 /* kingHanaVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C352EA4626F00450B23 /* kingHanaVer2View95CiShima.swift */; };
+		0F9D9C382EA4691700450B23 /* hanaTenshoViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C372EA4691700450B23 /* hanaTenshoViewShimaData.swift */; };
+		0F9D9C3A2EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9C392EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift */; };
 		0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */; };
 		0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */; };
 		0FA024452CDB92AC004B3FD5 /* bangdreamAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */; };
@@ -1698,6 +1700,8 @@
 		0F9D9C312EA459A300450B23 /* unitHeaderLabelKen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitHeaderLabelKen.swift; sourceTree = "<group>"; };
 		0F9D9C332EA4617A00450B23 /* kingHanaViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaViewShimaData.swift; sourceTree = "<group>"; };
 		0F9D9C352EA4626F00450B23 /* kingHanaVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kingHanaVer2View95CiShima.swift; sourceTree = "<group>"; };
+		0F9D9C372EA4691700450B23 /* hanaTenshoViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoViewShimaData.swift; sourceTree = "<group>"; };
+		0F9D9C392EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoVer2View95CiShima.swift; sourceTree = "<group>"; };
 		0FA0243F2CD73A8E004B3FD5 /* ver140Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver140Tip.swift; sourceTree = "<group>"; };
 		0FA024422CDB929B004B3FD5 /* bangdreamViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bangdreamViewTop.swift; sourceTree = "<group>"; };
 		0FA024442CDB92AC004B3FD5 /* bangdreamAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bangdreamAssets.xcassets; sourceTree = "<group>"; };
@@ -3079,6 +3083,8 @@
 				0FD357392DA1FD110069BD1A /* hanaTenshoTableBellBonus.swift */,
 				0F64DD9D2DC5D27E0027315D /* hanaTenshoSubViewCountInput.swift */,
 				0FFAB8742E75017D00296A4F /* hanaTenshoViewBayes.swift */,
+				0F9D9C372EA4691700450B23 /* hanaTenshoViewShimaData.swift */,
+				0F9D9C392EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift */,
 			);
 			path = ver2;
 			sourceTree = "<group>";
@@ -5232,6 +5238,7 @@
 				0F64DDA02DC5E17A0027315D /* godeaterViewNormal.swift in Sources */,
 				0F64DD842DC467440027315D /* unitScreenOnlyDisplay.swift in Sources */,
 				0FB9CA902DDDAB61009FC6AF /* plusButtonStyle.swift in Sources */,
+				0F9D9C382EA4691700450B23 /* hanaTenshoViewShimaData.swift in Sources */,
 				0F6B59DB2E06A17F00DB1A2B /* toloveruTableFirstHit.swift in Sources */,
 				0FFAB8612E6DB3A400296A4F /* ver391Class.swift in Sources */,
 				0FD3572E2DA14B680069BD1A /* hanahanaCommonTableBigSuika.swift in Sources */,
@@ -5405,6 +5412,7 @@
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FCF78A82E47643D0000748B /* kabaneriTableChance.swift in Sources */,
 				0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */,
+				0F9D9C3A2EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift in Sources */,
 				0FD3572A2DA1480D0069BD1A /* starHanaTableBellBonus.swift in Sources */,
 				0F9318852DEAA2A700511BEF /* izaBanchoViewFirstHit.swift in Sources */,
 				0FB9CAA02DDDF0BE009FC6AF /* toloveru87View95Ci.swift in Sources */,
