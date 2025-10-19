@@ -68,6 +68,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteNewOni3") var isSelectedFavoriteNewOni3 = true
     @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
     @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
+    @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
 }
 
 
@@ -143,6 +144,21 @@ struct ContentView: View {
                                         iconImage: Image("vvv2MachineIcon"),
                                         machineName: "ヴヴヴ2",
                                         badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "超電磁砲2",
+                                        badgeStatus: common.railgunMachineIconBadge,
                                     )
                                 }
                                 
@@ -835,6 +851,24 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 11,
                                         badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "とある科学の超電磁砲2",
+                                        makerName: "藤商事",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.railgunMachineIconBadge,
                                     )
                                 }
                                 
@@ -1869,6 +1903,8 @@ struct favoriteSettingView: View {
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // vvv2
                 Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
+                // レールガン2
+                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５

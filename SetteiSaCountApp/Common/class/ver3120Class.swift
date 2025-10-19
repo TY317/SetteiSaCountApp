@@ -15,7 +15,7 @@ struct tipVer3120UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・ヴァルヴレイヴ2\n・\n・")
+        Text("・ヴァルヴレイヴ2\n・\n・ジャグ、ハナ 島合算機能")
     }
     var image: Image? {
         Image(systemName: "star")
