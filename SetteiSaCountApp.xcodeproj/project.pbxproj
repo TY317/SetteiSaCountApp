@@ -662,6 +662,8 @@
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
+		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
+		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB1B6DA2E9873B900D8DD11 /* azurLaneTableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */; };
 		0FB209522E0FB1810029D940 /* watakonView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209512E0FB1810029D940 /* watakonView95Ci.swift */; };
 		0FB209542E0FB26D0029D940 /* watakonTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209532E0FB26D0029D940 /* watakonTableMode.swift */; };
@@ -1773,6 +1775,8 @@
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
+		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
+		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azurLaneTableScreenRatio.swift; sourceTree = "<group>"; };
 		0FB209512E0FB1810029D940 /* watakonView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonView95Ci.swift; sourceTree = "<group>"; };
 		0FB209532E0FB26D0029D940 /* watakonTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonTableMode.swift; sourceTree = "<group>"; };
@@ -4113,6 +4117,8 @@
 				0FD3574D2DA266280069BD1A /* shamanKingDirectAt.swift */,
 				0FD3574F2DA267690069BD1A /* shamanKingTableEndScreen.swift */,
 				0FD357512DA269EF0069BD1A /* shamanKingTableEnding.swift */,
+				0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */,
+				0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */,
 			);
 			path = shamanKing;
 			sourceTree = "<group>";
@@ -4721,6 +4727,7 @@
 				0FC71FFA2E6BBB1D000DD53B /* logPostDenoMulti.swift in Sources */,
 				0F9D9C1E2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift in Sources */,
 				0FF1562A2D6B4F7800B17F83 /* shamanKingViewTop.swift in Sources */,
+				0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */,
 				0FDF23812E51FD6B00249CAC /* enenTableBigScreen.swift in Sources */,
 				0FD357202DA0BF6F0069BD1A /* sevenSwordsViewVoiceCustom.swift in Sources */,
 				0F6BD7D62D81AA74003F5563 /* bioViewScreen.swift in Sources */,
@@ -5131,6 +5138,7 @@
 				0F9D9C072EA315BC00450B23 /* unitResultDenoNotBinding.swift in Sources */,
 				0FDBDAE72E8D4D8200197B94 /* urmiraView95CiPersonal.swift in Sources */,
 				0F64DDD32DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift in Sources */,
+				0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */,
 				0FC14A8D2E4EB76900F85D84 /* bioViewAt.swift in Sources */,
 				0F9D9C3D2EA4F74500450B23 /* railgunViewTop.swift in Sources */,
 				0F654BE92C708C2000F37849 /* kingHanaViewTop.swift in Sources */,

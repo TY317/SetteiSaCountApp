@@ -10,6 +10,8 @@ import FirebaseAnalytics
 
 struct shamanKingViewTop: View {
     @EnvironmentObject var common: commonVar
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     @StateObject var shamanKingMemory1 = ShamanKingMemory1()
@@ -64,6 +66,18 @@ struct shamanKingViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
+                        )
+                    }
+                    // シャーマンファイト予選
+                    NavigationLink(destination: shamanKingViewQualify(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.boxing",
+                            textBody: "シャーマンファイト予選",
+                            badgeStatus: common.shamanKingMenuQualifyBadge,
                         )
                     }
                     // AT終了画面
@@ -494,7 +508,8 @@ struct shamanKingSubViewLoadMemory: View {
 
 #Preview {
     shamanKingViewTop(
-        
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
     )
     .environmentObject(commonVar())
 }

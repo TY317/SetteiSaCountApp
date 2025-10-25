@@ -172,6 +172,7 @@ class commonVar: ObservableObject {
     // //// シャーマンキング
     @AppStorage("shamanKingMachineIconBadge") var shamanKingMachineIconBadge = "none"
     @AppStorage("shamanKingMenuNormalBadge") var shamanKingMenuNormalBadge = "none"
+    @AppStorage("shamanKingMenuQualifyBadge") var shamanKingMenuQualifyBadge = "none"
     
     // //// モンスターハンターライズ
     @AppStorage("mhrMachineIconBadge") var mhrMachineIconBadge: String = "none"
@@ -219,6 +220,7 @@ class commonVar: ObservableObject {
                 railgunMachineIconBadge = "new"
                 shamanKingMachineIconBadge = "update"
                 shamanKingMenuNormalBadge = "update"
+                shamanKingMenuQualifyBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

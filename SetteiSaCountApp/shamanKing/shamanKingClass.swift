@@ -206,6 +206,7 @@ class ShamanKing: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "シャーマンキング"
     @AppStorage("shamanKingMinusCheck") var minusCheck: Bool = false
     @AppStorage("shamanKingSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -287,9 +288,27 @@ class ShamanKing: ObservableObject {
     // ///////
     // ver3.12.0
     // ///////
+    // 共通ベル
     let ratioCommonBell: [Double] = [48,47.2,44.8,40.7,38.1,31.8]
     @AppStorage("shamanKingPlayGame") var playGame: Int = 0
     @AppStorage("shamanKingKoyakuCountCommonBell") var koyakuCountCommonBell: Int = 0
+    
+    // シャーマンファイト予選
+    let ratioQualifyFaust: [Double] = [20.7,21.1,21.9,23.4,25,26.6]
+    let ratioQualifyRen: [Double] = [39.8,40.6,42.2,46.1,49.2,53.1]
+    let ratioQualifyHolo: [Double] = [81.3]
+    @AppStorage("shamanKingQualifyCountFaustOS") var qualifyCountFaustOS: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustHit") var qualifyCountFaustHit: Int = 0
+    @AppStorage("shamanKingQualifyCountRenOS") var qualifyCountRenOS: Int = 0
+    @AppStorage("shamanKingQualifyCountRenHit") var qualifyCountRenHit: Int = 0
+    
+    func resetQualify() {
+        qualifyCountFaustOS = 0
+        qualifyCountFaustHit = 0
+        qualifyCountRenOS = 0
+        qualifyCountRenHit = 0
+        minusCheck = false
+    }
 }
 
 // //// メモリー1

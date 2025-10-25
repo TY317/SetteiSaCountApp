@@ -539,7 +539,10 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(shamanKingViewTop()),
+                                        linkView: AnyView(shamanKingViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("shamanKingMachineIcon"),
                                         machineName: "シャーマンキング",
                                         badgeStatus: common.shamanKingMachineIconBadge,
@@ -1327,7 +1330,10 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(shamanKingViewTop()),
+                                        linkView: AnyView(shamanKingViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("shamanKingMachineIcon"),
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
