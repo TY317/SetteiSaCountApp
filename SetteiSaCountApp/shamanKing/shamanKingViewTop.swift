@@ -32,7 +32,11 @@ struct shamanKingViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: shamanKingViewNormal(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewNormal(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
@@ -40,7 +44,11 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // CZ当選時の振分け
-                    NavigationLink(destination: shamanKingViewCzFuriwake(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewCzFuriwake(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "CZ当選時の振分け"
@@ -48,7 +56,11 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // 憑依合体バトル
-                    NavigationLink(destination: shamanKingViewHyoiGattai(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewHyoiGattai(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "figure.handball",
                             textBody: "憑依合体バトル"
@@ -62,7 +74,11 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // ボーナス,AT 初当り
-                    NavigationLink(destination: shamanKingViewHit(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewHit(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
@@ -99,6 +115,20 @@ struct shamanKingViewTop: View {
                 NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 11)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                
+                // 設定期待値計算
+                NavigationLink(destination: shamanKingViewBayes(
+                    shamanKing: shamanKing,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.shamanKingMenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4719")
                 

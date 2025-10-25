@@ -664,6 +664,7 @@
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
+		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
 		0FB1B6DA2E9873B900D8DD11 /* azurLaneTableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */; };
 		0FB209522E0FB1810029D940 /* watakonView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209512E0FB1810029D940 /* watakonView95Ci.swift */; };
 		0FB209542E0FB26D0029D940 /* watakonTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209532E0FB26D0029D940 /* watakonTableMode.swift */; };
@@ -1777,6 +1778,7 @@
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
+		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
 		0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azurLaneTableScreenRatio.swift; sourceTree = "<group>"; };
 		0FB209512E0FB1810029D940 /* watakonView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonView95Ci.swift; sourceTree = "<group>"; };
 		0FB209532E0FB26D0029D940 /* watakonTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonTableMode.swift; sourceTree = "<group>"; };
@@ -4119,6 +4121,7 @@
 				0FD357512DA269EF0069BD1A /* shamanKingTableEnding.swift */,
 				0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */,
 				0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */,
+				0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */,
 			);
 			path = shamanKing;
 			sourceTree = "<group>";
@@ -5270,6 +5273,7 @@
 				0FA024982D05CF3E004B3FD5 /* ver170Tip.swift in Sources */,
 				0FEC57E32D9AD48800FF1024 /* arifureTableMyuAt.swift in Sources */,
 				0FA024492CDCEB3A004B3FD5 /* bangdreamViewHistory.swift in Sources */,
+				0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */,
 				0FF1563C2D72670E00B17F83 /* shamanKingViewScreen.swift in Sources */,
 				0F8689D12D334CF400D952D9 /* myJug5Ver2ViewKenDataInput.swift in Sources */,
 				0FDC32812D260757005B3D06 /* dumbbellViewTop.swift in Sources */,

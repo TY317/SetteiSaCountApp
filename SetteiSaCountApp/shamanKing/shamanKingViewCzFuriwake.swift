@@ -11,6 +11,8 @@ struct shamanKingViewCzFuriwake: View {
 //    @ObservedObject var ver270 = Ver270()
 //    @ObservedObject var shamanKing = ShamanKing()
     @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     let selectListPt: [String] = [
         "0〜595Pt",
@@ -134,7 +136,14 @@ struct shamanKingViewCzFuriwake: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 9)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("前兆移行時の憑依ポイント別カウント")
             }
@@ -169,5 +178,9 @@ struct shamanKingViewCzFuriwake: View {
 }
 
 #Preview {
-    shamanKingViewCzFuriwake(shamanKing: ShamanKing())
+    shamanKingViewCzFuriwake(
+        shamanKing: ShamanKing(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

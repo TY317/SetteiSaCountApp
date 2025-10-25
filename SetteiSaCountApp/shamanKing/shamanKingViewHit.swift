@@ -10,6 +10,8 @@ import SwiftUI
 struct shamanKingViewHit: View {
 //    @ObservedObject var shamanKing = ShamanKing()
     @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
     @Environment(\.dismiss) private var dismiss
@@ -123,7 +125,14 @@ struct shamanKingViewHit: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 5)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("初当り確率")
             }
@@ -195,5 +204,9 @@ struct shamanKingViewHit: View {
 }
 
 #Preview {
-    shamanKingViewHit(shamanKing: ShamanKing())
+    shamanKingViewHit(
+        shamanKing: ShamanKing(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

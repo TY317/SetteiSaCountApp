@@ -118,13 +118,21 @@ struct shamanKingViewQualify: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("対戦相手ごとの撃破率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.shamanKingMenuNormalBadge)
+        .resetBadgeOnAppear($common.shamanKingMenuQualifyBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
