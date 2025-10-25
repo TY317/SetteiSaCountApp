@@ -541,8 +541,8 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(shamanKingViewTop()),
                                         iconImage: Image("shamanKingMachineIcon"),
-                                        machineName: "シャーマンキング"
-//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        machineName: "シャーマンキング",
+                                        badgeStatus: common.shamanKingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1332,8 +1332,8 @@ struct ContentView: View {
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 2
-//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        releaseMonth: 2,
+                                        badgeStatus: common.shamanKingMachineIconBadge,
                                     )
                                 }
                                 

@@ -15,6 +15,23 @@ struct shamanKingView95Ci: View {
     
     var body: some View {
         TabView(selection: $selection) {
+            // 共通ベルA回数
+            unitListSection95Ci(
+                grafTitle: "共通ベルA回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $shamanKing.koyakuCountCommonBell,
+                        bigNumber: $shamanKing.playGame,
+                        setting1Denominate: shamanKing.ratioCommonBell[0],
+                        setting2Denominate: shamanKing.ratioCommonBell[1],
+                        setting3Denominate: shamanKing.ratioCommonBell[2],
+                        setting4Denominate: shamanKing.ratioCommonBell[3],
+                        setting5Denominate: shamanKing.ratioCommonBell[4],
+                        setting6Denominate: shamanKing.ratioCommonBell[5]
+                    )
+                )
+            )
+            .tag(11)
             // 弱レア役からのボーナス高確移行回数
             unitListSection95Ci(
                 grafTitle: "弱レア役からのボーナス高確移行回数",

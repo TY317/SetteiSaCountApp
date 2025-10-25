@@ -22,3 +22,18 @@ struct tipVer3120UpdateInfo: Tip {
     }
 }
 
+
+// //////////////////
+// Tip：シャーマンキング
+// //////////////////
+struct tipVer3120ShamanCommonBell: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("共通ベルAの設定差が判明したのでカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

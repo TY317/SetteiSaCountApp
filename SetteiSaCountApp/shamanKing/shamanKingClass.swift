@@ -23,6 +23,8 @@ class ShamanKing: ObservableObject {
         replayCounterReplayCount = 0
         replayCounterCountSuccesss = 0
         minusCheck = false
+        playGame = 0
+        koyakuCountCommonBell = 0
     }
     
     // ////////////////////////
@@ -281,6 +283,13 @@ class ShamanKing: ObservableObject {
         czCountOver600Kokkuri = 0
         minusCheck = false
     }
+    
+    // ///////
+    // ver3.12.0
+    // ///////
+    let ratioCommonBell: [Double] = [48,47.2,44.8,40.7,38.1,31.8]
+    @AppStorage("shamanKingPlayGame") var playGame: Int = 0
+    @AppStorage("shamanKingKoyakuCountCommonBell") var koyakuCountCommonBell: Int = 0
 }
 
 // //// メモリー1

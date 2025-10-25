@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct shamanKingViewTop: View {
-//    @ObservedObject var ver270 = Ver270()
-//    @ObservedObject var shamanKing = ShamanKing()
+    @EnvironmentObject var common: commonVar
     @StateObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     @StateObject var shamanKingMemory1 = ShamanKingMemory1()
@@ -34,7 +33,8 @@ struct shamanKingViewTop: View {
                     NavigationLink(destination: shamanKingViewNormal(shamanKing: shamanKing)) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.shamanKingMenuNormalBadge,
                         )
                     }
                     // CZ当選時の振分け
@@ -82,12 +82,11 @@ struct shamanKingViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 7)) {
+                NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 11)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4719")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // copyright
                 unitSectionCopyright {
@@ -97,6 +96,8 @@ struct shamanKingViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.shamanKingMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -105,21 +106,6 @@ struct shamanKingViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "シャーマンキング", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "shamanKingViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: shamanKingViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver270.shamanKingMachineIconBadgeStatus != "none" {
-//                ver270.shamanKingMachineIconBadgeStatus = "none"
-//            }
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -507,5 +493,8 @@ struct shamanKingSubViewLoadMemory: View {
 }
 
 #Preview {
-    shamanKingViewTop()
+    shamanKingViewTop(
+        
+    )
+    .environmentObject(commonVar())
 }

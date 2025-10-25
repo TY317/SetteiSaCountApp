@@ -41,6 +41,14 @@ struct railgunViewTop: View {
                             textBody: "初当り"
                         )
                     }
+                    
+                    // 藤丸コイン
+                    NavigationLink(destination: commonViewFujimaruCoin()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "藤丸コイン"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: railgun.machineName)
                 }
