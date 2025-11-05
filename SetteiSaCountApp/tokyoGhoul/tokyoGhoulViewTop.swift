@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct tokyoGhoulViewTop: View {
-//    @ObservedObject var ver380: Ver380
+    @EnvironmentObject var common: commonVar
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var tokyoGhoul = TokyoGhoul()
@@ -31,6 +31,18 @@ struct tokyoGhoulViewTop: View {
                             imageSystemName: "envelope.fill",
                             textBody: "通常時 月山招待状での示唆",
 //                            badgeStatus: ver352.tokyoGhoulMenuTsukiyamaBadge,
+                        )
+                    }
+                    // 精神世界（超高確）
+                    NavigationLink(destination: tokyoGhoulViewSuperHigh(
+                        tokyoGhoul: tokyoGhoul,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "network",
+                            textBody: "精神世界(超高確)",
+                            badgeStatus: common.tokyoGhoulMenuSuperHighBadge,
                         )
                     }
                     // CZ,AT 初当り履歴
@@ -78,7 +90,6 @@ struct tokyoGhoulViewTop: View {
                 }
                 // 設定期待値計算
                 NavigationLink(destination: tokyoGhoulViewBayes(
-//                    ver380: ver380,
                     tokyoGhoul: tokyoGhoul,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -102,7 +113,7 @@ struct tokyoGhoulViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver380.tokyoGhoulMachineIconBadge)
+        .resetBadgeOnAppear($common.tokyoGhoulMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -545,8 +556,8 @@ struct tokyoGhoulSubViewLoadMemory: View {
 
 #Preview {
     tokyoGhoulViewTop(
-//        ver380: Ver380(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

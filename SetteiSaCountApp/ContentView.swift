@@ -524,13 +524,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-//                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
+                                        badgeStatus: common.tokyoGhoulMachineIconBadge,
                                     )
                                 }
                                 
@@ -1312,7 +1311,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1321,7 +1319,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-//                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
+                                        badgeStatus: common.tokyoGhoulMachineIconBadge,
                                     )
                                 }
                                 

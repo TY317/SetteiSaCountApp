@@ -169,6 +169,10 @@ class commonVar: ObservableObject {
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
     
+    // //// 東京グール
+    @AppStorage("tokyoGhoulMachineIconBadge") var tokyoGhoulMachineIconBadge: String = "none"
+    @AppStorage("tokyoGhoulMenuSuperHighBadge") var tokyoGhoulMenuSuperHighBadge: String = "none"
+    
     // //// シャーマンキング
     @AppStorage("shamanKingMachineIconBadge") var shamanKingMachineIconBadge = "none"
     @AppStorage("shamanKingMenuNormalBadge") var shamanKingMenuNormalBadge = "none"
@@ -223,6 +227,8 @@ class commonVar: ObservableObject {
                 shamanKingMenuNormalBadge = "update"
                 shamanKingMenuQualifyBadge = "new"
                 shamanKingMenuBayesBadge = "new"
+                tokyoGhoulMachineIconBadge = "update"
+                tokyoGhoulMenuSuperHighBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

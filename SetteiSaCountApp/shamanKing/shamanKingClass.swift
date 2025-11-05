@@ -216,6 +216,7 @@ class ShamanKing: ObservableObject {
         resetHit()
         resetEnding()
         resetCzFuriwake()
+        resetQualify()
     }
     
     // ///////////////////////
@@ -363,6 +364,16 @@ class ShamanKingMemory1: ObservableObject {
     @AppStorage("shamanKingCzCountOver600RyunosukeMemory1") var czCountOver600Ryunosuke: Int = 0
     @AppStorage("shamanKingCzCountOver600KokkuriMemory1") var czCountOver600Kokkuri: Int = 0
     @AppStorage("shamanKingCzCountOver600SumMemory1") var czCountOver600Sum: Int = 0
+    
+    // ///////
+    // ver3.12.0
+    // ///////
+    @AppStorage("shamanKingPlayGameMemory1") var playGame: Int = 0
+    @AppStorage("shamanKingKoyakuCountCommonBellMemory1") var koyakuCountCommonBell: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustOSMemory1") var qualifyCountFaustOS: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustHitMemory1") var qualifyCountFaustHit: Int = 0
+    @AppStorage("shamanKingQualifyCountRenOSMemory1") var qualifyCountRenOS: Int = 0
+    @AppStorage("shamanKingQualifyCountRenHitMemory1") var qualifyCountRenHit: Int = 0
 }
 
 
@@ -418,6 +429,16 @@ class ShamanKingMemory2: ObservableObject {
     @AppStorage("shamanKingCzCountOver600RyunosukeMemory2") var czCountOver600Ryunosuke: Int = 0
     @AppStorage("shamanKingCzCountOver600KokkuriMemory2") var czCountOver600Kokkuri: Int = 0
     @AppStorage("shamanKingCzCountOver600SumMemory2") var czCountOver600Sum: Int = 0
+    
+    // ///////
+    // ver3.12.0
+    // ///////
+    @AppStorage("shamanKingPlayGameMemory2") var playGame: Int = 0
+    @AppStorage("shamanKingKoyakuCountCommonBellMemory2") var koyakuCountCommonBell: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustOSMemory2") var qualifyCountFaustOS: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustHitMemory2") var qualifyCountFaustHit: Int = 0
+    @AppStorage("shamanKingQualifyCountRenOSMemory2") var qualifyCountRenOS: Int = 0
+    @AppStorage("shamanKingQualifyCountRenHitMemory2") var qualifyCountRenHit: Int = 0
 }
 
 
@@ -473,4 +494,14 @@ class ShamanKingMemory3: ObservableObject {
     @AppStorage("shamanKingCzCountOver600RyunosukeMemory3") var czCountOver600Ryunosuke: Int = 0
     @AppStorage("shamanKingCzCountOver600KokkuriMemory3") var czCountOver600Kokkuri: Int = 0
     @AppStorage("shamanKingCzCountOver600SumMemory3") var czCountOver600Sum: Int = 0
+    
+    // ///////
+    // ver3.12.0
+    // ///////
+    @AppStorage("shamanKingPlayGameMemory3") var playGame: Int = 0
+    @AppStorage("shamanKingKoyakuCountCommonBellMemory3") var koyakuCountCommonBell: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustOSMemory3") var qualifyCountFaustOS: Int = 0
+    @AppStorage("shamanKingQualifyCountFaustHitMemory3") var qualifyCountFaustHit: Int = 0
+    @AppStorage("shamanKingQualifyCountRenOSMemory3") var qualifyCountRenOS: Int = 0
+    @AppStorage("shamanKingQualifyCountRenHitMemory3") var qualifyCountRenHit: Int = 0
 }

@@ -55,6 +55,7 @@
 		0F3465BD2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465BC2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift */; };
 		0F3465BF2CB410D200B5D2DD /* mt5View5coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465BE2CB410D200B5D2DD /* mt5View5coin.swift */; };
 		0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465C02CB4128900B5D2DD /* ver120Tip.swift */; };
+		0F35EF372EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F35EF362EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift */; };
 		0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */; };
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
@@ -665,6 +666,7 @@
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
+		0FB023B42EAFA5BC00218EEE /* tokyoGhoulViewSuperHigh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B32EAFA5BC00218EEE /* tokyoGhoulViewSuperHigh.swift */; };
 		0FB1B6DA2E9873B900D8DD11 /* azurLaneTableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */; };
 		0FB209522E0FB1810029D940 /* watakonView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209512E0FB1810029D940 /* watakonView95Ci.swift */; };
 		0FB209542E0FB26D0029D940 /* watakonTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209532E0FB26D0029D940 /* watakonTableMode.swift */; };
@@ -1165,6 +1167,7 @@
 		0F3465BC2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvvViewCzHistoryVer2.swift; sourceTree = "<group>"; };
 		0F3465BE2CB410D200B5D2DD /* mt5View5coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5View5coin.swift; sourceTree = "<group>"; };
 		0F3465C02CB4128900B5D2DD /* ver120Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver120Tip.swift; sourceTree = "<group>"; };
+		0F35EF362EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulTableSuperHigh.swift; sourceTree = "<group>"; };
 		0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewTop.swift; sourceTree = "<group>"; };
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
@@ -1779,6 +1782,7 @@
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
+		0FB023B32EAFA5BC00218EEE /* tokyoGhoulViewSuperHigh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulViewSuperHigh.swift; sourceTree = "<group>"; };
 		0FB1B6D92E9873B900D8DD11 /* azurLaneTableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azurLaneTableScreenRatio.swift; sourceTree = "<group>"; };
 		0FB209512E0FB1810029D940 /* watakonView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonView95Ci.swift; sourceTree = "<group>"; };
 		0FB209532E0FB26D0029D940 /* watakonTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watakonTableMode.swift; sourceTree = "<group>"; };
@@ -4092,6 +4096,8 @@
 				0F8935832E21F03900BF6FBE /* tokyoGhoulTableReplayAtHit.swift */,
 				0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */,
 				0FDF23882E53585700249CAC /* tokyoGhoulViewBayes.swift */,
+				0FB023B32EAFA5BC00218EEE /* tokyoGhoulViewSuperHigh.swift */,
+				0F35EF362EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift */,
 			);
 			path = tokyoGhoul;
 			sourceTree = "<group>";
@@ -4704,6 +4710,7 @@
 				0FDC326B2D1E9E12005B3D06 /* danvineView95Ci.swift in Sources */,
 				0F6B59D42E06554300DB1A2B /* godeaterTableRareHit.swift in Sources */,
 				0F9D9C302EA455E700450B23 /* draHanaSenkohVer2View95CiShima.swift in Sources */,
+				0F35EF372EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift in Sources */,
 				0F7D3F252C82EFBF00A3FE7D /* kabaneriViewHintDuringBonus.swift in Sources */,
 				0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */,
 				0F815FD42E3B8FA90086127D /* reSwordViewNormal.swift in Sources */,
@@ -4824,6 +4831,7 @@
 				0F9A79882E48B13800D996CA /* BayesClass.swift in Sources */,
 				0F3465B52CAEC5E400B5D2DD /* karakuriViewStage.swift in Sources */,
 				0F7D3F212C82925B00A3FE7D /* kabaneriMumei.swift in Sources */,
+				0FB023B42EAFA5BC00218EEE /* tokyoGhoulViewSuperHigh.swift in Sources */,
 				0FA024852CF75001004B3FD5 /* kabaneriView95Ci.swift in Sources */,
 				0F8689F72D4116E800D952D9 /* imJugExVer2View95CiKen.swift in Sources */,
 				0F868A232D44BB3700D952D9 /* happyJugV3Ver2View95CiStart.swift in Sources */,

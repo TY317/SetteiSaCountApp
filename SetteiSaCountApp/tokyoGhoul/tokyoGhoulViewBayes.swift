@@ -19,6 +19,7 @@ struct tokyoGhoulViewBayes: View {
     @State var tsukiyamaEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
+    @State var superHighEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -69,6 +70,8 @@ struct tokyoGhoulViewBayes: View {
                         textBody1: "・設定否定系、確定系のみ反映させます"
                     )
                 }
+                // 精神世界保証G数
+                unitToggleWithQuestion(enable: self.$superHighEnable, title: "精神世界 保証G数振分け")
                 // AT終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
@@ -299,6 +302,22 @@ struct tokyoGhoulViewBayes: View {
                 logPostEnding[4] = -Double.infinity
             }
         }
+        
+        // 精神世界
+        var logPostSuperHigh: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.superHighEnable {
+            logPostSuperHigh = logPostPercentMulti(
+                countList: [
+                    tokyoGhoul.superHighCountGame13,
+                    tokyoGhoul.superHighCountGame23,
+                    tokyoGhoul.superHighCountGame33,
+                ], ratioList: [
+                    tokyoGhoul.ratioSuperHighGame13,
+                    tokyoGhoul.ratioSuperHighGame23,
+                    tokyoGhoul.ratioSuperHighGame33,
+                ], bigNumber: tokyoGhoul.superHighCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -346,6 +365,7 @@ struct tokyoGhoulViewBayes: View {
             logPostEnding,
             logPostTrophy,
             logPostBefore,
+            logPostSuperHigh,
         ])
         
         // 事後確率の算出

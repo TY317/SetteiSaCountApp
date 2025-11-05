@@ -254,6 +254,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory1.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory1.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory1.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory1.playGame = shamanKing.playGame
+        shamanKingMemory1.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory1.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory1.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory1.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory1.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
     func saveMemory2() {
         shamanKingMemory2.jakuRareCount = shamanKing.jakuRareCount
@@ -304,6 +314,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory2.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory2.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory2.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory2.playGame = shamanKing.playGame
+        shamanKingMemory2.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory2.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory2.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory2.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory2.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
     func saveMemory3() {
         shamanKingMemory3.jakuRareCount = shamanKing.jakuRareCount
@@ -354,6 +374,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory3.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory3.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory3.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory3.playGame = shamanKing.playGame
+        shamanKingMemory3.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory3.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory3.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory3.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory3.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
 }
 
@@ -433,6 +463,16 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory1.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory1.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory1.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory1.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory1.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory1.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory1.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory1.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory1.qualifyCountRenHit
     }
     func loadMemory2() {
         shamanKing.jakuRareCount = shamanKingMemory2.jakuRareCount
@@ -483,6 +523,16 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory2.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory2.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory2.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory2.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory2.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory2.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory2.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory2.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory2.qualifyCountRenHit
     }
     func loadMemory3() {
         shamanKing.jakuRareCount = shamanKingMemory3.jakuRareCount
@@ -533,6 +583,16 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory3.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory3.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory3.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory3.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory3.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory3.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory3.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory3.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory3.qualifyCountRenHit
     }
 }
 
