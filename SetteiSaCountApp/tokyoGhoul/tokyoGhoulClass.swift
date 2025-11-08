@@ -505,6 +505,14 @@ class TokyoGhoulMemory1: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountOver4Memory1") var endingCountOver4: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver5Memory1") var endingCountOver5: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver6Memory1") var endingCountOver6: Int = 0
+    
+    // ---------------
+    // ver3.12.0で追加
+    // ---------------
+    @AppStorage("tokyoGhoulSuperHighCountGame13Memory1") var superHighCountGame13: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame23Memory1") var superHighCountGame23: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame33Memory1") var superHighCountGame33: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountSumMemory1") var superHighCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -563,6 +571,14 @@ class TokyoGhoulMemory2: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountOver4Memory2") var endingCountOver4: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver5Memory2") var endingCountOver5: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver6Memory2") var endingCountOver6: Int = 0
+    
+    // ---------------
+    // ver3.12.0で追加
+    // ---------------
+    @AppStorage("tokyoGhoulSuperHighCountGame13Memory2") var superHighCountGame13: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame23Memory2") var superHighCountGame23: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame33Memory2") var superHighCountGame33: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountSumMemory2") var superHighCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -621,4 +637,12 @@ class TokyoGhoulMemory3: ObservableObject {
     @AppStorage("tokyoGhoulEndingCountOver4Memory3") var endingCountOver4: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver5Memory3") var endingCountOver5: Int = 0
     @AppStorage("tokyoGhoulEndingCountOver6Memory3") var endingCountOver6: Int = 0
+    
+    // ---------------
+    // ver3.12.0で追加
+    // ---------------
+    @AppStorage("tokyoGhoulSuperHighCountGame13Memory3") var superHighCountGame13: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame23Memory3") var superHighCountGame23: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountGame33Memory3") var superHighCountGame33: Int = 0
+    @AppStorage("tokyoGhoulSuperHighCountSumMemory3") var superHighCountSum: Int = 0
 }

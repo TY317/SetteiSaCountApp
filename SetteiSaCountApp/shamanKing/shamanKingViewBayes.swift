@@ -71,7 +71,7 @@ struct shamanKingViewBayes: View {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 // シャーマンファイト予選
-                unitToggleWithQuestion(enable: self.$qualifyEnable, title: "シャーマンファイト予選撃破率") {
+                unitToggleWithQuestion(enable: self.$qualifyEnable, title: "ｼｬｰﾏﾝﾌｧｲﾄ予選撃破率") {
                     unitExView5body2image(
                         title: "シャーマンファイト予選撃破率",
                         textBody1: "・対戦相手ごとの撃破率を計算要素に加えます",

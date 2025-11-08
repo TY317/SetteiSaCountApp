@@ -95,6 +95,7 @@ class Vvv2: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetScreen()
+        resetRush()
     }
 }
 

@@ -228,6 +228,14 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory1.endingCountOver4 = tokyoGhoul.endingCountOver4
         tokyoGhoulMemory1.endingCountOver5 = tokyoGhoul.endingCountOver5
         tokyoGhoulMemory1.endingCountOver6 = tokyoGhoul.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoulMemory1.superHighCountGame13 = tokyoGhoul.superHighCountGame13
+        tokyoGhoulMemory1.superHighCountGame23 = tokyoGhoul.superHighCountGame23
+        tokyoGhoulMemory1.superHighCountGame33 = tokyoGhoul.superHighCountGame33
+        tokyoGhoulMemory1.superHighCountSum = tokyoGhoul.superHighCountSum
     }
     func saveMemory2() {
         tokyoGhoulMemory2.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -282,6 +290,14 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory2.endingCountOver4 = tokyoGhoul.endingCountOver4
         tokyoGhoulMemory2.endingCountOver5 = tokyoGhoul.endingCountOver5
         tokyoGhoulMemory2.endingCountOver6 = tokyoGhoul.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoulMemory2.superHighCountGame13 = tokyoGhoul.superHighCountGame13
+        tokyoGhoulMemory2.superHighCountGame23 = tokyoGhoul.superHighCountGame23
+        tokyoGhoulMemory2.superHighCountGame33 = tokyoGhoul.superHighCountGame33
+        tokyoGhoulMemory2.superHighCountSum = tokyoGhoul.superHighCountSum
     }
     func saveMemory3() {
         tokyoGhoulMemory3.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -336,6 +352,14 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory3.endingCountOver4 = tokyoGhoul.endingCountOver4
         tokyoGhoulMemory3.endingCountOver5 = tokyoGhoul.endingCountOver5
         tokyoGhoulMemory3.endingCountOver6 = tokyoGhoul.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoulMemory3.superHighCountGame13 = tokyoGhoul.superHighCountGame13
+        tokyoGhoulMemory3.superHighCountGame23 = tokyoGhoul.superHighCountGame23
+        tokyoGhoulMemory3.superHighCountGame33 = tokyoGhoul.superHighCountGame33
+        tokyoGhoulMemory3.superHighCountSum = tokyoGhoul.superHighCountSum
     }
 }
 
@@ -427,6 +451,14 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountOver4 = tokyoGhoulMemory1.endingCountOver4
         tokyoGhoul.endingCountOver5 = tokyoGhoulMemory1.endingCountOver5
         tokyoGhoul.endingCountOver6 = tokyoGhoulMemory1.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoul.superHighCountGame13 = tokyoGhoulMemory1.superHighCountGame13
+        tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory1.superHighCountGame23
+        tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory1.superHighCountGame33
+        tokyoGhoul.superHighCountSum = tokyoGhoulMemory1.superHighCountSum
     }
     func loadMemory2() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory2.tsukiyamaCountGusu
@@ -489,6 +521,14 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountOver4 = tokyoGhoulMemory2.endingCountOver4
         tokyoGhoul.endingCountOver5 = tokyoGhoulMemory2.endingCountOver5
         tokyoGhoul.endingCountOver6 = tokyoGhoulMemory2.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoul.superHighCountGame13 = tokyoGhoulMemory2.superHighCountGame13
+        tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory2.superHighCountGame23
+        tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory2.superHighCountGame33
+        tokyoGhoul.superHighCountSum = tokyoGhoulMemory2.superHighCountSum
     }
     func loadMemory3() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory3.tsukiyamaCountGusu
@@ -551,6 +591,14 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.endingCountOver4 = tokyoGhoulMemory3.endingCountOver4
         tokyoGhoul.endingCountOver5 = tokyoGhoulMemory3.endingCountOver5
         tokyoGhoul.endingCountOver6 = tokyoGhoulMemory3.endingCountOver6
+        
+        // ---------------
+        // ver3.12.0で追加
+        // ---------------
+        tokyoGhoul.superHighCountGame13 = tokyoGhoulMemory3.superHighCountGame13
+        tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory3.superHighCountGame23
+        tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory3.superHighCountGame33
+        tokyoGhoul.superHighCountSum = tokyoGhoulMemory3.superHighCountSum
     }
 }
 
