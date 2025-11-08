@@ -329,6 +329,7 @@ class DraHanaSenkoh: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ドラゴンハナハナ閃光"
     @AppStorage("draHanaSenkohMinusCheck") var minusCheck: Bool = false
     @AppStorage("draHanaSenkohSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -337,6 +338,14 @@ class DraHanaSenkoh: ObservableObject {
         resetStartData()
         hanaReset()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("draHanaSenkohShimaGames") var shimaGames: Int = 0
+    @AppStorage("draHanaSenkohShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("draHanaSenkohShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("draHanaSenkohShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -473,7 +482,7 @@ class DraHanaSenkohMemory3: ObservableObject {
 }
 
 struct draHanaSenkohVer2ViewTop: View {
-//    @ObservedObject var ver391: Ver391
+    @EnvironmentObject var common: commonVar
     @StateObject var draHanaSenkoh = DraHanaSenkoh()
     @State var isShowAlert: Bool = false
     @StateObject var draHanaSenkohMemory1 = DraHanaSenkohMemory1()
@@ -500,12 +509,34 @@ struct draHanaSenkohVer2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    // 島データ
+                    NavigationLink(destination: draHanaSenkohViewShimaData(
+                        draHanaSenkoh: draHanaSenkoh,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.draHanaSenkohMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    HStack {
+                        Text("見")
+                            .fontWeight(.bold)
+                            .font(.headline)
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "見",
+                                textBody1: "・空き台のデータ確認にご利用下さい",
+                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+                            )
+                        }
+                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -572,6 +603,8 @@ struct draHanaSenkohVer2ViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.draHanaSenkohMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -923,4 +956,5 @@ struct draHanaSenkohSubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

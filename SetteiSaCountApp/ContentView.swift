@@ -67,6 +67,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteCrea") var isSelectedFavoriteCrea = true
     @AppStorage("isSelectedFavoriteNewOni3") var isSelectedFavoriteNewOni3 = true
     @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
+    @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
+    @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
 }
 
 
@@ -90,7 +92,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3110UpdateInfo())
+                TipView(tipVer3120UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -121,16 +123,44 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
-//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                        badgeStatus: common.hanaSeriesBadge,
                                     )
                                 }
+                                
+                                // //// VVV2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(vvv2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("vvv2MachineIcon"),
+                                        machineName: "ヴヴヴ2",
+                                        badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン2、25年11月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(railgunViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("railgunMachineIcon"),
+//                                        machineName: "超電磁砲2",
+//                                        badgeStatus: common.railgunMachineIconBadge,
+//                                    )
+//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -494,13 +524,12 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("tokyoGhoulMachineIcon"),
                                         machineName: "東京喰種",
-//                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
+                                        badgeStatus: common.tokyoGhoulMachineIconBadge,
                                     )
                                 }
                                 
@@ -509,10 +538,13 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachineIconLink(
-                                        linkView: AnyView(shamanKingViewTop()),
+                                        linkView: AnyView(shamanKingViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("shamanKingMachineIcon"),
-                                        machineName: "シャーマンキング"
-//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        machineName: "シャーマンキング",
+                                        badgeStatus: common.shamanKingMachineIconBadge,
                                     )
                                 }
                                 
@@ -794,19 +826,53 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(hanahanaSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         makerName: "パイオニア",
                                         releaseYear: 2001,
                                         releaseMonth: 5,
-//                                        badgeStatus: ver391.hanaSeriesBadge,
+                                        badgeStatus: common.hanaSeriesBadge,
                                     )
                                 }
+                                
+                                // //// VVV2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(vvv2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("vvv2MachineIcon"),
+                                        machineName: "革命機ヴァルヴレイヴ2",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン、25年11月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(railgunViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("railgunMachineIcon"),
+//                                        machineName: "とある科学の超電磁砲2",
+//                                        makerName: "藤商事",
+//                                        releaseYear: 2025,
+//                                        releaseMonth: 11,
+//                                        badgeStatus: common.railgunMachineIconBadge,
+//                                    )
+//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -1245,7 +1311,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(tokyoGhoulViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1254,7 +1319,7 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 2,
-//                                        badgeStatus: ver380.tokyoGhoulMachineIconBadge,
+                                        badgeStatus: common.tokyoGhoulMachineIconBadge,
                                     )
                                 }
                                 
@@ -1263,13 +1328,16 @@ struct ContentView: View {
                                     
                                 } else {
                                     unitMachinListLink(
-                                        linkView: AnyView(shamanKingViewTop()),
+                                        linkView: AnyView(shamanKingViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
                                         iconImage: Image("shamanKingMachineIcon"),
                                         machineName: "シャーマンキング",
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
-                                        releaseMonth: 2
-//                                        badgeStatus: ver270.shamanKingMachineIconBadgeStatus
+                                        releaseMonth: 2,
+                                        badgeStatus: common.shamanKingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1837,6 +1905,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // vvv2
+                Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
+                // レールガン2
+//                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５
@@ -1991,8 +2063,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

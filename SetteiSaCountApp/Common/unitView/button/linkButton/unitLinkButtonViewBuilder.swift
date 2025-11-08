@@ -26,7 +26,8 @@ struct unitLinkButtonViewBuilder<destination: View>: View {
                     Text(">> \(linkText)")
                         .foregroundStyle(Color.blue)
                 } else {
-                    Text(">> \(self.sheetTitle)について")
+//                    Text(">> \(self.sheetTitle)について")
+                    Text(">> \(self.sheetTitle)")
                 }
             }
             .sheet(

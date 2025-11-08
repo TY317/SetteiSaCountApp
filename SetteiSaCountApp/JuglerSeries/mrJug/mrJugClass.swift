@@ -310,6 +310,7 @@ class MrJug: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ミスタージャグラー"
     @AppStorage("mrJugMinusCheck") var minusCheck: Bool = false
     @AppStorage("mrJugSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -318,6 +319,14 @@ class MrJug: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("mrJugShimaGames") var shimaGames: Int = 0
+    @AppStorage("mrJugShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("mrJugShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("mrJugShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 

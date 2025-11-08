@@ -17,6 +17,7 @@ struct mrJugViewTop: View {
     @StateObject var mrJugMemory3 = MrJugMemory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -36,12 +37,36 @@ struct mrJugViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: mrJugViewShimaData(
+                        mrJug: mrJug,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.mrJugMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
+//                    HStack {
+//                        Text("見")
+//                            .fontWeight(.bold)
+//                            .font(.headline)
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "見",
+//                                textBody1: "・空き台のデータ確認にご利用下さい",
+//                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+//                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+//                            )
+//                        }
+//                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -80,14 +105,12 @@ struct mrJugViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: mrJugVer2View95CiTotal(mrJug: mrJug)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 設定期待値計算
                 NavigationLink(destination: mrJugViewBayes(
-//                    ver391: ver391,
                     mrJug: mrJug,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -100,7 +123,6 @@ struct mrJugViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4588")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // コピーライト
                 unitSectionCopyright {
@@ -109,7 +131,7 @@ struct mrJugViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.mrJugMachineIconBadge)
+        .resetBadgeOnAppear($common.mrJugMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -406,4 +428,5 @@ struct mrJugSubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

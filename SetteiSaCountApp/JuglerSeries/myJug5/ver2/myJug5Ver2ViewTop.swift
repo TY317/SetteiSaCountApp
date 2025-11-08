@@ -274,6 +274,7 @@ class MyJug5: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "マイジャグラー5"
     @AppStorage("myJug5MinusCheck") var minusCheck: Bool = false
     @AppStorage("myJug5SelectedMemory") var selectedMemory = "メモリー1"
     
@@ -282,6 +283,14 @@ class MyJug5: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("myJug5ShimaGames") var shimaGames: Int = 0
+    @AppStorage("myJug5ShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("myJug5ShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("myJug5ShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -391,6 +400,7 @@ struct myJug5Ver2ViewTop: View {
     @StateObject var myJug5Memory1 = MyJug5Memory1()
     @StateObject var myJug5Memory2 = MyJug5Memory2()
     @StateObject var myJug5Memory3 = MyJug5Memory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -410,12 +420,35 @@ struct myJug5Ver2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    // 島データ
+                    NavigationLink(destination: myJugViewShimaData(
+                        myJug5: myJug5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.myJug5MenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
+//                    HStack {
+//                        Text("見")
+//                            .fontWeight(.bold)
+//                            .font(.headline)
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "見",
+//                                textBody1: "・空き台のデータ確認にご利用下さい",
+//                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+//                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+//                            )
+//                        }
+//                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -491,7 +524,7 @@ struct myJug5Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver370.jugSeriesBadge)
+        .resetBadgeOnAppear($common.myJug5MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -760,4 +793,5 @@ struct myJug5SubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

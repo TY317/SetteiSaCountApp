@@ -16,20 +16,24 @@ struct unitReelPattern<Left: View, Center: View, Right: View>: View {
     var rightReel: Right
     var titleHeight: CGFloat = 30
     let titleReelSpacing: CGFloat = 7
+    let horizontalPadding: CGFloat = 3.0
     var body: some View {
         VStack(spacing: self.titleReelSpacing) {
             if let titleText = self.titleText {
                 // タイトル部分
                 ZStack {
                     Rectangle()
-                        .frame(height: self.titleHeight)
+//                        .frame(height: self.titleHeight)
                         .frame(maxWidth: 180)
                         .foregroundStyle(Color.columnTitle)
                     Text(titleText)
+                        .padding(.horizontal, self.horizontalPadding)
                         .font(self.titleFont)
                         .fontWeight(.bold)
                         .foregroundStyle(Color.white)
+                        .minimumScaleFactor(0.7)
                 }
+                .frame(height: self.titleHeight)
             }
             
             // //// リール部分

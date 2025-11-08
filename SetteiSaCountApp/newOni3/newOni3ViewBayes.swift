@@ -17,6 +17,7 @@ struct newOni3ViewBayes: View {
     @State var screenEnable: Bool = true
     @State var oniBonusEnable: Bool = true
     @State var endingEnable: Bool = true
+    @State var naviVoiceEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,8 @@ struct newOni3ViewBayes: View {
             bayesSubStep2Section {
                 // 初当り
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
+                // ボーナス中のナビボイス振分け
+//                unitToggleWithQuestion(enable: self.$naviVoiceEnable, title: "ボーナス中のナビボイス振分け")
                 // 鬼ボーナス
                 unitToggleWithQuestion(enable: self.$oniBonusEnable, title: "鬼ボーナス中のキャラ") {
                     unitExView5body2image(
@@ -246,6 +249,15 @@ struct newOni3ViewBayes: View {
                 logPostEnding[4] = -Double.infinity
             }
         }
+        // ナビボイス
+        var logPostNaviVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.naviVoiceEnable {
+            logPostNaviVoice = logPostPercentBino(
+                ratio: newOni3.ratioNaviVoiceHigh,
+                Count: newOni3.naviVoiceCountHigh,
+                bigNumber: newOni3.naviVoiceCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -287,6 +299,7 @@ struct newOni3ViewBayes: View {
             logPostOniBonus,
             logPostScreen,
             logPostEnding,
+//            logPostNaviVoice,
             
             logPostTrophy,
             logPostBefore,

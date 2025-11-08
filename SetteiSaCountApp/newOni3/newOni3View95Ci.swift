@@ -49,6 +49,24 @@ struct newOni3View95Ci: View {
                 )
             )
             .tag(2)
+            
+            // ナビボイス
+//            unitListSection95Ci(
+//                grafTitle: "ボーナス中のナビボイス\nオールキャスト回数",
+//                grafView: AnyView(
+//                    unitChart95CiPercent(
+//                        currentCount: $newOni3.naviVoiceCountHigh,
+//                        bigNumber: $newOni3.naviVoiceCountSum,
+//                        setting1Percent: newOni3.ratioNaviVoiceHigh[0],
+//                        setting2Percent: newOni3.ratioNaviVoiceHigh[1],
+//                        setting3Percent: newOni3.ratioNaviVoiceHigh[2],
+//                        setting4Percent: newOni3.ratioNaviVoiceHigh[3],
+//                        setting5Percent: newOni3.ratioNaviVoiceHigh[4],
+//                        setting6Percent: newOni3.ratioNaviVoiceHigh[5]
+//                    )
+//                )
+//            )
+//            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

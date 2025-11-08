@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct shamanKingViewNormal: View {
-//    @ObservedObject var shamanKing = ShamanKing()
+    @EnvironmentObject var common: commonVar
     @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
@@ -19,13 +21,64 @@ struct shamanKingViewNormal: View {
     let spaceHeightPortrait = 200.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 200.0
+    @FocusState var isFocused: Bool
     
     var body: some View {
         List {
+            // //// 共通ベルカウント
+            Section {
+                Text("右下がりで揃う7枚払い出しの共通ベルA確率に設定差あり")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                
+                // ゲーム数入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "ゲーム数",
+                    inputValue: $shamanKing.playGame,
+                    unitText: "Ｇ",
+                )
+                .focused(self.$isFocused)
+                
+                // カウントボタン
+                unitCountButtonVerticalDenominate(
+                    title: "共通ベルA",
+                    count: $shamanKing.koyakuCountCommonBell,
+                    color: .personalSpringLightYellow,
+                    bigNumber: $shamanKing.playGame,
+                    numberofDicimal: 1,
+                    minusBool: $shamanKing.minusCheck,
+                    flushColor: .yellow,
+                )
+                .popoverTip(tipVer3120ShamanCommonBell())
+                
+                // 参考情報）共通ベルA確率
+                unitLinkButtonViewBuilder(sheetTitle: "共通ベルA確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "共通ベルA",
+                            denominateList: shamanKing.ratioCommonBell,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 11)))
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("共通ベルA")
+            }
+            
             Section {
                 HStack {
-//                    VStack {
-//                        Spacer()
                         // 弱チェ、スイカカウント
                         unitCountButtonVerticalWithoutRatio(
                             title: "弱🍒＆スイカ",
@@ -34,7 +87,6 @@ struct shamanKingViewNormal: View {
                             minusBool: $shamanKing.minusCheck,
                             vSpaceBool: true
                         )
-//                    }
                     // ボーナス高確移行
                     unitCountButtonVerticalPercent(
                         title: "ボーナス高確移行",
@@ -53,13 +105,19 @@ struct shamanKingViewNormal: View {
                             title: "弱レア役からの高確移行",
                             textBody1: "・弱🍒、スイカからのシャーマンボーナス高確移行率に設定差あり",
                             tableView: AnyView(shamanKingTableKokakuMove())
-//                            image1: Image("shamanKingJakuRareKokaku")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 7)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("弱レア役からのボーナス高確移行")
             }
@@ -107,18 +165,26 @@ struct shamanKingViewNormal: View {
                             textBody3: "・カウンタは1Gで1減算されるため、カウンタ1が選ばれたリプレイ連続以外で小鬼レベル昇格はない",
                             textBody4: "・リプレイ連続ではなく1回だけで昇格すればカウンタ10以上が濃厚となる",
                             tableView: AnyView(shamanKingTableReplayCounter())
-//                            image1: Image("shamanKingReplayCounter")
                         )
                     )
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 8)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("リプレイカウンタ10以上選択率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.shamanKingMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -172,12 +238,22 @@ struct shamanKingViewNormal: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
                 HStack {
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $shamanKing.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: shamanKing.resetNormal)
-//                        .popoverTip(tipUnitButtonReset())
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
                 }
             }
         }
@@ -185,5 +261,10 @@ struct shamanKingViewNormal: View {
 }
 
 #Preview {
-    shamanKingViewNormal(shamanKing: ShamanKing())
+    shamanKingViewNormal(
+        shamanKing: ShamanKing(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
+        .environmentObject(commonVar())
 }

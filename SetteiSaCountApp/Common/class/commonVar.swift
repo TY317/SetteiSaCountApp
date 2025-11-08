@@ -17,6 +17,8 @@ class commonVar: ObservableObject {
     
     let screenScrollHeight: CGFloat = 130
     
+    let shimaInitialColumn: Int = 5    // 島合算確認ページのイニシャル行数
+    
     // ///////////////////////
     // 起動回数カウント
     // ///////////////////////
@@ -82,8 +84,53 @@ class commonVar: ObservableObject {
     @AppStorage("jugSeriesBadge") var jugSeriesBadge: String = "none"
     // //// ウルトラミラクルジャグラー
     @AppStorage("urmiraMachineIconBadge") var urmiraMachineIconBadge: String = "none"
+    @AppStorage("urmiraMenuShimaBadge") var urmiraMenuShimaBadge: String = "none"
+    // //// Mrジャグラー
+    @AppStorage("mrJugMachineIconBadge") var mrJugMachineIconBadge: String = "none"
+    @AppStorage("mrJugMenuShimaBadge") var mrJugMenuShimaBadge: String = "none"
+    // //// ガールズ
+    @AppStorage("girlsSSMachineIconBadge") var girlsSSMachineIconBadge: String = "none"
+    @AppStorage("girlsSSMenuShimaBadge") var girlsSSMenuShimaBadge: String = "none"
+    // //// ゴージャグ
+    @AppStorage("goJug3MachineIconBadge") var goJug3MachineIconBadge: String = "none"
+    @AppStorage("goJug3MenuShimaBadge") var goJug3MenuShimaBadge: String = "none"
+    // ハッピーV3
+    @AppStorage("happyJugV3MachineIconBadge") var happyJugV3MachineIconBadge:String = "none"
+    @AppStorage("happyJugV3MenuShimaBadge") var happyJugV3MenuShimaBadge: String = "none"
+    // //// マイジャグ
+    @AppStorage("myJug5MachineIconBadge") var myJug5MachineIconBadge: String = "none"
+    @AppStorage("myJug5MenuShimaBadge") var myJug5MenuShimaBadge = "none"
+    // //// ファンキージャグラー
+    @AppStorage("funky2MachineIconBadge") var funky2MachineIconBadge: String = "none"
+    @AppStorage("funky2MenuShimaBadge") var funky2MenuShimaBadge: String = "none"
+    // //// アイムジャグラー
+    @AppStorage("imJugExMachineIconBadge") var imJugExMachineIconBadge: String = "none"
+    @AppStorage("imJugExMenuShimaBadge") var imJugExMenuShimaBadge: String = "none"
+    
+    // //// ハナハナシリーズ
+    @AppStorage("hanaSeriesBadge") var hanaSeriesBadge: String = "none"
+    // //// スターハナハナ
+    @AppStorage("starHanaMachineIconBadge") var starHanaMachineIconBadge: String = "none"
+    @AppStorage("starHanaMenuShimaBadge") var starHanaMenuShimaBadge: String = "none"
+    // ドラゴンハナハナ
+    @AppStorage("draHanaSenkohMachineIconBadge") var draHanaSenkohMachineIconBadge: String = "none"
+    @AppStorage("draHanaSenkohMenuShimaBadge") var draHanaSenkohMenuShimaBadge: String = "none"
+    // キングハナハナ
+    @AppStorage("kingHanaMachineIconBadge") var kingHanaMachineIconBadge: String = "none"
+    @AppStorage("kingHanaMenuShimaBadge") var kingHanaMenuShimaBadge: String = "none"
+    // ハナハナ鳳凰
+    @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
+    @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
+    
+    // //// VVV2
+    @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
+    
+    // //// レールガン
+    @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
+    
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
+    @AppStorage("newOni3MenuBonusBadge") var newOni3MenuBonusBadge: String = "none"
     
     // //// 主役は銭形5
     @AppStorage("zeni5MachineIconBadge") var zeni5MachineIconBadge: String = "none"
@@ -123,6 +170,16 @@ class commonVar: ObservableObject {
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
     
+    // //// 東京グール
+    @AppStorage("tokyoGhoulMachineIconBadge") var tokyoGhoulMachineIconBadge: String = "none"
+    @AppStorage("tokyoGhoulMenuSuperHighBadge") var tokyoGhoulMenuSuperHighBadge: String = "none"
+    
+    // //// シャーマンキング
+    @AppStorage("shamanKingMachineIconBadge") var shamanKingMachineIconBadge = "none"
+    @AppStorage("shamanKingMenuNormalBadge") var shamanKingMenuNormalBadge = "none"
+    @AppStorage("shamanKingMenuQualifyBadge") var shamanKingMenuQualifyBadge = "none"
+    @AppStorage("shamanKingMenuBayesBadge") var shamanKingMenuBayesBadge = "none"
+    
     // //// モンスターハンターライズ
     @AppStorage("mhrMachineIconBadge") var mhrMachineIconBadge: String = "none"
     @AppStorage("mhrMenuFirstHitBadge") var mhrMenuFirstHitBadge: String = "none"
@@ -131,6 +188,59 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3120FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.12.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                vvv2MachineIconBadge = "new"
+                myJug5MenuShimaBadge = "new"
+                jugSeriesBadge = "update"
+                myJug5MachineIconBadge = "update"
+                urmiraMachineIconBadge = "update"
+                urmiraMenuShimaBadge = "new"
+                mrJugMachineIconBadge = "update"
+                mrJugMenuShimaBadge = "new"
+                girlsSSMachineIconBadge = "update"
+                girlsSSMenuShimaBadge = "new"
+                goJug3MachineIconBadge = "update"
+                goJug3MenuShimaBadge = "new"
+                happyJugV3MachineIconBadge = "update"
+                happyJugV3MenuShimaBadge = "new"
+                funky2MachineIconBadge = "update"
+                funky2MenuShimaBadge = "new"
+                imJugExMachineIconBadge = "update"
+                imJugExMenuShimaBadge = "new"
+                hanaSeriesBadge = "update"
+                starHanaMachineIconBadge = "update"
+                starHanaMenuShimaBadge = "new"
+                draHanaSenkohMachineIconBadge = "update"
+                draHanaSenkohMenuShimaBadge = "new"
+                kingHanaMachineIconBadge = "update"
+                kingHanaMenuShimaBadge = "new"
+                hanaTenshoMachineIconBadge = "update"
+                hanaTenshoMenuShimaBadge = "new"
+                railgunMachineIconBadge = "new"
+                shamanKingMachineIconBadge = "update"
+                shamanKingMenuNormalBadge = "update"
+                shamanKingMenuQualifyBadge = "new"
+                shamanKingMenuBayesBadge = "new"
+                tokyoGhoulMachineIconBadge = "update"
+                tokyoGhoulMenuSuperHighBadge = "new"
+//                newOni3MachineIconBadge = "update"
+//                newOni3MenuBonusBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3110FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.11.0"

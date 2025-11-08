@@ -217,6 +217,7 @@ class ImJugEx: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "アイムジャグラーEX"
     @AppStorage("imJugExMinusCheck") var minusCheck: Bool = false
     @AppStorage("imJugExSelectedMemory") var selectedMemory = "メモリー1"
     
@@ -225,6 +226,14 @@ class ImJugEx: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("imJugExShimaGames") var shimaGames: Int = 0
+    @AppStorage("imJugExShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("imJugExShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("imJugExShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 
@@ -335,6 +344,7 @@ struct imJugExVer2ViewTop: View {
     @StateObject var imJugExMemory3 = ImJugExMemory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -354,12 +364,36 @@ struct imJugExVer2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: imJugExViewShimaData(
+                        imJugEx: imJugEx,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.imJugExMenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
+//                    HStack {
+//                        Text("見")
+//                            .fontWeight(.bold)
+//                            .font(.headline)
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "見",
+//                                textBody1: "・空き台のデータ確認にご利用下さい",
+//                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+//                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+//                            )
+//                        }
+//                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -371,7 +405,6 @@ struct imJugExVer2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: imJugExVer2ViewJissenCount(
-//                        ver391: ver391,
                         imJugEx: imJugEx,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -383,7 +416,6 @@ struct imJugExVer2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: imJugExVer2ViewJissenTotalDataCheck(
-//                        ver391: ver391,
                         imJugEx: imJugEx,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -398,14 +430,12 @@ struct imJugExVer2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: imJugExVer2View95CiTotal(imJugEx: imJugEx)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 設定期待値計算
                 NavigationLink(destination: imJugExViewBayes(
-//                    ver391: ver391,
                     imJugEx: imJugEx,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -418,7 +448,6 @@ struct imJugExVer2ViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/3626")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // コピーライト
                 unitSectionCopyright {
@@ -427,7 +456,7 @@ struct imJugExVer2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.imJugExMachineIconBadge)
+        .resetBadgeOnAppear($common.imJugExMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -436,16 +465,6 @@ struct imJugExVer2ViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "アイムジャグラーEX", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "imJugExVer2ViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: imJugExVer2ViewTop appeared.") // デバッグ用にログ出力
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -704,8 +723,8 @@ struct imJugExSubViewLoadMemory: View {
 
 #Preview {
     imJugExVer2ViewTop(
-//        ver391: Ver391(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

@@ -15,6 +15,23 @@ struct shamanKingView95Ci: View {
     
     var body: some View {
         TabView(selection: $selection) {
+            // 共通ベルA回数
+            unitListSection95Ci(
+                grafTitle: "共通ベルA回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $shamanKing.koyakuCountCommonBell,
+                        bigNumber: $shamanKing.playGame,
+                        setting1Denominate: shamanKing.ratioCommonBell[0],
+                        setting2Denominate: shamanKing.ratioCommonBell[1],
+                        setting3Denominate: shamanKing.ratioCommonBell[2],
+                        setting4Denominate: shamanKing.ratioCommonBell[3],
+                        setting5Denominate: shamanKing.ratioCommonBell[4],
+                        setting6Denominate: shamanKing.ratioCommonBell[5]
+                    )
+                )
+            )
+            .tag(11)
             // 弱レア役からのボーナス高確移行回数
             unitListSection95Ci(
                 grafTitle: "弱レア役からのボーナス高確移行回数",
@@ -191,6 +208,42 @@ struct shamanKingView95Ci: View {
                 )
             )
             .tag(6)
+            // シャーマンファイト予選　vsファウスト撃破回数
+            unitListSection95Ci(
+                grafTitle: "シャーマンファイト予選\nファウスト 撃破回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shamanKing.qualifyCountFaustHit,
+                        bigNumber: $shamanKing.qualifyCountFaustOS,
+                        setting1Percent: shamanKing.ratioQualifyFaust[0],
+                        setting2Percent: shamanKing.ratioQualifyFaust[1],
+                        setting3Percent: shamanKing.ratioQualifyFaust[2],
+                        setting4Percent: shamanKing.ratioQualifyFaust[3],
+                        setting5Percent: shamanKing.ratioQualifyFaust[4],
+                        setting6Percent: shamanKing.ratioQualifyFaust[5]
+                    )
+                )
+            )
+            .tag(12)
+            // シャーマンファイト予選　vs道連撃破回数
+            unitListSection95Ci(
+                grafTitle: "シャーマンファイト予選\n道蓮 撃破回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shamanKing.qualifyCountRenHit,
+                        bigNumber: $shamanKing.qualifyCountRenOS,
+                        setting1Percent: shamanKing.ratioQualifyRen[0],
+                        setting2Percent: shamanKing.ratioQualifyRen[1],
+                        setting3Percent: shamanKing.ratioQualifyRen[2],
+                        setting4Percent: shamanKing.ratioQualifyRen[3],
+                        setting5Percent: shamanKing.ratioQualifyRen[4],
+                        setting6Percent: shamanKing.ratioQualifyRen[5]
+                    )
+                )
+            )
+            .tag(13)
         }
         // //// firebaseログ
         .onAppear {

@@ -310,6 +310,7 @@ class Funky2: ObservableObject {
     // ////////////////////////
     // 共通
     // ////////////////////////
+    let machineName: String = "ファンキージャグラー2"
     @AppStorage("funky2MinusCheck") var minusCheck: Bool = false
     @AppStorage("funky2SelectedMemory") var selectedMemory = "メモリー1"
     
@@ -318,6 +319,14 @@ class Funky2: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("funky2ShimaGames") var shimaGames: Int = 0
+    @AppStorage("funky2ShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("funky2ShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("funky2ShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 

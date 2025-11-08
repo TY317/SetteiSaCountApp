@@ -10,6 +10,8 @@ import SwiftUI
 struct shamanKingViewHyoiGattai: View {
 //    @ObservedObject var shamanKing = ShamanKing()
     @ObservedObject var shamanKing: ShamanKing
+    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
+    @ObservedObject var viewModel: InterstitialViewModel   //
     let selectListHp: [String] = [
         "残7−8",
         "残5−6",
@@ -127,7 +129,14 @@ struct shamanKingViewHyoiGattai: View {
                 )
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(shamanKingView95Ci(shamanKing: shamanKing, selection: 1)))
-//                    .popoverTip(tipUnitButtonLink95Ci())
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shamanKingViewBayes(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("残りHPごとの勝率")
             }
@@ -157,5 +166,9 @@ struct shamanKingViewHyoiGattai: View {
 }
 
 #Preview {
-    shamanKingViewHyoiGattai(shamanKing: ShamanKing())
+    shamanKingViewHyoiGattai(
+        shamanKing: ShamanKing(),
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
 }

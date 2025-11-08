@@ -41,7 +41,7 @@ struct evaYakusokuViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3100EvaYakusokuNormal())
+//                .popoverTip(tipVer3100EvaYakusokuNormal())
                 // //// カウントボタン横並び
                 let gridItem = Array(
                     repeating: GridItem(

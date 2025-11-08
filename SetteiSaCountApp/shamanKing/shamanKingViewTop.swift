@@ -9,8 +9,9 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct shamanKingViewTop: View {
-//    @ObservedObject var ver270 = Ver270()
-//    @ObservedObject var shamanKing = ShamanKing()
+    @EnvironmentObject var common: commonVar
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var shamanKing = ShamanKing()
     @State var isShowAlert: Bool = false
     @StateObject var shamanKingMemory1 = ShamanKingMemory1()
@@ -31,14 +32,23 @@ struct shamanKingViewTop: View {
                 
                 Section {
                     // 通常時
-                    NavigationLink(destination: shamanKingViewNormal(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewNormal(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.shamanKingMenuNormalBadge,
                         )
                     }
                     // CZ当選時の振分け
-                    NavigationLink(destination: shamanKingViewCzFuriwake(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewCzFuriwake(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "signpost.right.and.left",
                             textBody: "CZ当選時の振分け"
@@ -46,7 +56,11 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // 憑依合体バトル
-                    NavigationLink(destination: shamanKingViewHyoiGattai(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewHyoiGattai(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "figure.handball",
                             textBody: "憑依合体バトル"
@@ -60,10 +74,26 @@ struct shamanKingViewTop: View {
                         )
                     }
                     // ボーナス,AT 初当り
-                    NavigationLink(destination: shamanKingViewHit(shamanKing: shamanKing)) {
+                    NavigationLink(destination: shamanKingViewHit(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
                             textBody: "ボーナス,AT 初当り"
+                        )
+                    }
+                    // シャーマンファイト予選
+                    NavigationLink(destination: shamanKingViewQualify(
+                        shamanKing: shamanKing,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.boxing",
+                            textBody: "シャーマンファイト予選",
+                            badgeStatus: common.shamanKingMenuQualifyBadge,
                         )
                     }
                     // AT終了画面
@@ -82,12 +112,25 @@ struct shamanKingViewTop: View {
                     }
                 }
                 // 設定推測グラフ
-                NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 7)) {
+                NavigationLink(destination: shamanKingView95Ci(shamanKing: shamanKing, selection: 11)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
+                
+                // 設定期待値計算
+                NavigationLink(destination: shamanKingViewBayes(
+                    shamanKing: shamanKing,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.shamanKingMenuBayesBadge,
+                    )
+                }
+                
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4719")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // copyright
                 unitSectionCopyright {
@@ -97,6 +140,8 @@ struct shamanKingViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.shamanKingMachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -105,21 +150,6 @@ struct shamanKingViewTop: View {
                 screenClass: screenClass
             )
         }
-        // 画面ログイベントの収集
-//        .onAppear {
-//            // Viewが表示されたタイミングでログを送信します
-//            Analytics.logEvent(AnalyticsEventScreenView, parameters: [
-//                AnalyticsParameterScreenName: "シャーマンキング", // この画面の名前を識別できるように設定
-//                AnalyticsParameterScreenClass: "shamanKingViewTop" // 通常はViewのクラス名（構造体名）を設定
-//                // その他、この画面に関連するパラメータを追加できます
-//            ])
-//            print("Firebase Analytics: shamanKingViewTop appeared.") // デバッグ用にログ出力
-//        }
-//        .onAppear {
-//            if ver270.shamanKingMachineIconBadgeStatus != "none" {
-//                ver270.shamanKingMachineIconBadgeStatus = "none"
-//            }
-//        }
         .navigationTitle("メニュー")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -224,6 +254,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory1.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory1.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory1.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory1.playGame = shamanKing.playGame
+        shamanKingMemory1.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory1.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory1.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory1.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory1.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
     func saveMemory2() {
         shamanKingMemory2.jakuRareCount = shamanKing.jakuRareCount
@@ -274,6 +314,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory2.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory2.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory2.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory2.playGame = shamanKing.playGame
+        shamanKingMemory2.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory2.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory2.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory2.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory2.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
     func saveMemory3() {
         shamanKingMemory3.jakuRareCount = shamanKing.jakuRareCount
@@ -324,6 +374,16 @@ struct shamanKingSubViewSaveMemory: View {
         shamanKingMemory3.czCountOver600Ryunosuke = shamanKing.czCountOver600Ryunosuke
         shamanKingMemory3.czCountOver600Kokkuri = shamanKing.czCountOver600Kokkuri
         shamanKingMemory3.czCountOver600Sum = shamanKing.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKingMemory3.playGame = shamanKing.playGame
+        shamanKingMemory3.koyakuCountCommonBell = shamanKing.koyakuCountCommonBell
+        shamanKingMemory3.qualifyCountFaustOS = shamanKing.qualifyCountFaustOS
+        shamanKingMemory3.qualifyCountFaustHit = shamanKing.qualifyCountFaustHit
+        shamanKingMemory3.qualifyCountRenOS = shamanKing.qualifyCountRenOS
+        shamanKingMemory3.qualifyCountRenHit = shamanKing.qualifyCountRenHit
     }
 }
 
@@ -403,6 +463,16 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory1.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory1.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory1.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory1.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory1.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory1.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory1.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory1.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory1.qualifyCountRenHit
     }
     func loadMemory2() {
         shamanKing.jakuRareCount = shamanKingMemory2.jakuRareCount
@@ -453,6 +523,16 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory2.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory2.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory2.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory2.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory2.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory2.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory2.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory2.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory2.qualifyCountRenHit
     }
     func loadMemory3() {
         shamanKing.jakuRareCount = shamanKingMemory3.jakuRareCount
@@ -503,9 +583,23 @@ struct shamanKingSubViewLoadMemory: View {
         shamanKing.czCountOver600Ryunosuke = shamanKingMemory3.czCountOver600Ryunosuke
         shamanKing.czCountOver600Kokkuri = shamanKingMemory3.czCountOver600Kokkuri
         shamanKing.czCountOver600Sum = shamanKingMemory3.czCountOver600Sum
+        
+        // ///////
+        // ver3.12.0
+        // ///////
+        shamanKing.playGame = shamanKingMemory3.playGame
+        shamanKing.koyakuCountCommonBell = shamanKingMemory3.koyakuCountCommonBell
+        shamanKing.qualifyCountFaustOS = shamanKingMemory3.qualifyCountFaustOS
+        shamanKing.qualifyCountFaustHit = shamanKingMemory3.qualifyCountFaustHit
+        shamanKing.qualifyCountRenOS = shamanKingMemory3.qualifyCountRenOS
+        shamanKing.qualifyCountRenHit = shamanKingMemory3.qualifyCountRenHit
     }
 }
 
 #Preview {
-    shamanKingViewTop()
+    shamanKingViewTop(
+        bayes: Bayes(),
+        viewModel: InterstitialViewModel(),
+    )
+    .environmentObject(commonVar())
 }

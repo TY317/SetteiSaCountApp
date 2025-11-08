@@ -329,6 +329,14 @@ class Urmira: ObservableObject {
         resetStartData()
         resetCountData()
     }
+    
+    // ////////
+    // 島合算
+    // ////////
+    @AppStorage("urmiraShimaGames") var shimaGames: Int = 0
+    @AppStorage("urmiraShimaBigs") var shimaBigs: Int = 0
+    @AppStorage("urmiraShimaRegs") var shimaRegs: Int = 0
+    @AppStorage("urmiraShimaBonusSum") var shimaBonusSum: Int = 0
 }
 
 

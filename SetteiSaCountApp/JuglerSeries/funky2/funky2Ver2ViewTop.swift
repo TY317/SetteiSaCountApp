@@ -9,7 +9,6 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct funky2Ver2ViewTop: View {
-//    @ObservedObject var ver391: Ver391
     @StateObject var funky2 = Funky2()
     @State var isShowAlert: Bool = false
     @StateObject var funky2Memory1 = Funky2Memory1()
@@ -17,6 +16,7 @@ struct funky2Ver2ViewTop: View {
     @StateObject var funky2Memory3 = Funky2Memory3()
     @ObservedObject var bayes: Bayes
     @StateObject var viewModel: InterstitialViewModel
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -36,12 +36,36 @@ struct funky2Ver2ViewTop: View {
                             textBody: "データ確認"
                         )
                     }
+                    
+                    // 島データ
+                    NavigationLink(destination: funky2ViewShimaData(
+                        funky2: funky2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.funky2MenuShimaBadge,
+                        )
+                    }
                 } header: {
-                    Text("見")
-                        .fontWeight(.bold)
-                        .font(.headline)
+                    unitHeaderLabelKen()
+//                    HStack {
+//                        Text("見")
+//                            .fontWeight(.bold)
+//                            .font(.headline)
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "見",
+//                                textBody1: "・空き台のデータ確認にご利用下さい",
+//                                textBody2: "・データ確認：ぶどう・ベル逆算値はこちらで確認。そのまま打ち始めデータとして登録も可能です",
+//                                textBody3: "・島データ確認：複数台の合算値はこちらで確認",
+//                            )
+//                        }
+//                    }
                 }
-                .popoverTip(tipUnitJugHanaCommonKenView())
+//                .popoverTip(tipUnitJugHanaCommonKenView())
                 // //// 実戦
                 Section {
                     // データ入力
@@ -53,7 +77,6 @@ struct funky2Ver2ViewTop: View {
                     }
                     // 実戦カウント
                     NavigationLink(destination: funky2Ver2ViewJissenCount(
-//                        ver391: ver391,
                         funky2: funky2,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -65,7 +88,6 @@ struct funky2Ver2ViewTop: View {
                     }
                     // トータル結果確認
                     NavigationLink(destination: funky2Ver2ViewJissenTotalDataCheck(
-//                        ver391: ver391,
                         funky2: funky2,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -80,14 +102,12 @@ struct funky2Ver2ViewTop: View {
                         .fontWeight(.bold)
                         .font(.headline)
                 }
-//                .popoverTip(tipUnitJugHanaCommonJissenView())
                 // 設定推測グラフ
                 NavigationLink(destination: funky2Ver2View95CiTotal(funky2: funky2)) {
                     unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
                 }
                 // 設定期待値計算
                 NavigationLink(destination: funky2ViewBayes(
-//                    ver391: ver391,
                     funky2: funky2,
                     bayes: bayes,
                     viewModel: viewModel,
@@ -100,7 +120,6 @@ struct funky2Ver2ViewTop: View {
                 }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/3961")
-//                    .popoverTip(tipVer220AddLink())
                 
                 // コピーライト
                 unitSectionCopyright {
@@ -109,7 +128,7 @@ struct funky2Ver2ViewTop: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver391.funky2MachineIconBadge)
+        .resetBadgeOnAppear($common.funky2MachineIconBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -388,4 +407,5 @@ struct funky2SubViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
