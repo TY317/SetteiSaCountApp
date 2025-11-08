@@ -13,7 +13,7 @@ struct railgunViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.9, 100.3, 105.4, 110.0, 112.9]
-    
+    @State var firstHitEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -45,7 +45,13 @@ struct railgunViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・CZ、ATの初当り確率を計算要素に加えます"
+                    )
+                }
             }
             
             // //// STEP3
@@ -108,7 +114,21 @@ struct railgunViewBayes: View {
     
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // 初当り
+        var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostCz = logPostDenoBino(
+                ratio: railgun.ratioFirstHitCz,
+                Count: railgun.czCount,
+                bigNumber: railgun.normalGame
+            )
+            logPostAt = logPostDenoBino(
+                ratio: railgun.ratioFirstHitAt,
+                Count: railgun.atCount,
+                bigNumber: railgun.normalGame
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -146,7 +166,8 @@ struct railgunViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostCz,
+            logPostAt,
             
             logPostTrophy,
             logPostBefore,

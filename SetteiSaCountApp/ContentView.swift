@@ -92,7 +92,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3120UpdateInfo())
+                TipView(tipVer3130UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -132,6 +132,21 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// レールガン2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "超電磁砲2",
+                                        badgeStatus: common.railgunMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// VVV2、25年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
                                     
@@ -146,21 +161,6 @@ struct ContentView: View {
                                         badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
-                                
-                                // //// レールガン2、25年11月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLink(
-//                                        linkView: AnyView(railgunViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("railgunMachineIcon"),
-//                                        machineName: "超電磁砲2",
-//                                        badgeStatus: common.railgunMachineIconBadge,
-//                                    )
-//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -838,6 +838,24 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// レールガン、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "とある科学の超電磁砲2",
+                                        makerName: "藤商事",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.railgunMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// VVV2、25年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
                                     
@@ -855,24 +873,6 @@ struct ContentView: View {
                                         badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
-                                
-                                // //// レールガン、25年11月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
-//                                    
-//                                } else {
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(railgunViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("railgunMachineIcon"),
-//                                        machineName: "とある科学の超電磁砲2",
-//                                        makerName: "藤商事",
-//                                        releaseYear: 2025,
-//                                        releaseMonth: 11,
-//                                        badgeStatus: common.railgunMachineIconBadge,
-//                                    )
-//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -1905,10 +1905,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // レールガン2
+                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // vvv2
                 Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
-                // レールガン2
-//                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５
