@@ -187,6 +187,24 @@ class NewOni3: ObservableObject {
         resetScreen()
         resetOniBonus()
         resetEnding()
+        resetBonus()
+    }
+    
+    // ////////////
+    // ver3.12.0で追加
+    // ////////////
+    // ナビボイス
+    let ratioNaviVoiceDefault: [Double] = [93.8,90.6,90.6,87.5,87.5,87.5]
+    let ratioNaviVoiceHigh: [Double] = [6.2,9.4,9.4,12.5,12.5,12.5]
+    @AppStorage("newOni3NaviVoiceCountDefault") var naviVoiceCountDefault: Int = 0
+    @AppStorage("newOni3NaviVoiceCountHigh") var naviVoiceCountHigh: Int = 0
+    @AppStorage("newOni3NaviVoiceCountSum") var naviVoiceCountSum: Int = 0
+    
+    func resetBonus() {
+        naviVoiceCountDefault = 0
+        naviVoiceCountHigh = 0
+        naviVoiceCountSum = 0
+        minusCheck = false
     }
 }
 

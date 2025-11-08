@@ -47,10 +47,13 @@ struct newOni3ViewTop: View {
                     // 蒼剣ボーナス
                     NavigationLink(destination: newOni3ViewBonus(
                         newOni3: newOni3,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "message.fill",
-                            textBody: "蒼剣ボーナス"
+                            textBody: "蒼剣ボーナス",
+                            badgeStatus: common.newOni3MenuBonusBadge,
                         )
                     }
                     // 鬼ボーナス

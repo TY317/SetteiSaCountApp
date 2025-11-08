@@ -14,7 +14,40 @@ struct vvv2ViewNormal: View {
     @EnvironmentObject var common: commonVar
     var body: some View {
         List {
+            // //// レア役
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
+                    vvv2TableKoyakuPattern()
+                }
+            } header: {
+                Text("レア役")
+            }
             
+            // //// マギウスマークでの示唆
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "マギウスマークの数") {
+                    VStack {
+                        Text("・周期のマップに表示されるマギウスマークの数が4個以上あれば設定示唆！？")
+                    }
+                }
+                unitLinkButtonViewBuilder(sheetTitle: "サブ液晶の機体") {
+                    VStack(alignment: .leading) {
+                        Text("・サブ液晶の機体がヴァルヴレイヴ以外であれば設定示唆")
+                        Text("・バッフェの期待度は無人＜有人の順となる")
+                    }
+                }
+            } header: {
+                Text("設定示唆演出")
+            }
+            
+            // //// モード
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    vvv2TableMode()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// firebaseログ
         .onAppear {

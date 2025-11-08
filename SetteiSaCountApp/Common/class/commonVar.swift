@@ -130,6 +130,7 @@ class commonVar: ObservableObject {
     
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
+    @AppStorage("newOni3MenuBonusBadge") var newOni3MenuBonusBadge: String = "none"
     
     // //// 主役は銭形5
     @AppStorage("zeni5MachineIconBadge") var zeni5MachineIconBadge: String = "none"
@@ -229,6 +230,8 @@ class commonVar: ObservableObject {
                 shamanKingMenuBayesBadge = "new"
                 tokyoGhoulMachineIconBadge = "update"
                 tokyoGhoulMenuSuperHighBadge = "new"
+//                newOni3MachineIconBadge = "update"
+//                newOni3MenuBonusBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
