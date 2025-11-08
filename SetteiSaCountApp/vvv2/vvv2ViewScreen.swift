@@ -68,49 +68,53 @@ struct vvv2ViewScreen: View {
     
     var body: some View {
         List {
-            // //// 画面カウントボタン
-            ScrollView(.horizontal) {
-                HStack(spacing: 20) {
-                    ForEach(self.indexList, id: \.self) { index in
-                        if self.imageNameList.indices.contains(index) &&
-                            self.upperBeltTextList.indices.contains(index) &&
-                            self.lowerBeltTextList.indices.contains(index) {
-                            unitButtonScreenChoiceVer3(
-                                screen: unitScreenOnlyDisplay(
-                                    image: Image(self.imageNameList[index]),
-                                    upperBeltText: self.upperBeltTextList[index],
-                                    lowerBeltText: self.lowerBeltTextList[index],
-//                                        lowerBeltFont: .body,
-//                                        lowerBeltHeight: 35,
-                                ),
-                                screenName: self.imageNameList[index],
-                                selectedScreen: self.$selectedImageName,
-                                count: bindingForScreenCount(index: index),
-                                minusCheck: $vvv2.minusCheck,
-                                action: vvv2.screenSumFunc,
-                            )
+            Section {
+                // //// 画面カウントボタン
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(self.indexList, id: \.self) { index in
+                            if self.imageNameList.indices.contains(index) &&
+                                self.upperBeltTextList.indices.contains(index) &&
+                                self.lowerBeltTextList.indices.contains(index) {
+                                unitButtonScreenChoiceVer3(
+                                    screen: unitScreenOnlyDisplay(
+                                        image: Image(self.imageNameList[index]),
+                                        upperBeltText: self.upperBeltTextList[index],
+                                        lowerBeltText: self.lowerBeltTextList[index],
+    //                                        lowerBeltFont: .body,
+    //                                        lowerBeltHeight: 35,
+                                    ),
+                                    screenName: self.imageNameList[index],
+                                    selectedScreen: self.$selectedImageName,
+                                    count: bindingForScreenCount(index: index),
+                                    minusCheck: $vvv2.minusCheck,
+                                    action: vvv2.screenSumFunc,
+                                )
+                            }
                         }
                     }
                 }
-            }
-            .frame(height: common.screenScrollHeight)
-            
-            // //// カウント結果
-            ForEach(self.indexList, id: \.self) { index in
-                if self.lowerBeltTextList.indices.contains(index) &&
-//                        self.flashColorList.indices.contains(index) {
-                    self.flashColorList.indices.contains(index) &&
-                    self.sisaText.indices.contains(index) {
-                    unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
-                        title: self.sisaText[index],
-                        count: bindingForScreenCount(index: index),
-                        flashColor: self.flashColorList[index],
-                        bigNumber: $vvv2.screenCountSum,
-                        numberofDigit: 0,
-                        titleFont: .body,
-                    )
+                .frame(height: common.screenScrollHeight)
+                
+                // //// カウント結果
+                ForEach(self.indexList, id: \.self) { index in
+                    if self.lowerBeltTextList.indices.contains(index) &&
+    //                        self.flashColorList.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) &&
+                        self.sisaText.indices.contains(index) {
+                        unitResultCountListPercent(
+    //                            title: self.lowerBeltTextList[index],
+                            title: self.sisaText[index],
+                            count: bindingForScreenCount(index: index),
+                            flashColor: self.flashColorList[index],
+                            bigNumber: $vvv2.screenCountSum,
+                            numberofDigit: 0,
+                            titleFont: .body,
+                        )
+                    }
                 }
+            } header: {
+                unitLabelHeaderScreenCount()
             }
         }
         // //// firebaseログ
