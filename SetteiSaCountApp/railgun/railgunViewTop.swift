@@ -42,6 +42,18 @@ struct railgunViewTop: View {
                         )
                     }
                     
+                    // AT終了画面
+                    NavigationLink(destination: railgunViewScreen(
+                        railgun: railgun,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面"
+                        )
+                    }
+                    
                     // 藤丸コイン
                     NavigationLink(destination: commonViewFujimaruCoin()) {
                         unitLabelMenu(

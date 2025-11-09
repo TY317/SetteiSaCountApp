@@ -14,6 +14,7 @@ struct railgunViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.9, 100.3, 105.4, 110.0, 112.9]
     @State var firstHitEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -51,6 +52,21 @@ struct railgunViewBayes: View {
                         title: "初当り確率",
                         textBody1: "・CZ、ATの初当り確率を計算要素に加えます"
                     )
+                }
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // 藤丸コイン
+                DisclosureGroup("藤丸コイン") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "デンジャー柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }
             
@@ -129,6 +145,35 @@ struct railgunViewBayes: View {
                 bigNumber: railgun.normalGame
             )
         }
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if railgun.screenCountOver2 > 0 {
+                logPostScreen[0] = -Double.infinity
+            }
+            if railgun.screenCountOver3 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+            }
+            if railgun.screenCountOver4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if railgun.screenCountOver5 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+            }
+            if railgun.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -168,6 +213,7 @@ struct railgunViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostCz,
             logPostAt,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

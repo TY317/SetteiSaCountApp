@@ -1854,13 +1854,13 @@ struct ContentView: View {
                 isKeyboardVisible = false
             }
             // トラッキング許可のポップアップを出す
-            if common.trackingRequested == false {
+//            if common.trackingRequested == false {
                 ATTrackingManager.requestTrackingAuthorization() {_ in
 //                    GADMobileAds.sharedInstance().start(completionHandler: nil)
                     MobileAds.shared.start(completionHandler: nil)
                 }
                 common.trackingRequested = true
-            }
+//            }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)

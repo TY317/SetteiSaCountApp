@@ -38,6 +38,48 @@ class Railgun: ObservableObject {
         minusCheck = false
     }
     
+    // -----------
+    // 終了画面
+    // -----------
+    @AppStorage("railgunScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("railgunScreenCountGusu") var screenCountGusu: Int = 0
+    @AppStorage("railgunScreenCountHighJaku") var screenCountHighJaku: Int = 0
+    @AppStorage("railgunScreenCountHighKyo") var screenCountHighKyo: Int = 0
+    @AppStorage("railgunScreenCountOver2") var screenCountOver2: Int = 0
+    @AppStorage("railgunScreenCountOver3") var screenCountOver3: Int = 0
+    @AppStorage("railgunScreenCountOver4") var screenCountOver4: Int = 0
+    @AppStorage("railgunScreenCountOver5") var screenCountOver5: Int = 0
+    @AppStorage("railgunScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("railgunScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountGusu,
+            screenCountHighJaku,
+            screenCountHighKyo,
+            screenCountOver2,
+            screenCountOver3,
+            screenCountOver4,
+            screenCountOver5,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountGusu = 0
+        screenCountHighJaku = 0
+        screenCountHighKyo = 0
+        screenCountOver2 = 0
+        screenCountOver3 = 0
+        screenCountOver4 = 0
+        screenCountOver5 = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // ////////////////////////
     // 共通
     // ////////////////////////
@@ -46,6 +88,8 @@ class Railgun: ObservableObject {
     @AppStorage("railgunSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetNormal()
+        resetFirstHit()
+        resetScreen()
     }
 }
