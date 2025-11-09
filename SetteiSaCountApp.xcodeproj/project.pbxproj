@@ -46,6 +46,11 @@
 		0F25C27D2C889E5F008B4707 /* toloveruViewEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */; };
 		0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */; };
 		0F25FC642CD3AE920005F971 /* rezero2ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */; };
+		0F2DA9F92EC079540083704E /* neoplaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9F82EC079540083704E /* neoplaViewTop.swift */; };
+		0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FA2EC079620083704E /* neoplaClass.swift */; };
+		0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */; };
+		0F2DA9FF2EC07B200083704E /* neoplaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */; };
+		0F2DAA012EC07B6A0083704E /* neoplaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */; };
 		0F3465B52CAEC5E400B5D2DD /* karakuriViewStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B42CAEC5E400B5D2DD /* karakuriViewStage.swift */; };
 		0F3465B72CB21CB000B5D2DD /* karakuriAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B62CB21CB000B5D2DD /* karakuriAtScreen.swift */; };
 		0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B82CB21D6B00B5D2DD /* karakuriViewIchigeki.swift */; };
@@ -1156,6 +1161,11 @@
 		0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewEndScreen.swift; sourceTree = "<group>"; };
 		0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewSnowball.swift; sourceTree = "<group>"; };
 		0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewHistory.swift; sourceTree = "<group>"; };
+		0F2DA9F82EC079540083704E /* neoplaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewTop.swift; sourceTree = "<group>"; };
+		0F2DA9FA2EC079620083704E /* neoplaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaClass.swift; sourceTree = "<group>"; };
+		0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = neoplaAssets.xcassets; sourceTree = "<group>"; };
+		0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaView95Ci.swift; sourceTree = "<group>"; };
+		0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewBayes.swift; sourceTree = "<group>"; };
 		0F3465B42CAEC5E400B5D2DD /* karakuriViewStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewStage.swift; sourceTree = "<group>"; };
 		0F3465B62CB21CB000B5D2DD /* karakuriAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriAtScreen.swift; sourceTree = "<group>"; };
 		0F3465B82CB21D6B00B5D2DD /* karakuriViewIchigeki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewIchigeki.swift; sourceTree = "<group>"; };
@@ -2312,6 +2322,18 @@
 			path = toloveru;
 			sourceTree = "<group>";
 		};
+		0F2DA9F72EC0792E0083704E /* neopla */ = {
+			isa = PBXGroup;
+			children = (
+				0F2DA9F82EC079540083704E /* neoplaViewTop.swift */,
+				0F2DA9FA2EC079620083704E /* neoplaClass.swift */,
+				0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */,
+				0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */,
+				0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */,
+			);
+			path = neopla;
+			sourceTree = "<group>";
+		};
 		0F3B70502CA7F41B002C7F44 /* karakuriCircus */ = {
 			isa = PBXGroup;
 			children = (
@@ -2783,6 +2805,7 @@
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0F2DA9F72EC0792E0083704E /* neopla */,
 				0F9D9BF12EA0C42C00450B23 /* vvv2 */,
 				0F9D9C3B2EA4F6FB00450B23 /* railgun */,
 				0F9D9BD82E9DED8B00450B23 /* zeni5 */,
@@ -4359,6 +4382,7 @@
 				0FD3578F2DAB32FF0069BD1A /* godzillaAssets.xcassets in Resources */,
 				0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */,
 				0F654BED2C70A2E200F37849 /* kingHanaAssets.xcassets in Resources */,
+				0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */,
 				0F7F86452D9EB37000F26486 /* magiaAssets.xcassets in Resources */,
 				0F9D9C412EA4F76500450B23 /* railgunAssets.xcassets in Resources */,
 				0F64DD6A2DC0C27A0027315D /* idolMasterAssets.xcassets in Resources */,
@@ -4744,6 +4768,7 @@
 				0FDC32872D264452005B3D06 /* dumbbellViewGoldenChallenge.swift in Sources */,
 				0F9D9BE02E9DF10800450B23 /* zeni5ViewNormal.swift in Sources */,
 				0F868A752D4F5D7A00D952D9 /* sbjViewTop.swift in Sources */,
+				0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */,
 				0F9D9C1C2EA349E400450B23 /* goJug3Ver2View95CiShima.swift in Sources */,
 				0F1E11F42DCF6B5300F69AFF /* gundamSeedView95Ci.swift in Sources */,
 				0FA024752CF354C0004B3FD5 /* goevaView95Ci.swift in Sources */,
@@ -5162,6 +5187,7 @@
 				0F868A952D578E7800D952D9 /* mrJugVer2ViewKenDataInput.swift in Sources */,
 				0F868A472D460E9E00D952D9 /* kingHanaVer2View95CiTotal.swift in Sources */,
 				0FEC57E12D9AD37900FF1024 /* arifureTableFirstHit.swift in Sources */,
+				0F2DA9F92EC079540083704E /* neoplaViewTop.swift in Sources */,
 				0FA024AA2D0B13D9004B3FD5 /* lupinViewHaruruna.swift in Sources */,
 				0FA024942D05CDF5004B3FD5 /* inuyasha2ViewTop.swift in Sources */,
 				0FEC57C92D94F53800FF1024 /* kaguyaTableRed7Ratio.swift in Sources */,
@@ -5247,6 +5273,7 @@
 				0F9D9C0B2EA33CEF00450B23 /* urmiraViewShimaData.swift in Sources */,
 				0F6B59CA2DFE723B00DB1A2B /* symphoTableMode.swift in Sources */,
 				0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */,
+				0F2DA9FF2EC07B200083704E /* neoplaView95Ci.swift in Sources */,
 				0F64DD432DC07A5A0027315D /* dumbbellTableCheatDay.swift in Sources */,
 				0F9D9BE42E9DF20200450B23 /* zeni5ViewBayes.swift in Sources */,
 				0F6B59C42DFDAA1400DB1A2B /* kaguyaTableScreen.swift in Sources */,
@@ -5492,6 +5519,7 @@
 				0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
+				0F2DAA012EC07B6A0083704E /* neoplaViewBayes.swift in Sources */,
 				0FB9CA852DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift in Sources */,
 				0F868A9F2D57925600D952D9 /* mrJugVer2View95CiKen.swift in Sources */,
 				0FB9CA9A2DDDE9C0009FC6AF /* toloveru87TableFirstHit.swift in Sources */,
