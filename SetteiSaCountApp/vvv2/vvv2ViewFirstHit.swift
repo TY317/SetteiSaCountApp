@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct vvv2ViewFirstHit: View {
     @ObservedObject var vvv2: Vvv2
@@ -15,6 +16,7 @@ struct vvv2ViewFirstHit: View {
     @State var isShowAlert: Bool = false
     
     var body: some View {
+        TipView(tipVer3130vvv2FirstHit())
         List {
             // //// 初当り確率
             Section {
@@ -41,9 +43,19 @@ struct vvv2ViewFirstHit: View {
                 
                 // 参考情報）AT直撃
                 unitLinkButtonViewBuilder(sheetTitle: "BAR揃いからのAT直撃") {
-                    VStack(alignment: .leading) {
-                        Text("・通常時or電脳ゾーン中のBAR揃いはルーンドライブ or AT直撃が濃厚となる")
-                        Text("・高設定ほどAT直撃の振分けが優遇される")
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・通常時or電脳ゾーン中のBAR揃いはルーンドライブ or AT直撃が濃厚となる")
+                            Text("・高設定ほどAT直撃の振分けが優遇される")
+                        }
+                        .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex(settingList: [1,2,4,5,6])
+                            unitTablePercent(
+                                columTitle: "AT直撃",
+                                percentList: [3,4,5,6,7]
+                            )
+                        }
                     }
                 }
             } header: {
@@ -59,7 +71,7 @@ struct vvv2ViewFirstHit: View {
                 HStack {
                     // 革命
                     unitCountButtonPercentWithFunc(
-                        title: "革命",
+                        title: "革命orAT直撃",
                         count: $vvv2.bonusCountKakumei,
                         color: .personalSummerLightRed,
                         bigNumber: $vvv2.bonusCountSum,
@@ -78,10 +90,27 @@ struct vvv2ViewFirstHit: View {
                             vvv2.bonusCountSum = vvv2.bonusCountKakumei + vvv2.bonusCountKessen
                         }
                 }
+                
+                // 振分け確率
+                unitLinkButtonViewBuilder(sheetTitle: "振分け確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,4,5,6])
+                        unitTablePercent(
+                            columTitle: "革命orAT直撃",
+                            percentList: vvv2.ratioKakumeiRatio,
+                        )
+                        unitTablePercent(
+                            columTitle: "決戦",
+                            percentList: vvv2.ratioKessenRatio,
+                        )
+                    }
+                }
             } header: {
                 Text("革命・決戦 振分け")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.vvv2MenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

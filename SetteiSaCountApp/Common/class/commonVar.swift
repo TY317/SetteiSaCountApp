@@ -127,6 +127,11 @@ class commonVar: ObservableObject {
     
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
+    @AppStorage("vvv2MenuScreenBadge") var vvv2MenuScreenBadge: String = "none"
+    @AppStorage("vvv2MenuAtScreenBadge") var vvv2MenuAtScreenBadge: String = "none"
+    @AppStorage("vvv2MenuRushBadge") var vvv2MenuRushBadge: String = "none"
+    @AppStorage("vvv2MenuNormalBadge") var vvv2MenuNormalBadge: String = "none"
+    @AppStorage("vvv2MenuFirstHitBadge") var vvv2MenuFirstHitBadge: String = "none"
     
     // //// レールガン
     @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
@@ -200,6 +205,12 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 railgunMachineIconBadge = "new"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuScreenBadge = "update"
+                vvv2MenuAtScreenBadge = "new"
+                vvv2MenuRushBadge = "update"
+                vvv2MenuNormalBadge = "update"
+                vvv2MenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

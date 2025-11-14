@@ -35,14 +35,14 @@ struct vvv2ViewScreen: View {
         "金枠",
     ]
     let lowerBeltTextList: [String] = [
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
+        "デフォルト",
+        "奇数＆高設定示唆 弱",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 以上濃厚",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
     ]
     let sisaText: [String] = [
         "白枠",
@@ -95,16 +95,17 @@ struct vvv2ViewScreen: View {
                     }
                 }
                 .frame(height: common.screenScrollHeight)
+                .popoverTip(tipVer3130vvv2Screen())
                 
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
-    //                        self.flashColorList.indices.contains(index) {
-                        self.flashColorList.indices.contains(index) &&
-                        self.sisaText.indices.contains(index) {
+                            self.flashColorList.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) &&
+//                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
-    //                            title: self.lowerBeltTextList[index],
-                            title: self.sisaText[index],
+                            title: self.lowerBeltTextList[index],
+//                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $vvv2.screenCountSum,
@@ -117,6 +118,8 @@ struct vvv2ViewScreen: View {
                 unitLabelHeaderScreenCount()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.vvv2MenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
