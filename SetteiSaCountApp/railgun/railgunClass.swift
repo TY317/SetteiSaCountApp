@@ -38,6 +38,42 @@ class Railgun: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // AT中
+    // ----------
+    @AppStorage("railgunIchimaieCount1") var ichimaieCount1: Int = 0
+    @AppStorage("railgunIchimaieCount2") var ichimaieCount2: Int = 0
+    @AppStorage("railgunIchimaieCount3") var ichimaieCount3: Int = 0
+    @AppStorage("railgunIchimaieCount4") var ichimaieCount4: Int = 0
+    @AppStorage("railgunIchimaieCount5") var ichimaieCount5: Int = 0
+    @AppStorage("railgunIchimaieCount6") var ichimaieCount6: Int = 0
+    @AppStorage("railgunIchimaieCount7") var ichimaieCount7: Int = 0
+    @AppStorage("railgunIchimaieCountSum") var ichimaieCountSum: Int = 0
+    
+    func ichimaieSumFunc() {
+        ichimaieCountSum = countSum(
+            ichimaieCount1,
+            ichimaieCount2,
+            ichimaieCount3,
+            ichimaieCount4,
+            ichimaieCount5,
+            ichimaieCount6,
+            ichimaieCount7,
+        )
+    }
+    
+    func resetAt() {
+        ichimaieCount1 = 0
+        ichimaieCount2 = 0
+        ichimaieCount3 = 0
+        ichimaieCount4 = 0
+        ichimaieCount5 = 0
+        ichimaieCount6 = 0
+        ichimaieCount7 = 0
+        ichimaieCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 終了画面
     // -----------
@@ -91,5 +127,6 @@ class Railgun: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetAt()
     }
 }

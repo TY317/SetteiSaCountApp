@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */; };
+		0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */; };
 		0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */; };
 		0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
@@ -1123,6 +1125,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunViewDuringAt.swift; sourceTree = "<group>"; };
+		0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
 		0F0B4BC22CCD240E00B12B00 /* rezero2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = rezero2Assets.xcassets; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
@@ -3592,6 +3596,8 @@
 				0F663B8F2EBF09C4006FBB1F /* railgunTableKoyakuPattern.swift */,
 				0F663B912EBF4F0C006FBB1F /* railgunTableMode.swift */,
 				0F663B932EBF730F006FBB1F /* railgunViewScreen.swift */,
+				0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */,
+				0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */,
 			);
 			path = railgun;
 			sourceTree = "<group>";
@@ -4804,6 +4810,7 @@
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
 				0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */,
 				0FB2097B2E154B210029D940 /* evaYakusokuViewRegChara.swift in Sources */,
+				0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */,
 				0F6B59FA2E0C1C8F00DB1A2B /* watakonTableKoyakuPattern.swift in Sources */,
 				0FCCC5182E93EDB100CE164D /* ver3110Class.swift in Sources */,
 				0FEC579A2D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift in Sources */,
@@ -4957,6 +4964,7 @@
 				0F8935822E20763D00BF6FBE /* dmc5TableCzCycle.swift in Sources */,
 				0F51C6452E8437170006794A /* UIApplication+EndEditing.swift in Sources */,
 				0FEC57A02D8EE96E00FF1024 /* tokyoGhoulSubViewTableGedanReplay.swift in Sources */,
+				0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */,
 				0F9A798C2E48B9F600D996CA /* bayesSubStep1Section.swift in Sources */,
 				0F9A4F852DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift in Sources */,
 				0F9A4F962DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift in Sources */,

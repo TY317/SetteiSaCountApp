@@ -42,6 +42,16 @@ struct railgunViewTop: View {
                         )
                     }
                     
+                    // AT中
+                    NavigationLink(destination: railgunViewDuringAt(
+                        railgun: railgun,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT中")
+                    }
                     // AT終了画面
                     NavigationLink(destination: railgunViewScreen(
                         railgun: railgun,
