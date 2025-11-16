@@ -130,3 +130,90 @@ class Railgun: ObservableObject {
         resetAt()
     }
 }
+
+
+class RailgunMemory1: ObservableObject {
+    @AppStorage("railgunCoinCountMemory1") var coinCount: Int = 0
+    @AppStorage("railgunCoinCountCzHitMemory1") var coinCountCzHit: Int = 0
+    @AppStorage("railgunNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("railgunCzCountMemory1") var czCount: Int = 0
+    @AppStorage("railgunAtCountMemory1") var atCount: Int = 0
+    @AppStorage("railgunIchimaieCount1Memory1") var ichimaieCount1: Int = 0
+    @AppStorage("railgunIchimaieCount2Memory1") var ichimaieCount2: Int = 0
+    @AppStorage("railgunIchimaieCount3Memory1") var ichimaieCount3: Int = 0
+    @AppStorage("railgunIchimaieCount4Memory1") var ichimaieCount4: Int = 0
+    @AppStorage("railgunIchimaieCount5Memory1") var ichimaieCount5: Int = 0
+    @AppStorage("railgunIchimaieCount6Memory1") var ichimaieCount6: Int = 0
+    @AppStorage("railgunIchimaieCount7Memory1") var ichimaieCount7: Int = 0
+    @AppStorage("railgunIchimaieCountSumMemory1") var ichimaieCountSum: Int = 0
+    @AppStorage("railgunScreenCountDefaultMemory1") var screenCountDefault: Int = 0
+    @AppStorage("railgunScreenCountGusuMemory1") var screenCountGusu: Int = 0
+    @AppStorage("railgunScreenCountHighJakuMemory1") var screenCountHighJaku: Int = 0
+    @AppStorage("railgunScreenCountHighKyoMemory1") var screenCountHighKyo: Int = 0
+    @AppStorage("railgunScreenCountOver2Memory1") var screenCountOver2: Int = 0
+    @AppStorage("railgunScreenCountOver3Memory1") var screenCountOver3: Int = 0
+    @AppStorage("railgunScreenCountOver4Memory1") var screenCountOver4: Int = 0
+    @AppStorage("railgunScreenCountOver5Memory1") var screenCountOver5: Int = 0
+    @AppStorage("railgunScreenCountOver6Memory1") var screenCountOver6: Int = 0
+    @AppStorage("railgunScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("railgunMemoMemory1") var memo = ""
+    @AppStorage("railgunDateMemory1") var dateDouble = 0.0
+}
+
+
+class RailgunMemory2: ObservableObject {
+    @AppStorage("railgunCoinCountMemory2") var coinCount: Int = 0
+    @AppStorage("railgunCoinCountCzHitMemory2") var coinCountCzHit: Int = 0
+    @AppStorage("railgunNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("railgunCzCountMemory2") var czCount: Int = 0
+    @AppStorage("railgunAtCountMemory2") var atCount: Int = 0
+    @AppStorage("railgunIchimaieCount1Memory2") var ichimaieCount1: Int = 0
+    @AppStorage("railgunIchimaieCount2Memory2") var ichimaieCount2: Int = 0
+    @AppStorage("railgunIchimaieCount3Memory2") var ichimaieCount3: Int = 0
+    @AppStorage("railgunIchimaieCount4Memory2") var ichimaieCount4: Int = 0
+    @AppStorage("railgunIchimaieCount5Memory2") var ichimaieCount5: Int = 0
+    @AppStorage("railgunIchimaieCount6Memory2") var ichimaieCount6: Int = 0
+    @AppStorage("railgunIchimaieCount7Memory2") var ichimaieCount7: Int = 0
+    @AppStorage("railgunIchimaieCountSumMemory2") var ichimaieCountSum: Int = 0
+    @AppStorage("railgunScreenCountDefaultMemory2") var screenCountDefault: Int = 0
+    @AppStorage("railgunScreenCountGusuMemory2") var screenCountGusu: Int = 0
+    @AppStorage("railgunScreenCountHighJakuMemory2") var screenCountHighJaku: Int = 0
+    @AppStorage("railgunScreenCountHighKyoMemory2") var screenCountHighKyo: Int = 0
+    @AppStorage("railgunScreenCountOver2Memory2") var screenCountOver2: Int = 0
+    @AppStorage("railgunScreenCountOver3Memory2") var screenCountOver3: Int = 0
+    @AppStorage("railgunScreenCountOver4Memory2") var screenCountOver4: Int = 0
+    @AppStorage("railgunScreenCountOver5Memory2") var screenCountOver5: Int = 0
+    @AppStorage("railgunScreenCountOver6Memory2") var screenCountOver6: Int = 0
+    @AppStorage("railgunScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("railgunMemoMemory2") var memo = ""
+    @AppStorage("railgunDateMemory2") var dateDouble = 0.0
+}
+
+
+class RailgunMemory3: ObservableObject {
+    @AppStorage("railgunCoinCountMemory3") var coinCount: Int = 0
+    @AppStorage("railgunCoinCountCzHitMemory3") var coinCountCzHit: Int = 0
+    @AppStorage("railgunNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("railgunCzCountMemory3") var czCount: Int = 0
+    @AppStorage("railgunAtCountMemory3") var atCount: Int = 0
+    @AppStorage("railgunIchimaieCount1Memory3") var ichimaieCount1: Int = 0
+    @AppStorage("railgunIchimaieCount2Memory3") var ichimaieCount2: Int = 0
+    @AppStorage("railgunIchimaieCount3Memory3") var ichimaieCount3: Int = 0
+    @AppStorage("railgunIchimaieCount4Memory3") var ichimaieCount4: Int = 0
+    @AppStorage("railgunIchimaieCount5Memory3") var ichimaieCount5: Int = 0
+    @AppStorage("railgunIchimaieCount6Memory3") var ichimaieCount6: Int = 0
+    @AppStorage("railgunIchimaieCount7Memory3") var ichimaieCount7: Int = 0
+    @AppStorage("railgunIchimaieCountSumMemory3") var ichimaieCountSum: Int = 0
+    @AppStorage("railgunScreenCountDefaultMemory3") var screenCountDefault: Int = 0
+    @AppStorage("railgunScreenCountGusuMemory3") var screenCountGusu: Int = 0
+    @AppStorage("railgunScreenCountHighJakuMemory3") var screenCountHighJaku: Int = 0
+    @AppStorage("railgunScreenCountHighKyoMemory3") var screenCountHighKyo: Int = 0
+    @AppStorage("railgunScreenCountOver2Memory3") var screenCountOver2: Int = 0
+    @AppStorage("railgunScreenCountOver3Memory3") var screenCountOver3: Int = 0
+    @AppStorage("railgunScreenCountOver4Memory3") var screenCountOver4: Int = 0
+    @AppStorage("railgunScreenCountOver5Memory3") var screenCountOver5: Int = 0
+    @AppStorage("railgunScreenCountOver6Memory3") var screenCountOver6: Int = 0
+    @AppStorage("railgunScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("railgunMemoMemory3") var memo = ""
+    @AppStorage("railgunDateMemory3") var dateDouble = 0.0
+}
