@@ -34,6 +34,7 @@ struct unitTableString: View {
     let verticlaPadding: CGFloat = 2.0
     let horizontalPadding: CGFloat = 3.0
     let lineHeight: CGFloat = 29  // ver270で25から29へ変更。代わりに垂直padding無くした
+    var textAlignment: TextAlignment = .center
     
     var body: some View {
         VStack(spacing: 0) {
@@ -79,7 +80,8 @@ struct unitTableString: View {
                         .font(self.contentFont)
 //                        .foregroundStyle(Color.black)
                         .foregroundStyle(contentTextColor(ind: index))
-                        .multilineTextAlignment(.center)
+//                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(self.textAlignment)
                         .minimumScaleFactor(0.7)
                 }
                 .frame(height: lineNumber(ind: index))

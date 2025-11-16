@@ -15,7 +15,7 @@ struct tipVer3130UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・とある科学の超電磁砲2\n・")
+        Text("・とある科学の超電磁砲2\n・ネオプラネット\n・ヴヴヴ2大量更新")
     }
     var image: Image? {
         Image(systemName: "star")

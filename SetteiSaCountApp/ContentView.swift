@@ -69,6 +69,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
     @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
     @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
+    @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
 }
 
 
@@ -129,6 +130,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ネオプラ、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNeopla == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(neoplaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("neoplaMachineIcon"),
+                                        machineName: "ネオプラ",
+                                        badgeStatus: common.neoplaMachineIconBadge,
                                     )
                                 }
                                 
@@ -835,6 +851,24 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNeopla == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(neoplaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("neoplaMachineIcon"),
+                                        machineName: "ネオプラネット",
+                                        makerName: "山佐",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.neoplaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1905,6 +1939,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ネオプラネット
+                Toggle("ネオプラネット", isOn: $favoriteSet.isSelectedFavoriteNeopla)
                 // レールガン2
                 Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // vvv2

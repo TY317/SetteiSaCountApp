@@ -1102,6 +1102,14 @@
 		0FFAB8792E75577900296A4F /* enenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB8782E75577900296A4F /* enenViewBayes.swift */; };
 		0FFAB87B2E76A00600296A4F /* toreveViewStartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB87A2E76A00600296A4F /* toreveViewStartScreen.swift */; };
 		0FFAB87D2E76B02300296A4F /* toreveTableMiniChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAB87C2E76B02300296A4F /* toreveTableMiniChara.swift */; };
+		0FFAEBC42EC96FF4006C0371 /* neoplaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBC32EC96FF4006C0371 /* neoplaViewNormal.swift */; };
+		0FFAEBC62EC970BE006C0371 /* neoplaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBC52EC970BE006C0371 /* neoplaTableKoyakuPattern.swift */; };
+		0FFAEBC82EC9758E006C0371 /* neoplaTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBC72EC9758E006C0371 /* neoplaTableMode.swift */; };
+		0FFAEBCA2EC97FDA006C0371 /* neoplaTableStatusSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBC92EC97FDA006C0371 /* neoplaTableStatusSisa.swift */; };
+		0FFAEBCC2EC9824C006C0371 /* neoplaTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBCB2EC9824C006C0371 /* neoplaTableModeSisa.swift */; };
+		0FFAEBCE2EC9884A006C0371 /* neoplaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBCD2EC9884A006C0371 /* neoplaViewFirstHit.swift */; };
+		0FFAEBD02EC9981A006C0371 /* neoplaViewDuringBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBCF2EC9981A006C0371 /* neoplaViewDuringBonus.swift */; };
+		0FFAEBD22EC99A90006C0371 /* neoplaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */; };
 		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
 		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
 		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
@@ -2224,6 +2232,14 @@
 		0FFAB8782E75577900296A4F /* enenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewBayes.swift; sourceTree = "<group>"; };
 		0FFAB87A2E76A00600296A4F /* toreveViewStartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveViewStartScreen.swift; sourceTree = "<group>"; };
 		0FFAB87C2E76B02300296A4F /* toreveTableMiniChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableMiniChara.swift; sourceTree = "<group>"; };
+		0FFAEBC32EC96FF4006C0371 /* neoplaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewNormal.swift; sourceTree = "<group>"; };
+		0FFAEBC52EC970BE006C0371 /* neoplaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0FFAEBC72EC9758E006C0371 /* neoplaTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaTableMode.swift; sourceTree = "<group>"; };
+		0FFAEBC92EC97FDA006C0371 /* neoplaTableStatusSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaTableStatusSisa.swift; sourceTree = "<group>"; };
+		0FFAEBCB2EC9824C006C0371 /* neoplaTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaTableModeSisa.swift; sourceTree = "<group>"; };
+		0FFAEBCD2EC9884A006C0371 /* neoplaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewFirstHit.swift; sourceTree = "<group>"; };
+		0FFAEBCF2EC9981A006C0371 /* neoplaViewDuringBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewDuringBonus.swift; sourceTree = "<group>"; };
+		0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewScreen.swift; sourceTree = "<group>"; };
 		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2336,6 +2352,14 @@
 				0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */,
 				0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */,
 				0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */,
+				0FFAEBC32EC96FF4006C0371 /* neoplaViewNormal.swift */,
+				0FFAEBC52EC970BE006C0371 /* neoplaTableKoyakuPattern.swift */,
+				0FFAEBC72EC9758E006C0371 /* neoplaTableMode.swift */,
+				0FFAEBC92EC97FDA006C0371 /* neoplaTableStatusSisa.swift */,
+				0FFAEBCB2EC9824C006C0371 /* neoplaTableModeSisa.swift */,
+				0FFAEBCD2EC9884A006C0371 /* neoplaViewFirstHit.swift */,
+				0FFAEBCF2EC9981A006C0371 /* neoplaViewDuringBonus.swift */,
+				0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */,
 			);
 			path = neopla;
 			sourceTree = "<group>";
@@ -4676,6 +4700,7 @@
 				0FB9CAAA2DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift in Sources */,
 				0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */,
 				0F815FBD2E35D8D30086127D /* DarlingClass.swift in Sources */,
+				0FFAEBC62EC970BE006C0371 /* neoplaTableKoyakuPattern.swift in Sources */,
 				0FFAB8652E7061CC00296A4F /* girlsSSViewBayes.swift in Sources */,
 				0FEC57A82D8EFB5A00FF1024 /* kaijiViewZawaKokaku.swift in Sources */,
 				0F8935872E21F8F900BF6FBE /* unitToolbarButtonQuestion.swift in Sources */,
@@ -4835,6 +4860,7 @@
 				0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */,
 				0F51C6392E840D140006794A /* CreaClass.swift in Sources */,
 				0F9D9C342EA4617A00450B23 /* kingHanaViewShimaData.swift in Sources */,
+				0FFAEBD22EC99A90006C0371 /* neoplaViewScreen.swift in Sources */,
 				0F64DDA92DC5F5ED0027315D /* unitReelBar.swift in Sources */,
 				0F6FB8EC2DE5F0B800207855 /* mhrTableEnding.swift in Sources */,
 				0FF3691A2E5AF94E002BE0CE /* azurLaneViewNormal.swift in Sources */,
@@ -4890,6 +4916,7 @@
 				0F868AA32D57954200D952D9 /* mrJugVer2View95CiPersonal.swift in Sources */,
 				0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */,
 				0FCF78B42E476C050000748B /* kabaneriTableMumei3Rengeki.swift in Sources */,
+				0FFAEBC42EC96FF4006C0371 /* neoplaViewNormal.swift in Sources */,
 				0F1E11FC2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift in Sources */,
 				0F9A4F772DEC1573003B6337 /* dmc5ViewNormal.swift in Sources */,
 				0F64DD862DC5AE390027315D /* unitButtonCountNumberInput.swift in Sources */,
@@ -4942,6 +4969,7 @@
 				0F64DDD02DC6F3BA0027315D /* midoriDonViewBonusScreen.swift in Sources */,
 				0FA024892CF89F05004B3FD5 /* mhrView95Ci.swift in Sources */,
 				0FDC325B2D16435C005B3D06 /* inuyashaViewVoice.swift in Sources */,
+				0FFAEBCE2EC9884A006C0371 /* neoplaViewFirstHit.swift in Sources */,
 				0FF1561B2D67196C00B17F83 /* tokyoGhoulClass.swift in Sources */,
 				0FF156252D698CE900B17F83 /* tokyoGhoulViewTsukiyama.swift in Sources */,
 				0F868A882D57332D00D952D9 /* sbjViewJacTrump.swift in Sources */,
@@ -5136,11 +5164,13 @@
 				0F868A022D42790E00D952D9 /* goJug3Ver2ViewJissenStartData.swift in Sources */,
 				0FC71FF82E6B26AF000DD53B /* toreveViewBayes.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
+				0FFAEBCC2EC9824C006C0371 /* neoplaTableModeSisa.swift in Sources */,
 				0F6FB8F82DE7341B00207855 /* bangdreamTablePicoAttack.swift in Sources */,
 				0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */,
 				0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */,
 				0FC71FEE2E687013000DD53B /* toreveTablePtTable.swift in Sources */,
 				0F654BB52C6CE41100F37849 /* VVVexViewRoundScreen.swift in Sources */,
+				0FFAEBCA2EC97FDA006C0371 /* neoplaTableStatusSisa.swift in Sources */,
 				0F8955262E7EDBE000539050 /* commonVar.swift in Sources */,
 				0F9A798E2E48CBFE00D996CA /* decodeIntArrayFromString.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
@@ -5270,6 +5300,7 @@
 				0FB209792E1548EF0029D940 /* unitReelGrayMark.swift in Sources */,
 				0F6B59E92E07D09200DB1A2B /* goevaTableEndingVoice.swift in Sources */,
 				0FD3571E2DA0BC4C0069BD1A /* danvineTableExRushStart.swift in Sources */,
+				0FFAEBC82EC9758E006C0371 /* neoplaTableMode.swift in Sources */,
 				0FD357542DA2874A0069BD1A /* magiaView95Ci.swift in Sources */,
 				0F9D9C202EA34D2000450B23 /* happyJugV3Ver2View95CiShima.swift in Sources */,
 				0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */,
@@ -5402,6 +5433,7 @@
 				0FEC57DD2D99680400FF1024 /* rslViewKoyakuStyle.swift in Sources */,
 				0F64DDA52DC5F4340027315D /* unitReelDefault.swift in Sources */,
 				0FC14A9A2E4F054600F85D84 /* enenTableModeMorning.swift in Sources */,
+				0FFAEBD02EC9981A006C0371 /* neoplaViewDuringBonus.swift in Sources */,
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
 				0FC71FF42E69C7C2000DD53B /* toreveTableFirstHit.swift in Sources */,
 				0FC14A722E49A70700F85D84 /* logPostDenoBino.swift in Sources */,

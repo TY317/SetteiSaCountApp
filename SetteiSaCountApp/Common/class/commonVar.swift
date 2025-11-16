@@ -211,6 +211,7 @@ class commonVar: ObservableObject {
                 vvv2MenuRushBadge = "update"
                 vvv2MenuNormalBadge = "update"
                 vvv2MenuFirstHitBadge = "update"
+                neoplaMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

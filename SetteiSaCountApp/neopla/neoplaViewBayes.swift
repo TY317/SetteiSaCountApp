@@ -13,7 +13,7 @@ struct neoplaViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 99.0, 104.2, 107.9, 114.2]
-    
+    @State var firstHitEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,7 +44,15 @@ struct neoplaViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // ボーナス確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "ボーナス確率")
+                // ケロットトロフィー
+                DisclosureGroup("ケロットトロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅トロフィー")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金トロフィー")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄トロフィー")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹トロフィー")
+                }
             }
             
             // //// STEP3
@@ -106,11 +114,23 @@ struct neoplaViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // ボーナス確率
+        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostBonus = logPostDenoMulti(
+                countList: [
+                    neopla.bonusCountBigSum,
+                    neopla.bonusCountReg,
+                ], denoList: [
+                    neopla.ratioBigSum,
+                    neopla.ratioReg,
+                ], bigNumber: neopla.normalGame
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.over3Check {
+        if self.over2Check {
             logPostTrophy[0] = -Double.infinity
         }
         if self.over4Check {
@@ -139,7 +159,7 @@ struct neoplaViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostBonus,
             
             logPostTrophy,
             logPostBefore,
