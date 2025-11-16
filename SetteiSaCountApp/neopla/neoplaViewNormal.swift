@@ -46,7 +46,7 @@ struct neoplaViewNormal: View {
             // 状態
             Section {
                 unitLinkButtonViewBuilder(
-                    sheetTitle: "通常時の状態") {
+                    sheetTitle: "高確状態") {
                         VStack(alignment: .leading) {
                             Text("・レア役や規定ゲーム数消化で移行するボーナスの高確状態")
                             Text("・移行すればボーナス当選まで転落なし")
