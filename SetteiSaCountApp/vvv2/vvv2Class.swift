@@ -97,6 +97,12 @@ class Vvv2: ObservableObject {
         resetScreen()
         resetRush()
     }
+    
+    // ---------------
+    // ver3.13.0で追加
+    // ---------------
+    let ratioKakumeiRatio: [Double] = [55,-1,-1,-1,60]
+    let ratioKessenRatio: [Double] = [45,-1,-1,-1,40]
 }
 
 

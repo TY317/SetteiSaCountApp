@@ -122,8 +122,16 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // //// ネオプラネット
+    @AppStorage("neoplaMachineIconBadge") var neoplaMachineIconBadge: String = "none"
+    
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
+    @AppStorage("vvv2MenuScreenBadge") var vvv2MenuScreenBadge: String = "none"
+    @AppStorage("vvv2MenuAtScreenBadge") var vvv2MenuAtScreenBadge: String = "none"
+    @AppStorage("vvv2MenuRushBadge") var vvv2MenuRushBadge: String = "none"
+    @AppStorage("vvv2MenuNormalBadge") var vvv2MenuNormalBadge: String = "none"
+    @AppStorage("vvv2MenuFirstHitBadge") var vvv2MenuFirstHitBadge: String = "none"
     
     // //// レールガン
     @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
@@ -188,6 +196,31 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3130FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.13.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                railgunMachineIconBadge = "new"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuScreenBadge = "update"
+                vvv2MenuAtScreenBadge = "new"
+                vvv2MenuRushBadge = "update"
+                vvv2MenuNormalBadge = "update"
+                vvv2MenuFirstHitBadge = "update"
+                neoplaMachineIconBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3120FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.12.0"

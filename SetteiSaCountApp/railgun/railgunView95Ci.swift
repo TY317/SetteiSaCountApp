@@ -14,7 +14,59 @@ struct railgunView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // コイン揃いからのCZ当選回数
+            unitListSection95Ci(
+                grafTitle: "コイン揃いからのCZ当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $railgun.coinCountCzHit,
+                        bigNumber: $railgun.coinCount,
+                        setting1Percent: railgun.ratioCoinCzHit[0],
+                        setting2Percent: railgun.ratioCoinCzHit[1],
+                        setting3Percent: railgun.ratioCoinCzHit[2],
+                        setting4Percent: railgun.ratioCoinCzHit[3],
+                        setting5Percent: railgun.ratioCoinCzHit[4],
+                        setting6Percent: railgun.ratioCoinCzHit[5]
+                    )
+                )
+            )
+            .tag(1)
             
+            // CZ回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $railgun.czCount,
+                        bigNumber: $railgun.normalGame,
+                        setting1Denominate: railgun.ratioFirstHitCz[0],
+                        setting2Denominate: railgun.ratioFirstHitCz[1],
+                        setting3Denominate: railgun.ratioFirstHitCz[2],
+                        setting4Denominate: railgun.ratioFirstHitCz[3],
+                        setting5Denominate: railgun.ratioFirstHitCz[4],
+                        setting6Denominate: railgun.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(2)
+            // AT回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $railgun.atCount,
+                        bigNumber: $railgun.normalGame,
+                        setting1Denominate: railgun.ratioFirstHitAt[0],
+                        setting2Denominate: railgun.ratioFirstHitAt[1],
+                        setting3Denominate: railgun.ratioFirstHitAt[2],
+                        setting4Denominate: railgun.ratioFirstHitAt[3],
+                        setting5Denominate: railgun.ratioFirstHitAt[4],
+                        setting6Denominate: railgun.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

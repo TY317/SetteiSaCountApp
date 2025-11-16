@@ -162,7 +162,7 @@ struct toreveTablePtTable: View {
                     colorList: [.gray,.gray,.gray,.gray,.gray,]
                 )
                 unitTablePercent(
-                    columTitle: "チャンス",
+                    columTitle: "特殊",
                     percentList: [15.6,15.6,15.6,15.6,37.5],
                 )
 //                unitTableString(

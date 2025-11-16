@@ -29,7 +29,8 @@ struct vvv2ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.vvv2MenuNormalBadge,
                         )
                     }
                     // 初当り
@@ -40,7 +41,8 @@ struct vvv2ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: common.vvv2MenuFirstHitBadge,
                         )
                     }
                     // 終了画面
@@ -51,7 +53,9 @@ struct vvv2ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "CZ・ボーナス終了画面")
+                            textBody: "CZ・ボーナス終了画面",
+                            badgeStatus: common.vvv2MenuScreenBadge,
+                        )
                     }
                     // 革命ラッシュ
                     NavigationLink(destination: vvv2ViewRush(
@@ -61,7 +65,18 @@ struct vvv2ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "v.circle.fill",
-                            textBody: "(超)革命ラッシュ"
+                            textBody: "(超)革命ラッシュ",
+                            badgeStatus: common.vvv2MenuRushBadge,
+                        )
+                    }
+                    // ラッシュ終了画面
+                    NavigationLink(destination: vvv2ViewAtScreen(
+                        vvv2: vvv2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ラッシュ終了画面",
+                            badgeStatus: common.vvv2MenuAtScreenBadge,
                         )
                     }
                 } header: {

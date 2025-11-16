@@ -72,31 +72,32 @@ struct vvv2ViewRush: View {
                     HStack(spacing: 20) {
                         // パターン1
                         unitScreenOnlyDisplay(
-                            image: Image("roundScreen1"),
+                            image: Image("vvv2roundScreen1"),
                             upperBeltText: "マリエ",
-                            lowerBeltText: "？？？",
+                            lowerBeltText: "高設定示唆 弱",
                         )
                         // パターン2
                         unitScreenOnlyDisplay(
-                            image: Image("roundScreen2"),
+                            image: Image("vvv2roundScreen2"),
                             upperBeltText: "ルーン漏れ1号機",
-                            lowerBeltText: "？？？",
+                            lowerBeltText: "高設定示唆 強",
                         )
                         // パターン3
                         unitScreenOnlyDisplay(
-                            image: Image("roundScreen3"),
+                            image: Image("vvv2roundScreen3"),
                             upperBeltText: "200年後のサキ",
-                            lowerBeltText: "？？？",
+                            lowerBeltText: "設定4 以上濃厚",
                         )
                         // パターン4
                         unitScreenOnlyDisplay(
-                            image: Image("roundScreen4"),
+                            image: Image("vvv2roundScreen4"),
                             upperBeltText: "リーゼロッテ",
-                            lowerBeltText: "？？？",
+                            lowerBeltText: "設定6 濃厚",
                         )
                     }
                 }
                 .frame(height: 120)
+                .popoverTip(tipVer3130vvv2RushScreen())
             } header: {
                 Text("ラウンド開始画面での示唆")
             }
@@ -105,13 +106,15 @@ struct vvv2ViewRush: View {
             Section {
                 unitLinkButtonViewBuilder(sheetTitle: "夢夢ちゃん演出での示唆") {
                     VStack(alignment: .leading) {
-                        Text("・ハラキリチャレンジ中に夢夢ちゃんピース、夢夢ちゃんミニキャラ群が発生すればドライブ＋高設定のチャンス！？")
+                        Text("・ハラキリチャレンジ中に夢夢ちゃんピース、夢夢ちゃんミニキャラ群が発生すればドライブ＋設定4以上濃厚")
                     }
                 }
             } header: {
                 Text("ハラキリチャレンジ中の夢夢ちゃん")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.vvv2MenuRushBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

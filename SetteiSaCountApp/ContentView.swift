@@ -69,6 +69,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteZeni5") var isSelectedFavoriteZeni5 = true
     @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
     @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
+    @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
 }
 
 
@@ -92,7 +93,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3120UpdateInfo())
+                TipView(tipVer3130UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -132,6 +133,36 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ネオプラ、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNeopla == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(neoplaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("neoplaMachineIcon"),
+                                        machineName: "ネオプラ",
+                                        badgeStatus: common.neoplaMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン2、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "超電磁砲2",
+                                        badgeStatus: common.railgunMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// VVV2、25年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
                                     
@@ -146,21 +177,6 @@ struct ContentView: View {
                                         badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
-                                
-                                // //// レールガン2、25年11月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLink(
-//                                        linkView: AnyView(railgunViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("railgunMachineIcon"),
-//                                        machineName: "超電磁砲2",
-//                                        badgeStatus: common.railgunMachineIconBadge,
-//                                    )
-//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -838,6 +854,42 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// レールガン、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNeopla == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(neoplaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("neoplaMachineIcon"),
+                                        machineName: "ネオプラネット",
+                                        makerName: "山佐",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.neoplaMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// レールガン、25年11月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(railgunViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("railgunMachineIcon"),
+                                        machineName: "とある科学の超電磁砲2",
+                                        makerName: "藤商事",
+                                        releaseYear: 2025,
+                                        releaseMonth: 11,
+                                        badgeStatus: common.railgunMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// VVV2、25年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteVvv2 == false {
                                     
@@ -855,24 +907,6 @@ struct ContentView: View {
                                         badgeStatus: common.vvv2MachineIconBadge,
                                     )
                                 }
-                                
-                                // //// レールガン、25年11月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRailgun == false {
-//                                    
-//                                } else {
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(railgunViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("railgunMachineIcon"),
-//                                        machineName: "とある科学の超電磁砲2",
-//                                        makerName: "藤商事",
-//                                        releaseYear: 2025,
-//                                        releaseMonth: 11,
-//                                        badgeStatus: common.railgunMachineIconBadge,
-//                                    )
-//                                }
                                 
                                 // //// 新鬼武者３、25年10月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNewOni3 == false {
@@ -1854,13 +1888,13 @@ struct ContentView: View {
                 isKeyboardVisible = false
             }
             // トラッキング許可のポップアップを出す
-            if common.trackingRequested == false {
+//            if common.trackingRequested == false {
                 ATTrackingManager.requestTrackingAuthorization() {_ in
 //                    GADMobileAds.sharedInstance().start(completionHandler: nil)
                     MobileAds.shared.start(completionHandler: nil)
                 }
                 common.trackingRequested = true
-            }
+//            }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -1905,10 +1939,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ネオプラネット
+                Toggle("ネオプラネット", isOn: $favoriteSet.isSelectedFavoriteNeopla)
+                // レールガン2
+                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // vvv2
                 Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
-                // レールガン2
-//                Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５
@@ -2063,8 +2099,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()
