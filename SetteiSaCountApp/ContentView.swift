@@ -89,6 +89,12 @@ struct ContentView: View {
     @State var lazyVGridColumns: Int = 4
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+
+    @AppStorage("appearanceMode") private var appearanceModeRaw: Int = AppearanceMode.system.rawValue
+    private var appearanceMode: AppearanceMode {
+        get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }
+        set { appearanceModeRaw = newValue.rawValue }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -1800,59 +1806,65 @@ struct ContentView: View {
                 // //// ツールバーボタン
                 .toolbar {
                     ToolbarItem(placement: .automatic) {
-                        HStack {
-                            // 表示モード切り替えボタン
+                        // 外観切り替えボタン（システム/ライト/ダーク）
+                        Menu {
                             Button {
-                                common.iconDisplayMode.toggle()
+                                self.appearanceModeRaw = 0
                             } label: {
-                                if common.iconDisplayMode {
-                                    Image(systemName: "list.bullet")
-                                }
-                                else {
-                                    Image(systemName: "rectangle.grid.2x2")
-//                                        .popoverTip(tipUnitButtonIconDisplayMode())
-                                }
+                                Label("システムに合わせる", systemImage: "gearshape")
                             }
-//                            .popoverTip(tipUnitButtonIconDisplayMode())
-                            
-//                            // お気に入り設定ボタン
-//                            Button(action: {
-//                                isShowFavoriteSettingView.toggle()
-//                            }, label: {
-//                                Image(systemName: "gearshape.fill")
-//                            })
-//                            .sheet(isPresented: $isShowFavoriteSettingView, content: {
-//                                favoriteSettingView()
-//                            })
+                            Button {
+                                self.appearanceModeRaw = 1
+                            } label: {
+                                Label("ライト", systemImage: "sun.max")
+                            }
+                            Button {
+                                self.appearanceModeRaw = 2
+                            } label: {
+                                Label("ダーク", systemImage: "moon.fill")
+                            }
+                        } label: {
+                            Image(systemName: "circle.lefthalf.filled")
+                                .popoverTip(tipVer3131Toolbar())
                         }
                     }
-//                    ToolbarSpacer()
                     ToolbarItem(placement: .automatic) {
-                        HStack {
-                            // 表示モード切り替えボタン
-//                            Button {
-//                                common.iconDisplayMode.toggle()
-//                            } label: {
-//                                if common.iconDisplayMode {
-//                                    Image(systemName: "list.bullet")
-//                                }
-//                                else {
-//                                    Image(systemName: "rectangle.grid.2x2")
-////                                        .popoverTip(tipUnitButtonIconDisplayMode())
-//                                }
-//                            }
-////                            .popoverTip(tipUnitButtonIconDisplayMode())
-                            
-                            // お気に入り設定ボタン
-                            Button(action: {
-                                isShowFavoriteSettingView.toggle()
-                            }, label: {
-                                Image(systemName: "gearshape.fill")
-                            })
-                            .sheet(isPresented: $isShowFavoriteSettingView, content: {
-                                favoriteSettingView()
-                            })
+                        // 表示モード切り替えボタン
+                        Menu {
+                            Button {
+                                common.iconDisplayMode = true
+                            } label: {
+                                Label("アイコン表示モード", systemImage: "rectangle.grid.2x2")
+                            }
+                            Button {
+                                common.iconDisplayMode = false
+                            } label: {
+                                Label("リスト表示モード", systemImage: "list.bullet")
+                            }
+                        } label: {
+                            Image(systemName: "square.stack.3d.down.right")
                         }
+//                        Button {
+//                            common.iconDisplayMode.toggle()
+//                        } label: {
+//                            if common.iconDisplayMode {
+//                                Image(systemName: "list.bullet")
+//                            }
+//                            else {
+//                                Image(systemName: "rectangle.grid.2x2")
+//                            }
+//                        }
+                    }
+                    ToolbarItem(placement: .automatic) {
+                        // お気に入り設定ボタン
+                        Button(action: {
+                            isShowFavoriteSettingView.toggle()
+                        }, label: {
+                            Image(systemName: "gearshape.fill")
+                        })
+                        .sheet(isPresented: $isShowFavoriteSettingView, content: {
+                            favoriteSettingView()
+                        })
                     }
                 }
             }
@@ -2168,3 +2180,4 @@ struct PDFKitView: UIViewRepresentable {
     )
     .environmentObject(commonVar())
 }
+

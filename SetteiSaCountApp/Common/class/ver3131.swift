@@ -69,3 +69,19 @@ struct tipVer3131creaNormal: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：ツールバー
+// //////////////////
+struct tipVer3131Toolbar: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・ダークモードへの切り替え機能を追加しました\n・表示モードの切替えUIを微修正しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
