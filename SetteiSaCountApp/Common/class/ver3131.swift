@@ -53,3 +53,19 @@ struct tipVer3131neoplaScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：クレア　小役、重複
+// //////////////////
+struct tipVer3131creaNormal: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("小役確率、重複当選確率が判明！\nカウント機能と解析情報更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

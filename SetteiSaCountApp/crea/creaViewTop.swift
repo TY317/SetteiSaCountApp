@@ -40,7 +40,8 @@ struct creaViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.creaMenuNormalBadge,
                         )
                     }
                     // 初当り

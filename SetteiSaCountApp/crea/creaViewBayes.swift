@@ -16,6 +16,8 @@ struct creaViewBayes: View {
     @State var bonusEnable: Bool = true
     @State var regCardEnable: Bool = true
     @State var btHazureEnable: Bool = true
+    @State var koyakuEnable: Bool = true
+    @State var chofukuEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -46,6 +48,20 @@ struct creaViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 小役確率
+                unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役確率") {
+                    unitExView5body2image(
+                        title: "小役確率",
+                        textBody1: "🔔、チャンス目、🍒、🍉、滑り🍉、ピラミッドの出現確率を計算要素に加えます",
+                    )
+                }
+                // 重複確率
+                unitToggleWithQuestion(enable: self.$chofukuEnable, title: "重複当選確率") {
+                    unitExView5body2image(
+                        title: "重複当選確率",
+                        textBody1: "チャンス目、🍒、🍉、滑り🍉での重複当選確率を計算要素に加えます",
+                    )
+                }
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$bonusEnable, title: "ボーナス確率") {
                     unitExView5body2image(
@@ -129,6 +145,54 @@ struct creaViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 小役確率
+        var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koyakuEnable {
+            logPostKoyaku = logPostDenoMulti(
+                countList: [
+                    crea.koyakuCountBell,
+                    crea.koyakuCountChance,
+                    crea.koyakuCountCherry,
+                    crea.koyakuCountSuika,
+                    crea.koyakuCountSuberiSuika,
+                    crea.koyakuCountPylamid,
+                ], denoList: [
+                    crea.ratioKoyakuBell,
+                    crea.ratioKoyakuChance,
+                    crea.ratioKoyakuCherry,
+                    crea.ratioKoyakuSuika,
+                    crea.ratioKoyakuSuberiSuika,
+                    crea.ratioKoyakuPylamid,
+                ], bigNumber: crea.gameNumberPlay
+            )
+        }
+        // 重複当選確率
+        var logPostChofukuChance: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostChofukuCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostChofukuSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostChofukuSuberiSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chofukuEnable {
+            logPostChofukuChance = logPostPercentBino(
+                ratio: crea.ratioChofukuChance,
+                Count: crea.chofukuCountChance,
+                bigNumber: crea.koyakuCountChance
+            )
+            logPostChofukuCherry = logPostPercentBino(
+                ratio: crea.ratioChofukuCherry,
+                Count: crea.chofukuCountCherry,
+                bigNumber: crea.koyakuCountCherry
+            )
+            logPostChofukuSuika = logPostPercentBino(
+                ratio: crea.ratioChofukuSuika,
+                Count: crea.chofukuCountSuika,
+                bigNumber: crea.koyakuCountSuika
+            )
+            logPostChofukuSuberiSuika = logPostPercentBino(
+                ratio: crea.ratioChofukuSuberiSuika,
+                Count: crea.chofukuCountSuberiSuika,
+                bigNumber: crea.koyakuCountSuberiSuika
+            )
+        }
         // ボーナス確率
         var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.bonusEnable {
@@ -204,6 +268,11 @@ struct creaViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostKoyaku,
+            logPostChofukuChance,
+            logPostChofukuCherry,
+            logPostChofukuSuika,
+            logPostChofukuSuberiSuika,
             logPostBonus,
             logPostRegCard,
             logPostBtHazure,

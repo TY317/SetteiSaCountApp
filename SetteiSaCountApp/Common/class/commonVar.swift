@@ -148,6 +148,7 @@ class commonVar: ObservableObject {
     // //// クレアの秘宝伝
     @AppStorage("creaMachineIconBadge") var creaMachineIconBadge: String = "none"
     @AppStorage("creaMenuBtBadge") var creaMenuBtBadge: String = "none"
+    @AppStorage("creaMenuNormalBadge") var creaMenuNormalBadge: String = "none"
     
     // //// 東京リベンジャーズ
     @AppStorage("toreveMachineIconBadge") var toreveMachineIconBadge: String = "none"
@@ -209,6 +210,8 @@ class commonVar: ObservableObject {
                 neoplaMachineIconBadge = "update"
                 neoplaMenuNormalBadge = "update"
                 neoplaMenuScreenBadge = "update"
+                creaMachineIconBadge = "update"
+                creaMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

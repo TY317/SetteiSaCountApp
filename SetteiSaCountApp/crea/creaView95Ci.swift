@@ -31,6 +31,23 @@ struct creaView95Ci: View {
                 )
             )
             .tag(1)
+            // チャンス目回数
+            unitListSection95Ci(
+                grafTitle: "チャンス目回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $crea.koyakuCountChance,
+                        bigNumber: $crea.gameNumberPlay,
+                        setting1Denominate: crea.ratioKoyakuChance[0],
+                        setting2Denominate: crea.ratioKoyakuChance[1],
+                        setting3Denominate: crea.ratioKoyakuChance[2],
+                        setting4Denominate: crea.ratioKoyakuChance[3],
+                        setting5Denominate: crea.ratioKoyakuChance[4],
+                        setting6Denominate: crea.ratioKoyakuChance[5]
+                    )
+                )
+            )
+            .tag(4)
             // チェリー回数
             unitListSection95Ci(
                 grafTitle: "🍒回数",
@@ -65,23 +82,76 @@ struct creaView95Ci: View {
                 )
             )
             .tag(3)
-            // チャンス目回数
+            // 滑りスイカ回数
             unitListSection95Ci(
-                grafTitle: "チャンス目回数",
+                grafTitle: "滑り🍉回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $crea.koyakuCountChance,
+                        currentCount: $crea.koyakuCountSuberiSuika,
                         bigNumber: $crea.gameNumberPlay,
-                        setting1Denominate: crea.ratioKoyakuChance[0],
-                        setting2Denominate: crea.ratioKoyakuChance[1],
-                        setting3Denominate: crea.ratioKoyakuChance[2],
-                        setting4Denominate: crea.ratioKoyakuChance[3],
-                        setting5Denominate: crea.ratioKoyakuChance[4],
-                        setting6Denominate: crea.ratioKoyakuChance[5]
+                        setting1Denominate: crea.ratioKoyakuSuberiSuika[0],
+                        setting2Denominate: crea.ratioKoyakuSuberiSuika[1],
+                        setting3Denominate: crea.ratioKoyakuSuberiSuika[2],
+                        setting4Denominate: crea.ratioKoyakuSuberiSuika[3],
+                        setting5Denominate: crea.ratioKoyakuSuberiSuika[4],
+                        setting6Denominate: crea.ratioKoyakuSuberiSuika[5]
                     )
                 )
             )
-            .tag(4)
+            .tag(7)
+            // ピラミッド回数
+            unitListSection95Ci(
+                grafTitle: "ピラミッド回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $crea.koyakuCountPylamid,
+                        bigNumber: $crea.gameNumberPlay,
+                        setting1Denominate: crea.ratioKoyakuPylamid[0],
+                        setting2Denominate: crea.ratioKoyakuPylamid[1],
+                        setting3Denominate: crea.ratioKoyakuPylamid[2],
+                        setting4Denominate: crea.ratioKoyakuPylamid[3],
+                        setting5Denominate: crea.ratioKoyakuPylamid[4],
+                        setting6Denominate: crea.ratioKoyakuPylamid[5]
+                    )
+                )
+            )
+            .tag(8)
+            // チャンス目重複回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス重複回数\nチャンス目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $crea.chofukuCountChance,
+                        bigNumber: $crea.koyakuCountChance,
+                        setting1Percent: crea.ratioChofukuChance[0],
+                        setting2Percent: crea.ratioChofukuChance[1],
+                        setting3Percent: crea.ratioChofukuChance[2],
+                        setting4Percent: crea.ratioChofukuChance[3],
+                        setting5Percent: crea.ratioChofukuChance[4],
+                        setting6Percent: crea.ratioChofukuChance[5]
+                    )
+                )
+            )
+            .tag(9)
+            // チェリー重複回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス重複回数\n🍒",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $crea.chofukuCountCherry,
+                        bigNumber: $crea.koyakuCountCherry,
+                        setting1Percent: crea.ratioChofukuCherry[0],
+                        setting2Percent: crea.ratioChofukuCherry[1],
+                        setting3Percent: crea.ratioChofukuCherry[2],
+                        setting4Percent: crea.ratioChofukuCherry[3],
+                        setting5Percent: crea.ratioChofukuCherry[4],
+                        setting6Percent: crea.ratioChofukuCherry[5]
+                    )
+                )
+            )
+            .tag(10)
             // BIG回数
             unitListSection95Ci(
                 grafTitle: "BIG回数",
