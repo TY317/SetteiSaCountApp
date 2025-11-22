@@ -202,6 +202,14 @@ class CreaMemory1: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory1") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory1") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory1") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory1") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory1") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory1") var chofukuCountPylamid: Int = 0
 }
 
 // メモリー2
@@ -239,6 +247,14 @@ class CreaMemory2: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory2") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory2") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory2") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory2") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory2") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory2") var chofukuCountPylamid: Int = 0
 }
 
 // メモリー3
@@ -276,4 +292,12 @@ class CreaMemory3: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory3") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory3") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory3") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory3") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory3") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory3") var chofukuCountPylamid: Int = 0
 }

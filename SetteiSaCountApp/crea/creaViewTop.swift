@@ -243,6 +243,14 @@ struct creaSubViewSaveMemory: View {
         // //////////////
         creaMemory1.btGame = crea.btGame
         creaMemory1.btHazure = crea.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        creaMemory1.koyakuCountSuberiSuika = crea.koyakuCountSuberiSuika
+        creaMemory1.koyakuCountPylamid = crea.koyakuCountPylamid
+        creaMemory1.chofukuCountSuberiSuika = crea.chofukuCountSuberiSuika
+        creaMemory1.chofukuCountPylamid = crea.chofukuCountPylamid
     }
     func saveMemory2() {
         creaMemory2.koyakuCountBell = crea.koyakuCountBell
@@ -276,6 +284,14 @@ struct creaSubViewSaveMemory: View {
         // //////////////
         creaMemory2.btGame = crea.btGame
         creaMemory2.btHazure = crea.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        creaMemory2.koyakuCountSuberiSuika = crea.koyakuCountSuberiSuika
+        creaMemory2.koyakuCountPylamid = crea.koyakuCountPylamid
+        creaMemory2.chofukuCountSuberiSuika = crea.chofukuCountSuberiSuika
+        creaMemory2.chofukuCountPylamid = crea.chofukuCountPylamid
     }
     func saveMemory3() {
         creaMemory3.koyakuCountBell = crea.koyakuCountBell
@@ -309,6 +325,14 @@ struct creaSubViewSaveMemory: View {
         // //////////////
         creaMemory3.btGame = crea.btGame
         creaMemory3.btHazure = crea.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        creaMemory3.koyakuCountSuberiSuika = crea.koyakuCountSuberiSuika
+        creaMemory3.koyakuCountPylamid = crea.koyakuCountPylamid
+        creaMemory3.chofukuCountSuberiSuika = crea.chofukuCountSuberiSuika
+        creaMemory3.chofukuCountPylamid = crea.chofukuCountPylamid
     }
 }
 
@@ -371,6 +395,14 @@ struct creaSubViewLoadMemory: View {
         // //////////////
         crea.btGame = creaMemory1.btGame
         crea.btHazure = creaMemory1.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        crea.koyakuCountSuberiSuika = creaMemory1.koyakuCountSuberiSuika
+        crea.koyakuCountPylamid = creaMemory1.koyakuCountPylamid
+        crea.chofukuCountSuberiSuika = creaMemory1.chofukuCountSuberiSuika
+        crea.chofukuCountPylamid = creaMemory1.chofukuCountPylamid
     }
     func loadMemory2() {
         crea.koyakuCountBell = creaMemory2.koyakuCountBell
@@ -404,6 +436,14 @@ struct creaSubViewLoadMemory: View {
         // //////////////
         crea.btGame = creaMemory2.btGame
         crea.btHazure = creaMemory2.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        crea.koyakuCountSuberiSuika = creaMemory2.koyakuCountSuberiSuika
+        crea.koyakuCountPylamid = creaMemory2.koyakuCountPylamid
+        crea.chofukuCountSuberiSuika = creaMemory2.chofukuCountSuberiSuika
+        crea.chofukuCountPylamid = creaMemory2.chofukuCountPylamid
     }
     func loadMemory3() {
         crea.koyakuCountBell = creaMemory3.koyakuCountBell
@@ -437,6 +477,14 @@ struct creaSubViewLoadMemory: View {
         // //////////////
         crea.btGame = creaMemory3.btGame
         crea.btHazure = creaMemory3.btHazure
+        
+        // ----------
+        // ver3.13.1で追加
+        // ----------
+        crea.koyakuCountSuberiSuika = creaMemory3.koyakuCountSuberiSuika
+        crea.koyakuCountPylamid = creaMemory3.koyakuCountPylamid
+        crea.chofukuCountSuberiSuika = creaMemory3.chofukuCountSuberiSuika
+        crea.chofukuCountPylamid = creaMemory3.chofukuCountPylamid
     }
 }
 
