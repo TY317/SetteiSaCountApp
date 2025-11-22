@@ -49,6 +49,7 @@ struct neoplaViewScreen: View {
 //                        contentFont: .footnote,
                     )
                 }
+                .popoverTip(tipVer3131neoplaScreen())
                 .frame(maxWidth: .infinity, alignment: .center)
 //                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
 //                    neoplaTableModeSisa()
@@ -57,6 +58,8 @@ struct neoplaViewScreen: View {
                 Text("終了画面")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.neoplaMenuScreenBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

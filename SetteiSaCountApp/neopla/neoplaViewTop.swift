@@ -30,6 +30,7 @@ struct neoplaViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
+                            badgeStatus: common.neoplaMenuNormalBadge,
                         )
                     }
                     
@@ -65,7 +66,9 @@ struct neoplaViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面")
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.neoplaMenuScreenBadge,
+                        )
                     }
                     
                     // ケロッとトロフィー

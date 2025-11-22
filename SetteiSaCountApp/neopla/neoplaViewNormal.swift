@@ -39,6 +39,7 @@ struct neoplaViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
                     neoplaTableModeSisa()
                 }
+                .popoverTip(tipVer3131neoplaNormal())
             } header: {
                 Text("モード")
             }
@@ -61,7 +62,7 @@ struct neoplaViewNormal: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($common.neoplaMenuNormalBadge)
+        .resetBadgeOnAppear($common.neoplaMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
