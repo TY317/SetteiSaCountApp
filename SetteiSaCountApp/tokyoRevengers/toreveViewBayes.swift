@@ -19,6 +19,7 @@ struct toreveViewBayes: View {
     @State var revengeEnable: Bool = true
     @State var atRiseEnable: Bool = true
     @State var bellEnable: Bool = true
+    @State var furiwakeEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -59,6 +60,13 @@ struct toreveViewBayes: View {
                     unitExView5body2image(
                         title: "初当り確率",
                         textBody1: "・東卍チャンス、東卍ラッシュ、ミッドナイトモード、稀咲陰謀の初当り確率を計算要素に加えます",
+                    )
+                }
+                // モードごとの振分け確率
+                unitToggleWithQuestion(enable: self.$furiwakeEnable, title: "モードごとの初当り種類振分け") {
+                    unitExView5body2image(
+                        title: "モードごとの初当り種類振分け",
+                        textBody1: "・モードA,チャンス・天国での東卍ラッシュ・東卍チャンスの振分け確率を計算要素に加えます"
                     )
                 }
                 // 東卍チャンス　昇格
@@ -273,6 +281,23 @@ struct toreveViewBayes: View {
                 bigNumber: toreve.gameNumberPlay
             )
         }
+        // 初当り種類振分け
+        var logPostFuriwakeModeA: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.furiwakeEnable {
+            logPostFuriwakeModeA = logPostPercentBino(
+                ratio: toreve.ratioModeARush,
+                Count: toreve.furiwakeCountModeARush,
+                bigNumber: toreve.furiwakeCountModeASum
+            )
+        }
+        var logPostFuriwakeHeaven: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.furiwakeEnable {
+            logPostFuriwakeHeaven = logPostPercentBino(
+                ratio: toreve.ratioHeavenRush,
+                Count: toreve.furiwakeCountHeavenRush,
+                bigNumber: toreve.furiwakeCountHeavenSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -321,6 +346,8 @@ struct toreveViewBayes: View {
             logPostRevengeChance3,
             logPostAtRise,
             logPostCommonBell,
+            logPostFuriwakeModeA,
+            logPostFuriwakeHeaven,
             
             logPostTrophy,
             logPostBefore,

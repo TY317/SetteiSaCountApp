@@ -118,7 +118,7 @@ struct creaView95Ci: View {
             .tag(8)
             // チャンス目重複回数
             unitListSection95Ci(
-                grafTitle: "ボーナス重複回数\nチャンス目",
+                grafTitle: "重複当選回数\nチャンス目",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -136,7 +136,7 @@ struct creaView95Ci: View {
             .tag(9)
             // チェリー重複回数
             unitListSection95Ci(
-                grafTitle: "ボーナス重複回数\n🍒",
+                grafTitle: "重複当選回数\n🍒",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(

@@ -66,9 +66,9 @@ struct creaViewNormal: View {
 //                    .font(.caption)
                 // //// 注意書き
                 VStack(alignment: .leading) {
-                    Text("チャンス目：ピラミッドチャレンジに変換されるものは含まない")
+                    Text("チャンス目：ﾋﾟﾗﾐｯﾄﾞﾁｬﾚﾝｼﾞに変換されるものは含まない")
                     Text("滑り🍉：左リール上段にピラミッドが停止する🍉")
-                    Text("ピラミッド：ピラミッドチャレンジ中を除く")
+                    Text("ピラミッド：ﾋﾟﾗﾐｯﾄﾞﾁｬﾚﾝｼﾞ中を除く")
                 }
                 .foregroundStyle(Color.secondary)
                 .font(.caption)

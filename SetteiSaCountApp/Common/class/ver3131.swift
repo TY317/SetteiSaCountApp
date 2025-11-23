@@ -85,3 +85,19 @@ struct tipVer3131Toolbar: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：ツールバー
+// //////////////////
+struct tipVer3131ToreveFirsthit: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・モードごとの初当り種類振分けが判明！\nカウント機能追加＆情報更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

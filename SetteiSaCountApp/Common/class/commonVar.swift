@@ -212,6 +212,9 @@ class commonVar: ObservableObject {
                 neoplaMenuScreenBadge = "update"
                 creaMachineIconBadge = "update"
                 creaMenuNormalBadge = "update"
+                toreveMachineIconBadge = "update"
+                toreveMenuFirstHitBadge = "update"
+                toreveMenuBayesBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

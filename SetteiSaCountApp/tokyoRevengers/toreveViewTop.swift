@@ -313,6 +313,16 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory1.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory1.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory1.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory1.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory1.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory1.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory1.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory1.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory1.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -379,6 +389,16 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory2.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory2.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory2.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory2.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory2.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory2.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory2.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory2.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory2.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -445,6 +465,16 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory3.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory3.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory3.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory3.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory3.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory3.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory3.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory3.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory3.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
     }
 }
 

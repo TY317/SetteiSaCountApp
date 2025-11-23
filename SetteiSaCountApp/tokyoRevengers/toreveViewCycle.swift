@@ -224,11 +224,15 @@ struct toreveViewCycle: View {
                                 unitTableSettingIndex()
                                 unitTablePercent(
                                     columTitle: "東卍チャンス",
-                                    percentList: toreve.ratioModeBChance
+                                    percentList: [toreve.ratioModeBChance[0]],
+                                    lineList: [6],
+                                    colorList: [.white],
                                 )
                                 unitTablePercent(
                                     columTitle: "東卍ラッシュ",
-                                    percentList: toreve.ratioModeBRush
+                                    percentList: [toreve.ratioModeBRush[0]],
+                                    lineList: [6],
+                                    colorList: [.white],
                                 )
                             }
                         } else if self.selectedSegment == self.segmentList[2] {
