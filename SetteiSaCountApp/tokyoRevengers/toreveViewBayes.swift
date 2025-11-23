@@ -69,6 +69,7 @@ struct toreveViewBayes: View {
                         textBody1: "・モードA,チャンス・天国での東卍ラッシュ・東卍チャンスの振分け確率を計算要素に加えます"
                     )
                 }
+                .popoverTip(tipVer3131ToreveBayes())
                 // 東卍チャンス　昇格
                 unitToggleWithQuestion(enable: self.$atRiseEnable, title: "東卍チャンス中のAT昇格率") {
                     unitExView5body2image(

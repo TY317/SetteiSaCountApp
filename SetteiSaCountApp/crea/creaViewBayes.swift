@@ -22,6 +22,7 @@ struct creaViewBayes: View {
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @EnvironmentObject var common: commonVar
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
@@ -55,6 +56,7 @@ struct creaViewBayes: View {
                         textBody1: "🔔、チャンス目、🍒、🍉、滑り🍉、ピラミッドの出現確率を計算要素に加えます",
                     )
                 }
+                .popoverTip(tipVer3131creaBayes())
                 // 重複確率
                 unitToggleWithQuestion(enable: self.$chofukuEnable, title: "重複当選確率") {
                     unitExView5body2image(
@@ -93,6 +95,8 @@ struct creaViewBayes: View {
                 self.resultGuess = bayesRatio()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.creaMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -309,4 +313,5 @@ struct creaViewBayes: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

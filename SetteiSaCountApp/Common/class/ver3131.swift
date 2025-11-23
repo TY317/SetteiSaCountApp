@@ -70,6 +70,21 @@ struct tipVer3131creaNormal: Tip {
     }
 }
 
+// //////////////////
+// Tip：クレア　小役、重複
+// //////////////////
+struct tipVer3131creaBayes: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("小役確率、重複当選確率が判明！\n計算要素に加えました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
 
 // //////////////////
 // Tip：ツールバー
@@ -95,7 +110,22 @@ struct tipVer3131ToreveFirsthit: Tip {
         Text("機能更新")
     }
     var message: Text? {
-        Text("・モードごとの初当り種類振分けが判明！\nカウント機能追加＆情報更新しました")
+        Text("モードごとの初当り種類振分けが判明！\nカウント機能追加＆情報更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+// //////////////////
+// Tip：ツールバー
+// //////////////////
+struct tipVer3131ToreveBayes: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("モードごとの初当り種類振分けが判明！\n計算要素に加えました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
