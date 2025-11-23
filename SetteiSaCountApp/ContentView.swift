@@ -1811,17 +1811,18 @@ struct ContentView: View {
                             Button {
                                 self.appearanceModeRaw = 0
                             } label: {
-                                Label("システムに合わせる", systemImage: "gearshape")
+//                                Label("システムに合わせる", systemImage: "gearshape")
+                                Label("システムに合わせる", systemImage: self.appearanceModeRaw == 0 ? "checkmark" : "gearshape")
                             }
                             Button {
                                 self.appearanceModeRaw = 1
                             } label: {
-                                Label("ライト", systemImage: "sun.max")
+                                Label("ライト", systemImage: self.appearanceModeRaw == 1 ? "checkmark" : "sun.max")
                             }
                             Button {
                                 self.appearanceModeRaw = 2
                             } label: {
-                                Label("ダーク", systemImage: "moon.fill")
+                                Label("ダーク", systemImage: self.appearanceModeRaw == 2 ? "checkmark" : "moon.fill")
                             }
                         } label: {
                             Image(systemName: "circle.lefthalf.filled")
@@ -1834,12 +1835,12 @@ struct ContentView: View {
                             Button {
                                 common.iconDisplayMode = true
                             } label: {
-                                Label("アイコン表示モード", systemImage: "rectangle.grid.2x2")
+                                Label("アイコン表示モード", systemImage: common.iconDisplayMode == true ? "checkmark" : "rectangle.grid.2x2")
                             }
                             Button {
                                 common.iconDisplayMode = false
                             } label: {
-                                Label("リスト表示モード", systemImage: "list.bullet")
+                                Label("リスト表示モード", systemImage: common.iconDisplayMode == false ? "checkmark" : "list.bullet")
                             }
                         } label: {
                             Image(systemName: "square.stack.3d.down.right")
