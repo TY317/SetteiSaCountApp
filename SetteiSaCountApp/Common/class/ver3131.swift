@@ -103,7 +103,7 @@ struct tipVer3131Toolbar: Tip {
 
 
 // //////////////////
-// Tip：ツールバー
+// Tip：東リべ　初当り
 // //////////////////
 struct tipVer3131ToreveFirsthit: Tip {
     var title: Text {
@@ -118,7 +118,7 @@ struct tipVer3131ToreveFirsthit: Tip {
 }
 
 // //////////////////
-// Tip：ツールバー
+// Tip：東リべ　ベイズ
 // //////////////////
 struct tipVer3131ToreveBayes: Tip {
     var title: Text {
@@ -126,6 +126,37 @@ struct tipVer3131ToreveBayes: Tip {
     }
     var message: Text? {
         Text("モードごとの初当り種類振分けが判明！\n計算要素に加えました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：東リべ　周期
+// //////////////////
+struct tipVer3131ToreveCycle: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("周期×モード×設定ごとの当選率詳細が判明!\n参考として比較的設定差の大きい2,3周期目の当選率を履歴から自動算出機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+// //////////////////
+// Tip：vvv2 モード
+// //////////////////
+struct tipVer3131vvv2Mode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("ポイント、周期の振分けやモード移行率の詳細が判明しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

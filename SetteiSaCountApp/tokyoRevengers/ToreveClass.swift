@@ -43,6 +43,7 @@ class Toreve: ObservableObject {
         arrayIntAddData(arrayData: self.ptArrayData, addData: self.selectedPt, key: self.ptArrayKey)
         arrayStringAddData(arrayData: self.triggerArrayData, addData: self.selectedTrigger, key: self.triggerArrayKey)
         arrayStringAddData(arrayData: self.resultArrayData, addData: self.selectedResult, key: self.resultArrayKey)
+        addRemoveCommon()
     }
     
     // 1行削除
@@ -51,6 +52,7 @@ class Toreve: ObservableObject {
         arrayIntRemoveLast(arrayData: self.ptArrayData, key: self.ptArrayKey)
         arrayStringRemoveLast(arrayData: self.triggerArrayData, key: self.triggerArrayKey)
         arrayStringRemoveLast(arrayData: self.resultArrayData, key: self.resultArrayKey)
+        addRemoveCommon()
     }
     
     func resetHistory() {
@@ -59,12 +61,40 @@ class Toreve: ObservableObject {
         arrayStringRemoveAll(arrayData: self.triggerArrayData, key: self.triggerArrayKey)
         arrayStringRemoveAll(arrayData: self.resultArrayData, key: self.resultArrayKey)
         minusCheck = false
+        cycleCount2 = 0
+        cycleCount2Hit = 0
+        cycleCount3 = 0
+        cycleCount3Hit = 0
     }
     
     // 共通
-//    func addRemoveCommon() {
-//        
-//    }
+    func addRemoveCommon() {
+        let overCycle2 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 1)
+        let overCycle3 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 2)
+        let overCycle4 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 3)
+        let overCycle2Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 1,
+            keyword: self.resultList[1]
+        )
+        let overCycle3Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 2,
+            keyword: self.resultList[1]
+        )
+        let overCycle4Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 3,
+            keyword: self.resultList[1]
+        )
+        self.cycleCount2 = overCycle2 - overCycle3
+        self.cycleCount3 = overCycle3 - overCycle4
+        self.cycleCount2Hit = overCycle2Hit - overCycle3Hit
+        self.cycleCount3Hit = overCycle3Hit - overCycle4Hit
+    }
     
     // //////////////
     // 初当り
@@ -336,6 +366,12 @@ class Toreve: ObservableObject {
         furiwakeCountModeASum = furiwakeCountModeARush + furiwakeCountModeAChance
         furiwakeCountHeavenSum = furiwakeCountHeavenRush + furiwakeCountHeavenChance
     }
+    
+    // ２、３周期目の当選率
+    @AppStorage("toreveCycleCount2") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2Hit") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3Hit") var cycleCount3Hit: Int = 0
 }
 
 // //// メモリー1

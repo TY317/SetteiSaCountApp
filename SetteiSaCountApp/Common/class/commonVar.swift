@@ -218,6 +218,9 @@ class commonVar: ObservableObject {
                 toreveMenuBayesBadge = "update"
                 creaMenuBayesBadge = "update"
                 toreveMenuBayesBadge = "update"
+                toreveMenuCycleBadge = "update"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

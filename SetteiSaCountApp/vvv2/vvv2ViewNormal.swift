@@ -69,13 +69,17 @@ struct vvv2ViewNormal: View {
                 }
             } header: {
                 Text("設定示唆演出")
-                    .popoverTip(tipVer3130vvv2Normal())
+//                    .popoverTip(tipVer3130vvv2Normal())
             }
             
             // //// モード
             Section {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     vvv2TableMode()
+                }
+                .popoverTip(tipVer3131vvv2Mode())
+                unitLinkButtonViewBuilder(sheetTitle: "モード移行率") {
+                    vvv2TableModeMove()
                 }
                 unitLinkButtonViewBuilder(sheetTitle: "マリエモード") {
                     VStack {

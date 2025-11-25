@@ -137,6 +137,35 @@ struct toreveViewCycle: View {
                 )
             }
             
+            // //// ２、３周期目の当選率
+            Section {
+                // 注意書き
+                Text("履歴から2,3周期目の当選率を自動算出\nモード推測しながら参考にする、しないを判断ください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // 結果横並び
+                HStack {
+                    unitResultRatioPercent2Line(
+                        title: "2周期目",
+                        count: $toreve.cycleCount2Hit,
+                        bigNumber: $toreve.cycleCount2Hit,
+                        numberofDicimal: 0
+                    )
+                    unitResultRatioPercent2Line(
+                        title: "3周期目",
+                        count: $toreve.cycleCount3Hit,
+                        bigNumber: $toreve.cycleCount3Hit,
+                        numberofDicimal: 0
+                    )
+                }
+                .popoverTip(tipVer3131ToreveCycle())
+                unitLinkButtonViewBuilder(sheetTitle: "周期×モード×設定別の当選率テーブル") {
+                    toreveTableCycleModeHitRatio()
+                }
+            } header: {
+                Text("2,3周期目の当選率")
+            }
+            
             // //// 周期モードの情報
             Section {
                 // 周期モード
@@ -189,9 +218,9 @@ struct toreveViewCycle: View {
                     toreveTablePtTable()
                 }
                 // 周期の期待度テーブル
-                unitLinkButtonViewBuilder(sheetTitle: "周期の期待度テーブル") {
-                    toreveTableCycleTable()
-                }
+//                unitLinkButtonViewBuilder(sheetTitle: "周期の期待度テーブル") {
+//                    toreveTableCycleTable()
+//                }
                 // ミニキャラセリフの示唆
                 unitLinkButtonViewBuilder(sheetTitle: "ミニキャラセリフの示唆") {
                     toreveTableMiniChara()
@@ -264,7 +293,7 @@ struct toreveViewCycle: View {
                 }
             } header: {
                 Text("周期モード")
-                    .popoverTip(tipVer3110TorevePtTable())
+//                    .popoverTip(tipVer3110TorevePtTable())
             }
         }
         // //// バッジのリセット
