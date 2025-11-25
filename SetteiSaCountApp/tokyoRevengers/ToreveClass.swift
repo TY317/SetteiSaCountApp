@@ -452,6 +452,10 @@ class ToreveMemory1: ObservableObject {
     @AppStorage("toreveFuriwakeCountHeavenRushMemory1") var furiwakeCountHeavenRush: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenChanceMemory1") var furiwakeCountHeavenChance: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenSumMemory1") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory1") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory1") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory1") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory1") var cycleCount3Hit: Int = 0
 }
 
 // //// メモリー2
@@ -532,6 +536,10 @@ class ToreveMemory2: ObservableObject {
     @AppStorage("toreveFuriwakeCountHeavenRushMemory2") var furiwakeCountHeavenRush: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenChanceMemory2") var furiwakeCountHeavenChance: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenSumMemory2") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory2") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory2") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory2") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory2") var cycleCount3Hit: Int = 0
 }
 
 // //// メモリー3
@@ -612,4 +620,8 @@ class ToreveMemory3: ObservableObject {
     @AppStorage("toreveFuriwakeCountHeavenRushMemory3") var furiwakeCountHeavenRush: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenChanceMemory3") var furiwakeCountHeavenChance: Int = 0
     @AppStorage("toreveFuriwakeCountHeavenSumMemory3") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory3") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory3") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory3") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory3") var cycleCount3Hit: Int = 0
 }

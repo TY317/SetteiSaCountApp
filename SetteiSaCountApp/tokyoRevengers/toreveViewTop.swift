@@ -323,6 +323,10 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory1.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
         toreveMemory1.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
         toreveMemory1.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory1.cycleCount2 = toreve.cycleCount2
+        toreveMemory1.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory1.cycleCount3 = toreve.cycleCount3
+        toreveMemory1.cycleCount3Hit = toreve.cycleCount3Hit
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -399,6 +403,10 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory2.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
         toreveMemory2.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
         toreveMemory2.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory2.cycleCount2 = toreve.cycleCount2
+        toreveMemory2.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory2.cycleCount3 = toreve.cycleCount3
+        toreveMemory2.cycleCount3Hit = toreve.cycleCount3Hit
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -475,6 +483,10 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory3.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
         toreveMemory3.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
         toreveMemory3.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory3.cycleCount2 = toreve.cycleCount2
+        toreveMemory3.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory3.cycleCount3 = toreve.cycleCount3
+        toreveMemory3.cycleCount3Hit = toreve.cycleCount3Hit
     }
 }
 
@@ -578,6 +590,20 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory1.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory1.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory1.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory1.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory1.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory1.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory1.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory1.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory1.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory1.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory1.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory1.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory1.cycleCount3Hit
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -652,6 +678,20 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory2.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory2.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory2.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory2.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory2.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory2.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory2.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory2.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory2.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory2.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory2.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory2.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory2.cycleCount3Hit
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -726,6 +766,20 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory3.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory3.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory3.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory3.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory3.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory3.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory3.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory3.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory3.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory3.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory3.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory3.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory3.cycleCount3Hit
     }
 }
 
