@@ -125,7 +125,7 @@ struct tipVer3131ToreveBayes: Tip {
         Text("機能更新")
     }
     var message: Text? {
-        Text("モードごとの初当り種類振分けが判明！\n計算要素に加えました")
+        Text("モードごとの初当り種類振分け\nセットストック振分け\nを計算要素に加えました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

@@ -20,6 +20,7 @@ struct toreveViewBayes: View {
     @State var atRiseEnable: Bool = true
     @State var bellEnable: Bool = true
     @State var furiwakeEnable: Bool = true
+    @State var stockEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -77,6 +78,8 @@ struct toreveViewBayes: View {
                         textBody1: "・弱🍒・🍉からのAT昇格率を計算要素に加えます"
                     )
                 }
+                // 東卍ラッシュ　セットストック振分け
+                unitToggleWithQuestion(enable: self.$stockEnable, title: "セットストック振分け")
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -299,6 +302,24 @@ struct toreveViewBayes: View {
                 bigNumber: toreve.furiwakeCountHeavenSum
             )
         }
+        
+        // セットストック
+        var logPostSetStock: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.stockEnable {
+            logPostSetStock = logPostPercentMulti(
+                countList: [
+                    toreve.setStockCountNone,
+                    toreve.setStockCount1,
+                    toreve.setStockCount2,
+                    toreve.setStockCount3,
+                ], ratioList: [
+                    toreve.ratioStockNone,
+                    toreve.ratioStock1,
+                    toreve.ratioStock2,
+                    toreve.ratioStock3,
+                ], bigNumber: toreve.setStockCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -349,6 +370,7 @@ struct toreveViewBayes: View {
             logPostCommonBell,
             logPostFuriwakeModeA,
             logPostFuriwakeHeaven,
+            logPostSetStock,
             
             logPostTrophy,
             logPostBefore,

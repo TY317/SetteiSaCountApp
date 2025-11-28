@@ -195,6 +195,7 @@ class Toreve: ObservableObject {
         resetTomanChance()
         resetEnding()
         resetRevenge()
+        resetRush()
     }
     
     // /////////////
@@ -372,6 +373,35 @@ class Toreve: ObservableObject {
     @AppStorage("toreveCycleCount2Hit") var cycleCount2Hit: Int = 0
     @AppStorage("toreveCycleCount3") var cycleCount3: Int = 0
     @AppStorage("toreveCycleCount3Hit") var cycleCount3Hit: Int = 0
+    
+    // セットストック
+    let ratioStockNone: [Double] = [94.53,93.75,91.80,91.41,90.23,89.06]
+    let ratioStock1: [Double] = [4.69,5.47,6.64,7.03,7.42,8.20]
+    let ratioStock2: [Double] = [0.39,0.39,0.39,0.39,0.39,0.39,]
+    let ratioStock3: [Double] = [0.39,0.39,1.17,1.17,1.95,2.34]
+    @AppStorage("toreveSetStockCountNone") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSum") var setStockCountSum: Int = 0
+    
+    func stockSumFunc() {
+        setStockCountSum = countSum(
+            setStockCountNone,
+            setStockCount1,
+            setStockCount2,
+            setStockCount3,
+        )
+    }
+    
+    func resetRush() {
+        setStockCountNone = 0
+        setStockCount1 = 0
+        setStockCount2 = 0
+        setStockCount3 = 0
+        setStockCountSum = 0
+        minusCheck = false
+    }
 }
 
 // //// メモリー1

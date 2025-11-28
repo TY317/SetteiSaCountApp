@@ -81,13 +81,14 @@ struct toreveViewTop: View {
                     }
                     // ATセット開始画面
                     NavigationLink(destination: toreveViewStartScreen(
-//                        ver391: ver391,
                         toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "東卍ラッシュ",
-//                            badgeStatus: ver391.toreveMenuStartScreenBadge,
+                            badgeStatus: common.toreveMenuRushBadge,
                         )
                     }
                     // AT終了画面

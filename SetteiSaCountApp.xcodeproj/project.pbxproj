@@ -53,6 +53,7 @@
 		0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */; };
 		0F2DA9FF2EC07B200083704E /* neoplaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */; };
 		0F2DAA012EC07B6A0083704E /* neoplaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */; };
+		0F2EEDB52ED87DBD00893905 /* toreveTableSetStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2EEDB42ED87DBD00893905 /* toreveTableSetStock.swift */; };
 		0F3465B52CAEC5E400B5D2DD /* karakuriViewStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B42CAEC5E400B5D2DD /* karakuriViewStage.swift */; };
 		0F3465B72CB21CB000B5D2DD /* karakuriAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B62CB21CB000B5D2DD /* karakuriAtScreen.swift */; };
 		0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465B82CB21D6B00B5D2DD /* karakuriViewIchigeki.swift */; };
@@ -1182,6 +1183,7 @@
 		0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = neoplaAssets.xcassets; sourceTree = "<group>"; };
 		0F2DA9FE2EC07B200083704E /* neoplaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaView95Ci.swift; sourceTree = "<group>"; };
 		0F2DAA002EC07B6A0083704E /* neoplaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewBayes.swift; sourceTree = "<group>"; };
+		0F2EEDB42ED87DBD00893905 /* toreveTableSetStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableSetStock.swift; sourceTree = "<group>"; };
 		0F3465B42CAEC5E400B5D2DD /* karakuriViewStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewStage.swift; sourceTree = "<group>"; };
 		0F3465B62CB21CB000B5D2DD /* karakuriAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriAtScreen.swift; sourceTree = "<group>"; };
 		0F3465B82CB21D6B00B5D2DD /* karakuriViewIchigeki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewIchigeki.swift; sourceTree = "<group>"; };
@@ -3903,6 +3905,7 @@
 				0FBED79D2E989E4300AA3751 /* toreveTableRevengeChance.swift */,
 				0F9D9BD22E9C7C0C00450B23 /* toreveTableModeRatio.swift */,
 				0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */,
+				0F2EEDB42ED87DBD00893905 /* toreveTableSetStock.swift */,
 			);
 			path = tokyoRevengers;
 			sourceTree = "<group>";
@@ -5183,6 +5186,7 @@
 				0F8955262E7EDBE000539050 /* commonVar.swift in Sources */,
 				0F9A798E2E48CBFE00D996CA /* decodeIntArrayFromString.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
+				0F2EEDB52ED87DBD00893905 /* toreveTableSetStock.swift in Sources */,
 				0F868AE42D5F0CCB00D952D9 /* sevenSwordsViewStScreen.swift in Sources */,
 				0FF156362D6F4CF500B17F83 /* shamanKingViewKokkuri.swift in Sources */,
 				0FFAB85F2E6D176B00296A4F /* magiaViewBayes.swift in Sources */,

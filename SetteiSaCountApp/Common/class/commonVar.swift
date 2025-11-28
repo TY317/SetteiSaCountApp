@@ -160,6 +160,7 @@ class commonVar: ObservableObject {
     @AppStorage("toreveMenuBurstBadge") var toreveMenuBurstBadge: String = "none"
     @AppStorage("toreveMenuTomanChallengeBadge") var toreveMenuTomanChallengeBadge: String = "none"
     @AppStorage("toreveMenuCycleBadge") var toreveMenuCycleBadge: String = "none"
+    @AppStorage("toreveMenuRushBadge") var toreveMenuRushBadge: String = "none"
     
     // //// アズールレーン
     @AppStorage("azurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "none"
@@ -221,6 +222,7 @@ class commonVar: ObservableObject {
                 toreveMenuCycleBadge = "update"
                 vvv2MachineIconBadge = "update"
                 vvv2MenuNormalBadge = "update"
+                toreveMenuRushBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
