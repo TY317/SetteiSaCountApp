@@ -486,6 +486,11 @@ class ToreveMemory1: ObservableObject {
     @AppStorage("toreveCycleCount2HitMemory1") var cycleCount2Hit: Int = 0
     @AppStorage("toreveCycleCount3Memory1") var cycleCount3: Int = 0
     @AppStorage("toreveCycleCount3HitMemory1") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory1") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory1") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory1") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory1") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory1") var setStockCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -570,6 +575,11 @@ class ToreveMemory2: ObservableObject {
     @AppStorage("toreveCycleCount2HitMemory2") var cycleCount2Hit: Int = 0
     @AppStorage("toreveCycleCount3Memory2") var cycleCount3: Int = 0
     @AppStorage("toreveCycleCount3HitMemory2") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory2") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory2") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory2") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory2") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory2") var setStockCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -654,4 +664,9 @@ class ToreveMemory3: ObservableObject {
     @AppStorage("toreveCycleCount2HitMemory3") var cycleCount2Hit: Int = 0
     @AppStorage("toreveCycleCount3Memory3") var cycleCount3: Int = 0
     @AppStorage("toreveCycleCount3HitMemory3") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory3") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory3") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory3") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory3") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory3") var setStockCountSum: Int = 0
 }
