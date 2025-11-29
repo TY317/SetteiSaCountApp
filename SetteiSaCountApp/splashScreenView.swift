@@ -9,17 +9,34 @@ import SwiftUI
 import UIKit
 import GoogleMobileAds
 
+enum AppearanceMode: Int, CaseIterable {
+    case system, light, dark
+
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system: return nil
+        case .light:  return .light
+        case .dark:   return .dark
+        }
+    }
+}
+
 struct splashScreenView: View {
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opsity = 0.0
 //    @ObservedObject var common = commonVar()
     @StateObject var common = commonVar()
+    @AppStorage("appearanceMode") private var appearanceModeRaw: Int = AppearanceMode.system.rawValue
+    private var appearanceMode: AppearanceMode {
+        AppearanceMode(rawValue: appearanceModeRaw) ?? .system
+    }
     var body: some View {
         if isActive {
 //            ContentView(common: common)
             ContentView()
                 .environmentObject(common)
+                .preferredColorScheme(appearanceMode.colorScheme)
         } else {
             ZStack {
                 Image("splashLogo2")
@@ -35,11 +52,12 @@ struct splashScreenView: View {
                         }
                         common.appLaunchCountUp()
 //                        common.lastLaunchAppVersion = nil
-//                        common.lastLaunchAppVersion = "3.12.0"
+                        common.lastLaunchAppVersion = "3.13.0"
                         common.ver3100FirstLaunch()
                         common.ver3110FirstLaunch()
                         common.ver3120FirstLaunch()
                         common.ver3130FirstLaunch()
+                        common.ver3131FirstLaunch()
                         common.saveAppVersions()
                     }
             }

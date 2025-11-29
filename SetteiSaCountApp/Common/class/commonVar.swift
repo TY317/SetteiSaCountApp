@@ -124,6 +124,8 @@ class commonVar: ObservableObject {
     
     // //// ネオプラネット
     @AppStorage("neoplaMachineIconBadge") var neoplaMachineIconBadge: String = "none"
+    @AppStorage("neoplaMenuNormalBadge") var neoplaMenuNormalBadge: String = "none"
+    @AppStorage("neoplaMenuScreenBadge") var neoplaMenuScreenBadge: String = "none"
     
     // //// VVV2
     @AppStorage("vvv2MachineIconBadge") var vvv2MachineIconBadge: String = "none"
@@ -146,6 +148,8 @@ class commonVar: ObservableObject {
     // //// クレアの秘宝伝
     @AppStorage("creaMachineIconBadge") var creaMachineIconBadge: String = "none"
     @AppStorage("creaMenuBtBadge") var creaMenuBtBadge: String = "none"
+    @AppStorage("creaMenuNormalBadge") var creaMenuNormalBadge: String = "none"
+    @AppStorage("creaMenuBayesBadge") var creaMenuBayesBadge: String = "none"
     
     // //// 東京リベンジャーズ
     @AppStorage("toreveMachineIconBadge") var toreveMachineIconBadge: String = "none"
@@ -156,6 +160,7 @@ class commonVar: ObservableObject {
     @AppStorage("toreveMenuBurstBadge") var toreveMenuBurstBadge: String = "none"
     @AppStorage("toreveMenuTomanChallengeBadge") var toreveMenuTomanChallengeBadge: String = "none"
     @AppStorage("toreveMenuCycleBadge") var toreveMenuCycleBadge: String = "none"
+    @AppStorage("toreveMenuRushBadge") var toreveMenuRushBadge: String = "none"
     
     // //// アズールレーン
     @AppStorage("azurLaneMachineIconBadge") var azurLaneMachineIconBadge: String = "none"
@@ -196,6 +201,37 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3131FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.13.1"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                neoplaMachineIconBadge = "update"
+                neoplaMenuNormalBadge = "update"
+                neoplaMenuScreenBadge = "update"
+                creaMachineIconBadge = "update"
+                creaMenuNormalBadge = "update"
+                toreveMachineIconBadge = "update"
+                toreveMenuFirstHitBadge = "update"
+                toreveMenuBayesBadge = "update"
+                creaMenuBayesBadge = "update"
+                toreveMenuBayesBadge = "update"
+                toreveMenuCycleBadge = "update"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuNormalBadge = "update"
+                toreveMenuRushBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3130FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.13.0"

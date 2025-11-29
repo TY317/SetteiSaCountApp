@@ -43,6 +43,7 @@ class Toreve: ObservableObject {
         arrayIntAddData(arrayData: self.ptArrayData, addData: self.selectedPt, key: self.ptArrayKey)
         arrayStringAddData(arrayData: self.triggerArrayData, addData: self.selectedTrigger, key: self.triggerArrayKey)
         arrayStringAddData(arrayData: self.resultArrayData, addData: self.selectedResult, key: self.resultArrayKey)
+        addRemoveCommon()
     }
     
     // 1行削除
@@ -51,6 +52,7 @@ class Toreve: ObservableObject {
         arrayIntRemoveLast(arrayData: self.ptArrayData, key: self.ptArrayKey)
         arrayStringRemoveLast(arrayData: self.triggerArrayData, key: self.triggerArrayKey)
         arrayStringRemoveLast(arrayData: self.resultArrayData, key: self.resultArrayKey)
+        addRemoveCommon()
     }
     
     func resetHistory() {
@@ -59,12 +61,40 @@ class Toreve: ObservableObject {
         arrayStringRemoveAll(arrayData: self.triggerArrayData, key: self.triggerArrayKey)
         arrayStringRemoveAll(arrayData: self.resultArrayData, key: self.resultArrayKey)
         minusCheck = false
+        cycleCount2 = 0
+        cycleCount2Hit = 0
+        cycleCount3 = 0
+        cycleCount3Hit = 0
     }
     
     // 共通
-//    func addRemoveCommon() {
-//        
-//    }
+    func addRemoveCommon() {
+        let overCycle2 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 1)
+        let overCycle3 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 2)
+        let overCycle4 = arrayIntOverGameCount(intArrayData: self.cycleArrayData, overGame: 3)
+        let overCycle2Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 1,
+            keyword: self.resultList[1]
+        )
+        let overCycle3Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 2,
+            keyword: self.resultList[1]
+        )
+        let overCycle4Hit = arrayKeywordAndOverGameCount(
+            intArrayData: self.cycleArrayData,
+            stringArrayData: self.resultArrayData,
+            overGame: 3,
+            keyword: self.resultList[1]
+        )
+        self.cycleCount2 = overCycle2 - overCycle3
+        self.cycleCount3 = overCycle3 - overCycle4
+        self.cycleCount2Hit = overCycle2Hit - overCycle3Hit
+        self.cycleCount3Hit = overCycle3Hit - overCycle4Hit
+    }
     
     // //////////////
     // 初当り
@@ -97,6 +127,12 @@ class Toreve: ObservableObject {
         tomanChallengeCount = 0
         firstHitCount = 0
         minusCheck = false
+        furiwakeCountModeARush = 0
+        furiwakeCountModeAChance = 0
+        furiwakeCountModeASum = 0
+        furiwakeCountHeavenRush = 0
+        furiwakeCountHeavenChance = 0
+        furiwakeCountHeavenSum = 0
     }
     
     // ///////////////
@@ -159,6 +195,7 @@ class Toreve: ObservableObject {
         resetTomanChance()
         resetEnding()
         resetRevenge()
+        resetRush()
     }
     
     // /////////////
@@ -189,14 +226,14 @@ class Toreve: ObservableObject {
     let ratioHighManjiKisaki: [Double] = [9.8,10.2,11.7,18.0,18.8,20.3]
     
     // モードごとの当選先振分け
-    let ratioModeAChance: [Double] = [54.7,-1,-1,-1,-1,-1]
-    let ratioModeARush: [Double] = [45.3,-1,-1,-1,-1,-1]
-    let ratioModeBChance: [Double] = [59.8,-1,-1,-1,-1,-1]
-    let ratioModeBRush: [Double] = [40.2,-1,-1,-1,-1,-1]
-    let ratioChanceChance: [Double] = [39.8,-1,-1,-1,-1,-1]
-    let ratioChanceRush: [Double] = [60.2,-1,-1,-1,-1,-1]
-    let ratioHeavenChance: [Double] = [39.8,-1,-1,-1,-1,-1]
-    let ratioHeavenRush: [Double] = [60.2,-1,-1,-1,-1,-1]
+    let ratioModeAChance: [Double] = [54.7,53.9,53.1,50.8,50,48.8]
+    let ratioModeARush: [Double] = [45.3,46.1,46.9,49.2,50,51.2]
+    let ratioModeBChance: [Double] = [59.8,59.8,59.8,59.8,59.8,59.8,]
+    let ratioModeBRush: [Double] = [40.2,40.2,40.2,40.2,40.2,40.2,]
+    let ratioChanceChance: [Double] = [39.8,38.7,37.9,36.7,36.3,35.5]
+    let ratioChanceRush: [Double] = [60.2,61.3,62.1,63.3,63.7,64.5]
+    let ratioHeavenChance: [Double] = [39.8,38.7,37.9,36.7,36.3,35.5]
+    let ratioHeavenRush: [Double] = [60.2,61.3,62.1,63.3,63.7,64.5]
     
     // 東卍チャンス中の昇格
     let ratioAtRiseManji: [Double] = [10.2,-1,-1,-1,-1,-1]
@@ -315,6 +352,56 @@ class Toreve: ObservableObject {
     
     // 東卍チャンスからの昇格
     let ratioAtRiseJakuRare: [Double] = [10.2,10.5,10.9,12.5,14.8,16.4]
+    
+    // -----------
+    // ver3.13.1
+    // -----------
+    @AppStorage("toreveFuriwakeCountModeARush") var furiwakeCountModeARush: Int = 0
+    @AppStorage("toreveFuriwakeCountModeAChance") var furiwakeCountModeAChance: Int = 0
+    @AppStorage("toreveFuriwakeCountModeASum") var furiwakeCountModeASum: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenRush") var furiwakeCountHeavenRush: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenChance") var furiwakeCountHeavenChance: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenSum") var furiwakeCountHeavenSum: Int = 0
+    
+    func furiwakeSumFunc() {
+        furiwakeCountModeASum = furiwakeCountModeARush + furiwakeCountModeAChance
+        furiwakeCountHeavenSum = furiwakeCountHeavenRush + furiwakeCountHeavenChance
+    }
+    
+    // ２、３周期目の当選率
+    @AppStorage("toreveCycleCount2") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2Hit") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3Hit") var cycleCount3Hit: Int = 0
+    
+    // セットストック
+    let ratioStockNone: [Double] = [94.53,93.75,91.80,91.41,90.23,89.06]
+    let ratioStock1: [Double] = [4.69,5.47,6.64,7.03,7.42,8.20]
+    let ratioStock2: [Double] = [0.39,0.39,0.39,0.39,0.39,0.39,]
+    let ratioStock3: [Double] = [0.39,0.39,1.17,1.17,1.95,2.34]
+    @AppStorage("toreveSetStockCountNone") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSum") var setStockCountSum: Int = 0
+    
+    func stockSumFunc() {
+        setStockCountSum = countSum(
+            setStockCountNone,
+            setStockCount1,
+            setStockCount2,
+            setStockCount3,
+        )
+    }
+    
+    func resetRush() {
+        setStockCountNone = 0
+        setStockCount1 = 0
+        setStockCount2 = 0
+        setStockCount3 = 0
+        setStockCountSum = 0
+        minusCheck = false
+    }
 }
 
 // //// メモリー1
@@ -385,6 +472,25 @@ class ToreveMemory1: ObservableObject {
     @AppStorage("toreveRevengeCountChance3NoneMemory1") var revengeCountChance3None: Int = 0
     @AppStorage("toreveRevengeCountChance3HitMemory1") var revengeCountChance3Hit: Int = 0
     @AppStorage("toreveRevengeCountChance3SumMemory1") var revengeCountChance3Sum: Int = 0
+    
+    // -----------
+    // ver3.13.1
+    // -----------
+    @AppStorage("toreveFuriwakeCountModeARushMemory1") var furiwakeCountModeARush: Int = 0
+    @AppStorage("toreveFuriwakeCountModeAChanceMemory1") var furiwakeCountModeAChance: Int = 0
+    @AppStorage("toreveFuriwakeCountModeASumMemory1") var furiwakeCountModeASum: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenRushMemory1") var furiwakeCountHeavenRush: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenChanceMemory1") var furiwakeCountHeavenChance: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenSumMemory1") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory1") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory1") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory1") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory1") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory1") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory1") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory1") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory1") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory1") var setStockCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -455,6 +561,25 @@ class ToreveMemory2: ObservableObject {
     @AppStorage("toreveRevengeCountChance3NoneMemory2") var revengeCountChance3None: Int = 0
     @AppStorage("toreveRevengeCountChance3HitMemory2") var revengeCountChance3Hit: Int = 0
     @AppStorage("toreveRevengeCountChance3SumMemory2") var revengeCountChance3Sum: Int = 0
+    
+    // -----------
+    // ver3.13.1
+    // -----------
+    @AppStorage("toreveFuriwakeCountModeARushMemory2") var furiwakeCountModeARush: Int = 0
+    @AppStorage("toreveFuriwakeCountModeAChanceMemory2") var furiwakeCountModeAChance: Int = 0
+    @AppStorage("toreveFuriwakeCountModeASumMemory2") var furiwakeCountModeASum: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenRushMemory2") var furiwakeCountHeavenRush: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenChanceMemory2") var furiwakeCountHeavenChance: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenSumMemory2") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory2") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory2") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory2") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory2") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory2") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory2") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory2") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory2") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory2") var setStockCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -525,4 +650,23 @@ class ToreveMemory3: ObservableObject {
     @AppStorage("toreveRevengeCountChance3NoneMemory3") var revengeCountChance3None: Int = 0
     @AppStorage("toreveRevengeCountChance3HitMemory3") var revengeCountChance3Hit: Int = 0
     @AppStorage("toreveRevengeCountChance3SumMemory3") var revengeCountChance3Sum: Int = 0
+    
+    // -----------
+    // ver3.13.1
+    // -----------
+    @AppStorage("toreveFuriwakeCountModeARushMemory3") var furiwakeCountModeARush: Int = 0
+    @AppStorage("toreveFuriwakeCountModeAChanceMemory3") var furiwakeCountModeAChance: Int = 0
+    @AppStorage("toreveFuriwakeCountModeASumMemory3") var furiwakeCountModeASum: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenRushMemory3") var furiwakeCountHeavenRush: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenChanceMemory3") var furiwakeCountHeavenChance: Int = 0
+    @AppStorage("toreveFuriwakeCountHeavenSumMemory3") var furiwakeCountHeavenSum: Int = 0
+    @AppStorage("toreveCycleCount2Memory3") var cycleCount2: Int = 0
+    @AppStorage("toreveCycleCount2HitMemory3") var cycleCount2Hit: Int = 0
+    @AppStorage("toreveCycleCount3Memory3") var cycleCount3: Int = 0
+    @AppStorage("toreveCycleCount3HitMemory3") var cycleCount3Hit: Int = 0
+    @AppStorage("toreveSetStockCountNoneMemory3") var setStockCountNone: Int = 0
+    @AppStorage("toreveSetStockCount1Memory3") var setStockCount1: Int = 0
+    @AppStorage("toreveSetStockCount2Memory3") var setStockCount2: Int = 0
+    @AppStorage("toreveSetStockCount3Memory3") var setStockCount3: Int = 0
+    @AppStorage("toreveSetStockCountSumMemory3") var setStockCountSum: Int = 0
 }

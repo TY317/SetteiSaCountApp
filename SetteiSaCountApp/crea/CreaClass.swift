@@ -12,14 +12,14 @@ class Crea: ObservableObject {
     // /////////////
     // 通常時
     // /////////////
-    let ratioKoyakuBell: [Double] = [6.0,-1,-1,-1,-1,-1]
-    let ratioKoyakuCherry: [Double] = [91.0,-1,-1,-1,-1,-1]
-    let ratioKoyakuSuika: [Double] = [73.6,-1,-1,-1,-1,-1]
-    let ratioKoyakuChance: [Double] = [46.5,-1,-1,-1,-1,-1]
-    let ratioChofukuBell: [Double] = [0.1,-1,-1,-1,-1,-1]
-    let ratioChofukuCherry: [Double] = [7.1,-1,-1,-1,-1,-1]
-    let ratioChofukuSuika: [Double] = [0.9,-1,-1,-1,-1,-1]
-    let ratioChofukuChance: [Double] = [20.0,-1,-1,-1,-1,-1]
+    let ratioKoyakuBell: [Double] = [5.98,5.90,5.81,5.73,5.69,5.63]
+    let ratioKoyakuCherry: [Double] = [91.0,90.6,89.5,89.0,87.5,86.1]
+    let ratioKoyakuSuika: [Double] = [99.0,96.4,92.8,89.8,86.9,84.1]
+    let ratioKoyakuChance: [Double] = [46.5,46.4,46.2,45.7,45.1,43.9]
+    let ratioChofukuBell: [Double] = [0.1,0.1,0.1,0.1,0.1,0.1]
+    let ratioChofukuCherry: [Double] = [7.1,7.5,8.6,9.1,10.7,12.1]
+    let ratioChofukuSuika: [Double] = [0.6,0.6,0.6,0.7,0.8,1.0]
+    let ratioChofukuChance: [Double] = [19.6,19.8,20.2,21.0,22.0,24.2]
     @AppStorage("creaKoyakuCountBell") var koyakuCountBell: Int = 0
     @AppStorage("creaKoyakuCountCherry") var koyakuCountCherry: Int = 0
     @AppStorage("creaKoyakuCountSuika") var koyakuCountSuika: Int = 0
@@ -44,6 +44,10 @@ class Crea: ObservableObject {
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
+        koyakuCountSuberiSuika = 0
+        koyakuCountPylamid = 0
+        chofukuCountSuberiSuika = 0
+        chofukuCountPylamid = 0
     }
     
     // ////////////
@@ -150,6 +154,17 @@ class Crea: ObservableObject {
         btHazure = 0
         minusCheck = false
     }
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    let ratioKoyakuSuberiSuika: [Double] = [286.2,280.1,270.8,263.2,256.0,250.1]
+    let ratioKoyakuPylamid: [Double] = [8192,8192,5461.3,4096.0,2730.7,2048]
+    let ratioChofukuSuberiSuika: [Double] = [1.7,1.7,1.7,2.0,2.3,3.1]
+    @AppStorage("creaKoyakuCountSuberiSuika") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamid") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuika") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamid") var chofukuCountPylamid: Int = 0
 }
 
 // メモリー1
@@ -187,6 +202,14 @@ class CreaMemory1: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory1") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory1") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory1") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory1") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory1") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory1") var chofukuCountPylamid: Int = 0
 }
 
 // メモリー2
@@ -224,6 +247,14 @@ class CreaMemory2: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory2") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory2") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory2") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory2") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory2") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory2") var chofukuCountPylamid: Int = 0
 }
 
 // メモリー3
@@ -261,4 +292,12 @@ class CreaMemory3: ObservableObject {
     // //////////////
     @AppStorage("creaBtGameMemory3") var btGame: Int = 0
     @AppStorage("creaBtHazureMemory3") var btHazure: Int = 0
+    
+    // ----------
+    // ver3.13.1で追加
+    // ----------
+    @AppStorage("creaKoyakuCountSuberiSuikaMemory3") var koyakuCountSuberiSuika: Int = 0
+    @AppStorage("creaKoyakuCountPylamidMemory3") var koyakuCountPylamid: Int = 0
+    @AppStorage("creaChofukuCountSuberiSuikaMemory3") var chofukuCountSuberiSuika: Int = 0
+    @AppStorage("creaChofukuCountPylamidMemory3") var chofukuCountPylamid: Int = 0
 }

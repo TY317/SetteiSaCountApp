@@ -25,6 +25,10 @@ struct toreveViewFirstHit: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @State var selectedItem: String = "通常A"
+    let itemList: [String] = ["通常A", "チャンス・天国"]
+    @State var selectedSegment: String = "モードA"
+    let segmentList: [String] = ["モードA","モードB","チャンス","天国"]
     
     var body: some View {
         List {
@@ -155,6 +159,152 @@ struct toreveViewFirstHit: View {
                         viewModel: viewModel,
                     )
                 }
+            }
+            
+            // //// モードごとの振分け
+            Section {
+                // 注意書き
+                Text("モードを完全に把握することはできないためメモ代わりでご利用ください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // ピッカー
+                Picker("", selection: self.$selectedItem) {
+                    ForEach(self.itemList, id: \.self) { segment in
+                        Text(segment)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .popoverTip(tipVer3131ToreveFirsthit())
+                
+                // //// カウント
+                // モードA
+                if self.selectedItem == self.itemList[0] {
+                    HStack {
+                        // 東卍ラッシュ
+                        unitCountButtonPercentWithFunc(
+                            title: "東卍ラッシュ",
+                            count: $toreve.furiwakeCountModeARush,
+                            color: .personalSummerLightRed,
+                            bigNumber: $toreve.furiwakeCountModeASum,
+                            numberofDicimal: 0,
+                            minusBool: $toreve.minusCheck) {
+                                toreve.furiwakeSumFunc()
+                            }
+                        // 東卍チャンス
+                        unitCountButtonPercentWithFunc(
+                            title: "東卍チャンス",
+                            count: $toreve.furiwakeCountModeAChance,
+                            color: .personalSummerLightBlue,
+                            bigNumber: $toreve.furiwakeCountModeASum,
+                            numberofDicimal: 0,
+                            minusBool: $toreve.minusCheck) {
+                                toreve.furiwakeSumFunc()
+                            }
+                    }
+                }
+                // チャンス・天国
+                else {
+                    HStack {
+                        // 東卍ラッシュ
+                        unitCountButtonPercentWithFunc(
+                            title: "東卍ラッシュ",
+                            count: $toreve.furiwakeCountHeavenRush,
+                            color: .red,
+                            bigNumber: $toreve.furiwakeCountHeavenSum,
+                            numberofDicimal: 0,
+                            minusBool: $toreve.minusCheck) {
+                                toreve.furiwakeSumFunc()
+                            }
+                        // 東卍チャンス
+                        unitCountButtonPercentWithFunc(
+                            title: "東卍チャンス",
+                            count: $toreve.furiwakeCountHeavenChance,
+                            color: .blue,
+                            bigNumber: $toreve.furiwakeCountHeavenSum,
+                            numberofDicimal: 0,
+                            minusBool: $toreve.minusCheck) {
+                                toreve.furiwakeSumFunc()
+                            }
+                    }
+                }
+                
+                // 初当たり時の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "初当たり時の振分け") {
+                    VStack {
+                        // セグメントピッカー
+                        Picker("", selection: self.$selectedSegment) {
+                            ForEach(self.segmentList, id: \.self) { mode in
+                                Text(mode)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(.bottom)
+                        if self.selectedSegment == self.segmentList[0] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioModeAChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioModeARush
+                                )
+                            }
+                        } else if self.selectedSegment == self.segmentList[1] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: [toreve.ratioModeBChance[0]],
+                                    lineList: [6],
+                                    colorList: [.white],
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: [toreve.ratioModeBRush[0]],
+                                    lineList: [6],
+                                    colorList: [.white],
+                                )
+                            }
+                        } else if self.selectedSegment == self.segmentList[2] {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioChanceChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioChanceRush
+                                )
+                            }
+                        } else {
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex()
+                                unitTablePercent(
+                                    columTitle: "東卍チャンス",
+                                    percentList: toreve.ratioHeavenChance
+                                )
+                                unitTablePercent(
+                                    columTitle: "東卍ラッシュ",
+                                    percentList: toreve.ratioHeavenRush
+                                )
+                            }
+                        }
+                    }
+                }
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    toreveViewBayes(
+                        toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("モードごとの初当り種類振分け")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }

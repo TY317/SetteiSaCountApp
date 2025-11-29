@@ -81,13 +81,14 @@ struct toreveViewTop: View {
                     }
                     // ATセット開始画面
                     NavigationLink(destination: toreveViewStartScreen(
-//                        ver391: ver391,
                         toreve: toreve,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "東卍ラッシュ",
-//                            badgeStatus: ver391.toreveMenuStartScreenBadge,
+                            badgeStatus: common.toreveMenuRushBadge,
                         )
                     }
                     // AT終了画面
@@ -313,6 +314,25 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory1.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory1.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory1.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory1.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory1.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory1.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory1.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory1.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory1.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory1.cycleCount2 = toreve.cycleCount2
+        toreveMemory1.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory1.cycleCount3 = toreve.cycleCount3
+        toreveMemory1.cycleCount3Hit = toreve.cycleCount3Hit
+        toreveMemory1.setStockCountNone = toreve.setStockCountNone
+        toreveMemory1.setStockCount1 = toreve.setStockCount1
+        toreveMemory1.setStockCount2 = toreve.setStockCount2
+        toreveMemory1.setStockCount3 = toreve.setStockCount3
+        toreveMemory1.setStockCountSum = toreve.setStockCountSum
     }
     func saveMemory2() {
         toreveMemory2.cycleArrayData = toreve.cycleArrayData
@@ -379,6 +399,25 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory2.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory2.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory2.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory2.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory2.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory2.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory2.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory2.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory2.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory2.cycleCount2 = toreve.cycleCount2
+        toreveMemory2.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory2.cycleCount3 = toreve.cycleCount3
+        toreveMemory2.cycleCount3Hit = toreve.cycleCount3Hit
+        toreveMemory2.setStockCountNone = toreve.setStockCountNone
+        toreveMemory2.setStockCount1 = toreve.setStockCount1
+        toreveMemory2.setStockCount2 = toreve.setStockCount2
+        toreveMemory2.setStockCount3 = toreve.setStockCount3
+        toreveMemory2.setStockCountSum = toreve.setStockCountSum
     }
     func saveMemory3() {
         toreveMemory3.cycleArrayData = toreve.cycleArrayData
@@ -445,6 +484,25 @@ struct toreveSubViewSaveMemory: View {
         toreveMemory3.revengeCountChance3None = toreve.revengeCountChance3None
         toreveMemory3.revengeCountChance3Hit = toreve.revengeCountChance3Hit
         toreveMemory3.revengeCountChance3Sum = toreve.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreveMemory3.furiwakeCountModeARush = toreve.furiwakeCountModeARush
+        toreveMemory3.furiwakeCountModeAChance = toreve.furiwakeCountModeAChance
+        toreveMemory3.furiwakeCountModeASum = toreve.furiwakeCountModeASum
+        toreveMemory3.furiwakeCountHeavenRush = toreve.furiwakeCountHeavenRush
+        toreveMemory3.furiwakeCountHeavenChance = toreve.furiwakeCountHeavenChance
+        toreveMemory3.furiwakeCountHeavenSum = toreve.furiwakeCountHeavenSum
+        toreveMemory3.cycleCount2 = toreve.cycleCount2
+        toreveMemory3.cycleCount2Hit = toreve.cycleCount2Hit
+        toreveMemory3.cycleCount3 = toreve.cycleCount3
+        toreveMemory3.cycleCount3Hit = toreve.cycleCount3Hit
+        toreveMemory3.setStockCountNone = toreve.setStockCountNone
+        toreveMemory3.setStockCount1 = toreve.setStockCount1
+        toreveMemory3.setStockCount2 = toreve.setStockCount2
+        toreveMemory3.setStockCount3 = toreve.setStockCount3
+        toreveMemory3.setStockCountSum = toreve.setStockCountSum
     }
 }
 
@@ -548,6 +606,25 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory1.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory1.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory1.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory1.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory1.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory1.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory1.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory1.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory1.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory1.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory1.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory1.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory1.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory1.setStockCountNone
+        toreve.setStockCount1 = toreveMemory1.setStockCount1
+        toreve.setStockCount2 = toreveMemory1.setStockCount2
+        toreve.setStockCount3 = toreveMemory1.setStockCount3
+        toreve.setStockCountSum = toreveMemory1.setStockCountSum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -622,6 +699,25 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory2.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory2.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory2.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory2.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory2.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory2.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory2.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory2.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory2.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory2.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory2.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory2.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory2.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory2.setStockCountNone
+        toreve.setStockCount1 = toreveMemory2.setStockCount1
+        toreve.setStockCount2 = toreveMemory2.setStockCount2
+        toreve.setStockCount3 = toreveMemory2.setStockCount3
+        toreve.setStockCountSum = toreveMemory2.setStockCountSum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -696,6 +792,25 @@ struct toreveSubViewLoadMemory: View {
         toreve.revengeCountChance3None = toreveMemory3.revengeCountChance3None
         toreve.revengeCountChance3Hit = toreveMemory3.revengeCountChance3Hit
         toreve.revengeCountChance3Sum = toreveMemory3.revengeCountChance3Sum
+        
+        // -----------
+        // ver3.13.1
+        // -----------
+        toreve.furiwakeCountModeARush = toreveMemory3.furiwakeCountModeARush
+        toreve.furiwakeCountModeAChance = toreveMemory3.furiwakeCountModeAChance
+        toreve.furiwakeCountModeASum = toreveMemory3.furiwakeCountModeASum
+        toreve.furiwakeCountHeavenRush = toreveMemory3.furiwakeCountHeavenRush
+        toreve.furiwakeCountHeavenChance = toreveMemory3.furiwakeCountHeavenChance
+        toreve.furiwakeCountHeavenSum = toreveMemory3.furiwakeCountHeavenSum
+        toreve.cycleCount2 = toreveMemory3.cycleCount2
+        toreve.cycleCount2Hit = toreveMemory3.cycleCount2Hit
+        toreve.cycleCount3 = toreveMemory3.cycleCount3
+        toreve.cycleCount3Hit = toreveMemory3.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory3.setStockCountNone
+        toreve.setStockCount1 = toreveMemory3.setStockCount1
+        toreve.setStockCount2 = toreveMemory3.setStockCount2
+        toreve.setStockCount3 = toreveMemory3.setStockCount3
+        toreve.setStockCountSum = toreveMemory3.setStockCountSum
     }
 }
 

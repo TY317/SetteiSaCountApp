@@ -15,17 +15,46 @@ struct creaViewNormal: View {
     @FocusState var focusedField: CreaField?
     @State var selectedSegment: String = "小役カウント"
     let segmentList: [String] = ["小役カウント", "重複当選"]
-    let kindList: [String] = ["🔔","🍒","🍉","ﾁｬﾝｽ目"]
-    let dicimalList: [Int] = [1,0,0,0]
-    let dicimalListChofuku: [Int] = [1,1,1,0]
-    let colorList: [Color] = [.personalSpringLightYellow, .personalSummerLightRed, .personalSummerLightGreen, .personalSummerLightPurple]
-    let flushColorList: [Color] = [.yellow, .red, .green, .purple]
+//    let kindList: [String] = ["🔔","🍒","🍉","ﾁｬﾝｽ目"]
+    let kindList: [String] = ["🔔","ﾁｬﾝｽ目","🍒","🍉","滑り🍉","ﾋﾟﾗﾐｯﾄﾞ"]
+    let dicimalList: [Int] = [1,0,0,0,0,0]
+    let dicimalListChofuku: [Int] = [1,1,1,1,1]
+//    let colorList: [Color] = [.personalSpringLightYellow, .personalSummerLightRed, .personalSummerLightGreen, .personalSummerLightPurple]
+    let colorList: [Color] = [
+        .personalSpringLightYellow,
+        .personalSummerLightPurple,
+        .personalSummerLightRed,
+        .personalSummerLightGreen,
+        .tableGreen,
+        .tableBlue,
+    ]
+//    let flushColorList: [Color] = [.yellow, .red, .green, .purple]
+    let flushColorList: [Color] = [
+        .yellow,
+        .purple,
+        .red,
+        .green,
+        .mint,
+        .cyan,
+    ]
     
     enum CreaField: Hashable {
         case gameStart
         case gameCurrent
         case count(Int)
     }
+    @EnvironmentObject var common: commonVar
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 6
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {
@@ -35,6 +64,15 @@ struct creaViewNormal: View {
 //                Text("・小役回数はダイトモで確認できます。右上のキーボードボタンで数値の直接入力が可能です\n・重複当選はダイトモでのカウントないため自力カウントを推奨します。ボーナス揃い時にPUSHボタン押すとサイドランプ色で当選契機を示唆してくれます。")
 //                    .foregroundStyle(Color.secondary)
 //                    .font(.caption)
+                // //// 注意書き
+                VStack(alignment: .leading) {
+                    Text("チャンス目：ﾋﾟﾗﾐｯﾄﾞﾁｬﾚﾝｼﾞに変換されるものは含まない")
+                    Text("滑り🍉：左リール上段にピラミッドが停止する🍉")
+                    Text("ピラミッド：ﾋﾟﾗﾐｯﾄﾞﾁｬﾚﾝｼﾞ中を除く")
+                }
+                .foregroundStyle(Color.secondary)
+                .font(.caption)
+                
                 // //// セグメントピッカー
                 Picker("", selection: self.$selectedSegment) {
                     ForEach(self.segmentList, id: \.self) { segment in
@@ -44,45 +82,58 @@ struct creaViewNormal: View {
                 .pickerStyle(.segmented)
                 
                 // //// 小役カウント
-                if self.selectedSegment == self.segmentList[0] {
-                    HStack {
-                        ForEach(self.kindList.indices, id: \.self) { index in
-                            if self.kindList.indices.contains(index) &&
-                                self.dicimalList.indices.contains(index) &&
-                                self.colorList.indices.contains(index) &&
-                                self.flushColorList.indices.contains(index) {
-                                unitCountButtonVerticalDenominate(
-                                    title: self.kindList[index],
-                                    count: bindingCount(index),
-                                    color: self.colorList[index],
-                                    bigNumber: $crea.gameNumberPlay,
-                                    numberofDicimal: self.dicimalList[index],
-                                    minusBool: $crea.minusCheck,
-                                    flushColor: self.flushColorList[index],
-                                )
+                let gridItem = Array(
+                    repeating: GridItem(
+                        .flexible(minimum: 80, maximum: 150),
+                        spacing: 5,
+                        alignment: .center,
+                    ),
+                    count: self.lazyVGridCount
+                )
+                LazyVGrid(columns: gridItem) {
+                    if self.selectedSegment == self.segmentList[0] {
+//                        HStack {
+                            ForEach(self.kindList.indices, id: \.self) { index in
+                                if self.kindList.indices.contains(index) &&
+                                    self.dicimalList.indices.contains(index) &&
+                                    self.colorList.indices.contains(index) &&
+                                    self.flushColorList.indices.contains(index) {
+                                    unitCountButtonVerticalDenominate(
+                                        title: self.kindList[index],
+                                        count: bindingCount(index),
+                                        color: self.colorList[index],
+                                        bigNumber: $crea.gameNumberPlay,
+                                        numberofDicimal: self.dicimalList[index],
+                                        minusBool: $crea.minusCheck,
+                                        flushColor: self.flushColorList[index],
+                                    )
+                                    .padding(.bottom)
+                                }
                             }
-                        }
+//                        }
+                    }
+                    // //// 重複カウント
+                    else {
+//                        HStack {
+                            ForEach(self.kindList.indices, id: \.self) { index in
+                                if self.kindList.indices.contains(index) &&
+                                    self.dicimalListChofuku.indices.contains(index) &&
+                                    self.flushColorList.indices.contains(index) {
+                                    unitCountButtonVerticalPercent(
+                                        title: self.kindList[index],
+                                        count: bindingChofukuCount(index),
+                                        color: self.flushColorList[index],
+                                        bigNumber: bindingCount(index),
+                                        numberofDicimal: self.dicimalListChofuku[index],
+                                        minusBool: $crea.minusCheck
+                                    )
+                                    .padding(.bottom)
+                                }
+                            }
+//                        }
                     }
                 }
-                // //// 重複カウント
-                else {
-                    HStack {
-                        ForEach(self.kindList.indices, id: \.self) { index in
-                            if self.kindList.indices.contains(index) &&
-                                self.dicimalListChofuku.indices.contains(index) &&
-                                self.flushColorList.indices.contains(index) {
-                                unitCountButtonVerticalPercent(
-                                    title: self.kindList[index],
-                                    count: bindingChofukuCount(index),
-                                    color: self.flushColorList[index],
-                                    bigNumber: bindingCount(index),
-                                    numberofDicimal: self.dicimalListChofuku[index],
-                                    minusBool: $crea.minusCheck
-                                )
-                            }
-                        }
-                    }
-                }
+                .popoverTip(tipVer3131creaNormal())
                 
                 // //// 参考情報）小役確率
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
@@ -109,6 +160,14 @@ struct creaViewNormal: View {
                         )
                     )
                 )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    creaViewBayes(
+                        crea: crea,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 HStack {
                     Text("小役")
@@ -158,7 +217,7 @@ struct creaViewNormal: View {
             }
         }
         // //// バッジのリセット
-        //        .resetBadgeOnAppear($ver391.creaMenuNormalBadge)
+        .resetBadgeOnAppear($common.creaMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -167,6 +226,20 @@ struct creaViewNormal: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -215,18 +288,22 @@ struct creaViewNormal: View {
     func bindingCount(_ index: Int) -> Binding<Int> {
         switch index {
         case 0: return $crea.koyakuCountBell
-        case 1: return $crea.koyakuCountCherry
-        case 2: return $crea.koyakuCountSuika
-        case 3: return $crea.koyakuCountChance
+        case 1: return $crea.koyakuCountChance
+        case 2: return $crea.koyakuCountCherry
+        case 3: return $crea.koyakuCountSuika
+        case 4: return $crea.koyakuCountSuberiSuika
+        case 5: return $crea.koyakuCountPylamid
         default: return .constant(0)
         }
     }
     func bindingChofukuCount(_ index: Int) -> Binding<Int> {
         switch index {
         case 0: return $crea.chofukuCountBell
-        case 1: return $crea.chofukuCountCherry
-        case 2: return $crea.chofukuCountSuika
-        case 3: return $crea.chofukuCountChance
+        case 1: return $crea.chofukuCountChance
+        case 2: return $crea.chofukuCountCherry
+        case 3: return $crea.chofukuCountSuika
+        case 4: return $crea.chofukuCountSuberiSuika
+        case 5: return $crea.chofukuCountPylamid
         default: return .constant(0)
         }
     }
@@ -238,5 +315,6 @@ struct creaViewNormal: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
 
