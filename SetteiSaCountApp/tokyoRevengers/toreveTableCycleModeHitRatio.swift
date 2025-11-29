@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct toreveTableCycleModeHitRatio: View {
-    let modeList: [String] = ["モードA","モードB","チャンス","特殊",]
-    @State var selectedMode: String = "モードA"
+    let modeList: [String] = ["通常A","通常B","チャンス","特殊",]
+    @State var selectedMode: String = "通常A"
     
     var body: some View {
         VStack {

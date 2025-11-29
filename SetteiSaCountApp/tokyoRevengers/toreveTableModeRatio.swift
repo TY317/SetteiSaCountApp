@@ -18,17 +18,17 @@ struct toreveTableModeRatio: View {
             HStack(spacing: 0) {
                 unitTableSettingIndex()
                 unitTablePercent(
-                    columTitle: "モードA",
+                    columTitle: "通常A",
                     percentList: [34.4,34.4,28.5,27.3,21.1,18.8]
                 )
                 unitTablePercent(
-                    columTitle: "モードB",
+                    columTitle: "通常B",
                     percentList: [25],
                     lineList: [6],
                     colorList: [.white],
                 )
                 unitTablePercent(
-                    columTitle: "モードC",
+                    columTitle: "チャンス",
                     percentList: [25],
                     lineList: [6],
                     colorList: [.white],

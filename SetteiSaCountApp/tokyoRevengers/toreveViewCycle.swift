@@ -23,7 +23,7 @@ struct toreveViewCycle: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     @State var selectedSegment: String = "モードA"
-    let segmentList: [String] = ["モードA","モードB","チャンス","天国"]
+    let segmentList: [String] = ["通常A","通常B","チャンス","天国"]
     
     var body: some View {
         List {
@@ -148,13 +148,13 @@ struct toreveViewCycle: View {
                     unitResultRatioPercent2Line(
                         title: "2周期目",
                         count: $toreve.cycleCount2Hit,
-                        bigNumber: $toreve.cycleCount2Hit,
+                        bigNumber: $toreve.cycleCount2,
                         numberofDicimal: 0
                     )
                     unitResultRatioPercent2Line(
                         title: "3周期目",
                         count: $toreve.cycleCount3Hit,
-                        bigNumber: $toreve.cycleCount3Hit,
+                        bigNumber: $toreve.cycleCount3,
                         numberofDicimal: 0
                     )
                 }

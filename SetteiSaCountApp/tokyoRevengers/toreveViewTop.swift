@@ -620,6 +620,11 @@ struct toreveSubViewLoadMemory: View {
         toreve.cycleCount2Hit = toreveMemory1.cycleCount2Hit
         toreve.cycleCount3 = toreveMemory1.cycleCount3
         toreve.cycleCount3Hit = toreveMemory1.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory1.setStockCountNone
+        toreve.setStockCount1 = toreveMemory1.setStockCount1
+        toreve.setStockCount2 = toreveMemory1.setStockCount2
+        toreve.setStockCount3 = toreveMemory1.setStockCount3
+        toreve.setStockCountSum = toreveMemory1.setStockCountSum
     }
     func loadMemory2() {
         let array = decodeIntArray(from: toreveMemory2.cycleArrayData)
@@ -708,6 +713,11 @@ struct toreveSubViewLoadMemory: View {
         toreve.cycleCount2Hit = toreveMemory2.cycleCount2Hit
         toreve.cycleCount3 = toreveMemory2.cycleCount3
         toreve.cycleCount3Hit = toreveMemory2.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory2.setStockCountNone
+        toreve.setStockCount1 = toreveMemory2.setStockCount1
+        toreve.setStockCount2 = toreveMemory2.setStockCount2
+        toreve.setStockCount3 = toreveMemory2.setStockCount3
+        toreve.setStockCountSum = toreveMemory2.setStockCountSum
     }
     func loadMemory3() {
         let array = decodeIntArray(from: toreveMemory3.cycleArrayData)
@@ -796,6 +806,11 @@ struct toreveSubViewLoadMemory: View {
         toreve.cycleCount2Hit = toreveMemory3.cycleCount2Hit
         toreve.cycleCount3 = toreveMemory3.cycleCount3
         toreve.cycleCount3Hit = toreveMemory3.cycleCount3Hit
+        toreve.setStockCountNone = toreveMemory3.setStockCountNone
+        toreve.setStockCount1 = toreveMemory3.setStockCount1
+        toreve.setStockCount2 = toreveMemory3.setStockCount2
+        toreve.setStockCount3 = toreveMemory3.setStockCount3
+        toreve.setStockCountSum = toreveMemory3.setStockCountSum
     }
 }
 
