@@ -22,7 +22,7 @@ struct toreveViewCycle: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
-    @State var selectedSegment: String = "モードA"
+    @State var selectedSegment: String = "通常A"
     let segmentList: [String] = ["通常A","通常B","チャンス","天国"]
     
     var body: some View {

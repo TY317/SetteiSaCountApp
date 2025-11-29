@@ -27,8 +27,8 @@ struct toreveViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     @State var selectedItem: String = "通常A"
     let itemList: [String] = ["通常A", "チャンス・天国"]
-    @State var selectedSegment: String = "モードA"
-    let segmentList: [String] = ["モードA","モードB","チャンス","天国"]
+    @State var selectedSegment: String = "通常A"
+    let segmentList: [String] = ["通常A","通常B","チャンス","天国"]
     
     var body: some View {
         List {
