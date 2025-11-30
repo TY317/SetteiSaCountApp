@@ -70,6 +70,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteVvv2") var isSelectedFavoriteVvv2 = true
     @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
     @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
+    @AppStorage("isSelectedFavoriteBakemono") var isSelectedFavoriteBakemono = true
 }
 
 
@@ -136,6 +137,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 化物語、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBakemono == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(bakemonoViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bakemonoMachineIcon"),
+                                        machineName: "化物語",
+                                        badgeStatus: common.bakemonoMachineIconBadge,
                                     )
                                 }
                                 
@@ -860,7 +876,25 @@ struct ContentView: View {
                                     )
                                 }
                                 
-                                // //// レールガン、25年11月
+                                // //// 化物語、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBakemono == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(bakemonoViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bakemonoMachineIcon"),
+                                        machineName: "化物語",
+                                        makerName: "サミー",
+                                        releaseYear: 2025,
+                                        releaseMonth: 12,
+                                        badgeStatus: common.bakemonoMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// ネオプラ、25年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteNeopla == false {
                                     
                                 } else {
@@ -1952,6 +1986,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 化物語
+                Toggle("化物語", isOn: $favoriteSet.isSelectedFavoriteBakemono)
                 // ネオプラネット
                 Toggle("ネオプラネット", isOn: $favoriteSet.isSelectedFavoriteNeopla)
                 // レールガン2
