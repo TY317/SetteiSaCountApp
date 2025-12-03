@@ -124,6 +124,7 @@ class commonVar: ObservableObject {
     
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"
+    @AppStorage("bakemonoMenuNormalBadge") var bakemonoMenuNormalBadge: String = "none"
     
     // //// ネオプラネット
     @AppStorage("neoplaMachineIconBadge") var neoplaMachineIconBadge: String = "none"
@@ -213,6 +214,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 bakemonoMachineIconBadge = "new"
+                neoplaMachineIconBadge = "update"
+                neoplaMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

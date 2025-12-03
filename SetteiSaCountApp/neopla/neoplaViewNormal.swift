@@ -39,7 +39,7 @@ struct neoplaViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
                     neoplaTableModeSisa()
                 }
-                .popoverTip(tipVer3131neoplaNormal())
+//                .popoverTip(tipVer3131neoplaNormal())
             } header: {
                 Text("モード")
             }
@@ -59,6 +59,22 @@ struct neoplaViewNormal: View {
                 }
             } header: {
                 Text("状態")
+            }
+            
+            // 朝一の高確移行
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "モードF滞在時の高確移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,4,5,6])
+                        unitTableDenominate(
+                            columTitle: "高確移行率",
+                            denominateList: [1260.3,1008.2,840.2,336.1,219.2]
+                        )
+                    }
+                }
+                .popoverTip(tipVer3140neoplaNormal())
+            } header: {
+                Text("朝一の高確移行")
             }
         }
         // //// バッジのリセット

@@ -16,6 +16,8 @@
 		0F0DE8172EDC343A00D85BCA /* bakemonoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0DE8162EDC343A00D85BCA /* bakemonoAssets.xcassets */; };
 		0F0DE8192EDC384500D85BCA /* bakemonoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE8182EDC384500D85BCA /* bakemonoView95Ci.swift */; };
 		0F0DE81B2EDC385000D85BCA /* bakemonoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */; };
+		0F0DE81D2EDC5EF300D85BCA /* bakemonoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */; };
+		0F0DE81F2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1083,6 +1085,7 @@
 		0FF369332E62E8E9002BE0CE /* godeaterViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369322E62E8E9002BE0CE /* godeaterViewBayes.swift */; };
 		0FF369352E62EBA7002BE0CE /* commonViewTamachanTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369342E62EBA7002BE0CE /* commonViewTamachanTrophy.swift */; };
 		0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */; };
+		0FF3E4752EE06782002704FD /* ver3140.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4742EE06782002704FD /* ver3140.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
@@ -1151,6 +1154,8 @@
 		0F0DE8162EDC343A00D85BCA /* bakemonoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = bakemonoAssets.xcassets; sourceTree = "<group>"; };
 		0F0DE8182EDC384500D85BCA /* bakemonoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoView95Ci.swift; sourceTree = "<group>"; };
 		0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewBayes.swift; sourceTree = "<group>"; };
+		0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewNormal.swift; sourceTree = "<group>"; };
+		0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -2222,6 +2227,7 @@
 		0FF369322E62E8E9002BE0CE /* godeaterViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewBayes.swift; sourceTree = "<group>"; };
 		0FF369342E62EBA7002BE0CE /* commonViewTamachanTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewTamachanTrophy.swift; sourceTree = "<group>"; };
 		0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewBayes.swift; sourceTree = "<group>"; };
+		0FF3E4742EE06782002704FD /* ver3140.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3140.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
@@ -2336,6 +2342,8 @@
 				0F0DE8162EDC343A00D85BCA /* bakemonoAssets.xcassets */,
 				0F0DE8182EDC384500D85BCA /* bakemonoView95Ci.swift */,
 				0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */,
+				0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */,
+				0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */,
 			);
 			path = bakemono;
 			sourceTree = "<group>";
@@ -3398,6 +3406,7 @@
 				0F9D9C002EA0D28000450B23 /* ver3120Class.swift */,
 				0F663B8D2EBF0830006FBB1F /* ver3130.swift */,
 				0FFAEBD32ED13A88006C0371 /* ver3131.swift */,
+				0FF3E4742EE06782002704FD /* ver3140.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -4917,6 +4926,7 @@
 				0FC71FDC2E66FC6B000DD53B /* ToreveClass.swift in Sources */,
 				0FEC57D72D97794500FF1024 /* rslViewFirstHit.swift in Sources */,
 				0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */,
+				0F0DE81D2EDC5EF300D85BCA /* bakemonoViewNormal.swift in Sources */,
 				0F6B59E12E06A41500DB1A2B /* goevaTableHenni.swift in Sources */,
 				0F64DD372DC068EF0027315D /* acceleratorTableTaioChance.swift in Sources */,
 				0FF155F72D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift in Sources */,
@@ -5298,6 +5308,7 @@
 				0FD357B92DAFCF140069BD1A /* mahjongView95Ci.swift in Sources */,
 				0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */,
 				0FD357BF2DB13C3A0069BD1A /* mahjongTableFirstHit.swift in Sources */,
+				0FF3E4752EE06782002704FD /* ver3140.swift in Sources */,
 				0F868A252D44BC0B00D952D9 /* happyJugV3Ver2View95CiPersonal.swift in Sources */,
 				0F97D8CB2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift in Sources */,
 				0FE39E952E85695400E8A113 /* creaViewFirstHit.swift in Sources */,
@@ -5587,6 +5598,7 @@
 				0F80312A2C6A2E24001F008E /* VVVendScreenView.swift in Sources */,
 				0F1E12162DD37C6F00F69AFF /* inuyashaTableMeoshiVoice.swift in Sources */,
 				0F9318752DEA857100511BEF /* izaBanchoClass.swift in Sources */,
+				0F0DE81F2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift in Sources */,
 				0FEC57AC2D8F96AA00FF1024 /* kaijiViewHirameki.swift in Sources */,
 				0F6B59C22DFD89C400DB1A2B /* kaguyaSamaTableNormalEyeCatch.swift in Sources */,
 				0F51C6342E82CB020006794A /* evaYakusokuViewBayes.swift in Sources */,

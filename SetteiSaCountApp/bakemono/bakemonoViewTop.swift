@@ -18,7 +18,27 @@ struct bakemonoViewTop: View {
         NavigationStack {
             List {
                 Section {
-                    
+                    // 注意事項
+                    Text("マイスロの利用を前提としています\n遊技前にマイスロを開始してください")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                } header: {
+                    unitLabelMachineTopTitle(machineName: bakemono.machineName)
+                }
+                
+                Section {
+                    // 通常時
+                    NavigationLink(destination: bakemonoViewNormal(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.bakemonoMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
