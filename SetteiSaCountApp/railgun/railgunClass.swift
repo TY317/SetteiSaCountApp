@@ -12,7 +12,7 @@ class Railgun: ObservableObject {
     // ------------
     // 通常時
     // ------------
-    let ratioCoinCzHit: [Double] = [37.7,-1,-1,-1,-1,-1]
+    let ratioCoinCzHit: [Double] = [37.7,38.6,39.5,42.9,47.1,50.2]
     @AppStorage("railgunCoinCount") var coinCount: Int = 0
     @AppStorage("railgunCoinCountCzHit") var coinCountCzHit: Int = 0
     
@@ -20,6 +20,10 @@ class Railgun: ObservableObject {
         coinCount = 0
         coinCountCzHit = 0
         minusCheck = false
+        rareCzCountCherry = 0
+        rareCzCountCherryHit = 0
+        rareCzCountSuika = 0
+        rareCzCountSuikaHit = 0
     }
     
     // --------------
@@ -129,6 +133,16 @@ class Railgun: ObservableObject {
         resetScreen()
         resetAt()
     }
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    let ratioRareCzCherry: [Double] = [0.78,0.78,1.17,1.56,1.56,1.95]
+    let ratioRareCzSuika: [Double] = [25,25,25.78,28.52,29.3,30.08]
+    @AppStorage("railgunRareCzCountCherry") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHit") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuika") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHit") var rareCzCountSuikaHit: Int = 0
 }
 
 

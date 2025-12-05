@@ -1086,6 +1086,7 @@
 		0FF369352E62EBA7002BE0CE /* commonViewTamachanTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369342E62EBA7002BE0CE /* commonViewTamachanTrophy.swift */; };
 		0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */; };
 		0FF3E4752EE06782002704FD /* ver3140.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4742EE06782002704FD /* ver3140.swift */; };
+		0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4762EE252F7002704FD /* railgunTableRareCz.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
@@ -2228,6 +2229,7 @@
 		0FF369342E62EBA7002BE0CE /* commonViewTamachanTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewTamachanTrophy.swift; sourceTree = "<group>"; };
 		0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewBayes.swift; sourceTree = "<group>"; };
 		0FF3E4742EE06782002704FD /* ver3140.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3140.swift; sourceTree = "<group>"; };
+		0FF3E4762EE252F7002704FD /* railgunTableRareCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableRareCz.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
@@ -3664,6 +3666,7 @@
 				0F663B932EBF730F006FBB1F /* railgunViewScreen.swift */,
 				0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */,
 				0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */,
+				0FF3E4762EE252F7002704FD /* railgunTableRareCz.swift */,
 			);
 			path = railgun;
 			sourceTree = "<group>";
@@ -4877,6 +4880,7 @@
 				0FF156022D604CE800B17F83 /* starHanaVer2ViewKenDataInput.swift in Sources */,
 				0FA0248D2D011BBA004B3FD5 /* mhrViewEndScreen.swift in Sources */,
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
+				0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */,
 				0F64DD8A2DC5C31F0027315D /* girlsSSSubViewCountInput.swift in Sources */,
 				0F64DD8C2DC5C4970027315D /* goJug3SubViewCountInput.swift in Sources */,
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
@@ -5943,7 +5947,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.13.1;
+				MARKETING_VERSION = 3.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -5983,7 +5987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.13.1;
+				MARKETING_VERSION = 3.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

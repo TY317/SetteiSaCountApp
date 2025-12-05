@@ -29,7 +29,8 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.railgunMenuNormalBadge,
                         )
                     }
                     
@@ -97,6 +98,7 @@ struct railgunViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.railgunMenuBayesBadge,
                     )
                 }
                 

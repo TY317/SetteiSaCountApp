@@ -36,3 +36,18 @@ struct tipVer3140neoplaNormal: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：レールガン　通常時
+// //////////////////
+struct tipVer3140railgunNormal: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("・コイン揃いからのCZ当選率設定差\n・レア役からのコイン準備移行率\n設定差が判明！情報更新＆カウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

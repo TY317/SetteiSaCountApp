@@ -141,6 +141,8 @@ class commonVar: ObservableObject {
     
     // //// レールガン
     @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
+    @AppStorage("railgunMenuNormalBadge") var railgunMenuNormalBadge = "none"
+    @AppStorage("railgunMenuBayesBadge") var railgunMenuBayesBadge = "none"
     
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
@@ -216,6 +218,9 @@ class commonVar: ObservableObject {
                 bakemonoMachineIconBadge = "new"
                 neoplaMachineIconBadge = "update"
                 neoplaMenuNormalBadge = "update"
+                railgunMachineIconBadge = "update"
+                railgunMenuNormalBadge = "update"
+                railgunMenuBayesBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
