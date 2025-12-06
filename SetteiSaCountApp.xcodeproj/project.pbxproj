@@ -911,6 +911,7 @@
 		0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */; };
 		0FD357D12DB37CD70069BD1A /* yoshimuneViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */; };
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
+		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDBDAC82E874F5400197B94 /* creaTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */; };
 		0FDBDACA2E87510600197B94 /* creaTableChofukuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */; };
 		0FDBDACC2E87A7B600197B94 /* creaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */; };
@@ -1087,6 +1088,8 @@
 		0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */; };
 		0FF3E4752EE06782002704FD /* ver3140.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4742EE06782002704FD /* ver3140.swift */; };
 		0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4762EE252F7002704FD /* railgunTableRareCz.swift */; };
+		0FF3E4792EE40195002704FD /* bakemonoViewAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */; };
+		0FF3E47B2EE40438002704FD /* bakemonoTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
@@ -2054,6 +2057,7 @@
 		0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableFirstHit.swift; sourceTree = "<group>"; };
 		0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneViewScreen.swift; sourceTree = "<group>"; };
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
+		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableChofukuRatio.swift; sourceTree = "<group>"; };
 		0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuPattern.swift; sourceTree = "<group>"; };
@@ -2230,6 +2234,8 @@
 		0FF369362E6325D2002BE0CE /* karakuriViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewBayes.swift; sourceTree = "<group>"; };
 		0FF3E4742EE06782002704FD /* ver3140.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3140.swift; sourceTree = "<group>"; };
 		0FF3E4762EE252F7002704FD /* railgunTableRareCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableRareCz.swift; sourceTree = "<group>"; };
+		0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewAt.swift; sourceTree = "<group>"; };
+		0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
@@ -2346,6 +2352,9 @@
 				0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */,
 				0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */,
 				0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */,
+				0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */,
+				0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */,
+				0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */,
 			);
 			path = bakemono;
 			sourceTree = "<group>";
@@ -4802,6 +4811,7 @@
 				0FD357BB2DAFCF6B0069BD1A /* mahjongViewNormal.swift in Sources */,
 				0F64DD882DC5AE9F0027315D /* mrJugSubViewCountInput.swift in Sources */,
 				0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */,
+				0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */,
 				0FD357CD2DB33A260069BD1A /* yoshimuneViewHistory.swift in Sources */,
 				0F64DDC62DC6E74E0027315D /* midoriDonTableJakuRareRatio.swift in Sources */,
 				0F868ABD2D584BA700D952D9 /* girlsSSViewTop.swift in Sources */,
@@ -5056,6 +5066,7 @@
 				0FF1563E2D7275CF00B17F83 /* shamanKingViewEnding.swift in Sources */,
 				0F64DD352DC066C30027315D /* acceleratorTableShutterOpenGame.swift in Sources */,
 				0F7D3F1D2C80B94900A3FE7D /* kabaneriViewChance.swift in Sources */,
+				0FF3E47B2EE40438002704FD /* bakemonoTableMaisuSisa.swift in Sources */,
 				0FC14A9E2E4F2AFF00F85D84 /* enenView95Ci.swift in Sources */,
 				0FB209772E1545750029D940 /* evaYakusokuTableKoyakuPattern.swift in Sources */,
 				0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */,
@@ -5649,6 +5660,7 @@
 				0F97D8C92E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift in Sources */,
 				0F97D8CF2E3261230088B652 /* magiaViewEpisode.swift in Sources */,
 				0F6FB8FC2DE88FD300207855 /* rezero2TableFirstHit.swift in Sources */,
+				0FF3E4792EE40195002704FD /* bakemonoViewAt.swift in Sources */,
 				0FF369102E5AF271002BE0CE /* azurLaneViewTop.swift in Sources */,
 				0F868AB82D583D7A00D952D9 /* funky2Ver2View95CiStart.swift in Sources */,
 				0FF3692F2E6290CF002BE0CE /* unitSectionCopyright.swift in Sources */,

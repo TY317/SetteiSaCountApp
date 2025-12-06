@@ -125,6 +125,8 @@ class commonVar: ObservableObject {
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"
     @AppStorage("bakemonoMenuNormalBadge") var bakemonoMenuNormalBadge: String = "none"
+    @AppStorage("bakemonoMenuAtBadge") var bakemonoMenuAtBadge: String = "none"
+    @AppStorage("bakemonoMenuScreenBadge") var bakemonoMenuScreenBadge: String = "none"
     
     // //// ネオプラネット
     @AppStorage("neoplaMachineIconBadge") var neoplaMachineIconBadge: String = "none"

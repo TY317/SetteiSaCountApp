@@ -39,6 +39,32 @@ struct bakemonoViewTop: View {
                             badgeStatus: common.bakemonoMenuNormalBadge,
                         )
                     }
+                    
+                    // 倖時間
+                    NavigationLink(destination: bakemonoViewAt(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "clock.fill",
+                            textBody: "倖時間",
+                            badgeStatus: common.bakemonoMenuAtBadge,
+                        )
+                    }
+                    
+                    // 終了画面
+                    NavigationLink(destination: bakemonoViewScreen(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.bakemonoMenuScreenBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
