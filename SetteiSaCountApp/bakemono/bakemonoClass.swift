@@ -9,6 +9,19 @@ import Foundation
 import SwiftUI
 
 class Bakemono: ObservableObject {
+    // ------------
+    // 初当り
+    // ------------
+    let ratioAtFirstHit: [Double] = [265.1,260.7,252.1,238.8,230.8,219.6]
+    @AppStorage("bakemonoNormalGame") var normalGame: Int = 0
+    @AppStorage("bakemonoFirstHitCountAt") var firstHitCountAt: Int = 0
+    
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
+    
     // -------------
     // AT中
     // -------------
@@ -90,5 +103,6 @@ class Bakemono: ObservableObject {
     func resetAll() {
         resetAt()
         resetScreen()
+        resetFirstHit()
     }
 }

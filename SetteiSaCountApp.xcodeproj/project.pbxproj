@@ -912,6 +912,7 @@
 		0FD357D12DB37CD70069BD1A /* yoshimuneViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */; };
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
+		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDBDAC82E874F5400197B94 /* creaTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */; };
 		0FDBDACA2E87510600197B94 /* creaTableChofukuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */; };
 		0FDBDACC2E87A7B600197B94 /* creaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */; };
@@ -2058,6 +2059,7 @@
 		0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneViewScreen.swift; sourceTree = "<group>"; };
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
+		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableChofukuRatio.swift; sourceTree = "<group>"; };
 		0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuPattern.swift; sourceTree = "<group>"; };
@@ -2355,6 +2357,7 @@
 				0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */,
 				0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */,
 				0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */,
+				0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */,
 			);
 			path = bakemono;
 			sourceTree = "<group>";
@@ -4739,6 +4742,7 @@
 				0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */,
 				0FFAB86B2E71A17700296A4F /* funky2ViewBayes.swift in Sources */,
 				0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */,
+				0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */,
 				0FD357B72DAFCC440069BD1A /* yoshimuneClass.swift in Sources */,
 				0F0DE8152EDC342B00D85BCA /* bakemonoClass.swift in Sources */,
 				0FB9CAAE2DE1A7C3009FC6AF /* OrientationHandlerModifier.swift in Sources */,

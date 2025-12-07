@@ -8,11 +8,50 @@
 import SwiftUI
 
 struct bakemonoView95Ci: View {
+    @ObservedObject var bakemono: Bakemono
+    @State var selection = 1
+    @State var isShow95CiExplain = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: self.$selection) {
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $bakemono.firstHitCountAt,
+                        bigNumber: $bakemono.normalGame,
+                        setting1Denominate: bakemono.ratioAtFirstHit[0],
+                        setting2Denominate: bakemono.ratioAtFirstHit[1],
+                        setting3Denominate: bakemono.ratioAtFirstHit[2],
+                        setting4Denominate: bakemono.ratioAtFirstHit[3],
+                        setting5Denominate: bakemono.ratioAtFirstHit[4],
+                        setting6Denominate: bakemono.ratioAtFirstHit[5]
+                    )
+                )
+            )
+            .tag(1)
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: bakemono.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("95%信頼区間グラフ")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
+            }
+        }
+        .tabViewStyle(.page)
     }
 }
 
 #Preview {
-    bakemonoView95Ci()
+    bakemonoView95Ci(
+        bakemono: Bakemono(),
+    )
 }

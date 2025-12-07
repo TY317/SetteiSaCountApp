@@ -40,6 +40,19 @@ struct bakemonoViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: bakemonoViewFirstHit(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.bakemonoMenuFirstHitBadge,
+                        )
+                    }
+                    
                     // 倖時間
                     NavigationLink(destination: bakemonoViewAt(
                         bakemono: bakemono,
@@ -65,12 +78,20 @@ struct bakemonoViewTop: View {
                             badgeStatus: common.bakemonoMenuScreenBadge,
                         )
                     }
+                    
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewSammyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "サミートロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: bakemonoView95Ci(
-//                    bakemono: bakemono,
-//                    selection: 1,
+                    bakemono: bakemono,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -80,9 +101,9 @@ struct bakemonoViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: bakemonoViewBayes(
-//                    bakemono: bakemono,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    bakemono: bakemono,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
