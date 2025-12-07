@@ -15,6 +15,12 @@ struct unitButtonCountNumberInput: View {
             self.isShowInputView.toggle()
         } label: {
             Image(systemName: "keyboard")
+//            VStack {
+//                Image(systemName: "keyboard")
+//                Text("直接入力")
+//                    .foregroundStyle(Color.secondary)
+//                    .font(.system(size: 7.0))
+//            }
         }
         .sheet(isPresented: self.$isShowInputView) {
             self.inputView

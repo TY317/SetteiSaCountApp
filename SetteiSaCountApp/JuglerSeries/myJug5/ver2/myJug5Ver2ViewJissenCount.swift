@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct myJug5Ver2ViewJissenCount: View {
-//    @ObservedObject var myJug5 = MyJug5()
-//    @ObservedObject var ver370: Ver370
     @ObservedObject var myJug5: MyJug5
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   //
     @State var isShowAlert = false
     @FocusState var isFocused: Bool
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         List {
@@ -83,7 +85,6 @@ struct myJug5Ver2ViewJissenCount: View {
                         unitExView5body2image(
                             title: "マイジャグラー5設定差",
                             tableView: AnyView(myJug5TableRatio(myJug5: myJug5))
-//                            image1: Image("myJug5Analysis")
                         )
                     )
                 )
@@ -92,7 +93,6 @@ struct myJug5Ver2ViewJissenCount: View {
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     myJug5ViewBayes(
-//                        ver370: ver370,
                         myJug5: myJug5,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -148,25 +148,46 @@ struct myJug5Ver2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$myJug5.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: 4.1
+        )
         .navigationTitle("実戦カウント")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            myJug5SubViewCountInput(
-                                myJug5: myJug5
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+//                    .onChange(of: self.isAutoCountOn) { oldValue, newValue in
+//                        if newValue {
+//                            self.nextAutoCountDate = Date().addingTimeInterval(4.1)
+//                        } else {
+//                            self.nextAutoCountDate = nil
+//                        }
+//                    }
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        myJug5SubViewCountInput(
+                            myJug5: myJug5
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $myJug5.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: myJug5.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $myJug5.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: myJug5.resetCountData)
             }
         }
     }
@@ -174,7 +195,6 @@ struct myJug5Ver2ViewJissenCount: View {
 
 #Preview {
     myJug5Ver2ViewJissenCount(
-//        ver370: Ver370(),
         myJug5: MyJug5(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

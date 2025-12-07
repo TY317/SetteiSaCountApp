@@ -913,6 +913,8 @@
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
+		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
+		0FDB72912EE5A8560075B6A4 /* AutoGameCountModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB72902EE5A8560075B6A4 /* AutoGameCountModifier.swift */; };
 		0FDBDAC82E874F5400197B94 /* creaTableKoyakuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */; };
 		0FDBDACA2E87510600197B94 /* creaTableChofukuRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */; };
 		0FDBDACC2E87A7B600197B94 /* creaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */; };
@@ -2060,6 +2062,8 @@
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
+		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
+		0FDB72902EE5A8560075B6A4 /* AutoGameCountModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGameCountModifier.swift; sourceTree = "<group>"; };
 		0FDBDAC72E874F5400197B94 /* creaTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0FDBDAC92E87510600197B94 /* creaTableChofukuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableChofukuRatio.swift; sourceTree = "<group>"; };
 		0FDBDACB2E87A7B600197B94 /* creaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaTableKoyakuPattern.swift; sourceTree = "<group>"; };
@@ -3376,6 +3380,7 @@
 				0FB9CAAF2DE1AB0A009FC6AF /* ResetBadgeOnAppear.swift */,
 				0FB9CAB12DE1AFF6009FC6AF /* FirebaseScreenLogger.swift */,
 				0FB209682E120D570029D940 /* KeyboardDoneToolbarModifier.swift */,
+				0FDB72902EE5A8560075B6A4 /* AutoGameCountModifier.swift */,
 			);
 			path = modifier;
 			sourceTree = "<group>";
@@ -3537,6 +3542,7 @@
 			children = (
 				0F8935862E21F8F900BF6FBE /* unitToolbarButtonQuestion.swift */,
 				0F89358D2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift */,
+				0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */,
 			);
 			path = toolBarButton;
 			sourceTree = "<group>";
@@ -4946,6 +4952,7 @@
 				0FA0244D2CDF4233004B3FD5 /* bangdreamViewPicoAttack.swift in Sources */,
 				0F0DE81D2EDC5EF300D85BCA /* bakemonoViewNormal.swift in Sources */,
 				0F6B59E12E06A41500DB1A2B /* goevaTableHenni.swift in Sources */,
+				0FDB72912EE5A8560075B6A4 /* AutoGameCountModifier.swift in Sources */,
 				0F64DD372DC068EF0027315D /* acceleratorTableTaioChance.swift in Sources */,
 				0FF155F72D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift in Sources */,
 				0FEC57962D8E36AB00FF1024 /* arifureSubViewTableBta.swift in Sources */,
@@ -5580,6 +5587,7 @@
 				0FEC57C32D918D2100FF1024 /* rslView95Ci.swift in Sources */,
 				0F7202FF2C8F19AE001A8AF2 /* godeaterViewHistory.swift in Sources */,
 				0FEB2E102E3F4DB6004C5F45 /* reSwordTableRareCz.swift in Sources */,
+				0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */,
 				0F6BD7E82D8863A6003F5563 /* arifureSubViewTablePremiumAtHit.swift in Sources */,
 				0FEB2E0C2E3E2E9D004C5F45 /* reSwordViewCz.swift in Sources */,
 				0F1E12222DD819DD00F69AFF /* midoriDonTableReachReplay.swift in Sources */,
