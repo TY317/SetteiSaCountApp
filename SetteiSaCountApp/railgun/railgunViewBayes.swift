@@ -56,7 +56,7 @@ struct railgunViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
                         title: "初当り確率",
-                        textBody1: "・CZ、ATの初当り確率を計算要素に加えます"
+                        textBody1: "・通常CZ、上位CZ、ATの初当り確率を計算要素に加えます"
                     )
                 }
                 // 終了画面
@@ -163,15 +163,21 @@ struct railgunViewBayes: View {
         // 初当り
         var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPremiumCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
             logPostCz = logPostDenoBino(
-                ratio: railgun.ratioFirstHitCz,
+                ratio: railgun.ratioFirstHitCzNormal,
                 Count: railgun.czCount,
                 bigNumber: railgun.normalGame
             )
             logPostAt = logPostDenoBino(
                 ratio: railgun.ratioFirstHitAt,
                 Count: railgun.atCount,
+                bigNumber: railgun.normalGame
+            )
+            logPostPremiumCz = logPostDenoBino(
+                ratio: railgun.ratioFirstHitCzPremium,
+                Count: railgun.czCountPremium,
                 bigNumber: railgun.normalGame
             )
         }
@@ -247,6 +253,7 @@ struct railgunViewBayes: View {
             logPostCz,
             logPostAt,
             logPostScreen,
+            logPostPremiumCz,
             
             logPostTrophy,
             logPostBefore,

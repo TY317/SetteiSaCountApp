@@ -15,6 +15,23 @@ struct bakemonoView95Ci: View {
         TabView(selection: self.$selection) {
             // AT初当り回数
             unitListSection95Ci(
+                grafTitle: "🍉回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $bakemono.koyakuCountSuika,
+                        bigNumber: $bakemono.totalGame,
+                        setting1Denominate: bakemono.ratioSuika[0],
+                        setting2Denominate: bakemono.ratioSuika[1],
+                        setting3Denominate: bakemono.ratioSuika[2],
+                        setting4Denominate: bakemono.ratioSuika[3],
+                        setting5Denominate: bakemono.ratioSuika[4],
+                        setting6Denominate: bakemono.ratioSuika[5]
+                    )
+                )
+            )
+            .tag(2)
+            // AT初当り回数
+            unitListSection95Ci(
                 grafTitle: "AT初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(

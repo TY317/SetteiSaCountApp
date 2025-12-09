@@ -42,7 +42,8 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: common.railgunMenuFirstHitBadge,
                         )
                     }
                     

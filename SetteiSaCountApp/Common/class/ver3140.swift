@@ -51,3 +51,18 @@ struct tipVer3140railgunNormal: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：レールガン　通常時
+// //////////////////
+struct tipVer3140railgunFirstHit: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("・CZ種類ごとの設定差が判明\n分けてカウントできるようにしました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

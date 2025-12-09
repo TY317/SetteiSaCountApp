@@ -9,6 +9,19 @@ import Foundation
 import SwiftUI
 
 class Bakemono: ObservableObject {
+    // -----------
+    // 通常時
+    // -----------
+    let ratioSuika: [Double] = [87.4,-1,-1,-1,-1,-1,]
+    @AppStorage("bakemonoTotalGame") var totalGame: Int = 0
+    @AppStorage("bakemonoKoyakuCountSuika") var koyakuCountSuika: Int = 0
+    
+    func resetNormal() {
+        totalGame = 0
+        koyakuCountSuika = 0
+        minusCheck = false
+    }
+    
     // ------------
     // 初当り
     // ------------
@@ -101,6 +114,7 @@ class Bakemono: ObservableObject {
     @AppStorage("bakemonoSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
+        resetNormal()
         resetAt()
         resetScreen()
         resetFirstHit()

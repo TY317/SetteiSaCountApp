@@ -25,9 +25,9 @@ struct bakemonoViewAt: View {
         "忍",
     ]
     let lowerBeltTextList: [String] = [
-        "？？？",
-        "？？？",
-        "？？？",
+        "デフォルト",
+        "高設定示唆",
+        "青7濃厚\n(赤7なら設定5以上濃厚)",
     ]
     let flashColorList: [Color] = [
         .gray,
@@ -83,12 +83,12 @@ struct bakemonoViewAt: View {
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
-//                        self.flashColorList.indices.contains(index) {
-                        self.flashColorList.indices.contains(index) &&
-                        self.sisaText.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) &&
+//                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
-                            title: self.sisaText[index],
+                            title: self.lowerBeltTextList[index],
+//                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $bakemono.fixScreenSum,

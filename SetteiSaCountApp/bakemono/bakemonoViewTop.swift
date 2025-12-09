@@ -91,7 +91,7 @@ struct bakemonoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: bakemonoView95Ci(
                     bakemono: bakemono,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

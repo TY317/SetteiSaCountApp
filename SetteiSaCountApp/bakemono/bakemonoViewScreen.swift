@@ -41,32 +41,32 @@ struct bakemonoViewScreen: View {
         "I LOVE YOU",
     ]
     let lowerBeltTextList: [String] = [
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
+        "デフォルト",
+        "高設定示唆 強",
+        "偶数示唆 弱",
+        "奇数＆高設定示唆",
+        "高設定示唆 弱",
+        "偶数示唆 強",
+        "設定2,4,6濃厚",
+        "設定3,5,6濃厚",
+        "設定4 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
     ]
     let flashColorList: [Color] = [
         .gray,
-        .gray,
-        .gray,
-        .gray,
-        .gray,
-        .gray,
-        .gray,
-        .gray,
+        .red,
+        .yellow,
+        .green,
+        .blue,
+        .yellow,
+        .cyan,
+        .purple,
         .orange,
         .orange,
         .orange,
     ]
-    let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9,10]
+    let indexList: [Int] = [0,2,4,3,5,1,6,7,8,9,10]
     let sisaText: [String] = [
         "暦",
         "ひたぎ",
@@ -103,7 +103,7 @@ struct bakemonoViewScreen: View {
                                     selectedScreen: self.$selectedImageName,
                                     count: bindingForScreenCount(index: index),
                                     minusCheck: $bakemono.minusCheck,
-                                    action: bakemono.fixScreenSumFunc,
+                                    action: bakemono.screenCountSumFunc,
                                 )
                             }
                         }
@@ -114,15 +114,15 @@ struct bakemonoViewScreen: View {
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
-//                        self.flashColorList.indices.contains(index) {
-                        self.flashColorList.indices.contains(index) &&
-                        self.sisaText.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) &&
+//                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
-                            title: self.sisaText[index],
+                            title: self.lowerBeltTextList[index],
+//                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
-                            bigNumber: $bakemono.fixScreenSum,
+                            bigNumber: $bakemono.screenCountSum,
                             numberofDigit: 0,
                             titleFont: .body,
                         )

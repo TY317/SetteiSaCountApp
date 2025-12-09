@@ -40,6 +40,7 @@ class Railgun: ObservableObject {
         czCount = 0
         atCount = 0
         minusCheck = false
+        czCountPremium = 0
     }
     
     // ----------
@@ -143,6 +144,11 @@ class Railgun: ObservableObject {
     @AppStorage("railgunRareCzCountCherryHit") var rareCzCountCherryHit: Int = 0
     @AppStorage("railgunRareCzCountSuika") var rareCzCountSuika: Int = 0
     @AppStorage("railgunRareCzCountSuikaHit") var rareCzCountSuikaHit: Int = 0
+    
+    // 初当り
+    let ratioFirstHitCzNormal: [Double] = [179.99,177.69,173.44,163.19,153.54,145.25]
+    let ratioFirstHitCzPremium: [Double] = [7456.18,6024.31,5925.19,3852.39,2861.31,2586.86]
+    @AppStorage("railgunCzCountPremium") var czCountPremium: Int = 0
 }
 
 
