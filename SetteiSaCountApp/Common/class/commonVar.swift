@@ -144,6 +144,8 @@ class commonVar: ObservableObject {
     @AppStorage("vvv2MenuRushBadge") var vvv2MenuRushBadge: String = "none"
     @AppStorage("vvv2MenuNormalBadge") var vvv2MenuNormalBadge: String = "none"
     @AppStorage("vvv2MenuFirstHitBadge") var vvv2MenuFirstHitBadge: String = "none"
+    @AppStorage("vvv2Menu95CiBadge") var vvv2Menu95CiBadge: String = "none"
+    @AppStorage("vvv2MenuBayesBadge") var vvv2MenuBayesBadge: String = "none"
     
     // //// レールガン
     @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
@@ -231,6 +233,10 @@ class commonVar: ObservableObject {
                 railgunMenuBayesBadge = "update"
                 railgunMenuFirstHitBadge = "update"
                 railgunMenuDuringAtBadge = "update"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuRushBadge = "update"
+                vvv2Menu95CiBadge = "new"
+                vvv2MenuBayesBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

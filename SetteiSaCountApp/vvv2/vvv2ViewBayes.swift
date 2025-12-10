@@ -13,6 +13,7 @@ struct vvv2ViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 99.3, 104.7, 110.8, 114.9]
+    @State var driveEnable: Bool = true
     
     
     // 全機種共通
@@ -44,7 +45,8 @@ struct vvv2ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // ドライブ発生率
+                unitToggleWithQuestion(enable: self.$driveEnable, title: "ドライブ発生率")
             }
             
             // //// STEP3
@@ -53,7 +55,7 @@ struct vvv2ViewBayes: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($common.vvv2MenuBayesBadge)
+        .resetBadgeOnAppear($common.vvv2MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -106,7 +108,15 @@ struct vvv2ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // ドライブ発生率
+        var logPostDrive: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.driveEnable {
+            logPostDrive = logPostDenoBino(
+                ratio: vvv2.ratioDrive,
+                Count: vvv2.roundCountDrive,
+                bigNumber: vvv2.roundCountSum
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -139,7 +149,7 @@ struct vvv2ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostDrive,
             
             logPostTrophy,
             logPostBefore,

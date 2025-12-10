@@ -81,3 +81,19 @@ struct tipVer3140railgunDuringAt: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：vvv2 ドライブ確率
+// //////////////////
+struct tipVer3140vvv2Drive: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("・ドライブ発生率の情報が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

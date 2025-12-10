@@ -59,6 +59,45 @@ struct vvv2ViewRush: View {
                     bigNumber: $vvv2.roundCountSum,
                     numberofDicimal: 1
                 )
+                
+                // ドライブ確率
+                unitLinkButtonViewBuilder(sheetTitle: "ドライブ発生確率") {
+                    VStack {
+                        Text("・20Gの選択率も高設定ほど優遇")
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableGameIndex(gameList: [1,2,4,5,6])
+                            unitTableString(
+                                columTitle: "ドライブ発生率",
+                                stringList: [
+                                    "1/20〜1/15",
+                                    "1/8〜1/6",
+                                ],
+                                lineList: [2,3]
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer3140vvv2Drive())
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        vvv2View95Ci(
+                            vvv2: vvv2,
+                            selection: 1,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    vvv2ViewBayes(
+                        vvv2: vvv2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("ドライブ発生率")
             }
@@ -97,7 +136,7 @@ struct vvv2ViewRush: View {
                     }
                 }
                 .frame(height: 120)
-                .popoverTip(tipVer3130vvv2RushScreen())
+//                .popoverTip(tipVer3130vvv2RushScreen())
             } header: {
                 Text("ラウンド開始画面での示唆")
             }
