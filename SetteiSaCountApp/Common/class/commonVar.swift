@@ -150,6 +150,7 @@ class commonVar: ObservableObject {
     @AppStorage("railgunMenuNormalBadge") var railgunMenuNormalBadge = "none"
     @AppStorage("railgunMenuBayesBadge") var railgunMenuBayesBadge = "none"
     @AppStorage("railgunMenuFirstHitBadge") var railgunMenuFirstHitBadge = "none"
+    @AppStorage("railgunMenuDuringAtBadge") var railgunMenuDuringAtBadge = "none"
     
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
@@ -229,6 +230,7 @@ class commonVar: ObservableObject {
                 railgunMenuNormalBadge = "update"
                 railgunMenuBayesBadge = "update"
                 railgunMenuFirstHitBadge = "update"
+                railgunMenuDuringAtBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

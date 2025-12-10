@@ -66,3 +66,18 @@ struct tipVer3140railgunFirstHit: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：レールガン　一枚絵
+// //////////////////
+struct tipVer3140railgunDuringAt: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("・一部の示唆が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

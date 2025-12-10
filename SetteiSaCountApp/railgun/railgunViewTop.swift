@@ -55,7 +55,9 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT中")
+                            textBody: "AT中",
+                            badgeStatus: common.railgunMenuDuringAtBadge,
+                        )
                     }
                     // AT終了画面
                     NavigationLink(destination: railgunViewScreen(

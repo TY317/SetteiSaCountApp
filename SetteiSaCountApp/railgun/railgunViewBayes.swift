@@ -17,6 +17,7 @@ struct railgunViewBayes: View {
     @State var screenEnable: Bool = true
     @State var coinCzEnable: Bool = true
     @State var rareCzEnable: Bool = true
+    @State var ichimaieEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -57,6 +58,13 @@ struct railgunViewBayes: View {
                     unitExView5body2image(
                         title: "初当り確率",
                         textBody1: "・通常CZ、上位CZ、ATの初当り確率を計算要素に加えます"
+                    )
+                }
+                // 獲得枚数の一枚絵
+                unitToggleWithQuestion(enable: self.$ichimaieEnable, title: "獲得枚数の一枚絵") {
+                    unitExView5body2image(
+                        title: "獲得枚数の一枚絵",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
                 // 終了画面
@@ -181,6 +189,24 @@ struct railgunViewBayes: View {
                 bigNumber: railgun.normalGame
             )
         }
+        
+        // 獲得枚数の一枚絵
+        var logPostIchimaie: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.ichimaieEnable {
+            if railgun.ichimaieCount3 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+            }
+            if railgun.ichimaieCount4 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+                logPostIchimaie[2] = -Double.infinity
+                logPostIchimaie[4] = -Double.infinity
+            }
+            if railgun.ichimaieCount7 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+                logPostIchimaie[1] = -Double.infinity
+                logPostIchimaie[2] = -Double.infinity
+            }
+        }
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
@@ -254,6 +280,7 @@ struct railgunViewBayes: View {
             logPostAt,
             logPostScreen,
             logPostPremiumCz,
+            logPostIchimaie,
             
             logPostTrophy,
             logPostBefore,
