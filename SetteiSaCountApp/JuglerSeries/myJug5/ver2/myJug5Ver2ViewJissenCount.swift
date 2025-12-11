@@ -163,13 +163,7 @@ struct myJug5Ver2ViewJissenCount: View {
                     autoBool: self.$isAutoCountOn,
                     nextAutoCountDate: self.$nextAutoCountDate,
                 )
-//                    .onChange(of: self.isAutoCountOn) { oldValue, newValue in
-//                        if newValue {
-//                            self.nextAutoCountDate = Date().addingTimeInterval(4.1)
-//                        } else {
-//                            self.nextAutoCountDate = nil
-//                        }
-//                    }
+                .popoverTip(commonTipAutoGameCount())
             }
             ToolbarItem(placement: .automatic) {
                 // カウント入力

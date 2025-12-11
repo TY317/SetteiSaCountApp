@@ -23,6 +23,10 @@ struct happyJugV3Ver2ViewJissenCount: View {
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         List {
             // //// 小役、ボーナスカウント
@@ -259,6 +263,12 @@ struct happyJugV3Ver2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$happyJugV3.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: 4.1
+        )
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -304,21 +314,30 @@ struct happyJugV3Ver2ViewJissenCount: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            happyJugV3SubViewCountInput(
-                                happyJugV3: happyJugV3
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        happyJugV3SubViewCountInput(
+                            happyJugV3: happyJugV3
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $happyJugV3.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: happyJugV3.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $happyJugV3.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: happyJugV3.resetCountData)
             }
         }
     }

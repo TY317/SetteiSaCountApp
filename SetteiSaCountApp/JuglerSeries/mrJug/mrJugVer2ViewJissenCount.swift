@@ -23,6 +23,10 @@ struct mrJugVer2ViewJissenCount: View {
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         List {
             // //// 小役、ボーナスカウント
@@ -301,6 +305,12 @@ struct mrJugVer2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$mrJug.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: 4.1
+        )
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -346,21 +356,30 @@ struct mrJugVer2ViewJissenCount: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            mrJugSubViewCountInput(
-                                mrJug: mrJug
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        mrJugSubViewCountInput(
+                            mrJug: mrJug
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $mrJug.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: mrJug.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $mrJug.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: mrJug.resetCountData)
             }
         }
     }

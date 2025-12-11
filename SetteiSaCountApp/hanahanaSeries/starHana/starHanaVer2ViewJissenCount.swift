@@ -25,6 +25,10 @@ struct starHanaVer2ViewJissenCount: View {
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         ZStack {
             List {
@@ -352,6 +356,12 @@ struct starHanaVer2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$starHana.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: 4.1
+        )
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -399,22 +409,30 @@ struct starHanaVer2ViewJissenCount: View {
         // //// ツールバーボタン
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            starHanaSubViewCountInput(
-                                starHana: starHana
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        starHanaSubViewCountInput(
+                            starHana: starHana
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスボタン
-                    unitButtonMinusCheck(minusCheck: $starHana.minusCheck)
-                    // データリセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: starHana.hanaReset)
-//                        .popoverTip(tipUnitButtonReset())
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスボタン
+                unitButtonMinusCheck(minusCheck: $starHana.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // データリセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: starHana.hanaReset)
             }
         }
     }

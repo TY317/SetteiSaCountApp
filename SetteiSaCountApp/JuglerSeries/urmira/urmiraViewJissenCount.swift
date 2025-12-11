@@ -25,6 +25,10 @@ struct urmiraViewJissenCount: View {
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
     
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         List {
             // //// 小役、ボーナスカウント
@@ -341,6 +345,12 @@ struct urmiraViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$urmira.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: 4.1
+        )
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,
@@ -359,21 +369,30 @@ struct urmiraViewJissenCount: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            urmiraSubViewCountInput(
-                                urmira: urmira
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        urmiraSubViewCountInput(
+                            urmira: urmira
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $urmira.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: urmira.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $urmira.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: urmira.resetCountData)
             }
         }
     }
