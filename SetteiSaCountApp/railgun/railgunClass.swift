@@ -178,6 +178,15 @@ class RailgunMemory1: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory1") var memo = ""
     @AppStorage("railgunDateMemory1") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory1") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory1") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory1") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory1") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory1") var czCountPremium: Int = 0
 }
 
 
@@ -207,6 +216,15 @@ class RailgunMemory2: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory2") var memo = ""
     @AppStorage("railgunDateMemory2") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory2") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory2") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory2") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory2") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory2") var czCountPremium: Int = 0
 }
 
 
@@ -236,4 +254,13 @@ class RailgunMemory3: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory3") var memo = ""
     @AppStorage("railgunDateMemory3") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory3") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory3") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory3") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory3") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory3") var czCountPremium: Int = 0
 }
