@@ -83,28 +83,30 @@ struct vvv2ViewTop: View {
                     unitLabelMachineTopTitle(machineName: vvv2.machineName)
                 }
                 
-//                // 設定推測グラフ
-//                NavigationLink(destination: vvv2View95Ci(
-//                    vvv2: vvv2,
-//                    selection: 1,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
-//                
-//                // 設定期待値計算
-//                NavigationLink(destination: vvv2ViewBayes(
-//                    vvv2: vvv2,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                    )
-//                }
+                // 設定推測グラフ
+                NavigationLink(destination: vvv2View95Ci(
+                    vvv2: vvv2,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ",
+                        badgeStatus: common.vvv2Menu95CiBadge,
+                    )
+                }
+                
+                // 設定期待値計算
+                NavigationLink(destination: vvv2ViewBayes(
+                    vvv2: vvv2,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.vvv2MenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4885")

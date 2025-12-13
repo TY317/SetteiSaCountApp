@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct girlsSSVer2ViewJissenCount: View {
 //    @ObservedObject var ver391: Ver391
@@ -22,6 +23,11 @@ struct girlsSSVer2ViewJissenCount: View {
     @State var spaceHeight = 100.0
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    @EnvironmentObject var common: commonVar
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -280,6 +286,12 @@ struct girlsSSVer2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$girlsSS.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -325,21 +337,30 @@ struct girlsSSVer2ViewJissenCount: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            girlsSSSubViewCountInput(
-                                girlsSS: girlsSS
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        girlsSSSubViewCountInput(
+                            girlsSS: girlsSS
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $girlsSS.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: girlsSS.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $girlsSS.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: girlsSS.resetCountData)
             }
         }
     }
@@ -352,4 +373,5 @@ struct girlsSSVer2ViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

@@ -19,6 +19,8 @@ class commonVar: ObservableObject {
     
     let shimaInitialColumn: Int = 5    // 島合算確認ページのイニシャル行数
     
+    let autoGameInterval: CGFloat = 3.95   // 自動G数機能のインターバル時間
+    
     // ///////////////////////
     // 起動回数カウント
     // ///////////////////////
@@ -122,6 +124,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // //// 化物語
+    @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"
+    @AppStorage("bakemonoMenuNormalBadge") var bakemonoMenuNormalBadge: String = "none"
+    @AppStorage("bakemonoMenuAtBadge") var bakemonoMenuAtBadge: String = "none"
+    @AppStorage("bakemonoMenuScreenBadge") var bakemonoMenuScreenBadge: String = "none"
+    @AppStorage("bakemonoMenuFirstHitBadge") var bakemonoMenuFirstHitBadge: String = "none"
+    @AppStorage("bakemonoMenuBayesBadge") var bakemonoMenuBayesBadge: String = "none"
+    
     // //// ネオプラネット
     @AppStorage("neoplaMachineIconBadge") var neoplaMachineIconBadge: String = "none"
     @AppStorage("neoplaMenuNormalBadge") var neoplaMenuNormalBadge: String = "none"
@@ -134,9 +144,15 @@ class commonVar: ObservableObject {
     @AppStorage("vvv2MenuRushBadge") var vvv2MenuRushBadge: String = "none"
     @AppStorage("vvv2MenuNormalBadge") var vvv2MenuNormalBadge: String = "none"
     @AppStorage("vvv2MenuFirstHitBadge") var vvv2MenuFirstHitBadge: String = "none"
+    @AppStorage("vvv2Menu95CiBadge") var vvv2Menu95CiBadge: String = "none"
+    @AppStorage("vvv2MenuBayesBadge") var vvv2MenuBayesBadge: String = "none"
     
     // //// レールガン
     @AppStorage("railgunMachineIconBadge") var railgunMachineIconBadge = "none"
+    @AppStorage("railgunMenuNormalBadge") var railgunMenuNormalBadge = "none"
+    @AppStorage("railgunMenuBayesBadge") var railgunMenuBayesBadge = "none"
+    @AppStorage("railgunMenuFirstHitBadge") var railgunMenuFirstHitBadge = "none"
+    @AppStorage("railgunMenuDuringAtBadge") var railgunMenuDuringAtBadge = "none"
     
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
@@ -201,6 +217,35 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3140FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.14.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                bakemonoMachineIconBadge = "new"
+                neoplaMachineIconBadge = "update"
+                neoplaMenuNormalBadge = "update"
+                railgunMachineIconBadge = "update"
+                railgunMenuNormalBadge = "update"
+                railgunMenuBayesBadge = "update"
+                railgunMenuFirstHitBadge = "update"
+                railgunMenuDuringAtBadge = "update"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuRushBadge = "update"
+                vvv2Menu95CiBadge = "new"
+                vvv2MenuBayesBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3131FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.13.1"

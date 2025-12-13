@@ -7,6 +7,7 @@
 
 import SwiftUI
 //import GoogleMobileAds
+import Combine
 
 struct evaYakusokuViewNormal: View {
 //    @ObservedObject var ver380: Ver380
@@ -29,6 +30,10 @@ struct evaYakusokuViewNormal: View {
     let segmentList: [String] = ["小役カウント", "重複当選"]
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -266,6 +271,12 @@ struct evaYakusokuViewNormal: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: $evaYakusoku.gameNumberCurrent,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,
@@ -283,6 +294,14 @@ struct evaYakusokuViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
             ToolbarItem(placement: .automatic) {
                 HStack {
                     // カウント値ダイレクト入力
@@ -333,11 +352,19 @@ struct evaYakusokuViewNormal: View {
                         },
                         focus: $isFocused
                     )
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetNormal)
+//                    // マイナスチェック
+//                    unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
+//                    // リセットボタン
+//                    unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetNormal)
                 }
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $evaYakusoku.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: evaYakusoku.resetNormal)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {

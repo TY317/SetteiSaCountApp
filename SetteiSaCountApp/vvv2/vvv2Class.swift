@@ -65,6 +65,7 @@ class Vvv2: ObservableObject {
     // /////////
     // ドライブ発生率
     // /////////
+    let ratioDrive: [Double] = [16,16,7,7,7]
     @AppStorage("vvv2RoundCount10") var roundCount10: Int = 0
     @AppStorage("vvv2RoundCount20") var roundCount20: Int = 0
     @AppStorage("vvv2RoundCountDrive") var roundCountDrive: Int = 0

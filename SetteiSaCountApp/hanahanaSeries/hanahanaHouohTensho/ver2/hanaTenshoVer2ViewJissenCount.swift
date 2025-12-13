@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct hanaTenshoVer2ViewJissenCount: View {
 //    @ObservedObject var ver391: Ver391
@@ -24,6 +25,11 @@ struct hanaTenshoVer2ViewJissenCount: View {
     @State var spaceHeight = 250.0
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    @EnvironmentObject var common: commonVar
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         ZStack {
@@ -348,6 +354,12 @@ struct hanaTenshoVer2ViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$hanaTensho.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -395,22 +407,30 @@ struct hanaTenshoVer2ViewJissenCount: View {
         // //// ツールバーボタン
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            hanaTenshoSubViewCountInput(
-                                hanaTensho: hanaTensho
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        hanaTenshoSubViewCountInput(
+                            hanaTensho: hanaTensho
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスボタン
-                    unitButtonMinusCheck(minusCheck: $hanaTensho.minusCheck)
-                    // データリセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: hanaTensho.hanaReset)
-//                        .popoverTip(tipUnitButtonReset())
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスボタン
+                unitButtonMinusCheck(minusCheck: $hanaTensho.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // データリセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: hanaTensho.hanaReset)
             }
         }
     }
@@ -423,4 +443,5 @@ struct hanaTenshoVer2ViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

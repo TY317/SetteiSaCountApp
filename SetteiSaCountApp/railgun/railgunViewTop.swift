@@ -29,7 +29,8 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時"
+                            textBody: "通常時",
+                            badgeStatus: common.railgunMenuNormalBadge,
                         )
                     }
                     
@@ -41,7 +42,8 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: common.railgunMenuFirstHitBadge,
                         )
                     }
                     
@@ -53,7 +55,9 @@ struct railgunViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "AT中")
+                            textBody: "AT中",
+                            badgeStatus: common.railgunMenuDuringAtBadge,
+                        )
                     }
                     // AT終了画面
                     NavigationLink(destination: railgunViewScreen(
@@ -97,6 +101,7 @@ struct railgunViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.railgunMenuBayesBadge,
                     )
                 }
                 
@@ -203,6 +208,15 @@ struct railgunSubViewSaveMemory: View {
         railgunMemory1.screenCountOver5 = railgun.screenCountOver5
         railgunMemory1.screenCountOver6 = railgun.screenCountOver6
         railgunMemory1.screenCountSum = railgun.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgunMemory1.rareCzCountCherry = railgun.rareCzCountCherry
+        railgunMemory1.rareCzCountCherryHit = railgun.rareCzCountCherryHit
+        railgunMemory1.rareCzCountSuika = railgun.rareCzCountSuika
+        railgunMemory1.rareCzCountSuikaHit = railgun.rareCzCountSuikaHit
+        railgunMemory1.czCountPremium = railgun.czCountPremium
     }
     func saveMemory2() {
         railgunMemory2.coinCount = railgun.coinCount
@@ -228,6 +242,15 @@ struct railgunSubViewSaveMemory: View {
         railgunMemory2.screenCountOver5 = railgun.screenCountOver5
         railgunMemory2.screenCountOver6 = railgun.screenCountOver6
         railgunMemory2.screenCountSum = railgun.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgunMemory2.rareCzCountCherry = railgun.rareCzCountCherry
+        railgunMemory2.rareCzCountCherryHit = railgun.rareCzCountCherryHit
+        railgunMemory2.rareCzCountSuika = railgun.rareCzCountSuika
+        railgunMemory2.rareCzCountSuikaHit = railgun.rareCzCountSuikaHit
+        railgunMemory2.czCountPremium = railgun.czCountPremium
     }
     func saveMemory3() {
         railgunMemory3.coinCount = railgun.coinCount
@@ -253,6 +276,15 @@ struct railgunSubViewSaveMemory: View {
         railgunMemory3.screenCountOver5 = railgun.screenCountOver5
         railgunMemory3.screenCountOver6 = railgun.screenCountOver6
         railgunMemory3.screenCountSum = railgun.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgunMemory3.rareCzCountCherry = railgun.rareCzCountCherry
+        railgunMemory3.rareCzCountCherryHit = railgun.rareCzCountCherryHit
+        railgunMemory3.rareCzCountSuika = railgun.rareCzCountSuika
+        railgunMemory3.rareCzCountSuikaHit = railgun.rareCzCountSuikaHit
+        railgunMemory3.czCountPremium = railgun.czCountPremium
     }
 }
 
@@ -307,6 +339,15 @@ struct railgunSubViewLoadMemory: View {
         railgun.screenCountOver5 = railgunMemory1.screenCountOver5
         railgun.screenCountOver6 = railgunMemory1.screenCountOver6
         railgun.screenCountSum = railgunMemory1.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgun.rareCzCountCherry = railgunMemory1.rareCzCountCherry
+        railgun.rareCzCountCherryHit = railgunMemory1.rareCzCountCherryHit
+        railgun.rareCzCountSuika = railgunMemory1.rareCzCountSuika
+        railgun.rareCzCountSuikaHit = railgunMemory1.rareCzCountSuikaHit
+        railgun.czCountPremium = railgunMemory1.czCountPremium
     }
     func loadMemory2() {
         railgun.coinCount = railgunMemory2.coinCount
@@ -332,6 +373,15 @@ struct railgunSubViewLoadMemory: View {
         railgun.screenCountOver5 = railgunMemory2.screenCountOver5
         railgun.screenCountOver6 = railgunMemory2.screenCountOver6
         railgun.screenCountSum = railgunMemory2.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgun.rareCzCountCherry = railgunMemory2.rareCzCountCherry
+        railgun.rareCzCountCherryHit = railgunMemory2.rareCzCountCherryHit
+        railgun.rareCzCountSuika = railgunMemory2.rareCzCountSuika
+        railgun.rareCzCountSuikaHit = railgunMemory2.rareCzCountSuikaHit
+        railgun.czCountPremium = railgunMemory2.czCountPremium
     }
     func loadMemory3() {
         railgun.coinCount = railgunMemory3.coinCount
@@ -357,6 +407,15 @@ struct railgunSubViewLoadMemory: View {
         railgun.screenCountOver5 = railgunMemory3.screenCountOver5
         railgun.screenCountOver6 = railgunMemory3.screenCountOver6
         railgun.screenCountSum = railgunMemory3.screenCountSum
+        
+        // -------------
+        // ver3.14.0で追加
+        // -------------
+        railgun.rareCzCountCherry = railgunMemory3.rareCzCountCherry
+        railgun.rareCzCountCherryHit = railgunMemory3.rareCzCountCherryHit
+        railgun.rareCzCountSuika = railgunMemory3.rareCzCountSuika
+        railgun.rareCzCountSuikaHit = railgunMemory3.rareCzCountSuikaHit
+        railgun.czCountPremium = railgunMemory3.czCountPremium
     }
 }
 

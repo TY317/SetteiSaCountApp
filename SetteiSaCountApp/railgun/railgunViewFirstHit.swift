@@ -26,13 +26,30 @@ struct railgunViewFirstHit: View {
                 )
                 .focused(self.$isFocused)
                 
+                // CZ種類の注意書き
+                VStack(alignment: .leading) {
+                    Text("通常CZ：ガールズジャッジ")
+                    Text("上位CZ：婚后光子と知っての挑戦ですの")
+                }
+                .foregroundStyle(Color.secondary)
+                .font(.caption)
+                
                 // カウントボタン横並び
                 HStack {
                     // CZ
                     unitCountButtonVerticalDenominate(
-                        title: "CZ",
+                        title: "通常CZ",
                         count: $railgun.czCount,
                         color: .personalSummerLightGreen,
+                        bigNumber: $railgun.normalGame,
+                        numberofDicimal: 0,
+                        minusBool: $railgun.minusCheck
+                    )
+                    // CZ
+                    unitCountButtonVerticalDenominate(
+                        title: "上位CZ",
+                        count: $railgun.czCountPremium,
+                        color: .personalSummerLightPurple,
                         bigNumber: $railgun.normalGame,
                         numberofDicimal: 0,
                         minusBool: $railgun.minusCheck
@@ -47,15 +64,19 @@ struct railgunViewFirstHit: View {
                         minusBool: $railgun.minusCheck
                     )
                 }
-                
+                .popoverTip(tipVer3140railgunFirstHit())
                 // 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                     VStack {
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
                             unitTableDenominate(
-                                columTitle: "CZ",
-                                denominateList: railgun.ratioFirstHitCz
+                                columTitle: "通常CZ",
+                                denominateList: railgun.ratioFirstHitCzNormal
+                            )
+                            unitTableDenominate(
+                                columTitle: "上位CZ",
+                                denominateList: railgun.ratioFirstHitCzPremium
                             )
                             unitTableDenominate(
                                 columTitle: "AT",
@@ -86,6 +107,8 @@ struct railgunViewFirstHit: View {
                 Text("初当り")
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.railgunMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

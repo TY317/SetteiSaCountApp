@@ -35,21 +35,40 @@ struct railgunView95Ci: View {
             
             // CZ回数
             unitListSection95Ci(
-                grafTitle: "CZ初当り回数",
+                grafTitle: "通常CZ初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $railgun.czCount,
                         bigNumber: $railgun.normalGame,
-                        setting1Denominate: railgun.ratioFirstHitCz[0],
-                        setting2Denominate: railgun.ratioFirstHitCz[1],
-                        setting3Denominate: railgun.ratioFirstHitCz[2],
-                        setting4Denominate: railgun.ratioFirstHitCz[3],
-                        setting5Denominate: railgun.ratioFirstHitCz[4],
-                        setting6Denominate: railgun.ratioFirstHitCz[5]
+                        setting1Denominate: railgun.ratioFirstHitCzNormal[0],
+                        setting2Denominate: railgun.ratioFirstHitCzNormal[1],
+                        setting3Denominate: railgun.ratioFirstHitCzNormal[2],
+                        setting4Denominate: railgun.ratioFirstHitCzNormal[3],
+                        setting5Denominate: railgun.ratioFirstHitCzNormal[4],
+                        setting6Denominate: railgun.ratioFirstHitCzNormal[5]
                     )
                 )
             )
             .tag(2)
+            
+            // 上位CZ回数
+            unitListSection95Ci(
+                grafTitle: "上位CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $railgun.czCountPremium,
+                        bigNumber: $railgun.normalGame,
+                        setting1Denominate: railgun.ratioFirstHitCzPremium[0],
+                        setting2Denominate: railgun.ratioFirstHitCzPremium[1],
+                        setting3Denominate: railgun.ratioFirstHitCzPremium[2],
+                        setting4Denominate: railgun.ratioFirstHitCzPremium[3],
+                        setting5Denominate: railgun.ratioFirstHitCzPremium[4],
+                        setting6Denominate: railgun.ratioFirstHitCzPremium[5]
+                    )
+                )
+            )
+            .tag(4)
+            
             // AT回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",

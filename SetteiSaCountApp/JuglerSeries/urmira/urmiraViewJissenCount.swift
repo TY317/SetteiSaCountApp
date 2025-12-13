@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct urmiraViewJissenCount: View {
     @ObservedObject var urmira: Urmira
@@ -24,6 +25,11 @@ struct urmiraViewJissenCount: View {
     @State var lazyVGridCount: Int = 3
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @EnvironmentObject var common: commonVar
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -341,6 +347,12 @@ struct urmiraViewJissenCount: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$urmira.currentGames,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,
@@ -359,21 +371,30 @@ struct urmiraViewJissenCount: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {
-                HStack {
-                    // カウント入力
-                    unitButtonCountNumberInput(
-                        inputView: AnyView(
-                            urmiraSubViewCountInput(
-                                urmira: urmira
-                            )
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
+            ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        urmiraSubViewCountInput(
+                            urmira: urmira
                         )
                     )
-                    .popoverTip(tipUnitJugHanaCommonCountInput())
-                    // マイナスチェック
-                    unitButtonMinusCheck(minusCheck: $urmira.minusCheck)
-                    // リセットボタン
-                    unitButtonReset(isShowAlert: $isShowAlert, action: urmira.resetCountData)
-                }
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // マイナスチェック
+                unitButtonMinusCheck(minusCheck: $urmira.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // リセットボタン
+                unitButtonReset(isShowAlert: $isShowAlert, action: urmira.resetCountData)
             }
         }
     }
@@ -385,4 +406,6 @@ struct urmiraViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
+

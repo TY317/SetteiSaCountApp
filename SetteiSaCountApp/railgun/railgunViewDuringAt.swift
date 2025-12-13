@@ -35,20 +35,20 @@ struct railgunViewDuringAt: View {
     let lowerBeltTextList: [String] = [
         "調査中",
         "調査中",
+        "設定2 以上濃厚",
+        "設定2,4,6濃厚",
         "調査中",
         "調査中",
-        "調査中",
-        "調査中",
-        "調査中",
+        "設定4 以上濃厚",
     ]
     let sisaText: [String] = [
         "抱きつき",
         "タンクトップ",
-        "水着",
-        "シャンプー",
+        "設定2 以上濃厚",
+        "設定2,4,6濃厚",
         "4人",
         "美琴・食蜂",
-        "アクセラレーター",
+        "設定4 以上濃厚",
     ]
     let flashColorList: [Color] = [
         .gray,
@@ -59,7 +59,8 @@ struct railgunViewDuringAt: View {
         .red,
         .purple,
     ]
-    let indexList: [Int] = [0,1,2,3,4,5,6]
+//    let indexList: [Int] = [0,1,2,3,4,5,6]
+    let indexList: [Int] = [0,1,4,5,2,3,6]
     var body: some View {
         List {
             // 獲得枚数表示
@@ -100,6 +101,7 @@ struct railgunViewDuringAt: View {
                             }
                         }
                     }
+                    .popoverTip(tipVer3140railgunDuringAt())
                 }
                 .frame(height: common.screenScrollHeight)
                 
@@ -124,6 +126,8 @@ struct railgunViewDuringAt: View {
                 unitLabelHeaderScreenCount()
             }
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.railgunMenuDuringAtBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

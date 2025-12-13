@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct railgunViewNormal: View {
     @ObservedObject var railgun: Railgun
@@ -24,8 +25,11 @@ struct railgunViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    let itemList: [String] = ["🍒", "🍉"]
+    @State var selectedItem: String = "🍒"
     
     var body: some View {
+        TipView(tipVer3140railgunNormal())
         List {
             // //// レア役
             Section {
@@ -89,6 +93,15 @@ struct railgunViewNormal: View {
                         )
                     )
                 )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    railgunViewBayes(
+                        railgun: railgun,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 HStack {
                     Text("コイン揃いからのCZ")
@@ -100,6 +113,94 @@ struct railgunViewNormal: View {
                         )
                     }
                 }
+            }
+            
+            // レア役からのコイン準備移行
+            Section {
+                // 注意書き
+                Text("通常or高確準備滞在時の🍒、🍉が対象")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // ピッカー
+                Picker("", selection: self.$selectedItem) {
+                    ForEach(self.itemList, id: \.self) { item in
+                        Text(item)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                // カウントボタン横並び
+                HStack {
+                    // チェリー
+                    if self.selectedItem == self.itemList[0] {
+                        // チェリー成立
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "🍒成立",
+                            count: $railgun.rareCzCountCherry,
+                            color: .personalSummerLightRed,
+                            minusBool: $railgun.minusCheck
+                        )
+                        // コイン準備移行
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "コイン準備移行",
+                            count: $railgun.rareCzCountCherryHit,
+                            color: .red,
+                            minusBool: $railgun.minusCheck
+                        )
+                    }
+                    
+                    // スイカ成立
+                    else {
+                        // スイカ成立
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "🍉成立",
+                            count: $railgun.rareCzCountSuika,
+                            color: .personalSummerLightGreen,
+                            minusBool: $railgun.minusCheck
+                        )
+                        // コイン準備移行
+                        unitCountButtonVerticalWithoutRatio(
+                            title: "コイン準備移行",
+                            count: $railgun.rareCzCountSuikaHit,
+                            color: .green,
+                            minusBool: $railgun.minusCheck
+                        )
+                    }
+                }
+                
+                // 確率結果
+                HStack {
+                    // 🍒
+                    unitResultRatioPercent2Line(
+                        title: "🍒",
+                        count: $railgun.rareCzCountCherryHit,
+                        bigNumber: $railgun.rareCzCountCherry,
+                        numberofDicimal: 0,
+                    )
+                    // 🍉
+                    unitResultRatioPercent2Line(
+                        title: "🍉",
+                        count: $railgun.rareCzCountSuikaHit,
+                        bigNumber: $railgun.rareCzCountSuika,
+                        numberofDicimal: 0,
+                    )
+                }
+                
+                // 参考情報）レア役からのコイン準備移行率
+                unitLinkButtonViewBuilder(sheetTitle: "レア役からのコイン準備移行率") {
+                    railgunTableRareCz(railgun: railgun)
+                }
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    railgunViewBayes(
+                        railgun: railgun,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("レア役からのコイン準備移行率")
             }
             
             // //// 通常時のモード
@@ -119,6 +220,8 @@ struct railgunViewNormal: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.railgunMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

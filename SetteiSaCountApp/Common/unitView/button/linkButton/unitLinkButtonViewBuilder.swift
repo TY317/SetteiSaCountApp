@@ -13,6 +13,7 @@ struct unitLinkButtonViewBuilder<destination: View>: View {
     var linkText: String?
     @State var isShowDestination: Bool = false
     var detent: PresentationDetent = .medium
+//    var detent2: PresentationDetent = .large
     @ViewBuilder var destination: () -> destination
 //    @Environment(\.dismiss) private var dismiss
     
@@ -55,6 +56,7 @@ struct unitLinkButtonViewBuilder<destination: View>: View {
                     }
                 }
                 .presentationDetents([self.detent])
+//                .presentationDetents([self.detent, self.detent2])
             }
         }
     }

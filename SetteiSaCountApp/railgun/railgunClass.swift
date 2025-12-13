@@ -12,7 +12,7 @@ class Railgun: ObservableObject {
     // ------------
     // 通常時
     // ------------
-    let ratioCoinCzHit: [Double] = [37.7,-1,-1,-1,-1,-1]
+    let ratioCoinCzHit: [Double] = [37.7,38.6,39.5,42.9,47.1,50.2]
     @AppStorage("railgunCoinCount") var coinCount: Int = 0
     @AppStorage("railgunCoinCountCzHit") var coinCountCzHit: Int = 0
     
@@ -20,6 +20,10 @@ class Railgun: ObservableObject {
         coinCount = 0
         coinCountCzHit = 0
         minusCheck = false
+        rareCzCountCherry = 0
+        rareCzCountCherryHit = 0
+        rareCzCountSuika = 0
+        rareCzCountSuikaHit = 0
     }
     
     // --------------
@@ -36,6 +40,7 @@ class Railgun: ObservableObject {
         czCount = 0
         atCount = 0
         minusCheck = false
+        czCountPremium = 0
     }
     
     // ----------
@@ -129,6 +134,21 @@ class Railgun: ObservableObject {
         resetScreen()
         resetAt()
     }
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    let ratioRareCzCherry: [Double] = [0.78,0.78,1.17,1.56,1.56,1.95]
+    let ratioRareCzSuika: [Double] = [25,25,25.78,28.52,29.3,30.08]
+    @AppStorage("railgunRareCzCountCherry") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHit") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuika") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHit") var rareCzCountSuikaHit: Int = 0
+    
+    // 初当り
+    let ratioFirstHitCzNormal: [Double] = [179.99,177.69,173.44,163.19,153.54,145.25]
+    let ratioFirstHitCzPremium: [Double] = [7456.18,6024.31,5925.19,3852.39,2861.31,2586.86]
+    @AppStorage("railgunCzCountPremium") var czCountPremium: Int = 0
 }
 
 
@@ -158,6 +178,15 @@ class RailgunMemory1: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory1") var memo = ""
     @AppStorage("railgunDateMemory1") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory1") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory1") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory1") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory1") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory1") var czCountPremium: Int = 0
 }
 
 
@@ -187,6 +216,15 @@ class RailgunMemory2: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory2") var memo = ""
     @AppStorage("railgunDateMemory2") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory2") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory2") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory2") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory2") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory2") var czCountPremium: Int = 0
 }
 
 
@@ -216,4 +254,13 @@ class RailgunMemory3: ObservableObject {
     @AppStorage("railgunScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("railgunMemoMemory3") var memo = ""
     @AppStorage("railgunDateMemory3") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.14.0で追加
+    // -------------
+    @AppStorage("railgunRareCzCountCherryMemory3") var rareCzCountCherry: Int = 0
+    @AppStorage("railgunRareCzCountCherryHitMemory3") var rareCzCountCherryHit: Int = 0
+    @AppStorage("railgunRareCzCountSuikaMemory3") var rareCzCountSuika: Int = 0
+    @AppStorage("railgunRareCzCountSuikaHitMemory3") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("railgunCzCountPremiumMemory3") var czCountPremium: Int = 0
 }

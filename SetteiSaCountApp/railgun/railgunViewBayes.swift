@@ -15,6 +15,9 @@ struct railgunViewBayes: View {
     let payoutList: [Double] = [97.7, 98.9, 100.3, 105.4, 110.0, 112.9]
     @State var firstHitEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var coinCzEnable: Bool = true
+    @State var rareCzEnable: Bool = true
+    @State var ichimaieEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -46,11 +49,22 @@ struct railgunViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // コイン揃いからのCZ当選率
+                unitToggleWithQuestion(enable: self.$coinCzEnable, title: "コイン揃いからのCZ当選率")
+                // レア役からのコイン準備移行率
+                unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのコイン準備移行率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
                         title: "初当り確率",
-                        textBody1: "・CZ、ATの初当り確率を計算要素に加えます"
+                        textBody1: "・通常CZ、上位CZ、ATの初当り確率を計算要素に加えます"
+                    )
+                }
+                // 獲得枚数の一枚絵
+                unitToggleWithQuestion(enable: self.$ichimaieEnable, title: "獲得枚数の一枚絵") {
+                    unitExView5body2image(
+                        title: "獲得枚数の一枚絵",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
                 // 終了画面
@@ -76,7 +90,7 @@ struct railgunViewBayes: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($common.railgunMenuBayesBadge)
+        .resetBadgeOnAppear($common.railgunMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -130,12 +144,37 @@ struct railgunViewBayes: View {
     
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // コイン揃いからのCZ当選率
+        var logPostCoinCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.coinCzEnable {
+            logPostCoinCz = logPostPercentBino(
+                ratio: railgun.ratioCoinCzHit,
+                Count: railgun.coinCountCzHit,
+                bigNumber: railgun.coinCount
+            )
+        }
+        // レア役からのコイン準備移行率
+        var logPostRareCzCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareCzSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareCzEnable {
+            logPostRareCzCherry = logPostPercentBino(
+                ratio: railgun.ratioRareCzCherry,
+                Count: railgun.rareCzCountCherryHit,
+                bigNumber: railgun.rareCzCountCherry
+            )
+            logPostRareCzSuika = logPostPercentBino(
+                ratio: railgun.ratioRareCzSuika,
+                Count: railgun.rareCzCountSuikaHit,
+                bigNumber: railgun.rareCzCountSuika
+            )
+        }
         // 初当り
         var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPremiumCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
             logPostCz = logPostDenoBino(
-                ratio: railgun.ratioFirstHitCz,
+                ratio: railgun.ratioFirstHitCzNormal,
                 Count: railgun.czCount,
                 bigNumber: railgun.normalGame
             )
@@ -144,6 +183,29 @@ struct railgunViewBayes: View {
                 Count: railgun.atCount,
                 bigNumber: railgun.normalGame
             )
+            logPostPremiumCz = logPostDenoBino(
+                ratio: railgun.ratioFirstHitCzPremium,
+                Count: railgun.czCountPremium,
+                bigNumber: railgun.normalGame
+            )
+        }
+        
+        // 獲得枚数の一枚絵
+        var logPostIchimaie: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.ichimaieEnable {
+            if railgun.ichimaieCount3 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+            }
+            if railgun.ichimaieCount4 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+                logPostIchimaie[2] = -Double.infinity
+                logPostIchimaie[4] = -Double.infinity
+            }
+            if railgun.ichimaieCount7 > 0 {
+                logPostIchimaie[0] = -Double.infinity
+                logPostIchimaie[1] = -Double.infinity
+                logPostIchimaie[2] = -Double.infinity
+            }
         }
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -211,9 +273,14 @@ struct railgunViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostCoinCz,
+            logPostRareCzCherry,
+            logPostRareCzSuika,
             logPostCz,
             logPostAt,
             logPostScreen,
+            logPostPremiumCz,
+            logPostIchimaie,
             
             logPostTrophy,
             logPostBefore,

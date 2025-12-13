@@ -178,6 +178,7 @@ struct unitLinkButton: View {
     @State var exview: AnyView
     @State var isShowExView = false
     var detent: PresentationDetent = .medium
+//    var detent2: PresentationDetent = .large
     
     var body: some View {
         HStack {
@@ -191,6 +192,7 @@ struct unitLinkButton: View {
             .sheet(isPresented: $isShowExView, content: {
                 self.exview
                     .presentationDetents([detent])
+//                    .presentationDetents([self.detent, self.detent2])
             })
         }
     }
