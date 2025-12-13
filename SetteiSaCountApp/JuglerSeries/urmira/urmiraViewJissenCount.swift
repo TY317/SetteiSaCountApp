@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct urmiraViewJissenCount: View {
     @ObservedObject var urmira: Urmira
@@ -24,10 +25,11 @@ struct urmiraViewJissenCount: View {
     @State var lazyVGridCount: Int = 3
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @EnvironmentObject var common: commonVar
     
     @State private var isAutoCountOn: Bool = false
     @State private var nextAutoCountDate: Date? = nil
-    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -349,7 +351,7 @@ struct urmiraViewJissenCount: View {
             isOn: self.$isAutoCountOn,
             currentGames: self.$urmira.currentGames,
             nextDate: self.$nextAutoCountDate,
-            interval: 4.1
+            interval: common.autoGameInterval
         )
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -404,4 +406,6 @@ struct urmiraViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
+

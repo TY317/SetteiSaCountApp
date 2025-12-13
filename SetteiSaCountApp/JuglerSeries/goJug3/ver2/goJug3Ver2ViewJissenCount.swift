@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct goJug3Ver2ViewJissenCount: View {
 //    @ObservedObject var ver391: Ver391
@@ -17,7 +18,8 @@ struct goJug3Ver2ViewJissenCount: View {
     
     @State private var isAutoCountOn: Bool = false
     @State private var nextAutoCountDate: Date? = nil
-    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    @EnvironmentObject var common: commonVar
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -140,7 +142,7 @@ struct goJug3Ver2ViewJissenCount: View {
             isOn: self.$isAutoCountOn,
             currentGames: self.$goJug3.currentGames,
             nextDate: self.$nextAutoCountDate,
-            interval: 4.1
+            interval: common.autoGameInterval
         )
         .navigationTitle("実戦カウント")
         .navigationBarTitleDisplayMode(.inline)
@@ -182,4 +184,5 @@ struct goJug3Ver2ViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

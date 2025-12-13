@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct kingHanaVer2ViewJissenCount: View {
     //    @ObservedObject var ver391: Ver391
@@ -27,7 +28,8 @@ struct kingHanaVer2ViewJissenCount: View {
     
     @State private var isAutoCountOn: Bool = false
     @State private var nextAutoCountDate: Date? = nil
-    private let autoCountTimer = Timer.publish(every: 4.1, on: .main, in: .common).autoconnect()
+    @EnvironmentObject var common: commonVar
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         ZStack {
@@ -356,7 +358,7 @@ struct kingHanaVer2ViewJissenCount: View {
             isOn: self.$isAutoCountOn,
             currentGames: self.$kingHana.currentGames,
             nextDate: self.$nextAutoCountDate,
-            interval: 4.1
+            interval: common.autoGameInterval
         )
         // //// 画面の向き情報の取得部分
         .onAppear {
@@ -440,5 +442,6 @@ struct kingHanaVer2ViewJissenCount: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
 

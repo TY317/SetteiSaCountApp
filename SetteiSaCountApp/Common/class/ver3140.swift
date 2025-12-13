@@ -15,7 +15,7 @@ struct tipVer3140UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・化物語\n・\n・")
+        Text("・化物語\n・Aタイプ、BT機にゲーム数自動カウント機能を追加")
     }
     var image: Image? {
         Image(systemName: "star")

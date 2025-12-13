@@ -19,7 +19,7 @@ class commonVar: ObservableObject {
     
     let shimaInitialColumn: Int = 5    // 島合算確認ページのイニシャル行数
     
-    let autoGameInterval: Double = 4.1   // 自動G数機能のインターバル時間
+    let autoGameInterval: CGFloat = 3.95   // 自動G数機能のインターバル時間
     
     // ///////////////////////
     // 起動回数カウント
