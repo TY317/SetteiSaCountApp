@@ -124,6 +124,9 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // //// 秘宝伝
+    @AppStorage("hihodenMachineIconBadge") var hihodenMachineIconBadge: String = "none"
+    
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"
     @AppStorage("bakemonoMenuNormalBadge") var bakemonoMenuNormalBadge: String = "none"
@@ -217,6 +220,23 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3150FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.15.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                hihodenMachineIconBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
     func ver3140FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.14.0"

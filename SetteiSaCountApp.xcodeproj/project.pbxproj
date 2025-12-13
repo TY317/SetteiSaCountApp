@@ -1094,6 +1094,12 @@
 		0FF3E4792EE40195002704FD /* bakemonoViewAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */; };
 		0FF3E47B2EE40438002704FD /* bakemonoTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
+		0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2172EED8B640045265B /* hihodenViewTop.swift */; };
+		0FF6D21A2EED8B6E0045265B /* hihodenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2192EED8B6E0045265B /* hihodenClass.swift */; };
+		0FF6D21C2EED8B7C0045265B /* hihodenAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */; };
+		0FF6D21E2EED8DB40045265B /* hihodenView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */; };
+		0FF6D2202EED8DC30045265B /* hihodenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */; };
+		0FF6D2222EED8E230045265B /* ver3150.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2212EED8E230045265B /* ver3150.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
 		0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */; };
@@ -2243,6 +2249,12 @@
 		0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewAt.swift; sourceTree = "<group>"; };
 		0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
+		0FF6D2172EED8B640045265B /* hihodenViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewTop.swift; sourceTree = "<group>"; };
+		0FF6D2192EED8B6E0045265B /* hihodenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenClass.swift; sourceTree = "<group>"; };
+		0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hihodenAssets.xcassets; sourceTree = "<group>"; };
+		0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenView95Ci.swift; sourceTree = "<group>"; };
+		0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewBayes.swift; sourceTree = "<group>"; };
+		0FF6D2212EED8E230045265B /* ver3150.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3150.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
 		0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kaguyaAssets.xcassets; sourceTree = "<group>"; };
@@ -2891,6 +2903,7 @@
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FF6D2162EED8B440045265B /* hihoden */,
 				0F0DE8112EDC340900D85BCA /* bakemono */,
 				0F2DA9F72EC0792E0083704E /* neopla */,
 				0F9D9BF12EA0C42C00450B23 /* vvv2 */,
@@ -3426,6 +3439,7 @@
 				0F663B8D2EBF0830006FBB1F /* ver3130.swift */,
 				0FFAEBD32ED13A88006C0371 /* ver3131.swift */,
 				0FF3E4742EE06782002704FD /* ver3140.swift */,
+				0FF6D2212EED8E230045265B /* ver3150.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -4320,6 +4334,18 @@
 			path = copyright;
 			sourceTree = "<group>";
 		};
+		0FF6D2162EED8B440045265B /* hihoden */ = {
+			isa = PBXGroup;
+			children = (
+				0FF6D2172EED8B640045265B /* hihodenViewTop.swift */,
+				0FF6D2192EED8B6E0045265B /* hihodenClass.swift */,
+				0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */,
+				0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */,
+				0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */,
+			);
+			path = hihoden;
+			sourceTree = "<group>";
+		};
 		0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */ = {
 			isa = PBXGroup;
 			children = (
@@ -4510,6 +4536,7 @@
 				0FB9CA812DDB61B2009FC6AF /* toloveru87Assets.xcassets in Resources */,
 				0F64DDB82DC6D4920027315D /* midoriDonAssets.xcassets in Resources */,
 				0F654BB82C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets in Resources */,
+				0FF6D21C2EED8B7C0045265B /* hihodenAssets.xcassets in Resources */,
 				0F868A912D5789AB00D952D9 /* mrJugAssets.xcassets in Resources */,
 				0F654BD22C6F0F1900F37849 /* dragonHanahanaSenkohAssets.xcassets in Resources */,
 				0FD357B52DAFCC360069BD1A /* yoshimuneAssets.xcassets in Resources */,
@@ -4884,6 +4911,7 @@
 				0F49521E2DB4903F00EE13CB /* magiaViewEnding.swift in Sources */,
 				0FEC57B42D8FBCD400FF1024 /* kaijiView95Ci.swift in Sources */,
 				0FBED79E2E989E4300AA3751 /* toreveTableRevengeChance.swift in Sources */,
+				0FF6D21A2EED8B6E0045265B /* hihodenClass.swift in Sources */,
 				0F868ACD2D58621300D952D9 /* girlsSSVer2View95CiKen.swift in Sources */,
 				0FEC57982D8E4A0200FF1024 /* arifureSubViewTableChara.swift in Sources */,
 				0F9D9C472EA5007300450B23 /* railgunViewNormal.swift in Sources */,
@@ -5172,6 +5200,7 @@
 				0F9A4F8A2DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift in Sources */,
 				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
+				0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */,
 				0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */,
 				0F6B59CE2DFE782100DB1A2B /* symphoTableScreen.swift in Sources */,
 				0FBED7A02E9A3A1E00AA3751 /* newOni3ViewFirstHit.swift in Sources */,
@@ -5506,6 +5535,7 @@
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
 				0FD357AC2DAE98DE0069BD1A /* mahjongViewTop.swift in Sources */,
 				0F9A4F982DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift in Sources */,
+				0FF6D21E2EED8DB40045265B /* hihodenView95Ci.swift in Sources */,
 				0FD357862DAA76EA0069BD1A /* sbjTableEndScreen.swift in Sources */,
 				0F6B59E72E06ADB300DB1A2B /* goevaTableMenuScreen.swift in Sources */,
 				0FD357402DA227B70069BD1A /* arifureTableHeavenHit.swift in Sources */,
@@ -5595,6 +5625,7 @@
 				0FD3573E2DA21EEC0069BD1A /* arifureTableCzMode.swift in Sources */,
 				0F868AC32D584F1A00D952D9 /* girlsSSVer2ViewKenDataInput.swift in Sources */,
 				0F6B59DF2E06A36600DB1A2B /* goevaTableSuikaCz.swift in Sources */,
+				0FF6D2222EED8E230045265B /* ver3150.swift in Sources */,
 				0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */,
 				0F815FDE2E3DF5420086127D /* reSwordViewAtScreen.swift in Sources */,
 				0F9D9BD12E9BCCD900450B23 /* newOni3ViewEnding.swift in Sources */,
@@ -5707,6 +5738,7 @@
 				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
 				0FA0249B2D05D13C004B3FD5 /* lupinViewTop.swift in Sources */,
 				0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */,
+				0FF6D2202EED8DC30045265B /* hihodenViewBayes.swift in Sources */,
 				0F64DD4F2DC081700027315D /* dumbbellTableKinnikuBonusScreen.swift in Sources */,
 				0F6FB8F62DE7326400207855 /* bangdreamTableVoice.swift in Sources */,
 				0FDF23852E520C9D00249CAC /* enenTableAdoraRatio.swift in Sources */,

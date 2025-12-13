@@ -71,6 +71,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteRailgun") var isSelectedFavoriteRailgun = true
     @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
     @AppStorage("isSelectedFavoriteBakemono") var isSelectedFavoriteBakemono = true
+    @AppStorage("isSelectedFavoriteHihoden") var isSelectedFavoriteHihoden = true
 }
 
 
@@ -100,7 +101,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3140UpdateInfo())
+                TipView(tipVer3150UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -137,6 +138,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 化物語、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHihoden == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(hihodenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hihodenMachineIcon"),
+                                        machineName: "秘宝伝",
+                                        badgeStatus: common.hihodenMachineIconBadge,
                                     )
                                 }
                                 
@@ -873,6 +889,24 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 秘宝伝、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHihoden == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(hihodenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hihodenMachineIcon"),
+                                        machineName: "秘宝伝",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 12,
+                                        badgeStatus: common.hihodenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1986,6 +2020,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 秘宝伝
+                Toggle("秘宝伝", isOn: $favoriteSet.isSelectedFavoriteHihoden)
                 // 化物語
                 Toggle("化物語", isOn: $favoriteSet.isSelectedFavoriteBakemono)
                 // ネオプラネット
