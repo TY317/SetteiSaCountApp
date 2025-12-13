@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct creaViewNormal: View {
     @ObservedObject var crea: Crea
@@ -55,6 +56,10 @@ struct creaViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 6
     @State var lazyVGridCount: Int = 3
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
     var body: some View {
         List {
@@ -133,7 +138,7 @@ struct creaViewNormal: View {
 //                        }
                     }
                 }
-                .popoverTip(tipVer3131creaNormal())
+//                .popoverTip(tipVer3131creaNormal())
                 
                 // //// 参考情報）小役確率
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
@@ -226,6 +231,12 @@ struct creaViewNormal: View {
                 screenClass: screenClass
             )
         }
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: $crea.gameNumberCurrent,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,
@@ -243,6 +254,14 @@ struct creaViewNormal: View {
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
             // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
                 UnitToolbarButtonCountDirectInputEnumFocus<CreaField, AnyView>(
