@@ -14,6 +14,7 @@ struct bakemonoViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.9, 100.9, 105.0, 107.8, 112.1]
     @State var firstHitEnable: Bool = true
+    @State var screenHitEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -46,6 +47,13 @@ struct bakemonoViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenHitEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -124,7 +132,38 @@ struct bakemonoViewBayes: View {
                 bigNumber: bakemono.normalGame
             )
         }
-        
+        // AT終了画面
+        var logPostScreenEnd: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenHitEnable {
+            if bakemono.screenCount7 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+                logPostScreenEnd[4] = -Double.infinity
+            }
+            if bakemono.screenCount8 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[3] = -Double.infinity
+            }
+            if bakemono.screenCount9 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+            }
+            if bakemono.screenCount10 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+                logPostScreenEnd[3] = -Double.infinity
+            }
+            if bakemono.screenCount11 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+                logPostScreenEnd[3] = -Double.infinity
+                logPostScreenEnd[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -163,6 +202,7 @@ struct bakemonoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
+            logPostScreenEnd,
             
             logPostTrophy,
             logPostBefore,

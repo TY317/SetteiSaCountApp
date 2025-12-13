@@ -24,9 +24,9 @@ struct bakemonoTableMaisuSisa: View {
                 unitTableString(
                     columTitle: "示唆",
                     stringList: [
-                        "調査中",
-                        "調査中",
-                        "調査中",
+                        "設定2 以上濃厚",
+                        "設定6 濃厚",
+                        "設定3 以上濃厚",
                     ],
                     lineList: [1,1,1,],
                 )

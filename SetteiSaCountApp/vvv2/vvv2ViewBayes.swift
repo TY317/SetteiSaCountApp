@@ -14,6 +14,7 @@ struct vvv2ViewBayes: View {
     let settingList: [Int] = [1,2,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 99.3, 104.7, 110.8, 114.9]
     @State var driveEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -47,6 +48,13 @@ struct vvv2ViewBayes: View {
             bayesSubStep2Section {
                 // ドライブ発生率
                 unitToggleWithQuestion(enable: self.$driveEnable, title: "ドライブ発生率")
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "CZ・ボーナス終了画面") {
+                    unitExView5body2image(
+                        title: "CZ・ボーナス終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
             }
             
             // //// STEP3
@@ -117,6 +125,23 @@ struct vvv2ViewBayes: View {
                 bigNumber: vvv2.roundCountSum
             )
         }
+        // 終了画面
+        var logPostScreenEnd: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if vvv2.screenCountPurple > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+            }
+            if vvv2.screenCountSilver > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+            }
+            if vvv2.screenCountGold > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+                logPostScreenEnd[3] = -Double.infinity
+            }
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -150,6 +175,7 @@ struct vvv2ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostDrive,
+            logPostScreenEnd,
             
             logPostTrophy,
             logPostBefore,

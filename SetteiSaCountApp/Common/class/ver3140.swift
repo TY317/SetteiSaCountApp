@@ -45,7 +45,7 @@ struct tipVer3140railgunNormal: Tip {
         Text("機能追加")
     }
     var message: Text? {
-        Text("・コイン揃いからのCZ当選率設定差\n・レア役からのコイン準備移行率\n設定差が判明！情報更新＆カウント機能追加しました")
+        Text("・コイン揃いからのCZ当選率\n・レア役からのコイン準備移行率\n設定差が判明！情報更新＆カウント機能追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
