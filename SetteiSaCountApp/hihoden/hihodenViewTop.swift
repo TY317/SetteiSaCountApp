@@ -30,31 +30,48 @@ struct hihodenViewTop: View {
                 }
                 
                 Section {
+                    // 通常時
+                    NavigationLink(destination: hihodenViewNormal(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.hihodenMenuNormalBadge,
+                        )
+                    }
                     
+                    // トロフィー
+                    NavigationLink(destination: commonViewKopandaTrophy()) {
+                        unitLabelMenu(imageSystemName: "trophy.fill", textBody: "コパンダトロフィー")
+                    }
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: hihodenView95Ci(
-//                    hihoden: hihoden,
-//                    selection: 2,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: hihodenView95Ci(
+                    hihoden: hihoden,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: hihodenViewBayes(
-//                    hihoden: hihoden,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                    )
-//                }
+                NavigationLink(destination: hihodenViewBayes(
+                    hihoden: hihoden,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.hihodenMenuBayesBadge,
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4929")

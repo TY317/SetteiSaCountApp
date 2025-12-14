@@ -8,11 +8,51 @@
 import SwiftUI
 
 struct hihodenView95Ci: View {
+    @ObservedObject var hihoden: Hihoden
+    @State var selection = 1
+    @State var isShow95CiExplain = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: self.$selection) {
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "🍉回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hihoden.koyakuCountCherry,
+                        bigNumber: $hihoden.totalGame,
+                        setting1Denominate: hihoden.ratioKoyakuCherry[0],
+                        setting2Denominate: hihoden.ratioKoyakuCherry[1],
+                        setting3Denominate: hihoden.ratioKoyakuCherry[2],
+                        setting4Denominate: hihoden.ratioKoyakuCherry[3],
+                        setting5Denominate: hihoden.ratioKoyakuCherry[4],
+                        setting6Denominate: hihoden.ratioKoyakuCherry[5]
+                    )
+                )
+            )
+            .tag(1)
+            
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: hihoden.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("95%信頼区間グラフ")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
+            }
+        }
+        .tabViewStyle(.page)
     }
 }
 
 #Preview {
-    hihodenView95Ci()
+    hihodenView95Ci(
+        hihoden: Hihoden(),
+    )
 }
