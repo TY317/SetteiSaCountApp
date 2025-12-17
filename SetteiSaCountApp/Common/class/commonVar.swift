@@ -207,6 +207,7 @@ class commonVar: ObservableObject {
     // //// 東京グール
     @AppStorage("tokyoGhoulMachineIconBadge") var tokyoGhoulMachineIconBadge: String = "none"
     @AppStorage("tokyoGhoulMenuSuperHighBadge") var tokyoGhoulMenuSuperHighBadge: String = "none"
+    @AppStorage("tokyoGhoulMenuFirstHitBadge") var tokyoGhoulMenuFirstHitBadge: String = "none"
     
     // //// シャーマンキング
     @AppStorage("shamanKingMachineIconBadge") var shamanKingMachineIconBadge = "none"
@@ -231,6 +232,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 hihodenMachineIconBadge = "new"
+                tokyoGhoulMachineIconBadge = "update"
+                tokyoGhoulMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

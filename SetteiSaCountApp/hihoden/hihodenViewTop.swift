@@ -43,6 +43,9 @@ struct hihodenViewTop: View {
                         )
                     }
                     
+                    // ボーナス中
+                    
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(imageSystemName: "trophy.fill", textBody: "コパンダトロフィー")

@@ -48,7 +48,6 @@ struct tokyoGhoulViewTop: View {
                     // CZ,AT 初当り履歴
                     NavigationLink(
                         destination: tokyoGhoulViewHistory(
-//                            ver380: ver380,
                             tokyoGhoul: tokyoGhoul,
                             bayes: bayes,
                             viewModel: viewModel,
@@ -56,7 +55,7 @@ struct tokyoGhoulViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "pencil.and.list.clipboard",
                             textBody: "CZ,AT 初当り履歴",
-//                            badgeStatus: ver351.ghoulMenuFirstHitBadge,
+                            badgeStatus: common.tokyoGhoulMenuFirstHitBadge,
                         )
                     }
                     // AT終了画面

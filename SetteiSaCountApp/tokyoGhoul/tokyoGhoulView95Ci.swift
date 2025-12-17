@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct tokyoGhoulView95Ci: View {
-//    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var selection = 1
     @State var isShow95CiExplain = false
@@ -102,19 +101,36 @@ struct tokyoGhoulView95Ci: View {
                 )
             )
             .tag(2)
-            // 100G以内当選回数
+//            // 100G以内当選回数
+//            unitListSection95Ci(
+//                grafTitle: "100G以内当選回数",
+//                grafView: AnyView(
+//                    unitChart95CiPercent(
+//                        currentCount: $tokyoGhoul.under100CountHit,
+//                        bigNumber: $tokyoGhoul.firstHitCountSum,
+//                        setting1Percent: 19.58,
+//                        setting2Percent: 21.04,
+//                        setting3Percent: 23.15,
+//                        setting4Percent: 26.37,
+//                        setting5Percent: 31.96,
+//                        setting6Percent: 36.01
+//                    )
+//                )
+//            )
+//            .tag(6)
+            // 引き戻し当選回数
             unitListSection95Ci(
-                grafTitle: "100G以内当選回数",
+                grafTitle: "引き戻し当選回数",
                 grafView: AnyView(
                     unitChart95CiPercent(
-                        currentCount: $tokyoGhoul.under100CountHit,
-                        bigNumber: $tokyoGhoul.firstHitCountSum,
-                        setting1Percent: 19.58,
-                        setting2Percent: 21.04,
-                        setting3Percent: 23.15,
-                        setting4Percent: 26.37,
-                        setting5Percent: 31.96,
-                        setting6Percent: 36.01
+                        currentCount: $tokyoGhoul.comeBackCountHit,
+                        bigNumber: $tokyoGhoul.comeBackCountSum,
+                        setting1Percent: tokyoGhoul.ratioComeBack[0],
+                        setting2Percent: tokyoGhoul.ratioComeBack[1],
+                        setting3Percent: tokyoGhoul.ratioComeBack[2],
+                        setting4Percent: tokyoGhoul.ratioComeBack[3],
+                        setting5Percent: tokyoGhoul.ratioComeBack[4],
+                        setting6Percent: tokyoGhoul.ratioComeBack[5]
                     )
                 )
             )

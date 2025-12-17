@@ -47,6 +47,15 @@ struct hihodenViewBayes: View {
             bayesSubStep2Section {
                 // 🍒確率
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "🍒確率")
+                
+                // コパンダトロフィー
+                DisclosureGroup("コパンダトロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "イナズマ柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3

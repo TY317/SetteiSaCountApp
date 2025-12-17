@@ -220,6 +220,10 @@ class TokyoGhoul: ObservableObject {
         arrayStringRemoveAll(arrayData: atHitArrayData, key: atHitArrayKey)
         addRemoveCommon()
         minusCheck = false
+        
+        comeBackCountNone = 0
+        comeBackCountHit = 0
+        comeBackCountSum = 0
     }
     
     // ////////////////////////
@@ -446,6 +450,21 @@ class TokyoGhoul: ObservableObject {
         superHighCountGame33 = 0
         superHighCountSum = 0
         minusCheck = false
+    }
+    
+    // --------------
+    // ver3.15.0で追加
+    // --------------
+    let ratioComeBack: [Double] = [7.8,7.8,9.4,10.9,12.5,15.2]
+    @AppStorage("tokyoGhoulComeBackCountNone") var comeBackCountNone: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountHit") var comeBackCountHit: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountSum") var comeBackCountSum: Int = 0
+    
+    func comeBackSumFunc() {
+        comeBackCountSum = countSum(
+            comeBackCountNone,
+            comeBackCountHit,
+        )
     }
 }
 
