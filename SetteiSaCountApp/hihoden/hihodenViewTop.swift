@@ -43,6 +43,19 @@ struct hihodenViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: hihodenviewFirstHit(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "",
+                            textBody: "初当り＆伝説",
+                            badgeStatus: common.hihodenMenuFirstHitBadge,
+                        )
+                    }
+                    
                     // ボーナス中
                     
                     

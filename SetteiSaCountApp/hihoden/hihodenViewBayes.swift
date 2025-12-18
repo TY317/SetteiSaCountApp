@@ -47,6 +47,8 @@ struct hihodenViewBayes: View {
             bayesSubStep2Section {
                 // 🍒確率
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "🍒確率")
+                // 初当り
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -117,13 +119,22 @@ struct hihodenViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // 初当り確率
+        // チェリー確率
         var logPostCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.koyakuEnable {
             logPostCherry = logPostDenoBino(
                 ratio: hihoden.ratioKoyakuCherry,
                 Count: hihoden.koyakuCountCherry,
                 bigNumber: hihoden.totalGame
+            )
+        }
+        // 初当り確率
+        var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHit = logPostDenoBino(
+                ratio: hihoden.ratioFirstHit,
+                Count: hihoden.firstHitCount,
+                bigNumber: hihoden.normalGame,
             )
         }
         // トロフィー
@@ -164,6 +175,7 @@ struct hihodenViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostCherry,
+            logPostFirstHit,
             
             logPostTrophy,
             logPostBefore,

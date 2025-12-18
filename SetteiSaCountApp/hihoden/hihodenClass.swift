@@ -22,6 +22,35 @@ class Hihoden: ObservableObject {
         minusCheck = false
     }
     
+    // ---------------
+    // 初当り
+    // ---------------
+    let ratioFirstHit: [Double] = [292.5,271.4,283.6,257.5,264,246]
+    @AppStorage("hihodenNormalGame") var normalGame: Int = 0
+    @AppStorage("hihodenFirstHitCount") var firstHitCount: Int = 0
+    
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCount = 0
+        minusCheck = false
+    }
+    
+    // --------------
+    // 伝説
+    // --------------
+    
+    @AppStorage("hihodenLegendCountBigNone") var legendCountBigNone: Int = 0
+    @AppStorage("hihodenLegendCountBigHit") var legendCountBigHit: Int = 0
+    @AppStorage("hihodenLegendCountBigSum") var legendCountBigSum: Int = 0
+    @AppStorage("hihodenLegendCountRegNone") var legendCountRegNone: Int = 0
+    @AppStorage("hihodenLegendCountRegHit") var legendCountRegHit: Int = 0
+    @AppStorage("hihodenLegendCountRegSum") var legendCountRegSum: Int = 0
+    
+    func legendSumFunc() {
+        legendCountBigSum = legendCountBigNone + legendCountBigHit
+        legendCountRegSum = legendCountRegNone + legendCountRegHit
+    }
+    
     // ////////////////////////
     // 共通
     // ////////////////////////

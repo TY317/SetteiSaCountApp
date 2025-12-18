@@ -13,7 +13,7 @@ struct hihodenView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
-            // AT初当り回数
+            // スイカ回数
             unitListSection95Ci(
                 grafTitle: "🍉回数",
                 grafView: AnyView(
@@ -30,6 +30,24 @@ struct hihodenView95Ci: View {
                 )
             )
             .tag(1)
+            
+            // 初当り回数
+            unitListSection95Ci(
+                grafTitle: "初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hihoden.firstHitCount,
+                        bigNumber: $hihoden.normalGame,
+                        setting1Denominate: hihoden.ratioFirstHit[0],
+                        setting2Denominate: hihoden.ratioFirstHit[1],
+                        setting3Denominate: hihoden.ratioFirstHit[2],
+                        setting4Denominate: hihoden.ratioFirstHit[3],
+                        setting5Denominate: hihoden.ratioFirstHit[4],
+                        setting6Denominate: hihoden.ratioFirstHit[5]
+                    )
+                )
+            )
+            .tag(2)
             
         }
         // //// firebaseログ
