@@ -130,6 +130,7 @@ class commonVar: ObservableObject {
     @AppStorage("hihodenMenuBayesBadge") var hihodenMenuBayesBadge: String = "none"
     @AppStorage("hihodenMenuFirstHitBadge") var hihodenMenuFirstHitBadge: String = "none"
     @AppStorage("hihodenMenuDuringBonusBadge") var hihodenMenuDuringBonusBadge: String = "none"
+    @AppStorage("hihodenMenuLegendBadge") var hihodenMenuLegendBadge: String = "none"
     
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"

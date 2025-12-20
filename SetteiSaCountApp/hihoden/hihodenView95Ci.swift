@@ -86,6 +86,43 @@ struct hihodenView95Ci: View {
             )
             .tag(3)
             
+            // 伝説回数 BIG後
+            unitListSection95Ci(
+                grafTitle: "伝説モード移行回数\nBIG後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hihoden.legendCountBigHit,
+                        bigNumber: $hihoden.legendCountBigSum,
+                        setting1Percent: hihoden.ratioLegendAfterBig[0],
+                        setting2Percent: hihoden.ratioLegendAfterBig[1],
+                        setting3Percent: hihoden.ratioLegendAfterBig[2],
+                        setting4Percent: hihoden.ratioLegendAfterBig[3],
+                        setting5Percent: hihoden.ratioLegendAfterBig[4],
+                        setting6Percent: hihoden.ratioLegendAfterBig[5]
+                    )
+                )
+            )
+            .tag(5)
+            
+            // 伝説回数 REG後
+            unitListSection95Ci(
+                grafTitle: "伝説モード移行回数\nREG後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hihoden.legendCountRegHit,
+                        bigNumber: $hihoden.legendCountRegSum,
+                        setting1Percent: hihoden.ratioLegendAfterReg[0],
+                        setting2Percent: hihoden.ratioLegendAfterReg[1],
+                        setting3Percent: hihoden.ratioLegendAfterReg[2],
+                        setting4Percent: hihoden.ratioLegendAfterReg[3],
+                        setting5Percent: hihoden.ratioLegendAfterReg[4],
+                        setting6Percent: hihoden.ratioLegendAfterReg[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

@@ -69,6 +69,20 @@ struct hihodenViewDuringBonus: View {
             } header: {
                 Text("ボーナス中のハズレ")
             }
+            
+            // REG中のキャラ紹介
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "REG中のキャラ紹介") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・銀、金背景のキャラに注目")
+                            Text("・カードの組み合わせによる役などで伝説モードなどを示唆？")
+                        }
+                    }
+                }
+            } header: {
+                Text("REG中のキャラ紹介")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.hihodenMenuDuringBonusBadge)

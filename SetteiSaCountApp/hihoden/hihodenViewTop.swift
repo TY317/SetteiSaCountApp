@@ -69,6 +69,19 @@ struct hihodenViewTop: View {
                         )
                     }
                     
+                    // 伝説モード
+                    NavigationLink(destination: hihodenViewLegend(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "伝説モード",
+                            badgeStatus: common.hihodenMenuLegendBadge,
+                        )
+                    }
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(imageSystemName: "trophy.fill", textBody: "コパンダトロフィー")

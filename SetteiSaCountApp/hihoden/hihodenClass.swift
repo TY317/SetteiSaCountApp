@@ -56,6 +56,8 @@ class Hihoden: ObservableObject {
     // --------------
     // 伝説
     // --------------
+    let ratioLegendAfterBig: [Double] = [50,-1,-1,-1,-1,-1,]
+    let ratioLegendAfterReg: [Double] = [30,-1,-1,-1,-1,-1,]
     
     @AppStorage("hihodenLegendCountBigNone") var legendCountBigNone: Int = 0
     @AppStorage("hihodenLegendCountBigHit") var legendCountBigHit: Int = 0
@@ -67,6 +69,16 @@ class Hihoden: ObservableObject {
     func legendSumFunc() {
         legendCountBigSum = legendCountBigNone + legendCountBigHit
         legendCountRegSum = legendCountRegNone + legendCountRegHit
+    }
+    
+    func resetLegend() {
+        legendCountBigNone = 0
+        legendCountBigHit = 0
+        legendCountBigSum = 0
+        legendCountRegNone = 0
+        legendCountRegHit = 0
+        legendCountRegSum = 0
+        minusCheck = false
     }
     
     // ////////////////////////
