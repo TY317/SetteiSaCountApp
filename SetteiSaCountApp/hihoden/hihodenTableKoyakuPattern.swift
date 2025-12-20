@@ -197,5 +197,7 @@ struct hihodenTableKoyakuPattern: View {
 }
 
 #Preview {
-    hihodenTableKoyakuPattern()
+    ScrollView {
+        hihodenTableKoyakuPattern()
+    }
 }
