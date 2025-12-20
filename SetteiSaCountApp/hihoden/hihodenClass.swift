@@ -16,9 +16,15 @@ class Hihoden: ObservableObject {
     @AppStorage("hihodenTotalGame") var totalGame: Int = 0
     @AppStorage("hihodenKoyakuCountCherry") var koyakuCountCherry: Int = 0
     
+    let ratioChanceKokaku: [Double] = [50,-1,-1,-1,-1,-1,]
+    @AppStorage("hihodenKoyakuCountChance") var koyakuCountChance: Int = 0
+    @AppStorage("hihodenChanceKokakuCount") var chanceKokakuCount: Int = 0
+    
     func resetNormal() {
         totalGame = 0
         koyakuCountCherry = 0
+        koyakuCountChance = 0
+        chanceKokakuCount = 0
         minusCheck = false
     }
     

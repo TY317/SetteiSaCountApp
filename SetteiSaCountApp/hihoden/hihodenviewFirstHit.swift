@@ -107,7 +107,7 @@ struct hihodenviewFirstHit: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-        .navigationTitle("通常時")
+        .navigationTitle("初当り")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .automatic) {

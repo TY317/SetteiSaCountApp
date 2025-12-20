@@ -31,6 +31,25 @@ struct hihodenView95Ci: View {
             )
             .tag(1)
             
+            // チャンス目からの高確率回数
+            unitListSection95Ci(
+                grafTitle: "チャンス目からの高確率回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hihoden.chanceKokakuCount,
+                        bigNumber: $hihoden.koyakuCountChance,
+                        setting1Percent: hihoden.ratioChanceKokaku[0],
+                        setting2Percent: hihoden.ratioChanceKokaku[1],
+                        setting3Percent: hihoden.ratioChanceKokaku[2],
+                        setting4Percent: hihoden.ratioChanceKokaku[3],
+                        setting5Percent: hihoden.ratioChanceKokaku[4],
+                        setting6Percent: hihoden.ratioChanceKokaku[5]
+                    )
+                )
+            )
+            .tag(4)
+            
             // 初当り回数
             unitListSection95Ci(
                 grafTitle: "初当り回数",

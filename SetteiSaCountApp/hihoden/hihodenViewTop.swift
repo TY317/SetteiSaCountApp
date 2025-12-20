@@ -51,7 +51,7 @@ struct hihodenViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り＆伝説",
+                            textBody: "初当り",
                             badgeStatus: common.hihodenMenuFirstHitBadge,
                         )
                     }
