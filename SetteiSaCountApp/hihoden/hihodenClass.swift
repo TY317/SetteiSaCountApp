@@ -90,5 +90,68 @@ class Hihoden: ObservableObject {
     
     func resetAll() {
         resetNormal()
+        resetFirstHit()
+        resetDuringBonus()
+        resetLegend()
     }
+}
+
+
+class HihodenMemory1: ObservableObject {
+    @AppStorage("hihodenTotalGameMemory1") var totalGame: Int = 0
+    @AppStorage("hihodenKoyakuCountCherryMemory1") var koyakuCountCherry: Int = 0
+    @AppStorage("hihodenKoyakuCountChanceMemory1") var koyakuCountChance: Int = 0
+    @AppStorage("hihodenChanceKokakuCountMemory1") var chanceKokakuCount: Int = 0
+    @AppStorage("hihodenNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("hihodenFirstHitCountMemory1") var firstHitCount: Int = 0
+    @AppStorage("hihodenBonusGameMemory1") var bonusGame: Int = 0
+    @AppStorage("hihodenbonusHazureCountMemory1") var bonusHazureCount: Int = 0
+    @AppStorage("hihodenLegendCountBigNoneMemory1") var legendCountBigNone: Int = 0
+    @AppStorage("hihodenLegendCountBigHitMemory1") var legendCountBigHit: Int = 0
+    @AppStorage("hihodenLegendCountBigSumMemory1") var legendCountBigSum: Int = 0
+    @AppStorage("hihodenLegendCountRegNoneMemory1") var legendCountRegNone: Int = 0
+    @AppStorage("hihodenLegendCountRegHitMemory1") var legendCountRegHit: Int = 0
+    @AppStorage("hihodenLegendCountRegSumMemory1") var legendCountRegSum: Int = 0
+    @AppStorage("hihodenMemoMemory1") var memo = ""
+    @AppStorage("hihodenDateMemory1") var dateDouble = 0.0
+}
+
+
+class HihodenMemory2: ObservableObject {
+    @AppStorage("hihodenTotalGameMemory2") var totalGame: Int = 0
+    @AppStorage("hihodenKoyakuCountCherryMemory2") var koyakuCountCherry: Int = 0
+    @AppStorage("hihodenKoyakuCountChanceMemory2") var koyakuCountChance: Int = 0
+    @AppStorage("hihodenChanceKokakuCountMemory2") var chanceKokakuCount: Int = 0
+    @AppStorage("hihodenNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("hihodenFirstHitCountMemory2") var firstHitCount: Int = 0
+    @AppStorage("hihodenBonusGameMemory2") var bonusGame: Int = 0
+    @AppStorage("hihodenbonusHazureCountMemory2") var bonusHazureCount: Int = 0
+    @AppStorage("hihodenLegendCountBigNoneMemory2") var legendCountBigNone: Int = 0
+    @AppStorage("hihodenLegendCountBigHitMemory2") var legendCountBigHit: Int = 0
+    @AppStorage("hihodenLegendCountBigSumMemory2") var legendCountBigSum: Int = 0
+    @AppStorage("hihodenLegendCountRegNoneMemory2") var legendCountRegNone: Int = 0
+    @AppStorage("hihodenLegendCountRegHitMemory2") var legendCountRegHit: Int = 0
+    @AppStorage("hihodenLegendCountRegSumMemory2") var legendCountRegSum: Int = 0
+    @AppStorage("hihodenMemoMemory2") var memo = ""
+    @AppStorage("hihodenDateMemory2") var dateDouble = 0.0
+}
+
+
+class HihodenMemory3: ObservableObject {
+    @AppStorage("hihodenTotalGameMemory3") var totalGame: Int = 0
+    @AppStorage("hihodenKoyakuCountCherryMemory3") var koyakuCountCherry: Int = 0
+    @AppStorage("hihodenKoyakuCountChanceMemory3") var koyakuCountChance: Int = 0
+    @AppStorage("hihodenChanceKokakuCountMemory3") var chanceKokakuCount: Int = 0
+    @AppStorage("hihodenNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("hihodenFirstHitCountMemory3") var firstHitCount: Int = 0
+    @AppStorage("hihodenBonusGameMemory3") var bonusGame: Int = 0
+    @AppStorage("hihodenbonusHazureCountMemory3") var bonusHazureCount: Int = 0
+    @AppStorage("hihodenLegendCountBigNoneMemory3") var legendCountBigNone: Int = 0
+    @AppStorage("hihodenLegendCountBigHitMemory3") var legendCountBigHit: Int = 0
+    @AppStorage("hihodenLegendCountBigSumMemory3") var legendCountBigSum: Int = 0
+    @AppStorage("hihodenLegendCountRegNoneMemory3") var legendCountRegNone: Int = 0
+    @AppStorage("hihodenLegendCountRegHitMemory3") var legendCountRegHit: Int = 0
+    @AppStorage("hihodenLegendCountRegSumMemory3") var legendCountRegSum: Int = 0
+    @AppStorage("hihodenMemoMemory3") var memo = ""
+    @AppStorage("hihodenDateMemory3") var dateDouble = 0.0
 }
