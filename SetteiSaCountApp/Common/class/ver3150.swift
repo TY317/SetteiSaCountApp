@@ -20,3 +20,33 @@ struct tipVer3150UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+// //////////////////
+// Tip：グール　引き戻し
+// //////////////////
+struct tipVer3150GhoulComeBack: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("引き戻し当選率が判明！\n引き戻しカウントに更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+// //////////////////
+// Tip：グール　モードの法則
+// //////////////////
+struct tipVer3150GhoulModesisa: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("前兆とモード示唆の法則が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

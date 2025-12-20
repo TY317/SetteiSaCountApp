@@ -24,13 +24,12 @@ struct tokyoGhoulViewTop: View {
                 Section {
                     // 月山招待状
                     NavigationLink(destination: tokyoGhoulViewTsukiyama(
-//                        ver352: ver352,
                         tokyoGhoul: tokyoGhoul
                     )) {
                         unitLabelMenu(
                             imageSystemName: "envelope.fill",
                             textBody: "通常時 月山招待状での示唆",
-//                            badgeStatus: ver352.tokyoGhoulMenuTsukiyamaBadge,
+                            badgeStatus: common.tokyoGhoulMenuTsukiyamaBadge,
                         )
                     }
                     // 精神世界（超高確）

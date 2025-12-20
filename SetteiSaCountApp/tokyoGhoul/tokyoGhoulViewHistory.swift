@@ -513,6 +513,7 @@ struct tokyoGhoulViewHistory: View {
                             tokyoGhoul.comeBackSumFunc()
                         }
                 }
+                .popoverTip(tipVer3150GhoulComeBack())
                 // 確率結果
                 unitResultRatioPercent2Line(
                     title: "引き戻し当選率",
