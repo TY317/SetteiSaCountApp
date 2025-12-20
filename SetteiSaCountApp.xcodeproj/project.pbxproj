@@ -675,6 +675,7 @@
 		0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */; };
 		0FA024B02D0C00F6004B3FD5 /* lupinViewAtVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */; };
 		0FA0A7942EF421DF003EF8BD /* hihodenviewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */; };
+		0FA0A7962EF42A6D003EF8BD /* hihodenViewDuringBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */; };
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
@@ -1833,6 +1834,7 @@
 		0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtScreen.swift; sourceTree = "<group>"; };
 		0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtVoice.swift; sourceTree = "<group>"; };
 		0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenviewFirstHit.swift; sourceTree = "<group>"; };
+		0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewDuringBonus.swift; sourceTree = "<group>"; };
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
@@ -4351,6 +4353,7 @@
 				0FF6D2232EED919D0045265B /* hihodenViewNormal.swift */,
 				0FB683F42EEE820200B92C3F /* hihodenTableKoyakuPattern.swift */,
 				0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */,
+				0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */,
 			);
 			path = hihoden;
 			sourceTree = "<group>";
@@ -5639,6 +5642,7 @@
 				0FF6D2222EED8E230045265B /* ver3150.swift in Sources */,
 				0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */,
 				0F815FDE2E3DF5420086127D /* reSwordViewAtScreen.swift in Sources */,
+				0FA0A7962EF42A6D003EF8BD /* hihodenViewDuringBonus.swift in Sources */,
 				0F9D9BD12E9BCCD900450B23 /* newOni3ViewEnding.swift in Sources */,
 				0FCF78902E46F2AD0000748B /* mt5TableFunaken.swift in Sources */,
 				0FEC57B22D8FA9DA00FF1024 /* kaijiTableFirstHit.swift in Sources */,

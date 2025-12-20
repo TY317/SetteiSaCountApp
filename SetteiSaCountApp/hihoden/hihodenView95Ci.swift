@@ -49,6 +49,24 @@ struct hihodenView95Ci: View {
             )
             .tag(2)
             
+            // ボーナス中ハズレ回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス中ハズレ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hihoden.bonusHazureCount,
+                        bigNumber: $hihoden.bonusGame,
+                        setting1Denominate: hihoden.ratioBonusHazure[0],
+                        setting2Denominate: hihoden.ratioBonusHazure[1],
+                        setting3Denominate: hihoden.ratioBonusHazure[2],
+                        setting4Denominate: hihoden.ratioBonusHazure[3],
+                        setting5Denominate: hihoden.ratioBonusHazure[4],
+                        setting6Denominate: hihoden.ratioBonusHazure[5]
+                    )
+                )
+            )
+            .tag(3)
+            
         }
         // //// firebaseログ
         .onAppear {

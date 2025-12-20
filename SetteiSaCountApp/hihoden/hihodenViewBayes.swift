@@ -15,6 +15,7 @@ struct hihodenViewBayes: View {
     let payoutList: [Double] = [97.8, 99.0, 101.5, 105.1, 110.1, 114.7]
     @State var koyakuEnable: Bool = true
     @State var firstHitEnable: Bool = true
+    @State var bonusHazureEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -49,6 +50,7 @@ struct hihodenViewBayes: View {
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "🍒確率")
                 // 初当り
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
+                unitToggleWithQuestion(enable: self.$bonusHazureEnable, title: "ボーナス中ハズレ確率")
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -137,6 +139,15 @@ struct hihodenViewBayes: View {
                 bigNumber: hihoden.normalGame,
             )
         }
+        // ボーナス中ハズレ確率
+        var logPostBonusMiss: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bonusHazureEnable {
+            logPostBonusMiss = logPostDenoBino(
+                ratio: hihoden.ratioBonusHazure,
+                Count: hihoden.bonusHazureCount,
+                bigNumber: hihoden.bonusGame,
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -176,6 +187,7 @@ struct hihodenViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostCherry,
             logPostFirstHit,
+            logPostBonusMiss,
             
             logPostTrophy,
             logPostBefore,

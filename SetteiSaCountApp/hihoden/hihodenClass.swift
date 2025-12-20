@@ -36,6 +36,18 @@ class Hihoden: ObservableObject {
     }
     
     // --------------
+    // ボーナス中
+    // --------------
+    let ratioBonusHazure: [Double] = [40.1,37.8,35.5,33.4,31.6,29.9]
+    @AppStorage("hihodenBonusGame") var bonusGame: Int = 0
+    @AppStorage("hihodenbonusHazureCount") var bonusHazureCount: Int = 0
+    func resetDuringBonus() {
+        bonusGame = 0
+        bonusHazureCount = 0
+        minusCheck = false
+    }
+    
+    // --------------
     // 伝説
     // --------------
     

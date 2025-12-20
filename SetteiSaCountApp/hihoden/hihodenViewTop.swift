@@ -50,14 +50,24 @@ struct hihodenViewTop: View {
                         viewModel: viewModel,
                     )) {
                         unitLabelMenu(
-                            imageSystemName: "",
+                            imageSystemName: "party.popper.fill",
                             textBody: "初当り＆伝説",
                             badgeStatus: common.hihodenMenuFirstHitBadge,
                         )
                     }
                     
                     // ボーナス中
-                    
+                    NavigationLink(destination: hihodenViewDuringBonus(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "pyramid.fill",
+                            textBody: "ボーナス中",
+                            badgeStatus: common.hihodenMenuDuringBonusBadge,
+                        )
+                    }
                     
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
