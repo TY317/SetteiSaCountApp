@@ -241,7 +241,7 @@ class commonVar: ObservableObject {
                 tokyoGhoulMenuTsukiyamaBadge = "update"
                 vvv2MachineIconBadge = "update"
                 vvv2MenuScreenBadge = "update"
-                vvv2MenuAtScreenBadge = "update"
+                vvv2MenuRushBadge = "update"
                 vvv2MenuBayesBadge = "update"
             }
             else {

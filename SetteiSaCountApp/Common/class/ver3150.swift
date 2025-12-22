@@ -65,3 +65,19 @@ struct tipVer3150vvv2ScreenRatio: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：vvv2 ラッシュ開始画面振り分け
+// //////////////////
+struct tipVer3150vvv2RushScreenRatio: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("示唆のあるラウンド開始画面の振り分け詳細が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
