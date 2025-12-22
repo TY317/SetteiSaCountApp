@@ -234,6 +234,13 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory1.superHighCountGame23 = tokyoGhoul.superHighCountGame23
         tokyoGhoulMemory1.superHighCountGame33 = tokyoGhoul.superHighCountGame33
         tokyoGhoulMemory1.superHighCountSum = tokyoGhoul.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoulMemory1.comeBackCountNone = tokyoGhoul.comeBackCountNone
+        tokyoGhoulMemory1.comeBackCountHit = tokyoGhoul.comeBackCountHit
+        tokyoGhoulMemory1.comeBackCountSum = tokyoGhoul.comeBackCountSum
     }
     func saveMemory2() {
         tokyoGhoulMemory2.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -296,6 +303,13 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory2.superHighCountGame23 = tokyoGhoul.superHighCountGame23
         tokyoGhoulMemory2.superHighCountGame33 = tokyoGhoul.superHighCountGame33
         tokyoGhoulMemory2.superHighCountSum = tokyoGhoul.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoulMemory2.comeBackCountNone = tokyoGhoul.comeBackCountNone
+        tokyoGhoulMemory2.comeBackCountHit = tokyoGhoul.comeBackCountHit
+        tokyoGhoulMemory2.comeBackCountSum = tokyoGhoul.comeBackCountSum
     }
     func saveMemory3() {
         tokyoGhoulMemory3.tsukiyamaCountGusu = tokyoGhoul.tsukiyamaCountGusu
@@ -358,6 +372,13 @@ struct tokyoGhoulSubViewSaveMemory: View {
         tokyoGhoulMemory3.superHighCountGame23 = tokyoGhoul.superHighCountGame23
         tokyoGhoulMemory3.superHighCountGame33 = tokyoGhoul.superHighCountGame33
         tokyoGhoulMemory3.superHighCountSum = tokyoGhoul.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoulMemory3.comeBackCountNone = tokyoGhoul.comeBackCountNone
+        tokyoGhoulMemory3.comeBackCountHit = tokyoGhoul.comeBackCountHit
+        tokyoGhoulMemory3.comeBackCountSum = tokyoGhoul.comeBackCountSum
     }
 }
 
@@ -457,6 +478,13 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory1.superHighCountGame23
         tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory1.superHighCountGame33
         tokyoGhoul.superHighCountSum = tokyoGhoulMemory1.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoul.comeBackCountNone = tokyoGhoulMemory1.comeBackCountNone
+        tokyoGhoul.comeBackCountHit = tokyoGhoulMemory1.comeBackCountHit
+        tokyoGhoul.comeBackCountSum = tokyoGhoulMemory1.comeBackCountSum
     }
     func loadMemory2() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory2.tsukiyamaCountGusu
@@ -527,6 +555,13 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory2.superHighCountGame23
         tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory2.superHighCountGame33
         tokyoGhoul.superHighCountSum = tokyoGhoulMemory2.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoul.comeBackCountNone = tokyoGhoulMemory2.comeBackCountNone
+        tokyoGhoul.comeBackCountHit = tokyoGhoulMemory2.comeBackCountHit
+        tokyoGhoul.comeBackCountSum = tokyoGhoulMemory2.comeBackCountSum
     }
     func loadMemory3() {
         tokyoGhoul.tsukiyamaCountGusu = tokyoGhoulMemory3.tsukiyamaCountGusu
@@ -597,6 +632,13 @@ struct tokyoGhoulSubViewLoadMemory: View {
         tokyoGhoul.superHighCountGame23 = tokyoGhoulMemory3.superHighCountGame23
         tokyoGhoul.superHighCountGame33 = tokyoGhoulMemory3.superHighCountGame33
         tokyoGhoul.superHighCountSum = tokyoGhoulMemory3.superHighCountSum
+        
+        // --------------
+        // ver3.15.0で追加
+        // --------------
+        tokyoGhoul.comeBackCountNone = tokyoGhoulMemory3.comeBackCountNone
+        tokyoGhoul.comeBackCountHit = tokyoGhoulMemory3.comeBackCountHit
+        tokyoGhoul.comeBackCountSum = tokyoGhoulMemory3.comeBackCountSum
     }
 }
 

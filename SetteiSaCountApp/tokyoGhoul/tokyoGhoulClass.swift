@@ -532,6 +532,13 @@ class TokyoGhoulMemory1: ObservableObject {
     @AppStorage("tokyoGhoulSuperHighCountGame23Memory1") var superHighCountGame23: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountGame33Memory1") var superHighCountGame33: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountSumMemory1") var superHighCountSum: Int = 0
+    
+    // --------------
+    // ver3.15.0で追加
+    // --------------
+    @AppStorage("tokyoGhoulComeBackCountNoneMemory1") var comeBackCountNone: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountHitMemory1") var comeBackCountHit: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountSumMemory1") var comeBackCountSum: Int = 0
 }
 
 // //// メモリー2
@@ -598,6 +605,13 @@ class TokyoGhoulMemory2: ObservableObject {
     @AppStorage("tokyoGhoulSuperHighCountGame23Memory2") var superHighCountGame23: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountGame33Memory2") var superHighCountGame33: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountSumMemory2") var superHighCountSum: Int = 0
+    
+    // --------------
+    // ver3.15.0で追加
+    // --------------
+    @AppStorage("tokyoGhoulComeBackCountNoneMemory2") var comeBackCountNone: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountHitMemory2") var comeBackCountHit: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountSumMemory2") var comeBackCountSum: Int = 0
 }
 
 // //// メモリー3
@@ -664,4 +678,11 @@ class TokyoGhoulMemory3: ObservableObject {
     @AppStorage("tokyoGhoulSuperHighCountGame23Memory3") var superHighCountGame23: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountGame33Memory3") var superHighCountGame33: Int = 0
     @AppStorage("tokyoGhoulSuperHighCountSumMemory3") var superHighCountSum: Int = 0
+    
+    // --------------
+    // ver3.15.0で追加
+    // --------------
+    @AppStorage("tokyoGhoulComeBackCountNoneMemory3") var comeBackCountNone: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountHitMemory3") var comeBackCountHit: Int = 0
+    @AppStorage("tokyoGhoulComeBackCountSumMemory3") var comeBackCountSum: Int = 0
 }

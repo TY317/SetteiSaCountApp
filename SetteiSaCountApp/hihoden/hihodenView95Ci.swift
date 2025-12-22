@@ -15,7 +15,7 @@ struct hihodenView95Ci: View {
         TabView(selection: self.$selection) {
             // スイカ回数
             unitListSection95Ci(
-                grafTitle: "🍉回数",
+                grafTitle: "🍒回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $hihoden.koyakuCountCherry,

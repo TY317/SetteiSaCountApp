@@ -76,7 +76,7 @@ struct hihodenViewNormal: View {
                     Ci95view: AnyView(
                         hihodenView95Ci(
                             hihoden: hihoden,
-                            selection: 2,
+                            selection: 1,
                         )
                     )
                 )
