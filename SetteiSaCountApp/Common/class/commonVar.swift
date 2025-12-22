@@ -239,6 +239,10 @@ class commonVar: ObservableObject {
                 tokyoGhoulMachineIconBadge = "update"
                 tokyoGhoulMenuFirstHitBadge = "update"
                 tokyoGhoulMenuTsukiyamaBadge = "update"
+                vvv2MachineIconBadge = "update"
+                vvv2MenuScreenBadge = "update"
+                vvv2MenuAtScreenBadge = "update"
+                vvv2MenuBayesBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

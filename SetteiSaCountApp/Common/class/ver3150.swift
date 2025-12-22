@@ -50,3 +50,18 @@ struct tipVer3150GhoulModesisa: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：vvv2 終了画面振り分け
+// //////////////////
+struct tipVer3150vvv2ScreenRatio: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("終了画面の振り分け詳細が判明\n結果を設定期待値の計算要素に追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

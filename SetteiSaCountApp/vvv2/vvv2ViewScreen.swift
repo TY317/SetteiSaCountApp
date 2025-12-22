@@ -95,7 +95,7 @@ struct vvv2ViewScreen: View {
                     }
                 }
                 .frame(height: common.screenScrollHeight)
-                .popoverTip(tipVer3130vvv2Screen())
+//                .popoverTip(tipVer3130vvv2Screen())
                 
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
@@ -113,6 +113,21 @@ struct vvv2ViewScreen: View {
                             titleFont: .body,
                         )
                     }
+                }
+                
+                // 参考情報）終了画面振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面振り分け") {
+                    vvv2TableScreenRatio(vvv2: vvv2)
+                }
+                .popoverTip(tipVer3150vvv2ScreenRatio())
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    vvv2ViewBayes(
+                        vvv2: vvv2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
             } header: {
                 unitLabelHeaderScreenCount()
