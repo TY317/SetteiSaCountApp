@@ -165,6 +165,17 @@ struct hihodenViewNormal: View {
             } header: {
                 Text("チャンス目からの高確率")
             }
+            
+            // //// 設定示唆演出
+            Section {
+                // 秘宝ニュース
+                unitLinkButtonViewBuilder(sheetTitle: "秘宝ニュース") {
+                    hihodenTableHihoNews()
+                }
+            } header: {
+                Text("設定示唆演出")
+            }
+            
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット

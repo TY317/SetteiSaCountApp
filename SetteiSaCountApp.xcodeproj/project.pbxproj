@@ -704,6 +704,8 @@
 		0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
 		0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
 		0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
+		0FA0A7EE2EFC217C003EF8BD /* hihodenTableHihoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */; };
+		0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */; };
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
@@ -1868,6 +1870,7 @@
 		0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableScreenRatio.swift; sourceTree = "<group>"; };
 		0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableRushScreenRatio.swift; sourceTree = "<group>"; };
 		0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableLegendSisa.swift; sourceTree = "<group>"; };
+		0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableHihoNews.swift; sourceTree = "<group>"; };
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
@@ -4404,6 +4407,7 @@
 				0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */,
 				0FA0A7972EF64CFF003EF8BD /* hihodenViewLegend.swift */,
 				0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */,
+				0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */,
 			);
 			path = hihoden;
 			sourceTree = "<group>";
@@ -4927,6 +4931,7 @@
 				0F6B59AF2DFD257300DB1A2B /* unitMachineIconLink.swift in Sources */,
 				0F9D9BE62E9DFD8900450B23 /* zeni5TableKoyakuPattern.swift in Sources */,
 				0FF369282E627098002BE0CE /* azurLaneTableMode.swift in Sources */,
+				0FA0A7EE2EFC217C003EF8BD /* hihodenTableHihoNews.swift in Sources */,
 				0FF3691E2E5C91ED002BE0CE /* azurLaneViewFirstHit.swift in Sources */,
 				0F8325C32C7F5BC90037226E /* goevaViewAtScreen.swift in Sources */,
 				0FA024A02D05D547004B3FD5 /* danvineViewTop.swift in Sources */,
@@ -5968,6 +5973,7 @@
 				0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */,
 				0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */,
 				0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */,
+				0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
