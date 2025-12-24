@@ -125,6 +125,11 @@ struct hihodenViewLegend: View {
                     }
                 }
                 
+                // 参考情報）伝説モード示唆演出
+                unitLinkButtonViewBuilder(sheetTitle: "伝説モード示唆演出") {
+                    hihodenTableLegendSisa()
+                }
+                
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

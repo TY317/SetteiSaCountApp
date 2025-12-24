@@ -702,6 +702,8 @@
 		0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C12D7C350B003F5563 /* unitTableString.swift */; };
 		0FA0A7E82EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
 		0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
+		0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
+		0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
@@ -1865,6 +1867,7 @@
 		0FA0A79D2EF692C3003EF8BD /* SCPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableScreenRatio.swift; sourceTree = "<group>"; };
 		0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableRushScreenRatio.swift; sourceTree = "<group>"; };
+		0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableLegendSisa.swift; sourceTree = "<group>"; };
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
@@ -4400,6 +4403,7 @@
 				0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */,
 				0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */,
 				0FA0A7972EF64CFF003EF8BD /* hihodenViewLegend.swift */,
+				0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */,
 			);
 			path = hihoden;
 			sourceTree = "<group>";
@@ -5832,6 +5836,7 @@
 				0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */,
 				0F5FBBC82E4823E8004124A2 /* bayesTestCustomGuessSheet.swift in Sources */,
 				0FCF789A2E4710B00000748B /* karakuriTableMode.swift in Sources */,
+				0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
 				0F815FC52E35DECD0086127D /* darlingView95Ci.swift in Sources */,
 				0FD357992DAB3E760069BD1A /* godzillaTableOpelatorMessage.swift in Sources */,
 				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
@@ -5945,6 +5950,7 @@
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
 				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
 				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
+				0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
 				0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
