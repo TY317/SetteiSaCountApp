@@ -243,6 +243,8 @@ class commonVar: ObservableObject {
                 vvv2MenuScreenBadge = "update"
                 vvv2MenuRushBadge = "update"
                 vvv2MenuBayesBadge = "update"
+                bakemonoMachineIconBadge = "update"
+                bakemonoMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

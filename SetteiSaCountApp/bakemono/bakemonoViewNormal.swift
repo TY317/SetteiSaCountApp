@@ -81,6 +81,54 @@ struct bakemonoViewNormal: View {
             } header: {
                 Text("レア役")
             }
+            
+            // //// 弱🍒からのAT直撃
+            Section {
+                // カウントボタン横並び
+                HStack {
+                    // 弱チェリー
+                    unitCountButtonVerticalWithoutRatio(
+                        title: "通常時弱🍒",
+                        count: $bakemono.koyakuCountJakuCherry,
+                        color: .personalSummerLightRed,
+                        minusBool: $bakemono.minusCheck
+                    )
+                    // AT直撃
+                    unitCountButtonVerticalWithoutRatio(
+                        title: "AT直撃",
+                        count: $bakemono.jakuCherryAtCount,
+                        color: .personalSummerLightPurple,
+                        minusBool: $bakemono.minusCheck
+                    )
+                }
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "AT直撃率",
+                    count: $bakemono.jakuCherryAtCount,
+                    bigNumber: $bakemono.koyakuCountJakuCherry,
+                    numberofDicimal: 1
+                )
+                // 参考情報）直撃確率
+                unitLinkButtonViewBuilder(sheetTitle: "AT直撃率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "AT直撃",
+                            percentList: bakemono.ratioJakuCherryAt
+                        )
+                    }
+                }
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    bakemonoViewBayes(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("弱🍒からのAT直撃")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.bakemonoMenuNormalBadge)
