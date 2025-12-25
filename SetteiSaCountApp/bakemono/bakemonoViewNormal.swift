@@ -129,6 +129,7 @@ struct bakemonoViewNormal: View {
             } header: {
                 Text("弱🍒からのAT直撃")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.bakemonoMenuNormalBadge)
