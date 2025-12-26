@@ -114,7 +114,8 @@ struct bakemonoViewNormal: View {
                         unitTableSettingIndex()
                         unitTablePercent(
                             columTitle: "AT直撃",
-                            percentList: bakemono.ratioJakuCherryAt
+                            percentList: bakemono.ratioJakuCherryAt,
+                            numberofDicimal: 1,
                         )
                     }
                 }
