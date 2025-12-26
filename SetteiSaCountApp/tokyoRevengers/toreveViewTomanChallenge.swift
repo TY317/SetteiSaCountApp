@@ -56,7 +56,7 @@ struct toreveViewTomanChallenge: View {
                             minusBool: $toreve.minusCheck
                         )
                     }
-                    .popoverTip(tipVer3110ToreveAtRise())
+//                    .popoverTip(tipVer3110ToreveAtRise())
 //                }
 //                // チャンス目
 //                else if self.selectedSegment == self.segmentList[1] {

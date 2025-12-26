@@ -131,7 +131,7 @@ struct azurLaneViewKaga: View {
                 unitLinkButtonViewBuilder(sheetTitle: "シナリオ振り分け") {
                     azurLaneTableKagaRatio(azurLane: azurLane)
                 }
-                .popoverTip(tipVer3110AzurLaneKaga())
+//                .popoverTip(tipVer3110AzurLaneKaga())
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     azurLaneViewBayes(

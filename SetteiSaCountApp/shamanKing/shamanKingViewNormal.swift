@@ -49,7 +49,7 @@ struct shamanKingViewNormal: View {
                     minusBool: $shamanKing.minusCheck,
                     flushColor: .yellow,
                 )
-                .popoverTip(tipVer3120ShamanCommonBell())
+//                .popoverTip(tipVer3120ShamanCommonBell())
                 
                 // 参考情報）共通ベルA確率
                 unitLinkButtonViewBuilder(sheetTitle: "共通ベルA確率") {

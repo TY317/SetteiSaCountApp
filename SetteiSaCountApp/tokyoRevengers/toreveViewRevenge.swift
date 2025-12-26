@@ -50,7 +50,7 @@ struct toreveViewRevenge: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3110ToreveRevenge())
+//                .popoverTip(tipVer3110ToreveRevenge())
                 
                 // //// 決戦前夜
                 if self.selectedKind == self.kindList[0] {
