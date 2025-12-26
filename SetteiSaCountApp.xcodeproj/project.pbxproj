@@ -74,6 +74,11 @@
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
 		0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */; };
+		0F45A5A72EFEACC40022E355 /* hokutoTenseiViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5A62EFEACC40022E355 /* hokutoTenseiViewTop.swift */; };
+		0F45A5A92EFEACD10022E355 /* hokutoTenseiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5A82EFEACD10022E355 /* hokutoTenseiClass.swift */; };
+		0F45A5AB2EFEACDD0022E355 /* hokutoTenseiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F45A5AA2EFEACDD0022E355 /* hokutoTenseiAssets.xcassets */; };
+		0F45A5AD2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5AC2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift */; };
+		0F45A5AF2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5AE2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1260,6 +1265,11 @@
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
 		0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewCzHistory.swift; sourceTree = "<group>"; };
+		0F45A5A62EFEACC40022E355 /* hokutoTenseiViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiViewTop.swift; sourceTree = "<group>"; };
+		0F45A5A82EFEACD10022E355 /* hokutoTenseiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiClass.swift; sourceTree = "<group>"; };
+		0F45A5AA2EFEACDD0022E355 /* hokutoTenseiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hokutoTenseiAssets.xcassets; sourceTree = "<group>"; };
+		0F45A5AC2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiView95Ci.swift; sourceTree = "<group>"; };
+		0F45A5AE2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiViewBayes.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2510,6 +2520,18 @@
 			path = karakuriCircus;
 			sourceTree = "<group>";
 		};
+		0F45A5A52EFEACAD0022E355 /* hokutoTensei */ = {
+			isa = PBXGroup;
+			children = (
+				0F45A5A62EFEACC40022E355 /* hokutoTenseiViewTop.swift */,
+				0F45A5A82EFEACD10022E355 /* hokutoTenseiClass.swift */,
+				0F45A5AA2EFEACDD0022E355 /* hokutoTenseiAssets.xcassets */,
+				0F45A5AC2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift */,
+				0F45A5AE2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift */,
+			);
+			path = hokutoTensei;
+			sourceTree = "<group>";
+		};
 		0F51C6352E840CC70006794A /* crea */ = {
 			isa = PBXGroup;
 			children = (
@@ -2962,6 +2984,7 @@
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0F45A5A52EFEACAD0022E355 /* hokutoTensei */,
 				0FF6D2162EED8B440045265B /* hihoden */,
 				0F0DE8112EDC340900D85BCA /* bakemono */,
 				0F2DA9F72EC0792E0083704E /* neopla */,
@@ -4615,6 +4638,7 @@
 				0F654BBD2C6DD7BE00F37849 /* myJug5Assets.xcassets in Resources */,
 				0FA024962D05CE05004B3FD5 /* inuyasha2Assets.xcassets in Resources */,
 				0F815FBF2E35D8E20086127D /* darlingAssets.xcassets in Resources */,
+				0F45A5AB2EFEACDD0022E355 /* hokutoTenseiAssets.xcassets in Resources */,
 				0FA024612CF1C605004B3FD5 /* ci95Explain.pdf in Resources */,
 				0FF1562C2D6B4F8400B17F83 /* shamanKingAssets.xcassets in Resources */,
 				0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */,
@@ -5113,6 +5137,7 @@
 				0FD3579F2DAB6B580069BD1A /* commonViewGinchanTrophy.swift in Sources */,
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0FC14A802E4B58E800F85D84 /* ver370Class.swift in Sources */,
+				0F45A5AF2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift in Sources */,
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
 				0F9D9C2E2EA4559200450B23 /* draHanaSenkohViewShimaData.swift in Sources */,
 				0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */,
@@ -5462,6 +5487,7 @@
 				0FD357302DA14DE30069BD1A /* hanahanaCommonTableBigLump.swift in Sources */,
 				0F868ADC2D5E2E4100D952D9 /* sevenSwordsViewBonus.swift in Sources */,
 				0F6BD7B42D743180003F5563 /* arifureViewHistory.swift in Sources */,
+				0F45A5A92EFEACD10022E355 /* hokutoTenseiClass.swift in Sources */,
 				0F8031272C69FB21001F008E /* exViewKakumeiRatioVVV.swift in Sources */,
 				0FC14A782E4A11B200F85D84 /* bayesResultRatioFunc.swift in Sources */,
 				0F6FB9022DE896F500207855 /* kaguyaTableKiteiKaisu.swift in Sources */,
@@ -5770,6 +5796,7 @@
 				0FEC57AC2D8F96AA00FF1024 /* kaijiViewHirameki.swift in Sources */,
 				0F6B59C22DFD89C400DB1A2B /* kaguyaSamaTableNormalEyeCatch.swift in Sources */,
 				0F51C6342E82CB020006794A /* evaYakusokuViewBayes.swift in Sources */,
+				0F45A5AD2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift in Sources */,
 				0F6BD7EA2D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift in Sources */,
 				0F80311D2C69B42A001F008E /* myFunction.swift in Sources */,
 				0F868A1B2D44B70100D952D9 /* happyJugV3Ver2ViewJissenCount.swift in Sources */,
@@ -5836,6 +5863,7 @@
 				0F6BD7B62D75E25B003F5563 /* arifureViewCharacter.swift in Sources */,
 				0F9318812DEA9E5F00511BEF /* izaBanchoTableMode.swift in Sources */,
 				0FFAB8672E719AC200296A4F /* goJug3ViewBayes.swift in Sources */,
+				0F45A5A72EFEACC40022E355 /* hokutoTenseiViewTop.swift in Sources */,
 				0FD357222DA0C8400069BD1A /* kaijiViewMode.swift in Sources */,
 				0FD3571C2D9EBBA10069BD1A /* tokyoGhoulTable100Hit.swift in Sources */,
 				0F64DD3D2DC06D220027315D /* acceleratorTableGameMode.swift in Sources */,

@@ -72,6 +72,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
     @AppStorage("isSelectedFavoriteBakemono") var isSelectedFavoriteBakemono = true
     @AppStorage("isSelectedFavoriteHihoden") var isSelectedFavoriteHihoden = true
+    @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
 }
 
 
@@ -138,6 +139,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 北斗転生、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokutoTensei == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(hokutoTenseiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hokutoTenseiMachineIcon"),
+                                        machineName: "北斗転生",
+                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
                                 }
                                 
@@ -889,6 +905,24 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 北斗転生、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokutoTensei == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(hokutoTenseiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hokutoTenseiMachineIcon"),
+                                        machineName: "北斗 転生の章2",
+                                        makerName: "サミー",
+                                        releaseYear: 2026,
+                                        releaseMonth: 1,
+                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
                                 }
                                 
@@ -2020,6 +2054,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 北斗転生
+                Toggle("北斗 転生の章2", isOn: $favoriteSet.isSelectedFavoriteHokutoTensei)
                 // 秘宝伝
                 Toggle("秘宝伝", isOn: $favoriteSet.isSelectedFavoriteHihoden)
                 // 化物語
