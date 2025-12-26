@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct tokyoGhoulViewTsukiyama: View {
-//    @ObservedObject var ver352: Ver352
-//    @ObservedObject var tokyoGhoul = TokyoGhoul()
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @State var isShowAlert = false
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         List {
@@ -182,7 +181,6 @@ struct tokyoGhoulViewTsukiyama: View {
                         )
                     )
                 )
-//                .popoverTip(tipVer352GhoulTsukiyama())
                 unitLinkButton(
                     title: "通常時のモードについて",
                     exview: AnyView(
@@ -195,6 +193,7 @@ struct tokyoGhoulViewTsukiyama: View {
                         )
                     )
                 )
+                .popoverTip(tipVer3150GhoulModesisa())
             }
             // //// カウント結果表示
             Section {
@@ -266,7 +265,7 @@ struct tokyoGhoulViewTsukiyama: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.tokyoGhoulMenuTsukiyamaBadge)
+        .resetBadgeOnAppear($common.tokyoGhoulMenuTsukiyamaBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -284,7 +283,6 @@ struct tokyoGhoulViewTsukiyama: View {
                     unitButtonMinusCheck(minusCheck: $tokyoGhoul.minusCheck)
                     // リセットボタン
                     unitButtonReset(isShowAlert: $isShowAlert, action: tokyoGhoul.resetTsukiyama)
-//                        .popoverTip(tipUnitButtonReset())
                 }
             }
         }
@@ -293,7 +291,7 @@ struct tokyoGhoulViewTsukiyama: View {
 
 #Preview {
     tokyoGhoulViewTsukiyama(
-//        ver352: Ver352(),
         tokyoGhoul: TokyoGhoul()
     )
+    .environmentObject(commonVar())
 }

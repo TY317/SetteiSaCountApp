@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -674,6 +674,38 @@
 		0FA024AC2D0B16CC004B3FD5 /* lupinSingleBonusVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AB2D0B16CC004B3FD5 /* lupinSingleBonusVoice.swift */; };
 		0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */; };
 		0FA024B02D0C00F6004B3FD5 /* lupinViewAtVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */; };
+		0FA0A7942EF421DF003EF8BD /* hihodenviewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */; };
+		0FA0A7962EF42A6D003EF8BD /* hihodenViewDuringBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */; };
+		0FA0A7982EF64CFF003EF8BD /* hihodenViewLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7972EF64CFF003EF8BD /* hihodenViewLegend.swift */; };
+		0FA0A7A82EF693A2003EF8BD /* hihodenTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB683F42EEE820200B92C3F /* hihodenTableKoyakuPattern.swift */; };
+		0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDAE2DC5F8800027315D /* unitReelPattern.swift */; };
+		0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDB02DC5FC7D0027315D /* unitReelColumn.swift */; };
+		0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDAA2DC5F66E0027315D /* unitReelText.swift */; };
+		0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F815FC82E360BB10086127D /* unitReelWhiteBar.swift */; };
+		0FA0A7CF2EF6947C003EF8BD /* unitReelGrayMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209782E1548EF0029D940 /* unitReelGrayMark.swift */; };
+		0FA0A7D02EF6947C003EF8BD /* unitReelPinkBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11F72DD0105800F69AFF /* unitReelPinkBar.swift */; };
+		0FA0A7D12EF6947C003EF8BD /* unitReelAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDAC2DC5F78D0027315D /* unitReelAny.swift */; };
+		0FA0A7D22EF6947C003EF8BD /* unitReelHazure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93187C2DEA92B700511BEF /* unitReelHazure.swift */; };
+		0FA0A7D32EF6947C003EF8BD /* unitReelDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDA42DC5F4340027315D /* unitReelDefault.swift */; };
+		0FA0A7D42EF6947C003EF8BD /* unitReelBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDA82DC5F5ED0027315D /* unitReelBar.swift */; };
+		0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDA62DC5F50D0027315D /* unitReelReplay.swift */; };
+		0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC12DC6DF880027315D /* unitReelLongTitle.swift */; };
+		0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC32DC6E2A20027315D /* unitReelSpacer.swift */; };
+		0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
+		0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2192EED8B6E0045265B /* hihodenClass.swift */; };
+		0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BF42EA0C45200450B23 /* vvv2Class.swift */; };
+		0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80311C2C69B42A001F008E /* myFunction.swift */; };
+		0FA0A7E22EF96BCA003EF8BD /* vvv2TableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */; };
+		0FA0A7E32EF96BD3003EF8BD /* vvv2TableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */; };
+		0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C32D7C37C0003F5563 /* unitTableSettingIndex.swift */; };
+		0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7BF2D7C27EA003F5563 /* unitTablePercent.swift */; };
+		0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C12D7C350B003F5563 /* unitTableString.swift */; };
+		0FA0A7E82EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
+		0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
+		0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
+		0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */; };
+		0FA0A7EE2EFC217C003EF8BD /* hihodenTableHihoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */; };
+		0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */; };
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
@@ -710,6 +742,7 @@
 		0FB209872E189A1D0029D940 /* izaBanchoTableKatanaAtHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209862E189A1D0029D940 /* izaBanchoTableKatanaAtHit.swift */; };
 		0FB209892E18AA910029D940 /* unitCountButtonWithoutRatioWithFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB209882E18AA910029D940 /* unitCountButtonWithoutRatioWithFunc.swift */; };
 		0FB2098B2E18AF200029D940 /* izaBanchoTableCzEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2098A2E18AF200029D940 /* izaBanchoTableCzEffect.swift */; };
+		0FB683F52EEE820200B92C3F /* hihodenTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB683F42EEE820200B92C3F /* hihodenTableKoyakuPattern.swift */; };
 		0FB6CD082EC2134F0030A8E2 /* vvv2ViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6CD072EC2134F0030A8E2 /* vvv2ViewAtScreen.swift */; };
 		0FB9CA7C2DD97641009FC6AF /* ver320Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */; };
 		0FB9CA7F2DDB6182009FC6AF /* toloveru87ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CA7E2DDB6182009FC6AF /* toloveru87ViewTop.swift */; };
@@ -1094,6 +1127,13 @@
 		0FF3E4792EE40195002704FD /* bakemonoViewAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */; };
 		0FF3E47B2EE40438002704FD /* bakemonoTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */; };
 		0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */; };
+		0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2172EED8B640045265B /* hihodenViewTop.swift */; };
+		0FF6D21A2EED8B6E0045265B /* hihodenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2192EED8B6E0045265B /* hihodenClass.swift */; };
+		0FF6D21C2EED8B7C0045265B /* hihodenAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */; };
+		0FF6D21E2EED8DB40045265B /* hihodenView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */; };
+		0FF6D2202EED8DC30045265B /* hihodenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */; };
+		0FF6D2222EED8E230045265B /* ver3150.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2212EED8E230045265B /* ver3150.swift */; };
+		0FF6D2242EED919D0045265B /* hihodenViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2232EED919D0045265B /* hihodenViewNormal.swift */; };
 		0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */; };
 		0FF9AC902CBA2C0E000C8E76 /* kaguyaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */; };
 		0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */; };
@@ -1823,6 +1863,14 @@
 		0FA024AB2D0B16CC004B3FD5 /* lupinSingleBonusVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinSingleBonusVoice.swift; sourceTree = "<group>"; };
 		0FA024AD2D0C00E5004B3FD5 /* lupinViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtScreen.swift; sourceTree = "<group>"; };
 		0FA024AF2D0C00F6004B3FD5 /* lupinViewAtVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lupinViewAtVoice.swift; sourceTree = "<group>"; };
+		0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenviewFirstHit.swift; sourceTree = "<group>"; };
+		0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewDuringBonus.swift; sourceTree = "<group>"; };
+		0FA0A7972EF64CFF003EF8BD /* hihodenViewLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewLegend.swift; sourceTree = "<group>"; };
+		0FA0A79D2EF692C3003EF8BD /* SCPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableScreenRatio.swift; sourceTree = "<group>"; };
+		0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableRushScreenRatio.swift; sourceTree = "<group>"; };
+		0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableLegendSisa.swift; sourceTree = "<group>"; };
+		0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableHihoNews.swift; sourceTree = "<group>"; };
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
@@ -1859,6 +1907,7 @@
 		0FB209862E189A1D0029D940 /* izaBanchoTableKatanaAtHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoTableKatanaAtHit.swift; sourceTree = "<group>"; };
 		0FB209882E18AA910029D940 /* unitCountButtonWithoutRatioWithFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitCountButtonWithoutRatioWithFunc.swift; sourceTree = "<group>"; };
 		0FB2098A2E18AF200029D940 /* izaBanchoTableCzEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoTableCzEffect.swift; sourceTree = "<group>"; };
+		0FB683F42EEE820200B92C3F /* hihodenTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0FB6CD072EC2134F0030A8E2 /* vvv2ViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2ViewAtScreen.swift; sourceTree = "<group>"; };
 		0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver320Class.swift; sourceTree = "<group>"; };
 		0FB9CA7E2DDB6182009FC6AF /* toloveru87ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveru87ViewTop.swift; sourceTree = "<group>"; };
@@ -2243,6 +2292,13 @@
 		0FF3E4782EE40195002704FD /* bakemonoViewAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewAt.swift; sourceTree = "<group>"; };
 		0FF3E47A2EE40438002704FD /* bakemonoTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0FF6C3D82CBE9493003DCF17 /* kaguyaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewEnding.swift; sourceTree = "<group>"; };
+		0FF6D2172EED8B640045265B /* hihodenViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewTop.swift; sourceTree = "<group>"; };
+		0FF6D2192EED8B6E0045265B /* hihodenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenClass.swift; sourceTree = "<group>"; };
+		0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hihodenAssets.xcassets; sourceTree = "<group>"; };
+		0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenView95Ci.swift; sourceTree = "<group>"; };
+		0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewBayes.swift; sourceTree = "<group>"; };
+		0FF6D2212EED8E230045265B /* ver3150.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3150.swift; sourceTree = "<group>"; };
+		0FF6D2232EED919D0045265B /* hihodenViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenViewNormal.swift; sourceTree = "<group>"; };
 		0FF9AC8C2CBA2A2B000C8E76 /* ver130Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver130Tip.swift; sourceTree = "<group>"; };
 		0FF9AC8F2CBA2C0E000C8E76 /* kaguyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaguyaViewTop.swift; sourceTree = "<group>"; };
 		0FF9AC912CBA2C27000C8E76 /* kaguyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kaguyaAssets.xcassets; sourceTree = "<group>"; };
@@ -2289,6 +2345,10 @@
 		FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SCPreview; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		0F8030D52C6249FC001F008E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -2311,6 +2371,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA0A79A2EF692C3003EF8BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2869,6 +2936,7 @@
 				0F8030DA2C6249FC001F008E /* SetteiSaCountApp */,
 				0F8030EB2C6249FE001F008E /* SetteiSaCountAppTests */,
 				0F8030F52C6249FE001F008E /* SetteiSaCountAppUITests */,
+				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
 				8B3C4222C8718142ABE663F1 /* Frameworks */,
@@ -2881,6 +2949,7 @@
 				0F8030D82C6249FC001F008E /* SetteiSaCountApp.app */,
 				0F8030E82C6249FE001F008E /* SetteiSaCountAppTests.xctest */,
 				0F8030F22C6249FE001F008E /* SetteiSaCountAppUITests.xctest */,
+				0FA0A79D2EF692C3003EF8BD /* SCPreview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2891,6 +2960,7 @@
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FF6D2162EED8B440045265B /* hihoden */,
 				0F0DE8112EDC340900D85BCA /* bakemono */,
 				0F2DA9F72EC0792E0083704E /* neopla */,
 				0F9D9BF12EA0C42C00450B23 /* vvv2 */,
@@ -3426,6 +3496,7 @@
 				0F663B8D2EBF0830006FBB1F /* ver3130.swift */,
 				0FFAEBD32ED13A88006C0371 /* ver3131.swift */,
 				0FF3E4742EE06782002704FD /* ver3140.swift */,
+				0FF6D2212EED8E230045265B /* ver3150.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -3657,6 +3728,8 @@
 				0F7726CD2EBCCBF8004986D5 /* vvv2ViewRush.swift */,
 				0FB6CD072EC2134F0030A8E2 /* vvv2ViewAtScreen.swift */,
 				0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */,
+				0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */,
+				0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */,
 			);
 			path = vvv2;
 			sourceTree = "<group>";
@@ -4320,6 +4393,25 @@
 			path = copyright;
 			sourceTree = "<group>";
 		};
+		0FF6D2162EED8B440045265B /* hihoden */ = {
+			isa = PBXGroup;
+			children = (
+				0FF6D2172EED8B640045265B /* hihodenViewTop.swift */,
+				0FF6D2192EED8B6E0045265B /* hihodenClass.swift */,
+				0FF6D21B2EED8B7C0045265B /* hihodenAssets.xcassets */,
+				0FF6D21D2EED8DB40045265B /* hihodenView95Ci.swift */,
+				0FF6D21F2EED8DC30045265B /* hihodenViewBayes.swift */,
+				0FF6D2232EED919D0045265B /* hihodenViewNormal.swift */,
+				0FB683F42EEE820200B92C3F /* hihodenTableKoyakuPattern.swift */,
+				0FA0A7932EF421DF003EF8BD /* hihodenviewFirstHit.swift */,
+				0FA0A7952EF42A6D003EF8BD /* hihodenViewDuringBonus.swift */,
+				0FA0A7972EF64CFF003EF8BD /* hihodenViewLegend.swift */,
+				0FA0A7EA2EFAC971003EF8BD /* hihodenTableLegendSisa.swift */,
+				0FA0A7ED2EFC217C003EF8BD /* hihodenTableHihoNews.swift */,
+			);
+			path = hihoden;
+			sourceTree = "<group>";
+		};
 		0FF9AC8E2CBA2BF6000C8E76 /* kaguyaSama */ = {
 			isa = PBXGroup;
 			children = (
@@ -4418,6 +4510,28 @@
 			productReference = 0F8030F22C6249FE001F008E /* SetteiSaCountAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0FA0A79C2EF692C3003EF8BD /* SCPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FA0A7A52EF692C5003EF8BD /* Build configuration list for PBXNativeTarget "SCPreview" */;
+			buildPhases = (
+				0FA0A7992EF692C3003EF8BD /* Sources */,
+				0FA0A79A2EF692C3003EF8BD /* Frameworks */,
+				0FA0A79B2EF692C3003EF8BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
+			);
+			name = SCPreview;
+			packageProductDependencies = (
+			);
+			productName = SCPreview;
+			productReference = 0FA0A79D2EF692C3003EF8BD /* SCPreview.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -4425,8 +4539,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 2610;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					0F8030D72C6249FC001F008E = {
 						CreatedOnToolsVersion = 15.4;
@@ -4438,6 +4552,9 @@
 					0F8030F12C6249FE001F008E = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 0F8030D72C6249FC001F008E;
+					};
+					0FA0A79C2EF692C3003EF8BD = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -4455,6 +4572,7 @@
 			projectRoot = "";
 			targets = (
 				0F8030D72C6249FC001F008E /* SetteiSaCountApp */,
+				0FA0A79C2EF692C3003EF8BD /* SCPreview */,
 				0F8030E72C6249FE001F008E /* SetteiSaCountAppTests */,
 				0F8030F12C6249FE001F008E /* SetteiSaCountAppUITests */,
 			);
@@ -4510,6 +4628,7 @@
 				0FB9CA812DDB61B2009FC6AF /* toloveru87Assets.xcassets in Resources */,
 				0F64DDB82DC6D4920027315D /* midoriDonAssets.xcassets in Resources */,
 				0F654BB82C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets in Resources */,
+				0FF6D21C2EED8B7C0045265B /* hihodenAssets.xcassets in Resources */,
 				0F868A912D5789AB00D952D9 /* mrJugAssets.xcassets in Resources */,
 				0F654BD22C6F0F1900F37849 /* dragonHanahanaSenkohAssets.xcassets in Resources */,
 				0FD357B52DAFCC360069BD1A /* yoshimuneAssets.xcassets in Resources */,
@@ -4550,6 +4669,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA0A79B2EF692C3003EF8BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4804,6 +4931,7 @@
 				0F6B59AF2DFD257300DB1A2B /* unitMachineIconLink.swift in Sources */,
 				0F9D9BE62E9DFD8900450B23 /* zeni5TableKoyakuPattern.swift in Sources */,
 				0FF369282E627098002BE0CE /* azurLaneTableMode.swift in Sources */,
+				0FA0A7EE2EFC217C003EF8BD /* hihodenTableHihoNews.swift in Sources */,
 				0FF3691E2E5C91ED002BE0CE /* azurLaneViewFirstHit.swift in Sources */,
 				0F8325C32C7F5BC90037226E /* goevaViewAtScreen.swift in Sources */,
 				0FA024A02D05D547004B3FD5 /* danvineViewTop.swift in Sources */,
@@ -4856,6 +4984,7 @@
 				0FD3574A2DA2648A0069BD1A /* shamanKingTableFirstHit.swift in Sources */,
 				0F0DE8192EDC384500D85BCA /* bakemonoView95Ci.swift in Sources */,
 				0FD357502DA267690069BD1A /* shamanKingTableEndScreen.swift in Sources */,
+				0FA0A7E82EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */,
 				0FCF78942E470C050000748B /* mt5TableTrophy.swift in Sources */,
 				0FD357C52DB319210069BD1A /* mahjongViewVoice.swift in Sources */,
 				0FC71FFA2E6BBB1D000DD53B /* logPostDenoMulti.swift in Sources */,
@@ -4884,6 +5013,7 @@
 				0F49521E2DB4903F00EE13CB /* magiaViewEnding.swift in Sources */,
 				0FEC57B42D8FBCD400FF1024 /* kaijiView95Ci.swift in Sources */,
 				0FBED79E2E989E4300AA3751 /* toreveTableRevengeChance.swift in Sources */,
+				0FF6D21A2EED8B6E0045265B /* hihodenClass.swift in Sources */,
 				0F868ACD2D58621300D952D9 /* girlsSSVer2View95CiKen.swift in Sources */,
 				0FEC57982D8E4A0200FF1024 /* arifureSubViewTableChara.swift in Sources */,
 				0F9D9C472EA5007300450B23 /* railgunViewNormal.swift in Sources */,
@@ -4983,6 +5113,7 @@
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
 				0F9D9C2E2EA4559200450B23 /* draHanaSenkohViewShimaData.swift in Sources */,
 				0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */,
+				0FA0A7E22EF96BCA003EF8BD /* vvv2TableScreenRatio.swift in Sources */,
 				0FB209592E0FDB9E0029D940 /* unitCountButtonDenominateWithFunc.swift in Sources */,
 				0F9D9C052EA313A100450B23 /* unitResultListCountNotBinding.swift in Sources */,
 				0F8689FE2D42747900D952D9 /* goJug3Ver2ViewTop.swift in Sources */,
@@ -5028,6 +5159,7 @@
 				0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */,
 				0F868A6B2D4DA97F00D952D9 /* unitChart95CiPercentNotBinding.swift in Sources */,
 				0FDBDAC82E874F5400197B94 /* creaTableKoyakuRatio.swift in Sources */,
+				0FF6D2242EED919D0045265B /* hihodenViewNormal.swift in Sources */,
 				0F868AAC2D583AB300D952D9 /* funky2Ver2ViewKenDataInput.swift in Sources */,
 				0F1E121C2DD61C3100F69AFF /* mhrTableKiteiPt.swift in Sources */,
 				0F9A4F9E2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift in Sources */,
@@ -5172,6 +5304,7 @@
 				0F9A4F8A2DF1C6A9003B6337 /* guiltyCrown2ViewTop.swift in Sources */,
 				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
+				0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */,
 				0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */,
 				0F6B59CE2DFE782100DB1A2B /* symphoTableScreen.swift in Sources */,
 				0FBED7A02E9A3A1E00AA3751 /* newOni3ViewFirstHit.swift in Sources */,
@@ -5182,6 +5315,7 @@
 				0F868A602D47BF0300D952D9 /* draHanaSenkohVer2View95CiStart.swift in Sources */,
 				0FB209852E1897A50029D940 /* izaBanchoTableKatanaLevel.swift in Sources */,
 				0F64DD7E2DC435EC0027315D /* kaijiTableModeRatio.swift in Sources */,
+				0FA0A7982EF64CFF003EF8BD /* hihodenViewLegend.swift in Sources */,
 				0F9A4F9C2DF40CF2003B6337 /* guiltyCrown2ViewFirstHit.swift in Sources */,
 				0F868A272D45167200D952D9 /* unitResultHanrei.swift in Sources */,
 				0F9A4FA42DF46773003B6337 /* guiltyCrown2TableBonusScreenSisa.swift in Sources */,
@@ -5223,6 +5357,7 @@
 				0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */,
 				0FD357582DA28BBD0069BD1A /* magiaTableJakuCherry.swift in Sources */,
 				0FDBDAD02E87D41800197B94 /* creaViewStamp.swift in Sources */,
+				0FA0A7942EF421DF003EF8BD /* hihodenviewFirstHit.swift in Sources */,
 				0FD357B02DAE98FD0069BD1A /* mahjongClass.swift in Sources */,
 				0F868A9D2D578EBA00D952D9 /* mrJugVer2View95CiTotal.swift in Sources */,
 				0FB9CA832DDB61C3009FC6AF /* toloveru87Class.swift in Sources */,
@@ -5506,6 +5641,7 @@
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
 				0FD357AC2DAE98DE0069BD1A /* mahjongViewTop.swift in Sources */,
 				0F9A4F982DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift in Sources */,
+				0FF6D21E2EED8DB40045265B /* hihodenView95Ci.swift in Sources */,
 				0FD357862DAA76EA0069BD1A /* sbjTableEndScreen.swift in Sources */,
 				0F6B59E72E06ADB300DB1A2B /* goevaTableMenuScreen.swift in Sources */,
 				0FD357402DA227B70069BD1A /* arifureTableHeavenHit.swift in Sources */,
@@ -5595,8 +5731,10 @@
 				0FD3573E2DA21EEC0069BD1A /* arifureTableCzMode.swift in Sources */,
 				0F868AC32D584F1A00D952D9 /* girlsSSVer2ViewKenDataInput.swift in Sources */,
 				0F6B59DF2E06A36600DB1A2B /* goevaTableSuikaCz.swift in Sources */,
+				0FF6D2222EED8E230045265B /* ver3150.swift in Sources */,
 				0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */,
 				0F815FDE2E3DF5420086127D /* reSwordViewAtScreen.swift in Sources */,
+				0FA0A7962EF42A6D003EF8BD /* hihodenViewDuringBonus.swift in Sources */,
 				0F9D9BD12E9BCCD900450B23 /* newOni3ViewEnding.swift in Sources */,
 				0FCF78902E46F2AD0000748B /* mt5TableFunaken.swift in Sources */,
 				0FEC57B22D8FA9DA00FF1024 /* kaijiTableFirstHit.swift in Sources */,
@@ -5646,6 +5784,7 @@
 				0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0FDC32612D17B173005B3D06 /* inuyashaViewEnding.swift in Sources */,
+				0FB683F52EEE820200B92C3F /* hihodenTableKoyakuPattern.swift in Sources */,
 				0F2DAA012EC07B6A0083704E /* neoplaViewBayes.swift in Sources */,
 				0FB9CA852DDD9478009FC6AF /* toloveru87ViewDokidokiPt.swift in Sources */,
 				0F868A9F2D57925600D952D9 /* mrJugVer2View95CiKen.swift in Sources */,
@@ -5702,11 +5841,13 @@
 				0FE23B262C74CA81000E65D7 /* mt5ViewTop.swift in Sources */,
 				0F5FBBC82E4823E8004124A2 /* bayesTestCustomGuessSheet.swift in Sources */,
 				0FCF789A2E4710B00000748B /* karakuriTableMode.swift in Sources */,
+				0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
 				0F815FC52E35DECD0086127D /* darlingView95Ci.swift in Sources */,
 				0FD357992DAB3E760069BD1A /* godzillaTableOpelatorMessage.swift in Sources */,
 				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
 				0FA0249B2D05D13C004B3FD5 /* lupinViewTop.swift in Sources */,
 				0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */,
+				0FF6D2202EED8DC30045265B /* hihodenViewBayes.swift in Sources */,
 				0F64DD4F2DC081700027315D /* dumbbellTableKinnikuBonusScreen.swift in Sources */,
 				0F6FB8F62DE7326400207855 /* bangdreamTableVoice.swift in Sources */,
 				0FDF23852E520C9D00249CAC /* enenTableAdoraRatio.swift in Sources */,
@@ -5802,6 +5943,37 @@
 			files = (
 				0F8030F92C6249FE001F008E /* SetteiSaCountAppUITestsLaunchTests.swift in Sources */,
 				0F8030F72C6249FE001F008E /* SetteiSaCountAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA0A7992EF692C3003EF8BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA0A7A82EF693A2003EF8BD /* hihodenTableKoyakuPattern.swift in Sources */,
+				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
+				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
+				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
+				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
+				0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
+				0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */,
+				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
+				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
+				0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */,
+				0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */,
+				0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */,
+				0FA0A7E32EF96BD3003EF8BD /* vvv2TableScreenRatio.swift in Sources */,
+				0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */,
+				0FA0A7CF2EF6947C003EF8BD /* unitReelGrayMark.swift in Sources */,
+				0FA0A7D02EF6947C003EF8BD /* unitReelPinkBar.swift in Sources */,
+				0FA0A7D12EF6947C003EF8BD /* unitReelAny.swift in Sources */,
+				0FA0A7D22EF6947C003EF8BD /* unitReelHazure.swift in Sources */,
+				0FA0A7D32EF6947C003EF8BD /* unitReelDefault.swift in Sources */,
+				0FA0A7D42EF6947C003EF8BD /* unitReelBar.swift in Sources */,
+				0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */,
+				0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */,
+				0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */,
+				0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5971,7 +6143,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6011,7 +6183,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6096,6 +6268,83 @@
 			};
 			name = Release;
 		};
+		0FA0A7A62EF692C5003EF8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 96785D4DQ7;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SCPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0FA0A7A72EF692C5003EF8BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 96785D4DQ7;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SCPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -6131,6 +6380,15 @@
 			buildConfigurations = (
 				0F8031032C6249FE001F008E /* Debug */,
 				0F8031042C6249FE001F008E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FA0A7A52EF692C5003EF8BD /* Build configuration list for PBXNativeTarget "SCPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FA0A7A62EF692C5003EF8BD /* Debug */,
+				0FA0A7A72EF692C5003EF8BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

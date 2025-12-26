@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class Vvv2: ObservableObject {
     // ///////////
@@ -104,6 +105,18 @@ class Vvv2: ObservableObject {
     // ---------------
     let ratioKakumeiRatio: [Double] = [55,-1,-1,-1,60]
     let ratioKessenRatio: [Double] = [45,-1,-1,-1,40]
+    
+    // -------------
+    // ver3.15.0で追加
+    // -------------
+    let ratioScreenDefault: [Double] = [74,65,60,60,60]
+    let ratioScreenBlue1: [Double] = [8,5,5,10,5]
+    let ratioScreenBlue2: [Double] = [8,10,10,5,10]
+    let ratioScreenRed1: [Double] = [7,7,9,9,9]
+    let ratioScreenRed2: [Double] = [3,3,6,6,6]
+    let ratioScreenPurple: [Double] = [0,10,8,8,7]
+    let ratioScreenSilver: [Double] = [0,0,2,2,2]
+    let ratioScreenGold: [Double] = [0,0,0,0,1]
 }
 
 

@@ -78,7 +78,7 @@ struct vvv2ViewRush: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3140vvv2Drive())
+//                .popoverTip(tipVer3140vvv2Drive())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
@@ -136,7 +136,12 @@ struct vvv2ViewRush: View {
                     }
                 }
                 .frame(height: 120)
-//                .popoverTip(tipVer3130vvv2RushScreen())
+                
+                // 参考情報）開始画面の振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "開始画面の振り分け") {
+                    vvv2TableRushScreenRatio()
+                }
+                .popoverTip(tipVer3150vvv2RushScreenRatio())
             } header: {
                 Text("ラウンド開始画面での示唆")
             }

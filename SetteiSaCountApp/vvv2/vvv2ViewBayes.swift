@@ -49,12 +49,7 @@ struct vvv2ViewBayes: View {
                 // ドライブ発生率
                 unitToggleWithQuestion(enable: self.$driveEnable, title: "ドライブ発生率")
                 // 終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "CZ・ボーナス終了画面") {
-                    unitExView5body2image(
-                        title: "CZ・ボーナス終了画面",
-                        textBody1: "・確定系のみ反映させます"
-                    )
-                }
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "CZ・ボーナス終了画面振り分け")
             }
             
             // //// STEP3
@@ -128,19 +123,40 @@ struct vvv2ViewBayes: View {
         // 終了画面
         var logPostScreenEnd: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
-            if vvv2.screenCountPurple > 0 {
-                logPostScreenEnd[0] = -Double.infinity
-            }
-            if vvv2.screenCountSilver > 0 {
-                logPostScreenEnd[0] = -Double.infinity
-                logPostScreenEnd[1] = -Double.infinity
-            }
-            if vvv2.screenCountGold > 0 {
-                logPostScreenEnd[0] = -Double.infinity
-                logPostScreenEnd[1] = -Double.infinity
-                logPostScreenEnd[2] = -Double.infinity
-                logPostScreenEnd[3] = -Double.infinity
-            }
+            logPostScreenEnd = logPostPercentMulti(
+                countList: [
+                    vvv2.screenCountDefault,
+                    vvv2.screenCountBlue1,
+                    vvv2.screenCountBlue2,
+                    vvv2.screenCountRed1,
+                    vvv2.screenCountRed2,
+                    vvv2.screenCountPurple,
+                    vvv2.screenCountSilver,
+                    vvv2.screenCountGold,
+                ], ratioList: [
+                    vvv2.ratioScreenDefault,
+                    vvv2.ratioScreenBlue1,
+                    vvv2.ratioScreenBlue2,
+                    vvv2.ratioScreenRed1,
+                    vvv2.ratioScreenRed2,
+                    vvv2.ratioScreenPurple,
+                    vvv2.ratioScreenSilver,
+                    vvv2.ratioScreenGold,
+                ], bigNumber: vvv2.screenCountSum,
+            )
+//            if vvv2.screenCountPurple > 0 {
+//                logPostScreenEnd[0] = -Double.infinity
+//            }
+//            if vvv2.screenCountSilver > 0 {
+//                logPostScreenEnd[0] = -Double.infinity
+//                logPostScreenEnd[1] = -Double.infinity
+//            }
+//            if vvv2.screenCountGold > 0 {
+//                logPostScreenEnd[0] = -Double.infinity
+//                logPostScreenEnd[1] = -Double.infinity
+//                logPostScreenEnd[2] = -Double.infinity
+//                logPostScreenEnd[3] = -Double.infinity
+//            }
         }
         
         // トロフィー

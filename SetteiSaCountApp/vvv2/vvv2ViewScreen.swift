@@ -66,6 +66,18 @@ struct vvv2ViewScreen: View {
     ]
     let indexList: [Int] = [0,1,2,3,4,5,6,7]
     
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
+    
     var body: some View {
         List {
             Section {
@@ -95,7 +107,7 @@ struct vvv2ViewScreen: View {
                     }
                 }
                 .frame(height: common.screenScrollHeight)
-                .popoverTip(tipVer3130vvv2Screen())
+//                .popoverTip(tipVer3130vvv2Screen())
                 
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
@@ -114,9 +126,25 @@ struct vvv2ViewScreen: View {
                         )
                     }
                 }
+                
+                // 参考情報）終了画面振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面振り分け") {
+                    vvv2TableScreenRatio(vvv2: vvv2)
+                }
+                .popoverTip(tipVer3150vvv2ScreenRatio())
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    vvv2ViewBayes(
+                        vvv2: vvv2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 unitLabelHeaderScreenCount()
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.vvv2MenuScreenBadge)
@@ -128,6 +156,20 @@ struct vvv2ViewScreen: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .navigationTitle("CZ・ボーナス終了画面")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

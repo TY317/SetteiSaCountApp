@@ -62,7 +62,8 @@ struct tokyoGhoulViewBayes: View {
                     )
                 }
                 // 100G以内当選率
-                unitToggleWithQuestion(enable: self.$under100Enable, title: "100G以内当選率")
+//                unitToggleWithQuestion(enable: self.$under100Enable, title: "100G以内当選率")
+                unitToggleWithQuestion(enable: self.$under100Enable, title: "引き戻し当選率")
                 // 月山招待状
                 unitToggleWithQuestion(enable: self.$tsukiyamaEnable, title: "月山招待状") {
                     unitExView5body2image(
@@ -194,10 +195,15 @@ struct tokyoGhoulViewBayes: View {
         // 100G以内の当選率
         var logPost100G: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.under100Enable {
+//            logPost100G = logPostPercentBino(
+//                ratio: [19.58, 21.04, 23.15, 26.37, 31.96, 36.01],
+//                Count: tokyoGhoul.under100CountHit,
+//                bigNumber: tokyoGhoul.firstHitCountSum,
+//            )
             logPost100G = logPostPercentBino(
-                ratio: [19.58, 21.04, 23.15, 26.37, 31.96, 36.01],
-                Count: tokyoGhoul.under100CountHit,
-                bigNumber: tokyoGhoul.firstHitCountSum,
+                ratio: tokyoGhoul.ratioComeBack,
+                Count: tokyoGhoul.comeBackCountHit,
+                bigNumber: tokyoGhoul.comeBackCountSum
             )
         }
         // 月山招待状の尤度

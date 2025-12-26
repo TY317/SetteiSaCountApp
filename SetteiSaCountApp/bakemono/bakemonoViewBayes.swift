@@ -15,6 +15,7 @@ struct bakemonoViewBayes: View {
     let payoutList: [Double] = [97.9, 98.9, 100.9, 105.0, 107.8, 112.1]
     @State var firstHitEnable: Bool = true
     @State var screenHitEnable: Bool = true
+    @State var jakuCherryAtEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -47,6 +48,8 @@ struct bakemonoViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
+                // 弱チェリーからのAT直撃率
+                unitToggleWithQuestion(enable: self.$jakuCherryAtEnable, title: "弱🍒からのAT直撃率")
                 // AT終了画面
                 unitToggleWithQuestion(enable: self.$screenHitEnable, title: "AT終了画面") {
                     unitExView5body2image(
@@ -132,6 +135,15 @@ struct bakemonoViewBayes: View {
                 bigNumber: bakemono.normalGame
             )
         }
+        // 弱チェリーからのAT直撃
+        var logPostJakuCherryAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.jakuCherryAtEnable {
+            logPostJakuCherryAt = logPostPercentBino(
+                ratio: bakemono.ratioJakuCherryAt,
+                Count: bakemono.jakuCherryAtCount,
+                bigNumber: bakemono.koyakuCountJakuCherry
+            )
+        }
         // AT終了画面
         var logPostScreenEnd: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenHitEnable {
@@ -202,6 +214,7 @@ struct bakemonoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
+            logPostJakuCherryAt,
             logPostScreenEnd,
             
             logPostTrophy,

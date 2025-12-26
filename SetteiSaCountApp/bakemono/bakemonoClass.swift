@@ -20,6 +20,8 @@ class Bakemono: ObservableObject {
         totalGame = 0
         koyakuCountSuika = 0
         minusCheck = false
+        koyakuCountJakuCherry = 0
+        jakuCherryAtCount = 0
     }
     
     // ------------
@@ -119,6 +121,13 @@ class Bakemono: ObservableObject {
         resetScreen()
         resetFirstHit()
     }
+    
+    // -------------
+    // ver3.15.0で追加
+    // -------------
+    let ratioJakuCherryAt: [Double] = [0.4,0.8,1.3,2.1,2.9,3.8]
+    @AppStorage("bakemonoKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("bakemonoJakuCherryAtCount") var jakuCherryAtCount: Int = 0
 }
 
 class BakemonoMemory1: ObservableObject {
@@ -144,6 +153,12 @@ class BakemonoMemory1: ObservableObject {
     @AppStorage("bakemonoScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("bakemonoMemoMemory1") var memo = ""
     @AppStorage("bakemonoDateMemory1") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.15.0で追加
+    // -------------
+    @AppStorage("bakemonoKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("bakemonoJakuCherryAtCountMemory1") var jakuCherryAtCount: Int = 0
 }
 
 class BakemonoMemory2: ObservableObject {
@@ -169,6 +184,12 @@ class BakemonoMemory2: ObservableObject {
     @AppStorage("bakemonoScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("bakemonoMemoMemory2") var memo = ""
     @AppStorage("bakemonoDateMemory2") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.15.0で追加
+    // -------------
+    @AppStorage("bakemonoKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("bakemonoJakuCherryAtCountMemory2") var jakuCherryAtCount: Int = 0
 }
 
 class BakemonoMemory3: ObservableObject {
@@ -194,4 +215,10 @@ class BakemonoMemory3: ObservableObject {
     @AppStorage("bakemonoScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("bakemonoMemoMemory3") var memo = ""
     @AppStorage("bakemonoDateMemory3") var dateDouble = 0.0
+    
+    // -------------
+    // ver3.15.0で追加
+    // -------------
+    @AppStorage("bakemonoKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("bakemonoJakuCherryAtCountMemory3") var jakuCherryAtCount: Int = 0
 }

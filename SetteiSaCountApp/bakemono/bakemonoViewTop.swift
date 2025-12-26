@@ -214,6 +214,12 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory1.screenCount10 = bakemono.screenCount10
         bakemonoMemory1.screenCount11 = bakemono.screenCount11
         bakemonoMemory1.screenCountSum = bakemono.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemonoMemory1.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
+        bakemonoMemory1.jakuCherryAtCount = bakemono.jakuCherryAtCount
     }
     func saveMemory2() {
         bakemonoMemory2.totalGame = bakemono.totalGame
@@ -236,6 +242,12 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory2.screenCount10 = bakemono.screenCount10
         bakemonoMemory2.screenCount11 = bakemono.screenCount11
         bakemonoMemory2.screenCountSum = bakemono.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemonoMemory2.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
+        bakemonoMemory2.jakuCherryAtCount = bakemono.jakuCherryAtCount
     }
     func saveMemory3() {
         bakemonoMemory3.totalGame = bakemono.totalGame
@@ -258,6 +270,12 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory3.screenCount10 = bakemono.screenCount10
         bakemonoMemory3.screenCount11 = bakemono.screenCount11
         bakemonoMemory3.screenCountSum = bakemono.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemonoMemory3.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
+        bakemonoMemory3.jakuCherryAtCount = bakemono.jakuCherryAtCount
     }
 }
 
@@ -309,6 +327,12 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.screenCount10 = bakemonoMemory1.screenCount10
         bakemono.screenCount11 = bakemonoMemory1.screenCount11
         bakemono.screenCountSum = bakemonoMemory1.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemono.koyakuCountJakuCherry = bakemonoMemory1.koyakuCountJakuCherry
+        bakemono.jakuCherryAtCount = bakemonoMemory1.jakuCherryAtCount
     }
     func loadMemory2() {
         bakemono.totalGame = bakemonoMemory2.totalGame
@@ -331,6 +355,12 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.screenCount10 = bakemonoMemory2.screenCount10
         bakemono.screenCount11 = bakemonoMemory2.screenCount11
         bakemono.screenCountSum = bakemonoMemory2.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemono.koyakuCountJakuCherry = bakemonoMemory2.koyakuCountJakuCherry
+        bakemono.jakuCherryAtCount = bakemonoMemory2.jakuCherryAtCount
     }
     func loadMemory3() {
         bakemono.totalGame = bakemonoMemory3.totalGame
@@ -353,6 +383,12 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.screenCount10 = bakemonoMemory3.screenCount10
         bakemono.screenCount11 = bakemonoMemory3.screenCount11
         bakemono.screenCountSum = bakemonoMemory3.screenCountSum
+        
+        // -------------
+        // ver3.15.0で追加
+        // -------------
+        bakemono.koyakuCountJakuCherry = bakemonoMemory3.koyakuCountJakuCherry
+        bakemono.jakuCherryAtCount = bakemonoMemory3.jakuCherryAtCount
     }
 }
 

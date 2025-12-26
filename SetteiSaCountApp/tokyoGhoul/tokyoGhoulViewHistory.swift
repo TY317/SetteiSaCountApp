@@ -42,7 +42,6 @@ struct tokyoGhoulTipMorningMode: Tip {
 
 
 struct tokyoGhoulViewHistory: View {
-//    @ObservedObject var ver380: Ver380
     @ObservedObject var tokyoGhoul: TokyoGhoul
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
@@ -56,6 +55,7 @@ struct tokyoGhoulViewHistory: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         List {
@@ -74,19 +74,6 @@ struct tokyoGhoulViewHistory: View {
                     unitText: "Ｇ"
                 )
                 .focused($isFocused)
-//                .toolbar {
-//                    ToolbarItem(placement: .keyboard) {
-//                        HStack {
-//                            Spacer()
-//                            Button(action: {
-//                                isFocused = false
-//                            }, label: {
-//                                Text("完了")
-//                                    .fontWeight(.bold)
-//                            })
-//                        }
-//                    }
-//                }
                 // //// CZ選択肢
                 if tokyoGhoul.selectedSegment == tokyoGhoul.selectListSegment[0] {
                     unitPickerMenuString(
@@ -173,7 +160,6 @@ struct tokyoGhoulViewHistory: View {
                     }
                 }
             }
-//            .popoverTip(tokyoGhoulTipHistoryInput())
             
             // //// 参考情報セクション
             Section {
@@ -186,7 +172,6 @@ struct tokyoGhoulViewHistory: View {
                             textBody1: "・終了画面でボタンPUSHでカード表示",
                             textBody2: "・基本は滞在モード示唆だが、一部で設定を示唆",
                             tableView: AnyView(tokyoGhoulTableCzEndScreen())
-//                            image1: Image("tokyoGhoulEndCard")
                         )
                     )
                 )
@@ -199,7 +184,6 @@ struct tokyoGhoulViewHistory: View {
                             textBody2: "・モード移行契機はCZ失敗時",
                             textBody3: "・天国以外は転落なし",
                             tableView: AnyView(tokyoGhoulTableModeTable())
-//                            image1: Image("tokyoGhoulCzTable")
                         )
                     )
                 )
@@ -215,7 +199,6 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-//                .popoverTip(tipVer250GhoulGedanReplay())
             }
             // //// 履歴表示
             Section {
@@ -411,7 +394,6 @@ struct tokyoGhoulViewHistory: View {
                             title: "初当り確率",
                             textBody1: "・弱レア役からのCZ・AT当選率に設定差あると思われる",
                             tableView: AnyView(tokyoGhoulTableFirstHit())
-//                            image1: Image("tokyoGhoulHitRatio")
                         )
                     )
                 )
@@ -427,7 +409,6 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-//                .popoverTip(tipVer250GhoulUraAt())
                 // //// 参考情報）弱チェからのCZ
                 unitLinkButton(
                     title: "弱🍒からのCZ当選について",
@@ -449,13 +430,11 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-//                .popoverTip(tipVer351GhoulReplayAt())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 3)))
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     tokyoGhoulViewBayes(
-//                        ver380: ver380,
                         tokyoGhoul: tokyoGhoul,
                         bayes: bayes,
                         viewModel: viewModel,
@@ -466,67 +445,126 @@ struct tokyoGhoulViewHistory: View {
             }
             
             // //// 100G以内の当選率
+//            Section {
+//                // 朝一データ除外のトグルスイッチ
+//                Toggle(isOn: $tokyoGhoul.morningModeEnable) {
+//                    HStack {
+//                        Text("朝一データ除外")
+//                        unitToolbarButtonQuestion {
+//                            unitExView5body2image(
+//                                title: "朝一データ除外",
+//                                textBody1: "設定変更時に移行する朝一モードを除外した当選率が対象のため、朝一稼働でリセットされる店舗ではスイッチをONにして下さい"
+//                            )
+//                        }
+//                    }
+//                }
+//                // 確率結果
+//                unitResultRatioPercent2Line(
+//                    title: "100G以内当選率",
+//                    count: $tokyoGhoul.under100CountHit,
+//                    bigNumber: $tokyoGhoul.firstHitCountSum,
+//                    numberofDicimal: 0
+//                )
+//                // //// 参考情報リンク
+//                unitLinkButton(
+//                    title: "100G以内の当選率について",
+//                    exview: AnyView(
+//                        unitExView5body2image(
+//                            title: "100G以内の当選率",
+//                            textBody1: "・100G以内での当選率に設定差あり",
+//                            textBody2: "・設定変更時に移行する朝一モードは算出の対象外",
+//                            tableView: AnyView(tokyoGhoulTable100Hit())
+//                        )
+//                    )
+//                )
+//                // 95%信頼区間グラフ
+//                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 6)))
+//                // //// 設定期待値へのリンク
+//                unitNaviLinkBayes {
+//                    tokyoGhoulViewBayes(
+//                        tokyoGhoul: tokyoGhoul,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )
+//                }
+//            } header: {
+//                HStack {
+//                    Text("100G以内での当選率")
+//                }
+//            }
+            // 引き戻し当選率
             Section {
-                // 朝一データ除外のトグルスイッチ
-                Toggle(isOn: $tokyoGhoul.morningModeEnable) {
-                    HStack {
-                        Text("朝一データ除外")
-                        unitToolbarButtonQuestion {
-                            unitExView5body2image(
-                                title: "朝一データ除外",
-                                textBody1: "設定変更時に移行する朝一モードを除外した当選率が対象のため、朝一稼働でリセットされる店舗ではスイッチをONにして下さい"
-                            )
+                // カウントボタン横並び
+                HStack{
+                    // 非当選
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "非当選",
+                        count: $tokyoGhoul.comeBackCountNone,
+                        color: .personalSummerLightBlue,
+                        minusBool: $tokyoGhoul.minusCheck) {
+                            tokyoGhoul.comeBackSumFunc()
                         }
-                    }
+                    // 当選
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "当選",
+                        count: $tokyoGhoul.comeBackCountHit,
+                        color: .personalSummerLightRed,
+                        minusBool: $tokyoGhoul.minusCheck) {
+                            tokyoGhoul.comeBackSumFunc()
+                        }
                 }
-//                Toggle("朝一データ除外", isOn: $tokyoGhoul.morningModeEnable)
-//                    .popoverTip(tokyoGhoulTipMorningMode())
+                .popoverTip(tipVer3150GhoulComeBack())
                 // 確率結果
                 unitResultRatioPercent2Line(
-                    title: "100G以内当選率",
-                    count: $tokyoGhoul.under100CountHit,
-                    bigNumber: $tokyoGhoul.firstHitCountSum,
+                    title: "引き戻し当選率",
+                    count: $tokyoGhoul.comeBackCountHit,
+                    bigNumber: $tokyoGhoul.comeBackCountSum,
                     numberofDicimal: 0
                 )
-                // //// 参考情報リンク
-                unitLinkButton(
-                    title: "100G以内の当選率について",
-                    exview: AnyView(
-                        unitExView5body2image(
-                            title: "100G以内の当選率",
-                            textBody1: "・100G以内での当選率に設定差あり",
-                            textBody2: "・設定変更時に移行する朝一モードは算出の対象外",
-                            tableView: AnyView(tokyoGhoulTable100Hit())
-//                            image1: Image("tokyoGhoul100Hit")
+                
+                // 参考情報）引き戻し当選率
+                unitLinkButtonViewBuilder(sheetTitle: "引き戻し当選率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "引き戻し当選率",
+                            percentList: [
+                                tokyoGhoul.ratioComeBack[0],
+                                tokyoGhoul.ratioComeBack[2],
+                                tokyoGhoul.ratioComeBack[3],
+                                tokyoGhoul.ratioComeBack[4],
+                                tokyoGhoul.ratioComeBack[5],
+                            ],
+                            numberofDicimal: 1,
+                            lineList: [2,1,1,1,1],
+                            colorList: [.white,.tableBlue,.white,.tableBlue,.white],
+                        )
+                    }
+                }
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        tokyoGhoulView95Ci(
+                            tokyoGhoul: tokyoGhoul,
+                            selection: 6
                         )
                     )
                 )
-                // 95%信頼区間グラフ
-                unitNaviLink95Ci(Ci95view: AnyView(tokyoGhoulView95Ci(tokyoGhoul: tokyoGhoul, selection: 6)))
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     tokyoGhoulViewBayes(
-//                        ver380: ver380,
                         tokyoGhoul: tokyoGhoul,
                         bayes: bayes,
                         viewModel: viewModel,
                     )
                 }
             } header: {
-                HStack {
-                    Text("100G以内での当選率")
-//                    unitToolbarButtonQuestion {
-//                        unitExView5body2image(
-//                            title: "100G以内での当選",
-//                            textBody1: "設定変更時に移行する朝一モードを除外した当選率が対象のため、朝一稼働でリセットされる店舗ではスイッチをONにして下さい"
-//                        )
-//                    }
-                }
+                Text("引き戻し当選率")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver351.ghoulMenuFirstHitBadge)
+        .resetBadgeOnAppear($common.tokyoGhoulMenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -617,9 +655,9 @@ struct tokyoGhoulViewHistory: View {
 
 #Preview {
     tokyoGhoulViewHistory(
-//        ver380: Ver380(),
         tokyoGhoul: TokyoGhoul(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }
