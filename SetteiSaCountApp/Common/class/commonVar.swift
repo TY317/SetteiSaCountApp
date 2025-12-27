@@ -127,6 +127,7 @@ class commonVar: ObservableObject {
     // //// 北斗転生
     @AppStorage("hokutoTenseiMachineIconBadge") var hokutoTenseiMachineIconBadge: String = "none"
     @AppStorage("hokutoTenseiMenuNormalBadge") var hokutoTenseiMenuNormalBadge: String = "none"
+    @AppStorage("hokutoTenseiMenuBayesBadge") var hokutoTenseiMenuBayesBadge: String = "none"
     
     // //// 秘宝伝
     @AppStorage("hihodenMachineIconBadge") var hihodenMachineIconBadge: String = "none"

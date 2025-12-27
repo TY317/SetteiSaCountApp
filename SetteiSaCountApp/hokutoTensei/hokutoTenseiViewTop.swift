@@ -57,13 +57,14 @@ struct hokutoTenseiViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: hokutoTenseiViewBayes(
-//                    hokutoTensei: hokutoTensei,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    hokutoTensei: hokutoTensei,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.hokutoTenseiMenuBayesBadge,
                     )
                 }
                 
