@@ -30,7 +30,18 @@ struct hokutoTenseiViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: hokutoTenseiViewNormal(
+                        hokutoTensei: hokutoTensei,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.hokutoTenseiMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
