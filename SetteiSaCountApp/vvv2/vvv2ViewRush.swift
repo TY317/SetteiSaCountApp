@@ -66,7 +66,7 @@ struct vvv2ViewRush: View {
                         Text("・20Gの選択率も高設定ほど優遇")
                             .padding(.bottom)
                         HStack(spacing: 0) {
-                            unitTableGameIndex(gameList: [1,2,4,5,6])
+                            unitTableSettingIndex(settingList: [1,2,4,5,6])
                             unitTableString(
                                 columTitle: "ドライブ発生率",
                                 stringList: [
