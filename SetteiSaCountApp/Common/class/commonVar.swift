@@ -124,6 +124,9 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- 鉄拳
+    @AppStorage("tekken6MachineIconBadge") var tekken6MachineIconBadge: String = "none"
+    
     // //// 北斗転生
     @AppStorage("hokutoTenseiMachineIconBadge") var hokutoTenseiMachineIconBadge: String = "none"
     @AppStorage("hokutoTenseiMenuNormalBadge") var hokutoTenseiMenuNormalBadge: String = "none"
@@ -241,6 +244,7 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 hokutoTenseiMachineIconBadge = "new"
+                tekken6MachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

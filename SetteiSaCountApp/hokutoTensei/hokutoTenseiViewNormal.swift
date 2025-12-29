@@ -14,6 +14,15 @@ struct hokutoTenseiViewNormal: View {
     @EnvironmentObject var common: commonVar
     var body: some View {
         List {
+            // ---- レア役
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
+                    hokutoTenseiTableKoyakuPattern()
+                }
+            } header: {
+                Text("レア役")
+            }
+            
             // ---- 通常時のモード
             Section {
                 // 参考情報）通常時のモード

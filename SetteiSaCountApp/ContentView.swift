@@ -73,6 +73,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteBakemono") var isSelectedFavoriteBakemono = true
     @AppStorage("isSelectedFavoriteHihoden") var isSelectedFavoriteHihoden = true
     @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
+    @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
 }
 
 
@@ -139,6 +140,21 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 鉄拳6、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
+                                    
+                                } else {
+                                    unitMachineIconLink(
+                                        linkView: AnyView(tekken6ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("tekken6MachineIcon"),
+                                        machineName: "鉄拳6",
+                                        badgeStatus: common.tekken6MachineIconBadge,
                                     )
                                 }
                                 
@@ -905,6 +921,24 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 鉄拳6、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
+                                    
+                                } else {
+                                    unitMachinListLink(
+                                        linkView: AnyView(tekken6ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("tekken6MachineIcon"),
+                                        machineName: "鉄拳6",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 1,
+                                        badgeStatus: common.tekken6MachineIconBadge,
                                     )
                                 }
                                 
@@ -2054,6 +2088,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 鉄拳６
+                Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
                 // 北斗転生
                 Toggle("北斗 転生の章2", isOn: $favoriteSet.isSelectedFavoriteHokutoTensei)
                 // 秘宝伝
