@@ -20,7 +20,92 @@ struct tekken6ViewTop: View {
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    // 注意事項
+                    Text("スロプラNEXTの利用を前提としています\n遊技前にスロプラNEXTを開始してください")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                } header: {
+                    unitLabelMachineTopTitle(machineName: tekken6.machineName, titleFont: .title2)
+                }
                 
+                Section {
+                    
+                }
+                
+                // 設定推測グラフ
+                NavigationLink(destination: tekken6View95Ci(
+//                    tekken6: tekken6,
+//                    selection: 2,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
+
+                // 設定期待値計算
+                NavigationLink(destination: tekken6ViewBayes(
+//                    tekken6: tekken6,
+//                    bayes: bayes,
+//                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                    )
+                }
+                
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4913")
+                
+                // コピーライト
+                unitSectionCopyright {
+                    Text("TEKKEN™Series & ©Bandai Namco Entertainment Inc.")
+                    Text("©Bandai Namco Sevens Inc.")
+                    Text("©YAMASA")
+                    Text("©YAMASA NEXT")
+                }
+            }
+        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.tekken6MachineIconBadge)
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: tekken6.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("メニュー")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // データ読み出し
+//                unitButtonLoadMemory(loadView: AnyView(tekken6SubViewLoadMemory(
+//                    tekken6: tekken6,
+//                    tekken6Memory1: tekken6Memory1,
+//                    tekken6Memory2: tekken6Memory2,
+//                    tekken6Memory3: tekken6Memory3
+//                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データ保存
+//                unitButtonSaveMemory(saveView: AnyView(tekken6SubViewSaveMemory(
+//                    tekken6: tekken6,
+//                    tekken6Memory1: tekken6Memory1,
+//                    tekken6Memory2: tekken6Memory2,
+//                    tekken6Memory3: tekken6Memory3
+//                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データリセット
+                unitButtonReset(
+                    isShowAlert: $isShowAlert,
+                    action: tekken6.resetAll,
+                    message: "この機種のデータを全てリセットします"
+                )
             }
         }
     }
