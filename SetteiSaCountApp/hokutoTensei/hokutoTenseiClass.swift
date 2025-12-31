@@ -12,13 +12,16 @@ class HokutoTensei: ObservableObject {
     // ----------
     // 初当り
     // ----------
-    let ratioAtFirstHit: [Double] = [366,357,336.3,298.7,283.2,273.1]
+    let ratioAtFirstHitAt: [Double] = [366,357,336.3,298.7,283.2,273.1]
+    let ratioAtFirstHitTenha: [Double] = [-1,-1,-1,-1,-1,-1,]
     @AppStorage("hokutoTenseiNormalGame") var normalGame: Int = 0
-    @AppStorage("hokutoTenseiFirstHitCount") var firstHitCount: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountAt") var firstHitCountAt: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountTenha") var firstHitCountTenha: Int = 0
     
     func resetFirstHit() {
         normalGame = 0
-        firstHitCount = 0
+        firstHitCountAt = 0
+        firstHitCountTenha = 0
         minusCheck = false
     }
     

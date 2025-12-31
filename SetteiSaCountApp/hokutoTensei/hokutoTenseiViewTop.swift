@@ -42,6 +42,19 @@ struct hokutoTenseiViewTop: View {
                             badgeStatus: common.hokutoTenseiMenuNormalBadge,
                         )
                     }
+                    
+                    // 初当り
+                    NavigationLink(destination: hokutoTenseiViewFirstHit(
+                        hokutoTensei: hokutoTensei,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.hokutoTenseiMenuFirstHitBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

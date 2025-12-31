@@ -13,6 +13,7 @@ struct hokutoTenseiViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.6, 98.4, 100.7, 106.2, 111.1, 114.9]
+    @State var firstHitAtEnable: Bool = true
     
     
     // 全機種共通
@@ -44,7 +45,8 @@ struct hokutoTenseiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -114,7 +116,15 @@ struct hokutoTenseiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: hokutoTensei.ratioAtFirstHitAt,
+                Count: hokutoTensei.firstHitCountAt,
+                bigNumber: hokutoTensei.normalGame
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -152,7 +162,7 @@ struct hokutoTenseiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostFirstHitAt,
             
             logPostTrophy,
             logPostBefore,

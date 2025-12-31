@@ -18,14 +18,14 @@ struct hokutoTenseiView95Ci: View {
                 grafTitle: "AT初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $hokutoTensei.firstHitCount,
+                        currentCount: $hokutoTensei.firstHitCountAt,
                         bigNumber: $hokutoTensei.normalGame,
-                        setting1Denominate: hokutoTensei.ratioAtFirstHit[0],
-                        setting2Denominate: hokutoTensei.ratioAtFirstHit[1],
-                        setting3Denominate: hokutoTensei.ratioAtFirstHit[2],
-                        setting4Denominate: hokutoTensei.ratioAtFirstHit[3],
-                        setting5Denominate: hokutoTensei.ratioAtFirstHit[4],
-                        setting6Denominate: hokutoTensei.ratioAtFirstHit[5]
+                        setting1Denominate: hokutoTensei.ratioAtFirstHitAt[0],
+                        setting2Denominate: hokutoTensei.ratioAtFirstHitAt[1],
+                        setting3Denominate: hokutoTensei.ratioAtFirstHitAt[2],
+                        setting4Denominate: hokutoTensei.ratioAtFirstHitAt[3],
+                        setting5Denominate: hokutoTensei.ratioAtFirstHitAt[4],
+                        setting6Denominate: hokutoTensei.ratioAtFirstHitAt[5]
                     )
                 )
             )

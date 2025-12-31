@@ -85,6 +85,7 @@
 		0F45A5B72F0215630022E355 /* tekken6ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5B62F0215630022E355 /* tekken6ViewTop.swift */; };
 		0F45A5B92F02156E0022E355 /* tekken6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5B82F02156E0022E355 /* tekken6Class.swift */; };
 		0F45A5BB2F0215790022E355 /* tekken6Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F45A5BA2F0215790022E355 /* tekken6Assets.xcassets */; };
+		0F45A5BD2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5BC2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1281,6 +1282,7 @@
 		0F45A5B62F0215630022E355 /* tekken6ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6ViewTop.swift; sourceTree = "<group>"; };
 		0F45A5B82F02156E0022E355 /* tekken6Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6Class.swift; sourceTree = "<group>"; };
 		0F45A5BA2F0215790022E355 /* tekken6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = tekken6Assets.xcassets; sourceTree = "<group>"; };
+		0F45A5BC2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiViewFirstHit.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2541,6 +2543,7 @@
 				0F45A5AE2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift */,
 				0F45A5B02EFF4CD00022E355 /* hokutoTenseiViewNormal.swift */,
 				0F45A5B22EFF51990022E355 /* hokutoTenseiTableKoyakuPattern.swift */,
+				0F45A5BC2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift */,
 			);
 			path = hokutoTensei;
 			sourceTree = "<group>";
@@ -5347,6 +5350,7 @@
 				0F868AC52D584F2500D952D9 /* girlsSSVer2ViewJissenStartData.swift in Sources */,
 				0FF369182E5AF805002BE0CE /* azurLaneViewBayes.swift in Sources */,
 				0F868A3F2D460E6500D952D9 /* kingHanaVer2ViewKenDataInput.swift in Sources */,
+				0F45A5BD2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift in Sources */,
 				0FB9CA962DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift in Sources */,
 				0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */,
 				0F654BC62C6E3C3600F37849 /* happyJugV3ViewTop.swift in Sources */,
