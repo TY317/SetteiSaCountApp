@@ -55,12 +55,33 @@ struct tekken6ViewTop: View {
                             badgeStatus: common.tekken6MenuFirstHitBadge,
                         )
                     }
+                    
+                    // ボーナス終了画面
+                    NavigationLink(destination: tekken6ViewScreen(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT中",
+                            badgeStatus: common.tekken6MenuScreenBadge,
+                        )
+                    }
+                    
+                    // ケロットトロフィー
+                    NavigationLink(destination: commonViewKerottoTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ケロットトロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: tekken6View95Ci(
                     tekken6: tekken6,
-                    selection: 2,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
