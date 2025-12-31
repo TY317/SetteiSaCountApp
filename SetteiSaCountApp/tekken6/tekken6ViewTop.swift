@@ -30,7 +30,18 @@ struct tekken6ViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: tekken6ViewNormal(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.tekken6MenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

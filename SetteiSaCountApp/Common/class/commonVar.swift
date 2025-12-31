@@ -126,6 +126,7 @@ class commonVar: ObservableObject {
     
     // ---- 鉄拳
     @AppStorage("tekken6MachineIconBadge") var tekken6MachineIconBadge: String = "none"
+    @AppStorage("tekken6MenuNormalBadge") var tekken6MenuNormalBadge: String = "none"
     
     // //// 北斗転生
     @AppStorage("hokutoTenseiMachineIconBadge") var hokutoTenseiMachineIconBadge: String = "none"
