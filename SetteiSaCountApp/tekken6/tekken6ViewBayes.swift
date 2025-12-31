@@ -14,6 +14,7 @@ struct tekken6ViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.9, 100.5, 105.2, 110.3, 114.9]
     @State var firstHitEnable: Bool = true
+    @State var backEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -51,6 +52,8 @@ struct tekken6ViewBayes: View {
                         textBody1: "・CZ,ボーナス合算,ATの初当り確率を計算要素に加えます"
                     )
                 }
+                // 引き戻し当選率
+                unitToggleWithQuestion(enable: self.$backEnable, title: "引き戻し当選率")
                 // ケロットトロフィー
                 DisclosureGroup("ケロットトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -141,6 +144,15 @@ struct tekken6ViewBayes: View {
                 bigNumber: tekken6.normalGame,
             )
         }
+        // 引き戻し
+        var logPostBack: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.backEnable {
+            logPostBack = logPostPercentBino(
+                ratio: tekken6.ratioBack,
+                Count: tekken6.backCountHit,
+                bigNumber: tekken6.backCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -181,6 +193,7 @@ struct tekken6ViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostBack,
             
             logPostTrophy,
             logPostBefore,

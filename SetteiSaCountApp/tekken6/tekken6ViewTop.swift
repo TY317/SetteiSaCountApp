@@ -69,6 +69,19 @@ struct tekken6ViewTop: View {
                         )
                     }
                     
+                    // 引き戻し
+                    NavigationLink(destination: tekken6ViewBack(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "引き戻し",
+                            badgeStatus: common.tekken6MenuBackBadge,
+                        )
+                    }
+                    
                     // ケロットトロフィー
                     NavigationLink(destination: commonViewKerottoTrophy()) {
                         unitLabelMenu(

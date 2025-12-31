@@ -37,6 +37,25 @@ class Tekken6: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // 引き戻し
+    // ----------
+    let ratioBack: [Double] = [10.2,10.9,12.5,14.1,16.4,17.2]
+    @AppStorage("tekken6BackCountHit") var backCountHit: Int = 0
+    @AppStorage("tekken6BackCountMiss") var backCountMiss: Int = 0
+    @AppStorage("tekken6BackCountSum") var backCountSum: Int = 0
+    
+    func backSumFunc() {
+        backCountSum = backCountHit + backCountMiss
+    }
+    
+    func resetBack() {
+        backCountHit = 0
+        backCountMiss = 0
+        backCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -46,5 +65,6 @@ class Tekken6: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetBack()
     }
 }

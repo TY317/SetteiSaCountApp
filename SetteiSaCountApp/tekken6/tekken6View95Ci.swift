@@ -64,6 +64,23 @@ struct tekken6View95Ci: View {
                 )
             )
             .tag(3)
+            // 引き戻し回数
+            unitListSection95Ci(
+                grafTitle: "引き戻し回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tekken6.backCountHit,
+                        bigNumber: $tekken6.backCountSum,
+                        setting1Percent: tekken6.ratioBack[0],
+                        setting2Percent: tekken6.ratioBack[1],
+                        setting3Percent: tekken6.ratioBack[2],
+                        setting4Percent: tekken6.ratioBack[3],
+                        setting5Percent: tekken6.ratioBack[4],
+                        setting6Percent: tekken6.ratioBack[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
