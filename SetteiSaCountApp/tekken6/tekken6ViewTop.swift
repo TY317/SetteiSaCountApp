@@ -42,12 +42,25 @@ struct tekken6ViewTop: View {
                             badgeStatus: common.tekken6MenuNormalBadge,
                         )
                     }
+                    
+                    // 通常時
+                    NavigationLink(destination: tekken6ViewFirstHit(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.tekken6MenuFirstHitBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: tekken6View95Ci(
-//                    tekken6: tekken6,
-//                    selection: 2,
+                    tekken6: tekken6,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -57,13 +70,14 @@ struct tekken6ViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: tekken6ViewBayes(
-//                    tekken6: tekken6,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    tekken6: tekken6,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.tekken6MenuBayesBadge
                     )
                 }
                 

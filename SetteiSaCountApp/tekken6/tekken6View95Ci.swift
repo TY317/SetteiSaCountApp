@@ -8,11 +8,84 @@
 import SwiftUI
 
 struct tekken6View95Ci: View {
+    @ObservedObject var tekken6: Tekken6
+    @State var selection = 1
+    @State var isShow95CiExplain = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: self.$selection) {
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $tekken6.firstHitCountCz,
+                        bigNumber: $tekken6.normalGame,
+                        setting1Denominate: tekken6.ratioFirstHitCz[0],
+                        setting2Denominate: tekken6.ratioFirstHitCz[1],
+                        setting3Denominate: tekken6.ratioFirstHitCz[2],
+                        setting4Denominate: tekken6.ratioFirstHitCz[3],
+                        setting5Denominate: tekken6.ratioFirstHitCz[4],
+                        setting6Denominate: tekken6.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(1)
+            // ボーナス合算初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス合算初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $tekken6.firstHitCountBonusSum,
+                        bigNumber: $tekken6.normalGame,
+                        setting1Denominate: tekken6.ratioFirstHitBonus[0],
+                        setting2Denominate: tekken6.ratioFirstHitBonus[1],
+                        setting3Denominate: tekken6.ratioFirstHitBonus[2],
+                        setting4Denominate: tekken6.ratioFirstHitBonus[3],
+                        setting5Denominate: tekken6.ratioFirstHitBonus[4],
+                        setting6Denominate: tekken6.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(2)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $tekken6.firstHitCountAt,
+                        bigNumber: $tekken6.normalGame,
+                        setting1Denominate: tekken6.ratioFirstHitAt[0],
+                        setting2Denominate: tekken6.ratioFirstHitAt[1],
+                        setting3Denominate: tekken6.ratioFirstHitAt[2],
+                        setting4Denominate: tekken6.ratioFirstHitAt[3],
+                        setting5Denominate: tekken6.ratioFirstHitAt[4],
+                        setting6Denominate: tekken6.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(3)
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: tekken6.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("95%信頼区間グラフ")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
+            }
+        }
+        .tabViewStyle(.page)
     }
 }
 
 #Preview {
-    tekken6View95Ci()
+    tekken6View95Ci(
+        tekken6: Tekken6(),
+    )
 }
