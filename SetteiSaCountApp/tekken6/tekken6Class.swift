@@ -68,3 +68,48 @@ class Tekken6: ObservableObject {
         resetBack()
     }
 }
+
+
+class Tekken6Memory1: ObservableObject {
+    @AppStorage("tekken6NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("tekken6FirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusBlueMemory1") var firstHitCountBonusBlue: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusRedMemory1") var firstHitCountBonusRed: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusSumMemory1") var firstHitCountBonusSum: Int = 0
+    @AppStorage("tekken6FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("tekken6BackCountHitMemory1") var backCountHit: Int = 0
+    @AppStorage("tekken6BackCountMissMemory1") var backCountMiss: Int = 0
+    @AppStorage("tekken6BackCountSumMemory1") var backCountSum: Int = 0
+    @AppStorage("tekken6MemoMemory1") var memo = ""
+    @AppStorage("tekken6DateMemory1") var dateDouble = 0.0
+}
+
+
+class Tekken6Memory2: ObservableObject {
+    @AppStorage("tekken6NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("tekken6FirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusBlueMemory2") var firstHitCountBonusBlue: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusRedMemory2") var firstHitCountBonusRed: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusSumMemory2") var firstHitCountBonusSum: Int = 0
+    @AppStorage("tekken6FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("tekken6BackCountHitMemory2") var backCountHit: Int = 0
+    @AppStorage("tekken6BackCountMissMemory2") var backCountMiss: Int = 0
+    @AppStorage("tekken6BackCountSumMemory2") var backCountSum: Int = 0
+    @AppStorage("tekken6MemoMemory2") var memo = ""
+    @AppStorage("tekken6DateMemory2") var dateDouble = 0.0
+}
+
+
+class Tekken6Memory3: ObservableObject {
+    @AppStorage("tekken6NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("tekken6FirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusBlueMemory3") var firstHitCountBonusBlue: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusRedMemory3") var firstHitCountBonusRed: Int = 0
+    @AppStorage("tekken6FirstHitCountBonusSumMemory3") var firstHitCountBonusSum: Int = 0
+    @AppStorage("tekken6FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("tekken6BackCountHitMemory3") var backCountHit: Int = 0
+    @AppStorage("tekken6BackCountMissMemory3") var backCountMiss: Int = 0
+    @AppStorage("tekken6BackCountSumMemory3") var backCountSum: Int = 0
+    @AppStorage("tekken6MemoMemory3") var memo = ""
+    @AppStorage("tekken6DateMemory3") var dateDouble = 0.0
+}

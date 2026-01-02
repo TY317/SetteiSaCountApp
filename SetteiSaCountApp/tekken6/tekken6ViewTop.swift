@@ -13,9 +13,9 @@ struct tekken6ViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var tekken6 = Tekken6()
     @State var isShowAlert: Bool = false
-//    @StateObject var tekken6Memory1 = Tekken6Memory1()
-//    @StateObject var tekken6Memory2 = Tekken6Memory2()
-//    @StateObject var tekken6Memory3 = Tekken6Memory3()
+    @StateObject var tekken6Memory1 = Tekken6Memory1()
+    @StateObject var tekken6Memory2 = Tekken6Memory2()
+    @StateObject var tekken6Memory3 = Tekken6Memory3()
     
     var body: some View {
         NavigationStack {
@@ -142,21 +142,21 @@ struct tekken6ViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(tekken6SubViewLoadMemory(
-//                    tekken6: tekken6,
-//                    tekken6Memory1: tekken6Memory1,
-//                    tekken6Memory2: tekken6Memory2,
-//                    tekken6Memory3: tekken6Memory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(tekken6SubViewLoadMemory(
+                    tekken6: tekken6,
+                    tekken6Memory1: tekken6Memory1,
+                    tekken6Memory2: tekken6Memory2,
+                    tekken6Memory3: tekken6Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(tekken6SubViewSaveMemory(
-//                    tekken6: tekken6,
-//                    tekken6Memory1: tekken6Memory1,
-//                    tekken6Memory2: tekken6Memory2,
-//                    tekken6Memory3: tekken6Memory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(tekken6SubViewSaveMemory(
+                    tekken6: tekken6,
+                    tekken6Memory1: tekken6Memory1,
+                    tekken6Memory2: tekken6Memory2,
+                    tekken6Memory3: tekken6Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -167,6 +167,130 @@ struct tekken6ViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct tekken6SubViewSaveMemory: View {
+    @ObservedObject var tekken6: Tekken6
+    @ObservedObject var tekken6Memory1: Tekken6Memory1
+    @ObservedObject var tekken6Memory2: Tekken6Memory2
+    @ObservedObject var tekken6Memory3: Tekken6Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: tekken6.machineName,
+            selectedMemory: $tekken6.selectedMemory,
+            memoMemory1: $tekken6Memory1.memo,
+            dateDoubleMemory1: $tekken6Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $tekken6Memory2.memo,
+            dateDoubleMemory2: $tekken6Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $tekken6Memory3.memo,
+            dateDoubleMemory3: $tekken6Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        tekken6Memory1.normalGame = tekken6.normalGame
+        tekken6Memory1.firstHitCountCz = tekken6.firstHitCountCz
+        tekken6Memory1.firstHitCountBonusBlue = tekken6.firstHitCountBonusBlue
+        tekken6Memory1.firstHitCountBonusRed = tekken6.firstHitCountBonusRed
+        tekken6Memory1.firstHitCountBonusSum = tekken6.firstHitCountBonusSum
+        tekken6Memory1.firstHitCountAt = tekken6.firstHitCountAt
+        tekken6Memory1.backCountHit = tekken6.backCountHit
+        tekken6Memory1.backCountMiss = tekken6.backCountMiss
+        tekken6Memory1.backCountSum = tekken6.backCountSum
+    }
+    func saveMemory2() {
+        tekken6Memory2.normalGame = tekken6.normalGame
+        tekken6Memory2.firstHitCountCz = tekken6.firstHitCountCz
+        tekken6Memory2.firstHitCountBonusBlue = tekken6.firstHitCountBonusBlue
+        tekken6Memory2.firstHitCountBonusRed = tekken6.firstHitCountBonusRed
+        tekken6Memory2.firstHitCountBonusSum = tekken6.firstHitCountBonusSum
+        tekken6Memory2.firstHitCountAt = tekken6.firstHitCountAt
+        tekken6Memory2.backCountHit = tekken6.backCountHit
+        tekken6Memory2.backCountMiss = tekken6.backCountMiss
+        tekken6Memory2.backCountSum = tekken6.backCountSum
+    }
+    func saveMemory3() {
+        tekken6Memory3.normalGame = tekken6.normalGame
+        tekken6Memory3.firstHitCountCz = tekken6.firstHitCountCz
+        tekken6Memory3.firstHitCountBonusBlue = tekken6.firstHitCountBonusBlue
+        tekken6Memory3.firstHitCountBonusRed = tekken6.firstHitCountBonusRed
+        tekken6Memory3.firstHitCountBonusSum = tekken6.firstHitCountBonusSum
+        tekken6Memory3.firstHitCountAt = tekken6.firstHitCountAt
+        tekken6Memory3.backCountHit = tekken6.backCountHit
+        tekken6Memory3.backCountMiss = tekken6.backCountMiss
+        tekken6Memory3.backCountSum = tekken6.backCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct tekken6SubViewLoadMemory: View {
+    @ObservedObject var tekken6: Tekken6
+    @ObservedObject var tekken6Memory1: Tekken6Memory1
+    @ObservedObject var tekken6Memory2: Tekken6Memory2
+    @ObservedObject var tekken6Memory3: Tekken6Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: tekken6.machineName,
+            selectedMemory: $tekken6.selectedMemory,
+            memoMemory1: tekken6Memory1.memo,
+            dateDoubleMemory1: tekken6Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: tekken6Memory2.memo,
+            dateDoubleMemory2: tekken6Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: tekken6Memory3.memo,
+            dateDoubleMemory3: tekken6Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        tekken6.normalGame = tekken6Memory1.normalGame
+        tekken6.firstHitCountCz = tekken6Memory1.firstHitCountCz
+        tekken6.firstHitCountBonusBlue = tekken6Memory1.firstHitCountBonusBlue
+        tekken6.firstHitCountBonusRed = tekken6Memory1.firstHitCountBonusRed
+        tekken6.firstHitCountBonusSum = tekken6Memory1.firstHitCountBonusSum
+        tekken6.firstHitCountAt = tekken6Memory1.firstHitCountAt
+        tekken6.backCountHit = tekken6Memory1.backCountHit
+        tekken6.backCountMiss = tekken6Memory1.backCountMiss
+        tekken6.backCountSum = tekken6Memory1.backCountSum
+    }
+    func loadMemory2() {
+        tekken6.normalGame = tekken6Memory2.normalGame
+        tekken6.firstHitCountCz = tekken6Memory2.firstHitCountCz
+        tekken6.firstHitCountBonusBlue = tekken6Memory2.firstHitCountBonusBlue
+        tekken6.firstHitCountBonusRed = tekken6Memory2.firstHitCountBonusRed
+        tekken6.firstHitCountBonusSum = tekken6Memory2.firstHitCountBonusSum
+        tekken6.firstHitCountAt = tekken6Memory2.firstHitCountAt
+        tekken6.backCountHit = tekken6Memory2.backCountHit
+        tekken6.backCountMiss = tekken6Memory2.backCountMiss
+        tekken6.backCountSum = tekken6Memory2.backCountSum
+    }
+    func loadMemory3() {
+        tekken6.normalGame = tekken6Memory3.normalGame
+        tekken6.firstHitCountCz = tekken6Memory3.firstHitCountCz
+        tekken6.firstHitCountBonusBlue = tekken6Memory3.firstHitCountBonusBlue
+        tekken6.firstHitCountBonusRed = tekken6Memory3.firstHitCountBonusRed
+        tekken6.firstHitCountBonusSum = tekken6Memory3.firstHitCountBonusSum
+        tekken6.firstHitCountAt = tekken6Memory3.firstHitCountAt
+        tekken6.backCountHit = tekken6Memory3.backCountHit
+        tekken6.backCountMiss = tekken6Memory3.backCountMiss
+        tekken6.backCountSum = tekken6Memory3.backCountSum
     }
 }
 
