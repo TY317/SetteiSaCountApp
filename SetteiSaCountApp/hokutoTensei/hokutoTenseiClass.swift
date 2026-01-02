@@ -36,3 +36,28 @@ class HokutoTensei: ObservableObject {
         resetFirstHit()
     }
 }
+
+
+class HokutoTenseiMemory1: ObservableObject {
+    @AppStorage("hokutoTenseiNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountTenhaMemory1") var firstHitCountTenha: Int = 0
+    @AppStorage("hokutoTenseiMemoMemory1") var memo = ""
+    @AppStorage("hokutoTenseiDateMemory1") var dateDouble = 0.0
+}
+
+class HokutoTenseiMemory2: ObservableObject {
+    @AppStorage("hokutoTenseiNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountTenhaMemory2") var firstHitCountTenha: Int = 0
+    @AppStorage("hokutoTenseiMemoMemory2") var memo = ""
+    @AppStorage("hokutoTenseiDateMemory2") var dateDouble = 0.0
+}
+
+class HokutoTenseiMemory3: ObservableObject {
+    @AppStorage("hokutoTenseiNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("hokutoTenseiFirstHitCountTenhaMemory3") var firstHitCountTenha: Int = 0
+    @AppStorage("hokutoTenseiMemoMemory3") var memo = ""
+    @AppStorage("hokutoTenseiDateMemory3") var dateDouble = 0.0
+}

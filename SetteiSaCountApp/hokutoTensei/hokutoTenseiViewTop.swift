@@ -13,9 +13,9 @@ struct hokutoTenseiViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var hokutoTensei = HokutoTensei()
     @State var isShowAlert: Bool = false
-//    @StateObject var hokutoTenseiMemory1 = HokutoTenseiMemory1()
-//    @StateObject var hokutoTenseiMemory2 = HokutoTenseiMemory2()
-//    @StateObject var hokutoTenseiMemory3 = HokutoTenseiMemory3()
+    @StateObject var hokutoTenseiMemory1 = HokutoTenseiMemory1()
+    @StateObject var hokutoTenseiMemory2 = HokutoTenseiMemory2()
+    @StateObject var hokutoTenseiMemory3 = HokutoTenseiMemory3()
     
     var body: some View {
         NavigationStack {
@@ -53,6 +53,14 @@ struct hokutoTenseiViewTop: View {
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
                             badgeStatus: common.hokutoTenseiMenuFirstHitBadge,
+                        )
+                    }
+                    
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewSammyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "サミートロフィー"
                         )
                     }
                 }
@@ -107,21 +115,21 @@ struct hokutoTenseiViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(hokutoTenseiSubViewLoadMemory(
-//                    hokutoTensei: hokutoTensei,
-//                    hokutoTenseiMemory1: hokutoTenseiMemory1,
-//                    hokutoTenseiMemory2: hokutoTenseiMemory2,
-//                    hokutoTenseiMemory3: hokutoTenseiMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(hokutoTenseiSubViewLoadMemory(
+                    hokutoTensei: hokutoTensei,
+                    hokutoTenseiMemory1: hokutoTenseiMemory1,
+                    hokutoTenseiMemory2: hokutoTenseiMemory2,
+                    hokutoTenseiMemory3: hokutoTenseiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(hokutoTenseiSubViewSaveMemory(
-//                    hokutoTensei: hokutoTensei,
-//                    hokutoTenseiMemory1: hokutoTenseiMemory1,
-//                    hokutoTenseiMemory2: hokutoTenseiMemory2,
-//                    hokutoTenseiMemory3: hokutoTenseiMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(hokutoTenseiSubViewSaveMemory(
+                    hokutoTensei: hokutoTensei,
+                    hokutoTenseiMemory1: hokutoTenseiMemory1,
+                    hokutoTenseiMemory2: hokutoTenseiMemory2,
+                    hokutoTenseiMemory3: hokutoTenseiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -132,6 +140,93 @@ struct hokutoTenseiViewTop: View {
                 )
             }
         }
+    }
+}
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct hokutoTenseiSubViewSaveMemory: View {
+    @ObservedObject var hokutoTensei: HokutoTensei
+    @ObservedObject var hokutoTenseiMemory1: HokutoTenseiMemory1
+    @ObservedObject var hokutoTenseiMemory2: HokutoTenseiMemory2
+    @ObservedObject var hokutoTenseiMemory3: HokutoTenseiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: hokutoTensei.machineName,
+            selectedMemory: $hokutoTensei.selectedMemory,
+            memoMemory1: $hokutoTenseiMemory1.memo,
+            dateDoubleMemory1: $hokutoTenseiMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $hokutoTenseiMemory2.memo,
+            dateDoubleMemory2: $hokutoTenseiMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $hokutoTenseiMemory3.memo,
+            dateDoubleMemory3: $hokutoTenseiMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        hokutoTenseiMemory1.normalGame = hokutoTensei.normalGame
+        hokutoTenseiMemory1.firstHitCountAt = hokutoTensei.firstHitCountAt
+        hokutoTenseiMemory1.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+    }
+    func saveMemory2() {
+        hokutoTenseiMemory2.normalGame = hokutoTensei.normalGame
+        hokutoTenseiMemory2.firstHitCountAt = hokutoTensei.firstHitCountAt
+        hokutoTenseiMemory2.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+    }
+    func saveMemory3() {
+        hokutoTenseiMemory3.normalGame = hokutoTensei.normalGame
+        hokutoTenseiMemory3.firstHitCountAt = hokutoTensei.firstHitCountAt
+        hokutoTenseiMemory3.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct hokutoTenseiSubViewLoadMemory: View {
+    @ObservedObject var hokutoTensei: HokutoTensei
+    @ObservedObject var hokutoTenseiMemory1: HokutoTenseiMemory1
+    @ObservedObject var hokutoTenseiMemory2: HokutoTenseiMemory2
+    @ObservedObject var hokutoTenseiMemory3: HokutoTenseiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: hokutoTensei.machineName,
+            selectedMemory: $hokutoTensei.selectedMemory,
+            memoMemory1: hokutoTenseiMemory1.memo,
+            dateDoubleMemory1: hokutoTenseiMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: hokutoTenseiMemory2.memo,
+            dateDoubleMemory2: hokutoTenseiMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: hokutoTenseiMemory3.memo,
+            dateDoubleMemory3: hokutoTenseiMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        hokutoTensei.normalGame = hokutoTenseiMemory1.normalGame
+        hokutoTensei.firstHitCountAt = hokutoTenseiMemory1.firstHitCountAt
+        hokutoTensei.firstHitCountTenha = hokutoTenseiMemory1.firstHitCountTenha
+    }
+    func loadMemory2() {
+        hokutoTensei.normalGame = hokutoTenseiMemory2.normalGame
+        hokutoTensei.firstHitCountAt = hokutoTenseiMemory2.firstHitCountAt
+        hokutoTensei.firstHitCountTenha = hokutoTenseiMemory2.firstHitCountTenha
+    }
+    func loadMemory3() {
+        hokutoTensei.normalGame = hokutoTenseiMemory3.normalGame
+        hokutoTensei.firstHitCountAt = hokutoTenseiMemory3.firstHitCountAt
+        hokutoTensei.firstHitCountTenha = hokutoTenseiMemory3.firstHitCountTenha
     }
 }
 
