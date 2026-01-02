@@ -27,10 +27,19 @@ struct hokutoTenseiViewNormal: View {
             Section {
                 // 参考情報）通常時のモード
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
-                    
+                    hokutoTenseiTableMode()
                 }
             } header: {
                 Text("通常時のモード")
+            }
+            
+            // ---- 100Gごとの台枠ランプ
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "台枠ランプでの示唆") {
+                    hokutoTenseiSubViewMachineLamp()
+                }
+            } header: {
+                Text("100Gごとの台枠ランプ")
             }
         }
         // //// バッジのリセット
