@@ -127,7 +127,7 @@ struct mushotenViewFirstHit: View {
             } header: {
                 Text("初当り")
             }
-            
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.mushotenMenuFirstHitBadge)

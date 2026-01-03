@@ -99,6 +99,19 @@ struct mushotenViewTop: View {
                         )
                     }
                     
+                    // エンディング
+                    NavigationLink(destination: mushotenViewEnding(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.mushotenMenuEndingBadge,
+                        )
+                    }
+                    
                     // ギンちゃんトロフィー
                     NavigationLink(destination: commonViewGinchanTrophy()) {
                         unitLabelMenu(
