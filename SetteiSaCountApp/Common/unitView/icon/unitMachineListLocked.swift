@@ -27,7 +27,7 @@ struct unitMachineListLocked: View {
             HStack {
                 unitLabelMachineListLink(
                     iconImage: self.iconImage,
-                    machineName: self.makerName,
+                    machineName: self.machineName,
                     makerName: self.makerName,
                     releaseYear: self.releaseYear,
                     releaseMonth: self.releaseMonth,

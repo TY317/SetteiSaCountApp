@@ -74,6 +74,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteHihoden") var isSelectedFavoriteHihoden = true
     @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
     @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
+    @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
 }
 
 
@@ -192,6 +193,22 @@ struct ContentView: View {
 //                                        machineName: "北斗転生",
 //                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
 //                                    )
+                                }
+                                
+                                // //// 無職転生、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMushoten == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(mushotenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("mushotenMachineIcon"),
+                                        machineName: "無職転生",
+                                        isUnLocked: $common.mushotenisUnlocked,
+                                        badgeStatus: common.mushotenMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// 化物語、25年12月
@@ -980,6 +997,25 @@ struct ContentView: View {
 //                                        releaseMonth: 1,
 //                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
 //                                    )
+                                }
+                                
+                                // //// 無職転生、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMushoten == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(mushotenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("mushotenMachineIcon"),
+                                        machineName: "無職転生",
+                                        makerName: "ニューギン",
+                                        releaseYear: 2025,
+                                        releaseMonth: 12,
+                                        isUnLocked: $common.mushotenisUnlocked,
+                                        badgeStatus: common.mushotenMachineIconBadge,
+                                    )
                                 }
                                 
                                 // //// 秘宝伝、25年12月
@@ -2004,6 +2040,8 @@ struct favoriteSettingView: View {
                 Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
                 // 北斗転生
                 Toggle("北斗 転生の章2", isOn: $favoriteSet.isSelectedFavoriteHokutoTensei)
+                // 無職転生
+                Toggle("無職転生", isOn: $favoriteSet.isSelectedFavoriteMushoten)
                 // 秘宝伝
                 Toggle("秘宝伝", isOn: $favoriteSet.isSelectedFavoriteHihoden)
                 // 化物語

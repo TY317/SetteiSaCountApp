@@ -148,6 +148,13 @@ class commonVar: ObservableObject {
     @AppStorage("hihodenMenuDuringBonusBadge") var hihodenMenuDuringBonusBadge: String = "none"
     @AppStorage("hihodenMenuLegendBadge") var hihodenMenuLegendBadge: String = "none"
     
+    // ---- 無職転生
+    @AppStorage("mushotenisUnlocked") var mushotenisUnlocked: Bool = true
+    @AppStorage("mushotenMachineIconBadge") var mushotenMachineIconBadge: String = "none"
+    @AppStorage("mushotenMenuNormalBadge") var mushotenMenuNormalBadge: String = "none"
+    @AppStorage("mushotenMenuBayesBadge") var mushotenMenuBayesBadge: String = "none"
+    @AppStorage("mushotenMenuFirstHitBadge") var mushotenMenuFirstHitBadge: String = "none"
+    
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"
     @AppStorage("bakemonoMenuNormalBadge") var bakemonoMenuNormalBadge: String = "none"
@@ -255,6 +262,8 @@ class commonVar: ObservableObject {
                 hokutoTenseiisUnlocked = false
                 tekken6MachineIconBadge = "new"
                 tekken6isUnlocked = false
+                mushotenisUnlocked = false
+                mushotenMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

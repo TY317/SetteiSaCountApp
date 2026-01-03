@@ -15,7 +15,8 @@ struct unitReelDefault: View {
             .frame(maxWidth: self.reelWidth)
             .frame(height: self.reel1KomaHeigt)
 //            .frame(maxWidth: self.reelWidth, maxHeight: self.reel1KomaHeigt)
-            .foregroundStyle(Color.white)
+//            .foregroundStyle(Color.white)
+            .foregroundStyle(Color.reelBack)
             .overlay(
                 RoundedRectangle(cornerRadius: 0) // 四角の輪郭
                     .stroke(Color.black, lineWidth: 1) // 黒色の線を追加
