@@ -34,6 +34,18 @@ struct mushotenViewTop: View {
                         )
                     }
                     
+                    // CZ
+                    NavigationLink(destination: mushotenViewCz(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.mushotenMenuCzBadge,
+                        )
+                    }
                     
                     // ギンちゃんトロフィー
                     NavigationLink(destination: commonViewGinchanTrophy()) {

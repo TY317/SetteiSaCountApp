@@ -31,6 +31,25 @@ struct mushotenView95Ci: View {
                 )
             )
             .tag(1)
+            
+            // CZ回数
+            unitListSection95Ci(
+                grafTitle: "CZ回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mushoten.czCount,
+                        bigNumber: $mushoten.gameNumberPlay,
+                        setting1Denominate: mushoten.ratioCz[0],
+                        setting2Denominate: mushoten.ratioCz[1],
+                        setting3Denominate: mushoten.ratioCz[2],
+                        setting4Denominate: mushoten.ratioCz[3],
+                        setting5Denominate: mushoten.ratioCz[4],
+                        setting6Denominate: mushoten.ratioCz[5]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {

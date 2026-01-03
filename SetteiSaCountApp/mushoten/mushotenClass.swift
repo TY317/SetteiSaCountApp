@@ -22,6 +22,22 @@ class Mushoten: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // CZ
+    // ----------
+    let ratioCz: [Double] = [170,168,166,161,156,147]
+    @AppStorage("mushotenGameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("mushotenGameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("mushotenGameNumberPlay") var gameNumberPlay: Int = 0
+    @AppStorage("mushotenCzCount") var czCount: Int = 0
+    func resetCz() {
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
+        czCount = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -30,6 +46,7 @@ class Mushoten: ObservableObject {
     @AppStorage("mushotenSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetNormal()
+        resetCz()
     }
 }

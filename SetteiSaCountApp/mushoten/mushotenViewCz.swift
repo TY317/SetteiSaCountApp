@@ -1,5 +1,5 @@
 //
-//  mushotenViewNormal.swift
+//  mushotenViewCz.swift
 //  SetteiSaCountApp
 //
 //  Created by 横田徹 on 2026/01/03.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct mushotenViewNormal: View {
+struct mushotenViewCz: View {
     @ObservedObject var mushoten: Mushoten
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @EnvironmentObject var common: commonVar
     @State var isShowAlert: Bool = false
-    @FocusState var isFocused: Bool
+//    @FocusState var isFocused: Bool
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
     let scrollViewHeightPortrait = 250.0
@@ -25,63 +25,62 @@ struct mushotenViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @FocusState var focusedField: MushotenField?
+    enum MushotenField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
     
     var body: some View {
         List {
-            // ----- レア役
+            // ---- CZ確率
             Section {
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
-                    VStack(alignment: .leading) {
-                        Text("・レア役はヒロイン役のみ")
-                        Text("・いずれかのリールにヒロイン図柄停止し、小役揃いなければヒロイン役")
-                        Text("・カバネリのチャンス目と同じ")
-                    }
+                // //// ゲーム数入力
+                // 打ち始め入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "打ち始め",
+                    inputValue: $mushoten.gameNumberStart,
+                    unitText: "Ｇ"
+                )
+                .focused($focusedField, equals: .gameStart)
+                .onChange(of: mushoten.gameNumberStart) {
+                    let playGame = mushoten.gameNumberCurrent - mushoten.gameNumberStart
+                    mushoten.gameNumberPlay = playGame > 0 ? playGame : 0
                 }
-            } header: {
-                Text("レア役")
-            }
-            
-            // ---- ヒトガミ空間の当選率
-            Section {
-                VStack(alignment: .leading) {
-                    Text("・ヒトガミの空間での本前兆期待度に設定あり")
-                    Text("・空間への移行回数と空間での当選回数から当選率を算出します")
+                // 現在入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "現在",
+                    inputValue: $mushoten.gameNumberCurrent,
+                    unitText: "Ｇ"
+                )
+                .focused($focusedField, equals: .gameCurrent)
+                .onChange(of: mushoten.gameNumberCurrent) {
+                    let playGame = mushoten.gameNumberCurrent - mushoten.gameNumberStart
+                    mushoten.gameNumberPlay = playGame > 0 ? playGame : 0
                 }
-                .foregroundStyle(Color.secondary)
-                .font(.caption)
-                // カウントボタン横並び
-                HStack {
-                    // 移行
-                    unitCountButtonVerticalWithoutRatio(
-                        title: "ステージ移行",
-                        count: $mushoten.hitogamiCountMove,
-                        color: .personalSummerLightGreen,
-                        minusBool: $mushoten.minusCheck
-                    )
-                    // 当選
-                    unitCountButtonVerticalWithoutRatio(
-                        title: "当選",
-                        count: $mushoten.hitogamiCountHit,
-                        color: .personalSummerLightRed,
-                        minusBool: $mushoten.minusCheck
-                    )
-                }
-                
-                // 確率結果
-                unitResultRatioPercent2Line(
-                    title: "当選率",
-                    count: $mushoten.hitogamiCountHit,
-                    bigNumber: $mushoten.hitogamiCountMove,
-                    numberofDicimal: 0
+                // プレイ数
+                unitTextGameNumberWithoutInput(
+                    gameNumber: mushoten.gameNumberPlay
                 )
                 
-                // 参考情報）当選率
-                unitLinkButtonViewBuilder(sheetTitle: "ヒトガミの空間 本前兆期待度") {
+                // CZカウント
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $mushoten.czCount,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $mushoten.gameNumberPlay,
+                    numberofDicimal: 0,
+                    minusBool: $mushoten.minusCheck
+                )
+                
+                // 参考情報）CZ確率
+                unitLinkButtonViewBuilder(sheetTitle: "CZ確率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
-                        unitTablePercent(
-                            columTitle: "本前兆期待度",
-                            percentList: mushoten.ratioHitogamiHit
+                        unitTableDenominate(
+                            columTitle: "CZ",
+                            denominateList: mushoten.ratioCz
                         )
                     }
                 }
@@ -91,7 +90,7 @@ struct mushotenViewNormal: View {
                     Ci95view: AnyView(
                         mushotenView95Ci(
                             mushoten: mushoten,
-                            selection: 1,
+                            selection: 2,
                         )
                     )
                 )
@@ -105,12 +104,11 @@ struct mushotenViewNormal: View {
                     )
                 }
             } header: {
-                Text("ヒトガミの空間　当選率")
+                Text("CZ確率")
             }
-            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.mushotenMenuNormalBadge)
+        .resetBadgeOnAppear($common.mushotenMenuCzBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -119,7 +117,7 @@ struct mushotenViewNormal: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("通常時")
+        .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -142,14 +140,26 @@ struct mushotenViewNormal: View {
             }
             ToolbarItem(placement: .automatic) {
                 // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: mushoten.resetNormal)
+                unitButtonReset(isShowAlert: $isShowAlert, action: mushoten.resetCz)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }
 }
 
 #Preview {
-    mushotenViewNormal(
+    mushotenViewCz(
         mushoten: Mushoten(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),

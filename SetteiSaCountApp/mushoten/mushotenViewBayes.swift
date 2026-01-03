@@ -14,6 +14,7 @@ struct mushotenViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 99.1, 100.9, 105.4, 109.5, 113.7]
     @State var hitogamiEnable: Bool = true
+    @State var czEnable: Bool = true
     @State var firstHitEnable: Bool = true
     
     // 全機種共通
@@ -47,6 +48,8 @@ struct mushotenViewBayes: View {
             bayesSubStep2Section {
                 // ヒトガミの空間 当選率
                 unitToggleWithQuestion(enable: self.$hitogamiEnable, title: "ヒトガミの空間での当選率")
+                // CZ確率
+                unitToggleWithQuestion(enable: self.$czEnable, title: "CZ確率")
                 // ケロットトロフィー
                 DisclosureGroup("ギンちゃんトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -125,6 +128,16 @@ struct mushotenViewBayes: View {
             )
         }
         
+        // CZ確率
+        var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.czEnable {
+            logPostCz = logPostDenoBino(
+                ratio: mushoten.ratioCz,
+                Count: mushoten.czCount,
+                bigNumber: mushoten.gameNumberPlay
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -163,6 +176,7 @@ struct mushotenViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostHitogami,
+            logPostCz,
             
             logPostTrophy,
             logPostBefore,
