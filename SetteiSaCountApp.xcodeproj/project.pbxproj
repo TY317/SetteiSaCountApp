@@ -124,6 +124,7 @@
 		0F45A5FC2F089F9A0022E355 /* mushotenAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F45A5FB2F089F9A0022E355 /* mushotenAssets.xcassets */; };
 		0F45A5FE2F08A6280022E355 /* mushotenView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5FD2F08A6280022E355 /* mushotenView95Ci.swift */; };
 		0F45A6002F08A6340022E355 /* mushotenViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5FF2F08A6340022E355 /* mushotenViewBayes.swift */; };
+		0F45A6022F08A82F0022E355 /* mushotenViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1345,6 +1346,7 @@
 		0F45A5FB2F089F9A0022E355 /* mushotenAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mushotenAssets.xcassets; sourceTree = "<group>"; };
 		0F45A5FD2F08A6280022E355 /* mushotenView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenView95Ci.swift; sourceTree = "<group>"; };
 		0F45A5FF2F08A6340022E355 /* mushotenViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewBayes.swift; sourceTree = "<group>"; };
+		0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewNormal.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2640,6 +2642,7 @@
 				0F45A5FB2F089F9A0022E355 /* mushotenAssets.xcassets */,
 				0F45A5FD2F08A6280022E355 /* mushotenView95Ci.swift */,
 				0F45A5FF2F08A6340022E355 /* mushotenViewBayes.swift */,
+				0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */,
 			);
 			path = mushoten;
 			sourceTree = "<group>";
@@ -5901,6 +5904,7 @@
 				0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */,
 				0F6BD7E82D8863A6003F5563 /* arifureSubViewTablePremiumAtHit.swift in Sources */,
 				0FEB2E0C2E3E2E9D004C5F45 /* reSwordViewCz.swift in Sources */,
+				0F45A6022F08A82F0022E355 /* mushotenViewNormal.swift in Sources */,
 				0F1E12222DD819DD00F69AFF /* midoriDonTableReachReplay.swift in Sources */,
 				0F6BD7BA2D7888C4003F5563 /* arifureViewAfterAtKokaku.swift in Sources */,
 				0FD3573E2DA21EEC0069BD1A /* arifureTableCzMode.swift in Sources */,

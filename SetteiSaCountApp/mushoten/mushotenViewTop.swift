@@ -21,15 +21,35 @@ struct mushotenViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時
+                    NavigationLink(destination: mushotenViewNormal(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.mushotenMenuNormalBadge,
+                        )
+                    }
                     
+                    
+                    // ギンちゃんトロフィー
+                    NavigationLink(destination: commonViewGinchanTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ギンちゃんトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: mushoten.machineName, titleFont: .title2)
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: mushotenView95Ci(
-    //                mushoten: mushoten,
-    //                selection: 1,
+                    mushoten: mushoten,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -39,9 +59,9 @@ struct mushotenViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: mushotenViewBayes(
-    //                mushoten: mushoten,
-    //                bayes: bayes,
-    //                viewModel: viewModel,
+                    mushoten: mushoten,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
