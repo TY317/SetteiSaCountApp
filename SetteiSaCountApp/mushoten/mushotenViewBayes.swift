@@ -17,6 +17,7 @@ struct mushotenViewBayes: View {
     @State var czEnable: Bool = true
     @State var firstHitEnable: Bool = true
     @State var storyEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -62,6 +63,13 @@ struct mushotenViewBayes: View {
                 unitToggleWithQuestion(enable: self.$storyEnable, title: "魔術ボーナス 話数示唆") {
                     unitExView5body2image(
                         title: "話数示唆",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス,AT 終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -188,6 +196,26 @@ struct mushotenViewBayes: View {
                 logPostStory[4] = -Double.infinity
             }
         }
+        
+        // 終了画面
+        var logPostScreenEnd: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if mushoten.screenCountOver2 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+            }
+            if mushoten.screenCountOver4 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+            }
+            if mushoten.screenCountOver6 > 0 {
+                logPostScreenEnd[0] = -Double.infinity
+                logPostScreenEnd[1] = -Double.infinity
+                logPostScreenEnd[2] = -Double.infinity
+                logPostScreenEnd[3] = -Double.infinity
+                logPostScreenEnd[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -230,6 +258,7 @@ struct mushotenViewBayes: View {
             logPostFirstHitBonus,
             logPostFirstHitAt,
             logPostStory,
+            logPostScreenEnd,
             
             logPostTrophy,
             logPostBefore,

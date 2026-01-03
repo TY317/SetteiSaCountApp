@@ -130,6 +130,7 @@
 		0F45A60A2F0903B70022E355 /* mushotenSectionCzPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */; };
 		0F45A60B2F0903C40022E355 /* mushotenSectionCzPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */; };
 		0F45A60D2F09061B0022E355 /* mushotenViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */; };
+		0F45A60F2F090D9B0022E355 /* mushotenViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A60E2F090D9B0022E355 /* mushotenViewDuringAt.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1357,6 +1358,7 @@
 		0F45A6072F08EA720022E355 /* mushotenViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewReg.swift; sourceTree = "<group>"; };
 		0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenSectionCzPercent.swift; sourceTree = "<group>"; };
 		0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewScreen.swift; sourceTree = "<group>"; };
+		0F45A60E2F090D9B0022E355 /* mushotenViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewDuringAt.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2658,6 +2660,7 @@
 				0F45A6072F08EA720022E355 /* mushotenViewReg.swift */,
 				0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */,
 				0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */,
+				0F45A60E2F090D9B0022E355 /* mushotenViewDuringAt.swift */,
 			);
 			path = mushoten;
 			sourceTree = "<group>";
@@ -5127,6 +5130,7 @@
 				0F64DDC62DC6E74E0027315D /* midoriDonTableJakuRareRatio.swift in Sources */,
 				0F868ABD2D584BA700D952D9 /* girlsSSViewTop.swift in Sources */,
 				0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */,
+				0F45A60F2F090D9B0022E355 /* mushotenViewDuringAt.swift in Sources */,
 				0F8689E62D3D251000D952D9 /* unitResultCountListWithoutRatio.swift in Sources */,
 				0FCCC5122E92569700CE164D /* newOni3TableKoyakuPattern.swift in Sources */,
 				0FFAB8752E75017D00296A4F /* hanaTenshoViewBayes.swift in Sources */,

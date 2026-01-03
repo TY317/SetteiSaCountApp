@@ -42,7 +42,7 @@ struct mushotenViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "scope",
-                            textBody: "CZ",
+                            textBody: "CZ 無職チャンス",
                             badgeStatus: common.mushotenMenuCzBadge,
                         )
                     }
@@ -83,6 +83,19 @@ struct mushotenViewTop: View {
                             imageSystemName: "photo.on.rectangle.angled.fill",
                             textBody: "ボーナス,AT 終了画面",
                             badgeStatus: common.mushotenMenuScreenBadge,
+                        )
+                    }
+                    
+                    // AT中
+                    NavigationLink(destination: mushotenViewDuringAt(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT 異世界行ったら本気だす",
+                            badgeStatus: common.mushotenMenuAtBadge,
                         )
                     }
                     
