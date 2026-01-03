@@ -73,6 +73,19 @@ struct mushotenViewTop: View {
                         )
                     }
                     
+                    // 終了画面
+                    NavigationLink(destination: mushotenViewScreen(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス,AT 終了画面",
+                            badgeStatus: common.mushotenMenuScreenBadge,
+                        )
+                    }
+                    
                     // ギンちゃんトロフィー
                     NavigationLink(destination: commonViewGinchanTrophy()) {
                         unitLabelMenu(

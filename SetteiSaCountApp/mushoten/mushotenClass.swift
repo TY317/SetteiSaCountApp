@@ -95,6 +95,42 @@ class Mushoten: ObservableObject {
         minusCheck = false
     }
     
+    // -------
+    // 終了画面
+    // -------
+    @AppStorage("mushotenScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("mushotenScreenCountGusu") var screenCountGusu: Int = 0
+    @AppStorage("mushotenScreenCountHighJaku") var screenCountHighJaku: Int = 0
+    @AppStorage("mushotenScreenCountHighKyo") var screenCountHighKyo: Int = 0
+    @AppStorage("mushotenScreenCountOver2") var screenCountOver2: Int = 0
+    @AppStorage("mushotenScreenCountOver4") var screenCountOver4: Int = 0
+    @AppStorage("mushotenScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("mushotenScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountGusu,
+            screenCountHighJaku,
+            screenCountHighKyo,
+            screenCountOver2,
+            screenCountOver4,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountGusu = 0
+        screenCountHighJaku = 0
+        screenCountHighKyo = 0
+        screenCountOver2 = 0
+        screenCountOver4 = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -107,5 +143,6 @@ class Mushoten: ObservableObject {
         resetCz()
         resetFirstHit()
         resetReg()
+        resetScreen()
     }
 }

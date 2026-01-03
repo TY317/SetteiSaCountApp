@@ -106,6 +106,9 @@ struct mushotenViewCz: View {
             } header: {
                 Text("CZ確率")
             }
+            
+            // ---- CZ中の％表示
+            mushotenSectionCzPercent()
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.mushotenMenuCzBadge)

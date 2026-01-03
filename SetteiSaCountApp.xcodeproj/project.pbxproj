@@ -118,7 +118,6 @@
 		0F45A5EF2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5ED2F07F27D0022E355 /* unitLabelMachineListLink.swift */; };
 		0F45A5F22F07F3D50022E355 /* unitMachineListLocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5F02F07F3D40022E355 /* unitMachineListLocked.swift */; };
 		0F45A5F42F07F8490022E355 /* unitMachineListLinkWithLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5F32F07F8490022E355 /* unitMachineListLinkWithLock.swift */; };
-		0F45A5F52F07F8490022E355 /* unitMachineListLinkWithLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5F32F07F8490022E355 /* unitMachineListLinkWithLock.swift */; };
 		0F45A5F82F089F810022E355 /* mushotenViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5F72F089F810022E355 /* mushotenViewTop.swift */; };
 		0F45A5FA2F089F8C0022E355 /* mushotenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5F92F089F8C0022E355 /* mushotenClass.swift */; };
 		0F45A5FC2F089F9A0022E355 /* mushotenAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F45A5FB2F089F9A0022E355 /* mushotenAssets.xcassets */; };
@@ -128,6 +127,9 @@
 		0F45A6042F08BF260022E355 /* mushotenViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6032F08BF260022E355 /* mushotenViewCz.swift */; };
 		0F45A6062F08DF3C0022E355 /* mushotenViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */; };
 		0F45A6082F08EA720022E355 /* mushotenViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6072F08EA720022E355 /* mushotenViewReg.swift */; };
+		0F45A60A2F0903B70022E355 /* mushotenSectionCzPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */; };
+		0F45A60B2F0903C40022E355 /* mushotenSectionCzPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */; };
+		0F45A60D2F09061B0022E355 /* mushotenViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1353,6 +1355,8 @@
 		0F45A6032F08BF260022E355 /* mushotenViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewCz.swift; sourceTree = "<group>"; };
 		0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewFirstHit.swift; sourceTree = "<group>"; };
 		0F45A6072F08EA720022E355 /* mushotenViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewReg.swift; sourceTree = "<group>"; };
+		0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenSectionCzPercent.swift; sourceTree = "<group>"; };
+		0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewScreen.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2652,6 +2656,8 @@
 				0F45A6032F08BF260022E355 /* mushotenViewCz.swift */,
 				0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */,
 				0F45A6072F08EA720022E355 /* mushotenViewReg.swift */,
+				0F45A6092F0903B70022E355 /* mushotenSectionCzPercent.swift */,
+				0F45A60C2F09061B0022E355 /* mushotenViewScreen.swift */,
 			);
 			path = mushoten;
 			sourceTree = "<group>";
@@ -5200,6 +5206,7 @@
 				0FC14A6E2E498BF300F85D84 /* unitToggleWithQuestion.swift in Sources */,
 				0FF156022D604CE800B17F83 /* starHanaVer2ViewKenDataInput.swift in Sources */,
 				0FA0248D2D011BBA004B3FD5 /* mhrViewEndScreen.swift in Sources */,
+				0F45A60A2F0903B70022E355 /* mushotenSectionCzPercent.swift in Sources */,
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */,
 				0F64DD8A2DC5C31F0027315D /* girlsSSSubViewCountInput.swift in Sources */,
@@ -5537,6 +5544,7 @@
 				0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */,
 				0FD357582DA28BBD0069BD1A /* magiaTableJakuCherry.swift in Sources */,
 				0FDBDAD02E87D41800197B94 /* creaViewStamp.swift in Sources */,
+				0F45A60D2F09061B0022E355 /* mushotenViewScreen.swift in Sources */,
 				0FA0A7942EF421DF003EF8BD /* hihodenviewFirstHit.swift in Sources */,
 				0FD357B02DAE98FD0069BD1A /* mahjongClass.swift in Sources */,
 				0F868A9D2D578EBA00D952D9 /* mrJugVer2View95CiTotal.swift in Sources */,
@@ -6153,7 +6161,6 @@
 			files = (
 				0F45A5B42EFF51A10022E355 /* hokutoTenseiTableKoyakuPattern.swift in Sources */,
 				0F45A5E02F079C4E0022E355 /* unitIconBtBadgeTriangleShape.swift in Sources */,
-				0F45A5F52F07F8490022E355 /* unitMachineListLinkWithLock.swift in Sources */,
 				0FA0A7A82EF693A2003EF8BD /* hihodenTableKoyakuPattern.swift in Sources */,
 				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
@@ -6180,6 +6187,7 @@
 				0F45A5C42F04A9790022E355 /* tekken6TableKoyakuPattern.swift in Sources */,
 				0F45A5DF2F079C380022E355 /* unitMachineIconLink.swift in Sources */,
 				0FA0A7D22EF6947C003EF8BD /* unitReelHazure.swift in Sources */,
+				0F45A60B2F0903C40022E355 /* mushotenSectionCzPercent.swift in Sources */,
 				0F45A5D32F0502E10022E355 /* tekken6TableScreen.swift in Sources */,
 				0F45A5DC2F0740B90022E355 /* hokutoTenseiTableMode.swift in Sources */,
 				0FA0A7D32EF6947C003EF8BD /* unitReelDefault.swift in Sources */,
