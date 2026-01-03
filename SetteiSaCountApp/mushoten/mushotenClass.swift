@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
+
+class Mushoten: ObservableObject {
+    
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "無職転生"
+    @AppStorage("mushotenMinusCheck") var minusCheck: Bool = false
+    @AppStorage("mushotenSelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}
