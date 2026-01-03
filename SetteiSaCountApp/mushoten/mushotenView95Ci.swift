@@ -50,6 +50,44 @@ struct mushotenView95Ci: View {
                 )
             )
             .tag(2)
+            
+            // ボーナス回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mushoten.firstHitCountBonusSum,
+                        bigNumber: $mushoten.normalGame,
+                        setting1Denominate: mushoten.ratioFirstHitBonusSum[0],
+                        setting2Denominate: mushoten.ratioFirstHitBonusSum[1],
+                        setting3Denominate: mushoten.ratioFirstHitBonusSum[2],
+                        setting4Denominate: mushoten.ratioFirstHitBonusSum[3],
+                        setting5Denominate: mushoten.ratioFirstHitBonusSum[4],
+                        setting6Denominate: mushoten.ratioFirstHitBonusSum[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // AT回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mushoten.firstHitCountAt,
+                        bigNumber: $mushoten.normalGame,
+                        setting1Denominate: mushoten.ratioFirstHitAt[0],
+                        setting2Denominate: mushoten.ratioFirstHitAt[1],
+                        setting3Denominate: mushoten.ratioFirstHitAt[2],
+                        setting4Denominate: mushoten.ratioFirstHitAt[3],
+                        setting5Denominate: mushoten.ratioFirstHitAt[4],
+                        setting6Denominate: mushoten.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

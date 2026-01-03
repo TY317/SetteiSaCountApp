@@ -50,6 +50,13 @@ struct mushotenViewBayes: View {
                 unitToggleWithQuestion(enable: self.$hitogamiEnable, title: "ヒトガミの空間での当選率")
                 // CZ確率
                 unitToggleWithQuestion(enable: self.$czEnable, title: "CZ確率")
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・ボーナス合算、ATの初当り確率を計算要素に加えます"
+                    )
+                }
                 // ケロットトロフィー
                 DisclosureGroup("ギンちゃんトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -138,6 +145,21 @@ struct mushotenViewBayes: View {
             )
         }
         
+        // 初当り
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHitBonus = logPostDenoBino(
+                ratio: mushoten.ratioFirstHitBonusSum,
+                Count: mushoten.firstHitCountBonusSum,
+                bigNumber: mushoten.normalGame
+            )
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: mushoten.ratioFirstHitAt,
+                Count: mushoten.firstHitCountAt,
+                bigNumber: mushoten.normalGame
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -177,6 +199,8 @@ struct mushotenViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostHitogami,
             logPostCz,
+            logPostFirstHitBonus,
+            logPostFirstHitAt,
             
             logPostTrophy,
             logPostBefore,

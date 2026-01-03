@@ -47,6 +47,19 @@ struct mushotenViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: mushotenViewFirstHit(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.mushotenMenuFirstHitBadge,
+                        )
+                    }
+                    
                     // ギンちゃんトロフィー
                     NavigationLink(destination: commonViewGinchanTrophy()) {
                         unitLabelMenu(

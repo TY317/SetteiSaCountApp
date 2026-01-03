@@ -38,6 +38,30 @@ class Mushoten: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // 初当り
+    // --------
+    let ratioFirstHitBonusSum: [Double] = [170,168,166,161,156,147]
+    let ratioFirstHitAt: [Double] = [416,406,394,361,327,292]
+    @AppStorage("mushotenNormalGame") var normalGame: Int = 0
+    @AppStorage("mushotenFirstHitCountBig") var firstHitCountBig: Int = 0
+    @AppStorage("mushotenFirstHitCountReg") var firstHitCountReg: Int = 0
+    @AppStorage("mushotenFirstHitCountBonusSum") var firstHitCountBonusSum: Int = 0
+    @AppStorage("mushotenFirstHitCountAt") var firstHitCountAt: Int = 0
+    
+    func bonusSumFunc() {
+        firstHitCountBonusSum = firstHitCountBig + firstHitCountReg
+    }
+    
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBig = 0
+        firstHitCountReg = 0
+        firstHitCountBonusSum = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -48,5 +72,6 @@ class Mushoten: ObservableObject {
     func resetAll() {
         resetNormal()
         resetCz()
+        resetFirstHit()
     }
 }
