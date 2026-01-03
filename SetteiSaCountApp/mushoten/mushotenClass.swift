@@ -62,6 +62,39 @@ class Mushoten: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // 魔術ボーナス
+    // ---------
+    @AppStorage("mushotenStoryCountDefault") var storyCountDefault: Int = 0
+    @AppStorage("mushotenStoryCountHighJaku") var storyCountHighJaku: Int = 0
+    @AppStorage("mushotenStoryCountHighKyo") var storyCountHighKyo: Int = 0
+    @AppStorage("mushotenStoryCountOver2") var storyCountOver2: Int = 0
+    @AppStorage("mushotenStoryCountOver4") var storyCountOver4: Int = 0
+    @AppStorage("mushotenStoryCountOver6") var storyCountOver6: Int = 0
+    @AppStorage("mushotenStoryCountSum") var storyCountSum: Int = 0
+    
+    func storySumFunc() {
+        storyCountSum = countSum(
+            storyCountDefault,
+            storyCountHighJaku,
+            storyCountHighKyo,
+            storyCountOver2,
+            storyCountOver4,
+            storyCountOver6,
+        )
+    }
+    
+    func resetReg() {
+        storyCountDefault = 0
+        storyCountHighJaku = 0
+        storyCountHighKyo = 0
+        storyCountOver2 = 0
+        storyCountOver4 = 0
+        storyCountOver6 = 0
+        storyCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -73,5 +106,6 @@ class Mushoten: ObservableObject {
         resetNormal()
         resetCz()
         resetFirstHit()
+        resetReg()
     }
 }

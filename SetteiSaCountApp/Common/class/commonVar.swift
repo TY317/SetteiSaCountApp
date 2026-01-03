@@ -155,6 +155,7 @@ class commonVar: ObservableObject {
     @AppStorage("mushotenMenuBayesBadge") var mushotenMenuBayesBadge: String = "none"
     @AppStorage("mushotenMenuFirstHitBadge") var mushotenMenuFirstHitBadge: String = "none"
     @AppStorage("mushotenMenuCzBadge") var mushotenMenuCzBadge: String = "none"
+    @AppStorage("mushotenMenuRegBadge") var mushotenMenuRegBadge: String = "none"
     
     // //// 化物語
     @AppStorage("bakemonoMachineIconBadge") var bakemonoMachineIconBadge: String = "none"

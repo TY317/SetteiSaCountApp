@@ -16,6 +16,7 @@ struct mushotenViewBayes: View {
     @State var hitogamiEnable: Bool = true
     @State var czEnable: Bool = true
     @State var firstHitEnable: Bool = true
+    @State var storyEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -55,6 +56,13 @@ struct mushotenViewBayes: View {
                     unitExView5body2image(
                         title: "初当り確率",
                         textBody1: "・ボーナス合算、ATの初当り確率を計算要素に加えます"
+                    )
+                }
+                // 魔術ボーナス 話数示唆
+                unitToggleWithQuestion(enable: self.$storyEnable, title: "魔術ボーナス 話数示唆") {
+                    unitExView5body2image(
+                        title: "話数示唆",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
                 // ケロットトロフィー
@@ -160,6 +168,26 @@ struct mushotenViewBayes: View {
                 bigNumber: mushoten.normalGame
             )
         }
+        
+        // 話数示唆
+        var logPostStory: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.storyEnable {
+            if mushoten.storyCountOver2 > 0 {
+                logPostStory[0] = -Double.infinity
+            }
+            if mushoten.storyCountOver4 > 0 {
+                logPostStory[0] = -Double.infinity
+                logPostStory[1] = -Double.infinity
+                logPostStory[2] = -Double.infinity
+            }
+            if mushoten.storyCountOver6 > 0 {
+                logPostStory[0] = -Double.infinity
+                logPostStory[1] = -Double.infinity
+                logPostStory[2] = -Double.infinity
+                logPostStory[3] = -Double.infinity
+                logPostStory[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -201,6 +229,7 @@ struct mushotenViewBayes: View {
             logPostCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostStory,
             
             logPostTrophy,
             logPostBefore,

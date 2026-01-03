@@ -60,6 +60,19 @@ struct mushotenViewTop: View {
                         )
                     }
                     
+                    // 魔術ボーナス
+                    NavigationLink(destination: mushotenViewReg(
+                        mushoten: mushoten,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "book.closed.fill",
+                            textBody: "魔術ボーナス",
+                            badgeStatus: common.mushotenMenuRegBadge,
+                        )
+                    }
+                    
                     // ギンちゃんトロフィー
                     NavigationLink(destination: commonViewGinchanTrophy()) {
                         unitLabelMenu(

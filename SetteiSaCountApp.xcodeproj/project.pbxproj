@@ -127,6 +127,7 @@
 		0F45A6022F08A82F0022E355 /* mushotenViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */; };
 		0F45A6042F08BF260022E355 /* mushotenViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6032F08BF260022E355 /* mushotenViewCz.swift */; };
 		0F45A6062F08DF3C0022E355 /* mushotenViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */; };
+		0F45A6082F08EA720022E355 /* mushotenViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6072F08EA720022E355 /* mushotenViewReg.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1351,6 +1352,7 @@
 		0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewNormal.swift; sourceTree = "<group>"; };
 		0F45A6032F08BF260022E355 /* mushotenViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewCz.swift; sourceTree = "<group>"; };
 		0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewFirstHit.swift; sourceTree = "<group>"; };
+		0F45A6072F08EA720022E355 /* mushotenViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewReg.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -2649,6 +2651,7 @@
 				0F45A6012F08A82F0022E355 /* mushotenViewNormal.swift */,
 				0F45A6032F08BF260022E355 /* mushotenViewCz.swift */,
 				0F45A6052F08DF3C0022E355 /* mushotenViewFirstHit.swift */,
+				0F45A6072F08EA720022E355 /* mushotenViewReg.swift */,
 			);
 			path = mushoten;
 			sourceTree = "<group>";
@@ -5156,6 +5159,7 @@
 				0F9D9C1E2EA34CDF00450B23 /* happyJugV3ViewShimaData.swift in Sources */,
 				0F45A5E52F07A0870022E355 /* unitMachineIconLocked.swift in Sources */,
 				0FF1562A2D6B4F7800B17F83 /* shamanKingViewTop.swift in Sources */,
+				0F45A6082F08EA720022E355 /* mushotenViewReg.swift in Sources */,
 				0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */,
 				0FDF23812E51FD6B00249CAC /* enenTableBigScreen.swift in Sources */,
 				0FD357202DA0BF6F0069BD1A /* sevenSwordsViewVoiceCustom.swift in Sources */,
