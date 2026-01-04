@@ -19,6 +19,7 @@ struct unitMachineListLocked: View {
     var btBadgeBool: Bool = false
     @State var isShowAlert: Bool = false
     @EnvironmentObject var rewardViewModel: RewardedViewModel
+    @State private var isShowAdNotReadyAlert: Bool = false
     
     var body: some View {
         Button {
@@ -54,13 +55,27 @@ struct unitMachineListLocked: View {
                 
             }
             Button("広告で開放", role: .destructive) {
-                rewardViewModel.showAd(onReward: {
+                rewardViewModel.showAd {
+                    self.isShowAdNotReadyAlert = true
+                } onReward: {
                     self.isUnLocked = true
-                })
+                }
+                
+//                rewardViewModel.showAd(onReward: {
+//                    self.isUnLocked = true
+//                })
 //                self.isUnLocked = true
             }
         } message: {
             Text("動画広告を1回視聴すると、機種ページが解放されます")
+        }
+        
+        .alert("広告を読み込めませんでした", isPresented: self.$isShowAdNotReadyAlert) {
+            Button("OK", role: .cancel) {
+                Task { await rewardViewModel.loadAd() }
+            }
+        } message: {
+            Text("電波の良い場所で再度お試しいただくか、しばらく待ってから再度お試しください")
         }
     }
 }

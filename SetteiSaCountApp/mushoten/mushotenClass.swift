@@ -146,3 +146,99 @@ class Mushoten: ObservableObject {
         resetScreen()
     }
 }
+
+
+class MushotenMemory1: ObservableObject {
+    @AppStorage("mushotenHitogamiCountMoveMemory1") var hitogamiCountMove: Int = 0
+    @AppStorage("mushotenHitogamiCountHitMemory1") var hitogamiCountHit: Int = 0
+    @AppStorage("mushotenGameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("mushotenGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("mushotenGameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("mushotenCzCountMemory1") var czCount: Int = 0
+    @AppStorage("mushotenNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("mushotenFirstHitCountBigMemory1") var firstHitCountBig: Int = 0
+    @AppStorage("mushotenFirstHitCountRegMemory1") var firstHitCountReg: Int = 0
+    @AppStorage("mushotenFirstHitCountBonusSumMemory1") var firstHitCountBonusSum: Int = 0
+    @AppStorage("mushotenFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("mushotenStoryCountDefaultMemory1") var storyCountDefault: Int = 0
+    @AppStorage("mushotenStoryCountHighJakuMemory1") var storyCountHighJaku: Int = 0
+    @AppStorage("mushotenStoryCountHighKyoMemory1") var storyCountHighKyo: Int = 0
+    @AppStorage("mushotenStoryCountOver2Memory1") var storyCountOver2: Int = 0
+    @AppStorage("mushotenStoryCountOver4Memory1") var storyCountOver4: Int = 0
+    @AppStorage("mushotenStoryCountOver6Memory1") var storyCountOver6: Int = 0
+    @AppStorage("mushotenStoryCountSumMemory1") var storyCountSum: Int = 0
+    @AppStorage("mushotenScreenCountDefaultMemory1") var screenCountDefault: Int = 0
+    @AppStorage("mushotenScreenCountGusuMemory1") var screenCountGusu: Int = 0
+    @AppStorage("mushotenScreenCountHighJakuMemory1") var screenCountHighJaku: Int = 0
+    @AppStorage("mushotenScreenCountHighKyoMemory1") var screenCountHighKyo: Int = 0
+    @AppStorage("mushotenScreenCountOver2Memory1") var screenCountOver2: Int = 0
+    @AppStorage("mushotenScreenCountOver4Memory1") var screenCountOver4: Int = 0
+    @AppStorage("mushotenScreenCountOver6Memory1") var screenCountOver6: Int = 0
+    @AppStorage("mushotenScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("mushotenMemoMemory1") var memo = ""
+    @AppStorage("mushotenDateMemory1") var dateDouble = 0.0
+}
+
+
+class MushotenMemory2: ObservableObject {
+    @AppStorage("mushotenHitogamiCountMoveMemory2") var hitogamiCountMove: Int = 0
+    @AppStorage("mushotenHitogamiCountHitMemory2") var hitogamiCountHit: Int = 0
+    @AppStorage("mushotenGameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("mushotenGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("mushotenGameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("mushotenCzCountMemory2") var czCount: Int = 0
+    @AppStorage("mushotenNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("mushotenFirstHitCountBigMemory2") var firstHitCountBig: Int = 0
+    @AppStorage("mushotenFirstHitCountRegMemory2") var firstHitCountReg: Int = 0
+    @AppStorage("mushotenFirstHitCountBonusSumMemory2") var firstHitCountBonusSum: Int = 0
+    @AppStorage("mushotenFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("mushotenStoryCountDefaultMemory2") var storyCountDefault: Int = 0
+    @AppStorage("mushotenStoryCountHighJakuMemory2") var storyCountHighJaku: Int = 0
+    @AppStorage("mushotenStoryCountHighKyoMemory2") var storyCountHighKyo: Int = 0
+    @AppStorage("mushotenStoryCountOver2Memory2") var storyCountOver2: Int = 0
+    @AppStorage("mushotenStoryCountOver4Memory2") var storyCountOver4: Int = 0
+    @AppStorage("mushotenStoryCountOver6Memory2") var storyCountOver6: Int = 0
+    @AppStorage("mushotenStoryCountSumMemory2") var storyCountSum: Int = 0
+    @AppStorage("mushotenScreenCountDefaultMemory2") var screenCountDefault: Int = 0
+    @AppStorage("mushotenScreenCountGusuMemory2") var screenCountGusu: Int = 0
+    @AppStorage("mushotenScreenCountHighJakuMemory2") var screenCountHighJaku: Int = 0
+    @AppStorage("mushotenScreenCountHighKyoMemory2") var screenCountHighKyo: Int = 0
+    @AppStorage("mushotenScreenCountOver2Memory2") var screenCountOver2: Int = 0
+    @AppStorage("mushotenScreenCountOver4Memory2") var screenCountOver4: Int = 0
+    @AppStorage("mushotenScreenCountOver6Memory2") var screenCountOver6: Int = 0
+    @AppStorage("mushotenScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("mushotenMemoMemory2") var memo = ""
+    @AppStorage("mushotenDateMemory2") var dateDouble = 0.0
+}
+
+
+class MushotenMemory3: ObservableObject {
+    @AppStorage("mushotenHitogamiCountMoveMemory3") var hitogamiCountMove: Int = 0
+    @AppStorage("mushotenHitogamiCountHitMemory3") var hitogamiCountHit: Int = 0
+    @AppStorage("mushotenGameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("mushotenGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("mushotenGameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("mushotenCzCountMemory3") var czCount: Int = 0
+    @AppStorage("mushotenNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("mushotenFirstHitCountBigMemory3") var firstHitCountBig: Int = 0
+    @AppStorage("mushotenFirstHitCountRegMemory3") var firstHitCountReg: Int = 0
+    @AppStorage("mushotenFirstHitCountBonusSumMemory3") var firstHitCountBonusSum: Int = 0
+    @AppStorage("mushotenFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("mushotenStoryCountDefaultMemory3") var storyCountDefault: Int = 0
+    @AppStorage("mushotenStoryCountHighJakuMemory3") var storyCountHighJaku: Int = 0
+    @AppStorage("mushotenStoryCountHighKyoMemory3") var storyCountHighKyo: Int = 0
+    @AppStorage("mushotenStoryCountOver2Memory3") var storyCountOver2: Int = 0
+    @AppStorage("mushotenStoryCountOver4Memory3") var storyCountOver4: Int = 0
+    @AppStorage("mushotenStoryCountOver6Memory3") var storyCountOver6: Int = 0
+    @AppStorage("mushotenStoryCountSumMemory3") var storyCountSum: Int = 0
+    @AppStorage("mushotenScreenCountDefaultMemory3") var screenCountDefault: Int = 0
+    @AppStorage("mushotenScreenCountGusuMemory3") var screenCountGusu: Int = 0
+    @AppStorage("mushotenScreenCountHighJakuMemory3") var screenCountHighJaku: Int = 0
+    @AppStorage("mushotenScreenCountHighKyoMemory3") var screenCountHighKyo: Int = 0
+    @AppStorage("mushotenScreenCountOver2Memory3") var screenCountOver2: Int = 0
+    @AppStorage("mushotenScreenCountOver4Memory3") var screenCountOver4: Int = 0
+    @AppStorage("mushotenScreenCountOver6Memory3") var screenCountOver6: Int = 0
+    @AppStorage("mushotenScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("mushotenMemoMemory3") var memo = ""
+    @AppStorage("mushotenDateMemory3") var dateDouble = 0.0
+}

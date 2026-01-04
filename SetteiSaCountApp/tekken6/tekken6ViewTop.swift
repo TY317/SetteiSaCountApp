@@ -26,7 +26,7 @@ struct tekken6ViewTop: View {
                         .foregroundStyle(Color.secondary)
                         .font(.footnote)
                 } header: {
-                    unitLabelMachineTopTitle(machineName: tekken6.machineName, titleFont: .title2)
+                    unitLabelMachineTopTitle(machineName: tekken6.machineName)
                 }
                 
                 Section {

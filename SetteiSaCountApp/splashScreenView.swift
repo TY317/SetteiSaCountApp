@@ -67,6 +67,12 @@ struct splashScreenView: View {
                         common.ver3150FirstLaunch()
                         common.ver3160FirstLaunch()
                         common.saveAppVersions()
+                        
+                        // ---- リリース前にコメントアウト！！
+//                        common.hokutoTenseiisUnlocked = true
+//                        common.tekken6isUnlocked = true
+//                        common.mushotenisUnlocked = true
+                        // -----------------------------
                     }
             }
             .onAppear {

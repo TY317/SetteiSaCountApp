@@ -29,8 +29,9 @@ class RewardedViewModel: NSObject, ObservableObject, FullScreenContentDelegate {
     // [END load_ad]
     
     // [START show_ad]
-    func showAd(onReward: @escaping () -> Void) {
+    func showAd(noReady: @escaping () -> Void,onReward: @escaping () -> Void) {
         guard let rewardedAd = rewardedAd else {
+            noReady()
             return print("Ad wasn't ready.")
         }
         
