@@ -72,6 +72,9 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteNeopla") var isSelectedFavoriteNeopla = true
     @AppStorage("isSelectedFavoriteBakemono") var isSelectedFavoriteBakemono = true
     @AppStorage("isSelectedFavoriteHihoden") var isSelectedFavoriteHihoden = true
+    @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
+    @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
+    @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
 }
 
 
@@ -98,10 +101,12 @@ struct ContentView: View {
         set { appearanceModeRaw = newValue.rawValue }
     }
     
+    @EnvironmentObject var rewardViewModel: RewardedViewModel
+    
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3150UpdateInfo())
+                TipView(tipVer3160UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -116,7 +121,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -138,6 +142,72 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 鉄拳6、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(tekken6ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("tekken6MachineIcon"),
+                                        machineName: "鉄拳6",
+                                        isUnLocked: $common.tekken6isUnlocked,
+                                        badgeStatus: common.tekken6MachineIconBadge,
+                                    )
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(tekken6ViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("tekken6MachineIcon"),
+//                                        machineName: "鉄拳6",
+//                                        badgeStatus: common.tekken6MachineIconBadge,
+//                                    )
+                                }
+                                
+                                // //// 北斗転生、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokutoTensei == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(hokutoTenseiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hokutoTenseiMachineIcon"),
+                                        machineName: "北斗転生",
+                                        isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
+                                    )
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(hokutoTenseiViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("hokutoTenseiMachineIcon"),
+//                                        machineName: "北斗転生",
+//                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
+//                                    )
+                                }
+                                
+                                // //// 無職転生、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMushoten == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(mushotenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("mushotenMachineIcon"),
+                                        machineName: "無職転生",
+                                        isUnLocked: $common.mushotenisUnlocked,
+                                        badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
                                 
@@ -268,8 +338,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(toreveViewTop(
-//                                            ver390: ver390,
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -300,8 +368,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(darlingViewTop(
-//                                            ver380: ver380,
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -317,8 +383,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(reSwordViewTop(
-//                                            ver360: ver360,
-//                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転剣",
@@ -332,7 +396,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -349,8 +412,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(watakonViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わた婚",
@@ -364,7 +425,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-//                                            ver360: ver360,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルクラ2",
@@ -391,8 +451,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(izaBanchoViewTop(
-//                                            ver350: ver350,
-//                                            ver340: ver340,
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
@@ -406,7 +464,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(toloveru87ViewTop(
-//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
                                         machineName: "ToLOVEるver8.7"
@@ -420,7 +477,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(gundamSeedViewTop(
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "SEED"
@@ -434,8 +490,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver340: ver340
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
@@ -449,13 +503,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(idolMasterViewTop(
-//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイマス",
 //                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
-//                                        .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// 吉宗、25年4月
@@ -464,7 +516,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(yoshimuneViewTop(
-//                                            ver360: ver360,
                                         )),
                                         iconImage: Image("yoshimuneMachineIcon"),
                                         machineName: "吉宗",
@@ -478,13 +529,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(mahjongViewTop(
-//                                            ver300: ver300
                                         )),
                                         iconImage: Image("mahjongMachineIcon"),
                                         machineName: "麻雀物語"
 //                                        badgeStatus: ver300.mahjongMachineIconBadgeStatus
                                     )
-//                                        .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// ゴジラ、25年4月
@@ -497,7 +546,6 @@ struct ContentView: View {
                                         machineName: "ゴジラ"
 //                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
-//                                        .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 間ギアレコード、25年4月
@@ -506,7 +554,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -522,13 +569,11 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(rslViewTop(
-//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
 //                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
-//                                        .popoverTip(tipVer260MachineAdd())
                                 }
                                 
                                 // //// バイオハザード５、25年3月
@@ -537,7 +582,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(bioViewTop(
-//                                            ver370: ver370
                                         )),
                                         iconImage: Image("bioMachineIcon"),
                                         machineName: "バイオ5",
@@ -551,7 +595,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaijiViewTop(
-//                                            ver300: ver300
                                         )),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "カイジ狂宴"
@@ -569,7 +612,6 @@ struct ContentView: View {
                                         machineName: "ありふれ"
 //                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
-//                                        .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -608,7 +650,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(sbjViewTop(
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "SBJ"
@@ -698,7 +739,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(kaguyaViewTop(
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -721,7 +761,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(godeaterViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -738,7 +777,6 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             toloveruViewTop(
-//                                                ver320: ver320
                                             )),
                                         iconImage: Image("toloveruMachineIcon"),
                                         machineName: "ToLoveる"
@@ -752,7 +790,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(enenViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -776,7 +813,6 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             mt5ViewTop(
-//                                                ver370: ver370,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -794,7 +830,6 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             karakuriViewTop(
-//                                                ver380: ver380,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -812,7 +847,6 @@ struct ContentView: View {
                                     unitMachineIconLink(
                                         linkView: AnyView(
                                             hokutoViewTop(
-//                                                ver380: ver380,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )),
@@ -828,7 +862,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachineIconLink(
                                         linkView: AnyView(VVV_Top(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -860,10 +893,8 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(JuglerSeriesViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
-//                                            common: common,
                                         )),
                                         iconImage: Image("machineIconJuglerSeries"),
                                         machineName: "ジャグラーシリーズ",
@@ -889,6 +920,101 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+//                                unitMachineListLinkWithLock(
+//                                    linkView: AnyView(tekken6ViewTop(
+//                                        bayes: bayes,
+//                                        viewModel: viewModel,
+//                                    )),
+//                                    iconImage: Image("tekken6MachineIcon"),
+//                                    machineName: "鉄拳6",
+//                                    makerName: "山佐",
+//                                    releaseYear: 2026,
+//                                    releaseMonth: 1,
+//                                    isUnLocked: $common.tekken6isUnlocked,
+//                                    badgeStatus: common.tekken6MachineIconBadge,
+//                                )
+                                
+                                // //// 鉄拳6、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(tekken6ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("tekken6MachineIcon"),
+                                        machineName: "鉄拳6",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 1,
+                                        isUnLocked: $common.tekken6isUnlocked,
+                                        badgeStatus: common.tekken6MachineIconBadge,
+                                    )
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(tekken6ViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("tekken6MachineIcon"),
+//                                        machineName: "鉄拳6",
+//                                        makerName: "山佐",
+//                                        releaseYear: 2026,
+//                                        releaseMonth: 1,
+//                                        badgeStatus: common.tekken6MachineIconBadge,
+//                                    )
+                                }
+                                
+                                // //// 北斗転生、26年1月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHokutoTensei == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(hokutoTenseiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hokutoTenseiMachineIcon"),
+                                        machineName: "北斗 転生の章2",
+                                        makerName: "サミー",
+                                        releaseYear: 2026,
+                                        releaseMonth: 1,
+                                        isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
+                                    )
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(hokutoTenseiViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("hokutoTenseiMachineIcon"),
+//                                        machineName: "北斗 転生の章2",
+//                                        makerName: "サミー",
+//                                        releaseYear: 2026,
+//                                        releaseMonth: 1,
+//                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
+//                                    )
+                                }
+                                
+                                // //// 無職転生、25年12月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMushoten == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(mushotenViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("mushotenMachineIcon"),
+                                        machineName: "無職転生",
+                                        makerName: "ニューギン",
+                                        releaseYear: 2025,
+                                        releaseMonth: 12,
+                                        isUnLocked: $common.mushotenisUnlocked,
+                                        badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1043,8 +1169,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toreveViewTop(
-//                                            ver390: ver390,
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1081,8 +1205,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(darlingViewTop(
-//                                            ver380: ver380,
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1102,8 +1224,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(reSwordViewTop(
-//                                            ver360: ver360,
-//                                            ver361: ver361,
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転生したら剣でした",
@@ -1120,7 +1240,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(evaYakusokuViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1140,8 +1259,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(watakonViewTop(
-//                                            ver350: ver350,
-//                                            ver351: ver351,
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わたしの幸せな結婚",
@@ -1158,7 +1275,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(guiltyCrown2ViewTop(
-//                                            ver360: ver360,
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルティクラウン2",
@@ -1191,8 +1307,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(izaBanchoViewTop(
-//                                            ver350: ver350,
-//                                            ver340: ver340
                                         )),
                                         iconImage: Image("izaBanchoMachineIcon"),
                                         machineName: "いざ！番長",
@@ -1209,7 +1323,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toloveru87ViewTop(
-//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
                                         machineName: "ToLOVEる TRANCE ver.8.7",
@@ -1226,7 +1339,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(gundamSeedViewTop(
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "ガンダムSEED",
@@ -1243,8 +1355,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(midoriDonViewTop(
-//                                            ver340: ver340
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン VIVA情熱南米編",
@@ -1253,7 +1363,6 @@ struct ContentView: View {
                                         releaseMonth: 5,
 //                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
-//                                    .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// アイマス、25年4月
@@ -1262,7 +1371,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(idolMasterViewTop(
-//                                            ver330: ver330
                                         )),
                                         iconImage: Image("idolMasterMachineIcon"),
                                         machineName: "アイドルマスター",
@@ -1271,7 +1379,6 @@ struct ContentView: View {
                                         releaseMonth: 4,
 //                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
-//                                    .popoverTip(tipVer300MachineAdd())
                                 }
                                 
                                 // //// 吉宗、25年4月
@@ -1280,7 +1387,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(yoshimuneViewTop(
-//                                            ver360: ver360,
                                         )),
                                         iconImage: Image("yoshimuneMachineIcon"),
                                         machineName: "吉宗",
@@ -1289,7 +1395,6 @@ struct ContentView: View {
                                         releaseMonth: 4,
 //                                        badgeStatus: ver360.yoshimuneMachineIconBadge,
                                     )
-//                                    .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// 麻雀物語、25年4月
@@ -1298,7 +1403,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(mahjongViewTop(
-//                                            ver300: ver300
                                         )),
                                         iconImage: Image("mahjongMachineIcon"),
                                         machineName: "麻雀物語",
@@ -1307,7 +1411,6 @@ struct ContentView: View {
                                         releaseMonth: 4
 //                                        badgeStatus: ver300.mahjongMachineIconBadgeStatus
                                     )
-//                                    .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// ゴジラ、25年4月
@@ -1323,7 +1426,6 @@ struct ContentView: View {
                                         releaseMonth: 4
 //                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
-//                                    .popoverTip(tipVer280MachineAdd())
                                 }
                                 
                                 // //// マギアレコード、25年4月
@@ -1332,7 +1434,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(magiaViewTop(
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1351,7 +1452,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(rslViewTop(
-//                                            ver330: ver330
                                         )),
                                         iconImage: Image("rslMachineIcon"),
                                         machineName: "レビュースタァライト",
@@ -1360,7 +1460,6 @@ struct ContentView: View {
                                         releaseMonth: 3,
 //                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
-//                                    .popoverTip(tipVer260MachineAdd())
                                 }
                                 
                                 // //// バイオ５、25年3月
@@ -1369,7 +1468,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(bioViewTop(
-//                                            ver370: ver370
                                         )),
                                         iconImage: Image("bioMachineIcon"),
                                         machineName: "バイオハザード5",
@@ -1386,7 +1484,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(kaijiViewTop(
-//                                            ver300: ver300
                                         )),
                                         iconImage: Image("kaijiMachineIcon"),
                                         machineName: "回胴黙示録カイジ 狂宴",
@@ -1410,7 +1507,6 @@ struct ContentView: View {
                                         releaseMonth: 2
 //                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
-//                                    .popoverTip(tipVer240MachineAdd())
                                 }
                                 
                                 // //// 東京グール、25年2月
@@ -1455,7 +1551,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(sbjViewTop(
-//                                            ver310: ver310
                                         )),
                                         iconImage: Image("sbjMachineIcon"),
                                         machineName: "スーパーブラックジャック",
@@ -1590,7 +1685,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(kaguyaViewTop(
-//                                            ver390: ver390,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1615,7 +1709,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(godeaterViewTop(
-//                                            ver380: ver380,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1633,7 +1726,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(toloveruViewTop(
-//                                            ver320: ver320
                                         )),
                                         iconImage: Image("toloveruMachineIcon"),
                                         machineName: "ToLOVEるダークネス",
@@ -1650,7 +1742,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(enenViewTop(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1678,7 +1769,6 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(
                                             mt5ViewTop(
-//                                                ver370: ver370,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -1699,7 +1789,6 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(
                                             karakuriViewTop(
-//                                                ver380: ver380,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -1720,7 +1809,6 @@ struct ContentView: View {
                                     unitMachinListLink(
                                         linkView: AnyView(
                                             hokutoViewTop(
-//                                                ver380: ver380,
                                                 bayes: bayes,
                                                 viewModel: viewModel,
                                             )
@@ -1740,7 +1828,6 @@ struct ContentView: View {
                                 } else {
                                     unitMachinListLink(
                                         linkView: AnyView(VVV_Top(
-//                                            ver391: ver391,
                                             bayes: bayes,
                                             viewModel: viewModel,
                                         )),
@@ -1780,49 +1867,7 @@ struct ContentView: View {
                         Spacer()
                     }
                     
-//                    // //// プライバシーポリシー改訂の案内
-//                    // アプリ起動回数が2回以上の人には引き続き改訂の案内
-//                    if common.appLaunchCount > 1 {
-//                        if ver320.isShowPrivacyPolicy {
-//                            ZStack {
-//                                Rectangle()
-//                                    .foregroundStyle(Color.white)
-//                                    .opacity(0.8)
-//                                GroupBox {
-//                                    VStack {
-//                                        Text("プライバシーポリシー改訂のお知らせ")
-//                                            .font(.title3)
-//                                            .fontWeight(.bold)
-//                                        VStack {
-//                                            Text("ver3.2.0より\n・機種ごとの利用頻度\n・エラー発生状況　など\n個人を特定しない匿名の利用データを収集する場合があります。それに伴いプライバシーポリシーを改訂しました。")
-//                                            Link(destination: URL(string: "http://kotakoworks.mods.jp/privacy_policy.html")!) {
-//                                                Text("プライバシーポリシーはこちら")
-//                                                    .padding(.vertical)
-//                                            }
-//                                            Button {
-//                                                ver320.isShowPrivacyPolicy.toggle()
-//                                            } label: {
-//                                                Text("承諾して閉じる")
-//                                                    .fontWeight(.bold)
-//                                            }
-//                                            .buttonStyle(BorderedProminentButtonStyle())
-//                                        }
-//                                        .padding(.horizontal)
-//                                    }
-//                                }
-//                                .padding(.horizontal)
-//                            }
-//                        } else {
-//                            
-//                        }
-//                    }
                 }
-                // 開発用
-//                .onAppear {
-//                    if ver320.isShowPrivacyPolicy == false {
-//                        ver320.isShowPrivacyPolicy.toggle()
-//                    }
-//                }
                 // //// firebaseログ
                 .onAppear {
                     let screenClass = String(describing: Self.self)
@@ -1879,7 +1924,6 @@ struct ContentView: View {
                             Button {
                                 self.appearanceModeRaw = 0
                             } label: {
-//                                Label("システムに合わせる", systemImage: "gearshape")
                                 Label("システムに合わせる", systemImage: self.appearanceModeRaw == 0 ? "checkmark" : "gearshape")
                             }
                             Button {
@@ -1913,16 +1957,6 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "square.stack.3d.down.right")
                         }
-//                        Button {
-//                            common.iconDisplayMode.toggle()
-//                        } label: {
-//                            if common.iconDisplayMode {
-//                                Image(systemName: "list.bullet")
-//                            }
-//                            else {
-//                                Image(systemName: "rectangle.grid.2x2")
-//                            }
-//                        }
                     }
                     ToolbarItem(placement: .automatic) {
                         // お気に入り設定ボタン
@@ -1957,7 +1991,10 @@ struct ContentView: View {
                 .frame(height: currentOrientationAnchoredAdaptiveBanner(width: UIScreen.main.bounds.width).size.height)
             }
         }
-        
+        // リワード広告のロード
+        .onAppear {
+            Task { await rewardViewModel.loadAd() }
+        }
         // キーボードの状態を受け取り
         // ビューが表示されたときに、キーボードの表示/非表示を監視するために NotificationCenter を使用して通知を受け取る設定を行います。
         // onDisappear では通知の登録を解除しています。
@@ -1981,27 +2018,6 @@ struct ContentView: View {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
-//        // //// 起動回数が1以下の場合は初回起動とみなす。ver3.3.0以降の初回起動としてプライバシーポリシーの案内は出さない
-//        .onAppear {
-//            if common.appLaunchCount <= 1 {
-//                ver320.isShowPrivacyPolicy = false
-//            }
-//        }
-        // //// アプリがアクティブになったことを確認してトラッキング許可のポップアップを出す
-//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-//            ATTrackingManager.requestTrackingAuthorization() {_ in
-//                GADMobileAds.sharedInstance().start(completionHandler: nil)
-//            }
-//        }
-//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-//            // トラッキングの許諾ダイアログメッセージを表示
-//            Task {
-//                let result = await ATTrackingManager.requestTrackingAuthorization()
-//                if result == .authorized {
-//                    GADMobileAds.sharedInstance().start(completionHandler: nil)
-//                }
-//            }
-//        }
     }
 }
 
@@ -2020,6 +2036,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 鉄拳６
+                Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
+                // 北斗転生
+                Toggle("北斗 転生の章2", isOn: $favoriteSet.isSelectedFavoriteHokutoTensei)
+                // 無職転生
+                Toggle("無職転生", isOn: $favoriteSet.isSelectedFavoriteMushoten)
                 // 秘宝伝
                 Toggle("秘宝伝", isOn: $favoriteSet.isSelectedFavoriteHihoden)
                 // 化物語
@@ -2184,8 +2206,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()
@@ -2252,5 +2274,6 @@ struct PDFKitView: UIViewRepresentable {
 //        common: commonVar()
     )
     .environmentObject(commonVar())
+    .environmentObject(RewardedViewModel())
 }
 

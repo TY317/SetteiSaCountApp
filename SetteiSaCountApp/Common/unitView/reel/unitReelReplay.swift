@@ -19,7 +19,8 @@ struct unitReelReplay: View {
 //                    .foregroundStyle(Color.personalSummerLightBlue)
                     .foregroundStyle(Color.cyan)
                 Text("R")
-                    .foregroundStyle(Color.white)
+//                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color.reelBack)
                     .fontWeight(.bold)
                     .font(.title2)
                 if self.xmarkBool {

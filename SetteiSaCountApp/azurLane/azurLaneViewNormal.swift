@@ -60,7 +60,7 @@ struct azurLaneViewNormal: View {
                     ) {
                         azurLane.koyakuSumFunc()
                     }
-                    .popoverTip(tipVer3110AzurLaneNormal())
+//                    .popoverTip(tipVer3110AzurLaneNormal())
                     // 弱🍒
                     unitCountButtonWithoutRatioWithFunc(
                         title: "弱🍒",

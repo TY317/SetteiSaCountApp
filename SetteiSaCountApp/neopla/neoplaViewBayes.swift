@@ -48,10 +48,10 @@ struct neoplaViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "ボーナス確率")
                 // ケロットトロフィー
                 DisclosureGroup("ケロットトロフィー") {
-                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅トロフィー")
-                    unitToggleWithQuestion(enable: self.$over4Check, title: "金トロフィー")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄トロフィー")
-                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹トロフィー")
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }
             

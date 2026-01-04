@@ -293,7 +293,7 @@ struct mhrViewHistory: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3110MhrMode())
+//                .popoverTip(tipVer3110MhrMode())
 //                unitLinkButton(
 //                    title: "規定ポイントについて",
 //                    exview: AnyView(

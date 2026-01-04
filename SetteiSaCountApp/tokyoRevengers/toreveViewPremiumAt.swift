@@ -32,7 +32,7 @@ struct toreveViewPremiumAt: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3110ToreveBurst())
+//                .popoverTip(tipVer3110ToreveBurst())
                 
                 // リベンジチャンス
                 if self.selectedKind == self.kindList[0] {

@@ -121,7 +121,7 @@ struct toreveViewNormal: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3110ToreveCommonBell())
+//                .popoverTip(tipVer3110ToreveCommonBell())
                 // 参考情報）レア役からのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
                     VStack {

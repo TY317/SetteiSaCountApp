@@ -285,7 +285,7 @@ struct dmc5ViewFristHit: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3110DmcMode())
+//                .popoverTip(tipVer3110DmcMode())
 //                unitLinkButton(
 //                    title: "通常時のモードについて",
 //                    exview: AnyView(

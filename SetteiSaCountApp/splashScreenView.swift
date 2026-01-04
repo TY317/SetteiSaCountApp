@@ -31,12 +31,14 @@ struct splashScreenView: View {
     private var appearanceMode: AppearanceMode {
         AppearanceMode(rawValue: appearanceModeRaw) ?? .system
     }
+    @StateObject var rewardViewModel = RewardedViewModel()
     var body: some View {
         if isActive {
 //            ContentView(common: common)
             ContentView()
                 .environmentObject(common)
                 .preferredColorScheme(appearanceMode.colorScheme)
+                .environmentObject(rewardViewModel)
         } else {
             ZStack {
                 Image("splashLogo2")
@@ -51,16 +53,26 @@ struct splashScreenView: View {
                             self.opsity = 1.0
                         }
                         common.appLaunchCountUp()
+                        // ----- リリース前にコメントアウト！！！
+//                        common.firstLaunchAppVersion = nil
 //                        common.lastLaunchAppVersion = nil
-//                        common.lastLaunchAppVersion = "3.14.0"
-                        common.ver3100FirstLaunch()
-                        common.ver3110FirstLaunch()
-                        common.ver3120FirstLaunch()
+                        common.lastLaunchAppVersion = "3.15.0"
+                        // --------------------------------
+//                        common.ver3100FirstLaunch()
+//                        common.ver3110FirstLaunch()
+//                        common.ver3120FirstLaunch()
                         common.ver3130FirstLaunch()
                         common.ver3131FirstLaunch()
                         common.ver3140FirstLaunch()
                         common.ver3150FirstLaunch()
+                        common.ver3160FirstLaunch()
                         common.saveAppVersions()
+                        
+                        // ---- リリース前にコメントアウト！！
+//                        common.hokutoTenseiisUnlocked = true
+//                        common.tekken6isUnlocked = true
+//                        common.mushotenisUnlocked = true
+                        // -----------------------------
                     }
             }
             .onAppear {

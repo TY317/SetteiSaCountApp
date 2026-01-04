@@ -112,7 +112,7 @@ struct azurLaneViewScreen: View {
                     }
                 }
                 .frame(height: 155)
-                .popoverTip(tipVer3110AzurLaneScreen())
+//                .popoverTip(tipVer3110AzurLaneScreen())
                 
                 // //// カウント結果
                 ForEach(self.lowerBeltTextList.indices, id: \.self) { index in
