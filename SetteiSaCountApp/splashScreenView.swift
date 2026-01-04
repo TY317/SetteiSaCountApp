@@ -56,7 +56,7 @@ struct splashScreenView: View {
                         // ----- リリース前にコメントアウト！！！
 //                        common.firstLaunchAppVersion = nil
 //                        common.lastLaunchAppVersion = nil
-                        common.lastLaunchAppVersion = "3.15.0"
+//                        common.lastLaunchAppVersion = "3.15.0"
                         // --------------------------------
 //                        common.ver3100FirstLaunch()
 //                        common.ver3110FirstLaunch()
@@ -68,11 +68,6 @@ struct splashScreenView: View {
                         common.ver3160FirstLaunch()
                         common.saveAppVersions()
                         
-                        // ---- リリース前にコメントアウト！！
-//                        common.hokutoTenseiisUnlocked = true
-//                        common.tekken6isUnlocked = true
-//                        common.mushotenisUnlocked = true
-                        // -----------------------------
                     }
             }
             .onAppear {
