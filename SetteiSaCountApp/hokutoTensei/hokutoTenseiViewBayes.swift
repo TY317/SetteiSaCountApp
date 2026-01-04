@@ -46,7 +46,7 @@ struct hokutoTenseiViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // AT初当り確率
-                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "闘神演舞 初当り確率")
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")

@@ -15,7 +15,8 @@ struct hokutoTenseiView95Ci: View {
         TabView(selection: self.$selection) {
             // 初当り回数
             unitListSection95Ci(
-                grafTitle: "AT初当り回数",
+                grafTitle: "闘神演舞 初当り回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $hokutoTensei.firstHitCountAt,
