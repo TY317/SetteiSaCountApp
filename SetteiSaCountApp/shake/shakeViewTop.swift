@@ -30,13 +30,24 @@ struct shakeViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: shakeViewNormal(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.shakeMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: shakeView95Ci(
-//                    shake: shake,
-//                    selection: 1,
+                    shake: shake,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
