@@ -78,6 +78,29 @@ class Shake: ObservableObject {
     }
     
     // -----------
+    // BT
+    // -----------
+    let ratioJackEnd: [Double] = [50,57,45,60]
+    let ratioJackContinue: [Double] = [47.5,40.5,52.5,37.5]
+    let ratioJackSpecial: [Double] = [2.5,2.5,2.5,2.5]
+    @AppStorage("shakeJacCountEnd") var jacCountEnd: Int = 0
+    @AppStorage("shakeJacCountContinue") var jacCountContinue: Int = 0
+    @AppStorage("shakeJacCountSpecial") var jacCountSpecial: Int = 0
+    @AppStorage("shakeJacCountSum") var jacCountSum: Int = 0
+    
+    func jackSumFunc() {
+        jacCountSum = jacCountEnd + jacCountContinue + jacCountSpecial
+    }
+    
+    func resetBt() {
+        jacCountEnd = 0
+        jacCountContinue = 0
+        jacCountSpecial = 0
+        jacCountSum = 0
+        minusCheck = false
+    }
+    
+    // -----------
     // 共通
     // -----------
     let machineName: String = "シェイクBT"
@@ -87,5 +110,6 @@ class Shake: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetBt()
     }
 }

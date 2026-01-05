@@ -198,6 +198,7 @@ class commonVar: ObservableObject {
     @AppStorage("shakeMenuFirstHitBadge") var shakeMenuFirstHitBadge: String = "none"
     @AppStorage("shakeMenuRegBadge") var shakeMenuRegBadge: String = "none"
     @AppStorage("shakeMenuScreenBadge") var shakeMenuScreenBadge: String = "none"
+    @AppStorage("shakeMenuBtBadge") var shakeMenuBtBadge: String = "none"
     
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"

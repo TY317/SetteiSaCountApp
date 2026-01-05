@@ -15,6 +15,7 @@ struct shakeViewBayes: View {
     let payoutList: [Double] = [98.6, 100.6, 103.0, 106.1]
     @State var firstHitEnable: Bool = true
     @State var idenBonusEnable: Bool = true
+    @State var jacEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -59,6 +60,8 @@ struct shakeViewBayes: View {
                         textBody1: "・🍉＋ナディアBIG、🔔＋REG、特殊役I＋ボーナスの確率を計算要素に加えます"
                     )
                 }
+                // JAC種類の割合
+                unitToggleWithQuestion(enable: self.$jacEnable, title: "JAC種類の割合")
                 // コパンダトロフィー
                 DisclosureGroup("ギンちゃんトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -154,6 +157,19 @@ struct shakeViewBayes: View {
                 ], bigNumber: shake.gameNumberPlay
             )
         }
+        // JAC
+        var logPostJac: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.jacEnable {
+            logPostJac = logPostPercentMulti(
+                countList: [
+                    shake.jacCountEnd,
+                    shake.jacCountContinue,
+                ], ratioList: [
+                    shake.ratioJackEnd,
+                    shake.ratioJackContinue,
+                ], bigNumber: shake.jacCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -180,6 +196,7 @@ struct shakeViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
             logPostIdenBonus,
+            logPostJac,
             
             logPostTrophy,
             logPostBefore,

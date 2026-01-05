@@ -55,6 +55,24 @@ struct shakeViewTop: View {
                             badgeStatus: common.shakeMenuFirstHitBadge,
                         )
                     }
+                    
+                    // BT
+                    NavigationLink(destination: shakeViewBt(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left",
+                            textBody: "BT中",
+                            badgeStatus: common.shakeMenuBtBadge,
+                        )
+                    }
+                    
+                    // トロフィー
+                    NavigationLink(destination: commonViewKopandaTrophy()) {
+                        unitLabelMenu(imageSystemName: "trophy.fill", textBody: "コパンダトロフィー")
+                    }
                 }
                 
                 // 設定推測グラフ

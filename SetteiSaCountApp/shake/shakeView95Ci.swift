@@ -201,6 +201,27 @@ struct shakeView95Ci: View {
                 )
             )
             .tag(9)
+            
+            // 継続JAC 回数
+            unitListSection95Ci(
+                grafTitle: "継続JAC回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shake.jacCountContinue,
+                        bigNumber: $shake.jacCountSum,
+                        setting1Percent: shake.ratioJackContinue[0],
+                        setting2Percent: shake.ratioJackContinue[1],
+                        setting3Enable: false,
+                        setting3Percent: -1,
+                        setting4Enable: false,
+                        setting4Percent: -1,
+                        setting5Percent: shake.ratioJackContinue[2],
+                        setting6Percent: shake.ratioJackContinue[3]
+                    )
+                )
+            )
+            .tag(10)
         }
         // //// firebaseログ
         .onAppear {
