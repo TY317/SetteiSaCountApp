@@ -75,6 +75,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
     @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
     @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
+    @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteShake = true
 }
 
 
@@ -106,7 +107,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3160UpdateInfo())
+                TipView(tipVer3170UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -283,6 +284,23 @@ struct ContentView: View {
                                         iconImage: Image("vvv2MachineIcon"),
                                         machineName: "ヴヴヴ2",
                                         badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// シェイクBT、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShake == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(shakeViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shakeMachineIcon"),
+                                        machineName: "シェイク",
+                                        isUnLocked: $common.shakeisUnlocked,
+                                        badgeStatus: common.shakeMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -1105,6 +1123,26 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 11,
                                         badgeStatus: common.vvv2MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// シェイクBT、25年10月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShake == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(shakeViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shakeMachineIcon"),
+                                        machineName: "シェイクBT",
+                                        makerName: "大都技研",
+                                        releaseYear: 2025,
+                                        releaseMonth: 10,
+                                        isUnLocked: $common.shakeisUnlocked,
+                                        badgeStatus: common.shakeMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -2052,6 +2090,8 @@ struct favoriteSettingView: View {
                 Toggle("とある科学の超電磁砲2", isOn: $favoriteSet.isSelectedFavoriteRailgun)
                 // vvv2
                 Toggle("革命機ヴァルヴレイヴ2", isOn: $favoriteSet.isSelectedFavoriteVvv2)
+                // シェイクBT
+                Toggle("シェイクBT", isOn: $favoriteSet.isSelectedFavoriteShake)
                 // 新鬼武者３
                 Toggle("新鬼武者3", isOn: $favoriteSet.isSelectedFavoriteNewOni3)
                 // 銭形５
