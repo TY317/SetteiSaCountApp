@@ -51,4 +51,17 @@ class Bayes: ObservableObject {
     @AppStorage("bayesGuess5Custom2Key") var guess5Custom2JSON: String = "[1,1,1,1,1]"
     @AppStorage("bayesGuess5Custom3Key") var guess5Custom3JSON: String = "[1,1,1,1,1]"
     
+    // //// 事前確率_設定4段階
+    let guess4Default: [Int] = [75,23,1,1]
+    let guess4JugDefault: [Int] = [45,52,2,1]
+    let guess4Evenly: [Int] = [1,1,1,1]
+    let guess4Half: [Int] = [35,15,35,15]
+    let guess4Quater: [Int] = [50,25,15,10]
+    let guess4Custom1Key = "bayesGuess4Custom1Key"
+    let guess4Custom2Key = "bayesGuess4Custom2Key"
+    let guess4Custom3Key = "bayesGuess4Custom3Key"
+    @AppStorage("bayesGuess4Custom1Key") var guess4Custom1JSON: String = "[1,1,1,1]"
+    @AppStorage("bayesGuess4Custom2Key") var guess4Custom2JSON: String = "[1,1,1,1]"
+    @AppStorage("bayesGuess4Custom3Key") var guess4Custom3JSON: String = "[1,1,1,1]"
+    
 }

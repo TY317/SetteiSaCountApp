@@ -20,6 +20,7 @@
 		0F03BD3B2F0B96DA00222339 /* unitTableDenominate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7E12D831C05003F5563 /* unitTableDenominate.swift */; };
 		0F03BD3D2F0B975000222339 /* shakeTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD3C2F0B975000222339 /* shakeTableKoyakuPattern.swift */; };
 		0F03BD3E2F0B98A400222339 /* shakeTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD3C2F0B975000222339 /* shakeTableKoyakuPattern.swift */; };
+		0F03BD402F0B9F8100222339 /* shakeViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD3F2F0B9F8100222339 /* shakeViewFirstHit.swift */; };
 		0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */; };
 		0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */; };
 		0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */; };
@@ -1275,6 +1276,7 @@
 		0F03BD352F0B8FE900222339 /* shakeViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewNormal.swift; sourceTree = "<group>"; };
 		0F03BD372F0B961200222339 /* shakeTableKoyakuRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeTableKoyakuRatio.swift; sourceTree = "<group>"; };
 		0F03BD3C2F0B975000222339 /* shakeTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0F03BD3F2F0B9F8100222339 /* shakeViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewFirstHit.swift; sourceTree = "<group>"; };
 		0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunViewDuringAt.swift; sourceTree = "<group>"; };
 		0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
@@ -2536,6 +2538,7 @@
 				0F03BD352F0B8FE900222339 /* shakeViewNormal.swift */,
 				0F03BD372F0B961200222339 /* shakeTableKoyakuRatio.swift */,
 				0F03BD3C2F0B975000222339 /* shakeTableKoyakuPattern.swift */,
+				0F03BD3F2F0B9F8100222339 /* shakeViewFirstHit.swift */,
 			);
 			path = shake;
 			sourceTree = "<group>";
@@ -6035,6 +6038,7 @@
 				0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */,
 				0F8935842E21F03900BF6FBE /* tokyoGhoulTableReplayAtHit.swift in Sources */,
 				0F815FDC2E3DA6BB0086127D /* guiltyCrown2ViewAt.swift in Sources */,
+				0F03BD402F0B9F8100222339 /* shakeViewFirstHit.swift in Sources */,
 				0F868AA12D57945C00D952D9 /* mrJugVer2View95CiStart.swift in Sources */,
 				0F64DD8E2DC5C6470027315D /* happyJugV3SubViewCountInput.swift in Sources */,
 				0F815FC72E360A280086127D /* darlingTableKoyakuPattern.swift in Sources */,

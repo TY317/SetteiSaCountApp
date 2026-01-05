@@ -42,6 +42,19 @@ struct shakeViewTop: View {
                             badgeStatus: common.shakeMenuNormalBadge,
                         )
                     }
+                    
+                    // 初当り
+                    NavigationLink(destination: shakeViewFirstHit(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.shakeMenuFirstHitBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
@@ -57,9 +70,9 @@ struct shakeViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: shakeViewBayes(
-//                    shake: shake,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    shake: shake,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",

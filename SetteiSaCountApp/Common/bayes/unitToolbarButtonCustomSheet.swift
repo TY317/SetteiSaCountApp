@@ -41,7 +41,6 @@ struct unitToolbarButtonCustomSheet: View {
                         ForEach(self.settingList.indices, id: \.self) { index in
                             HStack {
                                 Text("設定\(self.settingList[index]): ")
-//                                Stepper(value: self.bindingGuess()[index], in: 0...999) {
                                 if bindingGuess().indices.contains(index) {
                                     Stepper {
                                         HStack {
@@ -56,7 +55,6 @@ struct unitToolbarButtonCustomSheet: View {
                                                 .frame(maxWidth: .infinity, alignment: .center)
                                         }
                                     } onIncrement: {
-//                                        self.selectGuess()[index] += 1
                                         if self.selectedCustom == self.customList[0] {
                                             self.guessCustom1[index] += 1
                                         } else if self.selectedCustom == self.customList[1] {
@@ -67,7 +65,6 @@ struct unitToolbarButtonCustomSheet: View {
                                         UINotificationFeedbackGenerator().notificationOccurred(.success)
                                     } onDecrement: {
                                         if self.selectGuess()[index] > 0 {
-//                                            self.selectGuess()[index] -= 1
                                             if self.selectedCustom == self.customList[0] {
                                                 self.guessCustom1[index] -= 1
                                             } else if self.selectedCustom == self.customList[1] {
@@ -78,23 +75,6 @@ struct unitToolbarButtonCustomSheet: View {
                                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                                         }
                                     }
-
-//                                    Stepper(
-//                                        value: bindingGuess()[index],
-//                                        in: 0...999,
-//                                    ) {
-//                                        HStack {
-//                                            let total: Int = self.selectGuess().reduce(0, +)
-//                                            let guess: Double = Double(self.selectGuess()[index]) / Double(total) * 100
-//                                            Text("\(self.selectGuess()[index])")
-//                                                .font(.title2)
-//                                                .fontWeight(.bold)
-//                                                .frame(maxWidth: .infinity, alignment: .center)
-//                                                .offset(x: 20)
-//                                            Text("(\(guess, specifier: "%.1f")%)")
-//                                                .frame(maxWidth: .infinity, alignment: .center)
-//                                        }
-//                                    }
                                 }
                             }
                         }
@@ -115,8 +95,17 @@ struct unitToolbarButtonCustomSheet: View {
                                 bayes.guess5Custom3JSON = str
                             }
                         }
+                        // 4段階設定の場合
+                        if self.settingList.count == 4 {
+                            if self.selectedCustom == self.customList[0] {
+                                bayes.guess4Custom1JSON = str
+                            } else if self.selectedCustom == self.customList[1] {
+                                bayes.guess4Custom2JSON = str
+                            } else {
+                                bayes.guess4Custom3JSON = str
+                            }
+                        }
                         // 6段階設定の場合
-//                        if self.settingList == [1,2,3,4,5,6] {
                         else {
                             if self.selectedCustom == self.customList[0] {
                                 bayes.guess6Custom1JSON = str
@@ -127,8 +116,6 @@ struct unitToolbarButtonCustomSheet: View {
                             }
                         }
                     }
-                    // バイブレーションさせる
-//                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                 }
                 // //// ツールバー閉じるボタン
                 .toolbar {
@@ -144,16 +131,9 @@ struct unitToolbarButtonCustomSheet: View {
                 // //// 選択されているパターンが最初に表示されるようにしておく
                 // //// カスタム以外が選択されていたらカスタム１
                 .onAppear {
-                    // カスタム配分を配列にしとく
-//                    self.guessCustom1 = decodeIntArrayFromString(stringData: bayes.guess6Custom1JSON)
-//                    self.guessCustom2 = decodeIntArrayFromString(stringData: bayes.guess6Custom2JSON)
-//                    self.guessCustom3 = decodeIntArrayFromString(stringData: bayes.guess6Custom3JSON)
-                    
                     // パターンの選択状態に合わせて表示の初期値を変更
-//                    if bayes.selectedBeforeGuessPattern == self.customList[1] {
                     if self.selectedBeforeGuessPattern == self.customList[1] {
                         self.selectedCustom = self.customList[1]
-//                    } else if bayes.selectedBeforeGuessPattern == self.customList[2] {
                     } else if self.selectedBeforeGuessPattern == self.customList[2] {
                         self.selectedCustom = self.customList[2]
                     } else {
