@@ -56,6 +56,19 @@ struct shakeViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: shakeViewReg(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "message.fill",
+                            textBody: "REG中",
+                            badgeStatus: common.shakeMenuRegBadge,
+                        )
+                    }
+                    
                     // BT
                     NavigationLink(destination: shakeViewBt(
                         shake: shake,

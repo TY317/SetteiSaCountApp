@@ -24,6 +24,7 @@
 		0F03BD422F0BD7BB00222339 /* shakeViewBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD412F0BD7BB00222339 /* shakeViewBt.swift */; };
 		0F03BD442F0BDA8E00222339 /* shakeTableBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD432F0BDA8E00222339 /* shakeTableBt.swift */; };
 		0F03BD452F0BDA9B00222339 /* shakeTableBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD432F0BDA8E00222339 /* shakeTableBt.swift */; };
+		0F03BD472F0BE07C00222339 /* shakeViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD462F0BE07C00222339 /* shakeViewReg.swift */; };
 		0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */; };
 		0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */; };
 		0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */; };
@@ -1282,6 +1283,7 @@
 		0F03BD3F2F0B9F8100222339 /* shakeViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewFirstHit.swift; sourceTree = "<group>"; };
 		0F03BD412F0BD7BB00222339 /* shakeViewBt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewBt.swift; sourceTree = "<group>"; };
 		0F03BD432F0BDA8E00222339 /* shakeTableBt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeTableBt.swift; sourceTree = "<group>"; };
+		0F03BD462F0BE07C00222339 /* shakeViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewReg.swift; sourceTree = "<group>"; };
 		0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunViewDuringAt.swift; sourceTree = "<group>"; };
 		0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
@@ -2546,6 +2548,7 @@
 				0F03BD3F2F0B9F8100222339 /* shakeViewFirstHit.swift */,
 				0F03BD412F0BD7BB00222339 /* shakeViewBt.swift */,
 				0F03BD432F0BDA8E00222339 /* shakeTableBt.swift */,
+				0F03BD462F0BE07C00222339 /* shakeViewReg.swift */,
 			);
 			path = shake;
 			sourceTree = "<group>";
@@ -5566,6 +5569,7 @@
 				0FF3691C2E5B0384002BE0CE /* azurLaneTableKoyakuPattern.swift in Sources */,
 				0F45A5EF2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0F868AB42D583AE400D952D9 /* funky2Ver2View95CiTotal.swift in Sources */,
+				0F03BD472F0BE07C00222339 /* shakeViewReg.swift in Sources */,
 				0FA024792CF4999A004B3FD5 /* rezero2View95Ci.swift in Sources */,
 				0FB209872E189A1D0029D940 /* izaBanchoTableKatanaAtHit.swift in Sources */,
 				0F868A602D47BF0300D952D9 /* draHanaSenkohVer2View95CiStart.swift in Sources */,

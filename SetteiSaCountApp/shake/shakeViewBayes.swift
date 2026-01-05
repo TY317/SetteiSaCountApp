@@ -16,6 +16,7 @@ struct shakeViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var idenBonusEnable: Bool = true
     @State var jacEnable: Bool = true
+    @State var voiceEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -58,6 +59,13 @@ struct shakeViewBayes: View {
                     unitExView5body2image(
                         title: "特定契機のボーナス確率",
                         textBody1: "・🍉＋ナディアBIG、🔔＋REG、特殊役I＋ボーナスの確率を計算要素に加えます"
+                    )
+                }
+                // REG中のボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "REG中のボイス") {
+                    unitExView5body2image(
+                        title: "REG中のボイス",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
                 // JAC種類の割合
@@ -157,6 +165,14 @@ struct shakeViewBayes: View {
                 ], bigNumber: shake.gameNumberPlay
             )
         }
+        // ボイス
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            if shake.voiceCountOver5 > 0 {
+                logPostVoice[0] = -Double.infinity
+                logPostVoice[1] = -Double.infinity
+            }
+        }
         // JAC
         var logPostJac: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.jacEnable {
@@ -196,6 +212,7 @@ struct shakeViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
             logPostIdenBonus,
+            logPostVoice,
             logPostJac,
             
             logPostTrophy,

@@ -77,6 +77,36 @@ class Shake: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // REG
+    // --------
+    @AppStorage("shakeVoiceCountDefault") var voiceCountDefault: Int = 0
+    @AppStorage("shakeVoiceCountHighJaku") var voiceCountHighJaku: Int = 0
+    @AppStorage("shakeVoiceCountHighChu") var voiceCountHighChu: Int = 0
+    @AppStorage("shakeVoiceCountHighKyo") var voiceCountHighKyo: Int = 0
+    @AppStorage("shakeVoiceCountOver5") var voiceCountOver5: Int = 0
+    @AppStorage("shakeVoiceCountSum") var voiceCountSum: Int = 0
+    
+    func voiceSumFunc() {
+        voiceCountSum = countSum(
+            voiceCountDefault,
+            voiceCountHighJaku,
+            voiceCountHighChu,
+            voiceCountHighKyo,
+            voiceCountOver5,
+        )
+    }
+    
+    func resetReg() {
+        voiceCountDefault = 0
+        voiceCountHighJaku = 0
+        voiceCountHighChu = 0
+        voiceCountHighKyo = 0
+        voiceCountOver5 = 0
+        voiceCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // BT
     // -----------
@@ -110,6 +140,7 @@ class Shake: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetReg()
         resetBt()
     }
 }
