@@ -82,6 +82,19 @@ struct shakeViewTop: View {
                         )
                     }
                     
+                    // BT
+                    NavigationLink(destination: shakeViewScreen(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "BIG終了画面",
+                            badgeStatus: common.shakeMenuScreenBadge,
+                        )
+                    }
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(imageSystemName: "trophy.fill", textBody: "コパンダトロフィー")

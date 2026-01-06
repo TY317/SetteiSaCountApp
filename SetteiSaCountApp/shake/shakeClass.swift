@@ -130,6 +130,42 @@ class Shake: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // BIG終了画面
+    // ----------
+    @AppStorage("shakeScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("shakeScreenCountHighJaku") var screenCountHighJaku: Int = 0
+    @AppStorage("shakeScreenCountHighChu") var screenCountHighChu: Int = 0
+    @AppStorage("shakeScreenCountHighKyo") var screenCountHighKyo: Int = 0
+    @AppStorage("shakeScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("shakeScreenCountOver1000") var screenCountOver1000: Int = 0
+    @AppStorage("shakeScreenCountOver1500") var screenCountOver1500: Int = 0
+    @AppStorage("shakeScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountHighJaku,
+            screenCountHighChu,
+            screenCountHighKyo,
+            screenCountOver6,
+            screenCountOver1000,
+            screenCountOver1500,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountHighJaku = 0
+        screenCountHighChu = 0
+        screenCountHighKyo = 0
+        screenCountOver6 = 0
+        screenCountOver1000 = 0
+        screenCountOver1500 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -142,5 +178,6 @@ class Shake: ObservableObject {
         resetFirstHit()
         resetReg()
         resetBt()
+        resetScreen()
     }
 }

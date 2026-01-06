@@ -17,6 +17,7 @@ struct shakeViewBayes: View {
     @State var idenBonusEnable: Bool = true
     @State var jacEnable: Bool = true
     @State var voiceEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -70,6 +71,13 @@ struct shakeViewBayes: View {
                 }
                 // JAC種類の割合
                 unitToggleWithQuestion(enable: self.$jacEnable, title: "JAC種類の割合")
+                // BIG終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "BIG終了画面") {
+                    unitExView5body2image(
+                        title: "BIG終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // コパンダトロフィー
                 DisclosureGroup("ギンちゃんトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -186,6 +194,15 @@ struct shakeViewBayes: View {
                 ], bigNumber: shake.jacCountSum
             )
         }
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if shake.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -214,6 +231,7 @@ struct shakeViewBayes: View {
             logPostIdenBonus,
             logPostVoice,
             logPostJac,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,
