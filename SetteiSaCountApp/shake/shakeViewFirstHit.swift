@@ -258,6 +258,7 @@ struct shakeViewFirstHit: View {
             } header: {
                 Text("特定契機のボーナス確率")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.shakeMenuFirstHitBadge)

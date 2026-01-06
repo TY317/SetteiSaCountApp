@@ -275,6 +275,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 shakeisUnlocked = false
                 shakeMachineIconBadge = "new"
+                railgunMachineIconBadge = "update"
+                railgunMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

@@ -21,3 +21,19 @@ struct tipVer3170UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+
+// //////////////////
+// Tip：レールガン　エピボ直撃
+// //////////////////
+struct tipVer3170railgunEpisode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("エピソードボーナス直撃当選率の設定差が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
