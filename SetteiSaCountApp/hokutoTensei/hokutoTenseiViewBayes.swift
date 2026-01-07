@@ -14,6 +14,7 @@ struct hokutoTenseiViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.6, 98.4, 100.7, 106.2, 111.1, 114.9]
     @State var firstHitAtEnable: Bool = true
+    @State var lampEnable: Bool = true
     
     
     // 全機種共通
@@ -45,6 +46,13 @@ struct hokutoTenseiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 100Gごとのランプ示唆
+                unitToggleWithQuestion(enable: self.$lampEnable, title: "100Gごとのランプ示唆") {
+                    unitExView5body2image(
+                        title: "100Gごとのランプ示唆",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "闘神演舞 初当り確率")
                 // サミートロフィー
@@ -116,6 +124,25 @@ struct hokutoTenseiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 100Gごとのランプ示唆
+        var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.lampEnable {
+            if hokutoTensei.lampCountOver2 > 0 {
+                logPostLamp[0] = -Double.infinity
+            }
+            if hokutoTensei.lampCountOver4 > 0 {
+                logPostLamp[0] = -Double.infinity
+                logPostLamp[1] = -Double.infinity
+                logPostLamp[2] = -Double.infinity
+            }
+            if hokutoTensei.lampCountOver6 > 0 {
+                logPostLamp[0] = -Double.infinity
+                logPostLamp[1] = -Double.infinity
+                logPostLamp[2] = -Double.infinity
+                logPostLamp[3] = -Double.infinity
+                logPostLamp[4] = -Double.infinity
+            }
+         }
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -162,6 +189,7 @@ struct hokutoTenseiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostLamp,
             logPostFirstHitAt,
             
             logPostTrophy,

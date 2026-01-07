@@ -35,6 +35,46 @@ class HokutoTensei: ObservableObject {
     func resetAll() {
         resetFirstHit()
     }
+    
+    // -----------
+    // ver3.17.0で追加
+    // -----------
+    // 示唆ランプ
+    @AppStorage("hokutoTenseiLampCountNone") var lampCountNone: Int = 0
+    @AppStorage("hokutoTenseiLampCount24Sisa") var lampCount24Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCount35Sisa") var lampCount35Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighjaku") var lampCountHighjaku: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighKyo") var lampCountHighKyo: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver2") var lampCountOver2: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver4") var lampCountOver4: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver6") var lampCountOver6: Int = 0
+    @AppStorage("hokutoTenseiLampCountSum") var lampCountSum: Int = 0
+    
+    func lampSumFunc() {
+        lampCountSum = countSum(
+            lampCountNone,
+            lampCount24Sisa,
+            lampCount35Sisa,
+            lampCountHighjaku,
+            lampCountHighKyo,
+            lampCountOver2,
+            lampCountOver4,
+            lampCountOver6,
+        )
+    }
+    
+    func resetNormal() {
+        lampCountNone = 0
+        lampCount24Sisa = 0
+        lampCount35Sisa = 0
+        lampCountHighjaku = 0
+        lampCountHighKyo = 0
+        lampCountOver2 = 0
+        lampCountOver4 = 0
+        lampCountOver6 = 0
+        lampCountSum = 0
+        minusCheck = false
+    }
 }
 
 

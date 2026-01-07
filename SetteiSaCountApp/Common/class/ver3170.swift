@@ -37,3 +37,35 @@ struct tipVer3170railgunEpisode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：北斗転生　ランプ示唆詳細
+// //////////////////
+struct tipVer3170hokutTenseiLampSisa: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("100Gごとランプの示唆が判明\nカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：北斗転生　ランプ示唆詳細
+// //////////////////
+struct tipVer3170hokutTenseiBayes: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・100Gごとランプの示唆\nを追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
