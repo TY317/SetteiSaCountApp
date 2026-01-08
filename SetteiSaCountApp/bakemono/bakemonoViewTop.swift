@@ -111,6 +111,7 @@ struct bakemonoViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
+                        badgeStatus: common.bakemonoMenuBayesBadge,
                     )
                 }
                 

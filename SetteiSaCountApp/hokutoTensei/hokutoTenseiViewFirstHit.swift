@@ -263,6 +263,7 @@ struct hokutoTenseiViewFirstHit: View {
                     column3: "期待度◯以上",
                 )
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.hokutoTenseiMenuFirstHitBadge)

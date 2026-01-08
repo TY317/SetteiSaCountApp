@@ -85,3 +85,34 @@ struct tipVer3170hokutTenseiAbeshiHistory: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：化物語　スイカ確率
+// //////////////////
+struct tipVer3170bakemonoSuikaRatio: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("・スイカ確率の詳細が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：化物語　ベイズ
+// //////////////////
+struct tipVer3170bakemonoBayes: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・スイカ確率を計算要素に追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
