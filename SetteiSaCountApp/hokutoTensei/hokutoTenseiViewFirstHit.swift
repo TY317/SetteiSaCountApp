@@ -14,6 +14,17 @@ struct hokutoTenseiViewFirstHit: View {
     @EnvironmentObject var common: commonVar
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 300.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 300.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {
@@ -82,6 +93,176 @@ struct hokutoTenseiViewFirstHit: View {
                     viewModel: viewModel,
                 )
             }
+            
+            // あべし登録
+            Section {
+                // ゲーム数入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "規定あべし",
+                    inputValue: $hokutoTensei.inputGame,
+                    unitText: "あべし",
+                )
+                .focused($isFocused)
+                .popoverTip(tipVer3170hokutTenseiAbeshiHistory())
+                // //// 登録ボタン
+                Button {
+                    // マイナスチェック入っていれば1行削除
+                    if hokutoTensei.minusCheck {
+                        hokutoTensei.removeLastHistory()
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                    }
+                    // 入っていなければデータ登録
+                    else {
+                        hokutoTensei.addHistory()
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        if hokutoTensei.minusCheck == false {
+                            Text("登録")
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.blue)
+                        } else {
+                            Text("1行削除")
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.red)
+                        }
+                        Spacer()
+                    }
+                }
+            } header: {
+                HStack {
+                    Text("規定あべし登録")
+                    unitToolbarButtonQuestion {
+                        unitExView5body2image(
+                            title: "規定あべし",
+                            textBody1: "・規定あべし到達ごとに登録して下さい",
+                            textBody2: "・期待度◯以上は期待度テーブルで◯以上となっているモードを参考として自動表示します",
+                        )
+                    }
+                }
+            }
+            
+            // あべし履歴
+            Section {
+                ScrollView {
+                    // //// 配列のデータ数が0以上なら履歴表示
+                    let gameArray = decodeIntArray(from: hokutoTensei.gameArrayData)
+                    if gameArray.count > 0 {
+                        ForEach(gameArray.indices, id: \.self) { index in
+                            let viewIndex = gameArray.count - index - 1
+                            HStack {
+                                // ゲーム数
+                                if gameArray.indices.contains(viewIndex) {
+                                    // あべし
+                                    Text("\(gameArray[viewIndex])")
+                                        .lineLimit(1)
+                                        .frame(maxWidth: .infinity)
+                                    
+                                    // 期待度◯以上ゾーン
+                                    // 128以下
+                                    if gameArray[viewIndex] <= 128 {
+                                        Text("天国")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 129-192
+                                    else if gameArray[viewIndex] <= 192 {
+                                        Text("ー")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 193-256
+                                    else if gameArray[viewIndex] <= 256 {
+                                        Text("A、B、C")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 257-320
+                                    else if gameArray[viewIndex] <= 320 {
+                                        Text("ー")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 321-384
+                                    else if gameArray[viewIndex] <= 384 {
+                                        Text("B")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 385-512
+                                    else if gameArray[viewIndex] <= 512 {
+                                        Text("ー")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 513-576
+                                    else if gameArray[viewIndex] <= 576 {
+                                        Text("A、C天井")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 577-704
+                                    else if gameArray[viewIndex] <= 704 {
+                                        Text("ー")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 705-768
+                                    else if gameArray[viewIndex] <= 768 {
+                                        Text("B")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 769-832
+                                    else if gameArray[viewIndex] <= 832 {
+                                        Text("ー")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 833-896
+                                    else if gameArray[viewIndex] <= 896 {
+                                        Text("A、B天井")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // 897以上
+                                    else {
+                                        Text("(A 濃厚)")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                }
+                            }
+                            Divider()
+                        }
+                    }
+                    
+                    // //// 配列のデータ数が0なら履歴なしを表示
+                    else {
+                        HStack {
+                            Spacer()
+                            Text("履歴なし")
+                                .font(.title)
+                            Spacer()
+                        }
+                        .padding(.top)
+                    }
+                    
+                }
+                .frame(height: self.scrollViewHeight)
+                
+                // 参考情報）あべし期待度テーブル
+                unitLinkButtonViewBuilder(sheetTitle: "あべし期待度テーブル") {
+                    hokutoTenseiTableAbeshi()
+                }
+            } header: {
+                unitHeaderHistoryColumnsWithoutTimes(
+                    column2: "規定あべし",
+                    column3: "期待度◯以上",
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.hokutoTenseiMenuFirstHitBadge)
@@ -93,6 +274,20 @@ struct hokutoTenseiViewFirstHit: View {
                 screenClass: screenClass
             )
         }
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック

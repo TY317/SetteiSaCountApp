@@ -69,3 +69,19 @@ struct tipVer3170hokutTenseiBayes: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：北斗転生　あべし履歴
+// //////////////////
+struct tipVer3170hokutTenseiAbeshiHistory: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・規定あべしの履歴メモ機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

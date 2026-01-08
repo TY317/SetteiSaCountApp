@@ -23,6 +23,7 @@ class HokutoTensei: ObservableObject {
         firstHitCountAt = 0
         firstHitCountTenha = 0
         minusCheck = false
+        resetHistory()
     }
     
     // -----------
@@ -74,6 +75,26 @@ class HokutoTensei: ObservableObject {
         lampCountOver6 = 0
         lampCountSum = 0
         minusCheck = false
+    }
+    
+    // あべし履歴
+    @AppStorage("hokutoTenseiInputGame") var inputGame: Int = 0
+    // ゲーム数配列
+    let gameArrayKey: String = "hokutoTenseiGameArrayKey"
+    @AppStorage("hokutoTenseiGameArrayKey") var gameArrayData: Data?
+    
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+    }
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+    }
+    
+    func resetHistory() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
     }
 }
 

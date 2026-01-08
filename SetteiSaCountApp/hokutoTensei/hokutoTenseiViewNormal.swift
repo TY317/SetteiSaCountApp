@@ -52,6 +52,10 @@ struct hokutoTenseiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     hokutoTenseiTableMode()
                 }
+                // 参考情報）あべし期待度テーブル
+                unitLinkButtonViewBuilder(sheetTitle: "あべし期待度テーブル") {
+                    hokutoTenseiTableAbeshi()
+                }
             } header: {
                 Text("通常時のモード")
             }
@@ -64,7 +68,7 @@ struct hokutoTenseiViewNormal: View {
                 // サークルピッカー
                 VStack {
                     Text("[上部中央ランプ]")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .center)
                     HStack {
                         Picker("[上部中央ランプ]", selection: self.$selectedItem) {
                             ForEach(self.selectList, id: \.self) { item in
@@ -75,6 +79,7 @@ struct hokutoTenseiViewNormal: View {
                         .frame(height: 150)
                     }
                 }
+                .popoverTip(tipVer3170hokutTenseiLampSisa())
                 
                 // 示唆＆登録ボタン
                 unitCountSubmitWithResult(
