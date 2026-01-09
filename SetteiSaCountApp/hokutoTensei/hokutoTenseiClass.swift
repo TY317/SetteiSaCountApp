@@ -94,6 +94,7 @@ class HokutoTensei: ObservableObject {
     }
     
     func resetHistory() {
+        inputGame = 0
         arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
     }
 }
@@ -105,6 +106,21 @@ class HokutoTenseiMemory1: ObservableObject {
     @AppStorage("hokutoTenseiFirstHitCountTenhaMemory1") var firstHitCountTenha: Int = 0
     @AppStorage("hokutoTenseiMemoMemory1") var memo = ""
     @AppStorage("hokutoTenseiDateMemory1") var dateDouble = 0.0
+    
+    // -----------
+    // ver3.17.0で追加
+    // -----------
+    @AppStorage("hokutoTenseiLampCountNoneMemory1") var lampCountNone: Int = 0
+    @AppStorage("hokutoTenseiLampCount24SisaMemory1") var lampCount24Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCount35SisaMemory1") var lampCount35Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighjakuMemory1") var lampCountHighjaku: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighKyoMemory1") var lampCountHighKyo: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver2Memory1") var lampCountOver2: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver4Memory1") var lampCountOver4: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver6Memory1") var lampCountOver6: Int = 0
+    @AppStorage("hokutoTenseiLampCountSumMemory1") var lampCountSum: Int = 0
+    @AppStorage("hokutoTenseiInputGameMemory1") var inputGame: Int = 0
+    @AppStorage("hokutoTenseiGameArrayKeyMemory1") var gameArrayData: Data?
 }
 
 class HokutoTenseiMemory2: ObservableObject {
@@ -113,6 +129,21 @@ class HokutoTenseiMemory2: ObservableObject {
     @AppStorage("hokutoTenseiFirstHitCountTenhaMemory2") var firstHitCountTenha: Int = 0
     @AppStorage("hokutoTenseiMemoMemory2") var memo = ""
     @AppStorage("hokutoTenseiDateMemory2") var dateDouble = 0.0
+    
+    // -----------
+    // ver3.17.0で追加
+    // -----------
+    @AppStorage("hokutoTenseiLampCountNoneMemory2") var lampCountNone: Int = 0
+    @AppStorage("hokutoTenseiLampCount24SisaMemory2") var lampCount24Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCount35SisaMemory2") var lampCount35Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighjakuMemory2") var lampCountHighjaku: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighKyoMemory2") var lampCountHighKyo: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver2Memory2") var lampCountOver2: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver4Memory2") var lampCountOver4: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver6Memory2") var lampCountOver6: Int = 0
+    @AppStorage("hokutoTenseiLampCountSumMemory2") var lampCountSum: Int = 0
+    @AppStorage("hokutoTenseiInputGameMemory2") var inputGame: Int = 0
+    @AppStorage("hokutoTenseiGameArrayKeyMemory2") var gameArrayData: Data?
 }
 
 class HokutoTenseiMemory3: ObservableObject {
@@ -121,4 +152,19 @@ class HokutoTenseiMemory3: ObservableObject {
     @AppStorage("hokutoTenseiFirstHitCountTenhaMemory3") var firstHitCountTenha: Int = 0
     @AppStorage("hokutoTenseiMemoMemory3") var memo = ""
     @AppStorage("hokutoTenseiDateMemory3") var dateDouble = 0.0
+    
+    // -----------
+    // ver3.17.0で追加
+    // -----------
+    @AppStorage("hokutoTenseiLampCountNoneMemory3") var lampCountNone: Int = 0
+    @AppStorage("hokutoTenseiLampCount24SisaMemory3") var lampCount24Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCount35SisaMemory3") var lampCount35Sisa: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighjakuMemory3") var lampCountHighjaku: Int = 0
+    @AppStorage("hokutoTenseiLampCountHighKyoMemory3") var lampCountHighKyo: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver2Memory3") var lampCountOver2: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver4Memory3") var lampCountOver4: Int = 0
+    @AppStorage("hokutoTenseiLampCountOver6Memory3") var lampCountOver6: Int = 0
+    @AppStorage("hokutoTenseiLampCountSumMemory3") var lampCountSum: Int = 0
+    @AppStorage("hokutoTenseiInputGameMemory3") var inputGame: Int = 0
+    @AppStorage("hokutoTenseiGameArrayKeyMemory3") var gameArrayData: Data?
 }
