@@ -138,7 +138,6 @@ struct hokutoTenseiViewFirstHit: View {
                         unitExView5body2image(
                             title: "規定あべし",
                             textBody1: "・規定あべし到達ごとに登録して下さい",
-                            textBody2: "・期待度◯以上は期待度テーブルで◯以上となっているモードを参考として自動表示します",
                         )
                     }
                 }
@@ -150,6 +149,26 @@ struct hokutoTenseiViewFirstHit: View {
                     // //// 配列のデータ数が0以上なら履歴表示
                     let gameArray = decodeIntArray(from: hokutoTensei.gameArrayData)
                     if gameArray.count > 0 {
+                        VStack {
+                            Text("※ 設定変更時以外のテーブルを参照")
+                                .foregroundStyle(Color.secondary)
+                                .font(.caption)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                            HStack {
+                                Text("")
+                                    .frame(maxWidth: .infinity)
+                                HStack {
+                                    Text("A")
+                                        .frame(maxWidth: .infinity)
+                                    Text("B")
+                                        .frame(maxWidth: .infinity)
+                                    Text("C")
+                                        .frame(maxWidth: .infinity)
+                                    Text("天国")
+                                        .frame(maxWidth: .infinity)
+                                }
+                            }
+                        }
                         ForEach(gameArray.indices, id: \.self) { index in
                             let viewIndex = gameArray.count - index - 1
                             HStack {
@@ -320,7 +339,7 @@ struct hokutoTenseiViewFirstHit: View {
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",
-                    column3: "期待度テーブル\nA     B     C   天国",
+                    column3: "期待度テーブル",
                 )
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)

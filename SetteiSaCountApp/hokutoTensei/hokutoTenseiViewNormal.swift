@@ -26,7 +26,7 @@ struct hokutoTenseiViewNormal: View {
         "金",
     ]
     let sisaList: [String] = [
-        "示唆なし",
+        "設定示唆なし",
         "設定2・4 示唆",
         "設定3・5 示唆",
         "高設定示唆 弱",
