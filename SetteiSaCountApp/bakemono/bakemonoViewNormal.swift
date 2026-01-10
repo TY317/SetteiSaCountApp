@@ -65,6 +65,7 @@ struct bakemonoViewNormal: View {
                             )
                         }
                     }
+                    .popoverTip(tipVer3170bakemonoSuikaRatio())
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
                     bakemonoTableKoyakuPattern()
                 }
@@ -78,6 +79,15 @@ struct bakemonoViewNormal: View {
                         )
                     )
                 )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    bakemonoViewBayes(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("レア役")
             }

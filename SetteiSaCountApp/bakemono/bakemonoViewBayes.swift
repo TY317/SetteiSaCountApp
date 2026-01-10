@@ -16,6 +16,7 @@ struct bakemonoViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var screenHitEnable: Bool = true
     @State var jakuCherryAtEnable: Bool = true
+    @State var suikaEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -46,6 +47,9 @@ struct bakemonoViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // スイカ確率
+                unitToggleWithQuestion(enable: self.$suikaEnable, title: "スイカ確率")
+//                    .popoverTip(tipVer3170bakemonoBayes())
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
                 // 弱チェリーからのAT直撃率
@@ -126,6 +130,15 @@ struct bakemonoViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // スイカ確率
+        var logPostSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.suikaEnable {
+            logPostSuika = logPostDenoBino(
+                ratio: bakemono.ratioSuika,
+                Count: bakemono.koyakuCountSuika,
+                bigNumber: bakemono.totalGame
+            )
+        }
         // 初当り確率
         var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
@@ -213,6 +226,7 @@ struct bakemonoViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostSuika,
             logPostFirstHit,
             logPostJakuCherryAt,
             logPostScreenEnd,

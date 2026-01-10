@@ -16,7 +16,7 @@ struct vvv2ViewFirstHit: View {
     @State var isShowAlert: Bool = false
     
     var body: some View {
-        TipView(tipVer3130vvv2FirstHit())
+//        TipView(tipVer3130vvv2FirstHit())
         List {
             // //// 初当り確率
             Section {

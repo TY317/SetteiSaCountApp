@@ -173,16 +173,61 @@ struct hokutoTenseiSubViewSaveMemory: View {
         hokutoTenseiMemory1.normalGame = hokutoTensei.normalGame
         hokutoTenseiMemory1.firstHitCountAt = hokutoTensei.firstHitCountAt
         hokutoTenseiMemory1.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTenseiMemory1.lampCountNone = hokutoTensei.lampCountNone
+        hokutoTenseiMemory1.lampCount24Sisa = hokutoTensei.lampCount24Sisa
+        hokutoTenseiMemory1.lampCount35Sisa = hokutoTensei.lampCount35Sisa
+        hokutoTenseiMemory1.lampCountHighjaku = hokutoTensei.lampCountHighjaku
+        hokutoTenseiMemory1.lampCountHighKyo = hokutoTensei.lampCountHighKyo
+        hokutoTenseiMemory1.lampCountOver2 = hokutoTensei.lampCountOver2
+        hokutoTenseiMemory1.lampCountOver4 = hokutoTensei.lampCountOver4
+        hokutoTenseiMemory1.lampCountOver6 = hokutoTensei.lampCountOver6
+        hokutoTenseiMemory1.lampCountSum = hokutoTensei.lampCountSum
+        hokutoTenseiMemory1.inputGame = hokutoTensei.inputGame
+        hokutoTenseiMemory1.gameArrayData = hokutoTensei.gameArrayData
     }
     func saveMemory2() {
         hokutoTenseiMemory2.normalGame = hokutoTensei.normalGame
         hokutoTenseiMemory2.firstHitCountAt = hokutoTensei.firstHitCountAt
         hokutoTenseiMemory2.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTenseiMemory2.lampCountNone = hokutoTensei.lampCountNone
+        hokutoTenseiMemory2.lampCount24Sisa = hokutoTensei.lampCount24Sisa
+        hokutoTenseiMemory2.lampCount35Sisa = hokutoTensei.lampCount35Sisa
+        hokutoTenseiMemory2.lampCountHighjaku = hokutoTensei.lampCountHighjaku
+        hokutoTenseiMemory2.lampCountHighKyo = hokutoTensei.lampCountHighKyo
+        hokutoTenseiMemory2.lampCountOver2 = hokutoTensei.lampCountOver2
+        hokutoTenseiMemory2.lampCountOver4 = hokutoTensei.lampCountOver4
+        hokutoTenseiMemory2.lampCountOver6 = hokutoTensei.lampCountOver6
+        hokutoTenseiMemory2.lampCountSum = hokutoTensei.lampCountSum
+        hokutoTenseiMemory2.inputGame = hokutoTensei.inputGame
+        hokutoTenseiMemory2.gameArrayData = hokutoTensei.gameArrayData
     }
     func saveMemory3() {
         hokutoTenseiMemory3.normalGame = hokutoTensei.normalGame
         hokutoTenseiMemory3.firstHitCountAt = hokutoTensei.firstHitCountAt
         hokutoTenseiMemory3.firstHitCountTenha = hokutoTensei.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTenseiMemory3.lampCountNone = hokutoTensei.lampCountNone
+        hokutoTenseiMemory3.lampCount24Sisa = hokutoTensei.lampCount24Sisa
+        hokutoTenseiMemory3.lampCount35Sisa = hokutoTensei.lampCount35Sisa
+        hokutoTenseiMemory3.lampCountHighjaku = hokutoTensei.lampCountHighjaku
+        hokutoTenseiMemory3.lampCountHighKyo = hokutoTensei.lampCountHighKyo
+        hokutoTenseiMemory3.lampCountOver2 = hokutoTensei.lampCountOver2
+        hokutoTenseiMemory3.lampCountOver4 = hokutoTensei.lampCountOver4
+        hokutoTenseiMemory3.lampCountOver6 = hokutoTensei.lampCountOver6
+        hokutoTenseiMemory3.lampCountSum = hokutoTensei.lampCountSum
+        hokutoTenseiMemory3.inputGame = hokutoTensei.inputGame
+        hokutoTenseiMemory3.gameArrayData = hokutoTensei.gameArrayData
     }
 }
 
@@ -217,16 +262,64 @@ struct hokutoTenseiSubViewLoadMemory: View {
         hokutoTensei.normalGame = hokutoTenseiMemory1.normalGame
         hokutoTensei.firstHitCountAt = hokutoTenseiMemory1.firstHitCountAt
         hokutoTensei.firstHitCountTenha = hokutoTenseiMemory1.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTensei.lampCountNone = hokutoTenseiMemory1.lampCountNone
+        hokutoTensei.lampCount24Sisa = hokutoTenseiMemory1.lampCount24Sisa
+        hokutoTensei.lampCount35Sisa = hokutoTenseiMemory1.lampCount35Sisa
+        hokutoTensei.lampCountHighjaku = hokutoTenseiMemory1.lampCountHighjaku
+        hokutoTensei.lampCountHighKyo = hokutoTenseiMemory1.lampCountHighKyo
+        hokutoTensei.lampCountOver2 = hokutoTenseiMemory1.lampCountOver2
+        hokutoTensei.lampCountOver4 = hokutoTenseiMemory1.lampCountOver4
+        hokutoTensei.lampCountOver6 = hokutoTenseiMemory1.lampCountOver6
+        hokutoTensei.lampCountSum = hokutoTenseiMemory1.lampCountSum
+        hokutoTensei.inputGame = hokutoTenseiMemory1.inputGame
+        let array = decodeIntArray(from: hokutoTenseiMemory1.gameArrayData)
+        saveArray(array, forKey: hokutoTensei.gameArrayKey)
     }
     func loadMemory2() {
         hokutoTensei.normalGame = hokutoTenseiMemory2.normalGame
         hokutoTensei.firstHitCountAt = hokutoTenseiMemory2.firstHitCountAt
         hokutoTensei.firstHitCountTenha = hokutoTenseiMemory2.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTensei.lampCountNone = hokutoTenseiMemory2.lampCountNone
+        hokutoTensei.lampCount24Sisa = hokutoTenseiMemory2.lampCount24Sisa
+        hokutoTensei.lampCount35Sisa = hokutoTenseiMemory2.lampCount35Sisa
+        hokutoTensei.lampCountHighjaku = hokutoTenseiMemory2.lampCountHighjaku
+        hokutoTensei.lampCountHighKyo = hokutoTenseiMemory2.lampCountHighKyo
+        hokutoTensei.lampCountOver2 = hokutoTenseiMemory2.lampCountOver2
+        hokutoTensei.lampCountOver4 = hokutoTenseiMemory2.lampCountOver4
+        hokutoTensei.lampCountOver6 = hokutoTenseiMemory2.lampCountOver6
+        hokutoTensei.lampCountSum = hokutoTenseiMemory2.lampCountSum
+        hokutoTensei.inputGame = hokutoTenseiMemory2.inputGame
+        let array = decodeIntArray(from: hokutoTenseiMemory2.gameArrayData)
+        saveArray(array, forKey: hokutoTensei.gameArrayKey)
     }
     func loadMemory3() {
         hokutoTensei.normalGame = hokutoTenseiMemory3.normalGame
         hokutoTensei.firstHitCountAt = hokutoTenseiMemory3.firstHitCountAt
         hokutoTensei.firstHitCountTenha = hokutoTenseiMemory3.firstHitCountTenha
+        
+        // -----------
+        // ver3.17.0で追加
+        // -----------
+        hokutoTensei.lampCountNone = hokutoTenseiMemory3.lampCountNone
+        hokutoTensei.lampCount24Sisa = hokutoTenseiMemory3.lampCount24Sisa
+        hokutoTensei.lampCount35Sisa = hokutoTenseiMemory3.lampCount35Sisa
+        hokutoTensei.lampCountHighjaku = hokutoTenseiMemory3.lampCountHighjaku
+        hokutoTensei.lampCountHighKyo = hokutoTenseiMemory3.lampCountHighKyo
+        hokutoTensei.lampCountOver2 = hokutoTenseiMemory3.lampCountOver2
+        hokutoTensei.lampCountOver4 = hokutoTenseiMemory3.lampCountOver4
+        hokutoTensei.lampCountOver6 = hokutoTenseiMemory3.lampCountOver6
+        hokutoTensei.lampCountSum = hokutoTenseiMemory3.lampCountSum
+        hokutoTensei.inputGame = hokutoTenseiMemory3.inputGame
+        let array = decodeIntArray(from: hokutoTenseiMemory3.gameArrayData)
+        saveArray(array, forKey: hokutoTensei.gameArrayKey)
     }
 }
 

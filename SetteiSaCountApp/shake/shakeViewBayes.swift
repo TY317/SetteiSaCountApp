@@ -1,21 +1,23 @@
 //
-//  hokutoTenseiViewBayes.swift
+//  shakeViewBayes.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2025/12/26.
+//  Created by 横田徹 on 2026/01/05.
 //
 
 import SwiftUI
 
-struct hokutoTenseiViewBayes: View {
-    @ObservedObject var hokutoTensei: HokutoTensei
+struct shakeViewBayes: View {
+    @ObservedObject var shake: Shake
     
     // 機種ごとに見直し
-    let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
-    let payoutList: [Double] = [97.6, 98.4, 100.7, 106.2, 111.1, 114.9]
-    @State var firstHitAtEnable: Bool = true
-    @State var lampEnable: Bool = true
-    
+    let settingList: [Int] = [1,2,5,6]   // その機種の設定段階
+    let payoutList: [Double] = [98.6, 100.6, 103.0, 106.1]
+    @State var firstHitEnable: Bool = true
+    @State var idenBonusEnable: Bool = true
+    @State var jacEnable: Bool = true
+    @State var voiceEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -46,22 +48,40 @@ struct hokutoTenseiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                // 100Gごとのランプ示唆
-                unitToggleWithQuestion(enable: self.$lampEnable, title: "100Gごとのランプ示唆") {
+                // ボーナス確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "ボーナス確率") {
                     unitExView5body2image(
-                        title: "100Gごとのランプ示唆",
+                        title: "ボーナス確率",
+                        textBody1: "・BIG、REG確率を計算要素に加えます"
+                    )
+                }
+                // 特定契機のボーナス確率
+                unitToggleWithQuestion(enable: self.$idenBonusEnable, title: "特定契機のボーナス確率") {
+                    unitExView5body2image(
+                        title: "特定契機のボーナス確率",
+                        textBody1: "・🍉＋ナディアBIG、🔔＋REG、特殊役I＋ボーナスの確率を計算要素に加えます"
+                    )
+                }
+                // REG中のボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "REG中のボイス") {
+                    unitExView5body2image(
+                        title: "REG中のボイス",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
-//                .popoverTip(tipVer3170hokutTenseiBayes())
-                // AT初当り確率
-                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "闘神演舞 初当り確率")
-                // サミートロフィー
-                DisclosureGroup("サミートロフィー") {
+                // JAC種類の割合
+                unitToggleWithQuestion(enable: self.$jacEnable, title: "JAC種類の割合")
+                // BIG終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "BIG終了画面") {
+                    unitExView5body2image(
+                        title: "BIG終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // コパンダトロフィー
+                DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
-                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
-                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "キリン柄")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "イナズマ柄")
                     unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }
@@ -72,12 +92,12 @@ struct hokutoTenseiViewBayes: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.hokutoTenseiMenuBayesBadge)
+        .resetBadgeOnAppear($common.shakeMenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: hokutoTensei.machineName,
+                screenName: shake.machineName,
                 screenClass: screenClass
             )
         }
@@ -125,60 +145,77 @@ struct hokutoTenseiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // 100Gごとのランプ示唆
-        var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.lampEnable {
-            if hokutoTensei.lampCountOver2 > 0 {
-                logPostLamp[0] = -Double.infinity
-            }
-            if hokutoTensei.lampCountOver4 > 0 {
-                logPostLamp[0] = -Double.infinity
-                logPostLamp[1] = -Double.infinity
-                logPostLamp[2] = -Double.infinity
-            }
-            if hokutoTensei.lampCountOver6 > 0 {
-                logPostLamp[0] = -Double.infinity
-                logPostLamp[1] = -Double.infinity
-                logPostLamp[2] = -Double.infinity
-                logPostLamp[3] = -Double.infinity
-                logPostLamp[4] = -Double.infinity
-            }
-         }
-        // AT初当り確率
-        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.firstHitAtEnable {
-            logPostFirstHitAt = logPostDenoBino(
-                ratio: hokutoTensei.ratioAtFirstHitAt,
-                Count: hokutoTensei.firstHitCountAt,
-                bigNumber: hokutoTensei.normalGame
+        // ボーナス確率
+        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostBonus = logPostDenoMulti(
+                countList: [
+                    shake.bonusCountBig,
+                    shake.bonusCountReg,
+                ], denoList: [
+                    shake.ratioBonusBig,
+                    shake.ratioBonusReg,
+                ], bigNumber: shake.normalGame
             )
+        }
+        // 特定契機のボーナス確率
+        var logPostIdenBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.idenBonusEnable {
+            logPostIdenBonus = logPostDenoMulti(
+                countList: [
+                    shake.idenBonusCountSuika,
+                    shake.idenBonusCountBell,
+                    shake.idenBonusCountSpecialI,
+                ], denoList: [
+                    shake.ratioIdenBonusSuika,
+                    shake.ratioIdenBonusBell,
+                    shake.ratioIdenBonusSpecialI,
+                ], bigNumber: shake.gameNumberPlay
+            )
+        }
+        // ボイス
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            if shake.voiceCountOver5 > 0 {
+                logPostVoice[0] = -Double.infinity
+                logPostVoice[1] = -Double.infinity
+            }
+        }
+        // JAC
+        var logPostJac: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.jacEnable {
+            logPostJac = logPostPercentMulti(
+                countList: [
+                    shake.jacCountEnd,
+                    shake.jacCountContinue,
+                ], ratioList: [
+                    shake.ratioJackEnd,
+                    shake.ratioJackContinue,
+                ], bigNumber: shake.jacCountSum
+            )
+        }
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if shake.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
         }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
             logPostTrophy[0] = -Double.infinity
         }
-        if self.over3Check {
-            logPostTrophy[0] = -Double.infinity
-            logPostTrophy[1] = -Double.infinity
-        }
-        if self.over4Check {
-            logPostTrophy[0] = -Double.infinity
-            logPostTrophy[1] = -Double.infinity
-            logPostTrophy[2] = -Double.infinity
-        }
         if self.over5Check {
             logPostTrophy[0] = -Double.infinity
             logPostTrophy[1] = -Double.infinity
-            logPostTrophy[2] = -Double.infinity
-            logPostTrophy[3] = -Double.infinity
         }
         if self.over6Check {
             logPostTrophy[0] = -Double.infinity
             logPostTrophy[1] = -Double.infinity
             logPostTrophy[2] = -Double.infinity
-            logPostTrophy[3] = -Double.infinity
-            logPostTrophy[4] = -Double.infinity
         }
         
         // 事前確率の対数尤度
@@ -190,8 +227,11 @@ struct hokutoTenseiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            logPostLamp,
-            logPostFirstHitAt,
+            logPostBonus,
+            logPostIdenBonus,
+            logPostVoice,
+            logPostJac,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,
@@ -206,11 +246,11 @@ struct hokutoTenseiViewBayes: View {
     // //// 選択した設定配分配列を返す
     func selectedGuess(pattern: String) -> [Int] {
         switch pattern {
-        case bayes.guessPatternList[0]: return bayes.guess6Default
-        case bayes.guessPatternList[1]: return bayes.guess6JugDefault
-        case bayes.guessPatternList[2]: return bayes.guess6Evenly
-        case bayes.guessPatternList[3]: return bayes.guess6Half
-        case bayes.guessPatternList[4]: return bayes.guess6Quater
+        case bayes.guessPatternList[0]: return bayes.guess4Default
+        case bayes.guessPatternList[1]: return bayes.guess4JugDefault
+        case bayes.guessPatternList[2]: return bayes.guess4Evenly
+        case bayes.guessPatternList[3]: return bayes.guess4Half
+        case bayes.guessPatternList[4]: return bayes.guess4Quater
         case bayes.guessPatternList[5]: return self.guessCustom1
         case bayes.guessPatternList[6]: return self.guessCustom2
         case bayes.guessPatternList[7]: return self.guessCustom3
@@ -220,8 +260,8 @@ struct hokutoTenseiViewBayes: View {
 }
 
 #Preview {
-    hokutoTenseiViewBayes(
-        hokutoTensei: HokutoTensei(),
+    shakeViewBayes(
+        shake: Shake(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )

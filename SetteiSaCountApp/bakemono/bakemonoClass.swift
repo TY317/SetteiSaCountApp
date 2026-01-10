@@ -12,7 +12,7 @@ class Bakemono: ObservableObject {
     // -----------
     // 通常時
     // -----------
-    let ratioSuika: [Double] = [87.4,-1,-1,-1,-1,-1,]
+    let ratioSuika: [Double] = [87.4,85.8,84.9,79.7,74.8,69.9]
     @AppStorage("bakemonoTotalGame") var totalGame: Int = 0
     @AppStorage("bakemonoKoyakuCountSuika") var koyakuCountSuika: Int = 0
     

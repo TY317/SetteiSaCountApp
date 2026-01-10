@@ -1,0 +1,118 @@
+//
+//  ver3170.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹 on 2026/01/05.
+//
+
+import Foundation
+import SwiftUI
+import TipKit
+
+struct tipVer3170UpdateInfo: Tip {
+    var title: Text {
+        Text("機種,機能追加！")
+//        Text("機能追加！")
+    }
+    var message: Text? {
+        Text("・シェイクBT\n・北斗転生 更新")
+    }
+    var image: Image? {
+        Image(systemName: "star")
+    }
+}
+
+
+// //////////////////
+// Tip：レールガン　エピボ直撃
+// //////////////////
+struct tipVer3170railgunEpisode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("エピソードボーナス直撃当選率の設定差が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：北斗転生　ランプ示唆詳細
+// //////////////////
+struct tipVer3170hokutTenseiLampSisa: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("100Gごとランプの示唆が判明\nカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：北斗転生　ランプ示唆詳細
+// //////////////////
+//struct tipVer3170hokutTenseiBayes: Tip {
+//    var title: Text {
+//        Text("機能更新")
+//    }
+//    var message: Text? {
+//        Text("・100Gごとランプの示唆\nを追加しました")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
+
+
+// //////////////////
+// Tip：北斗転生　あべし履歴
+// //////////////////
+struct tipVer3170hokutTenseiAbeshiHistory: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・規定あべしの履歴メモ機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+// //////////////////
+// Tip：化物語　スイカ確率
+// //////////////////
+struct tipVer3170bakemonoSuikaRatio: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("・スイカ確率の詳細が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：化物語　ベイズ
+// //////////////////
+//struct tipVer3170bakemonoBayes: Tip {
+//    var title: Text {
+//        Text("機能更新")
+//    }
+//    var message: Text? {
+//        Text("・スイカ確率を計算要素に追加しました")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}

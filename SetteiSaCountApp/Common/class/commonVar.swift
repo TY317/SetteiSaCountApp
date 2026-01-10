@@ -190,6 +190,16 @@ class commonVar: ObservableObject {
     @AppStorage("railgunMenuFirstHitBadge") var railgunMenuFirstHitBadge = "none"
     @AppStorage("railgunMenuDuringAtBadge") var railgunMenuDuringAtBadge = "none"
     
+    // ---- シェイク
+    @AppStorage("shakeisUnlocked") var shakeisUnlocked: Bool = true
+    @AppStorage("shakeMachineIconBadge") var shakeMachineIconBadge: String = "none"
+    @AppStorage("shakeMenuNormalBadge") var shakeMenuNormalBadge: String = "none"
+    @AppStorage("shakeMenuBayesBadge") var shakeMenuBayesBadge: String = "none"
+    @AppStorage("shakeMenuFirstHitBadge") var shakeMenuFirstHitBadge: String = "none"
+    @AppStorage("shakeMenuRegBadge") var shakeMenuRegBadge: String = "none"
+    @AppStorage("shakeMenuScreenBadge") var shakeMenuScreenBadge: String = "none"
+    @AppStorage("shakeMenuBtBadge") var shakeMenuBtBadge: String = "none"
+    
     // //// 新鬼武者３
     @AppStorage("newOni3MachineIconBadge") var newOni3MachineIconBadge: String = "none"
     @AppStorage("newOni3MenuBonusBadge") var newOni3MenuBonusBadge: String = "none"
@@ -255,6 +265,34 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3170FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.17.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                shakeisUnlocked = false
+                shakeMachineIconBadge = "new"
+                railgunMachineIconBadge = "update"
+                railgunMenuFirstHitBadge = "update"
+                hokutoTenseiMachineIconBadge = "update"
+                hokutoTenseiMenuNormalBadge = "update"
+                hokutoTenseiMenuFirstHitBadge = "update"
+                hokutoTenseiMenuBayesBadge = "update"
+                bakemonoMachineIconBadge = "update"
+                bakemonoMenuNormalBadge = "update"
+                bakemonoMenuBayesBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3160FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.16.0"

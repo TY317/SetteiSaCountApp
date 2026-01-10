@@ -40,6 +40,21 @@ struct bayesOnAppearModifier: ViewModifier {
                         self.guessCustom3 = Array(repeating: 1, count: self.settingList.count)
                     }
                 }
+                // 4段階設定
+                else if settingList.count == 4 {
+                    self.guessCustom1 = decodeIntArrayFromString(stringData: bayes.guess4Custom1JSON)
+                    if self.guessCustom1.count != self.settingList.count {
+                        self.guessCustom1 = Array(repeating: 1, count: self.settingList.count)
+                    }
+                    self.guessCustom2 = decodeIntArrayFromString(stringData: bayes.guess4Custom2JSON)
+                    if self.guessCustom2.count != self.settingList.count {
+                        self.guessCustom2 = Array(repeating: 1, count: self.settingList.count)
+                    }
+                    self.guessCustom3 = decodeIntArrayFromString(stringData: bayes.guess4Custom3JSON)
+                    if self.guessCustom3.count != self.settingList.count {
+                        self.guessCustom3 = Array(repeating: 1, count: self.settingList.count)
+                    }
+                }
                 // 6段階設定
                 else {
                     self.guessCustom1 = decodeIntArrayFromString(stringData: bayes.guess6Custom1JSON)

@@ -64,7 +64,7 @@ struct railgunViewFirstHit: View {
                         minusBool: $railgun.minusCheck
                     )
                 }
-                .popoverTip(tipVer3140railgunFirstHit())
+//                .popoverTip(tipVer3140railgunFirstHit())
                 // 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                     VStack {
@@ -85,6 +85,18 @@ struct railgunViewFirstHit: View {
                         }
                     }
                 }
+                
+                // 参考情報）エピボ直撃当選率
+                unitLinkButtonViewBuilder(sheetTitle: "エピボ直撃当選率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "エピボ直撃",
+                            denominateList: [39680,26453,19921,13390,11572,10168]
+                        )
+                    }
+                }
+                .popoverTip(tipVer3170railgunEpisode())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
