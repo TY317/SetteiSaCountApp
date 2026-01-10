@@ -59,7 +59,7 @@ struct hokutTenseiHitstoryTable: View {
     }
     
     private func backColor(value: String) -> Color {
-        var textBackColor: Color = .white
+        var textBackColor: Color = .clear
         if value == "" {
             textBackColor = .grayBack
         }
