@@ -161,77 +161,137 @@ struct hokutoTenseiViewFirstHit: View {
                                         .frame(maxWidth: .infinity)
                                     
                                     // 期待度◯以上ゾーン
-                                    // 128以下
-                                    if gameArray[viewIndex] <= 128 {
-                                        Text("天国")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                    // 64以下
+                                    if gameArray[viewIndex] <= 64 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△",
+                                            modeHeaven: "◯"
+                                        )
+                                    }
+                                    // 65-128
+                                    else if gameArray[viewIndex] <= 128 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△",
+                                            modeHeaven: "天井"
+                                        )
                                     }
                                     // 129-192
                                     else if gameArray[viewIndex] <= 192 {
-                                        Text("ー")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△"
+                                        )
                                     }
                                     // 193-256
                                     else if gameArray[viewIndex] <= 256 {
-                                        Text("A、B、C")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◎",
+                                            modeB: "◎",
+                                            modeC: "◎"
+                                        )
                                     }
                                     // 257-320
                                     else if gameArray[viewIndex] <= 320 {
-                                        Text("ー")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△"
+                                        )
                                     }
                                     // 321-384
                                     else if gameArray[viewIndex] <= 384 {
-                                        Text("B")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "◯",
+                                            modeC: "△"
+                                        )
                                     }
-                                    // 385-512
+                                    // 385-448
+                                    else if gameArray[viewIndex] <= 448 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△"
+                                        )
+                                    }
+                                    // 449-512
                                     else if gameArray[viewIndex] <= 512 {
-                                        Text("ー")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                            modeC: "△"
+                                        )
                                     }
                                     // 513-576
                                     else if gameArray[viewIndex] <= 576 {
-                                        Text("A、C天井")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◯",
+                                            modeB: "△",
+                                            modeC: "天井"
+                                        )
                                     }
                                     // 577-704
                                     else if gameArray[viewIndex] <= 704 {
-                                        Text("ー")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                        )
                                     }
                                     // 705-768
                                     else if gameArray[viewIndex] <= 768 {
-                                        Text("B")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "◯",
+                                        )
                                     }
                                     // 769-832
                                     else if gameArray[viewIndex] <= 832 {
-                                        Text("ー")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                            modeB: "△",
+                                        )
                                     }
                                     // 833-896
                                     else if gameArray[viewIndex] <= 896 {
-                                        Text("A、B天井")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◯",
+                                            modeB: "天井",
+                                        )
                                     }
-                                    // 897以上
+                                    // 897-1216
+                                    else if gameArray[viewIndex] <= 1216 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "△",
+                                        )
+                                    }
+                                    // 1217-1280
+                                    else if gameArray[viewIndex] <= 1280 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◎",
+                                        )
+                                    }
+                                    // 1281-1344
+                                    else if gameArray[viewIndex] <= 1344 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◯",
+                                        )
+                                    }
+                                    // 1345-1472
+                                    else if gameArray[viewIndex] <= 1472 {
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "◎",
+                                        )
+                                    }
+                                    // 1473-1536
                                     else {
-                                        Text("(A 濃厚)")
-                                            .lineLimit(1)
-                                            .frame(maxWidth: .infinity)
+                                        hokutTenseiHitstoryTable(
+                                            modeA: "天井",
+                                        )
                                     }
                                 }
                             }
@@ -260,7 +320,7 @@ struct hokutoTenseiViewFirstHit: View {
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",
-                    column3: "期待度◯以上",
+                    column3: "期待度テーブル\nA     B     C   天国",
                 )
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)

@@ -79,7 +79,7 @@ struct shakeViewBayes: View {
                     )
                 }
                 // コパンダトロフィー
-                DisclosureGroup("ギンちゃんトロフィー") {
+                DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
                     unitToggleWithQuestion(enable: self.$over5Check, title: "イナズマ柄")
                     unitToggleWithQuestion(enable: self.$over6Check, title: "虹")

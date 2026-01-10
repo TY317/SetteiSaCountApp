@@ -49,7 +49,7 @@ struct bakemonoViewBayes: View {
             bayesSubStep2Section {
                 // スイカ確率
                 unitToggleWithQuestion(enable: self.$suikaEnable, title: "スイカ確率")
-                    .popoverTip(tipVer3170bakemonoBayes())
+//                    .popoverTip(tipVer3170bakemonoBayes())
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
                 // 弱チェリーからのAT直撃率

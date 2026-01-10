@@ -34,6 +34,7 @@ class HokutoTensei: ObservableObject {
     @AppStorage("hokutoTenseiSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
+        resetNormal()
         resetFirstHit()
     }
     

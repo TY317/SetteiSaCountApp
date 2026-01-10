@@ -53,6 +53,7 @@ struct hokutoTenseiViewBayes: View {
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
+//                .popoverTip(tipVer3170hokutTenseiBayes())
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "闘神演舞 初当り確率")
                 // サミートロフィー

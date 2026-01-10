@@ -948,6 +948,7 @@ struct unitHeaderHistoryColumnsWithoutTimes: View {
                 Text(column3)
 //                    .frame(maxWidth: .infinity)
                     .frame(maxWidth: self.column3MaxWidth)
+                    .multilineTextAlignment(.center)
             }
             if let column4 = column4 {
                 Text(column4)

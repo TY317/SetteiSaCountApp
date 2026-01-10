@@ -56,7 +56,7 @@ struct creaViewBayes: View {
                         textBody1: "🔔、チャンス目、🍒、🍉、滑り🍉、ピラミッドの出現確率を計算要素に加えます",
                     )
                 }
-                .popoverTip(tipVer3131creaBayes())
+//                .popoverTip(tipVer3131creaBayes())
                 // 重複確率
                 unitToggleWithQuestion(enable: self.$chofukuEnable, title: "重複当選確率") {
                     unitExView5body2image(

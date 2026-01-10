@@ -75,7 +75,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteHokutoTensei") var isSelectedFavoriteHokutoTensei = true
     @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
     @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
-    @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteShake = true
+    @AppStorage("isSelectedFavoriteShake") var isSelectedFavoriteShake = true
 }
 
 

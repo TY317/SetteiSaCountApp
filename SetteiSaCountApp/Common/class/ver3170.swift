@@ -15,7 +15,7 @@ struct tipVer3170UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・シェイクBT")
+        Text("・シェイクBT\n・北斗転生 更新")
     }
     var image: Image? {
         Image(systemName: "star")
@@ -58,17 +58,17 @@ struct tipVer3170hokutTenseiLampSisa: Tip {
 // //////////////////
 // Tip：北斗転生　ランプ示唆詳細
 // //////////////////
-struct tipVer3170hokutTenseiBayes: Tip {
-    var title: Text {
-        Text("機能更新")
-    }
-    var message: Text? {
-        Text("・100Gごとランプの示唆\nを追加しました")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer3170hokutTenseiBayes: Tip {
+//    var title: Text {
+//        Text("機能更新")
+//    }
+//    var message: Text? {
+//        Text("・100Gごとランプの示唆\nを追加しました")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
 
 
 // //////////////////
@@ -105,14 +105,14 @@ struct tipVer3170bakemonoSuikaRatio: Tip {
 // //////////////////
 // Tip：化物語　ベイズ
 // //////////////////
-struct tipVer3170bakemonoBayes: Tip {
-    var title: Text {
-        Text("機能更新")
-    }
-    var message: Text? {
-        Text("・スイカ確率を計算要素に追加しました")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
+//struct tipVer3170bakemonoBayes: Tip {
+//    var title: Text {
+//        Text("機能更新")
+//    }
+//    var message: Text? {
+//        Text("・スイカ確率を計算要素に追加しました")
+//    }
+//    var image: Image? {
+//        Image(systemName: "exclamationmark.bubble")
+//    }
+//}
