@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
+
+class Enen2: ObservableObject {
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "炎炎ノ消防隊2"
+    @AppStorage("enen2MinusCheck") var minusCheck: Bool = false
+    @AppStorage("enen2SelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}

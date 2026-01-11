@@ -796,6 +796,9 @@
 		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
 		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
+		0FA662D62F1378A900F3259F /* enen2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D52F1378A900F3259F /* enen2View95Ci.swift */; };
+		0FA662D82F1378B300F3259F /* enen2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */; };
+		0FA662DA2F13793200F3259F /* enen2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D92F13793200F3259F /* enen2ViewNormal.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2025,6 +2028,9 @@
 		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
 		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
 		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
+		0FA662D52F1378A900F3259F /* enen2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2View95Ci.swift; sourceTree = "<group>"; };
+		0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewBayes.swift; sourceTree = "<group>"; };
+		0FA662D92F13793200F3259F /* enen2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewNormal.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4141,6 +4147,9 @@
 				0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */,
 				0FA662D12F13745C00F3259F /* enen2Class.swift */,
 				0FA662D32F13747A00F3259F /* enen2Assets.xcassets */,
+				0FA662D52F1378A900F3259F /* enen2View95Ci.swift */,
+				0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */,
+				0FA662D92F13793200F3259F /* enen2ViewNormal.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -5387,6 +5396,7 @@
 				0FD3579D2DAB46150069BD1A /* godzillaTableCzMonster.swift in Sources */,
 				0FD357A92DAE90C10069BD1A /* godzillaTableFirstHit.swift in Sources */,
 				0FD3579F2DAB6B580069BD1A /* commonViewGinchanTrophy.swift in Sources */,
+				0FA662D82F1378B300F3259F /* enen2ViewBayes.swift in Sources */,
 				0FDC32692D1C2BF7005B3D06 /* danvineViewHistory.swift in Sources */,
 				0FC14A802E4B58E800F85D84 /* ver370Class.swift in Sources */,
 				0F45A5AF2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift in Sources */,
@@ -5594,6 +5604,7 @@
 				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
 				0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */,
+				0FA662D62F1378A900F3259F /* enen2View95Ci.swift in Sources */,
 				0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */,
 				0F6B59CE2DFE782100DB1A2B /* symphoTableScreen.swift in Sources */,
 				0FBED7A02E9A3A1E00AA3751 /* newOni3ViewFirstHit.swift in Sources */,
@@ -5663,6 +5674,7 @@
 				0F64DDB12DC5FC7D0027315D /* unitReelColumn.swift in Sources */,
 				0FD357482DA2618D0069BD1A /* shamanKingTableHyoiGattai.swift in Sources */,
 				0F654BEB2C70A10B00F37849 /* kingHanaExViewBellBonus.swift in Sources */,
+				0FA662DA2F13793200F3259F /* enen2ViewNormal.swift in Sources */,
 				0F868ACB2D584F4600D952D9 /* girlsSSVer2View95CiTotal.swift in Sources */,
 				0F868A022D42790E00D952D9 /* goJug3Ver2ViewJissenStartData.swift in Sources */,
 				0FC71FF82E6B26AF000DD53B /* toreveViewBayes.swift in Sources */,
