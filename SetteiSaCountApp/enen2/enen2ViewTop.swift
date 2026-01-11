@@ -38,8 +38,8 @@ struct enen2ViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: enen2View95Ci(
-//                    enen2: enen2,
-//                    selection: 1,
+                    enen2: enen2,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
