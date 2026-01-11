@@ -9,6 +9,15 @@ import Foundation
 import SwiftUI
 
 class Enen2: ObservableObject {
+    // ----------
+    // 初当り
+    // ----------
+    let ratioFirstHitBonus: [Double] = [272,269,257,242,236,227]
+    let ratioFirstHitLoop: [Double] = [684,662,617,546,518,486]
+    
+    func resetFirstHit() {
+        minusCheck = false
+    }
     
     // -----------
     // 共通
@@ -18,6 +27,6 @@ class Enen2: ObservableObject {
     @AppStorage("enen2SelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetFirstHit()
     }
 }

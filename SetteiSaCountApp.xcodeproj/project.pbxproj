@@ -799,6 +799,7 @@
 		0FA662D62F1378A900F3259F /* enen2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D52F1378A900F3259F /* enen2View95Ci.swift */; };
 		0FA662D82F1378B300F3259F /* enen2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */; };
 		0FA662DA2F13793200F3259F /* enen2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D92F13793200F3259F /* enen2ViewNormal.swift */; };
+		0FA662DC2F13C10400F3259F /* enen2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662DB2F13C10400F3259F /* enen2ViewFirstHit.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2031,6 +2032,7 @@
 		0FA662D52F1378A900F3259F /* enen2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2View95Ci.swift; sourceTree = "<group>"; };
 		0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewBayes.swift; sourceTree = "<group>"; };
 		0FA662D92F13793200F3259F /* enen2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewNormal.swift; sourceTree = "<group>"; };
+		0FA662DB2F13C10400F3259F /* enen2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewFirstHit.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4150,6 +4152,7 @@
 				0FA662D52F1378A900F3259F /* enen2View95Ci.swift */,
 				0FA662D72F1378B300F3259F /* enen2ViewBayes.swift */,
 				0FA662D92F13793200F3259F /* enen2ViewNormal.swift */,
+				0FA662DB2F13C10400F3259F /* enen2ViewFirstHit.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -5822,6 +5825,7 @@
 				0FD357722DAA161E0069BD1A /* unitTableGameIndex.swift in Sources */,
 				0FD357662DA29EA70069BD1A /* magiaViewVoice.swift in Sources */,
 				0F868A0E2D42F91E00D952D9 /* goJug3Ver2View95CiPersonal.swift in Sources */,
+				0FA662DC2F13C10400F3259F /* enen2ViewFirstHit.swift in Sources */,
 				0F9D9C222EA3A13B00450B23 /* funky2ViewShimaData.swift in Sources */,
 				0FB209792E1548EF0029D940 /* unitReelGrayMark.swift in Sources */,
 				0F6B59E92E07D09200DB1A2B /* goevaTableEndingVoice.swift in Sources */,
