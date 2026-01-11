@@ -49,9 +49,9 @@ struct enen2ViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: enen2ViewBayes(
-//                    enen2: enen2,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    enen2: enen2,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
