@@ -76,6 +76,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
     @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
     @AppStorage("isSelectedFavoriteShake") var isSelectedFavoriteShake = true
+    @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
 }
 
 
@@ -143,6 +144,22 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 炎炎２、26年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎2",
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
                                     )
                                 }
                                 
@@ -941,19 +958,24 @@ struct ContentView: View {
                                     )
                                 }
                                 
-//                                unitMachineListLinkWithLock(
-//                                    linkView: AnyView(tekken6ViewTop(
-//                                        bayes: bayes,
-//                                        viewModel: viewModel,
-//                                    )),
-//                                    iconImage: Image("tekken6MachineIcon"),
-//                                    machineName: "鉄拳6",
-//                                    makerName: "山佐",
-//                                    releaseYear: 2026,
-//                                    releaseMonth: 1,
-//                                    isUnLocked: $common.tekken6isUnlocked,
-//                                    badgeStatus: common.tekken6MachineIconBadge,
-//                                )
+                                // //// 炎炎２、26年２月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎ノ消防隊2",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 鉄拳6、26年1月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
@@ -2074,6 +2096,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 炎炎ノ消防隊2
+                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
                 // 鉄拳６
                 Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
                 // 北斗転生

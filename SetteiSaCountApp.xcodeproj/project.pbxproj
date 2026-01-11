@@ -793,6 +793,9 @@
 		0FA1DE202D0D5D61003EFDBF /* inuyashaViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA3832E2E81882C001E293E /* ver3100Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832D2E81882C001E293E /* ver3100Class.swift */; };
+		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
+		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
+		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2019,6 +2022,9 @@
 		0FA1DE1F2D0D5D61003EFDBF /* inuyashaViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inuyashaViewHistory.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA3832D2E81882C001E293E /* ver3100Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3100Class.swift; sourceTree = "<group>"; };
+		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
+		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
+		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -3192,6 +3198,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FA662CE2F13743800F3259F /* enen2 */,
 				0F03BD282F0B889B00222339 /* shake */,
 				0F45A5B52F0215500022E355 /* tekken6 */,
 				0F45A5A52EFEACAD0022E355 /* hokutoTensei */,
@@ -4128,6 +4135,16 @@
 			path = danvine;
 			sourceTree = "<group>";
 		};
+		0FA662CE2F13743800F3259F /* enen2 */ = {
+			isa = PBXGroup;
+			children = (
+				0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */,
+				0FA662D12F13745C00F3259F /* enen2Class.swift */,
+				0FA662D32F13747A00F3259F /* enen2Assets.xcassets */,
+			);
+			path = enen2;
+			sourceTree = "<group>";
+		};
 		0FB209572E0FDB6C0029D940 /* countButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -4861,6 +4878,7 @@
 				0F0DE8172EDC343A00D85BCA /* bakemonoAssets.xcassets in Resources */,
 				0FF156192D67195800B17F83 /* tokyoGhoulAssets.xcassets in Resources */,
 				0F9D9BF72EA0C46000450B23 /* vvv2Assets.xcassets in Resources */,
+				0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */,
 				0F9318772DEA858200511BEF /* izaBanchoAssets.xcassets in Resources */,
 				0F1E12242DD95C7000F69AFF /* GoogleService-Info.plist in Resources */,
 				0FA024A22D05D558004B3FD5 /* danvineAssets.xcassets in Resources */,
@@ -5534,6 +5552,7 @@
 				0FB209652E10DCCB0029D940 /* evaYakusokuViewFirstHit.swift in Sources */,
 				0F03BD2C2F0B88BC00222339 /* shakeClass.swift in Sources */,
 				0FC14A702E499F8A00F85D84 /* bayesSubStep3Section.swift in Sources */,
+				0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */,
 				0F868A062D42792800D952D9 /* goJug3Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868AAE2D583AC100D952D9 /* funky2Ver2ViewJissenStartData.swift in Sources */,
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
@@ -5613,6 +5632,7 @@
 				0F815FB62E34F9E00086127D /* commonViewUniversalPlate.swift in Sources */,
 				0FDBDADF2E8D4A4300197B94 /* urmiraVer2View95CiKen.swift in Sources */,
 				0FA024B02D0C00F6004B3FD5 /* lupinViewAtVoice.swift in Sources */,
+				0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */,
 				0F868A692D4A515300D952D9 /* acceleratorViewShutter.swift in Sources */,
 				0FDC327B2D23C0A1005B3D06 /* danvineViewPt.swift in Sources */,
 				0FF3692A2E6278C2002BE0CE /* azurLaneViewKokakuStart.swift in Sources */,
@@ -6465,7 +6485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.17.0;
+				MARKETING_VERSION = 3.17.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6505,7 +6525,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.17.0;
+				MARKETING_VERSION = 3.17.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
