@@ -22,9 +22,9 @@ struct enen2ViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: enen2ViewNormal(
-//                        enen2: enen2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
