@@ -806,6 +806,8 @@
 		0FA662E42F1521CA00F3259F /* kokakukidotaiViewtop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */; };
 		0FA662E62F1521D700F3259F /* kokakukidotaiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */; };
 		0FA662E82F1521E900F3259F /* kokakukidotaiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */; };
+		0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */; };
+		0FA662EC2F1526B900F3259F /* kokakukidotaiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2044,6 +2046,8 @@
 		0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewtop.swift; sourceTree = "<group>"; };
 		0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiClass.swift; sourceTree = "<group>"; };
 		0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kokakukidotaiAssets.xcassets; sourceTree = "<group>"; };
+		0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiView95Ci.swift; sourceTree = "<group>"; };
+		0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewBayes.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4176,6 +4180,8 @@
 				0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */,
 				0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */,
 				0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */,
+				0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */,
+				0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -5959,6 +5965,7 @@
 				0FC14A902E4ED15D00F85D84 /* enenViewTop.swift in Sources */,
 				0FCF78922E470A5E0000748B /* mt5TableMedal.swift in Sources */,
 				0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */,
+				0FA662EC2F1526B900F3259F /* kokakukidotaiViewBayes.swift in Sources */,
 				0FB209712E1279530029D940 /* watakonViewFirstHit.swift in Sources */,
 				0FC71FEC2E6868B8000DD53B /* unitLabelHistoryZero.swift in Sources */,
 				0FDBDAE32E8D4BFA00197B94 /* urmiraView95CiStart.swift in Sources */,
@@ -5997,6 +6004,7 @@
 				0F64DD3F2DC06E1F0027315D /* acceleratorTableTaidenModeRatio.swift in Sources */,
 				0FEC57DD2D99680400FF1024 /* rslViewKoyakuStyle.swift in Sources */,
 				0F64DDA52DC5F4340027315D /* unitReelDefault.swift in Sources */,
+				0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */,
 				0FC14A9A2E4F054600F85D84 /* enenTableModeMorning.swift in Sources */,
 				0FFAEBD02EC9981A006C0371 /* neoplaViewDuringBonus.swift in Sources */,
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
