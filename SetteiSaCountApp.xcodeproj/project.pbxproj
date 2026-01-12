@@ -803,6 +803,9 @@
 		0FA662DE2F15158800F3259F /* ver3171.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662DD2F15158800F3259F /* ver3171.swift */; };
 		0FA662E02F15169E00F3259F /* hihodenTableRegSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662DF2F15169E00F3259F /* hihodenTableRegSisa.swift */; };
 		0FA662E12F1516A800F3259F /* hihodenTableRegSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662DF2F15169E00F3259F /* hihodenTableRegSisa.swift */; };
+		0FA662E42F1521CA00F3259F /* kokakukidotaiViewtop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */; };
+		0FA662E62F1521D700F3259F /* kokakukidotaiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */; };
+		0FA662E82F1521E900F3259F /* kokakukidotaiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2038,6 +2041,9 @@
 		0FA662DB2F13C10400F3259F /* enen2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewFirstHit.swift; sourceTree = "<group>"; };
 		0FA662DD2F15158800F3259F /* ver3171.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3171.swift; sourceTree = "<group>"; };
 		0FA662DF2F15169E00F3259F /* hihodenTableRegSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hihodenTableRegSisa.swift; sourceTree = "<group>"; };
+		0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewtop.swift; sourceTree = "<group>"; };
+		0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiClass.swift; sourceTree = "<group>"; };
+		0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kokakukidotaiAssets.xcassets; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -3212,6 +3218,7 @@
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
 				0FA662CE2F13743800F3259F /* enen2 */,
+				0FA662E22F1521AE00F3259F /* kokakukidotai */,
 				0F03BD282F0B889B00222339 /* shake */,
 				0F45A5B52F0215500022E355 /* tekken6 */,
 				0F45A5A52EFEACAD0022E355 /* hokutoTensei */,
@@ -4163,6 +4170,16 @@
 			path = enen2;
 			sourceTree = "<group>";
 		};
+		0FA662E22F1521AE00F3259F /* kokakukidotai */ = {
+			isa = PBXGroup;
+			children = (
+				0FA662E32F1521CA00F3259F /* kokakukidotaiViewtop.swift */,
+				0FA662E52F1521D700F3259F /* kokakukidotaiClass.swift */,
+				0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */,
+			);
+			path = kokakukidotai;
+			sourceTree = "<group>";
+		};
 		0FB209572E0FDB6C0029D940 /* countButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -4924,6 +4941,7 @@
 				0F6BD7D22D806AA5003F5563 /* kaijiAssets.xcassets in Resources */,
 				0FDC32832D260767005B3D06 /* dumbbellAssets.xcassets in Resources */,
 				0FF369142E5AF292002BE0CE /* azurLaneAsetts.xcassets in Resources */,
+				0FA662E82F1521E900F3259F /* kokakukidotaiAssets.xcassets in Resources */,
 				0F6B59B62DFD276300DB1A2B /* evaYakusokuAssets.xcassets in Resources */,
 				0F8090402C83DC410061480F /* hokutoAssets.xcassets in Resources */,
 				0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */,
@@ -5334,6 +5352,7 @@
 				0FEC579A2D8EA5C800FF1024 /* arifureSubViewTableAtEndScreen.swift in Sources */,
 				0F1E12042DD0BC7F00F69AFF /* lupinTableFirstHit.swift in Sources */,
 				0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */,
+				0FA662E42F1521CA00F3259F /* kokakukidotaiViewtop.swift in Sources */,
 				0F868A172D44B6E100D952D9 /* happyJugV3Ver2ViewKenDataInput.swift in Sources */,
 				0FA024A82D0B137A004B3FD5 /* lupinViewRoundScreen.swift in Sources */,
 				0FB2095D2E1016A20029D940 /* dmc5ViewDmcBonus.swift in Sources */,
@@ -5557,6 +5576,7 @@
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F64DDC22DC6DF880027315D /* unitReelLongTitle.swift in Sources */,
 				0F868A5A2D47BB7100D952D9 /* draHanaSenkohVer2ViewJissenTotalDataCheck.swift in Sources */,
+				0FA662E62F1521D700F3259F /* kokakukidotaiClass.swift in Sources */,
 				0F9D9BD72E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift in Sources */,
 				0F9D9C0E2EA33E1600450B23 /* unitTextFieldShima.swift in Sources */,
 				0F9318872DEAA44400511BEF /* izaBanchoTableFirstHit.swift in Sources */,

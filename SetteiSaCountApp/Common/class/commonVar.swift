@@ -131,6 +131,13 @@ class commonVar: ObservableObject {
     @AppStorage("enen2MenuFirstHitBadge") var enen2MenuFirstHitBadge: String = "none"
     @AppStorage("enen2MenuBayesBadge") var enen2MenuBayesBadge: String = "none"
     
+    // ---- 攻殻機動隊
+    @AppStorage("kokakukidotaiisUnlocked") var kokakukidotaiisUnlocked: Bool = true
+    @AppStorage("kokakukidotaiMachineIconBadge") var kokakukidotaiMachineIconBadge: String = "none"
+    @AppStorage("kokakukidotaiMenuNormalBadge") var kokakukidotaiMenuNormalBadge: String = "none"
+    @AppStorage("kokakukidotaiMenuFirstHitBadge") var kokakukidotaiMenuFirstHitBadge: String = "none"
+    @AppStorage("kokakukidotaiMenuBayesBadge") var kokakukidotaiMenuBayesBadge: String = "none"
+    
     // ---- 鉄拳
     @AppStorage("tekken6isUnlocked") var tekken6isUnlocked: Bool = true
     @AppStorage("tekken6MachineIconBadge") var tekken6MachineIconBadge: String = "none"
