@@ -808,6 +808,7 @@
 		0FA662E82F1521E900F3259F /* kokakukidotaiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */; };
 		0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */; };
 		0FA662EC2F1526B900F3259F /* kokakukidotaiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */; };
+		0FA662EE2F1682D400F3259F /* kokakukidotaiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2048,6 +2049,7 @@
 		0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kokakukidotaiAssets.xcassets; sourceTree = "<group>"; };
 		0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiView95Ci.swift; sourceTree = "<group>"; };
 		0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewBayes.swift; sourceTree = "<group>"; };
+		0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewNormal.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4182,6 +4184,7 @@
 				0FA662E72F1521E900F3259F /* kokakukidotaiAssets.xcassets */,
 				0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */,
 				0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */,
+				0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -5472,6 +5475,7 @@
 				0FA024692CF2F046004B3FD5 /* imJugExView95Ci.swift in Sources */,
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
 				0F9D9C012EA0D28000450B23 /* ver3120Class.swift in Sources */,
+				0FA662EE2F1682D400F3259F /* kokakukidotaiViewNormal.swift in Sources */,
 				0F1E121A2DD4D19700F69AFF /* mhrTableKiteiReplay.swift in Sources */,
 				0FCCC50E2E91EC5200CE164D /* NewOni3Class.swift in Sources */,
 				0F89358E2E22981B00BF6FBE /* unitToolbarButtonCountDirectInput.swift in Sources */,

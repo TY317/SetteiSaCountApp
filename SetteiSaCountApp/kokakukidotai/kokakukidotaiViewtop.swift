@@ -30,7 +30,18 @@ struct kokakukidotaiViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: kokakukidotaiViewNormal(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.kokakukidotaiMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
