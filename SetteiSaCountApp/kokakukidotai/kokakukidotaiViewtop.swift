@@ -46,8 +46,8 @@ struct kokakukidotaiViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: kokakukidotaiView95Ci(
-//                    kokakukidotai: kokakukidotai,
-//                    selection: 2,
+                    kokakukidotai: kokakukidotai,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -57,9 +57,9 @@ struct kokakukidotaiViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: kokakukidotaiViewBayes(
-//                    kokakukidotai: kokakukidotai,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    kokakukidotai: kokakukidotai,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
