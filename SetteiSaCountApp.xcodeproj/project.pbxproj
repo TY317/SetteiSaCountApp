@@ -809,6 +809,8 @@
 		0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */; };
 		0FA662EC2F1526B900F3259F /* kokakukidotaiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */; };
 		0FA662EE2F1682D400F3259F /* kokakukidotaiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */; };
+		0FA662F02F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662EF2F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift */; };
+		0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662EF2F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2050,6 +2052,7 @@
 		0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiView95Ci.swift; sourceTree = "<group>"; };
 		0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewBayes.swift; sourceTree = "<group>"; };
 		0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewNormal.swift; sourceTree = "<group>"; };
+		0FA662EF2F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4185,6 +4188,7 @@
 				0FA662E92F1526AC00F3259F /* kokakukidotaiView95Ci.swift */,
 				0FA662EB2F1526B900F3259F /* kokakukidotaiViewBayes.swift */,
 				0FA662ED2F1682D400F3259F /* kokakukidotaiViewNormal.swift */,
+				0FA662EF2F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -5578,6 +5582,7 @@
 				0FDBDACC2E87A7B600197B94 /* creaTableKoyakuPattern.swift in Sources */,
 				0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */,
 				0FB209522E0FB1810029D940 /* watakonView95Ci.swift in Sources */,
+				0FA662F02F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
 				0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */,
 				0FDC32902D27DF5A005B3D06 /* acceleratorViewTop.swift in Sources */,
 				0F868A322D45CB6600D952D9 /* hanaTenshoVer2ViewJissenTotalDataCheck.swift in Sources */,
@@ -6343,6 +6348,7 @@
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
+				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
 				0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */,
 				0F03BD392F0B961C00222339 /* shakeTableKoyakuRatio.swift in Sources */,
 				0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */,

@@ -14,7 +14,14 @@ struct kokakukidotaiViewNormal: View {
     @EnvironmentObject var common: commonVar
     var body: some View {
         List {
-            
+            // レア役
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
+                    kokakukidotaiTableKoyakuPattern()
+                }
+            } header: {
+                Text("レア役")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuNormalBadge)
