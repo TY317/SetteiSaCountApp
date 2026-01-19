@@ -76,6 +76,8 @@ class HokutoTensei: ObservableObject {
         lampCountOver6 = 0
         lampCountSum = 0
         minusCheck = false
+        
+        lampCountWhiteSum = 0
     }
     
     // あべし履歴
@@ -97,6 +99,17 @@ class HokutoTensei: ObservableObject {
     func resetHistory() {
         inputGame = 0
         arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+    }
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    let ratioLamp24Sisa: [Double] = [50,60,40,60,40,50]
+    let ratioLamp35Sisa: [Double] = [50,40,60,40,60,50]
+    @AppStorage("hokutoTenseiLampCountWhiteSum") var lampCountWhiteSum: Int = 0
+    
+     func lampWhiteSumFunc() {
+        lampCountWhiteSum = lampCount24Sisa + lampCount35Sisa
     }
 }
 

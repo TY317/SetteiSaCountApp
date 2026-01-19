@@ -16,7 +16,7 @@ struct kokakukidotaiViewNormal: View {
         List {
             // レア役
             Section {
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     kokakukidotaiTableKoyakuPattern()
                 }
             } header: {

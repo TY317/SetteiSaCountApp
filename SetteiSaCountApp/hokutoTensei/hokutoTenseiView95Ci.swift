@@ -13,6 +13,25 @@ struct hokutoTenseiView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
+            // 台枠ランプ 白点灯回数
+            unitListSection95Ci(
+                grafTitle: "台枠ランプ\n白点滅回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hokutoTensei.lampCount35Sisa,
+                        bigNumber: $hokutoTensei.lampCountWhiteSum,
+                        setting1Percent: hokutoTensei.ratioLamp35Sisa[0],
+                        setting2Percent: hokutoTensei.ratioLamp35Sisa[1],
+                        setting3Percent: hokutoTensei.ratioLamp35Sisa[2],
+                        setting4Percent: hokutoTensei.ratioLamp35Sisa[3],
+                        setting5Percent: hokutoTensei.ratioLamp35Sisa[4],
+                        setting6Percent: hokutoTensei.ratioLamp35Sisa[5]
+                    )
+                )
+            )
+            .tag(2)
+            
             // 初当り回数
             unitListSection95Ci(
                 grafTitle: "闘神演舞 初当り回数",

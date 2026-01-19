@@ -50,7 +50,8 @@ struct hokutoTenseiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lampEnable, title: "100Gごとのランプ示唆") {
                     unitExView5body2image(
                         title: "100Gごとのランプ示唆",
-                        textBody1: "・確定系のみ反映させます"
+                        textBody1: "・白、白点滅の比率を計算要素に加えます",
+                        textBody2: "・確定系を反映させます",
                     )
                 }
 //                .popoverTip(tipVer3170hokutTenseiBayes())
@@ -127,7 +128,13 @@ struct hokutoTenseiViewBayes: View {
     private func bayesRatio() -> [Double] {
         // 100Gごとのランプ示唆
         var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostLampWhite: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.lampEnable {
+            logPostLampWhite = logPostPercentBino(
+                ratio: hokutoTensei.ratioLamp35Sisa,
+                Count: hokutoTensei.lampCount35Sisa,
+                bigNumber: hokutoTensei.lampCountWhiteSum
+            )
             if hokutoTensei.lampCountOver2 > 0 {
                 logPostLamp[0] = -Double.infinity
             }
@@ -192,6 +199,7 @@ struct hokutoTenseiViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostLamp,
             logPostFirstHitAt,
+            logPostLampWhite,
             
             logPostTrophy,
             logPostBefore,

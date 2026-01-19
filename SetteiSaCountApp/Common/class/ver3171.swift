@@ -24,3 +24,19 @@ struct tipVer3171hihodenRegSisa: Tip {
     }
 }
 
+
+// //////////////////
+// Tip：北斗転生　ランプ示唆白の詳細
+// //////////////////
+struct tipVer3171hokutoTenseiLampWhite: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("白・白点滅の比率詳細が判明\n比率算出、判別機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+

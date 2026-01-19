@@ -79,7 +79,7 @@ struct hokutoTenseiViewNormal: View {
                         .frame(height: 150)
                     }
                 }
-                .popoverTip(tipVer3170hokutTenseiLampSisa())
+//                .popoverTip(tipVer3170hokutTenseiLampSisa())
                 
                 // 示唆＆登録ボタン
                 unitCountSubmitWithResult(
@@ -89,6 +89,7 @@ struct hokutoTenseiViewNormal: View {
                     flushColor: flushColor(item: self.selectedItem),
                     minusCheck: $hokutoTensei.minusCheck) {
                         hokutoTensei.lampSumFunc()
+                        hokutoTensei.lampWhiteSumFunc()
                     }
             } header: {
                 Text("台枠ランプ カウント")
@@ -96,6 +97,28 @@ struct hokutoTenseiViewNormal: View {
             
             // //// カウント結果
             Section {
+                // 白 点滅・点灯比率
+                VStack {
+                    Text("[白・白点滅の比率]")
+                    HStack {
+                        // 白点灯
+                        unitResultRatioPercent2Line(
+                            title: "白\n(\(self.sisaList[1]))",
+                            count: $hokutoTensei.lampCount24Sisa,
+                            bigNumber: $hokutoTensei.lampCountWhiteSum,
+                            numberofDicimal: 0
+                        )
+                        // 白点滅
+                        unitResultRatioPercent2Line(
+                            title: "白点滅\n(\(self.sisaList[2]))",
+                            count: $hokutoTensei.lampCount35Sisa,
+                            bigNumber: $hokutoTensei.lampCountWhiteSum,
+                            numberofDicimal: 0
+                        )
+                    }
+                }
+                .popoverTip(tipVer3171hokutoTenseiLampWhite())
+                
                 ForEach(self.selectList, id: \.self) { item in
                     unitResultCountListPercent(
                         title: sisaText(item: item),
@@ -103,6 +126,42 @@ struct hokutoTenseiViewNormal: View {
                         flashColor: flushColor(item: item),
                         bigNumber: $hokutoTensei.lampCountSum,
                         numberofDigit: 0,
+                    )
+                }
+                
+                // 参考情報）白・白点滅の比率
+                unitLinkButtonViewBuilder(sheetTitle: "白・白点滅の比率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(titleLine: 2)
+                        unitTablePercent(
+                            columTitle: "白\n(\(self.sisaList[1]))",
+                            percentList: hokutoTensei.ratioLamp24Sisa,
+                            titleLine: 2,
+                        )
+                        unitTablePercent(
+                            columTitle: "白点滅\n(\(self.sisaList[2]))",
+                            percentList: hokutoTensei.ratioLamp35Sisa,
+                            titleLine: 2,
+                        )
+                    }
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        hokutoTenseiView95Ci(
+                            hokutoTensei: hokutoTensei,
+                            selection: 2,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hokutoTenseiViewBayes(
+                        hokutoTensei: hokutoTensei,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )
                 }
             } header: {
