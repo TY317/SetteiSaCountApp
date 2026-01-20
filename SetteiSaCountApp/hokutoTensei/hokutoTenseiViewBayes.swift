@@ -56,7 +56,12 @@ struct hokutoTenseiViewBayes: View {
                 }
 //                .popoverTip(tipVer3170hokutTenseiBayes())
                 // AT初当り確率
-                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "闘神演舞 初当り確率")
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・天破の刻 出現率、闘神演舞 初当り確率を計算要素に加えます"
+                    )
+                }
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -153,10 +158,16 @@ struct hokutoTenseiViewBayes: View {
          }
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostFirstHitTenha: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
             logPostFirstHitAt = logPostDenoBino(
                 ratio: hokutoTensei.ratioAtFirstHitAt,
                 Count: hokutoTensei.firstHitCountAt,
+                bigNumber: hokutoTensei.normalGame
+            )
+            logPostFirstHitTenha = logPostDenoBino(
+                ratio: hokutoTensei.ratioAtFirstHitTenha,
+                Count: hokutoTensei.firstHitCountTenha,
                 bigNumber: hokutoTensei.normalGame
             )
         }
@@ -200,6 +211,7 @@ struct hokutoTenseiViewBayes: View {
             logPostLamp,
             logPostFirstHitAt,
             logPostLampWhite,
+            logPostFirstHitTenha,
             
             logPostTrophy,
             logPostBefore,

@@ -292,6 +292,7 @@ class commonVar: ObservableObject {
                 hokutoTenseiMachineIconBadge = "update"
                 hokutoTenseiMenuNormalBadge = "update"
                 hokutoTenseiMenuBayesBadge = "update"
+                hokutoTenseiMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

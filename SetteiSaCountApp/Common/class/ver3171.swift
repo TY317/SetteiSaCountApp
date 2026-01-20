@@ -40,3 +40,18 @@ struct tipVer3171hokutoTenseiLampWhite: Tip {
     }
 }
 
+// //////////////////
+// Tip：北斗転生　天破
+// //////////////////
+struct tipVer3171hokutoTenseiTenha: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("天破の刻 実質出現率が判明\n情報、判別機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+

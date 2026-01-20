@@ -34,6 +34,25 @@ struct hokutoTenseiView95Ci: View {
             
             // 初当り回数
             unitListSection95Ci(
+                grafTitle: "天破の刻 初当り回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hokutoTensei.firstHitCountTenha,
+                        bigNumber: $hokutoTensei.normalGame,
+                        setting1Denominate: hokutoTensei.ratioAtFirstHitTenha[0],
+                        setting2Denominate: hokutoTensei.ratioAtFirstHitTenha[1],
+                        setting3Denominate: hokutoTensei.ratioAtFirstHitTenha[2],
+                        setting4Denominate: hokutoTensei.ratioAtFirstHitTenha[3],
+                        setting5Denominate: hokutoTensei.ratioAtFirstHitTenha[4],
+                        setting6Denominate: hokutoTensei.ratioAtFirstHitTenha[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // 初当り回数
+            unitListSection95Ci(
                 grafTitle: "闘神演舞 初当り回数",
                 titleFont: .title2,
                 grafView: AnyView(
