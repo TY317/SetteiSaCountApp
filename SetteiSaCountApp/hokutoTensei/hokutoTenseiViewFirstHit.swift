@@ -336,6 +336,10 @@ struct hokutoTenseiViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "あべし期待度テーブル") {
                     hokutoTenseiTableAbeshi()
                 }
+                // 参考情報）フェイク前兆発生テーブル
+                unitLinkButtonViewBuilder(sheetTitle: "フェイク前兆発生テーブル") {
+                    hokutoTenseiTableFake()
+                }
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",
