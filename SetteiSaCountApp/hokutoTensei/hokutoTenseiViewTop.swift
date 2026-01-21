@@ -68,7 +68,7 @@ struct hokutoTenseiViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: hokutoTenseiView95Ci(
                     hokutoTensei: hokutoTensei,
-                    selection: 2,
+                    selection: 4,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

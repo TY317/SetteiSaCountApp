@@ -35,15 +35,118 @@ struct hokutoTenseiViewNormal: View {
         "設定4 以上濃厚",
         "設定6 濃厚",
     ]
+    let statusList: [String] = [
+        "低確",
+        "高確",
+    ]
+    @State var selectedStatus: String = "低確"
+    
     var body: some View {
         List {
             // ---- レア役
             Section {
+                // 注意書き
+                Text("・低確、通常時での小役成立が対象")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // カウントボタン横並び
+                HStack {
+                    // 弱チェリー
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "弱🍒",
+                        count: $hokutoTensei.koyakuCountJakuCherry,
+                        color: .personalSummerLightRed,
+                        minusBool: $hokutoTensei.minusCheck) {
+                            hokutoTensei.koyakuSumFunc()
+                        }
+                    // 🍉
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "🍉",
+                        count: $hokutoTensei.koyakuCountSuika,
+                        color: .personalSummerLightGreen,
+                        minusBool: $hokutoTensei.minusCheck) {
+                            hokutoTensei.koyakuSumFunc()
+                        }
+                    // 弱チェリー
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "天破当選",
+                        count: $hokutoTensei.koyakuCountTenhaHit,
+                        color: .personalSummerLightPurple,
+                        minusBool: $hokutoTensei.minusCheck) {
+                            hokutoTensei.koyakuSumFunc()
+                        }
+                }
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "弱🍒・🍉からの当選率",
+                    count: $hokutoTensei.koyakuCountTenhaHit,
+                    bigNumber: $hokutoTensei.koyakuCountSum,
+                    numberofDicimal: 1
+                )
+                unitLinkButtonViewBuilder(sheetTitle: "弱🍒・🍉からの天破当選") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・状態見抜けない場合も多いと思いますがメモ代わりに利用ください")
+                            Text("・弱🍒、🍉は低確、通常時共に同じ当選率で1-6で6倍の設定差")
+                            Text("・チャンス目、勝舞揃いも設定差あり")
+                        }
+                        .padding(.bottom)
+                        Picker("", selection: self.$selectedStatus) {
+                            ForEach(self.statusList, id: \.self) { status in
+                                Text(status)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex(titleLine: 2,)
+                            unitTablePercent(
+                                columTitle: "弱🍒・🍉",
+                                percentList: hokutoTensei.ratioJakuCherrySuikaTenha,
+                                numberofDicimal: 1,
+                                titleLine: 2,
+                            )
+                            if self.selectedStatus == self.statusList[0] {
+                                unitTablePercent(
+                                    columTitle: "チャンス目\n勝舞揃い",
+                                    percentList: hokutoTensei.ratioChanceShobuTenhaTeikaku,
+                                    numberofDicimal: 1,
+                                    titleLine: 2,
+                                )
+                            }
+                            else {
+                                unitTablePercent(
+                                    columTitle: "チャンス目\n勝舞揃い",
+                                    percentList: hokutoTensei.ratioChanceShobuTenhaKokoaku,
+                                    numberofDicimal: 1,
+                                    titleLine: 2,
+                                )
+                            }
+                        }
+                    }
+                }
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     hokutoTenseiTableKoyakuPattern()
                 }
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        hokutoTenseiView95Ci(
+                            hokutoTensei: hokutoTensei,
+                            selection: 4,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hokutoTenseiViewBayes(
+                        hokutoTensei: hokutoTensei,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
-                Text("レア役")
+                Text("弱レア役からの天破当選率")
             }
             
             // ---- 通常時のモード

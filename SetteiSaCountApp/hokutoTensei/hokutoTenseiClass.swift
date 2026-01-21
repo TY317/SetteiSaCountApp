@@ -78,6 +78,10 @@ class HokutoTensei: ObservableObject {
         minusCheck = false
         
         lampCountWhiteSum = 0
+        koyakuCountJakuCherry = 0
+        koyakuCountSuika = 0
+        koyakuCountSum = 0
+        koyakuCountTenhaHit = 0
     }
     
     // あべし履歴
@@ -110,6 +114,19 @@ class HokutoTensei: ObservableObject {
     
      func lampWhiteSumFunc() {
         lampCountWhiteSum = lampCount24Sisa + lampCount35Sisa
+    }
+    
+    // 通常時　レア役からの天破当選
+    let ratioJakuCherrySuikaTenha: [Double] = [0.8,0.8,1.6,2.3,3.5,4.7]
+    let ratioChanceShobuTenhaTeikaku: [Double] = [2,2.7,3.1,3.9,4.7,6.3]
+    let ratioChanceShobuTenhaKokoaku: [Double] = [10.2,10.5,10.9,12.5,15.6,18.8]
+    @AppStorage("hokutoTenseiKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSuika") var koyakuCountSuika: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSum") var koyakuCountSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountTenhaHit") var koyakuCountTenhaHit: Int = 0
+    
+     func koyakuSumFunc() {
+        koyakuCountSum = koyakuCountJakuCherry + koyakuCountSuika
     }
 }
 

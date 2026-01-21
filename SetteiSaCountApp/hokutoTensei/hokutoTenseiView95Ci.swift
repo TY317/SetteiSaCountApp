@@ -13,6 +13,24 @@ struct hokutoTenseiView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
+            // 弱チェリー、スイカからの天破当選回数
+            unitListSection95Ci(
+                grafTitle: "弱🍒・🍉からの天破当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hokutoTensei.koyakuCountTenhaHit,
+                        bigNumber: $hokutoTensei.koyakuCountSum,
+                        setting1Percent: hokutoTensei.ratioJakuCherrySuikaTenha[0],
+                        setting2Percent: hokutoTensei.ratioJakuCherrySuikaTenha[1],
+                        setting3Percent: hokutoTensei.ratioJakuCherrySuikaTenha[2],
+                        setting4Percent: hokutoTensei.ratioJakuCherrySuikaTenha[3],
+                        setting5Percent: hokutoTensei.ratioJakuCherrySuikaTenha[4],
+                        setting6Percent: hokutoTensei.ratioJakuCherrySuikaTenha[5]
+                    )
+                )
+            )
+            .tag(4)
             // 台枠ランプ 白点灯回数
             unitListSection95Ci(
                 grafTitle: "台枠ランプ\n白点滅回数",

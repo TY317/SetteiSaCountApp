@@ -15,6 +15,7 @@ struct hokutoTenseiViewBayes: View {
     let payoutList: [Double] = [97.6, 98.4, 100.7, 106.2, 111.1, 114.9]
     @State var firstHitAtEnable: Bool = true
     @State var lampEnable: Bool = true
+    @State var rareTenhaEnable: Bool = true
     
     
     // 全機種共通
@@ -46,6 +47,8 @@ struct hokutoTenseiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 弱チェリー、スイカからの天破当選率
+                unitToggleWithQuestion(enable: self.$rareTenhaEnable, title: "弱🍒・🍉からの天破当選率")
                 // 100Gごとのランプ示唆
                 unitToggleWithQuestion(enable: self.$lampEnable, title: "100Gごとのランプ示唆") {
                     unitExView5body2image(
@@ -131,6 +134,15 @@ struct hokutoTenseiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 弱チェリー、スイカからの天破当選
+        var logPostRareTenha: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareTenhaEnable {
+            logPostRareTenha = logPostPercentBino(
+                ratio: hokutoTensei.ratioJakuCherrySuikaTenha,
+                Count: hokutoTensei.koyakuCountTenhaHit,
+                bigNumber: hokutoTensei.koyakuCountSum
+            )
+        }
         // 100Gごとのランプ示唆
         var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostLampWhite: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -212,6 +224,7 @@ struct hokutoTenseiViewBayes: View {
             logPostFirstHitAt,
             logPostLampWhite,
             logPostFirstHitTenha,
+            logPostRareTenha,
             
             logPostTrophy,
             logPostBefore,
