@@ -62,7 +62,7 @@ struct splashScreenView: View {
 //                        common.ver3110FirstLaunch()
 //                        common.ver3120FirstLaunch()
 //                        common.ver3130FirstLaunch()
-                        common.ver3131FirstLaunch()
+//                        common.ver3131FirstLaunch()
                         common.ver3140FirstLaunch()
                         common.ver3150FirstLaunch()
                         common.ver3160FirstLaunch()

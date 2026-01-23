@@ -49,7 +49,7 @@ struct neoplaViewScreen: View {
 //                        contentFont: .footnote,
                     )
                 }
-                .popoverTip(tipVer3131neoplaScreen())
+//                .popoverTip(tipVer3131neoplaScreen())
                 .frame(maxWidth: .infinity, alignment: .center)
 //                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
 //                    neoplaTableModeSisa()

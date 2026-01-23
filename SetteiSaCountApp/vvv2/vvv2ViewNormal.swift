@@ -77,7 +77,7 @@ struct vvv2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     vvv2TableMode()
                 }
-                .popoverTip(tipVer3131vvv2Mode())
+//                .popoverTip(tipVer3131vvv2Mode())
                 unitLinkButtonViewBuilder(sheetTitle: "モード移行率") {
                     vvv2TableModeMove()
                 }

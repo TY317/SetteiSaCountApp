@@ -188,6 +188,15 @@ struct hokutoTenseiSubViewSaveMemory: View {
         hokutoTenseiMemory1.lampCountSum = hokutoTensei.lampCountSum
         hokutoTenseiMemory1.inputGame = hokutoTensei.inputGame
         hokutoTenseiMemory1.gameArrayData = hokutoTensei.gameArrayData
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTenseiMemory1.lampCountWhiteSum = hokutoTensei.lampCountWhiteSum
+        hokutoTenseiMemory1.koyakuCountJakuCherry = hokutoTensei.koyakuCountJakuCherry
+        hokutoTenseiMemory1.koyakuCountSuika = hokutoTensei.koyakuCountSuika
+        hokutoTenseiMemory1.koyakuCountSum = hokutoTensei.koyakuCountSum
+        hokutoTenseiMemory1.koyakuCountTenhaHit = hokutoTensei.koyakuCountTenhaHit
     }
     func saveMemory2() {
         hokutoTenseiMemory2.normalGame = hokutoTensei.normalGame
@@ -208,6 +217,15 @@ struct hokutoTenseiSubViewSaveMemory: View {
         hokutoTenseiMemory2.lampCountSum = hokutoTensei.lampCountSum
         hokutoTenseiMemory2.inputGame = hokutoTensei.inputGame
         hokutoTenseiMemory2.gameArrayData = hokutoTensei.gameArrayData
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTenseiMemory2.lampCountWhiteSum = hokutoTensei.lampCountWhiteSum
+        hokutoTenseiMemory2.koyakuCountJakuCherry = hokutoTensei.koyakuCountJakuCherry
+        hokutoTenseiMemory2.koyakuCountSuika = hokutoTensei.koyakuCountSuika
+        hokutoTenseiMemory2.koyakuCountSum = hokutoTensei.koyakuCountSum
+        hokutoTenseiMemory2.koyakuCountTenhaHit = hokutoTensei.koyakuCountTenhaHit
     }
     func saveMemory3() {
         hokutoTenseiMemory3.normalGame = hokutoTensei.normalGame
@@ -228,6 +246,15 @@ struct hokutoTenseiSubViewSaveMemory: View {
         hokutoTenseiMemory3.lampCountSum = hokutoTensei.lampCountSum
         hokutoTenseiMemory3.inputGame = hokutoTensei.inputGame
         hokutoTenseiMemory3.gameArrayData = hokutoTensei.gameArrayData
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTenseiMemory3.lampCountWhiteSum = hokutoTensei.lampCountWhiteSum
+        hokutoTenseiMemory3.koyakuCountJakuCherry = hokutoTensei.koyakuCountJakuCherry
+        hokutoTenseiMemory3.koyakuCountSuika = hokutoTensei.koyakuCountSuika
+        hokutoTenseiMemory3.koyakuCountSum = hokutoTensei.koyakuCountSum
+        hokutoTenseiMemory3.koyakuCountTenhaHit = hokutoTensei.koyakuCountTenhaHit
     }
 }
 
@@ -278,6 +305,15 @@ struct hokutoTenseiSubViewLoadMemory: View {
         hokutoTensei.inputGame = hokutoTenseiMemory1.inputGame
         let array = decodeIntArray(from: hokutoTenseiMemory1.gameArrayData)
         saveArray(array, forKey: hokutoTensei.gameArrayKey)
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTensei.lampCountWhiteSum = hokutoTenseiMemory1.lampCountWhiteSum
+        hokutoTensei.koyakuCountJakuCherry = hokutoTenseiMemory1.koyakuCountJakuCherry
+        hokutoTensei.koyakuCountSuika = hokutoTenseiMemory1.koyakuCountSuika
+        hokutoTensei.koyakuCountSum = hokutoTenseiMemory1.koyakuCountSum
+        hokutoTensei.koyakuCountTenhaHit = hokutoTenseiMemory1.koyakuCountTenhaHit
     }
     func loadMemory2() {
         hokutoTensei.normalGame = hokutoTenseiMemory2.normalGame
@@ -299,6 +335,15 @@ struct hokutoTenseiSubViewLoadMemory: View {
         hokutoTensei.inputGame = hokutoTenseiMemory2.inputGame
         let array = decodeIntArray(from: hokutoTenseiMemory2.gameArrayData)
         saveArray(array, forKey: hokutoTensei.gameArrayKey)
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTensei.lampCountWhiteSum = hokutoTenseiMemory2.lampCountWhiteSum
+        hokutoTensei.koyakuCountJakuCherry = hokutoTenseiMemory2.koyakuCountJakuCherry
+        hokutoTensei.koyakuCountSuika = hokutoTenseiMemory2.koyakuCountSuika
+        hokutoTensei.koyakuCountSum = hokutoTenseiMemory2.koyakuCountSum
+        hokutoTensei.koyakuCountTenhaHit = hokutoTenseiMemory2.koyakuCountTenhaHit
     }
     func loadMemory3() {
         hokutoTensei.normalGame = hokutoTenseiMemory3.normalGame
@@ -320,6 +365,15 @@ struct hokutoTenseiSubViewLoadMemory: View {
         hokutoTensei.inputGame = hokutoTenseiMemory3.inputGame
         let array = decodeIntArray(from: hokutoTenseiMemory3.gameArrayData)
         saveArray(array, forKey: hokutoTensei.gameArrayKey)
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        hokutoTensei.lampCountWhiteSum = hokutoTenseiMemory3.lampCountWhiteSum
+        hokutoTensei.koyakuCountJakuCherry = hokutoTenseiMemory3.koyakuCountJakuCherry
+        hokutoTensei.koyakuCountSuika = hokutoTenseiMemory3.koyakuCountSuika
+        hokutoTensei.koyakuCountSum = hokutoTenseiMemory3.koyakuCountSum
+        hokutoTensei.koyakuCountTenhaHit = hokutoTenseiMemory3.koyakuCountTenhaHit
     }
 }
 
