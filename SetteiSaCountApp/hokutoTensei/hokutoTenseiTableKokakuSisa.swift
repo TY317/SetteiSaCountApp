@@ -12,6 +12,7 @@ struct hokutoTenseiTableKokakuSisa: View {
         VStack {
             VStack(alignment: .leading) {
                 Text("・第3停止での告知頻発で高確に期待")
+                Text("・カサンドラステージ滞在で高確or伝承モード示唆")
                 Text("・小役入賞時のLED色矛盾の一部で高確示唆")
             }
             .padding(.bottom)

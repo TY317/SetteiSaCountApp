@@ -277,6 +277,25 @@ struct hokutoTenseiViewNormal: View {
             } header: {
                 Text("台枠ランプ カウント結果")
             }
+            
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "通常の状態について") {
+                    VStack(alignment: .leading) {
+                        Text("・3つの状態でレア役成立時の天破の刻当選率を管理")
+                        Text("・低確、通常、高確の3種類")
+                        Text("・レア役成立時に昇格抽選")
+                        Text("・ハズレ、リプレイ、右下がり🔔で転落抽選")
+                    }
+                }
+                unitLinkButtonViewBuilder(sheetTitle: "低確滞在時のレア役での昇格率") {
+                    hokutoTenseiTableStatusMove()
+                }
+                unitLinkButtonViewBuilder(sheetTitle: "伝承モード終了時の移行先") {
+                    hokutoTenseiTableAfterDensho()
+                }
+            } header: {
+                Text("通常時の状態")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.hokutoTenseiMenuNormalBadge)
