@@ -88,6 +88,13 @@ struct unitTablePercent: View {
                                 .font(self.unitFont)
                                 .minimumScaleFactor(0.7)
                         }
+                        else if self.percentList[index] <= -100 {
+                            Text("")
+                                .fontWeight(.bold)
+                                .font(self.contentFont)
+                                .foregroundStyle(Color.black)
+                                .minimumScaleFactor(0.7)
+                        }
                         else if self.percentList[index] < 0 {
                             Text("?")
                                 .fontWeight(.bold)
@@ -160,10 +167,14 @@ struct unitTablePercent: View {
             }
         }
         else {
-            if ind % 2 == 0 {
-                textBackColor = Color.tableBlue
+            if percentList[ind] > -100 {
+                if ind % 2 == 0 {
+                    textBackColor = Color.tableBlue
+                } else {
+                    textBackColor = Color.white
+                }
             } else {
-                textBackColor = Color.white
+                textBackColor = Color.gray
             }
         }
         

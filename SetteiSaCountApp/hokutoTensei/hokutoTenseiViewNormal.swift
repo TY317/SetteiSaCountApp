@@ -124,6 +124,9 @@ struct hokutoTenseiViewNormal: View {
                         }
                     }
                 }
+                unitLinkButtonViewBuilder(sheetTitle: "高確示唆演出") {
+                    hokutoTenseiTableKokakuSisa()
+                }
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     hokutoTenseiTableKoyakuPattern()
                 }
