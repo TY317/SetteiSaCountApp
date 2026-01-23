@@ -56,6 +56,22 @@ struct tipVer3171hokutoTenseiTenha: Tip {
 }
 
 // //////////////////
+// Tip：北斗転生　弱レア役からの天破当選率
+// //////////////////
+struct tipVer3171hokutoTenseiRareTenha: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("弱レアやくからの天破当選率が判明\n情報、カウント機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
 // Tip：シェイク　小役確率
 // //////////////////
 struct tipVer3171ShakeKoyaku: Tip {
@@ -64,6 +80,22 @@ struct tipVer3171ShakeKoyaku: Tip {
     }
     var message: Text? {
         Text("小役確率の設定差が判明\n情報、判別機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：化物語　レア役からのCZ
+// //////////////////
+struct tipVer3171BakemonoRareCz: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("レア役からのCZ当選率が判明\n情報、カウント機能更新しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

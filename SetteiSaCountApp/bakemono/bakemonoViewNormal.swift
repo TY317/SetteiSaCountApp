@@ -68,7 +68,7 @@ struct bakemonoViewNormal: View {
                             )
                         }
                     }
-                    .popoverTip(tipVer3170bakemonoSuikaRatio())
+//                    .popoverTip(tipVer3170bakemonoSuikaRatio())
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
                     bakemonoTableKoyakuPattern()
                 }
@@ -157,6 +157,7 @@ struct bakemonoViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .popoverTip(tipVer3171BakemonoRareCz())
                 
                 // カウントボタン横並び
                 // スイカ

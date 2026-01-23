@@ -76,6 +76,7 @@ struct hokutoTenseiViewNormal: View {
                             hokutoTensei.koyakuSumFunc()
                         }
                 }
+                .popoverTip(tipVer3171hokutoTenseiRareTenha())
                 // 確率結果
                 unitResultRatioPercent2Line(
                     title: "弱🍒・🍉からの当選率",
