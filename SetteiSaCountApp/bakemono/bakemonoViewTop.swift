@@ -221,6 +221,16 @@ struct bakemonoSubViewSaveMemory: View {
         // -------------
         bakemonoMemory1.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
         bakemonoMemory1.jakuCherryAtCount = bakemono.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemonoMemory1.rareCzCountSuika = bakemono.rareCzCountSuika
+        bakemonoMemory1.rareCzCountSuikaHit = bakemono.rareCzCountSuikaHit
+        bakemonoMemory1.rareCzCountKyoCherry = bakemono.rareCzCountKyoCherry
+        bakemonoMemory1.rareCzCountChance = bakemono.rareCzCountChance
+        bakemonoMemory1.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
+        bakemonoMemory1.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
     }
     func saveMemory2() {
         bakemonoMemory2.totalGame = bakemono.totalGame
@@ -249,6 +259,16 @@ struct bakemonoSubViewSaveMemory: View {
         // -------------
         bakemonoMemory2.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
         bakemonoMemory2.jakuCherryAtCount = bakemono.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemonoMemory2.rareCzCountSuika = bakemono.rareCzCountSuika
+        bakemonoMemory2.rareCzCountSuikaHit = bakemono.rareCzCountSuikaHit
+        bakemonoMemory2.rareCzCountKyoCherry = bakemono.rareCzCountKyoCherry
+        bakemonoMemory2.rareCzCountChance = bakemono.rareCzCountChance
+        bakemonoMemory2.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
+        bakemonoMemory2.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
     }
     func saveMemory3() {
         bakemonoMemory3.totalGame = bakemono.totalGame
@@ -277,6 +297,16 @@ struct bakemonoSubViewSaveMemory: View {
         // -------------
         bakemonoMemory3.koyakuCountJakuCherry = bakemono.koyakuCountJakuCherry
         bakemonoMemory3.jakuCherryAtCount = bakemono.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemonoMemory3.rareCzCountSuika = bakemono.rareCzCountSuika
+        bakemonoMemory3.rareCzCountSuikaHit = bakemono.rareCzCountSuikaHit
+        bakemonoMemory3.rareCzCountKyoCherry = bakemono.rareCzCountKyoCherry
+        bakemonoMemory3.rareCzCountChance = bakemono.rareCzCountChance
+        bakemonoMemory3.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
+        bakemonoMemory3.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
     }
 }
 
@@ -334,6 +364,16 @@ struct bakemonoSubViewLoadMemory: View {
         // -------------
         bakemono.koyakuCountJakuCherry = bakemonoMemory1.koyakuCountJakuCherry
         bakemono.jakuCherryAtCount = bakemonoMemory1.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemono.rareCzCountSuika = bakemonoMemory1.rareCzCountSuika
+        bakemono.rareCzCountSuikaHit = bakemonoMemory1.rareCzCountSuikaHit
+        bakemono.rareCzCountKyoCherry = bakemonoMemory1.rareCzCountKyoCherry
+        bakemono.rareCzCountChance = bakemonoMemory1.rareCzCountChance
+        bakemono.rareCzCountKyoRareSum = bakemonoMemory1.rareCzCountKyoRareSum
+        bakemono.rareCzCountKyoRareHit = bakemonoMemory1.rareCzCountKyoRareHit
     }
     func loadMemory2() {
         bakemono.totalGame = bakemonoMemory2.totalGame
@@ -362,6 +402,16 @@ struct bakemonoSubViewLoadMemory: View {
         // -------------
         bakemono.koyakuCountJakuCherry = bakemonoMemory2.koyakuCountJakuCherry
         bakemono.jakuCherryAtCount = bakemonoMemory2.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemono.rareCzCountSuika = bakemonoMemory2.rareCzCountSuika
+        bakemono.rareCzCountSuikaHit = bakemonoMemory2.rareCzCountSuikaHit
+        bakemono.rareCzCountKyoCherry = bakemonoMemory2.rareCzCountKyoCherry
+        bakemono.rareCzCountChance = bakemonoMemory2.rareCzCountChance
+        bakemono.rareCzCountKyoRareSum = bakemonoMemory2.rareCzCountKyoRareSum
+        bakemono.rareCzCountKyoRareHit = bakemonoMemory2.rareCzCountKyoRareHit
     }
     func loadMemory3() {
         bakemono.totalGame = bakemonoMemory3.totalGame
@@ -390,6 +440,16 @@ struct bakemonoSubViewLoadMemory: View {
         // -------------
         bakemono.koyakuCountJakuCherry = bakemonoMemory3.koyakuCountJakuCherry
         bakemono.jakuCherryAtCount = bakemonoMemory3.jakuCherryAtCount
+        
+        // ---------
+        // ver3.17.1で追加
+        // ---------
+        bakemono.rareCzCountSuika = bakemonoMemory3.rareCzCountSuika
+        bakemono.rareCzCountSuikaHit = bakemonoMemory3.rareCzCountSuikaHit
+        bakemono.rareCzCountKyoCherry = bakemonoMemory3.rareCzCountKyoCherry
+        bakemono.rareCzCountChance = bakemonoMemory3.rareCzCountChance
+        bakemono.rareCzCountKyoRareSum = bakemonoMemory3.rareCzCountKyoRareSum
+        bakemono.rareCzCountKyoRareHit = bakemonoMemory3.rareCzCountKyoRareHit
     }
 }
 

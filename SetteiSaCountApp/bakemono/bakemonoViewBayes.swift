@@ -17,6 +17,7 @@ struct bakemonoViewBayes: View {
     @State var screenHitEnable: Bool = true
     @State var jakuCherryAtEnable: Bool = true
     @State var suikaEnable: Bool = true
+    @State var rareCzEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,13 @@ struct bakemonoViewBayes: View {
                 // スイカ確率
                 unitToggleWithQuestion(enable: self.$suikaEnable, title: "スイカ確率")
 //                    .popoverTip(tipVer3170bakemonoBayes())
+                // レア役からのCZ当選率
+                unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのCZ当選率") {
+                    unitExView5body2image(
+                        title: "レア役からのCZ当選率",
+                        textBody1: "・通常滞在時の🍉からの当選率、強🍒・チャンス目からの当選率を計算要素に加えます",
+                    )
+                }
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
                 // 弱チェリーからのAT直撃率
@@ -137,6 +145,21 @@ struct bakemonoViewBayes: View {
                 ratio: bakemono.ratioSuika,
                 Count: bakemono.koyakuCountSuika,
                 bigNumber: bakemono.totalGame
+            )
+        }
+        // レア役からのCZ
+        var logPostRareCzSuika: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareCzKyoRare: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareCzEnable {
+            logPostRareCzSuika = logPostPercentBino(
+                ratio: bakemono.ratioNormalCzSuika,
+                Count: bakemono.rareCzCountSuikaHit,
+                bigNumber: bakemono.rareCzCountSuika
+            )
+            logPostRareCzKyoRare = logPostPercentBino(
+                ratio: bakemono.ratioNormalCzKyoCerryChance,
+                Count: bakemono.rareCzCountKyoRareHit,
+                bigNumber: bakemono.rareCzCountKyoRareSum
             )
         }
         // 初当り確率
@@ -230,6 +253,8 @@ struct bakemonoViewBayes: View {
             logPostFirstHit,
             logPostJakuCherryAt,
             logPostScreenEnd,
+            logPostRareCzSuika,
+            logPostRareCzKyoRare,
             
             logPostTrophy,
             logPostBefore,
