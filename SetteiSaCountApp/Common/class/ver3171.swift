@@ -55,3 +55,17 @@ struct tipVer3171hokutoTenseiTenha: Tip {
     }
 }
 
+// //////////////////
+// Tip：シェイク　小役確率
+// //////////////////
+struct tipVer3171ShakeKoyaku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("小役確率の設定差が判明\n情報、判別機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

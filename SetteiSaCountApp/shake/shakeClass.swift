@@ -13,9 +13,9 @@ class Shake: ObservableObject {
     // ----------
     // 通常時
     // ----------
-    let ratioKoyakuBell: [Double] = [10.3,-1,-1,-1,]
-    let ratioKoyakuCherry: [Double] = [36.9,-1,-1,-1,]
-    let ratioKoyakuSuika: [Double] = [65.5,-1,-1,-1,]
+    let ratioKoyakuBell: [Double] = [10.3,10.2,9.9,9.6,]
+    let ratioKoyakuCherry: [Double] = [36.9,36.4,35.9,33.6,]
+    let ratioKoyakuSuika: [Double] = [65.5,63.6,60,58.4,]
     @AppStorage("shakeGameNumberStart") var gameNumberStart: Int = 0
     @AppStorage("shakeGameNumberCurrent") var gameNumberCurrent: Int = 0
     @AppStorage("shakeGameNumberPlay") var gameNumberPlay: Int = 0

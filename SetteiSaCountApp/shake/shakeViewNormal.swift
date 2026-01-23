@@ -77,6 +77,7 @@ struct shakeViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
                     shakeTableKoyakuRatio(shake: shake)
                 }
+                .popoverTip(tipVer3171ShakeKoyaku())
                 // 参考情報）レア役停止形
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     shakeTableKoyakuPattern()
@@ -91,6 +92,15 @@ struct shakeViewNormal: View {
                         )
                     )
                 )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    shakeViewBayes(
+                        shake: shake,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
                 
             } header: {
                 HStack {
@@ -178,7 +188,7 @@ struct shakeViewNormal: View {
                     autoBool: self.$isAutoCountOn,
                     nextAutoCountDate: self.$nextAutoCountDate,
                 )
-                .popoverTip(commonTipAutoGameCount())
+//                .popoverTip(commonTipAutoGameCount())
             }
             // カウント値ダイレクト入力
             ToolbarItem(placement: .automatic) {
