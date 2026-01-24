@@ -853,7 +853,7 @@ struct ContentView: View {
                                         ),
                                         iconImage: Image("mt5MachineIconWhite"),
                                         machineName: "モンキー5",
-//                                        badgeStatus: ver370.mt5MachineIconBadge,
+                                        badgeStatus: common.mt5MachineIconBadge,
                                     )
                                 }
                                 
@@ -1856,7 +1856,7 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2023,
                                         releaseMonth: 12,
-//                                        badgeStatus: ver370.mt5MachineIconBadge,
+                                        badgeStatus: common.mt5MachineIconBadge,
                                     )
                                 }
                                 

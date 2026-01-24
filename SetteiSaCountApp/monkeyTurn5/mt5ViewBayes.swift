@@ -19,10 +19,12 @@ struct mt5ViewBayes: View {
     @State var rivalEnable: Bool = true
     @State var blackMedalEnable: Bool = true
     @State var aoshimaScreenEnable: Bool = true
+    @State var rareItemEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
     @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @EnvironmentObject var common: commonVar
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
@@ -53,6 +55,13 @@ struct mt5ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "5枚役")
                 // 激走チャージ
                 unitToggleWithQuestion(enable: self.$gekisoEnable, title: "激走チャージ後のセリフ")
+                // 激走チャージ　アイテム獲得率
+                unitToggleWithQuestion(enable: self.$rareItemEnable, title: "激走チャージ アイテム獲得率") {
+                    unitExView5body2image(
+                        title: "アイテム獲得率",
+                        textBody1: "・激走チャージ中の弱🍒・🍉、弱チャンス目、強チャンス目でのアイテム獲得率を計算要素に加えます",
+                    )
+                }
                 // ライバルモード
                 unitToggleWithQuestion(enable: self.$rivalEnable, title: "ライバルモード")
                 // 黒メダル
@@ -83,7 +92,7 @@ struct mt5ViewBayes: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver370.mt5MenuBayesBadge)
+        .resetBadgeOnAppear($common.mt5MenuBayesBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -154,6 +163,28 @@ struct mt5ViewBayes: View {
                 bigNumber: mt5.hatanoCountSum
             )
         }
+        // 激走チャージ　アイテム獲得率
+        var logPostRareItemJakuRare = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareItemJakuChance = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareItemKyoChance = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareItemEnable {
+            logPostRareItemJakuRare = logPostPercentBino(
+                ratio: mt5.ratioRareItemJakuCherrySuika,
+                Count: mt5.rareItemCountJakuRareHit,
+                bigNumber: mt5.rareItemCountJakuRareSum
+            )
+            logPostRareItemJakuChance = logPostPercentBino(
+                ratio: mt5.ratioRareItemJakuChance,
+                Count: mt5.rareItemCountJakuChanceHit,
+                bigNumber: mt5.rareItemCountJakuChance
+            )
+            logPostRareItemKyoChance = logPostPercentBino(
+                ratio: mt5.ratioRareItemKyoChance,
+                Count: mt5.rareItemCountKyoChanceHit,
+                bigNumber: mt5.rareItemCountKyoChance
+            )
+        }
+        
         // ライバルモードの対数尤度
         var logPostRival = [Double](repeating: 0, count: self.settingList.count)
         if self.rivalEnable {
@@ -234,6 +265,9 @@ struct mt5ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPost5maiyaku,
             logPostGekiso,
+            logPostRareItemJakuRare,
+            logPostRareItemJakuChance,
+            logPostRareItemKyoChance,
             logPostRival,
             logPostMedal,
             logPostScreen,
@@ -270,4 +304,5 @@ struct mt5ViewBayes: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

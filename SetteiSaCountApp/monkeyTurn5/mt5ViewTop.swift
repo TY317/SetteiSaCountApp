@@ -202,6 +202,15 @@ class Mt5: ObservableObject, mt5Protocol {
         hatanoACount = 0
         hatanoBCount = 0
         minusCheck = false
+        
+        rareItemCountJakuCherry = 0
+        rareItemCountSuika = 0
+        rareItemCountJakuRareSum = 0
+        rareItemCountJakuRareHit = 0
+        rareItemCountJakuChance = 0
+        rareItemCountJakuChanceHit = 0
+        rareItemCountKyoChance = 0
+        rareItemCountKyoChanceHit = 0
     }
     
     
@@ -303,6 +312,25 @@ class Mt5: ObservableObject, mt5Protocol {
         resetAoshima()
         resetCoin5()
     }
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    let ratioRareItemJakuCherrySuika: [Double] = [25,26.2,32.8,39.1,43]
+    let ratioRareItemJakuChance: [Double] = [31.3,32,37.5,40.6,46.9]
+    let ratioRareItemKyoChance: [Double] = [50.8,50.8,58.6,62.5,66.4]
+    @AppStorage("mt5RareItemCountJakuCherry") var rareItemCountJakuCherry: Int = 0
+    @AppStorage("mt5RareItemCountSuika") var rareItemCountSuika: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareSum") var rareItemCountJakuRareSum: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareHit") var rareItemCountJakuRareHit: Int = 0
+    @AppStorage("mt5RareItemCountJakuChance") var rareItemCountJakuChance: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceHit") var rareItemCountJakuChanceHit: Int = 0
+    @AppStorage("mt5RareItemCountKyoChance") var rareItemCountKyoChance: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceHit") var rareItemCountKyoChanceHit: Int = 0
+    
+    func rareItemJakuSumFunc() {
+        rareItemCountJakuRareSum = rareItemCountJakuCherry + rareItemCountSuika
+    }
 }
 
 
@@ -334,6 +362,18 @@ class Mt5Memory1: ObservableObject {
     @AppStorage("mt5AoshimaSGCountSumMemory1") var AoshimaSGCountSum = 0
     @AppStorage("mt5MemoMemory1") var memo = ""
     @AppStorage("mt5DateMemory1") var dateDouble = 0.0
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("mt5RareItemCountJakuCherryMemory1") var rareItemCountJakuCherry: Int = 0
+    @AppStorage("mt5RareItemCountSuikaMemory1") var rareItemCountSuika: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareSumMemory1") var rareItemCountJakuRareSum: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareHitMemory1") var rareItemCountJakuRareHit: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceMemory1") var rareItemCountJakuChance: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceHitMemory1") var rareItemCountJakuChanceHit: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceMemory1") var rareItemCountKyoChance: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceHitMemory1") var rareItemCountKyoChanceHit: Int = 0
 }
 // //// メモリー2
 class Mt5Memory2: ObservableObject {
@@ -363,6 +403,18 @@ class Mt5Memory2: ObservableObject {
     @AppStorage("mt5AoshimaSGCountSumMemory2") var AoshimaSGCountSum = 0
     @AppStorage("mt5MemoMemory2") var memo = ""
     @AppStorage("mt5DateMemory2") var dateDouble = 0.0
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("mt5RareItemCountJakuCherryMemory2") var rareItemCountJakuCherry: Int = 0
+    @AppStorage("mt5RareItemCountSuikaMemory2") var rareItemCountSuika: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareSumMemory2") var rareItemCountJakuRareSum: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareHitMemory2") var rareItemCountJakuRareHit: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceMemory2") var rareItemCountJakuChance: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceHitMemory2") var rareItemCountJakuChanceHit: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceMemory2") var rareItemCountKyoChance: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceHitMemory2") var rareItemCountKyoChanceHit: Int = 0
 }
 // //// メモリー3
 class Mt5Memory3: ObservableObject {
@@ -392,6 +444,18 @@ class Mt5Memory3: ObservableObject {
     @AppStorage("mt5AoshimaSGCountSumMemory3") var AoshimaSGCountSum = 0
     @AppStorage("mt5MemoMemory3") var memo = ""
     @AppStorage("mt5DateMemory3") var dateDouble = 0.0
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("mt5RareItemCountJakuCherryMemory3") var rareItemCountJakuCherry: Int = 0
+    @AppStorage("mt5RareItemCountSuikaMemory3") var rareItemCountSuika: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareSumMemory3") var rareItemCountJakuRareSum: Int = 0
+    @AppStorage("mt5RareItemCountJakuRareHitMemory3") var rareItemCountJakuRareHit: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceMemory3") var rareItemCountJakuChance: Int = 0
+    @AppStorage("mt5RareItemCountJakuChanceHitMemory3") var rareItemCountJakuChanceHit: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceMemory3") var rareItemCountKyoChance: Int = 0
+    @AppStorage("mt5RareItemCountKyoChanceHitMemory3") var rareItemCountKyoChanceHit: Int = 0
 }
 
 
@@ -408,6 +472,7 @@ struct mt5ViewTop: View {
     @StateObject var mt5Memory1 = Mt5Memory1()
     @StateObject var mt5Memory2 = Mt5Memory2()
     @StateObject var mt5Memory3 = Mt5Memory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -436,7 +501,11 @@ struct mt5ViewTop: View {
                         bayes: bayes,
                         viewModel: viewModel,
                     )) {
-                        unitLabelMenu(imageSystemName: "message", textBody: "激走チャージ後のセリフ")
+                        unitLabelMenu(
+                            imageSystemName: "message",
+                            textBody: "激走チャージ",
+                            badgeStatus: common.mt5MenuGekisoBadge,
+                        )
                     }
                     // ライバルモード
                     NavigationLink(destination: mt5RivalModeView(
@@ -513,7 +582,7 @@ struct mt5ViewTop: View {
                 }
             }
             // //// バッジのリセット
-//            .resetBadgeOnAppear($ver370.mt5MachineIconBadge)
+            .resetBadgeOnAppear($common.mt5MachineIconBadge)
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -615,6 +684,18 @@ struct mt5ViewSaveMemory: View {
         mt5Memory1.AoshimaSGDressCount = mt5.AoshimaSGDressCount
         mt5Memory1.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
         mt5Memory1.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5Memory1.rareItemCountJakuCherry = mt5.rareItemCountJakuCherry
+        mt5Memory1.rareItemCountSuika = mt5.rareItemCountSuika
+        mt5Memory1.rareItemCountJakuRareSum = mt5.rareItemCountJakuRareSum
+        mt5Memory1.rareItemCountJakuRareHit = mt5.rareItemCountJakuRareHit
+        mt5Memory1.rareItemCountJakuChance = mt5.rareItemCountJakuChance
+        mt5Memory1.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
+        mt5Memory1.rareItemCountKyoChance = mt5.rareItemCountKyoChance
+        mt5Memory1.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
     }
     func saveMemory2() {
         mt5Memory2.coin5Count = mt5.coin5Count
@@ -641,6 +722,18 @@ struct mt5ViewSaveMemory: View {
         mt5Memory2.AoshimaSGDressCount = mt5.AoshimaSGDressCount
         mt5Memory2.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
         mt5Memory2.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5Memory2.rareItemCountJakuCherry = mt5.rareItemCountJakuCherry
+        mt5Memory2.rareItemCountSuika = mt5.rareItemCountSuika
+        mt5Memory2.rareItemCountJakuRareSum = mt5.rareItemCountJakuRareSum
+        mt5Memory2.rareItemCountJakuRareHit = mt5.rareItemCountJakuRareHit
+        mt5Memory2.rareItemCountJakuChance = mt5.rareItemCountJakuChance
+        mt5Memory2.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
+        mt5Memory2.rareItemCountKyoChance = mt5.rareItemCountKyoChance
+        mt5Memory2.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
     }
     func saveMemory3() {
         mt5Memory3.coin5Count = mt5.coin5Count
@@ -667,6 +760,18 @@ struct mt5ViewSaveMemory: View {
         mt5Memory3.AoshimaSGDressCount = mt5.AoshimaSGDressCount
         mt5Memory3.AoshimaSGHatanoCount = mt5.AoshimaSGHatanoCount
         mt5Memory3.AoshimaSGCountSum = mt5.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5Memory3.rareItemCountJakuCherry = mt5.rareItemCountJakuCherry
+        mt5Memory3.rareItemCountSuika = mt5.rareItemCountSuika
+        mt5Memory3.rareItemCountJakuRareSum = mt5.rareItemCountJakuRareSum
+        mt5Memory3.rareItemCountJakuRareHit = mt5.rareItemCountJakuRareHit
+        mt5Memory3.rareItemCountJakuChance = mt5.rareItemCountJakuChance
+        mt5Memory3.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
+        mt5Memory3.rareItemCountKyoChance = mt5.rareItemCountKyoChance
+        mt5Memory3.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
     }
 }
 
@@ -729,6 +834,18 @@ struct mt5ViewLoadMemory: View {
         mt5.AoshimaSGDressCount = mt5Memory1.AoshimaSGDressCount
         mt5.AoshimaSGHatanoCount = mt5Memory1.AoshimaSGHatanoCount
         mt5.AoshimaSGCountSum = mt5Memory1.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5.rareItemCountJakuCherry = mt5Memory1.rareItemCountJakuCherry
+        mt5.rareItemCountSuika = mt5Memory1.rareItemCountSuika
+        mt5.rareItemCountJakuRareSum = mt5Memory1.rareItemCountJakuRareSum
+        mt5.rareItemCountJakuRareHit = mt5Memory1.rareItemCountJakuRareHit
+        mt5.rareItemCountJakuChance = mt5Memory1.rareItemCountJakuChance
+        mt5.rareItemCountJakuChanceHit = mt5Memory1.rareItemCountJakuChanceHit
+        mt5.rareItemCountKyoChance = mt5Memory1.rareItemCountKyoChance
+        mt5.rareItemCountKyoChanceHit = mt5Memory1.rareItemCountKyoChanceHit
     }
     func loadMemory2() {
         mt5.coin5Count = mt5Memory2.coin5Count
@@ -763,6 +880,18 @@ struct mt5ViewLoadMemory: View {
         mt5.AoshimaSGDressCount = mt5Memory2.AoshimaSGDressCount
         mt5.AoshimaSGHatanoCount = mt5Memory2.AoshimaSGHatanoCount
         mt5.AoshimaSGCountSum = mt5Memory2.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5.rareItemCountJakuCherry = mt5Memory2.rareItemCountJakuCherry
+        mt5.rareItemCountSuika = mt5Memory2.rareItemCountSuika
+        mt5.rareItemCountJakuRareSum = mt5Memory2.rareItemCountJakuRareSum
+        mt5.rareItemCountJakuRareHit = mt5Memory2.rareItemCountJakuRareHit
+        mt5.rareItemCountJakuChance = mt5Memory2.rareItemCountJakuChance
+        mt5.rareItemCountJakuChanceHit = mt5Memory2.rareItemCountJakuChanceHit
+        mt5.rareItemCountKyoChance = mt5Memory2.rareItemCountKyoChance
+        mt5.rareItemCountKyoChanceHit = mt5Memory2.rareItemCountKyoChanceHit
     }
     func loadMemory3() {
         mt5.coin5Count = mt5Memory3.coin5Count
@@ -797,6 +926,18 @@ struct mt5ViewLoadMemory: View {
         mt5.AoshimaSGDressCount = mt5Memory3.AoshimaSGDressCount
         mt5.AoshimaSGHatanoCount = mt5Memory3.AoshimaSGHatanoCount
         mt5.AoshimaSGCountSum = mt5Memory3.AoshimaSGCountSum
+        
+        // --------
+        // ver3.17.1で追加
+        // --------
+        mt5.rareItemCountJakuCherry = mt5Memory3.rareItemCountJakuCherry
+        mt5.rareItemCountSuika = mt5Memory3.rareItemCountSuika
+        mt5.rareItemCountJakuRareSum = mt5Memory3.rareItemCountJakuRareSum
+        mt5.rareItemCountJakuRareHit = mt5Memory3.rareItemCountJakuRareHit
+        mt5.rareItemCountJakuChance = mt5Memory3.rareItemCountJakuChance
+        mt5.rareItemCountJakuChanceHit = mt5Memory3.rareItemCountJakuChanceHit
+        mt5.rareItemCountKyoChance = mt5Memory3.rareItemCountKyoChance
+        mt5.rareItemCountKyoChanceHit = mt5Memory3.rareItemCountKyoChanceHit
     }
 }
 
@@ -806,4 +947,5 @@ struct mt5ViewLoadMemory: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

@@ -822,6 +822,8 @@
 		0FA662FE2F234AD500F3259F /* bakemonoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE8142EDC342B00D85BCA /* bakemonoClass.swift */; };
 		0FA663002F234AEC00F3259F /* bakemonoTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662FF2F234AEC00F3259F /* bakemonoTableRareCz.swift */; };
 		0FA663012F234AFC00F3259F /* bakemonoTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662FF2F234AEC00F3259F /* bakemonoTableRareCz.swift */; };
+		0FA663032F243ED000F3259F /* mt5TableRareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA663022F243ED000F3259F /* mt5TableRareItem.swift */; };
+		0FA663042F243F2C00F3259F /* mt5TableRareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA663022F243ED000F3259F /* mt5TableRareItem.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2069,6 +2071,7 @@
 		0FA662F82F2333B000F3259F /* hokutoTenseiTableStatusMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableStatusMove.swift; sourceTree = "<group>"; };
 		0FA662FB2F23449500F3259F /* hokutoTenseiTableAfterDensho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableAfterDensho.swift; sourceTree = "<group>"; };
 		0FA662FF2F234AEC00F3259F /* bakemonoTableRareCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableRareCz.swift; sourceTree = "<group>"; };
+		0FA663022F243ED000F3259F /* mt5TableRareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableRareItem.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -4543,6 +4546,7 @@
 				0FCF78932E470C050000748B /* mt5TableTrophy.swift */,
 				0FCF78952E470D040000748B /* mt5TableAoshimaScreen.swift */,
 				0FC14A812E4BFC9B00F85D84 /* mt5ViewBayes.swift */,
+				0FA663022F243ED000F3259F /* mt5TableRareItem.swift */,
 			);
 			path = monkeyTurn5;
 			sourceTree = "<group>";
@@ -5232,6 +5236,7 @@
 				0FFAEBC62EC970BE006C0371 /* neoplaTableKoyakuPattern.swift in Sources */,
 				0FFAB8652E7061CC00296A4F /* girlsSSViewBayes.swift in Sources */,
 				0FEC57A82D8EFB5A00FF1024 /* kaijiViewZawaKokaku.swift in Sources */,
+				0FA663032F243ED000F3259F /* mt5TableRareItem.swift in Sources */,
 				0F8935872E21F8F900BF6FBE /* unitToolbarButtonQuestion.swift in Sources */,
 				0F654BCA2C6EC7FE00F37849 /* happyJugV3exView.swift in Sources */,
 				0F9D9C2C2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift in Sources */,
@@ -6375,6 +6380,7 @@
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0FA662F92F2333B000F3259F /* hokutoTenseiTableStatusMove.swift in Sources */,
+				0FA663042F243F2C00F3259F /* mt5TableRareItem.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
 				0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */,

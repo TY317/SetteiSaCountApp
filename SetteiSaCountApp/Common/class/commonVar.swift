@@ -275,6 +275,11 @@ class commonVar: ObservableObject {
     @AppStorage("mhrMachineIconBadge") var mhrMachineIconBadge: String = "none"
     @AppStorage("mhrMenuFirstHitBadge") var mhrMenuFirstHitBadge: String = "none"
     
+    // ---- モンキーターン
+    @AppStorage("mt5MachineIconBadge") var mt5MachineIconBadge: String = "none"
+    @AppStorage("mt5MenuGekisoBadge") var mt5MenuGekisoBadge: String = "none"
+    @AppStorage("mt5MenuBayesBadge") var mt5MenuBayesBadge: String = "none"
+    
     
     // //////////////////////////////////////
     // バージョンごとの処理
@@ -298,6 +303,9 @@ class commonVar: ObservableObject {
                 shakeMachineIconBadge = "update"
                 shakeMenuNormalBadge = "update"
                 shakeMenuBayesBadge = "update"
+                mt5MachineIconBadge = "update"
+                mt5MenuGekisoBadge = "update"
+                mt5MenuBayesBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
