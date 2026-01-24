@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class Bakemono: ObservableObject {
     // -----------
@@ -22,6 +23,13 @@ class Bakemono: ObservableObject {
         minusCheck = false
         koyakuCountJakuCherry = 0
         jakuCherryAtCount = 0
+        
+        rareCzCountSuika = 0
+        rareCzCountSuikaHit = 0
+        rareCzCountKyoCherry = 0
+        rareCzCountChance = 0
+        rareCzCountKyoRareSum = 0
+        rareCzCountKyoRareHit = 0
     }
     
     // ------------
@@ -128,6 +136,22 @@ class Bakemono: ObservableObject {
     let ratioJakuCherryAt: [Double] = [0.4,0.8,1.3,2.1,2.9,3.8]
     @AppStorage("bakemonoKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
     @AppStorage("bakemonoJakuCherryAtCount") var jakuCherryAtCount: Int = 0
+    
+    // ---------
+    // ver3.17.1で追加
+    // ---------
+    let ratioNormalCzSuika: [Double] = [2.5,2.9,4.2,4.6,4.6,5]
+    let ratioNormalCzKyoCerryChance: [Double] = [30,30.4,31.3,32.9,32.9,34.2]
+    @AppStorage("bakemonoRareCzCountSuika") var rareCzCountSuika: Int = 0
+    @AppStorage("bakemonoRareCzCountSuikaHit") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoCherry") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("bakemonoRareCzCountChance") var rareCzCountChance: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareSum") var rareCzCountKyoRareSum: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareHit") var rareCzCountKyoRareHit: Int = 0
+    
+    func rareCzSumFunc() {
+        rareCzCountKyoRareSum = rareCzCountKyoCherry + rareCzCountChance
+    }
 }
 
 class BakemonoMemory1: ObservableObject {
@@ -159,6 +183,16 @@ class BakemonoMemory1: ObservableObject {
     // -------------
     @AppStorage("bakemonoKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry: Int = 0
     @AppStorage("bakemonoJakuCherryAtCountMemory1") var jakuCherryAtCount: Int = 0
+    
+    // ---------
+    // ver3.17.1で追加
+    // ---------
+    @AppStorage("bakemonoRareCzCountSuikaMemory1") var rareCzCountSuika: Int = 0
+    @AppStorage("bakemonoRareCzCountSuikaHitMemory1") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoCherryMemory1") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("bakemonoRareCzCountChanceMemory1") var rareCzCountChance: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareSumMemory1") var rareCzCountKyoRareSum: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareHitMemory1") var rareCzCountKyoRareHit: Int = 0
 }
 
 class BakemonoMemory2: ObservableObject {
@@ -190,6 +224,16 @@ class BakemonoMemory2: ObservableObject {
     // -------------
     @AppStorage("bakemonoKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry: Int = 0
     @AppStorage("bakemonoJakuCherryAtCountMemory2") var jakuCherryAtCount: Int = 0
+    
+    // ---------
+    // ver3.17.1で追加
+    // ---------
+    @AppStorage("bakemonoRareCzCountSuikaMemory2") var rareCzCountSuika: Int = 0
+    @AppStorage("bakemonoRareCzCountSuikaHitMemory2") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoCherryMemory2") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("bakemonoRareCzCountChanceMemory2") var rareCzCountChance: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareSumMemory2") var rareCzCountKyoRareSum: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareHitMemory2") var rareCzCountKyoRareHit: Int = 0
 }
 
 class BakemonoMemory3: ObservableObject {
@@ -221,4 +265,14 @@ class BakemonoMemory3: ObservableObject {
     // -------------
     @AppStorage("bakemonoKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry: Int = 0
     @AppStorage("bakemonoJakuCherryAtCountMemory3") var jakuCherryAtCount: Int = 0
+    
+    // ---------
+    // ver3.17.1で追加
+    // ---------
+    @AppStorage("bakemonoRareCzCountSuikaMemory3") var rareCzCountSuika: Int = 0
+    @AppStorage("bakemonoRareCzCountSuikaHitMemory3") var rareCzCountSuikaHit: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoCherryMemory3") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("bakemonoRareCzCountChanceMemory3") var rareCzCountChance: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareSumMemory3") var rareCzCountKyoRareSum: Int = 0
+    @AppStorage("bakemonoRareCzCountKyoRareHitMemory3") var rareCzCountKyoRareHit: Int = 0
 }

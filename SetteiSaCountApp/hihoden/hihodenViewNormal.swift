@@ -152,6 +152,22 @@ struct hihodenViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "伝説モード示唆演出") {
                     hihodenTableLegendSisa()
                 }
+                // 参考情報）謎高確率の当選率
+                unitLinkButtonViewBuilder(sheetTitle: "謎高確率の当選率") {
+                    VStack {
+                        Text("・リプレイでの高確率当選（謎高確率）に設定差あり")
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "謎高確率",
+                                denominateList: [5471.1,4602.1,3724.1,2559.6,2241.0,2060.6]
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer3171HihodenNazoKokaku())
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

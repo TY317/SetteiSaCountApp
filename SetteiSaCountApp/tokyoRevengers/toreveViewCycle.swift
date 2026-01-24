@@ -158,7 +158,7 @@ struct toreveViewCycle: View {
                         numberofDicimal: 0
                     )
                 }
-                .popoverTip(tipVer3131ToreveCycle())
+//                .popoverTip(tipVer3131ToreveCycle())
                 unitLinkButtonViewBuilder(sheetTitle: "周期×モード×設定別の当選率テーブル") {
                     toreveTableCycleModeHitRatio()
                 }

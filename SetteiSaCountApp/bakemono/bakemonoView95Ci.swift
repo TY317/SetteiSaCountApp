@@ -30,6 +30,45 @@ struct bakemonoView95Ci: View {
                 )
             )
             .tag(2)
+            
+            // 通常滞在時　スイカからのCZ当選
+            unitListSection95Ci(
+                grafTitle: "通常滞在時\n🍉からのCZ当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bakemono.rareCzCountSuikaHit,
+                        bigNumber: $bakemono.rareCzCountSuika,
+                        setting1Percent: bakemono.ratioNormalCzSuika[0],
+                        setting2Percent: bakemono.ratioNormalCzSuika[1],
+                        setting3Percent: bakemono.ratioNormalCzSuika[2],
+                        setting4Percent: bakemono.ratioNormalCzSuika[3],
+                        setting5Percent: bakemono.ratioNormalCzSuika[4],
+                        setting6Percent: bakemono.ratioNormalCzSuika[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // 通常滞在時　強🍒・チャンス目からのCZ当選
+            unitListSection95Ci(
+                grafTitle: "通常滞在時\n強🍒・チャンス目からのCZ当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bakemono.rareCzCountKyoRareHit,
+                        bigNumber: $bakemono.rareCzCountKyoRareSum,
+                        setting1Percent: bakemono.ratioNormalCzKyoCerryChance[0],
+                        setting2Percent: bakemono.ratioNormalCzKyoCerryChance[1],
+                        setting3Percent: bakemono.ratioNormalCzKyoCerryChance[2],
+                        setting4Percent: bakemono.ratioNormalCzKyoCerryChance[3],
+                        setting5Percent: bakemono.ratioNormalCzKyoCerryChance[4],
+                        setting6Percent: bakemono.ratioNormalCzKyoCerryChance[5]
+                    )
+                )
+            )
+            .tag(4)
+            
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",

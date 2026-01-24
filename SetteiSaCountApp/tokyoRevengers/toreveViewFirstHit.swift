@@ -174,7 +174,7 @@ struct toreveViewFirstHit: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3131ToreveFirsthit())
+//                .popoverTip(tipVer3131ToreveFirsthit())
                 
                 // //// カウント
                 // モードA

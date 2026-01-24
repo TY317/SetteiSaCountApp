@@ -13,7 +13,7 @@ class Darling: ObservableObject {
     // 初当り
     // //////////
     let ratioCz: [Double] = [125.1, 125.3, 123.4, 124.1, 118.4, 115.9]
-    let ratioBonus: [Double] = [343.0, 334.1, 320.1, 298.9, 270.3, 252.3]
+    let ratioBonus: [Double] = [229.8,224.1,214.9,207.3,190.3,180.3]
     let ratioKokaku: [Double] = [343.0, 334.1, 320.1, 298.9, 270.3, 252.3]
     // 選択肢の設定
     let selectListFirstKind: [String] = ["CZ(コネクト)","CZ(ココロ)", "ボーナス直撃"]

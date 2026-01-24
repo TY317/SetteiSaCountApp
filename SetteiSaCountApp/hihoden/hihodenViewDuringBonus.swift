@@ -76,10 +76,12 @@ struct hihodenViewDuringBonus: View {
                     VStack {
                         VStack(alignment: .leading) {
                             Text("・銀、金背景のキャラに注目")
-                            Text("・カードの組み合わせによる役などで伝説モードなどを示唆？")
+                            Text("・カードの組み合わせによる役などで伝説モードなどを示唆")
+                            hihodenTableRegSisa()
                         }
                     }
                 }
+                .popoverTip(tipVer3171hihodenRegSisa())
             } header: {
                 Text("REG中のキャラ紹介")
             }

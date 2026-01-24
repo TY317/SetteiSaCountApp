@@ -13,7 +13,7 @@ class HokutoTensei: ObservableObject {
     // 初当り
     // ----------
     let ratioAtFirstHitAt: [Double] = [366,357,336.3,298.7,283.2,273.1]
-    let ratioAtFirstHitTenha: [Double] = [-1,-1,-1,-1,-1,-1,]
+    let ratioAtFirstHitTenha: [Double] = [100.2,99.4,97.1,91.4,85.8,81.3]
     @AppStorage("hokutoTenseiNormalGame") var normalGame: Int = 0
     @AppStorage("hokutoTenseiFirstHitCountAt") var firstHitCountAt: Int = 0
     @AppStorage("hokutoTenseiFirstHitCountTenha") var firstHitCountTenha: Int = 0
@@ -76,6 +76,12 @@ class HokutoTensei: ObservableObject {
         lampCountOver6 = 0
         lampCountSum = 0
         minusCheck = false
+        
+        lampCountWhiteSum = 0
+        koyakuCountJakuCherry = 0
+        koyakuCountSuika = 0
+        koyakuCountSum = 0
+        koyakuCountTenhaHit = 0
     }
     
     // あべし履歴
@@ -97,6 +103,30 @@ class HokutoTensei: ObservableObject {
     func resetHistory() {
         inputGame = 0
         arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+    }
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    let ratioLamp24Sisa: [Double] = [50,60,40,60,40,50]
+    let ratioLamp35Sisa: [Double] = [50,40,60,40,60,50]
+    @AppStorage("hokutoTenseiLampCountWhiteSum") var lampCountWhiteSum: Int = 0
+    
+     func lampWhiteSumFunc() {
+        lampCountWhiteSum = lampCount24Sisa + lampCount35Sisa
+    }
+    
+    // 通常時　レア役からの天破当選
+    let ratioJakuCherrySuikaTenha: [Double] = [0.8,0.8,1.6,2.3,3.5,4.7]
+    let ratioChanceShobuTenhaTeikaku: [Double] = [2,2.7,3.1,3.9,4.7,6.3]
+    let ratioChanceShobuTenhaKokoaku: [Double] = [10.2,10.5,10.9,12.5,15.6,18.8]
+    @AppStorage("hokutoTenseiKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSuika") var koyakuCountSuika: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSum") var koyakuCountSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountTenhaHit") var koyakuCountTenhaHit: Int = 0
+    
+     func koyakuSumFunc() {
+        koyakuCountSum = koyakuCountJakuCherry + koyakuCountSuika
     }
 }
 
@@ -122,6 +152,15 @@ class HokutoTenseiMemory1: ObservableObject {
     @AppStorage("hokutoTenseiLampCountSumMemory1") var lampCountSum: Int = 0
     @AppStorage("hokutoTenseiInputGameMemory1") var inputGame: Int = 0
     @AppStorage("hokutoTenseiGameArrayKeyMemory1") var gameArrayData: Data?
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("hokutoTenseiLampCountWhiteSumMemory1") var lampCountWhiteSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSuikaMemory1") var koyakuCountSuika: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSumMemory1") var koyakuCountSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory1") var koyakuCountTenhaHit: Int = 0
 }
 
 class HokutoTenseiMemory2: ObservableObject {
@@ -145,6 +184,15 @@ class HokutoTenseiMemory2: ObservableObject {
     @AppStorage("hokutoTenseiLampCountSumMemory2") var lampCountSum: Int = 0
     @AppStorage("hokutoTenseiInputGameMemory2") var inputGame: Int = 0
     @AppStorage("hokutoTenseiGameArrayKeyMemory2") var gameArrayData: Data?
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("hokutoTenseiLampCountWhiteSumMemory2") var lampCountWhiteSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSuikaMemory2") var koyakuCountSuika: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSumMemory2") var koyakuCountSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory2") var koyakuCountTenhaHit: Int = 0
 }
 
 class HokutoTenseiMemory3: ObservableObject {
@@ -168,4 +216,13 @@ class HokutoTenseiMemory3: ObservableObject {
     @AppStorage("hokutoTenseiLampCountSumMemory3") var lampCountSum: Int = 0
     @AppStorage("hokutoTenseiInputGameMemory3") var inputGame: Int = 0
     @AppStorage("hokutoTenseiGameArrayKeyMemory3") var gameArrayData: Data?
+    
+    // --------
+    // ver3.17.1で追加
+    // --------
+    @AppStorage("hokutoTenseiLampCountWhiteSumMemory3") var lampCountWhiteSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSuikaMemory3") var koyakuCountSuika: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountSumMemory3") var koyakuCountSum: Int = 0
+    @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory3") var koyakuCountTenhaHit: Int = 0
 }

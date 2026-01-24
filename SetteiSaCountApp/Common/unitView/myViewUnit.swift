@@ -890,28 +890,43 @@ struct unitHeaderHistoryColumns: View {
     var column3: String?
     var column4: String?
     var column5: String?
+    var column1Font: Font = .subheadline
+    var column2Font: Font = .subheadline
+    var column3Font: Font = .subheadline
+    var column4Font: Font = .subheadline
+    var column5Font: Font = .subheadline
     
     
     var body: some View {
         HStack {
             if self.column1Bool {
                 Text(column1)
+                    .font(self.column1Font)
+                    .multilineTextAlignment(.center)
                     .frame(width: column1Width)
             }
             if let column2 = column2 {
                 Text(column2)
+                    .font(self.column2Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
             }
             if let column3 = column3 {
                 Text(column3)
+                    .font(self.column3Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
             }
             if let column4 = column4 {
                 Text(column4)
+                    .font(self.column4Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
             }
             if let column5 = column5 {
                 Text(column5)
+                    .font(self.column5Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
             }
         }
@@ -933,6 +948,10 @@ struct unitHeaderHistoryColumnsWithoutTimes: View {
     var column3MaxWidth: CGFloat = .infinity
     var column4MaxWidth: CGFloat = .infinity
     var column5MaxWidth: CGFloat = .infinity
+    var column2Font: Font = .subheadline
+    var column3Font: Font = .subheadline
+    var column4Font: Font = .subheadline
+    var column5Font: Font = .subheadline
     
     
     var body: some View {
@@ -942,22 +961,29 @@ struct unitHeaderHistoryColumnsWithoutTimes: View {
             if let column2 = column2 {
                 Text(column2)
 //                    .frame(maxWidth: .infinity)
+                    .font(self.column2Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: self.column2MaxWidth)
             }
             if let column3 = column3 {
                 Text(column3)
 //                    .frame(maxWidth: .infinity)
-                    .frame(maxWidth: self.column3MaxWidth)
+                    .font(self.column3Font)
                     .multilineTextAlignment(.center)
+                    .frame(maxWidth: self.column3MaxWidth)
             }
             if let column4 = column4 {
                 Text(column4)
 //                    .frame(maxWidth: .infinity)
+                    .font(self.column4Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: self.column4MaxWidth)
             }
             if let column5 = column5 {
                 Text(column5)
 //                    .frame(maxWidth: .infinity)
+                    .font(self.column5Font)
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: self.column5MaxWidth)
             }
         }

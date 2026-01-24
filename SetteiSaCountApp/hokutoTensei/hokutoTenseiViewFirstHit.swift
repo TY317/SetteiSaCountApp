@@ -29,7 +29,7 @@ struct hokutoTenseiViewFirstHit: View {
     var body: some View {
         List {
             // 注意書き
-            Text("・ゲーム数はマイスロを参考に入力して下さい\n・天破の初当り回数は自力カウント推奨")
+            Text("・ゲーム数はマイスロを参考に入力して下さい")
                 .foregroundStyle(Color.secondary)
                 .font(.caption)
             // ゲーム数入力
@@ -62,25 +62,30 @@ struct hokutoTenseiViewFirstHit: View {
             }
             // 参考情報）初当り確率
             unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
-                HStack(spacing: 0) {
-                    unitTableSettingIndex()
-                    unitTableDenominate(
-                        columTitle: "天破の刻",
-                        denominateList: hokutoTensei.ratioAtFirstHitTenha
-                    )
-                    unitTableDenominate(
-                        columTitle: "闘神演舞",
-                        denominateList: hokutoTensei.ratioAtFirstHitAt
-                    )
+                VStack {
+                    Text("・天破は伝承ループでの当選分も含んだ実質出現率")
+                        .padding(.bottom)
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "天破の刻",
+                            denominateList: hokutoTensei.ratioAtFirstHitTenha
+                        )
+                        unitTableDenominate(
+                            columTitle: "闘神演舞",
+                            denominateList: hokutoTensei.ratioAtFirstHitAt
+                        )
+                    }
                 }
             }
+            .popoverTip(tipVer3171hokutoTenseiTenha())
             
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
                 Ci95view: AnyView(
                     hokutoTenseiView95Ci(
                         hokutoTensei: hokutoTensei,
-                        selection: 1,
+                        selection: 3,
                     )
                 )
             )
@@ -103,7 +108,7 @@ struct hokutoTenseiViewFirstHit: View {
                     unitText: "あべし",
                 )
                 .focused($isFocused)
-                .popoverTip(tipVer3170hokutTenseiAbeshiHistory())
+//                .popoverTip(tipVer3170hokutTenseiAbeshiHistory())
                 // //// 登録ボタン
                 Button {
                     // マイナスチェック入っていれば1行削除
@@ -335,6 +340,10 @@ struct hokutoTenseiViewFirstHit: View {
                 // 参考情報）あべし期待度テーブル
                 unitLinkButtonViewBuilder(sheetTitle: "あべし期待度テーブル") {
                     hokutoTenseiTableAbeshi()
+                }
+                // 参考情報）フェイク前兆発生テーブル
+                unitLinkButtonViewBuilder(sheetTitle: "フェイク前兆発生テーブル") {
+                    hokutoTenseiTableFake()
                 }
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(

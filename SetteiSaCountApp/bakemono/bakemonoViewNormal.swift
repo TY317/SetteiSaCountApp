@@ -25,6 +25,9 @@ struct bakemonoViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    
+    @State var selectedRare: String = "🍉"
+    let rareList: [String] = ["🍉", "強🍒・チャンス目"]
     var body: some View {
         List {
             // //// レア役
@@ -65,7 +68,7 @@ struct bakemonoViewNormal: View {
                             )
                         }
                     }
-                    .popoverTip(tipVer3170bakemonoSuikaRatio())
+//                    .popoverTip(tipVer3170bakemonoSuikaRatio())
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
                     bakemonoTableKoyakuPattern()
                 }
@@ -89,7 +92,7 @@ struct bakemonoViewNormal: View {
                     )
                 }
             } header: {
-                Text("レア役")
+                Text("小役確率")
             }
             
             // //// 弱🍒からのAT直撃
@@ -140,6 +143,119 @@ struct bakemonoViewNormal: View {
             } header: {
                 Text("弱🍒からのAT直撃")
             }
+            
+            // 通常時レア役からのCZ当選
+            Section {
+                // 注意書き
+                Text("状態は完全に見抜けないと思いますがメモ代わりにご利用ください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // セグメントピッカー
+                Picker("", selection: self.$selectedRare) {
+                    ForEach(self.rareList, id: \.self) { rare in
+                        Text(rare)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .popoverTip(tipVer3171BakemonoRareCz())
+                
+                // カウントボタン横並び
+                // スイカ
+                if self.selectedRare == self.rareList[0] {
+                    HStack {
+                        // スイカ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "🍉",
+                            count: $bakemono.rareCzCountSuika,
+                            color: .personalSummerLightGreen,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.rareCzSumFunc()
+                            }
+                        // CZ当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "CZ当選",
+                            count: $bakemono.rareCzCountSuikaHit,
+                            color: .personalSummerLightPurple,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.rareCzSumFunc()
+                            }
+                    }
+                }
+                // 強チェリー、チャンス目
+                else {
+                    HStack {
+                        // 強チェリー
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "強🍒",
+                            count: $bakemono.rareCzCountKyoCherry,
+                            color: .red,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.rareCzSumFunc()
+                            }
+                        // チャンス目
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "チャンス目",
+                            count: $bakemono.rareCzCountChance,
+                            color: .blue,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.rareCzSumFunc()
+                            }
+                        // CZ当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "CZ当選",
+                            count: $bakemono.rareCzCountKyoRareHit,
+                            color: .purple,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.rareCzSumFunc()
+                            }
+                    }
+                }
+                
+                // 確率結果
+                HStack {
+                    // スイカ
+                    unitResultRatioPercent2Line(
+                        title: "🍉",
+                        count: $bakemono.rareCzCountSuikaHit,
+                        bigNumber: $bakemono.rareCzCountSuika,
+                        numberofDicimal: 1
+                    )
+                    // 強チェリー、チャンス目
+                    unitResultRatioPercent2Line(
+                        title: "強🍒・チャンス目",
+                        count: $bakemono.rareCzCountKyoRareHit,
+                        bigNumber: $bakemono.rareCzCountKyoRareSum,
+                        numberofDicimal: 0
+                    )
+                }
+                
+                // 参考情報）レア役からのCZ当選率
+                unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
+                    bakemonoTableRareCz(bakemono: bakemono)
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        bakemonoView95Ci(
+                            bakemono: bakemono,
+                            selection: 3,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    bakemonoViewBayes(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("通常滞在時 レア役からのCZ当選率")
+            }
+            
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット

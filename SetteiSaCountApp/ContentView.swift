@@ -76,6 +76,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteTekken6") var isSelectedFavoriteTekken6 = true
     @AppStorage("isSelectedFavoriteMushoten") var isSelectedFavoriteMushoten = true
     @AppStorage("isSelectedFavoriteShake") var isSelectedFavoriteShake = true
+    @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
+    @AppStorage("isSelectedFavoriteKokakukidotai") var isSelectedFavoriteKokakukidotai = true
 }
 
 
@@ -107,7 +109,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3170UpdateInfo())
+//                TipView(tipVer3170UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -146,6 +148,38 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// 炎炎２、26年2月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLinkWithLock(
+//                                        linkView: AnyView(enen2ViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("enen2MachineIcon"),
+//                                        machineName: "炎炎2",
+//                                        isUnLocked: $common.enen2isUnlocked,
+//                                        badgeStatus: common.enen2MachineIconBadge,
+//                                    )
+//                                }
+                                
+                                // //// 攻殻機動隊、26年2月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLinkWithLock(
+//                                        linkView: AnyView(kokakukidotaiViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("kokakukidotaiMachineIcon"),
+//                                        machineName: "攻殻機動隊",
+//                                        isUnLocked: $common.kokakukidotaiisUnlocked,
+//                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
+//                                    )
+//                                }
+                                
                                 // //// 鉄拳6、26年1月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
                                     
@@ -160,15 +194,6 @@ struct ContentView: View {
                                         isUnLocked: $common.tekken6isUnlocked,
                                         badgeStatus: common.tekken6MachineIconBadge,
                                     )
-//                                    unitMachineIconLink(
-//                                        linkView: AnyView(tekken6ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("tekken6MachineIcon"),
-//                                        machineName: "鉄拳6",
-//                                        badgeStatus: common.tekken6MachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 北斗転生、26年1月
@@ -185,15 +210,6 @@ struct ContentView: View {
                                         isUnLocked: $common.hokutoTenseiisUnlocked,
                                         badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
-//                                    unitMachineIconLink(
-//                                        linkView: AnyView(hokutoTenseiViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("hokutoTenseiMachineIcon"),
-//                                        machineName: "北斗転生",
-//                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 無職転生、25年12月
@@ -837,7 +853,7 @@ struct ContentView: View {
                                         ),
                                         iconImage: Image("mt5MachineIconWhite"),
                                         machineName: "モンキー5",
-//                                        badgeStatus: ver370.mt5MachineIconBadge,
+                                        badgeStatus: common.mt5MachineIconBadge,
                                     )
                                 }
                                 
@@ -941,19 +957,43 @@ struct ContentView: View {
                                     )
                                 }
                                 
-//                                unitMachineListLinkWithLock(
-//                                    linkView: AnyView(tekken6ViewTop(
-//                                        bayes: bayes,
-//                                        viewModel: viewModel,
-//                                    )),
-//                                    iconImage: Image("tekken6MachineIcon"),
-//                                    machineName: "鉄拳6",
-//                                    makerName: "山佐",
-//                                    releaseYear: 2026,
-//                                    releaseMonth: 1,
-//                                    isUnLocked: $common.tekken6isUnlocked,
-//                                    badgeStatus: common.tekken6MachineIconBadge,
-//                                )
+                                // //// 炎炎２、26年２月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+//                                    
+//                                } else {
+//                                    unitMachineListLinkWithLock(
+//                                        linkView: AnyView(enen2ViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("enen2MachineIcon"),
+//                                        machineName: "炎炎ノ消防隊2",
+//                                        makerName: "SANKYO",
+//                                        releaseYear: 2026,
+//                                        releaseMonth: 2,
+//                                        isUnLocked: $common.enen2isUnlocked,
+//                                        badgeStatus: common.enen2MachineIconBadge,
+//                                    )
+//                                }
+                                
+                                // //// 攻殻機動隊、26年２月
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
+//                                    
+//                                } else {
+//                                    unitMachineListLinkWithLock(
+//                                        linkView: AnyView(kokakukidotaiViewTop(
+//                                            bayes: bayes,
+//                                            viewModel: viewModel,
+//                                        )),
+//                                        iconImage: Image("kokakukidotaiMachineIcon"),
+//                                        machineName: "攻殻機動隊",
+//                                        makerName: "サミー",
+//                                        releaseYear: 2026,
+//                                        releaseMonth: 2,
+//                                        isUnLocked: $common.kokakukidotaiisUnlocked,
+//                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
+//                                    )
+//                                }
                                 
                                 // //// 鉄拳6、26年1月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
@@ -1816,7 +1856,7 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2023,
                                         releaseMonth: 12,
-//                                        badgeStatus: ver370.mt5MachineIconBadge,
+                                        badgeStatus: common.mt5MachineIconBadge,
                                     )
                                 }
                                 
@@ -1976,7 +2016,7 @@ struct ContentView: View {
                             }
                         } label: {
                             Image(systemName: "circle.lefthalf.filled")
-                                .popoverTip(tipVer3131Toolbar())
+//                                .popoverTip(tipVer3131Toolbar())
                         }
                     }
                     ToolbarItem(placement: .automatic) {
@@ -2074,6 +2114,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 炎炎ノ消防隊2
+//                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
+                // 攻殻機動隊
+//                Toggle("攻殻機動隊", isOn: $favoriteSet.isSelectedFavoriteKokakukidotai)
                 // 鉄拳６
                 Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
                 // 北斗転生
@@ -2246,8 +2290,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

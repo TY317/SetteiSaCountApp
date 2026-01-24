@@ -18,6 +18,7 @@ struct shakeViewBayes: View {
     @State var jacEnable: Bool = true
     @State var voiceEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var koyakuEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -48,6 +49,13 @@ struct shakeViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 小役確率
+                unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役確率") {
+                    unitExView5body2image(
+                        title: "小役確率",
+                        textBody1: "・🔔、🍒、🍉確率を計算要素に加えます"
+                    )
+                }
                 // ボーナス確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "ボーナス確率") {
                     unitExView5body2image(
@@ -145,6 +153,21 @@ struct shakeViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 小役確率
+        var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koyakuEnable {
+            logPostKoyaku = logPostDenoMulti(
+                countList: [
+                    shake.koyakuCountBell,
+                    shake.koyakuCountCherry,
+                    shake.koyakuCountSuika,
+                ], denoList: [
+                    shake.ratioKoyakuBell,
+                    shake.ratioKoyakuCherry,
+                    shake.ratioKoyakuSuika,
+                ], bigNumber: shake.gameNumberPlay
+            )
+        }
         // ボーナス確率
         var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
@@ -227,6 +250,7 @@ struct shakeViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostKoyaku,
             logPostBonus,
             logPostIdenBonus,
             logPostVoice,
