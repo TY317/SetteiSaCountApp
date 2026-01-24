@@ -71,7 +71,8 @@ struct hokutoTenseiTableFake: View {
                         "発生濃厚",
                         "天井",
                     ],
-                    maxWidth: 60,
+                    maxWidth: 50,
+                    contentFont: .subheadline,
                 )
                 unitTableString(
                     columTitle: "B",
@@ -101,7 +102,8 @@ struct hokutoTenseiTableFake: View {
                         "grayOut",
                         "grayOut",
                     ],
-                    maxWidth: 60,
+                    maxWidth: 50,
+                    contentFont: .subheadline,
                 )
                 unitTableString(
                     columTitle: "C",
@@ -131,7 +133,8 @@ struct hokutoTenseiTableFake: View {
                         "grayOut",
                         "grayOut",
                     ],
-                    maxWidth: 60,
+                    maxWidth: 50,
+                    contentFont: .subheadline,
                 )
                 unitTableString(
                     columTitle: "天国",
@@ -161,7 +164,8 @@ struct hokutoTenseiTableFake: View {
                         "grayOut",
                         "grayOut",
                     ],
-                    maxWidth: 60,
+                    maxWidth: 50,
+                    contentFont: .subheadline,
                 )
             }
         }

@@ -10,7 +10,8 @@ import SwiftUI
 struct hokutoTenseiTableAbeshi: View {
     @State var selectedItem: String = "設定変更以外"
     let itemList: [String] = ["設定変更以外","設定変更後",]
-    let maxWidth: CGFloat = 60
+//    let maxWidth: CGFloat = 60
+    let maxWidth: CGFloat = 50
     @State var numberDisplay: Bool = false
     var body: some View {
         VStack {

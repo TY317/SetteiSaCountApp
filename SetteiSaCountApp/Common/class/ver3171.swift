@@ -63,7 +63,7 @@ struct tipVer3171hokutoTenseiRareTenha: Tip {
         Text("機能更新")
     }
     var message: Text? {
-        Text("弱レアやくからの天破当選率が判明\n情報、カウント機能更新しました")
+        Text("弱レア役からの天破当選率が判明\n情報、カウント機能更新しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

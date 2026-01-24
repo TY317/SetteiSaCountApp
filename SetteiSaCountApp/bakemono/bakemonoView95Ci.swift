@@ -57,7 +57,7 @@ struct bakemonoView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $bakemono.rareCzCountKyoRareHit,
-                        bigNumber: $bakemono.rareCzCountKyoRareHit,
+                        bigNumber: $bakemono.rareCzCountKyoRareSum,
                         setting1Percent: bakemono.ratioNormalCzKyoCerryChance[0],
                         setting2Percent: bakemono.ratioNormalCzKyoCerryChance[1],
                         setting3Percent: bakemono.ratioNormalCzKyoCerryChance[2],
