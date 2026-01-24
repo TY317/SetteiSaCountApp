@@ -136,6 +136,7 @@ struct mt5GekisoView: View {
                                 }
                         }
                     }
+                    .popoverTip(tipVer3171Mt5Item())
                     
                     // 確率結果
                     HStack {

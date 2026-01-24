@@ -101,3 +101,34 @@ struct tipVer3171BakemonoRareCz: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：秘宝伝　謎高確率
+// //////////////////
+struct tipVer3171HihodenNazoKokaku: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("謎高確率の設定差が判明\n情報更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：モンキーターン　アイテム獲得
+// //////////////////
+struct tipVer3171Mt5Item: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("激走チャージ中のアイテム獲得率設定差が判明\n情報、カウント機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
