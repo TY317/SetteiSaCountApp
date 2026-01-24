@@ -567,7 +567,7 @@ struct mt5ViewTop: View {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
                         textBody: "設定期待値",
-//                        badgeStatus: ver370.mt5MenuBayesBadge,
+                        badgeStatus: common.mt5MenuBayesBadge,
                     )
                 }
                 

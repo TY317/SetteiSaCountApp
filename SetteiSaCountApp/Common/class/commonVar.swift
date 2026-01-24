@@ -307,6 +307,7 @@ class commonVar: ObservableObject {
                 mt5MachineIconBadge = "update"
                 mt5MenuGekisoBadge = "update"
                 mt5MenuBayesBadge = "update"
+                bakemonoMenuBayesBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
