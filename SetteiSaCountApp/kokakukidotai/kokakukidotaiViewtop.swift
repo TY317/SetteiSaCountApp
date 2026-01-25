@@ -42,6 +42,14 @@ struct kokakukidotaiViewTop: View {
                             badgeStatus: common.kokakukidotaiMenuNormalBadge,
                         )
                     }
+                    
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewSammyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "サミートロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
