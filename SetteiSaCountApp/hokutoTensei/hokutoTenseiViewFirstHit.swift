@@ -363,6 +363,8 @@ struct hokutoTenseiViewFirstHit: View {
                 screenClass: screenClass
             )
         }
+        .navigationTitle("初当り")
+        .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,

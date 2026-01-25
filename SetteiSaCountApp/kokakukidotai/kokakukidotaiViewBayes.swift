@@ -45,8 +45,22 @@ struct kokakukidotaiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・CZ、AT 初当り確率を計算要素に加えます"
+                    )
+                }
                 
-                
+                // サミートロフィー
+                DisclosureGroup("サミートロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "キリン柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3
@@ -108,6 +122,21 @@ struct kokakukidotaiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: kokakukidotai.ratioFirstHitAt,
+                Count: kokakukidotai.firstHitCountAt,
+                bigNumber: kokakukidotai.normalGame
+            )
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: kokakukidotai.ratioFirstHitCz,
+                Count: kokakukidotai.firstHitCountCz,
+                bigNumber: kokakukidotai.normalGame
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -146,7 +175,8 @@ struct kokakukidotaiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostFirstHitAt,
+            logPostFirstHitCz,
             
             logPostTrophy,
             logPostBefore,

@@ -14,22 +14,22 @@ struct kokakukidotaiView95Ci: View {
     var body: some View {
         TabView(selection: self.$selection) {
             // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kokakukidotai.firstHitCountCz,
-//                        bigNumber: $kokakukidotai.normalGame,
-//                        setting1Denominate: kokakukidotai.ratioFirstHitCz[0],
-//                        setting2Denominate: kokakukidotai.ratioFirstHitCz[1],
-//                        setting3Denominate: kokakukidotai.ratioFirstHitCz[2],
-//                        setting4Denominate: kokakukidotai.ratioFirstHitCz[3],
-//                        setting5Denominate: kokakukidotai.ratioFirstHitCz[4],
-//                        setting6Denominate: kokakukidotai.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kokakukidotai.firstHitCountCz,
+                        bigNumber: $kokakukidotai.normalGame,
+                        setting1Denominate: kokakukidotai.ratioFirstHitCz[0],
+                        setting2Denominate: kokakukidotai.ratioFirstHitCz[1],
+                        setting3Denominate: kokakukidotai.ratioFirstHitCz[2],
+                        setting4Denominate: kokakukidotai.ratioFirstHitCz[3],
+                        setting5Denominate: kokakukidotai.ratioFirstHitCz[4],
+                        setting6Denominate: kokakukidotai.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(1)
         }
         // //// firebaseログ
         .onAppear {

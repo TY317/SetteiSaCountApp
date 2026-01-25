@@ -43,6 +43,19 @@ struct kokakukidotaiViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: kokakukidotaiViewFirstHit(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.kokakukidotaiMenuFirstHitBadge,
+                        )
+                    }
+                    
                     // サミートロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(
