@@ -292,7 +292,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                kokakukidotaiisUnlocked = false
+                kokakukidotaiMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
