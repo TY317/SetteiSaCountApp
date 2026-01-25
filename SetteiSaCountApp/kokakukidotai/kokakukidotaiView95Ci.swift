@@ -13,6 +13,25 @@ struct kokakukidotaiView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
+            // 引き戻し成功ストック回数
+            unitListSection95Ci(
+                grafTitle: "AT終了時200or400G\nCZ合算回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.iedeCountSuccess,
+                        bigNumber: $kokakukidotai.iedeCountSum,
+                        setting1Percent: kokakukidotai.ratioIede[0],
+                        setting2Percent: kokakukidotai.ratioIede[1],
+                        setting3Percent: kokakukidotai.ratioIede[2],
+                        setting4Percent: kokakukidotai.ratioIede[3],
+                        setting5Percent: kokakukidotai.ratioIede[4],
+                        setting6Percent: kokakukidotai.ratioIede[5]
+                    )
+                )
+            )
+            .tag(3)
+            
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",

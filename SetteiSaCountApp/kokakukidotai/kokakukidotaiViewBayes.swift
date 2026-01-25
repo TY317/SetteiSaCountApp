@@ -15,6 +15,7 @@ struct kokakukidotaiViewBayes: View {
     let payoutList: [Double] = [97.9, 98.7, 100.8, 104.9, 109.3, 112.2]
     @State var firstHitEnable: Bool = true
     @State var rebootEnable: Bool = true
+    @State var iedeEnable: Bool = true
     
     
     // 全機種共通
@@ -46,6 +47,9 @@ struct kokakukidotaiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // AT終了時200or400G CZ当選
+                unitToggleWithQuestion(enable: self.$iedeEnable, title: "AT終了時200or400G CZ当選")
+                
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
@@ -126,6 +130,15 @@ struct kokakukidotaiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // AT終了時200or400
+        var logPostIede: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.iedeEnable {
+            logPostIede = logPostPercentBino(
+                ratio: kokakukidotai.ratioIede,
+                Count: kokakukidotai.iedeCountSuccess,
+                bigNumber: kokakukidotai.iedeCountSum
+            )
+        }
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -189,6 +202,7 @@ struct kokakukidotaiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostIede,
             logPostFirstHitAt,
             logPostFirstHitCz,
             logPostReboot,

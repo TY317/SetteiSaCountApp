@@ -10,6 +10,24 @@ import SwiftUI
 import Combine
 
 class Kokakukidotai: ObservableObject {
+    // ---------
+    // 通常時
+    // ---------
+    let ratioIede: [Double] = [30,32.9,37.5,41.7,45.8,48.3]
+    @AppStorage("kokakukidotaiIedeCountMiss") var iedeCountMiss: Int = 0
+    @AppStorage("kokakukidotaiIedeCountSuccess") var iedeCountSuccess: Int = 0
+    @AppStorage("kokakukidotaiIedeCountSum") var iedeCountSum: Int = 0
+    
+    func iedeSumFunc() {
+        iedeCountSum = iedeCountMiss + iedeCountSuccess
+    }
+    
+    func resetNormal() {
+        iedeCountMiss = 0
+        iedeCountSuccess = 0
+        iedeCountSum = 0
+        minusCheck = false
+    }
     
     // ----------
     // 初当り
@@ -55,5 +73,6 @@ class Kokakukidotai: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetAt()
+        resetNormal()
     }
 }
