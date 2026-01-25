@@ -26,6 +26,25 @@ class Kokakukidotai: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // AT中
+    // ---------
+    let ratioReboot: [Double] = [3.3,4.6,5.8,7.1,8.3,9.6]
+    @AppStorage("kokakukidotaiRebootCountMiss") var rebootCountMiss: Int = 0
+    @AppStorage("kokakukidotaiRebootCountSuccess") var rebootCountSuccess: Int = 0
+    @AppStorage("kokakukidotaiRebootCountSum") var rebootCountSum: Int = 0
+    
+    func rebootSumFunc() {
+        rebootCountSum = rebootCountMiss + rebootCountSuccess
+    }
+    
+    func resetAt() {
+        rebootCountMiss = 0
+        rebootCountSuccess = 0
+        rebootCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -35,5 +54,6 @@ class Kokakukidotai: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetAt()
     }
 }

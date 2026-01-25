@@ -137,6 +137,7 @@ class commonVar: ObservableObject {
     @AppStorage("kokakukidotaiMenuNormalBadge") var kokakukidotaiMenuNormalBadge: String = "none"
     @AppStorage("kokakukidotaiMenuFirstHitBadge") var kokakukidotaiMenuFirstHitBadge: String = "none"
     @AppStorage("kokakukidotaiMenuBayesBadge") var kokakukidotaiMenuBayesBadge: String = "none"
+    @AppStorage("kokakukidotaiMenuAtBadge") var kokakukidotaiMenuAtBadge: String = "none"
     
     // ---- 鉄拳
     @AppStorage("tekken6isUnlocked") var tekken6isUnlocked: Bool = true

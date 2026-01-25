@@ -56,6 +56,19 @@ struct kokakukidotaiViewTop: View {
                         )
                     }
                     
+                    // AT中
+                    NavigationLink(destination: kokakukidotaiViewAt(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "AT中",
+                            badgeStatus: common.kokakukidotaiMenuAtBadge,
+                        )
+                    }
+                    
                     // サミートロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(

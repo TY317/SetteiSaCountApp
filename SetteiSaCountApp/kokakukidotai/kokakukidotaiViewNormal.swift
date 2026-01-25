@@ -20,8 +20,8 @@ struct kokakukidotaiViewNormal: View {
                 HStack {
                     Text("⚠️")
                     VStack(alignment: .leading) {
-                        Text("・AT終了後200or400Gでの当否がカウント対象")
-                        Text("・リセット後、CZ終了後の200or400Gは対象外")
+                        Text("・AT終了時200or400Gでの当否がカウント対象")
+                        Text("・リセット時、CZ終了時の200or400Gは対象外")
                     }
                     .foregroundStyle(Color.secondary)
                     .font(.caption)
@@ -30,7 +30,7 @@ struct kokakukidotaiViewNormal: View {
                 // カウントボタン横並び
                 
             } header: {
-                Text("タチコマの家出")
+                Text("AT終了時200or400GでのCZ当選")
             }
             
             // レア役

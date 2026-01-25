@@ -14,6 +14,7 @@ struct kokakukidotaiViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.7, 100.8, 104.9, 109.3, 112.2]
     @State var firstHitEnable: Bool = true
+    @State var rebootEnable: Bool = true
     
     
     // 全機種共通
@@ -52,6 +53,9 @@ struct kokakukidotaiViewBayes: View {
                         textBody1: "・CZ、AT 初当り確率を計算要素に加えます"
                     )
                 }
+                
+                // 引き戻り確率
+                unitToggleWithQuestion(enable: self.$rebootEnable, title: "REBOOTCHANCE成功ストック")
                 
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -138,6 +142,16 @@ struct kokakukidotaiViewBayes: View {
             )
         }
         
+        // REBOOT
+        var logPostReboot: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rebootEnable {
+            logPostReboot = logPostPercentBino(
+                ratio: kokakukidotai.ratioReboot,
+                Count: kokakukidotai.rebootCountSuccess,
+                bigNumber: kokakukidotai.rebootCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -177,6 +191,7 @@ struct kokakukidotaiViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
             logPostFirstHitCz,
+            logPostReboot,
             
             logPostTrophy,
             logPostBefore,
