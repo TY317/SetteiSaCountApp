@@ -37,6 +37,7 @@
 		0F0DE81B2EDC385000D85BCA /* bakemonoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */; };
 		0F0DE81D2EDC5EF300D85BCA /* bakemonoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */; };
 		0F0DE81F2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */; };
+		0F19D4342F25D367004A6D9F /* ver3180.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4332F25D367004A6D9F /* ver3180.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1332,6 +1333,7 @@
 		0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewBayes.swift; sourceTree = "<group>"; };
 		0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewNormal.swift; sourceTree = "<group>"; };
 		0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0F19D4332F25D367004A6D9F /* ver3180.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3180.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -3796,6 +3798,7 @@
 				0FA0A7F62EFE41FC003EF8BD /* ver3160.swift */,
 				0F03BD2F2F0B890600222339 /* ver3170.swift */,
 				0FA662DD2F15158800F3259F /* ver3171.swift */,
+				0F19D4332F25D367004A6D9F /* ver3180.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -5639,6 +5642,7 @@
 				0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */,
 				0F868A062D42792800D952D9 /* goJug3Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868AAE2D583AC100D952D9 /* funky2Ver2ViewJissenStartData.swift in Sources */,
+				0F19D4342F25D367004A6D9F /* ver3180.swift in Sources */,
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
 				0F868A542D47BB4100D952D9 /* draHanaSenkohVer2ViewKenDataInput.swift in Sources */,
 				0F1E12022DD0B9B800F69AFF /* lupinTableKiteiGame.swift in Sources */,

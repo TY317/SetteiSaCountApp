@@ -72,7 +72,7 @@ struct neoplaViewNormal: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3140neoplaNormal())
+//                .popoverTip(tipVer3140neoplaNormal())
             } header: {
                 Text("朝一の高確移行")
             }
