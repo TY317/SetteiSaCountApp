@@ -40,6 +40,7 @@
 		0F19D4342F25D367004A6D9F /* ver3180.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4332F25D367004A6D9F /* ver3180.swift */; };
 		0F19D4362F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4352F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift */; };
 		0F19D4382F2602F8004A6D9F /* kokakukidotaiViewAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4372F2602F8004A6D9F /* kokakukidotaiViewAt.swift */; };
+		0F19D43A2F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4392F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1338,6 +1339,7 @@
 		0F19D4332F25D367004A6D9F /* ver3180.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3180.swift; sourceTree = "<group>"; };
 		0F19D4352F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewFirstHit.swift; sourceTree = "<group>"; };
 		0F19D4372F2602F8004A6D9F /* kokakukidotaiViewAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewAt.swift; sourceTree = "<group>"; };
+		0F19D4392F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewScreen.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -4222,6 +4224,7 @@
 				0FA662EF2F1B18D400F3259F /* kokakukidotaiTableKoyakuPattern.swift */,
 				0F19D4352F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift */,
 				0F19D4372F2602F8004A6D9F /* kokakukidotaiViewAt.swift */,
+				0F19D4392F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -6127,6 +6130,7 @@
 				0FD3577E2DAA2DF70069BD1A /* sbjTableFirstHit.swift in Sources */,
 				0F9A4F832DEC2F21003B6337 /* dmc5ViewScreen.swift in Sources */,
 				0F7655292E34791C00B0CF0F /* unitCountSubmitButton.swift in Sources */,
+				0F19D43A2F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift in Sources */,
 				0FC14A762E4A088200F85D84 /* logPostBeforeFunc.swift in Sources */,
 				0F6BD7D02D806A98003F5563 /* kaijiViewTop.swift in Sources */,
 				0F9A798A2E48B6DF00D996CA /* myJug5ViewBayes.swift in Sources */,

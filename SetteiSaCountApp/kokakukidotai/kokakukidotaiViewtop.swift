@@ -56,6 +56,19 @@ struct kokakukidotaiViewTop: View {
                         )
                     }
                     
+                    // 示唆ウィンドウ
+                    NavigationLink(destination: kokakukidotaiViewScreen(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "示唆ウィンドウ",
+                            badgeStatus: common.kokakukidotaiMenuScreenBadge,
+                        )
+                    }
+                    
                     // AT中
                     NavigationLink(destination: kokakukidotaiViewAt(
                         kokakukidotai: kokakukidotai,

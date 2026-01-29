@@ -16,6 +16,7 @@ struct kokakukidotaiViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var rebootEnable: Bool = true
     @State var iedeEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -58,6 +59,13 @@ struct kokakukidotaiViewBayes: View {
                     )
                 }
                 
+                // 示唆ウィンドウ
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "示唆ウィンドウ") {
+                    unitExView5body2image(
+                        title: "示唆ウィンドウ",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // 引き戻り確率
                 unitToggleWithQuestion(enable: self.$rebootEnable, title: "REBOOTCHANCE成功ストック")
                 
@@ -155,6 +163,16 @@ struct kokakukidotaiViewBayes: View {
             )
         }
         
+        // 示唆ウィンドウ
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if kokakukidotai.screenCountOverD4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+        }
+        
         // REBOOT
         var logPostReboot: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.rebootEnable {
@@ -206,6 +224,7 @@ struct kokakukidotaiViewBayes: View {
             logPostFirstHitAt,
             logPostFirstHitCz,
             logPostReboot,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

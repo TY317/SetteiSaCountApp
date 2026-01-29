@@ -44,6 +44,51 @@ class Kokakukidotai: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("kokakukidotaiScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiScreenCountHighJaku") var screenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiScreenCountKisu") var screenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiScreenCountGusu") var screenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiScreenCountHighMode") var screenCountHighMode: Int = 0
+    @AppStorage("kokakukidotaiScreenCountOverB") var screenCountOverB: Int = 0
+    @AppStorage("kokakukidotaiScreenCountOverC") var screenCountOverC: Int = 0
+    @AppStorage("kokakukidotaiScreenCountOverCKyo") var screenCountOverCKyo: Int = 0
+    @AppStorage("kokakukidotaiScreenCountOverD4") var screenCountOverD4: Int = 0
+    @AppStorage("kokakukidotaiScreenCountWhiteEdge") var screenCountWhiteEdge: Int = 0
+    @AppStorage("kokakukidotaiScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountHighJaku,
+            screenCountKisu,
+            screenCountGusu,
+            screenCountHighMode,
+            screenCountOverB,
+            screenCountOverC,
+            screenCountOverCKyo,
+            screenCountOverD4,
+            screenCountWhiteEdge,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountHighJaku = 0
+        screenCountKisu = 0
+        screenCountGusu = 0
+        screenCountHighMode = 0
+        screenCountOverB = 0
+        screenCountOverC = 0
+        screenCountOverCKyo = 0
+        screenCountOverD4 = 0
+        screenCountWhiteEdge = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // ---------
     // AT中
     // ---------
@@ -74,5 +119,6 @@ class Kokakukidotai: ObservableObject {
         resetFirstHit()
         resetAt()
         resetNormal()
+        resetScreen()
     }
 }
