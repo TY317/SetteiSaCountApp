@@ -75,7 +75,7 @@ struct kokakukidotaiViewScreen: View {
                         Text("以下のタイミング＆操作で表示されます")
                         Text("・通常時77G以上消化以降＋左停止ボタン7回PUSH")
                         Text("・タチコマS.A.M終了画面＋ボタンPUSH")
-                        Text("・AT終了画面")
+                        Text("・AT終了画面＋ボタンPUSH")
                     }
                     .foregroundStyle(Color.secondary)
                     .font(.caption)

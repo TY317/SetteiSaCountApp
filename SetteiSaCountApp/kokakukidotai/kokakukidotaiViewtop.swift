@@ -43,6 +43,19 @@ struct kokakukidotaiViewTop: View {
                         )
                     }
                     
+                    // CZ
+                    NavigationLink(destination: kokakukidotaiViewCz(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.kokakukidotaiMenuCzBadge,
+                        )
+                    }
+                    
                     // 初当り
                     NavigationLink(destination: kokakukidotaiViewFirstHit(
                         kokakukidotai: kokakukidotai,
