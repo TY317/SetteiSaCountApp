@@ -156,6 +156,7 @@ class commonVar: ObservableObject {
     @AppStorage("hokutoTenseiMenuNormalBadge") var hokutoTenseiMenuNormalBadge: String = "none"
     @AppStorage("hokutoTenseiMenuBayesBadge") var hokutoTenseiMenuBayesBadge: String = "none"
     @AppStorage("hokutoTenseiMenuFirstHitBadge") var hokutoTenseiMenuFirstHitBadge: String = "none"
+    @AppStorage("hokutoTenseiMenuTengekiBadge") var hokutoTenseiMenuTengekiBadge: String = "none"
     
     // //// 秘宝伝
     @AppStorage("hihodenMachineIconBadge") var hihodenMachineIconBadge: String = "none"
@@ -297,6 +298,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 kokakukidotaiisUnlocked = false
                 kokakukidotaiMachineIconBadge = "new"
+                hokutoTenseiMenuTengekiBadge = "new"
+                hokutoTenseiMachineIconBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

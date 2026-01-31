@@ -37,7 +37,7 @@ struct hokutoTenseiViewNormal: View {
     ]
     let statusList: [String] = [
         "低確",
-        "高確",
+        "通常",
     ]
     @State var selectedStatus: String = "低確"
     

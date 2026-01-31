@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class HokutoTensei: ObservableObject {
     // ----------
@@ -36,6 +37,7 @@ class HokutoTensei: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetTengeki()
     }
     
     // -----------
@@ -128,6 +130,26 @@ class HokutoTensei: ObservableObject {
      func koyakuSumFunc() {
         koyakuCountSum = koyakuCountJakuCherry + koyakuCountSuika
     }
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    // 天撃
+    let ratioTengeki: [Double] = [9.2,9.2,10,10.7,17.9,30.1]
+    @AppStorage("hokutoTenseiTengekiCountMiss") var tengekiCountMiss: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountHit") var tengekiCountHit: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountSum") var tengekiCountSum: Int = 0
+    
+    func tengekiSumFunc() {
+        tengekiCountSum = tengekiCountMiss + tengekiCountHit
+    }
+    
+    func resetTengeki() {
+        tengekiCountMiss = 0
+        tengekiCountHit = 0
+        tengekiCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -161,6 +183,13 @@ class HokutoTenseiMemory1: ObservableObject {
     @AppStorage("hokutoTenseiKoyakuCountSuikaMemory1") var koyakuCountSuika: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountSumMemory1") var koyakuCountSum: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory1") var koyakuCountTenhaHit: Int = 0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("hokutoTenseiTengekiCountMissMemory1") var tengekiCountMiss: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountHitMemory1") var tengekiCountHit: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountSumMemory1") var tengekiCountSum: Int = 0
 }
 
 class HokutoTenseiMemory2: ObservableObject {
@@ -193,6 +222,13 @@ class HokutoTenseiMemory2: ObservableObject {
     @AppStorage("hokutoTenseiKoyakuCountSuikaMemory2") var koyakuCountSuika: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountSumMemory2") var koyakuCountSum: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory2") var koyakuCountTenhaHit: Int = 0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("hokutoTenseiTengekiCountMissMemory2") var tengekiCountMiss: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountHitMemory2") var tengekiCountHit: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountSumMemory2") var tengekiCountSum: Int = 0
 }
 
 class HokutoTenseiMemory3: ObservableObject {
@@ -225,4 +261,11 @@ class HokutoTenseiMemory3: ObservableObject {
     @AppStorage("hokutoTenseiKoyakuCountSuikaMemory3") var koyakuCountSuika: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountSumMemory3") var koyakuCountSum: Int = 0
     @AppStorage("hokutoTenseiKoyakuCountTenhaHitMemory3") var koyakuCountTenhaHit: Int = 0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("hokutoTenseiTengekiCountMissMemory3") var tengekiCountMiss: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountHitMemory3") var tengekiCountHit: Int = 0
+    @AppStorage("hokutoTenseiTengekiCountSumMemory3") var tengekiCountSum: Int = 0
 }

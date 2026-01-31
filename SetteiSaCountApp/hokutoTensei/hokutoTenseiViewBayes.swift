@@ -16,6 +16,7 @@ struct hokutoTenseiViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var lampEnable: Bool = true
     @State var rareTenhaEnable: Bool = true
+    @State var tengekiEnable: Bool = true
     
     
     // 全機種共通
@@ -65,6 +66,10 @@ struct hokutoTenseiViewBayes: View {
                         textBody1: "・天破の刻 出現率、闘神演舞 初当り確率を計算要素に加えます"
                     )
                 }
+                
+                // 天撃
+                unitToggleWithQuestion(enable: self.$tengekiEnable, title: "ハズレでの天撃成功率")
+                
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -183,6 +188,15 @@ struct hokutoTenseiViewBayes: View {
                 bigNumber: hokutoTensei.normalGame
             )
         }
+        // 天撃
+        var logPostTengeki: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tengekiEnable {
+            logPostTengeki = logPostPercentBino(
+                ratio: hokutoTensei.ratioTengeki,
+                Count: hokutoTensei.tengekiCountHit,
+                bigNumber: hokutoTensei.tengekiCountSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -225,6 +239,7 @@ struct hokutoTenseiViewBayes: View {
             logPostLampWhite,
             logPostFirstHitTenha,
             logPostRareTenha,
+            logPostTengeki,
             
             logPostTrophy,
             logPostBefore,
