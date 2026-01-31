@@ -68,6 +68,7 @@ class Tekken6: ObservableObject {
         resetFirstHit()
         resetBack()
         resetNormal()
+        resetBonus()
     }
     
     // -------
@@ -98,6 +99,23 @@ class Tekken6: ObservableObject {
         rareDirectCountKyoHit = 0
         minusCheck = false
     }
+    
+    // 通常時のボーナス
+    let ratioEpisode: [Double] = [2,-1,-1,-1,-1,13]
+    @AppStorage("tekken6episodeCountNone") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHit") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSum") var episodeCountSum: Int = 0
+    
+    func episodeSumFunc() {
+        episodeCountSum = episodeCountNone + episodeCountHit
+    }
+    
+    func resetBonus() {
+        episodeCountNone = 0
+        episodeCountHit = 0
+        episodeCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -124,6 +142,9 @@ class Tekken6Memory1: ObservableObject {
     @AppStorage("tekken6RareDirectCountJakuHitMemory1") var rareDirectCountJakuHit: Int = 0
     @AppStorage("tekken6RareDirectCountKyoCherryMemory1") var rareDirectCountKyoCherry: Int = 0
     @AppStorage("tekken6RareDirectCountKyoHitMemory1") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemory1") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory1") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory1") var episodeCountSum: Int = 0
 }
 
 
@@ -150,6 +171,9 @@ class Tekken6Memory2: ObservableObject {
     @AppStorage("tekken6RareDirectCountJakuHitMemory2") var rareDirectCountJakuHit: Int = 0
     @AppStorage("tekken6RareDirectCountKyoCherryMemory2") var rareDirectCountKyoCherry: Int = 0
     @AppStorage("tekken6RareDirectCountKyoHitMemory2") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemor21") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory2") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory2") var episodeCountSum: Int = 0
 }
 
 
@@ -176,4 +200,7 @@ class Tekken6Memory3: ObservableObject {
     @AppStorage("tekken6RareDirectCountJakuHitMemory3") var rareDirectCountJakuHit: Int = 0
     @AppStorage("tekken6RareDirectCountKyoCherryMemory3") var rareDirectCountKyoCherry: Int = 0
     @AppStorage("tekken6RareDirectCountKyoHitMemory3") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemory3") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory3") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory3") var episodeCountSum: Int = 0
 }

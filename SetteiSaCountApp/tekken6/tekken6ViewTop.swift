@@ -56,6 +56,19 @@ struct tekken6ViewTop: View {
                         )
                     }
                     
+                    // 通常時ボーナス
+                    NavigationLink(destination: tekken6ViewBonus(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "movieclapper.fill",
+                            textBody: "通常時のボーナス",
+                            badgeStatus: common.tekken6MenuBonusBadge,
+                        )
+                    }
+                    
                     // ボーナス終了画面
                     NavigationLink(destination: tekken6ViewScreen(
                         tekken6: tekken6,
@@ -218,6 +231,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory1.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
         tekken6Memory1.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
         tekken6Memory1.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
+        tekken6Memory1.episodeCountNone = tekken6.episodeCountNone
+        tekken6Memory1.episodeCountHit = tekken6.episodeCountHit
+        tekken6Memory1.episodeCountSum = tekken6.episodeCountSum
     }
     func saveMemory2() {
         tekken6Memory2.normalGame = tekken6.normalGame
@@ -240,6 +256,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory2.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
         tekken6Memory2.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
         tekken6Memory2.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
+        tekken6Memory2.episodeCountNone = tekken6.episodeCountNone
+        tekken6Memory2.episodeCountHit = tekken6.episodeCountHit
+        tekken6Memory2.episodeCountSum = tekken6.episodeCountSum
     }
     func saveMemory3() {
         tekken6Memory3.normalGame = tekken6.normalGame
@@ -262,6 +281,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory3.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
         tekken6Memory3.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
         tekken6Memory3.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
+        tekken6Memory3.episodeCountNone = tekken6.episodeCountNone
+        tekken6Memory3.episodeCountHit = tekken6.episodeCountHit
+        tekken6Memory3.episodeCountSum = tekken6.episodeCountSum
     }
 }
 
@@ -313,6 +335,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.rareDirectCountJakuHit = tekken6Memory1.rareDirectCountJakuHit
         tekken6.rareDirectCountKyoCherry = tekken6Memory1.rareDirectCountKyoCherry
         tekken6.rareDirectCountKyoHit = tekken6Memory1.rareDirectCountKyoHit
+        tekken6.episodeCountNone = tekken6Memory1.episodeCountNone
+        tekken6.episodeCountHit = tekken6Memory1.episodeCountHit
+        tekken6.episodeCountSum = tekken6Memory1.episodeCountSum
     }
     func loadMemory2() {
         tekken6.normalGame = tekken6Memory2.normalGame
@@ -335,6 +360,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.rareDirectCountJakuHit = tekken6Memory2.rareDirectCountJakuHit
         tekken6.rareDirectCountKyoCherry = tekken6Memory2.rareDirectCountKyoCherry
         tekken6.rareDirectCountKyoHit = tekken6Memory2.rareDirectCountKyoHit
+        tekken6.episodeCountNone = tekken6Memory2.episodeCountNone
+        tekken6.episodeCountHit = tekken6Memory2.episodeCountHit
+        tekken6.episodeCountSum = tekken6Memory2.episodeCountSum
     }
     func loadMemory3() {
         tekken6.normalGame = tekken6Memory3.normalGame
@@ -357,6 +385,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.rareDirectCountJakuHit = tekken6Memory3.rareDirectCountJakuHit
         tekken6.rareDirectCountKyoCherry = tekken6Memory3.rareDirectCountKyoCherry
         tekken6.rareDirectCountKyoHit = tekken6Memory3.rareDirectCountKyoHit
+        tekken6.episodeCountNone = tekken6Memory3.episodeCountNone
+        tekken6.episodeCountHit = tekken6Memory3.episodeCountHit
+        tekken6.episodeCountSum = tekken6Memory3.episodeCountSum
     }
 }
 

@@ -100,6 +100,26 @@ struct tekken6View95Ci: View {
                 )
             )
             .tag(3)
+            
+            // ボーナス直撃回数
+            unitListSection95Ci(
+                grafTitle: "赤7ビッグ開始時\nエピソード発生回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tekken6.episodeCountHit,
+                        bigNumber: $tekken6.episodeCountSum,
+                        setting1Percent: tekken6.ratioEpisode[0],
+                        setting2Percent: tekken6.ratioEpisode[1],
+                        setting3Percent: tekken6.ratioEpisode[2],
+                        setting4Percent: tekken6.ratioEpisode[3],
+                        setting5Percent: tekken6.ratioEpisode[4],
+                        setting6Percent: tekken6.ratioEpisode[5]
+                    )
+                )
+            )
+            .tag(7)
+            
             // 引き戻し回数
             unitListSection95Ci(
                 grafTitle: "引き戻し回数",

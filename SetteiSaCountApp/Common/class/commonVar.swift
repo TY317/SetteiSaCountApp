@@ -149,6 +149,7 @@ class commonVar: ObservableObject {
     @AppStorage("tekken6MenuBayesBadge") var tekken6MenuBayesBadge: String = "none"
     @AppStorage("tekken6MenuScreenBadge") var tekken6MenuScreenBadge: String = "none"
     @AppStorage("tekken6MenuBackBadge") var tekken6MenuBackBadge: String = "none"
+    @AppStorage("tekken6MenuBonusBadge") var tekken6MenuBonusBadge: String = "none"
     
     // //// 北斗転生
     @AppStorage("hokutoTenseiisUnlocked") var hokutoTenseiisUnlocked: Bool = true
@@ -303,6 +304,7 @@ class commonVar: ObservableObject {
                 hokutoTenseiMenuFirstHitBadge = "update"
                 tekken6MachineIconBadge = "update"
                 tekken6MenuNormalBadge = "update"
+                tekken6MenuBonusBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
