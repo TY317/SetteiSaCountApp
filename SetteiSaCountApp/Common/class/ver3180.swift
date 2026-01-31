@@ -21,3 +21,18 @@ struct tipVer3180UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+// //////////////////
+// Tip：北斗転生　設定変更時の256
+// //////////////////
+struct tipVer3180hokutoTensei256: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("設定変更時の256までの当選期待度が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

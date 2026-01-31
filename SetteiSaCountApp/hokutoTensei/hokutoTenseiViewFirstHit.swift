@@ -78,7 +78,7 @@ struct hokutoTenseiViewFirstHit: View {
                     }
                 }
             }
-            .popoverTip(tipVer3171hokutoTenseiTenha())
+//            .popoverTip(tipVer3171hokutoTenseiTenha())
             
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
@@ -345,6 +345,29 @@ struct hokutoTenseiViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "フェイク前兆発生テーブル") {
                     hokutoTenseiTableFake()
                 }
+                
+                // 参考情報）設定変更時の256あべしまでの当選率
+                unitLinkButtonViewBuilder(sheetTitle: "設定変更時 256までの当選期待度") {
+                    VStack {
+                        Text("設定変更時 256あべしまでの実質当選期待度")
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableString(
+                                columTitle: "期待度",
+                                stringList: [
+                                    "36%",
+                                    "↓",
+                                    "↓",
+                                    "↓",
+                                    "↓",
+                                    "53%",
+                                ]
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer3180hokutoTensei256())
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",
