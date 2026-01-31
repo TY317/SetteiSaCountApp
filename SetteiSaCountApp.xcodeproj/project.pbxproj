@@ -49,6 +49,9 @@
 		0F19D4462F2D7A7C004A6D9F /* hokutoTenseiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5A82EFEACD10022E355 /* hokutoTenseiClass.swift */; };
 		0F19D44B2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44A2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift */; };
 		0F19D44C2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44A2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift */; };
+		0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A5B82F02156E0022E355 /* tekken6Class.swift */; };
+		0F19D44F2F2D95B7004A6D9F /* tekken6TableRareDirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */; };
+		0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1352,6 +1355,7 @@
 		0F19D4412F2D77D3004A6D9F /* unitLabelCautionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelCautionText.swift; sourceTree = "<group>"; };
 		0F19D4432F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableTengeki.swift; sourceTree = "<group>"; };
 		0F19D44A2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableTengekiDetail.swift; sourceTree = "<group>"; };
+		0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6TableRareDirect.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -2797,6 +2801,7 @@
 				0F45A5CE2F05019A0022E355 /* tekken6TextScreenCaution.swift */,
 				0F45A5D12F0502D60022E355 /* tekken6TableScreen.swift */,
 				0F45A5D42F0512810022E355 /* tekken6ViewBack.swift */,
+				0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */,
 			);
 			path = tekken6;
 			sourceTree = "<group>";
@@ -6013,6 +6018,7 @@
 				0F868A382D45D08C00D952D9 /* hanaTenshoVer2View95CiStart.swift in Sources */,
 				0FF369332E62E8E9002BE0CE /* godeaterViewBayes.swift in Sources */,
 				0FDC325F2D16FD1E005B3D06 /* inuyashaViewAtScreen.swift in Sources */,
+				0F19D44F2F2D95B7004A6D9F /* tekken6TableRareDirect.swift in Sources */,
 				0F8031102C6251AB001F008E /* VVV_Top.swift in Sources */,
 				0F868A492D460F0500D952D9 /* kingHanaVer2View95CiKen.swift in Sources */,
 				0F6B59F42E0C16CD00DB1A2B /* watakonClass.swift in Sources */,
@@ -6414,6 +6420,7 @@
 				0F45A5E02F079C4E0022E355 /* unitIconBtBadgeTriangleShape.swift in Sources */,
 				0FA0A7A82EF693A2003EF8BD /* hihodenTableKoyakuPattern.swift in Sources */,
 				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
+				0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
 				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
 				0F45A5C92F04BB3B0022E355 /* tekkenTableMode.swift in Sources */,
@@ -6425,6 +6432,7 @@
 				0F45A5EB2F07F1470022E355 /* unitMachinListLink.swift in Sources */,
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
+				0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */,
 				0FA662F92F2333B000F3259F /* hokutoTenseiTableStatusMove.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,

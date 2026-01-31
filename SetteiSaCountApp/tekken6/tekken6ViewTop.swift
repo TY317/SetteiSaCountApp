@@ -94,7 +94,7 @@ struct tekken6ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: tekken6View95Ci(
                     tekken6: tekken6,
-                    selection: 1,
+                    selection: 5,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -207,6 +207,17 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory1.backCountHit = tekken6.backCountHit
         tekken6Memory1.backCountMiss = tekken6.backCountMiss
         tekken6Memory1.backCountSum = tekken6.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6Memory1.rareDirectCountJakuCherry = tekken6.rareDirectCountJakuCherry
+        tekken6Memory1.rareDirectCountSuika = tekken6.rareDirectCountSuika
+        tekken6Memory1.rareDirectCountChance = tekken6.rareDirectCountChance
+        tekken6Memory1.rareDirectCountJakuSum = tekken6.rareDirectCountJakuSum
+        tekken6Memory1.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
+        tekken6Memory1.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
+        tekken6Memory1.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
     }
     func saveMemory2() {
         tekken6Memory2.normalGame = tekken6.normalGame
@@ -218,6 +229,17 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory2.backCountHit = tekken6.backCountHit
         tekken6Memory2.backCountMiss = tekken6.backCountMiss
         tekken6Memory2.backCountSum = tekken6.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6Memory2.rareDirectCountJakuCherry = tekken6.rareDirectCountJakuCherry
+        tekken6Memory2.rareDirectCountSuika = tekken6.rareDirectCountSuika
+        tekken6Memory2.rareDirectCountChance = tekken6.rareDirectCountChance
+        tekken6Memory2.rareDirectCountJakuSum = tekken6.rareDirectCountJakuSum
+        tekken6Memory2.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
+        tekken6Memory2.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
+        tekken6Memory2.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
     }
     func saveMemory3() {
         tekken6Memory3.normalGame = tekken6.normalGame
@@ -229,6 +251,17 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory3.backCountHit = tekken6.backCountHit
         tekken6Memory3.backCountMiss = tekken6.backCountMiss
         tekken6Memory3.backCountSum = tekken6.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6Memory3.rareDirectCountJakuCherry = tekken6.rareDirectCountJakuCherry
+        tekken6Memory3.rareDirectCountSuika = tekken6.rareDirectCountSuika
+        tekken6Memory3.rareDirectCountChance = tekken6.rareDirectCountChance
+        tekken6Memory3.rareDirectCountJakuSum = tekken6.rareDirectCountJakuSum
+        tekken6Memory3.rareDirectCountJakuHit = tekken6.rareDirectCountJakuHit
+        tekken6Memory3.rareDirectCountKyoCherry = tekken6.rareDirectCountKyoCherry
+        tekken6Memory3.rareDirectCountKyoHit = tekken6.rareDirectCountKyoHit
     }
 }
 
@@ -269,6 +302,17 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.backCountHit = tekken6Memory1.backCountHit
         tekken6.backCountMiss = tekken6Memory1.backCountMiss
         tekken6.backCountSum = tekken6Memory1.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6.rareDirectCountJakuCherry = tekken6Memory1.rareDirectCountJakuCherry
+        tekken6.rareDirectCountSuika = tekken6Memory1.rareDirectCountSuika
+        tekken6.rareDirectCountChance = tekken6Memory1.rareDirectCountChance
+        tekken6.rareDirectCountJakuSum = tekken6Memory1.rareDirectCountJakuSum
+        tekken6.rareDirectCountJakuHit = tekken6Memory1.rareDirectCountJakuHit
+        tekken6.rareDirectCountKyoCherry = tekken6Memory1.rareDirectCountKyoCherry
+        tekken6.rareDirectCountKyoHit = tekken6Memory1.rareDirectCountKyoHit
     }
     func loadMemory2() {
         tekken6.normalGame = tekken6Memory2.normalGame
@@ -280,6 +324,17 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.backCountHit = tekken6Memory2.backCountHit
         tekken6.backCountMiss = tekken6Memory2.backCountMiss
         tekken6.backCountSum = tekken6Memory2.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6.rareDirectCountJakuCherry = tekken6Memory2.rareDirectCountJakuCherry
+        tekken6.rareDirectCountSuika = tekken6Memory2.rareDirectCountSuika
+        tekken6.rareDirectCountChance = tekken6Memory2.rareDirectCountChance
+        tekken6.rareDirectCountJakuSum = tekken6Memory2.rareDirectCountJakuSum
+        tekken6.rareDirectCountJakuHit = tekken6Memory2.rareDirectCountJakuHit
+        tekken6.rareDirectCountKyoCherry = tekken6Memory2.rareDirectCountKyoCherry
+        tekken6.rareDirectCountKyoHit = tekken6Memory2.rareDirectCountKyoHit
     }
     func loadMemory3() {
         tekken6.normalGame = tekken6Memory3.normalGame
@@ -291,6 +346,17 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.backCountHit = tekken6Memory3.backCountHit
         tekken6.backCountMiss = tekken6Memory3.backCountMiss
         tekken6.backCountSum = tekken6Memory3.backCountSum
+        
+        // -------
+        // ver3.18.0で追加
+        // -------
+        tekken6.rareDirectCountJakuCherry = tekken6Memory3.rareDirectCountJakuCherry
+        tekken6.rareDirectCountSuika = tekken6Memory3.rareDirectCountSuika
+        tekken6.rareDirectCountChance = tekken6Memory3.rareDirectCountChance
+        tekken6.rareDirectCountJakuSum = tekken6Memory3.rareDirectCountJakuSum
+        tekken6.rareDirectCountJakuHit = tekken6Memory3.rareDirectCountJakuHit
+        tekken6.rareDirectCountKyoCherry = tekken6Memory3.rareDirectCountKyoCherry
+        tekken6.rareDirectCountKyoHit = tekken6Memory3.rareDirectCountKyoHit
     }
 }
 

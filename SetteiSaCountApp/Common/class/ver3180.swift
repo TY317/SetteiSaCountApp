@@ -36,3 +36,18 @@ struct tipVer3180hokutoTensei256: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：鉄拳6 レア役からの直撃
+// //////////////////
+struct tipVer3180tekken6RareDirect: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("レア役からのボーナス直撃設定差が判明\nカウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

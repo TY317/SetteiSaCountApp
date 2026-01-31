@@ -15,6 +15,7 @@ struct tekken6ViewBayes: View {
     let payoutList: [Double] = [97.9, 98.9, 100.5, 105.2, 110.3, 114.9]
     @State var firstHitEnable: Bool = true
     @State var backEnable: Bool = true
+    @State var rareDirectEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -45,6 +46,13 @@ struct tekken6ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // レア役からのボーナス直撃率
+                unitToggleWithQuestion(enable: self.$rareDirectEnable, title: "レア役からのボーナス直撃率") {
+                    unitExView5body2image(
+                        title: "ボーナス直撃率",
+                        textBody1: "・弱レア役からの直撃率、強🍒からの直撃率を計算要素に加えます"
+                    )
+                }
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
                     unitExView5body2image(
@@ -123,6 +131,21 @@ struct tekken6ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // レア役からの直撃
+        var logPostRareDirectJaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareDirectKyo: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareDirectEnable {
+            logPostRareDirectJaku = logPostPercentBino(
+                ratio: tekken6.ratioRareDirectJaku,
+                Count: tekken6.rareDirectCountJakuHit,
+                bigNumber: tekken6.rareDirectCountJakuSum
+            )
+            logPostRareDirectKyo = logPostPercentBino(
+                ratio: tekken6.ratioRareDirectKyo,
+                Count: tekken6.rareDirectCountKyoHit,
+                bigNumber: tekken6.rareDirectCountKyoCherry
+            )
+        }
         // 初当り
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -190,6 +213,8 @@ struct tekken6ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostRareDirectJaku,
+            logPostRareDirectKyo,
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,

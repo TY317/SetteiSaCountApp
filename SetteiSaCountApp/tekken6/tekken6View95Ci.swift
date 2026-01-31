@@ -13,6 +13,42 @@ struct tekken6View95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
+            // ボーナス直撃回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス直撃回数\n弱レア役から",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tekken6.rareDirectCountJakuHit,
+                        bigNumber: $tekken6.rareDirectCountJakuSum,
+                        setting1Percent: tekken6.ratioRareDirectJaku[0],
+                        setting2Percent: tekken6.ratioRareDirectJaku[1],
+                        setting3Percent: tekken6.ratioRareDirectJaku[2],
+                        setting4Percent: tekken6.ratioRareDirectJaku[3],
+                        setting5Percent: tekken6.ratioRareDirectJaku[4],
+                        setting6Percent: tekken6.ratioRareDirectJaku[5]
+                    )
+                )
+            )
+            .tag(5)
+            // ボーナス直撃回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス直撃回数\n強🍒から",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tekken6.rareDirectCountKyoHit,
+                        bigNumber: $tekken6.rareDirectCountKyoCherry,
+                        setting1Percent: tekken6.ratioRareDirectKyo[0],
+                        setting2Percent: tekken6.ratioRareDirectKyo[1],
+                        setting3Percent: tekken6.ratioRareDirectKyo[2],
+                        setting4Percent: tekken6.ratioRareDirectKyo[3],
+                        setting5Percent: tekken6.ratioRareDirectKyo[4],
+                        setting6Percent: tekken6.ratioRareDirectKyo[5]
+                    )
+                )
+            )
+            .tag(6)
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",
