@@ -185,7 +185,7 @@ struct hokutoTenseiViewBayes: View {
             logPostFirstHitTenha = logPostDenoBino(
                 ratio: hokutoTensei.ratioAtFirstHitTenha,
                 Count: hokutoTensei.firstHitCountTenha,
-                bigNumber: hokutoTensei.normalGame
+                bigNumber: hokutoTensei.tenhaGame
             )
         }
         // 天撃

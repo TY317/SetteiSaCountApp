@@ -25,6 +25,8 @@ class HokutoTensei: ObservableObject {
         firstHitCountTenha = 0
         minusCheck = false
         resetHistory()
+        tenhaDenoInput = 0.0
+        tenhaGame = 0
     }
     
     // -----------
@@ -150,6 +152,10 @@ class HokutoTensei: ObservableObject {
         tengekiCountSum = 0
         minusCheck = false
     }
+    
+    // 天破突入確率入力化
+    @AppStorage("hokutoTenseiTenhaDenoInput") var tenhaDenoInput: Double = 0.0
+    @AppStorage("hokutoTenseiTenhaGame") var tenhaGame: Int = 0
 }
 
 
@@ -190,6 +196,8 @@ class HokutoTenseiMemory1: ObservableObject {
     @AppStorage("hokutoTenseiTengekiCountMissMemory1") var tengekiCountMiss: Int = 0
     @AppStorage("hokutoTenseiTengekiCountHitMemory1") var tengekiCountHit: Int = 0
     @AppStorage("hokutoTenseiTengekiCountSumMemory1") var tengekiCountSum: Int = 0
+    @AppStorage("hokutoTenseiTenhaDenoInputMemory1") var tenhaDenoInput: Double = 0.0
+    @AppStorage("hokutoTenseiTenhaGameMemory1") var tenhaGame: Int = 0
 }
 
 class HokutoTenseiMemory2: ObservableObject {
@@ -229,6 +237,8 @@ class HokutoTenseiMemory2: ObservableObject {
     @AppStorage("hokutoTenseiTengekiCountMissMemory2") var tengekiCountMiss: Int = 0
     @AppStorage("hokutoTenseiTengekiCountHitMemory2") var tengekiCountHit: Int = 0
     @AppStorage("hokutoTenseiTengekiCountSumMemory2") var tengekiCountSum: Int = 0
+    @AppStorage("hokutoTenseiTenhaDenoInputMemory2") var tenhaDenoInput: Double = 0.0
+    @AppStorage("hokutoTenseiTenhaGameMemory2") var tenhaGame: Int = 0
 }
 
 class HokutoTenseiMemory3: ObservableObject {
@@ -268,4 +278,6 @@ class HokutoTenseiMemory3: ObservableObject {
     @AppStorage("hokutoTenseiTengekiCountMissMemory3") var tengekiCountMiss: Int = 0
     @AppStorage("hokutoTenseiTengekiCountHitMemory3") var tengekiCountHit: Int = 0
     @AppStorage("hokutoTenseiTengekiCountSumMemory3") var tengekiCountSum: Int = 0
+    @AppStorage("hokutoTenseiTenhaDenoInputMemory3") var tenhaDenoInput: Double = 0.0
+    @AppStorage("hokutoTenseiTenhaGameMemory3") var tenhaGame: Int = 0
 }
