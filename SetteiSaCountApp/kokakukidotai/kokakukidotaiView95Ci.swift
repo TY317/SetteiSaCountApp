@@ -49,6 +49,23 @@ struct kokakukidotaiView95Ci: View {
                 )
             )
             .tag(1)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kokakukidotai.firstHitCountAt,
+                        bigNumber: $kokakukidotai.normalGame,
+                        setting1Denominate: kokakukidotai.ratioFirstHitAt[0],
+                        setting2Denominate: kokakukidotai.ratioFirstHitAt[1],
+                        setting3Denominate: kokakukidotai.ratioFirstHitAt[2],
+                        setting4Denominate: kokakukidotai.ratioFirstHitAt[3],
+                        setting5Denominate: kokakukidotai.ratioFirstHitAt[4],
+                        setting6Denominate: kokakukidotai.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(4)
             
             // 引き戻し成功ストック回数
             unitListSection95Ci(

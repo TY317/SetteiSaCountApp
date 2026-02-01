@@ -102,7 +102,7 @@ struct kokakukidotaiViewNormal: View {
             // モード
             Section {
                 unitLinkButtonViewBuilder(sheetTitle: "モードについて") {
-                    
+                    kokakukidotaiTableMode()
                 }
             } header: {
                 Text("通常時のモード")

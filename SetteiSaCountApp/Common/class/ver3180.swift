@@ -51,3 +51,18 @@ struct tipVer3180tekken6RareDirect: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：北斗転生　天破の刻入力UI修正
+// //////////////////
+struct tipVer3180hokutoTenseiUIshusei: Tip {
+    var title: Text {
+        Text("UI修正")
+    }
+    var message: Text? {
+        Text("天破の刻は回数、確率を直接入力するようUIを修正しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

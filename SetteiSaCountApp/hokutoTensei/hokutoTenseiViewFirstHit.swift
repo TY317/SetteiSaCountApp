@@ -69,6 +69,7 @@ struct hokutoTenseiViewFirstHit: View {
                         })
                     }
                 }
+                .popoverTip(tipVer3180hokutoTenseiUIshusei())
                 // カウントボタン横並び
                 HStack {
                     // 天破
