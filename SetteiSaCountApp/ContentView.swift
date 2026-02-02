@@ -78,6 +78,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteShake") var isSelectedFavoriteShake = true
     @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
     @AppStorage("isSelectedFavoriteKokakukidotai") var isSelectedFavoriteKokakukidotai = true
+    @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
 }
 
 
@@ -145,6 +146,22 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ハナビ、26年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHanabi == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(hanabiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hanabiMachineIcon"),
+                                        machineName: "ハナビ",
+                                        isUnLocked: $common.hanabiisUnlocked,
+                                        badgeStatus: common.hanabiMachineIconBadge,
                                     )
                                 }
                                 
@@ -954,6 +971,25 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ハナビ、26年２月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHanabi == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(hanabiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hanabiMachineIcon"),
+                                        machineName: "ハナビ",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.hanabiisUnlocked,
+                                        badgeStatus: common.hanabiMachineIconBadge,
                                     )
                                 }
                                 
@@ -2114,6 +2150,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ハナビ
+                Toggle("ハナビ", isOn: $favoriteSet.isSelectedFavoriteHanabi)
                 // 炎炎ノ消防隊2
                 Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
                 // 攻殻機動隊
