@@ -1131,6 +1131,7 @@
 		0FDE0F222F30641B00B1DA18 /* enen2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F202F3063E700B1DA18 /* enen2TableKoyakuPattern.swift */; };
 		0FDE0F242F30669D00B1DA18 /* enen2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */; };
 		0FDE0F252F3066BA00B1DA18 /* enen2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */; };
+		0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */; };
 		0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */; };
 		0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */; };
 		0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */; };
@@ -2393,6 +2394,7 @@
 		0FDE0F1C2F2F460F00B1DA18 /* kokakukidotaiTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableMode.swift; sourceTree = "<group>"; };
 		0FDE0F202F3063E700B1DA18 /* enen2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableMode.swift; sourceTree = "<group>"; };
+		0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewReg.swift; sourceTree = "<group>"; };
 		0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegChara.swift; sourceTree = "<group>"; };
 		0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableCharaRatio.swift; sourceTree = "<group>"; };
 		0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegScreen.swift; sourceTree = "<group>"; };
@@ -4252,6 +4254,7 @@
 				0FA662DB2F13C10400F3259F /* enen2ViewFirstHit.swift */,
 				0FDE0F202F3063E700B1DA18 /* enen2TableKoyakuPattern.swift */,
 				0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */,
+				0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -5768,6 +5771,7 @@
 				0F868AD12D5864A500D952D9 /* girlsSSVer2View95CiPersonal.swift in Sources */,
 				0F6B59EB2E07DD9A00DB1A2B /* mt5Table5Coin.swift in Sources */,
 				0F6BD7B22D74129E003F5563 /* arifureViewNormal.swift in Sources */,
+				0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */,
 				0FF1560C2D604D3000B17F83 /* starHanaVer2View95CiTotal.swift in Sources */,
 				0F51EC002F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift in Sources */,
 				0F64DDC42DC6E2A20027315D /* unitReelSpacer.swift in Sources */,

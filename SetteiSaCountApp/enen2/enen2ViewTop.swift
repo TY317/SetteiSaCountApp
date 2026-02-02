@@ -45,6 +45,19 @@ struct enen2ViewTop: View {
                             badgeStatus: common.enen2MenuFirstHitBadge,
                         )
                     }
+                    
+                    // 初当り
+                    NavigationLink(destination: enen2ViewReg(
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.3.fill",
+                            textBody: "REG",
+                            badgeStatus: common.enen2MenuRegBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: enen2.machineName)
                 }
