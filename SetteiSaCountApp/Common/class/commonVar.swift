@@ -132,6 +132,7 @@ class commonVar: ObservableObject {
     @AppStorage("enen2MenuBayesBadge") var enen2MenuBayesBadge: String = "none"
     @AppStorage("enen2MenuRegBadge") var enen2MenuRegBadge: String = "none"
     @AppStorage("enen2MenuWanaBadge") var enen2MenuWanaBadge: String = "none"
+    @AppStorage("enen2MenuScreenBadge") var enen2MenuScreenBadge: String = "none"
     
     // ---- 攻殻機動隊
     @AppStorage("kokakukidotaiisUnlocked") var kokakukidotaiisUnlocked: Bool = true

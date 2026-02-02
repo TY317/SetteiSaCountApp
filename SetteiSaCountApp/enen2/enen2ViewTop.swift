@@ -13,9 +13,9 @@ struct enen2ViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var enen2 = Enen2()
     @State var isShowAlert: Bool = false
-//    @StateObject var enen2Memory1 = Enen2Memory1()
-//    @StateObject var enen2Memory2 = Enen2Memory2()
-//    @StateObject var enen2Memory3 = Enen2Memory3()
+    @StateObject var enen2Memory1 = Enen2Memory1()
+    @StateObject var enen2Memory2 = Enen2Memory2()
+    @StateObject var enen2Memory3 = Enen2Memory3()
     var body: some View {
         NavigationStack {
             List {
@@ -56,6 +56,19 @@ struct enen2ViewTop: View {
                             imageSystemName: "person.3.fill",
                             textBody: "REG",
                             badgeStatus: common.enen2MenuRegBadge,
+                        )
+                    }
+                    
+                    // ボーナス終了画面
+                    NavigationLink(destination: enen2ViewScreen(
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.enen2MenuScreenBadge,
                         )
                     }
                     
@@ -124,21 +137,21 @@ struct enen2ViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(enen2SubViewLoadMemory(
-//                    enen2: enen2,
-//                    enen2Memory1: enen2Memory1,
-//                    enen2Memory2: enen2Memory2,
-//                    enen2Memory3: enen2Memory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(enen2SubViewLoadMemory(
+                    enen2: enen2,
+                    enen2Memory1: enen2Memory1,
+                    enen2Memory2: enen2Memory2,
+                    enen2Memory3: enen2Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(enen2SubViewSaveMemory(
-//                    enen2: enen2,
-//                    enen2Memory1: enen2Memory1,
-//                    enen2Memory2: enen2Memory2,
-//                    enen2Memory3: enen2Memory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(enen2SubViewSaveMemory(
+                    enen2: enen2,
+                    enen2Memory1: enen2Memory1,
+                    enen2Memory2: enen2Memory2,
+                    enen2Memory3: enen2Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -149,6 +162,154 @@ struct enen2ViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct enen2SubViewSaveMemory: View {
+    @ObservedObject var enen2: Enen2
+    @ObservedObject var enen2Memory1: Enen2Memory1
+    @ObservedObject var enen2Memory2: Enen2Memory2
+    @ObservedObject var enen2Memory3: Enen2Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: enen2.machineName,
+            selectedMemory: $enen2.selectedMemory,
+            memoMemory1: $enen2Memory1.memo,
+            dateDoubleMemory1: $enen2Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $enen2Memory2.memo,
+            dateDoubleMemory2: $enen2Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $enen2Memory3.memo,
+            dateDoubleMemory3: $enen2Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        enen2Memory1.normalGame = enen2.normalGame
+        enen2Memory1.firstHitCountBonus = enen2.firstHitCountBonus
+        enen2Memory1.firstHitCountLoop = enen2.firstHitCountLoop
+        enen2Memory1.screenCount1 = enen2.screenCount1
+        enen2Memory1.screenCount2 = enen2.screenCount2
+        enen2Memory1.screenCount3 = enen2.screenCount3
+        enen2Memory1.screenCount4 = enen2.screenCount4
+        enen2Memory1.screenCount5 = enen2.screenCount5
+        enen2Memory1.screenCount6 = enen2.screenCount6
+        enen2Memory1.screenCountSum = enen2.screenCountSum
+        enen2Memory1.wanaCountMiss = enen2.wanaCountMiss
+        enen2Memory1.wanaCountHit = enen2.wanaCountHit
+        enen2Memory1.wanaCountSum = enen2.wanaCountSum
+    }
+    func saveMemory2() {
+        enen2Memory2.normalGame = enen2.normalGame
+        enen2Memory2.firstHitCountBonus = enen2.firstHitCountBonus
+        enen2Memory2.firstHitCountLoop = enen2.firstHitCountLoop
+        enen2Memory2.screenCount1 = enen2.screenCount1
+        enen2Memory2.screenCount2 = enen2.screenCount2
+        enen2Memory2.screenCount3 = enen2.screenCount3
+        enen2Memory2.screenCount4 = enen2.screenCount4
+        enen2Memory2.screenCount5 = enen2.screenCount5
+        enen2Memory2.screenCount6 = enen2.screenCount6
+        enen2Memory2.screenCountSum = enen2.screenCountSum
+        enen2Memory2.wanaCountMiss = enen2.wanaCountMiss
+        enen2Memory2.wanaCountHit = enen2.wanaCountHit
+        enen2Memory2.wanaCountSum = enen2.wanaCountSum
+    }
+    func saveMemory3() {
+        enen2Memory3.normalGame = enen2.normalGame
+        enen2Memory3.firstHitCountBonus = enen2.firstHitCountBonus
+        enen2Memory3.firstHitCountLoop = enen2.firstHitCountLoop
+        enen2Memory3.screenCount1 = enen2.screenCount1
+        enen2Memory3.screenCount2 = enen2.screenCount2
+        enen2Memory3.screenCount3 = enen2.screenCount3
+        enen2Memory3.screenCount4 = enen2.screenCount4
+        enen2Memory3.screenCount5 = enen2.screenCount5
+        enen2Memory3.screenCount6 = enen2.screenCount6
+        enen2Memory3.screenCountSum = enen2.screenCountSum
+        enen2Memory3.wanaCountMiss = enen2.wanaCountMiss
+        enen2Memory3.wanaCountHit = enen2.wanaCountHit
+        enen2Memory3.wanaCountSum = enen2.wanaCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct enen2SubViewLoadMemory: View {
+    @ObservedObject var enen2: Enen2
+    @ObservedObject var enen2Memory1: Enen2Memory1
+    @ObservedObject var enen2Memory2: Enen2Memory2
+    @ObservedObject var enen2Memory3: Enen2Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: enen2.machineName,
+            selectedMemory: $enen2.selectedMemory,
+            memoMemory1: enen2Memory1.memo,
+            dateDoubleMemory1: enen2Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: enen2Memory2.memo,
+            dateDoubleMemory2: enen2Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: enen2Memory3.memo,
+            dateDoubleMemory3: enen2Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        enen2.normalGame = enen2Memory1.normalGame
+        enen2.firstHitCountBonus = enen2Memory1.firstHitCountBonus
+        enen2.firstHitCountLoop = enen2Memory1.firstHitCountLoop
+        enen2.screenCount1 = enen2Memory1.screenCount1
+        enen2.screenCount2 = enen2Memory1.screenCount2
+        enen2.screenCount3 = enen2Memory1.screenCount3
+        enen2.screenCount4 = enen2Memory1.screenCount4
+        enen2.screenCount5 = enen2Memory1.screenCount5
+        enen2.screenCount6 = enen2Memory1.screenCount6
+        enen2.screenCountSum = enen2Memory1.screenCountSum
+        enen2.wanaCountMiss = enen2Memory1.wanaCountMiss
+        enen2.wanaCountHit = enen2Memory1.wanaCountHit
+        enen2.wanaCountSum = enen2Memory1.wanaCountSum
+    }
+    func loadMemory2() {
+        enen2.normalGame = enen2Memory2.normalGame
+        enen2.firstHitCountBonus = enen2Memory2.firstHitCountBonus
+        enen2.firstHitCountLoop = enen2Memory2.firstHitCountLoop
+        enen2.screenCount1 = enen2Memory2.screenCount1
+        enen2.screenCount2 = enen2Memory2.screenCount2
+        enen2.screenCount3 = enen2Memory2.screenCount3
+        enen2.screenCount4 = enen2Memory2.screenCount4
+        enen2.screenCount5 = enen2Memory2.screenCount5
+        enen2.screenCount6 = enen2Memory2.screenCount6
+        enen2.screenCountSum = enen2Memory2.screenCountSum
+        enen2.wanaCountMiss = enen2Memory2.wanaCountMiss
+        enen2.wanaCountHit = enen2Memory2.wanaCountHit
+        enen2.wanaCountSum = enen2Memory2.wanaCountSum
+    }
+    func loadMemory3() {
+        enen2.normalGame = enen2Memory3.normalGame
+        enen2.firstHitCountBonus = enen2Memory3.firstHitCountBonus
+        enen2.firstHitCountLoop = enen2Memory3.firstHitCountLoop
+        enen2.screenCount1 = enen2Memory3.screenCount1
+        enen2.screenCount2 = enen2Memory3.screenCount2
+        enen2.screenCount3 = enen2Memory3.screenCount3
+        enen2.screenCount4 = enen2Memory3.screenCount4
+        enen2.screenCount5 = enen2Memory3.screenCount5
+        enen2.screenCount6 = enen2Memory3.screenCount6
+        enen2.screenCountSum = enen2Memory3.screenCountSum
+        enen2.wanaCountMiss = enen2Memory3.wanaCountMiss
+        enen2.wanaCountHit = enen2Memory3.wanaCountHit
+        enen2.wanaCountSum = enen2Memory3.wanaCountSum
     }
 }
 

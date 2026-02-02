@@ -1133,6 +1133,7 @@
 		0FDE0F252F3066BA00B1DA18 /* enen2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */; };
 		0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */; };
 		0FDE0F2C2F30737800B1DA18 /* enen2ViewWana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */; };
+		0FDE0F2E2F307E5300B1DA18 /* enen2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */; };
 		0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */; };
 		0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */; };
 		0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */; };
@@ -2397,6 +2398,7 @@
 		0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableMode.swift; sourceTree = "<group>"; };
 		0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewReg.swift; sourceTree = "<group>"; };
 		0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewWana.swift; sourceTree = "<group>"; };
+		0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewScreen.swift; sourceTree = "<group>"; };
 		0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegChara.swift; sourceTree = "<group>"; };
 		0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableCharaRatio.swift; sourceTree = "<group>"; };
 		0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegScreen.swift; sourceTree = "<group>"; };
@@ -4258,6 +4260,7 @@
 				0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */,
 				0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */,
 				0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */,
+				0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -6264,6 +6267,7 @@
 				0FBED7A22E9A3EE900AA3751 /* newOni3ViewBayes.swift in Sources */,
 				0FDF237B2E51EEA800249CAC /* enenViewDendosha.swift in Sources */,
 				0F6BD7E22D831C05003F5563 /* unitTableDenominate.swift in Sources */,
+				0FDE0F2E2F307E5300B1DA18 /* enen2ViewScreen.swift in Sources */,
 				0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
 				0F19D4422F2D77D3004A6D9F /* unitLabelCautionText.swift in Sources */,
