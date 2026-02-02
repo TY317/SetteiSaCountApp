@@ -149,20 +149,20 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 炎炎２、26年2月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLinkWithLock(
-//                                        linkView: AnyView(enen2ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("enen2MachineIcon"),
-//                                        machineName: "炎炎2",
-//                                        isUnLocked: $common.enen2isUnlocked,
-//                                        badgeStatus: common.enen2MachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎2",
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 攻殻機動隊、26年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
@@ -958,23 +958,23 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 炎炎２、26年２月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
-//                                    
-//                                } else {
-//                                    unitMachineListLinkWithLock(
-//                                        linkView: AnyView(enen2ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("enen2MachineIcon"),
-//                                        machineName: "炎炎ノ消防隊2",
-//                                        makerName: "SANKYO",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 2,
-//                                        isUnLocked: $common.enen2isUnlocked,
-//                                        badgeStatus: common.enen2MachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎ノ消防隊2",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 攻殻機動隊、26年２月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
@@ -2115,7 +2115,7 @@ struct favoriteSettingView: View {
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // 炎炎ノ消防隊2
-//                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
+                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
                 // 攻殻機動隊
                 Toggle("攻殻機動隊", isOn: $favoriteSet.isSelectedFavoriteKokakukidotai)
                 // 鉄拳６

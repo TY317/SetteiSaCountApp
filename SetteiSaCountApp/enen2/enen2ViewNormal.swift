@@ -18,10 +18,19 @@ struct enen2ViewNormal: View {
             // ----- レア役
             Section {
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
-                    
+                    enen2TableKoyakuPattern()
                 }
             } header: {
                 Text("レア役")
+            }
+            
+            // ---- 通常時のモード
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "モードについて") {
+                    enen2TableMode()
+                }
+            } header: {
+                Text("通常時モード")
             }
         }
         // //// バッジのリセット
