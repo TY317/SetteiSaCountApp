@@ -13,23 +13,41 @@ struct enen2View95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
-            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $enen2.firstHitCountCz,
-//                        bigNumber: $enen2.normalGame,
-//                        setting1Denominate: enen2.ratioFirstHitCz[0],
-//                        setting2Denominate: enen2.ratioFirstHitCz[1],
-//                        setting3Denominate: enen2.ratioFirstHitCz[2],
-//                        setting4Denominate: enen2.ratioFirstHitCz[3],
-//                        setting5Denominate: enen2.ratioFirstHitCz[4],
-//                        setting6Denominate: enen2.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            // ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $enen2.firstHitCountBonus,
+                        bigNumber: $enen2.normalGame,
+                        setting1Denominate: enen2.ratioFirstHitBonus[0],
+                        setting2Denominate: enen2.ratioFirstHitBonus[1],
+                        setting3Denominate: enen2.ratioFirstHitBonus[2],
+                        setting4Denominate: enen2.ratioFirstHitBonus[3],
+                        setting5Denominate: enen2.ratioFirstHitBonus[4],
+                        setting6Denominate: enen2.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(1)
+            
+            // 炎炎ループ初当り回数
+            unitListSection95Ci(
+                grafTitle: "炎炎ループ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $enen2.firstHitCountLoop,
+                        bigNumber: $enen2.normalGame,
+                        setting1Denominate: enen2.ratioFirstHitLoop[0],
+                        setting2Denominate: enen2.ratioFirstHitLoop[1],
+                        setting3Denominate: enen2.ratioFirstHitLoop[2],
+                        setting4Denominate: enen2.ratioFirstHitLoop[3],
+                        setting5Denominate: enen2.ratioFirstHitLoop[4],
+                        setting6Denominate: enen2.ratioFirstHitLoop[5]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {

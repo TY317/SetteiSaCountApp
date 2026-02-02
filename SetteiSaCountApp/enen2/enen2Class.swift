@@ -14,8 +14,15 @@ class Enen2: ObservableObject {
     // ----------
     let ratioFirstHitBonus: [Double] = [272,269,257,242,236,227]
     let ratioFirstHitLoop: [Double] = [684,662,617,546,518,486]
+    @AppStorage("bakemonoNormalGame") var normalGame: Int = 0
+    @AppStorage("bakemonoFirstHitCountBonus") var firstHitCountBonus: Int = 0
+    @AppStorage("bakemonoFirstHitCountLoop") var firstHitCountLoop: Int = 0
+    
     
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBonus = 0
+        firstHitCountLoop = 0
         minusCheck = false
     }
     

@@ -45,7 +45,13 @@ struct enen2ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・ボーナス、炎炎ループ初当り確率を計算要素に加えます"
+                    )
+                }
                 
             }
             
@@ -108,7 +114,21 @@ struct enen2ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // 初当り確率
+        var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostLoop: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostBonus = logPostDenoBino(
+                ratio: enen2.ratioFirstHitBonus,
+                Count: enen2.firstHitCountBonus,
+                bigNumber: enen2.normalGame
+            )
+            logPostLoop = logPostDenoBino(
+                ratio: enen2.ratioFirstHitLoop,
+                Count: enen2.firstHitCountLoop,
+                bigNumber: enen2.normalGame
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -146,7 +166,8 @@ struct enen2ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostBonus,
+            logPostLoop,
             
             logPostTrophy,
             logPostBefore,
