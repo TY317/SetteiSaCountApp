@@ -57,7 +57,7 @@ struct hokutoTenseiView95Ci: View {
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $hokutoTensei.firstHitCountTenha,
-                        bigNumber: $hokutoTensei.normalGame,
+                        bigNumber: $hokutoTensei.tenhaGame,
                         setting1Denominate: hokutoTensei.ratioAtFirstHitTenha[0],
                         setting2Denominate: hokutoTensei.ratioAtFirstHitTenha[1],
                         setting3Denominate: hokutoTensei.ratioAtFirstHitTenha[2],

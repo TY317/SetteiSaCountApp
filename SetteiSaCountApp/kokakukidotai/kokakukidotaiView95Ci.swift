@@ -13,23 +13,78 @@ struct kokakukidotaiView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
+            // 引き戻し成功ストック回数
+            unitListSection95Ci(
+                grafTitle: "AT終了時200or400G\nCZ合算回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.iedeCountSuccess,
+                        bigNumber: $kokakukidotai.iedeCountSum,
+                        setting1Percent: kokakukidotai.ratioIede[0],
+                        setting2Percent: kokakukidotai.ratioIede[1],
+                        setting3Percent: kokakukidotai.ratioIede[2],
+                        setting4Percent: kokakukidotai.ratioIede[3],
+                        setting5Percent: kokakukidotai.ratioIede[4],
+                        setting6Percent: kokakukidotai.ratioIede[5]
+                    )
+                )
+            )
+            .tag(3)
+            
             // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kokakukidotai.firstHitCountCz,
-//                        bigNumber: $kokakukidotai.normalGame,
-//                        setting1Denominate: kokakukidotai.ratioFirstHitCz[0],
-//                        setting2Denominate: kokakukidotai.ratioFirstHitCz[1],
-//                        setting3Denominate: kokakukidotai.ratioFirstHitCz[2],
-//                        setting4Denominate: kokakukidotai.ratioFirstHitCz[3],
-//                        setting5Denominate: kokakukidotai.ratioFirstHitCz[4],
-//                        setting6Denominate: kokakukidotai.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kokakukidotai.firstHitCountCz,
+                        bigNumber: $kokakukidotai.normalGame,
+                        setting1Denominate: kokakukidotai.ratioFirstHitCz[0],
+                        setting2Denominate: kokakukidotai.ratioFirstHitCz[1],
+                        setting3Denominate: kokakukidotai.ratioFirstHitCz[2],
+                        setting4Denominate: kokakukidotai.ratioFirstHitCz[3],
+                        setting5Denominate: kokakukidotai.ratioFirstHitCz[4],
+                        setting6Denominate: kokakukidotai.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(1)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kokakukidotai.firstHitCountAt,
+                        bigNumber: $kokakukidotai.normalGame,
+                        setting1Denominate: kokakukidotai.ratioFirstHitAt[0],
+                        setting2Denominate: kokakukidotai.ratioFirstHitAt[1],
+                        setting3Denominate: kokakukidotai.ratioFirstHitAt[2],
+                        setting4Denominate: kokakukidotai.ratioFirstHitAt[3],
+                        setting5Denominate: kokakukidotai.ratioFirstHitAt[4],
+                        setting6Denominate: kokakukidotai.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(4)
+            
+            // 引き戻し成功ストック回数
+            unitListSection95Ci(
+                grafTitle: "REBOOTCHANCE\n成功ストック回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.rebootCountSuccess,
+                        bigNumber: $kokakukidotai.rebootCountSum,
+                        setting1Percent: kokakukidotai.ratioReboot[0],
+                        setting2Percent: kokakukidotai.ratioReboot[1],
+                        setting3Percent: kokakukidotai.ratioReboot[2],
+                        setting4Percent: kokakukidotai.ratioReboot[3],
+                        setting5Percent: kokakukidotai.ratioReboot[4],
+                        setting6Percent: kokakukidotai.ratioReboot[5]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {

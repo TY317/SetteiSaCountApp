@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class Tekken6: ObservableObject {
     // ----------
@@ -66,6 +67,54 @@ class Tekken6: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetBack()
+        resetNormal()
+        resetBonus()
+    }
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    // レアやくからのボーナス直撃
+    let ratioRareDirectJaku: [Double] = [0.4,0.4,0.4,1.6,1.6,1.6]
+    let ratioRareDirectKyo: [Double] = [12.5,12.5,12.5,18,18,18]
+    @AppStorage("tekken6RareDirectCountJakuCherry") var rareDirectCountJakuCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountSuika") var rareDirectCountSuika: Int = 0
+    @AppStorage("tekken6RareDirectCountChance") var rareDirectCountChance: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuSum") var rareDirectCountJakuSum: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuHit") var rareDirectCountJakuHit: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoCherry") var rareDirectCountKyoCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoHit") var rareDirectCountKyoHit: Int = 0
+    
+    func jakuRareSumFunc() {
+        rareDirectCountJakuSum = rareDirectCountJakuCherry + rareDirectCountSuika + rareDirectCountChance
+    }
+    
+    func resetNormal() {
+        rareDirectCountJakuCherry = 0
+        rareDirectCountSuika = 0
+        rareDirectCountChance = 0
+        rareDirectCountJakuSum = 0
+        rareDirectCountJakuHit = 0
+        rareDirectCountKyoCherry = 0
+        rareDirectCountKyoHit = 0
+        minusCheck = false
+    }
+    
+    // 通常時のボーナス
+    let ratioEpisode: [Double] = [2,-1,-1,-1,-1,13]
+    @AppStorage("tekken6episodeCountNone") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHit") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSum") var episodeCountSum: Int = 0
+    
+    func episodeSumFunc() {
+        episodeCountSum = episodeCountNone + episodeCountHit
+    }
+    
+    func resetBonus() {
+        episodeCountNone = 0
+        episodeCountHit = 0
+        episodeCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -82,6 +131,20 @@ class Tekken6Memory1: ObservableObject {
     @AppStorage("tekken6BackCountSumMemory1") var backCountSum: Int = 0
     @AppStorage("tekken6MemoMemory1") var memo = ""
     @AppStorage("tekken6DateMemory1") var dateDouble = 0.0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("tekken6RareDirectCountJakuCherryMemory1") var rareDirectCountJakuCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountSuikaMemory1") var rareDirectCountSuika: Int = 0
+    @AppStorage("tekken6RareDirectCountChanceMemory1") var rareDirectCountChance: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuSumMemory1") var rareDirectCountJakuSum: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuHitMemory1") var rareDirectCountJakuHit: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoCherryMemory1") var rareDirectCountKyoCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoHitMemory1") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemory1") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory1") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory1") var episodeCountSum: Int = 0
 }
 
 
@@ -97,6 +160,20 @@ class Tekken6Memory2: ObservableObject {
     @AppStorage("tekken6BackCountSumMemory2") var backCountSum: Int = 0
     @AppStorage("tekken6MemoMemory2") var memo = ""
     @AppStorage("tekken6DateMemory2") var dateDouble = 0.0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("tekken6RareDirectCountJakuCherryMemory2") var rareDirectCountJakuCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountSuikaMemory2") var rareDirectCountSuika: Int = 0
+    @AppStorage("tekken6RareDirectCountChanceMemory2") var rareDirectCountChance: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuSumMemory2") var rareDirectCountJakuSum: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuHitMemory2") var rareDirectCountJakuHit: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoCherryMemory2") var rareDirectCountKyoCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoHitMemory2") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemor21") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory2") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory2") var episodeCountSum: Int = 0
 }
 
 
@@ -112,4 +189,18 @@ class Tekken6Memory3: ObservableObject {
     @AppStorage("tekken6BackCountSumMemory3") var backCountSum: Int = 0
     @AppStorage("tekken6MemoMemory3") var memo = ""
     @AppStorage("tekken6DateMemory3") var dateDouble = 0.0
+    
+    // -------
+    // ver3.18.0で追加
+    // -------
+    @AppStorage("tekken6RareDirectCountJakuCherryMemory3") var rareDirectCountJakuCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountSuikaMemory3") var rareDirectCountSuika: Int = 0
+    @AppStorage("tekken6RareDirectCountChanceMemory3") var rareDirectCountChance: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuSumMemory3") var rareDirectCountJakuSum: Int = 0
+    @AppStorage("tekken6RareDirectCountJakuHitMemory3") var rareDirectCountJakuHit: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoCherryMemory3") var rareDirectCountKyoCherry: Int = 0
+    @AppStorage("tekken6RareDirectCountKyoHitMemory3") var rareDirectCountKyoHit: Int = 0
+    @AppStorage("tekken6episodeCountNoneMemory3") var episodeCountNone: Int = 0
+    @AppStorage("tekken6episodeCountHitMemory3") var episodeCountHit: Int = 0
+    @AppStorage("tekken6episodeCountSumMemory3") var episodeCountSum: Int = 0
 }

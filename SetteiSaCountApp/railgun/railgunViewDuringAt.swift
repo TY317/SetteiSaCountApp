@@ -101,7 +101,7 @@ struct railgunViewDuringAt: View {
                             }
                         }
                     }
-                    .popoverTip(tipVer3140railgunDuringAt())
+//                    .popoverTip(tipVer3140railgunDuringAt())
                 }
                 .frame(height: common.screenScrollHeight)
                 

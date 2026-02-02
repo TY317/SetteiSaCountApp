@@ -28,75 +28,109 @@ struct hokutoTenseiViewFirstHit: View {
     
     var body: some View {
         List {
-            // 注意書き
-            Text("・ゲーム数はマイスロを参考に入力して下さい")
-                .foregroundStyle(Color.secondary)
-                .font(.caption)
-            // ゲーム数入力
-            unitTextFieldNumberInputWithUnit(
-                title: "通常ゲーム数",
-                inputValue: $hokutoTensei.normalGame,
-                unitText: "Ｇ",
-            )
-            .focused(self.$isFocused)
-            // カウントボタン横並び
-            HStack {
-                // 天破
-                unitCountButtonVerticalDenominate(
-                    title: "天破の刻",
-                    count: $hokutoTensei.firstHitCountTenha,
-                    color: .personalSummerLightGreen,
-                    bigNumber: $hokutoTensei.normalGame,
-                    numberofDicimal: 0,
-                    minusBool: $hokutoTensei.minusCheck
+            Section {
+                // 注意書き
+                Text("・マイスロを参考に入力して下さい")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // ゲーム数入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "通常ゲーム数",
+                    inputValue: $hokutoTensei.normalGame,
+                    unitText: "Ｇ",
                 )
-                // AT
-                unitCountButtonVerticalDenominate(
-                    title: "闘神演舞",
-                    count: $hokutoTensei.firstHitCountAt,
-                    color: .personalSummerLightRed,
-                    bigNumber: $hokutoTensei.normalGame,
-                    numberofDicimal: 0,
-                    minusBool: $hokutoTensei.minusCheck
+                .focused(self.$isFocused)
+                // 天破 突入回数
+                unitTextFieldNumberInputWithUnit(
+                    title: "天破の刻 突入回数",
+                    inputValue: $hokutoTensei.firstHitCountTenha
                 )
-            }
-            // 参考情報）初当り確率
-            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
-                VStack {
-                    Text("・天破は伝承ループでの当選分も含んだ実質出現率")
-                        .padding(.bottom)
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
-                        unitTableDenominate(
-                            columTitle: "天破の刻",
-                            denominateList: hokutoTensei.ratioAtFirstHitTenha
+                .focused(self.$isFocused)
+                .onChange(of: hokutoTensei.firstHitCountTenha, { oldValue, newValue in
+                    hokutoTensei.tenhaGame = Int(Double(newValue) * hokutoTensei.tenhaDenoInput)
+                })
+                // 天破　突入確率
+                HStack {
+                    Text("天破の刻 突入確率")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack {
+                        Text("1/")
+                            .foregroundStyle(Color.secondary)
+                        TextField(
+                            "天破の刻 突入確率",
+                            value: $hokutoTensei.tenhaDenoInput,
+                            format: .number,
                         )
-                        unitTableDenominate(
-                            columTitle: "闘神演舞",
-                            denominateList: hokutoTensei.ratioAtFirstHitAt
-                        )
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.center)
+                        .focused(self.$isFocused)
+                        .onChange(of: hokutoTensei.tenhaDenoInput, { oldValue, newValue in
+                            hokutoTensei.tenhaGame = Int(Double(hokutoTensei.firstHitCountTenha) * newValue)
+                        })
                     }
                 }
-            }
-            .popoverTip(tipVer3171hokutoTenseiTenha())
-            
-            // //// 95%信頼区間グラフへのリンク
-            unitNaviLink95Ci(
-                Ci95view: AnyView(
-                    hokutoTenseiView95Ci(
-                        hokutoTensei: hokutoTensei,
-                        selection: 3,
+                .popoverTip(tipVer3180hokutoTenseiUIshusei())
+                // カウントボタン横並び
+                HStack {
+                    // 天破
+//                    unitCountButtonVerticalDenominate(
+//                        title: "天破の刻",
+//                        count: $hokutoTensei.firstHitCountTenha,
+//                        color: .personalSummerLightGreen,
+//                        bigNumber: $hokutoTensei.tenhaGame,
+//                        numberofDicimal: 0,
+//                        minusBool: $hokutoTensei.minusCheck
+//                    )
+                    // AT
+                    unitCountButtonVerticalDenominate(
+                        title: "闘神演舞",
+                        count: $hokutoTensei.firstHitCountAt,
+                        color: .personalSummerLightRed,
+                        bigNumber: $hokutoTensei.normalGame,
+                        numberofDicimal: 0,
+                        minusBool: $hokutoTensei.minusCheck
+                    )
+                }
+                // 参考情報）初当り確率
+                unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                    VStack {
+                        Text("・天破は伝承ループでの当選分も含んだ実質出現率")
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "天破の刻",
+                                denominateList: hokutoTensei.ratioAtFirstHitTenha
+                            )
+                            unitTableDenominate(
+                                columTitle: "闘神演舞",
+                                denominateList: hokutoTensei.ratioAtFirstHitAt
+                            )
+                        }
+                    }
+                }
+    //            .popoverTip(tipVer3171hokutoTenseiTenha())
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        hokutoTenseiView95Ci(
+                            hokutoTensei: hokutoTensei,
+                            selection: 3,
+                        )
                     )
                 )
-            )
-            
-            // //// 設定期待値へのリンク
-            unitNaviLinkBayes {
-                hokutoTenseiViewBayes(
-                    hokutoTensei: hokutoTensei,
-                    bayes: bayes,
-                    viewModel: viewModel,
-                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hokutoTenseiViewBayes(
+                        hokutoTensei: hokutoTensei,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("初当り")
             }
             
             // あべし登録
@@ -345,6 +379,29 @@ struct hokutoTenseiViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "フェイク前兆発生テーブル") {
                     hokutoTenseiTableFake()
                 }
+                
+                // 参考情報）設定変更時の256あべしまでの当選率
+                unitLinkButtonViewBuilder(sheetTitle: "設定変更時 256までの当選期待度") {
+                    VStack {
+                        Text("設定変更時 256あべしまでの実質当選期待度")
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableString(
+                                columTitle: "期待度",
+                                stringList: [
+                                    "36%",
+                                    "↓",
+                                    "↓",
+                                    "↓",
+                                    "↓",
+                                    "53%",
+                                ]
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer3180hokutoTensei256())
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",
@@ -363,6 +420,8 @@ struct hokutoTenseiViewFirstHit: View {
                 screenClass: screenClass
             )
         }
+        .navigationTitle("初当り")
+        .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
             orientation: self.$orientation,

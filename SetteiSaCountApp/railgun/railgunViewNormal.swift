@@ -29,7 +29,7 @@ struct railgunViewNormal: View {
     @State var selectedItem: String = "🍒"
     
     var body: some View {
-        TipView(tipVer3140railgunNormal())
+//        TipView(tipVer3140railgunNormal())
         List {
             // //// レア役
             Section {

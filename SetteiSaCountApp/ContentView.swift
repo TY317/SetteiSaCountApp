@@ -109,7 +109,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-//                TipView(tipVer3170UpdateInfo())
+                TipView(tipVer3180UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -149,36 +149,36 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 炎炎２、26年2月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLinkWithLock(
-//                                        linkView: AnyView(enen2ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("enen2MachineIcon"),
-//                                        machineName: "炎炎2",
-//                                        isUnLocked: $common.enen2isUnlocked,
-//                                        badgeStatus: common.enen2MachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎2",
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 攻殻機動隊、26年2月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
-//                                    
-//                                } else {
-//                                    unitMachineIconLinkWithLock(
-//                                        linkView: AnyView(kokakukidotaiViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("kokakukidotaiMachineIcon"),
-//                                        machineName: "攻殻機動隊",
-//                                        isUnLocked: $common.kokakukidotaiisUnlocked,
-//                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(kokakukidotaiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("kokakukidotaiMachineIcon"),
+                                        machineName: "攻殻機動隊",
+                                        isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 鉄拳6、26年1月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
@@ -958,42 +958,42 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 炎炎２、26年２月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
-//                                    
-//                                } else {
-//                                    unitMachineListLinkWithLock(
-//                                        linkView: AnyView(enen2ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("enen2MachineIcon"),
-//                                        machineName: "炎炎ノ消防隊2",
-//                                        makerName: "SANKYO",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 2,
-//                                        isUnLocked: $common.enen2isUnlocked,
-//                                        badgeStatus: common.enen2MachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(enen2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("enen2MachineIcon"),
+                                        machineName: "炎炎ノ消防隊2",
+                                        makerName: "SANKYO",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.enen2isUnlocked,
+                                        badgeStatus: common.enen2MachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 攻殻機動隊、26年２月
-//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
-//                                    
-//                                } else {
-//                                    unitMachineListLinkWithLock(
-//                                        linkView: AnyView(kokakukidotaiViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("kokakukidotaiMachineIcon"),
-//                                        machineName: "攻殻機動隊",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 2,
-//                                        isUnLocked: $common.kokakukidotaiisUnlocked,
-//                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
-//                                    )
-//                                }
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKokakukidotai == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(kokakukidotaiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("kokakukidotaiMachineIcon"),
+                                        machineName: "攻殻機動隊",
+                                        makerName: "サミー",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        badgeStatus: common.kokakukidotaiMachineIconBadge,
+                                    )
+                                }
                                 
                                 // //// 鉄拳6、26年1月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteTekken6 == false {
@@ -2115,9 +2115,9 @@ struct favoriteSettingView: View {
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
                 // 炎炎ノ消防隊2
-//                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
+                Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
                 // 攻殻機動隊
-//                Toggle("攻殻機動隊", isOn: $favoriteSet.isSelectedFavoriteKokakukidotai)
+                Toggle("攻殻機動隊", isOn: $favoriteSet.isSelectedFavoriteKokakukidotai)
                 // 鉄拳６
                 Toggle("鉄拳6", isOn: $favoriteSet.isSelectedFavoriteTekken6)
                 // 北斗転生
@@ -2290,8 +2290,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

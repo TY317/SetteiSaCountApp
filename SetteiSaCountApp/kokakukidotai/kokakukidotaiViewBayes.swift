@@ -14,6 +14,9 @@ struct kokakukidotaiViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.7, 100.8, 104.9, 109.3, 112.2]
     @State var firstHitEnable: Bool = true
+    @State var rebootEnable: Bool = true
+    @State var iedeEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -45,8 +48,35 @@ struct kokakukidotaiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // AT終了時200or400G CZ当選
+                unitToggleWithQuestion(enable: self.$iedeEnable, title: "AT終了時200or400G CZ当選")
                 
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
+                    unitExView5body2image(
+                        title: "初当り確率",
+                        textBody1: "・CZ、AT 初当り確率を計算要素に加えます"
+                    )
+                }
                 
+                // 示唆ウィンドウ
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "示唆ウィンドウ") {
+                    unitExView5body2image(
+                        title: "示唆ウィンドウ",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // 引き戻り確率
+                unitToggleWithQuestion(enable: self.$rebootEnable, title: "REBOOTCHANCE成功ストック")
+                
+                // サミートロフィー
+                DisclosureGroup("サミートロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "キリン柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3
@@ -108,6 +138,50 @@ struct kokakukidotaiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // AT終了時200or400
+        var logPostIede: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.iedeEnable {
+            logPostIede = logPostPercentBino(
+                ratio: kokakukidotai.ratioIede,
+                Count: kokakukidotai.iedeCountSuccess,
+                bigNumber: kokakukidotai.iedeCountSum
+            )
+        }
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: kokakukidotai.ratioFirstHitAt,
+                Count: kokakukidotai.firstHitCountAt,
+                bigNumber: kokakukidotai.normalGame
+            )
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: kokakukidotai.ratioFirstHitCz,
+                Count: kokakukidotai.firstHitCountCz,
+                bigNumber: kokakukidotai.normalGame
+            )
+        }
+        
+        // 示唆ウィンドウ
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if kokakukidotai.screenCountOverD4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+        }
+        
+        // REBOOT
+        var logPostReboot: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rebootEnable {
+            logPostReboot = logPostPercentBino(
+                ratio: kokakukidotai.ratioReboot,
+                Count: kokakukidotai.rebootCountSuccess,
+                bigNumber: kokakukidotai.rebootCountSum
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -146,7 +220,11 @@ struct kokakukidotaiViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
+            logPostIede,
+            logPostFirstHitAt,
+            logPostFirstHitCz,
+            logPostReboot,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,
