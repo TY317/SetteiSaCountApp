@@ -46,7 +46,7 @@ struct enen2ViewTop: View {
                         )
                     }
                     
-                    // 初当り
+                    // REG
                     NavigationLink(destination: enen2ViewReg(
                         enen2: enen2,
                         bayes: bayes,
@@ -56,6 +56,19 @@ struct enen2ViewTop: View {
                             imageSystemName: "person.3.fill",
                             textBody: "REG",
                             badgeStatus: common.enen2MenuRegBadge,
+                        )
+                    }
+                    
+                    // 伝道者の罠
+                    NavigationLink(destination: enen2ViewWana(
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flame.fill",
+                            textBody: "伝道者の罠",
+                            badgeStatus: common.enen2MenuWanaBadge,
                         )
                     }
                 } header: {

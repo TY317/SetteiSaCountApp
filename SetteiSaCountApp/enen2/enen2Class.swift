@@ -14,15 +14,33 @@ class Enen2: ObservableObject {
     // ----------
     let ratioFirstHitBonus: [Double] = [272,269,257,242,236,227]
     let ratioFirstHitLoop: [Double] = [684,662,617,546,518,486]
-    @AppStorage("bakemonoNormalGame") var normalGame: Int = 0
-    @AppStorage("bakemonoFirstHitCountBonus") var firstHitCountBonus: Int = 0
-    @AppStorage("bakemonoFirstHitCountLoop") var firstHitCountLoop: Int = 0
+    @AppStorage("enen2NormalGame") var normalGame: Int = 0
+    @AppStorage("enen2FirstHitCountBonus") var firstHitCountBonus: Int = 0
+    @AppStorage("enen2FirstHitCountLoop") var firstHitCountLoop: Int = 0
     
     
     func resetFirstHit() {
         normalGame = 0
         firstHitCountBonus = 0
         firstHitCountLoop = 0
+        minusCheck = false
+    }
+    
+    // ----------
+    // 伝道者の罠
+    // ----------
+    @AppStorage("enen2WanaCountMiss") var wanaCountMiss: Int = 0
+    @AppStorage("enen2WanaCountHit") var wanaCountHit: Int = 0
+    @AppStorage("enen2WanaCountSum") var wanaCountSum: Int = 0
+    
+    func wanaSumFunc() {
+        wanaCountSum = wanaCountMiss + wanaCountHit
+    }
+    
+    func resetWana() {
+        wanaCountMiss = 0
+        wanaCountHit = 0
+        wanaCountSum = 0
         minusCheck = false
     }
     
@@ -35,5 +53,6 @@ class Enen2: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetWana()
     }
 }

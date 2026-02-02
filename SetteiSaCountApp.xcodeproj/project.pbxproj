@@ -1132,6 +1132,7 @@
 		0FDE0F242F30669D00B1DA18 /* enen2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */; };
 		0FDE0F252F3066BA00B1DA18 /* enen2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */; };
 		0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */; };
+		0FDE0F2C2F30737800B1DA18 /* enen2ViewWana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */; };
 		0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */; };
 		0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */; };
 		0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */; };
@@ -2395,6 +2396,7 @@
 		0FDE0F202F3063E700B1DA18 /* enen2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableMode.swift; sourceTree = "<group>"; };
 		0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewReg.swift; sourceTree = "<group>"; };
+		0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewWana.swift; sourceTree = "<group>"; };
 		0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegChara.swift; sourceTree = "<group>"; };
 		0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableCharaRatio.swift; sourceTree = "<group>"; };
 		0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegScreen.swift; sourceTree = "<group>"; };
@@ -4255,6 +4257,7 @@
 				0FDE0F202F3063E700B1DA18 /* enen2TableKoyakuPattern.swift */,
 				0FDE0F232F30669D00B1DA18 /* enen2TableMode.swift */,
 				0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */,
+				0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -5925,6 +5928,7 @@
 				0FD357B92DAFCF140069BD1A /* mahjongView95Ci.swift in Sources */,
 				0F3465B92CB21D6B00B5D2DD /* karakuriViewIchigeki.swift in Sources */,
 				0FD357BF2DB13C3A0069BD1A /* mahjongTableFirstHit.swift in Sources */,
+				0FDE0F2C2F30737800B1DA18 /* enen2ViewWana.swift in Sources */,
 				0FF3E4752EE06782002704FD /* ver3140.swift in Sources */,
 				0F868A252D44BC0B00D952D9 /* happyJugV3Ver2View95CiPersonal.swift in Sources */,
 				0F97D8CB2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift in Sources */,
