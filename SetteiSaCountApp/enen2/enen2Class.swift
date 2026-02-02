@@ -87,6 +87,7 @@ class Enen2: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetWana()
+        resetScreen()
     }
 }
 

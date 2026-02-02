@@ -12,7 +12,7 @@ struct enen2TableMode: View {
         VStack {
             VStack(alignment: .leading) {
                 Text("・ボーナス規定ゲーム数を5つのモードで管理")
-                Text("・前作との違いとして、150Gでの抽選ないが250Gでの当選率がアップ")
+                Text("・前作と違い150Gでの抽選は無いが250Gでの当選率がアップ")
             }
             .padding(.bottom)
             
