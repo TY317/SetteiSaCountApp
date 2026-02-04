@@ -9,8 +9,8 @@ import SwiftUI
 
 struct enen2ViewNormal: View {
     @ObservedObject var enen2: Enen2
-    @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
-    @ObservedObject var viewModel: InterstitialViewModel   // 広告クラスのインスタンス
+    @ObservedObject var bayes: Bayes
+    @ObservedObject var viewModel: InterstitialViewModel
     @EnvironmentObject var common: commonVar
     
     var body: some View {

@@ -29,7 +29,43 @@ struct hanabiViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: hanabiViewKen(
+                        hanabi: hanabi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "magnifyingglass",
+                            textBody: "空き台チェック",
+                            badgeStatus: common.hanabiMenuKenBadge,
+                        )
+                    }
+                } header: {
+                    HStack {
+                        Text("見")
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "見",
+                                textBody1: "・空き台の設定判別やベル逆算はこちらから"
+                            )
+                        }
+                    }
+                }
+                
+                Section {
+                    // 通常時
+                    NavigationLink(destination: hanabiViewNormal(
+                        hanabi: hanabi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.hanabiMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

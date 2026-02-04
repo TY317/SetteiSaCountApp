@@ -1139,6 +1139,8 @@
 		0FDE0F412F30B22B00B1DA18 /* hanabiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */; };
 		0FDE0F432F30B5B700B1DA18 /* hanabiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */; };
 		0FDE0F452F30B5C100B1DA18 /* hanabiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */; };
+		0FDE0F472F30BB3900B1DA18 /* hanabiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */; };
+		0FDE0F492F30BE1300B1DA18 /* hanabiViewKen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */; };
 		0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */; };
 		0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */; };
 		0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */; };
@@ -2409,6 +2411,8 @@
 		0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hanabiAssets.xcassets; sourceTree = "<group>"; };
 		0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiView95Ci.swift; sourceTree = "<group>"; };
 		0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewBayes.swift; sourceTree = "<group>"; };
+		0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewNormal.swift; sourceTree = "<group>"; };
+		0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewKen.swift; sourceTree = "<group>"; };
 		0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegChara.swift; sourceTree = "<group>"; };
 		0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableCharaRatio.swift; sourceTree = "<group>"; };
 		0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegScreen.swift; sourceTree = "<group>"; };
@@ -4603,6 +4607,8 @@
 				0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */,
 				0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */,
 				0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */,
+				0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */,
+				0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */,
 			);
 			path = hanabi;
 			sourceTree = "<group>";
@@ -5481,6 +5487,7 @@
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
 				0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */,
 				0FB2097B2E154B210029D940 /* evaYakusokuViewRegChara.swift in Sources */,
+				0FDE0F472F30BB3900B1DA18 /* hanabiViewNormal.swift in Sources */,
 				0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */,
 				0F6B59FA2E0C1C8F00DB1A2B /* watakonTableKoyakuPattern.swift in Sources */,
 				0FCCC5182E93EDB100CE164D /* ver3110Class.swift in Sources */,
@@ -6042,6 +6049,7 @@
 				0F9A4F9A2DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift in Sources */,
 				0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */,
 				0F9D9C032EA10D6900450B23 /* myJugViewShimaData.swift in Sources */,
+				0FDE0F492F30BE1300B1DA18 /* hanabiViewKen.swift in Sources */,
 				0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */,
 				0F7F86432D9EB36400F26486 /* magiaViewTop.swift in Sources */,
 				0F03BD422F0BD7BB00222339 /* shakeViewBt.swift in Sources */,
