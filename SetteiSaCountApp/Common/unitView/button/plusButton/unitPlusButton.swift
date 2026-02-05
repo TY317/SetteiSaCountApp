@@ -62,6 +62,7 @@ struct unitPlusButton: View {
                 count: $count1,
                 plusNumber: 10,
                 buttonColor: Color.personalSummerLightRed,
+//                buttonColor: Color("personalSummerLightRed"),
                 minusCheck: minusCheck
             )
 //            unitPlusButton(

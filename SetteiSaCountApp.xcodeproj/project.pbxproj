@@ -90,6 +90,9 @@
 		0F25C27D2C889E5F008B4707 /* toloveruViewEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */; };
 		0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */; };
 		0F25FC642CD3AE920005F971 /* rezero2ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */; };
+		0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */; };
+		0F2A4DDE2F34CF0C00B3C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */; };
+		0F2A4DE02F34D07F00B3C583 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */; };
 		0F2DA9F92EC079540083704E /* neoplaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9F82EC079540083704E /* neoplaViewTop.swift */; };
 		0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FA2EC079620083704E /* neoplaClass.swift */; };
 		0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */; };
@@ -416,7 +419,6 @@
 		0F7F86472D9EB69200F26486 /* tokyoGhoulTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F86462D9EB69200F26486 /* tokyoGhoulTableFirstHit.swift */; };
 		0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */; };
 		0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DD2C6249FC001F008E /* ContentView.swift */; };
-		0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
 		0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030E22C6249FE001F008E /* Preview Assets.xcassets */; };
 		0F8030ED2C6249FE001F008E /* SetteiSaCountAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030EC2C6249FE001F008E /* SetteiSaCountAppTests.swift */; };
 		0F8030F72C6249FE001F008E /* SetteiSaCountAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030F62C6249FE001F008E /* SetteiSaCountAppUITests.swift */; };
@@ -790,7 +792,6 @@
 		0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDA62DC5F50D0027315D /* unitReelReplay.swift */; };
 		0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC12DC6DF880027315D /* unitReelLongTitle.swift */; };
 		0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC32DC6E2A20027315D /* unitReelSpacer.swift */; };
-		0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
 		0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2192EED8B6E0045265B /* hihodenClass.swift */; };
 		0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BF42EA0C45200450B23 /* vvv2Class.swift */; };
 		0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80311C2C69B42A001F008E /* myFunction.swift */; };
@@ -1316,9 +1317,9 @@
 		0FFAEBD42ED13A88006C0371 /* ver3131.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD32ED13A88006C0371 /* ver3131.swift */; };
 		0FFAEBD82ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */; };
 		0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */; };
-		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
-		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
-		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
+		49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
+		9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */; };
+		B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1339,6 +1340,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F03BD292F0B88B300222339 /* shakeViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewTop.swift; sourceTree = "<group>"; };
 		0F03BD2B2F0B88BC00222339 /* shakeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeClass.swift; sourceTree = "<group>"; };
 		0F03BD2D2F0B88C600222339 /* shakeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = shakeAssets.xcassets; sourceTree = "<group>"; };
@@ -1412,6 +1414,8 @@
 		0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewEndScreen.swift; sourceTree = "<group>"; };
 		0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewSnowball.swift; sourceTree = "<group>"; };
 		0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewHistory.swift; sourceTree = "<group>"; };
+		0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		0F2DA9F82EC079540083704E /* neoplaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewTop.swift; sourceTree = "<group>"; };
 		0F2DA9FA2EC079620083704E /* neoplaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaClass.swift; sourceTree = "<group>"; };
 		0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = neoplaAssets.xcassets; sourceTree = "<group>"; };
@@ -1722,7 +1726,6 @@
 		0F8030D82C6249FC001F008E /* SetteiSaCountApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetteiSaCountApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppApp.swift; sourceTree = "<group>"; };
 		0F8030DD2C6249FC001F008E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0F8030DF2C6249FE001F008E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F8030E22C6249FE001F008E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0F8030E82C6249FE001F008E /* SetteiSaCountAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetteiSaCountAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030EC2C6249FE001F008E /* SetteiSaCountAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppTests.swift; sourceTree = "<group>"; };
@@ -2588,15 +2591,14 @@
 		0FFAEBD32ED13A88006C0371 /* ver3131.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3131.swift; sourceTree = "<group>"; };
 		0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableCycleModeHitRatio.swift; sourceTree = "<group>"; };
 		0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableModeMove.swift; sourceTree = "<group>"; };
-		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
-		B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
-		CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
+		877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -2608,7 +2610,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */,
+				9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2616,7 +2618,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
+				B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2624,7 +2626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
+				49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2641,12 +2643,12 @@
 		05F029BDD164F61DF798A3AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */,
-				B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */,
-				6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
-				90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
-				CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
-				FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
+				64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */,
+				8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */,
+				370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
+				D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
+				3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
+				F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -3297,7 +3299,7 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
-				8B3C4222C8718142ABE663F1 /* Frameworks */,
+				826985462005EF98D407193F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3384,7 +3386,8 @@
 				0F8030E12C6249FE001F008E /* Preview Content */,
 				0F8031172C697910001F008E /* splashScreenView.swift */,
 				0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */,
-				0F8030DF2C6249FE001F008E /* Assets.xcassets */,
+				0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */,
+				0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */,
 			);
 			path = SetteiSaCountApp;
 			sourceTree = "<group>";
@@ -4861,12 +4864,12 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
-		8B3C4222C8718142ABE663F1 /* Frameworks */ = {
+		826985462005EF98D407193F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */,
-				DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
-				E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */,
+				035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */,
+				877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
+				890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4878,13 +4881,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FC2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountApp" */;
 			buildPhases = (
-				B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */,
+				2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */,
 				0F8030D42C6249FC001F008E /* Sources */,
 				0F8030D52C6249FC001F008E /* Frameworks */,
 				0F8030D62C6249FC001F008E /* Resources */,
-				2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */,
-				DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */,
 				0F6B59D92E067A0700DB1A2B /* ShellScript */,
+				5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */,
+				52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4899,7 +4902,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FF2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppTests" */;
 			buildPhases = (
-				0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */,
+				B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */,
 				0F8030E42C6249FE001F008E /* Sources */,
 				0F8030E52C6249FE001F008E /* Frameworks */,
 				0F8030E62C6249FE001F008E /* Resources */,
@@ -4918,12 +4921,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8031022C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppUITests" */;
 			buildPhases = (
-				72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */,
+				3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */,
 				0F8030EE2C6249FE001F008E /* Sources */,
 				0F8030EF2C6249FE001F008E /* Frameworks */,
 				0F8030F02C6249FE001F008E /* Resources */,
-				ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */,
-				9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */,
+				CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */,
+				DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4951,8 +4954,6 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 			);
 			name = SCPreview;
-			packageProductDependencies = (
-			);
 			productName = SCPreview;
 			productReference = 0FA0A79D2EF692C3003EF8BD /* SCPreview.app */;
 			productType = "com.apple.product-type.application";
@@ -4984,7 +4985,7 @@
 				};
 			};
 			buildConfigurationList = 0F8030D32C6249FC001F008E /* Build configuration list for PBXProject "SetteiSaCountApp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -5067,6 +5068,7 @@
 				0F45A5BB2F0215790022E355 /* tekken6Assets.xcassets in Resources */,
 				0FEC57BF2D917D8000FF1024 /* rslAssets.xcassets in Resources */,
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
+				0F2A4DDE2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
 				0F9A4F8E2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets in Resources */,
@@ -5082,7 +5084,6 @@
 				0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */,
 				0F868ABF2D584BB700D952D9 /* girlsSSAssets.xcassets in Resources */,
 				0F9D9BDC2E9DEE1900450B23 /* zeni5Assets.xcassets in Resources */,
-				0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */,
 				0F6B59F62E0C16DA00DB1A2B /* watakonAssets.xcassets in Resources */,
 				0F51C63B2E840D260006794A /* creaAssets.xcassets in Resources */,
 				0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */,
@@ -5110,35 +5111,13 @@
 			files = (
 				0F45A5E12F079CC40022E355 /* tekken6Assets.xcassets in Resources */,
 				0F45A5D92F073B210022E355 /* hokutoTenseiAssets.xcassets in Resources */,
-				0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */,
+				0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0F6B59D92E067A0700DB1A2B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -5162,71 +5141,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */ = {
+		2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5248,7 +5163,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */ = {
+		3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5269,7 +5206,50 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */ = {
+		5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5288,6 +5268,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5592,6 +5593,7 @@
 				0F7655272E3476FD00B0CF0F /* countUpDownInout.swift in Sources */,
 				0F64DD7A2DC105140027315D /* idolMasterViewScreen.swift in Sources */,
 				0FD357A32DAB78FF0069BD1A /* godzillaViewFirstHit.swift in Sources */,
+				0F2A4DE02F34D07F00B3C583 /* Color+Extension.swift in Sources */,
 				0F64DD6C2DC0C2A40027315D /* idolMasterClass.swift in Sources */,
 				0F64DD802DC43E710027315D /* kaijiViewTonegawaRush.swift in Sources */,
 				0F64DD722DC0F5420027315D /* idolMasterTableNormalMode.swift in Sources */,
@@ -6569,7 +6571,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6635,7 +6638,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6691,7 +6695,7 @@
 		};
 		0F8030FD2C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */;
+			baseConfigurationReference = 64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -6731,7 +6735,7 @@
 		};
 		0F8030FE2C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */;
+			baseConfigurationReference = 8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -6770,7 +6774,7 @@
 		};
 		0F8031002C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
+			baseConfigurationReference = 3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -6789,7 +6793,7 @@
 		};
 		0F8031012C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
+			baseConfigurationReference = F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -6808,7 +6812,7 @@
 		};
 		0F8031032C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -6825,7 +6829,7 @@
 		};
 		0F8031042C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
+			baseConfigurationReference = D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
