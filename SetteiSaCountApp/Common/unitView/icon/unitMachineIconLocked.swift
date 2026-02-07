@@ -15,6 +15,7 @@ struct unitMachineIconLocked: View {
     @State var isShowAlert: Bool = false
     let lockImageFontSize: CGFloat = 30
     @Binding var isUnLocked: Bool
+    @Binding var tempUnlockDateDouble: Double
     @EnvironmentObject var rewardViewModel: RewardedViewModel
     @State private var isShowAdNotReadyAlert: Bool = false
     
@@ -77,22 +78,37 @@ struct unitMachineIconLocked: View {
             Text("動画広告を1回視聴すると、機種ページが解放されます")
         }
         
+//        .alert("広告を読み込めませんでした", isPresented: self.$isShowAdNotReadyAlert) {
+//            Button("OK", role: .cancel) {
+//                Task { await rewardViewModel.loadAd() }
+//            }
+//        } message: {
+//            Text("電波の良い場所で再度お試しいただくか、しばらく待ってから再度お試しください")
+//        }
         .alert("広告を読み込めませんでした", isPresented: self.$isShowAdNotReadyAlert) {
             Button("OK", role: .cancel) {
+                // 1. 念のため次回の読み込みをトライ
                 Task { await rewardViewModel.loadAd() }
             }
+            Button("24時間解放", role: .destructive) {
+                // 2. 24時間解放を開始
+                self.tempUnlockDateDouble = Date().timeIntervalSince1970
+                // 3. UIを更新するために必要ならフラグを立てる（または自動でisTempUnlockedにより表示が変わる）
+            }
         } message: {
-            Text("電波の良い場所で再度お試しいただくか、しばらく待ってから再度お試しください")
+            Text("再度お試し頂くか、24時間だけ機能を解放しますので、その間にご利用ください。")
         }
     }
 }
 
 #Preview {
     @Previewable @State var isUnLocked = false
+    @Previewable @State var tempUnlockDateDouble: Double = 0.0
     unitMachineIconLocked(
         iconImage: Image("tekken6MachineIcon"),
         machineName: "鉄拳6",
         isUnLocked: $isUnLocked,
+        tempUnlockDateDouble: $tempUnlockDateDouble,
     )
     .frame(width: 70, height: 90)
     .environmentObject(RewardedViewModel())

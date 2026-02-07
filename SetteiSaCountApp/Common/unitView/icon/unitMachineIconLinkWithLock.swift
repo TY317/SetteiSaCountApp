@@ -12,11 +12,15 @@ struct unitMachineIconLinkWithLock: View {
     @State var iconImage: Image
     @State var machineName: String
     @Binding var isUnLocked: Bool
+    @Binding var tempUnlockDateDouble: Double
     var badgeStatus: String = "none"
     var btBadgeBool: Bool = false
     
     var body: some View {
-        if self.isUnLocked {
+        let now = Date().timeIntervalSince1970
+        if self.isUnLocked ||
+            (now - tempUnlockDateDouble) < 86400 {
+//            (now - tempUnlockDateDouble) < 60 {
             unitMachineIconLink(
                 linkView: self.linkView,
                 iconImage: self.iconImage,
@@ -31,6 +35,7 @@ struct unitMachineIconLinkWithLock: View {
                 badgeStatus: self.badgeStatus,
                 btBadgeBool: self.btBadgeBool,
                 isUnLocked: self.$isUnLocked,
+                tempUnlockDateDouble: self.$tempUnlockDateDouble,
             )
         }
     }
@@ -38,11 +43,13 @@ struct unitMachineIconLinkWithLock: View {
 
 #Preview {
     @Previewable @State var isUnLocked = false
+    @Previewable @State var tempUnlockDateDouble: Double = 0.0
     unitMachineIconLinkWithLock(
         linkView: AnyView(unitReelDefault()),
         iconImage: Image("tekken6MachineIcon"),
         machineName: "鉄拳6",
         isUnLocked: $isUnLocked,
+        tempUnlockDateDouble: $tempUnlockDateDouble,
     )
     .frame(width: 70, height: 90)
 }

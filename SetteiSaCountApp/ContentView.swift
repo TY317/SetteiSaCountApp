@@ -161,6 +161,7 @@ struct ContentView: View {
                                         iconImage: Image("hanabiMachineIcon"),
                                         machineName: "ハナビ",
                                         isUnLocked: $common.hanabiisUnlocked,
+                                        tempUnlockDateDouble: $common.hanabiTempUnlockDateDouble,
                                         badgeStatus: common.hanabiMachineIconBadge,
                                     )
                                 }
@@ -177,6 +178,7 @@ struct ContentView: View {
                                         iconImage: Image("enen2MachineIcon"),
                                         machineName: "炎炎2",
                                         isUnLocked: $common.enen2isUnlocked,
+                                        tempUnlockDateDouble: $common.enen2TempUnlockDateDouble,
                                         badgeStatus: common.enen2MachineIconBadge,
                                     )
                                 }
@@ -193,6 +195,7 @@ struct ContentView: View {
                                         iconImage: Image("kokakukidotaiMachineIcon"),
                                         machineName: "攻殻機動隊",
                                         isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        tempUnlockDateDouble: $common.kokakukidotaiTempUnlockDateDouble,
                                         badgeStatus: common.kokakukidotaiMachineIconBadge,
                                     )
                                 }
@@ -209,6 +212,7 @@ struct ContentView: View {
                                         iconImage: Image("tekken6MachineIcon"),
                                         machineName: "鉄拳6",
                                         isUnLocked: $common.tekken6isUnlocked,
+                                        tempUnlockDateDouble: $common.tekken6TempUnlockDateDouble,
                                         badgeStatus: common.tekken6MachineIconBadge,
                                     )
                                 }
@@ -225,6 +229,7 @@ struct ContentView: View {
                                         iconImage: Image("hokutoTenseiMachineIcon"),
                                         machineName: "北斗転生",
                                         isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        tempUnlockDateDouble: $common.hokutoTenseiTempUnlockDateDouble,
                                         badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
                                 }
@@ -241,11 +246,12 @@ struct ContentView: View {
                                         iconImage: Image("mushotenMachineIcon"),
                                         machineName: "無職転生",
                                         isUnLocked: $common.mushotenisUnlocked,
+                                        tempUnlockDateDouble: $common.mushotenTempUnlockDateDouble,
                                         badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
                                 
-                                // //// 化物語、25年12月
+                                // //// 秘宝伝、25年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHihoden == false {
                                     
                                 } else {
@@ -332,6 +338,7 @@ struct ContentView: View {
                                         iconImage: Image("shakeMachineIcon"),
                                         machineName: "シェイク",
                                         isUnLocked: $common.shakeisUnlocked,
+                                        tempUnlockDateDouble: $common.shakeTempUnlockDateDouble,
                                         badgeStatus: common.shakeMachineIconBadge,
                                         btBadgeBool: true,
                                     )
@@ -989,6 +996,7 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 2,
                                         isUnLocked: $common.hanabiisUnlocked,
+                                        tempUnlockDateDouble: $common.hanabiTempUnlockDateDouble,
                                         badgeStatus: common.hanabiMachineIconBadge,
                                     )
                                 }
@@ -1008,6 +1016,7 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 2,
                                         isUnLocked: $common.enen2isUnlocked,
+                                        tempUnlockDateDouble: $common.enen2TempUnlockDateDouble,
                                         badgeStatus: common.enen2MachineIconBadge,
                                     )
                                 }
@@ -1027,6 +1036,7 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 2,
                                         isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        tempUnlockDateDouble: $common.kokakukidotaiTempUnlockDateDouble,
                                         badgeStatus: common.kokakukidotaiMachineIconBadge,
                                     )
                                 }
@@ -1046,20 +1056,9 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 1,
                                         isUnLocked: $common.tekken6isUnlocked,
+                                        tempUnlockDateDouble: $common.tekken6TempUnlockDateDouble,
                                         badgeStatus: common.tekken6MachineIconBadge,
                                     )
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(tekken6ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("tekken6MachineIcon"),
-//                                        machineName: "鉄拳6",
-//                                        makerName: "山佐",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 1,
-//                                        badgeStatus: common.tekken6MachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 北斗転生、26年1月
@@ -1077,20 +1076,9 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 1,
                                         isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        tempUnlockDateDouble: $common.hokutoTenseiTempUnlockDateDouble,
                                         badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(hokutoTenseiViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("hokutoTenseiMachineIcon"),
-//                                        machineName: "北斗 転生の章2",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 1,
-//                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 無職転生、25年12月
@@ -1108,6 +1096,7 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 12,
                                         isUnLocked: $common.mushotenisUnlocked,
+                                        tempUnlockDateDouble: $common.mushotenTempUnlockDateDouble,
                                         badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
@@ -1217,6 +1206,7 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 10,
                                         isUnLocked: $common.shakeisUnlocked,
+                                        tempUnlockDateDouble: $common.shakeTempUnlockDateDouble,
                                         badgeStatus: common.shakeMachineIconBadge,
                                         btBadgeBool: true,
                                     )

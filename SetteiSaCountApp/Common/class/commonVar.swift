@@ -126,6 +126,7 @@ class commonVar: ObservableObject {
     
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
+    @AppStorage("hanabiTempUnlockDateDouble") var hanabiTempUnlockDateDouble: Double = 0.0
     @AppStorage("hanabiMachineIconBadge") var hanabiMachineIconBadge: String = "none"
     @AppStorage("hanabiMenuNormalBadge") var hanabiMenuNormalBadge: String = "none"
     @AppStorage("hanabiMenuFirstHitBadge") var hanabiMenuFirstHitBadge: String = "none"
@@ -134,6 +135,7 @@ class commonVar: ObservableObject {
     
     // ---- 炎炎２
     @AppStorage("enen2isUnlocked") var enen2isUnlocked: Bool = true
+    @AppStorage("enen2TempUnlockDateDouble") var enen2TempUnlockDateDouble: Double = 0.0
     @AppStorage("enen2MachineIconBadge") var enen2MachineIconBadge: String = "none"
     @AppStorage("enen2MenuNormalBadge") var enen2MenuNormalBadge: String = "none"
     @AppStorage("enen2MenuFirstHitBadge") var enen2MenuFirstHitBadge: String = "none"
@@ -144,6 +146,7 @@ class commonVar: ObservableObject {
     
     // ---- 攻殻機動隊
     @AppStorage("kokakukidotaiisUnlocked") var kokakukidotaiisUnlocked: Bool = true
+    @AppStorage("kokakukidotaiTempUnlockDateDouble") var kokakukidotaiTempUnlockDateDouble: Double = 0.0
     @AppStorage("kokakukidotaiMachineIconBadge") var kokakukidotaiMachineIconBadge: String = "none"
     @AppStorage("kokakukidotaiMenuNormalBadge") var kokakukidotaiMenuNormalBadge: String = "none"
     @AppStorage("kokakukidotaiMenuFirstHitBadge") var kokakukidotaiMenuFirstHitBadge: String = "none"
@@ -154,6 +157,7 @@ class commonVar: ObservableObject {
     
     // ---- 鉄拳
     @AppStorage("tekken6isUnlocked") var tekken6isUnlocked: Bool = true
+    @AppStorage("tekken6TempUnlockDateDouble") var tekken6TempUnlockDateDouble: Double = 0.0
     @AppStorage("tekken6MachineIconBadge") var tekken6MachineIconBadge: String = "none"
     @AppStorage("tekken6MenuNormalBadge") var tekken6MenuNormalBadge: String = "none"
     @AppStorage("tekken6MenuFirstHitBadge") var tekken6MenuFirstHitBadge: String = "none"
@@ -164,6 +168,7 @@ class commonVar: ObservableObject {
     
     // //// 北斗転生
     @AppStorage("hokutoTenseiisUnlocked") var hokutoTenseiisUnlocked: Bool = true
+    @AppStorage("hokutoTenseiTempUnlockDateDouble") var hokutoTenseiTempUnlockDateDouble: Double = 0.0
     @AppStorage("hokutoTenseiMachineIconBadge") var hokutoTenseiMachineIconBadge: String = "none"
     @AppStorage("hokutoTenseiMenuNormalBadge") var hokutoTenseiMenuNormalBadge: String = "none"
     @AppStorage("hokutoTenseiMenuBayesBadge") var hokutoTenseiMenuBayesBadge: String = "none"
@@ -180,6 +185,7 @@ class commonVar: ObservableObject {
     
     // ---- 無職転生
     @AppStorage("mushotenisUnlocked") var mushotenisUnlocked: Bool = true
+    @AppStorage("mushotenTempUnlockDateDouble") var mushotenTempUnlockDateDouble: Double = 0.0
     @AppStorage("mushotenMachineIconBadge") var mushotenMachineIconBadge: String = "none"
     @AppStorage("mushotenMenuNormalBadge") var mushotenMenuNormalBadge: String = "none"
     @AppStorage("mushotenMenuBayesBadge") var mushotenMenuBayesBadge: String = "none"
@@ -222,6 +228,7 @@ class commonVar: ObservableObject {
     
     // ---- シェイク
     @AppStorage("shakeisUnlocked") var shakeisUnlocked: Bool = true
+    @AppStorage("shakeTempUnlockDateDouble") var shakeTempUnlockDateDouble: Double = 0.0
     @AppStorage("shakeMachineIconBadge") var shakeMachineIconBadge: String = "none"
     @AppStorage("shakeMenuNormalBadge") var shakeMenuNormalBadge: String = "none"
     @AppStorage("shakeMenuBayesBadge") var shakeMenuBayesBadge: String = "none"
