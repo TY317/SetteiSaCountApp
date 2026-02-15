@@ -85,3 +85,19 @@ struct tipVer3190TenseiKokakuSisa: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊　モード示唆
+// //////////////////
+struct tipVer3190KokakukidotaiModeSisa: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("リプレイフラッシュ、アイキャッチでのモード示唆法則が判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
