@@ -12,6 +12,7 @@ struct unitTextGameNumberWithoutInput: View {
     var gameNumber: Int
     var numberTextColor: Color = .secondary
     var numberOffsetX: CGFloat = 5
+    var titleFont: Font = .body
     var unitText: String = "Ｇ"
     var unitTextColor: Color = .secondary
     var unitTextFont: Font = .footnote
@@ -20,6 +21,8 @@ struct unitTextGameNumberWithoutInput: View {
         HStack {
             Text(self.titleText)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .font(self.titleFont)
+                .minimumScaleFactor(0.7)
             Text("\(self.gameNumber)")
                 .frame(maxWidth: .infinity, alignment: .center)
                 .foregroundStyle(self.numberTextColor)

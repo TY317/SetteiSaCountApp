@@ -37,13 +37,15 @@ struct tekken6TableScreen: View {
                 columTitle: "示唆",
                 stringList: [
                     "デフォルト",
-                    "調査中",
-                    "調査中",
-                    "調査中",
+                    "設定4 以上濃厚",
+//                    "調査中",
+//                    "調査中",
+//                    "調査中",
                 ],
                 maxWidth: 200,
-                lineList: [3,1,1,1],
-                colorList: [.tableBlue,.tableRed,.tableRed,.tableRed,],
+                lineList: [3,3],
+                colorList: [.tableBlue,.tableRed],
+//                colorList: [.tableBlue,.tableRed,.tableRed,.tableRed,],
             )
         }
         .frame(maxWidth: .infinity, alignment: .center)

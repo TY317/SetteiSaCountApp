@@ -45,7 +45,8 @@ func logPostDenoMulti(
         
         // 要素ごとのlog値合算　計算ループ
         for (count, ratio) in zip(countListDouble, ratioList) {
-            sumLog += count * log((ratio[i]/100)+epsilon)
+//            sumLog += count * log((ratio[i]/100)+epsilon)
+            sumLog += count * log(ratio[i]+epsilon)
         }
         
         // 残り(other)のlog値

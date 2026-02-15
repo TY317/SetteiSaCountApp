@@ -43,6 +43,10 @@ struct kokakukidotaiViewCz: View {
             } header: {
                 Text("S.A.M エピソードの順番")
             }
+            
+            // CZ終了画面の示唆
+            kokakukidotaiSubViewCzScreen()
+                .popoverTip(tipVer3190KokakukidotaiCzScreen())
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuCzBadge)

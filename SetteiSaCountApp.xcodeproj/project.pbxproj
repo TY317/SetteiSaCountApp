@@ -90,6 +90,18 @@
 		0F25C27D2C889E5F008B4707 /* toloveruViewEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */; };
 		0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */; };
 		0F25FC642CD3AE920005F971 /* rezero2ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */; };
+		0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */; };
+		0F2A4DDE2F34CF0C00B3C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */; };
+		0F2A4DE02F34D07F00B3C583 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */; };
+		0F2A4DEE2F36EEDA00B3C583 /* ocrTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DEC2F36EED100B3C583 /* ocrTest.swift */; };
+		0F2A4DEF2F36EF1700B3C583 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */; };
+		0F2A4DF12F36F13200B3C583 /* ocrAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DF02F36F13200B3C583 /* ocrAssets.xcassets */; };
+		0F2A4DF22F36F13200B3C583 /* ocrAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2A4DF02F36F13200B3C583 /* ocrAssets.xcassets */; };
+		0F2A4DF32F37150300B3C583 /* ocrTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DEC2F36EED100B3C583 /* ocrTest.swift */; };
+		0F2A4DF52F3715FE00B3C583 /* hanabiViewStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DF42F3715FE00B3C583 /* hanabiViewStart.swift */; };
+		0F2A4DF72F371CF600B3C583 /* hanabiView95CiStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DF62F371CF600B3C583 /* hanabiView95CiStart.swift */; };
+		0F2A4DF92F371E0200B3C583 /* hanabiViewBayesStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DF82F371E0200B3C583 /* hanabiViewBayesStart.swift */; };
+		0F2A4DFB2F37232D00B3C583 /* hanabiViewPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A4DFA2F37232D00B3C583 /* hanabiViewPlay.swift */; };
 		0F2DA9F92EC079540083704E /* neoplaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9F82EC079540083704E /* neoplaViewTop.swift */; };
 		0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FA2EC079620083704E /* neoplaClass.swift */; };
 		0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */; };
@@ -416,7 +428,6 @@
 		0F7F86472D9EB69200F26486 /* tokyoGhoulTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7F86462D9EB69200F26486 /* tokyoGhoulTableFirstHit.swift */; };
 		0F8030DC2C6249FC001F008E /* SetteiSaCountAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */; };
 		0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030DD2C6249FC001F008E /* ContentView.swift */; };
-		0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
 		0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030E22C6249FE001F008E /* Preview Assets.xcassets */; };
 		0F8030ED2C6249FE001F008E /* SetteiSaCountAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030EC2C6249FE001F008E /* SetteiSaCountAppTests.swift */; };
 		0F8030F72C6249FE001F008E /* SetteiSaCountAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8030F62C6249FE001F008E /* SetteiSaCountAppUITests.swift */; };
@@ -790,7 +801,6 @@
 		0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDA62DC5F50D0027315D /* unitReelReplay.swift */; };
 		0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC12DC6DF880027315D /* unitReelLongTitle.swift */; };
 		0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DDC32DC6E2A20027315D /* unitReelSpacer.swift */; };
-		0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8030DF2C6249FE001F008E /* Assets.xcassets */; };
 		0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6D2192EED8B6E0045265B /* hihodenClass.swift */; };
 		0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9D9BF42EA0C45200450B23 /* vvv2Class.swift */; };
 		0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80311C2C69B42A001F008E /* myFunction.swift */; };
@@ -1074,6 +1084,21 @@
 		0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */; };
 		0FD357D12DB37CD70069BD1A /* yoshimuneViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */; };
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
+		0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
+		0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
+		0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */; };
+		0FD974E22F415D7E0067CED7 /* mushotenTableHonkiBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */; };
+		0FD974E32F415D9A0067CED7 /* mushotenTableHonkiBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */; };
+		0FD974E52F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */; };
+		0FD974E62F4165FC0067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */; };
+		0FD974E82F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */; };
+		0FD974E92F4167D40067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */; };
+		0FD974EB2F417A190067CED7 /* enen2TableRegSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */; };
+		0FD974EC2F417A1F0067CED7 /* enen2TableRegSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */; };
+		0FD974EE2F4183470067CED7 /* hanabiViewRtReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974ED2F4183470067CED7 /* hanabiViewRtReplay.swift */; };
+		0FD974F02F4188A70067CED7 /* hanabiTableRtReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EF2F4188A70067CED7 /* hanabiTableRtReplay.swift */; };
+		0FD974F12F4188AD0067CED7 /* hanabiTableRtReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EF2F4188A70067CED7 /* hanabiTableRtReplay.swift */; };
+		0FD974F22F4188E80067CED7 /* hanabiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F3E2F30B21400B1DA18 /* hanabiClass.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
@@ -1134,6 +1159,13 @@
 		0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */; };
 		0FDE0F2C2F30737800B1DA18 /* enen2ViewWana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */; };
 		0FDE0F2E2F307E5300B1DA18 /* enen2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */; };
+		0FDE0F3D2F30B20700B1DA18 /* hanabiViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F3C2F30B20700B1DA18 /* hanabiViewTop.swift */; };
+		0FDE0F3F2F30B21400B1DA18 /* hanabiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F3E2F30B21400B1DA18 /* hanabiClass.swift */; };
+		0FDE0F412F30B22B00B1DA18 /* hanabiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */; };
+		0FDE0F432F30B5B700B1DA18 /* hanabiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */; };
+		0FDE0F452F30B5C100B1DA18 /* hanabiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */; };
+		0FDE0F472F30BB3900B1DA18 /* hanabiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */; };
+		0FDE0F492F30BE1300B1DA18 /* hanabiViewKen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */; };
 		0FDF23752E4FF01100249CAC /* enenViewRegChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */; };
 		0FDF23772E517D2C00249CAC /* enenTableCharaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */; };
 		0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */; };
@@ -1201,6 +1233,7 @@
 		0FEC57DF2D9AD10400FF1024 /* arifureTableJakuRareMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57DE2D9AD10400FF1024 /* arifureTableJakuRareMove.swift */; };
 		0FEC57E12D9AD37900FF1024 /* arifureTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57E02D9AD37900FF1024 /* arifureTableFirstHit.swift */; };
 		0FEC57E32D9AD48800FF1024 /* arifureTableMyuAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC57E22D9AD48800FF1024 /* arifureTableMyuAt.swift */; };
+		0FED552D2F413F73001733E3 /* ver3190.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FED552C2F413F73001733E3 /* ver3190.swift */; };
 		0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */; };
 		0FF155F72D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */; };
 		0FF155FA2D60320100B17F83 /* starHanaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F92D60320100B17F83 /* starHanaViewTop.swift */; };
@@ -1309,9 +1342,9 @@
 		0FFAEBD42ED13A88006C0371 /* ver3131.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD32ED13A88006C0371 /* ver3131.swift */; };
 		0FFAEBD82ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */; };
 		0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */; };
-		37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
-		4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */; };
-		97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */; };
+		49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
+		9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */; };
+		B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1332,6 +1365,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F03BD292F0B88B300222339 /* shakeViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewTop.swift; sourceTree = "<group>"; };
 		0F03BD2B2F0B88BC00222339 /* shakeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeClass.swift; sourceTree = "<group>"; };
 		0F03BD2D2F0B88C600222339 /* shakeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = shakeAssets.xcassets; sourceTree = "<group>"; };
@@ -1405,6 +1439,14 @@
 		0F25C27C2C889E5F008B4707 /* toloveruViewEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewEndScreen.swift; sourceTree = "<group>"; };
 		0F25FC5F2CD3A8390005F971 /* rezero2ViewSnowball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewSnowball.swift; sourceTree = "<group>"; };
 		0F25FC632CD3AE920005F971 /* rezero2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewHistory.swift; sourceTree = "<group>"; };
+		0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		0F2A4DEC2F36EED100B3C583 /* ocrTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ocrTest.swift; sourceTree = "<group>"; };
+		0F2A4DF02F36F13200B3C583 /* ocrAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ocrAssets.xcassets; sourceTree = "<group>"; };
+		0F2A4DF42F3715FE00B3C583 /* hanabiViewStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewStart.swift; sourceTree = "<group>"; };
+		0F2A4DF62F371CF600B3C583 /* hanabiView95CiStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiView95CiStart.swift; sourceTree = "<group>"; };
+		0F2A4DF82F371E0200B3C583 /* hanabiViewBayesStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewBayesStart.swift; sourceTree = "<group>"; };
+		0F2A4DFA2F37232D00B3C583 /* hanabiViewPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewPlay.swift; sourceTree = "<group>"; };
 		0F2DA9F82EC079540083704E /* neoplaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewTop.swift; sourceTree = "<group>"; };
 		0F2DA9FA2EC079620083704E /* neoplaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaClass.swift; sourceTree = "<group>"; };
 		0F2DA9FC2EC079710083704E /* neoplaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = neoplaAssets.xcassets; sourceTree = "<group>"; };
@@ -1715,7 +1757,6 @@
 		0F8030D82C6249FC001F008E /* SetteiSaCountApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetteiSaCountApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppApp.swift; sourceTree = "<group>"; };
 		0F8030DD2C6249FC001F008E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0F8030DF2C6249FE001F008E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F8030E22C6249FE001F008E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0F8030E82C6249FE001F008E /* SetteiSaCountAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetteiSaCountAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8030EC2C6249FE001F008E /* SetteiSaCountAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetteiSaCountAppTests.swift; sourceTree = "<group>"; };
@@ -2343,6 +2384,13 @@
 		0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableFirstHit.swift; sourceTree = "<group>"; };
 		0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneViewScreen.swift; sourceTree = "<group>"; };
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
+		0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiSubViewCzScreen.swift; sourceTree = "<group>"; };
+		0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenTableHonkiBonus.swift; sourceTree = "<group>"; };
+		0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableReplayFlush.swift; sourceTree = "<group>"; };
+		0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableEyechatch.swift; sourceTree = "<group>"; };
+		0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableRegSenario.swift; sourceTree = "<group>"; };
+		0FD974ED2F4183470067CED7 /* hanabiViewRtReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewRtReplay.swift; sourceTree = "<group>"; };
+		0FD974EF2F4188A70067CED7 /* hanabiTableRtReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiTableRtReplay.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
@@ -2399,6 +2447,13 @@
 		0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewReg.swift; sourceTree = "<group>"; };
 		0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewWana.swift; sourceTree = "<group>"; };
 		0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewScreen.swift; sourceTree = "<group>"; };
+		0FDE0F3C2F30B20700B1DA18 /* hanabiViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewTop.swift; sourceTree = "<group>"; };
+		0FDE0F3E2F30B21400B1DA18 /* hanabiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiClass.swift; sourceTree = "<group>"; };
+		0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hanabiAssets.xcassets; sourceTree = "<group>"; };
+		0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiView95Ci.swift; sourceTree = "<group>"; };
+		0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewBayes.swift; sourceTree = "<group>"; };
+		0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewNormal.swift; sourceTree = "<group>"; };
+		0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiViewKen.swift; sourceTree = "<group>"; };
 		0FDF23742E4FF01100249CAC /* enenViewRegChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegChara.swift; sourceTree = "<group>"; };
 		0FDF23762E517D2C00249CAC /* enenTableCharaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenTableCharaRatio.swift; sourceTree = "<group>"; };
 		0FDF23782E51BD7F00249CAC /* enenViewRegScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enenViewRegScreen.swift; sourceTree = "<group>"; };
@@ -2466,6 +2521,7 @@
 		0FEC57DE2D9AD10400FF1024 /* arifureTableJakuRareMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureTableJakuRareMove.swift; sourceTree = "<group>"; };
 		0FEC57E02D9AD37900FF1024 /* arifureTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureTableFirstHit.swift; sourceTree = "<group>"; };
 		0FEC57E22D9AD48800FF1024 /* arifureTableMyuAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureTableMyuAt.swift; sourceTree = "<group>"; };
+		0FED552C2F413F73001733E3 /* ver3190.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3190.swift; sourceTree = "<group>"; };
 		0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sevenSwordsViewEnding.swift; sourceTree = "<group>"; };
 		0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitMachineIconLinkWithSfsymbol.swift; sourceTree = "<group>"; };
 		0FF155F92D60320100B17F83 /* starHanaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaViewTop.swift; sourceTree = "<group>"; };
@@ -2574,15 +2630,14 @@
 		0FFAEBD32ED13A88006C0371 /* ver3131.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3131.swift; sourceTree = "<group>"; };
 		0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableCycleModeHitRatio.swift; sourceTree = "<group>"; };
 		0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableModeMove.swift; sourceTree = "<group>"; };
-		24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
-		B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
-		CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
+		877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -2594,7 +2649,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ACE10D4FF5817EBD88E6935 /* Pods_SetteiSaCountApp.framework in Frameworks */,
+				9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2602,7 +2657,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97F9F9237066419B6C1E38A9 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
+				B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2610,7 +2665,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37AFC1A555061A14E2C0EDB4 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
+				49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2627,12 +2682,12 @@
 		05F029BDD164F61DF798A3AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */,
-				B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */,
-				6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
-				90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
-				CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
-				FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
+				64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */,
+				8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */,
+				370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
+				D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
+				3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
+				F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2734,6 +2789,15 @@
 				0F6B59DC2E06A28500DB1A2B /* toloveruTable3RenJohi.swift */,
 			);
 			path = toloveru;
+			sourceTree = "<group>";
+		};
+		0F2A4DEB2F36EEBD00B3C583 /* ocr */ = {
+			isa = PBXGroup;
+			children = (
+				0F2A4DEC2F36EED100B3C583 /* ocrTest.swift */,
+				0F2A4DF02F36F13200B3C583 /* ocrAssets.xcassets */,
+			);
+			path = ocr;
 			sourceTree = "<group>";
 		};
 		0F2DA9F72EC0792E0083704E /* neopla */ = {
@@ -2842,6 +2906,7 @@
 				0F45A60E2F090D9B0022E355 /* mushotenViewDuringAt.swift */,
 				0F45A6102F0943890022E355 /* mushotenViewEnding.swift */,
 				0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */,
+				0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */,
 			);
 			path = mushoten;
 			sourceTree = "<group>";
@@ -3283,7 +3348,7 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
-				8B3C4222C8718142ABE663F1 /* Frameworks */,
+				826985462005EF98D407193F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3305,6 +3370,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0FDE0F3B2F30B1F200B1DA18 /* hanabi */,
 				0FA662CE2F13743800F3259F /* enen2 */,
 				0FA662E22F1521AE00F3259F /* kokakukidotai */,
 				0F03BD282F0B889B00222339 /* shake */,
@@ -3369,7 +3435,8 @@
 				0F8030E12C6249FE001F008E /* Preview Content */,
 				0F8031172C697910001F008E /* splashScreenView.swift */,
 				0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */,
-				0F8030DF2C6249FE001F008E /* Assets.xcassets */,
+				0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */,
+				0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */,
 			);
 			path = SetteiSaCountApp;
 			sourceTree = "<group>";
@@ -3418,6 +3485,7 @@
 		0F80310E2C625060001F008E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0F2A4DEB2F36EEBD00B3C583 /* ocr */,
 				0F9A79842E48AA8900D996CA /* bayes */,
 				0F868A7A2D539C3F00D952D9 /* class */,
 				0F868A722D4F2E8D00D952D9 /* modifier */,
@@ -3853,6 +3921,7 @@
 				0F03BD2F2F0B890600222339 /* ver3170.swift */,
 				0FA662DD2F15158800F3259F /* ver3171.swift */,
 				0F19D4332F25D367004A6D9F /* ver3180.swift */,
+				0FED552C2F413F73001733E3 /* ver3190.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -4261,6 +4330,7 @@
 				0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */,
 				0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */,
 				0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */,
+				0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -4280,6 +4350,9 @@
 				0F19D4392F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift */,
 				0F19D43B2F2B9017004A6D9F /* kokakukidotaiViewCz.swift */,
 				0FDE0F1C2F2F460F00B1DA18 /* kokakukidotaiTableMode.swift */,
+				0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */,
+				0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */,
+				0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -4584,6 +4657,26 @@
 			path = accelerator;
 			sourceTree = "<group>";
 		};
+		0FDE0F3B2F30B1F200B1DA18 /* hanabi */ = {
+			isa = PBXGroup;
+			children = (
+				0FDE0F3C2F30B20700B1DA18 /* hanabiViewTop.swift */,
+				0FDE0F3E2F30B21400B1DA18 /* hanabiClass.swift */,
+				0FDE0F402F30B22B00B1DA18 /* hanabiAssets.xcassets */,
+				0FDE0F422F30B5B700B1DA18 /* hanabiView95Ci.swift */,
+				0FDE0F442F30B5C100B1DA18 /* hanabiViewBayes.swift */,
+				0FDE0F462F30BB3900B1DA18 /* hanabiViewNormal.swift */,
+				0FDE0F482F30BE1300B1DA18 /* hanabiViewKen.swift */,
+				0F2A4DF42F3715FE00B3C583 /* hanabiViewStart.swift */,
+				0F2A4DF62F371CF600B3C583 /* hanabiView95CiStart.swift */,
+				0F2A4DF82F371E0200B3C583 /* hanabiViewBayesStart.swift */,
+				0F2A4DFA2F37232D00B3C583 /* hanabiViewPlay.swift */,
+				0FD974ED2F4183470067CED7 /* hanabiViewRtReplay.swift */,
+				0FD974EF2F4188A70067CED7 /* hanabiTableRtReplay.swift */,
+			);
+			path = hanabi;
+			sourceTree = "<group>";
+		};
 		0FE23B232C718FD1000E65D7 /* botsu */ = {
 			isa = PBXGroup;
 			children = (
@@ -4832,12 +4925,12 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
-		8B3C4222C8718142ABE663F1 /* Frameworks */ = {
+		826985462005EF98D407193F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24BA3D122E115C612B91E2E5 /* Pods_SetteiSaCountApp.framework */,
-				DA24FC89720EAAA7A3DAE7A3 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
-				E19AB35CB860A4F9528BD926 /* Pods_SetteiSaCountAppTests.framework */,
+				035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */,
+				877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
+				890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4849,13 +4942,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FC2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountApp" */;
 			buildPhases = (
-				B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */,
+				2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */,
 				0F8030D42C6249FC001F008E /* Sources */,
 				0F8030D52C6249FC001F008E /* Frameworks */,
 				0F8030D62C6249FC001F008E /* Resources */,
-				2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */,
-				DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */,
 				0F6B59D92E067A0700DB1A2B /* ShellScript */,
+				5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */,
+				52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4870,7 +4963,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FF2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppTests" */;
 			buildPhases = (
-				0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */,
+				B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */,
 				0F8030E42C6249FE001F008E /* Sources */,
 				0F8030E52C6249FE001F008E /* Frameworks */,
 				0F8030E62C6249FE001F008E /* Resources */,
@@ -4889,12 +4982,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8031022C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppUITests" */;
 			buildPhases = (
-				72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */,
+				3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */,
 				0F8030EE2C6249FE001F008E /* Sources */,
 				0F8030EF2C6249FE001F008E /* Frameworks */,
 				0F8030F02C6249FE001F008E /* Resources */,
-				ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */,
-				9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */,
+				CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */,
+				DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4922,8 +5015,6 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 			);
 			name = SCPreview;
-			packageProductDependencies = (
-			);
 			productName = SCPreview;
 			productReference = 0FA0A79D2EF692C3003EF8BD /* SCPreview.app */;
 			productType = "com.apple.product-type.application";
@@ -4955,7 +5046,7 @@
 				};
 			};
 			buildConfigurationList = 0F8030D32C6249FC001F008E /* Build configuration list for PBXProject "SetteiSaCountApp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -4995,6 +5086,7 @@
 				0FF1878A2CBF98BF00224A49 /* imJugExAssets.xcassets in Resources */,
 				0F654BED2C70A2E200F37849 /* kingHanaAssets.xcassets in Resources */,
 				0F2DA9FD2EC079710083704E /* neoplaAssets.xcassets in Resources */,
+				0FDE0F412F30B22B00B1DA18 /* hanabiAssets.xcassets in Resources */,
 				0F7F86452D9EB37000F26486 /* magiaAssets.xcassets in Resources */,
 				0F9D9C412EA4F76500450B23 /* railgunAssets.xcassets in Resources */,
 				0F64DD6A2DC0C27A0027315D /* idolMasterAssets.xcassets in Resources */,
@@ -5013,6 +5105,7 @@
 				0FA024612CF1C605004B3FD5 /* ci95Explain.pdf in Resources */,
 				0FF1562C2D6B4F8400B17F83 /* shamanKingAssets.xcassets in Resources */,
 				0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */,
+				0F2A4DF22F36F13200B3C583 /* ocrAssets.xcassets in Resources */,
 				0F868AA82D5833AF00D952D9 /* funky2Assets.xcassets in Resources */,
 				0FD357AE2DAE98F00069BD1A /* mahjongAssets.xcassets in Resources */,
 				0FA0249D2D05D14C004B3FD5 /* lupinAssets.xcassets in Resources */,
@@ -5037,6 +5130,7 @@
 				0F45A5BB2F0215790022E355 /* tekken6Assets.xcassets in Resources */,
 				0FEC57BF2D917D8000FF1024 /* rslAssets.xcassets in Resources */,
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
+				0F2A4DDE2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
 				0F9A4F8E2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets in Resources */,
@@ -5052,7 +5146,6 @@
 				0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */,
 				0F868ABF2D584BB700D952D9 /* girlsSSAssets.xcassets in Resources */,
 				0F9D9BDC2E9DEE1900450B23 /* zeni5Assets.xcassets in Resources */,
-				0F8030E02C6249FE001F008E /* Assets.xcassets in Resources */,
 				0F6B59F62E0C16DA00DB1A2B /* watakonAssets.xcassets in Resources */,
 				0F51C63B2E840D260006794A /* creaAssets.xcassets in Resources */,
 				0FF9AC922CBA2C27000C8E76 /* kaguyaAssets.xcassets in Resources */,
@@ -5080,35 +5173,14 @@
 			files = (
 				0F45A5E12F079CC40022E355 /* tekken6Assets.xcassets in Resources */,
 				0F45A5D92F073B210022E355 /* hokutoTenseiAssets.xcassets in Resources */,
-				0FA0A7D82EF694B2003EF8BD /* Assets.xcassets in Resources */,
+				0F2A4DF12F36F13200B3C583 /* ocrAssets.xcassets in Resources */,
+				0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CAC2F7F0F01C1F7FB4FC361 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0F6B59D92E067A0700DB1A2B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -5132,71 +5204,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		2D4F405F4EF5CC26565266A5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72F829CE1AB36D7E125B86B7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9156E9ED4771B86F729D55A7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5B66DD08C83B6708AF86FBB /* [CP] Check Pods Manifest.lock */ = {
+		2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5218,7 +5226,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCA690F45EE07B0BBDE73E0F /* [CP] Copy Pods Resources */ = {
+		3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5239,7 +5269,50 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ECA3D3E01D9A36F75F74723C /* [CP] Embed Pods Frameworks */ = {
+		5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5258,6 +5331,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5337,6 +5431,7 @@
 				0F9A4F752DEC14EE003B6337 /* dmc5View95Ci.swift in Sources */,
 				0FCCC5142E925E3800CE164D /* newOni3ViewNormal.swift in Sources */,
 				0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */,
+				0F2A4DFB2F37232D00B3C583 /* hanabiViewPlay.swift in Sources */,
 				0F64DD9C2DC5D1AF0027315D /* kingHanaSubViewCountInput.swift in Sources */,
 				0F6B59AF2DFD257300DB1A2B /* unitMachineIconLink.swift in Sources */,
 				0F9D9BE62E9DFD8900450B23 /* zeni5TableKoyakuPattern.swift in Sources */,
@@ -5378,6 +5473,7 @@
 				0F663B922EBF4F0C006FBB1F /* railgunTableMode.swift in Sources */,
 				0FE23B202C717970000E65D7 /* kingHanaExViewRegLamp.swift in Sources */,
 				0F815FD42E3B8FA90086127D /* reSwordViewNormal.swift in Sources */,
+				0FED552D2F413F73001733E3 /* ver3190.swift in Sources */,
 				0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */,
 				0FB209892E18AA910029D940 /* unitCountButtonWithoutRatioWithFunc.swift in Sources */,
 				0F64DD962DC5CD880027315D /* imJugExSubViewCountInput.swift in Sources */,
@@ -5457,6 +5553,7 @@
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
 				0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */,
 				0FB2097B2E154B210029D940 /* evaYakusokuViewRegChara.swift in Sources */,
+				0FDE0F472F30BB3900B1DA18 /* hanabiViewNormal.swift in Sources */,
 				0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */,
 				0F6B59FA2E0C1C8F00DB1A2B /* watakonTableKoyakuPattern.swift in Sources */,
 				0FCCC5182E93EDB100CE164D /* ver3110Class.swift in Sources */,
@@ -5561,6 +5658,7 @@
 				0F7655272E3476FD00B0CF0F /* countUpDownInout.swift in Sources */,
 				0F64DD7A2DC105140027315D /* idolMasterViewScreen.swift in Sources */,
 				0FD357A32DAB78FF0069BD1A /* godzillaViewFirstHit.swift in Sources */,
+				0F2A4DE02F34D07F00B3C583 /* Color+Extension.swift in Sources */,
 				0F64DD6C2DC0C2A40027315D /* idolMasterClass.swift in Sources */,
 				0F64DD802DC43E710027315D /* kaijiViewTonegawaRush.swift in Sources */,
 				0F64DD722DC0F5420027315D /* idolMasterTableNormalMode.swift in Sources */,
@@ -5654,6 +5752,7 @@
 				0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */,
 				0FC14A842E4C100900F85D84 /* bayesOnAppearModifier.swift in Sources */,
 				0F868A2A2D45C1A800D952D9 /* hanaTenshoVer2ViewTop.swift in Sources */,
+				0F2A4DF92F371E0200B3C583 /* hanabiViewBayesStart.swift in Sources */,
 				0FF6C3D92CBE9493003DCF17 /* kaguyaViewEnding.swift in Sources */,
 				0FFAB86D2E71A47E00296A4F /* imJugExViewBayes.swift in Sources */,
 				0F8689F92D42562600D952D9 /* imJugExVer2View95CiStart.swift in Sources */,
@@ -5700,10 +5799,12 @@
 				0FD3574C2DA265370069BD1A /* shamanKingTableEpisode.swift in Sources */,
 				0F8031232C69EE4D001F008E /* exViewModeDetailVVV.swift in Sources */,
 				0F868A522D47B59D00D952D9 /* draHanaSenkohVer2ViewTop.swift in Sources */,
+				0FDE0F452F30B5C100B1DA18 /* hanabiViewBayes.swift in Sources */,
 				0FDBDAEB2E8D4F6900197B94 /* urmiraSubViewCountInput.swift in Sources */,
 				0F64DD902DC5C7CA0027315D /* myJug5TableRatio.swift in Sources */,
 				0F93187D2DEA92B700511BEF /* unitReelHazure.swift in Sources */,
 				0F7D3F232C82CB1E00A3FE7D /* kabaneriViewIkoma.swift in Sources */,
+				0FD974E82F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */,
 				0FA024582CE8189B004B3FD5 /* ver160Tip.swift in Sources */,
 				0FC14A6C2E49898000F85D84 /* bayesSubStep2Section.swift in Sources */,
 				0FB209652E10DCCB0029D940 /* evaYakusokuViewFirstHit.swift in Sources */,
@@ -5712,6 +5813,7 @@
 				0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */,
 				0F868A062D42792800D952D9 /* goJug3Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F19D43C2F2B9017004A6D9F /* kokakukidotaiViewCz.swift in Sources */,
+				0FD974EE2F4183470067CED7 /* hanabiViewRtReplay.swift in Sources */,
 				0F868AAE2D583AC100D952D9 /* funky2Ver2ViewJissenStartData.swift in Sources */,
 				0F19D4342F25D367004A6D9F /* ver3180.swift in Sources */,
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
@@ -5830,6 +5932,7 @@
 				0FC71FF82E6B26AF000DD53B /* toreveViewBayes.swift in Sources */,
 				0FE23B2A2C74D0B5000E65D7 /* mt5ViewHistory.swift in Sources */,
 				0FFAEBCC2EC9824C006C0371 /* neoplaTableModeSisa.swift in Sources */,
+				0F2A4DF32F37150300B3C583 /* ocrTest.swift in Sources */,
 				0F6FB8F82DE7341B00207855 /* bangdreamTablePicoAttack.swift in Sources */,
 				0FDC32852D260A23005B3D06 /* dumbbellViewHistory.swift in Sources */,
 				0FD3576E2DA9E09E0069BD1A /* kaijiViewKoyaku.swift in Sources */,
@@ -5875,6 +5978,7 @@
 				0F9D9C072EA315BC00450B23 /* unitResultDenoNotBinding.swift in Sources */,
 				0FDBDAE72E8D4D8200197B94 /* urmiraView95CiPersonal.swift in Sources */,
 				0F64DDD32DC6F7A40027315D /* unitButtonScreenChoiceVer2.swift in Sources */,
+				0FD974E52F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */,
 				0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */,
 				0FC14A8D2E4EB76900F85D84 /* bioViewAt.swift in Sources */,
 				0F9D9C3D2EA4F74500450B23 /* railgunViewTop.swift in Sources */,
@@ -5924,6 +6028,7 @@
 				0FC14A782E4A11B200F85D84 /* bayesResultRatioFunc.swift in Sources */,
 				0F6FB9022DE896F500207855 /* kaguyaTableKiteiKaisu.swift in Sources */,
 				0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */,
+				0F2A4DF72F371CF600B3C583 /* hanabiView95CiStart.swift in Sources */,
 				0FA662F32F1FB11500F3259F /* hokutoTenseiTableFake.swift in Sources */,
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,
 				0FD357442DA25EEC0069BD1A /* shamanKingTableKokakuMove.swift in Sources */,
@@ -5934,6 +6039,7 @@
 				0FDE0F2C2F30737800B1DA18 /* enen2ViewWana.swift in Sources */,
 				0FF3E4752EE06782002704FD /* ver3140.swift in Sources */,
 				0F868A252D44BC0B00D952D9 /* happyJugV3Ver2View95CiPersonal.swift in Sources */,
+				0FDE0F3D2F30B20700B1DA18 /* hanabiViewTop.swift in Sources */,
 				0F97D8CB2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift in Sources */,
 				0FE39E952E85695400E8A113 /* creaViewFirstHit.swift in Sources */,
 				0F03BD342F0B8E8F00222339 /* shakeViewBayes.swift in Sources */,
@@ -5941,6 +6047,7 @@
 				0F868A4D2D46104E00D952D9 /* kingHanaVer2View95CiPersonal.swift in Sources */,
 				0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */,
 				0FDC32712D20A37E005B3D06 /* inuyashaViewKoyaku.swift in Sources */,
+				0FD974F02F4188A70067CED7 /* hanabiTableRtReplay.swift in Sources */,
 				0FEB2E142E3F7E29004C5F45 /* darlingViewEnding.swift in Sources */,
 				0FCCC51A2E953DBE00CE164D /* azurLaneTableKagaRatio.swift in Sources */,
 				0F0B4BC12CCD23FB00B12B00 /* rezero2ViewTop.swift in Sources */,
@@ -6001,6 +6108,7 @@
 				0F64DD432DC07A5A0027315D /* dumbbellTableCheatDay.swift in Sources */,
 				0F9D9BE42E9DF20200450B23 /* zeni5ViewBayes.swift in Sources */,
 				0F6B59C42DFDAA1400DB1A2B /* kaguyaTableScreen.swift in Sources */,
+				0FD974E22F415D7E0067CED7 /* mushotenTableHonkiBonus.swift in Sources */,
 				0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */,
 				0FCF78A62E472F580000748B /* hokutoTableBBBell.swift in Sources */,
 				0FD3575C2DA291700069BD1A /* magiaTableSuikaCz.swift in Sources */,
@@ -6016,6 +6124,7 @@
 				0F9A4F9A2DF3B143003B6337 /* guiltyCrown2TableRarePattern.swift in Sources */,
 				0FB9CAA62DE13C79009FC6AF /* toloveru87ViewEndScreen.swift in Sources */,
 				0F9D9C032EA10D6900450B23 /* myJugViewShimaData.swift in Sources */,
+				0FDE0F492F30BE1300B1DA18 /* hanabiViewKen.swift in Sources */,
 				0FB9CA872DDD97A5009FC6AF /* toloveruTableDokidokiDefault.swift in Sources */,
 				0F7F86432D9EB36400F26486 /* magiaViewTop.swift in Sources */,
 				0F03BD422F0BD7BB00222339 /* shakeViewBt.swift in Sources */,
@@ -6037,11 +6146,13 @@
 				0FB9CA902DDDAB61009FC6AF /* plusButtonStyle.swift in Sources */,
 				0F9D9C382EA4691700450B23 /* hanaTenshoViewShimaData.swift in Sources */,
 				0F6B59DB2E06A17F00DB1A2B /* toloveruTableFirstHit.swift in Sources */,
+				0FDE0F3F2F30B21400B1DA18 /* hanabiClass.swift in Sources */,
 				0FFAB8612E6DB3A400296A4F /* ver391Class.swift in Sources */,
 				0FD3572E2DA14B680069BD1A /* hanahanaCommonTableBigSuika.swift in Sources */,
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0FEC57D92D97890400FF1024 /* rslTableFirstHit.swift in Sources */,
 				0F8090462C849DC00061480F /* hokutoViewBbBell.swift in Sources */,
+				0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0245B2CE82EC8004B3FD5 /* mhrViewTop.swift in Sources */,
 				0F9D9BF32EA0C44700450B23 /* vvv2ViewTop.swift in Sources */,
 				0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */,
@@ -6232,6 +6343,7 @@
 				0F9318832DEAA0C400511BEF /* izaBanchoTableModeSuisoku.swift in Sources */,
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FCF78A82E47643D0000748B /* kabaneriTableChance.swift in Sources */,
+				0FD974EB2F417A190067CED7 /* enen2TableRegSenario.swift in Sources */,
 				0F7726CC2EBCC2EA004986D5 /* vvv2ViewScreen.swift in Sources */,
 				0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */,
 				0F9D9C3A2EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift in Sources */,
@@ -6368,6 +6480,7 @@
 				0F9D9BE82E9E032100450B23 /* zeni5ViewFirstHit.swift in Sources */,
 				0FB9CA982DDDE923009FC6AF /* toloveru87ViewFirstHit.swift in Sources */,
 				0FCF78B02E4769440000748B /* kabaneriTableKiteiGame.swift in Sources */,
+				0FDE0F432F30B5B700B1DA18 /* hanabiView95Ci.swift in Sources */,
 				0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */,
 				0F6B59D62E06566600DB1A2B /* godeaterTableKyoCherryChokugeki.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
@@ -6395,6 +6508,7 @@
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
 				0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */,
 				0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */,
+				0F2A4DF52F3715FE00B3C583 /* hanabiViewStart.swift in Sources */,
 				0F9D9BDA2E9DEDC800450B23 /* zeni5ViewTop.swift in Sources */,
 				0F868A362D45CC7000D952D9 /* hanaTenshoVer2View95CiKen.swift in Sources */,
 				0FC14A822E4BFC9B00F85D84 /* mt5ViewBayes.swift in Sources */,
@@ -6454,9 +6568,11 @@
 				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
 				0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
+				0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
 				0F45A5C92F04BB3B0022E355 /* tekkenTableMode.swift in Sources */,
 				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
+				0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */,
 				0FA662F72F23292C00F3259F /* hokutoTenseiTableKokakuSisa.swift in Sources */,
 				0F45A5D02F0501A60022E355 /* tekken6TextScreenCaution.swift in Sources */,
 				0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
@@ -6466,6 +6582,7 @@
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */,
+				0FD974EC2F417A1F0067CED7 /* enen2TableRegSenario.swift in Sources */,
 				0FA662F92F2333B000F3259F /* hokutoTenseiTableStatusMove.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
@@ -6479,6 +6596,7 @@
 				0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */,
 				0FA0A7E32EF96BD3003EF8BD /* vvv2TableScreenRatio.swift in Sources */,
 				0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */,
+				0F2A4DEF2F36EF1700B3C583 /* Color+Extension.swift in Sources */,
 				0FA663012F234AFC00F3259F /* bakemonoTableRareCz.swift in Sources */,
 				0FA0A7CF2EF6947C003EF8BD /* unitReelGrayMark.swift in Sources */,
 				0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */,
@@ -6488,6 +6606,7 @@
 				0F45A5D82F073B180022E355 /* hokutoTenseiSubViewMachineLamp.swift in Sources */,
 				0FA0A7D12EF6947C003EF8BD /* unitReelAny.swift in Sources */,
 				0F45A5C42F04A9790022E355 /* tekken6TableKoyakuPattern.swift in Sources */,
+				0FD974E32F415D9A0067CED7 /* mushotenTableHonkiBonus.swift in Sources */,
 				0F45A5DF2F079C380022E355 /* unitMachineIconLink.swift in Sources */,
 				0FA0A7D22EF6947C003EF8BD /* unitReelHazure.swift in Sources */,
 				0F03BD3B2F0B96DA00222339 /* unitTableDenominate.swift in Sources */,
@@ -6503,10 +6622,15 @@
 				0F19D44B2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift in Sources */,
 				0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */,
 				0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */,
+				0FD974E92F4167D40067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */,
 				0F19D4462F2D7A7C004A6D9F /* hokutoTenseiClass.swift in Sources */,
 				0FA662FD2F23449500F3259F /* hokutoTenseiTableAfterDensho.swift in Sources */,
 				0FA0A7D72EF6947C003EF8BD /* unitReelSpacer.swift in Sources */,
 				0FA662F42F1FB11500F3259F /* hokutoTenseiTableFake.swift in Sources */,
+				0FD974E62F4165FC0067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */,
+				0FD974F22F4188E80067CED7 /* hanabiClass.swift in Sources */,
+				0F2A4DEE2F36EEDA00B3C583 /* ocrTest.swift in Sources */,
+				0FD974F12F4188AD0067CED7 /* hanabiTableRtReplay.swift in Sources */,
 				0FDE0F1F2F2F471A00B1DA18 /* unitTableGameIndex.swift in Sources */,
 				0F03BD452F0BDA9B00222339 /* shakeTableBt.swift in Sources */,
 				0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */,
@@ -6533,7 +6657,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6587,6 +6712,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -6599,7 +6725,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -6646,6 +6773,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -6655,7 +6783,7 @@
 		};
 		0F8030FD2C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E7B0A12FB92FCAA219343A /* Pods-SetteiSaCountApp.debug.xcconfig */;
+			baseConfigurationReference = 64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -6679,7 +6807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6695,7 +6823,7 @@
 		};
 		0F8030FE2C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0CFDE36E54E58CEAB01C719 /* Pods-SetteiSaCountApp.release.xcconfig */;
+			baseConfigurationReference = 8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -6719,7 +6847,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.18.0;
+				MARKETING_VERSION = 3.19.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6734,7 +6862,7 @@
 		};
 		0F8031002C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB951E8985FE8C510FB408B9 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
+			baseConfigurationReference = 3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -6753,7 +6881,7 @@
 		};
 		0F8031012C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAF19EF516483B3C281840C7 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
+			baseConfigurationReference = F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -6772,7 +6900,7 @@
 		};
 		0F8031032C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FABA2DE72F96700E7D21E05 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -6789,7 +6917,7 @@
 		};
 		0F8031042C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90680610C55A6CE6642CE6FC /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
+			baseConfigurationReference = D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

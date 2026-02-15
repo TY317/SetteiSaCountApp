@@ -16,12 +16,16 @@ struct unitMachineListLinkWithLock: View {
     @State var releaseYear: Int
     @State var releaseMonth: Int
     @Binding var isUnLocked: Bool
+    @Binding var tempUnlockDateDouble: Double
     var badgeStatus: String = "none"
     var btBadgeBool: Bool = false
     @EnvironmentObject var rewardViewModel: RewardedViewModel
     
     var body: some View {
-        if self.isUnLocked {
+        let now = Date().timeIntervalSince1970
+        if self.isUnLocked ||
+            (now - tempUnlockDateDouble) < 86400 {
+//            (now - tempUnlockDateDouble) < 60 {
             unitMachinListLink(
                 linkView: self.linkView,
                 iconImage: self.iconImage,
@@ -42,6 +46,7 @@ struct unitMachineListLinkWithLock: View {
                 isUnLocked: self.$isUnLocked,
                 badgeStatus: self.badgeStatus,
                 btBadgeBool: self.btBadgeBool,
+                tempUnlockDateDouble: self.$tempUnlockDateDouble,
             )
         }
     }
@@ -49,6 +54,7 @@ struct unitMachineListLinkWithLock: View {
 
 #Preview {
     @Previewable @State var isUnLocked = false
+    @Previewable @State var tempUnlockDateDouble: Double = 0.0
     unitMachineListLinkWithLock(
         linkView: AnyView(unitReelDefault()),
         iconImage: Image("tekken6MachineIcon"),
@@ -57,6 +63,7 @@ struct unitMachineListLinkWithLock: View {
         releaseYear: 2025,
         releaseMonth: 7,
         isUnLocked: $isUnLocked,
+        tempUnlockDateDouble: $tempUnlockDateDouble,
         badgeStatus: "new",
         btBadgeBool: true,
     )

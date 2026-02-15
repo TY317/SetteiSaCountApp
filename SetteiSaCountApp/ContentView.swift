@@ -78,6 +78,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteShake") var isSelectedFavoriteShake = true
     @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
     @AppStorage("isSelectedFavoriteKokakukidotai") var isSelectedFavoriteKokakukidotai = true
+    @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
 }
 
 
@@ -109,7 +110,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3180UpdateInfo())
+                TipView(tipVer3190UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -148,6 +149,23 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ハナビ、26年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHanabi == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(hanabiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hanabiMachineIcon"),
+                                        machineName: "ハナビ",
+                                        isUnLocked: $common.hanabiisUnlocked,
+                                        tempUnlockDateDouble: $common.hanabiTempUnlockDateDouble,
+                                        badgeStatus: common.hanabiMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// 炎炎２、26年2月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
                                     
@@ -160,6 +178,7 @@ struct ContentView: View {
                                         iconImage: Image("enen2MachineIcon"),
                                         machineName: "炎炎2",
                                         isUnLocked: $common.enen2isUnlocked,
+                                        tempUnlockDateDouble: $common.enen2TempUnlockDateDouble,
                                         badgeStatus: common.enen2MachineIconBadge,
                                     )
                                 }
@@ -176,6 +195,7 @@ struct ContentView: View {
                                         iconImage: Image("kokakukidotaiMachineIcon"),
                                         machineName: "攻殻機動隊",
                                         isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        tempUnlockDateDouble: $common.kokakukidotaiTempUnlockDateDouble,
                                         badgeStatus: common.kokakukidotaiMachineIconBadge,
                                     )
                                 }
@@ -192,6 +212,7 @@ struct ContentView: View {
                                         iconImage: Image("tekken6MachineIcon"),
                                         machineName: "鉄拳6",
                                         isUnLocked: $common.tekken6isUnlocked,
+                                        tempUnlockDateDouble: $common.tekken6TempUnlockDateDouble,
                                         badgeStatus: common.tekken6MachineIconBadge,
                                     )
                                 }
@@ -208,6 +229,7 @@ struct ContentView: View {
                                         iconImage: Image("hokutoTenseiMachineIcon"),
                                         machineName: "北斗転生",
                                         isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        tempUnlockDateDouble: $common.hokutoTenseiTempUnlockDateDouble,
                                         badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
                                 }
@@ -224,11 +246,12 @@ struct ContentView: View {
                                         iconImage: Image("mushotenMachineIcon"),
                                         machineName: "無職転生",
                                         isUnLocked: $common.mushotenisUnlocked,
+                                        tempUnlockDateDouble: $common.mushotenTempUnlockDateDouble,
                                         badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
                                 
-                                // //// 化物語、25年12月
+                                // //// 秘宝伝、25年12月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHihoden == false {
                                     
                                 } else {
@@ -315,6 +338,7 @@ struct ContentView: View {
                                         iconImage: Image("shakeMachineIcon"),
                                         machineName: "シェイク",
                                         isUnLocked: $common.shakeisUnlocked,
+                                        tempUnlockDateDouble: $common.shakeTempUnlockDateDouble,
                                         badgeStatus: common.shakeMachineIconBadge,
                                         btBadgeBool: true,
                                     )
@@ -957,6 +981,26 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// ハナビ、26年２月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHanabi == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(hanabiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("hanabiMachineIcon"),
+                                        machineName: "ハナビ",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.hanabiisUnlocked,
+                                        tempUnlockDateDouble: $common.hanabiTempUnlockDateDouble,
+                                        badgeStatus: common.hanabiMachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// 炎炎２、26年２月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteEnen2 == false {
                                     
@@ -972,6 +1016,7 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 2,
                                         isUnLocked: $common.enen2isUnlocked,
+                                        tempUnlockDateDouble: $common.enen2TempUnlockDateDouble,
                                         badgeStatus: common.enen2MachineIconBadge,
                                     )
                                 }
@@ -991,6 +1036,7 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 2,
                                         isUnLocked: $common.kokakukidotaiisUnlocked,
+                                        tempUnlockDateDouble: $common.kokakukidotaiTempUnlockDateDouble,
                                         badgeStatus: common.kokakukidotaiMachineIconBadge,
                                     )
                                 }
@@ -1010,20 +1056,9 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 1,
                                         isUnLocked: $common.tekken6isUnlocked,
+                                        tempUnlockDateDouble: $common.tekken6TempUnlockDateDouble,
                                         badgeStatus: common.tekken6MachineIconBadge,
                                     )
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(tekken6ViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("tekken6MachineIcon"),
-//                                        machineName: "鉄拳6",
-//                                        makerName: "山佐",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 1,
-//                                        badgeStatus: common.tekken6MachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 北斗転生、26年1月
@@ -1041,20 +1076,9 @@ struct ContentView: View {
                                         releaseYear: 2026,
                                         releaseMonth: 1,
                                         isUnLocked: $common.hokutoTenseiisUnlocked,
+                                        tempUnlockDateDouble: $common.hokutoTenseiTempUnlockDateDouble,
                                         badgeStatus: common.hokutoTenseiMachineIconBadge,
                                     )
-//                                    unitMachinListLink(
-//                                        linkView: AnyView(hokutoTenseiViewTop(
-//                                            bayes: bayes,
-//                                            viewModel: viewModel,
-//                                        )),
-//                                        iconImage: Image("hokutoTenseiMachineIcon"),
-//                                        machineName: "北斗 転生の章2",
-//                                        makerName: "サミー",
-//                                        releaseYear: 2026,
-//                                        releaseMonth: 1,
-//                                        badgeStatus: common.hokutoTenseiMachineIconBadge,
-//                                    )
                                 }
                                 
                                 // //// 無職転生、25年12月
@@ -1072,6 +1096,7 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 12,
                                         isUnLocked: $common.mushotenisUnlocked,
+                                        tempUnlockDateDouble: $common.mushotenTempUnlockDateDouble,
                                         badgeStatus: common.mushotenMachineIconBadge,
                                     )
                                 }
@@ -1181,6 +1206,7 @@ struct ContentView: View {
                                         releaseYear: 2025,
                                         releaseMonth: 10,
                                         isUnLocked: $common.shakeisUnlocked,
+                                        tempUnlockDateDouble: $common.shakeTempUnlockDateDouble,
                                         badgeStatus: common.shakeMachineIconBadge,
                                         btBadgeBool: true,
                                     )
@@ -2114,6 +2140,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ハナビ
+                Toggle("ハナビ", isOn: $favoriteSet.isSelectedFavoriteHanabi)
                 // 炎炎ノ消防隊2
                 Toggle("炎炎ノ消防隊2", isOn: $favoriteSet.isSelectedFavoriteEnen2)
                 // 攻殻機動隊
@@ -2290,8 +2318,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

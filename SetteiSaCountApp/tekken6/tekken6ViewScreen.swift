@@ -17,6 +17,7 @@ struct tekken6ViewScreen: View {
             Section {
                 tekken6TextScreenCaution()
                 tekken6TableScreen()
+                    .popoverTip(tipVer3190TekkenScreen())
             } header: {
                 Text("BIG終了画面")
             }

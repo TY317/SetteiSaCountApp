@@ -12,6 +12,7 @@ struct unitTextFieldNumberInputWithUnit: View {
     @Binding var inputValue: Int
     @State var numberPadTypeSelect: Bool = true
     var titleColor: Color = .primary
+    var titleFont: Font = .body
     var inputNumberColor: Color = .primary
     var unitText: String = "回"
     var unitTextColor: Color = .secondary
@@ -22,6 +23,8 @@ struct unitTextFieldNumberInputWithUnit: View {
             Text(self.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(self.titleColor)
+                .font(self.titleFont)
+                .minimumScaleFactor(0.7)
             if self.numberPadTypeSelect {
                 HStack {
                     TextField(self.title, value: self.$inputValue, format: .number)

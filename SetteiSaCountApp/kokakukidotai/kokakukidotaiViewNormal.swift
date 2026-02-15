@@ -104,6 +104,13 @@ struct kokakukidotaiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "モードについて") {
                     kokakukidotaiTableMode()
                 }
+                unitLinkButtonViewBuilder(sheetTitle: "リプレイフラッシュでの示唆") {
+                    kokakukidotaiTableReplayFlush()
+                }
+                .popoverTip(tipVer3190KokakukidotaiModeSisa())
+                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
+                    kokakukidotaiTableEyechatch()
+                }
             } header: {
                 Text("通常時のモード")
             }
