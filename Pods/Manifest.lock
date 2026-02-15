@@ -59,6 +59,7 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 8.1)
     - nanopb (~> 3.30910.0)
     - PromisesSwift (~> 2.1)
+  - FiveAd (3.0.0)
   - Google-Mobile-Ads-SDK (12.14.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleAdsOnDeviceConversion (3.2.0):
@@ -94,6 +95,9 @@ PODS:
   - GoogleMobileAdsMediationInMobi (11.1.1.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - InMobiSDK (= 11.1.1)
+  - GoogleMobileAdsMediationLine (3.0.0.0):
+    - FiveAd (= 3.0.0)
+    - Google-Mobile-Ads-SDK (~> 12.0)
   - GoogleUserMessagingPlatform (3.1.0)
   - GoogleUtilities/AppDelegateSwizzler (8.1.0):
     - GoogleUtilities/Environment
@@ -137,6 +141,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Google-Mobile-Ads-SDK
   - GoogleMobileAdsMediationInMobi
+  - GoogleMobileAdsMediationLine
 
 SPEC REPOS:
   trunk:
@@ -149,11 +154,13 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseRemoteConfigInterop
     - FirebaseSessions
+    - FiveAd
     - Google-Mobile-Ads-SDK
     - GoogleAdsOnDeviceConversion
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMobileAdsMediationInMobi
+    - GoogleMobileAdsMediationLine
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - InMobiSDK
@@ -171,11 +178,13 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 7b64ffd006032b2b019a59b803858df5112d9eaa
   FirebaseRemoteConfigInterop: 765ee19cd2bfa8e54937c8dae901eb634ad6787d
   FirebaseSessions: a2d06fd980431fda934c7a543901aca05fc4edcc
+  FiveAd: 16fac25b6d3efe14b55585e68e6c01dec1f10abc
   Google-Mobile-Ads-SDK: 4534fd2dfcd3f705c5485a6633c5188d03d4eed2
   GoogleAdsOnDeviceConversion: d68c69dd9581a0f5da02617b6f377e5be483970f
   GoogleAppMeasurement: fce7c1c90640d2f9f5c56771f71deacb2ba3f98c
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleMobileAdsMediationInMobi: 010c989845587e66ef33491f2bdf5426cb3e1c15
+  GoogleMobileAdsMediationLine: d92ef4bee9186492687a9475c92cd320f5166f1d
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   InMobiSDK: 4642fb34a961980ab94a1ac460c6e16e113498e6
@@ -183,6 +192,6 @@ SPEC CHECKSUMS:
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
 
-PODFILE CHECKSUM: 8b41bfef0ed60bc0d771ec34b3cb3f86034dd8a3
+PODFILE CHECKSUM: 94aeca3a1484bd1b02dcd01c084c8a8e2cd5bf0e
 
 COCOAPODS: 1.16.2

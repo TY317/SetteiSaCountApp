@@ -1681,6 +1681,18 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    limitations under the License.
 
 
+## FiveAd
+
+To use this SDK (LINE ADS NETWORK SDK, also called Five SDK or FiveAd SDK), contact LINE ADS NETWORK team.
+Contact information is located at https://pages.linebiz.com/line-ads-network/
+
+BY DOWNLOADING THE LINE ADS NETWORK SDK FRAMEWORK,
+YOU ARE AGREEING TO THE TERMS AND CONDITIONS OF THE LINE ADS NETWORK SDK LICENSE AGREEMENT LOCATED AT
+https://www.linebiz.com/jp-en/terms-and-policies/line-ads-network/sdk-license/
+IF YOU DO NOT AGREE TO THE TERMS AND CONDITIONS OF THE LINE ADS NETWORK SDK LICENSE AGREEMENT,
+YOU ARE NOT AUTHORIZED TO AND YOU MAY NOT DOWNLOAD THE LINE ADS NETWORK SDK FRAMEWORK.
+
+
 ## Google-Mobile-Ads-SDK
 
 Copyright 2025 Google LLC
@@ -1902,6 +1914,10 @@ Copyright 2022 Google
 ## GoogleMobileAdsMediationInMobi
 
 Copyright 2016 Google LLC
+
+## GoogleMobileAdsMediationLine
+
+Copyright 2023 Google LLC
 
 ## GoogleUserMessagingPlatform
 

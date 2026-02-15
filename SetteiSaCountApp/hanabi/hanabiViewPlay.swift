@@ -19,7 +19,7 @@ struct tipHanabiOcr: Tip {
         Text("スクショから自動入力")
     }
     var message: Text? {
-        Text("ユニメモのスクショ画像から設定差判別に必要な要素を自動入力できます")
+        Text("ユニメモのスクショ画像から設定判別に必要な要素を自動入力できます")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

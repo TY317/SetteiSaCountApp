@@ -10,15 +10,19 @@ import TipKit
 import GoogleMobileAds
 import UIKit
 import FirebaseCore
+import LineAdapter
 
 // Google-Mobile-Ads-SDKの初期化処理
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        MobileAds.shared.start(completionHandler: nil)
-//        MobileAds.shared.start()
+        // --- 260215 LINE広告のテストモード設定 ---
+        // 開発中のみ有効にし、リリース時はコメントアウトまたは削除します
+        GADMediationAdapterLine.testMode = true
         
-        // 250518追加
+        // Google Mobile Ads SDK の初期化
+        MobileAds.shared.start(completionHandler: nil)
+        
+        // 250518追加、Firebaseの初期化
         FirebaseApp.configure()
         
         return true
