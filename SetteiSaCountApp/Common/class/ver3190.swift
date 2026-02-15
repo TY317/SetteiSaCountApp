@@ -101,3 +101,35 @@ struct tipVer3190KokakukidotaiModeSisa: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：炎炎２　終了画面
+// //////////////////
+struct tipVer3190EnenScreenSisa: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("前作での高設定示唆画面が高設定濃厚であることが判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：炎炎２　REGシナリオ
+// //////////////////
+struct tipVer3190EnenSenarioSisa: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("キャラ紹介シナリオと示唆の一部が判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

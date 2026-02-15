@@ -16,19 +16,23 @@ struct enen2ViewReg: View {
         List {
             // ---- キャラ紹介
             Section {
-                Text("本作もキャラ紹介のパターンで設定を示唆")
-                Text("デフォルト：青文字のシンラ→アーサー→タマキ→マキ→ヒナワ")
-                unitTableString(
-                    columTitle: "注目ポイント",
-                    stringList: [
-                        "赤キャラの人数＆出現箇所",
-                        "全部赤キャラなら!?",
-                        "5人中1人だけ青キャラなら!?",
-                        "金キャラ出現なら!?",
-                    ],
-                    maxWidth: 300,
-                )
-                .frame(maxWidth: .infinity, alignment: .center)
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオでの示唆", detent: .large) {
+                    enen2TableRegSenario()
+                }
+                .popoverTip(tipVer3190EnenSenarioSisa())
+//                Text("本作もキャラ紹介のパターンで設定を示唆")
+//                Text("デフォルト：青文字のシンラ→アーサー→タマキ→マキ→ヒナワ")
+//                unitTableString(
+//                    columTitle: "注目ポイント",
+//                    stringList: [
+//                        "赤キャラの人数＆出現箇所",
+//                        "全部赤キャラなら!?",
+//                        "5人中1人だけ青キャラなら!?",
+//                        "金キャラ出現なら!?",
+//                    ],
+//                    maxWidth: 300,
+//                )
+//                .frame(maxWidth: .infinity, alignment: .center)
             } header: {
                 Text("キャラ紹介")
             }

@@ -1093,6 +1093,8 @@
 		0FD974E62F4165FC0067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */; };
 		0FD974E82F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */; };
 		0FD974E92F4167D40067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */; };
+		0FD974EB2F417A190067CED7 /* enen2TableRegSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */; };
+		0FD974EC2F417A1F0067CED7 /* enen2TableRegSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
@@ -2382,6 +2384,7 @@
 		0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenTableHonkiBonus.swift; sourceTree = "<group>"; };
 		0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableReplayFlush.swift; sourceTree = "<group>"; };
 		0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableEyechatch.swift; sourceTree = "<group>"; };
+		0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableRegSenario.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
@@ -4321,6 +4324,7 @@
 				0FDE0F262F306F6800B1DA18 /* enen2ViewReg.swift */,
 				0FDE0F2B2F30737800B1DA18 /* enen2ViewWana.swift */,
 				0FDE0F2D2F307E5300B1DA18 /* enen2ViewScreen.swift */,
+				0FD974EA2F417A190067CED7 /* enen2TableRegSenario.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -6329,6 +6333,7 @@
 				0F9318832DEAA0C400511BEF /* izaBanchoTableModeSuisoku.swift in Sources */,
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FCF78A82E47643D0000748B /* kabaneriTableChance.swift in Sources */,
+				0FD974EB2F417A190067CED7 /* enen2TableRegSenario.swift in Sources */,
 				0F7726CC2EBCC2EA004986D5 /* vvv2ViewScreen.swift in Sources */,
 				0FFAB8772E752E9200296A4F /* VVVViewBayes.swift in Sources */,
 				0F9D9C3A2EA4697000450B23 /* hanaTenshoVer2View95CiShima.swift in Sources */,
@@ -6567,6 +6572,7 @@
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */,
+				0FD974EC2F417A1F0067CED7 /* enen2TableRegSenario.swift in Sources */,
 				0FA662F92F2333B000F3259F /* hokutoTenseiTableStatusMove.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,

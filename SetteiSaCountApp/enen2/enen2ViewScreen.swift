@@ -31,12 +31,20 @@ struct enen2ViewScreen: View {
         "全員集合",
     ]
     let lowerBeltTextList: [String] = [
+        "デフォルト",
         "???",
         "???",
+        "高設定濃厚",
+        "高設定濃厚",
+        "高設定濃厚",
+    ]
+    let sisaText: [String] = [
+        "デフォルト",
         "???",
         "???",
-        "???",
-        "???",
+        "高設定濃厚(消防服)",
+        "高設定濃厚(ｵﾚﾝｼﾞ服)",
+        "高設定濃厚(全員集合)",
     ]
     let flashColorList: [Color] = [
         .gray,
@@ -87,18 +95,19 @@ struct enen2ViewScreen: View {
                     }
                 }
                 .frame(height: common.screenScrollHeight)
+                .popoverTip(tipVer3190EnenScreenSisa())
                 
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
 //                    if self.lowerBeltTextList.indices.contains(index) &&
                     if self.upperBeltTextList.indices.contains(index) &&
-                        self.flashColorList.indices.contains(index) {
-//                        self.flashColorList.indices.contains(index) &&
-//                        self.sisaText.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) &&
+                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
 //                            title: self.lowerBeltTextList[index],
-                            title: self.upperBeltTextList[index],
-//                            title: self.sisaText[index],
+//                            title: self.upperBeltTextList[index],
+                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $enen2.screenCountSum,
