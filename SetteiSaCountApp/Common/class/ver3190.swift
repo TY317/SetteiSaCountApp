@@ -69,3 +69,19 @@ struct tipVer3190MushotenHonki: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：北斗転生
+// //////////////////
+struct tipVer3190TenseiKokakuSisa: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("カサンドラステー中の高確示唆法則が一部判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

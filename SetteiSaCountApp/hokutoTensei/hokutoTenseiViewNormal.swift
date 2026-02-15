@@ -76,7 +76,7 @@ struct hokutoTenseiViewNormal: View {
                             hokutoTensei.koyakuSumFunc()
                         }
                 }
-                .popoverTip(tipVer3171hokutoTenseiRareTenha())
+//                .popoverTip(tipVer3171hokutoTenseiRareTenha())
                 // 確率結果
                 unitResultRatioPercent2Line(
                     title: "弱🍒・🍉からの当選率",
@@ -125,9 +125,10 @@ struct hokutoTenseiViewNormal: View {
                         }
                     }
                 }
-                unitLinkButtonViewBuilder(sheetTitle: "高確示唆演出") {
+                unitLinkButtonViewBuilder(sheetTitle: "高確示唆演出", detent: .large) {
                     hokutoTenseiTableKokakuSisa()
                 }
+                .popoverTip(tipVer3190TenseiKokakuSisa())
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     hokutoTenseiTableKoyakuPattern()
                 }
@@ -228,7 +229,7 @@ struct hokutoTenseiViewNormal: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3171hokutoTenseiLampWhite())
+//                .popoverTip(tipVer3171hokutoTenseiLampWhite())
                 
                 ForEach(self.selectList, id: \.self) { item in
                     unitResultCountListPercent(
