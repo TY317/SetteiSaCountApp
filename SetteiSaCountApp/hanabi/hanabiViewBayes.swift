@@ -92,7 +92,7 @@ struct hanabiViewBayes: View {
                 }
                 
                 // 花火チャレンジ中 通常リプレイ確率
-                unitToggleWithQuestion(enable: self.$repChallengeEnable, title: "花火チャレンジ中 通常リプレイ確率")
+                unitToggleWithQuestion(enable: self.$repChallengeEnable, title: "花火ﾁｬﾚﾝｼﾞ中 通常リプレイ確率")
                 
                 // 花火GAME中 RTリプレイ確率
                 unitToggleWithQuestion(enable: self.$repGameEnable, title: "花火GAME中 RTリプレイ確率")

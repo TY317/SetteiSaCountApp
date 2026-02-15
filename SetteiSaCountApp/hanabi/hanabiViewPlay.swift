@@ -189,24 +189,70 @@ struct hanabiViewPlay: View {
                                 Text(self.statusTitle)
                                     .font(.title)
                                     .padding(.bottom)
-                                ForEach(self.ocrMenuList.indices, id: \.self) { index in
-                                    if self.ocrMenuList.indices.contains(index) &&
-                                        self.ocrResultTextList.indices.contains(index) &&
-                                        self.ocrResultColorList.indices.contains(index) {
-                                        HStack {
-                                            Spacer()
-                                            Text(self.ocrMenuList[index])
-                                                .frame(maxWidth: 300, alignment: .trailing)
-                                            Text(" : ")
-                                            Text(self.ocrResultTextList[index])
-                                                .frame(maxWidth: 150, alignment: .leading)
-                                            Spacer()
+                                HStack {
+                                    Spacer()
+                                    VStack(alignment: .trailing) {
+                                        ForEach(self.ocrMenuList.indices, id: \.self) { index in
+                                            if self.ocrMenuList.indices.contains(index) &&
+                                                self.ocrResultTextList.indices.contains(index) &&
+                                                self.ocrResultColorList.indices.contains(index) {
+                                                Text(self.ocrMenuList[index])
+    //                                                Text(" : ")
+    //                                                Text(self.ocrResultTextList[index])
+                                                    .foregroundStyle(self.ocrResultColorList[index])
+                                                    .lineLimit(1)
+                                                    .minimumScaleFactor(0.7)
+                                            }
                                         }
-                                        .foregroundStyle(self.ocrResultColorList[index])
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.7)
                                     }
+                                    VStack {
+                                        ForEach(self.ocrMenuList.indices, id: \.self) { index in
+                                            if self.ocrMenuList.indices.contains(index) &&
+                                                self.ocrResultTextList.indices.contains(index) &&
+                                                self.ocrResultColorList.indices.contains(index) {
+//                                                Text(self.ocrMenuList[index])
+                                                Text(" : ")
+//                                                Text(self.ocrResultTextList[index])
+                                                    .foregroundStyle(self.ocrResultColorList[index])
+                                                    .lineLimit(1)
+                                                    .minimumScaleFactor(0.7)
+                                            }
+                                        }
+                                    }
+                                    VStack(alignment: .leading) {
+                                        ForEach(self.ocrMenuList.indices, id: \.self) { index in
+                                            if self.ocrMenuList.indices.contains(index) &&
+                                                self.ocrResultTextList.indices.contains(index) &&
+                                                self.ocrResultColorList.indices.contains(index) {
+//                                                Text(self.ocrMenuList[index])
+//                                                Text(" : ")
+                                                Text(self.ocrResultTextList[index])
+                                                    .foregroundStyle(self.ocrResultColorList[index])
+                                                    .lineLimit(1)
+                                                    .minimumScaleFactor(0.7)
+                                            }
+                                        }
+                                    }
+                                    Spacer()
                                 }
+//                                ForEach(self.ocrMenuList.indices, id: \.self) { index in
+//                                    if self.ocrMenuList.indices.contains(index) &&
+//                                        self.ocrResultTextList.indices.contains(index) &&
+//                                        self.ocrResultColorList.indices.contains(index) {
+//                                        HStack {
+//                                            Spacer()
+//                                            Text(self.ocrMenuList[index])
+////                                                .frame(maxWidth: 300, alignment: .trailing)
+//                                            Text(" : ")
+//                                            Text(self.ocrResultTextList[index])
+////                                                .frame(maxWidth: 150, alignment: .leading)
+//                                            Spacer()
+//                                        }
+//                                        .foregroundStyle(self.ocrResultColorList[index])
+//                                        .lineLimit(1)
+//                                        .minimumScaleFactor(0.7)
+//                                    }
+//                                }
                             }
                             // //// ツールバー閉じるボタン
                             .toolbar {
@@ -348,7 +394,7 @@ struct hanabiViewPlay: View {
                     unitText: "Ｇ",
                 )
                 .focused(self.$isFocused)
-                .onChange(of: hanabi.startGame) { oldValue, newValue in
+                .onChange(of: hanabi.playGame) { oldValue, newValue in
                     hanabi.gameSumFunc()
                 }
                 // チャレンジプレイ数

@@ -46,7 +46,7 @@ struct hanabiViewRtReplay: View {
                     // 注意書き
                     unitLabelCautionText {
                         Text("移行リプレイ以外の通常リプレイをカウント")
-                            .padding(.vertical, 2.5)
+                            .padding(.vertical, 3)
                     }
                     
                     // チャレンジプレイ数
@@ -122,9 +122,13 @@ struct hanabiViewRtReplay: View {
                         Text("[手順]")
                         Text("①：左リール 3連ドンの一番上のドンちゃんを中・下段に目押し")
                         Text("②：中・右リールを止める")
-                        Text("    →中段平行揃い：RTリプレイ")
-                        Text("     それ以外：通常リプレイ")
-                            .padding(.bottom)
+                        Text("③：リプレイ揃い時のラインで判別")
+                        VStack(alignment: .leading) {
+                            Text("中段平行揃い：RTリプレイ")
+                            Text("それ以外：通常リプレイ")
+                        }
+                        .padding(.leading, 40)
+                        .padding(.bottom)
                         Text("・予告音やフラッシュ発生時は通常時と同じ手順で小役をフォロー")
                     }
                 }

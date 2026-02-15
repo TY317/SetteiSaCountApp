@@ -79,16 +79,16 @@ struct hokutoTenseiTableKokakuSisa: View {
                     columTitle: "",
                     stringList: [
                         "立ち止まり演出＋松明消灯",
-                        "レア役＋\n立ち止まり演出＋赤絨毯の部屋表示",
-                        "非レア役＋\n立ち止まり演出＋赤絨毯の部屋表示",
+                        "レア役＋\n立ち止まり演出＋レッドカーペットの部屋表示",
+                        "非レア役＋\n立ち止まり演出＋レッドカーペットの部屋表示",
                     ],
                     lineList: [3,3,3],
                 )
                 unitTableString(
                     columTitle: "示唆",
                     stringList: [
-                        "高確率滞在\nor 天破 本前兆中\nor AT本前兆中",
-                        "高確率へ移行\nor 高確滞在中\n(天破、AT前兆中の可能性も！)",
+                        "高確滞在\nor 天破 本前兆中\nor AT本前兆中",
+                        "高確へ移行\nor 高確滞在中\n(天破、AT前兆中の可能性も！)",
                         "天破 or AT濃厚",
                     ],
                     maxWidth: 200,
