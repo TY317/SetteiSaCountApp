@@ -1,23 +1,19 @@
 //
-//  hanabiViewBayes.swift
+//  hanabiViewBayesStart.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/02/02.
+//  Created by 横田徹 on 2026/02/07.
 //
 
 import SwiftUI
 
-struct hanabiViewBayes: View {
+struct hanabiViewBayesStart: View {
     @ObservedObject var hanabi: Hanabi
     
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,5,6]   // その機種の設定段階
     let payoutList: [Double] = [100.2, 102.0, 104.6, 108.0]
-    @State var firstEnable: Bool = true
-    @State var normalKoyakuEnable: Bool = true
-    @State var rtHazureEnable: Bool = true
-    @State var bbKoyakuEnable: Bool = true
-    @State var rbKoyakuEnable: Bool = true
+    @State var startEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -48,44 +44,11 @@ struct hanabiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                // 初当り確立
-                unitToggleWithQuestion(enable: self.$firstEnable, title: "初当り確率") {
+                // 打ち始めボーナス確率
+                unitToggleWithQuestion(enable: self.$startEnable, title: "打ち始めボーナス確率") {
                     unitExView5body2image(
-                        title: "初当り確率",
-                        textBody1: "・BIG,REG確率を計算要素に加えます"
-                    )
-                }
-                
-                // 通常中小役確率
-                unitToggleWithQuestion(enable: self.$normalKoyakuEnable, title: "通常中小役確率") {
-                    unitExView5body2image(
-                        title: "通常中小役確率",
-                        textBody1: "・以下の通常中小役確率を計算要素に加えます",
-                        textBody2: "風鈴A\n風鈴B\n氷A\nチェリーA2\nチェリーB"
-                    )
-                }
-                
-                // RTハズレ確率
-                unitToggleWithQuestion(enable: self.$rtHazureEnable, title: "RT中ハズレ確率") {
-                    unitExView5body2image(
-                        title: "RT中ハズレ確率",
-                        textBody1: "・花火チャレンジ中、花火GAME中のハズレ確率を計算要素に加えます"
-                    )
-                }
-                
-                // BB中小役確率
-                unitToggleWithQuestion(enable: self.$bbKoyakuEnable, title: "BB中小役確率") {
-                    unitExView5body2image(
-                        title: "BB中小役確率",
-                        textBody1: "・BB中の風鈴A・B、バラケ目確率を計算要素に加えます"
-                    )
-                }
-                
-                // RB中小役確率
-                unitToggleWithQuestion(enable: self.$rbKoyakuEnable, title: "RB中小役確率") {
-                    unitExView5body2image(
-                        title: "RB中小役確率",
-                        textBody1: "・RB中の1枚役、バラケ目確率を計算要素に加えます"
+                        title: "打ち始めボーナス確率",
+                        textBody1: "・打ち始め時点でのBIG,REG確率を計算要素に加えます",
                     )
                 }
             }
@@ -151,93 +114,15 @@ struct hanabiViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ボーナス確率
         var logPostBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.firstEnable {
+        if self.startEnable {
             logPostBonus = logPostDenoMulti(
                 countList: [
-                    hanabi.totalBig,
-                    hanabi.totalReg,
+                    hanabi.startBig,
+                    hanabi.startReg,
                 ], denoList: [
                     hanabi.ratioBig,
                     hanabi.ratioReg,
-                ], bigNumber: hanabi.totalGame
-            )
-        }
-        
-        // 小役確率
-        var logPostNormalKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.normalKoyakuEnable {
-            logPostNormalKoyaku = logPostDenoMulti(
-                countList: [
-                    hanabi.normalKoyakuCountBellA,
-                    hanabi.normalKoyakuCountBellB,
-                    hanabi.normalKoyakuCountKohriA,
-                    hanabi.normalKoyakuCountCherryA2,
-                    hanabi.normalKoyakuCountCherryB,
-                ], denoList: [
-                    hanabi.ratioBellA,
-                    hanabi.ratioBellB,
-                    hanabi.ratioKohriA,
-                    hanabi.ratioCherryA2,
-                    hanabi.ratioCherryB,
-                ], bigNumber: hanabi.playGame
-            )
-        }
-        
-        // RT中ハズレ確率
-        var logPostRtHazureChallenge: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        var logPostRtHazureGame: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.rtHazureEnable {
-            logPostRtHazureChallenge = logPostDenoBino(
-                ratio: hanabi.ratioHazureChallenge,
-                Count: hanabi.hazureCountChallenge,
-                bigNumber: hanabi.challengeGame
-            )
-            logPostRtHazureGame = logPostDenoBino(
-                ratio: hanabi.ratioHazureGame,
-                Count: hanabi.hazureCountGame,
-                bigNumber: hanabi.hanabiGame,
-            )
-        }
-        
-        // BB中小役
-        var logPostBbKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        var logPostBbKoyakuA: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        var logPostBbKoyakuB: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.bbKoyakuEnable {
-            logPostBbKoyaku = logPostDenoMulti(
-                countList: [
-                    hanabi.bbCountBellA,
-//                    hanabi.bbCountBellB,
-//                    hanabi.bbCountBarake,
-                ], denoList: [
-                    hanabi.ratioBbBellA,
-//                    hanabi.ratioBbBellB,
-//                    hanabi.ratioBbBarake,
-                ], bigNumber: hanabi.bbCountGame
-            )
-            logPostBbKoyakuA = logPostDenoBino(
-                ratio: hanabi.ratioBbBellA,
-                Count: hanabi.bbCountBellA,
-                bigNumber: hanabi.bbCountGame
-            )
-            logPostBbKoyakuB = logPostDenoBino(
-                ratio: hanabi.ratioBbBellB,
-                Count: hanabi.bbCountBellB,
-                bigNumber: hanabi.bbCountGame
-            )
-        }
-        
-        // RB中小役確率
-        var logPostRbKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.rbKoyakuEnable {
-            logPostRbKoyaku = logPostDenoMulti(
-                countList: [
-                    hanabi.rbCount1Mai,
-                    hanabi.rbCountBarake,
-                ], denoList: [
-                    hanabi.ratioRb1Mai,
-                    hanabi.ratioRbBarake,
-                ], bigNumber: hanabi.rbCountGame
+                ], bigNumber: hanabi.startGame
             )
         }
         
@@ -266,13 +151,6 @@ struct hanabiViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
-            logPostNormalKoyaku,
-            logPostRtHazureChallenge,
-            logPostRtHazureGame,
-            logPostBbKoyaku,
-//            logPostBbKoyakuA,
-//            logPostBbKoyakuB,
-            logPostRbKoyaku,
             
             logPostTrophy,
             logPostBefore,
@@ -301,7 +179,7 @@ struct hanabiViewBayes: View {
 }
 
 #Preview {
-    hanabiViewBayes(
+    hanabiViewBayesStart(
         hanabi: Hanabi(),
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
