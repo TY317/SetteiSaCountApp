@@ -21,3 +21,19 @@ struct tipVer3190UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+
+// //////////////////
+// Tip：鉄拳　終了画面示唆判明
+// //////////////////
+struct tipVer3190TekkenScreen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("赤背景画面の示唆が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

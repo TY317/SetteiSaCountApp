@@ -319,6 +319,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 hanabiisUnlocked = false
                 hanabiMachineIconBadge = "new"
+                tekken6MachineIconBadge = "update"
+                tekken6MenuScreenBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
