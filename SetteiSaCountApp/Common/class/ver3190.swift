@@ -53,3 +53,19 @@ struct tipVer3190KokakukidotaiCzScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：無職転生　本気ボーナス確率
+// //////////////////
+struct tipVer3190MushotenHonki: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("本気ボーナス当選の設定差が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

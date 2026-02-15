@@ -323,6 +323,8 @@ class commonVar: ObservableObject {
                 tekken6MenuScreenBadge = "update"
                 kokakukidotaiMachineIconBadge = "update"
                 kokakukidotaiMenuCzBadge = "update"
+                mushotenMachineIconBadge = "update"
+                mushotenMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
