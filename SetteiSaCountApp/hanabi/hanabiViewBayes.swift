@@ -18,6 +18,8 @@ struct hanabiViewBayes: View {
     @State var rtHazureEnable: Bool = true
     @State var bbKoyakuEnable: Bool = true
     @State var rbKoyakuEnable: Bool = true
+    @State var repChallengeEnable: Bool = true
+    @State var repGameEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -88,6 +90,12 @@ struct hanabiViewBayes: View {
                         textBody1: "・RB中の1枚役、バラケ目確率を計算要素に加えます"
                     )
                 }
+                
+                // 花火チャレンジ中 通常リプレイ確率
+                unitToggleWithQuestion(enable: self.$repChallengeEnable, title: "花火チャレンジ中 通常リプレイ確率")
+                
+                // 花火GAME中 RTリプレイ確率
+                unitToggleWithQuestion(enable: self.$repGameEnable, title: "花火GAME中 RTリプレイ確率")
             }
             
             // //// STEP3
@@ -201,30 +209,30 @@ struct hanabiViewBayes: View {
         
         // BB中小役
         var logPostBbKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        var logPostBbKoyakuA: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        var logPostBbKoyakuB: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        var logPostBbKoyakuA: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        var logPostBbKoyakuB: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.bbKoyakuEnable {
             logPostBbKoyaku = logPostDenoMulti(
                 countList: [
                     hanabi.bbCountBellA,
-//                    hanabi.bbCountBellB,
-//                    hanabi.bbCountBarake,
+                    hanabi.bbCountBellB,
+                    hanabi.bbCountBarake,
                 ], denoList: [
                     hanabi.ratioBbBellA,
-//                    hanabi.ratioBbBellB,
-//                    hanabi.ratioBbBarake,
+                    hanabi.ratioBbBellB,
+                    hanabi.ratioBbBarake,
                 ], bigNumber: hanabi.bbCountGame
             )
-            logPostBbKoyakuA = logPostDenoBino(
-                ratio: hanabi.ratioBbBellA,
-                Count: hanabi.bbCountBellA,
-                bigNumber: hanabi.bbCountGame
-            )
-            logPostBbKoyakuB = logPostDenoBino(
-                ratio: hanabi.ratioBbBellB,
-                Count: hanabi.bbCountBellB,
-                bigNumber: hanabi.bbCountGame
-            )
+//            logPostBbKoyakuA = logPostDenoBino(
+//                ratio: hanabi.ratioBbBellA,
+//                Count: hanabi.bbCountBellA,
+//                bigNumber: hanabi.bbCountGame
+//            )
+//            logPostBbKoyakuB = logPostDenoBino(
+//                ratio: hanabi.ratioBbBellB,
+//                Count: hanabi.bbCountBellB,
+//                bigNumber: hanabi.bbCountGame
+//            )
         }
         
         // RB中小役確率
@@ -238,6 +246,26 @@ struct hanabiViewBayes: View {
                     hanabi.ratioRb1Mai,
                     hanabi.ratioRbBarake,
                 ], bigNumber: hanabi.rbCountGame
+            )
+        }
+        
+        // 花火チャレンジ中　通常リプレイ確率
+        var logPostRepChallenge: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.repChallengeEnable {
+            logPostRepChallenge = logPostDenoBino(
+                ratio: hanabi.ratioChallengeReplayNormal,
+                Count: hanabi.replayCountChallenge,
+                bigNumber: hanabi.challengeGame
+            )
+        }
+        
+        // 花火チャレンジ中　通常リプレイ確率
+        var logPostRepGame: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.repGameEnable {
+            logPostRepGame = logPostDenoBino(
+                ratio: hanabi.ratioGameReplayRt,
+                Count: hanabi.replayCountGame,
+                bigNumber: hanabi.hanabiGame
             )
         }
         
@@ -273,6 +301,8 @@ struct hanabiViewBayes: View {
 //            logPostBbKoyakuA,
 //            logPostBbKoyakuB,
             logPostRbKoyaku,
+            logPostRepChallenge,
+            logPostRepGame,
             
             logPostTrophy,
             logPostBefore,

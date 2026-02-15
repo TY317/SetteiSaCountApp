@@ -28,31 +28,6 @@ struct hanabiViewTop: View {
                     unitLabelMachineTopTitle(machineName: hanabi.machineName)
                 }
                 
-//                Section {
-//                    // 通常時
-//                    NavigationLink(destination: hanabiViewKen(
-//                        hanabi: hanabi,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "magnifyingglass",
-//                            textBody: "空き台チェック",
-//                            badgeStatus: common.hanabiMenuKenBadge,
-//                        )
-//                    }
-//                } header: {
-//                    HStack {
-//                        Text("見")
-//                        unitToolbarButtonQuestion {
-//                            unitExView5body2image(
-//                                title: "見",
-//                                textBody1: "・空き台の設定判別やベル逆算はこちらから"
-//                            )
-//                        }
-//                    }
-//                }
-                
                 Section {
                     // 打ち始めデータ入力
                     NavigationLink(destination: hanabiViewStart(
@@ -75,8 +50,21 @@ struct hanabiViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "arcade.stick.and.arrow.down",
-                            textBody: "プレイデータ入力",
+                            textBody: "ユニメモデータ入力",
                             badgeStatus: common.hanabiMenuPlayBadge,
+                        )
+                    }
+                    
+                    // RTリプレイ
+                    NavigationLink(destination: hanabiViewRtReplay(
+                        hanabi: hanabi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "r.circle.fill",
+                            textBody: "RT中リプレイ",
+                            badgeStatus: common.hanabiMenuRtReplayBadge,
                         )
                     }
                 }
@@ -214,6 +202,8 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory1.rbCount1MaiDeno = hanabi.rbCount1MaiDeno
         hanabiMemory1.rbCountBarake = hanabi.rbCountBarake
         hanabiMemory1.rbCountGame = hanabi.rbCountGame
+        hanabiMemory1.replayCountChallenge = hanabi.replayCountChallenge
+        hanabiMemory1.replayCountGame = hanabi.replayCountGame
     }
     func saveMemory2() {
         hanabiMemory2.startGame = hanabi.startGame
@@ -246,6 +236,8 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory2.rbCount1MaiDeno = hanabi.rbCount1MaiDeno
         hanabiMemory2.rbCountBarake = hanabi.rbCountBarake
         hanabiMemory2.rbCountGame = hanabi.rbCountGame
+        hanabiMemory2.replayCountChallenge = hanabi.replayCountChallenge
+        hanabiMemory2.replayCountGame = hanabi.replayCountGame
     }
     func saveMemory3() {
         hanabiMemory3.startGame = hanabi.startGame
@@ -278,6 +270,8 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory3.rbCount1MaiDeno = hanabi.rbCount1MaiDeno
         hanabiMemory3.rbCountBarake = hanabi.rbCountBarake
         hanabiMemory3.rbCountGame = hanabi.rbCountGame
+        hanabiMemory3.replayCountChallenge = hanabi.replayCountChallenge
+        hanabiMemory3.replayCountGame = hanabi.replayCountGame
     }
 }
 
@@ -339,6 +333,8 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCount1MaiDeno = hanabiMemory1.rbCount1MaiDeno
         hanabi.rbCountBarake = hanabiMemory1.rbCountBarake
         hanabi.rbCountGame = hanabiMemory1.rbCountGame
+        hanabi.replayCountChallenge = hanabiMemory1.replayCountChallenge
+        hanabi.replayCountGame = hanabiMemory1.replayCountGame
     }
     func loadMemory2() {
         hanabi.startGame = hanabiMemory2.startGame
@@ -371,6 +367,8 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCount1MaiDeno = hanabiMemory2.rbCount1MaiDeno
         hanabi.rbCountBarake = hanabiMemory2.rbCountBarake
         hanabi.rbCountGame = hanabiMemory2.rbCountGame
+        hanabi.replayCountChallenge = hanabiMemory2.replayCountChallenge
+        hanabi.replayCountGame = hanabiMemory2.replayCountGame
     }
     func loadMemory3() {
         hanabi.startGame = hanabiMemory3.startGame
@@ -403,6 +401,8 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCount1MaiDeno = hanabiMemory3.rbCount1MaiDeno
         hanabi.rbCountBarake = hanabiMemory3.rbCountBarake
         hanabi.rbCountGame = hanabiMemory3.rbCountGame
+        hanabi.replayCountChallenge = hanabiMemory3.replayCountChallenge
+        hanabi.replayCountGame = hanabiMemory3.replayCountGame
     }
 }
 

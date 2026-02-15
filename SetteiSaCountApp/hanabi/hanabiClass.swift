@@ -130,6 +130,21 @@ class Hanabi: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // RTリプレイ
+    // --------
+    let ratioChallengeReplayNormal: [Double] = [3.2,3.4,3.6,3.7]
+    let ratioGameReplayRt: [Double] = [1.9,2.0,2.1,2.1]
+    @AppStorage("hanabiReplayCountChallenge") var replayCountChallenge: Int = 0
+    @AppStorage("hanabiReplayCountGame") var replayCountGame: Int = 0
+    func resetRtReplay() {
+        challengeGame = 0
+        hanabiGame = 0
+        replayCountChallenge = 0
+        replayCountGame = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -140,6 +155,7 @@ class Hanabi: ObservableObject {
     func resetAll() {
         resetStart()
         resetPlay()
+        resetRtReplay()
     }
 }
 
@@ -174,6 +190,8 @@ class HanabiMemory1: ObservableObject {
     @AppStorage("hanabiRbCount1MaiDenoMemory1") var rbCount1MaiDeno: Double = 0.0
     @AppStorage("hanabiRbCountBarakeMemory1") var rbCountBarake: Int = 0
     @AppStorage("hanabiRbCountGameMemory1") var rbCountGame: Int = 0
+    @AppStorage("hanabiReplayCountChallengeMemory1") var replayCountChallenge: Int = 0
+    @AppStorage("hanabiReplayCountGameMemory1") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory1") var memo = ""
     @AppStorage("hanabiDateMemory1") var dateDouble = 0.0
 }
@@ -209,6 +227,8 @@ class HanabiMemory2: ObservableObject {
     @AppStorage("hanabiRbCount1MaiDenoMemory2") var rbCount1MaiDeno: Double = 0.0
     @AppStorage("hanabiRbCountBarakeMemory2") var rbCountBarake: Int = 0
     @AppStorage("hanabiRbCountGameMemory2") var rbCountGame: Int = 0
+    @AppStorage("hanabiReplayCountChallengeMemory2") var replayCountChallenge: Int = 0
+    @AppStorage("hanabiReplayCountGameMemory2") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory2") var memo = ""
     @AppStorage("hanabiDateMemory2") var dateDouble = 0.0
 }
@@ -244,6 +264,8 @@ class HanabiMemory3: ObservableObject {
     @AppStorage("hanabiRbCount1MaiDenoMemory3") var rbCount1MaiDeno: Double = 0.0
     @AppStorage("hanabiRbCountBarakeMemory3") var rbCountBarake: Int = 0
     @AppStorage("hanabiRbCountGameMemory3") var rbCountGame: Int = 0
+    @AppStorage("hanabiReplayCountChallengeMemory3") var replayCountChallenge: Int = 0
+    @AppStorage("hanabiReplayCountGameMemory3") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory3") var memo = ""
     @AppStorage("hanabiDateMemory3") var dateDouble = 0.0
 }

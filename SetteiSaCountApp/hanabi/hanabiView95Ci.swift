@@ -222,6 +222,48 @@ struct hanabiView95Ci: View {
                 )
             )
             .tag(10)
+            
+            // 花火チャレンジ中 通常リプレイ
+            unitListSection95Ci(
+                grafTitle: "花火チャレンジ中\n通常リプレイ回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hanabi.replayCountChallenge,
+                        bigNumber: $hanabi.challengeGame,
+                        setting1Denominate: hanabi.ratioChallengeReplayNormal[0],
+                        setting2Denominate: hanabi.ratioChallengeReplayNormal[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: hanabi.ratioChallengeReplayNormal[2],
+                        setting6Denominate: hanabi.ratioChallengeReplayNormal[3]
+                    )
+                )
+            )
+            .tag(11)
+            
+            // 花火GAME中 通常リプレイ
+            unitListSection95Ci(
+                grafTitle: "花火GAME中\nRTリプレイ回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $hanabi.replayCountGame,
+                        bigNumber: $hanabi.hanabiGame,
+                        setting1Denominate: hanabi.ratioGameReplayRt[0],
+                        setting2Denominate: hanabi.ratioGameReplayRt[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: hanabi.ratioGameReplayRt[2],
+                        setting6Denominate: hanabi.ratioGameReplayRt[3]
+                    )
+                )
+            )
+            .tag(12)
         }
         // //// firebaseログ
         .onAppear {

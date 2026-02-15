@@ -134,6 +134,7 @@ class commonVar: ObservableObject {
     @AppStorage("hanabiMenuKenBadge") var hanabiMenuKenBadge: String = "none"
     @AppStorage("hanabiMenuStartBadge") var hanabiMenuStartBadge: String = "none"
     @AppStorage("hanabiMenuPlayBadge") var hanabiMenuPlayBadge: String = "none"
+    @AppStorage("hanabiMenuRtReplayBadge") var hanabiMenuRtReplayBadge: String = "none"
     
     // ---- 炎炎２
     @AppStorage("enen2isUnlocked") var enen2isUnlocked: Bool = true
