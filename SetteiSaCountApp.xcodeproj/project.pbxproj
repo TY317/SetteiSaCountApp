@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1084,6 +1084,9 @@
 		0FD357CF2DB378E60069BD1A /* yoshimuneTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */; };
 		0FD357D12DB37CD70069BD1A /* yoshimuneViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */; };
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
+		0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
+		0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
+		0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
@@ -2369,6 +2372,7 @@
 		0FD357CE2DB378E60069BD1A /* yoshimuneTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableFirstHit.swift; sourceTree = "<group>"; };
 		0FD357D02DB37CD70069BD1A /* yoshimuneViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneViewScreen.swift; sourceTree = "<group>"; };
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
+		0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiSubViewCzScreen.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
@@ -2619,17 +2623,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = SCPreview;
-			sourceTree = "<group>";
-		};
+		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SCPreview; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4336,6 +4330,7 @@
 				0F19D4392F2A3A6C004A6D9F /* kokakukidotaiViewScreen.swift */,
 				0F19D43B2F2B9017004A6D9F /* kokakukidotaiViewCz.swift */,
 				0FDE0F1C2F2F460F00B1DA18 /* kokakukidotaiTableMode.swift */,
+				0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -5237,9 +5232,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5254,9 +5253,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5293,9 +5296,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5310,9 +5317,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6112,6 +6123,7 @@
 				0F8090422C83E0780061480F /* hokutoViewNormalKoyaku.swift in Sources */,
 				0FEC57D92D97890400FF1024 /* rslTableFirstHit.swift in Sources */,
 				0F8090462C849DC00061480F /* hokutoViewBbBell.swift in Sources */,
+				0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0245B2CE82EC8004B3FD5 /* mhrViewTop.swift in Sources */,
 				0F9D9BF32EA0C44700450B23 /* vvv2ViewTop.swift in Sources */,
 				0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */,
@@ -6526,9 +6538,11 @@
 				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
 				0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
+				0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
 				0F45A5C92F04BB3B0022E355 /* tekkenTableMode.swift in Sources */,
 				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
+				0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */,
 				0FA662F72F23292C00F3259F /* hokutoTenseiTableKokakuSisa.swift in Sources */,
 				0F45A5D02F0501A60022E355 /* tekken6TextScreenCaution.swift in Sources */,
 				0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */,

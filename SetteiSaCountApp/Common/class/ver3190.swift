@@ -37,3 +37,19 @@ struct tipVer3190TekkenScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊　CZ終了画面示唆判明
+// //////////////////
+struct tipVer3190KokakukidotaiCzScreen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("CZ終了画面の一部示唆が判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

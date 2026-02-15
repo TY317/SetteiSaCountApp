@@ -127,6 +127,9 @@ struct kokakukidotaiViewScreen: View {
             } header: {
                 unitLabelHeaderScreenCount()
             }
+            
+            // CZ終了画面の示唆
+            kokakukidotaiSubViewCzScreen()
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuScreenBadge)
