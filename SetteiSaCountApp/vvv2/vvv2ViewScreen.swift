@@ -131,7 +131,7 @@ struct vvv2ViewScreen: View {
                 unitLinkButtonViewBuilder(sheetTitle: "終了画面振り分け") {
                     vvv2TableScreenRatio(vvv2: vvv2)
                 }
-                .popoverTip(tipVer3150vvv2ScreenRatio())
+//                .popoverTip(tipVer3150vvv2ScreenRatio())
                 
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
