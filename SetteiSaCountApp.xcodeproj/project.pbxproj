@@ -1093,6 +1093,7 @@
 		0FD974F22F4188E80067CED7 /* hanabiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE0F3E2F30B21400B1DA18 /* hanabiClass.swift */; };
 		0FD975002F43463C0067CED7 /* ver3200.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974FF2F43463C0067CED7 /* ver3200.swift */; };
 		0FD975032F4349B50067CED7 /* newKingHanaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975022F4349B50067CED7 /* newKingHanaViewTop.swift */; };
+		0FD975052F434DB40067CED7 /* newKingHanaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975042F434DB40067CED7 /* newKingHanaClass.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
@@ -2376,6 +2377,7 @@
 		0FD974EF2F4188A70067CED7 /* hanabiTableRtReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanabiTableRtReplay.swift; sourceTree = "<group>"; };
 		0FD974FF2F43463C0067CED7 /* ver3200.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3200.swift; sourceTree = "<group>"; };
 		0FD975022F4349B50067CED7 /* newKingHanaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewTop.swift; sourceTree = "<group>"; };
+		0FD975042F434DB40067CED7 /* newKingHanaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaClass.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
@@ -4568,6 +4570,7 @@
 			isa = PBXGroup;
 			children = (
 				0FD975022F4349B50067CED7 /* newKingHanaViewTop.swift */,
+				0FD975042F434DB40067CED7 /* newKingHanaClass.swift */,
 			);
 			path = newKingHana;
 			sourceTree = "<group>";
@@ -6335,6 +6338,7 @@
 				0F45A5AD2EFEB1E80022E355 /* hokutoTenseiView95Ci.swift in Sources */,
 				0F6BD7EA2D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift in Sources */,
 				0F80311D2C69B42A001F008E /* myFunction.swift in Sources */,
+				0FD975052F434DB40067CED7 /* newKingHanaClass.swift in Sources */,
 				0F868A1B2D44B70100D952D9 /* happyJugV3Ver2ViewJissenCount.swift in Sources */,
 				0F64DD682DC0C26C0027315D /* idolMasterViewTop.swift in Sources */,
 				0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */,
