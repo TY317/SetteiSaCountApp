@@ -111,6 +111,11 @@ class commonVar: ObservableObject {
     
     // //// ハナハナシリーズ
     @AppStorage("hanaSeriesBadge") var hanaSeriesBadge: String = "none"
+    // //// ニューキングハナハナ
+    @AppStorage("newKingHanaisUnlocked") var newKingHanaisUnlocked: Bool = true
+    @AppStorage("newKingHanaTempUnlockDateDouble") var newKingHanaTempUnlockDateDouble: Double = 0.0
+    @AppStorage("newKingHanaMachineIconBadge") var newKingHanaMachineIconBadge: String = "none"
+    @AppStorage("newKingHanaMenuShimaBadge") var newKingHanaMenuShimaBadge: String = "none"
     // //// スターハナハナ
     @AppStorage("starHanaMachineIconBadge") var starHanaMachineIconBadge: String = "none"
     @AppStorage("starHanaMenuShimaBadge") var starHanaMenuShimaBadge: String = "none"
@@ -326,7 +331,9 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                newKingHanaisUnlocked = false
+                hanaSeriesBadge = "new"
+                newKingHanaMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

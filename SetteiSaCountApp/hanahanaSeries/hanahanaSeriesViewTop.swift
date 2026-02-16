@@ -17,6 +17,7 @@ class hanahanaSeriesfavoriteSetVar: ObservableObject {
     @AppStorage("isSelectedKingHanahana") var isSelectedKingHanahana = true
     @AppStorage("isSelectedHanaTensho") var isSelectedHanaTensho = true
     @AppStorage("isSelectedStarHana") var isSelectedStarHana = true
+    @AppStorage("isSelectedNewKingHana") var isSelectedNewKingHana = true
     
 }
 
@@ -46,6 +47,23 @@ struct hanahanaSeriesViewTop: View {
                             .frame(height: 40)
                             .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
+                            // //// ハナビ、26年2月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedNewKingHana == false {
+                                
+                            } else {
+                                unitMachineIconLinkWithLock(
+                                    linkView: AnyView(newKingHanaViewTop(
+//                                        bayes: bayes,
+//                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("newKingHanaMachineIcon"),
+                                    machineName: "ニューキング",
+                                    isUnLocked: $common.newKingHanaisUnlocked,
+                                    tempUnlockDateDouble: $common.newKingHanaTempUnlockDateDouble,
+                                    badgeStatus: common.newKingHanaMachineIconBadge,
+                                )
+                            }
+                            
                             // //// スターハナハナ、25年1月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedStarHana == false {
                                 // 非表示
@@ -76,27 +94,6 @@ struct hanahanaSeriesViewTop: View {
                                     badgeStatus: common.draHanaSenkohMachineIconBadge,
                                     sfSymbolName: "bolt.fill",
                                 )
-//                                NavigationLink(destination: draHanaSenkohVer2ViewTop(
-//                                    bayes: bayes,
-//                                    viewModel: viewModel,
-//                                )) {
-//                                    VStack {
-//                                        ZStack {
-//                                            Image("machineImageDragonHanahanaSenkoh2")
-//                                                .resizable()
-//                                                .aspectRatio(contentMode: .fit)
-//                                                .cornerRadius(13.0)
-//                                                .padding(.horizontal, 4.0)
-//                                            Image(systemName: "bolt")
-//                                                .foregroundStyle(Color.gray)
-//                                                .font(.largeTitle)
-//                                        }
-//                                        Text("ドラゴン閃光")
-//                                            .font(.caption)
-//                                            .lineLimit(1)
-//                                            .foregroundStyle(Color.primary)
-//                                    }
-//                                }
                             }
                             
                             // //// キングハナハナ, 23年3月
@@ -113,27 +110,6 @@ struct hanahanaSeriesViewTop: View {
                                     badgeStatus: common.kingHanaMachineIconBadge,
                                     sfSymbolName: "crown.fill",
                                 )
-//                                NavigationLink(destination: kingHanaVer2ViewTop(
-////                                    ver391: ver391,
-//                                    bayes: bayes,
-//                                    viewModel: viewModel,
-//                                )) {
-//                                    VStack {
-//                                        ZStack {
-//                                            Rectangle()
-//                                                .foregroundStyle(Color(hue: 1.0, saturation: 0.683, brightness: 0.797).gradient.opacity(0.8))
-//                                                .cornerRadius(13.0)
-//                                                .padding(.horizontal, 4.0)
-//                                            Image(systemName: "crown.fill")
-//                                                .foregroundStyle(Color.secondary)
-//                                                .font(.largeTitle)
-//                                        }
-//                                        Text("キングハナハナ")
-//                                            .font(.caption)
-//                                            .lineLimit(1)
-//                                            .foregroundStyle(Color.primary)
-//                                    }
-//                                }
                             }
                             
                             // //// ハナハナ鳳凰天翔, 22年1月
@@ -159,6 +135,26 @@ struct hanahanaSeriesViewTop: View {
                     // //// 機種リスト表示部分
                     List {
                         Section {
+                            // //// ニューキングハナハナ、26年1月
+                            if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedNewKingHana == false {
+                                
+                            } else {
+                                unitMachineListLinkWithLock(
+                                    linkView: AnyView(newKingHanaViewTop(
+//                                        bayes: bayes,
+//                                        viewModel: viewModel,
+                                    )),
+                                    iconImage: Image("newKingHanaMachineIcon"),
+                                    machineName: "ニューキングハナハナV",
+                                    makerName: "パイオニア",
+                                    releaseYear: 2026,
+                                    releaseMonth: 1,
+                                    isUnLocked: $common.newKingHanaisUnlocked,
+                                    tempUnlockDateDouble: $common.newKingHanaTempUnlockDateDouble,
+                                    badgeStatus: common.newKingHanaMachineIconBadge,
+                                )
+                            }
+                            
                             // //// スターハナハナ、25年1月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedStarHana == false {
                                 // 非表示
@@ -195,11 +191,6 @@ struct hanahanaSeriesViewTop: View {
                                     badgeStatus: common.draHanaSenkohMachineIconBadge,
                                     sfSymbolName: "bolt.fill"
                                 )
-//                                machineListDragonHanahanaSenkoh(
-////                                    ver391: ver391,
-//                                    bayes: bayes,
-//                                    viewModel: viewModel,
-//                                )
                             }
                             
                             // //// キングハナハナ, 23年3月
@@ -217,14 +208,8 @@ struct hanahanaSeriesViewTop: View {
                                     releaseYear: 2023,
                                     releaseMonth: 3,
                                     badgeStatus: common.kingHanaMachineIconBadge,
-//                                    badgeStatus: ver391.starHanaMachineIconBadge,
                                     sfSymbolName: "crown.fill"
                                 )
-//                                machineListKingHanahana(
-////                                    ver391: ver391,
-//                                    bayes: bayes,
-//                                    viewModel: viewModel,
-//                                )
                             }
                             
                             // //// ハナハナ鳳凰天翔, 22年1月
@@ -242,7 +227,6 @@ struct hanahanaSeriesViewTop: View {
                                     releaseYear: 2022,
                                     releaseMonth: 1,
                                     badgeStatus: common.hanaTenshoMachineIconBadge,
-//                                    badgeStatus: ver391.hanaTenshoMachineIconBadge,
                                 )
                             }
                             
@@ -319,19 +303,35 @@ struct hanahanaSeriesViewTop: View {
             // //// ツールバーボタン
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    HStack {
-                        // 表示モード切り替えボタン
+                    // 表示モード切り替えボタン
+                    Menu {
                         Button {
-                            common.iconDisplayMode.toggle()
+                            common.iconDisplayMode = true
                         } label: {
-                            if common.iconDisplayMode {
-                                Image(systemName: "list.bullet")
-                            }
-                            else {
-                                Image(systemName: "rectangle.grid.2x2")
-//                                    .popoverTip(tipUnitButtonIconDisplayMode())
-                            }
+                            Label("アイコン表示モード", systemImage: common.iconDisplayMode == true ? "checkmark" : "rectangle.grid.2x2")
                         }
+                        Button {
+                            common.iconDisplayMode = false
+                        } label: {
+                            Label("リスト表示モード", systemImage: common.iconDisplayMode == false ? "checkmark" : "list.bullet")
+                        }
+                    } label: {
+                        Image(systemName: "square.stack.3d.down.right")
+                    }
+                }
+                ToolbarItem(placement: .automatic) {
+//                    HStack {
+//                        // 表示モード切り替えボタン
+//                        Button {
+//                            common.iconDisplayMode.toggle()
+//                        } label: {
+//                            if common.iconDisplayMode {
+//                                Image(systemName: "list.bullet")
+//                            }
+//                            else {
+//                                Image(systemName: "rectangle.grid.2x2")
+//                            }
+//                        }
                         // お気に入り設定ボタン
                         Button(action: {
                             isShowFavoriteSettingView.toggle()
@@ -341,15 +341,10 @@ struct hanahanaSeriesViewTop: View {
                         .sheet(isPresented: $isShowFavoriteSettingView, content: {
                             hanahanaSeriesfavoriteSettingView()
                         })
-                    }
+//                    }
                 }
             }
         }
-//        .onAppear {
-//            if ver220.hanaSerieseNewBadgeStatus != "none" {
-//                ver220.hanaSerieseNewBadgeStatus = "none"
-//            }
-//        }
     }
 }
 
@@ -364,6 +359,8 @@ struct hanahanaSeriesfavoriteSettingView: View {
     var body: some View {
         NavigationView {
             List {
+                // ニューキングハナハナ、26年1月
+                Toggle("ニューキングハナハナ", isOn: $favoriteSet.isSelectedNewKingHana)
                 // スターハナハナ、25年1月
                 Toggle("スターハナハナ", isOn: $favoriteSet.isSelectedStarHana)
                 // ドラゴンハナハナ, 23年12月
