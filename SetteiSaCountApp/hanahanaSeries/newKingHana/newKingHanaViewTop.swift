@@ -23,7 +23,9 @@ struct newKingHanaViewTop: View {
                 Section {
                     
                 } header: {
-                    unitLabelMachineTopTitle(machineName: newKingHana.machineName)
+                    unitLabelMachineTopTitle(
+                        machineName: newKingHana.machineName
+                    )
                 }
                 
                 // //// 見

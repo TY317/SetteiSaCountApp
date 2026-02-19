@@ -104,6 +104,7 @@ struct starHanaViewBayes: View {
                 settingList: self.settingList,
                 resultGuess: self.resultGuess,
                 payoutList: self.payoutList,
+                payOutDicimal: 0,
             )
                 .presentationDetents([.large])
         }

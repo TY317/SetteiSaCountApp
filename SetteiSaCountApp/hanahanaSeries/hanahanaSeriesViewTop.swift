@@ -53,8 +53,8 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachineIconLinkWithLock(
                                     linkView: AnyView(newKingHanaViewTop(
-//                                        bayes: bayes,
-//                                        viewModel: viewModel,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
                                     )),
                                     iconImage: Image("newKingHanaMachineIcon"),
                                     machineName: "ニューキング",
@@ -141,8 +141,8 @@ struct hanahanaSeriesViewTop: View {
                             } else {
                                 unitMachineListLinkWithLock(
                                     linkView: AnyView(newKingHanaViewTop(
-//                                        bayes: bayes,
-//                                        viewModel: viewModel,
+                                        bayes: bayes,
+                                        viewModel: viewModel,
                                     )),
                                     iconImage: Image("newKingHanaMachineIcon"),
                                     machineName: "ニューキングハナハナV",
