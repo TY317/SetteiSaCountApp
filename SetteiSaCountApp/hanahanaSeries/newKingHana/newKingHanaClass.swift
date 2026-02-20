@@ -86,6 +86,10 @@ class NewKingHana: ObservableObject {
         kenBonusCountSum = kenBigCountInput + kenRegCountInput
     }
     
+    func kenToStartRecord() {
+        
+    }
+    
     func resetKenDataInput() {
         kenGameIput = 0
         kenBigCountInput = 0
@@ -94,6 +98,54 @@ class NewKingHana: ObservableObject {
         kenBonusCountSum = 0
         kenBellBackCalculationCount = 0
         minusCheck = false
+    }
+    
+    // --------
+    // 実戦 打ち始めデータ
+    // --------
+    @AppStorage("newKingHanaStartBackCalculationEnable") var startBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaStartGames") var startGameInput: Int = 0
+    @AppStorage("newKingHanaStartBigCountInput") var startBigCountInput: Int = 0
+    @AppStorage("newKingHanaStartRegCountInput") var startRegCountInput: Int = 0
+    @AppStorage("newKingHanaStartCoinDifferenceInput") var startCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaStartBonusCountSum") var startBonusCountSum: Int = 0
+    @AppStorage("newKingHanaStartBellBackCalculationCount") var startBellBackCalculationCount: Int = 0
+    
+    func startBonusSumFunc() {
+        startBonusCountSum = startBigCountInput + startRegCountInput
+    }
+    
+    func resetStartData() {
+        startGameInput = 0
+        startBigCountInput = 0
+        startRegCountInput = 0
+        startCoinDifferenceInput = 0
+        minusCheck = false
+    }
+    
+    // --------
+    // 実戦
+    // --------
+    @AppStorage("newKingHanaBellCount") var bellCount = 0
+    @AppStorage("newKingHanaBigCount") var bigCount = 0
+    @AppStorage("newKingHanaRegCount") var regCount = 0
+    
+    func hanaReset() {
+        minusCheck = false
+    }
+    
+    // --------
+    // 実戦 トータル結果
+    // --------
+    @AppStorage("newKingHanaTotalBigCount") var totalBigCount = 0
+    @AppStorage("newKingHanaTotalRegCount") var totalRegCount = 0
+    @AppStorage("newKingHanaTotalBellCount") var totalBellCount = 0
+    @AppStorage("newKingHanaTotalBonusCountSum") var totalBonusCountSum = 0
+    
+    func totalBonusSumFunc() {
+        totalBigCount = startBigCountInput + bigCount
+        totalRegCount = startRegCountInput + regCount
+        totalBonusCountSum = totalBigCount + totalRegCount
     }
     
     // ////////////////////////

@@ -1104,6 +1104,10 @@
 		0FD975112F48C27D0067CED7 /* newKingHanaViewShimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD9750F2F48C27D0067CED7 /* newKingHanaViewShimaData.swift */; };
 		0FD975132F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975122F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift */; };
 		0FD975142F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975122F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift */; };
+		0FD975162F4922980067CED7 /* newKingHanaViewJissenStartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975152F4922980067CED7 /* newKingHanaViewJissenStartData.swift */; };
+		0FD975172F4922980067CED7 /* newKingHanaViewJissenStartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975152F4922980067CED7 /* newKingHanaViewJissenStartData.swift */; };
+		0FD975192F4928970067CED7 /* newKingHanaView95CiStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975182F4928970067CED7 /* newKingHanaView95CiStart.swift */; };
+		0FD9751A2F4928970067CED7 /* newKingHanaView95CiStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD975182F4928970067CED7 /* newKingHanaView95CiStart.swift */; };
 		0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */; };
 		0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */; };
 		0FDB728F2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */; };
@@ -2393,6 +2397,8 @@
 		0FD9750C2F48BDF80067CED7 /* newKingHanaView95CiKen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaView95CiKen.swift; sourceTree = "<group>"; };
 		0FD9750F2F48C27D0067CED7 /* newKingHanaViewShimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewShimaData.swift; sourceTree = "<group>"; };
 		0FD975122F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaVer2View95CiShima.swift; sourceTree = "<group>"; };
+		0FD975152F4922980067CED7 /* newKingHanaViewJissenStartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewJissenStartData.swift; sourceTree = "<group>"; };
+		0FD975182F4928970067CED7 /* newKingHanaView95CiStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaView95CiStart.swift; sourceTree = "<group>"; };
 		0FDB728A2EE45C2B0075B6A4 /* bakemonoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewScreen.swift; sourceTree = "<group>"; };
 		0FDB728C2EE504D70075B6A4 /* bakemonoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewFirstHit.swift; sourceTree = "<group>"; };
 		0FDB728E2EE5753B0075B6A4 /* unitToolbarButtonAutoGameCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitToolbarButtonAutoGameCount.swift; sourceTree = "<group>"; };
@@ -4591,6 +4597,8 @@
 				0FD9750C2F48BDF80067CED7 /* newKingHanaView95CiKen.swift */,
 				0FD9750F2F48C27D0067CED7 /* newKingHanaViewShimaData.swift */,
 				0FD975122F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift */,
+				0FD975152F4922980067CED7 /* newKingHanaViewJissenStartData.swift */,
+				0FD975182F4928970067CED7 /* newKingHanaView95CiStart.swift */,
 			);
 			path = newKingHana;
 			sourceTree = "<group>";
@@ -5780,6 +5788,7 @@
 				0F8689E42D3CE9FC00D952D9 /* myJug5Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868AB02D583ACD00D952D9 /* funky2Ver2ViewJissenCount.swift in Sources */,
 				0F6FB8EE2DE72D6D00207855 /* bangdreamTableFirstHit.swift in Sources */,
+				0FD9751A2F4928970067CED7 /* newKingHanaView95CiStart.swift in Sources */,
 				0FDBDACC2E87A7B600197B94 /* creaTableKoyakuPattern.swift in Sources */,
 				0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */,
 				0FB209522E0FB1810029D940 /* watakonView95Ci.swift in Sources */,
@@ -6531,6 +6540,7 @@
 				0FDF23892E53585700249CAC /* tokyoGhoulViewBayes.swift in Sources */,
 				0FB2095F2E101F6F0029D940 /* dmc5TableDmcBonus.swift in Sources */,
 				0F9D9C3F2EA4F75200450B23 /* railgunClass.swift in Sources */,
+				0FD975162F4922980067CED7 /* newKingHanaViewJissenStartData.swift in Sources */,
 				0F89357E2E1E968500BF6FBE /* watakonViewBonusScreen.swift in Sources */,
 				0F868A992D578E9400D952D9 /* mrJugVer2ViewJissenCount.swift in Sources */,
 				0FD357322DA1511D0069BD1A /* hanahanaCommonTableRegSideLamp.swift in Sources */,
@@ -6616,6 +6626,7 @@
 				0F51EC012F0E817500526F6D /* hokutoTenseiTableAbeshi.swift in Sources */,
 				0F03BD3E2F0B98A400222339 /* shakeTableKoyakuPattern.swift in Sources */,
 				0F51EC042F11D5D200526F6D /* hokutTenseiHitstoryTable.swift in Sources */,
+				0FD975172F4922980067CED7 /* newKingHanaViewJissenStartData.swift in Sources */,
 				0F45A60B2F0903C40022E355 /* mushotenSectionCzPercent.swift in Sources */,
 				0F45A5D32F0502E10022E355 /* tekken6TableScreen.swift in Sources */,
 				0F45A5DC2F0740B90022E355 /* hokutoTenseiTableMode.swift in Sources */,
@@ -6637,6 +6648,7 @@
 				0FD974F12F4188AD0067CED7 /* hanabiTableRtReplay.swift in Sources */,
 				0FDE0F1F2F2F471A00B1DA18 /* unitTableGameIndex.swift in Sources */,
 				0F03BD452F0BDA9B00222339 /* shakeTableBt.swift in Sources */,
+				0FD975192F4928970067CED7 /* newKingHanaView95CiStart.swift in Sources */,
 				0FA0A7EF2EFC2185003EF8BD /* hihodenTableHihoNews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

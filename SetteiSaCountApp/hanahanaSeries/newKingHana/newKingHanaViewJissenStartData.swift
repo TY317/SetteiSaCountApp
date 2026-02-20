@@ -1,13 +1,13 @@
 //
-//  newKingHanaViewKenDataInput.swift
+//  newKingHanaViewJissenStartData.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/02/20.
+//  Created by 横田徹 on 2026/02/21.
 //
 
 import SwiftUI
 
-struct newKingHanaViewKenDataInput: View {
+struct newKingHanaViewJissenStartData: View {
     @ObservedObject var newKingHana: NewKingHana
     @EnvironmentObject var common: commonVar
     @State var isShowAlert: Bool = false
@@ -31,57 +31,61 @@ struct newKingHanaViewKenDataInput: View {
                 // ゲーム数入力
                 unitTextFieldGamesInput(
                     title: "ゲーム数",
-                    inputValue: $newKingHana.kenGameIput
+                    inputValue: $newKingHana.startGameInput
                 )
                     .focused($isFocused)
-                    .onChange(of: newKingHana.kenGameIput) { oldValue, newValue in
-                        newKingHana.kenBellBackCalculationCount = newKingHana.bellBackCalculate(
-                            game: newKingHana.kenGameIput,
-                            bigCount: newKingHana.kenBigCountInput,
-                            regCount: newKingHana.kenRegCountInput,
-                            coinDifference: newKingHana.kenCoinDifferenceInput
+                    .onChange(of: newKingHana.startGameInput) { oldValue, newValue in
+                        newKingHana.startBellBackCalculationCount = newKingHana.bellBackCalculate(
+                            game: newKingHana.startGameInput,
+                            bigCount: newKingHana.startBigCountInput,
+                            regCount: newKingHana.startRegCountInput,
+                            coinDifference: newKingHana.startCoinDifferenceInput
                         )
                     }
                 // ビッグ回数
-                unitTextFieldGamesInput(title: "BIG回数", inputValue: $newKingHana.kenBigCountInput)
+                unitTextFieldGamesInput(title: "BIG回数", inputValue: $newKingHana.startBigCountInput)
                     .focused($isFocused)
-                    .onChange(of: newKingHana.kenBigCountInput) { oldValue, newValue in
-                        newKingHana.kenBellBackCalculationCount = newKingHana.bellBackCalculate(
-                            game: newKingHana.kenGameIput,
-                            bigCount: newKingHana.kenBigCountInput,
-                            regCount: newKingHana.kenRegCountInput,
-                            coinDifference: newKingHana.kenCoinDifferenceInput
+                    .onChange(of: newKingHana.startBigCountInput) { oldValue, newValue in
+                        newKingHana.startBellBackCalculationCount = newKingHana.bellBackCalculate(
+                            game: newKingHana.startGameInput,
+                            bigCount: newKingHana.startBigCountInput,
+                            regCount: newKingHana.startRegCountInput,
+                            coinDifference: newKingHana.startCoinDifferenceInput
                         )
+                        newKingHana.startBonusSumFunc()
+                        newKingHana.totalBonusSumFunc()
                     }
                 // レギュラー回数
-                unitTextFieldGamesInput(title: "REG回数", inputValue: $newKingHana.kenRegCountInput)
+                unitTextFieldGamesInput(title: "REG回数", inputValue: $newKingHana.startRegCountInput)
                     .focused($isFocused)
-                    .onChange(of: newKingHana.kenRegCountInput) { oldValue, newValue in
-                        newKingHana.kenBellBackCalculationCount = newKingHana.bellBackCalculate(
-                            game: newKingHana.kenGameIput,
-                            bigCount: newKingHana.kenBigCountInput,
-                            regCount: newKingHana.kenRegCountInput,
-                            coinDifference: newKingHana.kenCoinDifferenceInput
+                    .onChange(of: newKingHana.startRegCountInput) { oldValue, newValue in
+                        newKingHana.startBellBackCalculationCount = newKingHana.bellBackCalculate(
+                            game: newKingHana.startGameInput,
+                            bigCount: newKingHana.startBigCountInput,
+                            regCount: newKingHana.startRegCountInput,
+                            coinDifference: newKingHana.startCoinDifferenceInput
                         )
+                        newKingHana.startBonusSumFunc()
+                        newKingHana.totalBonusSumFunc()
                     }
                 
                 // ぶどう逆算トグルスイッチ
-                Toggle("ベル逆算有効化", isOn: $newKingHana.kenBackCalculationEnable)
+                Toggle("ベル逆算有効化", isOn: $newKingHana.startBackCalculationEnable)
                 // //// 差枚数とぶどう逆算値
-                if newKingHana.kenBackCalculationEnable {
+                if newKingHana.startBackCalculationEnable {
                     // 差枚数
                     unitTextFieldGamesInput(
                         title: "差枚数",
-                        inputValue: $newKingHana.kenCoinDifferenceInput,
+                        inputValue: $newKingHana.startCoinDifferenceInput,
                         numberPadTypeSelect: false
                     )
                     .focused($isFocused)
-                    .onChange(of: newKingHana.kenCoinDifferenceInput) { oldValue, newValue in
-                        newKingHana.kenBellBackCalculationCount = newKingHana.bellBackCalculate(
-                            game: newKingHana.kenGameIput,
-                            bigCount: newKingHana.kenBigCountInput,
-                            regCount: newKingHana.kenRegCountInput,
-                            coinDifference: newKingHana.kenCoinDifferenceInput
+                    .onChange(of: newKingHana.startCoinDifferenceInput) { oldValue, newValue in
+                        newKingHana.startBellBackCalculationCount = newKingHana.bellBackCalculate(
+                            game: newKingHana.startGameInput,
+                            bigCount: newKingHana.startBigCountInput,
+                            regCount: newKingHana.startRegCountInput,
+                            coinDifference: newKingHana.startCoinDifferenceInput
                         )
                     }
                     
@@ -92,13 +96,13 @@ struct newKingHanaViewKenDataInput: View {
                             // ベル回数
                             unitResultCount2Line(
                                 title: "ベル回数",
-                                count: $newKingHana.kenBellBackCalculationCount
+                                count: $newKingHana.startBellBackCalculationCount
                             )
                             // ベル確率
                             unitResultRatioDenomination2Line(
                                 title: "ベル確率",
-                                count: $newKingHana.kenBellBackCalculationCount,
-                                bigNumber: $newKingHana.kenGameIput,
+                                count: $newKingHana.startBellBackCalculationCount,
+                                bigNumber: $newKingHana.startGameInput,
                                 numberofDicimal: 2,
                             )
                         }
@@ -110,24 +114,24 @@ struct newKingHanaViewKenDataInput: View {
                     // ビッグ確率
                     unitResultRatioDenomination2Line(
                         title: "BIG確率",
-                        count: $newKingHana.kenBigCountInput,
-                        bigNumber: $newKingHana.kenGameIput,
+                        count: $newKingHana.startBigCountInput,
+                        bigNumber: $newKingHana.startGameInput,
                         numberofDicimal: 0,
                         spacerBool: false
                     )
                     // REG確率
                     unitResultRatioDenomination2Line(
                         title: "REG確率",
-                        count: $newKingHana.kenRegCountInput,
-                        bigNumber: $newKingHana.kenGameIput,
+                        count: $newKingHana.startRegCountInput,
+                        bigNumber: $newKingHana.startGameInput,
                         numberofDicimal: 0,
                         spacerBool: false
                     )
                     // ボーナス合算
                     unitResultRatioDenomination2Line(
                         title: "ボーナス合算",
-                        count: $newKingHana.kenBonusCountSum,
-                        bigNumber: $newKingHana.kenGameIput,
+                        count: $newKingHana.startBonusCountSum,
+                        bigNumber: $newKingHana.startGameInput,
                         numberofDicimal: 0,
                         spacerBool: false
                     )
@@ -141,19 +145,12 @@ struct newKingHanaViewKenDataInput: View {
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
-                        newKingHanaView95CiKen(
+                        newKingHanaView95CiStart(
                             newKingHana: newKingHana,
                             selection: 1,
                         )
                     )
                 )
-                
-                // //// 打ち始めへデータ登録
-                unitButtonRecordKenToStart(
-                    isShowAlertRecord: $isShowAlertRecord,
-                    action: newKingHana.kenToStartRecord
-                )
-                    .popoverTip(tipUnitJugHanaCommonKenDataTohroku())
                 
                 unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
             } header: {
@@ -209,7 +206,7 @@ struct newKingHanaViewKenDataInput: View {
 }
 
 #Preview {
-    newKingHanaViewKenDataInput(
+    newKingHanaViewJissenStartData(
         newKingHana: NewKingHana(),
     )
     .environmentObject(commonVar())

@@ -59,14 +59,14 @@ struct newKingHanaViewTop: View {
                 // //// 実戦
                 Section {
                     // データ入力
-//                    NavigationLink(destination: newKingHanaVer2ViewJissenStartData(
-//                        newKingHana: newKingHana
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "airplane.departure",
-//                            textBody: "打ち始めデータ"
-//                        )
-//                    }
+                    NavigationLink(destination: newKingHanaViewJissenStartData(
+                        newKingHana: newKingHana
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "airplane.departure",
+                            textBody: "打ち始めデータ"
+                        )
+                    }
                     // 実戦カウント
 //                    NavigationLink(destination: newKingHanaVer2ViewJissenCount(
 //                        newKingHana: newKingHana,
