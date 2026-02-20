@@ -31,14 +31,14 @@ struct newKingHanaViewTop: View {
                 // //// 見
                 Section {
                     // データ入力
-//                    NavigationLink(destination: newKingHanaVer2ViewKenDataInput(
-//                        newKingHana: newKingHana
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "magnifyingglass",
-//                            textBody: "データ確認"
-//                        )
-//                    }
+                    NavigationLink(destination: newKingHanaViewKenDataInput(
+                        newKingHana: newKingHana
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "magnifyingglass",
+                            textBody: "データ確認"
+                        )
+                    }
                     
                     // 島データ
 //                    NavigationLink(destination: newKingHanaViewShimaData(
