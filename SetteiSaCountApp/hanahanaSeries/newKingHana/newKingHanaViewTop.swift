@@ -41,17 +41,17 @@ struct newKingHanaViewTop: View {
                     }
                     
                     // 島データ
-//                    NavigationLink(destination: newKingHanaViewShimaData(
-//                        newKingHana: newKingHana,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "waveform.path.ecg.magnifyingglass",
-//                            textBody: "島データ確認",
-//                            badgeStatus: common.newKingHanaMenuShimaBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: newKingHanaViewShimaData(
+                        newKingHana: newKingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "waveform.path.ecg.magnifyingglass",
+                            textBody: "島データ確認",
+                            badgeStatus: common.newKingHanaMenuShimaBadge,
+                        )
+                    }
                 } header: {
                     unitHeaderLabelKen()
                 }
