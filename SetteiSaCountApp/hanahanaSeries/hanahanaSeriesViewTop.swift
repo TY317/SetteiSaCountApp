@@ -47,7 +47,7 @@ struct hanahanaSeriesViewTop: View {
                             .frame(height: 40)
                             .foregroundStyle(Color.clear)
                         LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridColumns), spacing: common.lazyVGridSpacing) {
-                            // //// ハナビ、26年2月
+                            // //// ニューキングハナハナ、26年1月
                             if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedNewKingHana == false {
                                 
                             } else {
@@ -61,6 +61,7 @@ struct hanahanaSeriesViewTop: View {
                                     isUnLocked: $common.newKingHanaisUnlocked,
                                     tempUnlockDateDouble: $common.newKingHanaTempUnlockDateDouble,
                                     badgeStatus: common.newKingHanaMachineIconBadge,
+                                    btBadgeBool: true,
                                 )
                             }
                             
@@ -152,6 +153,7 @@ struct hanahanaSeriesViewTop: View {
                                     isUnLocked: $common.newKingHanaisUnlocked,
                                     tempUnlockDateDouble: $common.newKingHanaTempUnlockDateDouble,
                                     badgeStatus: common.newKingHanaMachineIconBadge,
+                                    btBadgeBool: true,
                                 )
                             }
                             

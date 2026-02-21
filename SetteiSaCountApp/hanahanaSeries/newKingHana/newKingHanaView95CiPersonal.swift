@@ -1,5 +1,5 @@
 //
-//  newKingHanaVer2View95CiShima.swift
+//  newKingHanaView95CiPersonal.swift
 //  SetteiSaCountApp
 //
 //  Created by 横田徹 on 2026/02/21.
@@ -7,42 +7,41 @@
 
 import SwiftUI
 
-struct newKingHanaVer2View95CiShima: View {
+struct newKingHanaView95CiPersonal: View {
     @ObservedObject var newKingHana: NewKingHana
-    @State var selection = 2
+    @State var selection = 1
     @State var isShow95CiExplain = false
     
     var body: some View {
         TabView(selection: $selection) {
-//            if newKingHana.kenBackCalculationEnable {
-//                // ぶどう回数
-//                unitListSection95Ci(
-//                    grafTitle: "見\nベル回数",
-//                    grafView: AnyView(
-//                        unitChart95CiDenominate(
-//                            currentCount: $newKingHana.kenBellBackCalculationCount,
-//                            bigNumber: $newKingHana.kenGameIput,
-//                            setting1Denominate: newKingHana.ratioBell[0],
-//                            setting2Denominate: newKingHana.ratioBell[1],
-//                            setting3Denominate: newKingHana.ratioBell[2],
-//                            setting4Denominate: newKingHana.ratioBell[3],
-//                            setting5Enable: false,
-//                            setting5Denominate: -1,
-//                            setting6Denominate: newKingHana.ratioBell[4],
-//                            yScaleKeisu: 0.05
-//                        )
-//                    )
-//                )
-//                .tag(1)
-//            }
-            // BIG回数
+            // ぶどう回数
             unitListSection95Ci(
-                grafTitle: "島データ\n BIG回数",
+                grafTitle: "自分のプレイデータ\nベル回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.shimaBigs,
-                        bigNumber: $newKingHana.shimaGames,
+                        currentCount: $newKingHana.bellCount,
+                        bigNumber: $newKingHana.playGames,
+                        setting1Denominate: newKingHana.ratioBell[0],
+                        setting2Denominate: newKingHana.ratioBell[1],
+                        setting3Denominate: newKingHana.ratioBell[2],
+                        setting4Denominate: newKingHana.ratioBell[3],
+                        setting5Enable: false,
+                        setting5Denominate: -1,
+                        setting6Denominate: newKingHana.ratioBell[4],
+                        yScaleKeisu: 0.05
+                    )
+                )
+            )
+            .tag(1)
+            // BIG回数
+            unitListSection95Ci(
+                grafTitle: "自分のプレイデータ\n BIG回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $newKingHana.bigCount,
+                        bigNumber: $newKingHana.playGames,
                         setting1Denominate: newKingHana.ratioFirstHitBig[0],
                         setting2Denominate: newKingHana.ratioFirstHitBig[1],
                         setting3Denominate: newKingHana.ratioFirstHitBig[2],
@@ -56,12 +55,12 @@ struct newKingHanaVer2View95CiShima: View {
             .tag(2)
             // REG回数
             unitListSection95Ci(
-                grafTitle: "島データ\n REG回数",
+                grafTitle: "自分のプレイデータ\n REG回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.shimaRegs,
-                        bigNumber: $newKingHana.shimaGames,
+                        currentCount: $newKingHana.regCount,
+                        bigNumber: $newKingHana.playGames,
                         setting1Denominate: newKingHana.ratioFirstHitReg[0],
                         setting2Denominate: newKingHana.ratioFirstHitReg[1],
                         setting3Denominate: newKingHana.ratioFirstHitReg[2],
@@ -75,12 +74,12 @@ struct newKingHanaVer2View95CiShima: View {
             .tag(3)
             // REG回数
             unitListSection95Ci(
-                grafTitle: "島データ\n ボーナス合算回数",
+                grafTitle: "自分のプレイデータ\n ボーナス合算回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.shimaBonusSum,
-                        bigNumber: $newKingHana.shimaGames,
+                        currentCount: $newKingHana.bonusSum,
+                        bigNumber: $newKingHana.playGames,
                         setting1Denominate: newKingHana.ratioFirstHitSum[0],
                         setting2Denominate: newKingHana.ratioFirstHitSum[1],
                         setting3Denominate: newKingHana.ratioFirstHitSum[2],
@@ -113,7 +112,7 @@ struct newKingHanaVer2View95CiShima: View {
 }
 
 #Preview {
-    newKingHanaVer2View95CiShima(
+    newKingHanaView95CiPersonal(
         newKingHana: NewKingHana(),
     )
 }

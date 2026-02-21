@@ -68,16 +68,16 @@ struct newKingHanaViewTop: View {
                         )
                     }
                     // 実戦カウント
-//                    NavigationLink(destination: newKingHanaVer2ViewJissenCount(
-//                        newKingHana: newKingHana,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "arcade.stick.and.arrow.down",
-//                            textBody: "実戦カウント"
-//                        )
-//                    }
+                    NavigationLink(destination: newKingHanaViewJissenCount(
+                        newKingHana: newKingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arcade.stick.and.arrow.down",
+                            textBody: "実戦カウント"
+                        )
+                    }
                     // トータル結果確認
 //                    NavigationLink(destination: newKingHanaVer2ViewJissenTotalDataCheck(
 //                        newKingHana: newKingHana,

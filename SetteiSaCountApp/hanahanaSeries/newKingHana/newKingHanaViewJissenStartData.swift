@@ -41,6 +41,9 @@ struct newKingHanaViewJissenStartData: View {
                             regCount: newKingHana.startRegCountInput,
                             coinDifference: newKingHana.startCoinDifferenceInput
                         )
+                        newKingHana.playGameCalFunc()
+                        newKingHana.totalBellSumFunc()
+
                     }
                 // ビッグ回数
                 unitTextFieldGamesInput(title: "BIG回数", inputValue: $newKingHana.startBigCountInput)
@@ -54,6 +57,8 @@ struct newKingHanaViewJissenStartData: View {
                         )
                         newKingHana.startBonusSumFunc()
                         newKingHana.totalBonusSumFunc()
+                        newKingHana.totalBellSumFunc()
+
                     }
                 // レギュラー回数
                 unitTextFieldGamesInput(title: "REG回数", inputValue: $newKingHana.startRegCountInput)
@@ -67,6 +72,8 @@ struct newKingHanaViewJissenStartData: View {
                         )
                         newKingHana.startBonusSumFunc()
                         newKingHana.totalBonusSumFunc()
+                        newKingHana.totalBellSumFunc()
+
                     }
                 
                 // ぶどう逆算トグルスイッチ
@@ -87,6 +94,7 @@ struct newKingHanaViewJissenStartData: View {
                             regCount: newKingHana.startRegCountInput,
                             coinDifference: newKingHana.startCoinDifferenceInput
                         )
+                        newKingHana.totalBellSumFunc()
                     }
                     
                     // 逆算結果

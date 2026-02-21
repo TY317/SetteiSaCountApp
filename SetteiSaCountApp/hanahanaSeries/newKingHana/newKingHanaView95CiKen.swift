@@ -18,6 +18,7 @@ struct newKingHanaView95CiKen: View {
                 // ぶどう回数
                 unitListSection95Ci(
                     grafTitle: "見\nベル回数",
+                    titleFont: .title2,
                     grafView: AnyView(
                         unitChart95CiDenominate(
                             currentCount: $newKingHana.kenBellBackCalculationCount,
@@ -38,6 +39,7 @@ struct newKingHanaView95CiKen: View {
             // BIG回数
             unitListSection95Ci(
                 grafTitle: "見\n BIG回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $newKingHana.kenBigCountInput,
@@ -56,6 +58,7 @@ struct newKingHanaView95CiKen: View {
             // REG回数
             unitListSection95Ci(
                 grafTitle: "見\n REG回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $newKingHana.kenRegCountInput,
@@ -74,6 +77,7 @@ struct newKingHanaView95CiKen: View {
             // REG回数
             unitListSection95Ci(
                 grafTitle: "見\n ボーナス合算回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
                         currentCount: $newKingHana.kenBonusCountSum,

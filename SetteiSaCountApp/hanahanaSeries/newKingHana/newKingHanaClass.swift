@@ -129,6 +129,18 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaBellCount") var bellCount = 0
     @AppStorage("newKingHanaBigCount") var bigCount = 0
     @AppStorage("newKingHanaRegCount") var regCount = 0
+    @AppStorage("newKingHanaCurrentGames") var currentGames = 0
+    @AppStorage("newKingHanaBonusSum") var bonusSum = 0
+    @AppStorage("newKingHanaPlayGames") var playGames = 0
+    @AppStorage("newKingHanaBigPlayGames") var bigPlayGames = 0
+    
+    func bonusSumFunc() {
+        bonusSum = bigCount + regCount
+    }
+    
+    func playGameCalFunc() {
+        playGames = currentGames - startGameInput
+    }
     
     func hanaReset() {
         minusCheck = false
@@ -146,6 +158,10 @@ class NewKingHana: ObservableObject {
         totalBigCount = startBigCountInput + bigCount
         totalRegCount = startRegCountInput + regCount
         totalBonusCountSum = totalBigCount + totalRegCount
+    }
+    
+    func totalBellSumFunc() {
+        totalBellCount = startBellBackCalculationCount + bellCount
     }
     
     // ////////////////////////
