@@ -79,16 +79,16 @@ struct newKingHanaViewTop: View {
                         )
                     }
                     // トータル結果確認
-//                    NavigationLink(destination: newKingHanaVer2ViewJissenTotalDataCheck(
-//                        newKingHana: newKingHana,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "airplane.arrival",
-//                            textBody: "総合結果確認"
-//                        )
-//                    }
+                    NavigationLink(destination: newKingHanaViewJissenTotalDataCheck(
+                        newKingHana: newKingHana,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "airplane.arrival",
+                            textBody: "総合結果確認"
+                        )
+                    }
                 } header: {
                     Text("実戦")
                         .fontWeight(.bold)
@@ -101,16 +101,16 @@ struct newKingHanaViewTop: View {
 //                    unitLabelMenu(imageSystemName: "chart.bar.xaxis", textBody: "設定推測グラフ")
 //                }
                 // 設定期待値計算
-//                NavigationLink(destination: newKingHanaViewBayes(
-//                    newKingHana: newKingHana,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                    )
-//                }
+                NavigationLink(destination: newKingHanaViewBayes(
+                    newKingHana: newKingHana,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                    )
+                }
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4912")
                 

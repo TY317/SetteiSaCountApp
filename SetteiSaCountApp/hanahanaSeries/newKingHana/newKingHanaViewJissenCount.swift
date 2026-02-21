@@ -84,6 +84,7 @@ struct newKingHanaViewJissenCount: View {
                                 minusBool: $newKingHana.minusCheck) {
                                     newKingHana.bonusSumFunc()
                                     newKingHana.totalBonusSumFunc()
+                                    newKingHana.regPlayGameCalFunc()
                                 }
                         }
                         
@@ -469,6 +470,82 @@ struct newKingHanaViewJissenCount: View {
                         Text("終了後 トップランプ")
                     }
                 }
+                
+                // ---------
+                // REG
+                // ---------
+                else {
+                    Section {
+                        // REGゲーム数
+                        HStack {
+                            HStack {
+                                Text("REGゲーム数")
+                                    .font(.subheadline)
+                                unitToolbarButtonQuestion {
+                                    unitExView5body2image(
+                                        title: "REGゲーム数",
+                                        textBody1: "・REG回数から自動算出しています",
+                                        textBody2: "    REG回数 × 10ゲーム"
+                                    )
+                                }
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            Text("\(newKingHana.regPlayGames)")
+                                .foregroundStyle(Color.secondary)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .offset(x: 5)
+                            Text("Ｇ")
+                                .foregroundStyle(Color.secondary)
+                                .font(.footnote)
+                        }
+                        // スイカカウントボタン
+                        unitCountButtonVerticalDenominate(
+                            title: "スイカ",
+                            count: $newKingHana.regSuikaCount,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $newKingHana.regPlayGames,
+                            numberofDicimal: 1,
+                            minusBool: $newKingHana.minusCheck
+                        )
+                        
+                        // 参考情報）REG中スイカ確率
+                        unitLinkButtonViewBuilder(sheetTitle: "REG中スイカ確率") {
+                            VStack {
+//                                Text("[参考] 過去のハナハナシリーズ数値")
+                                HStack(spacing: 0) {
+                                    unitTableSettingIndex(settingList: [1,2,3,4,6])
+                                    unitTableDenominate(
+                                        columTitle: "REG中スイカ",
+                                        denominateList: newKingHana.ratioRegSuika
+                                    )
+                                }
+                            }
+                        }
+                        
+                        // //// 95%信頼区間グラフへのリンク
+//                        unitNaviLink95Ci(
+//                            Ci95view: AnyView(
+//                                newKingHanaView95CiPersonal(
+//                                    newKingHana: newKingHana,
+//                                    selection: 5,
+//                                )
+//                            )
+//                        )
+                        
+                        // //// 設定期待値へのリンク
+//                        unitNaviLinkBayes {
+//                            newKingHanaViewBayes(
+//                                newKingHana: newKingHana,
+//                                bayes: bayes,
+//                                viewModel: viewModel,
+//                            )
+//                        }
+                    } header: {
+                        Text("  \nREG中スイカ")
+                    }
+                }
+                unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
             }
             
             // -----

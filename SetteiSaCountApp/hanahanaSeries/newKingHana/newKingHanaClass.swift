@@ -30,6 +30,7 @@ class NewKingHana: ObservableObject {
     let ratioBigTopLampPurple: [Double] = [1.3,1.4,1.5,1.6,1.9]
     let ratioBigTopLampRainbow: [Double] = [0.01,0.04,0.07,0.07,0.4]
     let ratioBigTopLampSum: [Double] = [9.7,10.6,11.7,13,15.8]
+    let ratioRegSuika: [Double] = [-1,-1,-1,-1,-1,]
     
     // ------
     // ぶどう逆算
@@ -161,6 +162,10 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaBigTopLampCountPurple") var bigTopLampCountPurple: Int = 0
     @AppStorage("newKingHanaBigTopLampCountSum") var bigTopLampCountSum: Int = 0
     
+    // REG
+    @AppStorage("newKingHanaRegSuikaCount") var regSuikaCount = 0
+    @AppStorage("newKingHanaRegPlayGames") var regPlayGames = 0
+    
     func bonusSumFunc() {
         bonusSum = bigCount + regCount
     }
@@ -191,6 +196,10 @@ class NewKingHana: ObservableObject {
             bigTopLampCountGreen,
             bigTopLampCountPurple,
         )
+    }
+    
+    func regPlayGameCalFunc() {
+        regPlayGames = regCount * 10
     }
     
     func hanaReset() {
