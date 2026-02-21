@@ -18,7 +18,7 @@ struct newKingHanaViewBayes: View {
     @State var bellEnable: Bool = true
     @State var bbSuikaEnable: Bool = true
     @State var bigLampEnable: Bool = true
-    @State var regSideLampEnable: Bool = true
+    @State var sideLampEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -60,6 +60,12 @@ struct newKingHanaViewBayes: View {
                         textBody1: "・打ち始めデータでベル逆算有効化がONの場合はベル逆算分も考慮した計算を行います"
                     )
                 }
+                // BB中のスイカ確率
+                unitToggleWithQuestion(enable: self.$bbSuikaEnable, title: "BIG前半 スイカ確率")
+                // BIG後半中のサイドランプ
+                unitToggleWithQuestion(enable: self.$sideLampEnable, title: "BIG後半 サイドランプ振分け")
+                // BIG後のランプ確率
+                unitToggleWithQuestion(enable: self.$bigLampEnable, title: "BIG後のランプ")
             }
             
             // //// STEP3
@@ -158,6 +164,50 @@ struct newKingHanaViewBayes: View {
             }
         }
         
+        // BIG中のスイカ
+        var logPostBigSuiKa = [Double](repeating: 0, count: self.settingList.count)
+        if self.bbSuikaEnable {
+            logPostBigSuiKa = logPostDenoBino(
+                ratio: newKingHana.ratioBigSuika,
+                Count: newKingHana.bbSuikaCount,
+                bigNumber: newKingHana.bigPlayGames
+            )
+        }
+        
+        // BIG中サイドランプ
+        var logPostSideLamp = [Double](repeating: 0, count: self.settingList.count)
+        if self.sideLampEnable {
+            logPostSideLamp = logPostPercentMulti(
+                countList: [
+                    newKingHana.sideLampCountBlue,
+                    newKingHana.sideLampCountYellow,
+                    newKingHana.sideLampCountGreen,
+                ], ratioList: [
+                    newKingHana.ratioSideLampBlue,
+                    newKingHana.ratioSideLampYellow,
+                    newKingHana.ratioSideLampGreen,
+                ], bigNumber: newKingHana.sideLampCountSum
+            )
+        }
+        
+        // BIG後のランプ
+        var logPostBigLamp = [Double](repeating: 0, count: self.settingList.count)
+        if self.bigLampEnable {
+            logPostBigLamp = logPostPercentMulti(
+                countList: [
+                    newKingHana.bigTopLampCountBlue,
+                    newKingHana.bigTopLampCountYellow,
+                    newKingHana.bigTopLampCountGreen,
+                    newKingHana.bigTopLampCountPurple,
+                ], ratioList: [
+                    newKingHana.ratioBigTopLampBlue,
+                    newKingHana.ratioBigTopLampYellow,
+                    newKingHana.ratioBigTopLampGreen,
+                    newKingHana.ratioBigTopLampPurple,
+                ], bigNumber: newKingHana.bigCount
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -192,6 +242,9 @@ struct newKingHanaViewBayes: View {
             logPostBig,
             logPostReg,
             logPostBell,
+            logPostBigSuiKa,
+            logPostSideLamp,
+            logPostBigLamp,
             
             logPostTrophy,
             logPostBefore,

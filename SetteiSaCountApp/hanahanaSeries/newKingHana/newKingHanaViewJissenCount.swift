@@ -72,6 +72,7 @@ struct newKingHanaViewJissenCount: View {
                                 minusBool: $newKingHana.minusCheck) {
                                     newKingHana.bonusSumFunc()
                                     newKingHana.totalBonusSumFunc()
+                                    newKingHana.bigPlayGameCalFunc()
                                 }
                             // REG
                             unitCountButtonDenominateWithFunc(
@@ -146,6 +147,326 @@ struct newKingHanaViewJissenCount: View {
                         
                     } header: {
                         Text("ゲーム数入力")
+                    }
+                }
+                
+                // -------
+                // BIG
+                // -------
+                else if self.isSelectedDisplayMode == self.displayMode[1] {
+                    Section {
+                        // BIG前半ゲーム数
+                        HStack {
+                            HStack {
+                                Text("BIG前半ゲーム数")
+                                    .font(.subheadline)
+                                unitToolbarButtonQuestion {
+                                    unitExView5body2image(
+                                        title: "BIG前半ゲーム数",
+                                        textBody1: "・BIG回数から自動算出しています",
+                                        textBody2: "   BIG回数 × 14ゲーム"
+                                    )
+                                }
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            Text("\(newKingHana.bigPlayGames)")
+                                .foregroundStyle(Color.secondary)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .offset(x: 5)
+                            Text("Ｇ")
+                                .foregroundStyle(Color.secondary)
+                                .font(.footnote)
+                        }
+                        // スイカカウントボタン
+                        unitCountButtonVerticalDenominate(
+                            title: "スイカ",
+                            count: $newKingHana.bbSuikaCount,
+                            color: .green,
+                            bigNumber: $newKingHana.bigPlayGames,
+                            numberofDicimal: 1,
+                            minusBool: $newKingHana.minusCheck
+                        )
+                        
+                        // 参考情報）BIG中スイカ確率
+                        unitLinkButtonViewBuilder(sheetTitle: "BIG中スイカ確率") {
+                            VStack {
+                                Text("[参考] 過去のハナハナシリーズ数値")
+                                HStack(spacing: 0) {
+                                    unitTableSettingIndex(settingList: [1,2,3,4,6])
+                                    unitTableDenominate(
+                                        columTitle: "BIG中スイカ",
+                                        denominateList: newKingHana.ratioBigSuika
+                                    )
+                                }
+                            }
+                        }
+                        
+                        // //// 95%信頼区間グラフへのリンク
+                        unitNaviLink95Ci(
+                            Ci95view: AnyView(
+                                newKingHanaView95CiPersonal(
+                                    newKingHana: newKingHana,
+                                    selection: 5,
+                                )
+                            )
+                        )
+                        
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            newKingHanaViewBayes(
+                                newKingHana: newKingHana,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
+                    } header: {
+                        Text("  \nBIG前半スイカ")
+                    }
+                    
+                    Section {
+                        // カウントボタン横並び
+                        HStack {
+                            // 青
+                            unitCountButtonPercentWithFunc(
+                                title: "青",
+                                count: $newKingHana.sideLampCountBlue,
+                                color: .personalSummerLightBlue,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.sideLampCountSumFunc()
+                                }
+                            // 黄色
+                            unitCountButtonPercentWithFunc(
+                                title: "黄",
+                                count: $newKingHana.sideLampCountYellow,
+                                color: .personalSpringLightYellow,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0,
+                                minusBool: $newKingHana.minusCheck,
+                                flushColor: .yellow) {
+                                    newKingHana.sideLampCountSumFunc()
+                                }
+                            // 緑
+                            unitCountButtonPercentWithFunc(
+                                title: "緑",
+                                count: $newKingHana.sideLampCountGreen,
+                                color: .personalSummerLightGreen,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.sideLampCountSumFunc()
+                                }
+                            // 赤
+                            unitCountButtonPercentWithFunc(
+                                title: "赤",
+                                count: $newKingHana.sideLampCountRed,
+                                color: .personalSummerLightRed,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.sideLampCountSumFunc()
+                                }
+                        }
+                        
+                        // 奇数・偶数確率
+                        HStack {
+                            // 奇数示唆
+                            unitResultRatioPercent2Line(
+                                title: "奇数示唆",
+                                color: .grayBack,
+                                count: $newKingHana.sideLampCountKisu,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0
+                            )
+                            // 偶数示唆
+                            unitResultRatioPercent2Line(
+                                title: "偶数示唆",
+                                color: .grayBack,
+                                count: $newKingHana.sideLampCountGusu,
+                                bigNumber: $newKingHana.sideLampCountSum,
+                                numberofDicimal: 0
+                            )
+                        }
+                        
+                        // サイドランプ振り分け
+                        unitLinkButtonViewBuilder(sheetTitle: "サイドランプ振分け") {
+                            VStack {
+                                VStack(alignment: .leading) {
+                                    Text("・BIG後半中に1回だけ確認可能")
+                                    Text("・左リール中段に白７ビタ押し。成功したら中・右にスイカを狙う")
+                                    Text("・奇数設定は青・緑が６割、偶数は黄・赤が６割。\n　ただし、設定６のみ全色均等に出現する")
+                                }
+                                .padding(.bottom)
+                                Text("[参考] 過去のハナハナシリーズ数値")
+                                HStack(spacing: 0) {
+                                    unitTableSettingIndex(settingList: [1,2,3,4,6])
+                                    unitTablePercent(
+                                        columTitle: "青",
+                                        percentList: newKingHana.ratioSideLampBlue
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "黄",
+                                        percentList: newKingHana.ratioSideLampYellow
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "緑",
+                                        percentList: newKingHana.ratioSideLampGreen
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "赤",
+                                        percentList: newKingHana.ratioSideLampRed
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "虹",
+                                        percentList: newKingHana.ratioSideLampRainbow,
+                                        numberofDicimal: 2,
+                                    )
+                                }
+                            }
+                        }
+                        
+                        // //// 95%信頼区間グラフへのリンク
+                        unitNaviLink95Ci(
+                            Ci95view: AnyView(
+                                newKingHanaView95CiPersonal(
+                                    newKingHana: newKingHana,
+                                    selection: 6,
+                                )
+                            )
+                        )
+                        
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            newKingHanaViewBayes(
+                                newKingHana: newKingHana,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
+                    } header: {
+                        Text("BIG後半 サイドランプ")
+                    }
+                    
+                    // BIG後トップランプ
+                    Section {
+                        // カウントボタン横並び
+                        HStack {
+                            // 青
+                            unitCountButtonPercentWithFunc(
+                                title: "青",
+                                count: $newKingHana.bigTopLampCountBlue,
+                                color: .personalSummerLightBlue,
+                                bigNumber: $newKingHana.bigCount,
+                                numberofDicimal: 1,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.bigTopLampSumFunc()
+                                }
+                            // 黄色
+                            unitCountButtonPercentWithFunc(
+                                title: "黄",
+                                count: $newKingHana.bigTopLampCountYellow,
+                                color: .personalSpringLightYellow,
+                                bigNumber: $newKingHana.bigCount,
+                                numberofDicimal: 1,
+                                minusBool: $newKingHana.minusCheck,
+                                flushColor: .yellow) {
+                                    newKingHana.bigTopLampSumFunc()
+                                }
+                            // 緑
+                            unitCountButtonPercentWithFunc(
+                                title: "緑",
+                                count: $newKingHana.bigTopLampCountGreen,
+                                color: .personalSummerLightGreen,
+                                bigNumber: $newKingHana.bigCount,
+                                numberofDicimal: 1,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.bigTopLampSumFunc()
+                                }
+                            // 赤
+                            unitCountButtonPercentWithFunc(
+                                title: "紫",
+                                count: $newKingHana.bigTopLampCountPurple,
+                                color: .personalSummerLightPurple,
+                                bigNumber: $newKingHana.bigCount,
+                                numberofDicimal: 1,
+                                minusBool: $newKingHana.minusCheck) {
+                                    newKingHana.bigTopLampSumFunc()
+                                }
+                        }
+                        
+                        // ランプ合算確率
+                        unitResultRatioPercent2Line(
+                            title: "ランプ合算",
+                            count: $newKingHana.bigTopLampCountSum,
+                            bigNumber: $newKingHana.bigCount,
+                            numberofDicimal: 1
+                        )
+                        
+                        // 参考情報）ランプ振分け
+                        unitLinkButtonViewBuilder(sheetTitle: "BIG終了後ランプ") {
+                            VStack {
+                                Text("[参考] 過去のハナハナシリーズ数値")
+                                HStack(spacing: 0) {
+                                    unitTableSettingIndex(settingList: [1,2,3,4,6])
+                                    unitTablePercent(
+                                        columTitle: "青",
+                                        percentList: newKingHana.ratioBigTopLampBlue,
+                                        numberofDicimal: 1,
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "黄",
+                                        percentList: newKingHana.ratioBigTopLampYellow,
+                                        numberofDicimal: 1,
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "緑",
+                                        percentList: newKingHana.ratioBigTopLampGreen,
+                                        numberofDicimal: 1,
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "紫",
+                                        percentList: newKingHana.ratioBigTopLampPurple,
+                                        numberofDicimal: 1,
+                                    )
+                                }
+                                HStack(spacing: 0) {
+                                    unitTableSettingIndex(settingList: [1,2,3,4,6])
+                                    unitTablePercent(
+                                        columTitle: "虹",
+                                        percentList: newKingHana.ratioBigTopLampRainbow,
+                                        numberofDicimal: 2,
+                                    )
+                                    unitTablePercent(
+                                        columTitle: "合算",
+                                        percentList: newKingHana.ratioBigTopLampSum,
+                                        numberofDicimal: 1,
+                                    )
+                                }
+                            }
+                        }
+                        
+                        // //// 95%信頼区間グラフへのリンク
+                        unitNaviLink95Ci(
+                            Ci95view: AnyView(
+                                newKingHanaView95CiPersonal(
+                                    newKingHana: newKingHana,
+                                    selection: 7,
+                                )
+                            )
+                        )
+                        
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            newKingHanaViewBayes(
+                                newKingHana: newKingHana,
+                                bayes: bayes,
+                                viewModel: viewModel,
+                            )
+                        }
+                    } header: {
+                        Text("終了後 トップランプ")
                     }
                 }
             }

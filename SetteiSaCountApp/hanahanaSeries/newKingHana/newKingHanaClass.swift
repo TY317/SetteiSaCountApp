@@ -18,6 +18,18 @@ class NewKingHana: ObservableObject {
     let ratioFirstHitReg: [Double] = [496,471,442,409,372]
     let ratioFirstHitSum: [Double] = [186,180,172,162,150]
     let ratioBigSuika: [Double] = [48,44,42,40,32]
+    let ratioSideLampBlue: [Double] = [36,23,33,22,25]
+    let ratioSideLampYellow: [Double] = [24,35,22,32,25]
+    let ratioSideLampGreen: [Double] = [24,17,27,18,25]
+    let ratioSideLampRed: [Double] = [16,25,18,28,25]
+    let ratioSideLampRainbow: [Double] = [0.05,0.06,0.08,0.20,0.80]
+    let ratioSideLampKisu: [Double] = [60,40,60,40,50]
+    let ratioBigTopLampBlue: [Double] = [3.6,4.1,4.3,4.9,5.8]
+    let ratioBigTopLampYellow: [Double] = [2.9,3.0,3.5,3.9,4.6]
+    let ratioBigTopLampGreen: [Double] = [1.9,2.1,2.3,2.5,3.1]
+    let ratioBigTopLampPurple: [Double] = [1.3,1.4,1.5,1.6,1.9]
+    let ratioBigTopLampRainbow: [Double] = [0.01,0.04,0.07,0.07,0.4]
+    let ratioBigTopLampSum: [Double] = [9.7,10.6,11.7,13,15.8]
     
     // ------
     // ぶどう逆算
@@ -132,7 +144,22 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaCurrentGames") var currentGames = 0
     @AppStorage("newKingHanaBonusSum") var bonusSum = 0
     @AppStorage("newKingHanaPlayGames") var playGames = 0
+    
+    // BIG
+    @AppStorage("newKingHanaBBSuikaCount") var bbSuikaCount = 0
     @AppStorage("newKingHanaBigPlayGames") var bigPlayGames = 0
+    @AppStorage("newKingHanaSideLampCountBlue") var sideLampCountBlue: Int = 0
+    @AppStorage("newKingHanaSideLampCountYellow") var sideLampCountYellow: Int = 0
+    @AppStorage("newKingHanaSideLampCountGreen") var sideLampCountGreen: Int = 0
+    @AppStorage("newKingHanaSideLampCountRed") var sideLampCountRed: Int = 0
+    @AppStorage("newKingHanaSideLampCountSum") var sideLampCountSum: Int = 0
+    @AppStorage("newKingHanaSideLampCountKisu") var sideLampCountKisu: Int = 0
+    @AppStorage("newKingHanaSideLampCountGusu") var sideLampCountGusu: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountBlue") var bigTopLampCountBlue: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountYellow") var bigTopLampCountYellow: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountGreen") var bigTopLampCountGreen: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountPurple") var bigTopLampCountPurple: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountSum") var bigTopLampCountSum: Int = 0
     
     func bonusSumFunc() {
         bonusSum = bigCount + regCount
@@ -140,6 +167,30 @@ class NewKingHana: ObservableObject {
     
     func playGameCalFunc() {
         playGames = currentGames - startGameInput
+    }
+    
+    func bigPlayGameCalFunc() {
+        bigPlayGames = bigCount * 14
+    }
+    
+    func sideLampCountSumFunc() {
+        sideLampCountSum = countSum(
+            sideLampCountBlue,
+            sideLampCountYellow,
+            sideLampCountGreen,
+            sideLampCountRed,
+        )
+        sideLampCountKisu = sideLampCountBlue + sideLampCountGreen
+        sideLampCountGusu = sideLampCountYellow + sideLampCountRed
+    }
+    
+    func bigTopLampSumFunc() {
+        bigTopLampCountSum = countSum(
+            bigTopLampCountBlue,
+            bigTopLampCountYellow,
+            bigTopLampCountGreen,
+            bigTopLampCountPurple,
+        )
     }
     
     func hanaReset() {
