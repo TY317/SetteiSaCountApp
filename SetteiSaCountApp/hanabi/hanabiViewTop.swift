@@ -68,7 +68,7 @@ struct hanabiViewTop: View {
                         )
                     }
                     
-                    // RTリプレイ
+                    // ピース花火
                     NavigationLink(destination: hanabiViewReg(
                         hanabi: hanabi,
                         bayes: bayes,
@@ -77,7 +77,7 @@ struct hanabiViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "hand.thumbsup.fill",
                             textBody: "ピースハナビ",
-                            badgeStatus: common.hanabiMenuRtReplayBadge,
+                            badgeStatus: common.hanabiMenuRegBadge,
                         )
                     }
                 }
