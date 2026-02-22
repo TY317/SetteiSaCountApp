@@ -154,11 +154,10 @@ struct newKingHanaViewKenDataInput: View {
                     action: newKingHana.kenToStartRecord
                 )
                     .popoverTip(tipUnitJugHanaCommonKenDataTohroku())
-                
-                unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
             } header: {
                 Text("データ入力")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// firebaseログ
         .onAppear {

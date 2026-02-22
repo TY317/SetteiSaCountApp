@@ -1,13 +1,13 @@
 //
-//  newKingHanaView95CiPersonal.swift
+//  newKingHanaView95CiTotal.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/02/21.
+//  Created by 横田徹 on 2026/02/22.
 //
 
 import SwiftUI
 
-struct newKingHanaView95CiPersonal: View {
+struct newKingHanaView95CiTotal: View {
     @ObservedObject var newKingHana: NewKingHana
     @State var selection = 1
     @State var isShow95CiExplain = false
@@ -16,12 +16,12 @@ struct newKingHanaView95CiPersonal: View {
         TabView(selection: $selection) {
             // ぶどう回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\nベル回数",
+                grafTitle: "\(selectTitle(enable: newKingHana.startBackCalculationEnable))\nベル回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.bellCount,
-                        bigNumber: $newKingHana.playGames,
+                        currentCount: selectBinding(enable: newKingHana.startBackCalculationEnable),
+                        bigNumber: selectBindingBig(enable: newKingHana.startBackCalculationEnable),
                         setting1Denominate: newKingHana.ratioBell[0],
                         setting2Denominate: newKingHana.ratioBell[1],
                         setting3Denominate: newKingHana.ratioBell[2],
@@ -36,12 +36,12 @@ struct newKingHanaView95CiPersonal: View {
             .tag(1)
             // BIG回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\n BIG回数",
+                grafTitle: "総合結果\n BIG回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.bigCount,
-                        bigNumber: $newKingHana.playGames,
+                        currentCount: $newKingHana.totalBigCount,
+                        bigNumber: $newKingHana.currentGames,
                         setting1Denominate: newKingHana.ratioFirstHitBig[0],
                         setting2Denominate: newKingHana.ratioFirstHitBig[1],
                         setting3Denominate: newKingHana.ratioFirstHitBig[2],
@@ -55,12 +55,12 @@ struct newKingHanaView95CiPersonal: View {
             .tag(2)
             // REG回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\n REG回数",
+                grafTitle: "総合結果\n REG回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.regCount,
-                        bigNumber: $newKingHana.playGames,
+                        currentCount: $newKingHana.totalRegCount,
+                        bigNumber: $newKingHana.currentGames,
                         setting1Denominate: newKingHana.ratioFirstHitReg[0],
                         setting2Denominate: newKingHana.ratioFirstHitReg[1],
                         setting3Denominate: newKingHana.ratioFirstHitReg[2],
@@ -74,12 +74,12 @@ struct newKingHanaView95CiPersonal: View {
             .tag(3)
             // REG回数
             unitListSection95Ci(
-                grafTitle: "自分のプレイデータ\n ボーナス合算回数",
+                grafTitle: "総合結果\n ボーナス合算回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $newKingHana.bonusSum,
-                        bigNumber: $newKingHana.playGames,
+                        currentCount: $newKingHana.totalBonusCountSum,
+                        bigNumber: $newKingHana.currentGames,
                         setting1Denominate: newKingHana.ratioFirstHitSum[0],
                         setting2Denominate: newKingHana.ratioFirstHitSum[1],
                         setting3Denominate: newKingHana.ratioFirstHitSum[2],
@@ -169,10 +169,31 @@ struct newKingHanaView95CiPersonal: View {
         }
         .tabViewStyle(.page)
     }
+    
+    private func selectTitle(enable: Bool) -> String {
+        switch enable {
+        case true: return "総合結果"
+        default: return "自分のプレイデータ"
+        }
+    }
+    
+    private func selectBinding(enable: Bool) -> Binding<Int> {
+        switch enable {
+        case true: return $newKingHana.totalBellCount
+        default: return $newKingHana.bellCount
+        }
+    }
+    
+    private func selectBindingBig(enable: Bool) -> Binding<Int> {
+        switch enable {
+        case true: return $newKingHana.currentGames
+        default: return $newKingHana.playGames
+        }
+    }
 }
 
 #Preview {
-    newKingHanaView95CiPersonal(
+    newKingHanaView95CiTotal(
         newKingHana: NewKingHana(),
     )
 }

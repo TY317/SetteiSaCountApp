@@ -100,7 +100,14 @@ class NewKingHana: ObservableObject {
     }
     
     func kenToStartRecord() {
-        
+        resetStartData()
+        hanaReset()
+        startBackCalculationEnable = kenBackCalculationEnable
+        startGameInput = kenGameIput
+        startBigCountInput = kenBigCountInput
+        startRegCountInput = kenRegCountInput
+        startCoinDifferenceInput = kenCoinDifferenceInput
+        currentGames = kenGameIput
     }
     
     func resetKenDataInput() {
@@ -133,18 +140,20 @@ class NewKingHana: ObservableObject {
         startBigCountInput = 0
         startRegCountInput = 0
         startCoinDifferenceInput = 0
+        startBonusCountSum = 0
+        startBellBackCalculationCount = 0
         minusCheck = false
     }
     
     // --------
     // 実戦
     // --------
-    @AppStorage("newKingHanaBellCount") var bellCount = 0
-    @AppStorage("newKingHanaBigCount") var bigCount = 0
-    @AppStorage("newKingHanaRegCount") var regCount = 0
-    @AppStorage("newKingHanaCurrentGames") var currentGames = 0
-    @AppStorage("newKingHanaBonusSum") var bonusSum = 0
-    @AppStorage("newKingHanaPlayGames") var playGames = 0
+    @AppStorage("newKingHanaBellCount") var bellCount: Int = 0
+    @AppStorage("newKingHanaBigCount") var bigCount: Int = 0
+    @AppStorage("newKingHanaRegCount") var regCount: Int = 0
+    @AppStorage("newKingHanaCurrentGames") var currentGames: Int = 0
+    @AppStorage("newKingHanaBonusSum") var bonusSum: Int = 0
+    @AppStorage("newKingHanaPlayGames") var playGames: Int = 0
     
     // BIG
     @AppStorage("newKingHanaBBSuikaCount") var bbSuikaCount = 0
@@ -163,8 +172,8 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaBigTopLampCountSum") var bigTopLampCountSum: Int = 0
     
     // REG
-    @AppStorage("newKingHanaRegSuikaCount") var regSuikaCount = 0
-    @AppStorage("newKingHanaRegPlayGames") var regPlayGames = 0
+    @AppStorage("newKingHanaRegSuikaCount") var regSuikaCount: Int = 0
+    @AppStorage("newKingHanaRegPlayGames") var regPlayGames: Int = 0
     
     func bonusSumFunc() {
         bonusSum = bigCount + regCount
@@ -203,6 +212,28 @@ class NewKingHana: ObservableObject {
     }
     
     func hanaReset() {
+        bellCount = 0
+        bigCount = 0
+        regCount = 0
+        currentGames = 0
+        bonusSum = 0
+        playGames = 0
+        bbSuikaCount = 0
+        bigPlayGames = 0
+        sideLampCountBlue = 0
+        sideLampCountYellow = 0
+        sideLampCountGreen = 0
+        sideLampCountRed = 0
+        sideLampCountSum = 0
+        sideLampCountKisu = 0
+        sideLampCountGusu = 0
+        bigTopLampCountBlue = 0
+        bigTopLampCountYellow = 0
+        bigTopLampCountGreen = 0
+        bigTopLampCountPurple = 0
+        bigTopLampCountSum = 0
+        regSuikaCount = 0
+        regPlayGames = 0
         minusCheck = false
     }
     
@@ -232,7 +263,9 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetKenDataInput()
+        resetStartData()
+        hanaReset()
     }
     
     // ////////
@@ -242,4 +275,154 @@ class NewKingHana: ObservableObject {
     @AppStorage("newKingHanaShimaBigs") var shimaBigs: Int = 0
     @AppStorage("newKingHanaShimaRegs") var shimaRegs: Int = 0
     @AppStorage("newKingHanaShimaBonusSum") var shimaBonusSum: Int = 0
+}
+
+
+class NewKingHanaMemory1: ObservableObject {
+    @AppStorage("newKingHanaKenBackCalculationEnableMemory1") var kenBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaKenGameIputMemory1") var kenGameIput: Int = 0
+    @AppStorage("newKingHanaKenBigCountInputMemory1") var kenBigCountInput: Int = 0
+    @AppStorage("newKingHanaKenRegCountInputMemory1") var kenRegCountInput: Int = 0
+    @AppStorage("newKingHanaKenCoinDifferenceInputMemory1") var kenCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaKenBonusCountSumMemory1") var kenBonusCountSum: Int = 0
+    @AppStorage("newKingHanaKenBellBackCalculationCountMemory1") var kenBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaStartBackCalculationEnableMemory1") var startBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaStartGamesMemory1") var startGameInput: Int = 0
+    @AppStorage("newKingHanaStartBigCountInputMemory1") var startBigCountInput: Int = 0
+    @AppStorage("newKingHanaStartRegCountInputMemory1") var startRegCountInput: Int = 0
+    @AppStorage("newKingHanaStartCoinDifferenceInputMemory1") var startCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaStartBonusCountSumMemory1") var startBonusCountSum: Int = 0
+    @AppStorage("newKingHanaStartBellBackCalculationCountMemory1") var startBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaBellCountMemory1") var bellCount = 0
+    @AppStorage("newKingHanaBigCountMemory1") var bigCount = 0
+    @AppStorage("newKingHanaRegCountMemory1") var regCount = 0
+    @AppStorage("newKingHanaCurrentGamesMemory1") var currentGames = 0
+    @AppStorage("newKingHanaBonusSumMemory1") var bonusSum = 0
+    @AppStorage("newKingHanaPlayGamesMemory1") var playGames = 0
+    @AppStorage("newKingHanaBBSuikaCountMemory1") var bbSuikaCount = 0
+    @AppStorage("newKingHanaBigPlayGamesMemory1") var bigPlayGames = 0
+    @AppStorage("newKingHanaSideLampCountBlueMemory1") var sideLampCountBlue: Int = 0
+    @AppStorage("newKingHanaSideLampCountYellowMemory1") var sideLampCountYellow: Int = 0
+    @AppStorage("newKingHanaSideLampCountGreenMemory1") var sideLampCountGreen: Int = 0
+    @AppStorage("newKingHanaSideLampCountRedMemory1") var sideLampCountRed: Int = 0
+    @AppStorage("newKingHanaSideLampCountSumMemory1") var sideLampCountSum: Int = 0
+    @AppStorage("newKingHanaSideLampCountKisuMemory1") var sideLampCountKisu: Int = 0
+    @AppStorage("newKingHanaSideLampCountGusuMemory1") var sideLampCountGusu: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountBlueMemory1") var bigTopLampCountBlue: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountYellowMemory1") var bigTopLampCountYellow: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountGreenMemory1") var bigTopLampCountGreen: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountPurpleMemory1") var bigTopLampCountPurple: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountSumMemory1") var bigTopLampCountSum: Int = 0
+    @AppStorage("newKingHanaRegSuikaCountMemory1") var regSuikaCount = 0
+    @AppStorage("newKingHanaRegPlayGamesMemory1") var regPlayGames = 0
+    @AppStorage("newKingHanaTotalBigCountMemory1") var totalBigCount = 0
+    @AppStorage("newKingHanaTotalRegCountMemory1") var totalRegCount = 0
+    @AppStorage("newKingHanaTotalBellCountMemory1") var totalBellCount = 0
+    @AppStorage("newKingHanaTotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("newKingHanaShimaGamesMemory1") var shimaGames: Int = 0
+    @AppStorage("newKingHanaShimaBigsMemory1") var shimaBigs: Int = 0
+    @AppStorage("newKingHanaShimaRegsMemory1") var shimaRegs: Int = 0
+    @AppStorage("newKingHanaShimaBonusSumMemory1") var shimaBonusSum: Int = 0
+    @AppStorage("newKingHanaMemoMemory1") var memo = ""
+    @AppStorage("newKingHanaDateMemory1") var dateDouble = 0.0
+}
+
+
+class NewKingHanaMemory2: ObservableObject {
+    @AppStorage("newKingHanaKenBackCalculationEnableMemory2") var kenBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaKenGameIputMemory2") var kenGameIput: Int = 0
+    @AppStorage("newKingHanaKenBigCountInputMemory2") var kenBigCountInput: Int = 0
+    @AppStorage("newKingHanaKenRegCountInputMemory2") var kenRegCountInput: Int = 0
+    @AppStorage("newKingHanaKenCoinDifferenceInputMemory2") var kenCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaKenBonusCountSumMemory2") var kenBonusCountSum: Int = 0
+    @AppStorage("newKingHanaKenBellBackCalculationCountMemory2") var kenBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaStartBackCalculationEnableMemory2") var startBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaStartGamesMemory2") var startGameInput: Int = 0
+    @AppStorage("newKingHanaStartBigCountInputMemory2") var startBigCountInput: Int = 0
+    @AppStorage("newKingHanaStartRegCountInputMemory2") var startRegCountInput: Int = 0
+    @AppStorage("newKingHanaStartCoinDifferenceInputMemory2") var startCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaStartBonusCountSumMemory2") var startBonusCountSum: Int = 0
+    @AppStorage("newKingHanaStartBellBackCalculationCountMemory2") var startBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaBellCountMemory2") var bellCount = 0
+    @AppStorage("newKingHanaBigCountMemory2") var bigCount = 0
+    @AppStorage("newKingHanaRegCountMemory2") var regCount = 0
+    @AppStorage("newKingHanaCurrentGamesMemory2") var currentGames = 0
+    @AppStorage("newKingHanaBonusSumMemory2") var bonusSum = 0
+    @AppStorage("newKingHanaPlayGamesMemory2") var playGames = 0
+    @AppStorage("newKingHanaBBSuikaCountMemory2") var bbSuikaCount = 0
+    @AppStorage("newKingHanaBigPlayGamesMemory2") var bigPlayGames = 0
+    @AppStorage("newKingHanaSideLampCountBlueMemory2") var sideLampCountBlue: Int = 0
+    @AppStorage("newKingHanaSideLampCountYellowMemory2") var sideLampCountYellow: Int = 0
+    @AppStorage("newKingHanaSideLampCountGreenMemory2") var sideLampCountGreen: Int = 0
+    @AppStorage("newKingHanaSideLampCountRedMemory2") var sideLampCountRed: Int = 0
+    @AppStorage("newKingHanaSideLampCountSumMemory2") var sideLampCountSum: Int = 0
+    @AppStorage("newKingHanaSideLampCountKisuMemory2") var sideLampCountKisu: Int = 0
+    @AppStorage("newKingHanaSideLampCountGusuMemory2") var sideLampCountGusu: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountBlueMemory2") var bigTopLampCountBlue: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountYellowMemory2") var bigTopLampCountYellow: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountGreenMemory2") var bigTopLampCountGreen: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountPurpleMemory2") var bigTopLampCountPurple: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountSumMemory2") var bigTopLampCountSum: Int = 0
+    @AppStorage("newKingHanaRegSuikaCountMemory2") var regSuikaCount = 0
+    @AppStorage("newKingHanaRegPlayGamesMemory2") var regPlayGames = 0
+    @AppStorage("newKingHanaTotalBigCountMemory2") var totalBigCount = 0
+    @AppStorage("newKingHanaTotalRegCountMemory2") var totalRegCount = 0
+    @AppStorage("newKingHanaTotalBellCountMemory2") var totalBellCount = 0
+    @AppStorage("newKingHanaTotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("newKingHanaShimaGamesMemory2") var shimaGames: Int = 0
+    @AppStorage("newKingHanaShimaBigsMemory2") var shimaBigs: Int = 0
+    @AppStorage("newKingHanaShimaRegsMemory2") var shimaRegs: Int = 0
+    @AppStorage("newKingHanaShimaBonusSumMemory2") var shimaBonusSum: Int = 0
+    @AppStorage("newKingHanaMemoMemory2") var memo = ""
+    @AppStorage("newKingHanaDateMemory2") var dateDouble = 0.0
+}
+
+
+class NewKingHanaMemory3: ObservableObject {
+    @AppStorage("newKingHanaKenBackCalculationEnableMemory3") var kenBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaKenGameIputMemory3") var kenGameIput: Int = 0
+    @AppStorage("newKingHanaKenBigCountInputMemory3") var kenBigCountInput: Int = 0
+    @AppStorage("newKingHanaKenRegCountInputMemory3") var kenRegCountInput: Int = 0
+    @AppStorage("newKingHanaKenCoinDifferenceInputMemory3") var kenCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaKenBonusCountSumMemory3") var kenBonusCountSum: Int = 0
+    @AppStorage("newKingHanaKenBellBackCalculationCountMemory3") var kenBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaStartBackCalculationEnableMemory3") var startBackCalculationEnable: Bool = false
+    @AppStorage("newKingHanaStartGamesMemory3") var startGameInput: Int = 0
+    @AppStorage("newKingHanaStartBigCountInputMemory3") var startBigCountInput: Int = 0
+    @AppStorage("newKingHanaStartRegCountInputMemory3") var startRegCountInput: Int = 0
+    @AppStorage("newKingHanaStartCoinDifferenceInputMemory3") var startCoinDifferenceInput: Int = 0
+    @AppStorage("newKingHanaStartBonusCountSumMemory3") var startBonusCountSum: Int = 0
+    @AppStorage("newKingHanaStartBellBackCalculationCountMemory3") var startBellBackCalculationCount: Int = 0
+    @AppStorage("newKingHanaBellCountMemory3") var bellCount = 0
+    @AppStorage("newKingHanaBigCountMemory3") var bigCount = 0
+    @AppStorage("newKingHanaRegCountMemory3") var regCount = 0
+    @AppStorage("newKingHanaCurrentGamesMemory3") var currentGames = 0
+    @AppStorage("newKingHanaBonusSumMemory3") var bonusSum = 0
+    @AppStorage("newKingHanaPlayGamesMemory3") var playGames = 0
+    @AppStorage("newKingHanaBBSuikaCountMemory3") var bbSuikaCount = 0
+    @AppStorage("newKingHanaBigPlayGamesMemory3") var bigPlayGames = 0
+    @AppStorage("newKingHanaSideLampCountBlueMemory3") var sideLampCountBlue: Int = 0
+    @AppStorage("newKingHanaSideLampCountYellowMemory3") var sideLampCountYellow: Int = 0
+    @AppStorage("newKingHanaSideLampCountGreenMemory3") var sideLampCountGreen: Int = 0
+    @AppStorage("newKingHanaSideLampCountRedMemory3") var sideLampCountRed: Int = 0
+    @AppStorage("newKingHanaSideLampCountSumMemory3") var sideLampCountSum: Int = 0
+    @AppStorage("newKingHanaSideLampCountKisuMemory3") var sideLampCountKisu: Int = 0
+    @AppStorage("newKingHanaSideLampCountGusuMemory3") var sideLampCountGusu: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountBlueMemory3") var bigTopLampCountBlue: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountYellowMemory3") var bigTopLampCountYellow: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountGreenMemory3") var bigTopLampCountGreen: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountPurpleMemory3") var bigTopLampCountPurple: Int = 0
+    @AppStorage("newKingHanaBigTopLampCountSumMemory3") var bigTopLampCountSum: Int = 0
+    @AppStorage("newKingHanaRegSuikaCountMemory3") var regSuikaCount = 0
+    @AppStorage("newKingHanaRegPlayGamesMemory3") var regPlayGames = 0
+    @AppStorage("newKingHanaTotalBigCountMemory3") var totalBigCount = 0
+    @AppStorage("newKingHanaTotalRegCountMemory3") var totalRegCount = 0
+    @AppStorage("newKingHanaTotalBellCountMemory3") var totalBellCount = 0
+    @AppStorage("newKingHanaTotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("newKingHanaShimaGamesMemory3") var shimaGames: Int = 0
+    @AppStorage("newKingHanaShimaBigsMemory3") var shimaBigs: Int = 0
+    @AppStorage("newKingHanaShimaRegsMemory3") var shimaRegs: Int = 0
+    @AppStorage("newKingHanaShimaBonusSumMemory3") var shimaBonusSum: Int = 0
+    @AppStorage("newKingHanaMemoMemory3") var memo = ""
+    @AppStorage("newKingHanaDateMemory3") var dateDouble = 0.0
 }

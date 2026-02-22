@@ -181,7 +181,7 @@ struct newKingHanaViewJissenCount: View {
                         }
                         // スイカカウントボタン
                         unitCountButtonVerticalDenominate(
-                            title: "スイカ",
+                            title: "🍉",
                             count: $newKingHana.bbSuikaCount,
                             color: .green,
                             bigNumber: $newKingHana.bigPlayGames,
@@ -190,13 +190,13 @@ struct newKingHanaViewJissenCount: View {
                         )
                         
                         // 参考情報）BIG中スイカ確率
-                        unitLinkButtonViewBuilder(sheetTitle: "BIG中スイカ確率") {
+                        unitLinkButtonViewBuilder(sheetTitle: "BIG中🍉確率") {
                             VStack {
                                 Text("[参考] 過去のハナハナシリーズ数値")
                                 HStack(spacing: 0) {
                                     unitTableSettingIndex(settingList: [1,2,3,4,6])
                                     unitTableDenominate(
-                                        columTitle: "BIG中スイカ",
+                                        columTitle: "BIG中🍉",
                                         denominateList: newKingHana.ratioBigSuika
                                     )
                                 }
@@ -222,7 +222,7 @@ struct newKingHanaViewJissenCount: View {
                             )
                         }
                     } header: {
-                        Text("  \nBIG前半スイカ")
+                        Text("  \nBIG前半🍉")
                     }
                     
                     Section {
@@ -501,7 +501,7 @@ struct newKingHanaViewJissenCount: View {
                         }
                         // スイカカウントボタン
                         unitCountButtonVerticalDenominate(
-                            title: "スイカ",
+                            title: "🍉",
                             count: $newKingHana.regSuikaCount,
                             color: .personalSummerLightGreen,
                             bigNumber: $newKingHana.regPlayGames,
@@ -510,13 +510,13 @@ struct newKingHanaViewJissenCount: View {
                         )
                         
                         // 参考情報）REG中スイカ確率
-                        unitLinkButtonViewBuilder(sheetTitle: "REG中スイカ確率") {
+                        unitLinkButtonViewBuilder(sheetTitle: "REG中🍉確率") {
                             VStack {
 //                                Text("[参考] 過去のハナハナシリーズ数値")
                                 HStack(spacing: 0) {
                                     unitTableSettingIndex(settingList: [1,2,3,4,6])
                                     unitTableDenominate(
-                                        columTitle: "REG中スイカ",
+                                        columTitle: "REG中🍉",
                                         denominateList: newKingHana.ratioRegSuika
                                     )
                                 }
@@ -542,7 +542,7 @@ struct newKingHanaViewJissenCount: View {
 //                            )
 //                        }
                     } header: {
-                        Text("  \nREG中スイカ")
+                        Text("  \nREG中🍉")
                     }
                 }
                 unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
