@@ -98,6 +98,9 @@ PODS:
   - GoogleMobileAdsMediationLine (3.0.0.0):
     - FiveAd (= 3.0.0)
     - Google-Mobile-Ads-SDK (~> 12.0)
+  - GoogleMobileAdsMediationUnity (4.16.6.0):
+    - Google-Mobile-Ads-SDK (~> 12.0)
+    - UnityAds (= 4.16.5)
   - GoogleUserMessagingPlatform (3.1.0)
   - GoogleUtilities/AppDelegateSwizzler (8.1.0):
     - GoogleUtilities/Environment
@@ -135,6 +138,7 @@ PODS:
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
+  - UnityAds (4.16.5)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -142,6 +146,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - GoogleMobileAdsMediationInMobi
   - GoogleMobileAdsMediationLine
+  - GoogleMobileAdsMediationUnity
 
 SPEC REPOS:
   trunk:
@@ -161,12 +166,14 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleMobileAdsMediationInMobi
     - GoogleMobileAdsMediationLine
+    - GoogleMobileAdsMediationUnity
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - InMobiSDK
     - nanopb
     - PromisesObjC
     - PromisesSwift
+    - UnityAds
 
 SPEC CHECKSUMS:
   Firebase: 065f2bb395062046623036d8e6dc857bc2521d56
@@ -185,13 +192,15 @@ SPEC CHECKSUMS:
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleMobileAdsMediationInMobi: 010c989845587e66ef33491f2bdf5426cb3e1c15
   GoogleMobileAdsMediationLine: d92ef4bee9186492687a9475c92cd320f5166f1d
+  GoogleMobileAdsMediationUnity: 85fd40e2b42371341446745899e2963faaaaaba9
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   InMobiSDK: 4642fb34a961980ab94a1ac460c6e16e113498e6
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  UnityAds: 8b9e0ecf7c4aa7334d15f81efb58db279e28f502
 
-PODFILE CHECKSUM: 94aeca3a1484bd1b02dcd01c084c8a8e2cd5bf0e
+PODFILE CHECKSUM: e9c561fcae5c155f9256fb9bc01674cded350f50
 
 COCOAPODS: 1.16.2
