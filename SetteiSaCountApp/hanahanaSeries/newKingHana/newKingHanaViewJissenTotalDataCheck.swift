@@ -142,7 +142,8 @@ struct newKingHanaViewJissenTotalDataCheck: View {
                             color: .grayBack,
                             count: $newKingHana.sideLampCountKisu,
                             bigNumber: $newKingHana.sideLampCountSum,
-                            numberofDicimal: 0
+                            numberofDicimal: 0,
+                            spacerBool: false,
                         )
                         // 偶数示唆
                         unitResultRatioPercent2Line(
@@ -150,7 +151,8 @@ struct newKingHanaViewJissenTotalDataCheck: View {
                             color: .grayBack,
                             count: $newKingHana.sideLampCountGusu,
                             bigNumber: $newKingHana.sideLampCountSum,
-                            numberofDicimal: 0
+                            numberofDicimal: 0,
+                            spacerBool: false,
                         )
                     }
                 }
