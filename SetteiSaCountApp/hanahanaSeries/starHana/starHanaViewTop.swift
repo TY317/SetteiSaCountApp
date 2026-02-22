@@ -9,7 +9,6 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct starHanaViewTop: View {
-//    @ObservedObject var ver391: Ver391
     @StateObject var starHana = StarHana()
     @State var isShowAlert: Bool = false
     @StateObject var starHanaMemory1 = StarHanaMemory1()

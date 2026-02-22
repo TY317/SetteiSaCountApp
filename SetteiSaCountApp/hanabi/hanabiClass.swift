@@ -156,6 +156,49 @@ class Hanabi: ObservableObject {
         resetStart()
         resetPlay()
         resetRtReplay()
+        resetReg()
+    }
+    
+    // --------
+    // ver3.20.0で追加
+    // --------
+    let ratioPeaceU2: [Double] = [0,3.1,3.1,3.1]
+    let ratioPeaceU4: [Double] = [0,10,10,10,]
+    let ratioPeaceO5: [Double] = [0,25,25,25,]
+    @AppStorage("hanabiPeaceCountU2Miss") var peaceCountU2Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU2Hit") var peaceCountU2Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU2Sum") var peaceCountU2Sum: Int = 0
+    @AppStorage("hanabiPeaceCountU4Miss") var peaceCountU4Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU4Hit") var peaceCountU4Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU4Sum") var peaceCountU4Sum: Int = 0
+    @AppStorage("hanabiPeaceCountO5Miss") var peaceCountO5Miss: Int = 0
+    @AppStorage("hanabiPeaceCountO5Hit") var peaceCountO5Hit: Int = 0
+    @AppStorage("hanabiPeaceCountO5Sum") var peaceCountO5Sum: Int = 0
+    @AppStorage("hanabiPeaceCountHitSum") var peaceCountHitSum: Int = 0
+    
+    func peaceSumFunc() {
+        peaceCountU2Sum = peaceCountU2Miss + peaceCountU2Hit
+        peaceCountU4Sum = peaceCountU4Miss + peaceCountU4Hit
+        peaceCountO5Sum = peaceCountO5Miss + peaceCountO5Hit
+        peaceCountHitSum = countSum(
+            peaceCountU2Hit,
+            peaceCountU4Hit,
+            peaceCountO5Hit,
+        )
+    }
+    
+    func resetReg() {
+        peaceCountU2Miss = 0
+        peaceCountU2Hit = 0
+        peaceCountU2Sum = 0
+        peaceCountU4Miss = 0
+        peaceCountU4Hit = 0
+        peaceCountU4Sum = 0
+        peaceCountO5Miss = 0
+        peaceCountO5Hit = 0
+        peaceCountO5Sum = 0
+        peaceCountHitSum = 0
+        minusCheck = false
     }
 }
 
@@ -194,6 +237,20 @@ class HanabiMemory1: ObservableObject {
     @AppStorage("hanabiReplayCountGameMemory1") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory1") var memo = ""
     @AppStorage("hanabiDateMemory1") var dateDouble = 0.0
+    
+    // --------
+    // ver3.20.0で追加
+    // --------
+    @AppStorage("hanabiPeaceCountU2MissMemory1") var peaceCountU2Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU2HitMemory1") var peaceCountU2Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU2SumMemory1") var peaceCountU2Sum: Int = 0
+    @AppStorage("hanabiPeaceCountU4MissMemory1") var peaceCountU4Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU4HitMemory1") var peaceCountU4Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU4SumMemory1") var peaceCountU4Sum: Int = 0
+    @AppStorage("hanabiPeaceCountO5MissMemory1") var peaceCountO5Miss: Int = 0
+    @AppStorage("hanabiPeaceCountO5HitMemory1") var peaceCountO5Hit: Int = 0
+    @AppStorage("hanabiPeaceCountO5SumMemory1") var peaceCountO5Sum: Int = 0
+    @AppStorage("hanabiPeaceCountHitSumMemory1") var peaceCountHitSum: Int = 0
 }
 
 class HanabiMemory2: ObservableObject {
@@ -231,6 +288,20 @@ class HanabiMemory2: ObservableObject {
     @AppStorage("hanabiReplayCountGameMemory2") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory2") var memo = ""
     @AppStorage("hanabiDateMemory2") var dateDouble = 0.0
+    
+    // --------
+    // ver3.20.0で追加
+    // --------
+    @AppStorage("hanabiPeaceCountU2MissMemory2") var peaceCountU2Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU2HitMemory2") var peaceCountU2Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU2SumMemory2") var peaceCountU2Sum: Int = 0
+    @AppStorage("hanabiPeaceCountU4MissMemory2") var peaceCountU4Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU4HitMemory2") var peaceCountU4Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU4SumMemory2") var peaceCountU4Sum: Int = 0
+    @AppStorage("hanabiPeaceCountO5MissMemory2") var peaceCountO5Miss: Int = 0
+    @AppStorage("hanabiPeaceCountO5HitMemory2") var peaceCountO5Hit: Int = 0
+    @AppStorage("hanabiPeaceCountO5SumMemory2") var peaceCountO5Sum: Int = 0
+    @AppStorage("hanabiPeaceCountHitSumMemory2") var peaceCountHitSum: Int = 0
 }
 
 class HanabiMemory3: ObservableObject {
@@ -268,4 +339,18 @@ class HanabiMemory3: ObservableObject {
     @AppStorage("hanabiReplayCountGameMemory3") var replayCountGame: Int = 0
     @AppStorage("hanabiMemoMemory3") var memo = ""
     @AppStorage("hanabiDateMemory3") var dateDouble = 0.0
+    
+    // --------
+    // ver3.20.0で追加
+    // --------
+    @AppStorage("hanabiPeaceCountU2MissMemory3") var peaceCountU2Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU2HitMemory3") var peaceCountU2Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU2SumMemory3") var peaceCountU2Sum: Int = 0
+    @AppStorage("hanabiPeaceCountU4MissMemory3") var peaceCountU4Miss: Int = 0
+    @AppStorage("hanabiPeaceCountU4HitMemory3") var peaceCountU4Hit: Int = 0
+    @AppStorage("hanabiPeaceCountU4SumMemory3") var peaceCountU4Sum: Int = 0
+    @AppStorage("hanabiPeaceCountO5MissMemory3") var peaceCountO5Miss: Int = 0
+    @AppStorage("hanabiPeaceCountO5HitMemory3") var peaceCountO5Hit: Int = 0
+    @AppStorage("hanabiPeaceCountO5SumMemory3") var peaceCountO5Sum: Int = 0
+    @AppStorage("hanabiPeaceCountHitSumMemory3") var peaceCountHitSum: Int = 0
 }

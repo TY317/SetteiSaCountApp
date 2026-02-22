@@ -141,7 +141,7 @@ struct vvv2ViewRush: View {
                 unitLinkButtonViewBuilder(sheetTitle: "開始画面の振り分け") {
                     vvv2TableRushScreenRatio()
                 }
-                .popoverTip(tipVer3150vvv2RushScreenRatio())
+//                .popoverTip(tipVer3150vvv2RushScreenRatio())
             } header: {
                 Text("ラウンド開始画面での示唆")
             }

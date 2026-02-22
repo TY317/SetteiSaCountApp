@@ -121,6 +121,14 @@ class Kokakukidotai: ObservableObject {
         resetNormal()
         resetScreen()
     }
+    
+    // ---------
+    // ver3.20.0で追加
+    // ---------
+    // AT終了後の状態
+    let ratioAfterAtNormal: [Double] = [50,48.3,46.7,45,43.3,41.7]
+    let ratioAfterAtHigh: [Double] = [47.5,48.8,50,51.3,52.5,53.8]
+    let ratioAfterAtSuperHigh: [Double] = [2.5,2.9,3.3,3.8,4.2,4.6]
 }
 
 class KokakukidotaiMemory1: ObservableObject {

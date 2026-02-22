@@ -193,7 +193,7 @@ struct tokyoGhoulViewTsukiyama: View {
                         )
                     )
                 )
-                .popoverTip(tipVer3150GhoulModesisa())
+//                .popoverTip(tipVer3150GhoulModesisa())
             }
             // //// カウント結果表示
             Section {

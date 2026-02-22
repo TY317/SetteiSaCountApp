@@ -14,6 +14,7 @@ struct bayesResultView: View {
     let payoutList: [Double]
     let xAxisTitle: String = "設定"
     let yAxisTitle: String = "期待確率"
+    var payOutDicimal: Int = 1
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -94,7 +95,7 @@ struct bayesResultView: View {
                             unitTablePercent(
                                 columTitle: "機械割",
                                 percentList: self.payoutList,
-                                numberofDicimal: 1,
+                                numberofDicimal: self.payOutDicimal,
                             )
                         }
                     }

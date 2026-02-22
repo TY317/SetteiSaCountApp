@@ -25,7 +25,6 @@ struct splashScreenView: View {
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opsity = 0.0
-//    @ObservedObject var common = commonVar()
     @StateObject var common = commonVar()
     @AppStorage("appearanceMode") private var appearanceModeRaw: Int = AppearanceMode.system.rawValue
     private var appearanceMode: AppearanceMode {
@@ -34,7 +33,6 @@ struct splashScreenView: View {
     @StateObject var rewardViewModel = RewardedViewModel()
     var body: some View {
         if isActive {
-//            ContentView(common: common)
             ContentView()
                 .environmentObject(common)
                 .preferredColorScheme(appearanceMode.colorScheme)
@@ -56,17 +54,16 @@ struct splashScreenView: View {
                         // ----- リリース前にコメントアウト！！！
 //                        common.firstLaunchAppVersion = nil
 //                        common.lastLaunchAppVersion = nil
-//                        common.lastLaunchAppVersion = "3.18.0"
+                        common.lastLaunchAppVersion = "3.19.0"
                         // --------------------------------
-//                        common.ver3140FirstLaunch()
-//                        common.ver3150FirstLaunch()
-                        common.ver3160FirstLaunch()
+//                        common.ver3160FirstLaunch()
                         common.ver3170FirstLaunch()
                         common.ver3171FirstLaunch()
                         common.ver3180FirstLaunch()
                         common.ver3190FirstLaunch()
+                        common.ver3200FirstLaunch()
                         common.saveAppVersions()
-                        
+                        common.forcedUnlockReward()
                     }
             }
             .onAppear {
@@ -76,13 +73,6 @@ struct splashScreenView: View {
                     }
                 }
             }
-//            .onAppear {
-//                common.saveInitialVersionIfNeeded()
-//                common.lastLaunchAppVersion = nil
-//                common.lastLaunchAppVersion = "3.9.1"
-//                common.ver3100FirstLaunch()
-//                common.saveAppVersions()
-//            }
         }
     }
 }
