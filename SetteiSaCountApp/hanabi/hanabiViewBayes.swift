@@ -20,6 +20,7 @@ struct hanabiViewBayes: View {
     @State var rbKoyakuEnable: Bool = true
     @State var repChallengeEnable: Bool = true
     @State var repGameEnable: Bool = true
+    @State var peaceEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -96,6 +97,14 @@ struct hanabiViewBayes: View {
                 
                 // 花火GAME中 RTリプレイ確率
                 unitToggleWithQuestion(enable: self.$repGameEnable, title: "花火GAME中 RTリプレイ確率")
+                
+                // ピース花火
+                unitToggleWithQuestion(enable: self.$peaceEnable, title: "ピース花火") {
+                    unitExView5body2image(
+                        title: "ピース花火",
+                        textBody1: "・ピース花火の有無、1枚役回数ごとのカウント状況を計算要素に加えます"
+                    )
+                }
             }
             
             // //// STEP3
@@ -269,6 +278,28 @@ struct hanabiViewBayes: View {
             )
         }
         
+        // ピース花火
+        var logPostPeaceU2: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPeaceU4: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPeaceO5: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.peaceEnable {
+            logPostPeaceU2 = logPostPercentBino(
+                ratio: hanabi.ratioPeaceU2,
+                Count: hanabi.peaceCountU2Hit,
+                bigNumber: hanabi.peaceCountU2Sum
+            )
+            logPostPeaceU4 = logPostPercentBino(
+                ratio: hanabi.ratioPeaceU4,
+                Count: hanabi.peaceCountU4Hit,
+                bigNumber: hanabi.peaceCountU4Sum
+            )
+            logPostPeaceO5 = logPostPercentBino(
+                ratio: hanabi.ratioPeaceO5,
+                Count: hanabi.peaceCountO5Hit,
+                bigNumber: hanabi.peaceCountO5Sum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -303,6 +334,9 @@ struct hanabiViewBayes: View {
             logPostRbKoyaku,
             logPostRepChallenge,
             logPostRepGame,
+            logPostPeaceU2,
+            logPostPeaceU4,
+            logPostPeaceO5,
             
             logPostTrophy,
             logPostBefore,

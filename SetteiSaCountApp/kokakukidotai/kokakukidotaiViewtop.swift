@@ -95,6 +95,19 @@ struct kokakukidotaiViewTop: View {
                         )
                     }
                     
+                    // AT終了後
+                    NavigationLink(destination: kokakukidotaiViewAfterAt(
+                        kokakukidotai: kokakukidotai,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left.fill",
+                            textBody: "AT終了後",
+                            badgeStatus: common.kokakukidotaiMenuAfterAtBadge,
+                        )
+                    }
+                    
                     // サミートロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(

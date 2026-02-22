@@ -140,6 +140,7 @@ class commonVar: ObservableObject {
     @AppStorage("hanabiMenuStartBadge") var hanabiMenuStartBadge: String = "none"
     @AppStorage("hanabiMenuPlayBadge") var hanabiMenuPlayBadge: String = "none"
     @AppStorage("hanabiMenuRtReplayBadge") var hanabiMenuRtReplayBadge: String = "none"
+    @AppStorage("hanabiMenuRegBadge") var hanabiMenuRegBadge: String = "none"
     
     // ---- 炎炎２
     @AppStorage("enen2isUnlocked") var enen2isUnlocked: Bool = true
@@ -162,6 +163,7 @@ class commonVar: ObservableObject {
     @AppStorage("kokakukidotaiMenuAtBadge") var kokakukidotaiMenuAtBadge: String = "none"
     @AppStorage("kokakukidotaiMenuScreenBadge") var kokakukidotaiMenuScreenBadge: String = "none"
     @AppStorage("kokakukidotaiMenuCzBadge") var kokakukidotaiMenuCzBadge: String = "none"
+    @AppStorage("kokakukidotaiMenuAfterAtBadge") var kokakukidotaiMenuAfterAtBadge: String = "none"
     
     // ---- 鉄拳
     @AppStorage("tekken6isUnlocked") var tekken6isUnlocked: Bool = true
@@ -334,6 +336,10 @@ class commonVar: ObservableObject {
                 newKingHanaisUnlocked = false
                 hanaSeriesBadge = "new"
                 newKingHanaMachineIconBadge = "new"
+                kokakukidotaiMachineIconBadge = "update"
+                kokakukidotaiMenuAfterAtBadge = "new"
+                hanabiMachineIconBadge = "update"
+                hanabiMenuRegBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

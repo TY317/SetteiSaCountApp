@@ -160,7 +160,7 @@ struct newKingHanaViewJissenCount: View {
                         HStack {
                             HStack {
                                 Text("BIG前半ゲーム数")
-                                    .font(.subheadline)
+                                    .font(.footnote)
                                 unitToolbarButtonQuestion {
                                     unitExView5body2image(
                                         title: "BIG前半ゲーム数",

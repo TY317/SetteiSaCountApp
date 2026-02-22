@@ -172,7 +172,7 @@ struct newKingHanaViewJissenStartData: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("[見] データ確認")
+        .navigationTitle("打ち始めデータ")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -195,7 +195,7 @@ struct newKingHanaViewJissenStartData: View {
             }
             ToolbarItem(placement: .automatic) {
                 // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: newKingHana.resetKenDataInput)
+                unitButtonReset(isShowAlert: $isShowAlert, action: newKingHana.resetStartData)
             }
             ToolbarItem(placement: .keyboard) {
                 HStack {

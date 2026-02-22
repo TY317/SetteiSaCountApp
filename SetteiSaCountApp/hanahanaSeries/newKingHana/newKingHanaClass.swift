@@ -108,6 +108,8 @@ class NewKingHana: ObservableObject {
         startRegCountInput = kenRegCountInput
         startCoinDifferenceInput = kenCoinDifferenceInput
         currentGames = kenGameIput
+        startBellBackCalculationCount = kenBellBackCalculationCount
+        allSumFunc()
     }
     
     func resetKenDataInput() {
@@ -118,6 +120,7 @@ class NewKingHana: ObservableObject {
         kenBonusCountSum = 0
         kenBellBackCalculationCount = 0
         minusCheck = false
+        allSumFunc()
     }
     
     // --------
@@ -143,6 +146,7 @@ class NewKingHana: ObservableObject {
         startBonusCountSum = 0
         startBellBackCalculationCount = 0
         minusCheck = false
+        allSumFunc()
     }
     
     // --------
@@ -235,6 +239,7 @@ class NewKingHana: ObservableObject {
         regSuikaCount = 0
         regPlayGames = 0
         minusCheck = false
+        allSumFunc()
     }
     
     // --------
@@ -266,6 +271,17 @@ class NewKingHana: ObservableObject {
         resetKenDataInput()
         resetStartData()
         hanaReset()
+    }
+    
+    func allSumFunc() {
+        kenBonusSumFunc()
+        startBonusSumFunc()
+        bonusSumFunc()
+        playGameCalFunc()
+        bigPlayGameCalFunc()
+        sideLampCountSumFunc()
+        bigTopLampSumFunc()
+        regPlayGameCalFunc()
     }
     
     // ////////

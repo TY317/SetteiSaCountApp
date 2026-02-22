@@ -67,6 +67,19 @@ struct hanabiViewTop: View {
                             badgeStatus: common.hanabiMenuRtReplayBadge,
                         )
                     }
+                    
+                    // RTリプレイ
+                    NavigationLink(destination: hanabiViewReg(
+                        hanabi: hanabi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "hand.thumbsup.fill",
+                            textBody: "ピースハナビ",
+                            badgeStatus: common.hanabiMenuRtReplayBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
@@ -204,6 +217,20 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory1.rbCountGame = hanabi.rbCountGame
         hanabiMemory1.replayCountChallenge = hanabi.replayCountChallenge
         hanabiMemory1.replayCountGame = hanabi.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabiMemory1.peaceCountU2Miss = hanabi.peaceCountU2Miss
+        hanabiMemory1.peaceCountU2Hit = hanabi.peaceCountU2Hit
+        hanabiMemory1.peaceCountU2Sum = hanabi.peaceCountU2Sum
+        hanabiMemory1.peaceCountU4Miss = hanabi.peaceCountU4Miss
+        hanabiMemory1.peaceCountU4Hit = hanabi.peaceCountU4Hit
+        hanabiMemory1.peaceCountU4Sum = hanabi.peaceCountU4Sum
+        hanabiMemory1.peaceCountO5Miss = hanabi.peaceCountO5Miss
+        hanabiMemory1.peaceCountO5Hit = hanabi.peaceCountO5Hit
+        hanabiMemory1.peaceCountO5Sum = hanabi.peaceCountO5Sum
+        hanabiMemory1.peaceCountHitSum = hanabi.peaceCountHitSum
     }
     func saveMemory2() {
         hanabiMemory2.startGame = hanabi.startGame
@@ -238,6 +265,20 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory2.rbCountGame = hanabi.rbCountGame
         hanabiMemory2.replayCountChallenge = hanabi.replayCountChallenge
         hanabiMemory2.replayCountGame = hanabi.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabiMemory2.peaceCountU2Miss = hanabi.peaceCountU2Miss
+        hanabiMemory2.peaceCountU2Hit = hanabi.peaceCountU2Hit
+        hanabiMemory2.peaceCountU2Sum = hanabi.peaceCountU2Sum
+        hanabiMemory2.peaceCountU4Miss = hanabi.peaceCountU4Miss
+        hanabiMemory2.peaceCountU4Hit = hanabi.peaceCountU4Hit
+        hanabiMemory2.peaceCountU4Sum = hanabi.peaceCountU4Sum
+        hanabiMemory2.peaceCountO5Miss = hanabi.peaceCountO5Miss
+        hanabiMemory2.peaceCountO5Hit = hanabi.peaceCountO5Hit
+        hanabiMemory2.peaceCountO5Sum = hanabi.peaceCountO5Sum
+        hanabiMemory2.peaceCountHitSum = hanabi.peaceCountHitSum
     }
     func saveMemory3() {
         hanabiMemory3.startGame = hanabi.startGame
@@ -272,6 +313,20 @@ struct hanabiSubViewSaveMemory: View {
         hanabiMemory3.rbCountGame = hanabi.rbCountGame
         hanabiMemory3.replayCountChallenge = hanabi.replayCountChallenge
         hanabiMemory3.replayCountGame = hanabi.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabiMemory3.peaceCountU2Miss = hanabi.peaceCountU2Miss
+        hanabiMemory3.peaceCountU2Hit = hanabi.peaceCountU2Hit
+        hanabiMemory3.peaceCountU2Sum = hanabi.peaceCountU2Sum
+        hanabiMemory3.peaceCountU4Miss = hanabi.peaceCountU4Miss
+        hanabiMemory3.peaceCountU4Hit = hanabi.peaceCountU4Hit
+        hanabiMemory3.peaceCountU4Sum = hanabi.peaceCountU4Sum
+        hanabiMemory3.peaceCountO5Miss = hanabi.peaceCountO5Miss
+        hanabiMemory3.peaceCountO5Hit = hanabi.peaceCountO5Hit
+        hanabiMemory3.peaceCountO5Sum = hanabi.peaceCountO5Sum
+        hanabiMemory3.peaceCountHitSum = hanabi.peaceCountHitSum
     }
 }
 
@@ -335,6 +390,20 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCountGame = hanabiMemory1.rbCountGame
         hanabi.replayCountChallenge = hanabiMemory1.replayCountChallenge
         hanabi.replayCountGame = hanabiMemory1.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabi.peaceCountU2Miss = hanabiMemory1.peaceCountU2Miss
+        hanabi.peaceCountU2Hit = hanabiMemory1.peaceCountU2Hit
+        hanabi.peaceCountU2Sum = hanabiMemory1.peaceCountU2Sum
+        hanabi.peaceCountU4Miss = hanabiMemory1.peaceCountU4Miss
+        hanabi.peaceCountU4Hit = hanabiMemory1.peaceCountU4Hit
+        hanabi.peaceCountU4Sum = hanabiMemory1.peaceCountU4Sum
+        hanabi.peaceCountO5Miss = hanabiMemory1.peaceCountO5Miss
+        hanabi.peaceCountO5Hit = hanabiMemory1.peaceCountO5Hit
+        hanabi.peaceCountO5Sum = hanabiMemory1.peaceCountO5Sum
+        hanabi.peaceCountHitSum = hanabiMemory1.peaceCountHitSum
     }
     func loadMemory2() {
         hanabi.startGame = hanabiMemory2.startGame
@@ -369,6 +438,20 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCountGame = hanabiMemory2.rbCountGame
         hanabi.replayCountChallenge = hanabiMemory2.replayCountChallenge
         hanabi.replayCountGame = hanabiMemory2.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabi.peaceCountU2Miss = hanabiMemory2.peaceCountU2Miss
+        hanabi.peaceCountU2Hit = hanabiMemory2.peaceCountU2Hit
+        hanabi.peaceCountU2Sum = hanabiMemory2.peaceCountU2Sum
+        hanabi.peaceCountU4Miss = hanabiMemory2.peaceCountU4Miss
+        hanabi.peaceCountU4Hit = hanabiMemory2.peaceCountU4Hit
+        hanabi.peaceCountU4Sum = hanabiMemory2.peaceCountU4Sum
+        hanabi.peaceCountO5Miss = hanabiMemory2.peaceCountO5Miss
+        hanabi.peaceCountO5Hit = hanabiMemory2.peaceCountO5Hit
+        hanabi.peaceCountO5Sum = hanabiMemory2.peaceCountO5Sum
+        hanabi.peaceCountHitSum = hanabiMemory2.peaceCountHitSum
     }
     func loadMemory3() {
         hanabi.startGame = hanabiMemory3.startGame
@@ -403,6 +486,20 @@ struct hanabiSubViewLoadMemory: View {
         hanabi.rbCountGame = hanabiMemory3.rbCountGame
         hanabi.replayCountChallenge = hanabiMemory3.replayCountChallenge
         hanabi.replayCountGame = hanabiMemory3.replayCountGame
+        
+        // --------
+        // ver3.20.0で追加
+        // --------
+        hanabi.peaceCountU2Miss = hanabiMemory3.peaceCountU2Miss
+        hanabi.peaceCountU2Hit = hanabiMemory3.peaceCountU2Hit
+        hanabi.peaceCountU2Sum = hanabiMemory3.peaceCountU2Sum
+        hanabi.peaceCountU4Miss = hanabiMemory3.peaceCountU4Miss
+        hanabi.peaceCountU4Hit = hanabiMemory3.peaceCountU4Hit
+        hanabi.peaceCountU4Sum = hanabiMemory3.peaceCountU4Sum
+        hanabi.peaceCountO5Miss = hanabiMemory3.peaceCountO5Miss
+        hanabi.peaceCountO5Hit = hanabiMemory3.peaceCountO5Hit
+        hanabi.peaceCountO5Sum = hanabiMemory3.peaceCountO5Sum
+        hanabi.peaceCountHitSum = hanabiMemory3.peaceCountHitSum
     }
 }
 
