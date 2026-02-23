@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class Gobsla2: ObservableObject {
+    
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "ゴブリンスレイヤー2"
+    @AppStorage("gobsla2MinusCheck") var minusCheck: Bool = false
+    @AppStorage("gobsla2SelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}
