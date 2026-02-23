@@ -320,6 +320,7 @@ class commonVar: ObservableObject {
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
+        shakeisUnlocked = true
     }
     
     // //////////////////////////////////////
@@ -441,48 +442,25 @@ class commonVar: ObservableObject {
             print("初回起動です")
         }
     }
-    func ver3170FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.17.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                shakeisUnlocked = false
-                shakeMachineIconBadge = "new"
-                railgunMachineIconBadge = "update"
-                railgunMenuFirstHitBadge = "update"
-                hokutoTenseiMachineIconBadge = "update"
-                hokutoTenseiMenuNormalBadge = "update"
-                hokutoTenseiMenuFirstHitBadge = "update"
-                hokutoTenseiMenuBayesBadge = "update"
-                bakemonoMachineIconBadge = "update"
-                bakemonoMenuNormalBadge = "update"
-                bakemonoMenuBayesBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3160FirstLaunch() {
+//    func ver3170FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.16.0"
+//        let targetVersion: String = "3.17.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                hokutoTenseiMachineIconBadge = "new"
-//                hokutoTenseiisUnlocked = false
-//                tekken6MachineIconBadge = "new"
-//                tekken6isUnlocked = false
-//                mushotenisUnlocked = false
-//                mushotenMachineIconBadge = "new"
+//                shakeisUnlocked = false
+//                shakeMachineIconBadge = "new"
+//                railgunMachineIconBadge = "update"
+//                railgunMenuFirstHitBadge = "update"
+//                hokutoTenseiMachineIconBadge = "update"
+//                hokutoTenseiMenuNormalBadge = "update"
+//                hokutoTenseiMenuFirstHitBadge = "update"
+//                hokutoTenseiMenuBayesBadge = "update"
+//                bakemonoMachineIconBadge = "update"
+//                bakemonoMenuNormalBadge = "update"
+//                bakemonoMenuBayesBadge = "update"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
