@@ -79,6 +79,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
     @AppStorage("isSelectedFavoriteKokakukidotai") var isSelectedFavoriteKokakukidotai = true
     @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
+    @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
 }
 
 
@@ -146,6 +147,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴブリンスレイヤー２、26年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGobsla2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(gobsla2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("gobsla2MachineIcon"),
+                                        machineName: "ゴブスレ2",
+                                        isUnLocked: $common.gobsla2isUnlocked,
+                                        tempUnlockDateDouble: $common.gobsla2TempUnlockDateDouble,
+                                        badgeStatus: common.gobsla2MachineIconBadge,
                                     )
                                 }
                                 
@@ -978,6 +996,26 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴブリンスレイヤー２、26年２月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGobsla2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(gobsla2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("gobsla2MachineIcon"),
+                                        machineName: "ゴブリンスレイヤー2",
+                                        makerName: "藤商事",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.gobsla2isUnlocked,
+                                        tempUnlockDateDouble: $common.gobsla2TempUnlockDateDouble,
+                                        badgeStatus: common.gobsla2MachineIconBadge,
                                     )
                                 }
                                 
@@ -2140,6 +2178,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ゴブリンスレイヤー２
+                Toggle("ゴブリンスレイヤー2", isOn: $favoriteSet.isSelectedFavoriteGobsla2)
                 // ハナビ
                 Toggle("ハナビ", isOn: $favoriteSet.isSelectedFavoriteHanabi)
                 // 炎炎ノ消防隊2

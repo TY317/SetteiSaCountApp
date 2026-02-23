@@ -129,6 +129,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- ゴブリンスレイヤー２
+    @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
+    @AppStorage("gobsla2TempUnlockDateDouble") var gobsla2TempUnlockDateDouble: Double = 0.0
+    @AppStorage("gobsla2MachineIconBadge") var gobsla2MachineIconBadge: String = "none"
+    @AppStorage("gobsla2MenuNormalBadge") var gobsla2MenuNormalBadge: String = "none"
+    @AppStorage("gobsla2MenuFirstHitBadge") var gobsla2MenuFirstHitBadge: String = "none"
+    @AppStorage("gobsla2MenuBayesBadge") var gobsla2MenuBayesBadge: String = "none"
+    
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
     @AppStorage("hanabiTempUnlockDateDouble") var hanabiTempUnlockDateDouble: Double = 0.0
@@ -334,7 +342,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                gobsla2isUnlocked = false
+                gobsla2MachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
