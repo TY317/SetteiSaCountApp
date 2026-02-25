@@ -20,21 +20,45 @@ struct gobsla2ViewTop: View {
         NavigationStack {
             List {
                 Section {
+                    // 通常時
+                    NavigationLink(destination: gobsla2ViewNormal(
+                        gobsla2: gobsla2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.gobsla2MenuNormalBadge,
+                        )
+                    }
                     
+                    // 兜pt
+                    NavigationLink(destination: gobsla2ViewKabuto(
+                        gobsla2: gobsla2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "crown.fill",
+                            textBody: "兜pt",
+                            badgeStatus: common.gobsla2MenuKabutoBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: gobsla2.machineName)
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: gobsla2View95Ci(
-//                    gobsla2: gobsla2,
-//                    selection: 1,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: gobsla2View95Ci(
+                    gobsla2: gobsla2,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
 //                NavigationLink(destination: gobsla2ViewBayes(
