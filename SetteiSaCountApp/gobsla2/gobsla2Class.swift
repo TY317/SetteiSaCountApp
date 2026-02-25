@@ -119,6 +119,16 @@ class Gobsla2: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // 初あたり
+    // ---------
+    let ratioFirstHitCz: [Double] = [239.3,232.3,222.9,200.4,187.3,181.9]
+    let ratioFirstHitAt: [Double] = [541.6,526.4,506.4,453.2,417.8,402.4]
+    
+    func resetFirstHit() {
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -129,5 +139,6 @@ class Gobsla2: ObservableObject {
     func resetAll() {
         resetNormal()
         resetKabuto()
+        resetFirstHit()
     }
 }
