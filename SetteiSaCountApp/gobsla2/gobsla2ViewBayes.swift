@@ -65,12 +65,12 @@ struct gobsla2ViewBayes: View {
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
-                // サミートロフィー
-                DisclosureGroup("サミートロフィー") {
+                // 藤丸コイン
+                DisclosureGroup("藤丸コイン") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
                     unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
                     unitToggleWithQuestion(enable: self.$over4Check, title: "金")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "キリン柄")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "デンジャー柄")
                     unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }

@@ -71,6 +71,14 @@ struct gobsla2ViewTop: View {
                             badgeStatus: common.gobsla2MenuScreenBadge,
                         )
                     }
+                    
+                    // 藤丸コイン
+                    NavigationLink(destination: commonViewFujimaruCoin()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "藤丸コイン"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: gobsla2.machineName)
                 }
@@ -87,17 +95,17 @@ struct gobsla2ViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: gobsla2ViewBayes(
-//                    gobsla2: gobsla2,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.gobsla2MenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: gobsla2ViewBayes(
+                    gobsla2: gobsla2,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.gobsla2MenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4950")
