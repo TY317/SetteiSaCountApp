@@ -58,6 +58,19 @@ struct gobsla2ViewTop: View {
                             badgeStatus: common.gobsla2MenuFirstHitBadge,
                         )
                     }
+                    
+                    // 初あたり
+                    NavigationLink(destination: gobsla2ViewScreen(
+                        gobsla2: gobsla2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.gobsla2MenuScreenBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: gobsla2.machineName)
                 }

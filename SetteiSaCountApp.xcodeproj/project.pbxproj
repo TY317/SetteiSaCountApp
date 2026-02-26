@@ -91,6 +91,9 @@
 		0F2020502F4F100000FDA263 /* gobsla2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20204F2F4F100000FDA263 /* gobsla2View95Ci.swift */; };
 		0F2020522F4F183200FDA263 /* gobsla2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020512F4F183200FDA263 /* gobsla2ViewBayes.swift */; };
 		0F2020542F4F243F00FDA263 /* gobsla2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020532F4F243F00FDA263 /* gobsla2ViewFirstHit.swift */; };
+		0F2020562F4F270C00FDA263 /* gobsla2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020552F4F270C00FDA263 /* gobsla2ViewScreen.swift */; };
+		0F2020582F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020572F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift */; };
+		0F2020592F4F2F2E00FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020572F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift */; };
 		0F25C2712C887EA1008B4707 /* toloveruViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */; };
 		0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */; };
 		0F25C2772C8882C0008B4707 /* toloveruViewBonusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */; };
@@ -1460,6 +1463,8 @@
 		0F20204F2F4F100000FDA263 /* gobsla2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gobsla2View95Ci.swift; sourceTree = "<group>"; };
 		0F2020512F4F183200FDA263 /* gobsla2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gobsla2ViewBayes.swift; sourceTree = "<group>"; };
 		0F2020532F4F243F00FDA263 /* gobsla2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gobsla2ViewFirstHit.swift; sourceTree = "<group>"; };
+		0F2020552F4F270C00FDA263 /* gobsla2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gobsla2ViewScreen.swift; sourceTree = "<group>"; };
+		0F2020572F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gobsla2TableScreenSisaDetail.swift; sourceTree = "<group>"; };
 		0F25C2702C887EA1008B4707 /* toloveruViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewTop.swift; sourceTree = "<group>"; };
 		0F25C2722C887EB3008B4707 /* toloveruAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = toloveruAssets.xcassets; sourceTree = "<group>"; };
 		0F25C2762C8882C0008B4707 /* toloveruViewBonusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toloveruViewBonusHit.swift; sourceTree = "<group>"; };
@@ -2822,6 +2827,8 @@
 				0F20204F2F4F100000FDA263 /* gobsla2View95Ci.swift */,
 				0F2020512F4F183200FDA263 /* gobsla2ViewBayes.swift */,
 				0F2020532F4F243F00FDA263 /* gobsla2ViewFirstHit.swift */,
+				0F2020552F4F270C00FDA263 /* gobsla2ViewScreen.swift */,
+				0F2020572F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift */,
 			);
 			path = gobsla2;
 			sourceTree = "<group>";
@@ -5832,6 +5839,7 @@
 				0FD357242DA0CDF60069BD1A /* kaijiTableModeStageChange.swift in Sources */,
 				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
 				0FC71FFE2E6BC7C6000DD53B /* toreveViewScreen.swift in Sources */,
+				0F2020582F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */,
 				0FD975002F43463C0067CED7 /* ver3200.swift in Sources */,
 				0F6B59BA2DFD2F6400DB1A2B /* unitMachinListLink.swift in Sources */,
 				0F8689DC2D3BD26800D952D9 /* unitButtonRecordKenToStart.swift in Sources */,
@@ -6542,6 +6550,7 @@
 				0FDBDADB2E8D46E200197B94 /* urmiraVer2ViewKenDataInput.swift in Sources */,
 				0F8689DE2D3BDD1400D952D9 /* myJug5Ver2ViewJissenCount.swift in Sources */,
 				0F719BCE2C7CBFD700FAD8B8 /* mt5ViewEnding.swift in Sources */,
+				0F2020562F4F270C00FDA263 /* gobsla2ViewScreen.swift in Sources */,
 				0FEC57A22D8EEE0A00FF1024 /* bioViewNormal.swift in Sources */,
 				0F45A5DE2F079BD10022E355 /* unitLabelMachineIconLink.swift in Sources */,
 				0F64DD552DC08E890027315D /* danvineTable11Pt.swift in Sources */,
@@ -6655,6 +6664,7 @@
 				0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
 				0F447C752F4AC7EE006DAF11 /* kokakukidotaiTableAfterAt.swift in Sources */,
+				0F2020592F4F2F2E00FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */,
 				0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */,
 				0F45A5C92F04BB3B0022E355 /* tekkenTableMode.swift in Sources */,

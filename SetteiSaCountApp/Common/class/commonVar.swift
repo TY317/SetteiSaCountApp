@@ -137,6 +137,7 @@ class commonVar: ObservableObject {
     @AppStorage("gobsla2MenuFirstHitBadge") var gobsla2MenuFirstHitBadge: String = "none"
     @AppStorage("gobsla2MenuBayesBadge") var gobsla2MenuBayesBadge: String = "none"
     @AppStorage("gobsla2MenuKabutoBadge") var gobsla2MenuKabutoBadge: String = "none"
+    @AppStorage("gobsla2MenuScreenBadge") var gobsla2MenuScreenBadge: String = "none"
     
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
@@ -321,6 +322,8 @@ class commonVar: ObservableObject {
     @AppStorage("mt5MachineIconBadge") var mt5MachineIconBadge: String = "none"
     @AppStorage("mt5MenuGekisoBadge") var mt5MenuGekisoBadge: String = "none"
     @AppStorage("mt5MenuBayesBadge") var mt5MenuBayesBadge: String = "none"
+    
+    
     
     // -------
     // リワード広告の強制アンロック

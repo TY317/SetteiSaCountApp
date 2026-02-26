@@ -129,6 +129,51 @@ class Gobsla2: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // 終了画面
+    // ----------
+    @AppStorage("gobsla2ScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa1") var screenCountPtSisa1: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa2") var screenCountPtSisa2: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa3") var screenCountPtSisa3: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa4") var screenCountPtSisa4: Int = 0
+    @AppStorage("gobsla2ScreenCountHighJaku") var screenCountHighJaku: Int = 0
+    @AppStorage("gobsla2ScreenCountOver2") var screenCountOver2: Int = 0
+    @AppStorage("gobsla2ScreenCountGusu") var screenCountGusu: Int = 0
+    @AppStorage("gobsla2ScreenCountOver4") var screenCountOver4: Int = 0
+    @AppStorage("gobsla2ScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("gobsla2ScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountPtSisa1,
+            screenCountPtSisa2,
+            screenCountPtSisa3,
+            screenCountPtSisa4,
+            screenCountHighJaku,
+            screenCountOver2,
+            screenCountGusu,
+            screenCountOver4,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountPtSisa1 = 0
+        screenCountPtSisa2 = 0
+        screenCountPtSisa3 = 0
+        screenCountPtSisa4 = 0
+        screenCountHighJaku = 0
+        screenCountOver2 = 0
+        screenCountGusu = 0
+        screenCountOver4 = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------

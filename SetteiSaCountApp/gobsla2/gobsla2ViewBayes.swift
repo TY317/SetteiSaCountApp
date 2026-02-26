@@ -16,6 +16,7 @@ struct gobsla2ViewBayes: View {
     @State var jakuRareEnable: Bool = true
     @State var game35Enable: Bool = true
     @State var kabutoEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     
@@ -56,6 +57,14 @@ struct gobsla2ViewBayes: View {
                 
                 // 規定兜pt振り分け
                 unitToggleWithQuestion(enable: self.$kabutoEnable, title: "規定兜pt振り分け")
+                
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -173,6 +182,31 @@ struct gobsla2ViewBayes: View {
             )
         }
         
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if gobsla2.screenCountOver2 > 0 {
+                logPostScreen[0] = -Double.infinity
+            }
+            if gobsla2.screenCountGusu > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+            if gobsla2.screenCountOver4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if gobsla2.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -213,6 +247,7 @@ struct gobsla2ViewBayes: View {
             logPostJakuRare,
             logpost35,
             logPostKabuto,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,
