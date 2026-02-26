@@ -21,3 +21,18 @@ struct tipVer3210UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+// //////////////////
+// Tip：炎炎　終了画面
+// //////////////////
+struct tipVer3210Enen2Screen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("示唆が全て判明しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

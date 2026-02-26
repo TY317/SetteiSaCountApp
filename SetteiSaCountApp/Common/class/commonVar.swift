@@ -348,6 +348,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 gobsla2isUnlocked = false
                 gobsla2MachineIconBadge = "new"
+                enen2MachineIconBadge = "update"
+                enen2MenuScreenBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
