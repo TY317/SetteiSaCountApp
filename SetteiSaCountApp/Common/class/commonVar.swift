@@ -350,6 +350,7 @@ class commonVar: ObservableObject {
                 gobsla2MachineIconBadge = "new"
                 enen2MachineIconBadge = "update"
                 enen2MenuScreenBadge = "update"
+                enen2MenuRegBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

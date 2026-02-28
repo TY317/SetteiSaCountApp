@@ -89,6 +89,60 @@ class Enen2: ObservableObject {
         resetWana()
         resetScreen()
     }
+    
+    // --------
+    // ver3.21.0で追加
+    // --------
+    @AppStorage("enen2CharaCountDefault") var charaCountDefault: Int = 0
+    @AppStorage("enen2CharaCountGusu") var charaCountGusu: Int = 0
+    @AppStorage("enen2CharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("enen2CharaCountOver6") var charaCountOver6: Int = 0
+    @AppStorage("enen2CharaCountKisu") var charaCountKisu: Int = 0
+    @AppStorage("enen2CharaCountHighJaku") var charaCountHighJaku: Int = 0
+    @AppStorage("enen2CharaCountHighKyo") var charaCountHighKyo: Int = 0
+    @AppStorage("enen2CharaCountOver5") var charaCountOver5: Int = 0
+    @AppStorage("enen2CharaCountNegate1") var charaCountNegate1: Int = 0
+    @AppStorage("enen2CharaCountNegate2") var charaCountNegate2: Int = 0
+    @AppStorage("enen2CharaCountNegate3") var charaCountNegate3: Int = 0
+    @AppStorage("enen2CharaCountNegate4") var charaCountNegate4: Int = 0
+    @AppStorage("enen2CharaCountNegate5") var charaCountNegate5: Int = 0
+    @AppStorage("enen2CharaCountSum") var charaCountSum: Int = 0
+    
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCountDefault,
+            charaCountGusu,
+            charaCountOver4,
+            charaCountOver6,
+            charaCountKisu,
+            charaCountHighJaku,
+            charaCountHighKyo,
+            charaCountOver5,
+            charaCountNegate1,
+            charaCountNegate2,
+            charaCountNegate3,
+            charaCountNegate4,
+            charaCountNegate5,
+        )
+    }
+    
+    func resetReg() {
+        charaCountDefault = 0
+        charaCountGusu = 0
+        charaCountOver4 = 0
+        charaCountOver6 = 0
+        charaCountKisu = 0
+        charaCountHighJaku = 0
+        charaCountHighKyo = 0
+        charaCountOver5 = 0
+        charaCountNegate1 = 0
+        charaCountNegate2 = 0
+        charaCountNegate3 = 0
+        charaCountNegate4 = 0
+        charaCountNegate5 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
 }
 
 

@@ -36,3 +36,18 @@ struct tipVer3210Enen2Screen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：炎炎　REGキャラシナリオ
+// //////////////////
+struct tipVer3210Enen2Chara: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("キャラ紹介シナリオの示唆が判明\nカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

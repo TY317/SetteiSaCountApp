@@ -15,7 +15,7 @@ struct enen2ViewBayes: View {
     let payoutList: [Double] = [97.7, 98.8, 101.2, 105.6, 110.2, 114.9]
     @State var firstHitEnable: Bool = true
     @State var screenEnable: Bool = true
-    
+    @State var charaEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -51,6 +51,14 @@ struct enen2ViewBayes: View {
                     unitExView5body2image(
                         title: "初当り確率",
                         textBody1: "・ボーナス、炎炎ループ初当り確率を計算要素に加えます"
+                    )
+                }
+                
+                // キャラ順
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中のキャラ順") {
+                    unitExView5body2image(
+                        title: "REG中のキャラ順",
+                        textBody1: "・否定系、確定系のみ反映させます"
                     )
                 }
                 
@@ -138,6 +146,44 @@ struct enen2ViewBayes: View {
             )
         }
         
+        // REGキャラ
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if enen2.charaCountNegate1 > 0 {
+                logPostChara[0] = -Double.infinity
+            }
+            if enen2.charaCountNegate2 > 0 {
+                logPostChara[1] = -Double.infinity
+            }
+            if enen2.charaCountNegate3 > 0 {
+                logPostChara[2] = -Double.infinity
+            }
+            if enen2.charaCountNegate4 > 0 {
+                logPostChara[3] = -Double.infinity
+            }
+            if enen2.charaCountNegate5 > 0 {
+                logPostChara[4] = -Double.infinity
+            }
+            if enen2.charaCountOver4 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+            }
+            if enen2.charaCountOver5 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+            }
+            if enen2.charaCountOver6 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+                logPostChara[4] = -Double.infinity
+            }
+        }
+        
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
@@ -199,6 +245,7 @@ struct enen2ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
             logPostLoop,
+            logPostChara,
             logPostScreen,
             
             logPostTrophy,
