@@ -129,6 +129,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- カバネリ海門
+    @AppStorage("kabaneriUnatoisUnlocked") var kabaneriUnatoisUnlocked: Bool = true
+    @AppStorage("kabaneriUnatoTempUnlockDateDouble") var kabaneriUnatoTempUnlockDateDouble: Double = 0.0
+    @AppStorage("kabaneriUnatoMachineIconBadge") var kabaneriUnatoMachineIconBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuNormalBadge") var kabaneriUnatoMenuNormalBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuFirstHitBadge") var kabaneriUnatoMenuFirstHitBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuBayesBadge") var kabaneriUnatoMenuBayesBadge: String = "none"
+    
     // ---- ゴブリンスレイヤー２
     @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
     @AppStorage("gobsla2TempUnlockDateDouble") var gobsla2TempUnlockDateDouble: Double = 0.0
@@ -352,6 +360,8 @@ class commonVar: ObservableObject {
                 enen2MenuScreenBadge = "update"
                 enen2MenuRegBadge = "update"
                 enen2MenuNormalBadge = "update"
+                kabaneriUnatoisUnlocked = false
+                kabaneriUnatoMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
