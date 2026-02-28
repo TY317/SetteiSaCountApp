@@ -89,6 +89,28 @@ struct kabaneriUnatoViewNormal: View {
                     }
                 }
             }
+            
+            // ---- 周期
+            Section {
+                // 参考情報）周期について
+                unitLinkButtonViewBuilder(sheetTitle: "周期について") {
+                    VStack(alignment: .leading) {
+                        Text("・カバネチャンス目成立時に加算されるカバネポイントが規定を超えると周期到達")
+                        Text("・周期到達時は海門前兆へ移行")
+                        Text("・150G消化で2周期目、300G消化で3周期目へ強制的に進む")
+                    }
+                }
+                
+                // 参考情報）高設定時の挙動
+                unitLinkButtonViewBuilder(sheetTitle: "注目ポイント") {
+                    VStack(alignment: .leading) {
+                        Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
+                        Text("・3周期目での当選は高設定ほど優遇")
+                    }
+                }
+            } header: {
+                Text("周期")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kabaneriUnatoMenuNormalBadge)
