@@ -71,40 +71,40 @@ struct gobsla2View95Ci: View {
             .tag(3)
             
             // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $gobsla2.firstHitCountCz,
-//                        bigNumber: $gobsla2.normalGame,
-//                        setting1Denominate: gobsla2.ratioFirstHitCz[0],
-//                        setting2Denominate: gobsla2.ratioFirstHitCz[1],
-//                        setting3Denominate: gobsla2.ratioFirstHitCz[2],
-//                        setting4Denominate: gobsla2.ratioFirstHitCz[3],
-//                        setting5Denominate: gobsla2.ratioFirstHitCz[4],
-//                        setting6Denominate: gobsla2.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $gobsla2.firstHitCountAt,
-//                        bigNumber: $gobsla2.normalGame,
-//                        setting1Denominate: gobsla2.ratioFirstHitAt[0],
-//                        setting2Denominate: gobsla2.ratioFirstHitAt[1],
-//                        setting3Denominate: gobsla2.ratioFirstHitAt[2],
-//                        setting4Denominate: gobsla2.ratioFirstHitAt[3],
-//                        setting5Denominate: gobsla2.ratioFirstHitAt[4],
-//                        setting6Denominate: gobsla2.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
-//            
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $gobsla2.czCount,
+                        bigNumber: $gobsla2.normalGame,
+                        setting1Denominate: gobsla2.ratioFirstHitCz[0],
+                        setting2Denominate: gobsla2.ratioFirstHitCz[1],
+                        setting3Denominate: gobsla2.ratioFirstHitCz[2],
+                        setting4Denominate: gobsla2.ratioFirstHitCz[3],
+                        setting5Denominate: gobsla2.ratioFirstHitCz[4],
+                        setting6Denominate: gobsla2.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(4)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $gobsla2.atCount,
+                        bigNumber: $gobsla2.normalGame,
+                        setting1Denominate: gobsla2.ratioFirstHitAt[0],
+                        setting2Denominate: gobsla2.ratioFirstHitAt[1],
+                        setting3Denominate: gobsla2.ratioFirstHitAt[2],
+                        setting4Denominate: gobsla2.ratioFirstHitAt[3],
+                        setting5Denominate: gobsla2.ratioFirstHitAt[4],
+                        setting6Denominate: gobsla2.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(5)
+//
 //            // 引き戻し成功ストック回数
 //            unitListSection95Ci(
 //                grafTitle: "REBOOTCHANCE\n成功ストック回数",

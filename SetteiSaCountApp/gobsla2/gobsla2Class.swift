@@ -124,8 +124,64 @@ class Gobsla2: ObservableObject {
     // ---------
     let ratioFirstHitCz: [Double] = [239.3,232.3,222.9,200.4,187.3,181.9]
     let ratioFirstHitAt: [Double] = [541.6,526.4,506.4,453.2,417.8,402.4]
+    // 選択肢の設定
+    let selectListKind: [String] = ["CZ", "AT直撃"]
+    let selectListAtHit: [String] = ["ハズレ", "当選"]
+    // 選択結果
+    @AppStorage("gobsla2InputGame") var inputGame: Int = 0
+    @AppStorage("gobsla2SelectedKind") var selectedKind: String = "CZ"
+    @AppStorage("gobsla2SelectedAtHit") var selectedAtHit: String = "ハズレ"
+    // ゲーム数配列
+    let gameArrayKey: String = "gobsla2GameArrayKey"
+    @AppStorage("gobsla2GameArrayKey") var gameArrayData: Data?
+    // 種類配列
+    let kindArrayKey: String = "gobsla2KindArrayKey"
+    @AppStorage("gobsla2KindArrayKey") var kindArrayData: Data?
+    // AT当否契機配列
+    let atHitArrayKey: String = "gobsla2AtHitArrayKey"
+    @AppStorage("gobsla2AtHitArrayKey") var atHitArrayData: Data?
+    
+    // 算出結果
+    @AppStorage("gobsla2NormalGame") var normalGame: Int = 0
+    @AppStorage("gobsla2CzCount") var czCount: Int = 0
+    @AppStorage("gobsla2AtCount") var atCount: Int = 0
+    
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: kindArrayData, addData: selectedKind, key: kindArrayKey)
+        arrayStringAddData(arrayData: atHitArrayData, addData: selectedAtHit, key: atHitArrayKey)
+        addRemoveCommon()
+    }
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: kindArrayData, key: kindArrayKey)
+        arrayStringRemoveLast(arrayData: atHitArrayData, key: atHitArrayKey)
+        addRemoveCommon()
+    }
+    
+    func addRemoveCommon() {
+        // 通常ゲーム数の算出
+        normalGame = arraySumGameNotResetWordOne(
+            gameArrayData: gameArrayData,
+            bonusArrayData: atHitArrayData,
+            notResetWord: selectListAtHit[0]
+        )
+        // CZ回数算出
+        czCount = arrayStringDataCount(arrayData: kindArrayData, countString: selectListKind[0])
+        
+        // AT回数算出
+        atCount = arrayStringDataCount(arrayData: atHitArrayData, countString: selectListAtHit[1])
+    }
     
     func resetFirstHit() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: kindArrayData, key: kindArrayKey)
+        arrayStringRemoveAll(arrayData: atHitArrayData, key: atHitArrayKey)
+        addRemoveCommon()
+        inputGame = 0
         minusCheck = false
     }
     
@@ -186,4 +242,141 @@ class Gobsla2: ObservableObject {
         resetKabuto()
         resetFirstHit()
     }
+}
+
+
+class Gobsla2Memory1: ObservableObject {
+    @AppStorage("gobsla2JakuRareCountJakuCherryMemory1") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("gobsla2JakuRareCountSuikaMemory1") var jakuRareCountSuika: Int = 0
+    @AppStorage("gobsla2JakuRareCountSumMemory1") var jakuRareCountSum: Int = 0
+    @AppStorage("gobsla2JakuRareCountHitMemory1") var jakuRareCountHit: Int = 0
+    @AppStorage("gobsla2game35CountMissMemory1") var game35HitCountMiss: Int = 0
+    @AppStorage("gobsla2game35CountHitMemory1") var game35HitCountHit: Int = 0
+    @AppStorage("gobsla2game35CountSumMemory1") var game35HitCountSum: Int = 0
+    @AppStorage("gobsla2PtCount10Memory1") var ptCount10: Int = 0
+    @AppStorage("gobsla2PtCount20Memory1") var ptCount20: Int = 0
+    @AppStorage("gobsla2PtCount30Memory1") var ptCount30: Int = 0
+    @AppStorage("gobsla2PtCount40Memory1") var ptCount40: Int = 0
+    @AppStorage("gobsla2PtCount50Memory1") var ptCount50: Int = 0
+    @AppStorage("gobsla2PtCount60Memory1") var ptCount60: Int = 0
+    @AppStorage("gobsla2PtCount70Memory1") var ptCount70: Int = 0
+    @AppStorage("gobsla2PtCount80Memory1") var ptCount80: Int = 0
+    @AppStorage("gobsla2PtCount90Memory1") var ptCount90: Int = 0
+    @AppStorage("gobsla2PtCount100Memory1") var ptCount100: Int = 0
+    @AppStorage("gobsla2PtCountSumMemory1") var ptCountSum: Int = 0
+    @AppStorage("gobsla2PtCountU20Memory1") var ptCountU20: Int = 0
+    @AppStorage("gobsla2PtCountO40Memory1") var ptCountO40: Int = 0
+    @AppStorage("gobsla2InputGameMemory1") var inputGame: Int = 0
+    @AppStorage("gobsla2SelectedKindMemory1") var selectedKind: String = "CZ"
+    @AppStorage("gobsla2SelectedAtHitMemory1") var selectedAtHit: String = "ハズレ"
+    @AppStorage("gobsla2GameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("gobsla2KindArrayKeyMemory1") var kindArrayData: Data?
+    @AppStorage("gobsla2AtHitArrayKeyMemory1") var atHitArrayData: Data?
+    @AppStorage("gobsla2NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("gobsla2CzCountMemory1") var czCount: Int = 0
+    @AppStorage("gobsla2AtCountMemory1") var atCount: Int = 0
+    @AppStorage("gobsla2ScreenCountDefaultMemory1") var screenCountDefault: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa1Memory1") var screenCountPtSisa1: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa2Memory1") var screenCountPtSisa2: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa3Memory1") var screenCountPtSisa3: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa4Memory1") var screenCountPtSisa4: Int = 0
+    @AppStorage("gobsla2ScreenCountHighJakuMemory1") var screenCountHighJaku: Int = 0
+    @AppStorage("gobsla2ScreenCountOver2Memory1") var screenCountOver2: Int = 0
+    @AppStorage("gobsla2ScreenCountGusuMemory1") var screenCountGusu: Int = 0
+    @AppStorage("gobsla2ScreenCountOver4Memory1") var screenCountOver4: Int = 0
+    @AppStorage("gobsla2ScreenCountOver6Memory1") var screenCountOver6: Int = 0
+    @AppStorage("gobsla2ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("gobsla2MemoMemory1") var memo = ""
+    @AppStorage("gobsla2DateMemory1") var dateDouble = 0.0
+}
+
+class Gobsla2Memory2: ObservableObject {
+    @AppStorage("gobsla2JakuRareCountJakuCherryMemory2") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("gobsla2JakuRareCountSuikaMemory2") var jakuRareCountSuika: Int = 0
+    @AppStorage("gobsla2JakuRareCountSumMemory2") var jakuRareCountSum: Int = 0
+    @AppStorage("gobsla2JakuRareCountHitMemory2") var jakuRareCountHit: Int = 0
+    @AppStorage("gobsla2game35CountMissMemory2") var game35HitCountMiss: Int = 0
+    @AppStorage("gobsla2game35CountHitMemory2") var game35HitCountHit: Int = 0
+    @AppStorage("gobsla2game35CountSumMemory2") var game35HitCountSum: Int = 0
+    @AppStorage("gobsla2PtCount10Memory2") var ptCount10: Int = 0
+    @AppStorage("gobsla2PtCount20Memory2") var ptCount20: Int = 0
+    @AppStorage("gobsla2PtCount30Memory2") var ptCount30: Int = 0
+    @AppStorage("gobsla2PtCount40Memory2") var ptCount40: Int = 0
+    @AppStorage("gobsla2PtCount50Memory2") var ptCount50: Int = 0
+    @AppStorage("gobsla2PtCount60Memory2") var ptCount60: Int = 0
+    @AppStorage("gobsla2PtCount70Memory2") var ptCount70: Int = 0
+    @AppStorage("gobsla2PtCount80Memory2") var ptCount80: Int = 0
+    @AppStorage("gobsla2PtCount90Memory2") var ptCount90: Int = 0
+    @AppStorage("gobsla2PtCount100Memory2") var ptCount100: Int = 0
+    @AppStorage("gobsla2PtCountSumMemory2") var ptCountSum: Int = 0
+    @AppStorage("gobsla2PtCountU20Memory2") var ptCountU20: Int = 0
+    @AppStorage("gobsla2PtCountO40Memory2") var ptCountO40: Int = 0
+    @AppStorage("gobsla2InputGameMemory2") var inputGame: Int = 0
+    @AppStorage("gobsla2SelectedKindMemory2") var selectedKind: String = "CZ"
+    @AppStorage("gobsla2SelectedAtHitMemory2") var selectedAtHit: String = "ハズレ"
+    @AppStorage("gobsla2GameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("gobsla2KindArrayKeyMemory2") var kindArrayData: Data?
+    @AppStorage("gobsla2AtHitArrayKeyMemory2") var atHitArrayData: Data?
+    @AppStorage("gobsla2NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("gobsla2CzCountMemory2") var czCount: Int = 0
+    @AppStorage("gobsla2AtCountMemory2") var atCount: Int = 0
+    @AppStorage("gobsla2ScreenCountDefaultMemory2") var screenCountDefault: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa1Memory2") var screenCountPtSisa1: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa2Memory2") var screenCountPtSisa2: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa3Memory2") var screenCountPtSisa3: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa4Memory2") var screenCountPtSisa4: Int = 0
+    @AppStorage("gobsla2ScreenCountHighJakuMemory2") var screenCountHighJaku: Int = 0
+    @AppStorage("gobsla2ScreenCountOver2Memory2") var screenCountOver2: Int = 0
+    @AppStorage("gobsla2ScreenCountGusuMemory2") var screenCountGusu: Int = 0
+    @AppStorage("gobsla2ScreenCountOver4Memory2") var screenCountOver4: Int = 0
+    @AppStorage("gobsla2ScreenCountOver6Memory2") var screenCountOver6: Int = 0
+    @AppStorage("gobsla2ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("gobsla2MemoMemory2") var memo = ""
+    @AppStorage("gobsla2DateMemory2") var dateDouble = 0.0
+}
+
+
+class Gobsla2Memory3: ObservableObject {
+    @AppStorage("gobsla2JakuRareCountJakuCherryMemory3") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("gobsla2JakuRareCountSuikaMemory3") var jakuRareCountSuika: Int = 0
+    @AppStorage("gobsla2JakuRareCountSumMemory3") var jakuRareCountSum: Int = 0
+    @AppStorage("gobsla2JakuRareCountHitMemory3") var jakuRareCountHit: Int = 0
+    @AppStorage("gobsla2game35CountMissMemory3") var game35HitCountMiss: Int = 0
+    @AppStorage("gobsla2game35CountHitMemory3") var game35HitCountHit: Int = 0
+    @AppStorage("gobsla2game35CountSumMemory3") var game35HitCountSum: Int = 0
+    @AppStorage("gobsla2PtCount10Memory3") var ptCount10: Int = 0
+    @AppStorage("gobsla2PtCount20Memory3") var ptCount20: Int = 0
+    @AppStorage("gobsla2PtCount30Memory3") var ptCount30: Int = 0
+    @AppStorage("gobsla2PtCount40Memory3") var ptCount40: Int = 0
+    @AppStorage("gobsla2PtCount50Memory3") var ptCount50: Int = 0
+    @AppStorage("gobsla2PtCount60Memory3") var ptCount60: Int = 0
+    @AppStorage("gobsla2PtCount70Memory3") var ptCount70: Int = 0
+    @AppStorage("gobsla2PtCount80Memory3") var ptCount80: Int = 0
+    @AppStorage("gobsla2PtCount90Memory3") var ptCount90: Int = 0
+    @AppStorage("gobsla2PtCount100Memory3") var ptCount100: Int = 0
+    @AppStorage("gobsla2PtCountSumMemory3") var ptCountSum: Int = 0
+    @AppStorage("gobsla2PtCountU20Memory3") var ptCountU20: Int = 0
+    @AppStorage("gobsla2PtCountO40Memory3") var ptCountO40: Int = 0
+    @AppStorage("gobsla2InputGameMemory3") var inputGame: Int = 0
+    @AppStorage("gobsla2SelectedKindMemory3") var selectedKind: String = "CZ"
+    @AppStorage("gobsla2SelectedAtHitMemory3") var selectedAtHit: String = "ハズレ"
+    @AppStorage("gobsla2GameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("gobsla2KindArrayKeyMemory3") var kindArrayData: Data?
+    @AppStorage("gobsla2AtHitArrayKeyMemory3") var atHitArrayData: Data?
+    @AppStorage("gobsla2NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("gobsla2CzCountMemory3") var czCount: Int = 0
+    @AppStorage("gobsla2AtCountMemory3") var atCount: Int = 0
+    @AppStorage("gobsla2ScreenCountDefaultMemory3") var screenCountDefault: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa1Memory3") var screenCountPtSisa1: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa2Memory3") var screenCountPtSisa2: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa3Memory3") var screenCountPtSisa3: Int = 0
+    @AppStorage("gobsla2ScreenCountPtSisa4Memory3") var screenCountPtSisa4: Int = 0
+    @AppStorage("gobsla2ScreenCountHighJakuMemory3") var screenCountHighJaku: Int = 0
+    @AppStorage("gobsla2ScreenCountOver2Memory3") var screenCountOver2: Int = 0
+    @AppStorage("gobsla2ScreenCountGusuMemory3") var screenCountGusu: Int = 0
+    @AppStorage("gobsla2ScreenCountOver4Memory3") var screenCountOver4: Int = 0
+    @AppStorage("gobsla2ScreenCountOver6Memory3") var screenCountOver6: Int = 0
+    @AppStorage("gobsla2ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("gobsla2MemoMemory3") var memo = ""
+    @AppStorage("gobsla2DateMemory3") var dateDouble = 0.0
 }

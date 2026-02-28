@@ -17,8 +17,7 @@ struct gobsla2ViewBayes: View {
     @State var game35Enable: Bool = true
     @State var kabutoEnable: Bool = true
     @State var screenEnable: Bool = true
-    
-    
+    @State var firstHitEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -57,6 +56,9 @@ struct gobsla2ViewBayes: View {
                 
                 // 規定兜pt振り分け
                 unitToggleWithQuestion(enable: self.$kabutoEnable, title: "規定兜pt振り分け")
+                
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -182,6 +184,22 @@ struct gobsla2ViewBayes: View {
             )
         }
         
+        // 初当り確率
+        var logPostCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostCz = logPostDenoBino(
+                ratio: gobsla2.ratioFirstHitCz,
+                Count: gobsla2.czCount,
+                bigNumber: gobsla2.normalGame
+            )
+            logPostAt = logPostDenoBino(
+                ratio: gobsla2.ratioFirstHitAt,
+                Count: gobsla2.atCount,
+                bigNumber: gobsla2.normalGame
+            )
+        }
+        
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
@@ -248,6 +266,8 @@ struct gobsla2ViewBayes: View {
             logpost35,
             logPostKabuto,
             logPostScreen,
+            logPostCz,
+            logPostAt,
             
             logPostTrophy,
             logPostBefore,
