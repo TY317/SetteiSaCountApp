@@ -51,3 +51,18 @@ struct tipVer3210Enen2Chara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：炎炎　モード推測
+// //////////////////
+struct tipVer3210Enen2Mode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("モードごとの前兆ステージへの移行期待度が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
