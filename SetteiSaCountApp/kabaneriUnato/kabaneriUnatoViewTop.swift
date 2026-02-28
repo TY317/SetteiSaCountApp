@@ -33,7 +33,18 @@ struct kabaneriUnatoViewTop: View {
                 }
                 
                 Section {
-                    
+                    // 通常時
+                    NavigationLink(destination: kabaneriUnatoViewNormal(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.kabaneriUnatoMenuNormalBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

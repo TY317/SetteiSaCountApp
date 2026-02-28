@@ -102,6 +102,13 @@ struct unitTablePercent: View {
                                 .foregroundStyle(Color.black)
                                 .minimumScaleFactor(0.7)
                         }
+                        else if self.percentList[index] <= -80 {
+                            Text("↓")
+                                .fontWeight(.bold)
+                                .font(self.contentFont)
+                                .foregroundStyle(Color.black)
+                                .minimumScaleFactor(0.7)
+                        }
                         else if self.percentList[index] <= -10 {
                             Text("天井")
                                 .fontWeight(.bold)
