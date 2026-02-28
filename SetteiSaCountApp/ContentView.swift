@@ -1027,7 +1027,7 @@ struct ContentView: View {
                                             viewModel: viewModel,
                                         )),
                                         iconImage: Image("kabaneriUnatoMachineIcon"),
-                                        machineName: "カバネリ海門決戦",
+                                        machineName: "甲鉄城のカバネリ海門決戦",
                                         makerName: "サミー",
                                         releaseYear: 2026,
                                         releaseMonth: 3,
