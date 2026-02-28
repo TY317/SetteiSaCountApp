@@ -45,6 +45,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuNormalBadge,
                         )
                     }
+                    
+                    // 初あたり
+                    NavigationLink(destination: kabaneriUnatoViewFirstHit(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.kabaneriUnatoMenuFirstHitBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

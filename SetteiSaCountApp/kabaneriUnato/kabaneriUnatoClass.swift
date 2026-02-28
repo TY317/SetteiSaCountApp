@@ -29,6 +29,17 @@ class KabaneriUnato: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // 初当り
+    // ---------
+    let ratioFirstHitCz: [Double] = [-1,-1,-1,-1,-1,-1,]
+    let ratioFirstHitBonus: [Double] = [254.2,242.3,239.6,214,203.2,195.1]
+    let ratioFirstHitSt: [Double] = [422.5,405.9,398.7,357.2,332.6,318.5]
+    
+    func resetFirstHit() {
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
