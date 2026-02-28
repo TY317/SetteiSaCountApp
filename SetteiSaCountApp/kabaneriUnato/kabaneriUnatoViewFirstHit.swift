@@ -48,6 +48,14 @@ struct kabaneriUnatoViewFirstHit: View {
                         )
                     }
                 }
+                
+                // 参考情報）景之ループ
+                unitLinkButtonViewBuilder(sheetTitle: "景之STループ") {
+                    VStack(alignment: .leading) {
+                        Text("・景之ST後の次回STが景之STになる景之ループを搭載")
+                        Text("・高設定ほど景之ループ発生が優遇")
+                    }
+                }
             } header: {
                 Text("初当り")
             }
