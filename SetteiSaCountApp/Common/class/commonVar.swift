@@ -129,6 +129,27 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- カバネリ海門
+    @AppStorage("kabaneriUnatoisUnlocked") var kabaneriUnatoisUnlocked: Bool = true
+    @AppStorage("kabaneriUnatoTempUnlockDateDouble") var kabaneriUnatoTempUnlockDateDouble: Double = 0.0
+    @AppStorage("kabaneriUnatoMachineIconBadge") var kabaneriUnatoMachineIconBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuNormalBadge") var kabaneriUnatoMenuNormalBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuFirstHitBadge") var kabaneriUnatoMenuFirstHitBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuBayesBadge") var kabaneriUnatoMenuBayesBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuKabaneriBonusBadge") var kabaneriUnatoMenuKabaneriBonusBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuScreenBadge") var kabaneriUnatoMenuScreenBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuOmikujiBadge") var kabaneriUnatoMenuOmikujiBadge: String = "none"
+    
+    // ---- ゴブリンスレイヤー２
+    @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
+    @AppStorage("gobsla2TempUnlockDateDouble") var gobsla2TempUnlockDateDouble: Double = 0.0
+    @AppStorage("gobsla2MachineIconBadge") var gobsla2MachineIconBadge: String = "none"
+    @AppStorage("gobsla2MenuNormalBadge") var gobsla2MenuNormalBadge: String = "none"
+    @AppStorage("gobsla2MenuFirstHitBadge") var gobsla2MenuFirstHitBadge: String = "none"
+    @AppStorage("gobsla2MenuBayesBadge") var gobsla2MenuBayesBadge: String = "none"
+    @AppStorage("gobsla2MenuKabutoBadge") var gobsla2MenuKabutoBadge: String = "none"
+    @AppStorage("gobsla2MenuScreenBadge") var gobsla2MenuScreenBadge: String = "none"
+    
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
     @AppStorage("hanabiTempUnlockDateDouble") var hanabiTempUnlockDateDouble: Double = 0.0
@@ -313,6 +334,8 @@ class commonVar: ObservableObject {
     @AppStorage("mt5MenuGekisoBadge") var mt5MenuGekisoBadge: String = "none"
     @AppStorage("mt5MenuBayesBadge") var mt5MenuBayesBadge: String = "none"
     
+    
+    
     // -------
     // リワード広告の強制アンロック
     // -------
@@ -320,11 +343,37 @@ class commonVar: ObservableObject {
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
+        shakeisUnlocked = true
     }
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3210FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.21.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                gobsla2isUnlocked = false
+                gobsla2MachineIconBadge = "new"
+                enen2MachineIconBadge = "update"
+                enen2MenuScreenBadge = "update"
+                enen2MenuRegBadge = "update"
+                enen2MenuNormalBadge = "update"
+                kabaneriUnatoisUnlocked = false
+                kabaneriUnatoMachineIconBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3200FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.20.0"
@@ -441,48 +490,25 @@ class commonVar: ObservableObject {
             print("初回起動です")
         }
     }
-    func ver3170FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.17.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                shakeisUnlocked = false
-                shakeMachineIconBadge = "new"
-                railgunMachineIconBadge = "update"
-                railgunMenuFirstHitBadge = "update"
-                hokutoTenseiMachineIconBadge = "update"
-                hokutoTenseiMenuNormalBadge = "update"
-                hokutoTenseiMenuFirstHitBadge = "update"
-                hokutoTenseiMenuBayesBadge = "update"
-                bakemonoMachineIconBadge = "update"
-                bakemonoMenuNormalBadge = "update"
-                bakemonoMenuBayesBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3160FirstLaunch() {
+//    func ver3170FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.16.0"
+//        let targetVersion: String = "3.17.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                hokutoTenseiMachineIconBadge = "new"
-//                hokutoTenseiisUnlocked = false
-//                tekken6MachineIconBadge = "new"
-//                tekken6isUnlocked = false
-//                mushotenisUnlocked = false
-//                mushotenMachineIconBadge = "new"
+//                shakeisUnlocked = false
+//                shakeMachineIconBadge = "new"
+//                railgunMachineIconBadge = "update"
+//                railgunMenuFirstHitBadge = "update"
+//                hokutoTenseiMachineIconBadge = "update"
+//                hokutoTenseiMenuNormalBadge = "update"
+//                hokutoTenseiMenuFirstHitBadge = "update"
+//                hokutoTenseiMenuBayesBadge = "update"
+//                bakemonoMachineIconBadge = "update"
+//                bakemonoMenuNormalBadge = "update"
+//                bakemonoMenuBayesBadge = "update"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")

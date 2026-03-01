@@ -88,6 +88,61 @@ class Enen2: ObservableObject {
         resetFirstHit()
         resetWana()
         resetScreen()
+        resetReg()
+    }
+    
+    // --------
+    // ver3.21.0で追加
+    // --------
+    @AppStorage("enen2CharaCountDefault") var charaCountDefault: Int = 0
+    @AppStorage("enen2CharaCountGusu") var charaCountGusu: Int = 0
+    @AppStorage("enen2CharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("enen2CharaCountOver6") var charaCountOver6: Int = 0
+    @AppStorage("enen2CharaCountKisu") var charaCountKisu: Int = 0
+    @AppStorage("enen2CharaCountHighJaku") var charaCountHighJaku: Int = 0
+    @AppStorage("enen2CharaCountHighKyo") var charaCountHighKyo: Int = 0
+    @AppStorage("enen2CharaCountOver5") var charaCountOver5: Int = 0
+    @AppStorage("enen2CharaCountNegate1") var charaCountNegate1: Int = 0
+    @AppStorage("enen2CharaCountNegate2") var charaCountNegate2: Int = 0
+    @AppStorage("enen2CharaCountNegate3") var charaCountNegate3: Int = 0
+    @AppStorage("enen2CharaCountNegate4") var charaCountNegate4: Int = 0
+    @AppStorage("enen2CharaCountNegate5") var charaCountNegate5: Int = 0
+    @AppStorage("enen2CharaCountSum") var charaCountSum: Int = 0
+    
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCountDefault,
+            charaCountGusu,
+            charaCountOver4,
+            charaCountOver6,
+            charaCountKisu,
+            charaCountHighJaku,
+            charaCountHighKyo,
+            charaCountOver5,
+            charaCountNegate1,
+            charaCountNegate2,
+            charaCountNegate3,
+            charaCountNegate4,
+            charaCountNegate5,
+        )
+    }
+    
+    func resetReg() {
+        charaCountDefault = 0
+        charaCountGusu = 0
+        charaCountOver4 = 0
+        charaCountOver6 = 0
+        charaCountKisu = 0
+        charaCountHighJaku = 0
+        charaCountHighKyo = 0
+        charaCountOver5 = 0
+        charaCountNegate1 = 0
+        charaCountNegate2 = 0
+        charaCountNegate3 = 0
+        charaCountNegate4 = 0
+        charaCountNegate5 = 0
+        charaCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -108,6 +163,24 @@ class Enen2Memory1: ObservableObject {
     @AppStorage("enen2WanaCountSumMemory1") var wanaCountSum: Int = 0
     @AppStorage("enen2MemoMemory1") var memo = ""
     @AppStorage("enen2DateMemory1") var dateDouble = 0.0
+    
+    // --------
+    // ver3.21.0で追加
+    // --------
+    @AppStorage("enen2CharaCountDefaultMemory1") var charaCountDefault: Int = 0
+    @AppStorage("enen2CharaCountGusuMemory1") var charaCountGusu: Int = 0
+    @AppStorage("enen2CharaCountOver4Memory1") var charaCountOver4: Int = 0
+    @AppStorage("enen2CharaCountOver6Memory1") var charaCountOver6: Int = 0
+    @AppStorage("enen2CharaCountKisuMemory1") var charaCountKisu: Int = 0
+    @AppStorage("enen2CharaCountHighJakuMemory1") var charaCountHighJaku: Int = 0
+    @AppStorage("enen2CharaCountHighKyoMemory1") var charaCountHighKyo: Int = 0
+    @AppStorage("enen2CharaCountOver5Memory1") var charaCountOver5: Int = 0
+    @AppStorage("enen2CharaCountNegate1Memory1") var charaCountNegate1: Int = 0
+    @AppStorage("enen2CharaCountNegate2Memory1") var charaCountNegate2: Int = 0
+    @AppStorage("enen2CharaCountNegate3Memory1") var charaCountNegate3: Int = 0
+    @AppStorage("enen2CharaCountNegate4Memory1") var charaCountNegate4: Int = 0
+    @AppStorage("enen2CharaCountNegate5Memory1") var charaCountNegate5: Int = 0
+    @AppStorage("enen2CharaCountSumMemory1") var charaCountSum: Int = 0
 }
 
 class Enen2Memory2: ObservableObject {
@@ -126,6 +199,24 @@ class Enen2Memory2: ObservableObject {
     @AppStorage("enen2WanaCountSumMemory2") var wanaCountSum: Int = 0
     @AppStorage("enen2MemoMemory2") var memo = ""
     @AppStorage("enen2DateMemory2") var dateDouble = 0.0
+    
+    // --------
+    // ver3.21.0で追加
+    // --------
+    @AppStorage("enen2CharaCountDefaultMemory2") var charaCountDefault: Int = 0
+    @AppStorage("enen2CharaCountGusuMemory2") var charaCountGusu: Int = 0
+    @AppStorage("enen2CharaCountOver4Memory2") var charaCountOver4: Int = 0
+    @AppStorage("enen2CharaCountOver6Memory2") var charaCountOver6: Int = 0
+    @AppStorage("enen2CharaCountKisuMemory2") var charaCountKisu: Int = 0
+    @AppStorage("enen2CharaCountHighJakuMemory2") var charaCountHighJaku: Int = 0
+    @AppStorage("enen2CharaCountHighKyoMemory2") var charaCountHighKyo: Int = 0
+    @AppStorage("enen2CharaCountOver5Memory2") var charaCountOver5: Int = 0
+    @AppStorage("enen2CharaCountNegate1Memory2") var charaCountNegate1: Int = 0
+    @AppStorage("enen2CharaCountNegate2Memory2") var charaCountNegate2: Int = 0
+    @AppStorage("enen2CharaCountNegate3Memory2") var charaCountNegate3: Int = 0
+    @AppStorage("enen2CharaCountNegate4Memory2") var charaCountNegate4: Int = 0
+    @AppStorage("enen2CharaCountNegate5Memory2") var charaCountNegate5: Int = 0
+    @AppStorage("enen2CharaCountSumMemory2") var charaCountSum: Int = 0
 }
 
 class Enen2Memory3: ObservableObject {
@@ -144,4 +235,22 @@ class Enen2Memory3: ObservableObject {
     @AppStorage("enen2WanaCountSumMemory3") var wanaCountSum: Int = 0
     @AppStorage("enen2MemoMemory3") var memo = ""
     @AppStorage("enen2DateMemory3") var dateDouble = 0.0
+    
+    // --------
+    // ver3.21.0で追加
+    // --------
+    @AppStorage("enen2CharaCountDefaultMemory3") var charaCountDefault: Int = 0
+    @AppStorage("enen2CharaCountGusuMemory3") var charaCountGusu: Int = 0
+    @AppStorage("enen2CharaCountOver4Memory3") var charaCountOver4: Int = 0
+    @AppStorage("enen2CharaCountOver6Memory3") var charaCountOver6: Int = 0
+    @AppStorage("enen2CharaCountKisuMemory3") var charaCountKisu: Int = 0
+    @AppStorage("enen2CharaCountHighJakuMemory3") var charaCountHighJaku: Int = 0
+    @AppStorage("enen2CharaCountHighKyoMemory3") var charaCountHighKyo: Int = 0
+    @AppStorage("enen2CharaCountOver5Memory3") var charaCountOver5: Int = 0
+    @AppStorage("enen2CharaCountNegate1Memory3") var charaCountNegate1: Int = 0
+    @AppStorage("enen2CharaCountNegate2Memory3") var charaCountNegate2: Int = 0
+    @AppStorage("enen2CharaCountNegate3Memory3") var charaCountNegate3: Int = 0
+    @AppStorage("enen2CharaCountNegate4Memory3") var charaCountNegate4: Int = 0
+    @AppStorage("enen2CharaCountNegate5Memory3") var charaCountNegate5: Int = 0
+    @AppStorage("enen2CharaCountSumMemory3") var charaCountSum: Int = 0
 }

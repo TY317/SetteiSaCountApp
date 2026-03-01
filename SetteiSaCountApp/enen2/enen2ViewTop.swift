@@ -206,6 +206,24 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory1.wanaCountMiss = enen2.wanaCountMiss
         enen2Memory1.wanaCountHit = enen2.wanaCountHit
         enen2Memory1.wanaCountSum = enen2.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2Memory1.charaCountDefault = enen2.charaCountDefault
+        enen2Memory1.charaCountGusu = enen2.charaCountGusu
+        enen2Memory1.charaCountOver4 = enen2.charaCountOver4
+        enen2Memory1.charaCountOver6 = enen2.charaCountOver6
+        enen2Memory1.charaCountKisu = enen2.charaCountKisu
+        enen2Memory1.charaCountHighJaku = enen2.charaCountHighJaku
+        enen2Memory1.charaCountHighKyo = enen2.charaCountHighKyo
+        enen2Memory1.charaCountOver5 = enen2.charaCountOver5
+        enen2Memory1.charaCountNegate1 = enen2.charaCountNegate1
+        enen2Memory1.charaCountNegate2 = enen2.charaCountNegate2
+        enen2Memory1.charaCountNegate3 = enen2.charaCountNegate3
+        enen2Memory1.charaCountNegate4 = enen2.charaCountNegate4
+        enen2Memory1.charaCountNegate5 = enen2.charaCountNegate5
+        enen2Memory1.charaCountSum = enen2.charaCountSum
     }
     func saveMemory2() {
         enen2Memory2.normalGame = enen2.normalGame
@@ -221,6 +239,24 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory2.wanaCountMiss = enen2.wanaCountMiss
         enen2Memory2.wanaCountHit = enen2.wanaCountHit
         enen2Memory2.wanaCountSum = enen2.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2Memory2.charaCountDefault = enen2.charaCountDefault
+        enen2Memory2.charaCountGusu = enen2.charaCountGusu
+        enen2Memory2.charaCountOver4 = enen2.charaCountOver4
+        enen2Memory2.charaCountOver6 = enen2.charaCountOver6
+        enen2Memory2.charaCountKisu = enen2.charaCountKisu
+        enen2Memory2.charaCountHighJaku = enen2.charaCountHighJaku
+        enen2Memory2.charaCountHighKyo = enen2.charaCountHighKyo
+        enen2Memory2.charaCountOver5 = enen2.charaCountOver5
+        enen2Memory2.charaCountNegate1 = enen2.charaCountNegate1
+        enen2Memory2.charaCountNegate2 = enen2.charaCountNegate2
+        enen2Memory2.charaCountNegate3 = enen2.charaCountNegate3
+        enen2Memory2.charaCountNegate4 = enen2.charaCountNegate4
+        enen2Memory2.charaCountNegate5 = enen2.charaCountNegate5
+        enen2Memory2.charaCountSum = enen2.charaCountSum
     }
     func saveMemory3() {
         enen2Memory3.normalGame = enen2.normalGame
@@ -236,6 +272,24 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory3.wanaCountMiss = enen2.wanaCountMiss
         enen2Memory3.wanaCountHit = enen2.wanaCountHit
         enen2Memory3.wanaCountSum = enen2.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2Memory3.charaCountDefault = enen2.charaCountDefault
+        enen2Memory3.charaCountGusu = enen2.charaCountGusu
+        enen2Memory3.charaCountOver4 = enen2.charaCountOver4
+        enen2Memory3.charaCountOver6 = enen2.charaCountOver6
+        enen2Memory3.charaCountKisu = enen2.charaCountKisu
+        enen2Memory3.charaCountHighJaku = enen2.charaCountHighJaku
+        enen2Memory3.charaCountHighKyo = enen2.charaCountHighKyo
+        enen2Memory3.charaCountOver5 = enen2.charaCountOver5
+        enen2Memory3.charaCountNegate1 = enen2.charaCountNegate1
+        enen2Memory3.charaCountNegate2 = enen2.charaCountNegate2
+        enen2Memory3.charaCountNegate3 = enen2.charaCountNegate3
+        enen2Memory3.charaCountNegate4 = enen2.charaCountNegate4
+        enen2Memory3.charaCountNegate5 = enen2.charaCountNegate5
+        enen2Memory3.charaCountSum = enen2.charaCountSum
     }
 }
 
@@ -280,6 +334,24 @@ struct enen2SubViewLoadMemory: View {
         enen2.wanaCountMiss = enen2Memory1.wanaCountMiss
         enen2.wanaCountHit = enen2Memory1.wanaCountHit
         enen2.wanaCountSum = enen2Memory1.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2.charaCountDefault = enen2Memory1.charaCountDefault
+        enen2.charaCountGusu = enen2Memory1.charaCountGusu
+        enen2.charaCountOver4 = enen2Memory1.charaCountOver4
+        enen2.charaCountOver6 = enen2Memory1.charaCountOver6
+        enen2.charaCountKisu = enen2Memory1.charaCountKisu
+        enen2.charaCountHighJaku = enen2Memory1.charaCountHighJaku
+        enen2.charaCountHighKyo = enen2Memory1.charaCountHighKyo
+        enen2.charaCountOver5 = enen2Memory1.charaCountOver5
+        enen2.charaCountNegate1 = enen2Memory1.charaCountNegate1
+        enen2.charaCountNegate2 = enen2Memory1.charaCountNegate2
+        enen2.charaCountNegate3 = enen2Memory1.charaCountNegate3
+        enen2.charaCountNegate4 = enen2Memory1.charaCountNegate4
+        enen2.charaCountNegate5 = enen2Memory1.charaCountNegate5
+        enen2.charaCountSum = enen2Memory1.charaCountSum
     }
     func loadMemory2() {
         enen2.normalGame = enen2Memory2.normalGame
@@ -295,6 +367,24 @@ struct enen2SubViewLoadMemory: View {
         enen2.wanaCountMiss = enen2Memory2.wanaCountMiss
         enen2.wanaCountHit = enen2Memory2.wanaCountHit
         enen2.wanaCountSum = enen2Memory2.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2.charaCountDefault = enen2Memory2.charaCountDefault
+        enen2.charaCountGusu = enen2Memory2.charaCountGusu
+        enen2.charaCountOver4 = enen2Memory2.charaCountOver4
+        enen2.charaCountOver6 = enen2Memory2.charaCountOver6
+        enen2.charaCountKisu = enen2Memory2.charaCountKisu
+        enen2.charaCountHighJaku = enen2Memory2.charaCountHighJaku
+        enen2.charaCountHighKyo = enen2Memory2.charaCountHighKyo
+        enen2.charaCountOver5 = enen2Memory2.charaCountOver5
+        enen2.charaCountNegate1 = enen2Memory2.charaCountNegate1
+        enen2.charaCountNegate2 = enen2Memory2.charaCountNegate2
+        enen2.charaCountNegate3 = enen2Memory2.charaCountNegate3
+        enen2.charaCountNegate4 = enen2Memory2.charaCountNegate4
+        enen2.charaCountNegate5 = enen2Memory2.charaCountNegate5
+        enen2.charaCountSum = enen2Memory2.charaCountSum
     }
     func loadMemory3() {
         enen2.normalGame = enen2Memory3.normalGame
@@ -310,6 +400,24 @@ struct enen2SubViewLoadMemory: View {
         enen2.wanaCountMiss = enen2Memory3.wanaCountMiss
         enen2.wanaCountHit = enen2Memory3.wanaCountHit
         enen2.wanaCountSum = enen2Memory3.wanaCountSum
+        
+        // --------
+        // ver3.21.0で追加
+        // --------
+        enen2.charaCountDefault = enen2Memory3.charaCountDefault
+        enen2.charaCountGusu = enen2Memory3.charaCountGusu
+        enen2.charaCountOver4 = enen2Memory3.charaCountOver4
+        enen2.charaCountOver6 = enen2Memory3.charaCountOver6
+        enen2.charaCountKisu = enen2Memory3.charaCountKisu
+        enen2.charaCountHighJaku = enen2Memory3.charaCountHighJaku
+        enen2.charaCountHighKyo = enen2Memory3.charaCountHighKyo
+        enen2.charaCountOver5 = enen2Memory3.charaCountOver5
+        enen2.charaCountNegate1 = enen2Memory3.charaCountNegate1
+        enen2.charaCountNegate2 = enen2Memory3.charaCountNegate2
+        enen2.charaCountNegate3 = enen2Memory3.charaCountNegate3
+        enen2.charaCountNegate4 = enen2Memory3.charaCountNegate4
+        enen2.charaCountNegate5 = enen2Memory3.charaCountNegate5
+        enen2.charaCountSum = enen2Memory3.charaCountSum
     }
 }
 

@@ -14,7 +14,7 @@ struct unitTableGameIndex: View {
     var maxWidth: CGFloat = 60.0
     var titleLine: Int = 1
     var lineList: [Int] = [1,1,1,1,1,1]
-    var contentFont: Font = .title3
+    var contentFont: Font = .body
     let unitFont: Font = .footnote
     let verticlaPadding: CGFloat = 2.0
     let horizontalPadding: CGFloat = 3.0

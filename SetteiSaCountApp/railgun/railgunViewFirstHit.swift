@@ -96,7 +96,7 @@ struct railgunViewFirstHit: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3170railgunEpisode())
+//                .popoverTip(tipVer3170railgunEpisode())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(

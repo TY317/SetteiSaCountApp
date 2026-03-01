@@ -19,6 +19,7 @@ struct enen2TableRegSenario: View {
                         "第8 ①",
                         "第8 ②",
                         "第8 ③",
+                        "第8 ④",
                         "伝道者 ①",
                         "伝道者 ②",
                         "伝道者 ③",
@@ -30,21 +31,36 @@ struct enen2TableRegSenario: View {
                         "まもるくん ⑤",
                         "アイリス",
                         "大隊長",
+                        "シンラ",
+                        "黒野",
+                        "ジョーカー",
+                        "シンラ(死ノ圧)",
                     ],
                 )
                 unitTableString(
                     columTitle: "示唆",
                     stringList: [
                         "デフォルト",
-                        "???",
-                        "???",
-                        "高設定示唆",
-                        "高設定濃厚",
-                        "まもるくんの登場順で法則あり！？",
-                        "???",
-                        "高設定濃厚",
+                        "偶数示唆",
+                        "設定4 以上濃厚",
+                        "設定6 濃厚",
+                        "奇数示唆",
+                        "高設定示唆 弱",
+                        "高設定示唆 強",
+                        "設定5 以上濃厚",
+                        "設定1 否定",
+                        "設定2 否定",
+                        "設定3 否定",
+                        "設定4 否定",
+                        "設定5 否定",
+                        "設定6 濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定4 以上濃厚",
+                        "設定5 以上濃厚",
+                        "設定6 濃厚",
                     ],
-                    lineList: [1,1,1,3,1,5]
+//                    lineList: [1,1,1,1,1,5]
                 )
             }
             .frame(maxWidth: .infinity, alignment: .center)
@@ -58,6 +74,7 @@ struct enen2TableRegSenario: View {
                         "第8 ①",
                         "第8 ②",
                         "第8 ③",
+                        "第8 ④",
                         "伝道 ①",
                         "伝道 ②",
                         "伝道 ③",
@@ -79,6 +96,7 @@ struct enen2TableRegSenario: View {
                         "シンラ",
                         "シンラ",
                         "シンラ",
+                        "シンラ",
                         "ジョヴァンニ",
                         "ジョヴァンニ",
                         "ジョヴァンニ",
@@ -94,6 +112,7 @@ struct enen2TableRegSenario: View {
                     maxWidth: 80,
                     contentFont: .footnote,
                     colorList: [
+                        .tableBlue,
                         .tableBlue,
                         .tableBlue,
                         .tableBlue,
@@ -115,6 +134,7 @@ struct enen2TableRegSenario: View {
                     stringList: [
                         "アーサー",
                         "リヒト",
+                        "アーサー",
                         "リヒト",
                         "カロン",
                         "カロン",
@@ -131,6 +151,7 @@ struct enen2TableRegSenario: View {
                     maxWidth: 80,
                     contentFont: .footnote,
                     colorList: [
+                        .tableBlue,
                         .tableBlue,
                         .tableBlue,
                         .tableBlue,
@@ -152,6 +173,7 @@ struct enen2TableRegSenario: View {
                     stringList: [
                         "タマキ",
                         "ヴァルカン",
+                        "タマキ",
                         "ヴァルカン",
                         "ハウメア",
                         "ハウメア",
@@ -168,6 +190,7 @@ struct enen2TableRegSenario: View {
                     maxWidth: 80,
                     contentFont: .footnote,
                     colorList: [
+                        .tableBlue,
                         .tableBlue,
                         .tableBlue,
                         .tableBlue,
@@ -189,6 +212,7 @@ struct enen2TableRegSenario: View {
                     stringList: [
                         "マキ",
                         "アイリス",
+                        "マキ",
                         "アイリス",
                         "フレイル",
                         "フレイル",
@@ -207,6 +231,7 @@ struct enen2TableRegSenario: View {
                     colorList: [
                         .tableBlue,
                         .tableRed,
+                        .tableBlue,
                         .tableRed,
                         .tableRed,
                         .tableRed,
@@ -226,6 +251,7 @@ struct enen2TableRegSenario: View {
                     stringList: [
                         "ヒナワ",
                         "オウビ",
+                        "紅丸",
                         "シンラ",
                         "オロチ",
                         "インカ",
@@ -245,6 +271,7 @@ struct enen2TableRegSenario: View {
                         .tableBlue,
                         .tableRed,
                         .tableYellow,
+                        .tableYellow,
                         .tableRed,
                         .tableRed,
                         .tableRed,
@@ -257,6 +284,32 @@ struct enen2TableRegSenario: View {
                         .tableRed,
                         .tableYellow,
                     ]
+                )
+            }
+            HStack(spacing: 0) {
+                unitTableString(
+                    columTitle: "",
+                    stringList: [
+                        "シンラ",
+                        "黒野",
+                        "ジョーカー",
+                        "シンラ(死ノ圧)",
+                    ],
+                    maxWidth: 100,
+                    lineList: [2,1,1,1],
+                    contentFont: .footnote,
+                )
+                unitTableString(
+                    columTitle: "キャラ順",
+                    stringList: [
+                        "第8④パターン以外で5人目に森羅日下部(金)",
+                        "順番不問で優一郎黒野が出現",
+                        "順番不問でジョーカーが出現",
+                        "順番不問でシンラ(死ノ圧)が出現",
+                    ],
+                    maxWidth: 300,
+                    lineList: [2,1,1,1],
+                    contentFont: .subheadline,
                 )
             }
         }

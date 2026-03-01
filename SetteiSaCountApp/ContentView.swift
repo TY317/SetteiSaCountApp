@@ -79,6 +79,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteEnen2") var isSelectedFavoriteEnen2 = true
     @AppStorage("isSelectedFavoriteKokakukidotai") var isSelectedFavoriteKokakukidotai = true
     @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
+    @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
+    @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
 }
 
 
@@ -110,7 +112,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3200UpdateInfo())
+                TipView(tipVer3210UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -146,6 +148,40 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// カバネリ海門決戦、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneriUnato == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(kabaneriUnatoViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("kabaneriUnatoMachineIcon"),
+                                        machineName: "カバネリ海門",
+                                        isUnLocked: $common.kabaneriUnatoisUnlocked,
+                                        tempUnlockDateDouble: $common.kabaneriUnatoTempUnlockDateDouble,
+                                        badgeStatus: common.kabaneriUnatoMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// ゴブリンスレイヤー２、26年2月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGobsla2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(gobsla2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("gobsla2MachineIcon"),
+                                        machineName: "ゴブスレ2",
+                                        isUnLocked: $common.gobsla2isUnlocked,
+                                        tempUnlockDateDouble: $common.gobsla2TempUnlockDateDouble,
+                                        badgeStatus: common.gobsla2MachineIconBadge,
                                     )
                                 }
                                 
@@ -981,6 +1017,46 @@ struct ContentView: View {
                                     )
                                 }
                                 
+                                // //// カバネリ海門決戦、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteKabaneriUnato == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(kabaneriUnatoViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("kabaneriUnatoMachineIcon"),
+                                        machineName: "甲鉄城のカバネリ海門決戦",
+                                        makerName: "サミー",
+                                        releaseYear: 2026,
+                                        releaseMonth: 3,
+                                        isUnLocked: $common.kabaneriUnatoisUnlocked,
+                                        tempUnlockDateDouble: $common.kabaneriUnatoTempUnlockDateDouble,
+                                        badgeStatus: common.kabaneriUnatoMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// ゴブリンスレイヤー２、26年２月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGobsla2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(gobsla2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("gobsla2MachineIcon"),
+                                        machineName: "ゴブリンスレイヤー2",
+                                        makerName: "藤商事",
+                                        releaseYear: 2026,
+                                        releaseMonth: 2,
+                                        isUnLocked: $common.gobsla2isUnlocked,
+                                        tempUnlockDateDouble: $common.gobsla2TempUnlockDateDouble,
+                                        badgeStatus: common.gobsla2MachineIconBadge,
+                                    )
+                                }
+                                
                                 // //// ハナビ、26年２月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteHanabi == false {
                                     
@@ -1318,7 +1394,6 @@ struct ContentView: View {
                                         makerName: "Spiky",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -1334,7 +1409,6 @@ struct ContentView: View {
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 8,
-//                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 
@@ -1369,7 +1443,6 @@ struct ContentView: View {
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 7,
-//                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -1385,7 +1458,6 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 6,
-//                                        badgeStatus: ver360.guiltyCrown2MachineIconBadge,
                                     )
                                 }
                                 
@@ -1433,7 +1505,6 @@ struct ContentView: View {
                                         makerName: "平和",
                                         releaseYear: 2025,
                                         releaseMonth: 5
-//                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -1449,7 +1520,6 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 5
-//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1465,7 +1535,6 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 5,
-//                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1481,7 +1550,6 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -1497,7 +1565,6 @@ struct ContentView: View {
                                         makerName: "大都技研",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver360.yoshimuneMachineIconBadge,
                                     )
                                 }
                                 
@@ -1513,7 +1580,6 @@ struct ContentView: View {
                                         makerName: "平和",
                                         releaseYear: 2025,
                                         releaseMonth: 4
-//                                        badgeStatus: ver300.mahjongMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1528,7 +1594,6 @@ struct ContentView: View {
                                         makerName: "ニューギン",
                                         releaseYear: 2025,
                                         releaseMonth: 4
-//                                        badgeStatus: ver280.godzillaMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1546,7 +1611,6 @@ struct ContentView: View {
                                         makerName: "UNIVERSAL",
                                         releaseYear: 2025,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver390.magiaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1562,7 +1626,6 @@ struct ContentView: View {
                                         makerName: "オーイズミ",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-//                                        badgeStatus: ver330.rslMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -1578,7 +1641,6 @@ struct ContentView: View {
                                         makerName: "エンターライズ",
                                         releaseYear: 2025,
                                         releaseMonth: 3,
-//                                        badgeStatus: ver370.bioMachineIconBadge,
                                     )
                                 }
                                 
@@ -1594,7 +1656,6 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2025,
                                         releaseMonth: 3
-//                                        badgeStatus: ver300.kaijiMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1609,7 +1670,6 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2025,
                                         releaseMonth: 2
-//                                        badgeStatus: ver250.arifureMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1661,7 +1721,6 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2025,
                                         releaseMonth: 2
-//                                        badgeStatus: ver310.sbjMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1676,7 +1735,6 @@ struct ContentView: View {
                                         makerName: "コナミ",
                                         releaseYear: 2025,
                                         releaseMonth: 1
-//                                        badgeStatus: ver270.sevenSwordsMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -2140,6 +2198,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // カバネリ海門
+                Toggle("カバネリ海門決戦", isOn: $favoriteSet.isSelectedFavoriteKabaneriUnato)
+                // ゴブリンスレイヤー２
+                Toggle("ゴブリンスレイヤー2", isOn: $favoriteSet.isSelectedFavoriteGobsla2)
                 // ハナビ
                 Toggle("ハナビ", isOn: $favoriteSet.isSelectedFavoriteHanabi)
                 // 炎炎ノ消防隊2
@@ -2318,8 +2380,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

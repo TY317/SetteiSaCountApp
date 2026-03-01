@@ -14,7 +14,8 @@ struct enen2ViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.8, 101.2, 105.6, 110.2, 114.9]
     @State var firstHitEnable: Bool = true
-    
+    @State var screenEnable: Bool = true
+    @State var charaEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -53,6 +54,21 @@ struct enen2ViewBayes: View {
                     )
                 }
                 
+                // キャラ順
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中のキャラ順") {
+                    unitExView5body2image(
+                        title: "REG中のキャラ順",
+                        textBody1: "・否定系、確定系のみ反映させます"
+                    )
+                }
+                
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
             }
             
             // //// STEP3
@@ -129,6 +145,67 @@ struct enen2ViewBayes: View {
                 bigNumber: enen2.normalGame
             )
         }
+        
+        // REGキャラ
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if enen2.charaCountNegate1 > 0 {
+                logPostChara[0] = -Double.infinity
+            }
+            if enen2.charaCountNegate2 > 0 {
+                logPostChara[1] = -Double.infinity
+            }
+            if enen2.charaCountNegate3 > 0 {
+                logPostChara[2] = -Double.infinity
+            }
+            if enen2.charaCountNegate4 > 0 {
+                logPostChara[3] = -Double.infinity
+            }
+            if enen2.charaCountNegate5 > 0 {
+                logPostChara[4] = -Double.infinity
+            }
+            if enen2.charaCountOver4 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+            }
+            if enen2.charaCountOver5 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+            }
+            if enen2.charaCountOver6 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+                logPostChara[4] = -Double.infinity
+            }
+        }
+        
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if enen2.screenCount4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if enen2.screenCount5 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+            }
+            if enen2.screenCount6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -168,6 +245,8 @@ struct enen2ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostBonus,
             logPostLoop,
+            logPostChara,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,
