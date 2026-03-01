@@ -126,6 +126,48 @@ class KabaneriUnato: ObservableObject {
         minusCheck = false
     }
     
+    // -------
+    // おみくじ
+    // -------
+    @AppStorage("kabaneriUnatoOmikujiCount1") var omikujiCount1: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCount2") var omikujiCount2: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCount3") var omikujiCount3: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCount4") var omikujiCount4: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCount5") var omikujiCount5: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCount6") var omikujiCount6: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCountOver2") var omikujiCountOver2: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCountOver4") var omikujiCountOver4: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCountOver6") var omikujiCountOver6: Int = 0
+    @AppStorage("kabaneriUnatoOmikujiCountSum") var omikujiCountSum: Int = 0
+    
+    func omikujiSumFunc() {
+        omikujiCountSum = countSum(
+            omikujiCount1,
+            omikujiCount2,
+            omikujiCount3,
+            omikujiCount4,
+            omikujiCount5,
+            omikujiCount6,
+            omikujiCountOver2,
+            omikujiCountOver4,
+            omikujiCountOver6,
+        )
+    }
+    
+    func resetOmikuji() {
+        omikujiCount1 = 0
+        omikujiCount2 = 0
+        omikujiCount3 = 0
+        omikujiCount4 = 0
+        omikujiCount5 = 0
+        omikujiCount6 = 0
+        omikujiCountOver2 = 0
+        omikujiCountOver4 = 0
+        omikujiCountOver6 = 0
+        omikujiCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -136,5 +178,8 @@ class KabaneriUnato: ObservableObject {
     func resetAll() {
         resetNormal()
         resetKabaneriBonus()
+        resetScreen()
+        resetFirstHit()
+        resetOmikuji()
     }
 }

@@ -84,6 +84,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuScreenBadge,
                         )
                     }
+                    
+                    // おみくじ
+                    NavigationLink(destination: kabaneriUnatoViewOmikuji(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "tag",
+                            textBody: "おみくじ",
+                            badgeStatus: common.kabaneriUnatoMenuOmikujiBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
