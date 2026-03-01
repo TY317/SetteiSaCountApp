@@ -136,6 +136,7 @@ class commonVar: ObservableObject {
     @AppStorage("kabaneriUnatoMenuNormalBadge") var kabaneriUnatoMenuNormalBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuFirstHitBadge") var kabaneriUnatoMenuFirstHitBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuBayesBadge") var kabaneriUnatoMenuBayesBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuKabaneriBonusBadge") var kabaneriUnatoMenuKabaneriBonusBadge: String = "none"
     
     // ---- ゴブリンスレイヤー２
     @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true

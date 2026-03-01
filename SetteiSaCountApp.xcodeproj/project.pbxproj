@@ -213,6 +213,7 @@
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
 		0F49521E2DB4903F00EE13CB /* magiaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521D2DB4903F00EE13CB /* magiaViewEnding.swift */; };
 		0F4B0F492F53B319008D79E1 /* kabaneriUnatoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B0F482F53B319008D79E1 /* kabaneriUnatoViewFirstHit.swift */; };
+		0F4B0F4B2F53B8A3008D79E1 /* kabaneriUnatoViewKabaneriBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B0F4A2F53B8A3008D79E1 /* kabaneriUnatoViewKabaneriBonus.swift */; };
 		0F51C6342E82CB020006794A /* evaYakusokuViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */; };
 		0F51C6372E840CFD0006794A /* creaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6362E840CFD0006794A /* creaViewTop.swift */; };
 		0F51C6392E840D140006794A /* CreaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6382E840D140006794A /* CreaClass.swift */; };
@@ -1569,6 +1570,7 @@
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
 		0F49521D2DB4903F00EE13CB /* magiaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewEnding.swift; sourceTree = "<group>"; };
 		0F4B0F482F53B319008D79E1 /* kabaneriUnatoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoViewFirstHit.swift; sourceTree = "<group>"; };
+		0F4B0F4A2F53B8A3008D79E1 /* kabaneriUnatoViewKabaneriBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoViewKabaneriBonus.swift; sourceTree = "<group>"; };
 		0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuViewBayes.swift; sourceTree = "<group>"; };
 		0F51C6362E840CFD0006794A /* creaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewTop.swift; sourceTree = "<group>"; };
 		0F51C6382E840D140006794A /* CreaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaClass.swift; sourceTree = "<group>"; };
@@ -2854,6 +2856,7 @@
 				0F2020682F52E31200FDA263 /* kabaneriUnatoAssets.xcassets */,
 				0F20206A2F53184B00FDA263 /* kabaneriUnatoViewNormal.swift */,
 				0F4B0F482F53B319008D79E1 /* kabaneriUnatoViewFirstHit.swift */,
+				0F4B0F4A2F53B8A3008D79E1 /* kabaneriUnatoViewKabaneriBonus.swift */,
 			);
 			path = kabaneriUnato;
 			sourceTree = "<group>";
@@ -6421,6 +6424,7 @@
 				0F9A4F942DF1CFE7003B6337 /* guiltyCrown2ViewNormal.swift in Sources */,
 				0F9D9C492EA500DF00450B23 /* railgunViewFirstHit.swift in Sources */,
 				0F64DD922DC5C9A10027315D /* myJug5SubViewCountInput.swift in Sources */,
+				0F4B0F4B2F53B8A3008D79E1 /* kabaneriUnatoViewKabaneriBonus.swift in Sources */,
 				0F868AC72D584F3100D952D9 /* girlsSSVer2ViewJissenCount.swift in Sources */,
 				0FCF78A02E472B490000748B /* hokutoTableNormalBell.swift in Sources */,
 				0FC14A982E4F009E00F85D84 /* enenTableKoyakuPattern.swift in Sources */,

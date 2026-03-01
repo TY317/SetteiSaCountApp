@@ -40,6 +40,68 @@ class KabaneriUnato: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // カバネリボーナス
+    // --------
+    // 逆押しボイス
+    @AppStorage("kabaneriUnatoVoiceCount35Sisa") var voiceCount35Sisa: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountGusu") var voiceCountGusu: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountHighJaku") var voiceCountHighJaku: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountHighChu") var voiceCountHighChu: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountHighKyo") var voiceCountHighKyo: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountOver2") var voiceCountOver2: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountOver5") var voiceCountOver5: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountSum") var voiceCountSum: Int = 0
+    @AppStorage("kabaneriUnatoVoiceCountHighSum") var voiceCountHighSum: Int = 0
+    
+    func voiceSumFunc() {
+        voiceCountSum = countSum(
+            voiceCount35Sisa,
+            voiceCountGusu,
+            voiceCountHighJaku,
+            voiceCountHighChu,
+            voiceCountHighKyo,
+            voiceCountOver2,
+            voiceCountOver5,
+        )
+        voiceCountHighSum = countSum(
+            voiceCountHighJaku,
+            voiceCountHighChu,
+            voiceCountHighKyo,
+        )
+    }
+    
+    // キャラ紹介
+    @AppStorage("kabaneriUnatoCharaCount35Sisa") var charaCount35Sisa: Int = 0
+    @AppStorage("kabaneriUnatoCharaCountGusu") var charaCountGusu: Int = 0
+    @AppStorage("kabaneriUnatoCharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("kabaneriUnatoCharaCountSum") var charaCountSum: Int = 0
+    
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount35Sisa,
+            charaCountGusu,
+            charaCountOver4,
+        )
+    }
+    
+    func resetKabaneriBonus() {
+        voiceCount35Sisa = 0
+        voiceCountGusu = 0
+        voiceCountHighJaku = 0
+        voiceCountHighChu = 0
+        voiceCountHighKyo = 0
+        voiceCountOver2 = 0
+        voiceCountOver5 = 0
+        voiceCountSum = 0
+        voiceCountHighSum = 0
+        charaCount35Sisa = 0
+        charaCountGusu = 0
+        charaCountOver4 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -49,5 +111,6 @@ class KabaneriUnato: ObservableObject {
     
     func resetAll() {
         resetNormal()
+        resetKabaneriBonus()
     }
 }

@@ -58,6 +58,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuFirstHitBadge,
                         )
                     }
+                    
+                    // カバネリボーナス
+                    NavigationLink(destination: kabaneriUnatoViewKabaneriBonus(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "カバネリボーナス",
+                            badgeStatus: common.kabaneriUnatoMenuKabaneriBonusBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
