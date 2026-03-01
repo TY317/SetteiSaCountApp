@@ -71,6 +71,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuKabaneriBonusBadge,
                         )
                     }
+                    
+                    // ST終了画面
+                    NavigationLink(destination: kabaneriUnatoViewScreen(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ST終了画面",
+                            badgeStatus: common.kabaneriUnatoMenuScreenBadge,
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

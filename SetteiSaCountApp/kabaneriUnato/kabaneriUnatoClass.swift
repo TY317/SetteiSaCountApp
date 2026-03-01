@@ -102,6 +102,30 @@ class KabaneriUnato: ObservableObject {
         minusCheck = false
     }
     
+    // ------
+    // ST終了画面
+    // ------
+    @AppStorage("kabaneriUnatoScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("kabaneriUnatoScreenCountHigh") var screenCountHigh: Int = 0
+    @AppStorage("kabaneriUnatoScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("kabaneriUnatoScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountHigh,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountHigh = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
