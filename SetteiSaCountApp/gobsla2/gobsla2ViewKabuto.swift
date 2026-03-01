@@ -83,6 +83,7 @@ struct gobsla2ViewKabuto: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 ForEach(self.selectList, id: \.self) { item in
                     unitResultCountListPercent(

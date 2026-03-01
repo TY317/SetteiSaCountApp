@@ -241,6 +241,7 @@ class Gobsla2: ObservableObject {
         resetNormal()
         resetKabuto()
         resetFirstHit()
+        resetScreen()
     }
 }
 

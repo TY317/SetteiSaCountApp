@@ -109,6 +109,7 @@ struct gobsla2ViewScreen: View {
                                     screen: unitScreenOnlyDisplay(
                                         image: Image(self.imageNameList[index]),
                                         upperBeltText: self.upperBeltTextList[index],
+                                        upperBeltFont: .subheadline,
                                         lowerBeltText: self.lowerBeltTextList[index],
 //                                        lowerBeltFont: .body,
 //                                        lowerBeltHeight: 35,

@@ -88,6 +88,7 @@ class Enen2: ObservableObject {
         resetFirstHit()
         resetWana()
         resetScreen()
+        resetReg()
     }
     
     // --------

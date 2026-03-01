@@ -29,10 +29,10 @@ struct kabaneriUnatoViewKabaneriBonus: View {
     let selectList: [String] = [
         "男性(景之除く)",
         "女性(無名特殊除く)",
-        "なぜ言わなかった、私をヒトだと!",
-        "私はヒトか、カバネか!?",
-        "今年は最後かな",
-        "やっぱりこの台、普通じゃないね",
+        "[景之] なぜ言わなかった、私をヒトだと!",
+        "[景之] 私はヒトか、カバネか!?",
+        "[景之] 今年は最後かな",
+        "[無名] やっぱりこの台、普通じゃないね",
         "(ボイスなし)",
     ]
     let sisaList: [String] = [
@@ -94,6 +94,10 @@ struct kabaneriUnatoViewKabaneriBonus: View {
                 }
                 
                 DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("サブ液晶ランプが上下とも発光すれば景之or無名特殊")
+                    }
                     // サークルピッカー
                     Picker("", selection: self.$selectedItem) {
                         ForEach(self.selectList, id: \.self) { item in

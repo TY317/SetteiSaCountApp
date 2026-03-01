@@ -187,6 +187,7 @@ struct gobsla2ViewFirstHit: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // //// 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率", linkText: "初当り確率") {
@@ -223,6 +224,7 @@ struct gobsla2ViewFirstHit: View {
             } header: {
                 Text("初当り確率")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.gobsla2MenuFirstHitBadge)
