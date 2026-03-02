@@ -27,6 +27,9 @@ class KabaneriUnato: ObservableObject {
         flushCountHit = 0
         flushCountSum = 0
         minusCheck = false
+        
+        koyakuCountLowerBell = 0
+        normalGame = 0
     }
     
     // ---------
@@ -182,6 +185,14 @@ class KabaneriUnato: ObservableObject {
         resetFirstHit()
         resetOmikuji()
     }
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    // 下段ベル
+    let ratioLowerBell: [Double] = [121.1,114.4,112.8,106.2,104.2,99.1]
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBell") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGame") var normalGame: Int = 0
 }
 
 

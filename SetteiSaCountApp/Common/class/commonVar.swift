@@ -357,7 +357,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                kabaneriUnatoMachineIconBadge = "update"
+                kabaneriUnatoMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

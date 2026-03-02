@@ -25,6 +25,8 @@ struct kabaneriUnatoViewNormal: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     
+    @FocusState var isFocused: Bool
+    
     var body: some View {
         List {
             // ---- 発光率
@@ -90,6 +92,59 @@ struct kabaneriUnatoViewNormal: View {
                 }
             }
             
+            // ---- 下段ベル
+            Section {
+                // ゲーム数入力
+                unitTextFieldNumberInputWithUnit(
+                    title: "ゲーム数",
+                    inputValue: $kabaneriUnato.normalGame,
+                    unitText: "Ｇ",
+                )
+                .focused($isFocused)
+                
+                // カウント
+                unitCountButtonVerticalDenominate(
+                    title: "下段ベル",
+                    count: $kabaneriUnato.koyakuCountLowerBell,
+                    color: .personalSpringLightYellow,
+                    bigNumber: $kabaneriUnato.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $kabaneriUnato.minusCheck,
+                    flushColor: .yellow,
+                )
+                
+                // 参考情報）下段ベル確率
+                unitLinkButtonViewBuilder(sheetTitle: "下段ベル確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "下段ベル",
+                            denominateList: kabaneriUnato.ratioLowerBell
+                        )
+                    }
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kabaneriUnatoView95Ci(
+                            kabaneriUnato: kabaneriUnato,
+                            selection: 1
+                        )
+                    )
+                )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kabaneriUnatoViewBayes(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("下段ベル")
+            }
+            
             // ---- 周期
             Section {
                 // 参考情報）周期について
@@ -146,6 +201,17 @@ struct kabaneriUnatoViewNormal: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: kabaneriUnato.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

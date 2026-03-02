@@ -108,28 +108,28 @@ struct kabaneriUnatoViewTop: View {
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: kabaneriUnatoView95Ci(
-//                    kabaneriUnato: kabaneriUnato,
-//                    selection: 1,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: kabaneriUnatoView95Ci(
+                    kabaneriUnato: kabaneriUnato,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: kabaneriUnatoViewBayes(
-//                    kabaneriUnato: kabaneriUnato,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.kabaneriUnatoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: kabaneriUnatoViewBayes(
+                    kabaneriUnato: kabaneriUnato,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.kabaneriUnatoMenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4930")

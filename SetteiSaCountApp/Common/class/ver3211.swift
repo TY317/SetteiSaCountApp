@@ -23,16 +23,16 @@ struct tipVer3211UpdateInfo: Tip {
 }
 
 // //////////////////
-// Tip：炎炎　終了画面
+// Tip：カバネリ２　下段ベル
 // //////////////////
-//struct tipVer3210Enen2Screen: Tip {
-//    var title: Text {
-//        Text("情報更新")
-//    }
-//    var message: Text? {
-//        Text("示唆が全て判明しました")
-//    }
-//    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-//    }
-//}
+struct tipVer3211KabaneriUnatoLowerBell: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("下段ベルの設定差が判明\nカウント、設定判別機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
