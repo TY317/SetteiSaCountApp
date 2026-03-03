@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct unitLabelHeaderScreenCount: View {
+    var title: String = "画面カウント"
+    
     var body: some View {
         HStack {
-            Text("画面カウント")
+            Text(self.title)
             unitToolbarButtonQuestion {
                 unitExView5body2image(
                     title: "画面カウント",

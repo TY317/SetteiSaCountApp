@@ -120,6 +120,7 @@ class Kokakukidotai: ObservableObject {
         resetAt()
         resetNormal()
         resetScreen()
+        resetCz()
     }
     
     // ---------
@@ -129,6 +130,52 @@ class Kokakukidotai: ObservableObject {
     let ratioAfterAtNormal: [Double] = [50,48.3,46.7,45,43.3,41.7]
     let ratioAfterAtHigh: [Double] = [47.5,48.8,50,51.3,52.5,53.8]
     let ratioAfterAtSuperHigh: [Double] = [2.5,2.9,3.3,3.8,4.2,4.6]
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    // CZ終了画面
+    @AppStorage("kokakukidotaiCzScreenCountDefault") var czScreenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountFukkatu") var czScreenCountFukkatu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountKisu") var czScreenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountGusu") var czScreenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighJaku") var czScreenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighKyo") var czScreenCountHighKyo: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver2") var czScreenCountOver2: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver1456") var czScreenCountOver1456: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver4") var czScreenCountOver4: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver6") var czScreenCountOver6: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountSum") var czScreenCountSum: Int = 0
+    
+    func czScreenSumFunc() {
+        czScreenCountSum = countSum(
+            czScreenCountDefault,
+            czScreenCountFukkatu,
+            czScreenCountKisu,
+            czScreenCountGusu,
+            czScreenCountHighJaku,
+            czScreenCountHighKyo,
+            czScreenCountOver2,
+            czScreenCountOver1456,
+            czScreenCountOver4,
+            czScreenCountOver6,
+        )
+    }
+    
+    func resetCz() {
+        czScreenCountDefault = 0
+        czScreenCountFukkatu = 0
+        czScreenCountKisu = 0
+        czScreenCountGusu = 0
+        czScreenCountHighJaku = 0
+        czScreenCountHighKyo = 0
+        czScreenCountOver2 = 0
+        czScreenCountOver1456 = 0
+        czScreenCountOver4 = 0
+        czScreenCountOver6 = 0
+        czScreenCountSum = 0
+        minusCheck = false
+    }
 }
 
 class KokakukidotaiMemory1: ObservableObject {

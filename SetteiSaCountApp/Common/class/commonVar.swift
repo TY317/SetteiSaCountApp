@@ -359,6 +359,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 kabaneriUnatoMachineIconBadge = "update"
                 kabaneriUnatoMenuNormalBadge = "update"
+                kokakukidotaiMenuCzBadge = "update"
+                kokakukidotaiMachineIconBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

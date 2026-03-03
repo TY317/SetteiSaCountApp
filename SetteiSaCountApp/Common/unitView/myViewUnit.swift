@@ -1196,7 +1196,7 @@ struct unitResultCountListPercent: View {
 //    @State var flashColor: Color
     var flashColor: Color
     @Binding var bigNumber: Int
-    @State var numberofDigit: Int = 1
+    @State var numberofDigit: Int = 0
     var ratio: Double {
         let Ratio = Double(count) / Double(bigNumber) * 100
         return bigNumber > 0 ? Ratio : 0.0

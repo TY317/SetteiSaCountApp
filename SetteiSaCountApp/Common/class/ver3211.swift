@@ -36,3 +36,19 @@ struct tipVer3211KabaneriUnatoLowerBell: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊　CZ
+// //////////////////
+struct tipVer3211KokakukidotaiCz: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("終了画面示唆、視覚HACK設定差が判明\nカウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
