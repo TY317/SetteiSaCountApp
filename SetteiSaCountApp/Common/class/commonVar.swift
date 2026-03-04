@@ -149,6 +149,7 @@ class commonVar: ObservableObject {
     @AppStorage("gobsla2MenuBayesBadge") var gobsla2MenuBayesBadge: String = "none"
     @AppStorage("gobsla2MenuKabutoBadge") var gobsla2MenuKabutoBadge: String = "none"
     @AppStorage("gobsla2MenuScreenBadge") var gobsla2MenuScreenBadge: String = "none"
+    @AppStorage("gobsla2MenuEndingBadge") var gobsla2MenuEndingBadge: String = "none"
     
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
@@ -364,6 +365,8 @@ class commonVar: ObservableObject {
                 kokakukidotaiMachineIconBadge = "update"
                 tekken6MachineIconBadge = "update"
                 tekken6MenuCzBadge = "new"
+                gobsla2MachineIconBadge = "update"
+                gobsla2MenuEndingBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
