@@ -166,6 +166,82 @@ struct kokakukidotaiViewCz: View {
                 unitLabelHeaderScreenCount(title: "終了画面")
             }
 //            kokakukidotaiSubViewCzScreen()
+            
+            // ---- 視覚HACK
+            Section {
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "視覚HACK",
+                    count: $kokakukidotai.sikakuHackCountHit,
+                    bigNumber: $kokakukidotai.sikakuHackCountSum,
+                    numberofDicimal: 0
+                )
+                
+                // 参考情報）視覚HACK
+                unitLinkButtonViewBuilder(sheetTitle: "視覚HACK発生率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "視覚HACK",
+                            percentList: kokakukidotai.ratioSikakuHack
+                        )
+                    }
+                }
+                
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("S.A.M終了の次ゲームにリール演出を伴って発生するHACK")
+                        Text("(終了画面での復活ではない)")
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "なし",
+                            count: $kokakukidotai.sikakuHackCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.sikakuHackSumFunc()
+                            }
+                        // あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "あり",
+                            count: $kokakukidotai.sikakuHackCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.sikakuHackSumFunc()
+                            }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 5,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                    
+                } label: {
+                    Text("HACKカウント")
+                        .foregroundStyle(Color.blue)
+                }
+                // 参考情報）視覚HACK
+            } header: {
+                Text("視覚HACK")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuCzBadge)

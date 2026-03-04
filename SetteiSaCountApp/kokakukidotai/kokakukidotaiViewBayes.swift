@@ -17,6 +17,8 @@ struct kokakukidotaiViewBayes: View {
     @State var rebootEnable: Bool = true
     @State var iedeEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var czScreenEnable: Bool = true
+    @State var sikakuHackEnable: Bool = true
     
     
     // 全機種共通
@@ -50,6 +52,17 @@ struct kokakukidotaiViewBayes: View {
             bayesSubStep2Section {
                 // AT終了時200or400G CZ当選
                 unitToggleWithQuestion(enable: self.$iedeEnable, title: "AT終了時200or400G CZ当選")
+                
+                // CZ狩猟画面
+                unitToggleWithQuestion(enable: self.$czScreenEnable, title: "CZ終了画面") {
+                    unitExView5body2image(
+                        title: "CZ終了画面",
+                        textBody1: "確定系のみ反映させます",
+                    )
+                }
+                
+                // 視覚HACK発生率
+                unitToggleWithQuestion(enable: self.$sikakuHackEnable, title: "視覚HACK発生率")
                 
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率") {
@@ -147,6 +160,41 @@ struct kokakukidotaiViewBayes: View {
                 bigNumber: kokakukidotai.iedeCountSum
             )
         }
+        
+        // CZ終了画面
+        var logPostCzScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.czScreenEnable {
+            if kokakukidotai.czScreenCountOver2 > 0 {
+                logPostCzScreen[0] = -Double.infinity
+            }
+            if kokakukidotai.czScreenCountOver4 > 0 {
+                logPostCzScreen[0] = -Double.infinity
+                logPostCzScreen[1] = -Double.infinity
+                logPostCzScreen[2] = -Double.infinity
+            }
+            if kokakukidotai.czScreenCountOver6 > 0 {
+                logPostCzScreen[0] = -Double.infinity
+                logPostCzScreen[1] = -Double.infinity
+                logPostCzScreen[2] = -Double.infinity
+                logPostCzScreen[3] = -Double.infinity
+                logPostCzScreen[4] = -Double.infinity
+            }
+            if kokakukidotai.czScreenCountOver1456 > 0 {
+                logPostCzScreen[1] = -Double.infinity
+                logPostCzScreen[2] = -Double.infinity
+            }
+        }
+        
+        // 視覚HACK発生率
+        var logPostSikakuHack: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.sikakuHackEnable {
+            logPostSikakuHack = logPostPercentBino(
+                ratio: kokakukidotai.ratioSikakuHack,
+                Count: kokakukidotai.sikakuHackCountHit,
+                bigNumber: kokakukidotai.sikakuHackCountSum
+            )
+        }
+        
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -225,6 +273,8 @@ struct kokakukidotaiViewBayes: View {
             logPostFirstHitCz,
             logPostReboot,
             logPostScreen,
+            logPostCzScreen,
+            logPostSikakuHack,
             
             logPostTrophy,
             logPostBefore,

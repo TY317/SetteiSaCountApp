@@ -85,6 +85,24 @@ struct kokakukidotaiView95Ci: View {
                 )
             )
             .tag(2)
+            
+            // 視覚HACK発生回数
+            unitListSection95Ci(
+                grafTitle: "視覚HACK発生回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.sikakuHackCountHit,
+                        bigNumber: $kokakukidotai.sikakuHackCountSum,
+                        setting1Percent: kokakukidotai.ratioSikakuHack[0],
+                        setting2Percent: kokakukidotai.ratioSikakuHack[1],
+                        setting3Percent: kokakukidotai.ratioSikakuHack[2],
+                        setting4Percent: kokakukidotai.ratioSikakuHack[3],
+                        setting5Percent: kokakukidotai.ratioSikakuHack[4],
+                        setting6Percent: kokakukidotai.ratioSikakuHack[5]
+                    )
+                )
+            )
+            .tag(5)
         }
         // //// firebaseログ
         .onAppear {

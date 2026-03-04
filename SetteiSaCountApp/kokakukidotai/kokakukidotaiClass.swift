@@ -162,6 +162,16 @@ class Kokakukidotai: ObservableObject {
         )
     }
     
+    // 視覚HACK
+    let ratioSikakuHack: [Double] = [5.7,6.1,6.9,9.0,10.1,10.6]
+    @AppStorage("kokakukidotaiSikakuHackCountMiss") var sikakuHackCountMiss: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountHit") var sikakuHackCountHit: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountSum") var sikakuHackCountSum: Int = 0
+    
+    func sikakuHackSumFunc() {
+        sikakuHackCountSum = countSum(sikakuHackCountMiss, sikakuHackCountHit)
+    }
+    
     func resetCz() {
         czScreenCountDefault = 0
         czScreenCountFukkatu = 0
@@ -174,6 +184,9 @@ class Kokakukidotai: ObservableObject {
         czScreenCountOver4 = 0
         czScreenCountOver6 = 0
         czScreenCountSum = 0
+        sikakuHackCountMiss = 0
+        sikakuHackCountHit = 0
+        sikakuHackCountSum = 0
         minusCheck = false
     }
 }
