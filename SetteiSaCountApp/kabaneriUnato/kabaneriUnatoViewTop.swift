@@ -59,6 +59,19 @@ struct kabaneriUnatoViewTop: View {
                         )
                     }
                     
+                    // 駿城ボーナス
+                    NavigationLink(destination: kabaneriUnatoViewHayajiro(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "tram.fill.tunnel",
+                            textBody: "駿城ボーナス",
+                            badgeStatus: common.kabaneriUnatoMenuHayajiroBadge,
+                        )
+                    }
+                    
                     // カバネリボーナス
                     NavigationLink(destination: kabaneriUnatoViewKabaneriBonus(
                         kabaneriUnato: kabaneriUnato,

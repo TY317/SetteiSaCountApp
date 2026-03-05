@@ -184,6 +184,7 @@ class KabaneriUnato: ObservableObject {
         resetScreen()
         resetFirstHit()
         resetOmikuji()
+        resetHayajiro()
     }
     
     // ---------
@@ -193,6 +194,20 @@ class KabaneriUnato: ObservableObject {
     let ratioLowerBell: [Double] = [121.1,114.4,112.8,106.2,104.2,99.1]
     @AppStorage("kabaneriUnatoKoyakuCountLowerBell") var koyakuCountLowerBell: Int = 0
     @AppStorage("kabaneriUnatoNormalGame") var normalGame: Int = 0
+    
+    // 駿城ボーナス
+    let ratioHayajiro3000: [Double] = [1.2,2,2,2,2,2.3]
+    @AppStorage("kabaneriUnatoHayajiroCountMiss") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHit") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSum") var hayajiroCountSum: Int = 0
+    
+    func hayajiroSumFunc() {
+        hayajiroCountSum = hayajiroCountMiss + hayajiroCountHit
+    }
+    
+    func resetHayajiro() {
+        minusCheck = false
+    }
 }
 
 

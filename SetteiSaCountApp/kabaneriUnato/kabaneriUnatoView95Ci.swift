@@ -86,24 +86,24 @@ struct kabaneriUnatoView95Ci: View {
 //            )
 //            .tag(5)
 //
-//            // 引き戻し成功ストック回数
-//            unitListSection95Ci(
-//                grafTitle: "REBOOTCHANCE\n成功ストック回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kabaneriUnato.rebootCountSuccess,
-//                        bigNumber: $kabaneriUnato.rebootCountSum,
-//                        setting1Percent: kabaneriUnato.ratioReboot[0],
-//                        setting2Percent: kabaneriUnato.ratioReboot[1],
-//                        setting3Percent: kabaneriUnato.ratioReboot[2],
-//                        setting4Percent: kabaneriUnato.ratioReboot[3],
-//                        setting5Percent: kabaneriUnato.ratioReboot[4],
-//                        setting6Percent: kabaneriUnato.ratioReboot[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
+            // 早じろ単チャンス目 3000pt回数
+            unitListSection95Ci(
+                grafTitle: "駿城ボーナス\n単チャンス目 3000pt回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.hayajiroCountHit,
+                        bigNumber: $kabaneriUnato.hayajiroCountSum,
+                        setting1Percent: kabaneriUnato.ratioHayajiro3000[0],
+                        setting2Percent: kabaneriUnato.ratioHayajiro3000[1],
+                        setting3Percent: kabaneriUnato.ratioHayajiro3000[2],
+                        setting4Percent: kabaneriUnato.ratioHayajiro3000[3],
+                        setting5Percent: kabaneriUnato.ratioHayajiro3000[4],
+                        setting6Percent: kabaneriUnato.ratioHayajiro3000[5]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {

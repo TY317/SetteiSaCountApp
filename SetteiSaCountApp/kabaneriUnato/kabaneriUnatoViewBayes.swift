@@ -14,6 +14,7 @@ struct kabaneriUnatoViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.5, 100.8, 106.0, 111.0, 114.9]
     @State var lowerBellEnable: Bool = true
+    @State var hayajiro3000Enable: Bool = true
     
     
     // 全機種共通
@@ -47,13 +48,15 @@ struct kabaneriUnatoViewBayes: View {
             bayesSubStep2Section {
                 // 下段ベル
                 unitToggleWithQuestion(enable: self.$lowerBellEnable, title: "下段ベル確率")
+                //早じろボーナス単チャンス目３０００
+                unitToggleWithQuestion(enable: self.$hayajiro3000Enable, title: "駿城 単チャンス目3000pt")
                 
-                // 藤丸コイン
-                DisclosureGroup("藤丸コイン") {
+                // サミートロフィー
+                DisclosureGroup("サミートロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
                     unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
                     unitToggleWithQuestion(enable: self.$over4Check, title: "金")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "デンジャー柄")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "キリン柄")
                     unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
                 }
             }
@@ -127,6 +130,16 @@ struct kabaneriUnatoViewBayes: View {
             )
         }
         
+        // 早じろ単チャンス目３０００
+        var logPostHayajiro3000: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.hayajiro3000Enable {
+            logPostHayajiro3000 = logPostPercentBino(
+                ratio: kabaneriUnato.ratioHayajiro3000,
+                Count: kabaneriUnato.hayajiroCountHit,
+                bigNumber: kabaneriUnato.hayajiroCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -165,6 +178,7 @@ struct kabaneriUnatoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostLowerBell,
+            logPostHayajiro3000,
             
             logPostTrophy,
             logPostBefore,
