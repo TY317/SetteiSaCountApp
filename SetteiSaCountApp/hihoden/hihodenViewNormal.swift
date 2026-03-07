@@ -139,6 +139,7 @@ struct hihodenViewNormal: View {
                         }
                     }
                 }
+                .popoverTip(tipVer3211HihodenChanseKokaku())
                 // 参考情報）高確率関連の注目ポイント
                 unitLinkButtonViewBuilder(sheetTitle: "高確率関連の注目ポイント") {
                     VStack(alignment: .leading) {
@@ -167,7 +168,7 @@ struct hihodenViewNormal: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3171HihodenNazoKokaku())
+//                .popoverTip(tipVer3171HihodenNazoKokaku())
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

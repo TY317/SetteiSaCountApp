@@ -34,7 +34,7 @@ struct hihodenViewLegend: View {
                 // 注意書き
                 unitLabelCautionText {
                     Text("・非伝説モード中の高確率が対象")
-                    Text("・完璧に見抜くのは難しいですがメモ代わりとしてご利用ください")
+//                    Text("・完璧に見抜くのは難しいですがメモ代わりとしてご利用ください")
                 }
                 
                 // カウントボタン横並び
@@ -56,6 +56,7 @@ struct hihodenViewLegend: View {
                             hihoden.legendSumFunc()
                         }
                 }
+                .popoverTip(tipVer3211HihodenLegendKokakuMiss())
                 
                 // 確率結果
                 unitResultRatioPercent2Line(
@@ -75,6 +76,11 @@ struct hihodenViewLegend: View {
                             numberofDicimal: 1,
                         )
                     }
+                }
+                
+                // 参考情報）伝説モード示唆演出
+                unitLinkButtonViewBuilder(sheetTitle: "伝説モード示唆演出") {
+                    hihodenTableLegendSisa()
                 }
                 
                 // //// 95%信頼区間グラフへのリンク
@@ -102,9 +108,13 @@ struct hihodenViewLegend: View {
             // ボーナス後の伝説モード移行
             Section {
                 // 注意書き
-                Text("完璧に見抜くのは難しいですがメモ代わりとしてご利用ください")
-                    .foregroundStyle(Color.secondary)
-                    .font(.caption)
+//                Text("完璧に見抜くのは難しいですがメモ代わりとしてご利用ください")
+//                    .foregroundStyle(Color.secondary)
+//                    .font(.caption)
+                unitLabelCautionText {
+                    Text("・3の倍数連以外でカウント")
+                    Text("・非伝説モード中のボーナス後が対象")
+                }
                 // //// セグメントピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in
@@ -173,26 +183,27 @@ struct hihodenViewLegend: View {
                 }
                 
                 // 参考情報）移行率
-                unitLinkButtonViewBuilder(sheetTitle: "伝説モード移行率") {
-                    VStack {
-                        VStack(alignment: .leading) {
-                            Text("・ショートとロングの2種類があり")
-                            Text("・偶数設定は伝説モードに移行しやすく、ショートの割合が多い")
-                            Text("・奇数設定は初当りが重い代わりに、ロングに入りやすい")
-                        }
-                        .padding(.bottom)
-                        HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "BIG後",
-                                percentList: hihoden.ratioLegendAfterBig
-                            )
-                            unitTablePercent(
-                                columTitle: "REG後",
-                                percentList: hihoden.ratioLegendAfterReg
-                            )
-                        }
-                    }
+                unitLinkButtonViewBuilder(sheetTitle: "ボーナス後の伝説モード移行率") {
+                    hihodenTableLengedMoveBonus(hihoden: hihoden)
+//                    VStack {
+//                        VStack(alignment: .leading) {
+//                            Text("・ショートとロングの2種類があり")
+//                            Text("・偶数設定は伝説モードに移行しやすく、ショートの割合が多い")
+//                            Text("・奇数設定は初当りが重い代わりに、ロングに入りやすい")
+//                        }
+//                        .padding(.bottom)
+//                        HStack(spacing: 0) {
+//                            unitTableSettingIndex()
+//                            unitTablePercent(
+//                                columTitle: "BIG後",
+//                                percentList: hihoden.ratioLegendAfterBig
+//                            )
+//                            unitTablePercent(
+//                                columTitle: "REG後",
+//                                percentList: hihoden.ratioLegendAfterReg
+//                            )
+//                        }
+//                    }
                 }
                 
                 // 参考情報）伝説モード示唆演出

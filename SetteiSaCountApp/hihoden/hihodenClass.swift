@@ -69,8 +69,8 @@ class Hihoden: ObservableObject {
     // --------------
     // 伝説
     // --------------
-    let ratioLegendAfterBig: [Double] = [50,-1,-1,-1,-1,-1,]
-    let ratioLegendAfterReg: [Double] = [30,-1,-1,-1,-1,-1,]
+    let ratioLegendAfterBig: [Double] = [50,55,52.4,56.8,54.6,57.8]
+    let ratioLegendAfterReg: [Double] = [30,40.3,31.9,44.3,35.4,50]
     
     @AppStorage("hihodenLegendCountBigNone") var legendCountBigNone: Int = 0
     @AppStorage("hihodenLegendCountBigHit") var legendCountBigHit: Int = 0

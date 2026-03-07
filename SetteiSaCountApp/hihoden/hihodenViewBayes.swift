@@ -19,6 +19,7 @@ struct hihodenViewBayes: View {
     @State var charaEnable: Bool = true
     @State var chanceKokakuEnable: Bool = true
     @State var legendAfterKokakuMissEnable: Bool = true
+    @State var legendAfterBonusEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -67,6 +68,9 @@ struct hihodenViewBayes: View {
                 
                 // 高確率失敗後の伝説モード移行率
                 unitToggleWithQuestion(enable: self.$legendAfterKokakuMissEnable, title: "高確率失敗後の伝説モード移行率")
+                
+                // ボーナス後の伝説モード移行率
+                unitToggleWithQuestion(enable: self.$legendAfterBonusEnable, title: "ボーナス後の伝説モード移行率")
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -217,6 +221,23 @@ struct hihodenViewBayes: View {
                 bigNumber: hihoden.legendCountKokakuMissSum
             )
         }
+        
+        // 高確率失敗後の伝説モード移行率
+        var logPostLegendAfterBig: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostLegendAfterReg: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.legendAfterBonusEnable {
+            logPostLegendAfterBig = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterBig,
+                Count: hihoden.legendCountBigHit,
+                bigNumber: hihoden.legendCountBigSum
+            )
+            logPostLegendAfterReg = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterReg,
+                Count: hihoden.legendCountRegHit,
+                bigNumber: hihoden.legendCountRegSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -260,6 +281,8 @@ struct hihodenViewBayes: View {
             logPostBonusMiss,
             logPostChara,
             logPostLegendAfterMiss,
+            logPostLegendAfterBig,
+            logPostLegendAfterReg,
             
             logPostTrophy,
             logPostBefore,

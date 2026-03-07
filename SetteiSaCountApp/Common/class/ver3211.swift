@@ -67,3 +67,35 @@ struct tipVer3211HihodenChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊　CZ
+// //////////////////
+struct tipVer3211HihodenChanseKokaku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("設定差が全て判明\n設定期待値機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：攻殻機動隊　CZ
+// //////////////////
+struct tipVer3211HihodenLegendKokakuMiss: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("高確率失敗後の移行率判明\nカウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
