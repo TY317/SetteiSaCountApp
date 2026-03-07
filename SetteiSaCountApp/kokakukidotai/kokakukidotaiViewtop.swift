@@ -241,6 +241,24 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory1.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory1.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory1.rebootCountSum = kokakukidotai.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotaiMemory1.czScreenCountDefault = kokakukidotai.czScreenCountDefault
+        kokakukidotaiMemory1.czScreenCountFukkatu = kokakukidotai.czScreenCountFukkatu
+        kokakukidotaiMemory1.czScreenCountKisu = kokakukidotai.czScreenCountKisu
+        kokakukidotaiMemory1.czScreenCountGusu = kokakukidotai.czScreenCountGusu
+        kokakukidotaiMemory1.czScreenCountHighJaku = kokakukidotai.czScreenCountHighJaku
+        kokakukidotaiMemory1.czScreenCountHighKyo = kokakukidotai.czScreenCountHighKyo
+        kokakukidotaiMemory1.czScreenCountOver2 = kokakukidotai.czScreenCountOver2
+        kokakukidotaiMemory1.czScreenCountOver1456 = kokakukidotai.czScreenCountOver1456
+        kokakukidotaiMemory1.czScreenCountOver4 = kokakukidotai.czScreenCountOver4
+        kokakukidotaiMemory1.czScreenCountOver6 = kokakukidotai.czScreenCountOver6
+        kokakukidotaiMemory1.czScreenCountSum = kokakukidotai.czScreenCountSum
+        kokakukidotaiMemory1.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
+        kokakukidotaiMemory1.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
+        kokakukidotaiMemory1.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
     }
     func saveMemory2() {
         kokakukidotaiMemory2.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -263,6 +281,24 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory2.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory2.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory2.rebootCountSum = kokakukidotai.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotaiMemory2.czScreenCountDefault = kokakukidotai.czScreenCountDefault
+        kokakukidotaiMemory2.czScreenCountFukkatu = kokakukidotai.czScreenCountFukkatu
+        kokakukidotaiMemory2.czScreenCountKisu = kokakukidotai.czScreenCountKisu
+        kokakukidotaiMemory2.czScreenCountGusu = kokakukidotai.czScreenCountGusu
+        kokakukidotaiMemory2.czScreenCountHighJaku = kokakukidotai.czScreenCountHighJaku
+        kokakukidotaiMemory2.czScreenCountHighKyo = kokakukidotai.czScreenCountHighKyo
+        kokakukidotaiMemory2.czScreenCountOver2 = kokakukidotai.czScreenCountOver2
+        kokakukidotaiMemory2.czScreenCountOver1456 = kokakukidotai.czScreenCountOver1456
+        kokakukidotaiMemory2.czScreenCountOver4 = kokakukidotai.czScreenCountOver4
+        kokakukidotaiMemory2.czScreenCountOver6 = kokakukidotai.czScreenCountOver6
+        kokakukidotaiMemory2.czScreenCountSum = kokakukidotai.czScreenCountSum
+        kokakukidotaiMemory2.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
+        kokakukidotaiMemory2.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
+        kokakukidotaiMemory2.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
     }
     func saveMemory3() {
         kokakukidotaiMemory3.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -285,6 +321,24 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory3.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory3.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory3.rebootCountSum = kokakukidotai.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotaiMemory3.czScreenCountDefault = kokakukidotai.czScreenCountDefault
+        kokakukidotaiMemory3.czScreenCountFukkatu = kokakukidotai.czScreenCountFukkatu
+        kokakukidotaiMemory3.czScreenCountKisu = kokakukidotai.czScreenCountKisu
+        kokakukidotaiMemory3.czScreenCountGusu = kokakukidotai.czScreenCountGusu
+        kokakukidotaiMemory3.czScreenCountHighJaku = kokakukidotai.czScreenCountHighJaku
+        kokakukidotaiMemory3.czScreenCountHighKyo = kokakukidotai.czScreenCountHighKyo
+        kokakukidotaiMemory3.czScreenCountOver2 = kokakukidotai.czScreenCountOver2
+        kokakukidotaiMemory3.czScreenCountOver1456 = kokakukidotai.czScreenCountOver1456
+        kokakukidotaiMemory3.czScreenCountOver4 = kokakukidotai.czScreenCountOver4
+        kokakukidotaiMemory3.czScreenCountOver6 = kokakukidotai.czScreenCountOver6
+        kokakukidotaiMemory3.czScreenCountSum = kokakukidotai.czScreenCountSum
+        kokakukidotaiMemory3.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
+        kokakukidotaiMemory3.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
+        kokakukidotaiMemory3.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
     }
 }
 
@@ -336,6 +390,24 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory1.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory1.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory1.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotai.czScreenCountDefault = kokakukidotaiMemory1.czScreenCountDefault
+        kokakukidotai.czScreenCountFukkatu = kokakukidotaiMemory1.czScreenCountFukkatu
+        kokakukidotai.czScreenCountKisu = kokakukidotaiMemory1.czScreenCountKisu
+        kokakukidotai.czScreenCountGusu = kokakukidotaiMemory1.czScreenCountGusu
+        kokakukidotai.czScreenCountHighJaku = kokakukidotaiMemory1.czScreenCountHighJaku
+        kokakukidotai.czScreenCountHighKyo = kokakukidotaiMemory1.czScreenCountHighKyo
+        kokakukidotai.czScreenCountOver2 = kokakukidotaiMemory1.czScreenCountOver2
+        kokakukidotai.czScreenCountOver1456 = kokakukidotaiMemory1.czScreenCountOver1456
+        kokakukidotai.czScreenCountOver4 = kokakukidotaiMemory1.czScreenCountOver4
+        kokakukidotai.czScreenCountOver6 = kokakukidotaiMemory1.czScreenCountOver6
+        kokakukidotai.czScreenCountSum = kokakukidotaiMemory1.czScreenCountSum
+        kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory1.sikakuHackCountMiss
+        kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory1.sikakuHackCountHit
+        kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory1.sikakuHackCountSum
     }
     func loadMemory2() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory2.iedeCountMiss
@@ -358,6 +430,24 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory2.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory2.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory2.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotai.czScreenCountDefault = kokakukidotaiMemory2.czScreenCountDefault
+        kokakukidotai.czScreenCountFukkatu = kokakukidotaiMemory2.czScreenCountFukkatu
+        kokakukidotai.czScreenCountKisu = kokakukidotaiMemory2.czScreenCountKisu
+        kokakukidotai.czScreenCountGusu = kokakukidotaiMemory2.czScreenCountGusu
+        kokakukidotai.czScreenCountHighJaku = kokakukidotaiMemory2.czScreenCountHighJaku
+        kokakukidotai.czScreenCountHighKyo = kokakukidotaiMemory2.czScreenCountHighKyo
+        kokakukidotai.czScreenCountOver2 = kokakukidotaiMemory2.czScreenCountOver2
+        kokakukidotai.czScreenCountOver1456 = kokakukidotaiMemory2.czScreenCountOver1456
+        kokakukidotai.czScreenCountOver4 = kokakukidotaiMemory2.czScreenCountOver4
+        kokakukidotai.czScreenCountOver6 = kokakukidotaiMemory2.czScreenCountOver6
+        kokakukidotai.czScreenCountSum = kokakukidotaiMemory2.czScreenCountSum
+        kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory2.sikakuHackCountMiss
+        kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory2.sikakuHackCountHit
+        kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory2.sikakuHackCountSum
     }
     func loadMemory3() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory3.iedeCountMiss
@@ -380,6 +470,24 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory3.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory3.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory3.rebootCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kokakukidotai.czScreenCountDefault = kokakukidotaiMemory3.czScreenCountDefault
+        kokakukidotai.czScreenCountFukkatu = kokakukidotaiMemory3.czScreenCountFukkatu
+        kokakukidotai.czScreenCountKisu = kokakukidotaiMemory3.czScreenCountKisu
+        kokakukidotai.czScreenCountGusu = kokakukidotaiMemory3.czScreenCountGusu
+        kokakukidotai.czScreenCountHighJaku = kokakukidotaiMemory3.czScreenCountHighJaku
+        kokakukidotai.czScreenCountHighKyo = kokakukidotaiMemory3.czScreenCountHighKyo
+        kokakukidotai.czScreenCountOver2 = kokakukidotaiMemory3.czScreenCountOver2
+        kokakukidotai.czScreenCountOver1456 = kokakukidotaiMemory3.czScreenCountOver1456
+        kokakukidotai.czScreenCountOver4 = kokakukidotaiMemory3.czScreenCountOver4
+        kokakukidotai.czScreenCountOver6 = kokakukidotaiMemory3.czScreenCountOver6
+        kokakukidotai.czScreenCountSum = kokakukidotaiMemory3.czScreenCountSum
+        kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory3.sikakuHackCountMiss
+        kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory3.sikakuHackCountHit
+        kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory3.sikakuHackCountSum
     }
 }
 
