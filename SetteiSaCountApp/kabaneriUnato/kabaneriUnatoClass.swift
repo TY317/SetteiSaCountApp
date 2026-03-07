@@ -244,6 +244,15 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory1") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory1") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory1") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory1") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory1") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory1") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory1") var hayajiroCountSum: Int = 0
 }
 
 
@@ -280,6 +289,15 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory2") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory2") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory2") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory2") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory2") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory2") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory2") var hayajiroCountSum: Int = 0
 }
 
 
@@ -316,4 +334,13 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory3") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory3") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory3") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory3") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory3") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory3") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory3") var hayajiroCountSum: Int = 0
 }
