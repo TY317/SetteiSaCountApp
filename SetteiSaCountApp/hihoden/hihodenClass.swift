@@ -169,6 +169,24 @@ class HihodenMemory1: ObservableObject {
     @AppStorage("hihodenLegendCountRegSumMemory1") var legendCountRegSum: Int = 0
     @AppStorage("hihodenMemoMemory1") var memo = ""
     @AppStorage("hihodenDateMemory1") var dateDouble = 0.0
+    
+    // -------
+    // ver3.21.1
+    // -------
+    @AppStorage("hihodenCharaCountHighJakuMemory1") var charaCountHighJaku: Int = 0
+    @AppStorage("hihodenCharaCountHighKyoMemory1") var charaCountHighKyo: Int = 0
+    @AppStorage("hihodenCharaCountNegate2Memory1") var charaCountNegate2: Int = 0
+    @AppStorage("hihodenCharaCountNegate3Memory1") var charaCountNegate3: Int = 0
+    @AppStorage("hihodenCharaCountNegate4Memory1") var charaCountNegate4: Int = 0
+    @AppStorage("hihodenCharaCountChangeMemory1") var charaCountChange: Int = 0
+    @AppStorage("hihodenCharaCountOver2Memory1") var charaCountOver2: Int = 0
+    @AppStorage("hihodenCharaCountOver4Memory1") var charaCountOver4: Int = 0
+    @AppStorage("hihodenCharaCountOver5Memory1") var charaCountOver5: Int = 0
+    @AppStorage("hihodenCharaCountOver6Memory1") var charaCountOver6: Int = 0
+    @AppStorage("hihodenCharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissNoneMemory1") var legendCountKokakuMissNone: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissHitMemory1") var legendCountKokakuMissHit: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissSumMemory1") var legendCountKokakuMissSum: Int = 0
 }
 
 
@@ -189,6 +207,24 @@ class HihodenMemory2: ObservableObject {
     @AppStorage("hihodenLegendCountRegSumMemory2") var legendCountRegSum: Int = 0
     @AppStorage("hihodenMemoMemory2") var memo = ""
     @AppStorage("hihodenDateMemory2") var dateDouble = 0.0
+    
+    // -------
+    // ver3.21.1
+    // -------
+    @AppStorage("hihodenCharaCountHighJakuMemory2") var charaCountHighJaku: Int = 0
+    @AppStorage("hihodenCharaCountHighKyoMemory2") var charaCountHighKyo: Int = 0
+    @AppStorage("hihodenCharaCountNegate2Memory2") var charaCountNegate2: Int = 0
+    @AppStorage("hihodenCharaCountNegate3Memory2") var charaCountNegate3: Int = 0
+    @AppStorage("hihodenCharaCountNegate4Memory2") var charaCountNegate4: Int = 0
+    @AppStorage("hihodenCharaCountChangeMemory2") var charaCountChange: Int = 0
+    @AppStorage("hihodenCharaCountOver2Memory2") var charaCountOver2: Int = 0
+    @AppStorage("hihodenCharaCountOver4Memory2") var charaCountOver4: Int = 0
+    @AppStorage("hihodenCharaCountOver5Memory2") var charaCountOver5: Int = 0
+    @AppStorage("hihodenCharaCountOver6Memory2") var charaCountOver6: Int = 0
+    @AppStorage("hihodenCharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissNoneMemory2") var legendCountKokakuMissNone: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissHitMemory2") var legendCountKokakuMissHit: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissSumMemory2") var legendCountKokakuMissSum: Int = 0
 }
 
 
@@ -209,4 +245,22 @@ class HihodenMemory3: ObservableObject {
     @AppStorage("hihodenLegendCountRegSumMemory3") var legendCountRegSum: Int = 0
     @AppStorage("hihodenMemoMemory3") var memo = ""
     @AppStorage("hihodenDateMemory3") var dateDouble = 0.0
+    
+    // -------
+    // ver3.21.1
+    // -------
+    @AppStorage("hihodenCharaCountHighJakuMemory3") var charaCountHighJaku: Int = 0
+    @AppStorage("hihodenCharaCountHighKyoMemory3") var charaCountHighKyo: Int = 0
+    @AppStorage("hihodenCharaCountNegate2Memory3") var charaCountNegate2: Int = 0
+    @AppStorage("hihodenCharaCountNegate3Memory3") var charaCountNegate3: Int = 0
+    @AppStorage("hihodenCharaCountNegate4Memory3") var charaCountNegate4: Int = 0
+    @AppStorage("hihodenCharaCountChangeMemory3") var charaCountChange: Int = 0
+    @AppStorage("hihodenCharaCountOver2Memory3") var charaCountOver2: Int = 0
+    @AppStorage("hihodenCharaCountOver4Memory3") var charaCountOver4: Int = 0
+    @AppStorage("hihodenCharaCountOver5Memory3") var charaCountOver5: Int = 0
+    @AppStorage("hihodenCharaCountOver6Memory3") var charaCountOver6: Int = 0
+    @AppStorage("hihodenCharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissNoneMemory3") var legendCountKokakuMissNone: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissHitMemory3") var legendCountKokakuMissHit: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissSumMemory3") var legendCountKokakuMissSum: Int = 0
 }

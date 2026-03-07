@@ -205,6 +205,24 @@ struct hihodenSubViewSaveMemory: View {
         hihodenMemory1.legendCountRegNone = hihoden.legendCountRegNone
         hihodenMemory1.legendCountRegHit = hihoden.legendCountRegHit
         hihodenMemory1.legendCountRegSum = hihoden.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihodenMemory1.charaCountHighJaku = hihoden.charaCountHighJaku
+        hihodenMemory1.charaCountHighKyo = hihoden.charaCountHighKyo
+        hihodenMemory1.charaCountNegate2 = hihoden.charaCountNegate2
+        hihodenMemory1.charaCountNegate3 = hihoden.charaCountNegate3
+        hihodenMemory1.charaCountNegate4 = hihoden.charaCountNegate4
+        hihodenMemory1.charaCountChange = hihoden.charaCountChange
+        hihodenMemory1.charaCountOver2 = hihoden.charaCountOver2
+        hihodenMemory1.charaCountOver4 = hihoden.charaCountOver4
+        hihodenMemory1.charaCountOver5 = hihoden.charaCountOver5
+        hihodenMemory1.charaCountOver6 = hihoden.charaCountOver6
+        hihodenMemory1.charaCountSum = hihoden.charaCountSum
+        hihodenMemory1.legendCountKokakuMissNone = hihoden.legendCountKokakuMissNone
+        hihodenMemory1.legendCountKokakuMissHit = hihoden.legendCountKokakuMissHit
+        hihodenMemory1.legendCountKokakuMissSum = hihoden.legendCountKokakuMissSum
     }
     func saveMemory2() {
         hihodenMemory2.totalGame = hihoden.totalGame
@@ -221,6 +239,24 @@ struct hihodenSubViewSaveMemory: View {
         hihodenMemory2.legendCountRegNone = hihoden.legendCountRegNone
         hihodenMemory2.legendCountRegHit = hihoden.legendCountRegHit
         hihodenMemory2.legendCountRegSum = hihoden.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihodenMemory2.charaCountHighJaku = hihoden.charaCountHighJaku
+        hihodenMemory2.charaCountHighKyo = hihoden.charaCountHighKyo
+        hihodenMemory2.charaCountNegate2 = hihoden.charaCountNegate2
+        hihodenMemory2.charaCountNegate3 = hihoden.charaCountNegate3
+        hihodenMemory2.charaCountNegate4 = hihoden.charaCountNegate4
+        hihodenMemory2.charaCountChange = hihoden.charaCountChange
+        hihodenMemory2.charaCountOver2 = hihoden.charaCountOver2
+        hihodenMemory2.charaCountOver4 = hihoden.charaCountOver4
+        hihodenMemory2.charaCountOver5 = hihoden.charaCountOver5
+        hihodenMemory2.charaCountOver6 = hihoden.charaCountOver6
+        hihodenMemory2.charaCountSum = hihoden.charaCountSum
+        hihodenMemory2.legendCountKokakuMissNone = hihoden.legendCountKokakuMissNone
+        hihodenMemory2.legendCountKokakuMissHit = hihoden.legendCountKokakuMissHit
+        hihodenMemory2.legendCountKokakuMissSum = hihoden.legendCountKokakuMissSum
     }
     func saveMemory3() {
         hihodenMemory3.totalGame = hihoden.totalGame
@@ -237,6 +273,24 @@ struct hihodenSubViewSaveMemory: View {
         hihodenMemory3.legendCountRegNone = hihoden.legendCountRegNone
         hihodenMemory3.legendCountRegHit = hihoden.legendCountRegHit
         hihodenMemory3.legendCountRegSum = hihoden.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihodenMemory3.charaCountHighJaku = hihoden.charaCountHighJaku
+        hihodenMemory3.charaCountHighKyo = hihoden.charaCountHighKyo
+        hihodenMemory3.charaCountNegate2 = hihoden.charaCountNegate2
+        hihodenMemory3.charaCountNegate3 = hihoden.charaCountNegate3
+        hihodenMemory3.charaCountNegate4 = hihoden.charaCountNegate4
+        hihodenMemory3.charaCountChange = hihoden.charaCountChange
+        hihodenMemory3.charaCountOver2 = hihoden.charaCountOver2
+        hihodenMemory3.charaCountOver4 = hihoden.charaCountOver4
+        hihodenMemory3.charaCountOver5 = hihoden.charaCountOver5
+        hihodenMemory3.charaCountOver6 = hihoden.charaCountOver6
+        hihodenMemory3.charaCountSum = hihoden.charaCountSum
+        hihodenMemory3.legendCountKokakuMissNone = hihoden.legendCountKokakuMissNone
+        hihodenMemory3.legendCountKokakuMissHit = hihoden.legendCountKokakuMissHit
+        hihodenMemory3.legendCountKokakuMissSum = hihoden.legendCountKokakuMissSum
     }
 }
 
@@ -282,6 +336,24 @@ struct hihodenSubViewLoadMemory: View {
         hihoden.legendCountRegNone = hihodenMemory1.legendCountRegNone
         hihoden.legendCountRegHit = hihodenMemory1.legendCountRegHit
         hihoden.legendCountRegSum = hihodenMemory1.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihoden.charaCountHighJaku = hihodenMemory1.charaCountHighJaku
+        hihoden.charaCountHighKyo = hihodenMemory1.charaCountHighKyo
+        hihoden.charaCountNegate2 = hihodenMemory1.charaCountNegate2
+        hihoden.charaCountNegate3 = hihodenMemory1.charaCountNegate3
+        hihoden.charaCountNegate4 = hihodenMemory1.charaCountNegate4
+        hihoden.charaCountChange = hihodenMemory1.charaCountChange
+        hihoden.charaCountOver2 = hihodenMemory1.charaCountOver2
+        hihoden.charaCountOver4 = hihodenMemory1.charaCountOver4
+        hihoden.charaCountOver5 = hihodenMemory1.charaCountOver5
+        hihoden.charaCountOver6 = hihodenMemory1.charaCountOver6
+        hihoden.charaCountSum = hihodenMemory1.charaCountSum
+        hihoden.legendCountKokakuMissNone = hihodenMemory1.legendCountKokakuMissNone
+        hihoden.legendCountKokakuMissHit = hihodenMemory1.legendCountKokakuMissHit
+        hihoden.legendCountKokakuMissSum = hihodenMemory1.legendCountKokakuMissSum
     }
     func loadMemory2() {
         hihoden.totalGame = hihodenMemory2.totalGame
@@ -298,6 +370,24 @@ struct hihodenSubViewLoadMemory: View {
         hihoden.legendCountRegNone = hihodenMemory2.legendCountRegNone
         hihoden.legendCountRegHit = hihodenMemory2.legendCountRegHit
         hihoden.legendCountRegSum = hihodenMemory2.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihoden.charaCountHighJaku = hihodenMemory2.charaCountHighJaku
+        hihoden.charaCountHighKyo = hihodenMemory2.charaCountHighKyo
+        hihoden.charaCountNegate2 = hihodenMemory2.charaCountNegate2
+        hihoden.charaCountNegate3 = hihodenMemory2.charaCountNegate3
+        hihoden.charaCountNegate4 = hihodenMemory2.charaCountNegate4
+        hihoden.charaCountChange = hihodenMemory2.charaCountChange
+        hihoden.charaCountOver2 = hihodenMemory2.charaCountOver2
+        hihoden.charaCountOver4 = hihodenMemory2.charaCountOver4
+        hihoden.charaCountOver5 = hihodenMemory2.charaCountOver5
+        hihoden.charaCountOver6 = hihodenMemory2.charaCountOver6
+        hihoden.charaCountSum = hihodenMemory2.charaCountSum
+        hihoden.legendCountKokakuMissNone = hihodenMemory2.legendCountKokakuMissNone
+        hihoden.legendCountKokakuMissHit = hihodenMemory2.legendCountKokakuMissHit
+        hihoden.legendCountKokakuMissSum = hihodenMemory2.legendCountKokakuMissSum
     }
     func loadMemory3() {
         hihoden.totalGame = hihodenMemory3.totalGame
@@ -314,6 +404,24 @@ struct hihodenSubViewLoadMemory: View {
         hihoden.legendCountRegNone = hihodenMemory3.legendCountRegNone
         hihoden.legendCountRegHit = hihodenMemory3.legendCountRegHit
         hihoden.legendCountRegSum = hihodenMemory3.legendCountRegSum
+        
+        // -------
+        // ver3.21.1
+        // -------
+        hihoden.charaCountHighJaku = hihodenMemory3.charaCountHighJaku
+        hihoden.charaCountHighKyo = hihodenMemory3.charaCountHighKyo
+        hihoden.charaCountNegate2 = hihodenMemory3.charaCountNegate2
+        hihoden.charaCountNegate3 = hihodenMemory3.charaCountNegate3
+        hihoden.charaCountNegate4 = hihodenMemory3.charaCountNegate4
+        hihoden.charaCountChange = hihodenMemory3.charaCountChange
+        hihoden.charaCountOver2 = hihodenMemory3.charaCountOver2
+        hihoden.charaCountOver4 = hihodenMemory3.charaCountOver4
+        hihoden.charaCountOver5 = hihodenMemory3.charaCountOver5
+        hihoden.charaCountOver6 = hihodenMemory3.charaCountOver6
+        hihoden.charaCountSum = hihodenMemory3.charaCountSum
+        hihoden.legendCountKokakuMissNone = hihodenMemory3.legendCountKokakuMissNone
+        hihoden.legendCountKokakuMissHit = hihodenMemory3.legendCountKokakuMissHit
+        hihoden.legendCountKokakuMissSum = hihodenMemory3.legendCountKokakuMissSum
     }
 }
 
