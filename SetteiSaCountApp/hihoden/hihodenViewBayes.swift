@@ -17,6 +17,7 @@ struct hihodenViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var bonusHazureEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var chanceKokakuEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -49,6 +50,8 @@ struct hihodenViewBayes: View {
             bayesSubStep2Section {
                 // 🍒確率
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "🍒確率")
+                // チャンス目からの高確率
+                unitToggleWithQuestion(enable: self.$chanceKokakuEnable, title: "チャンス目からの高確率")
                 // 初当り
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 unitToggleWithQuestion(enable: self.$bonusHazureEnable, title: "ボーナス中ハズレ確率")
@@ -137,6 +140,15 @@ struct hihodenViewBayes: View {
                 ratio: hihoden.ratioKoyakuCherry,
                 Count: hihoden.koyakuCountCherry,
                 bigNumber: hihoden.totalGame
+            )
+        }
+        // チャンス目からの高確率
+        var logPostChanceKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chanceKokakuEnable {
+            logPostChanceKokaku = logPostPercentBino(
+                ratio: hihoden.ratioChanceKokaku,
+                Count: hihoden.chanceKokakuCount,
+                bigNumber: hihoden.koyakuCountChance
             )
         }
         // 初当り確率
@@ -229,6 +241,7 @@ struct hihodenViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostCherry,
+            logPostChanceKokaku,
             logPostFirstHit,
             logPostBonusMiss,
             logPostChara,

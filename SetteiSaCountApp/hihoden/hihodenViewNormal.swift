@@ -178,6 +178,15 @@ struct hihodenViewNormal: View {
                     )
                 )
                 
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hihodenViewBayes(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+                
             } header: {
                 Text("チャンス目からの高確率")
             }

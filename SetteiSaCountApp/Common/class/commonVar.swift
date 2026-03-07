@@ -371,6 +371,7 @@ class commonVar: ObservableObject {
                 kabaneriUnatoMenuHayajiroBadge = "new"
                 hihodenMachineIconBadge = "update"
                 hihodenMenuDuringBonusBadge = "update"
+                hihodenMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

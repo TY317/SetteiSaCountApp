@@ -17,7 +17,7 @@ class Hihoden: ObservableObject {
     @AppStorage("hihodenTotalGame") var totalGame: Int = 0
     @AppStorage("hihodenKoyakuCountCherry") var koyakuCountCherry: Int = 0
     
-    let ratioChanceKokaku: [Double] = [50,-1,-1,-1,-1,-1,]
+    let ratioChanceKokaku: [Double] = [50,55.3,51.2,57.6,54,60.2,]
     @AppStorage("hihodenKoyakuCountChance") var koyakuCountChance: Int = 0
     @AppStorage("hihodenChanceKokakuCount") var chanceKokakuCount: Int = 0
     
