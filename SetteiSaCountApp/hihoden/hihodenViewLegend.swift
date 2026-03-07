@@ -29,6 +29,76 @@ struct hihodenViewLegend: View {
     
     var body: some View {
         List {
+            // 高確率失敗時の伝説モード移行率
+            Section {
+                // 注意書き
+                unitLabelCautionText {
+                    Text("・非伝説モード中の高確率が対象")
+                    Text("・完璧に見抜くのは難しいですがメモ代わりとしてご利用ください")
+                }
+                
+                // カウントボタン横並び
+                HStack {
+                    // 移行なし
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "移行なし",
+                        count: $hihoden.legendCountKokakuMissNone,
+                        color: .personalSummerLightPurple,
+                        minusBool: $hihoden.minusCheck) {
+                            hihoden.legendSumFunc()
+                        }
+                    // 移行あり
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "移行あり",
+                        count: $hihoden.legendCountKokakuMissHit,
+                        color: .purple,
+                        minusBool: $hihoden.minusCheck) {
+                            hihoden.legendSumFunc()
+                        }
+                }
+                
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "高確失敗後",
+                    count: $hihoden.legendCountKokakuMissHit,
+                    bigNumber: $hihoden.legendCountKokakuMissSum,
+                    numberofDicimal: 0
+                )
+                
+                // 参考情報）高確失敗後の移行率
+                unitLinkButtonViewBuilder(sheetTitle: "高確失敗後の移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "移行率",
+                            percentList: hihoden.ratioLegendAfterChanceMiss,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        hihodenView95Ci(
+                            hihoden: hihoden,
+                            selection: 7,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hihodenViewBayes(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("高確率失敗時の伝説モード移行")
+            }
+            
             // ボーナス後の伝説モード移行
             Section {
                 // 注意書き
@@ -139,9 +209,19 @@ struct hihodenViewLegend: View {
                         )
                     )
                 )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    hihodenViewBayes(
+                        hihoden: hihoden,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("ボーナス後の伝説モード移行")
             }
+            
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット

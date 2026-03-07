@@ -82,6 +82,7 @@ class Hihoden: ObservableObject {
     func legendSumFunc() {
         legendCountBigSum = legendCountBigNone + legendCountBigHit
         legendCountRegSum = legendCountRegNone + legendCountRegHit
+        legendCountKokakuMissSum = legendCountKokakuMissNone + legendCountKokakuMissHit
     }
     
     func resetLegend() {
@@ -92,6 +93,10 @@ class Hihoden: ObservableObject {
         legendCountRegHit = 0
         legendCountRegSum = 0
         minusCheck = false
+        
+        legendCountKokakuMissNone = 0
+        legendCountKokakuMissHit = 0
+        legendCountKokakuMissSum = 0
     }
     
     // ////////////////////////
@@ -138,6 +143,12 @@ class Hihoden: ObservableObject {
             charaCountOver6,
         )
     }
+    
+    // 高確失敗時の伝説モード移行
+    let ratioLegendAfterChanceMiss: [Double] = [1.2,3.5,1.6,4.7,3.1,5.9]
+    @AppStorage("hihodenLegendCountKokakuMissNone") var legendCountKokakuMissNone: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissHit") var legendCountKokakuMissHit: Int = 0
+    @AppStorage("hihodenLegendCountKokakuMissSum") var legendCountKokakuMissSum: Int = 0
 }
 
 

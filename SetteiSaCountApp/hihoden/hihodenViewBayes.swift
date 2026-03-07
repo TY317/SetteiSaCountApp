@@ -18,6 +18,7 @@ struct hihodenViewBayes: View {
     @State var bonusHazureEnable: Bool = true
     @State var charaEnable: Bool = true
     @State var chanceKokakuEnable: Bool = true
+    @State var legendAfterKokakuMissEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -63,6 +64,9 @@ struct hihodenViewBayes: View {
                         textBody1: "・否定系、確定系のみ反映させます"
                     )
                 }
+                
+                // 高確率失敗後の伝説モード移行率
+                unitToggleWithQuestion(enable: self.$legendAfterKokakuMissEnable, title: "高確率失敗後の伝説モード移行率")
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -203,6 +207,16 @@ struct hihodenViewBayes: View {
                 logPostChara[4] = -Double.infinity
             }
         }
+        
+        // 高確率失敗後の伝説モード移行率
+        var logPostLegendAfterMiss: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.legendAfterKokakuMissEnable {
+            logPostLegendAfterMiss = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterChanceMiss,
+                Count: hihoden.legendCountKokakuMissHit,
+                bigNumber: hihoden.legendCountKokakuMissSum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -245,6 +259,7 @@ struct hihodenViewBayes: View {
             logPostFirstHit,
             logPostBonusMiss,
             logPostChara,
+            logPostLegendAfterMiss,
             
             logPostTrophy,
             logPostBefore,

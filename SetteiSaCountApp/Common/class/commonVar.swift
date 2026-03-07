@@ -372,6 +372,7 @@ class commonVar: ObservableObject {
                 hihodenMachineIconBadge = "update"
                 hihodenMenuDuringBonusBadge = "update"
                 hihodenMenuNormalBadge = "update"
+                hihodenMenuLegendBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
