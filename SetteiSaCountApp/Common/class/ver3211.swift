@@ -52,3 +52,18 @@ struct tipVer3211KokakukidotaiCz: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+// //////////////////
+// Tip：攻殻機動隊　CZ
+// //////////////////
+struct tipVer3211HihodenChara: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("REG中キャラの示唆が判明\nカウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -16,6 +16,7 @@ struct hihodenViewBayes: View {
     @State var koyakuEnable: Bool = true
     @State var firstHitEnable: Bool = true
     @State var bonusHazureEnable: Bool = true
+    @State var charaEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -51,6 +52,14 @@ struct hihodenViewBayes: View {
                 // 初当り
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 unitToggleWithQuestion(enable: self.$bonusHazureEnable, title: "ボーナス中ハズレ確率")
+                
+                // キャラ紹介
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中キャラ紹介") {
+                    unitExView5body2image(
+                        title: "REG中キャラ紹介",
+                        textBody1: "・否定系、確定系のみ反映させます"
+                    )
+                }
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -148,6 +157,40 @@ struct hihodenViewBayes: View {
                 bigNumber: hihoden.bonusGame,
             )
         }
+        // REG中キャラ紹介
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if hihoden.charaCountNegate2 > 0 {
+                logPostChara[1] = -Double.infinity
+            }
+            if hihoden.charaCountNegate3 > 0 {
+                logPostChara[2] = -Double.infinity
+            }
+            if hihoden.charaCountNegate4 > 0 {
+                logPostChara[3] = -Double.infinity
+            }
+            if hihoden.charaCountOver2 > 0 {
+                logPostChara[0] = -Double.infinity
+            }
+            if hihoden.charaCountOver4 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+            }
+            if hihoden.charaCountOver5 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+            }
+            if hihoden.charaCountOver6 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+                logPostChara[4] = -Double.infinity
+            }
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -188,6 +231,7 @@ struct hihodenViewBayes: View {
             logPostCherry,
             logPostFirstHit,
             logPostBonusMiss,
+            logPostChara,
             
             logPostTrophy,
             logPostBefore,

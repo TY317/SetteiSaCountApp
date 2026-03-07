@@ -52,6 +52,18 @@ class Hihoden: ObservableObject {
         bonusGame = 0
         bonusHazureCount = 0
         minusCheck = false
+        
+        charaCountHighJaku = 0
+        charaCountHighKyo = 0
+        charaCountNegate2 = 0
+        charaCountNegate3 = 0
+        charaCountNegate4 = 0
+        charaCountChange = 0
+        charaCountOver2 = 0
+        charaCountOver4 = 0
+        charaCountOver5 = 0
+        charaCountOver6 = 0
+        charaCountSum = 0
     }
     
     // --------------
@@ -94,6 +106,37 @@ class Hihoden: ObservableObject {
         resetFirstHit()
         resetDuringBonus()
         resetLegend()
+    }
+    
+    // -------
+    // ver3.21.1
+    // -------
+    //REG中キャラ
+    @AppStorage("hihodenCharaCountHighJaku") var charaCountHighJaku: Int = 0
+    @AppStorage("hihodenCharaCountHighKyo") var charaCountHighKyo: Int = 0
+    @AppStorage("hihodenCharaCountNegate2") var charaCountNegate2: Int = 0
+    @AppStorage("hihodenCharaCountNegate3") var charaCountNegate3: Int = 0
+    @AppStorage("hihodenCharaCountNegate4") var charaCountNegate4: Int = 0
+    @AppStorage("hihodenCharaCountChange") var charaCountChange: Int = 0
+    @AppStorage("hihodenCharaCountOver2") var charaCountOver2: Int = 0
+    @AppStorage("hihodenCharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("hihodenCharaCountOver5") var charaCountOver5: Int = 0
+    @AppStorage("hihodenCharaCountOver6") var charaCountOver6: Int = 0
+    @AppStorage("hihodenCharaCountSum") var charaCountSum: Int = 0
+    
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCountHighJaku,
+            charaCountHighKyo,
+            charaCountNegate2,
+            charaCountNegate3,
+            charaCountNegate4,
+            charaCountChange,
+            charaCountOver2,
+            charaCountOver4,
+            charaCountOver5,
+            charaCountOver6,
+        )
     }
 }
 
