@@ -15,6 +15,8 @@ struct kabaneriUnatoViewBayes: View {
     let payoutList: [Double] = [97.5, 98.5, 100.8, 106.0, 111.0, 114.9]
     @State var lowerBellEnable: Bool = true
     @State var hayajiro3000Enable: Bool = true
+    @State var voiceEnable: Bool = true
+    @State var charaEnable: Bool = true
     
     
     // 全機種共通
@@ -50,6 +52,22 @@ struct kabaneriUnatoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowerBellEnable, title: "下段ベル確率")
                 //早じろボーナス単チャンス目３０００
                 unitToggleWithQuestion(enable: self.$hayajiro3000Enable, title: "駿城 単チャンス目3000pt")
+                
+                // 逆押し時のボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "逆押し時のボイス") {
+                    unitExView5body2image(
+                        title: "逆押し時のボイス",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                
+                // キャラ紹介
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "キャラ紹介") {
+                    unitExView5body2image(
+                        title: "キャラ紹介",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
                 
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -140,6 +158,30 @@ struct kabaneriUnatoViewBayes: View {
             )
         }
         
+        // 逆押し
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            if kabaneriUnato.voiceCountOver2 > 0 {
+                logPostVoice[0] = -Double.infinity
+            }
+            if kabaneriUnato.voiceCountOver5 > 0 {
+                logPostVoice[0] = -Double.infinity
+                logPostVoice[1] = -Double.infinity
+                logPostVoice[2] = -Double.infinity
+                logPostVoice[3] = -Double.infinity
+            }
+        }
+        
+        // キャラ
+        var logPostCharacter: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if kabaneriUnato.charaCountOver4 > 0 {
+                logPostCharacter[0] = -Double.infinity
+                logPostCharacter[1] = -Double.infinity
+                logPostCharacter[2] = -Double.infinity
+            }
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -179,6 +221,8 @@ struct kabaneriUnatoViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostLowerBell,
             logPostHayajiro3000,
+            logPostVoice,
+            logPostCharacter,
             
             logPostTrophy,
             logPostBefore,

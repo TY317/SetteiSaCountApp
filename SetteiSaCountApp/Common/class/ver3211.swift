@@ -15,7 +15,7 @@ struct tipVer3211UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・カバネリ 海門決戦\n　　下段ベル、設定判別計算\n・攻殻機動隊 他")
+        Text("・カバネリ 海門決戦\n　　下段ベル、駿城中のポイント\n・攻殻機動隊 他")
     }
     var image: Image? {
         Image(systemName: "star")

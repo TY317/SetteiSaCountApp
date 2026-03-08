@@ -293,13 +293,13 @@ struct kabaneriUnatoViewKabaneriBonus: View {
     
     private func sisaTextChara(item: String) -> String {
         switch item {
-        case self.selectListChara[0]: return self.sisaList[1]
-        case self.selectListChara[1]: return self.sisaList[1]
-        case self.selectListChara[2]: return self.sisaList[1]
-        case self.selectListChara[3]: return self.sisaList[0]
-        case self.selectListChara[4]: return self.sisaList[0]
-        case self.selectListChara[5]: return self.sisaList[0]
-        case self.selectListChara[6]: return self.sisaList[2]
+        case self.selectListChara[0]: return self.sisaListChara[1]
+        case self.selectListChara[1]: return self.sisaListChara[1]
+        case self.selectListChara[2]: return self.sisaListChara[1]
+        case self.selectListChara[3]: return self.sisaListChara[0]
+        case self.selectListChara[4]: return self.sisaListChara[0]
+        case self.selectListChara[5]: return self.sisaListChara[0]
+        case self.selectListChara[6]: return self.sisaListChara[2]
         default: return "???"
         }
     }
