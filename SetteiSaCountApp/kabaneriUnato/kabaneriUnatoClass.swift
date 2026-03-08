@@ -206,6 +206,9 @@ class KabaneriUnato: ObservableObject {
     }
     
     func resetHayajiro() {
+        hayajiroCountMiss = 0
+        hayajiroCountHit = 0
+        hayajiroCountSum = 0
         minusCheck = false
     }
 }

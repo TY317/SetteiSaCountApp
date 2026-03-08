@@ -112,6 +112,7 @@ struct kabaneriUnatoViewNormal: View {
                     minusBool: $kabaneriUnato.minusCheck,
                     flushColor: .yellow,
                 )
+                .popoverTip(tipVer3211KabaneriUnatoLowerBell())
                 
                 // 参考情報）下段ベル確率
                 unitLinkButtonViewBuilder(sheetTitle: "下段ベル確率") {

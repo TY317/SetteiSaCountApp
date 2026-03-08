@@ -100,7 +100,7 @@ struct hihodenViewDuringBonus: View {
             
             // REG中のキャラ紹介
             Section {
-                DisclosureGroup {
+//                DisclosureGroup {
                     // サークルピッカー
                     Picker("", selection: self.$selectedItem) {
                         ForEach(self.selectList, id: \.self) { item in
@@ -121,36 +121,63 @@ struct hihodenViewDuringBonus: View {
                         }
                     
                     // スペース用の行
-                    Text("")
-                        .listRowBackground(Color(UIColor.systemGroupedBackground))
-                        .listRowSeparator(.hidden)
+//                    Text("")
+//                        .listRowBackground(Color(UIColor.systemGroupedBackground))
+//                        .listRowSeparator(.hidden)
                     
-                    // カウント結果
-                    ForEach(self.selectList, id: \.self) { voice in
-                        unitResultCountListPercent(
-                            title: sisaText(item: voice),
-                            count: bindingVoice(item: voice),
-                            flashColor: flushColor(item: voice),
-                            bigNumber: $hihoden.charaCountSum,
-                        )
-                    }
-                    
-                    // 参考情報）トランプ役での示唆
-                    unitLinkButtonViewBuilder(sheetTitle: "トランプ役での示唆") {
-                        VStack {
-                            VStack(alignment: .leading) {
-//                                Text("・銀、金背景のキャラに注目")
-                                Text("・カードの組み合わせによる役などで伝説モードなどを示唆")
-                                hihodenTableRegSisa()
-                            }
-                        }
-                    }
-                } label: {
-                    Text("キャラカウント")
-                        .foregroundStyle(Color.blue)
-                }
+//                    // カウント結果
+//                    ForEach(self.selectList, id: \.self) { voice in
+//                        unitResultCountListPercent(
+//                            title: sisaText(item: voice),
+//                            count: bindingVoice(item: voice),
+//                            flashColor: flushColor(item: voice),
+//                            bigNumber: $hihoden.charaCountSum,
+//                        )
+//                    }
+//                    
+//                    // 参考情報）トランプ役での示唆
+//                    unitLinkButtonViewBuilder(sheetTitle: "トランプ役での示唆") {
+//                        VStack {
+//                            VStack(alignment: .leading) {
+////                                Text("・銀、金背景のキャラに注目")
+//                                Text("・カードの組み合わせによる役などで伝説モードなどを示唆")
+//                                hihodenTableRegSisa()
+//                            }
+//                        }
+//                    }
+//                } label: {
+//                    Text("キャラカウント")
+//                        .foregroundStyle(Color.blue)
+//                }
             } header: {
                 Text("REG中のキャラ紹介")
+            }
+            .popoverTip(tipVer3211HihodenChara())
+            
+            // カウント結果
+            Section {
+                // カウント結果
+                ForEach(self.selectList, id: \.self) { voice in
+                    unitResultCountListPercent(
+                        title: sisaText(item: voice),
+                        count: bindingVoice(item: voice),
+                        flashColor: flushColor(item: voice),
+                        bigNumber: $hihoden.charaCountSum,
+                    )
+                }
+                
+                // 参考情報）トランプ役での示唆
+                unitLinkButtonViewBuilder(sheetTitle: "トランプ役での示唆") {
+                    VStack {
+                        VStack(alignment: .leading) {
+//                                Text("・銀、金背景のキャラに注目")
+                            Text("・カードの組み合わせによる役などで伝説モードなどを示唆")
+                            hihodenTableRegSisa()
+                        }
+                    }
+                }
+            } header: {
+                Text("カウント結果")
             }
         }
         // //// バッジのリセット

@@ -81,7 +81,7 @@ struct gobsla2ViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "flag.pattern.checkered",
                             textBody: "エンディング",
-                            badgeStatus: common.gobsla2MenuScreenBadge,
+                            badgeStatus: common.gobsla2MenuEndingBadge,
                         )
                     }
                     

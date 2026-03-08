@@ -79,6 +79,18 @@ struct kokakukidotaiViewCz: View {
     ]
     let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9]
     
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
+    
     var body: some View {
         List {
             // エピソードの順番
@@ -242,6 +254,7 @@ struct kokakukidotaiViewCz: View {
             } header: {
                 Text("視覚HACK")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuCzBadge)
@@ -255,6 +268,20 @@ struct kokakukidotaiViewCz: View {
         }
         .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // //// 画面選択解除
