@@ -43,7 +43,20 @@ struct tekken6ViewTop: View {
                         )
                     }
                     
-                    // 通常時
+                    // CZ
+                    NavigationLink(destination: tekken6ViewCz(
+                        tekken6: tekken6,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.tekken6MenuCzBadge,
+                        )
+                    }
+                    
+                    // 初当り
                     NavigationLink(destination: tekken6ViewFirstHit(
                         tekken6: tekken6,
                         bayes: bayes,

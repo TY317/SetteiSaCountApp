@@ -15,6 +15,82 @@ struct kokakukidotaiViewCz: View {
     @AppStorage("kokakukidotaiLastEpisode") var selectedItem: String = "暴走の証明"
     let itemList: [String] = ["暴走の証明", "恵まれし者たち"]
     
+    @State var isShowAlert: Bool = false
+    @State var selectedImageName: String = ""
+    let imageNameList: [String] = [
+        "kokakukidotaiCzScreen1",
+        "kokakukidotaiCzScreen2",
+        "kokakukidotaiCzScreen3",
+        "kokakukidotaiCzScreen4",
+        "kokakukidotaiCzScreen5",
+        "kokakukidotaiCzScreen6",
+        "kokakukidotaiCzScreen7",
+        "kokakukidotaiCzScreen8",
+        "kokakukidotaiCzScreen9",
+        "kokakukidotaiCzScreen10",
+    ]
+    let upperBeltTextList: [String] = [
+        "青空",
+        "笑い男マーク",
+        "オペ子 3人",
+        "タチコマ",
+        "トグサ家",
+        "イシカワ",
+        "青空＋9課",
+        "素子",
+        "バカンス(素子＆バトー)",
+        "金背景 9課",
+    ]
+    let lowerBeltTextList: [String] = [
+        "デフォルト",
+        "復活期待度 50%",
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 以上濃厚",
+        "設定1,4,5,6濃厚",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
+    ]
+    let lowerBeltTextList2: [String] = [
+        "デフォルト",
+        "復活期待度 50%",
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 以上濃厚",
+        "設定1,4,5,6濃厚\n＋高設定示唆 強",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
+    ]
+    let flashColorList: [Color] = [
+        .gray,
+        .gray,
+        .blue,
+        .yellow,
+        .green,
+        .red,
+        .cyan,
+        .pink,
+        .orange,
+        .purple,
+    ]
+    let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9]
+    
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
+    
     var body: some View {
         List {
             // エピソードの順番
@@ -45,8 +121,140 @@ struct kokakukidotaiViewCz: View {
             }
             
             // CZ終了画面の示唆
-            kokakukidotaiSubViewCzScreen()
-                .popoverTip(tipVer3190KokakukidotaiCzScreen())
+            Section {
+                DisclosureGroup {
+                    // カウントボタン
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 20) {
+                            ForEach(self.indexList, id: \.self) { index in
+                                if self.imageNameList.indices.contains(index) &&
+                                    self.upperBeltTextList.indices.contains(index) &&
+                                    self.lowerBeltTextList.indices.contains(index) {
+                                    unitButtonScreenChoiceVer3(
+                                        screen: unitScreenOnlyDisplay(
+                                            image: Image(self.imageNameList[index]),
+                                            upperBeltText: self.upperBeltTextList[index],
+                                            lowerBeltText: self.lowerBeltTextList[index],
+    //                                        lowerBeltFont: .body,
+    //                                        lowerBeltHeight: 35,
+                                        ),
+                                        screenName: self.imageNameList[index],
+                                        selectedScreen: self.$selectedImageName,
+                                        count: bindingForScreenCount(index: index),
+                                        minusCheck: $kokakukidotai.minusCheck,
+                                        action: kokakukidotai.czScreenSumFunc,
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    .frame(height: common.screenScrollHeight)
+                    
+                    // //// カウント結果
+                    ForEach(self.indexList, id: \.self) { index in
+//                        if self.lowerBeltTextList.indices.contains(index) &&
+                        if self.lowerBeltTextList2.indices.contains(index) &&
+                            self.flashColorList.indices.contains(index) {
+    //                        self.flashColorList.indices.contains(index) &&
+    //                        self.sisaText.indices.contains(index) {
+                            unitResultCountListPercent(
+                                title: self.lowerBeltTextList2[index],
+    //                            title: self.sisaText[index],
+                                count: bindingForScreenCount(index: index),
+                                flashColor: self.flashColorList[index],
+                                bigNumber: $kokakukidotai.czScreenCountSum,
+                                numberofDigit: 0,
+                                titleFont: .body,
+                            )
+                        }
+                    }
+                } label: {
+                    Text("終了画面カウント")
+                        .foregroundStyle(Color.blue)
+                }
+                .popoverTip(tipVer3211KokakukidotaiCz())
+
+            } header: {
+                unitLabelHeaderScreenCount(title: "終了画面")
+            }
+//            kokakukidotaiSubViewCzScreen()
+            
+            // ---- 視覚HACK
+            Section {
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "視覚HACK",
+                    count: $kokakukidotai.sikakuHackCountHit,
+                    bigNumber: $kokakukidotai.sikakuHackCountSum,
+                    numberofDicimal: 0
+                )
+                
+                // 参考情報）視覚HACK
+                unitLinkButtonViewBuilder(sheetTitle: "視覚HACK発生率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "視覚HACK",
+                            percentList: kokakukidotai.ratioSikakuHack
+                        )
+                    }
+                }
+                
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("S.A.M終了の次ゲームにリール演出を伴って発生するHACK")
+                        Text("(終了画面での復活ではない)")
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "なし",
+                            count: $kokakukidotai.sikakuHackCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.sikakuHackSumFunc()
+                            }
+                        // あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "あり",
+                            count: $kokakukidotai.sikakuHackCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.sikakuHackSumFunc()
+                            }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 5,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                    
+                } label: {
+                    Text("HACKカウント")
+                        .foregroundStyle(Color.blue)
+                }
+                // 参考情報）視覚HACK
+            } header: {
+                Text("視覚HACK")
+            }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuCzBadge)
@@ -60,6 +268,52 @@ struct kokakukidotaiViewCz: View {
         }
         .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// 画面選択解除
+                unitButtonToolbarScreenSelectReset(
+                    currentKeyword: self.$selectedImageName
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $kokakukidotai.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: kokakukidotai.resetCz)
+            }
+        }
+    }
+    
+    func bindingForScreenCount(index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $kokakukidotai.czScreenCountDefault
+        case 1: return $kokakukidotai.czScreenCountFukkatu
+        case 2: return $kokakukidotai.czScreenCountKisu
+        case 3: return $kokakukidotai.czScreenCountGusu
+        case 4: return $kokakukidotai.czScreenCountHighJaku
+        case 5: return $kokakukidotai.czScreenCountHighKyo
+        case 6: return $kokakukidotai.czScreenCountOver2
+        case 7: return $kokakukidotai.czScreenCountOver1456
+        case 8: return $kokakukidotai.czScreenCountOver4
+        case 9: return $kokakukidotai.czScreenCountOver6
+        default: return .constant(0)
+        }
     }
 }
 

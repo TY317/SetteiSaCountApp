@@ -86,6 +86,25 @@ struct hihodenView95Ci: View {
             )
             .tag(3)
             
+            // 伝説回数 高確率失敗後
+            unitListSection95Ci(
+                grafTitle: "伝説モード移行回数\n高確率失敗後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $hihoden.legendCountKokakuMissHit,
+                        bigNumber: $hihoden.legendCountKokakuMissSum,
+                        setting1Percent: hihoden.ratioLegendAfterChanceMiss[0],
+                        setting2Percent: hihoden.ratioLegendAfterChanceMiss[1],
+                        setting3Percent: hihoden.ratioLegendAfterChanceMiss[2],
+                        setting4Percent: hihoden.ratioLegendAfterChanceMiss[3],
+                        setting5Percent: hihoden.ratioLegendAfterChanceMiss[4],
+                        setting6Percent: hihoden.ratioLegendAfterChanceMiss[5]
+                    )
+                )
+            )
+            .tag(7)
+            
             // 伝説回数 BIG後
             unitListSection95Ci(
                 grafTitle: "伝説モード移行回数\nBIG後",

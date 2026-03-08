@@ -139,6 +139,7 @@ class commonVar: ObservableObject {
     @AppStorage("kabaneriUnatoMenuKabaneriBonusBadge") var kabaneriUnatoMenuKabaneriBonusBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuScreenBadge") var kabaneriUnatoMenuScreenBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuOmikujiBadge") var kabaneriUnatoMenuOmikujiBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuHayajiroBadge") var kabaneriUnatoMenuHayajiroBadge: String = "none"
     
     // ---- ゴブリンスレイヤー２
     @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
@@ -149,6 +150,7 @@ class commonVar: ObservableObject {
     @AppStorage("gobsla2MenuBayesBadge") var gobsla2MenuBayesBadge: String = "none"
     @AppStorage("gobsla2MenuKabutoBadge") var gobsla2MenuKabutoBadge: String = "none"
     @AppStorage("gobsla2MenuScreenBadge") var gobsla2MenuScreenBadge: String = "none"
+    @AppStorage("gobsla2MenuEndingBadge") var gobsla2MenuEndingBadge: String = "none"
     
     // ---- ハナビ
     @AppStorage("hanabiisUnlocked") var hanabiisUnlocked: Bool = true
@@ -196,6 +198,7 @@ class commonVar: ObservableObject {
     @AppStorage("tekken6MenuScreenBadge") var tekken6MenuScreenBadge: String = "none"
     @AppStorage("tekken6MenuBackBadge") var tekken6MenuBackBadge: String = "none"
     @AppStorage("tekken6MenuBonusBadge") var tekken6MenuBonusBadge: String = "none"
+    @AppStorage("tekken6MenuCzBadge") var tekken6MenuCzBadge: String = "none"
     
     // //// 北斗転生
     @AppStorage("hokutoTenseiisUnlocked") var hokutoTenseiisUnlocked: Bool = true
@@ -345,6 +348,40 @@ class commonVar: ObservableObject {
         mushotenisUnlocked = true
         shakeisUnlocked = true
     }
+    
+    // //////////////////////////////////////
+    // バージョンごとの処理
+    // //////////////////////////////////////
+    func ver3211FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.21.1"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                kabaneriUnatoMachineIconBadge = "update"
+                kabaneriUnatoMenuNormalBadge = "update"
+                kokakukidotaiMenuCzBadge = "update"
+                kokakukidotaiMachineIconBadge = "update"
+                tekken6MachineIconBadge = "update"
+                tekken6MenuCzBadge = "new"
+                gobsla2MachineIconBadge = "update"
+                gobsla2MenuEndingBadge = "new"
+                kabaneriUnatoMenuHayajiroBadge = "new"
+                hihodenMachineIconBadge = "update"
+                hihodenMenuDuringBonusBadge = "update"
+                hihodenMenuNormalBadge = "update"
+                hihodenMenuLegendBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     
     // //////////////////////////////////////
     // バージョンごとの処理

@@ -59,6 +59,19 @@ struct kabaneriUnatoViewTop: View {
                         )
                     }
                     
+                    // 駿城ボーナス
+                    NavigationLink(destination: kabaneriUnatoViewHayajiro(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "tram.fill.tunnel",
+                            textBody: "駿城ボーナス",
+                            badgeStatus: common.kabaneriUnatoMenuHayajiroBadge,
+                        )
+                    }
+                    
                     // カバネリボーナス
                     NavigationLink(destination: kabaneriUnatoViewKabaneriBonus(
                         kabaneriUnato: kabaneriUnato,
@@ -108,28 +121,28 @@ struct kabaneriUnatoViewTop: View {
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: kabaneriUnatoView95Ci(
-//                    kabaneriUnato: kabaneriUnato,
-//                    selection: 1,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: kabaneriUnatoView95Ci(
+                    kabaneriUnato: kabaneriUnato,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: kabaneriUnatoViewBayes(
-//                    kabaneriUnato: kabaneriUnato,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.kabaneriUnatoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: kabaneriUnatoViewBayes(
+                    kabaneriUnato: kabaneriUnato,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.kabaneriUnatoMenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4930")
@@ -241,6 +254,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory1.omikujiCountOver4 = kabaneriUnato.omikujiCountOver4
         kabaneriUnatoMemory1.omikujiCountOver6 = kabaneriUnato.omikujiCountOver6
         kabaneriUnatoMemory1.omikujiCountSum = kabaneriUnato.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnatoMemory1.koyakuCountLowerBell = kabaneriUnato.koyakuCountLowerBell
+        kabaneriUnatoMemory1.normalGame = kabaneriUnato.normalGame
+        kabaneriUnatoMemory1.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
+        kabaneriUnatoMemory1.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
+        kabaneriUnatoMemory1.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
     }
     func saveMemory2() {
         kabaneriUnatoMemory2.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -273,6 +295,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory2.omikujiCountOver4 = kabaneriUnato.omikujiCountOver4
         kabaneriUnatoMemory2.omikujiCountOver6 = kabaneriUnato.omikujiCountOver6
         kabaneriUnatoMemory2.omikujiCountSum = kabaneriUnato.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnatoMemory2.koyakuCountLowerBell = kabaneriUnato.koyakuCountLowerBell
+        kabaneriUnatoMemory2.normalGame = kabaneriUnato.normalGame
+        kabaneriUnatoMemory2.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
+        kabaneriUnatoMemory2.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
+        kabaneriUnatoMemory2.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
     }
     func saveMemory3() {
         kabaneriUnatoMemory3.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -305,6 +336,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory3.omikujiCountOver4 = kabaneriUnato.omikujiCountOver4
         kabaneriUnatoMemory3.omikujiCountOver6 = kabaneriUnato.omikujiCountOver6
         kabaneriUnatoMemory3.omikujiCountSum = kabaneriUnato.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnatoMemory3.koyakuCountLowerBell = kabaneriUnato.koyakuCountLowerBell
+        kabaneriUnatoMemory3.normalGame = kabaneriUnato.normalGame
+        kabaneriUnatoMemory3.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
+        kabaneriUnatoMemory3.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
+        kabaneriUnatoMemory3.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
     }
 }
 
@@ -366,6 +406,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.omikujiCountOver4 = kabaneriUnatoMemory1.omikujiCountOver4
         kabaneriUnato.omikujiCountOver6 = kabaneriUnatoMemory1.omikujiCountOver6
         kabaneriUnato.omikujiCountSum = kabaneriUnatoMemory1.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnato.koyakuCountLowerBell = kabaneriUnatoMemory1.koyakuCountLowerBell
+        kabaneriUnato.normalGame = kabaneriUnatoMemory1.normalGame
+        kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory1.hayajiroCountMiss
+        kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory1.hayajiroCountHit
+        kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory1.hayajiroCountSum
     }
     func loadMemory2() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory2.flushCountMiss
@@ -398,6 +447,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.omikujiCountOver4 = kabaneriUnatoMemory2.omikujiCountOver4
         kabaneriUnato.omikujiCountOver6 = kabaneriUnatoMemory2.omikujiCountOver6
         kabaneriUnato.omikujiCountSum = kabaneriUnatoMemory2.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnato.koyakuCountLowerBell = kabaneriUnatoMemory2.koyakuCountLowerBell
+        kabaneriUnato.normalGame = kabaneriUnatoMemory2.normalGame
+        kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory2.hayajiroCountMiss
+        kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory2.hayajiroCountHit
+        kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory2.hayajiroCountSum
     }
     func loadMemory3() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory3.flushCountMiss
@@ -430,6 +488,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.omikujiCountOver4 = kabaneriUnatoMemory3.omikujiCountOver4
         kabaneriUnato.omikujiCountOver6 = kabaneriUnatoMemory3.omikujiCountOver6
         kabaneriUnato.omikujiCountSum = kabaneriUnatoMemory3.omikujiCountSum
+        
+        // ---------
+        // ver3.21.1
+        // ---------
+        kabaneriUnato.koyakuCountLowerBell = kabaneriUnatoMemory3.koyakuCountLowerBell
+        kabaneriUnato.normalGame = kabaneriUnatoMemory3.normalGame
+        kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory3.hayajiroCountMiss
+        kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory3.hayajiroCountHit
+        kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory3.hayajiroCountSum
     }
 }
 

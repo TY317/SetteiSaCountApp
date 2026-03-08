@@ -72,6 +72,19 @@ struct gobsla2ViewTop: View {
                         )
                     }
                     
+                    // エンディング
+                    NavigationLink(destination: gobsla2ViewEnding(
+                        gobsla2: gobsla2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.gobsla2MenuEndingBadge,
+                        )
+                    }
+                    
                     // 藤丸コイン
                     NavigationLink(destination: commonViewFujimaruCoin()) {
                         unitLabelMenu(

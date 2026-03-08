@@ -16,6 +16,10 @@ struct hihodenViewBayes: View {
     @State var koyakuEnable: Bool = true
     @State var firstHitEnable: Bool = true
     @State var bonusHazureEnable: Bool = true
+    @State var charaEnable: Bool = true
+    @State var chanceKokakuEnable: Bool = true
+    @State var legendAfterKokakuMissEnable: Bool = true
+    @State var legendAfterBonusEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -48,9 +52,25 @@ struct hihodenViewBayes: View {
             bayesSubStep2Section {
                 // 🍒確率
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "🍒確率")
+                // チャンス目からの高確率
+                unitToggleWithQuestion(enable: self.$chanceKokakuEnable, title: "チャンス目からの高確率")
                 // 初当り
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 unitToggleWithQuestion(enable: self.$bonusHazureEnable, title: "ボーナス中ハズレ確率")
+                
+                // キャラ紹介
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中キャラ紹介") {
+                    unitExView5body2image(
+                        title: "REG中キャラ紹介",
+                        textBody1: "・否定系、確定系のみ反映させます"
+                    )
+                }
+                
+                // 高確率失敗後の伝説モード移行率
+                unitToggleWithQuestion(enable: self.$legendAfterKokakuMissEnable, title: "高確率失敗後の伝説モード移行率")
+                
+                // ボーナス後の伝説モード移行率
+                unitToggleWithQuestion(enable: self.$legendAfterBonusEnable, title: "ボーナス後の伝説モード移行率")
                 
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -130,6 +150,15 @@ struct hihodenViewBayes: View {
                 bigNumber: hihoden.totalGame
             )
         }
+        // チャンス目からの高確率
+        var logPostChanceKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chanceKokakuEnable {
+            logPostChanceKokaku = logPostPercentBino(
+                ratio: hihoden.ratioChanceKokaku,
+                Count: hihoden.chanceKokakuCount,
+                bigNumber: hihoden.koyakuCountChance
+            )
+        }
         // 初当り確率
         var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitEnable {
@@ -148,6 +177,67 @@ struct hihodenViewBayes: View {
                 bigNumber: hihoden.bonusGame,
             )
         }
+        // REG中キャラ紹介
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if hihoden.charaCountNegate2 > 0 {
+                logPostChara[1] = -Double.infinity
+            }
+            if hihoden.charaCountNegate3 > 0 {
+                logPostChara[2] = -Double.infinity
+            }
+            if hihoden.charaCountNegate4 > 0 {
+                logPostChara[3] = -Double.infinity
+            }
+            if hihoden.charaCountOver2 > 0 {
+                logPostChara[0] = -Double.infinity
+            }
+            if hihoden.charaCountOver4 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+            }
+            if hihoden.charaCountOver5 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+            }
+            if hihoden.charaCountOver6 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+                logPostChara[4] = -Double.infinity
+            }
+        }
+        
+        // 高確率失敗後の伝説モード移行率
+        var logPostLegendAfterMiss: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.legendAfterKokakuMissEnable {
+            logPostLegendAfterMiss = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterChanceMiss,
+                Count: hihoden.legendCountKokakuMissHit,
+                bigNumber: hihoden.legendCountKokakuMissSum
+            )
+        }
+        
+        // 高確率失敗後の伝説モード移行率
+        var logPostLegendAfterBig: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostLegendAfterReg: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.legendAfterBonusEnable {
+            logPostLegendAfterBig = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterBig,
+                Count: hihoden.legendCountBigHit,
+                bigNumber: hihoden.legendCountBigSum
+            )
+            logPostLegendAfterReg = logPostPercentBino(
+                ratio: hihoden.ratioLegendAfterReg,
+                Count: hihoden.legendCountRegHit,
+                bigNumber: hihoden.legendCountRegSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -186,8 +276,13 @@ struct hihodenViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostCherry,
+            logPostChanceKokaku,
             logPostFirstHit,
             logPostBonusMiss,
+            logPostChara,
+            logPostLegendAfterMiss,
+            logPostLegendAfterBig,
+            logPostLegendAfterReg,
             
             logPostTrophy,
             logPostBefore,

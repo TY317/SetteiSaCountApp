@@ -120,6 +120,7 @@ class Kokakukidotai: ObservableObject {
         resetAt()
         resetNormal()
         resetScreen()
+        resetCz()
     }
     
     // ---------
@@ -129,6 +130,65 @@ class Kokakukidotai: ObservableObject {
     let ratioAfterAtNormal: [Double] = [50,48.3,46.7,45,43.3,41.7]
     let ratioAfterAtHigh: [Double] = [47.5,48.8,50,51.3,52.5,53.8]
     let ratioAfterAtSuperHigh: [Double] = [2.5,2.9,3.3,3.8,4.2,4.6]
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    // CZ終了画面
+    @AppStorage("kokakukidotaiCzScreenCountDefault") var czScreenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountFukkatu") var czScreenCountFukkatu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountKisu") var czScreenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountGusu") var czScreenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighJaku") var czScreenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighKyo") var czScreenCountHighKyo: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver2") var czScreenCountOver2: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver1456") var czScreenCountOver1456: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver4") var czScreenCountOver4: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver6") var czScreenCountOver6: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountSum") var czScreenCountSum: Int = 0
+    
+    func czScreenSumFunc() {
+        czScreenCountSum = countSum(
+            czScreenCountDefault,
+            czScreenCountFukkatu,
+            czScreenCountKisu,
+            czScreenCountGusu,
+            czScreenCountHighJaku,
+            czScreenCountHighKyo,
+            czScreenCountOver2,
+            czScreenCountOver1456,
+            czScreenCountOver4,
+            czScreenCountOver6,
+        )
+    }
+    
+    // 視覚HACK
+    let ratioSikakuHack: [Double] = [5.7,6.1,6.9,9.0,10.1,10.6]
+    @AppStorage("kokakukidotaiSikakuHackCountMiss") var sikakuHackCountMiss: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountHit") var sikakuHackCountHit: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountSum") var sikakuHackCountSum: Int = 0
+    
+    func sikakuHackSumFunc() {
+        sikakuHackCountSum = countSum(sikakuHackCountMiss, sikakuHackCountHit)
+    }
+    
+    func resetCz() {
+        czScreenCountDefault = 0
+        czScreenCountFukkatu = 0
+        czScreenCountKisu = 0
+        czScreenCountGusu = 0
+        czScreenCountHighJaku = 0
+        czScreenCountHighKyo = 0
+        czScreenCountOver2 = 0
+        czScreenCountOver1456 = 0
+        czScreenCountOver4 = 0
+        czScreenCountOver6 = 0
+        czScreenCountSum = 0
+        sikakuHackCountMiss = 0
+        sikakuHackCountHit = 0
+        sikakuHackCountSum = 0
+        minusCheck = false
+    }
 }
 
 class KokakukidotaiMemory1: ObservableObject {
@@ -154,6 +214,24 @@ class KokakukidotaiMemory1: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountSumMemory1") var rebootCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory1") var memo = ""
     @AppStorage("kokakukidotaiDateMemory1") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kokakukidotaiCzScreenCountDefaultMemory1") var czScreenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountFukkatuMemory1") var czScreenCountFukkatu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountKisuMemory1") var czScreenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountGusuMemory1") var czScreenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighJakuMemory1") var czScreenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighKyoMemory1") var czScreenCountHighKyo: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver2Memory1") var czScreenCountOver2: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver1456Memory1") var czScreenCountOver1456: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver4Memory1") var czScreenCountOver4: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver6Memory1") var czScreenCountOver6: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountSumMemory1") var czScreenCountSum: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountMissMemory1") var sikakuHackCountMiss: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountHitMemory1") var sikakuHackCountHit: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountSumMemory1") var sikakuHackCountSum: Int = 0
 }
 
 
@@ -180,6 +258,24 @@ class KokakukidotaiMemory2: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountSumMemory2") var rebootCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory2") var memo = ""
     @AppStorage("kokakukidotaiDateMemory2") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kokakukidotaiCzScreenCountDefaultMemory2") var czScreenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountFukkatuMemory2") var czScreenCountFukkatu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountKisuMemory2") var czScreenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountGusuMemory2") var czScreenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighJakuMemory2") var czScreenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighKyoMemory2") var czScreenCountHighKyo: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver2Memory2") var czScreenCountOver2: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver1456Memory2") var czScreenCountOver1456: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver4Memory2") var czScreenCountOver4: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver6Memory2") var czScreenCountOver6: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountSumMemory2") var czScreenCountSum: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountMissMemory2") var sikakuHackCountMiss: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountHitMemory2") var sikakuHackCountHit: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountSumMemory2") var sikakuHackCountSum: Int = 0
 }
 
 
@@ -206,4 +302,22 @@ class KokakukidotaiMemory3: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountSumMemory3") var rebootCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory3") var memo = ""
     @AppStorage("kokakukidotaiDateMemory3") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kokakukidotaiCzScreenCountDefaultMemory3") var czScreenCountDefault: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountFukkatuMemory3") var czScreenCountFukkatu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountKisuMemory3") var czScreenCountKisu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountGusuMemory3") var czScreenCountGusu: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighJakuMemory3") var czScreenCountHighJaku: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountHighKyoMemory3") var czScreenCountHighKyo: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver2Memory3") var czScreenCountOver2: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver1456Memory3") var czScreenCountOver1456: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver4Memory3") var czScreenCountOver4: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountOver6Memory3") var czScreenCountOver6: Int = 0
+    @AppStorage("kokakukidotaiCzScreenCountSumMemory3") var czScreenCountSum: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountMissMemory3") var sikakuHackCountMiss: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountHitMemory3") var sikakuHackCountHit: Int = 0
+    @AppStorage("kokakukidotaiSikakuHackCountSumMemory3") var sikakuHackCountSum: Int = 0
 }

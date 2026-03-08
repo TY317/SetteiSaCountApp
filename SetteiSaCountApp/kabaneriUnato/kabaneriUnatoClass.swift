@@ -27,6 +27,9 @@ class KabaneriUnato: ObservableObject {
         flushCountHit = 0
         flushCountSum = 0
         minusCheck = false
+        
+        koyakuCountLowerBell = 0
+        normalGame = 0
     }
     
     // ---------
@@ -181,6 +184,32 @@ class KabaneriUnato: ObservableObject {
         resetScreen()
         resetFirstHit()
         resetOmikuji()
+        resetHayajiro()
+    }
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    // 下段ベル
+    let ratioLowerBell: [Double] = [121.1,114.4,112.8,106.2,104.2,99.1]
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBell") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGame") var normalGame: Int = 0
+    
+    // 駿城ボーナス
+    let ratioHayajiro3000: [Double] = [1.2,2,2,2,2,2.3]
+    @AppStorage("kabaneriUnatoHayajiroCountMiss") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHit") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSum") var hayajiroCountSum: Int = 0
+    
+    func hayajiroSumFunc() {
+        hayajiroCountSum = hayajiroCountMiss + hayajiroCountHit
+    }
+    
+    func resetHayajiro() {
+        hayajiroCountMiss = 0
+        hayajiroCountHit = 0
+        hayajiroCountSum = 0
+        minusCheck = false
     }
 }
 
@@ -218,6 +247,15 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory1") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory1") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory1") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory1") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory1") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory1") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory1") var hayajiroCountSum: Int = 0
 }
 
 
@@ -254,6 +292,15 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory2") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory2") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory2") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory2") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory2") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory2") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory2") var hayajiroCountSum: Int = 0
 }
 
 
@@ -290,4 +337,13 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory3") var omikujiCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory3") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory3") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.21.1
+    // ---------
+    @AppStorage("kabaneriUnatoKoyakuCountLowerBellMemory3") var koyakuCountLowerBell: Int = 0
+    @AppStorage("kabaneriUnatoNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountMissMemory3") var hayajiroCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountHitMemory3") var hayajiroCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHayajiroCountSumMemory3") var hayajiroCountSum: Int = 0
 }
