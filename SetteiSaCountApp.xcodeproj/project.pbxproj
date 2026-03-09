@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -232,6 +232,7 @@
 		0F51C63F2E8412C80006794A /* creaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C63E2E8412C80006794A /* creaViewBayes.swift */; };
 		0F51C6412E8415140006794A /* creaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6402E8415140006794A /* creaViewNormal.swift */; };
 		0F51C6452E8437170006794A /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */; };
+		0F51C9A62F5EE2C400D9DDE1 /* ver3220.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */; };
 		0F51EC002F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */; };
 		0F51EC012F0E817500526F6D /* hokutoTenseiTableAbeshi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */; };
 		0F51EC032F11D5C900526F6D /* hokutTenseiHitstoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EC022F11D5C900526F6D /* hokutTenseiHitstoryTable.swift */; };
@@ -1572,6 +1573,7 @@
 		0F51C63E2E8412C80006794A /* creaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewBayes.swift; sourceTree = "<group>"; };
 		0F51C6402E8415140006794A /* creaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewNormal.swift; sourceTree = "<group>"; };
 		0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3220.swift; sourceTree = "<group>"; };
 		0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableAbeshi.swift; sourceTree = "<group>"; };
 		0F51EC022F11D5C900526F6D /* hokutTenseiHitstoryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutTenseiHitstoryTable.swift; sourceTree = "<group>"; };
 		0F56A4A92C96F7CE0015EC22 /* symphoViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewHistory.swift; sourceTree = "<group>"; };
@@ -2668,17 +2670,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = SCPreview;
-			sourceTree = "<group>";
-		};
+		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SCPreview; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3974,6 +3966,7 @@
 				0FD974FF2F43463C0067CED7 /* ver3200.swift */,
 				0F2020422F4BEC4100FDA263 /* ver3210.swift */,
 				0F0FAF672F55BB1400118DC1 /* ver3211.swift */,
+				0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -5308,9 +5301,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5325,9 +5322,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5364,9 +5365,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5381,9 +5386,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5529,6 +5538,7 @@
 				0F89358C2E22909000BF6FBE /* unitSheetCountDirectInput.swift in Sources */,
 				0FD357622DA2951F0069BD1A /* magiaTableFirstHit.swift in Sources */,
 				0FD975132F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift in Sources */,
+				0F51C9A62F5EE2C400D9DDE1 /* ver3220.swift in Sources */,
 				0FA024A42D0873AF004B3FD5 /* lupinViewHistory.swift in Sources */,
 				0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */,
 				0F654BD42C6F130700F37849 /* draHanaSenkohViewTop.swift in Sources */,
