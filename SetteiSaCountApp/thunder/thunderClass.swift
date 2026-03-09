@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class Thunder: ObservableObject {
+    
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "サンダーV"
+    @AppStorage("thunderMinusCheck") var minusCheck: Bool = false
+    @AppStorage("thunderSelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}

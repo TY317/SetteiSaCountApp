@@ -11,14 +11,177 @@ struct thunderViewTop: View {
     @EnvironmentObject var common: commonVar
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
-//    @StateObject var thunder = Thunder()
+    @StateObject var thunder = Thunder()
     @State var isShowAlert: Bool = false
 //    @StateObject var thunderMemory1 = ThunderMemory1()
 //    @StateObject var thunderMemory2 = ThunderMemory2()
 //    @StateObject var thunderMemory3 = ThunderMemory3()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Section {
+                    // 注意事項
+                    Text("ユニメモの利用を前提としています\n遊技前にユニメモを開始してください")
+                        .foregroundStyle(Color.secondary)
+                        .font(.footnote)
+                } header: {
+                    unitLabelMachineTopTitle(machineName: thunder.machineName)
+                }
+                
+                Section {
+//                    // 通常時
+//                    NavigationLink(destination: thunderViewNormal(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "bell.fill",
+//                            textBody: "通常時",
+//                            badgeStatus: common.thunderMenuNormalBadge,
+//                        )
+//                    }
+//                    
+//                    // 初あたり
+//                    NavigationLink(destination: thunderViewFirstHit(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "party.popper.fill",
+//                            textBody: "初当り",
+//                            badgeStatus: common.thunderMenuFirstHitBadge,
+//                        )
+//                    }
+//                    
+//                    // 駿城ボーナス
+//                    NavigationLink(destination: thunderViewHayajiro(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "tram.fill.tunnel",
+//                            textBody: "駿城ボーナス",
+//                            badgeStatus: common.thunderMenuHayajiroBadge,
+//                        )
+//                    }
+//                    
+//                    // カバネリボーナス
+//                    NavigationLink(destination: thunderViewKabaneriBonus(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "person.2.fill",
+//                            textBody: "カバネリボーナス",
+//                            badgeStatus: common.thunderMenuKabaneriBonusBadge,
+//                        )
+//                    }
+//                    
+//                    // ST終了画面
+//                    NavigationLink(destination: thunderViewScreen(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "photo.on.rectangle.angled.fill",
+//                            textBody: "ST終了画面",
+//                            badgeStatus: common.thunderMenuScreenBadge,
+//                        )
+//                    }
+//                    
+//                    // おみくじ
+//                    NavigationLink(destination: thunderViewOmikuji(
+//                        thunder: thunder,
+//                        bayes: bayes,
+//                        viewModel: viewModel,
+//                    )) {
+//                        unitLabelMenu(
+//                            imageSystemName: "tag.fill",
+//                            textBody: "おみくじ",
+//                            badgeStatus: common.thunderMenuOmikujiBadge,
+//                        )
+//                    }
+                }
+                
+                // 設定推測グラフ
+//                NavigationLink(destination: thunderView95Ci(
+//                    thunder: thunder,
+//                    selection: 1,
+//                )) {
+//                    unitLabelMenu(
+//                        imageSystemName: "chart.bar.xaxis",
+//                        textBody: "設定推測グラフ"
+//                    )
+//                }
+
+                // 設定期待値計算
+//                NavigationLink(destination: thunderViewBayes(
+//                    thunder: thunder,
+//                    bayes: bayes,
+//                    viewModel: viewModel,
+//                )) {
+//                    unitLabelMenu(
+//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+//                        textBody: "設定期待値",
+//                        badgeStatus: common.thunderMenuBayesBadge
+//                    )
+//                }
+                
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4943")
+                
+                // コピーライト
+                unitSectionCopyright {
+                    Text("©UNIVERSAL ENTERTAINMENT")
+                }
+            }
+        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.thunderMachineIconBadge)
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: thunder.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("メニュー")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // データ読み出し
+//                unitButtonLoadMemory(loadView: AnyView(thunderSubViewLoadMemory(
+//                    thunder: thunder,
+//                    thunderMemory1: thunderMemory1,
+//                    thunderMemory2: thunderMemory2,
+//                    thunderMemory3: thunderMemory3
+//                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データ保存
+//                unitButtonSaveMemory(saveView: AnyView(thunderSubViewSaveMemory(
+//                    thunder: thunder,
+//                    thunderMemory1: thunderMemory1,
+//                    thunderMemory2: thunderMemory2,
+//                    thunderMemory3: thunderMemory3
+//                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データリセット
+                unitButtonReset(
+                    isShowAlert: $isShowAlert,
+                    action: thunder.resetAll,
+                    message: "この機種のデータを全てリセットします"
+                )
+            }
+        }
     }
 }
 
