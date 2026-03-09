@@ -33,7 +33,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
     @AppStorage("isSelectedFavoriteBangdream") var isSelectedFavoriteBangdream = true
     @AppStorage("isSelectedFavoriteMhr") var isSelectedFavoriteMhr = true
-    @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
+//    @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
     @AppStorage("isSelectedFavoriteLupin") var isSelectedFavoriteLupin = true
     @AppStorage("isSelectedFavoriteDanvine") var isSelectedFavoriteDanvine = true
     @AppStorage("isSelectedFavoriteDumbbell") var isSelectedFavoriteDumbbell = true
@@ -50,7 +50,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodzilla") var isSelectedFavoriteGodzilla = true
     @AppStorage("isSelectedFavoriteMahjong") var isSelectedFavoriteMahjong = true
     @AppStorage("isSelectedFavoriteYoshimune") var isSelectedFavoriteYoshimune = true
-    @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
+//    @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
     @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
     @AppStorage("isSelectedFavoriteGundamSeed") var isSelectedFavoriteGundamSeed = true
     @AppStorage("isSelectedFavoriteToloveru87") var isSelectedFavoriteToloveru87 = true
@@ -592,17 +592,17 @@ struct ContentView: View {
                                 }
                                 
                                 // //// アイマス、25年4月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
-                                    
-                                } else {
-                                    unitMachineIconLink(
-                                        linkView: AnyView(idolMasterViewTop(
-                                        )),
-                                        iconImage: Image("idolMasterMachineIcon"),
-                                        machineName: "アイマス",
-//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(idolMasterViewTop(
+//                                        )),
+//                                        iconImage: Image("idolMasterMachineIcon"),
+//                                        machineName: "アイマス",
+////                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                    )
+//                                }
                                 
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
@@ -791,11 +791,11 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
                                 }
                                 // //// 犬夜叉2、24年12月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
-                                    
-                                } else {
-                                    unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
+//                                }
                                 
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
@@ -1539,19 +1539,19 @@ struct ContentView: View {
                                 }
                                 
                                 // //// アイマス、25年4月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
-                                    
-                                } else {
-                                    unitMachinListLink(
-                                        linkView: AnyView(idolMasterViewTop(
-                                        )),
-                                        iconImage: Image("idolMasterMachineIcon"),
-                                        machineName: "アイドルマスター",
-                                        makerName: "山佐",
-                                        releaseYear: 2025,
-                                        releaseMonth: 4,
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(idolMasterViewTop(
+//                                        )),
+//                                        iconImage: Image("idolMasterMachineIcon"),
+//                                        machineName: "アイドルマスター",
+//                                        makerName: "山佐",
+//                                        releaseYear: 2025,
+//                                        releaseMonth: 4,
+//                                    )
+//                                }
                                 
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
@@ -1795,18 +1795,18 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
-                                    
-                                } else {
-                                    unitMachinListLink(
-                                        linkView: AnyView(inuyasha2ViewTop()),
-                                        iconImage: Image("inuyasha2MachineIcon"),
-                                        machineName: "犬夜叉2",
-                                        makerName: "Spiky",
-                                        releaseYear: 2024,
-                                        releaseMonth: 12
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(inuyasha2ViewTop()),
+//                                        iconImage: Image("inuyasha2MachineIcon"),
+//                                        machineName: "犬夜叉2",
+//                                        makerName: "Spiky",
+//                                        releaseYear: 2024,
+//                                        releaseMonth: 12
+//                                    )
+//                                }
                                 
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
@@ -2257,7 +2257,7 @@ struct favoriteSettingView: View {
                 // //// 緑ドン、25年5月
                 Toggle("緑ドン VIVA情熱南米編", isOn: $favoriteSet.isSelectedFavoriteMidoriDon)
                 // //// アイマス、25年4月
-                Toggle("アイドルマスター", isOn: $favoriteSet.isSelectedFavoriteIdolMaster)
+//                Toggle("アイドルマスター", isOn: $favoriteSet.isSelectedFavoriteIdolMaster)
                 // //// 吉宗、25年4月
                 Toggle("吉宗", isOn: $favoriteSet.isSelectedFavoriteYoshimune)
                 // //// 麻雀物語、25年4月
@@ -2291,7 +2291,7 @@ struct favoriteSettingView: View {
                 // //// ルパン大航海者の秘宝、24年12月
                 Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
                 // //// 犬夜叉2、24年12月
-                Toggle("犬夜叉2", isOn: $favoriteSet.isSelectedFavoriteInuyasha2)
+//                Toggle("犬夜叉2", isOn: $favoriteSet.isSelectedFavoriteInuyasha2)
                 // //// モンハンライズ、24年11月
                 Toggle("モンスターハンター ライズ", isOn: $favoriteSet.isSelectedFavoriteMhr)
                 // //// バンドリ、24年11月
