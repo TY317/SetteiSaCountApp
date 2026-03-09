@@ -495,56 +495,29 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3171FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.17.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                hihodenMachineIconBadge = "update"
-                hihodenMenuDuringBonusBadge = "update"
-                hihodenMenuNormalBadge = "update"
-                hokutoTenseiMachineIconBadge = "update"
-                hokutoTenseiMenuNormalBadge = "update"
-                hokutoTenseiMenuBayesBadge = "update"
-                hokutoTenseiMenuFirstHitBadge = "update"
-                bakemonoMachineIconBadge = "update"
-                bakemonoMenuNormalBadge = "update"
-                shakeMachineIconBadge = "update"
-                shakeMenuNormalBadge = "update"
-                shakeMenuBayesBadge = "update"
-                mt5MachineIconBadge = "update"
-                mt5MenuGekisoBadge = "update"
-                mt5MenuBayesBadge = "update"
-                bakemonoMenuBayesBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-//    func ver3170FirstLaunch() {
+//    func ver3171FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.17.0"
+//        let targetVersion: String = "3.17.1"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                shakeisUnlocked = false
-//                shakeMachineIconBadge = "new"
-//                railgunMachineIconBadge = "update"
-//                railgunMenuFirstHitBadge = "update"
+//                hihodenMachineIconBadge = "update"
+//                hihodenMenuDuringBonusBadge = "update"
+//                hihodenMenuNormalBadge = "update"
 //                hokutoTenseiMachineIconBadge = "update"
 //                hokutoTenseiMenuNormalBadge = "update"
-//                hokutoTenseiMenuFirstHitBadge = "update"
 //                hokutoTenseiMenuBayesBadge = "update"
+//                hokutoTenseiMenuFirstHitBadge = "update"
 //                bakemonoMachineIconBadge = "update"
 //                bakemonoMenuNormalBadge = "update"
+//                shakeMachineIconBadge = "update"
+//                shakeMenuNormalBadge = "update"
+//                shakeMenuBayesBadge = "update"
+//                mt5MachineIconBadge = "update"
+//                mt5MenuGekisoBadge = "update"
+//                mt5MenuBayesBadge = "update"
 //                bakemonoMenuBayesBadge = "update"
 //            }
 //            else {

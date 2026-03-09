@@ -77,7 +77,7 @@ struct shakeViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
                     shakeTableKoyakuRatio(shake: shake)
                 }
-                .popoverTip(tipVer3171ShakeKoyaku())
+//                .popoverTip(tipVer3171ShakeKoyaku())
                 // 参考情報）レア役停止形
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     shakeTableKoyakuPattern()
