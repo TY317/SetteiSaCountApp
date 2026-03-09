@@ -233,6 +233,9 @@
 		0F51C6412E8415140006794A /* creaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6402E8415140006794A /* creaViewNormal.swift */; };
 		0F51C6452E8437170006794A /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */; };
 		0F51C9A62F5EE2C400D9DDE1 /* ver3220.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */; };
+		0F51C9A92F5EF71600D9DDE1 /* thunderViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9A82F5EF71600D9DDE1 /* thunderViewTop.swift */; };
+		0F51C9AB2F5EF83B00D9DDE1 /* thunderAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F51C9AA2F5EF83B00D9DDE1 /* thunderAssets.xcassets */; };
+		0F51C9AD2F5EF86C00D9DDE1 /* thunderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9AC2F5EF86C00D9DDE1 /* thunderClass.swift */; };
 		0F51EC002F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */; };
 		0F51EC012F0E817500526F6D /* hokutoTenseiTableAbeshi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */; };
 		0F51EC032F11D5C900526F6D /* hokutTenseiHitstoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51EC022F11D5C900526F6D /* hokutTenseiHitstoryTable.swift */; };
@@ -1574,6 +1577,9 @@
 		0F51C6402E8415140006794A /* creaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewNormal.swift; sourceTree = "<group>"; };
 		0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
 		0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3220.swift; sourceTree = "<group>"; };
+		0F51C9A82F5EF71600D9DDE1 /* thunderViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thunderViewTop.swift; sourceTree = "<group>"; };
+		0F51C9AA2F5EF83B00D9DDE1 /* thunderAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = thunderAssets.xcassets; sourceTree = "<group>"; };
+		0F51C9AC2F5EF86C00D9DDE1 /* thunderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thunderClass.swift; sourceTree = "<group>"; };
 		0F51EBFF2F0E816B00526F6D /* hokutoTenseiTableAbeshi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableAbeshi.swift; sourceTree = "<group>"; };
 		0F51EC022F11D5C900526F6D /* hokutTenseiHitstoryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutTenseiHitstoryTable.swift; sourceTree = "<group>"; };
 		0F56A4A92C96F7CE0015EC22 /* symphoViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewHistory.swift; sourceTree = "<group>"; };
@@ -2999,6 +3005,16 @@
 			path = crea;
 			sourceTree = "<group>";
 		};
+		0F51C9A72F5EF6FE00D9DDE1 /* thunder */ = {
+			isa = PBXGroup;
+			children = (
+				0F51C9A82F5EF71600D9DDE1 /* thunderViewTop.swift */,
+				0F51C9AA2F5EF83B00D9DDE1 /* thunderAssets.xcassets */,
+				0F51C9AC2F5EF86C00D9DDE1 /* thunderClass.swift */,
+			);
+			path = thunder;
+			sourceTree = "<group>";
+		};
 		0F64DDA32DC5F39E0027315D /* reel */ = {
 			isa = PBXGroup;
 			children = (
@@ -3421,6 +3437,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0F51C9A72F5EF6FE00D9DDE1 /* thunder */,
 				0F2020632F52E2DF00FDA263 /* kabaneriUnato */,
 				0F2020442F4BED0B00FDA263 /* gobsla2 */,
 				0FDE0F3B2F30B1F200B1DA18 /* hanabi */,
@@ -5152,6 +5169,7 @@
 				0FF1562C2D6B4F8400B17F83 /* shamanKingAssets.xcassets in Resources */,
 				0F25C2732C887EB3008B4707 /* toloveruAssets.xcassets in Resources */,
 				0F868AA82D5833AF00D952D9 /* funky2Assets.xcassets in Resources */,
+				0F51C9AB2F5EF83B00D9DDE1 /* thunderAssets.xcassets in Resources */,
 				0FD357AE2DAE98F00069BD1A /* mahjongAssets.xcassets in Resources */,
 				0FA0249D2D05D14C004B3FD5 /* lupinAssets.xcassets in Resources */,
 				0F0DE8172EDC343A00D85BCA /* bakemonoAssets.xcassets in Resources */,
@@ -5643,6 +5661,7 @@
 				0F6FB8F02DE72E3100207855 /* bangdreamTableCycleRatio.swift in Sources */,
 				0FE23B322C79BF81000E65D7 /* mt5ViewAoshimaSG.swift in Sources */,
 				0F868ACF2D5863F100D952D9 /* girlsSSVer2View95CiStart.swift in Sources */,
+				0F51C9A92F5EF71600D9DDE1 /* thunderViewTop.swift in Sources */,
 				0FD3573C2DA2151D0069BD1A /* kaijiViewRedBig.swift in Sources */,
 				0FC71FDA2E66FC55000DD53B /* toreveViewTop.swift in Sources */,
 				0FD357562DA288330069BD1A /* magiaViewNormal.swift in Sources */,
@@ -6396,6 +6415,7 @@
 				0F3465BD2CB2B2BA00B5D2DD /* vvvViewCzHistoryVer2.swift in Sources */,
 				0FA663002F234AEC00F3259F /* bakemonoTableRareCz.swift in Sources */,
 				0F9318832DEAA0C400511BEF /* izaBanchoTableModeSuisoku.swift in Sources */,
+				0F51C9AD2F5EF86C00D9DDE1 /* thunderClass.swift in Sources */,
 				0F64DDA22DC5E36F0027315D /* godeaterSubViewKoyakuPattern.swift in Sources */,
 				0FCF78A82E47643D0000748B /* kabaneriTableChance.swift in Sources */,
 				0FD974EB2F417A190067CED7 /* enen2TableRegSenario.swift in Sources */,
@@ -6873,7 +6893,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.21.1;
+				MARKETING_VERSION = 3.22.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6913,7 +6933,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.21.1;
+				MARKETING_VERSION = 3.22.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

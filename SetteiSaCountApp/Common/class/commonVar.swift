@@ -129,6 +129,13 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- サンダー
+    @AppStorage("thunderisUnlocked") var thunderisUnlocked: Bool = true
+    @AppStorage("thunderTempUnlockDateDouble") var thunderTempUnlockDateDouble: Double = 0.0
+    @AppStorage("thunderMachineIconBadge") var thunderMachineIconBadge: String = "none"
+    @AppStorage("thunderMenuNormalBadge") var thunderMenuNormalBadge: String = "none"
+    @AppStorage("thunderMenuPlayBadge") var thunderMenuPlayBadge: String = "none"
+    
     // ---- カバネリ海門
     @AppStorage("kabaneriUnatoisUnlocked") var kabaneriUnatoisUnlocked: Bool = true
     @AppStorage("kabaneriUnatoTempUnlockDateDouble") var kabaneriUnatoTempUnlockDateDouble: Double = 0.0
@@ -360,7 +367,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                thunderisUnlocked = false
+                thunderMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

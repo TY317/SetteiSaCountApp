@@ -81,6 +81,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
     @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
     @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
+    @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
 }
 
 
@@ -148,6 +149,24 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// サンダーV、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteThunder == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(thunderViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("thunderMachineIcon"),
+                                        machineName: "サンダーV",
+                                        isUnLocked: $common.thunderisUnlocked,
+                                        tempUnlockDateDouble: $common.thunderTempUnlockDateDouble,
+                                        badgeStatus: common.thunderMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -467,7 +486,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -480,7 +498,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転剣",
-//                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 
@@ -509,7 +526,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わた婚",
-//                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -522,7 +538,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルクラ2",
-//                                        badgeStatus: ver360.guiltyCrown2MachineIconBadge,
                                     )
                                 }
                                 
@@ -561,7 +576,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
                                         machineName: "ToLOVEるver8.7"
-//                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -574,7 +588,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "SEED"
-//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -587,7 +600,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
-//                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -1014,6 +1026,27 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// サンダー、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteThunder == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(thunderViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("thunderMachineIcon"),
+                                        machineName: "サンダーV",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 3,
+                                        isUnLocked: $common.thunderisUnlocked,
+                                        tempUnlockDateDouble: $common.thunderTempUnlockDateDouble,
+                                        badgeStatus: common.thunderMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -2198,6 +2231,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // サンダー
+                Toggle("サンダーV", isOn: $favoriteSet.isSelectedFavoriteThunder)
                 // カバネリ海門
                 Toggle("カバネリ海門決戦", isOn: $favoriteSet.isSelectedFavoriteKabaneriUnato)
                 // ゴブリンスレイヤー２
