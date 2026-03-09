@@ -1,4 +1,5 @@
 PODS:
+  - FBAudienceNetwork (6.21.0)
   - Firebase/Analytics (12.9.0):
     - Firebase/Core
   - Firebase/Core (12.9.0):
@@ -92,6 +93,9 @@ PODS:
   - GoogleDataTransport (10.1.0):
     - nanopb (~> 3.30910.0)
     - PromisesObjC (~> 2.4)
+  - GoogleMobileAdsMediationFacebook (6.21.0.1):
+    - FBAudienceNetwork (= 6.21.0)
+    - Google-Mobile-Ads-SDK (~> 12.0)
   - GoogleMobileAdsMediationInMobi (11.1.1.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - InMobiSDK (= 11.1.1)
@@ -144,12 +148,14 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crashlytics
   - Google-Mobile-Ads-SDK
+  - GoogleMobileAdsMediationFacebook
   - GoogleMobileAdsMediationInMobi
   - GoogleMobileAdsMediationLine
   - GoogleMobileAdsMediationUnity
 
 SPEC REPOS:
   trunk:
+    - FBAudienceNetwork
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -164,6 +170,7 @@ SPEC REPOS:
     - GoogleAdsOnDeviceConversion
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleMobileAdsMediationFacebook
     - GoogleMobileAdsMediationInMobi
     - GoogleMobileAdsMediationLine
     - GoogleMobileAdsMediationUnity
@@ -176,6 +183,7 @@ SPEC REPOS:
     - UnityAds
 
 SPEC CHECKSUMS:
+  FBAudienceNetwork: f4ab9e073ab98c884dbdb5ffe7c861272b380bc2
   Firebase: 065f2bb395062046623036d8e6dc857bc2521d56
   FirebaseAnalytics: cd7d01d352f3c237c9a0e31552c257cd0b0c0352
   FirebaseCore: 428912f751178b06bef0a1793effeb4a5e09a9b8
@@ -190,6 +198,7 @@ SPEC CHECKSUMS:
   GoogleAdsOnDeviceConversion: d68c69dd9581a0f5da02617b6f377e5be483970f
   GoogleAppMeasurement: fce7c1c90640d2f9f5c56771f71deacb2ba3f98c
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
+  GoogleMobileAdsMediationFacebook: a8379733e6e593e9a5ea278bdc16e747ec952a18
   GoogleMobileAdsMediationInMobi: 010c989845587e66ef33491f2bdf5426cb3e1c15
   GoogleMobileAdsMediationLine: d92ef4bee9186492687a9475c92cd320f5166f1d
   GoogleMobileAdsMediationUnity: 85fd40e2b42371341446745899e2963faaaaaba9
@@ -201,6 +210,6 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   UnityAds: 8b9e0ecf7c4aa7334d15f81efb58db279e28f502
 
-PODFILE CHECKSUM: e9c561fcae5c155f9256fb9bc01674cded350f50
+PODFILE CHECKSUM: 55f0dde529a997f411765b5d42cd9b74382daa9b
 
 COCOAPODS: 1.16.2
