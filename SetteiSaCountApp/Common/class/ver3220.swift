@@ -15,7 +15,7 @@ struct tipVer3220UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・サンダーBT")
+        Text("・サンダーV")
     }
     var image: Image? {
         Image(systemName: "star")

@@ -30,6 +30,18 @@ struct thunderViewTop: View {
                 }
                 
                 Section {
+                    // 打ち始めデータ入力
+                    NavigationLink(destination: thunderViewStart(
+                        thunder: thunder,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "airplane.departure",
+                            textBody: "打ち始めデータ入力",
+                            badgeStatus: common.thunderMenuStartBadge,
+                        )
+                    }
 //                    // 通常時
 //                    NavigationLink(destination: thunderViewNormal(
 //                        thunder: thunder,
