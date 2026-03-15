@@ -24,6 +24,7 @@ struct newOni3ViewFirstHit: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         List {
@@ -60,6 +61,25 @@ struct newOni3ViewFirstHit: View {
                         )
                     }
                 }
+                
+                // 参考情報）AT裏モード移行率
+                unitLinkButtonViewBuilder(sheetTitle: "AT裏モード移行率") {
+                    VStack(alignment: .leading) {
+                        Text("・AT突入時に抽選")
+                        Text("・リーチ目確率が1/7774 → 1/299にアップ")
+                        Text("・初回ボーナス後に通常に移行")
+                    }
+                    .padding(.bottom)
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "裏モード移行",
+                            percentList: [8.2,8.6,9,10.2,11.3,11.7],
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                .popoverTip(tipVer3220newOni3UraMode())
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
@@ -82,6 +102,8 @@ struct newOni3ViewFirstHit: View {
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.newOni3MenuFirstHitBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -136,4 +158,5 @@ struct newOni3ViewFirstHit: View {
         bayes: Bayes(),
         viewModel: InterstitialViewModel(),
     )
+    .environmentObject(commonVar())
 }

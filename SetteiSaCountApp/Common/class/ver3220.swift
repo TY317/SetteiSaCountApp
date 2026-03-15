@@ -53,3 +53,19 @@ struct tipVer3220enen2Mode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：新鬼武者３　裏モード
+// //////////////////
+struct tipVer3220newOni3UraMode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("AT裏モードの存在と移行率が判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
