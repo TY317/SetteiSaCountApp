@@ -90,3 +90,78 @@ class Thunder: ObservableObject {
         resetPlay()
     }
 }
+
+
+class ThunderMemory1: ObservableObject {
+    @AppStorage("thunderStartGameMemory1") var startGame: Int = 0
+    @AppStorage("thunderStartBigMemory1") var startBig: Int = 0
+    @AppStorage("thunderStartRegMemory1") var startReg: Int = 0
+    @AppStorage("thunderPlayGameMemory1") var playGame: Int = 0
+    @AppStorage("thunderTotalGameMemory1") var totalGame: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellAMemory1") var normalKoyakuCountBellA: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellBMemory1") var normalKoyakuCountBellB: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellSumMemory1") var normalKoyakuCountBellSum: Int = 0
+    @AppStorage("thunderNormalKoyakuCountSuikaMemory1") var normalKoyakuCountSuika: Int = 0
+    @AppStorage("thunderNormalKoyakuCountCherryBMemory1") var normalKoyakuCountCherryB: Int = 0
+    @AppStorage("thunderPlayBigMemory1") var playBig: Int = 0
+    @AppStorage("thunderPlayRegMemory1") var playReg: Int = 0
+    @AppStorage("thunderTotalBigMemory1") var totalBig: Int = 0
+    @AppStorage("thunderTotalRegMemory1") var totalReg: Int = 0
+    @AppStorage("thunderBtRedSevenMemory1") var btRedSeven: Int = 0
+    @AppStorage("thunderBbCountBellCMemory1") var bbCountBellC: Int = 0
+    @AppStorage("thunderBbCountBellBMemory1") var bbCountBellB: Int = 0
+    @AppStorage("thunderBbGameMemory1") var bbGame: Int = 0
+    @AppStorage("thunderBbCountReachMemory1") var bbCountReach: Int = 0
+    @AppStorage("thunderMemoMemory1") var memo = ""
+    @AppStorage("thunderDateMemory1") var dateDouble = 0.0
+}
+
+
+class ThunderMemory2: ObservableObject {
+    @AppStorage("thunderStartGameMemory2") var startGame: Int = 0
+    @AppStorage("thunderStartBigMemory2") var startBig: Int = 0
+    @AppStorage("thunderStartRegMemory2") var startReg: Int = 0
+    @AppStorage("thunderPlayGameMemory2") var playGame: Int = 0
+    @AppStorage("thunderTotalGameMemory2") var totalGame: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellAMemory2") var normalKoyakuCountBellA: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellBMemory2") var normalKoyakuCountBellB: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellSumMemory2") var normalKoyakuCountBellSum: Int = 0
+    @AppStorage("thunderNormalKoyakuCountSuikaMemory2") var normalKoyakuCountSuika: Int = 0
+    @AppStorage("thunderNormalKoyakuCountCherryBMemory2") var normalKoyakuCountCherryB: Int = 0
+    @AppStorage("thunderPlayBigMemory2") var playBig: Int = 0
+    @AppStorage("thunderPlayRegMemory2") var playReg: Int = 0
+    @AppStorage("thunderTotalBigMemory2") var totalBig: Int = 0
+    @AppStorage("thunderTotalRegMemory2") var totalReg: Int = 0
+    @AppStorage("thunderBtRedSevenMemory2") var btRedSeven: Int = 0
+    @AppStorage("thunderBbCountBellCMemory2") var bbCountBellC: Int = 0
+    @AppStorage("thunderBbCountBellBMemory2") var bbCountBellB: Int = 0
+    @AppStorage("thunderBbGameMemory2") var bbGame: Int = 0
+    @AppStorage("thunderBbCountReachMemory2") var bbCountReach: Int = 0
+    @AppStorage("thunderMemoMemory2") var memo = ""
+    @AppStorage("thunderDateMemory2") var dateDouble = 0.0
+}
+
+
+class ThunderMemory3: ObservableObject {
+    @AppStorage("thunderStartGameMemory3") var startGame: Int = 0
+    @AppStorage("thunderStartBigMemory3") var startBig: Int = 0
+    @AppStorage("thunderStartRegMemory3") var startReg: Int = 0
+    @AppStorage("thunderPlayGameMemory3") var playGame: Int = 0
+    @AppStorage("thunderTotalGameMemory3") var totalGame: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellAMemory3") var normalKoyakuCountBellA: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellBMemory3") var normalKoyakuCountBellB: Int = 0
+    @AppStorage("thunderNormalKoyakuCountBellSumMemory3") var normalKoyakuCountBellSum: Int = 0
+    @AppStorage("thunderNormalKoyakuCountSuikaMemory3") var normalKoyakuCountSuika: Int = 0
+    @AppStorage("thunderNormalKoyakuCountCherryBMemory3") var normalKoyakuCountCherryB: Int = 0
+    @AppStorage("thunderPlayBigMemory3") var playBig: Int = 0
+    @AppStorage("thunderPlayRegMemory3") var playReg: Int = 0
+    @AppStorage("thunderTotalBigMemory3") var totalBig: Int = 0
+    @AppStorage("thunderTotalRegMemory3") var totalReg: Int = 0
+    @AppStorage("thunderBtRedSevenMemory3") var btRedSeven: Int = 0
+    @AppStorage("thunderBbCountBellCMemory3") var bbCountBellC: Int = 0
+    @AppStorage("thunderBbCountBellBMemory3") var bbCountBellB: Int = 0
+    @AppStorage("thunderBbGameMemory3") var bbGame: Int = 0
+    @AppStorage("thunderBbCountReachMemory3") var bbCountReach: Int = 0
+    @AppStorage("thunderMemoMemory3") var memo = ""
+    @AppStorage("thunderDateMemory3") var dateDouble = 0.0
+}
