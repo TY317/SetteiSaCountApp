@@ -137,6 +137,7 @@ class commonVar: ObservableObject {
     @AppStorage("thunderMenuPlayBadge") var thunderMenuPlayBadge: String = "none"
     @AppStorage("thunderMenuStartBadge") var thunderMenuStartBadge: String = "none"
     @AppStorage("thunderMenuBayesBadge") var thunderMenuBayesBadge: String = "none"
+    @AppStorage("thunderMenuScreenBadge") var thunderMenuScreenBadge: String = "none"
     
     // ---- カバネリ海門
     @AppStorage("kabaneriUnatoisUnlocked") var kabaneriUnatoisUnlocked: Bool = true

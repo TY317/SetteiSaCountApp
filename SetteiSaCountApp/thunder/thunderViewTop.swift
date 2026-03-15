@@ -55,70 +55,19 @@ struct thunderViewTop: View {
                             badgeStatus: common.thunderMenuPlayBadge,
                         )
                     }
-//                    // 通常時
-//                    NavigationLink(destination: thunderViewNormal(
-//                        thunder: thunder,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.thunderMenuNormalBadge,
-//                        )
-//                    }
-//                    
-//                    // 初あたり
-//                    NavigationLink(destination: thunderViewFirstHit(
-//                        thunder: thunder,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.thunderMenuFirstHitBadge,
-//                        )
-//                    }
-//                    
-//                    // 駿城ボーナス
-//                    NavigationLink(destination: thunderViewHayajiro(
-//                        thunder: thunder,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "tram.fill.tunnel",
-//                            textBody: "駿城ボーナス",
-//                            badgeStatus: common.thunderMenuHayajiroBadge,
-//                        )
-//                    }
-//                    
-//                    // カバネリボーナス
-//                    NavigationLink(destination: thunderViewKabaneriBonus(
-//                        thunder: thunder,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "person.2.fill",
-//                            textBody: "カバネリボーナス",
-//                            badgeStatus: common.thunderMenuKabaneriBonusBadge,
-//                        )
-//                    }
-//                    
-//                    // ST終了画面
-//                    NavigationLink(destination: thunderViewScreen(
-//                        thunder: thunder,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "ST終了画面",
-//                            badgeStatus: common.thunderMenuScreenBadge,
-//                        )
-//                    }
+                    
+                    // ボーナス終了画面
+                    NavigationLink(destination: thunderViewScreen(
+                        thunder: thunder,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.thunderMenuScreenBadge,
+                        )
+                    }
 //                    
 //                    // おみくじ
 //                    NavigationLink(destination: thunderViewOmikuji(
@@ -135,28 +84,28 @@ struct thunderViewTop: View {
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: thunderView95Ci(
-//                    thunder: thunder,
-//                    selection: 1,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: thunderView95Ci(
+                    thunder: thunder,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: thunderViewBayes(
-//                    thunder: thunder,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.thunderMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: thunderViewBayes(
+                    thunder: thunder,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.thunderMenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4943")
