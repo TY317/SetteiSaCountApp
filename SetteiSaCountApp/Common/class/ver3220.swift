@@ -21,3 +21,19 @@ struct tipVer3220UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+
+// //////////////////
+// Tip：カバネリ２　小吉
+// //////////////////
+struct tipVer3211KabaneriUnatoShokichi: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("小吉に関する法則が判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

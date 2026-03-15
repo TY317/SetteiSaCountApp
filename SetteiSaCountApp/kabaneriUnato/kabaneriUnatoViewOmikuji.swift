@@ -100,6 +100,12 @@ struct kabaneriUnatoViewOmikuji: View {
                         numberofDigit: 0,
                     )
                 }
+                
+                // 参考情報）小吉 出現タイミングの法則
+                unitLinkButtonViewBuilder(sheetTitle: "小吉 出現タイミングの法則") {
+                    kabaneriUnatoTableShokichi()
+                }
+                .popoverTip(tipVer3211KabaneriUnatoShokichi())
             } header: {
                 Text("カウント結果")
             }

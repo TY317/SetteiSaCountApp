@@ -372,6 +372,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 thunderisUnlocked = false
                 thunderMachineIconBadge = "new"
+                kabaneriUnatoMenuOmikujiBadge = "update"
+                kabaneriUnatoMachineIconBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
