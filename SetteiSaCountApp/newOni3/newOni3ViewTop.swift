@@ -41,7 +41,8 @@ struct newOni3ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "party.popper.fill",
-                            textBody: "初当り"
+                            textBody: "初当り",
+                            badgeStatus: common.newOni3MenuFirstHitBadge,
                         )
                     }
                     // 蒼剣ボーナス

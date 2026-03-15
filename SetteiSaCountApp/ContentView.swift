@@ -33,7 +33,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteRezero2") var isSelectedFavoriteRezero2 = true
     @AppStorage("isSelectedFavoriteBangdream") var isSelectedFavoriteBangdream = true
     @AppStorage("isSelectedFavoriteMhr") var isSelectedFavoriteMhr = true
-    @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
+//    @AppStorage("isSelectedFavoriteInuyasha2") var isSelectedFavoriteInuyasha2 = true
     @AppStorage("isSelectedFavoriteLupin") var isSelectedFavoriteLupin = true
     @AppStorage("isSelectedFavoriteDanvine") var isSelectedFavoriteDanvine = true
     @AppStorage("isSelectedFavoriteDumbbell") var isSelectedFavoriteDumbbell = true
@@ -50,7 +50,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodzilla") var isSelectedFavoriteGodzilla = true
     @AppStorage("isSelectedFavoriteMahjong") var isSelectedFavoriteMahjong = true
     @AppStorage("isSelectedFavoriteYoshimune") var isSelectedFavoriteYoshimune = true
-    @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
+//    @AppStorage("isSelectedFavoriteIdolMaster") var isSelectedFavoriteIdolMaster = true
     @AppStorage("isSelectedFavoriteMidoriDon") var isSelectedFavoriteMidoriDon = true
     @AppStorage("isSelectedFavoriteGundamSeed") var isSelectedFavoriteGundamSeed = true
     @AppStorage("isSelectedFavoriteToloveru87") var isSelectedFavoriteToloveru87 = true
@@ -81,6 +81,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteHanabi") var isSelectedFavoriteHanabi = true
     @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
     @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
+    @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
 }
 
 
@@ -112,7 +113,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3211UpdateInfo())
+                TipView(tipVer3220UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -148,6 +149,24 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// サンダーV、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteThunder == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(thunderViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("thunderMachineIcon"),
+                                        machineName: "サンダーV",
+                                        isUnLocked: $common.thunderisUnlocked,
+                                        tempUnlockDateDouble: $common.thunderTempUnlockDateDouble,
+                                        badgeStatus: common.thunderMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -467,7 +486,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("darlingMachineIcon"),
                                         machineName: "ダリフラ",
-//                                        badgeStatus: ver390.darlingMachineIconBadge,
                                     )
                                 }
                                 
@@ -480,7 +498,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("reSwordMachineIcon"),
                                         machineName: "転剣",
-//                                        badgeStatus: ver361.reSwordMachineIconBadge,
                                     )
                                 }
                                 
@@ -509,7 +526,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("watakonMachineIcon"),
                                         machineName: "わた婚",
-//                                        badgeStatus: ver351.watakonMachineIconBadgeStaus,
                                     )
                                 }
                                 
@@ -522,7 +538,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("guiltyCrown2MachineIcon"),
                                         machineName: "ギルクラ2",
-//                                        badgeStatus: ver360.guiltyCrown2MachineIconBadge,
                                     )
                                 }
                                 
@@ -561,7 +576,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("toloveru87MachineIcon"),
                                         machineName: "ToLOVEるver8.7"
-//                                        badgeStatus: ver320.toloveru87MachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -574,7 +588,6 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("gundamSeedMachineIcon"),
                                         machineName: "SEED"
-//                                        badgeStatus: ver310.gundamSeedMachineIconBadgeStatus
                                     )
                                 }
                                 
@@ -587,22 +600,21 @@ struct ContentView: View {
                                         )),
                                         iconImage: Image("midoriDonMachineIcon"),
                                         machineName: "緑ドン",
-//                                        badgeStatus: ver340.midoriDonMachineIconBadgeStatus
                                     )
                                 }
                                 
                                 // //// アイマス、25年4月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
-                                    
-                                } else {
-                                    unitMachineIconLink(
-                                        linkView: AnyView(idolMasterViewTop(
-                                        )),
-                                        iconImage: Image("idolMasterMachineIcon"),
-                                        machineName: "アイマス",
-//                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(
+//                                        linkView: AnyView(idolMasterViewTop(
+//                                        )),
+//                                        iconImage: Image("idolMasterMachineIcon"),
+//                                        machineName: "アイマス",
+////                                        badgeStatus: ver330.idolMasterMachineIconBadgeStaus
+//                                    )
+//                                }
                                 
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
@@ -791,11 +803,11 @@ struct ContentView: View {
                                     unitMachineIconLink(linkView: AnyView(lupinViewTop()), iconImage: Image("lupinMachineIcon"), machineName: "ルパン大航海者")
                                 }
                                 // //// 犬夜叉2、24年12月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
-                                    
-                                } else {
-                                    unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+//                                    
+//                                } else {
+//                                    unitMachineIconLink(linkView: AnyView(inuyasha2ViewTop()), iconImage: Image("inuyasha2MachineIcon"), machineName: "犬夜叉2")
+//                                }
                                 
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
@@ -1014,6 +1026,27 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// サンダー、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteThunder == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(thunderViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("thunderMachineIcon"),
+                                        machineName: "サンダーV",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 3,
+                                        isUnLocked: $common.thunderisUnlocked,
+                                        tempUnlockDateDouble: $common.thunderTempUnlockDateDouble,
+                                        badgeStatus: common.thunderMachineIconBadge,
+                                        btBadgeBool: true,
                                     )
                                 }
                                 
@@ -1539,19 +1572,19 @@ struct ContentView: View {
                                 }
                                 
                                 // //// アイマス、25年4月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
-                                    
-                                } else {
-                                    unitMachinListLink(
-                                        linkView: AnyView(idolMasterViewTop(
-                                        )),
-                                        iconImage: Image("idolMasterMachineIcon"),
-                                        machineName: "アイドルマスター",
-                                        makerName: "山佐",
-                                        releaseYear: 2025,
-                                        releaseMonth: 4,
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteIdolMaster == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(idolMasterViewTop(
+//                                        )),
+//                                        iconImage: Image("idolMasterMachineIcon"),
+//                                        machineName: "アイドルマスター",
+//                                        makerName: "山佐",
+//                                        releaseYear: 2025,
+//                                        releaseMonth: 4,
+//                                    )
+//                                }
                                 
                                 // //// 吉宗、25年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteYoshimune == false {
@@ -1795,18 +1828,18 @@ struct ContentView: View {
                                 }
                                 
                                 // //// 犬夜叉2、24年12月
-                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
-                                    
-                                } else {
-                                    unitMachinListLink(
-                                        linkView: AnyView(inuyasha2ViewTop()),
-                                        iconImage: Image("inuyasha2MachineIcon"),
-                                        machineName: "犬夜叉2",
-                                        makerName: "Spiky",
-                                        releaseYear: 2024,
-                                        releaseMonth: 12
-                                    )
-                                }
+//                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteInuyasha2 == false {
+//                                    
+//                                } else {
+//                                    unitMachinListLink(
+//                                        linkView: AnyView(inuyasha2ViewTop()),
+//                                        iconImage: Image("inuyasha2MachineIcon"),
+//                                        machineName: "犬夜叉2",
+//                                        makerName: "Spiky",
+//                                        releaseYear: 2024,
+//                                        releaseMonth: 12
+//                                    )
+//                                }
                                 
                                 // //// モンスターハンターライズ、24年11月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteMhr == false {
@@ -2198,6 +2231,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // サンダー
+                Toggle("サンダーV", isOn: $favoriteSet.isSelectedFavoriteThunder)
                 // カバネリ海門
                 Toggle("カバネリ海門決戦", isOn: $favoriteSet.isSelectedFavoriteKabaneriUnato)
                 // ゴブリンスレイヤー２
@@ -2257,7 +2292,7 @@ struct favoriteSettingView: View {
                 // //// 緑ドン、25年5月
                 Toggle("緑ドン VIVA情熱南米編", isOn: $favoriteSet.isSelectedFavoriteMidoriDon)
                 // //// アイマス、25年4月
-                Toggle("アイドルマスター", isOn: $favoriteSet.isSelectedFavoriteIdolMaster)
+//                Toggle("アイドルマスター", isOn: $favoriteSet.isSelectedFavoriteIdolMaster)
                 // //// 吉宗、25年4月
                 Toggle("吉宗", isOn: $favoriteSet.isSelectedFavoriteYoshimune)
                 // //// 麻雀物語、25年4月
@@ -2291,7 +2326,7 @@ struct favoriteSettingView: View {
                 // //// ルパン大航海者の秘宝、24年12月
                 Toggle("ルパン3世 大航海者の秘宝", isOn: $favoriteSet.isSelectedFavoriteLupin)
                 // //// 犬夜叉2、24年12月
-                Toggle("犬夜叉2", isOn: $favoriteSet.isSelectedFavoriteInuyasha2)
+//                Toggle("犬夜叉2", isOn: $favoriteSet.isSelectedFavoriteInuyasha2)
                 // //// モンハンライズ、24年11月
                 Toggle("モンスターハンター ライズ", isOn: $favoriteSet.isSelectedFavoriteMhr)
                 // //// バンドリ、24年11月
@@ -2380,8 +2415,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

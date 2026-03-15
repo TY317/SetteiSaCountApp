@@ -157,7 +157,7 @@ struct bakemonoViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3171BakemonoRareCz())
+//                .popoverTip(tipVer3171BakemonoRareCz())
                 
                 // カウントボタン横並び
                 // スイカ
