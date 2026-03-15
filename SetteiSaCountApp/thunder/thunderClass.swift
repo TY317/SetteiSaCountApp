@@ -21,6 +21,8 @@ class Thunder: ObservableObject {
         startBig = 0
         startReg = 0
         minusCheck = false
+        gameSumFunc()
+        bonusSumFunc()
     }
     
     // --------
@@ -71,6 +73,22 @@ class Thunder: ObservableObject {
     }
     
     func resetPlay() {
+        playGame = 0
+        totalGame = 0
+        normalKoyakuCountBellA = 0
+        normalKoyakuCountBellB = 0
+        normalKoyakuCountBellSum = 0
+        normalKoyakuCountSuika = 0
+        normalKoyakuCountCherryB = 0
+        playBig = 0
+        playReg = 0
+        totalBig = 0
+        totalReg = 0
+        btRedSeven = 0
+        bbCountBellC = 0
+        bbCountBellB = 0
+        bbGame = 0
+        bbCountReach = 0
         minusCheck = false
     }
     
