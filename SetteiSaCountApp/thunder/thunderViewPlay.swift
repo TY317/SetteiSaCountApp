@@ -319,6 +319,7 @@ struct thunderViewPlay: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）小役確率
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
@@ -397,6 +398,7 @@ struct thunderViewPlay: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
@@ -536,23 +538,27 @@ struct thunderViewPlay: View {
                         title: "🔔B",
                         count: $thunder.bbCountBellB,
                         bigNumber: $thunder.bbGame,
-                        numberofDicimal: 1
+                        numberofDicimal: 1,
+                        spacerBool: false,
                     )
                     // 🔔C
                     unitResultRatioDenomination2Line(
                         title: "🔔C",
                         count: $thunder.bbCountBellC,
                         bigNumber: $thunder.bbGame,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                     // リーチ目
                     unitResultRatioDenomination2Line(
                         title: "リーチ目",
                         count: $thunder.bbCountReach,
                         bigNumber: $thunder.bbGame,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）BB中小役確率
                 unitLinkButtonViewBuilder(sheetTitle: "BB中小役確率") {
