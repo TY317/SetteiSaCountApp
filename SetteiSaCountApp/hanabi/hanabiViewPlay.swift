@@ -197,8 +197,6 @@ struct hanabiViewPlay: View {
                                                 self.ocrResultTextList.indices.contains(index) &&
                                                 self.ocrResultColorList.indices.contains(index) {
                                                 Text(self.ocrMenuList[index])
-    //                                                Text(" : ")
-    //                                                Text(self.ocrResultTextList[index])
                                                     .foregroundStyle(self.ocrResultColorList[index])
                                                     .lineLimit(1)
                                                     .minimumScaleFactor(0.7)
@@ -210,9 +208,7 @@ struct hanabiViewPlay: View {
                                             if self.ocrMenuList.indices.contains(index) &&
                                                 self.ocrResultTextList.indices.contains(index) &&
                                                 self.ocrResultColorList.indices.contains(index) {
-//                                                Text(self.ocrMenuList[index])
                                                 Text(" : ")
-//                                                Text(self.ocrResultTextList[index])
                                                     .foregroundStyle(self.ocrResultColorList[index])
                                                     .lineLimit(1)
                                                     .minimumScaleFactor(0.7)
@@ -224,8 +220,6 @@ struct hanabiViewPlay: View {
                                             if self.ocrMenuList.indices.contains(index) &&
                                                 self.ocrResultTextList.indices.contains(index) &&
                                                 self.ocrResultColorList.indices.contains(index) {
-//                                                Text(self.ocrMenuList[index])
-//                                                Text(" : ")
                                                 Text(self.ocrResultTextList[index])
                                                     .foregroundStyle(self.ocrResultColorList[index])
                                                     .lineLimit(1)
@@ -235,24 +229,6 @@ struct hanabiViewPlay: View {
                                     }
                                     Spacer()
                                 }
-//                                ForEach(self.ocrMenuList.indices, id: \.self) { index in
-//                                    if self.ocrMenuList.indices.contains(index) &&
-//                                        self.ocrResultTextList.indices.contains(index) &&
-//                                        self.ocrResultColorList.indices.contains(index) {
-//                                        HStack {
-//                                            Spacer()
-//                                            Text(self.ocrMenuList[index])
-////                                                .frame(maxWidth: 300, alignment: .trailing)
-//                                            Text(" : ")
-//                                            Text(self.ocrResultTextList[index])
-////                                                .frame(maxWidth: 150, alignment: .leading)
-//                                            Spacer()
-//                                        }
-//                                        .foregroundStyle(self.ocrResultColorList[index])
-//                                        .lineLimit(1)
-//                                        .minimumScaleFactor(0.7)
-//                                    }
-//                                }
                             }
                             // //// ツールバー閉じるボタン
                             .toolbar {
@@ -291,78 +267,6 @@ struct hanabiViewPlay: View {
                         viewModel: viewModel,
                     )
                 }
-                
-                // フォトピッカー
-//                HStack {
-//                    Spacer()
-//                    PhotosPicker(selection: self.$selectedItem, matching: .images) {
-//                        Text("画像選択して自動入力")
-//                    }
-//                    .buttonStyle(BorderedProminentButtonStyle())
-//                    .onChange(of: self.selectedItem) { oldValue, newValue in
-//                        Task {
-//                            print("OCR開始")
-//                            if let data = try? await newValue?.loadTransferable(type: Data.self),
-//                               let uiImage = UIImage(data: data) {
-//                                self.itemList.removeAll()  // 項目リストを初期化
-//                                self.resultList.removeAll()  // 結果リストを初期化
-//                                self.colorList.removeAll()  // 色リストを初期化
-//                                self.statusTitle = "読み取り中・・"  // 結果表示のタイトルを読み取り中にリセット
-//                                self.isShowResult.toggle()   // 結果表示を発火
-//                                readImg(uiImage: uiImage)
-//                                hanabi.gameSumFunc()
-//                                hanabi.bonusSumFunc()
-//                                hanabi.bellSumFunc()
-//                                hanabi.kohriSumFunc()
-////                                hanabi.rb1MaiGameCal()
-//                                hanabi.rbGameCal()
-//                                hanabi.bbGameCal()
-//                            }
-//                        }
-//                    }
-//                    .sheet(isPresented: self.$isShowResult, content: {
-//                        NavigationView {
-//                            ScrollView {
-//                                // タイトル表示
-//                                Text(self.statusTitle)
-//                                    .font(.title)
-//                                    .padding(.bottom)
-//                                ForEach(self.ocrMenuList.indices, id: \.self) { index in
-//                                    if self.ocrMenuList.indices.contains(index) &&
-//                                        self.ocrResultTextList.indices.contains(index) &&
-//                                        self.ocrResultColorList.indices.contains(index) {
-//                                        HStack {
-//                                            Spacer()
-//                                            Text(self.ocrMenuList[index])
-//                                                .frame(maxWidth: 300, alignment: .trailing)
-//                                            Text(" : ")
-//                                            Text(self.ocrResultTextList[index])
-//                                                .frame(maxWidth: 150, alignment: .leading)
-//                                            Spacer()
-//                                        }
-//                                        .foregroundStyle(self.ocrResultColorList[index])
-//                                        .lineLimit(1)
-//                                        .minimumScaleFactor(0.7)
-//                                    }
-//                                }
-//                            }
-//                            // //// ツールバー閉じるボタン
-//                            .toolbar {
-//                                ToolbarItem(placement: .automatic) {
-//                                    Button(action: {
-//                                        self.isShowResult = false
-//                                    }, label: {
-//                                        Text("閉じる")
-//                                            .fontWeight(.bold)
-//                                    })
-//                                }
-//                            }
-//                        }
-//                        .presentationDetents([.large])
-//                    })
-//                    
-//                    Spacer()
-//                }
             } header: {
                 HStack {
                     Text("ユニメモ画像から自動入力")
@@ -855,10 +759,6 @@ struct hanabiViewPlay: View {
                         .multilineTextAlignment(.center)
                         .focused(self.$isFocused)
                         .offset(x: 5)
-//                        Text("\(hanabi.bbCountGame)")
-//                            .foregroundStyle(Color.secondary)
-//                            .frame(maxWidth: .infinity, alignment: .center)
-//                            .offset(x: 5)
                         Text("Ｇ")
                             .foregroundStyle(Color.secondary)
                             .font(.footnote)

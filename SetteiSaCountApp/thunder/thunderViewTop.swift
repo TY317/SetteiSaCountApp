@@ -42,6 +42,19 @@ struct thunderViewTop: View {
                             badgeStatus: common.thunderMenuStartBadge,
                         )
                     }
+                    
+                    // プレイデータ入力
+                    NavigationLink(destination: thunderViewPlay(
+                        thunder: thunder,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arcade.stick.and.arrow.down",
+                            textBody: "ユニメモデータ入力",
+                            badgeStatus: common.thunderMenuPlayBadge,
+                        )
+                    }
 //                    // 通常時
 //                    NavigationLink(destination: thunderViewNormal(
 //                        thunder: thunder,
