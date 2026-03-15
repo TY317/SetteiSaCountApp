@@ -374,6 +374,8 @@ class commonVar: ObservableObject {
                 thunderMachineIconBadge = "new"
                 kabaneriUnatoMenuOmikujiBadge = "update"
                 kabaneriUnatoMachineIconBadge = "update"
+                enen2MachineIconBadge = "update"
+                enen2MenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

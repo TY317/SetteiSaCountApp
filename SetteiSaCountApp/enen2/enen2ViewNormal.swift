@@ -32,7 +32,14 @@ struct enen2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "前兆移行でのモード推測") {
                     enen2TableZenchoKitaido()
                 }
-                .popoverTip(tipVer3210Enen2Mode())
+//                .popoverTip(tipVer3210Enen2Mode())
+                unitLinkButtonViewBuilder(sheetTitle: "振分け") {
+                    enen2TableModeRatio()
+                }
+                .popoverTip(tipVer3220enen2Mode())
+                unitLinkButtonViewBuilder(sheetTitle: "ミニキャラでの示唆") {
+                    enen2TableMiniChara()
+                }
             } header: {
                 Text("通常時モード")
             }

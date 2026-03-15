@@ -26,12 +26,28 @@ struct tipVer3220UpdateInfo: Tip {
 // //////////////////
 // Tip：カバネリ２　小吉
 // //////////////////
-struct tipVer3211KabaneriUnatoShokichi: Tip {
+struct tipVer3220KabaneriUnatoShokichi: Tip {
     var title: Text {
         Text("情報更新")
     }
     var message: Text? {
         Text("小吉に関する法則が判明！")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+// //////////////////
+// Tip：炎炎２　モード
+// //////////////////
+struct tipVer3220enen2Mode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("モードの振分け、ミニキャラでの示唆が判明！")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
