@@ -5,7 +5,7 @@
 //  Created by 横田徹 on 2025/12/20.
 //
 
-//import SwiftUI
+import SwiftUI
 //internal import UniformTypeIdentifiers
 //import Combine
 //
@@ -19,7 +19,7 @@
 //}
 //
 //// 叩き台となるNewContentView
-//struct ContentView: View {
+struct ContentView: View {
 //    // 実際にはこれを AppStorage や JSON で保存するようにします
 //    @State private var machines: [Machine] = [
 //        Machine(id: "5555", name: "ジャグラー", onHome: true, iconName: "machineIconJuglerSeries", btBadge: false),
@@ -35,7 +35,7 @@
 //        GridItem(.adaptive(minimum: 80))
 //    ]
 //
-//    var body: some View {
+    var body: some View {
 //        NavigationStack {
 //            ScrollView {
 //                LazyVGrid(columns: columns, spacing: 20) {
@@ -143,8 +143,8 @@
 //                }
 //            }
 //        }
-//    }
-//}
+    }
+}
 //
 //// プルプル揺れるアニメーション用
 //struct JitterModifier: ViewModifier {

@@ -9,12 +9,11 @@ import SwiftUI
 import TipKit
 
 struct dmc5ViewVoice: View {
-//    @ObservedObject var ver352: Ver352
     @ObservedObject var dmc5: Dmc5
     @State var isShowAlert: Bool = false
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
-//        TipView(tipVer352Dmc5Emblem())
         List {
             // //// エンブレム点灯
             Section {
@@ -67,7 +66,6 @@ struct dmc5ViewVoice: View {
                 )
             } header: {
                 Text("エンブレム点灯個数")
-//                    .popoverTip(tipVer352Dmc5Emblem())
             }
             
             // //// エンブレムの種類
@@ -167,9 +165,25 @@ struct dmc5ViewVoice: View {
             } header: {
                 Text("勝利時のセリフ")
             }
+            
+            // 終了後のモード移行
+            Section {
+                // モード移行振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了後のモード振分け") {
+                    dmc5TablePremiumStMode()
+                }
+                .popoverTip(tipVer3221Dmc5PremiumStMode())
+                
+                // 通常時のモード
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    dmc5TableMode()
+                }
+            } header: {
+                Text("終了後のモード振分け")
+            }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver352.dmc5MenuPremiumStBadge)
+        .resetBadgeOnAppear($common.dmc5MenuPremiumStBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -198,4 +212,5 @@ struct dmc5ViewVoice: View {
 //        ver352: Ver352(),
         dmc5: Dmc5()
     )
+    .environmentObject(commonVar())
 }

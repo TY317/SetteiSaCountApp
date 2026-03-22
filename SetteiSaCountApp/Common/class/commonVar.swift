@@ -431,6 +431,7 @@ class commonVar: ObservableObject {
     // //// デビルメイクライ
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
+    @AppStorage("dmc5MenuPremiumStBadge") var dmc5MenuPremiumStBadge: String = "none"
     
     // //// 東京グール
     @AppStorage("tokyoGhoulMachineIconBadge") var tokyoGhoulMachineIconBadge: String = "none"
@@ -479,6 +480,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
+                dmc5MachineIconBadge = "update"
+                dmc5MenuPremiumStBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

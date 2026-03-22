@@ -21,3 +21,19 @@ struct tipVer3221UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+
+// //////////////////
+// Tip：DMC 上位ST後のモード移行
+// //////////////////
+struct tipVer3221Dmc5PremiumStMode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("上位ST後のモード振分け 特大設定差が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
