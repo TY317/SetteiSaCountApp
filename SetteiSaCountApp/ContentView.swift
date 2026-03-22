@@ -113,7 +113,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3220UpdateInfo())
+//                TipView(tipVer3220UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -1888,7 +1888,6 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 9,
-//                                        badgeStatus: ver390.kaguyaMachineIconBadge,
                                     )
                                 }
                                 // //// シンフォギア 正義の歌、24年7月
@@ -1912,7 +1911,6 @@ struct ContentView: View {
                                         makerName: "山佐",
                                         releaseYear: 2024,
                                         releaseMonth: 7,
-//                                        badgeStatus: ver380.godeaterMachineIconBadge,
                                     )
                                 }
                                 // //// ToLOVEるダークネス、24年6月
@@ -1927,7 +1925,6 @@ struct ContentView: View {
                                         makerName: "平和",
                                         releaseYear: 2024,
                                         releaseMonth: 6
-//                                        badgeStatus: ver320.toloveruMachineIconBadgeStaus
                                     )
                                 }
                                 
@@ -1946,7 +1943,6 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2024,
                                         releaseMonth: 5,
-//                                        badgeStatus: ver391.enenMachineIconBadge,
                                     )
                                 }
                                 
@@ -1993,7 +1989,6 @@ struct ContentView: View {
                                         makerName: "SANKYO",
                                         releaseYear: 2023,
                                         releaseMonth: 7,
-//                                        badgeStatus: ver380.karakuriMachineIconBadge,
                                     )
                                 }
                                 
@@ -2013,7 +2008,6 @@ struct ContentView: View {
                                         makerName: "サミー",
                                         releaseYear: 2023,
                                         releaseMonth: 4,
-//                                        badgeStatus: ver380.hokutoMachineIconBadge,
                                     )
                                 }
                                 

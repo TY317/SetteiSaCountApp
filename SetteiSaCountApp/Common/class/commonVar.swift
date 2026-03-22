@@ -141,7 +141,7 @@ class commonVar: ObservableObject {
         Machine(id: "4571", name: "ToLOVEる", fullName: "ToLOVEるダークネス", iconName: "toloveruMachineIcon", btBadge: false),
         Machine(id: "4555", name: "スマスロ炎炎", fullName: "スマスロ炎炎ノ消防隊", iconName: "enenMachineIcon", btBadge: false),
         Machine(id: "4501", name: "ゴジエヴァ", fullName: "ゴジラvsエヴァンゲリオン", iconName: "machinIconGoeva", btBadge: false),
-        Machine(id: "4450", name: "モンキー5", fullName: "モンキーターン5", iconName: "machineIconMT5", btBadge: false),
+        Machine(id: "4450", name: "モンキー5", fullName: "モンキーターン5", iconName: "mt5MachineIconWhite", btBadge: false),
         Machine(id: "4360", name: "からくりサーカス", fullName: "からくりサーカス", iconName: "karakuriMachineIcon", btBadge: false),
         Machine(id: "4301", name: "北斗の拳", fullName: "北斗の拳", iconName: "machineIconHokuto", btBadge: false),
         Machine(id: "4244", name: "ヴヴヴ", fullName: "革命機ヴァルヴレイヴ", iconName: "machineIconVVV", btBadge: false),
@@ -608,33 +608,33 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3180FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.18.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                kokakukidotaiisUnlocked = false
-                kokakukidotaiMachineIconBadge = "new"
-                hokutoTenseiMenuTengekiBadge = "new"
-                hokutoTenseiMachineIconBadge = "update"
-                hokutoTenseiMenuFirstHitBadge = "update"
-                tekken6MachineIconBadge = "update"
-                tekken6MenuNormalBadge = "update"
-                tekken6MenuBonusBadge = "new"
-                hokutoTenseiMenuBayesBadge = "update"
-                tekken6MenuBayesBadge = "update"
-                enen2isUnlocked = false
-                enen2MachineIconBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
+//    func ver3180FirstLaunch() {
+//        // 比較対象となるバージョンを設定
+//        let targetVersion: String = "3.18.0"
+//        
+//        if firstLaunchAppVersion != nil {
+//            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+//            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+//                print("\(targetVersion)未満からアップデートされました")
+//                kokakukidotaiisUnlocked = false
+//                kokakukidotaiMachineIconBadge = "new"
+//                hokutoTenseiMenuTengekiBadge = "new"
+//                hokutoTenseiMachineIconBadge = "update"
+//                hokutoTenseiMenuFirstHitBadge = "update"
+//                tekken6MachineIconBadge = "update"
+//                tekken6MenuNormalBadge = "update"
+//                tekken6MenuBonusBadge = "new"
+//                hokutoTenseiMenuBayesBadge = "update"
+//                tekken6MenuBayesBadge = "update"
+//                enen2isUnlocked = false
+//                enen2MachineIconBadge = "new"
+//            }
+//            else {
+//                print("\(targetVersion)以上です")
+//            }
+//        } else {
+//            print("初回起動です")
+//        }
+//    }
 }
 

@@ -38,7 +38,7 @@ struct tekken6ViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3180tekken6RareDirect())
+//                .popoverTip(tipVer3180tekken6RareDirect())
                 
                 // カウントボタン横並び
                 HStack {
