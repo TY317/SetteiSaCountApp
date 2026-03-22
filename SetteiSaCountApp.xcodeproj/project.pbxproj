@@ -154,6 +154,7 @@
 		0F4471EC2F6E73F10048E9CE /* JitterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */; };
 		0F4471EE2F6E75120048E9CE /* MachineDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */; };
 		0F4471F02F6E75480048E9CE /* FavoriteManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */; };
+		0F4471F22F700C0B0048E9CE /* ver3221.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471F12F700C0B0048E9CE /* ver3221.swift */; };
 		0F447C5F2F49304F006DAF11 /* newKingHanaViewJissenCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */; };
 		0F447C632F493319006DAF11 /* newKingHanaSubViewCountInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C612F493319006DAF11 /* newKingHanaSubViewCountInput.swift */; };
 		0F447C652F493D06006DAF11 /* newKingHanaView95CiPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C642F493D06006DAF11 /* newKingHanaView95CiPersonal.swift */; };
@@ -1541,6 +1542,7 @@
 		0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitterModifier.swift; sourceTree = "<group>"; };
 		0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDropDelegate.swift; sourceTree = "<group>"; };
 		0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManageView.swift; sourceTree = "<group>"; };
+		0F4471F12F700C0B0048E9CE /* ver3221.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3221.swift; sourceTree = "<group>"; };
 		0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewJissenCount.swift; sourceTree = "<group>"; };
 		0F447C612F493319006DAF11 /* newKingHanaSubViewCountInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaSubViewCountInput.swift; sourceTree = "<group>"; };
 		0F447C642F493D06006DAF11 /* newKingHanaView95CiPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaView95CiPersonal.swift; sourceTree = "<group>"; };
@@ -4055,6 +4057,7 @@
 				0F2020422F4BEC4100FDA263 /* ver3210.swift */,
 				0F0FAF672F55BB1400118DC1 /* ver3211.swift */,
 				0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */,
+				0F4471F12F700C0B0048E9CE /* ver3221.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -6320,6 +6323,7 @@
 				0F868A382D45D08C00D952D9 /* hanaTenshoVer2View95CiStart.swift in Sources */,
 				0FF369332E62E8E9002BE0CE /* godeaterViewBayes.swift in Sources */,
 				0F19D44F2F2D95B7004A6D9F /* tekken6TableRareDirect.swift in Sources */,
+				0F4471F22F700C0B0048E9CE /* ver3221.swift in Sources */,
 				0F8031102C6251AB001F008E /* VVV_Top.swift in Sources */,
 				0F868A492D460F0500D952D9 /* kingHanaVer2View95CiKen.swift in Sources */,
 				0F6B59F42E0C16CD00DB1A2B /* watakonClass.swift in Sources */,
