@@ -145,6 +145,15 @@
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
 		0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */; };
+		0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F654BB72C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets */; };
+		0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F80903F2C83DC410061480F /* hokutoAssets.xcassets */; };
+		0F4471D42F6C23D60048E9CE /* kabaneriUnatoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2020682F52E31200FDA263 /* kabaneriUnatoAssets.xcassets */; };
+		0F4471D52F6C24080048E9CE /* shakeAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F03BD2D2F0B88C600222339 /* shakeAssets.xcassets */; };
+		0F4471E52F6E0E4A0048E9CE /* ContentViewVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471CE2F69891F0048E9CE /* ContentViewVer2.swift */; };
+		0F4471EA2F6E72960048E9CE /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471E92F6E72960048E9CE /* Machine.swift */; };
+		0F4471EC2F6E73F10048E9CE /* JitterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */; };
+		0F4471EE2F6E75120048E9CE /* MachineDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */; };
+		0F4471F02F6E75480048E9CE /* FavoriteManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */; };
 		0F447C5F2F49304F006DAF11 /* newKingHanaViewJissenCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */; };
 		0F447C632F493319006DAF11 /* newKingHanaSubViewCountInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C612F493319006DAF11 /* newKingHanaSubViewCountInput.swift */; };
 		0F447C652F493D06006DAF11 /* newKingHanaView95CiPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C642F493D06006DAF11 /* newKingHanaView95CiPersonal.swift */; };
@@ -1527,6 +1536,11 @@
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
 		0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewCzHistory.swift; sourceTree = "<group>"; };
+		0F4471CE2F69891F0048E9CE /* ContentViewVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVer2.swift; sourceTree = "<group>"; };
+		0F4471E92F6E72960048E9CE /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitterModifier.swift; sourceTree = "<group>"; };
+		0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDropDelegate.swift; sourceTree = "<group>"; };
+		0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManageView.swift; sourceTree = "<group>"; };
 		0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewJissenCount.swift; sourceTree = "<group>"; };
 		0F447C612F493319006DAF11 /* newKingHanaSubViewCountInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaSubViewCountInput.swift; sourceTree = "<group>"; };
 		0F447C642F493D06006DAF11 /* newKingHanaView95CiPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaView95CiPersonal.swift; sourceTree = "<group>"; };
@@ -2946,6 +2960,16 @@
 			path = karakuriCircus;
 			sourceTree = "<group>";
 		};
+		0F4471E62F6E72550048E9CE /* machineSelect */ = {
+			isa = PBXGroup;
+			children = (
+				0F4471E92F6E72960048E9CE /* Machine.swift */,
+				0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */,
+				0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */,
+			);
+			path = machineSelect;
+			sourceTree = "<group>";
+		};
 		0F45A5A52EFEACAD0022E355 /* hokutoTensei */ = {
 			isa = PBXGroup;
 			children = (
@@ -3478,6 +3502,7 @@
 			isa = PBXGroup;
 			children = (
 				0F8030DD2C6249FC001F008E /* ContentView.swift */,
+				0F4471CE2F69891F0048E9CE /* ContentViewVer2.swift */,
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
@@ -3597,6 +3622,7 @@
 		0F80310E2C625060001F008E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0F4471E62F6E72550048E9CE /* machineSelect */,
 				0F2A4DEB2F36EEBD00B3C583 /* ocr */,
 				0F9A79842E48AA8900D996CA /* bayes */,
 				0F868A7A2D539C3F00D952D9 /* class */,
@@ -3983,6 +4009,7 @@
 				0FB9CAB12DE1AFF6009FC6AF /* FirebaseScreenLogger.swift */,
 				0FB209682E120D570029D940 /* KeyboardDoneToolbarModifier.swift */,
 				0FDB72902EE5A8560075B6A4 /* AutoGameCountModifier.swift */,
+				0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */,
 			);
 			path = modifier;
 			sourceTree = "<group>";
@@ -5281,9 +5308,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4471D42F6C23D60048E9CE /* kabaneriUnatoAssets.xcassets in Resources */,
 				0F45A5E12F079CC40022E355 /* tekken6Assets.xcassets in Resources */,
+				0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */,
 				0F45A5D92F073B210022E355 /* hokutoTenseiAssets.xcassets in Resources */,
+				0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */,
 				0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
+				0F4471D52F6C24080048E9CE /* shakeAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5782,6 +5813,7 @@
 				0F64DD802DC43E710027315D /* kaijiViewTonegawaRush.swift in Sources */,
 				0FEC57B02D8FA52B00FF1024 /* kaijiViewFirstHit.swift in Sources */,
 				0F64DD392DC06A510027315D /* acceleratorTableHitaioChance.swift in Sources */,
+				0F4471EA2F6E72960048E9CE /* Machine.swift in Sources */,
 				0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */,
 				0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */,
 				0F8689E82D3E7EC300D952D9 /* myJug5Ver2View95CiTotal.swift in Sources */,
@@ -6095,6 +6127,8 @@
 				0F97D8CD2E3112B40088B652 /* magiaViewMitama.swift in Sources */,
 				0FD357702DA9EA720069BD1A /* kaijiTableKoyaku.swift in Sources */,
 				0F64DD512DC085BD0027315D /* danvineTableMode.swift in Sources */,
+				0F4471EE2F6E75120048E9CE /* MachineDropDelegate.swift in Sources */,
+				0F4471E52F6E0E4A0048E9CE /* ContentViewVer2.swift in Sources */,
 				0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */,
 				0FB9CA8C2DDDA058009FC6AF /* unitPlusButton.swift in Sources */,
 				0FDF237F2E51F87F00249CAC /* enenTableRegScreen.swift in Sources */,
@@ -6364,6 +6398,7 @@
 				0FC14A9A2E4F054600F85D84 /* enenTableModeMorning.swift in Sources */,
 				0FFAEBD02EC9981A006C0371 /* neoplaViewDuringBonus.swift in Sources */,
 				0FA024732CF345DA004B3FD5 /* godeaterView95Ci.swift in Sources */,
+				0F4471EC2F6E73F10048E9CE /* JitterModifier.swift in Sources */,
 				0FC71FF42E69C7C2000DD53B /* toreveTableFirstHit.swift in Sources */,
 				0FC14A722E49A70700F85D84 /* logPostDenoBino.swift in Sources */,
 				0F9D9C432EA4FDD700450B23 /* railgunView95Ci.swift in Sources */,
@@ -6617,6 +6652,7 @@
 				0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */,
 				0F6B59D62E06566600DB1A2B /* godeaterTableKyoCherryChokugeki.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
+				0F4471F02F6E75480048E9CE /* FavoriteManageView.swift in Sources */,
 				0FFAB8712E74F3D700296A4F /* draHanaSenkohViewBayes.swift in Sources */,
 				0FB9CA892DDD9A00009FC6AF /* toloveruTableDokidokiPt.swift in Sources */,
 				0F6BD7C42D7C37C0003F5563 /* unitTableSettingIndex.swift in Sources */,
@@ -6959,7 +6995,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.22.0;
+				MARKETING_VERSION = 3.22.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -6999,7 +7035,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.22.0;
+				MARKETING_VERSION = 3.22.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

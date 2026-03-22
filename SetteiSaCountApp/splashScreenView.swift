@@ -31,12 +31,24 @@ struct splashScreenView: View {
         AppearanceMode(rawValue: appearanceModeRaw) ?? .system
     }
     @StateObject var rewardViewModel = RewardedViewModel()
+    
+    // 新トップページ切り替え時に有効化
+//    @StateObject var bayes = Bayes()
+//    @StateObject var viewModel = InterstitialViewModel()
+    // ------
+    
     var body: some View {
         if isActive {
             ContentView()
                 .environmentObject(common)
                 .preferredColorScheme(appearanceMode.colorScheme)
                 .environmentObject(rewardViewModel)
+//            ContentViewVer2()
+//                .environmentObject(common)
+//                .preferredColorScheme(appearanceMode.colorScheme)
+//                .environmentObject(rewardViewModel)
+//                .environmentObject(bayes)
+//                .environmentObject(viewModel)
         } else {
             ZStack {
                 Image("splashLogo2")
