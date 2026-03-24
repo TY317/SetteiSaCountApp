@@ -37,3 +37,19 @@ struct tipVer3221Dmc5PremiumStMode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：炎炎２　終了画面
+// //////////////////
+struct tipVer3221Enen2Screen: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("終了画面の振分け詳細が判明\nカウント機能更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

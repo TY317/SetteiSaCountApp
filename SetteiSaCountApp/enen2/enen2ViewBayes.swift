@@ -66,7 +66,7 @@ struct enen2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
-                        textBody1: "・確定系のみ反映させます",
+                        textBody1: "・炎炎ボーナス後とそれ以外をそれぞれ計算要素に加えます",
                     )
                 }
             }
@@ -186,25 +186,56 @@ struct enen2ViewBayes: View {
         
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostScreenBig: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
-            if enen2.screenCount4 > 0 {
-                logPostScreen[0] = -Double.infinity
-                logPostScreen[1] = -Double.infinity
-                logPostScreen[2] = -Double.infinity
-            }
-            if enen2.screenCount5 > 0 {
-                logPostScreen[0] = -Double.infinity
-                logPostScreen[1] = -Double.infinity
-                logPostScreen[2] = -Double.infinity
-                logPostScreen[3] = -Double.infinity
-            }
-            if enen2.screenCount6 > 0 {
-                logPostScreen[0] = -Double.infinity
-                logPostScreen[1] = -Double.infinity
-                logPostScreen[2] = -Double.infinity
-                logPostScreen[3] = -Double.infinity
-                logPostScreen[4] = -Double.infinity
-            }
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    enen2.screenCount2,
+                    enen2.screenCount3,
+                    enen2.screenCount4,
+                    enen2.screenCount5,
+                    enen2.screenCount6,
+                ], ratioList: [
+                    enen2.ratioScreen2,
+                    enen2.ratioScreen3,
+                    enen2.ratioScreen4,
+                    enen2.ratioScreen5,
+                    enen2.ratioScreen6,
+                ], bigNumber: enen2.screenCountSum
+            )
+            logPostScreenBig = logPostPercentMulti(
+                countList: [
+                    enen2.screenCountBig2,
+                    enen2.screenCountBig3,
+                    enen2.screenCountBig4,
+                    enen2.screenCountBig5,
+                    enen2.screenCountBig6,
+                ], ratioList: [
+                    enen2.ratioScreenBig2,
+                    enen2.ratioScreenBig3,
+                    enen2.ratioScreenBig4,
+                    enen2.ratioScreenBig5,
+                    enen2.ratioScreenBig6,
+                ], bigNumber: enen2.screenCountBigSum
+            )
+//            if enen2.screenCount4 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//                logPostScreen[1] = -Double.infinity
+//                logPostScreen[2] = -Double.infinity
+//            }
+//            if enen2.screenCount5 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//                logPostScreen[1] = -Double.infinity
+//                logPostScreen[2] = -Double.infinity
+//                logPostScreen[3] = -Double.infinity
+//            }
+//            if enen2.screenCount6 > 0 {
+//                logPostScreen[0] = -Double.infinity
+//                logPostScreen[1] = -Double.infinity
+//                logPostScreen[2] = -Double.infinity
+//                logPostScreen[3] = -Double.infinity
+//                logPostScreen[4] = -Double.infinity
+//            }
         }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -247,6 +278,7 @@ struct enen2ViewBayes: View {
             logPostLoop,
             logPostChara,
             logPostScreen,
+            logPostScreenBig,
             
             logPostTrophy,
             logPostBefore,
