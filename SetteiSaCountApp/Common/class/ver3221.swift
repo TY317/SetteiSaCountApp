@@ -69,3 +69,19 @@ struct tipVer3221BakemonoGameKaiju: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊　AT直当選
+// //////////////////
+struct tipVer3221KokakukidotaiAtChoku: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("殲滅ゾーンからのAT直当選確率が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -486,6 +486,8 @@ class commonVar: ObservableObject {
                 enen2MenuScreenBadge = "update"
                 bakemonoMachineIconBadge = "update"
                 bakemonoMenuNormalBadge = "update"
+                kokakukidotaiMachineIconBadge = "update"
+                kokakukidotaiMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
