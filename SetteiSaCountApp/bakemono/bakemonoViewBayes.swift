@@ -18,6 +18,7 @@ struct bakemonoViewBayes: View {
     @State var jakuCherryAtEnable: Bool = true
     @State var suikaEnable: Bool = true
     @State var rareCzEnable: Bool = true
+    @State var gameKaijuEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -58,6 +59,10 @@ struct bakemonoViewBayes: View {
                         textBody1: "・通常滞在時の🍉からの当選率、強🍒・チャンス目からの当選率を計算要素に加えます",
                     )
                 }
+                
+                // ゲーム数での解呪ノ儀当選率
+                unitToggleWithQuestion(enable: self.$gameKaijuEnable, title: "ゲーム数での解呪ノ儀当選率")
+                
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
                 // 弱チェリーからのAT直撃率
@@ -212,6 +217,22 @@ struct bakemonoViewBayes: View {
                 logPostScreenEnd[4] = -Double.infinity
             }
         }
+        
+        // ゲーム数での解ジュのぎ当選率
+        var logPostKitei200: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostKitei300: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.gameKaijuEnable {
+            logPostKitei200 = logPostPercentBino(
+                ratio: bakemono.ratioKitei200,
+                Count: bakemono.kiteiCount200Hit,
+                bigNumber: bakemono.kiteiCount200Sum
+            )
+            logPostKitei300 = logPostPercentBino(
+                ratio: bakemono.ratioKitei300,
+                Count: bakemono.kiteiCount300Hit,
+                bigNumber: bakemono.kiteiCount300Sum
+            )
+        }
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -255,6 +276,8 @@ struct bakemonoViewBayes: View {
             logPostScreenEnd,
             logPostRareCzSuika,
             logPostRareCzKyoRare,
+            logPostKitei200,
+            logPostKitei300,
             
             logPostTrophy,
             logPostBefore,

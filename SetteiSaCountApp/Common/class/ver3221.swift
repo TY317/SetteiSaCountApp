@@ -53,3 +53,19 @@ struct tipVer3221Enen2Screen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：化物語　規定ゲーム数でのかいじゅ当選
+// //////////////////
+struct tipVer3221BakemonoGameKaiju: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("規定ゲーム数での解呪ノ儀当選率が判明\nカウント機能追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
