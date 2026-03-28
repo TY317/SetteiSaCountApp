@@ -128,7 +128,7 @@ struct hokutoTenseiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "高確示唆演出", detent: .large) {
                     hokutoTenseiTableKokakuSisa()
                 }
-                .popoverTip(tipVer3190TenseiKokakuSisa())
+//                .popoverTip(tipVer3190TenseiKokakuSisa())
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
                     hokutoTenseiTableKoyakuPattern()
                 }
