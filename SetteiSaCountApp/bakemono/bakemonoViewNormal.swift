@@ -221,16 +221,19 @@ struct bakemonoViewNormal: View {
                         title: "🍉",
                         count: $bakemono.rareCzCountSuikaHit,
                         bigNumber: $bakemono.rareCzCountSuika,
-                        numberofDicimal: 1
+                        numberofDicimal: 1,
+                        spacerBool: false,
                     )
                     // 強チェリー、チャンス目
                     unitResultRatioPercent2Line(
                         title: "強🍒・チャンス目",
                         count: $bakemono.rareCzCountKyoRareHit,
                         bigNumber: $bakemono.rareCzCountKyoRareSum,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 // 参考情報）レア役からのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
@@ -327,9 +330,11 @@ struct bakemonoViewNormal: View {
                         title: "300G",
                         count: $bakemono.kiteiCount300Hit,
                         bigNumber: $bakemono.kiteiCount300Sum,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 // 参考情報）解呪ノ儀当選率
                 unitLinkButtonViewBuilder(sheetTitle: "解呪ノ儀当選率") {
