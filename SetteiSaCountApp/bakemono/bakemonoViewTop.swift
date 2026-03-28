@@ -231,6 +231,16 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory1.rareCzCountChance = bakemono.rareCzCountChance
         bakemonoMemory1.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
         bakemonoMemory1.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemonoMemory1.kiteiCount200Miss = bakemono.kiteiCount200Miss
+        bakemonoMemory1.kiteiCount200Hit = bakemono.kiteiCount200Hit
+        bakemonoMemory1.kiteiCount200Sum = bakemono.kiteiCount200Sum
+        bakemonoMemory1.kiteiCount300Miss = bakemono.kiteiCount300Miss
+        bakemonoMemory1.kiteiCount300Hit = bakemono.kiteiCount300Hit
+        bakemonoMemory1.kiteiCount300Sum = bakemono.kiteiCount300Sum
     }
     func saveMemory2() {
         bakemonoMemory2.totalGame = bakemono.totalGame
@@ -269,6 +279,16 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory2.rareCzCountChance = bakemono.rareCzCountChance
         bakemonoMemory2.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
         bakemonoMemory2.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemonoMemory2.kiteiCount200Miss = bakemono.kiteiCount200Miss
+        bakemonoMemory2.kiteiCount200Hit = bakemono.kiteiCount200Hit
+        bakemonoMemory2.kiteiCount200Sum = bakemono.kiteiCount200Sum
+        bakemonoMemory2.kiteiCount300Miss = bakemono.kiteiCount300Miss
+        bakemonoMemory2.kiteiCount300Hit = bakemono.kiteiCount300Hit
+        bakemonoMemory2.kiteiCount300Sum = bakemono.kiteiCount300Sum
     }
     func saveMemory3() {
         bakemonoMemory3.totalGame = bakemono.totalGame
@@ -307,6 +327,16 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory3.rareCzCountChance = bakemono.rareCzCountChance
         bakemonoMemory3.rareCzCountKyoRareSum = bakemono.rareCzCountKyoRareSum
         bakemonoMemory3.rareCzCountKyoRareHit = bakemono.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemonoMemory3.kiteiCount200Miss = bakemono.kiteiCount200Miss
+        bakemonoMemory3.kiteiCount200Hit = bakemono.kiteiCount200Hit
+        bakemonoMemory3.kiteiCount200Sum = bakemono.kiteiCount200Sum
+        bakemonoMemory3.kiteiCount300Miss = bakemono.kiteiCount300Miss
+        bakemonoMemory3.kiteiCount300Hit = bakemono.kiteiCount300Hit
+        bakemonoMemory3.kiteiCount300Sum = bakemono.kiteiCount300Sum
     }
 }
 
@@ -374,6 +404,16 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.rareCzCountChance = bakemonoMemory1.rareCzCountChance
         bakemono.rareCzCountKyoRareSum = bakemonoMemory1.rareCzCountKyoRareSum
         bakemono.rareCzCountKyoRareHit = bakemonoMemory1.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemono.kiteiCount200Miss = bakemonoMemory1.kiteiCount200Miss
+        bakemono.kiteiCount200Hit = bakemonoMemory1.kiteiCount200Hit
+        bakemono.kiteiCount200Sum = bakemonoMemory1.kiteiCount200Sum
+        bakemono.kiteiCount300Miss = bakemonoMemory1.kiteiCount300Miss
+        bakemono.kiteiCount300Hit = bakemonoMemory1.kiteiCount300Hit
+        bakemono.kiteiCount300Sum = bakemonoMemory1.kiteiCount300Sum
     }
     func loadMemory2() {
         bakemono.totalGame = bakemonoMemory2.totalGame
@@ -412,6 +452,16 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.rareCzCountChance = bakemonoMemory2.rareCzCountChance
         bakemono.rareCzCountKyoRareSum = bakemonoMemory2.rareCzCountKyoRareSum
         bakemono.rareCzCountKyoRareHit = bakemonoMemory2.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemono.kiteiCount200Miss = bakemonoMemory2.kiteiCount200Miss
+        bakemono.kiteiCount200Hit = bakemonoMemory2.kiteiCount200Hit
+        bakemono.kiteiCount200Sum = bakemonoMemory2.kiteiCount200Sum
+        bakemono.kiteiCount300Miss = bakemonoMemory2.kiteiCount300Miss
+        bakemono.kiteiCount300Hit = bakemonoMemory2.kiteiCount300Hit
+        bakemono.kiteiCount300Sum = bakemonoMemory2.kiteiCount300Sum
     }
     func loadMemory3() {
         bakemono.totalGame = bakemonoMemory3.totalGame
@@ -450,6 +500,16 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.rareCzCountChance = bakemonoMemory3.rareCzCountChance
         bakemono.rareCzCountKyoRareSum = bakemonoMemory3.rareCzCountKyoRareSum
         bakemono.rareCzCountKyoRareHit = bakemonoMemory3.rareCzCountKyoRareHit
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        bakemono.kiteiCount200Miss = bakemonoMemory3.kiteiCount200Miss
+        bakemono.kiteiCount200Hit = bakemonoMemory3.kiteiCount200Hit
+        bakemono.kiteiCount200Sum = bakemonoMemory3.kiteiCount200Sum
+        bakemono.kiteiCount300Miss = bakemonoMemory3.kiteiCount300Miss
+        bakemono.kiteiCount300Hit = bakemonoMemory3.kiteiCount300Hit
+        bakemono.kiteiCount300Sum = bakemonoMemory3.kiteiCount300Sum
     }
 }
 

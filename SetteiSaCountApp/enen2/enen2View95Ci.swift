@@ -48,6 +48,44 @@ struct enen2View95Ci: View {
                 )
             )
             .tag(2)
+            
+            // 炎炎ボーナス後終了画面デフォルト回数
+            unitListSection95Ci(
+                grafTitle: "炎炎ボーナス後\n終了画面 デフォルト回数",
+                titleFont: .body,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $enen2.screenCountBig1,
+                        bigNumber: $enen2.screenCountBigSum,
+                        setting1Percent: enen2.ratioScreenBig1[0],
+                        setting2Percent: enen2.ratioScreenBig1[1],
+                        setting3Percent: enen2.ratioScreenBig1[2],
+                        setting4Percent: enen2.ratioScreenBig1[3],
+                        setting5Percent: enen2.ratioScreenBig1[4],
+                        setting6Percent: enen2.ratioScreenBig1[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // REG,後終了画面デフォルト回数
+            unitListSection95Ci(
+                grafTitle: "REG,アクセルボーナス,灰焔ボーナス後\n終了画面 デフォルト回数",
+                titleFont: .body,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $enen2.screenCount1,
+                        bigNumber: $enen2.screenCountSum,
+                        setting1Percent: enen2.ratioScreen1[0],
+                        setting2Percent: enen2.ratioScreen1[1],
+                        setting3Percent: enen2.ratioScreen1[2],
+                        setting4Percent: enen2.ratioScreen1[3],
+                        setting5Percent: enen2.ratioScreen1[4],
+                        setting6Percent: enen2.ratioScreen1[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

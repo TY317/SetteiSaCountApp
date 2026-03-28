@@ -28,6 +28,9 @@ struct bakemonoViewNormal: View {
     
     @State var selectedRare: String = "🍉"
     let rareList: [String] = ["🍉", "強🍒・チャンス目"]
+    
+    let gameList: [String] = ["200G", "300G"]
+    @State var selectedGame: String = "200G"
     var body: some View {
         List {
             // //// レア役
@@ -218,16 +221,19 @@ struct bakemonoViewNormal: View {
                         title: "🍉",
                         count: $bakemono.rareCzCountSuikaHit,
                         bigNumber: $bakemono.rareCzCountSuika,
-                        numberofDicimal: 1
+                        numberofDicimal: 1,
+                        spacerBool: false,
                     )
                     // 強チェリー、チャンス目
                     unitResultRatioPercent2Line(
                         title: "強🍒・チャンス目",
                         count: $bakemono.rareCzCountKyoRareHit,
                         bigNumber: $bakemono.rareCzCountKyoRareSum,
-                        numberofDicimal: 0
+                        numberofDicimal: 0,
+                        spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 // 参考情報）レア役からのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ当選率") {
@@ -254,6 +260,107 @@ struct bakemonoViewNormal: View {
                 }
             } header: {
                 Text("通常滞在時 レア役からのCZ当選率")
+            }
+            
+            // ---- 規定ゲーム数での解呪ノ儀当選率
+            Section {
+                // ピッカー
+                Picker("", selection: self.$selectedGame) {
+                    ForEach(self.gameList, id: \.self) { game in
+                        Text(game)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .popoverTip(tipVer3221BakemonoGameKaiju())
+                
+                // カウントボタン横並び
+                HStack {
+                    // 200G
+                    if self.selectedGame == self.gameList[0] {
+                        // なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "なし",
+                            count: $bakemono.kiteiCount200Miss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.kiteiSumFunc()
+                            }
+                        // あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $bakemono.kiteiCount200Hit,
+                            color: .personalSummerLightGreen,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.kiteiSumFunc()
+                            }
+                    }
+                    // 300G
+                    else {
+                        // なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "なし",
+                            count: $bakemono.kiteiCount300Miss,
+                            color: .personalSpringLightYellow,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.kiteiSumFunc()
+                            }
+                        // あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $bakemono.kiteiCount300Hit,
+                            color: .personalSummerLightRed,
+                            minusBool: $bakemono.minusCheck) {
+                                bakemono.kiteiSumFunc()
+                            }
+                    }
+                }
+                
+                // 確率結果
+                HStack {
+                    // 200G
+                    unitResultRatioPercent2Line(
+                        title: "200G",
+                        count: $bakemono.kiteiCount200Hit,
+                        bigNumber: $bakemono.kiteiCount200Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 300G
+                    unitResultRatioPercent2Line(
+                        title: "300G",
+                        count: $bakemono.kiteiCount300Hit,
+                        bigNumber: $bakemono.kiteiCount300Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                // 参考情報）解呪ノ儀当選率
+                unitLinkButtonViewBuilder(sheetTitle: "解呪ノ儀当選率") {
+                    bakemonoTableKiteiGameKaiju(bakemono: bakemono)
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        bakemonoView95Ci(
+                            bakemono: bakemono,
+                            selection: 5,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    bakemonoViewBayes(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("ゲーム数での解呪ノ儀当選率")
             }
             
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)

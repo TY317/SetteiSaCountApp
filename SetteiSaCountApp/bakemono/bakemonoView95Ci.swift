@@ -69,6 +69,44 @@ struct bakemonoView95Ci: View {
             )
             .tag(4)
             
+            // ゲーム数 解ジュのぎ　200G当選
+            unitListSection95Ci(
+                grafTitle: "ゲーム数での解呪ノ儀\n200G当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bakemono.kiteiCount200Hit,
+                        bigNumber: $bakemono.kiteiCount200Sum,
+                        setting1Percent: bakemono.ratioKitei200[0],
+                        setting2Percent: bakemono.ratioKitei200[1],
+                        setting3Percent: bakemono.ratioKitei200[2],
+                        setting4Percent: bakemono.ratioKitei200[3],
+                        setting5Percent: bakemono.ratioKitei200[4],
+                        setting6Percent: bakemono.ratioKitei200[5]
+                    )
+                )
+            )
+            .tag(5)
+            
+            // ゲーム数 解ジュのぎ　300G当選
+            unitListSection95Ci(
+                grafTitle: "ゲーム数での解呪ノ儀\n300G当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bakemono.kiteiCount300Hit,
+                        bigNumber: $bakemono.kiteiCount300Sum,
+                        setting1Percent: bakemono.ratioKitei300[0],
+                        setting2Percent: bakemono.ratioKitei300[1],
+                        setting3Percent: bakemono.ratioKitei300[2],
+                        setting4Percent: bakemono.ratioKitei300[3],
+                        setting5Percent: bakemono.ratioKitei300[4],
+                        setting6Percent: bakemono.ratioKitei300[5]
+                    )
+                )
+            )
+            .tag(6)
+            
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",

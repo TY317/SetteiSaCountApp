@@ -224,6 +224,17 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory1.charaCountNegate4 = enen2.charaCountNegate4
         enen2Memory1.charaCountNegate5 = enen2.charaCountNegate5
         enen2Memory1.charaCountSum = enen2.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2Memory1.screenCountBig1 = enen2.screenCountBig1
+        enen2Memory1.screenCountBig2 = enen2.screenCountBig2
+        enen2Memory1.screenCountBig3 = enen2.screenCountBig3
+        enen2Memory1.screenCountBig4 = enen2.screenCountBig4
+        enen2Memory1.screenCountBig5 = enen2.screenCountBig5
+        enen2Memory1.screenCountBig6 = enen2.screenCountBig6
+        enen2Memory1.screenCountBigSum = enen2.screenCountBigSum
     }
     func saveMemory2() {
         enen2Memory2.normalGame = enen2.normalGame
@@ -257,6 +268,17 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory2.charaCountNegate4 = enen2.charaCountNegate4
         enen2Memory2.charaCountNegate5 = enen2.charaCountNegate5
         enen2Memory2.charaCountSum = enen2.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2Memory2.screenCountBig1 = enen2.screenCountBig1
+        enen2Memory2.screenCountBig2 = enen2.screenCountBig2
+        enen2Memory2.screenCountBig3 = enen2.screenCountBig3
+        enen2Memory2.screenCountBig4 = enen2.screenCountBig4
+        enen2Memory2.screenCountBig5 = enen2.screenCountBig5
+        enen2Memory2.screenCountBig6 = enen2.screenCountBig6
+        enen2Memory2.screenCountBigSum = enen2.screenCountBigSum
     }
     func saveMemory3() {
         enen2Memory3.normalGame = enen2.normalGame
@@ -290,6 +312,17 @@ struct enen2SubViewSaveMemory: View {
         enen2Memory3.charaCountNegate4 = enen2.charaCountNegate4
         enen2Memory3.charaCountNegate5 = enen2.charaCountNegate5
         enen2Memory3.charaCountSum = enen2.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2Memory3.screenCountBig1 = enen2.screenCountBig1
+        enen2Memory3.screenCountBig2 = enen2.screenCountBig2
+        enen2Memory3.screenCountBig3 = enen2.screenCountBig3
+        enen2Memory3.screenCountBig4 = enen2.screenCountBig4
+        enen2Memory3.screenCountBig5 = enen2.screenCountBig5
+        enen2Memory3.screenCountBig6 = enen2.screenCountBig6
+        enen2Memory3.screenCountBigSum = enen2.screenCountBigSum
     }
 }
 
@@ -352,6 +385,17 @@ struct enen2SubViewLoadMemory: View {
         enen2.charaCountNegate4 = enen2Memory1.charaCountNegate4
         enen2.charaCountNegate5 = enen2Memory1.charaCountNegate5
         enen2.charaCountSum = enen2Memory1.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2.screenCountBig1 = enen2Memory1.screenCountBig1
+        enen2.screenCountBig2 = enen2Memory1.screenCountBig2
+        enen2.screenCountBig3 = enen2Memory1.screenCountBig3
+        enen2.screenCountBig4 = enen2Memory1.screenCountBig4
+        enen2.screenCountBig5 = enen2Memory1.screenCountBig5
+        enen2.screenCountBig6 = enen2Memory1.screenCountBig6
+        enen2.screenCountBigSum = enen2Memory1.screenCountBigSum
     }
     func loadMemory2() {
         enen2.normalGame = enen2Memory2.normalGame
@@ -385,6 +429,17 @@ struct enen2SubViewLoadMemory: View {
         enen2.charaCountNegate4 = enen2Memory2.charaCountNegate4
         enen2.charaCountNegate5 = enen2Memory2.charaCountNegate5
         enen2.charaCountSum = enen2Memory2.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2.screenCountBig1 = enen2Memory2.screenCountBig1
+        enen2.screenCountBig2 = enen2Memory2.screenCountBig2
+        enen2.screenCountBig3 = enen2Memory2.screenCountBig3
+        enen2.screenCountBig4 = enen2Memory2.screenCountBig4
+        enen2.screenCountBig5 = enen2Memory2.screenCountBig5
+        enen2.screenCountBig6 = enen2Memory2.screenCountBig6
+        enen2.screenCountBigSum = enen2Memory2.screenCountBigSum
     }
     func loadMemory3() {
         enen2.normalGame = enen2Memory3.normalGame
@@ -418,6 +473,17 @@ struct enen2SubViewLoadMemory: View {
         enen2.charaCountNegate4 = enen2Memory3.charaCountNegate4
         enen2.charaCountNegate5 = enen2Memory3.charaCountNegate5
         enen2.charaCountSum = enen2Memory3.charaCountSum
+        
+        // ---------
+        // ver3.22.1
+        // ---------
+        enen2.screenCountBig1 = enen2Memory3.screenCountBig1
+        enen2.screenCountBig2 = enen2Memory3.screenCountBig2
+        enen2.screenCountBig3 = enen2Memory3.screenCountBig3
+        enen2.screenCountBig4 = enen2Memory3.screenCountBig4
+        enen2.screenCountBig5 = enen2Memory3.screenCountBig5
+        enen2.screenCountBig6 = enen2Memory3.screenCountBig6
+        enen2.screenCountBigSum = enen2Memory3.screenCountBigSum
     }
 }
 

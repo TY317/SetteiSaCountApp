@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class Enen2: ObservableObject {
     // ----------
@@ -46,6 +47,15 @@ class Enen2: ObservableObject {
             screenCount5,
             screenCount6,
         )
+        
+        screenCountBigSum = countSum(
+            screenCountBig1,
+            screenCountBig2,
+            screenCountBig3,
+            screenCountBig4,
+            screenCountBig5,
+            screenCountBig6,
+        )
     }
     
     func resetScreen() {
@@ -57,6 +67,14 @@ class Enen2: ObservableObject {
         screenCount6 = 0
         screenCountSum = 0
         minusCheck = false
+        
+        screenCountBig1 = 0
+        screenCountBig2 = 0
+        screenCountBig3 = 0
+        screenCountBig4 = 0
+        screenCountBig5 = 0
+        screenCountBig6 = 0
+        screenCountBigSum = 0
     }
     
     // ----------
@@ -144,6 +162,29 @@ class Enen2: ObservableObject {
         charaCountSum = 0
         minusCheck = false
     }
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    let ratioScreenBig1: [Double] = [86,84,83,76,73,70]
+    let ratioScreenBig2: [Double] = [11,12,13,14,16,17]
+    let ratioScreenBig3: [Double] = [3,4,4,5,6,7]
+    let ratioScreenBig4: [Double] = [0,0,0,5,3,3]
+    let ratioScreenBig5: [Double] = [0,0,0,0,2,2]
+    let ratioScreenBig6: [Double] = [0,0,0,0,0,1]
+    let ratioScreen1: [Double] = [77,74,71,63,59,55]
+    let ratioScreen2: [Double] = [20,22,24,26,28,30]
+    let ratioScreen3: [Double] = [3,4,5,6,8,9]
+    let ratioScreen4: [Double] = [0,0,0,5,3,3]
+    let ratioScreen5: [Double] = [0,0,0,0,2,2]
+    let ratioScreen6: [Double] = [0,0,0,0,0,1]
+    @AppStorage("enen2ScreenCountBig1") var screenCountBig1: Int = 0
+    @AppStorage("enen2ScreenCountBig2") var screenCountBig2: Int = 0
+    @AppStorage("enen2ScreenCountBig3") var screenCountBig3: Int = 0
+    @AppStorage("enen2ScreenCountBig4") var screenCountBig4: Int = 0
+    @AppStorage("enen2ScreenCountBig5") var screenCountBig5: Int = 0
+    @AppStorage("enen2ScreenCountBig6") var screenCountBig6: Int = 0
+    @AppStorage("enen2ScreenCountBigSum") var screenCountBigSum: Int = 0
 }
 
 
@@ -181,6 +222,17 @@ class Enen2Memory1: ObservableObject {
     @AppStorage("enen2CharaCountNegate4Memory1") var charaCountNegate4: Int = 0
     @AppStorage("enen2CharaCountNegate5Memory1") var charaCountNegate5: Int = 0
     @AppStorage("enen2CharaCountSumMemory1") var charaCountSum: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("enen2ScreenCountBig1Memory1") var screenCountBig1: Int = 0
+    @AppStorage("enen2ScreenCountBig2Memory1") var screenCountBig2: Int = 0
+    @AppStorage("enen2ScreenCountBig3Memory1") var screenCountBig3: Int = 0
+    @AppStorage("enen2ScreenCountBig4Memory1") var screenCountBig4: Int = 0
+    @AppStorage("enen2ScreenCountBig5Memory1") var screenCountBig5: Int = 0
+    @AppStorage("enen2ScreenCountBig6Memory1") var screenCountBig6: Int = 0
+    @AppStorage("enen2ScreenCountBigSumMemory1") var screenCountBigSum: Int = 0
 }
 
 class Enen2Memory2: ObservableObject {
@@ -217,6 +269,17 @@ class Enen2Memory2: ObservableObject {
     @AppStorage("enen2CharaCountNegate4Memory2") var charaCountNegate4: Int = 0
     @AppStorage("enen2CharaCountNegate5Memory2") var charaCountNegate5: Int = 0
     @AppStorage("enen2CharaCountSumMemory2") var charaCountSum: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("enen2ScreenCountBig1Memory2") var screenCountBig1: Int = 0
+    @AppStorage("enen2ScreenCountBig2Memory2") var screenCountBig2: Int = 0
+    @AppStorage("enen2ScreenCountBig3Memory2") var screenCountBig3: Int = 0
+    @AppStorage("enen2ScreenCountBig4Memory2") var screenCountBig4: Int = 0
+    @AppStorage("enen2ScreenCountBig5Memory2") var screenCountBig5: Int = 0
+    @AppStorage("enen2ScreenCountBig6Memory2") var screenCountBig6: Int = 0
+    @AppStorage("enen2ScreenCountBigSumMemory2") var screenCountBigSum: Int = 0
 }
 
 class Enen2Memory3: ObservableObject {
@@ -253,4 +316,15 @@ class Enen2Memory3: ObservableObject {
     @AppStorage("enen2CharaCountNegate4Memory3") var charaCountNegate4: Int = 0
     @AppStorage("enen2CharaCountNegate5Memory3") var charaCountNegate5: Int = 0
     @AppStorage("enen2CharaCountSumMemory3") var charaCountSum: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("enen2ScreenCountBig1Memory3") var screenCountBig1: Int = 0
+    @AppStorage("enen2ScreenCountBig2Memory3") var screenCountBig2: Int = 0
+    @AppStorage("enen2ScreenCountBig3Memory3") var screenCountBig3: Int = 0
+    @AppStorage("enen2ScreenCountBig4Memory3") var screenCountBig4: Int = 0
+    @AppStorage("enen2ScreenCountBig5Memory3") var screenCountBig5: Int = 0
+    @AppStorage("enen2ScreenCountBig6Memory3") var screenCountBig6: Int = 0
+    @AppStorage("enen2ScreenCountBigSumMemory3") var screenCountBigSum: Int = 0
 }

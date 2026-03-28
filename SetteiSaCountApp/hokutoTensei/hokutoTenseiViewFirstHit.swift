@@ -69,7 +69,7 @@ struct hokutoTenseiViewFirstHit: View {
                         })
                     }
                 }
-                .popoverTip(tipVer3180hokutoTenseiUIshusei())
+//                .popoverTip(tipVer3180hokutoTenseiUIshusei())
                 // カウントボタン横並び
                 HStack {
                     // 天破
@@ -401,7 +401,7 @@ struct hokutoTenseiViewFirstHit: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3180hokutoTensei256())
+//                .popoverTip(tipVer3180hokutoTensei256())
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "規定あべし",

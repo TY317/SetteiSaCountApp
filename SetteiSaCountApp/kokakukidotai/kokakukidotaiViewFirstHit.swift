@@ -82,6 +82,33 @@ struct kokakukidotaiViewFirstHit: View {
                     }
                 }
                 
+                // 参考情報）殲滅ゾーンからのAT直当選
+                unitLinkButtonViewBuilder(sheetTitle: "殲滅ゾーンからのAT直当選") {
+                    VStack {
+                        Text("・発展先が白〜紫時のAT直当選が対象")
+                            .padding(.bottom)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "AT直当選",
+                                denominateList: [10676.6,9795.3,7732.7,6127.5,5247.7,4473]
+                            )
+                        }
+                        Text("※ 下記のAT直撃契機は含まない数値")
+                            .foregroundStyle(Color.secondary)
+                            .font(.caption)
+                        VStack(alignment: .leading) {
+                            Text("・殲滅CHANCE(HYPER)")
+                            Text("・リールロック2段階弱レア役")
+                            Text("・ロングフリーズ")
+                            Text("・救済発動")
+                        }
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                    }
+                }
+                .popoverTip(tipVer3221KokakukidotaiAtChoku())
+                
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

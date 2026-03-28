@@ -89,7 +89,7 @@ struct dmc5ViewTop: View {
                             imageSystemName: "rosette",
 //                            textBody: "上位ST中のセリフ"
                             textBody: "上位ST",
-//                            badgeStatus: ver352.dmc5MenuPremiumStBadge,
+                            badgeStatus: common.dmc5MenuPremiumStBadge,
                         )
                     }
                     // エンタトロフィー

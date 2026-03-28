@@ -30,6 +30,13 @@ class Bakemono: ObservableObject {
         rareCzCountChance = 0
         rareCzCountKyoRareSum = 0
         rareCzCountKyoRareHit = 0
+        
+        kiteiCount200Miss = 0
+        kiteiCount200Hit = 0
+        kiteiCount200Sum = 0
+        kiteiCount300Miss = 0
+        kiteiCount300Hit = 0
+        kiteiCount300Sum = 0
     }
     
     // ------------
@@ -152,6 +159,23 @@ class Bakemono: ObservableObject {
     func rareCzSumFunc() {
         rareCzCountKyoRareSum = rareCzCountKyoCherry + rareCzCountChance
     }
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    let ratioKitei200: [Double] = [10,10,10.4,15,17.5,20]
+    let ratioKitei300: [Double] = [40,40,40.4,45,47.5,50]
+    @AppStorage("bakemonoKiteiCount200Miss") var kiteiCount200Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount200Hit") var kiteiCount200Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount200Sum") var kiteiCount200Sum: Int = 0
+    @AppStorage("bakemonoKiteiCount300Miss") var kiteiCount300Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount300Hit") var kiteiCount300Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount300Sum") var kiteiCount300Sum: Int = 0
+    
+    func kiteiSumFunc() {
+        kiteiCount200Sum = kiteiCount200Hit + kiteiCount200Miss
+        kiteiCount300Sum = kiteiCount300Hit + kiteiCount300Miss
+    }
 }
 
 class BakemonoMemory1: ObservableObject {
@@ -193,6 +217,16 @@ class BakemonoMemory1: ObservableObject {
     @AppStorage("bakemonoRareCzCountChanceMemory1") var rareCzCountChance: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareSumMemory1") var rareCzCountKyoRareSum: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareHitMemory1") var rareCzCountKyoRareHit: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("bakemonoKiteiCount200MissMemory1") var kiteiCount200Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount200HitMemory1") var kiteiCount200Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount200SumMemory1") var kiteiCount200Sum: Int = 0
+    @AppStorage("bakemonoKiteiCount300MissMemory1") var kiteiCount300Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount300HitMemory1") var kiteiCount300Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount300SumMemory1") var kiteiCount300Sum: Int = 0
 }
 
 class BakemonoMemory2: ObservableObject {
@@ -234,6 +268,16 @@ class BakemonoMemory2: ObservableObject {
     @AppStorage("bakemonoRareCzCountChanceMemory2") var rareCzCountChance: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareSumMemory2") var rareCzCountKyoRareSum: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareHitMemory2") var rareCzCountKyoRareHit: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("bakemonoKiteiCount200MissMemory2") var kiteiCount200Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount200HitMemory2") var kiteiCount200Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount200SumMemory2") var kiteiCount200Sum: Int = 0
+    @AppStorage("bakemonoKiteiCount300MissMemory2") var kiteiCount300Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount300HitMemory2") var kiteiCount300Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount300SumMemory2") var kiteiCount300Sum: Int = 0
 }
 
 class BakemonoMemory3: ObservableObject {
@@ -275,4 +319,14 @@ class BakemonoMemory3: ObservableObject {
     @AppStorage("bakemonoRareCzCountChanceMemory3") var rareCzCountChance: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareSumMemory3") var rareCzCountKyoRareSum: Int = 0
     @AppStorage("bakemonoRareCzCountKyoRareHitMemory3") var rareCzCountKyoRareHit: Int = 0
+    
+    // ---------
+    // ver3.22.1
+    // ---------
+    @AppStorage("bakemonoKiteiCount200MissMemory3") var kiteiCount200Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount200HitMemory3") var kiteiCount200Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount200SumMemory3") var kiteiCount200Sum: Int = 0
+    @AppStorage("bakemonoKiteiCount300MissMemory3") var kiteiCount300Miss: Int = 0
+    @AppStorage("bakemonoKiteiCount300HitMemory3") var kiteiCount300Hit: Int = 0
+    @AppStorage("bakemonoKiteiCount300SumMemory3") var kiteiCount300Sum: Int = 0
 }

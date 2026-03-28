@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class commonVar: ObservableObject {
     @AppStorage("contentViewIconDisplayMode") var iconDisplayMode = true      // アイコン表示の切り替え
@@ -64,7 +65,7 @@ class commonVar: ObservableObject {
     func saveAppVersions() {
         // 現在のバージョンを取得
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-
+            
             // 初回起動バージョンは一度だけ保存
             if firstLaunchAppVersion == nil {
                 firstLaunchAppVersion = version
@@ -72,12 +73,116 @@ class commonVar: ObservableObject {
             } else {
                 print("初回起動ではありません")
             }
-
+            
             // 最新起動バージョンは毎回更新
             lastLaunchAppVersion = version
             print("最新起動バージョンを更新: \(version)")
         }
     }
+    
+    // ----------
+    // 新トップページ用
+    // ----------
+    let initMachine: [Machine] = [
+        Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
+        Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
+        Machine(id: "4943", name: "サンダーV", fullName: "サンダーV", iconName: "thunderMachineIcon", btBadge: true),
+        Machine(id: "4930", name: "カバネリ海門", fullName: "カバネリ海門決戦", iconName: "kabaneriUnatoMachineIcon", btBadge: false),
+        Machine(id: "4950", name: "ゴブスレ2", fullName: "ゴブリンスレイヤー2", iconName: "gobsla2MachineIcon", btBadge: false),
+        Machine(id: "4928", name: "ハナビ", fullName: "ハナビ", iconName: "hanabiMachineIcon", btBadge: false),
+        Machine(id: "4926", name: "炎炎2", fullName: "炎炎ノ消防隊2", iconName: "enen2MachineIcon", btBadge: false),
+        Machine(id: "4931", name: "攻殻機動隊", fullName: "攻殻機動隊", iconName: "kokakukidotaiMachineIcon", btBadge: false),
+        Machine(id: "4913", name: "鉄拳6", fullName: "鉄拳6", iconName: "tekken6MachineIcon", btBadge: false),
+        Machine(id: "4909", name: "北斗転生", fullName: "北斗 転生の章2", iconName: "hokutoTenseiMachineIcon", btBadge: false),
+        Machine(id: "4924", name: "無職転生", fullName: "無職転生", iconName: "mushotenMachineIcon", btBadge: false),
+        Machine(id: "4929", name: "秘宝伝", fullName: "秘宝伝", iconName: "hihodenMachineIcon", btBadge: false),
+        Machine(id: "4898", name: "化物語", fullName: "化物語", iconName: "bakemonoMachineIcon", btBadge: false),
+        Machine(id: "4873", name: "ネオプラ", fullName: "ネオプラネット", iconName: "neoplaMachineIcon", btBadge: false),
+        Machine(id: "4892", name: "超電磁砲2", fullName: "とある科学の超電磁砲2", iconName: "railgunMachineIcon", btBadge: false),
+        Machine(id: "4885", name: "ヴヴヴ2", fullName: "革命機ヴァルヴレイヴ2", iconName: "vvv2MachineIcon", btBadge: false),
+        Machine(id: "4893", name: "シェイク", fullName: "シェイクBT", iconName: "shakeMachineIcon", btBadge: true),
+        Machine(id: "4880", name: "新鬼武者3", fullName: "新鬼武者3", iconName: "newOni3MachineIcon", btBadge: false),
+        Machine(id: "4877", name: "銭形5", fullName: "主役は銭形5", iconName: "zeni5MachineIcon", btBadge: false),
+        Machine(id: "4860", name: "クレアBT", fullName: "クレアの秘宝伝BT", iconName: "creaMachineIcon", btBadge: true),
+        Machine(id: "4849", name: "東リベ", fullName: "東京リベンジャーズ", iconName: "toreveMachineIcon", btBadge: false),
+        Machine(id: "4847", name: "アズレン", fullName: "アズールレーン", iconName: "azurLaneMachineIcon", btBadge: false),
+        Machine(id: "4855", name: "ダリフラ", fullName: "ダーリン・イン・ザ・フランキス", iconName: "darlingMachineIcon", btBadge: false),
+        Machine(id: "4843", name: "転剣", fullName: "転生したら剣でした", iconName: "reSwordMachineIcon", btBadge: false),
+        Machine(id: "4830", name: "ヱヴァ約束", fullName: "ヱヴァンゲリヲン〜約束の扉〜", iconName: "evaYakusokuMachineIcon", btBadge: true),
+        Machine(id: "4803", name: "わた婚", fullName: "わたしの幸せな結婚", iconName: "watakonMachineIcon", btBadge: false),
+        Machine(id: "4790", name: "ギルクラ2", fullName: "ギルティクラウン2", iconName: "guiltyCrown2MachineIcon", btBadge: false),
+        Machine(id: "4814", name: "DevilMayCry5", fullName: "Devil May Cry5", iconName: "dmc5MachineIcon", btBadge: false),
+        Machine(id: "4805", name: "いざ！番長", fullName: "いざ！番長", iconName: "izaBanchoMachineIcon", btBadge: false),
+        Machine(id: "4806", name: "ToLOVEる8.7", fullName: "ToLOVEる TRANCE ver8.7", iconName: "toloveru87MachineIcon", btBadge: false),
+        Machine(id: "4788", name: "SEED", fullName: "ガンダムSEED", iconName: "gundamSeedMachineIcon", btBadge: false),
+        Machine(id: "4763", name: "緑ドン", fullName: "緑ドン VIVA情熱南米編", iconName: "midoriDonMachineIcon", btBadge: false),
+        Machine(id: "4778", name: "吉宗", fullName: "吉宗", iconName: "yoshimuneMachineIcon", btBadge: false),
+        Machine(id: "4777", name: "麻雀物語", fullName: "麻雀物語", iconName: "mahjongMachineIcon", btBadge: false),
+        Machine(id: "4752", name: "ゴジラ", fullName: "ゴジラ", iconName: "godzillaMachineIcon", btBadge: false),
+        Machine(id: "4745", name: "マギレコ", fullName: "マギアレコード", iconName: "magiaMachineIcon", btBadge: false),
+        Machine(id: "4706", name: "レビュースタァライト", fullName: "レビュースタァライト", iconName: "rslMachineIcon", btBadge: false),
+        Machine(id: "4754", name: "バイオ5", fullName: "バイオハザード5", iconName: "bioMachineIcon", btBadge: false),
+        Machine(id: "4734", name: "カイジ狂宴", fullName: "回胴黙示録カイジ 狂宴", iconName: "kaijiMachineIcon", btBadge: false),
+        Machine(id: "4715", name: "ありふれ", fullName: "ありふれた職業で世界最強", iconName: "arifureMachineIcon", btBadge: false),
+        Machine(id: "4742", name: "東京喰種", fullName: "東京喰種", iconName: "tokyoGhoulMachineIcon", btBadge: false),
+        Machine(id: "4719", name: "シャーマンキング", fullName: "シャーマンキング", iconName: "shamanKingMachineIcon", btBadge: false),
+        Machine(id: "4712", name: "SBJ", fullName: "スーパーブラックジャック", iconName: "sbjMachineIcon", btBadge: false),
+        Machine(id: "4709", name: "七つの魔剣が支配する", fullName: "七つの魔剣が支配する", iconName: "sevenSwordsMachineIcon", btBadge: false),
+        Machine(id: "4686", name: "一方通行", fullName: "一方通行 とある魔術の禁書目録", iconName: "acceleratorMachineIcon", btBadge: false),
+        Machine(id: "4669", name: "ダンベル", fullName: "ダンベル何キロ持てる？", iconName: "dumbbellMachineIcon", btBadge: false),
+        Machine(id: "4681", name: "ダンバイン", fullName: "ダンバイン", iconName: "danvineMachineIcone", btBadge: false),
+        Machine(id: "4689", name: "ルパン大航海", fullName: "ルパン3世 大航海者の秘宝", iconName: "lupinMachineIcon", btBadge: false),
+        Machine(id: "4676", name: "モンハンライズ", fullName: "モンスターハンター ライズ", iconName: "mhrMachineIcon", btBadge: false),
+        Machine(id: "4641", name: "バンドリ!", fullName: "バンドリ!", iconName: "bangdreamMachinIcon", btBadge: false),
+        Machine(id: "4658", name: "Re:ゼロ2", fullName: "Re:ゼロ season2", iconName: "rezero2MachineIcon", btBadge: false),
+        Machine(id: "4618", name: "かぐや様", fullName: "かぐや様は告らせたい", iconName: "kaguyaMachineIcon", btBadge: false),
+        Machine(id: "4579", name: "シンフォギア", fullName: "戦姫絶唱シンフォギア 正義の歌", iconName: "symphoMachineIcon", btBadge: false),
+        Machine(id: "4602", name: "ゴッドイーター", fullName: "ゴッドイーター リザレクション", iconName: "godeaterMachinIcon", btBadge: false),
+        Machine(id: "4571", name: "ToLOVEる", fullName: "ToLOVEるダークネス", iconName: "toloveruMachineIcon", btBadge: false),
+        Machine(id: "4555", name: "スマスロ炎炎", fullName: "スマスロ炎炎ノ消防隊", iconName: "enenMachineIcon", btBadge: false),
+        Machine(id: "4501", name: "ゴジエヴァ", fullName: "ゴジラvsエヴァンゲリオン", iconName: "machinIconGoeva", btBadge: false),
+        Machine(id: "4450", name: "モンキー5", fullName: "モンキーターン5", iconName: "mt5MachineIconWhite", btBadge: false),
+        Machine(id: "4360", name: "からくりサーカス", fullName: "からくりサーカス", iconName: "karakuriMachineIcon", btBadge: false),
+        Machine(id: "4301", name: "北斗の拳", fullName: "北斗の拳", iconName: "machineIconHokuto", btBadge: false),
+        Machine(id: "4244", name: "ヴヴヴ", fullName: "革命機ヴァルヴレイヴ", iconName: "machineIconVVV", btBadge: false),
+        Machine(id: "4160", name: "カバネリ", fullName: "甲鉄城のカバネリ", iconName: "machineIconKabaneri", btBadge: false),
+    ]
+    // 永続化用のストレージ
+//    @AppStorage("savedMachinesData") private var savedMachinesData: String = ""
+    
+    // 配列が更新されたら自動で保存
+    @Published var machines: [Machine] = [] {
+        didSet {
+//            saveMachines()
+        }
+    }
+    
+//    init() {
+//        loadMachines()
+//        machines = initMachine
+//    }
+//    
+//    // 保存ロジック（JSON変換）
+//    private func saveMachines() {
+//        if let encoded = try? JSONEncoder().encode(machines) {
+//            let jsonString = String(data: encoded, encoding: .utf8) ?? ""
+//            // 無駄な書き込みを減らすため、内容が変わった時だけAppStorageを更新
+//            if savedMachinesData != jsonString {
+//                savedMachinesData = jsonString
+//            }
+//        }
+//    }
+//    
+//    // 読み込みロジック
+//    private func loadMachines() {
+//        if let data = savedMachinesData.data(using: .utf8),
+//           let decoded = try? JSONDecoder().decode([Machine].self, from: data) {
+//            self.machines = decoded
+//        } else {
+//            // データがない場合の初期値設定
+//            self.machines = self.initMachine
+//        }
+//    }
     
     // //////////////////////////////////////
     // バッジ
@@ -326,6 +431,7 @@ class commonVar: ObservableObject {
     // //// デビルメイクライ
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
+    @AppStorage("dmc5MenuPremiumStBadge") var dmc5MenuPremiumStBadge: String = "none"
     
     // //// 東京グール
     @AppStorage("tokyoGhoulMachineIconBadge") var tokyoGhoulMachineIconBadge: String = "none"
@@ -348,7 +454,8 @@ class commonVar: ObservableObject {
     @AppStorage("mt5MenuGekisoBadge") var mt5MenuGekisoBadge: String = "none"
     @AppStorage("mt5MenuBayesBadge") var mt5MenuBayesBadge: String = "none"
     
-    
+    // //// スマスロ北斗
+    @AppStorage("hokutoMachineIconBadge") var hokutoMachineIconBadge = "none"
     
     // -------
     // リワード広告の強制アンロック
@@ -358,11 +465,39 @@ class commonVar: ObservableObject {
         tekken6isUnlocked = true
         mushotenisUnlocked = true
         shakeisUnlocked = true
+        kokakukidotaiisUnlocked = true
+        enen2isUnlocked = true
     }
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3221FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.22.1"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                dmc5MachineIconBadge = "update"
+                dmc5MenuPremiumStBadge = "update"
+                enen2MachineIconBadge = "update"
+                enen2MenuScreenBadge = "update"
+                bakemonoMachineIconBadge = "update"
+                bakemonoMenuNormalBadge = "update"
+                kokakukidotaiMachineIconBadge = "update"
+                kokakukidotaiMenuFirstHitBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
+    
     func ver3220FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.22.0"
@@ -502,59 +637,26 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3180FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.18.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                kokakukidotaiisUnlocked = false
-                kokakukidotaiMachineIconBadge = "new"
-                hokutoTenseiMenuTengekiBadge = "new"
-                hokutoTenseiMachineIconBadge = "update"
-                hokutoTenseiMenuFirstHitBadge = "update"
-                tekken6MachineIconBadge = "update"
-                tekken6MenuNormalBadge = "update"
-                tekken6MenuBonusBadge = "new"
-                hokutoTenseiMenuBayesBadge = "update"
-                tekken6MenuBayesBadge = "update"
-                enen2isUnlocked = false
-                enen2MachineIconBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3171FirstLaunch() {
+//    func ver3180FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.17.1"
+//        let targetVersion: String = "3.18.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                hihodenMachineIconBadge = "update"
-//                hihodenMenuDuringBonusBadge = "update"
-//                hihodenMenuNormalBadge = "update"
+//                kokakukidotaiisUnlocked = false
+//                kokakukidotaiMachineIconBadge = "new"
+//                hokutoTenseiMenuTengekiBadge = "new"
 //                hokutoTenseiMachineIconBadge = "update"
-//                hokutoTenseiMenuNormalBadge = "update"
-//                hokutoTenseiMenuBayesBadge = "update"
 //                hokutoTenseiMenuFirstHitBadge = "update"
-//                bakemonoMachineIconBadge = "update"
-//                bakemonoMenuNormalBadge = "update"
-//                shakeMachineIconBadge = "update"
-//                shakeMenuNormalBadge = "update"
-//                shakeMenuBayesBadge = "update"
-//                mt5MachineIconBadge = "update"
-//                mt5MenuGekisoBadge = "update"
-//                mt5MenuBayesBadge = "update"
-//                bakemonoMenuBayesBadge = "update"
+//                tekken6MachineIconBadge = "update"
+//                tekken6MenuNormalBadge = "update"
+//                tekken6MenuBonusBadge = "new"
+//                hokutoTenseiMenuBayesBadge = "update"
+//                tekken6MenuBayesBadge = "update"
+//                enen2isUnlocked = false
+//                enen2MachineIconBadge = "new"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
