@@ -82,6 +82,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
     @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
     @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
+    @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
 }
 
 
@@ -149,6 +150,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// カバネリ海門決戦、26年3月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShinYoshi == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(shinYoshiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shinYoshiMachineIcon"),
+                                        machineName: "真打吉宗",
+                                        isUnLocked: $common.shinYoshiisUnlocked,
+                                        tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
+                                        badgeStatus: common.shinYoshiMachineIconBadge,
                                     )
                                 }
                                 
@@ -1026,6 +1044,26 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 真打吉宗、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShinYoshi == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(shinYoshiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shinYoshiMachineIcon"),
+                                        machineName: "真打 吉宗",
+                                        makerName: "大都技研",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.shinYoshiisUnlocked,
+                                        tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
+                                        badgeStatus: common.shinYoshiMachineIconBadge,
                                     )
                                 }
                                 
@@ -2225,6 +2263,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 真打吉宗
+                Toggle("真打 吉宗", isOn: $favoriteSet.isSelectedFavoriteShinYoshi)
                 // サンダー
                 Toggle("サンダーV", isOn: $favoriteSet.isSelectedFavoriteThunder)
                 // カバネリ海門
