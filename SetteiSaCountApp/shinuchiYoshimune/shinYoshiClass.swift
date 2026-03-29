@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class ShinYoshi: ObservableObject {
+    
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "真打 吉宗"
+    @AppStorage("shinYoshiMinusCheck") var minusCheck: Bool = false
+    @AppStorage("shinYoshiSelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}
