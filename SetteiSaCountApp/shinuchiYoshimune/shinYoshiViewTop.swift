@@ -33,19 +33,19 @@ struct shinYoshiViewTop: View {
                 }
                 
                 Section {
-//                    // 通常時
-//                    NavigationLink(destination: shinYoshiViewNormal(
-//                        shinYoshi: shinYoshi,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.shinYoshiMenuNormalBadge,
-//                        )
-//                    }
-//                    
+                    // 通常時
+                    NavigationLink(destination: shinYoshiViewNormal(
+                        shinYoshi: shinYoshi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.shinYoshiMenuNormalBadge,
+                        )
+                    }
+                    
 //                    // 初あたり
 //                    NavigationLink(destination: shinYoshiViewFirstHit(
 //                        shinYoshi: shinYoshi,
