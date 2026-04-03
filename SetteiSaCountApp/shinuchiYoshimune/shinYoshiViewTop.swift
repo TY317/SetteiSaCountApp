@@ -46,18 +46,18 @@ struct shinYoshiViewTop: View {
                         )
                     }
                     
-//                    // 初あたり
-//                    NavigationLink(destination: shinYoshiViewFirstHit(
-//                        shinYoshi: shinYoshi,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.shinYoshiMenuFirstHitBadge,
-//                        )
-//                    }
+                    // 初当り
+                    NavigationLink(destination: shinYoshiViewFirstHit(
+                        shinYoshi: shinYoshi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.shinYoshiMenuFirstHitBadge,
+                        )
+                    }
 //                    
 //                    // 駿城ボーナス
 //                    NavigationLink(destination: shinYoshiViewHayajiro(
@@ -122,8 +122,8 @@ struct shinYoshiViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: shinYoshiView95Ci(
-//                    shinYoshi: shinYoshi,
-//                    selection: 1,
+                    shinYoshi: shinYoshi,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -133,9 +133,9 @@ struct shinYoshiViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: shinYoshiViewBayes(
-//                    shinYoshi: shinYoshi,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    shinYoshi: shinYoshi,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",

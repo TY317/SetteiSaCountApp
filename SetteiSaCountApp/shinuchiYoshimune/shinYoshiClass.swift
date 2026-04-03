@@ -10,7 +10,18 @@ import SwiftUI
 import Combine
 
 class ShinYoshi: ObservableObject {
+    // ----------
+    // 初当り
+    // ----------
+    let ratioFirstHitAt: [Double] = [488.9,471.5,438.5,398.1,377,354.9]
+    @AppStorage("shinYoshiNormalGame") var normalGame: Int = 0
+    @AppStorage("shinYoshiFirstHitCountAt") var firstHitCountAt: Int = 0
     
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
     
     // -----------
     // 共通
@@ -20,6 +31,6 @@ class ShinYoshi: ObservableObject {
     @AppStorage("shinYoshiSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetFirstHit()
     }
 }
