@@ -65,7 +65,7 @@ struct kabaneriUnatoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$charaEnable, title: "キャラ紹介") {
                     unitExView5body2image(
                         title: "キャラ紹介",
-                        textBody1: "・確定系のみ反映させます",
+                        textBody1: "・0〜5000Gでの振分けを前提に計算します"
                     )
                 }
                 
@@ -175,11 +175,20 @@ struct kabaneriUnatoViewBayes: View {
         // キャラ
         var logPostCharacter: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.charaEnable {
-            if kabaneriUnato.charaCountOver4 > 0 {
-                logPostCharacter[0] = -Double.infinity
-                logPostCharacter[1] = -Double.infinity
-                logPostCharacter[2] = -Double.infinity
-            }
+//            if kabaneriUnato.charaCountOver4 > 0 {
+//                logPostCharacter[0] = -Double.infinity
+//                logPostCharacter[1] = -Double.infinity
+//                logPostCharacter[2] = -Double.infinity
+//            }
+            logPostCharacter = logPostPercentMulti(
+                countList: [
+                    kabaneriUnato.charaCountGusu,
+                    kabaneriUnato.charaCountOver4,
+                ], ratioList: [
+                    kabaneriUnato.ratioCharaWomen,
+                    kabaneriUnato.ratioCharaBiba,
+                ], bigNumber: kabaneriUnato.charaCountSum
+            )
         }
         
         // トロフィー

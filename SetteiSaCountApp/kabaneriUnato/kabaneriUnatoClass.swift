@@ -211,6 +211,19 @@ class KabaneriUnato: ObservableObject {
         hayajiroCountSum = 0
         minusCheck = false
     }
+    
+    // ---------
+    // ver3.23.0
+    // ---------
+    let ratioCharaWomen: [Double] = [50,57.5,41.5,58.5,39.9,60]
+    let ratioCharaMen: [Double] = [50,42.5,58.5,41.4,60,39.85]
+    let ratioCharaBiba: [Double] = [0,0,0,0.1,0.1,0.15]
+    let ratioCharaWomen5000: [Double] = [50,57.5,41.5,58.5,38,60]
+    let ratioCharaMen5000: [Double] = [50,42.5,58.5,39.5,60,37]
+    let ratioCharaBiba5000: [Double] = [0,0,0,2,2,3]
+    let ratioCharaWomen7000: [Double] = [50,57.5,41.5,58.5,30,60]
+    let ratioCharaMen7000: [Double] = [50,42.5,58.5,31.5,60,25]
+    let ratioCharaBiba7000: [Double] = [0,0,0,10,10,15]
 }
 
 

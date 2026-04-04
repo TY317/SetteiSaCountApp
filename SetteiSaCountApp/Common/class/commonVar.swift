@@ -506,6 +506,8 @@ class commonVar: ObservableObject {
                 shinYoshiMachineIconBadge = "new"
                 jormungandisUnlocked = false
                 jormungandMachineIconBadge = "new"
+                kabaneriUnatoMachineIconBadge = "update"
+                kabaneriUnatoMenuKabaneriBonusBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
