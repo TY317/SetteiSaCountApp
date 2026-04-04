@@ -259,6 +259,7 @@ struct ContentViewVer2: View {
                 viewModel: viewModel
             )
         )
+        case "4970": return AnyView(jormungandViewTop(bayes: bayes,viewModel: viewModel))
         case "4983": return AnyView(shinYoshiViewTop(bayes: bayes,viewModel: viewModel))
         case "4943": return AnyView(
             thunderViewTop(

@@ -14,6 +14,7 @@ struct jormungandViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.8, 100.9, 104.7, 109.6, 113.9]
     @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     
     
     // 全機種共通
@@ -47,6 +48,8 @@ struct jormungandViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 
             }
             
@@ -119,6 +122,15 @@ struct jormungandViewBayes: View {
             )
         }
         
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: jormungand.ratioFirstHitAt,
+                Count: jormungand.firstHitCountAt,
+                bigNumber: jormungand.normalGame
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -158,7 +170,7 @@ struct jormungandViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
-            
+            logPostFirstHitAt,
             
             logPostTrophy,
             logPostBefore,

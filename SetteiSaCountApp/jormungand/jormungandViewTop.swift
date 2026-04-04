@@ -44,32 +44,32 @@ struct jormungandViewTop: View {
                         )
                     }
                     
-                    // CZ
-                    NavigationLink(destination: jormungandViewCz(
-                        jormungand: jormungand,
-                        bayes: bayes,
-                        viewModel: viewModel,
-                    )) {
-                        unitLabelMenu(
-                            imageSystemName: "scope",
-                            textBody: "CZ",
-                            badgeStatus: common.jormungandMenuCzBadge,
-                        )
-                    }
-                    
-//                    // 初当り
-//                    NavigationLink(destination: jormungandViewFirstHit(
+//                    // CZ
+//                    NavigationLink(destination: jormungandViewCz(
 //                        jormungand: jormungand,
 //                        bayes: bayes,
 //                        viewModel: viewModel,
 //                    )) {
 //                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.jormungandMenuFirstHitBadge,
+//                            imageSystemName: "scope",
+//                            textBody: "CZ",
+//                            badgeStatus: common.jormungandMenuCzBadge,
 //                        )
 //                    }
-//                    
+                    
+                    // 初当り
+                    NavigationLink(destination: jormungandViewFirstHit(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.jormungandMenuFirstHitBadge,
+                        )
+                    }
+                    
 //                    // 白洲ビジョン
 //                    NavigationLink(destination: jormungandViewOshirasu(
 //                        jormungand: jormungand,

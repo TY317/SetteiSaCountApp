@@ -24,6 +24,18 @@ class Jormungand: ObservableObject {
     }
     
     // -----------
+    // 初当り
+    // -----------
+    let ratioFirstHitAt: [Double] = [333.8,323.3,305.4,291.6,291.1,290.1]
+    @AppStorage("jormungandFirstHitCountAt") var firstHitCountAt: Int = 0
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
+    
+    // -----------
     // 共通
     // -----------
     let machineName: String = "ヨルムンガンド"
@@ -32,5 +44,6 @@ class Jormungand: ObservableObject {
     
     func resetAll() {
         resetCz()
+        resetFirstHit()
     }
 }

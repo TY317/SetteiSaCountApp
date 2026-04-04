@@ -14,7 +14,7 @@ struct jormungandView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
-            // ボーナス初当り回数
+            // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",
                 grafView: AnyView(
@@ -31,6 +31,24 @@ struct jormungandView95Ci: View {
                 )
             )
             .tag(1)
+            
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $jormungand.firstHitCountAt,
+                        bigNumber: $jormungand.normalGame,
+                        setting1Denominate: jormungand.ratioFirstHitAt[0],
+                        setting2Denominate: jormungand.ratioFirstHitAt[1],
+                        setting3Denominate: jormungand.ratioFirstHitAt[2],
+                        setting4Denominate: jormungand.ratioFirstHitAt[3],
+                        setting5Denominate: jormungand.ratioFirstHitAt[4],
+                        setting6Denominate: jormungand.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(2)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(
