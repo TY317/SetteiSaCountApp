@@ -58,19 +58,19 @@ struct shinYoshiViewTop: View {
                             badgeStatus: common.shinYoshiMenuFirstHitBadge,
                         )
                     }
-//                    
-//                    // 駿城ボーナス
-//                    NavigationLink(destination: shinYoshiViewHayajiro(
-//                        shinYoshi: shinYoshi,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "tram.fill.tunnel",
-//                            textBody: "駿城ボーナス",
-//                            badgeStatus: common.shinYoshiMenuHayajiroBadge,
-//                        )
-//                    }
+                    
+                    // 白洲ビジョン
+                    NavigationLink(destination: shinYoshiViewOshirasu(
+                        shinYoshi: shinYoshi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "",
+                            textBody: "御白洲ビジョン",
+                            badgeStatus: common.shinYoshiMenuOshirasuBadge,
+                        )
+                    }
 //                    
 //                    // カバネリボーナス
 //                    NavigationLink(destination: shinYoshiViewKabaneriBonus(
