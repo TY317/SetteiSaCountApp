@@ -243,6 +243,7 @@ class commonVar: ObservableObject {
     @AppStorage("shinYoshiMenuFirstHitBadge") var shinYoshiMenuFirstHitBadge: String = "none"
     @AppStorage("shinYoshiMenuBayesBadge") var shinYoshiMenuBayesBadge: String = "none"
     @AppStorage("shinYoshiMenuOshirasuBadge") var shinYoshiMenuOshirasuBadge: String = "none"
+    @AppStorage("shinYoshiMenuScreenBadge") var shinYoshiMenuScreenBadge: String = "none"
     
     // ---- サンダー
     @AppStorage("thunderisUnlocked") var thunderisUnlocked: Bool = true

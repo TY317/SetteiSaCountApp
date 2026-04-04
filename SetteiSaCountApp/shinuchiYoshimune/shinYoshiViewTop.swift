@@ -66,24 +66,24 @@ struct shinYoshiViewTop: View {
                         viewModel: viewModel,
                     )) {
                         unitLabelMenu(
-                            imageSystemName: "",
+                            imageSystemName: "display",
                             textBody: "御白洲ビジョン",
                             badgeStatus: common.shinYoshiMenuOshirasuBadge,
                         )
                     }
-//                    
-//                    // カバネリボーナス
-//                    NavigationLink(destination: shinYoshiViewKabaneriBonus(
-//                        shinYoshi: shinYoshi,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "person.2.fill",
-//                            textBody: "カバネリボーナス",
-//                            badgeStatus: common.shinYoshiMenuKabaneriBonusBadge,
-//                        )
-//                    }
+                    
+                    // AT終了画面
+                    NavigationLink(destination: shinYoshiViewScreen(
+                        shinYoshi: shinYoshi,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.shinYoshiMenuScreenBadge,
+                        )
+                    }
 //                    
 //                    // ST終了画面
 //                    NavigationLink(destination: shinYoshiViewScreen(
