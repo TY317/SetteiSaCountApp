@@ -44,6 +44,19 @@ struct jormungandViewTop: View {
                         )
                     }
                     
+                    // CZ
+                    NavigationLink(destination: jormungandViewCz(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.jormungandMenuCzBadge,
+                        )
+                    }
+                    
 //                    // 初当り
 //                    NavigationLink(destination: jormungandViewFirstHit(
 //                        jormungand: jormungand,
@@ -120,8 +133,8 @@ struct jormungandViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: jormungandView95Ci(
-//                    jormungand: jormungand,
-//                    selection: 1,
+                    jormungand: jormungand,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -131,9 +144,9 @@ struct jormungandViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: jormungandViewBayes(
-//                    jormungand: jormungand,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    jormungand: jormungand,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",

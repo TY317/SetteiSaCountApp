@@ -242,6 +242,7 @@ class commonVar: ObservableObject {
     @AppStorage("jormungandMenuNormalBadge") var jormungandMenuNormalBadge: String = "none"
     @AppStorage("jormungandMenuFirstHitBadge") var jormungandMenuFirstHitBadge: String = "none"
     @AppStorage("jormungandMenuBayesBadge") var jormungandMenuBayesBadge: String = "none"
+    @AppStorage("jormungandMenuCzBadge") var jormungandMenuCzBadge: String = "none"
     
     // ---- 吉宗真打
     @AppStorage("shinYoshiisUnlocked") var shinYoshiisUnlocked: Bool = true

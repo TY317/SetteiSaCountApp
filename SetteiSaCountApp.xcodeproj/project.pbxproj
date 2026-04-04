@@ -167,6 +167,7 @@
 		0F375A052F80A29600982F7A /* jormungandViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A042F80A29600982F7A /* jormungandViewNormal.swift */; };
 		0F375A072F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A062F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift */; };
 		0F375A082F80BA4300982F7A /* jormungandTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A062F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift */; };
+		0F375A0A2F80C4CC00982F7A /* jormungandViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A092F80C4CC00982F7A /* jormungandViewCz.swift */; };
 		0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */; };
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
@@ -1587,6 +1588,7 @@
 		0F375A022F80A0C500982F7A /* jormungandViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewBayes.swift; sourceTree = "<group>"; };
 		0F375A042F80A29600982F7A /* jormungandViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewNormal.swift; sourceTree = "<group>"; };
 		0F375A062F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		0F375A092F80C4CC00982F7A /* jormungandViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewCz.swift; sourceTree = "<group>"; };
 		0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewTop.swift; sourceTree = "<group>"; };
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
@@ -3029,6 +3031,7 @@
 				0F375A022F80A0C500982F7A /* jormungandViewBayes.swift */,
 				0F375A042F80A29600982F7A /* jormungandViewNormal.swift */,
 				0F375A062F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift */,
+				0F375A092F80C4CC00982F7A /* jormungandViewCz.swift */,
 			);
 			path = jormungand;
 			sourceTree = "<group>";
@@ -6641,6 +6644,7 @@
 				0FB9CAA02DDDF0BE009FC6AF /* toloveru87View95Ci.swift in Sources */,
 				0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */,
 				0FD357682DA2A2090069BD1A /* magiaViewAtScreen.swift in Sources */,
+				0F375A0A2F80C4CC00982F7A /* jormungandViewCz.swift in Sources */,
 				0F868A1D2D44B70D00D952D9 /* happyJugV3Ver2ViewJissenTotalDataCheck.swift in Sources */,
 				0F868A642D490BF900D952D9 /* tipJugHanaCommon.swift in Sources */,
 				0F80312A2C6A2E24001F008E /* VVVendScreenView.swift in Sources */,
