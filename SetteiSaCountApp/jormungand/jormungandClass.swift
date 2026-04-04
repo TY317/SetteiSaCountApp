@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class Jormungand: ObservableObject {
+    
+    
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "ヨルムンガンド"
+    @AppStorage("jormungandMinusCheck") var minusCheck: Bool = false
+    @AppStorage("jormungandSelectedMemory") var selectedMemory = "メモリー1"
+    
+    func resetAll() {
+        
+    }
+}
