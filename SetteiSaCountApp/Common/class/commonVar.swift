@@ -235,6 +235,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- ヨルムンガンド
+    @AppStorage("jormungandisUnlocked") var jormungandisUnlocked: Bool = true
+    @AppStorage("jormungandTempUnlockDateDouble") var jormungandTempUnlockDateDouble: Double = 0.0
+    @AppStorage("jormungandMachineIconBadge") var jormungandMachineIconBadge: String = "none"
+    @AppStorage("jormungandMenuNormalBadge") var jormungandMenuNormalBadge: String = "none"
+    @AppStorage("jormungandMenuFirstHitBadge") var jormungandMenuFirstHitBadge: String = "none"
+    @AppStorage("jormungandMenuBayesBadge") var jormungandMenuBayesBadge: String = "none"
+    
     // ---- 吉宗真打
     @AppStorage("shinYoshiisUnlocked") var shinYoshiisUnlocked: Bool = true
     @AppStorage("shinYoshiTempUnlockDateDouble") var shinYoshiTempUnlockDateDouble: Double = 0.0
@@ -494,6 +502,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 shinYoshiisUnlocked = false
                 shinYoshiMachineIconBadge = "new"
+                jormungandisUnlocked = false
+                jormungandMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

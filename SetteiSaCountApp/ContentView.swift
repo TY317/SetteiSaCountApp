@@ -83,6 +83,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
     @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
     @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
+    @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
 }
 
 
@@ -153,7 +154,24 @@ struct ContentView: View {
                                     )
                                 }
                                 
-                                // //// カバネリ海門決戦、26年3月
+                                // //// ヨルムンガンド、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteJormungand == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(jormungandViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("jormungandMachineIcon"),
+                                        machineName: "ヨルムンガンド",
+                                        isUnLocked: $common.jormungandisUnlocked,
+                                        tempUnlockDateDouble: $common.jormungandTempUnlockDateDouble,
+                                        badgeStatus: common.jormungandMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 真打吉宗、26年4月
                                 if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShinYoshi == false {
                                     
                                 } else {
@@ -1044,6 +1062,26 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ヨルムンガンド、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteJormungand == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(jormungandViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("jormungandMachineIcon"),
+                                        machineName: "ヨルムンガンド",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.jormungandisUnlocked,
+                                        tempUnlockDateDouble: $common.jormungandTempUnlockDateDouble,
+                                        badgeStatus: common.jormungandMachineIconBadge,
                                     )
                                 }
                                 
@@ -2263,6 +2301,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ヨルムンガンド
+                Toggle("ヨルムンガンド", isOn: $favoriteSet.isSelectedFavoriteJormungand)
                 // 真打吉宗
                 Toggle("真打 吉宗", isOn: $favoriteSet.isSelectedFavoriteShinYoshi)
                 // サンダー
