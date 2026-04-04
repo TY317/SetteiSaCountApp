@@ -47,3 +47,30 @@ class Jormungand: ObservableObject {
         resetFirstHit()
     }
 }
+
+
+class JormungandMemory1: ObservableObject {
+    @AppStorage("jormungandNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("jormungandFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("jormungandFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandMemoMemory1") var memo = ""
+    @AppStorage("jormungandDateMemory1") var dateDouble = 0.0
+}
+
+
+class JormungandMemory2: ObservableObject {
+    @AppStorage("jormungandNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("jormungandFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("jormungandFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandMemoMemory2") var memo = ""
+    @AppStorage("jormungandDateMemory2") var dateDouble = 0.0
+}
+
+
+class JormungandMemory3: ObservableObject {
+    @AppStorage("jormungandNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("jormungandFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("jormungandFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandMemoMemory3") var memo = ""
+    @AppStorage("jormungandDateMemory3") var dateDouble = 0.0
+}

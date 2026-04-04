@@ -224,13 +224,16 @@ struct shinYoshiSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-        
+        shinYoshiMemory1.normalGame = shinYoshi.normalGame
+        shinYoshiMemory1.firstHitCountAt = shinYoshi.firstHitCountAt
     }
     func saveMemory2() {
-        
+        shinYoshiMemory2.normalGame = shinYoshi.normalGame
+        shinYoshiMemory2.firstHitCountAt = shinYoshi.firstHitCountAt
     }
     func saveMemory3() {
-        
+        shinYoshiMemory3.normalGame = shinYoshi.normalGame
+        shinYoshiMemory3.firstHitCountAt = shinYoshi.firstHitCountAt
     }
 }
 
@@ -262,13 +265,16 @@ struct shinYoshiSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        
+        shinYoshi.normalGame = shinYoshiMemory1.normalGame
+        shinYoshi.firstHitCountAt = shinYoshiMemory1.firstHitCountAt
     }
     func loadMemory2() {
-        
+        shinYoshi.normalGame = shinYoshiMemory2.normalGame
+        shinYoshi.firstHitCountAt = shinYoshiMemory2.firstHitCountAt
     }
     func loadMemory3() {
-        
+        shinYoshi.normalGame = shinYoshiMemory3.normalGame
+        shinYoshi.firstHitCountAt = shinYoshiMemory3.firstHitCountAt
     }
 }
 

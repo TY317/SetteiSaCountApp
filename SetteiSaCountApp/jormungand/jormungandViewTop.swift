@@ -13,9 +13,9 @@ struct jormungandViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var jormungand = Jormungand()
     @State var isShowAlert: Bool = false
-//    @StateObject var jormungandMemory1 = JormungandMemory1()
-//    @StateObject var jormungandMemory2 = JormungandMemory2()
-//    @StateObject var jormungandMemory3 = JormungandMemory3()
+    @StateObject var jormungandMemory1 = JormungandMemory1()
+    @StateObject var jormungandMemory2 = JormungandMemory2()
+    @StateObject var jormungandMemory3 = JormungandMemory3()
     var body: some View {
         NavigationStack {
             List {
@@ -205,6 +205,94 @@ struct jormungandViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct jormungandSubViewSaveMemory: View {
+    @ObservedObject var jormungand: Jormungand
+    @ObservedObject var jormungandMemory1: JormungandMemory1
+    @ObservedObject var jormungandMemory2: JormungandMemory2
+    @ObservedObject var jormungandMemory3: JormungandMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: jormungand.machineName,
+            selectedMemory: $jormungand.selectedMemory,
+            memoMemory1: $jormungandMemory1.memo,
+            dateDoubleMemory1: $jormungandMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $jormungandMemory2.memo,
+            dateDoubleMemory2: $jormungandMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $jormungandMemory3.memo,
+            dateDoubleMemory3: $jormungandMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        jormungandMemory1.normalGame = jormungand.normalGame
+        jormungandMemory1.firstHitCountCz = jormungand.firstHitCountCz
+        jormungandMemory1.firstHitCountAt = jormungand.firstHitCountAt
+    }
+    func saveMemory2() {
+        jormungandMemory2.normalGame = jormungand.normalGame
+        jormungandMemory2.firstHitCountCz = jormungand.firstHitCountCz
+        jormungandMemory2.firstHitCountAt = jormungand.firstHitCountAt
+    }
+    func saveMemory3() {
+        jormungandMemory3.normalGame = jormungand.normalGame
+        jormungandMemory3.firstHitCountCz = jormungand.firstHitCountCz
+        jormungandMemory3.firstHitCountAt = jormungand.firstHitCountAt
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct jormungandSubViewLoadMemory: View {
+    @ObservedObject var jormungand: Jormungand
+    @ObservedObject var jormungandMemory1: JormungandMemory1
+    @ObservedObject var jormungandMemory2: JormungandMemory2
+    @ObservedObject var jormungandMemory3: JormungandMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: jormungand.machineName,
+            selectedMemory: $jormungand.selectedMemory,
+            memoMemory1: jormungandMemory1.memo,
+            dateDoubleMemory1: jormungandMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: jormungandMemory2.memo,
+            dateDoubleMemory2: jormungandMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: jormungandMemory3.memo,
+            dateDoubleMemory3: jormungandMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        jormungand.normalGame = jormungandMemory1.normalGame
+        jormungand.firstHitCountCz = jormungandMemory1.firstHitCountCz
+        jormungand.firstHitCountAt = jormungandMemory1.firstHitCountAt
+    }
+    func loadMemory2() {
+        jormungand.normalGame = jormungandMemory2.normalGame
+        jormungand.firstHitCountCz = jormungandMemory2.firstHitCountCz
+        jormungand.firstHitCountAt = jormungandMemory2.firstHitCountAt
+    }
+    func loadMemory3() {
+        jormungand.normalGame = jormungandMemory3.normalGame
+        jormungand.firstHitCountCz = jormungandMemory3.firstHitCountCz
+        jormungand.firstHitCountAt = jormungandMemory3.firstHitCountAt
     }
 }
 

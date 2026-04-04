@@ -39,22 +39,22 @@ class ShinYoshi: ObservableObject {
 class ShinYoshiMemory1: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory1") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
-    @AppStorage("jormungandMemoMemory1") var memo = ""
-    @AppStorage("jormungandDateMemory1") var dateDouble = 0.0
+    @AppStorage("shinYoshiMemoMemory1") var memo = ""
+    @AppStorage("shinYoshiDateMemory1") var dateDouble = 0.0
 }
 
 
 class ShinYoshiMemory2: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory2") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
-    @AppStorage("jormungandMemoMemory2") var memo = ""
-    @AppStorage("jormungandDateMemory2") var dateDouble = 0.0
+    @AppStorage("shinYoshiMemoMemory2") var memo = ""
+    @AppStorage("shinYoshiDateMemory2") var dateDouble = 0.0
 }
 
 
 class ShinYoshiMemory3: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory3") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
-    @AppStorage("jormungandMemoMemory3") var memo = ""
-    @AppStorage("jormungandDateMemory3") var dateDouble = 0.0
+    @AppStorage("shinYoshiMemoMemory3") var memo = ""
+    @AppStorage("shinYoshiDateMemory3") var dateDouble = 0.0
 }
