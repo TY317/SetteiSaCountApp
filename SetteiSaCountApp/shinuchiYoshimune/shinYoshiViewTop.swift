@@ -13,9 +13,9 @@ struct shinYoshiViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var shinYoshi = ShinYoshi()
     @State var isShowAlert: Bool = false
-//    @StateObject var shinYoshiMemory1 = ShinYoshiMemory1()
-//    @StateObject var shinYoshiMemory2 = ShinYoshiMemory2()
-//    @StateObject var shinYoshiMemory3 = ShinYoshiMemory3()
+    @StateObject var shinYoshiMemory1 = ShinYoshiMemory1()
+    @StateObject var shinYoshiMemory2 = ShinYoshiMemory2()
+    @StateObject var shinYoshiMemory3 = ShinYoshiMemory3()
     
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct shinYoshiViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: shinYoshi.machineName,
-                        titleFont: .title2,
+//                        titleFont: .title2,
                     )
                 }
                 
@@ -168,21 +168,21 @@ struct shinYoshiViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(shinYoshiSubViewLoadMemory(
-//                    shinYoshi: shinYoshi,
-//                    shinYoshiMemory1: shinYoshiMemory1,
-//                    shinYoshiMemory2: shinYoshiMemory2,
-//                    shinYoshiMemory3: shinYoshiMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(shinYoshiSubViewLoadMemory(
+                    shinYoshi: shinYoshi,
+                    shinYoshiMemory1: shinYoshiMemory1,
+                    shinYoshiMemory2: shinYoshiMemory2,
+                    shinYoshiMemory3: shinYoshiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(shinYoshiSubViewSaveMemory(
-//                    shinYoshi: shinYoshi,
-//                    shinYoshiMemory1: shinYoshiMemory1,
-//                    shinYoshiMemory2: shinYoshiMemory2,
-//                    shinYoshiMemory3: shinYoshiMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(shinYoshiSubViewSaveMemory(
+                    shinYoshi: shinYoshi,
+                    shinYoshiMemory1: shinYoshiMemory1,
+                    shinYoshiMemory2: shinYoshiMemory2,
+                    shinYoshiMemory3: shinYoshiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -193,6 +193,82 @@ struct shinYoshiViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct shinYoshiSubViewSaveMemory: View {
+    @ObservedObject var shinYoshi: ShinYoshi
+    @ObservedObject var shinYoshiMemory1: ShinYoshiMemory1
+    @ObservedObject var shinYoshiMemory2: ShinYoshiMemory2
+    @ObservedObject var shinYoshiMemory3: ShinYoshiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: shinYoshi.machineName,
+            selectedMemory: $shinYoshi.selectedMemory,
+            memoMemory1: $shinYoshiMemory1.memo,
+            dateDoubleMemory1: $shinYoshiMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $shinYoshiMemory2.memo,
+            dateDoubleMemory2: $shinYoshiMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $shinYoshiMemory3.memo,
+            dateDoubleMemory3: $shinYoshiMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        
+    }
+    func saveMemory2() {
+        
+    }
+    func saveMemory3() {
+        
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct shinYoshiSubViewLoadMemory: View {
+    @ObservedObject var shinYoshi: ShinYoshi
+    @ObservedObject var shinYoshiMemory1: ShinYoshiMemory1
+    @ObservedObject var shinYoshiMemory2: ShinYoshiMemory2
+    @ObservedObject var shinYoshiMemory3: ShinYoshiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: shinYoshi.machineName,
+            selectedMemory: $shinYoshi.selectedMemory,
+            memoMemory1: shinYoshiMemory1.memo,
+            dateDoubleMemory1: shinYoshiMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: shinYoshiMemory2.memo,
+            dateDoubleMemory2: shinYoshiMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: shinYoshiMemory3.memo,
+            dateDoubleMemory3: shinYoshiMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        
+    }
+    func loadMemory2() {
+        
+    }
+    func loadMemory3() {
+        
     }
 }
 
