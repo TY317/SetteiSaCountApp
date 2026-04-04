@@ -14,7 +14,15 @@ struct jormungandViewNormal: View {
     @EnvironmentObject var common: commonVar
     var body: some View {
         List {
-            
+            // ---- レア役停止系
+            Section {
+                // 参考情報）レア役停止形
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
+                    jormungandTableKoyakuPattern()
+                }
+            } header: {
+                Text("小役")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.jormungandMenuNormalBadge)
