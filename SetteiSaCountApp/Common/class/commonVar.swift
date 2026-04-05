@@ -236,6 +236,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- アクダマドライブ
+    @AppStorage("akudamaisUnlocked") var akudamaisUnlocked: Bool = true
+    @AppStorage("akudamaTempUnlockDateDouble") var akudamaTempUnlockDateDouble: Double = 0.0
+    @AppStorage("akudamaMachineIconBadge") var akudamaMachineIconBadge: String = "none"
+    @AppStorage("akudamaMenuNormalBadge") var akudamaMenuNormalBadge: String = "none"
+    @AppStorage("akudamaMenuFirstHitBadge") var akudamaMenuFirstHitBadge: String = "none"
+    @AppStorage("akudamaMenuBayesBadge") var akudamaMenuBayesBadge: String = "none"
+    
     // ---- ヨルムンガンド
     @AppStorage("jormungandisUnlocked") var jormungandisUnlocked: Bool = true
     @AppStorage("jormungandTempUnlockDateDouble") var jormungandTempUnlockDateDouble: Double = 0.0
@@ -508,6 +516,8 @@ class commonVar: ObservableObject {
                 jormungandMachineIconBadge = "new"
                 kabaneriUnatoMachineIconBadge = "update"
                 kabaneriUnatoMenuKabaneriBonusBadge = "update"
+                akudamaMachineIconBadge = "new"
+                akudamaisUnlocked = false
             }
             else {
                 print("\(targetVersion)以上です")

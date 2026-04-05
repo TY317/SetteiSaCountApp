@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -172,6 +172,9 @@
 		0F375A0E2F81426900982F7A /* kabaneriUnatoTableChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A0D2F81426900982F7A /* kabaneriUnatoTableChara.swift */; };
 		0F375A0F2F81427000982F7A /* kabaneriUnatoTableChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A0D2F81426900982F7A /* kabaneriUnatoTableChara.swift */; };
 		0F375A102F8142A900982F7A /* kabaneriUnatoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2020662F52E30600FDA263 /* kabaneriUnatoClass.swift */; };
+		0F375A212F824F5200982F7A /* akudamaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A202F824F5200982F7A /* akudamaViewTop.swift */; };
+		0F375A232F824FDF00982F7A /* akudamaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A222F824FDF00982F7A /* akudamaClass.swift */; };
+		0F375A252F824FEA00982F7A /* akudamaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */; };
 		0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */; };
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
@@ -1595,6 +1598,9 @@
 		0F375A092F80C4CC00982F7A /* jormungandViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewCz.swift; sourceTree = "<group>"; };
 		0F375A0B2F80CBB200982F7A /* jormungandViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewFirstHit.swift; sourceTree = "<group>"; };
 		0F375A0D2F81426900982F7A /* kabaneriUnatoTableChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoTableChara.swift; sourceTree = "<group>"; };
+		0F375A202F824F5200982F7A /* akudamaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewTop.swift; sourceTree = "<group>"; };
+		0F375A222F824FDF00982F7A /* akudamaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaClass.swift; sourceTree = "<group>"; };
+		0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = akudamaAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewTop.swift; sourceTree = "<group>"; };
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
@@ -2790,17 +2796,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = SCPreview;
-			sourceTree = "<group>";
-		};
+		0FA0A79E2EF692C3003EF8BD /* SCPreview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SCPreview; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3052,6 +3048,16 @@
 				0F375A0B2F80CBB200982F7A /* jormungandViewFirstHit.swift */,
 			);
 			path = jormungand;
+			sourceTree = "<group>";
+		};
+		0F375A1F2F824E7100982F7A /* akudama */ = {
+			isa = PBXGroup;
+			children = (
+				0F375A202F824F5200982F7A /* akudamaViewTop.swift */,
+				0F375A222F824FDF00982F7A /* akudamaClass.swift */,
+				0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */,
+			);
+			path = akudama;
 			sourceTree = "<group>";
 		};
 		0F3B70502CA7F41B002C7F44 /* karakuriCircus */ = {
@@ -3621,6 +3627,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				0F375A1F2F824E7100982F7A /* akudama */,
 				0F3759F92F8096F300982F7A /* jormungand */,
 				0F3759DA2F794C3A00982F7A /* shinuchiYoshimune */,
 				0F51C9A72F5EF6FE00D9DDE1 /* thunder */,
@@ -5390,6 +5397,7 @@
 				0FEC57BF2D917D8000FF1024 /* rslAssets.xcassets in Resources */,
 				0F8325B92C7E110E0037226E /* goevaAssets.xcassets in Resources */,
 				0F2A4DDE2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
+				0F375A252F824FEA00982F7A /* akudamaAssets.xcassets in Resources */,
 				0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */,
 				0FA024562CE03C75004B3FD5 /* goJug3Assets.xcassets in Resources */,
 				0F9A4F8E2DF1C6C8003B6337 /* guiltyCrown2Assets.xcassets in Resources */,
@@ -5519,9 +5527,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5536,9 +5548,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5575,9 +5591,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5592,9 +5612,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5711,6 +5735,7 @@
 				0FDB728B2EE45C2B0075B6A4 /* bakemonoViewScreen.swift in Sources */,
 				0FD357CD2DB33A260069BD1A /* yoshimuneViewHistory.swift in Sources */,
 				0F64DDC62DC6E74E0027315D /* midoriDonTableJakuRareRatio.swift in Sources */,
+				0F375A232F824FDF00982F7A /* akudamaClass.swift in Sources */,
 				0F868ABD2D584BA700D952D9 /* girlsSSViewTop.swift in Sources */,
 				0F1E121E2DD8031100F69AFF /* gundamSeedTableUnder99Ratio.swift in Sources */,
 				0F45A60F2F090D9B0022E355 /* mushotenViewDuringAt.swift in Sources */,
@@ -6375,6 +6400,7 @@
 				0FA024402CD73A8E004B3FD5 /* ver140Tip.swift in Sources */,
 				0F663B942EBF730F006FBB1F /* railgunViewScreen.swift in Sources */,
 				0FEC57AE2D8FA18400FF1024 /* kaijiTableHirameki.swift in Sources */,
+				0F375A212F824F5200982F7A /* akudamaViewTop.swift in Sources */,
 				0FDC32752D2293AF005B3D06 /* danvineViewAttack.swift in Sources */,
 				0FD357952DAB38910069BD1A /* godzillaViewNormal.swift in Sources */,
 				0F7F863E2D9D50E800F26486 /* tokyoGhoulTableJakuCherryCz.swift in Sources */,

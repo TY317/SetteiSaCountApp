@@ -84,6 +84,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
     @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
     @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
+    @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
 }
 
 
@@ -185,6 +186,23 @@ struct ContentView: View {
                                         isUnLocked: $common.shinYoshiisUnlocked,
                                         tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
                                         badgeStatus: common.shinYoshiMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// アクダマドライブ、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAkudama == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(akudamaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("akudamaMachineIcon"),
+                                        machineName: "アクダマドライブ",
+                                        isUnLocked: $common.akudamaisUnlocked,
+                                        tempUnlockDateDouble: $common.akudamaTempUnlockDateDouble,
+                                        badgeStatus: common.akudamaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1102,6 +1120,26 @@ struct ContentView: View {
                                         isUnLocked: $common.shinYoshiisUnlocked,
                                         tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
                                         badgeStatus: common.shinYoshiMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// アクダマドライブ、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAkudama == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(akudamaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("akudamaMachineIcon"),
+                                        machineName: "アクダマドライブ",
+                                        makerName: "SANYO",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.akudamaisUnlocked,
+                                        tempUnlockDateDouble: $common.akudamaTempUnlockDateDouble,
+                                        badgeStatus: common.akudamaMachineIconBadge,
                                     )
                                 }
                                 
@@ -2305,6 +2343,8 @@ struct favoriteSettingView: View {
                 Toggle("ヨルムンガンド", isOn: $favoriteSet.isSelectedFavoriteJormungand)
                 // 真打吉宗
                 Toggle("真打 吉宗", isOn: $favoriteSet.isSelectedFavoriteShinYoshi)
+                // アクダマドライブ
+                Toggle("アクダマドライブ", isOn: $favoriteSet.isSelectedFavoriteAkudama)
                 // サンダー
                 Toggle("サンダーV", isOn: $favoriteSet.isSelectedFavoriteThunder)
                 // カバネリ海門
