@@ -175,6 +175,8 @@
 		0F375A212F824F5200982F7A /* akudamaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A202F824F5200982F7A /* akudamaViewTop.swift */; };
 		0F375A232F824FDF00982F7A /* akudamaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A222F824FDF00982F7A /* akudamaClass.swift */; };
 		0F375A252F824FEA00982F7A /* akudamaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */; };
+		0F375A272F827E7400982F7A /* akudamaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A262F827E7400982F7A /* akudamaView95Ci.swift */; };
+		0F375A292F827E8200982F7A /* akudamaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A282F827E8200982F7A /* akudamaViewBayes.swift */; };
 		0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */; };
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
@@ -1601,6 +1603,8 @@
 		0F375A202F824F5200982F7A /* akudamaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewTop.swift; sourceTree = "<group>"; };
 		0F375A222F824FDF00982F7A /* akudamaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaClass.swift; sourceTree = "<group>"; };
 		0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = akudamaAssets.xcassets; sourceTree = "<group>"; };
+		0F375A262F827E7400982F7A /* akudamaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaView95Ci.swift; sourceTree = "<group>"; };
+		0F375A282F827E8200982F7A /* akudamaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewBayes.swift; sourceTree = "<group>"; };
 		0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewTop.swift; sourceTree = "<group>"; };
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
@@ -3056,6 +3060,8 @@
 				0F375A202F824F5200982F7A /* akudamaViewTop.swift */,
 				0F375A222F824FDF00982F7A /* akudamaClass.swift */,
 				0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */,
+				0F375A262F827E7400982F7A /* akudamaView95Ci.swift */,
+				0F375A282F827E8200982F7A /* akudamaViewBayes.swift */,
 			);
 			path = akudama;
 			sourceTree = "<group>";
@@ -6088,6 +6094,7 @@
 				0FD357262DA0F0630069BD1A /* shamanKingViewCzFuriwake.swift in Sources */,
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F64DDC22DC6DF880027315D /* unitReelLongTitle.swift in Sources */,
+				0F375A292F827E8200982F7A /* akudamaViewBayes.swift in Sources */,
 				0F868A5A2D47BB7100D952D9 /* draHanaSenkohVer2ViewJissenTotalDataCheck.swift in Sources */,
 				0FA662E62F1521D700F3259F /* kokakukidotaiClass.swift in Sources */,
 				0F9D9BD72E9D286100450B23 /* unitToolbarButtonCountDirectInputEnumFocus.swift in Sources */,
@@ -6156,6 +6163,7 @@
 				0FF9AC982CBB4017000C8E76 /* kaguyaViewReg.swift in Sources */,
 				0F654BCD2C6F047000F37849 /* hanahanaSeriesViewTop.swift in Sources */,
 				0FF6D2182EED8B640045265B /* hihodenViewTop.swift in Sources */,
+				0F375A272F827E7400982F7A /* akudamaView95Ci.swift in Sources */,
 				0FA662D62F1378A900F3259F /* enen2View95Ci.swift in Sources */,
 				0FDF23792E51BD7F00249CAC /* enenViewRegScreen.swift in Sources */,
 				0F6B59CE2DFE782100DB1A2B /* symphoTableScreen.swift in Sources */,

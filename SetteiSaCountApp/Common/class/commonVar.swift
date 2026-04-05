@@ -88,6 +88,7 @@ class commonVar: ObservableObject {
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
         Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false),
         Machine(id: "4983", name: "真打吉宗", fullName: "真打 吉宗", iconName: "shinYoshiMachineIcon", btBadge: false),
+        Machine(id: "4956", name: "アクダマドライブ", fullName: "アクダマドライブ", iconName: "akudamaMachineIcon", btBadge: false),
         Machine(id: "4943", name: "サンダーV", fullName: "サンダーV", iconName: "thunderMachineIcon", btBadge: true),
         Machine(id: "4930", name: "カバネリ海門", fullName: "カバネリ海門決戦", iconName: "kabaneriUnatoMachineIcon", btBadge: false),
         Machine(id: "4950", name: "ゴブスレ2", fullName: "ゴブリンスレイヤー2", iconName: "gobsla2MachineIcon", btBadge: false),

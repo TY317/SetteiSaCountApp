@@ -251,6 +251,7 @@ struct ContentViewVer2: View {
         case "8787": return AnyView(hanahanaSeriesViewTop(bayes: bayes, viewModel: viewModel))
         case "4970": return AnyView(jormungandViewTop(bayes: bayes,viewModel: viewModel))
         case "4983": return AnyView(shinYoshiViewTop(bayes: bayes,viewModel: viewModel))
+        case "4956": return AnyView(akudamaViewTop(bayes: bayes,viewModel: viewModel))
         case "4943": return AnyView(thunderViewTop(bayes: bayes, viewModel: viewModel))
         case "4930": return AnyView(kabaneriUnatoViewTop(bayes: bayes, viewModel: viewModel))
         case "4950": return AnyView(gobsla2ViewTop(bayes: bayes, viewModel: viewModel))
