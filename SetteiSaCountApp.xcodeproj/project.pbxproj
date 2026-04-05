@@ -177,6 +177,9 @@
 		0F375A252F824FEA00982F7A /* akudamaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */; };
 		0F375A272F827E7400982F7A /* akudamaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A262F827E7400982F7A /* akudamaView95Ci.swift */; };
 		0F375A292F827E8200982F7A /* akudamaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A282F827E8200982F7A /* akudamaViewBayes.swift */; };
+		0F375A2B2F8283BB00982F7A /* akudamaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A2A2F8283BB00982F7A /* akudamaViewNormal.swift */; };
+		0F375A2D2F82841400982F7A /* akudamaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */; };
+		0F375A2E2F82842D00982F7A /* akudamaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */; };
 		0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */; };
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
@@ -1605,6 +1608,8 @@
 		0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = akudamaAssets.xcassets; sourceTree = "<group>"; };
 		0F375A262F827E7400982F7A /* akudamaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaView95Ci.swift; sourceTree = "<group>"; };
 		0F375A282F827E8200982F7A /* akudamaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewBayes.swift; sourceTree = "<group>"; };
+		0F375A2A2F8283BB00982F7A /* akudamaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewNormal.swift; sourceTree = "<group>"; };
+		0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0F3B70512CA7F439002C7F44 /* karakuriViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewTop.swift; sourceTree = "<group>"; };
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
@@ -3062,6 +3067,8 @@
 				0F375A242F824FEA00982F7A /* akudamaAssets.xcassets */,
 				0F375A262F827E7400982F7A /* akudamaView95Ci.swift */,
 				0F375A282F827E8200982F7A /* akudamaViewBayes.swift */,
+				0F375A2A2F8283BB00982F7A /* akudamaViewNormal.swift */,
+				0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */,
 			);
 			path = akudama;
 			sourceTree = "<group>";
@@ -5942,6 +5949,7 @@
 				0FA0A7E22EF96BCA003EF8BD /* vvv2TableScreenRatio.swift in Sources */,
 				0F51C9BB2F6585F200D9DDE1 /* thunderTableKoyakuRatio.swift in Sources */,
 				0FB209592E0FDB9E0029D940 /* unitCountButtonDenominateWithFunc.swift in Sources */,
+				0F375A2D2F82841400982F7A /* akudamaTableKoyakuPattern.swift in Sources */,
 				0F9D9C052EA313A100450B23 /* unitResultListCountNotBinding.swift in Sources */,
 				0F8689FE2D42747900D952D9 /* goJug3Ver2ViewTop.swift in Sources */,
 				0F868AA32D57954200D952D9 /* mrJugVer2View95CiPersonal.swift in Sources */,
@@ -6861,6 +6869,7 @@
 				0F868A212D44B7C700D952D9 /* happyJugV3Ver2View95CiKen.swift in Sources */,
 				0F1E11FE2DD0306000F69AFF /* gundamSeedViewScreen.swift in Sources */,
 				0FB209752E1289CA0029D940 /* watakonTableFirstHit.swift in Sources */,
+				0F375A2B2F8283BB00982F7A /* akudamaViewNormal.swift in Sources */,
 				0F375A0E2F81426900982F7A /* kabaneriUnatoTableChara.swift in Sources */,
 				0FEC579C2D8ED48800FF1024 /* arifureSubViewTableEnding.swift in Sources */,
 				0F7202FB2C8F1505001A8AF2 /* godeaterViewTop.swift in Sources */,
@@ -6934,6 +6943,7 @@
 				0F0FAF792F585E1A00118DC1 /* gobsla2TableEnding.swift in Sources */,
 				0FA0A7CC2EF6947C003EF8BD /* unitReelColumn.swift in Sources */,
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
+				0F375A2E2F82842D00982F7A /* akudamaTableKoyakuPattern.swift in Sources */,
 				0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */,
 				0F03BD392F0B961C00222339 /* shakeTableKoyakuRatio.swift in Sources */,
 				0F19D4452F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,

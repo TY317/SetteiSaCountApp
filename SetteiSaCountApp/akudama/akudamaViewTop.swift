@@ -33,17 +33,17 @@ struct akudamaViewTop: View {
                 
                 Section {
                     // 通常時
-//                    NavigationLink(destination: akudamaViewNormal(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.akudamaMenuNormalBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: akudamaViewNormal(
+                        akudama: akudama,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.akudamaMenuNormalBadge,
+                        )
+                    }
                     
 //                    // CZ
 //                    NavigationLink(destination: akudamaViewCz(
@@ -138,8 +138,8 @@ struct akudamaViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: akudamaView95Ci(
-//                    akudama: akudama,
-//                    selection: 1,
+                    akudama: akudama,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -149,9 +149,9 @@ struct akudamaViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: akudamaViewBayes(
-//                    akudama: akudama,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    akudama: akudama,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
