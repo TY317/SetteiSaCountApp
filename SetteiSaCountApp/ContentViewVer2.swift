@@ -247,80 +247,20 @@ struct ContentViewVer2: View {
     // IDに基づいて遷移先のViewを返す関数
     func getLinkView(for id: String) -> AnyView {
         switch id {
-        case "5555": return AnyView(
-            JuglerSeriesViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "8787": return AnyView(
-            hanahanaSeriesViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
+        case "5555": return AnyView(JuglerSeriesViewTop(bayes: bayes, viewModel: viewModel))
+        case "8787": return AnyView(hanahanaSeriesViewTop(bayes: bayes, viewModel: viewModel))
         case "4970": return AnyView(jormungandViewTop(bayes: bayes,viewModel: viewModel))
         case "4983": return AnyView(shinYoshiViewTop(bayes: bayes,viewModel: viewModel))
-        case "4943": return AnyView(
-            thunderViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4930": return AnyView(
-            kabaneriUnatoViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4950": return AnyView(
-            gobsla2ViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4928": return AnyView(
-            hanabiViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4926": return AnyView(
-            enen2ViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4931": return AnyView(
-            kokakukidotaiViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4913": return AnyView(
-            tekken6ViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4909": return AnyView(
-            hokutoTenseiViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4924": return AnyView(
-            mushotenViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
-        case "4929": return AnyView(
-            hihodenViewTop(
-                bayes: bayes,
-                viewModel: viewModel
-            )
-        )
+        case "4943": return AnyView(thunderViewTop(bayes: bayes, viewModel: viewModel))
+        case "4930": return AnyView(kabaneriUnatoViewTop(bayes: bayes, viewModel: viewModel))
+        case "4950": return AnyView(gobsla2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4928": return AnyView(hanabiViewTop(bayes: bayes, viewModel: viewModel))
+        case "4926": return AnyView(enen2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4931": return AnyView(kokakukidotaiViewTop(bayes: bayes, viewModel: viewModel))
+        case "4913": return AnyView(tekken6ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4909": return AnyView(hokutoTenseiViewTop(bayes: bayes, viewModel: viewModel))
+        case "4924": return AnyView(mushotenViewTop(bayes: bayes, viewModel: viewModel))
+        case "4929": return AnyView(hihodenViewTop(bayes: bayes, viewModel: viewModel))
         case "4898": return AnyView(bakemonoViewTop(bayes: bayes,viewModel: viewModel))
         case "4873": return AnyView(neoplaViewTop(bayes: bayes,viewModel: viewModel))
         case "4892": return AnyView(railgunViewTop(bayes: bayes,viewModel: viewModel))

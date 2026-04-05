@@ -15,7 +15,7 @@ struct tipVer3230UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・真打 吉宗")
+        Text("・ヨルムンガンド\n・真打 吉宗")
     }
     var image: Image? {
         Image(systemName: "star")

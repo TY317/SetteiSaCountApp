@@ -180,21 +180,21 @@ struct jormungandViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(jormungandSubViewLoadMemory(
-//                    jormungand: jormungand,
-//                    jormungandMemory1: jormungandMemory1,
-//                    jormungandMemory2: jormungandMemory2,
-//                    jormungandMemory3: jormungandMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(jormungandSubViewLoadMemory(
+                    jormungand: jormungand,
+                    jormungandMemory1: jormungandMemory1,
+                    jormungandMemory2: jormungandMemory2,
+                    jormungandMemory3: jormungandMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(jormungandSubViewSaveMemory(
-//                    jormungand: jormungand,
-//                    jormungandMemory1: jormungandMemory1,
-//                    jormungandMemory2: jormungandMemory2,
-//                    jormungandMemory3: jormungandMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(jormungandSubViewSaveMemory(
+                    jormungand: jormungand,
+                    jormungandMemory1: jormungandMemory1,
+                    jormungandMemory2: jormungandMemory2,
+                    jormungandMemory3: jormungandMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット

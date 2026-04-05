@@ -1940,6 +1940,10 @@ Copyright 2016 Google LLC
 
 Copyright 2016 Google LLC
 
+## GoogleMobileAdsMediationIronSource
+
+Copyright 2017 Google LLC
+
 ## GoogleMobileAdsMediationLine
 
 Copyright 2023 Google LLC
@@ -2236,6 +2240,14 @@ You represent and warrant that your Children Privacy Compliance setting remains 
 
 This EULA and all disputes arising thereof shall be subject to the laws of Singapore, where the courts at Singapore shall exclusive jurisdiction.
 
+
+## IronSourceAdQualitySDK
+
+https://platform.ironsrc.com/partners/terms-and-conditions-new-user
+
+## IronSourceSDK
+
+https://platform.ironsrc.com/partners/terms-and-conditions-new-user
 
 ## PromisesObjC
 
