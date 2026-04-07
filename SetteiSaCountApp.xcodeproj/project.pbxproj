@@ -493,6 +493,7 @@
 		0F7202FF2C8F19AE001A8AF2 /* godeaterViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7202FE2C8F19AE001A8AF2 /* godeaterViewHistory.swift */; };
 		0F74965E2F83D78000B7EFFA /* akudamaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */; };
 		0F7496602F83E65F00B7EFFA /* akudamaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */; };
+		0F7496622F852D3300B7EFFA /* akudamaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */; };
 		0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */; };
 		0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B32C947C390007A277 /* godeaterViewScreen.swift */; };
 		0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */; };
@@ -1895,6 +1896,7 @@
 		0F7202FE2C8F19AE001A8AF2 /* godeaterViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewHistory.swift; sourceTree = "<group>"; };
 		0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewFirstHit.swift; sourceTree = "<group>"; };
 		0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewScreen.swift; sourceTree = "<group>"; };
+		0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewEnding.swift; sourceTree = "<group>"; };
 		0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewVoice.swift; sourceTree = "<group>"; };
 		0F7546B32C947C390007A277 /* godeaterViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewScreen.swift; sourceTree = "<group>"; };
 		0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewEnding.swift; sourceTree = "<group>"; };
@@ -3075,6 +3077,7 @@
 				0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */,
 				0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */,
 				0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */,
+				0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */,
 			);
 			path = akudama;
 			sourceTree = "<group>";
@@ -6270,6 +6273,7 @@
 				0F9A798E2E48CBFE00D996CA /* decodeIntArrayFromString.swift in Sources */,
 				0F8031212C69EA3B001F008E /* exViewCzModeTopVVV.swift in Sources */,
 				0F2EEDB52ED87DBD00893905 /* toreveTableSetStock.swift in Sources */,
+				0F7496622F852D3300B7EFFA /* akudamaViewEnding.swift in Sources */,
 				0F51C9C22F66374800D9DDE1 /* thunderViewScreen.swift in Sources */,
 				0F868AE42D5F0CCB00D952D9 /* sevenSwordsViewStScreen.swift in Sources */,
 				0FF156362D6F4CF500B17F83 /* shamanKingViewKokkuri.swift in Sources */,

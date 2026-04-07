@@ -71,18 +71,18 @@ struct akudamaViewTop: View {
                         )
                     }
 
-//                    // ST終了画面
-//                    NavigationLink(destination: akudamaViewScreen(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "ST終了画面",
-//                            badgeStatus: common.akudamaMenuScreenBadge,
-//                        )
-//                    }
+                    // ST終了画面
+                    NavigationLink(destination: akudamaViewEnding(
+                        akudama: akudama,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.akudamaMenuEndingBadge,
+                        )
+                    }
 //
 //                    // おみくじ
 //                    NavigationLink(destination: akudamaViewOmikuji(
