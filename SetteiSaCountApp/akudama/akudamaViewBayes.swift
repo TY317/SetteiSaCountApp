@@ -56,7 +56,14 @@ struct akudamaViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitEnableBonus, title: "ボーナス初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnableAt, title: "AT初当り確率")
-                
+                // クジラッキートロフィー
+                DisclosureGroup("クジラッキートロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "クマノミ柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3

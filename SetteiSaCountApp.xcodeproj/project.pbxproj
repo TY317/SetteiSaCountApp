@@ -494,6 +494,7 @@
 		0F74965E2F83D78000B7EFFA /* akudamaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */; };
 		0F7496602F83E65F00B7EFFA /* akudamaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */; };
 		0F7496622F852D3300B7EFFA /* akudamaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */; };
+		0F7496642F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496632F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift */; };
 		0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */; };
 		0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B32C947C390007A277 /* godeaterViewScreen.swift */; };
 		0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */; };
@@ -1897,6 +1898,7 @@
 		0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewFirstHit.swift; sourceTree = "<group>"; };
 		0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewScreen.swift; sourceTree = "<group>"; };
 		0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewEnding.swift; sourceTree = "<group>"; };
+		0F7496632F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewKujiluckyTrophy.swift; sourceTree = "<group>"; };
 		0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewVoice.swift; sourceTree = "<group>"; };
 		0F7546B32C947C390007A277 /* godeaterViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewScreen.swift; sourceTree = "<group>"; };
 		0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewEnding.swift; sourceTree = "<group>"; };
@@ -4065,6 +4067,7 @@
 				0F815FB52E34F9E00086127D /* commonViewUniversalPlate.swift */,
 				0FF369342E62EBA7002BE0CE /* commonViewTamachanTrophy.swift */,
 				0FDBDAD12E87E0A100197B94 /* commonViewKopandaTrophy.swift */,
+				0F7496632F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5821,6 +5824,7 @@
 				0FDC32872D264452005B3D06 /* dumbbellViewGoldenChallenge.swift in Sources */,
 				0F9D9BE02E9DF10800450B23 /* zeni5ViewNormal.swift in Sources */,
 				0F868A752D4F5D7A00D952D9 /* sbjViewTop.swift in Sources */,
+				0F7496642F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift in Sources */,
 				0F03BD362F0B8FE900222339 /* shakeViewNormal.swift in Sources */,
 				0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */,
 				0F9D9C1C2EA349E400450B23 /* goJug3Ver2View95CiShima.swift in Sources */,

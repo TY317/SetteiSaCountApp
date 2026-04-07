@@ -97,13 +97,13 @@ struct akudamaViewTop: View {
 //                        )
 //                    }
 //
-//                    // サミートロフィー
-//                    NavigationLink(destination: commonViewSammyTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "サミートロフィー"
-//                        )
-//                    }
+                    // サミートロフィー
+                    NavigationLink(destination: commonViewKujiluckyTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "クジラッキートロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: akudama.machineName,
