@@ -13,9 +13,9 @@ struct akudamaViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var akudama = Akudama()
     @State var isShowAlert: Bool = false
-//    @StateObject var akudamaMemory1 = AkudamaMemory1()
-//    @StateObject var akudamaMemory2 = AkudamaMemory2()
-//    @StateObject var akudamaMemory3 = AkudamaMemory3()
+    @StateObject var akudamaMemory1 = AkudamaMemory1()
+    @StateObject var akudamaMemory2 = AkudamaMemory2()
+    @StateObject var akudamaMemory3 = AkudamaMemory3()
     
     var body: some View {
         NavigationStack {
@@ -159,21 +159,21 @@ struct akudamaViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(akudamaSubViewLoadMemory(
-//                    akudama: akudama,
-//                    akudamaMemory1: akudamaMemory1,
-//                    akudamaMemory2: akudamaMemory2,
-//                    akudamaMemory3: akudamaMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(akudamaSubViewLoadMemory(
+                    akudama: akudama,
+                    akudamaMemory1: akudamaMemory1,
+                    akudamaMemory2: akudamaMemory2,
+                    akudamaMemory3: akudamaMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(akudamaSubViewSaveMemory(
-//                    akudama: akudama,
-//                    akudamaMemory1: akudamaMemory1,
-//                    akudamaMemory2: akudamaMemory2,
-//                    akudamaMemory3: akudamaMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(akudamaSubViewSaveMemory(
+                    akudama: akudama,
+                    akudamaMemory1: akudamaMemory1,
+                    akudamaMemory2: akudamaMemory2,
+                    akudamaMemory3: akudamaMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -184,6 +184,184 @@ struct akudamaViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct akudamaSubViewSaveMemory: View {
+    @ObservedObject var akudama: Akudama
+    @ObservedObject var akudamaMemory1: AkudamaMemory1
+    @ObservedObject var akudamaMemory2: AkudamaMemory2
+    @ObservedObject var akudamaMemory3: AkudamaMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: akudama.machineName,
+            selectedMemory: $akudama.selectedMemory,
+            memoMemory1: $akudamaMemory1.memo,
+            dateDoubleMemory1: $akudamaMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $akudamaMemory2.memo,
+            dateDoubleMemory2: $akudamaMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $akudamaMemory3.memo,
+            dateDoubleMemory3: $akudamaMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        akudamaMemory1.ptCountFull = akudama.ptCountFull
+        akudamaMemory1.ptCountCzHit = akudama.ptCountCzHit
+        akudamaMemory1.firstHitCz = akudama.firstHitCz
+        akudamaMemory1.firstHitEpisode = akudama.firstHitEpisode
+        akudamaMemory1.firstHitAkudama = akudama.firstHitAkudama
+        akudamaMemory1.firstHitAt = akudama.firstHitAt
+        akudamaMemory1.firstHitBonusSum = akudama.firstHitBonusSum
+        akudamaMemory1.normalGame = akudama.normalGame
+        akudamaMemory1.screenCount1 = akudama.screenCount1
+        akudamaMemory1.screenCount2 = akudama.screenCount2
+        akudamaMemory1.screenCount3 = akudama.screenCount3
+        akudamaMemory1.screenCount4 = akudama.screenCount4
+        akudamaMemory1.screenCount5 = akudama.screenCount5
+        akudamaMemory1.screenCount6 = akudama.screenCount6
+        akudamaMemory1.screenCount7 = akudama.screenCount7
+        akudamaMemory1.screenCount8 = akudama.screenCount8
+        akudamaMemory1.screenCount9 = akudama.screenCount9
+        akudamaMemory1.screenCountSum = akudama.screenCountSum
+    }
+    func saveMemory2() {
+        akudamaMemory2.ptCountFull = akudama.ptCountFull
+        akudamaMemory2.ptCountCzHit = akudama.ptCountCzHit
+        akudamaMemory2.firstHitCz = akudama.firstHitCz
+        akudamaMemory2.firstHitEpisode = akudama.firstHitEpisode
+        akudamaMemory2.firstHitAkudama = akudama.firstHitAkudama
+        akudamaMemory2.firstHitAt = akudama.firstHitAt
+        akudamaMemory2.firstHitBonusSum = akudama.firstHitBonusSum
+        akudamaMemory2.normalGame = akudama.normalGame
+        akudamaMemory2.screenCount1 = akudama.screenCount1
+        akudamaMemory2.screenCount2 = akudama.screenCount2
+        akudamaMemory2.screenCount3 = akudama.screenCount3
+        akudamaMemory2.screenCount4 = akudama.screenCount4
+        akudamaMemory2.screenCount5 = akudama.screenCount5
+        akudamaMemory2.screenCount6 = akudama.screenCount6
+        akudamaMemory2.screenCount7 = akudama.screenCount7
+        akudamaMemory2.screenCount8 = akudama.screenCount8
+        akudamaMemory2.screenCount9 = akudama.screenCount9
+        akudamaMemory2.screenCountSum = akudama.screenCountSum
+    }
+    func saveMemory3() {
+        akudamaMemory3.ptCountFull = akudama.ptCountFull
+        akudamaMemory3.ptCountCzHit = akudama.ptCountCzHit
+        akudamaMemory3.firstHitCz = akudama.firstHitCz
+        akudamaMemory3.firstHitEpisode = akudama.firstHitEpisode
+        akudamaMemory3.firstHitAkudama = akudama.firstHitAkudama
+        akudamaMemory3.firstHitAt = akudama.firstHitAt
+        akudamaMemory3.firstHitBonusSum = akudama.firstHitBonusSum
+        akudamaMemory3.normalGame = akudama.normalGame
+        akudamaMemory3.screenCount1 = akudama.screenCount1
+        akudamaMemory3.screenCount2 = akudama.screenCount2
+        akudamaMemory3.screenCount3 = akudama.screenCount3
+        akudamaMemory3.screenCount4 = akudama.screenCount4
+        akudamaMemory3.screenCount5 = akudama.screenCount5
+        akudamaMemory3.screenCount6 = akudama.screenCount6
+        akudamaMemory3.screenCount7 = akudama.screenCount7
+        akudamaMemory3.screenCount8 = akudama.screenCount8
+        akudamaMemory3.screenCount9 = akudama.screenCount9
+        akudamaMemory3.screenCountSum = akudama.screenCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct akudamaSubViewLoadMemory: View {
+    @ObservedObject var akudama: Akudama
+    @ObservedObject var akudamaMemory1: AkudamaMemory1
+    @ObservedObject var akudamaMemory2: AkudamaMemory2
+    @ObservedObject var akudamaMemory3: AkudamaMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: akudama.machineName,
+            selectedMemory: $akudama.selectedMemory,
+            memoMemory1: akudamaMemory1.memo,
+            dateDoubleMemory1: akudamaMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: akudamaMemory2.memo,
+            dateDoubleMemory2: akudamaMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: akudamaMemory3.memo,
+            dateDoubleMemory3: akudamaMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        akudama.ptCountFull = akudamaMemory1.ptCountFull
+        akudama.ptCountCzHit = akudamaMemory1.ptCountCzHit
+        akudama.firstHitCz = akudamaMemory1.firstHitCz
+        akudama.firstHitEpisode = akudamaMemory1.firstHitEpisode
+        akudama.firstHitAkudama = akudamaMemory1.firstHitAkudama
+        akudama.firstHitAt = akudamaMemory1.firstHitAt
+        akudama.firstHitBonusSum = akudamaMemory1.firstHitBonusSum
+        akudama.normalGame = akudamaMemory1.normalGame
+        akudama.screenCount1 = akudamaMemory1.screenCount1
+        akudama.screenCount2 = akudamaMemory1.screenCount2
+        akudama.screenCount3 = akudamaMemory1.screenCount3
+        akudama.screenCount4 = akudamaMemory1.screenCount4
+        akudama.screenCount5 = akudamaMemory1.screenCount5
+        akudama.screenCount6 = akudamaMemory1.screenCount6
+        akudama.screenCount7 = akudamaMemory1.screenCount7
+        akudama.screenCount8 = akudamaMemory1.screenCount8
+        akudama.screenCount9 = akudamaMemory1.screenCount9
+        akudama.screenCountSum = akudamaMemory1.screenCountSum
+    }
+    func loadMemory2() {
+        akudama.ptCountFull = akudamaMemory2.ptCountFull
+        akudama.ptCountCzHit = akudamaMemory2.ptCountCzHit
+        akudama.firstHitCz = akudamaMemory2.firstHitCz
+        akudama.firstHitEpisode = akudamaMemory2.firstHitEpisode
+        akudama.firstHitAkudama = akudamaMemory2.firstHitAkudama
+        akudama.firstHitAt = akudamaMemory2.firstHitAt
+        akudama.firstHitBonusSum = akudamaMemory2.firstHitBonusSum
+        akudama.normalGame = akudamaMemory2.normalGame
+        akudama.screenCount1 = akudamaMemory2.screenCount1
+        akudama.screenCount2 = akudamaMemory2.screenCount2
+        akudama.screenCount3 = akudamaMemory2.screenCount3
+        akudama.screenCount4 = akudamaMemory2.screenCount4
+        akudama.screenCount5 = akudamaMemory2.screenCount5
+        akudama.screenCount6 = akudamaMemory2.screenCount6
+        akudama.screenCount7 = akudamaMemory2.screenCount7
+        akudama.screenCount8 = akudamaMemory2.screenCount8
+        akudama.screenCount9 = akudamaMemory2.screenCount9
+        akudama.screenCountSum = akudamaMemory2.screenCountSum
+    }
+    func loadMemory3() {
+        akudama.ptCountFull = akudamaMemory3.ptCountFull
+        akudama.ptCountCzHit = akudamaMemory3.ptCountCzHit
+        akudama.firstHitCz = akudamaMemory3.firstHitCz
+        akudama.firstHitEpisode = akudamaMemory3.firstHitEpisode
+        akudama.firstHitAkudama = akudamaMemory3.firstHitAkudama
+        akudama.firstHitAt = akudamaMemory3.firstHitAt
+        akudama.firstHitBonusSum = akudamaMemory3.firstHitBonusSum
+        akudama.normalGame = akudamaMemory3.normalGame
+        akudama.screenCount1 = akudamaMemory3.screenCount1
+        akudama.screenCount2 = akudamaMemory3.screenCount2
+        akudama.screenCount3 = akudamaMemory3.screenCount3
+        akudama.screenCount4 = akudamaMemory3.screenCount4
+        akudama.screenCount5 = akudamaMemory3.screenCount5
+        akudama.screenCount6 = akudamaMemory3.screenCount6
+        akudama.screenCount7 = akudamaMemory3.screenCount7
+        akudama.screenCount8 = akudamaMemory3.screenCount8
+        akudama.screenCount9 = akudamaMemory3.screenCount9
+        akudama.screenCountSum = akudamaMemory3.screenCountSum
     }
 }
 

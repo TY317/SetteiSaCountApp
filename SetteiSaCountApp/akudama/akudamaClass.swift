@@ -105,3 +105,75 @@ class Akudama: ObservableObject {
         resetScreen()
     }
 }
+
+
+class AkudamaMemory1: ObservableObject {
+    @AppStorage("akudamaPtCountFullMemory1") var ptCountFull: Int = 0
+    @AppStorage("akudamaPtCountCzHitMemory1") var ptCountCzHit: Int = 0
+    @AppStorage("akudamaFirstHitCzMemory1") var firstHitCz: Int = 0
+    @AppStorage("akudamaFirstHitEpisodeMemory1") var firstHitEpisode: Int = 0
+    @AppStorage("akudamaFirstHitAkudamaMemory1") var firstHitAkudama: Int = 0
+    @AppStorage("akudamaFirstHitAtMemory1") var firstHitAt: Int = 0
+    @AppStorage("akudamaFirstHitBonusSumMemory1") var firstHitBonusSum: Int = 0
+    @AppStorage("akudamaNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("akudamaScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("akudamaScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("akudamaScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("akudamaScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("akudamaScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("akudamaScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("akudamaScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("akudamaScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("akudamaScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("akudamaScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("akudamaMemoMemory1") var memo = ""
+    @AppStorage("akudamaDateMemory1") var dateDouble = 0.0
+}
+
+
+class AkudamaMemory2: ObservableObject {
+    @AppStorage("akudamaPtCountFullMemory2") var ptCountFull: Int = 0
+    @AppStorage("akudamaPtCountCzHitMemory2") var ptCountCzHit: Int = 0
+    @AppStorage("akudamaFirstHitCzMemory2") var firstHitCz: Int = 0
+    @AppStorage("akudamaFirstHitEpisodeMemory2") var firstHitEpisode: Int = 0
+    @AppStorage("akudamaFirstHitAkudamaMemory2") var firstHitAkudama: Int = 0
+    @AppStorage("akudamaFirstHitAtMemory2") var firstHitAt: Int = 0
+    @AppStorage("akudamaFirstHitBonusSumMemory2") var firstHitBonusSum: Int = 0
+    @AppStorage("akudamaNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("akudamaScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("akudamaScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("akudamaScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("akudamaScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("akudamaScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("akudamaScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("akudamaScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("akudamaScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("akudamaScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("akudamaScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("akudamaMemoMemory2") var memo = ""
+    @AppStorage("akudamaDateMemory2") var dateDouble = 0.0
+}
+
+
+class AkudamaMemory3: ObservableObject {
+    @AppStorage("akudamaPtCountFullMemory3") var ptCountFull: Int = 0
+    @AppStorage("akudamaPtCountCzHitMemory3") var ptCountCzHit: Int = 0
+    @AppStorage("akudamaFirstHitCzMemory3") var firstHitCz: Int = 0
+    @AppStorage("akudamaFirstHitEpisodeMemory3") var firstHitEpisode: Int = 0
+    @AppStorage("akudamaFirstHitAkudamaMemory3") var firstHitAkudama: Int = 0
+    @AppStorage("akudamaFirstHitAtMemory3") var firstHitAt: Int = 0
+    @AppStorage("akudamaFirstHitBonusSumMemory3") var firstHitBonusSum: Int = 0
+    @AppStorage("akudamaNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("akudamaScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("akudamaScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("akudamaScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("akudamaScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("akudamaScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("akudamaScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("akudamaScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("akudamaScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("akudamaScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("akudamaScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("akudamaMemoMemory3") var memo = ""
+    @AppStorage("akudamaDateMemory3") var dateDouble = 0.0
+}
