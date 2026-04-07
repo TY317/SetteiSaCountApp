@@ -244,6 +244,7 @@ class commonVar: ObservableObject {
     @AppStorage("akudamaMenuNormalBadge") var akudamaMenuNormalBadge: String = "none"
     @AppStorage("akudamaMenuFirstHitBadge") var akudamaMenuFirstHitBadge: String = "none"
     @AppStorage("akudamaMenuBayesBadge") var akudamaMenuBayesBadge: String = "none"
+    @AppStorage("akudamaMenuScreenBadge") var akudamaMenuScreenBadge: String = "none"
     
     // ---- ヨルムンガンド
     @AppStorage("jormungandisUnlocked") var jormungandisUnlocked: Bool = true

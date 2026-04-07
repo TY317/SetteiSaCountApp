@@ -45,58 +45,32 @@ struct akudamaViewTop: View {
                         )
                     }
                     
-//                    // CZ
-//                    NavigationLink(destination: akudamaViewCz(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "scope",
-//                            textBody: "CZ",
-//                            badgeStatus: common.akudamaMenuCzBadge,
-//                        )
-//                    }
-                    
                     // 初当り
-//                    NavigationLink(destination: akudamaViewFirstHit(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.akudamaMenuFirstHitBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: akudamaViewFirstHit(
+                        akudama: akudama,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.akudamaMenuFirstHitBadge,
+                        )
+                    }
                     
-//                    // 白洲ビジョン
-//                    NavigationLink(destination: akudamaViewOshirasu(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "display",
-//                            textBody: "御白洲ビジョン",
-//                            badgeStatus: common.akudamaMenuOshirasuBadge,
-//                        )
-//                    }
-//
-//                    // AT終了画面
-//                    NavigationLink(destination: akudamaViewScreen(
-//                        akudama: akudama,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "AT終了画面",
-//                            badgeStatus: common.akudamaMenuScreenBadge,
-//                        )
-//                    }
-//
+                    // ST終了画面
+                    NavigationLink(destination: akudamaViewScreen(
+                        akudama: akudama,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ST終了画面",
+                            badgeStatus: common.akudamaMenuScreenBadge,
+                        )
+                    }
+
 //                    // ST終了画面
 //                    NavigationLink(destination: akudamaViewScreen(
 //                        akudama: akudama,

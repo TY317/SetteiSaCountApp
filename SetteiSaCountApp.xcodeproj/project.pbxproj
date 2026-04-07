@@ -491,6 +491,8 @@
 		0F7202FB2C8F1505001A8AF2 /* godeaterViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7202FA2C8F1505001A8AF2 /* godeaterViewTop.swift */; };
 		0F7202FD2C8F1535001A8AF2 /* godeaterAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7202FC2C8F1535001A8AF2 /* godeaterAssets.xcassets */; };
 		0F7202FF2C8F19AE001A8AF2 /* godeaterViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7202FE2C8F19AE001A8AF2 /* godeaterViewHistory.swift */; };
+		0F74965E2F83D78000B7EFFA /* akudamaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */; };
+		0F7496602F83E65F00B7EFFA /* akudamaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */; };
 		0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */; };
 		0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B32C947C390007A277 /* godeaterViewScreen.swift */; };
 		0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */; };
@@ -1891,6 +1893,8 @@
 		0F7202FA2C8F1505001A8AF2 /* godeaterViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewTop.swift; sourceTree = "<group>"; };
 		0F7202FC2C8F1535001A8AF2 /* godeaterAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = godeaterAssets.xcassets; sourceTree = "<group>"; };
 		0F7202FE2C8F19AE001A8AF2 /* godeaterViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewHistory.swift; sourceTree = "<group>"; };
+		0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewFirstHit.swift; sourceTree = "<group>"; };
+		0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewScreen.swift; sourceTree = "<group>"; };
 		0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewVoice.swift; sourceTree = "<group>"; };
 		0F7546B32C947C390007A277 /* godeaterViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewScreen.swift; sourceTree = "<group>"; };
 		0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewEnding.swift; sourceTree = "<group>"; };
@@ -3069,6 +3073,8 @@
 				0F375A282F827E8200982F7A /* akudamaViewBayes.swift */,
 				0F375A2A2F8283BB00982F7A /* akudamaViewNormal.swift */,
 				0F375A2C2F82841400982F7A /* akudamaTableKoyakuPattern.swift */,
+				0F74965D2F83D78000B7EFFA /* akudamaViewFirstHit.swift */,
+				0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */,
 			);
 			path = akudama;
 			sourceTree = "<group>";
@@ -5982,6 +5988,7 @@
 				0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */,
 				0FD9750D2F48BDF80067CED7 /* newKingHanaView95CiKen.swift in Sources */,
 				0F51C9B12F61706200D9DDE1 /* thunderView95CiStart.swift in Sources */,
+				0F74965E2F83D78000B7EFFA /* akudamaViewFirstHit.swift in Sources */,
 				0FA662EE2F1682D400F3259F /* kokakukidotaiViewNormal.swift in Sources */,
 				0F1E121A2DD4D19700F69AFF /* mhrTableKiteiReplay.swift in Sources */,
 				0FCCC50E2E91EC5200CE164D /* NewOni3Class.swift in Sources */,
@@ -6497,6 +6504,7 @@
 				0F9D9C282EA3A49200450B23 /* imJugExVer2View95CiShima.swift in Sources */,
 				0F868A622D47BF8D00D952D9 /* draHanaSenkohVer2View95CiPersonal.swift in Sources */,
 				0F6BD7D42D806B97003F5563 /* bioClass.swift in Sources */,
+				0F7496602F83E65F00B7EFFA /* akudamaViewScreen.swift in Sources */,
 				0FDC32672D1C289C005B3D06 /* ver180Tip.swift in Sources */,
 				0FD357CB2DB334010069BD1A /* yoshimuneTableMode.swift in Sources */,
 				0FC14A962E4EFF4B00F85D84 /* enenViewNormal.swift in Sources */,

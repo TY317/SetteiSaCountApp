@@ -34,40 +34,58 @@ struct akudamaView95Ci: View {
             .tag(1)
             
             // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $akudama.firstHitCountCz,
-//                        bigNumber: $akudama.normalGame,
-//                        setting1Denominate: akudama.ratioFirstHitCz[0],
-//                        setting2Denominate: akudama.ratioFirstHitCz[1],
-//                        setting3Denominate: akudama.ratioFirstHitCz[2],
-//                        setting4Denominate: akudama.ratioFirstHitCz[3],
-//                        setting5Denominate: akudama.ratioFirstHitCz[4],
-//                        setting6Denominate: akudama.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $akudama.firstHitCz,
+                        bigNumber: $akudama.normalGame,
+                        setting1Denominate: akudama.ratioFirstHitCz[0],
+                        setting2Denominate: akudama.ratioFirstHitCz[1],
+                        setting3Denominate: akudama.ratioFirstHitCz[2],
+                        setting4Denominate: akudama.ratioFirstHitCz[3],
+                        setting5Denominate: akudama.ratioFirstHitCz[4],
+                        setting6Denominate: akudama.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(2)
+            
+            // ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $akudama.firstHitBonusSum,
+                        bigNumber: $akudama.normalGame,
+                        setting1Denominate: akudama.ratioFirstHitBonus[0],
+                        setting2Denominate: akudama.ratioFirstHitBonus[1],
+                        setting3Denominate: akudama.ratioFirstHitBonus[2],
+                        setting4Denominate: akudama.ratioFirstHitBonus[3],
+                        setting5Denominate: akudama.ratioFirstHitBonus[4],
+                        setting6Denominate: akudama.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(3)
             
             // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $akudama.firstHitCountAt,
-//                        bigNumber: $akudama.normalGame,
-//                        setting1Denominate: akudama.ratioFirstHitAt[0],
-//                        setting2Denominate: akudama.ratioFirstHitAt[1],
-//                        setting3Denominate: akudama.ratioFirstHitAt[2],
-//                        setting4Denominate: akudama.ratioFirstHitAt[3],
-//                        setting5Denominate: akudama.ratioFirstHitAt[4],
-//                        setting6Denominate: akudama.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $akudama.firstHitAt,
+                        bigNumber: $akudama.normalGame,
+                        setting1Denominate: akudama.ratioFirstHitAt[0],
+                        setting2Denominate: akudama.ratioFirstHitAt[1],
+                        setting3Denominate: akudama.ratioFirstHitAt[2],
+                        setting4Denominate: akudama.ratioFirstHitAt[3],
+                        setting5Denominate: akudama.ratioFirstHitAt[4],
+                        setting6Denominate: akudama.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(4)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(
