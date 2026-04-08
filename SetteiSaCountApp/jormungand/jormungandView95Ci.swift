@@ -52,6 +52,24 @@ struct jormungandView95Ci: View {
             )
             .tag(4)
             
+            // 天井短縮回数
+            unitListSection95Ci(
+                grafTitle: "天井短縮回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $jormungand.tenjoCountHit,
+                        bigNumber: $jormungand.tenjoCountSum,
+                        setting1Percent: jormungand.ratioTenjoCut[0],
+                        setting2Percent: jormungand.ratioTenjoCut[1],
+                        setting3Percent: jormungand.ratioTenjoCut[2],
+                        setting4Percent: jormungand.ratioTenjoCut[3],
+                        setting5Percent: jormungand.ratioTenjoCut[4],
+                        setting6Percent: jormungand.ratioTenjoCut[5]
+                    )
+                )
+            )
+            .tag(5)
+            
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",

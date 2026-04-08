@@ -16,6 +16,7 @@ struct jormungandViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var rareCzEnable: Bool = true
+    @State var tenjoEnable: Bool = true
     
     
     // 全機種共通
@@ -54,6 +55,8 @@ struct jormungandViewBayes: View {
                         textBody1: "・通常時の当選率をもとに計算します"
                     )
                 }
+                // 天井短縮率
+                unitToggleWithQuestion(enable: self.$tenjoEnable, title: "天井短縮率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
@@ -136,6 +139,16 @@ struct jormungandViewBayes: View {
             )
         }
         
+        // 天井短縮率
+        var logPostTenjo: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tenjoEnable {
+            logPostTenjo = logPostPercentBino(
+                ratio: jormungand.ratioTenjoCut,
+                Count: jormungand.tenjoCountHit,
+                bigNumber: jormungand.tenjoCountSum
+            )
+        }
+        
         // 初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
@@ -195,6 +208,7 @@ struct jormungandViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostRareCzChance,
             logPostRareCzKyoCherry,
+            logPostTenjo,
             logPostFirstHitCz,
             logPostFirstHitAt,
             

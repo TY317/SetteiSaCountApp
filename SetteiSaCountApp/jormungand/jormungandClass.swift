@@ -13,6 +13,7 @@ class Jormungand: ObservableObject {
     // ---------
     // 通常時
     // ---------
+    // レア役からのCZ
     let ratioRareCzNormalChance: [Double] = [10.16,11.33,14.06,16.02,16.41,16.80]
     let ratioRareCzNormalKyoCherry: [Double] = [25,26.95,32.03,34.38,34.77,35.16]
     let ratioRareCzHighChance: [Double] = [33.59,36.72,46.09,50,50,50]
@@ -22,13 +23,27 @@ class Jormungand: ObservableObject {
     @AppStorage("jormungandRareCzCountKyoCherry") var rareCzCountKyoCherry: Int = 0
     @AppStorage("jormungandRareCzCountKyoCherryHit") var rareCzCountKyoCherryHit: Int = 0
     
+    // 天井短縮
+    let ratioTenjoCut: [Double] = [33.59,40.23,45.31,49.22,49.61,50]
+    @AppStorage("jormungandTenjoCountMiss") var tenjoCountMiss: Int = 0
+    @AppStorage("jormungandTenjoCountHit") var tenjoCountHit: Int = 0
+    @AppStorage("jormungandTenjoCountSum") var tenjoCountSum: Int = 0
+    
+    func tenjoSumFunc() {
+        tenjoCountSum = tenjoCountMiss + tenjoCountHit
+    }
+    
     func resetNormal() {
         rareCzCountChance = 0
         rareCzCountChanceHit = 0
         rareCzCountKyoCherry = 0
         rareCzCountKyoCherryHit = 0
+        tenjoCountMiss = 0
+        tenjoCountHit = 0
+        tenjoCountSum = 0
         minusCheck = false
     }
+    
     // ----------
     // CZ
     // ----------
