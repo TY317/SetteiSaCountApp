@@ -134,7 +134,7 @@ struct jormungandViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: jormungandView95Ci(
                     jormungand: jormungand,
-                    selection: 1,
+                    selection: 3,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

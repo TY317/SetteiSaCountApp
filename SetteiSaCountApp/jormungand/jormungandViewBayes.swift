@@ -15,6 +15,7 @@ struct jormungandViewBayes: View {
     let payoutList: [Double] = [97.8, 98.8, 100.9, 104.7, 109.6, 113.9]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var rareCzEnable: Bool = true
     
     
     // 全機種共通
@@ -46,6 +47,13 @@ struct jormungandViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // レア役からのCZ当選率
+                unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのCZ当選率") {
+                    unitExView5body2image(
+                        title: "レア役からのCZ当選率",
+                        textBody1: "・通常時の当選率をもとに計算します"
+                    )
+                }
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
@@ -112,6 +120,22 @@ struct jormungandViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // レア役からのCZ当選率
+        var logPostRareCzChance: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareCzKyoCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareCzEnable {
+            logPostRareCzChance = logPostPercentBino(
+                ratio: jormungand.ratioRareCzNormalChance,
+                Count: jormungand.rareCzCountChanceHit,
+                bigNumber: jormungand.rareCzCountChance,
+            )
+            logPostRareCzKyoCherry = logPostPercentBino(
+                ratio: jormungand.ratioRareCzNormalKyoCherry,
+                Count: jormungand.rareCzCountKyoCherryHit,
+                bigNumber: jormungand.rareCzCountKyoCherry,
+            )
+        }
+        
         // 初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
@@ -169,6 +193,8 @@ struct jormungandViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostRareCzChance,
+            logPostRareCzKyoCherry,
             logPostFirstHitCz,
             logPostFirstHitAt,
             

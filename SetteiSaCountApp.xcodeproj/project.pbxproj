@@ -495,6 +495,9 @@
 		0F7496602F83E65F00B7EFFA /* akudamaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */; };
 		0F7496622F852D3300B7EFFA /* akudamaViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */; };
 		0F7496642F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496632F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift */; };
+		0F7496662F8670F000B7EFFA /* jormungandTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */; };
+		0F7496672F86712400B7EFFA /* jormungandTableRareCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */; };
+		0F7496682F86713900B7EFFA /* jormungandClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759FC2F809A7F00982F7A /* jormungandClass.swift */; };
 		0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */; };
 		0F7546B42C947C3A0007A277 /* godeaterViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B32C947C390007A277 /* godeaterViewScreen.swift */; };
 		0F7546B62C9551C10007A277 /* godeaterViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */; };
@@ -1899,6 +1902,7 @@
 		0F74965F2F83E65F00B7EFFA /* akudamaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewScreen.swift; sourceTree = "<group>"; };
 		0F7496612F852D3300B7EFFA /* akudamaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = akudamaViewEnding.swift; sourceTree = "<group>"; };
 		0F7496632F852FC200B7EFFA /* commonViewKujiluckyTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewKujiluckyTrophy.swift; sourceTree = "<group>"; };
+		0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableRareCz.swift; sourceTree = "<group>"; };
 		0F7546B12C9318E20007A277 /* godeaterViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewVoice.swift; sourceTree = "<group>"; };
 		0F7546B32C947C390007A277 /* godeaterViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewScreen.swift; sourceTree = "<group>"; };
 		0F7546B52C9551C10007A277 /* godeaterViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godeaterViewEnding.swift; sourceTree = "<group>"; };
@@ -3063,6 +3067,7 @@
 				0F375A062F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift */,
 				0F375A092F80C4CC00982F7A /* jormungandViewCz.swift */,
 				0F375A0B2F80CBB200982F7A /* jormungandViewFirstHit.swift */,
+				0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */,
 			);
 			path = jormungand;
 			sourceTree = "<group>";
@@ -5860,6 +5865,7 @@
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */,
 				0F64DD8A2DC5C31F0027315D /* girlsSSSubViewCountInput.swift in Sources */,
+				0F7496662F8670F000B7EFFA /* jormungandTableRareCz.swift in Sources */,
 				0F64DD8C2DC5C4970027315D /* goJug3SubViewCountInput.swift in Sources */,
 				0FF369312E62C616002BE0CE /* darlingViewCz.swift in Sources */,
 				0F9D9C162EA3468E00450B23 /* girlsSSViewShimaData.swift in Sources */,
@@ -6925,6 +6931,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F7496682F86713900B7EFFA /* jormungandClass.swift in Sources */,
 				0F45A5B42EFF51A10022E355 /* hokutoTenseiTableKoyakuPattern.swift in Sources */,
 				0F45A5E02F079C4E0022E355 /* unitIconBtBadgeTriangleShape.swift in Sources */,
 				0FA0A7A82EF693A2003EF8BD /* hihodenTableKoyakuPattern.swift in Sources */,
@@ -7021,6 +7028,7 @@
 				0F2A4DEE2F36EEDA00B3C583 /* ocrTest.swift in Sources */,
 				0FD9750A2F48BBD90067CED7 /* newKingHanaTableBellBonus.swift in Sources */,
 				0FD974F12F4188AD0067CED7 /* hanabiTableRtReplay.swift in Sources */,
+				0F7496672F86712400B7EFFA /* jormungandTableRareCz.swift in Sources */,
 				0FDE0F1F2F2F471A00B1DA18 /* unitTableGameIndex.swift in Sources */,
 				0FB972EE2F665A0700D1E56B /* enen2TableMiniChara.swift in Sources */,
 				0F375A0F2F81427000982F7A /* kabaneriUnatoTableChara.swift in Sources */,

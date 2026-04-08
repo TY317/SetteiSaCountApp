@@ -10,6 +10,25 @@ import SwiftUI
 import Combine
 
 class Jormungand: ObservableObject {
+    // ---------
+    // 通常時
+    // ---------
+    let ratioRareCzNormalChance: [Double] = [10.16,11.33,14.06,16.02,16.41,16.80]
+    let ratioRareCzNormalKyoCherry: [Double] = [25,26.95,32.03,34.38,34.77,35.16]
+    let ratioRareCzHighChance: [Double] = [33.59,36.72,46.09,50,50,50]
+    let ratioRareCzHighKyoCherry: [Double] = [66.80,68.36,75,80.08,80.08,80.08,]
+    @AppStorage("jormungandRareCzCountChance") var rareCzCountChance: Int = 0
+    @AppStorage("jormungandRareCzCountChanceHit") var rareCzCountChanceHit: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherry") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryHit") var rareCzCountKyoCherryHit: Int = 0
+    
+    func resetNormal() {
+        rareCzCountChance = 0
+        rareCzCountChanceHit = 0
+        rareCzCountKyoCherry = 0
+        rareCzCountKyoCherryHit = 0
+        minusCheck = false
+    }
     // ----------
     // CZ
     // ----------
