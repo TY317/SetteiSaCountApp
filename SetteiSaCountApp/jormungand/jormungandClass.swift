@@ -33,6 +33,34 @@ class Jormungand: ObservableObject {
         tenjoCountSum = tenjoCountMiss + tenjoCountHit
     }
     
+    // 示唆カード
+    @AppStorage("jormungandCardCountDefault") var cardCountDefault: Int = 0
+    @AppStorage("jormungandCardCountKisu") var cardCountKisu: Int = 0
+    @AppStorage("jormungandCardCountGusu") var cardCountGusu: Int = 0
+    @AppStorage("jormungandCardCountHighJaku") var cardCountHighJaku: Int = 0
+    @AppStorage("jormungandCardCountModeCJaku") var cardCountModeCJaku: Int = 0
+    @AppStorage("jormungandCardCountHighKyo") var cardCountHighKyo: Int = 0
+    @AppStorage("jormungandCardCountModeCKyo") var cardCountModeCKyo: Int = 0
+    @AppStorage("jormungandCardCountGusuFix") var cardCountGusuFix: Int = 0
+    @AppStorage("jormungandCardCountModeD") var cardCountModeD: Int = 0
+    @AppStorage("jormungandCardCountHorobi") var cardCountHorobi: Int = 0
+    @AppStorage("jormungandCardCountSum") var cardCountSum: Int = 0
+    
+    func cardSumFunc() {
+        cardCountSum = countSum(
+            cardCountDefault,
+            cardCountKisu,
+            cardCountGusu,
+            cardCountHighJaku,
+//            cardCountModeCJaku,
+            cardCountHighKyo,
+//            cardCountModeCKyo,
+            cardCountGusuFix,
+//            cardCountModeD,
+//            cardCountHorobi,
+        )
+    }
+    
     func resetNormal() {
         rareCzCountChance = 0
         rareCzCountChanceHit = 0
@@ -41,6 +69,17 @@ class Jormungand: ObservableObject {
         tenjoCountMiss = 0
         tenjoCountHit = 0
         tenjoCountSum = 0
+        cardCountDefault = 0
+        cardCountKisu = 0
+        cardCountGusu = 0
+        cardCountHighJaku = 0
+        cardCountModeCJaku = 0
+        cardCountHighKyo = 0
+        cardCountModeCKyo = 0
+        cardCountGusuFix = 0
+        cardCountModeD = 0
+        cardCountHorobi = 0
+        cardCountSum = 0
         minusCheck = false
     }
     

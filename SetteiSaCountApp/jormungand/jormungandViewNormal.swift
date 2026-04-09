@@ -27,6 +27,33 @@ struct jormungandViewNormal: View {
     @State var lazyVGridCount: Int = 3
     let itemList: [String] = ["チャンス目", "強🍒"]
     @State var selectedItem: String = "チャンス目"
+    @State var selectedCard: String = "マオ"
+    let selectList: [String] = [
+        "マオ",
+        "ウゴ",
+        "トージョ",
+        "ワイリ",
+        "ヨナ",
+        "レーム",
+        "ルツ",
+        "ヨナ＆ココ",
+        "アール＆ココ",
+        "バルメ＆ココ",
+    ]
+    let sisaList: [String] = [
+        "デフォルト",
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "次回CZモードC以上示唆 弱",
+        "高設定示唆 強",
+        "次回CZモードC以上示唆 強",
+        "偶数設定濃厚",
+        "次回CZモードD以上濃厚",
+        "次回滅びの丘濃厚",
+    ]
+    let indexList: [Int] = [0,1,2,3,5,7]
+    
     var body: some View {
         List {
             // ---- レア役からのCZ当選率
@@ -210,7 +237,65 @@ struct jormungandViewNormal: View {
             } header: {
                 Text("天井短縮率")
             }
-            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+            
+            // ---- サブ液晶カード
+            Section {
+                DisclosureGroup {
+                    // サークルピッカー
+                    Picker("", selection: self.$selectedCard) {
+                        ForEach(self.selectList, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(height: 150)
+                    
+                    // 1. selectedCardがselectListの何番目にあるかを探す
+                    if let currentIndex = selectList.firstIndex(of: selectedCard) {
+                        // 登録対象
+                        if self.indexList.contains(currentIndex) {
+                            // //// 示唆＆登録ボタン
+                            unitCountSubmitWithResult(
+                                title: sisaText(item: self.selectedCard),
+                                count: bindingVoice(item: self.selectedCard),
+                                bigNumber: $jormungand.cardCountSum,
+                                flushColor: flushColor(item: self.selectedCard),
+                                minusCheck: $jormungand.minusCheck) {
+                                    jormungand.cardSumFunc()
+                                }
+                        }
+                        // 示唆のみ表示
+                        else {
+                            Text("\(self.sisaList[currentIndex])")
+                            Text("登録")
+                                .foregroundStyle(Color.secondary)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        }
+                    }
+                    
+                    // スペース用の行
+                    Text("")
+                        .listRowBackground(Color(UIColor.systemGroupedBackground))
+                        .listRowSeparator(.hidden)
+                    
+                    // カウント結果
+                    ForEach(self.indexList, id: \.self) { index in
+                        let card = self.selectList[index]
+                        unitResultCountListPercent(
+                            title: sisaText(item: card),
+                            count: bindingVoice(item: card),
+                            flashColor: flushColor(item: card),
+                            bigNumber: $jormungand.cardCountSum
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("サブ液晶カード")
+            }
+//            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.jormungandMenuNormalBadge)
@@ -258,6 +343,50 @@ struct jormungandViewNormal: View {
                     })
                 }
             }
+        }
+    }
+    
+    private func sisaText(item: String) -> String {
+        switch item {
+        case self.selectList[0]: return self.sisaList[0]
+        case self.selectList[1]: return self.sisaList[1]
+        case self.selectList[2]: return self.sisaList[2]
+        case self.selectList[3]: return self.sisaList[3]
+        case self.selectList[4]: return self.sisaList[4]
+        case self.selectList[5]: return self.sisaList[5]
+        case self.selectList[6]: return self.sisaList[6]
+        case self.selectList[7]: return self.sisaList[7]
+        case self.selectList[8]: return self.sisaList[8]
+        case self.selectList[9]: return self.sisaList[9]
+        default: return "???"
+        }
+    }
+    
+    private func bindingVoice(item: String) -> Binding<Int> {
+        switch item {
+        case self.selectList[0]: return $jormungand.cardCountDefault
+        case self.selectList[1]: return $jormungand.cardCountKisu
+        case self.selectList[2]: return $jormungand.cardCountGusu
+        case self.selectList[3]: return $jormungand.cardCountHighJaku
+        case self.selectList[4]: return $jormungand.cardCountModeCJaku
+        case self.selectList[5]: return $jormungand.cardCountHighKyo
+        case self.selectList[6]: return $jormungand.cardCountModeCKyo
+        case self.selectList[7]: return $jormungand.cardCountGusuFix
+        case self.selectList[8]: return $jormungand.cardCountModeD
+        case self.selectList[9]: return $jormungand.cardCountHorobi
+        default: return .constant(0)
+        }
+    }
+    
+    private func flushColor(item: String) -> Color {
+        switch item {
+        case self.selectList[0]: return .gray
+        case self.selectList[1]: return .blue
+        case self.selectList[2]: return .yellow
+        case self.selectList[3]: return .green
+        case self.selectList[5]: return .red
+        case self.selectList[7]: return .brown
+        default: return .clear
         }
     }
 }
