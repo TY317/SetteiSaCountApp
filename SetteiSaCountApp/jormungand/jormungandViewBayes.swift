@@ -17,6 +17,7 @@ struct jormungandViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var rareCzEnable: Bool = true
     @State var tenjoEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -61,6 +62,13 @@ struct jormungandViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // ボーナス終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス終了画面") {
+                    unitExView5body2image(
+                        title: "ボーナス終了画面",
+                        textBody1: "・確定系、否定系のみ反映させます"
+                    )
+                }
                 
             }
             
@@ -169,6 +177,31 @@ struct jormungandViewBayes: View {
             )
         }
         
+        // ボーナス終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if jormungand.screenCountNegate2 > 0 {
+                logPostScreen[1] = -Double.infinity
+            }
+            if jormungand.screenCountGusuFix > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+            if jormungand.screenCountOver4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if jormungand.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -211,6 +244,7 @@ struct jormungandViewBayes: View {
             logPostTenjo,
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

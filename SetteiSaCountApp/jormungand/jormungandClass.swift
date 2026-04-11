@@ -108,6 +108,45 @@ class Jormungand: ObservableObject {
         minusCheck = false
     }
     
+    // -------
+    // 終了画面
+    // -------
+    @AppStorage("jormungandScreenCountDefault") var screenCountDefault: Int = 0
+    @AppStorage("jormungandScreenCountHigh") var screenCountHigh: Int = 0
+    @AppStorage("jormungandScreenCountKisu") var screenCountKisu: Int = 0
+    @AppStorage("jormungandScreenCountGusu") var screenCountGusu: Int = 0
+    @AppStorage("jormungandScreenCountNegate2") var screenCountNegate2: Int = 0
+    @AppStorage("jormungandScreenCountGusuFix") var screenCountGusuFix: Int = 0
+    @AppStorage("jormungandScreenCountOver4") var screenCountOver4: Int = 0
+    @AppStorage("jormungandScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("jormungandScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefault,
+            screenCountHigh,
+            screenCountKisu,
+            screenCountGusu,
+            screenCountNegate2,
+            screenCountGusuFix,
+            screenCountOver4,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefault = 0
+        screenCountHigh = 0
+        screenCountKisu = 0
+        screenCountGusu = 0
+        screenCountNegate2 = 0
+        screenCountGusuFix = 0
+        screenCountOver4 = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -118,6 +157,8 @@ class Jormungand: ObservableObject {
     func resetAll() {
         resetCz()
         resetFirstHit()
+        resetNormal()
+        resetScreen()
     }
 }
 

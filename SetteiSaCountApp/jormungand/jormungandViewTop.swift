@@ -83,18 +83,18 @@ struct jormungandViewTop: View {
 //                        )
 //                    }
 //                    
-//                    // AT終了画面
-//                    NavigationLink(destination: jormungandViewScreen(
-//                        jormungand: jormungand,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "AT終了画面",
-//                            badgeStatus: common.jormungandMenuScreenBadge,
-//                        )
-//                    }
+                    // AT終了画面
+                    NavigationLink(destination: jormungandViewScreen(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.jormungandMenuScreenBadge,
+                        )
+                    }
 //
 //                    // ST終了画面
 //                    NavigationLink(destination: jormungandViewScreen(
