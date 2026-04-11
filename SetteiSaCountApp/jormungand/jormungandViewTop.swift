@@ -95,19 +95,19 @@ struct jormungandViewTop: View {
                             badgeStatus: common.jormungandMenuScreenBadge,
                         )
                     }
-//
-//                    // ST終了画面
-//                    NavigationLink(destination: jormungandViewScreen(
-//                        jormungand: jormungand,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "ST終了画面",
-//                            badgeStatus: common.jormungandMenuScreenBadge,
-//                        )
-//                    }
+
+                    // エンディング
+                    NavigationLink(destination: jormungandViewEnding(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.jormungandMenuEndingBadge,
+                        )
+                    }
 //
 //                    // おみくじ
 //                    NavigationLink(destination: jormungandViewOmikuji(

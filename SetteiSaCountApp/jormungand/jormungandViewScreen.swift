@@ -111,10 +111,6 @@ struct jormungandViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    
-                    Text("※ 天井示唆：処刑課バトルの天井示唆")
-                        .foregroundStyle(Color.secondary)
-                        .font(.caption)
                 }
                 
                 // //// カウント結果

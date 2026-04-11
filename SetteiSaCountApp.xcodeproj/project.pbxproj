@@ -922,6 +922,7 @@
 		0FA1C5AF2F717550009430EE /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
 		0FA63D2E2F89CC790006E8F7 /* jormungandViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */; };
+		0FA63D302F89D9680006E8F7 /* jormungandViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D2F2F89D9680006E8F7 /* jormungandViewEnding.swift */; };
 		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
 		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
@@ -2308,6 +2309,7 @@
 		0FA1C5AC2F71740A009430EE /* enen2TableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableScreenRatio.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
 		0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewReg.swift; sourceTree = "<group>"; };
+		0FA63D2F2F89D9680006E8F7 /* jormungandViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewEnding.swift; sourceTree = "<group>"; };
 		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
 		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
 		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
@@ -3074,6 +3076,7 @@
 				0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */,
 				0F7496692F87D8D200B7EFFA /* jormungandViewScreen.swift */,
 				0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */,
+				0FA63D2F2F89D9680006E8F7 /* jormungandViewEnding.swift */,
 			);
 			path = jormungand;
 			sourceTree = "<group>";
@@ -5950,6 +5953,7 @@
 				0F9D9BEE2E9E3B8100450B23 /* zeni5TableMode.swift in Sources */,
 				0F8689F52D41156D00D952D9 /* imJugExVer2View95CiTotal.swift in Sources */,
 				0F20204C2F4BF84D00FDA263 /* gobsla2ViewNormal.swift in Sources */,
+				0FA63D302F89D9680006E8F7 /* jormungandViewEnding.swift in Sources */,
 				0F45A6112F0943890022E355 /* mushotenViewEnding.swift in Sources */,
 				0F8689FB2D42591100D952D9 /* imJugExVer2View95CiPersonal.swift in Sources */,
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
