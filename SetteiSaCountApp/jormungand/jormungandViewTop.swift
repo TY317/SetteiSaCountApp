@@ -70,19 +70,19 @@ struct jormungandViewTop: View {
                         )
                     }
                     
-//                    // 白洲ビジョン
-//                    NavigationLink(destination: jormungandViewOshirasu(
-//                        jormungand: jormungand,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "display",
-//                            textBody: "御白洲ビジョン",
-//                            badgeStatus: common.jormungandMenuOshirasuBadge,
-//                        )
-//                    }
-//                    
+                    // REG
+                    NavigationLink(destination: jormungandViewReg(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "REG",
+                            badgeStatus: common.jormungandMenuRegBadge,
+                        )
+                    }
+                    
                     // AT終了画面
                     NavigationLink(destination: jormungandViewScreen(
                         jormungand: jormungand,

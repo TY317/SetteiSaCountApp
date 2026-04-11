@@ -921,6 +921,7 @@
 		0FA1C5AE2F717455009430EE /* enen2TableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1C5AC2F71740A009430EE /* enen2TableScreenRatio.swift */; };
 		0FA1C5AF2F717550009430EE /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA3832C2E8010AA001E293E /* unitLabelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */; };
+		0FA63D2E2F89CC790006E8F7 /* jormungandViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */; };
 		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
 		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
@@ -2306,6 +2307,7 @@
 		0FA0A7F62EFE41FC003EF8BD /* ver3160.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3160.swift; sourceTree = "<group>"; };
 		0FA1C5AC2F71740A009430EE /* enen2TableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableScreenRatio.swift; sourceTree = "<group>"; };
 		0FA3832B2E8010AA001E293E /* unitLabelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLabelMenu.swift; sourceTree = "<group>"; };
+		0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewReg.swift; sourceTree = "<group>"; };
 		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
 		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
 		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
@@ -3071,6 +3073,7 @@
 				0F375A0B2F80CBB200982F7A /* jormungandViewFirstHit.swift */,
 				0F7496652F8670F000B7EFFA /* jormungandTableRareCz.swift */,
 				0F7496692F87D8D200B7EFFA /* jormungandViewScreen.swift */,
+				0FA63D2D2F89CC790006E8F7 /* jormungandViewReg.swift */,
 			);
 			path = jormungand;
 			sourceTree = "<group>";
@@ -6182,6 +6185,7 @@
 				0F868AC52D584F2500D952D9 /* girlsSSVer2ViewJissenStartData.swift in Sources */,
 				0FF369182E5AF805002BE0CE /* azurLaneViewBayes.swift in Sources */,
 				0F868A3F2D460E6500D952D9 /* kingHanaVer2ViewKenDataInput.swift in Sources */,
+				0FA63D2E2F89CC790006E8F7 /* jormungandViewReg.swift in Sources */,
 				0F45A5BD2F04948B0022E355 /* hokutoTenseiViewFirstHit.swift in Sources */,
 				0FB9CA962DDDCD05009FC6AF /* unitButtonResetBorderedStyle.swift in Sources */,
 				0F7D3F162C80A6A500A3FE7D /* goevaViewEnding.swift in Sources */,

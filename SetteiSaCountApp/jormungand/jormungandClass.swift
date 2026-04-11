@@ -147,6 +147,38 @@ class Jormungand: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // REG
+    // ---------
+    @AppStorage("jormungandCharaCountKisu") var charaCountKisu: Int = 0
+    @AppStorage("jormungandCharaCountGusu") var charaCountGusu: Int = 0
+    @AppStorage("jormungandCharaCountHigh") var charaCountHigh: Int = 0
+    @AppStorage("jormungandCharaCountOver2") var charaCountOver2: Int = 0
+    @AppStorage("jormungandCharaCountOver4") var charaCountOver4: Int = 0
+    @AppStorage("jormungandCharaCountOver6") var charaCountOver6: Int = 0
+    @AppStorage("jormungandCharaCountSum") var charaCountSum: Int = 0
+    
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCountKisu,
+            charaCountGusu,
+            charaCountHigh,
+            charaCountOver2,
+            charaCountOver4,
+            charaCountOver6,
+        )
+    }
+    
+    func resetReg() {
+        charaCountKisu = 0
+        charaCountGusu = 0
+        charaCountHigh = 0
+        charaCountOver2 = 0
+        charaCountOver4 = 0
+        charaCountOver6 = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -159,6 +191,7 @@ class Jormungand: ObservableObject {
         resetFirstHit()
         resetNormal()
         resetScreen()
+        resetReg()
     }
 }
 

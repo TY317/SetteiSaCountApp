@@ -18,6 +18,7 @@ struct jormungandViewBayes: View {
     @State var rareCzEnable: Bool = true
     @State var tenjoEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var charaEnable: Bool = true
     
     
     // 全機種共通
@@ -62,6 +63,13 @@ struct jormungandViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // REG中キャラ
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中キャラ") {
+                    unitExView5body2image(
+                        title: "REG中キャラ",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // ボーナス終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス終了画面") {
                     unitExView5body2image(
@@ -177,6 +185,26 @@ struct jormungandViewBayes: View {
             )
         }
         
+        // REG中キャラ
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            if jormungand.charaCountOver2 > 0 {
+                logPostChara[0] = -Double.infinity
+            }
+            if jormungand.charaCountOver4 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+            }
+            if jormungand.charaCountOver6 > 0 {
+                logPostChara[0] = -Double.infinity
+                logPostChara[1] = -Double.infinity
+                logPostChara[2] = -Double.infinity
+                logPostChara[3] = -Double.infinity
+                logPostChara[4] = -Double.infinity
+            }
+        }
+        
         // ボーナス終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
@@ -244,6 +272,7 @@ struct jormungandViewBayes: View {
             logPostTenjo,
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostChara,
             logPostScreen,
             
             logPostTrophy,
