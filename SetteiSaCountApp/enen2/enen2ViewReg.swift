@@ -61,6 +61,18 @@ struct enen2ViewReg: View {
     let itemList: [String] = ["通常シナリオ", "特殊シナリオ"]
     @State var selectedItem: String = "通常シナリオ"
     
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
+    
     var body: some View {
         List {
             // ---- キャラ選択
@@ -72,7 +84,7 @@ struct enen2ViewReg: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3210Enen2Chara())
+//                .popoverTip(tipVer3210Enen2Chara())
                 
                 // ---- 通常パターン
                 if self.selectedItem == self.itemList[0] {
@@ -543,6 +555,12 @@ struct enen2ViewReg: View {
             }
             // ---- カウント結果
             Section {
+                // シナリオ振分け
+                unitLinkButtonViewBuilder(sheetTitle: "シナリオ振分け") {
+                    enen2TableCharaRatio(enen2: enen2)
+                }
+                .popoverTip(tipVer3230Enen2Chara())
+                
                 ForEach(self.indexList, id: \.self) { index in
                     unitResultCountListPercent(
                         title: self.sisaList[index],
@@ -554,9 +572,16 @@ struct enen2ViewReg: View {
                 unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオでの示唆", detent: .large) {
                     enen2TableRegSenario()
                 }
+                
+                // シナリオ振分け
+                unitLinkButtonViewBuilder(sheetTitle: "シナリオ振分け") {
+                    enen2TableCharaRatio(enen2: enen2)
+                }
             } header: {
                 Text("カウント結果")
             }
+            
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.enen2MenuRegBadge)
@@ -570,6 +595,20 @@ struct enen2ViewReg: View {
         }
         .navigationTitle("REG")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック

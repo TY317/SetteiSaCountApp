@@ -524,6 +524,8 @@ class commonVar: ObservableObject {
                 kabaneriUnatoMenuKabaneriBonusBadge = "update"
                 akudamaMachineIconBadge = "new"
                 akudamaisUnlocked = false
+                enen2MachineIconBadge = "update"
+                enen2MenuRegBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

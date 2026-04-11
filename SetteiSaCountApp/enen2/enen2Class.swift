@@ -185,6 +185,23 @@ class Enen2: ObservableObject {
     @AppStorage("enen2ScreenCountBig5") var screenCountBig5: Int = 0
     @AppStorage("enen2ScreenCountBig6") var screenCountBig6: Int = 0
     @AppStorage("enen2ScreenCountBigSum") var screenCountBigSum: Int = 0
+    
+    // -------
+    // ver3.23.0
+    // -------
+    let ratioCharaDefault: [Double] = [43,40.5,38,38.5,35.5,30.5]
+    let ratioCharaKisu: [Double] = [15,10,20,10,20,10]
+    let ratioCharaGusu: [Double] = [15,20,10,20,10,20]
+    let ratioCharaHighJaku: [Double] = [5,5,5,7.5,7.5,7.5]
+    let ratioCharaHighKyo: [Double] = [1,1,1,5,5,5]
+    let ratioCharaNegate1: [Double] = [0,10,10,4,4,4]
+    let ratioCharaNegate2: [Double] = [7.5,0,10,4,4,4]
+    let ratioCharaNegate3: [Double] = [7.5,7.5,0,4,4,4]
+    let ratioCharaNegate4: [Double] = [3,3,3,0,7.5,4]
+    let ratioCharaNegate5: [Double] = [3,3,3,5,0,7.5]
+    let ratioCharaOver4: [Double] = [0,0,0,2,2,1]
+    let ratioCharaOver5: [Double] = [0,0,0,0,0.5,1]
+    let ratioCharaOver6: [Double] = [0,0,0,0,0,1.5]
 }
 
 

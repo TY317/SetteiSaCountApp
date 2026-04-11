@@ -37,3 +37,19 @@ struct tipVer3230KabaneriUnatoChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：炎炎キャラ紹介
+// //////////////////
+struct tipVer3230Enen2Chara: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("キャラ紹介振分けが判明\n設定判別機能を更新")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
