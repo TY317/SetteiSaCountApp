@@ -55,12 +55,7 @@ struct enen2ViewBayes: View {
                 }
                 
                 // キャラ順
-                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中のキャラ順") {
-                    unitExView5body2image(
-                        title: "REG中のキャラ順",
-                        textBody1: "・否定系、確定系のみ反映させます"
-                    )
-                }
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中のキャラ順")
                 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -149,39 +144,68 @@ struct enen2ViewBayes: View {
         // REGキャラ
         var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.charaEnable {
-            if enen2.charaCountNegate1 > 0 {
-                logPostChara[0] = -Double.infinity
-            }
-            if enen2.charaCountNegate2 > 0 {
-                logPostChara[1] = -Double.infinity
-            }
-            if enen2.charaCountNegate3 > 0 {
-                logPostChara[2] = -Double.infinity
-            }
-            if enen2.charaCountNegate4 > 0 {
-                logPostChara[3] = -Double.infinity
-            }
-            if enen2.charaCountNegate5 > 0 {
-                logPostChara[4] = -Double.infinity
-            }
-            if enen2.charaCountOver4 > 0 {
-                logPostChara[0] = -Double.infinity
-                logPostChara[1] = -Double.infinity
-                logPostChara[2] = -Double.infinity
-            }
-            if enen2.charaCountOver5 > 0 {
-                logPostChara[0] = -Double.infinity
-                logPostChara[1] = -Double.infinity
-                logPostChara[2] = -Double.infinity
-                logPostChara[3] = -Double.infinity
-            }
-            if enen2.charaCountOver6 > 0 {
-                logPostChara[0] = -Double.infinity
-                logPostChara[1] = -Double.infinity
-                logPostChara[2] = -Double.infinity
-                logPostChara[3] = -Double.infinity
-                logPostChara[4] = -Double.infinity
-            }
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    enen2.charaCountGusu,
+                    enen2.charaCountOver4,
+                    enen2.charaCountOver6,
+                    enen2.charaCountKisu,
+                    enen2.charaCountHighJaku,
+                    enen2.charaCountHighKyo,
+                    enen2.charaCountOver5,
+                    enen2.charaCountNegate1,
+                    enen2.charaCountNegate2,
+                    enen2.charaCountNegate3,
+                    enen2.charaCountNegate4,
+                    enen2.charaCountNegate5,
+                ], ratioList: [
+                    enen2.ratioCharaGusu,
+                    enen2.ratioCharaOver4,
+                    enen2.ratioCharaOver6,
+                    enen2.ratioCharaKisu,
+                    enen2.ratioCharaHighJaku,
+                    enen2.ratioCharaHighKyo,
+                    enen2.ratioCharaOver5,
+                    enen2.ratioCharaNegate1,
+                    enen2.ratioCharaNegate2,
+                    enen2.ratioCharaNegate3,
+                    enen2.ratioCharaNegate4,
+                    enen2.ratioCharaNegate5,
+                ], bigNumber: enen2.charaCountSum
+            )
+//            if enen2.charaCountNegate1 > 0 {
+//                logPostChara[0] = -Double.infinity
+//            }
+//            if enen2.charaCountNegate2 > 0 {
+//                logPostChara[1] = -Double.infinity
+//            }
+//            if enen2.charaCountNegate3 > 0 {
+//                logPostChara[2] = -Double.infinity
+//            }
+//            if enen2.charaCountNegate4 > 0 {
+//                logPostChara[3] = -Double.infinity
+//            }
+//            if enen2.charaCountNegate5 > 0 {
+//                logPostChara[4] = -Double.infinity
+//            }
+//            if enen2.charaCountOver4 > 0 {
+//                logPostChara[0] = -Double.infinity
+//                logPostChara[1] = -Double.infinity
+//                logPostChara[2] = -Double.infinity
+//            }
+//            if enen2.charaCountOver5 > 0 {
+//                logPostChara[0] = -Double.infinity
+//                logPostChara[1] = -Double.infinity
+//                logPostChara[2] = -Double.infinity
+//                logPostChara[3] = -Double.infinity
+//            }
+//            if enen2.charaCountOver6 > 0 {
+//                logPostChara[0] = -Double.infinity
+//                logPostChara[1] = -Double.infinity
+//                logPostChara[2] = -Double.infinity
+//                logPostChara[3] = -Double.infinity
+//                logPostChara[4] = -Double.infinity
+//            }
         }
         
         // 終了画面

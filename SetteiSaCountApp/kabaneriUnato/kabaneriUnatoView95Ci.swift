@@ -31,26 +31,7 @@ struct kabaneriUnatoView95Ci: View {
 //                )
 //            )
 //            .tag(2)
-//            
-//            // 規定兜pt 20pt以下回数
-//            unitListSection95Ci(
-//                grafTitle: "規定兜pt\n20pt以下回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kabaneriUnato.ptCountU20,
-//                        bigNumber: $kabaneriUnato.ptCountSum,
-//                        setting1Percent: kabaneriUnato.ratioPtU20[0],
-//                        setting2Percent: kabaneriUnato.ratioPtU20[1],
-//                        setting3Percent: kabaneriUnato.ratioPtU20[2],
-//                        setting4Percent: kabaneriUnato.ratioPtU20[3],
-//                        setting5Percent: kabaneriUnato.ratioPtU20[4],
-//                        setting6Percent: kabaneriUnato.ratioPtU20[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
-//            
+//
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "下段ベル回数",
@@ -104,6 +85,26 @@ struct kabaneriUnatoView95Ci: View {
                 )
             )
             .tag(2)
+            
+            // キャラ紹介
+            unitListSection95Ci(
+                grafTitle: "キャラ紹介\n偶数示唆回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.charaCountGusu,
+                        bigNumber: $kabaneriUnato.charaCountSum,
+                        setting1Percent: kabaneriUnato.ratioCharaWomen[0],
+                        setting2Percent: kabaneriUnato.ratioCharaWomen[1],
+                        setting3Percent: kabaneriUnato.ratioCharaWomen[2],
+                        setting4Percent: kabaneriUnato.ratioCharaWomen[3],
+                        setting5Percent: kabaneriUnato.ratioCharaWomen[4],
+                        setting6Percent: kabaneriUnato.ratioCharaWomen[5]
+                    )
+                )
+            )
+            .tag(3)
+            
         }
         // //// firebaseログ
         .onAppear {

@@ -170,6 +170,13 @@ struct kabaneriUnatoViewKabaneriBonus: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報）キャラ振分け
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介振分け") {
+                    kabaneriUnatoTableChara(kabaneriUnato: kabaneriUnato)
+                }
+                .popoverTip(tipVer3230KabaneriUnatoChara())
                 
                 DisclosureGroup {
                     // サークルピッカー
@@ -206,6 +213,24 @@ struct kabaneriUnatoViewKabaneriBonus: View {
                             bigNumber: $kabaneriUnato.charaCountSum
                         )
                     }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kabaneriUnatoView95Ci(
+                                kabaneriUnato: kabaneriUnato,
+                                selection: 3
+                            )
+                        )
+                    )
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kabaneriUnatoViewBayes(
+                            kabaneriUnato: kabaneriUnato,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
                 } label: {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
@@ -213,6 +238,7 @@ struct kabaneriUnatoViewKabaneriBonus: View {
             } header: {
                 Text("キャラ紹介")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kabaneriUnatoMenuKabaneriBonusBadge)

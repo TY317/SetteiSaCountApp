@@ -82,6 +82,9 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGobsla2") var isSelectedFavoriteGobsla2 = true
     @AppStorage("isSelectedFavoriteKabaneriUnato") var isSelectedFavoriteKabaneriUnato = true
     @AppStorage("isSelectedFavoriteThunder") var isSelectedFavoriteThunder = true
+    @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
+    @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
+    @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
 }
 
 
@@ -113,7 +116,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-//                TipView(tipVer3220UpdateInfo())
+                TipView(tipVer3230UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -149,6 +152,57 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ヨルムンガンド、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteJormungand == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(jormungandViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("jormungandMachineIcon"),
+                                        machineName: "ヨルムンガンド",
+                                        isUnLocked: $common.jormungandisUnlocked,
+                                        tempUnlockDateDouble: $common.jormungandTempUnlockDateDouble,
+                                        badgeStatus: common.jormungandMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 真打吉宗、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShinYoshi == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(shinYoshiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shinYoshiMachineIcon"),
+                                        machineName: "真打吉宗",
+                                        isUnLocked: $common.shinYoshiisUnlocked,
+                                        tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
+                                        badgeStatus: common.shinYoshiMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// アクダマドライブ、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAkudama == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(akudamaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("akudamaMachineIcon"),
+                                        machineName: "アクダマドライブ",
+                                        isUnLocked: $common.akudamaisUnlocked,
+                                        tempUnlockDateDouble: $common.akudamaTempUnlockDateDouble,
+                                        badgeStatus: common.akudamaMachineIconBadge,
                                     )
                                 }
                                 
@@ -1026,6 +1080,66 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ヨルムンガンド、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteJormungand == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(jormungandViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("jormungandMachineIcon"),
+                                        machineName: "ヨルムンガンド",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.jormungandisUnlocked,
+                                        tempUnlockDateDouble: $common.jormungandTempUnlockDateDouble,
+                                        badgeStatus: common.jormungandMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// 真打吉宗、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteShinYoshi == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(shinYoshiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("shinYoshiMachineIcon"),
+                                        machineName: "真打 吉宗",
+                                        makerName: "大都技研",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.shinYoshiisUnlocked,
+                                        tempUnlockDateDouble: $common.shinYoshiTempUnlockDateDouble,
+                                        badgeStatus: common.shinYoshiMachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// アクダマドライブ、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteAkudama == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(akudamaViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("akudamaMachineIcon"),
+                                        machineName: "アクダマドライブ",
+                                        makerName: "SANYO",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.akudamaisUnlocked,
+                                        tempUnlockDateDouble: $common.akudamaTempUnlockDateDouble,
+                                        badgeStatus: common.akudamaMachineIconBadge,
                                     )
                                 }
                                 
@@ -2225,6 +2339,12 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ヨルムンガンド
+                Toggle("ヨルムンガンド", isOn: $favoriteSet.isSelectedFavoriteJormungand)
+                // 真打吉宗
+                Toggle("真打 吉宗", isOn: $favoriteSet.isSelectedFavoriteShinYoshi)
+                // アクダマドライブ
+                Toggle("アクダマドライブ", isOn: $favoriteSet.isSelectedFavoriteAkudama)
                 // サンダー
                 Toggle("サンダーV", isOn: $favoriteSet.isSelectedFavoriteThunder)
                 // カバネリ海門
@@ -2409,8 +2529,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

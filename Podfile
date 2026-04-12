@@ -11,6 +11,7 @@ target 'SetteiSaCountApp' do
   pod 'GoogleMobileAdsMediationLine'   # 260215_add
   pod 'GoogleMobileAdsMediationUnity'   # 260222_add
   pod 'GoogleMobileAdsMediationFacebook'   # 260309_add
+  pod 'GoogleMobileAdsMediationIronSource'  # 260405_add
   pod 'Firebase/Analytics'     # 250518_add
   pod 'Firebase/Crashlytics'   # 250621_add
 

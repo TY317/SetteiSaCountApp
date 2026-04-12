@@ -13,14 +13,18 @@ struct unitScreenOnlyDisplay: View {
     var upperBeltFont: Font = .body
     var upperBeltBool: Bool = true
     var upperBeltHeight: CGFloat = 20
-    var upperBeltColor: Color = .white
-    var upperBeltTextColor: Color = .black
+//    var upperBeltColor: Color = .white
+    var upperBeltColor: Color = .clear
+//    var upperBeltTextColor: Color = .black
+    var upperBeltTextColor: Color = .primary
     var lowerBeltText: String = ""
     var lowerBeltFont: Font = .body
     var lowerBeltBool: Bool = true
     var lowerBeltHeight: CGFloat = 20
-    var lowerBeltColor: Color = .white
-    var lowerBeltTextColor: Color = .black
+//    var lowerBeltColor: Color = .white
+    var lowerBeltColor: Color = .clear
+//    var lowerBeltTextColor: Color = .black
+    var lowerBeltTextColor: Color = .primary
     var body: some View {
         VStack(spacing: 0) {
             // //// 上の帯

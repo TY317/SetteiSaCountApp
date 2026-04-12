@@ -99,6 +99,9 @@ PODS:
   - GoogleMobileAdsMediationInMobi (11.1.1.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - InMobiSDK (= 11.1.1)
+  - GoogleMobileAdsMediationIronSource (9.3.0.0.0):
+    - Google-Mobile-Ads-SDK (~> 12.0)
+    - IronSourceSDK (= 9.3.0.0)
   - GoogleMobileAdsMediationLine (3.0.0.0):
     - FiveAd (= 3.0.0)
     - Google-Mobile-Ads-SDK (~> 12.0)
@@ -134,6 +137,13 @@ PODS:
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
   - InMobiSDK (11.1.1)
+  - IronSourceAdQualitySDK (9.2.1)
+  - IronSourceSDK (9.3.0.0):
+    - IronSourceSDK/AdQuality (= 9.3.0.0)
+    - IronSourceSDK/Ads (= 9.3.0.0)
+  - IronSourceSDK/AdQuality (9.3.0.0):
+    - IronSourceAdQualitySDK (~> 9.2.1)
+  - IronSourceSDK/Ads (9.3.0.0)
   - nanopb (3.30910.0):
     - nanopb/decode (= 3.30910.0)
     - nanopb/encode (= 3.30910.0)
@@ -150,6 +160,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - GoogleMobileAdsMediationFacebook
   - GoogleMobileAdsMediationInMobi
+  - GoogleMobileAdsMediationIronSource
   - GoogleMobileAdsMediationLine
   - GoogleMobileAdsMediationUnity
 
@@ -172,11 +183,14 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleMobileAdsMediationFacebook
     - GoogleMobileAdsMediationInMobi
+    - GoogleMobileAdsMediationIronSource
     - GoogleMobileAdsMediationLine
     - GoogleMobileAdsMediationUnity
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - InMobiSDK
+    - IronSourceAdQualitySDK
+    - IronSourceSDK
     - nanopb
     - PromisesObjC
     - PromisesSwift
@@ -200,16 +214,19 @@ SPEC CHECKSUMS:
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleMobileAdsMediationFacebook: a8379733e6e593e9a5ea278bdc16e747ec952a18
   GoogleMobileAdsMediationInMobi: 010c989845587e66ef33491f2bdf5426cb3e1c15
+  GoogleMobileAdsMediationIronSource: cffa22e399b9b19c3fbe2ff5aaccf7f3b85cec04
   GoogleMobileAdsMediationLine: d92ef4bee9186492687a9475c92cd320f5166f1d
   GoogleMobileAdsMediationUnity: 85fd40e2b42371341446745899e2963faaaaaba9
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   InMobiSDK: 4642fb34a961980ab94a1ac460c6e16e113498e6
+  IronSourceAdQualitySDK: 2a45fd35df68f6c03090e9c330f4efe64e70a9ff
+  IronSourceSDK: 5febe9a2c8c4eb4ac743dd0da492d2a6b69b5b7f
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   UnityAds: 8b9e0ecf7c4aa7334d15f81efb58db279e28f502
 
-PODFILE CHECKSUM: 55f0dde529a997f411765b5d42cd9b74382daa9b
+PODFILE CHECKSUM: 5168561036473b22b0017efa172e8d204705ad2f
 
 COCOAPODS: 1.16.2

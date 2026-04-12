@@ -110,7 +110,7 @@ struct mushotenViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "本気ボーナス確率") {
                     mushotenTableHonkiBonus()
                 }
-                .popoverTip(tipVer3190MushotenHonki())
+//                .popoverTip(tipVer3190MushotenHonki())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(

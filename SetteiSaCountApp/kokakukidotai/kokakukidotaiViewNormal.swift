@@ -107,7 +107,7 @@ struct kokakukidotaiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "リプレイフラッシュでの示唆") {
                     kokakukidotaiTableReplayFlush()
                 }
-                .popoverTip(tipVer3190KokakukidotaiModeSisa())
+//                .popoverTip(tipVer3190KokakukidotaiModeSisa())
                 unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
                     kokakukidotaiTableEyechatch()
                 }

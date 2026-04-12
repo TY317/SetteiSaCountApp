@@ -2055,6 +2055,16 @@ YOU ARE NOT AUTHORIZED TO AND YOU MAY NOT DOWNLOAD THE LINE ADS NETWORK SDK FRAM
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2017 Google LLC</string>
+			<key>License</key>
+			<string>Apache 2.0</string>
+			<key>Title</key>
+			<string>GoogleMobileAdsMediationIronSource</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright 2023 Google LLC</string>
 			<key>License</key>
 			<string>Apache 2.0</string>
@@ -2377,6 +2387,26 @@ This EULA and all disputes arising thereof shall be subject to the laws of Singa
 			<string>Custom</string>
 			<key>Title</key>
 			<string>InMobiSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>https://platform.ironsrc.com/partners/terms-and-conditions-new-user</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>IronSourceAdQualitySDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>https://platform.ironsrc.com/partners/terms-and-conditions-new-user</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>IronSourceSDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
