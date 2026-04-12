@@ -170,6 +170,7 @@ struct kabaneriUnatoViewKabaneriBonus: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）キャラ振分け
                 unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介振分け") {

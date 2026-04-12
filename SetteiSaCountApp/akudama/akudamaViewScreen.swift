@@ -99,8 +99,9 @@ struct akudamaViewScreen: View {
                                         screen: unitScreenOnlyDisplay(
                                             image: Image(self.imageNameList[index]),
                                             upperBeltText: self.upperBeltTextList[index],
+                                            upperBeltFont: .subheadline,
                                             lowerBeltText: self.lowerBeltTextList[index],
-    //                                        lowerBeltFont: .body,
+                                            lowerBeltFont: .subheadline,
     //                                        lowerBeltHeight: 35,
                                         ),
                                         screenName: self.imageNameList[index],

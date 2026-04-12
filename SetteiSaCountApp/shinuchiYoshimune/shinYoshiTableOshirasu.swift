@@ -23,7 +23,8 @@ struct shinYoshiTableOshirasu: View {
                     "大奥",
                 ],
                 maxWidth: 70,
-                lineList: [3,3,4,4,6,4,5]
+                lineList: [3,3,4,4,6,4,5],
+                contentFont: .subheadline,
             )
             unitTableString(
                 columTitle: "",
@@ -57,6 +58,7 @@ struct shinYoshiTableOshirasu: View {
                 ],
                 maxWidth: 120,
                 lineList: self.lineList,
+                contentFont: .subheadline,
             )
             unitTableString(
                 columTitle: "示唆",

@@ -295,7 +295,7 @@ struct jormungandViewNormal: View {
             } header: {
                 Text("サブ液晶カード")
             }
-//            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.jormungandMenuNormalBadge)

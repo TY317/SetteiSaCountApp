@@ -76,7 +76,7 @@ struct commonViewKujiluckyTrophy: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("コパンダトロフィー")
+        .navigationTitle("クジラッキートロフィー")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

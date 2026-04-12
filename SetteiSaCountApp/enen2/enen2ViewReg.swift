@@ -577,6 +577,25 @@ struct enen2ViewReg: View {
                 unitLinkButtonViewBuilder(sheetTitle: "シナリオ振分け") {
                     enen2TableCharaRatio(enen2: enen2)
                 }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        enen2View95Ci(
+                            enen2: enen2,
+                            selection: 5,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    enen2ViewBayes(
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }

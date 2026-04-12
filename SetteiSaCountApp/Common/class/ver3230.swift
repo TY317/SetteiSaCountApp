@@ -15,7 +15,7 @@ struct tipVer3230UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・ヨルムンガンド\n・真打 吉宗")
+        Text("・ヨルムンガンド、真打 吉宗、アクダマドライブ")
     }
     var image: Image? {
         Image(systemName: "star")
@@ -63,7 +63,7 @@ struct tipVer3230KokakukidotaiReboot: Tip {
         Text("情報更新")
     }
     var message: Text? {
-        Text("ストックの詳細が判明")
+        Text("ストック個数内訳、タチコマCZ成功時の確定ストックの情報が判明")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

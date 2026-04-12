@@ -49,6 +49,44 @@ struct enen2View95Ci: View {
             )
             .tag(2)
             
+            // REGキャラ紹介デフォルト回数
+            unitListSection95Ci(
+                grafTitle: "REGキャラ紹介\nデフォルト回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $enen2.charaCountDefault,
+                        bigNumber: $enen2.charaCountSum,
+                        setting1Percent: enen2.ratioCharaDefault[0],
+                        setting2Percent: enen2.ratioCharaDefault[1],
+                        setting3Percent: enen2.ratioCharaDefault[2],
+                        setting4Percent: enen2.ratioCharaDefault[3],
+                        setting5Percent: enen2.ratioCharaDefault[4],
+                        setting6Percent: enen2.ratioCharaDefault[5]
+                    )
+                )
+            )
+            .tag(5)
+            
+            // REGキャラ紹介奇数示唆回数
+            unitListSection95Ci(
+                grafTitle: "REGキャラ紹介\n奇数示唆回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $enen2.charaCountKisu,
+                        bigNumber: $enen2.charaCountSum,
+                        setting1Percent: enen2.ratioCharaKisu[0],
+                        setting2Percent: enen2.ratioCharaKisu[1],
+                        setting3Percent: enen2.ratioCharaKisu[2],
+                        setting4Percent: enen2.ratioCharaKisu[3],
+                        setting5Percent: enen2.ratioCharaKisu[4],
+                        setting6Percent: enen2.ratioCharaKisu[5]
+                    )
+                )
+            )
+            .tag(6)
+            
             // 炎炎ボーナス後終了画面デフォルト回数
             unitListSection95Ci(
                 grafTitle: "炎炎ボーナス後\n終了画面 デフォルト回数",
