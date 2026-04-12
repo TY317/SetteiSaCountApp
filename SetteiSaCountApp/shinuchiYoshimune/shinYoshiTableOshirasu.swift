@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct shinYoshiTableOshirasu: View {
+    let lineList: [Int] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,1,1,1,1,1]
     var body: some View {
         HStack(spacing: 0) {
             unitTableString(
@@ -21,8 +22,8 @@ struct shinYoshiTableOshirasu: View {
                     "号外",
                     "大奥",
                 ],
-                maxWidth: 80,
-                lineList: [3,3,4,4,4,3,5]
+                maxWidth: 70,
+                lineList: [3,3,4,4,6,4,5]
             )
             unitTableString(
                 columTitle: "",
@@ -54,26 +55,50 @@ struct shinYoshiTableOshirasu: View {
                     "4人",
                     "5人",
                 ],
-                lineList: [1,1,1],
+                maxWidth: 120,
+                lineList: self.lineList,
             )
             unitTableString(
                 columTitle: "示唆",
                 stringList: [
-                    "設定示唆",
-                    "夜回りポイント示唆",
-                    "周期モード示唆",
-                    "5回先までの天国有無示唆",
-                    "次回CZの対戦相手示唆",
-                    "5回先までのCZ対戦相手示唆",
-                    "CZ当選までの周期数示唆",
+                    "デフォルト",
+                    "偶数示唆",
+                    "高設定示唆",
+                    "夜回りpt 300以内示唆",
+                    "夜回りpt 200以内示唆",
+                    "夜回りpt 100以内示唆",
+                    "CZモードB以上示唆",
+                    "CZモードC以上示唆",
+                    "CZモードD以上示唆",
+                    "天国濃厚",
+                    "5回中2回天国",
+                    "3回目までに天国",
+                    "2回目までに天国",
+                    "5回中3回天国",
+                    "次回 50%で武器商人or姉御or柳生",
+                    "次回 50%で柳生",
+                    "次回 武器商人or姉御or柳生 濃厚",
+                    "次回 柳生 濃厚",
+                    "この先3回は武器商人or姉御or柳生",
+                    "3回目までに柳生",
+                    "2回目までに柳生",
+                    "6周期否定",
+                    "1・3・5周期がチャンス",
+                    "1・2・4周期がチャンス",
+                    "当該or次周期でCZ濃厚",
+                    "当該周期でCZ濃厚",
                 ],
-                lineList: [3,3,4,4,4,3,5],
+                maxWidth: 300,
+                lineList: self.lineList,
+                contentFont: .subheadline,
             )
         }
     }
 }
 
 #Preview {
-    shinYoshiTableOshirasu()
+    ScrollView {
+        shinYoshiTableOshirasu()
+    }
         .padding(.horizontal)
 }
