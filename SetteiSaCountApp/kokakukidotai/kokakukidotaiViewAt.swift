@@ -22,6 +22,7 @@ struct kokakukidotaiViewAt: View {
                 HStack {
                     Text("⚠️")
                     VStack(alignment: .leading) {
+                        Text("・タチコマCZ成功時はストック1個確定のためカウント除外")
                         Text("・AT初当りの最初のREBOOTCHANCEが対象")
                         Text("・1G目ハズレでの成功or失敗をカウント")
                     }
@@ -60,6 +61,7 @@ struct kokakukidotaiViewAt: View {
                 unitLinkButtonViewBuilder(sheetTitle: "成功ストック獲得率") {
                     VStack {
                         VStack(alignment: .leading) {
+                            Text("・⚠️タチコマCZ成功時はストック1個確定のためカウントから除外")
                             Text("・AT当選時に成功ストックを抽選")
                             Text("・成功ストックある場合は1G目に告知される")
                         }
@@ -71,8 +73,24 @@ struct kokakukidotaiViewAt: View {
                                 numberofDicimal: 1,
                             )
                         }
+                        .padding(.bottom)
+                        Text("[ストック個数振分け]")
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "1個",
+                                percentList: [2.5,3.3,4.2,5,5.8,6.7],
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "2個",
+                                percentList: [0.8,1.3,1.6,2.1,2.5,2.9],
+                                numberofDicimal: 1,
+                            )
+                        }
                     }
                 }
+                .popoverTip(tipVer3230KokakukidotaiReboot())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(

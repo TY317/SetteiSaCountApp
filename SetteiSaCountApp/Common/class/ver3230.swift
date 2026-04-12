@@ -53,3 +53,19 @@ struct tipVer3230Enen2Chara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：攻殻機動隊
+// //////////////////
+struct tipVer3230KokakukidotaiReboot: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("ストックの詳細が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
