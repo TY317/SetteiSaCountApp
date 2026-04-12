@@ -197,27 +197,129 @@ class Jormungand: ObservableObject {
 
 
 class JormungandMemory1: ObservableObject {
+    @AppStorage("jormungandRareCzCountChanceMemory1") var rareCzCountChance: Int = 0
+    @AppStorage("jormungandRareCzCountChanceHitMemory1") var rareCzCountChanceHit: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryMemory1") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryHitMemory1") var rareCzCountKyoCherryHit: Int = 0
+    @AppStorage("jormungandTenjoCountMissMemory1") var tenjoCountMiss: Int = 0
+    @AppStorage("jormungandTenjoCountHitMemory1") var tenjoCountHit: Int = 0
+    @AppStorage("jormungandTenjoCountSumMemory1") var tenjoCountSum: Int = 0
+    @AppStorage("jormungandCardCountDefaultMemory1") var cardCountDefault: Int = 0
+    @AppStorage("jormungandCardCountKisuMemory1") var cardCountKisu: Int = 0
+    @AppStorage("jormungandCardCountGusuMemory1") var cardCountGusu: Int = 0
+    @AppStorage("jormungandCardCountHighJakuMemory1") var cardCountHighJaku: Int = 0
+    @AppStorage("jormungandCardCountModeCJakuMemory1") var cardCountModeCJaku: Int = 0
+    @AppStorage("jormungandCardCountHighKyoMemory1") var cardCountHighKyo: Int = 0
+    @AppStorage("jormungandCardCountModeCKyoMemory1") var cardCountModeCKyo: Int = 0
+    @AppStorage("jormungandCardCountGusuFixMemory1") var cardCountGusuFix: Int = 0
+    @AppStorage("jormungandCardCountModeDMemory1") var cardCountModeD: Int = 0
+    @AppStorage("jormungandCardCountHorobiMemory1") var cardCountHorobi: Int = 0
+    @AppStorage("jormungandCardCountSumMemory1") var cardCountSum: Int = 0
     @AppStorage("jormungandNormalGameMemory1") var normalGame: Int = 0
     @AppStorage("jormungandFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
     @AppStorage("jormungandFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandScreenCountDefaultMemory1") var screenCountDefault: Int = 0
+    @AppStorage("jormungandScreenCountHighMemory1") var screenCountHigh: Int = 0
+    @AppStorage("jormungandScreenCountKisuMemory1") var screenCountKisu: Int = 0
+    @AppStorage("jormungandScreenCountGusuMemory1") var screenCountGusu: Int = 0
+    @AppStorage("jormungandScreenCountNegate2Memory1") var screenCountNegate2: Int = 0
+    @AppStorage("jormungandScreenCountGusuFixMemory1") var screenCountGusuFix: Int = 0
+    @AppStorage("jormungandScreenCountOver4Memory1") var screenCountOver4: Int = 0
+    @AppStorage("jormungandScreenCountOver6Memory1") var screenCountOver6: Int = 0
+    @AppStorage("jormungandScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("jormungandCharaCountKisuMemory1") var charaCountKisu: Int = 0
+    @AppStorage("jormungandCharaCountGusuMemory1") var charaCountGusu: Int = 0
+    @AppStorage("jormungandCharaCountHighMemory1") var charaCountHigh: Int = 0
+    @AppStorage("jormungandCharaCountOver2Memory1") var charaCountOver2: Int = 0
+    @AppStorage("jormungandCharaCountOver4Memory1") var charaCountOver4: Int = 0
+    @AppStorage("jormungandCharaCountOver6Memory1") var charaCountOver6: Int = 0
+    @AppStorage("jormungandCharaCountSumMemory1") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory1") var memo = ""
     @AppStorage("jormungandDateMemory1") var dateDouble = 0.0
 }
 
 
 class JormungandMemory2: ObservableObject {
+    @AppStorage("jormungandRareCzCountChanceMemory2") var rareCzCountChance: Int = 0
+    @AppStorage("jormungandRareCzCountChanceHitMemory2") var rareCzCountChanceHit: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryMemory2") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryHitMemory2") var rareCzCountKyoCherryHit: Int = 0
+    @AppStorage("jormungandTenjoCountMissMemory2") var tenjoCountMiss: Int = 0
+    @AppStorage("jormungandTenjoCountHitMemory2") var tenjoCountHit: Int = 0
+    @AppStorage("jormungandTenjoCountSumMemory2") var tenjoCountSum: Int = 0
+    @AppStorage("jormungandCardCountDefaultMemory2") var cardCountDefault: Int = 0
+    @AppStorage("jormungandCardCountKisuMemory2") var cardCountKisu: Int = 0
+    @AppStorage("jormungandCardCountGusuMemory2") var cardCountGusu: Int = 0
+    @AppStorage("jormungandCardCountHighJakuMemory2") var cardCountHighJaku: Int = 0
+    @AppStorage("jormungandCardCountModeCJakuMemory2") var cardCountModeCJaku: Int = 0
+    @AppStorage("jormungandCardCountHighKyoMemory2") var cardCountHighKyo: Int = 0
+    @AppStorage("jormungandCardCountModeCKyoMemory2") var cardCountModeCKyo: Int = 0
+    @AppStorage("jormungandCardCountGusuFixMemory2") var cardCountGusuFix: Int = 0
+    @AppStorage("jormungandCardCountModeDMemory2") var cardCountModeD: Int = 0
+    @AppStorage("jormungandCardCountHorobiMemory2") var cardCountHorobi: Int = 0
+    @AppStorage("jormungandCardCountSumMemory2") var cardCountSum: Int = 0
     @AppStorage("jormungandNormalGameMemory2") var normalGame: Int = 0
     @AppStorage("jormungandFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
     @AppStorage("jormungandFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandScreenCountDefaultMemory2") var screenCountDefault: Int = 0
+    @AppStorage("jormungandScreenCountHighMemory2") var screenCountHigh: Int = 0
+    @AppStorage("jormungandScreenCountKisuMemory2") var screenCountKisu: Int = 0
+    @AppStorage("jormungandScreenCountGusuMemory2") var screenCountGusu: Int = 0
+    @AppStorage("jormungandScreenCountNegate2Memory2") var screenCountNegate2: Int = 0
+    @AppStorage("jormungandScreenCountGusuFixMemory2") var screenCountGusuFix: Int = 0
+    @AppStorage("jormungandScreenCountOver4Memory2") var screenCountOver4: Int = 0
+    @AppStorage("jormungandScreenCountOver6Memory2") var screenCountOver6: Int = 0
+    @AppStorage("jormungandScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("jormungandCharaCountKisuMemory2") var charaCountKisu: Int = 0
+    @AppStorage("jormungandCharaCountGusuMemory2") var charaCountGusu: Int = 0
+    @AppStorage("jormungandCharaCountHighMemory2") var charaCountHigh: Int = 0
+    @AppStorage("jormungandCharaCountOver2Memory2") var charaCountOver2: Int = 0
+    @AppStorage("jormungandCharaCountOver4Memory2") var charaCountOver4: Int = 0
+    @AppStorage("jormungandCharaCountOver6Memory2") var charaCountOver6: Int = 0
+    @AppStorage("jormungandCharaCountSumMemory2") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory2") var memo = ""
     @AppStorage("jormungandDateMemory2") var dateDouble = 0.0
 }
 
 
 class JormungandMemory3: ObservableObject {
+    @AppStorage("jormungandRareCzCountChanceMemory3") var rareCzCountChance: Int = 0
+    @AppStorage("jormungandRareCzCountChanceHitMemory3") var rareCzCountChanceHit: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryMemory3") var rareCzCountKyoCherry: Int = 0
+    @AppStorage("jormungandRareCzCountKyoCherryHitMemory3") var rareCzCountKyoCherryHit: Int = 0
+    @AppStorage("jormungandTenjoCountMissMemory3") var tenjoCountMiss: Int = 0
+    @AppStorage("jormungandTenjoCountHitMemory3") var tenjoCountHit: Int = 0
+    @AppStorage("jormungandTenjoCountSumMemory3") var tenjoCountSum: Int = 0
+    @AppStorage("jormungandCardCountDefaultMemory3") var cardCountDefault: Int = 0
+    @AppStorage("jormungandCardCountKisuMemory3") var cardCountKisu: Int = 0
+    @AppStorage("jormungandCardCountGusuMemory3") var cardCountGusu: Int = 0
+    @AppStorage("jormungandCardCountHighJakuMemory3") var cardCountHighJaku: Int = 0
+    @AppStorage("jormungandCardCountModeCJakuMemory3") var cardCountModeCJaku: Int = 0
+    @AppStorage("jormungandCardCountHighKyoMemory3") var cardCountHighKyo: Int = 0
+    @AppStorage("jormungandCardCountModeCKyoMemory3") var cardCountModeCKyo: Int = 0
+    @AppStorage("jormungandCardCountGusuFixMemory3") var cardCountGusuFix: Int = 0
+    @AppStorage("jormungandCardCountModeDMemory3") var cardCountModeD: Int = 0
+    @AppStorage("jormungandCardCountHorobiMemory3") var cardCountHorobi: Int = 0
+    @AppStorage("jormungandCardCountSumMemory3") var cardCountSum: Int = 0
     @AppStorage("jormungandNormalGameMemory3") var normalGame: Int = 0
     @AppStorage("jormungandFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
     @AppStorage("jormungandFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("jormungandScreenCountDefaultMemory3") var screenCountDefault: Int = 0
+    @AppStorage("jormungandScreenCountHighMemory3") var screenCountHigh: Int = 0
+    @AppStorage("jormungandScreenCountKisuMemory3") var screenCountKisu: Int = 0
+    @AppStorage("jormungandScreenCountGusuMemory3") var screenCountGusu: Int = 0
+    @AppStorage("jormungandScreenCountNegate2Memory3") var screenCountNegate2: Int = 0
+    @AppStorage("jormungandScreenCountGusuFixMemory3") var screenCountGusuFix: Int = 0
+    @AppStorage("jormungandScreenCountOver4Memory3") var screenCountOver4: Int = 0
+    @AppStorage("jormungandScreenCountOver6Memory3") var screenCountOver6: Int = 0
+    @AppStorage("jormungandScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("jormungandCharaCountKisuMemory3") var charaCountKisu: Int = 0
+    @AppStorage("jormungandCharaCountGusuMemory3") var charaCountGusu: Int = 0
+    @AppStorage("jormungandCharaCountHighMemory3") var charaCountHigh: Int = 0
+    @AppStorage("jormungandCharaCountOver2Memory3") var charaCountOver2: Int = 0
+    @AppStorage("jormungandCharaCountOver4Memory3") var charaCountOver4: Int = 0
+    @AppStorage("jormungandCharaCountOver6Memory3") var charaCountOver6: Int = 0
+    @AppStorage("jormungandCharaCountSumMemory3") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory3") var memo = ""
     @AppStorage("jormungandDateMemory3") var dateDouble = 0.0
 }
