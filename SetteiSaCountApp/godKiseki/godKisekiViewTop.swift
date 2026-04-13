@@ -32,17 +32,17 @@ struct godKisekiViewTop: View {
                 
                 Section {
                     // 通常時
-//                    NavigationLink(destination: godKisekiViewNormal(
-//                        godKiseki: godKiseki,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.godKisekiMenuNormalBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: godKisekiViewNormal(
+                        godKiseki: godKiseki,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.godKisekiMenuNormalBadge,
+                        )
+                    }
                     
 //                    // CZ
 //                    NavigationLink(destination: godKisekiViewCz(

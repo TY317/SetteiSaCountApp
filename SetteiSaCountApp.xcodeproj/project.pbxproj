@@ -929,6 +929,7 @@
 		0FA63D582F8D0D8B0006E8F7 /* godKisekiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */; };
 		0FA63D5A2F8D11CD0006E8F7 /* godKisekiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */; };
 		0FA63D5C2F8D11D90006E8F7 /* godKisekiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */; };
+		0FA63D5E2F8D12E20006E8F7 /* godKisekiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D5D2F8D12E20006E8F7 /* godKisekiViewNormal.swift */; };
 		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
 		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
@@ -2320,6 +2321,7 @@
 		0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = godKisekiAssets.xcassets; sourceTree = "<group>"; };
 		0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiView95Ci.swift; sourceTree = "<group>"; };
 		0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiViewBayes.swift; sourceTree = "<group>"; };
+		0FA63D5D2F8D12E20006E8F7 /* godKisekiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiViewNormal.swift; sourceTree = "<group>"; };
 		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
 		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
 		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
@@ -4605,6 +4607,7 @@
 				0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */,
 				0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */,
 				0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */,
+				0FA63D5D2F8D12E20006E8F7 /* godKisekiViewNormal.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -5727,6 +5730,7 @@
 				0F868ABA2D583E1300D952D9 /* funky2Ver2View95CiPersonal.swift in Sources */,
 				0FB9CAAA2DE1851E009FC6AF /* midoriDonViewKoyakuBonus.swift in Sources */,
 				0F8030DE2C6249FC001F008E /* ContentView.swift in Sources */,
+				0FA63D5E2F8D12E20006E8F7 /* godKisekiViewNormal.swift in Sources */,
 				0F815FBD2E35D8D30086127D /* DarlingClass.swift in Sources */,
 				0FFAEBC62EC970BE006C0371 /* neoplaTableKoyakuPattern.swift in Sources */,
 				0FFAB8652E7061CC00296A4F /* girlsSSViewBayes.swift in Sources */,

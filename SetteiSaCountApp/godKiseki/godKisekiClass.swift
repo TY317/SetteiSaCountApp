@@ -15,7 +15,7 @@ class GodKiseki: ObservableObject {
     // -----------
     // 共通
     // -----------
-    let machineName: String = "ヨルムンガンド"
+    let machineName: String = "ミリオンゴッド〜神々の軌跡〜"
     @AppStorage("godKisekiMinusCheck") var minusCheck: Bool = false
     @AppStorage("godKisekiSelectedMemory") var selectedMemory = "メモリー1"
     
