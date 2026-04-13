@@ -927,6 +927,8 @@
 		0FA63D542F8D0D2D0006E8F7 /* godKisekiViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D532F8D0D2D0006E8F7 /* godKisekiViewTop.swift */; };
 		0FA63D562F8D0D7C0006E8F7 /* godKisekiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D552F8D0D7C0006E8F7 /* godKisekiClass.swift */; };
 		0FA63D582F8D0D8B0006E8F7 /* godKisekiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */; };
+		0FA63D5A2F8D11CD0006E8F7 /* godKisekiView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */; };
+		0FA63D5C2F8D11D90006E8F7 /* godKisekiViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */; };
 		0FA662D02F13744E00F3259F /* enen2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */; };
 		0FA662D22F13745C00F3259F /* enen2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA662D12F13745C00F3259F /* enen2Class.swift */; };
 		0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA662D32F13747A00F3259F /* enen2Assets.xcassets */; };
@@ -2316,6 +2318,8 @@
 		0FA63D532F8D0D2D0006E8F7 /* godKisekiViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiViewTop.swift; sourceTree = "<group>"; };
 		0FA63D552F8D0D7C0006E8F7 /* godKisekiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiClass.swift; sourceTree = "<group>"; };
 		0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = godKisekiAssets.xcassets; sourceTree = "<group>"; };
+		0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiView95Ci.swift; sourceTree = "<group>"; };
+		0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiViewBayes.swift; sourceTree = "<group>"; };
 		0FA662CF2F13744E00F3259F /* enen2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewTop.swift; sourceTree = "<group>"; };
 		0FA662D12F13745C00F3259F /* enen2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2Class.swift; sourceTree = "<group>"; };
 		0FA662D32F13747A00F3259F /* enen2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = enen2Assets.xcassets; sourceTree = "<group>"; };
@@ -4599,6 +4603,8 @@
 				0FA63D532F8D0D2D0006E8F7 /* godKisekiViewTop.swift */,
 				0FA63D552F8D0D7C0006E8F7 /* godKisekiClass.swift */,
 				0FA63D572F8D0D8B0006E8F7 /* godKisekiAssets.xcassets */,
+				0FA63D592F8D11CD0006E8F7 /* godKisekiView95Ci.swift */,
+				0FA63D5B2F8D11D90006E8F7 /* godKisekiViewBayes.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -5743,6 +5749,7 @@
 				0FC14A9C2E4F081800F85D84 /* enenTableModeNormal.swift in Sources */,
 				0F0FAF6E2F58516700118DC1 /* tekken6ViewCz.swift in Sources */,
 				0F6FB8E62DE5E29D00207855 /* mhrTableRareDirectHit.swift in Sources */,
+				0FA63D5C2F8D11D90006E8F7 /* godKisekiViewBayes.swift in Sources */,
 				0F64DDD52DC7059F0027315D /* midoriDonViewVoice.swift in Sources */,
 				0FF155FA2D60320100B17F83 /* starHanaViewTop.swift in Sources */,
 				0F8935892E2251FA00BF6FBE /* evaYakusokuTableKoyakuRatio.swift in Sources */,
@@ -5974,6 +5981,7 @@
 				0F8325BF2C7F3BE10037226E /* goevaViewBonusScreen.swift in Sources */,
 				0FDE0F212F3063E700B1DA18 /* enen2TableKoyakuPattern.swift in Sources */,
 				0FA0244F2CDF5BE9004B3FD5 /* commonViewKakureNagi.swift in Sources */,
+				0FA63D5A2F8D11CD0006E8F7 /* godKisekiView95Ci.swift in Sources */,
 				0F868A822D56EDEA00D952D9 /* unitTextFieldNumberInputWithUnit.swift in Sources */,
 				0FDC32792D23B4D7005B3D06 /* danvineViewVoice.swift in Sources */,
 				0F45A6062F08DF3C0022E355 /* mushotenViewFirstHit.swift in Sources */,
