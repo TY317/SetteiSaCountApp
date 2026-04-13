@@ -503,6 +503,7 @@ class commonVar: ObservableObject {
         kokakukidotaiisUnlocked = true
         enen2isUnlocked = true
         hanabiisUnlocked = true
+        newKingHanaisUnlocked = true
     }
     
     // //////////////////////////////////////
@@ -647,52 +648,21 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3200FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.20.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                newKingHanaisUnlocked = false
-                hanaSeriesBadge = "new"
-                newKingHanaMachineIconBadge = "new"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuAfterAtBadge = "new"
-                hanabiMachineIconBadge = "update"
-                hanabiMenuRegBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3190FirstLaunch() {
+//    func ver3200FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.19.0"
+//        let targetVersion: String = "3.20.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                hanabiisUnlocked = false
-//                hanabiMachineIconBadge = "new"
-//                tekken6MachineIconBadge = "update"
-//                tekken6MenuScreenBadge = "update"
+//                newKingHanaisUnlocked = false
+//                hanaSeriesBadge = "new"
+//                newKingHanaMachineIconBadge = "new"
 //                kokakukidotaiMachineIconBadge = "update"
-//                kokakukidotaiMenuCzBadge = "update"
-//                mushotenMachineIconBadge = "update"
-//                mushotenMenuFirstHitBadge = "update"
-//                hokutoTenseiMachineIconBadge = "update"
-//                hokutoTenseiMenuNormalBadge = "update"
-//                kokakukidotaiMenuNormalBadge = "update"
-//                enen2MachineIconBadge = "update"
-//                enen2MenuRegBadge = "update"
-//                enen2MenuScreenBadge = "update"
+//                kokakukidotaiMenuAfterAtBadge = "new"
+//                hanabiMachineIconBadge = "update"
+//                hanabiMenuRegBadge = "new"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
