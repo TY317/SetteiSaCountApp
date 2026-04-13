@@ -85,6 +85,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
     @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
     @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
+    @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
 }
 
 
@@ -152,6 +153,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴッド軌跡、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodKiseki == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(godKisekiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("godKisekiMachineIcon"),
+                                        machineName: "ゴッド軌跡",
+                                        isUnLocked: $common.godKisekiisUnlocked,
+                                        tempUnlockDateDouble: $common.godKisekiTempUnlockDateDouble,
+                                        badgeStatus: common.godKisekiMachineIconBadge,
                                     )
                                 }
                                 
@@ -1080,6 +1098,26 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴッド軌跡、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodKiseki == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(godKisekiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("godKisekiMachineIcon"),
+                                        machineName: "ミリオンゴッド〜神々の軌跡〜",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.godKisekiisUnlocked,
+                                        tempUnlockDateDouble: $common.godKisekiTempUnlockDateDouble,
+                                        badgeStatus: common.godKisekiMachineIconBadge,
                                     )
                                 }
                                 
@@ -2339,6 +2377,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ゴッド軌跡
+                Toggle("ミリオンゴッド〜神々の軌跡〜", isOn: $favoriteSet.isSelectedFavoriteGodKiseki)
                 // ヨルムンガンド
                 Toggle("ヨルムンガンド", isOn: $favoriteSet.isSelectedFavoriteJormungand)
                 // 真打吉宗

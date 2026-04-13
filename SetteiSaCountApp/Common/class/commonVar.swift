@@ -86,6 +86,7 @@ class commonVar: ObservableObject {
     let initMachine: [Machine] = [
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
+        Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false),
         Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false),
         Machine(id: "4983", name: "真打吉宗", fullName: "真打 吉宗", iconName: "shinYoshiMachineIcon", btBadge: false),
         Machine(id: "4956", name: "アクダマドライブ", fullName: "アクダマドライブ", iconName: "akudamaMachineIcon", btBadge: false),
@@ -236,6 +237,14 @@ class commonVar: ObservableObject {
     // ハナハナ鳳凰
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
+    
+    // ---- ミリオンゴッド軌跡
+    @AppStorage("godKisekiisUnlocked") var godKisekiisUnlocked: Bool = true
+    @AppStorage("godKisekiTempUnlockDateDouble") var godKisekiTempUnlockDateDouble: Double = 0.0
+    @AppStorage("godKisekiMachineIconBadge") var godKisekiMachineIconBadge: String = "none"
+    @AppStorage("godKisekiMenuNormalBadge") var godKisekiMenuNormalBadge: String = "none"
+    @AppStorage("godKisekiMenuFirstHitBadge") var godKisekiMenuFirstHitBadge: String = "none"
+    @AppStorage("godKisekiMenuBayesBadge") var godKisekiMenuBayesBadge: String = "none"
     
     // ---- アクダマドライブ
     @AppStorage("akudamaisUnlocked") var akudamaisUnlocked: Bool = true
@@ -517,7 +526,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                godKisekiisUnlocked = false
+                godKisekiMachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
