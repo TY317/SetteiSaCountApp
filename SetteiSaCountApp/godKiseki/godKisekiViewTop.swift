@@ -13,9 +13,9 @@ struct godKisekiViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var godKiseki = GodKiseki()
     @State var isShowAlert: Bool = false
-//    @StateObject var godKisekiMemory1 = GodKisekiMemory1()
-//    @StateObject var godKisekiMemory2 = GodKisekiMemory2()
-//    @StateObject var godKisekiMemory3 = GodKisekiMemory3()
+    @StateObject var godKisekiMemory1 = GodKisekiMemory1()
+    @StateObject var godKisekiMemory2 = GodKisekiMemory2()
+    @StateObject var godKisekiMemory3 = GodKisekiMemory3()
     var body: some View {
         NavigationStack {
             List {
@@ -180,21 +180,21 @@ struct godKisekiViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(godKisekiSubViewLoadMemory(
-//                    godKiseki: godKiseki,
-//                    godKisekiMemory1: godKisekiMemory1,
-//                    godKisekiMemory2: godKisekiMemory2,
-//                    godKisekiMemory3: godKisekiMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(godKisekiSubViewLoadMemory(
+                    godKiseki: godKiseki,
+                    godKisekiMemory1: godKisekiMemory1,
+                    godKisekiMemory2: godKisekiMemory2,
+                    godKisekiMemory3: godKisekiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(godKisekiSubViewSaveMemory(
-//                    godKiseki: godKiseki,
-//                    godKisekiMemory1: godKisekiMemory1,
-//                    godKisekiMemory2: godKisekiMemory2,
-//                    godKisekiMemory3: godKisekiMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(godKisekiSubViewSaveMemory(
+                    godKiseki: godKiseki,
+                    godKisekiMemory1: godKisekiMemory1,
+                    godKisekiMemory2: godKisekiMemory2,
+                    godKisekiMemory3: godKisekiMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -205,6 +205,88 @@ struct godKisekiViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct godKisekiSubViewSaveMemory: View {
+    @ObservedObject var godKiseki: GodKiseki
+    @ObservedObject var godKisekiMemory1: GodKisekiMemory1
+    @ObservedObject var godKisekiMemory2: GodKisekiMemory2
+    @ObservedObject var godKisekiMemory3: GodKisekiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: godKiseki.machineName,
+            selectedMemory: $godKiseki.selectedMemory,
+            memoMemory1: $godKisekiMemory1.memo,
+            dateDoubleMemory1: $godKisekiMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $godKisekiMemory2.memo,
+            dateDoubleMemory2: $godKisekiMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $godKisekiMemory3.memo,
+            dateDoubleMemory3: $godKisekiMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        godKisekiMemory1.normalGame = godKiseki.normalGame
+        godKisekiMemory1.firstHitCountAt = godKiseki.firstHitCountAt
+    }
+    func saveMemory2() {
+        godKisekiMemory2.normalGame = godKiseki.normalGame
+        godKisekiMemory2.firstHitCountAt = godKiseki.firstHitCountAt
+    }
+    func saveMemory3() {
+        godKisekiMemory3.normalGame = godKiseki.normalGame
+        godKisekiMemory3.firstHitCountAt = godKiseki.firstHitCountAt
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct godKisekiSubViewLoadMemory: View {
+    @ObservedObject var godKiseki: GodKiseki
+    @ObservedObject var godKisekiMemory1: GodKisekiMemory1
+    @ObservedObject var godKisekiMemory2: GodKisekiMemory2
+    @ObservedObject var godKisekiMemory3: GodKisekiMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: godKiseki.machineName,
+            selectedMemory: $godKiseki.selectedMemory,
+            memoMemory1: godKisekiMemory1.memo,
+            dateDoubleMemory1: godKisekiMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: godKisekiMemory2.memo,
+            dateDoubleMemory2: godKisekiMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: godKisekiMemory3.memo,
+            dateDoubleMemory3: godKisekiMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        godKiseki.normalGame = godKisekiMemory1.normalGame
+        godKiseki.firstHitCountAt = godKisekiMemory1.firstHitCountAt
+    }
+    func loadMemory2() {
+        godKiseki.normalGame = godKisekiMemory2.normalGame
+        godKiseki.firstHitCountAt = godKisekiMemory2.firstHitCountAt
+    }
+    func loadMemory3() {
+        godKiseki.normalGame = godKisekiMemory3.normalGame
+        godKiseki.firstHitCountAt = godKisekiMemory3.firstHitCountAt
     }
 }
 
