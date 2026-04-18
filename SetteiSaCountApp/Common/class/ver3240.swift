@@ -21,3 +21,19 @@ struct tipVer3240UpdateInfo: Tip {
         Image(systemName: "star")
     }
 }
+
+
+// //////////////////
+// Tip：アクダマ　終了画面
+// //////////////////
+struct tipVer3240AkudamaScreen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("終了画面示唆の内容が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -528,6 +528,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 godKisekiisUnlocked = false
                 godKisekiMachineIconBadge = "new"
+                akudamaMachineIconBadge = "update"
+                akudamaMenuScreenBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

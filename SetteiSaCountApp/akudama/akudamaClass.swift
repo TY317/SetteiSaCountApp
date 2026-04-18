@@ -76,6 +76,16 @@ class Akudama: ObservableObject {
             screenCount8,
             screenCount9,
         )
+        
+        screenCountTenjoSum = countSum(
+            screenCount4,
+            screenCount5,
+            screenCount6,
+            screenCount7,
+            screenCount8,
+        )
+        
+        screenCountWithoutTenjoSum = screenCountSum - screenCountTenjoSum
     }
     
     func resetScreen() {
@@ -90,6 +100,9 @@ class Akudama: ObservableObject {
         screenCount9 = 0
         screenCountSum = 0
         minusCheck = false
+        
+        screenCountTenjoSum = 0
+        screenCountWithoutTenjoSum = 0
     }
     
     // -----------
@@ -104,6 +117,12 @@ class Akudama: ObservableObject {
         resetFirstHit()
         resetScreen()
     }
+    
+    // ----------
+    // ver3.24.0
+    // ----------
+    @AppStorage("akudamaScreenCountTenjoSum") var screenCountTenjoSum: Int = 0
+    @AppStorage("akudamaScreenCountWithoutTenjoSum") var screenCountWithoutTenjoSum: Int = 0
 }
 
 
@@ -128,6 +147,9 @@ class AkudamaMemory1: ObservableObject {
     @AppStorage("akudamaScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("akudamaMemoMemory1") var memo = ""
     @AppStorage("akudamaDateMemory1") var dateDouble = 0.0
+    
+    @AppStorage("akudamaScreenCountTenjoSumMemory1") var screenCountTenjoSum: Int = 0
+    @AppStorage("akudamaScreenCountWithoutTenjoSumMemory1") var screenCountWithoutTenjoSum: Int = 0
 }
 
 
@@ -152,6 +174,9 @@ class AkudamaMemory2: ObservableObject {
     @AppStorage("akudamaScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("akudamaMemoMemory2") var memo = ""
     @AppStorage("akudamaDateMemory2") var dateDouble = 0.0
+    
+    @AppStorage("akudamaScreenCountTenjoSumMemory2") var screenCountTenjoSum: Int = 0
+    @AppStorage("akudamaScreenCountWithoutTenjoSumMemory2") var screenCountWithoutTenjoSum: Int = 0
 }
 
 
@@ -176,4 +201,7 @@ class AkudamaMemory3: ObservableObject {
     @AppStorage("akudamaScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("akudamaMemoMemory3") var memo = ""
     @AppStorage("akudamaDateMemory3") var dateDouble = 0.0
+    
+    @AppStorage("akudamaScreenCountTenjoSumMemory3") var screenCountTenjoSum: Int = 0
+    @AppStorage("akudamaScreenCountWithoutTenjoSumMemory3") var screenCountWithoutTenjoSum: Int = 0
 }

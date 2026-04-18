@@ -233,6 +233,12 @@ struct akudamaSubViewSaveMemory: View {
         akudamaMemory1.screenCount8 = akudama.screenCount8
         akudamaMemory1.screenCount9 = akudama.screenCount9
         akudamaMemory1.screenCountSum = akudama.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudamaMemory1.screenCountTenjoSum = akudama.screenCountTenjoSum
+        akudamaMemory1.screenCountWithoutTenjoSum = akudama.screenCountWithoutTenjoSum
     }
     func saveMemory2() {
         akudamaMemory2.ptCountFull = akudama.ptCountFull
@@ -253,6 +259,12 @@ struct akudamaSubViewSaveMemory: View {
         akudamaMemory2.screenCount8 = akudama.screenCount8
         akudamaMemory2.screenCount9 = akudama.screenCount9
         akudamaMemory2.screenCountSum = akudama.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudamaMemory2.screenCountTenjoSum = akudama.screenCountTenjoSum
+        akudamaMemory2.screenCountWithoutTenjoSum = akudama.screenCountWithoutTenjoSum
     }
     func saveMemory3() {
         akudamaMemory3.ptCountFull = akudama.ptCountFull
@@ -273,6 +285,12 @@ struct akudamaSubViewSaveMemory: View {
         akudamaMemory3.screenCount8 = akudama.screenCount8
         akudamaMemory3.screenCount9 = akudama.screenCount9
         akudamaMemory3.screenCountSum = akudama.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudamaMemory3.screenCountTenjoSum = akudama.screenCountTenjoSum
+        akudamaMemory3.screenCountWithoutTenjoSum = akudama.screenCountWithoutTenjoSum
     }
 }
 
@@ -322,6 +340,12 @@ struct akudamaSubViewLoadMemory: View {
         akudama.screenCount8 = akudamaMemory1.screenCount8
         akudama.screenCount9 = akudamaMemory1.screenCount9
         akudama.screenCountSum = akudamaMemory1.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudama.screenCountTenjoSum = akudamaMemory1.screenCountTenjoSum
+        akudama.screenCountWithoutTenjoSum = akudamaMemory1.screenCountWithoutTenjoSum
     }
     func loadMemory2() {
         akudama.ptCountFull = akudamaMemory2.ptCountFull
@@ -342,6 +366,12 @@ struct akudamaSubViewLoadMemory: View {
         akudama.screenCount8 = akudamaMemory2.screenCount8
         akudama.screenCount9 = akudamaMemory2.screenCount9
         akudama.screenCountSum = akudamaMemory2.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudama.screenCountTenjoSum = akudamaMemory2.screenCountTenjoSum
+        akudama.screenCountWithoutTenjoSum = akudamaMemory2.screenCountWithoutTenjoSum
     }
     func loadMemory3() {
         akudama.ptCountFull = akudamaMemory3.ptCountFull
@@ -362,6 +392,12 @@ struct akudamaSubViewLoadMemory: View {
         akudama.screenCount8 = akudamaMemory3.screenCount8
         akudama.screenCount9 = akudamaMemory3.screenCount9
         akudama.screenCountSum = akudamaMemory3.screenCountSum
+        
+        // -------
+        // ver3.24.0
+        // -------
+        akudama.screenCountTenjoSum = akudamaMemory3.screenCountTenjoSum
+        akudama.screenCountWithoutTenjoSum = akudamaMemory3.screenCountWithoutTenjoSum
     }
 }
 
