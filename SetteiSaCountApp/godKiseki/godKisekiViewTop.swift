@@ -27,6 +27,7 @@ struct godKisekiViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: godKiseki.machineName,
+                        titleFont: .title2,
                     )
                 }
                 
