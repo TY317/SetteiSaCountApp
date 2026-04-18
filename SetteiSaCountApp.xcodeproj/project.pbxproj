@@ -285,6 +285,8 @@
 		0F461F9C2F93655700F6B6A1 /* godKisekiModeKagero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F9A2F93655700F6B6A1 /* godKisekiModeKagero.swift */; };
 		0F461F9E2F93687900F6B6A1 /* godKisekiTableModeOkure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */; };
 		0F461F9F2F93687900F6B6A1 /* godKisekiTableModeOkure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */; };
+		0F461FA12F936AF800F6B6A1 /* godKisekiViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */; };
+		0F461FA22F936AF800F6B6A1 /* godKisekiViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */; };
 		0F4952182DB47DC400EE13CB /* magiaViewKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */; };
 		0F49521A2DB483B500EE13CB /* magiaTableKokakuStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */; };
 		0F49521C2DB4897800EE13CB /* magiaViewStoryChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */; };
@@ -1717,6 +1719,7 @@
 		0F461F972F9363FA00F6B6A1 /* godKisekiTableModeBlackHole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableModeBlackHole.swift; sourceTree = "<group>"; };
 		0F461F9A2F93655700F6B6A1 /* godKisekiModeKagero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiModeKagero.swift; sourceTree = "<group>"; };
 		0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableModeOkure.swift; sourceTree = "<group>"; };
+		0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiViewFirstHit.swift; sourceTree = "<group>"; };
 		0F4952172DB47DC400EE13CB /* magiaViewKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewKokakuStart.swift; sourceTree = "<group>"; };
 		0F4952192DB483B500EE13CB /* magiaTableKokakuStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaTableKokakuStart.swift; sourceTree = "<group>"; };
 		0F49521B2DB4897800EE13CB /* magiaViewStoryChara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryChara.swift; sourceTree = "<group>"; };
@@ -4645,6 +4648,7 @@
 				0F461F972F9363FA00F6B6A1 /* godKisekiTableModeBlackHole.swift */,
 				0F461F9A2F93655700F6B6A1 /* godKisekiModeKagero.swift */,
 				0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */,
+				0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -6039,6 +6043,7 @@
 				0F375A072F80BA1D00982F7A /* jormungandTableKoyakuPattern.swift in Sources */,
 				0F45A5AF2EFEB1F30022E355 /* hokutoTenseiViewBayes.swift in Sources */,
 				0FB9CAA22DDDF7A4009FC6AF /* toloveruViewDokidokiPt.swift in Sources */,
+				0F461FA12F936AF800F6B6A1 /* godKisekiViewFirstHit.swift in Sources */,
 				0F3759E22F79506700982F7A /* shinYoshiView95Ci.swift in Sources */,
 				0F9D9C2E2EA4559200450B23 /* draHanaSenkohViewShimaData.swift in Sources */,
 				0FF369372E6325D2002BE0CE /* karakuriViewBayes.swift in Sources */,
@@ -7087,6 +7092,7 @@
 				0FDE0F1E2F2F461800B1DA18 /* kokakukidotaiTableMode.swift in Sources */,
 				0F51C9C52F66391500D9DDE1 /* thunderTableScreenBig.swift in Sources */,
 				0F45A5D82F073B180022E355 /* hokutoTenseiSubViewMachineLamp.swift in Sources */,
+				0F461FA22F936AF800F6B6A1 /* godKisekiViewFirstHit.swift in Sources */,
 				0FA0A7D12EF6947C003EF8BD /* unitReelAny.swift in Sources */,
 				0F447C742F4AC7E2006DAF11 /* kokakukidotaiClass.swift in Sources */,
 				0F45A5C42F04A9790022E355 /* tekken6TableKoyakuPattern.swift in Sources */,

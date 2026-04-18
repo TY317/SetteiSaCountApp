@@ -58,19 +58,19 @@ struct godKisekiViewTop: View {
 //                        )
 //                    }
                     
-//                    // 初当り
-//                    NavigationLink(destination: godKisekiViewFirstHit(
-//                        godKiseki: godKiseki,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.godKisekiMenuFirstHitBadge,
-//                        )
-//                    }
-//                    
+                    // 初当り
+                    NavigationLink(destination: godKisekiViewFirstHit(
+                        godKiseki: godKiseki,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.godKisekiMenuFirstHitBadge,
+                        )
+                    }
+                    
 //                    // REG
 //                    NavigationLink(destination: godKisekiViewReg(
 //                        godKiseki: godKiseki,
@@ -134,8 +134,8 @@ struct godKisekiViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: godKisekiView95Ci(
-//                    godKiseki: godKiseki,
-//                    selection: 3,
+                    godKiseki: godKiseki,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -145,9 +145,9 @@ struct godKisekiViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: godKisekiViewBayes(
-//                    godKiseki: godKiseki,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    godKiseki: godKiseki,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",

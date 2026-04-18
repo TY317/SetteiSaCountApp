@@ -10,7 +10,18 @@ import SwiftUI
 import Combine
 
 class GodKiseki: ObservableObject {
+    // ---------
+    // 初当り
+    // ---------
+    let ratioFirstHitAt: [Double] = [533,420,496,338,455,295]
+    @AppStorage("godKisekiNormalGame") var normalGame: Int = 0
+    @AppStorage("godKisekiFirstHitCountAt") var firstHitCountAt: Int = 0
     
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
     
     // -----------
     // 共通
@@ -20,6 +31,6 @@ class GodKiseki: ObservableObject {
     @AppStorage("godKisekiSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
-        
+        resetFirstHit()
     }
 }
