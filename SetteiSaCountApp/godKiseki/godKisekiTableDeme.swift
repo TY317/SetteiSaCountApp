@@ -76,7 +76,8 @@ struct godKisekiTableDeme: View {
                 }
             }
         }
-        .padding(.top)
+        .padding(.vertical)
+        .padding(.horizontal)
         .navigationTitle("液晶出目法則")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン

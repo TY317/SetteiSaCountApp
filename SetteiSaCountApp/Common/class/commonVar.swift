@@ -334,6 +334,7 @@ class commonVar: ObservableObject {
     @AppStorage("enen2MenuRegBadge") var enen2MenuRegBadge: String = "none"
     @AppStorage("enen2MenuWanaBadge") var enen2MenuWanaBadge: String = "none"
     @AppStorage("enen2MenuScreenBadge") var enen2MenuScreenBadge: String = "none"
+    @AppStorage("enen2MenuEndingBadge") var enen2MenuEndingBadge: String = "none"
     
     // ---- 攻殻機動隊
     @AppStorage("kokakukidotaiisUnlocked") var kokakukidotaiisUnlocked: Bool = true
@@ -530,6 +531,8 @@ class commonVar: ObservableObject {
                 godKisekiMachineIconBadge = "new"
                 akudamaMachineIconBadge = "update"
                 akudamaMenuScreenBadge = "update"
+                enen2MachineIconBadge = "update"
+                enen2MenuEndingBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

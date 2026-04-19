@@ -34,7 +34,8 @@ struct godKisekiTableModeBlackHole: View {
                 )
             }
         }
-        .padding(.top)
+        .padding(.vertical)
+        .padding(.horizontal)
         .navigationTitle("ブラックホール")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン

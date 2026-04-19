@@ -42,8 +42,9 @@ struct godKisekiTableModeOkure: View {
                 )
             }
         }
-        .padding(.top)
-        .navigationTitle("陽炎")
+        .padding(.vertical)
+        .padding(.horizontal)
+        .navigationTitle("遅れ")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン
         .toolbar {

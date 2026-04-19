@@ -116,15 +116,21 @@ struct akudamaViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
+                    .popoverTip(tipVer3240AkudamaScreen())
                     
                     Text("※ 天井示唆：処刑課バトルの天井示唆")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
                     
                     // 天井示唆の詳細
-                    unitLinkButtonViewBuilder(sheetTitle: "天井示唆の詳細") {
-                        akudamaTableScreen()
-                    }
+//                    unitLinkButtonViewBuilder(sheetTitle: "天井示唆の詳細") {
+//                        akudamaTableScreen()
+//                    }
+                }
+                
+                // 天井示唆の詳細
+                unitLinkButtonViewBuilder(sheetTitle: "天井示唆の詳細") {
+                    akudamaTableScreen()
                 }
                 
                 // //// カウント結果

@@ -758,6 +758,11 @@
 		0F93188B2DEAA86C00511BEF /* izaBanchoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188A2DEAA86C00511BEF /* izaBanchoView95Ci.swift */; };
 		0F93188D2DEAA9E700511BEF /* izaBanchoViewAtGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188C2DEAA9E700511BEF /* izaBanchoViewAtGift.swift */; };
 		0F93188F2DEAAA6F00511BEF /* izaBanchoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188E2DEAAA6F00511BEF /* izaBanchoViewScreen.swift */; };
+		0F973F4D2F9454D900818DD9 /* enen2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */; };
+		0F973F502F9455E300818DD9 /* enen2TableEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */; };
+		0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */; };
+		0F973F532F94571C00818DD9 /* enen2TableEndingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */; };
+		0F973F552F94574A00818DD9 /* enen2TableEndingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */; };
 		0F97D8C92E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8C82E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift */; };
 		0F97D8CB2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */; };
 		0F97D8CD2E3112B40088B652 /* magiaViewMitama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8CC2E3112B40088B652 /* magiaViewMitama.swift */; };
@@ -2187,6 +2192,9 @@
 		0F93188A2DEAA86C00511BEF /* izaBanchoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoView95Ci.swift; sourceTree = "<group>"; };
 		0F93188C2DEAA9E700511BEF /* izaBanchoViewAtGift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewAtGift.swift; sourceTree = "<group>"; };
 		0F93188E2DEAAA6F00511BEF /* izaBanchoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewScreen.swift; sourceTree = "<group>"; };
+		0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewEnding.swift; sourceTree = "<group>"; };
+		0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEnding.swift; sourceTree = "<group>"; };
+		0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEndingRatio.swift; sourceTree = "<group>"; };
 		0F97D8C82E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitCountButtonPercentWithFunc.swift; sourceTree = "<group>"; };
 		0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulTableTsukiyama.swift; sourceTree = "<group>"; };
 		0F97D8CC2E3112B40088B652 /* magiaViewMitama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewMitama.swift; sourceTree = "<group>"; };
@@ -4677,6 +4685,9 @@
 				0FB972EC2F665A0000D1E56B /* enen2TableMiniChara.swift */,
 				0FA1C5AC2F71740A009430EE /* enen2TableScreenRatio.swift */,
 				0FA63D312F8A1A230006E8F7 /* enen2TableCharaRatio.swift */,
+				0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */,
+				0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */,
+				0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */,
 			);
 			path = enen2;
 			sourceTree = "<group>";
@@ -6172,6 +6183,7 @@
 				0FD357242DA0CDF60069BD1A /* kaijiTableModeStageChange.swift in Sources */,
 				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
 				0FC71FFE2E6BC7C6000DD53B /* toreveViewScreen.swift in Sources */,
+				0F973F532F94571C00818DD9 /* enen2TableEndingRatio.swift in Sources */,
 				0F2020582F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */,
 				0FD975002F43463C0067CED7 /* ver3200.swift in Sources */,
 				0F6B59BA2DFD2F6400DB1A2B /* unitMachinListLink.swift in Sources */,
@@ -6596,6 +6608,7 @@
 				0F447C692F494BD1006DAF11 /* newKingHanaViewBayes.swift in Sources */,
 				0FEC57D92D97890400FF1024 /* rslTableFirstHit.swift in Sources */,
 				0F8090462C849DC00061480F /* hokutoViewBbBell.swift in Sources */,
+				0F973F4D2F9454D900818DD9 /* enen2ViewEnding.swift in Sources */,
 				0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,
 				0FA0245B2CE82EC8004B3FD5 /* mhrViewTop.swift in Sources */,
 				0F9D9BF32EA0C44700450B23 /* vvv2ViewTop.swift in Sources */,
@@ -6967,6 +6980,7 @@
 				0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */,
 				0F6BD7E62D88616F003F5563 /* arifureViewPremiumAt.swift in Sources */,
 				0FC14A922E4ED1A700F85D84 /* EnenClass.swift in Sources */,
+				0F973F502F9455E300818DD9 /* enen2TableEnding.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
 				0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */,
@@ -7060,6 +7074,7 @@
 				0FD9750B2F48BC1A0067CED7 /* newKingHanaClass.swift in Sources */,
 				0FA1C5AE2F717455009430EE /* enen2TableScreenRatio.swift in Sources */,
 				0F51C9BC2F6585FA00D9DDE1 /* thunderTableKoyakuRatio.swift in Sources */,
+				0F973F552F94574A00818DD9 /* enen2TableEndingRatio.swift in Sources */,
 				0FD974EC2F417A1F0067CED7 /* enen2TableRegSenario.swift in Sources */,
 				0FA662F92F2333B000F3259F /* hokutoTenseiTableStatusMove.swift in Sources */,
 				0F461F8C2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift in Sources */,
@@ -7072,6 +7087,7 @@
 				0F19D4452F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,
 				0FA662FE2F234AD500F3259F /* bakemonoClass.swift in Sources */,
 				0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */,
+				0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */,
 				0F51C9BD2F65860800D9DDE1 /* thunderClass.swift in Sources */,
 				0F45A5E22F079CE90022E355 /* unitLabelMachineIconLink.swift in Sources */,
 				0F03BD3A2F0B962200222339 /* shakeClass.swift in Sources */,

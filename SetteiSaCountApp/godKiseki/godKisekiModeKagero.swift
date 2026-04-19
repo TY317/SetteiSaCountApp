@@ -34,7 +34,8 @@ struct godKisekiModeKagero: View {
                 )
             }
         }
-        .padding(.top)
+        .padding(.vertical)
+        .padding(.horizontal)
         .navigationTitle("陽炎")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン

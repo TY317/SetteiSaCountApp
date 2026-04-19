@@ -32,7 +32,8 @@ struct godKisekiTableHikariNoKaze: View {
                 )
             }
         }
-        .padding(.top)
+        .padding(.vertical)
+        .padding(.horizontal)
         .navigationTitle("光の風")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン

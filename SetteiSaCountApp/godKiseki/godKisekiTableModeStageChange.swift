@@ -67,7 +67,8 @@ struct godKisekiTableModeStageChange: View {
                 )
             }
         }
-        .padding(.top)
+        .padding(.vertical)
+        .padding(.horizontal)
         .navigationTitle("ステージチェンジ")
         .navigationBarTitleDisplayMode(.inline)
         // //// ツールバー閉じるボタン
