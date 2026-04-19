@@ -85,6 +85,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteShinYoshi") var isSelectedFavoriteShinYoshi = true
     @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
     @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
+    @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
 }
 
 
@@ -116,7 +117,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3230UpdateInfo())
+                TipView(tipVer3240UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -152,6 +153,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴッド軌跡、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodKiseki == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(godKisekiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("godKisekiMachineIcon"),
+                                        machineName: "ゴッド軌跡",
+                                        isUnLocked: $common.godKisekiisUnlocked,
+                                        tempUnlockDateDouble: $common.godKisekiTempUnlockDateDouble,
+                                        badgeStatus: common.godKisekiMachineIconBadge,
                                     )
                                 }
                                 
@@ -1080,6 +1098,26 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// ゴッド軌跡、26年4月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteGodKiseki == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(godKisekiViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("godKisekiMachineIcon"),
+                                        machineName: "ミリオンゴッド〜神々の軌跡〜",
+                                        makerName: "UNIVERSAL",
+                                        releaseYear: 2026,
+                                        releaseMonth: 4,
+                                        isUnLocked: $common.godKisekiisUnlocked,
+                                        tempUnlockDateDouble: $common.godKisekiTempUnlockDateDouble,
+                                        badgeStatus: common.godKisekiMachineIconBadge,
                                     )
                                 }
                                 
@@ -2339,6 +2377,8 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // ゴッド軌跡
+                Toggle("ミリオンゴッド〜神々の軌跡〜", isOn: $favoriteSet.isSelectedFavoriteGodKiseki)
                 // ヨルムンガンド
                 Toggle("ヨルムンガンド", isOn: $favoriteSet.isSelectedFavoriteJormungand)
                 // 真打吉宗
@@ -2529,8 +2569,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

@@ -86,6 +86,7 @@ class commonVar: ObservableObject {
     let initMachine: [Machine] = [
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
+        Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false),
         Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false),
         Machine(id: "4983", name: "真打吉宗", fullName: "真打 吉宗", iconName: "shinYoshiMachineIcon", btBadge: false),
         Machine(id: "4956", name: "アクダマドライブ", fullName: "アクダマドライブ", iconName: "akudamaMachineIcon", btBadge: false),
@@ -237,6 +238,14 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- ミリオンゴッド軌跡
+    @AppStorage("godKisekiisUnlocked") var godKisekiisUnlocked: Bool = true
+    @AppStorage("godKisekiTempUnlockDateDouble") var godKisekiTempUnlockDateDouble: Double = 0.0
+    @AppStorage("godKisekiMachineIconBadge") var godKisekiMachineIconBadge: String = "none"
+    @AppStorage("godKisekiMenuNormalBadge") var godKisekiMenuNormalBadge: String = "none"
+    @AppStorage("godKisekiMenuFirstHitBadge") var godKisekiMenuFirstHitBadge: String = "none"
+    @AppStorage("godKisekiMenuBayesBadge") var godKisekiMenuBayesBadge: String = "none"
+    
     // ---- アクダマドライブ
     @AppStorage("akudamaisUnlocked") var akudamaisUnlocked: Bool = true
     @AppStorage("akudamaTempUnlockDateDouble") var akudamaTempUnlockDateDouble: Double = 0.0
@@ -325,6 +334,7 @@ class commonVar: ObservableObject {
     @AppStorage("enen2MenuRegBadge") var enen2MenuRegBadge: String = "none"
     @AppStorage("enen2MenuWanaBadge") var enen2MenuWanaBadge: String = "none"
     @AppStorage("enen2MenuScreenBadge") var enen2MenuScreenBadge: String = "none"
+    @AppStorage("enen2MenuEndingBadge") var enen2MenuEndingBadge: String = "none"
     
     // ---- 攻殻機動隊
     @AppStorage("kokakukidotaiisUnlocked") var kokakukidotaiisUnlocked: Bool = true
@@ -503,11 +513,35 @@ class commonVar: ObservableObject {
         kokakukidotaiisUnlocked = true
         enen2isUnlocked = true
         hanabiisUnlocked = true
+        newKingHanaisUnlocked = true
     }
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver3240FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "3.24.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                godKisekiisUnlocked = false
+                godKisekiMachineIconBadge = "new"
+                akudamaMachineIconBadge = "update"
+                akudamaMenuScreenBadge = "update"
+                enen2MachineIconBadge = "update"
+                enen2MenuEndingBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver3230FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "3.23.0"
@@ -647,52 +681,21 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3200FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.20.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                newKingHanaisUnlocked = false
-                hanaSeriesBadge = "new"
-                newKingHanaMachineIconBadge = "new"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuAfterAtBadge = "new"
-                hanabiMachineIconBadge = "update"
-                hanabiMenuRegBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3190FirstLaunch() {
+//    func ver3200FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.19.0"
+//        let targetVersion: String = "3.20.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                hanabiisUnlocked = false
-//                hanabiMachineIconBadge = "new"
-//                tekken6MachineIconBadge = "update"
-//                tekken6MenuScreenBadge = "update"
+//                newKingHanaisUnlocked = false
+//                hanaSeriesBadge = "new"
+//                newKingHanaMachineIconBadge = "new"
 //                kokakukidotaiMachineIconBadge = "update"
-//                kokakukidotaiMenuCzBadge = "update"
-//                mushotenMachineIconBadge = "update"
-//                mushotenMenuFirstHitBadge = "update"
-//                hokutoTenseiMachineIconBadge = "update"
-//                hokutoTenseiMenuNormalBadge = "update"
-//                kokakukidotaiMenuNormalBadge = "update"
-//                enen2MachineIconBadge = "update"
-//                enen2MenuRegBadge = "update"
-//                enen2MenuScreenBadge = "update"
+//                kokakukidotaiMenuAfterAtBadge = "new"
+//                hanabiMachineIconBadge = "update"
+//                hanabiMenuRegBadge = "new"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")

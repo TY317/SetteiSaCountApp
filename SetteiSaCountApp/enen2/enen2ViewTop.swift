@@ -84,6 +84,19 @@ struct enen2ViewTop: View {
                             badgeStatus: common.enen2MenuWanaBadge,
                         )
                     }
+                    
+                    // エンディング
+                    NavigationLink(destination: enen2ViewEnding(
+                        enen2: enen2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.enen2MenuEndingBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: enen2.machineName)
                 }

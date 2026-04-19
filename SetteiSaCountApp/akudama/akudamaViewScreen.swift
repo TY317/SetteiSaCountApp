@@ -49,15 +49,15 @@ struct akudamaViewScreen: View {
         "変化なし",
     ]
     let lowerBeltTextList: [String] = [
-        "設定示唆",
-        "設定示唆",
-        "設定示唆",
+        "偶数示唆",
+        "奇数示唆",
+        "高設定示唆",
         "天井示唆",
-        "天井示唆or高設定示唆",
-        "天井示唆or高設定示唆",
-        "天井示唆or高設定示唆",
-        "天井示唆",
-        "設定示唆",
+        "天井示唆or4以上",
+        "天井示唆or4以上",
+        "天井示唆or4以上",
+        "天井示唆or4以上",
+        "設定4 以上濃厚",
     ]
     let sisaText: [String] = [
         "喧嘩屋＆チンピラ",
@@ -71,17 +71,18 @@ struct akudamaViewScreen: View {
         "変化なし",
     ]
     let flashColorList: [Color] = [
+        .yellow,
+        .blue,
+        .green,
         .gray,
         .gray,
         .gray,
         .gray,
         .gray,
-        .gray,
-        .gray,
-        .gray,
-        .gray,
+        .orange,
     ]
     let indexList: [Int] = [0,1,2,3,4,5,6,7,8,]
+    let indexListResult: [Int] = [0,1,2,8,]
     
     var body: some View {
         List {
@@ -115,26 +116,39 @@ struct akudamaViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
+                    .popoverTip(tipVer3240AkudamaScreen())
                     
                     Text("※ 天井示唆：処刑課バトルの天井示唆")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
+                    
+                    // 天井示唆の詳細
+//                    unitLinkButtonViewBuilder(sheetTitle: "天井示唆の詳細") {
+//                        akudamaTableScreen()
+//                    }
+                }
+                
+                // 天井示唆の詳細
+                unitLinkButtonViewBuilder(sheetTitle: "天井示唆の詳細") {
+                    akudamaTableScreen()
                 }
                 
                 // //// カウント結果
-                ForEach(self.indexList, id: \.self) { index in
+//                ForEach(self.indexList, id: \.self) { index in
+                ForEach(self.indexListResult, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
 //                    if self.upperBeltTextList.indices.contains(index) &&
-//                        self.flashColorList.indices.contains(index) {
-                        self.flashColorList.indices.contains(index) &&
-                        self.sisaText.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) &&
+//                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
+                            title: self.lowerBeltTextList[index],
 //                            title: self.upperBeltTextList[index],
-                            title: self.sisaText[index],
+//                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
-                            bigNumber: $akudama.screenCountSum,
+//                            bigNumber: $akudama.screenCountSum,
+                            bigNumber: $akudama.screenCountWithoutTenjoSum,
                             numberofDigit: 0,
                             titleFont: .body,
                         )

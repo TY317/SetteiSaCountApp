@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 import TipKit
 
-struct tipVer3200UpdateInfo: Tip {
-    var title: Text {
-        Text("機種,機能追加！")
-//        Text("機能追加！")
-    }
-    var message: Text? {
-        Text("・ニューキングハナハナV")
-    }
-    var image: Image? {
-        Image(systemName: "star")
-    }
-}
+//struct tipVer3200UpdateInfo: Tip {
+//    var title: Text {
+//        Text("機種,機能追加！")
+////        Text("機能追加！")
+//    }
+//    var message: Text? {
+//        Text("・ニューキングハナハナV")
+//    }
+//    var image: Image? {
+//        Image(systemName: "star")
+//    }
+//}
