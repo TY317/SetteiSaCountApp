@@ -763,6 +763,8 @@
 		0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */; };
 		0F973F532F94571C00818DD9 /* enen2TableEndingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */; };
 		0F973F552F94574A00818DD9 /* enen2TableEndingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */; };
+		0F973F572F9460A000818DD9 /* godKisekiTableGaisen3ren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F562F9460A000818DD9 /* godKisekiTableGaisen3ren.swift */; };
+		0F973F582F9460A000818DD9 /* godKisekiTableGaisen3ren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F562F9460A000818DD9 /* godKisekiTableGaisen3ren.swift */; };
 		0F97D8C92E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8C82E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift */; };
 		0F97D8CB2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */; };
 		0F97D8CD2E3112B40088B652 /* magiaViewMitama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D8CC2E3112B40088B652 /* magiaViewMitama.swift */; };
@@ -2195,6 +2197,7 @@
 		0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewEnding.swift; sourceTree = "<group>"; };
 		0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEnding.swift; sourceTree = "<group>"; };
 		0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEndingRatio.swift; sourceTree = "<group>"; };
+		0F973F562F9460A000818DD9 /* godKisekiTableGaisen3ren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableGaisen3ren.swift; sourceTree = "<group>"; };
 		0F97D8C82E2D0B540088B652 /* unitCountButtonPercentWithFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitCountButtonPercentWithFunc.swift; sourceTree = "<group>"; };
 		0F97D8CA2E2E743F0088B652 /* tokyoGhoulTableTsukiyama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulTableTsukiyama.swift; sourceTree = "<group>"; };
 		0F97D8CC2E3112B40088B652 /* magiaViewMitama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewMitama.swift; sourceTree = "<group>"; };
@@ -4660,6 +4663,7 @@
 				0F461F9A2F93655700F6B6A1 /* godKisekiModeKagero.swift */,
 				0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */,
 				0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */,
+				0F973F562F9460A000818DD9 /* godKisekiTableGaisen3ren.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -6320,6 +6324,7 @@
 				0F6B59EB2E07DD9A00DB1A2B /* mt5Table5Coin.swift in Sources */,
 				0F2020522F4F183200FDA263 /* gobsla2ViewBayes.swift in Sources */,
 				0F6BD7B22D74129E003F5563 /* arifureViewNormal.swift in Sources */,
+				0F973F582F9460A000818DD9 /* godKisekiTableGaisen3ren.swift in Sources */,
 				0F3759EE2F7D58D100982F7A /* shinYoshiViewFirstHit.swift in Sources */,
 				0FDE0F272F306F6800B1DA18 /* enen2ViewReg.swift in Sources */,
 				0FF1560C2D604D3000B17F83 /* starHanaVer2View95CiTotal.swift in Sources */,
@@ -7083,6 +7088,7 @@
 				0FA662F12F1B190500F3259F /* kokakukidotaiTableKoyakuPattern.swift in Sources */,
 				0F375A2E2F82842D00982F7A /* akudamaTableKoyakuPattern.swift in Sources */,
 				0FA0A7CD2EF6947C003EF8BD /* unitReelText.swift in Sources */,
+				0F973F572F9460A000818DD9 /* godKisekiTableGaisen3ren.swift in Sources */,
 				0F03BD392F0B961C00222339 /* shakeTableKoyakuRatio.swift in Sources */,
 				0F19D4452F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,
 				0FA662FE2F234AD500F3259F /* bakemonoClass.swift in Sources */,

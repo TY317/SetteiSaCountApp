@@ -10,6 +10,22 @@ import SwiftUI
 import Combine
 
 class GodKiseki: ObservableObject {
+    // -------
+    // 通常時
+    // -------
+    // 3連
+    @AppStorage("godKisekiRen3CountBlue") var ren3CountBlue: Int = 0
+    @AppStorage("godKisekiRen3CountBlueHit") var ren3CountBlueHit: Int = 0
+    @AppStorage("godKisekiRen3CountYellow") var ren3CountYellow: Int = 0
+    @AppStorage("godKisekiRen3CountYellowHit") var ren3CountYellowHit: Int = 0
+    
+    func resetNormal() {
+        ren3CountBlue = 0
+        ren3CountBlueHit = 0
+        ren3CountYellow = 0
+        ren3CountYellowHit = 0
+        minusCheck = false
+    }
     // ---------
     // 初当り
     // ---------
@@ -31,6 +47,7 @@ class GodKiseki: ObservableObject {
     @AppStorage("godKisekiSelectedMemory") var selectedMemory = "メモリー1"
     
     func resetAll() {
+        resetNormal()
         resetFirstHit()
     }
 }

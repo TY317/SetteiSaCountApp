@@ -13,7 +13,22 @@ struct godKisekiViewNormal: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @EnvironmentObject var common: commonVar
     @State var isShowDestination: Bool = false
+    @State var isShowAlert: Bool = false
+    @FocusState var isFocused: Bool
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 250.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 250.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
     
+    let items: [String] = ["リプ 3連", "黄7 3連"]
+    @State var selectedItem: String = "リプ 3連"
     var body: some View {
         List {
             // 小役関連
@@ -44,27 +59,6 @@ struct godKisekiViewNormal: View {
                     .sheet(
                         isPresented: self.$isShowDestination
                     ) {
-//                        NavigationView {
-//                            ScrollView {
-//                                self.destination()
-//                                    .padding(.bottom, 40)
-//                            }
-//                            .padding(.horizontal)
-//                            // //// タイトル
-//                            .navigationTitle(self.sheetTitle)
-//                            .toolbarTitleDisplayMode(.inline)
-//                            // //// ツールバー閉じるボタン
-//                            .toolbar {
-//                                ToolbarItem(placement: .automatic) {
-//                                    Button(action: {
-//                                        self.isShowDestination = false
-//                                    }, label: {
-//                                        Text("閉じる")
-//                                            .fontWeight(.bold)
-//                                    })
-//                                }
-//                            }
-//                        }
                         godKisekiNaviModeSisa(isPresented: self.$isShowDestination)
                             .presentationDetents([.large])
                     }
@@ -72,6 +66,96 @@ struct godKisekiViewNormal: View {
             } header: {
                 Text("モード")
             }
+            
+            // 小役3連
+            Section {
+                // 注意書き
+                unitLabelCautionText {
+                    Text("今作でも設定差があると予想されますが解析は出ていません")
+                }
+                // 確率結果
+                HStack {
+                    // リプ3連
+                    unitResultRatioPercent2Line(
+                        title: "リプ 3連",
+                        count: $godKiseki.ren3CountBlueHit,
+                        bigNumber: $godKiseki.ren3CountBlue,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                    // 黄７3連
+                    unitResultRatioPercent2Line(
+                        title: "黄7 3連",
+                        count: $godKiseki.ren3CountYellowHit,
+                        bigNumber: $godKiseki.ren3CountYellow,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報）凱旋での設定差
+                unitLinkButtonViewBuilder(sheetTitle: "[参考] 凱旋での設定差") {
+                    godKisekiTableGaisen3ren()
+                }
+                DisclosureGroup {
+                    // セグメントピッカー
+                    Picker("", selection: self.$selectedItem) {
+                        ForEach(self.items, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // リプ3連
+                        if self.selectedItem == self.items[0] {
+                            // リプ3連
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "リプ 3連",
+                                count: $godKiseki.ren3CountBlue,
+                                color: .personalSummerLightBlue,
+                                minusBool: $godKiseki.minusCheck) {
+                                    
+                                }
+                            // 当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "当選",
+                                count: $godKiseki.ren3CountBlueHit,
+                                color: .blue,
+                                minusBool: $godKiseki.minusCheck) {
+                                    
+                                }
+                        }
+                        // 黄7 3連
+                        else {
+                            // 黄7 3連
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "黄7 3連",
+                                count: $godKiseki.ren3CountYellow,
+                                color: .personalSpringLightYellow,
+                                minusBool: $godKiseki.minusCheck) {
+                                    
+                                }
+                            // 当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "当選",
+                                count: $godKiseki.ren3CountYellowHit,
+                                color: .yellow,
+                                minusBool: $godKiseki.minusCheck) {
+                                    
+                                }
+                        }
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("小役3連")
+            }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.godKisekiMenuNormalBadge)
@@ -85,6 +169,30 @@ struct godKisekiViewNormal: View {
         }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $godKiseki.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: godKiseki.resetNormal)
+            }
+        }
     }
 }
 
