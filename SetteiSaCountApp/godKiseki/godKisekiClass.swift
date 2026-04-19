@@ -54,6 +54,10 @@ class GodKiseki: ObservableObject {
 
 
 class GodKisekiMemory1: ObservableObject {
+    @AppStorage("godKisekiRen3CountBlueMemory1") var ren3CountBlue: Int = 0
+    @AppStorage("godKisekiRen3CountBlueHitMemory1") var ren3CountBlueHit: Int = 0
+    @AppStorage("godKisekiRen3CountYellowMemory1") var ren3CountYellow: Int = 0
+    @AppStorage("godKisekiRen3CountYellowHitMemory1") var ren3CountYellowHit: Int = 0
     @AppStorage("godKisekiNormalGameMemory1") var normalGame: Int = 0
     @AppStorage("godKisekiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory1") var memo = ""
@@ -62,6 +66,10 @@ class GodKisekiMemory1: ObservableObject {
 
 
 class GodKisekiMemory2: ObservableObject {
+    @AppStorage("godKisekiRen3CountBlueMemory2") var ren3CountBlue: Int = 0
+    @AppStorage("godKisekiRen3CountBlueHitMemory2") var ren3CountBlueHit: Int = 0
+    @AppStorage("godKisekiRen3CountYellowMemory2") var ren3CountYellow: Int = 0
+    @AppStorage("godKisekiRen3CountYellowHitMemory2") var ren3CountYellowHit: Int = 0
     @AppStorage("godKisekiNormalGameMemory2") var normalGame: Int = 0
     @AppStorage("godKisekiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory2") var memo = ""
@@ -70,6 +78,10 @@ class GodKisekiMemory2: ObservableObject {
 
 
 class GodKisekiMemory3: ObservableObject {
+    @AppStorage("godKisekiRen3CountBlueMemory3") var ren3CountBlue: Int = 0
+    @AppStorage("godKisekiRen3CountBlueHitMemory3") var ren3CountBlueHit: Int = 0
+    @AppStorage("godKisekiRen3CountYellowMemory3") var ren3CountYellow: Int = 0
+    @AppStorage("godKisekiRen3CountYellowHitMemory3") var ren3CountYellowHit: Int = 0
     @AppStorage("godKisekiNormalGameMemory3") var normalGame: Int = 0
     @AppStorage("godKisekiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory3") var memo = ""
