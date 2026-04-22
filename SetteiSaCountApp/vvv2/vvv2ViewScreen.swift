@@ -144,6 +144,10 @@ struct vvv2ViewScreen: View {
             } header: {
                 unitLabelHeaderScreenCount()
             }
+            
+            // 店長カスタム
+            commonSectionCustomSankyo()
+            
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
