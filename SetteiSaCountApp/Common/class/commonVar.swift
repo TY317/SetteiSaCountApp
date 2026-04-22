@@ -514,6 +514,8 @@ class commonVar: ObservableObject {
         enen2isUnlocked = true
         hanabiisUnlocked = true
         newKingHanaisUnlocked = true
+        kabaneriUnatoisUnlocked = true
+        gobsla2isUnlocked = true
     }
     
     // //////////////////////////////////////
@@ -656,46 +658,22 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
-    func ver3210FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.21.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                gobsla2isUnlocked = false
-                gobsla2MachineIconBadge = "new"
-                enen2MachineIconBadge = "update"
-                enen2MenuScreenBadge = "update"
-                enen2MenuRegBadge = "update"
-                enen2MenuNormalBadge = "update"
-                kabaneriUnatoisUnlocked = false
-                kabaneriUnatoMachineIconBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3200FirstLaunch() {
+//    func ver3210FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.20.0"
+//        let targetVersion: String = "3.21.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                newKingHanaisUnlocked = false
-//                hanaSeriesBadge = "new"
-//                newKingHanaMachineIconBadge = "new"
-//                kokakukidotaiMachineIconBadge = "update"
-//                kokakukidotaiMenuAfterAtBadge = "new"
-//                hanabiMachineIconBadge = "update"
-//                hanabiMenuRegBadge = "new"
+//                gobsla2isUnlocked = false
+//                gobsla2MachineIconBadge = "new"
+//                enen2MachineIconBadge = "update"
+//                enen2MenuScreenBadge = "update"
+//                enen2MenuRegBadge = "update"
+//                enen2MenuNormalBadge = "update"
+//                kabaneriUnatoisUnlocked = false
+//                kabaneriUnatoMachineIconBadge = "new"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
