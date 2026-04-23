@@ -341,6 +341,7 @@
 		0F59EBE82F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */; };
 		0F59EBEA2F98E34500CF0C55 /* commonSectionCustomGinchan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */; };
 		0F59EBEC2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */; };
+		0F59EBEE2F9A245300CF0C55 /* ver3241.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBED2F9A245300CF0C55 /* ver3241.swift */; };
 		0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */; };
 		0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */; };
 		0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */; };
@@ -1786,6 +1787,7 @@
 		0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomTamachan.swift; sourceTree = "<group>"; };
 		0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomGinchan.swift; sourceTree = "<group>"; };
 		0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomKopanda.swift; sourceTree = "<group>"; };
+		0F59EBED2F9A245300CF0C55 /* ver3241.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3241.swift; sourceTree = "<group>"; };
 		0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewVoice.swift; sourceTree = "<group>"; };
 		0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewGearv.swift; sourceTree = "<group>"; };
 		0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewEnding.swift; sourceTree = "<group>"; };
@@ -4307,6 +4309,7 @@
 				0F4471F12F700C0B0048E9CE /* ver3221.swift */,
 				0F3759D82F7807CF00982F7A /* ver3230.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
+				0F59EBED2F9A245300CF0C55 /* ver3241.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -7030,6 +7033,7 @@
 				0F973F502F9455E300818DD9 /* enen2TableEnding.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
+				0F59EBEE2F9A245300CF0C55 /* ver3241.swift in Sources */,
 				0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */,
 				0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */,
 				0F2A4DF52F3715FE00B3C583 /* hanabiViewStart.swift in Sources */,
