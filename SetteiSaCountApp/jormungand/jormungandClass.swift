@@ -167,6 +167,15 @@ class Jormungand: ObservableObject {
             charaCountOver4,
             charaCountOver6,
         )
+        
+        chara3CountSum = countSum(
+            chara3CountKisu,
+            chara3CountGusu,
+            chara3CountHigh,
+            chara3CountOver2,
+            chara3CountOver4,
+            chara3CountOver6,
+        )
     }
     
     func resetReg() {
@@ -177,6 +186,14 @@ class Jormungand: ObservableObject {
         charaCountOver4 = 0
         charaCountOver6 = 0
         minusCheck = false
+        
+        chara3CountKisu = 0
+        chara3CountGusu = 0
+        chara3CountHigh = 0
+        chara3CountOver2 = 0
+        chara3CountOver4 = 0
+        chara3CountOver6 = 0
+        chara3CountSum = 0
     }
     
     // -----------
@@ -193,6 +210,29 @@ class Jormungand: ObservableObject {
         resetScreen()
         resetReg()
     }
+    
+    // --------
+    // ver3.24.1
+    // --------
+    let ratioCharaKisu: [Double] = [50,43.75,54.69,42.19,56.25,41.41]
+    let ratioCharaGusu: [Double] = [44.53,50,37.5,50,35.16,50]
+    let ratioCharaHigh: [Double] = [5.47,6.25,7.81,7.81,8.59,8.59]
+    let ratioCharaOver2: [Double] = [0,0,0,0,0,0]
+    let ratioCharaOver4: [Double] = [0,0,0,0,0,0]
+    let ratioCharaOver6: [Double] = [0,0,0,0,0,0]
+    let ratioChara3Kisu: [Double] = [50,39.06,50,35.94,50,34.66]
+    let ratioChara3Gusu: [Double] = [44.53,50,37.5,50,35.16,50]
+    let ratioChara3High: [Double] = [5.47,6.25,7.81,7.81,8.59,8.59]
+    let ratioChara3Over2: [Double] = [0,4.69,4.69,4.69,4.69,4.69,]
+    let ratioChara3Over4: [Double] = [0,0,0,1.56,1.56,1.56,]
+    let ratioChara3Over6: [Double] = [0,0,0,0,0,0.39]
+    @AppStorage("jormungandChara3CountKisu") var chara3CountKisu: Int = 0
+    @AppStorage("jormungandChara3CountGusu") var chara3CountGusu: Int = 0
+    @AppStorage("jormungandChara3CountHigh") var chara3CountHigh: Int = 0
+    @AppStorage("jormungandChara3CountOver2") var chara3CountOver2: Int = 0
+    @AppStorage("jormungandChara3CountOver4") var chara3CountOver4: Int = 0
+    @AppStorage("jormungandChara3CountOver6") var chara3CountOver6: Int = 0
+    @AppStorage("jormungandChara3CountSum") var chara3CountSum: Int = 0
 }
 
 

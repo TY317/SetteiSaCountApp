@@ -26,7 +26,7 @@ import TipKit
 // //////////////////
 // Tip：アクダマ　終了画面
 // //////////////////
-struct tipVer3241AkudamaChara: Tip {
+struct tipVer3241JormungandChara: Tip {
     var title: Text {
         Text("機能更新")
     }
