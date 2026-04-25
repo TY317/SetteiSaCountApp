@@ -346,6 +346,10 @@
 		0F59EBF12F9A53F100CF0C55 /* jormungandTableChara12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */; };
 		0F59EBF32F9A57EB00CF0C55 /* jormungandTableChara3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */; };
 		0F59EBF42F9A580800CF0C55 /* jormungandTableChara3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */; };
+		0F59EED32F9CAFDB00CF0C55 /* AppIcon_rev2.icon in Resources */ = {isa = PBXBuildFile; fileRef = 0F59EED22F9CAFDB00CF0C55 /* AppIcon_rev2.icon */; };
+		0F59EF4E2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EF4D2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift */; };
+		0F59EF4F2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EF4D2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift */; };
+		0F59EF502F9CE0F400CF0C55 /* godKisekiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA63D552F8D0D7C0006E8F7 /* godKisekiClass.swift */; };
 		0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */; };
 		0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */; };
 		0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */; };
@@ -1794,6 +1798,8 @@
 		0F59EBED2F9A245300CF0C55 /* ver3241.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3241.swift; sourceTree = "<group>"; };
 		0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara12.swift; sourceTree = "<group>"; };
 		0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara3.swift; sourceTree = "<group>"; };
+		0F59EED22F9CAFDB00CF0C55 /* AppIcon_rev2.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_rev2.icon; sourceTree = "<group>"; };
+		0F59EF4D2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableKoyakuRen.swift; sourceTree = "<group>"; };
 		0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewVoice.swift; sourceTree = "<group>"; };
 		0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewGearv.swift; sourceTree = "<group>"; };
 		0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewEnding.swift; sourceTree = "<group>"; };
@@ -3824,6 +3830,7 @@
 				0F8031172C697910001F008E /* splashScreenView.swift */,
 				0F8030DB2C6249FC001F008E /* SetteiSaCountAppApp.swift */,
 				0F2A4DDC2F34CF0C00B3C583 /* Assets.xcassets */,
+				0F59EED22F9CAFDB00CF0C55 /* AppIcon_rev2.icon */,
 				0F2A4DDF2F34D07F00B3C583 /* Color+Extension.swift */,
 			);
 			path = SetteiSaCountApp;
@@ -4707,6 +4714,7 @@
 				0F461F9D2F93687900F6B6A1 /* godKisekiTableModeOkure.swift */,
 				0F461FA02F936AF800F6B6A1 /* godKisekiViewFirstHit.swift */,
 				0F973F562F9460A000818DD9 /* godKisekiTableGaisen3ren.swift */,
+				0F59EF4D2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -5541,6 +5549,7 @@
 				0FA0249D2D05D14C004B3FD5 /* lupinAssets.xcassets in Resources */,
 				0F0DE8172EDC343A00D85BCA /* bakemonoAssets.xcassets in Resources */,
 				0FF156192D67195800B17F83 /* tokyoGhoulAssets.xcassets in Resources */,
+				0F59EED32F9CAFDB00CF0C55 /* AppIcon_rev2.icon in Resources */,
 				0F9D9BF72EA0C46000450B23 /* vvv2Assets.xcassets in Resources */,
 				0F3759FF2F809A8B00982F7A /* jormungandAssets.xcassets in Resources */,
 				0FA662D42F13747A00F3259F /* enen2Assets.xcassets in Resources */,
@@ -6003,6 +6012,7 @@
 				0FC14A6E2E498BF300F85D84 /* unitToggleWithQuestion.swift in Sources */,
 				0FF156022D604CE800B17F83 /* starHanaVer2ViewKenDataInput.swift in Sources */,
 				0FA0248D2D011BBA004B3FD5 /* mhrViewEndScreen.swift in Sources */,
+				0F59EF4F2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift in Sources */,
 				0F45A60A2F0903B70022E355 /* mushotenSectionCzPercent.swift in Sources */,
 				0FF9AC8D2CBA2A2B000C8E76 /* ver130Tip.swift in Sources */,
 				0FF3E4772EE252F7002704FD /* railgunTableRareCz.swift in Sources */,
@@ -7129,6 +7139,7 @@
 				0F45A5EB2F07F1470022E355 /* unitMachinListLink.swift in Sources */,
 				0FA63D332F8A1AB30006E8F7 /* enen2TableCharaRatio.swift in Sources */,
 				0FA1C5AF2F717550009430EE /* enen2Class.swift in Sources */,
+				0F59EF502F9CE0F400CF0C55 /* godKisekiClass.swift in Sources */,
 				0F45A5EE2F07F27D0022E355 /* unitLabelMachineListLink.swift in Sources */,
 				0FA0A7CB2EF69466003EF8BD /* unitReelPattern.swift in Sources */,
 				0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */,
@@ -7148,6 +7159,7 @@
 				0F973F572F9460A000818DD9 /* godKisekiTableGaisen3ren.swift in Sources */,
 				0F03BD392F0B961C00222339 /* shakeTableKoyakuRatio.swift in Sources */,
 				0F19D4452F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,
+				0F59EF4E2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift in Sources */,
 				0FA662FE2F234AD500F3259F /* bakemonoClass.swift in Sources */,
 				0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */,
 				0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */,
@@ -7375,7 +7387,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -7415,7 +7427,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

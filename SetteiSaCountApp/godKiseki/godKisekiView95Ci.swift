@@ -14,25 +14,44 @@ struct godKisekiView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
-//            // 通常時　チャンス目からのCZ当選回数
-//            unitListSection95Ci(
-//                grafTitle: "通常時\nチャンス目からのCZ当選回数",
-//                titleFont: .title3,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $godKiseki.rareCzCountChanceHit,
-//                        bigNumber: $godKiseki.rareCzCountChance,
-//                        setting1Percent: godKiseki.ratioRareCzNormalChance[0],
-//                        setting2Percent: godKiseki.ratioRareCzNormalChance[1],
-//                        setting3Percent: godKiseki.ratioRareCzNormalChance[2],
-//                        setting4Percent: godKiseki.ratioRareCzNormalChance[3],
-//                        setting5Percent: godKiseki.ratioRareCzNormalChance[4],
-//                        setting6Percent: godKiseki.ratioRareCzNormalChance[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
-//            
+            // リプ3連からのAT当選回数
+            unitListSection95Ci(
+                grafTitle: "リプ3連からのAT当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $godKiseki.ren3CountBlueHit,
+                        bigNumber: $godKiseki.ren3CountBlue,
+                        setting1Percent: godKiseki.ratioReplay3Hit[0],
+                        setting2Percent: godKiseki.ratioReplay3Hit[1],
+                        setting3Percent: godKiseki.ratioReplay3Hit[2],
+                        setting4Percent: godKiseki.ratioReplay3Hit[3],
+                        setting5Percent: godKiseki.ratioReplay3Hit[4],
+                        setting6Percent: godKiseki.ratioReplay3Hit[5]
+                    )
+                )
+            )
+            .tag(2)
+            
+            // リプ4連からのAT当選回数
+            unitListSection95Ci(
+                grafTitle: "リプ4連からのAT当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $godKiseki.ren4CountBlueHit,
+                        bigNumber: $godKiseki.ren4CountBlue,
+                        setting1Percent: godKiseki.ratioReplay4Hit[0],
+                        setting2Percent: godKiseki.ratioReplay4Hit[1],
+                        setting3Percent: godKiseki.ratioReplay4Hit[2],
+                        setting4Percent: godKiseki.ratioReplay4Hit[3],
+                        setting5Percent: godKiseki.ratioReplay4Hit[4],
+                        setting6Percent: godKiseki.ratioReplay4Hit[5]
+                    )
+                )
+            )
+            .tag(3)
+            
 //            // 通常時　強チェリーからのCZ当選回数
 //            unitListSection95Ci(
 //                grafTitle: "通常時\n強🍒からのCZ当選回数",

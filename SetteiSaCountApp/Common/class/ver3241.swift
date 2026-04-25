@@ -37,3 +37,19 @@ struct tipVer3241JormungandChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：ゴッド　小役連
+// //////////////////
+struct tipVer3241GodKisekiKoyakuRen: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("小役連の設定差の一部が判明\nカウント、設定判別機能を更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
