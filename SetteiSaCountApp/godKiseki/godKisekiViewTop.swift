@@ -123,13 +123,13 @@ struct godKisekiViewTop: View {
 //                        )
 //                    }
 //
-//                    // サミートロフィー
-//                    NavigationLink(destination: commonViewSammyTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "サミートロフィー"
-//                        )
-//                    }
+                    // ユニバプレート
+                    NavigationLink(destination: commonViewUniversalPlate()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ユニバプレート"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
