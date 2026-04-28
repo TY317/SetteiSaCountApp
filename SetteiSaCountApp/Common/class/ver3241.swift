@@ -53,3 +53,19 @@ struct tipVer3241GodKisekiKoyakuRen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+// //////////////////
+// Tip：真打　終了画面
+// //////////////////
+struct tipVer3241ShinYoshiScreen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("AT終了画面の示唆が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
