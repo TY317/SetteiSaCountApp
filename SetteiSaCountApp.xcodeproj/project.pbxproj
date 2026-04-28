@@ -329,6 +329,7 @@
 		0F56A4AA2C96F7CE0015EC22 /* symphoViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A4A92C96F7CE0015EC22 /* symphoViewHistory.swift */; };
 		0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A4AB2C99B25B0015EC22 /* symphoViewScreen.swift */; };
 		0F587EAA2CD50CCA0027641C /* rezero2ViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F587EA92CD50CCA0027641C /* rezero2ViewWatch.swift */; };
+		0F595DBF2FA0791D0029450D /* ResetMachineBadgeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F595DBE2FA0791D0029450D /* ResetMachineBadgeOnAppear.swift */; };
 		0F59EBD82F96666800CF0C55 /* commonSectionCustomEnterise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBD72F96666800CF0C55 /* commonSectionCustomEnterise.swift */; };
 		0F59EBD92F96668500CF0C55 /* commonSectionCustomEnterise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBD72F96666800CF0C55 /* commonSectionCustomEnterise.swift */; };
 		0F59EBDB2F97A50800CF0C55 /* commonSectionCustomSammy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBDA2F97A50800CF0C55 /* commonSectionCustomSammy.swift */; };
@@ -1785,6 +1786,7 @@
 		0F56A4A92C96F7CE0015EC22 /* symphoViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewHistory.swift; sourceTree = "<group>"; };
 		0F56A4AB2C99B25B0015EC22 /* symphoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewScreen.swift; sourceTree = "<group>"; };
 		0F587EA92CD50CCA0027641C /* rezero2ViewWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewWatch.swift; sourceTree = "<group>"; };
+		0F595DBE2FA0791D0029450D /* ResetMachineBadgeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMachineBadgeOnAppear.swift; sourceTree = "<group>"; };
 		0F59EBD72F96666800CF0C55 /* commonSectionCustomEnterise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomEnterise.swift; sourceTree = "<group>"; };
 		0F59EBDA2F97A50800CF0C55 /* commonSectionCustomSammy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomSammy.swift; sourceTree = "<group>"; };
 		0F59EBDD2F97AF7D00CF0C55 /* commonSectionCustomUniversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomUniversal.swift; sourceTree = "<group>"; };
@@ -4279,6 +4281,7 @@
 				0FB209682E120D570029D940 /* KeyboardDoneToolbarModifier.swift */,
 				0FDB72902EE5A8560075B6A4 /* AutoGameCountModifier.swift */,
 				0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */,
+				0F595DBE2FA0791D0029450D /* ResetMachineBadgeOnAppear.swift */,
 			);
 			path = modifier;
 			sourceTree = "<group>";
@@ -6542,6 +6545,7 @@
 				0FF187882CBF985700224A49 /* imJugExViewTop.swift in Sources */,
 				0F2A4DF72F371CF600B3C583 /* hanabiView95CiStart.swift in Sources */,
 				0FA662F32F1FB11500F3259F /* hokutoTenseiTableFake.swift in Sources */,
+				0F595DBF2FA0791D0029450D /* ResetMachineBadgeOnAppear.swift in Sources */,
 				0F88727A2C6B1CDC00AADD2B /* VVVTip.swift in Sources */,
 				0FD357442DA25EEC0069BD1A /* shamanKingTableKokakuMove.swift in Sources */,
 				0F0DE8132EDC341F00D85BCA /* bakemonoViewTop.swift in Sources */,

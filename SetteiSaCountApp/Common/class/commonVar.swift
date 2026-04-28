@@ -534,6 +534,11 @@ class commonVar: ObservableObject {
                 godKisekiMachineIconBadge = "update"
                 godKisekiMenuNormalBadge = "update"
                 jormungandMenuNormalBadge = "update"
+//                if let index = machines.firstIndex(where: { $0.id == "4961" }) {
+//                    // 見つかった場合、その要素のbadgeStatusを更新
+//                    machines[index].badgeStatus = "update" // または "update" など
+//                }
+//                machines.updateMachineBadgeStatus(id: "4961", newStatus: "update")
             }
             else {
                 print("\(targetVersion)以上です")
