@@ -35,6 +35,10 @@ struct jormungandTableRareCz: View {
                     )
                 } else {
                     unitTablePercent(
+                        columTitle: "弱レア役",
+                        percentList: jormungand.ratioRareCzHighJakuRare
+                    )
+                    unitTablePercent(
                         columTitle: "チャンス目",
                         percentList: jormungand.ratioRareCzHighChance
                     )

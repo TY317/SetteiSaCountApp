@@ -81,6 +81,9 @@ class Jormungand: ObservableObject {
         cardCountHorobi = 0
         cardCountSum = 0
         minusCheck = false
+        
+        rareCzCountJakuRare = 0
+        rareCzCountJakuRareHit = 0
     }
     
     // ----------
@@ -233,6 +236,11 @@ class Jormungand: ObservableObject {
     @AppStorage("jormungandChara3CountOver4") var chara3CountOver4: Int = 0
     @AppStorage("jormungandChara3CountOver6") var chara3CountOver6: Int = 0
     @AppStorage("jormungandChara3CountSum") var chara3CountSum: Int = 0
+    
+    // 弱レア役からのCZ
+    let ratioRareCzHighJakuRare: [Double] = [5.1,5.9,8.2,10.2,10.2,10.2]
+    @AppStorage("jormungandRareCzCountJakuRare") var rareCzCountJakuRare: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareHit") var rareCzCountJakuRareHit: Int = 0
 }
 
 
@@ -276,6 +284,19 @@ class JormungandMemory1: ObservableObject {
     @AppStorage("jormungandCharaCountSumMemory1") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory1") var memo = ""
     @AppStorage("jormungandDateMemory1") var dateDouble = 0.0
+    
+    // --------
+    // ver3.24.1
+    // --------
+    @AppStorage("jormungandChara3CountKisuMemory1") var chara3CountKisu: Int = 0
+    @AppStorage("jormungandChara3CountGusuMemory1") var chara3CountGusu: Int = 0
+    @AppStorage("jormungandChara3CountHighMemory1") var chara3CountHigh: Int = 0
+    @AppStorage("jormungandChara3CountOver2Memory1") var chara3CountOver2: Int = 0
+    @AppStorage("jormungandChara3CountOver4Memory1") var chara3CountOver4: Int = 0
+    @AppStorage("jormungandChara3CountOver6Memory1") var chara3CountOver6: Int = 0
+    @AppStorage("jormungandChara3CountSumMemory1") var chara3CountSum: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareMemory1") var rareCzCountJakuRare: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareHitMemory1") var rareCzCountJakuRareHit: Int = 0
 }
 
 
@@ -319,6 +340,19 @@ class JormungandMemory2: ObservableObject {
     @AppStorage("jormungandCharaCountSumMemory2") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory2") var memo = ""
     @AppStorage("jormungandDateMemory2") var dateDouble = 0.0
+    
+    // --------
+    // ver3.24.1
+    // --------
+    @AppStorage("jormungandChara3CountKisuMemory2") var chara3CountKisu: Int = 0
+    @AppStorage("jormungandChara3CountGusuMemory2") var chara3CountGusu: Int = 0
+    @AppStorage("jormungandChara3CountHighMemory2") var chara3CountHigh: Int = 0
+    @AppStorage("jormungandChara3CountOver2Memory2") var chara3CountOver2: Int = 0
+    @AppStorage("jormungandChara3CountOver4Memory2") var chara3CountOver4: Int = 0
+    @AppStorage("jormungandChara3CountOver6Memory2") var chara3CountOver6: Int = 0
+    @AppStorage("jormungandChara3CountSumMemory2") var chara3CountSum: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareMemory2") var rareCzCountJakuRare: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareHitMemory2") var rareCzCountJakuRareHit: Int = 0
 }
 
 
@@ -362,4 +396,17 @@ class JormungandMemory3: ObservableObject {
     @AppStorage("jormungandCharaCountSumMemory3") var charaCountSum: Int = 0
     @AppStorage("jormungandMemoMemory3") var memo = ""
     @AppStorage("jormungandDateMemory3") var dateDouble = 0.0
+    
+    // --------
+    // ver3.24.1
+    // --------
+    @AppStorage("jormungandChara3CountKisuMemory3") var chara3CountKisu: Int = 0
+    @AppStorage("jormungandChara3CountGusuMemory3") var chara3CountGusu: Int = 0
+    @AppStorage("jormungandChara3CountHighMemory3") var chara3CountHigh: Int = 0
+    @AppStorage("jormungandChara3CountOver2Memory3") var chara3CountOver2: Int = 0
+    @AppStorage("jormungandChara3CountOver4Memory3") var chara3CountOver4: Int = 0
+    @AppStorage("jormungandChara3CountOver6Memory3") var chara3CountOver6: Int = 0
+    @AppStorage("jormungandChara3CountSumMemory3") var chara3CountSum: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareMemory3") var rareCzCountJakuRare: Int = 0
+    @AppStorage("jormungandRareCzCountJakuRareHitMemory3") var rareCzCountJakuRareHit: Int = 0
 }

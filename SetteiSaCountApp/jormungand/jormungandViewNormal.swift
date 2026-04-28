@@ -25,7 +25,8 @@ struct jormungandViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
-    let itemList: [String] = ["チャンス目", "強🍒"]
+//    let itemList: [String] = ["チャンス目", "強🍒"]
+    let itemList: [String] = ["チャンス目", "強🍒", "高確中 弱レア"]
     @State var selectedItem: String = "チャンス目"
     @State var selectedCard: String = "マオ"
     let selectList: [String] = [
@@ -76,6 +77,14 @@ struct jormungandViewNormal: View {
                         numberofDicimal: 0,
                         spacerBool: false,
                     )
+                    // 高確中 弱レア
+                    unitResultRatioPercent2Line(
+                        title: "高確中 弱レア",
+                        count: $jormungand.rareCzCountJakuRareHit,
+                        bigNumber: $jormungand.rareCzCountJakuRare,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 // 参考情報）レア役からのCZ当選率
@@ -90,6 +99,7 @@ struct jormungandViewNormal: View {
                     // 注意書き
                     unitLabelCautionText {
                         Text("・通常時と高確時で確率が異なるため、通常時のカウントを推奨")
+                        Text("・弱レア役は高確時のカウント")
                     }
                     // セグメントピッカー
                     Picker("", selection: self.$selectedItem) {
@@ -115,6 +125,25 @@ struct jormungandViewNormal: View {
                                 title: "CZ当選",
                                 count: $jormungand.rareCzCountChanceHit,
                                 color: .purple,
+                                minusBool: $jormungand.minusCheck) {
+                                    
+                                }
+                        }
+                        // 高確中 弱レア
+                        else if self.selectedItem == self.itemList[2] {
+                            // チャンス目
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "小役成立",
+                                count: $jormungand.rareCzCountJakuRare,
+                                color: .personalSummerLightGreen,
+                                minusBool: $jormungand.minusCheck) {
+                                    
+                                }
+                            // CZ当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "CZ当選",
+                                count: $jormungand.rareCzCountJakuRareHit,
+                                color: .green,
                                 minusBool: $jormungand.minusCheck) {
                                     
                                 }

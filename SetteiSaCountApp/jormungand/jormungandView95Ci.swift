@@ -52,6 +52,25 @@ struct jormungandView95Ci: View {
             )
             .tag(4)
             
+            // 高確時　弱レア役からのCZ当選回数
+            unitListSection95Ci(
+                grafTitle: "高確時\n弱レア役からのCZ当選回数",
+                titleFont: .title3,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $jormungand.rareCzCountJakuRareHit,
+                        bigNumber: $jormungand.rareCzCountJakuRare,
+                        setting1Percent: jormungand.ratioRareCzHighJakuRare[0],
+                        setting2Percent: jormungand.ratioRareCzHighJakuRare[1],
+                        setting3Percent: jormungand.ratioRareCzHighJakuRare[2],
+                        setting4Percent: jormungand.ratioRareCzHighJakuRare[3],
+                        setting5Percent: jormungand.ratioRareCzHighJakuRare[4],
+                        setting6Percent: jormungand.ratioRareCzHighJakuRare[5]
+                    )
+                )
+            )
+            .tag(6)
+            
             // 天井短縮回数
             unitListSection95Ci(
                 grafTitle: "天井短縮回数",

@@ -54,7 +54,7 @@ struct jormungandViewBayes: View {
                 unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのCZ当選率") {
                     unitExView5body2image(
                         title: "レア役からのCZ当選率",
-                        textBody1: "・通常時の当選率をもとに計算します"
+                        textBody1: "・通常時の当選率、高確時の弱レア役からの当選率をもとに計算します"
                     )
                 }
                 // 天井短縮率
@@ -137,6 +137,7 @@ struct jormungandViewBayes: View {
         // レア役からのCZ当選率
         var logPostRareCzChance: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostRareCzKyoCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareCzJakuRare: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.rareCzEnable {
             logPostRareCzChance = logPostPercentBino(
                 ratio: jormungand.ratioRareCzNormalChance,
@@ -147,6 +148,11 @@ struct jormungandViewBayes: View {
                 ratio: jormungand.ratioRareCzNormalKyoCherry,
                 Count: jormungand.rareCzCountKyoCherryHit,
                 bigNumber: jormungand.rareCzCountKyoCherry,
+            )
+            logPostRareCzJakuRare = logPostPercentBino(
+                ratio: jormungand.ratioRareCzHighJakuRare,
+                Count: jormungand.rareCzCountJakuRareHit,
+                bigNumber: jormungand.rareCzCountJakuRare,
             )
         }
         
@@ -290,6 +296,7 @@ struct jormungandViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostRareCzChance,
             logPostRareCzKyoCherry,
+            logPostRareCzJakuRare,
             logPostTenjo,
             logPostFirstHitCz,
             logPostFirstHitAt,
