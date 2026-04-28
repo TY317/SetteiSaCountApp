@@ -79,12 +79,13 @@ struct jormungandViewNormal: View {
                     )
                     // 高確中 弱レア
                     unitResultRatioPercent2Line(
-                        title: "高確中 弱レア",
+                        title: "高確 弱レア",
                         count: $jormungand.rareCzCountJakuRareHit,
                         bigNumber: $jormungand.rareCzCountJakuRare,
                         numberofDicimal: 0,
                         spacerBool: false,
                     )
+                    .popoverTip(tipVer3241JormungandKokakuJakuRare())
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 // 参考情報）レア役からのCZ当選率

@@ -221,7 +221,6 @@ struct jormungandViewBayes: View {
                     jormungand.chara3CountOver2,
                     jormungand.chara3CountOver4,
                     jormungand.chara3CountOver6,
-                    jormungand.chara3CountSum,
                 ], ratioList: [
                     jormungand.ratioChara3Gusu,
                     jormungand.ratioChara3High,

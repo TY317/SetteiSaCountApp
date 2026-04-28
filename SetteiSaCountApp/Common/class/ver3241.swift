@@ -38,6 +38,21 @@ struct tipVer3241JormungandChara: Tip {
     }
 }
 
+// //////////////////
+// Tip：ヨルムン　高確弱レアやく
+// //////////////////
+struct tipVer3241JormungandKokakuJakuRare: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("高確中 弱レア役からのCZ当選率が判明\nカウント、設定判別機能を更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
 
 // //////////////////
 // Tip：ゴッド　小役連

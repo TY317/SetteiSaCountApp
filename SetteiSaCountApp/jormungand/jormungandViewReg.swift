@@ -157,6 +157,7 @@ struct jormungandViewReg: View {
                     flushTrigger: self.$flushBool3,
                     flushColor: color3(third: self.selectedSenario[2])
                 )
+                .popoverTip(tipVer3241JormungandChara())
                 
                 Button {
                     // ---- 1,2人目
