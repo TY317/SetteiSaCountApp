@@ -43,3 +43,13 @@ struct Machine: Identifiable, Codable, Equatable {
         self.badgeStatus = badgeStatus
     }
 }
+
+
+extension Array where Element == Machine {
+    /// 指定したIDの機種のバッジ状態を更新する
+    mutating func updateMachineBadgeStatus(id: String, newStatus: String) {
+        if let index = self.firstIndex(where: { $0.id == id }) {
+            self[index].badgeStatus = newStatus
+        }
+    }
+}

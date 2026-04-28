@@ -63,8 +63,10 @@ struct commonViewEnteriseTrophy: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長カスタム
+            commonSectionCustomEnterise()
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

@@ -65,8 +65,11 @@ struct commonViewUniversalPlate: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長カスタム
+            commonSectionCustomUniversal()
+            
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

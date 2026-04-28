@@ -25,6 +25,9 @@ class GodKiseki: ObservableObject {
         ren3CountYellow = 0
         ren3CountYellowHit = 0
         minusCheck = false
+        
+        ren4CountBlue = 0
+        ren4CountBlueHit = 0
     }
     // ---------
     // 初当り
@@ -50,6 +53,14 @@ class GodKiseki: ObservableObject {
         resetNormal()
         resetFirstHit()
     }
+    
+    // ---------
+    // ver3.24.1
+    // ---------
+    let ratioReplay3Hit: [Double] = [1.2,10.2,-1,-1,-1,-1]
+    let ratioReplay4Hit: [Double] = [33.2,50,-1,-1,-1,-1]
+    @AppStorage("godKisekiRen4CountBlue") var ren4CountBlue: Int = 0
+    @AppStorage("godKisekiRen4CountBlueHit") var ren4CountBlueHit: Int = 0
 }
 
 
@@ -62,6 +73,12 @@ class GodKisekiMemory1: ObservableObject {
     @AppStorage("godKisekiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory1") var memo = ""
     @AppStorage("godKisekiDateMemory1") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.24.1
+    // ---------
+    @AppStorage("godKisekiRen4CountBlueMemory1") var ren4CountBlue: Int = 0
+    @AppStorage("godKisekiRen4CountBlueHitMemory1") var ren4CountBlueHit: Int = 0
 }
 
 
@@ -74,6 +91,12 @@ class GodKisekiMemory2: ObservableObject {
     @AppStorage("godKisekiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory2") var memo = ""
     @AppStorage("godKisekiDateMemory2") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.24.1
+    // ---------
+    @AppStorage("godKisekiRen4CountBlueMemory2") var ren4CountBlue: Int = 0
+    @AppStorage("godKisekiRen4CountBlueHitMemory2") var ren4CountBlueHit: Int = 0
 }
 
 
@@ -86,4 +109,10 @@ class GodKisekiMemory3: ObservableObject {
     @AppStorage("godKisekiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
     @AppStorage("godKisekiMemoMemory3") var memo = ""
     @AppStorage("godKisekiDateMemory3") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.24.1
+    // ---------
+    @AppStorage("godKisekiRen4CountBlueMemory3") var ren4CountBlue: Int = 0
+    @AppStorage("godKisekiRen4CountBlueHitMemory3") var ren4CountBlueHit: Int = 0
 }

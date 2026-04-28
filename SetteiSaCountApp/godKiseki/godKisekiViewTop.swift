@@ -123,19 +123,19 @@ struct godKisekiViewTop: View {
 //                        )
 //                    }
 //
-//                    // サミートロフィー
-//                    NavigationLink(destination: commonViewSammyTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "サミートロフィー"
-//                        )
-//                    }
+                    // ユニバプレート
+                    NavigationLink(destination: commonViewUniversalPlate()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ユニバプレート"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
                 NavigationLink(destination: godKisekiView95Ci(
                     godKiseki: godKiseki,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -167,6 +167,7 @@ struct godKisekiViewTop: View {
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.godKisekiMachineIconBadge)
+//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -242,6 +243,12 @@ struct godKisekiSubViewSaveMemory: View {
         godKisekiMemory1.ren3CountYellowHit = godKiseki.ren3CountYellowHit
         godKisekiMemory1.normalGame = godKiseki.normalGame
         godKisekiMemory1.firstHitCountAt = godKiseki.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKisekiMemory1.ren4CountBlue = godKiseki.ren4CountBlue
+        godKisekiMemory1.ren4CountBlueHit = godKiseki.ren4CountBlueHit
     }
     func saveMemory2() {
         godKisekiMemory2.ren3CountBlue = godKiseki.ren3CountBlue
@@ -250,6 +257,12 @@ struct godKisekiSubViewSaveMemory: View {
         godKisekiMemory2.ren3CountYellowHit = godKiseki.ren3CountYellowHit
         godKisekiMemory2.normalGame = godKiseki.normalGame
         godKisekiMemory2.firstHitCountAt = godKiseki.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKisekiMemory2.ren4CountBlue = godKiseki.ren4CountBlue
+        godKisekiMemory2.ren4CountBlueHit = godKiseki.ren4CountBlueHit
     }
     func saveMemory3() {
         godKisekiMemory3.ren3CountBlue = godKiseki.ren3CountBlue
@@ -258,6 +271,12 @@ struct godKisekiSubViewSaveMemory: View {
         godKisekiMemory3.ren3CountYellowHit = godKiseki.ren3CountYellowHit
         godKisekiMemory3.normalGame = godKiseki.normalGame
         godKisekiMemory3.firstHitCountAt = godKiseki.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKisekiMemory3.ren4CountBlue = godKiseki.ren4CountBlue
+        godKisekiMemory3.ren4CountBlueHit = godKiseki.ren4CountBlueHit
     }
 }
 
@@ -295,6 +314,12 @@ struct godKisekiSubViewLoadMemory: View {
         godKiseki.ren3CountYellowHit = godKisekiMemory1.ren3CountYellowHit
         godKiseki.normalGame = godKisekiMemory1.normalGame
         godKiseki.firstHitCountAt = godKisekiMemory1.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKiseki.ren4CountBlue = godKisekiMemory1.ren4CountBlue
+        godKiseki.ren4CountBlueHit = godKisekiMemory1.ren4CountBlueHit
     }
     func loadMemory2() {
         godKiseki.ren3CountBlue = godKisekiMemory2.ren3CountBlue
@@ -303,6 +328,12 @@ struct godKisekiSubViewLoadMemory: View {
         godKiseki.ren3CountYellowHit = godKisekiMemory2.ren3CountYellowHit
         godKiseki.normalGame = godKisekiMemory2.normalGame
         godKiseki.firstHitCountAt = godKisekiMemory2.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKiseki.ren4CountBlue = godKisekiMemory2.ren4CountBlue
+        godKiseki.ren4CountBlueHit = godKisekiMemory2.ren4CountBlueHit
     }
     func loadMemory3() {
         godKiseki.ren3CountBlue = godKisekiMemory3.ren3CountBlue
@@ -311,6 +342,12 @@ struct godKisekiSubViewLoadMemory: View {
         godKiseki.ren3CountYellowHit = godKisekiMemory3.ren3CountYellowHit
         godKiseki.normalGame = godKisekiMemory3.normalGame
         godKiseki.firstHitCountAt = godKisekiMemory3.firstHitCountAt
+        
+        // ---------
+        // ver3.24.1
+        // ---------
+        godKiseki.ren4CountBlue = godKisekiMemory3.ren4CountBlue
+        godKiseki.ren4CountBlueHit = godKisekiMemory3.ren4CountBlueHit
     }
 }
 

@@ -1,0 +1,60 @@
+{
+  "fill" : {
+    "automatic-gradient" : "display-p3:0.67041,0.72949,0.76855,1.00000"
+  },
+  "groups" : [
+    {
+      "blend-mode" : "normal",
+      "layers" : [
+        {
+          "image-name" : "2_default_text_2.svg",
+          "name" : "2_default_text_2",
+          "position" : {
+            "scale" : 1.09,
+            "translation-in-points" : [
+              1.2668896785787638,
+              -1.109375
+            ]
+          }
+        }
+      ],
+      "position" : {
+        "scale" : 1,
+        "translation-in-points" : [
+          0,
+          0
+        ]
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "image-name" : "1_default_shape.svg",
+          "name" : "1_default_shape"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

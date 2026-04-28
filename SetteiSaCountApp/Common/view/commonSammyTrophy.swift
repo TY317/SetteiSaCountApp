@@ -68,8 +68,11 @@ struct commonViewSammyTrophy: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長トロフィー
+            commonSectionCustomSammy()
+            
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

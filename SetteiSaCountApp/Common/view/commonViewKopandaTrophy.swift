@@ -65,8 +65,11 @@ struct commonViewKopandaTrophy: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長カスタム
+            commonSectionCustomKopanda()
+            
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

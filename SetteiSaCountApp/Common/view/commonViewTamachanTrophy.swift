@@ -65,8 +65,11 @@ struct commonViewTamachanTrophy: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長カスタム
+            commonSectionCustomTamachan()
+            
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {

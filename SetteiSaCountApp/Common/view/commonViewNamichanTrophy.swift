@@ -66,6 +66,9 @@ struct commonViewNamichanTrophy: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(self.textColor)
             }
+            
+            // 店長カスタム
+            commonSectionCustomNamichan()
         }
         // //// firebaseログ
         .onAppear {

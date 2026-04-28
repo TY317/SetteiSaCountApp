@@ -273,6 +273,19 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory1.charaCountOver4 = jormungand.charaCountOver4
         jormungandMemory1.charaCountOver6 = jormungand.charaCountOver6
         jormungandMemory1.charaCountSum = jormungand.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungandMemory1.chara3CountKisu = jormungand.chara3CountKisu
+        jormungandMemory1.chara3CountGusu = jormungand.chara3CountGusu
+        jormungandMemory1.chara3CountHigh = jormungand.chara3CountHigh
+        jormungandMemory1.chara3CountOver2 = jormungand.chara3CountOver2
+        jormungandMemory1.chara3CountOver4 = jormungand.chara3CountOver4
+        jormungandMemory1.chara3CountOver6 = jormungand.chara3CountOver6
+        jormungandMemory1.chara3CountSum = jormungand.chara3CountSum
+        jormungandMemory1.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
+        jormungandMemory1.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
     }
     func saveMemory2() {
         jormungandMemory2.rareCzCountChance = jormungand.rareCzCountChance
@@ -312,6 +325,19 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory2.charaCountOver4 = jormungand.charaCountOver4
         jormungandMemory2.charaCountOver6 = jormungand.charaCountOver6
         jormungandMemory2.charaCountSum = jormungand.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungandMemory2.chara3CountKisu = jormungand.chara3CountKisu
+        jormungandMemory2.chara3CountGusu = jormungand.chara3CountGusu
+        jormungandMemory2.chara3CountHigh = jormungand.chara3CountHigh
+        jormungandMemory2.chara3CountOver2 = jormungand.chara3CountOver2
+        jormungandMemory2.chara3CountOver4 = jormungand.chara3CountOver4
+        jormungandMemory2.chara3CountOver6 = jormungand.chara3CountOver6
+        jormungandMemory2.chara3CountSum = jormungand.chara3CountSum
+        jormungandMemory2.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
+        jormungandMemory2.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
     }
     func saveMemory3() {
         jormungandMemory3.rareCzCountChance = jormungand.rareCzCountChance
@@ -351,6 +377,19 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory3.charaCountOver4 = jormungand.charaCountOver4
         jormungandMemory3.charaCountOver6 = jormungand.charaCountOver6
         jormungandMemory3.charaCountSum = jormungand.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungandMemory3.chara3CountKisu = jormungand.chara3CountKisu
+        jormungandMemory3.chara3CountGusu = jormungand.chara3CountGusu
+        jormungandMemory3.chara3CountHigh = jormungand.chara3CountHigh
+        jormungandMemory3.chara3CountOver2 = jormungand.chara3CountOver2
+        jormungandMemory3.chara3CountOver4 = jormungand.chara3CountOver4
+        jormungandMemory3.chara3CountOver6 = jormungand.chara3CountOver6
+        jormungandMemory3.chara3CountSum = jormungand.chara3CountSum
+        jormungandMemory3.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
+        jormungandMemory3.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
     }
 }
 
@@ -419,6 +458,19 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.charaCountOver4 = jormungandMemory1.charaCountOver4
         jormungand.charaCountOver6 = jormungandMemory1.charaCountOver6
         jormungand.charaCountSum = jormungandMemory1.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungand.chara3CountKisu = jormungandMemory1.chara3CountKisu
+        jormungand.chara3CountGusu = jormungandMemory1.chara3CountGusu
+        jormungand.chara3CountHigh = jormungandMemory1.chara3CountHigh
+        jormungand.chara3CountOver2 = jormungandMemory1.chara3CountOver2
+        jormungand.chara3CountOver4 = jormungandMemory1.chara3CountOver4
+        jormungand.chara3CountOver6 = jormungandMemory1.chara3CountOver6
+        jormungand.chara3CountSum = jormungandMemory1.chara3CountSum
+        jormungand.rareCzCountJakuRare = jormungandMemory1.rareCzCountJakuRare
+        jormungand.rareCzCountJakuRareHit = jormungandMemory1.rareCzCountJakuRareHit
     }
     func loadMemory2() {
         jormungand.rareCzCountChance = jormungandMemory2.rareCzCountChance
@@ -458,6 +510,19 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.charaCountOver4 = jormungandMemory2.charaCountOver4
         jormungand.charaCountOver6 = jormungandMemory2.charaCountOver6
         jormungand.charaCountSum = jormungandMemory2.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungand.chara3CountKisu = jormungandMemory2.chara3CountKisu
+        jormungand.chara3CountGusu = jormungandMemory2.chara3CountGusu
+        jormungand.chara3CountHigh = jormungandMemory2.chara3CountHigh
+        jormungand.chara3CountOver2 = jormungandMemory2.chara3CountOver2
+        jormungand.chara3CountOver4 = jormungandMemory2.chara3CountOver4
+        jormungand.chara3CountOver6 = jormungandMemory2.chara3CountOver6
+        jormungand.chara3CountSum = jormungandMemory2.chara3CountSum
+        jormungand.rareCzCountJakuRare = jormungandMemory2.rareCzCountJakuRare
+        jormungand.rareCzCountJakuRareHit = jormungandMemory2.rareCzCountJakuRareHit
     }
     func loadMemory3() {
         jormungand.rareCzCountChance = jormungandMemory3.rareCzCountChance
@@ -497,6 +562,19 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.charaCountOver4 = jormungandMemory3.charaCountOver4
         jormungand.charaCountOver6 = jormungandMemory3.charaCountOver6
         jormungand.charaCountSum = jormungandMemory3.charaCountSum
+        
+        // --------
+        // ver3.24.1
+        // --------
+        jormungand.chara3CountKisu = jormungandMemory3.chara3CountKisu
+        jormungand.chara3CountGusu = jormungandMemory3.chara3CountGusu
+        jormungand.chara3CountHigh = jormungandMemory3.chara3CountHigh
+        jormungand.chara3CountOver2 = jormungandMemory3.chara3CountOver2
+        jormungand.chara3CountOver4 = jormungandMemory3.chara3CountOver4
+        jormungand.chara3CountOver6 = jormungandMemory3.chara3CountOver6
+        jormungand.chara3CountSum = jormungandMemory3.chara3CountSum
+        jormungand.rareCzCountJakuRare = jormungandMemory3.rareCzCountJakuRare
+        jormungand.rareCzCountJakuRareHit = jormungandMemory3.rareCzCountJakuRareHit
     }
 }
 

@@ -54,7 +54,7 @@ struct jormungandViewBayes: View {
                 unitToggleWithQuestion(enable: self.$rareCzEnable, title: "レア役からのCZ当選率") {
                     unitExView5body2image(
                         title: "レア役からのCZ当選率",
-                        textBody1: "・通常時の当選率をもとに計算します"
+                        textBody1: "・通常時の当選率、高確時の弱レア役からの当選率をもとに計算します"
                     )
                 }
                 // 天井短縮率
@@ -64,12 +64,7 @@ struct jormungandViewBayes: View {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // REG中キャラ
-                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中キャラ") {
-                    unitExView5body2image(
-                        title: "REG中キャラ",
-                        textBody1: "・確定系のみ反映させます"
-                    )
-                }
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "REG中キャラ")
                 // ボーナス終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "ボーナス終了画面") {
                     unitExView5body2image(
@@ -142,6 +137,7 @@ struct jormungandViewBayes: View {
         // レア役からのCZ当選率
         var logPostRareCzChance: [Double] = [Double](repeating: 0, count: self.settingList.count)
         var logPostRareCzKyoCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostRareCzJakuRare: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.rareCzEnable {
             logPostRareCzChance = logPostPercentBino(
                 ratio: jormungand.ratioRareCzNormalChance,
@@ -152,6 +148,11 @@ struct jormungandViewBayes: View {
                 ratio: jormungand.ratioRareCzNormalKyoCherry,
                 Count: jormungand.rareCzCountKyoCherryHit,
                 bigNumber: jormungand.rareCzCountKyoCherry,
+            )
+            logPostRareCzJakuRare = logPostPercentBino(
+                ratio: jormungand.ratioRareCzHighJakuRare,
+                Count: jormungand.rareCzCountJakuRareHit,
+                bigNumber: jormungand.rareCzCountJakuRare,
             )
         }
         
@@ -187,22 +188,47 @@ struct jormungandViewBayes: View {
         
         // REG中キャラ
         var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostChara3: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.charaEnable {
-            if jormungand.charaCountOver2 > 0 {
-                logPostChara[0] = -Double.infinity
-            }
-            if jormungand.charaCountOver4 > 0 {
-                logPostChara[0] = -Double.infinity
-                logPostChara[1] = -Double.infinity
-                logPostChara[2] = -Double.infinity
-            }
-            if jormungand.charaCountOver6 > 0 {
-                logPostChara[0] = -Double.infinity
-                logPostChara[1] = -Double.infinity
-                logPostChara[2] = -Double.infinity
-                logPostChara[3] = -Double.infinity
-                logPostChara[4] = -Double.infinity
-            }
+//            if jormungand.charaCountOver2 > 0 {
+//                logPostChara[0] = -Double.infinity
+//            }
+//            if jormungand.charaCountOver4 > 0 {
+//                logPostChara[0] = -Double.infinity
+//                logPostChara[1] = -Double.infinity
+//                logPostChara[2] = -Double.infinity
+//            }
+//            if jormungand.charaCountOver6 > 0 {
+//                logPostChara[0] = -Double.infinity
+//                logPostChara[1] = -Double.infinity
+//                logPostChara[2] = -Double.infinity
+//                logPostChara[3] = -Double.infinity
+//                logPostChara[4] = -Double.infinity
+//            }
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    jormungand.charaCountGusu,
+                    jormungand.charaCountHigh,
+                ], ratioList: [
+                    jormungand.ratioCharaGusu,
+                    jormungand.ratioCharaHigh,
+                ], bigNumber: jormungand.charaCountSum
+            )
+            logPostChara3 = logPostPercentMulti(
+                countList: [
+                    jormungand.chara3CountGusu,
+                    jormungand.chara3CountHigh,
+                    jormungand.chara3CountOver2,
+                    jormungand.chara3CountOver4,
+                    jormungand.chara3CountOver6,
+                ], ratioList: [
+                    jormungand.ratioChara3Gusu,
+                    jormungand.ratioChara3High,
+                    jormungand.ratioChara3Over2,
+                    jormungand.ratioChara3Over4,
+                    jormungand.ratioChara3Over6,
+                ], bigNumber: jormungand.chara3CountSum
+            )
         }
         
         // ボーナス終了画面
@@ -269,10 +295,12 @@ struct jormungandViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostRareCzChance,
             logPostRareCzKyoCherry,
+            logPostRareCzJakuRare,
             logPostTenjo,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostChara,
+            logPostChara3,
             logPostScreen,
             
             logPostTrophy,

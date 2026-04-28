@@ -27,7 +27,8 @@ struct godKisekiViewNormal: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     
-    let items: [String] = ["リプ 3連", "黄7 3連"]
+//    let items: [String] = ["リプ 3連", "黄7 3連"]
+    let items: [String] = ["リプ 3連", "リプ 4連"]
     @State var selectedItem: String = "リプ 3連"
     var body: some View {
         List {
@@ -70,9 +71,9 @@ struct godKisekiViewNormal: View {
             // 小役3連
             Section {
                 // 注意書き
-                unitLabelCautionText {
-                    Text("今作でも設定差があると予想されますが解析は出ていません")
-                }
+//                unitLabelCautionText {
+//                    Text("今作でも設定差があると予想されますが解析は出ていません")
+//                }
                 // 確率結果
                 HStack {
                     // リプ3連
@@ -83,21 +84,37 @@ struct godKisekiViewNormal: View {
                         numberofDicimal: 0,
                         spacerBool: false
                     )
-                    // 黄７3連
+                    // リプ4連
                     unitResultRatioPercent2Line(
-                        title: "黄7 3連",
-                        count: $godKiseki.ren3CountYellowHit,
-                        bigNumber: $godKiseki.ren3CountYellow,
+                        title: "リプ 4連",
+                        count: $godKiseki.ren4CountBlueHit,
+                        bigNumber: $godKiseki.ren4CountBlue,
                         numberofDicimal: 0,
                         spacerBool: false
                     )
+//                    // 黄７3連
+//                    unitResultRatioPercent2Line(
+//                        title: "黄7 3連",
+//                        count: $godKiseki.ren3CountYellowHit,
+//                        bigNumber: $godKiseki.ren3CountYellow,
+//                        numberofDicimal: 0,
+//                        spacerBool: false
+//                    )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 
-                // 参考情報）凱旋での設定差
-                unitLinkButtonViewBuilder(sheetTitle: "[参考] 凱旋での設定差") {
-                    godKisekiTableGaisen3ren()
-                }
+//                // 参考情報）凱旋での設定差
+//                unitLinkButtonViewBuilder(sheetTitle: "[参考] 凱旋での設定差") {
+//                    godKisekiTableGaisen3ren()
+//                }
+                
+                // 参考情報）小役連での当選率
+                unitLinkButtonViewBuilder(
+                    sheetTitle: "小役連での当選率") {
+                        godKisekiTableKoyakuRen(godKiseki: godKiseki)
+                    }
+                    .popoverTip(tipVer3241GodKisekiKoyakuRen())
+                
                 DisclosureGroup {
                     // セグメントピッカー
                     Picker("", selection: self.$selectedItem) {
@@ -128,32 +145,70 @@ struct godKisekiViewNormal: View {
                                     
                                 }
                         }
-                        // 黄7 3連
+                        // リプ 4連
                         else {
-                            // 黄7 3連
+                            // リプ 4連
                             unitCountButtonWithoutRatioWithFunc(
-                                title: "黄7 3連",
-                                count: $godKiseki.ren3CountYellow,
-                                color: .personalSpringLightYellow,
+                                title: "リプ 4連",
+                                count: $godKiseki.ren4CountBlue,
+                                color: .personalSummerLightPurple,
                                 minusBool: $godKiseki.minusCheck) {
                                     
                                 }
                             // 当選
                             unitCountButtonWithoutRatioWithFunc(
                                 title: "当選",
-                                count: $godKiseki.ren3CountYellowHit,
-                                color: .yellow,
+                                count: $godKiseki.ren4CountBlueHit,
+                                color: .purple,
                                 minusBool: $godKiseki.minusCheck) {
                                     
                                 }
                         }
+//                        // 黄7 3連
+//                        else {
+//                            // 黄7 3連
+//                            unitCountButtonWithoutRatioWithFunc(
+//                                title: "黄7 3連",
+//                                count: $godKiseki.ren3CountYellow,
+//                                color: .personalSpringLightYellow,
+//                                minusBool: $godKiseki.minusCheck) {
+//                                    
+//                                }
+//                            // 当選
+//                            unitCountButtonWithoutRatioWithFunc(
+//                                title: "当選",
+//                                count: $godKiseki.ren3CountYellowHit,
+//                                color: .yellow,
+//                                minusBool: $godKiseki.minusCheck) {
+//                                    
+//                                }
+//                        }
                     }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            godKisekiView95Ci(
+                                godKiseki: godKiseki,
+                                selection: 2,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+//                        unitNaviLinkBayes {
+//                            godKisekiViewBayes(
+//                                godKiseki: godKiseki,
+//                                bayes: bayes,
+//                                viewModel: viewModel,
+//                            )
+//                        }
                 } label: {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
                 }
             } header: {
-                Text("小役3連")
+                Text("小役連")
             }
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }

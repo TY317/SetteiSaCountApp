@@ -63,8 +63,11 @@ struct commonViewFujimaruCoin: View {
                     .foregroundStyle(self.textColor)
             }
             
+            // 店長カスタム
+            commonSectionCustomFujimaru()
+            
             // //// 広告
-            unitAdBannerMediumRectangle()
+//            unitAdBannerMediumRectangle()
         }
         // //// firebaseログ
         .onAppear {
