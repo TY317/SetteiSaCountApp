@@ -653,56 +653,27 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3211FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.21.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                kabaneriUnatoMachineIconBadge = "update"
-                kabaneriUnatoMenuNormalBadge = "update"
-                kokakukidotaiMenuCzBadge = "update"
-                kokakukidotaiMachineIconBadge = "update"
-                tekken6MachineIconBadge = "update"
-                tekken6MenuCzBadge = "new"
-                gobsla2MachineIconBadge = "update"
-                gobsla2MenuEndingBadge = "new"
-                kabaneriUnatoMenuHayajiroBadge = "new"
-                hihodenMachineIconBadge = "update"
-                hihodenMenuDuringBonusBadge = "update"
-                hihodenMenuNormalBadge = "update"
-                hihodenMenuLegendBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    
-    // //////////////////////////////////////
-    // バージョンごとの処理
-    // //////////////////////////////////////
-//    func ver3210FirstLaunch() {
+//    func ver3211FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.21.0"
+//        let targetVersion: String = "3.21.1"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                gobsla2isUnlocked = false
-//                gobsla2MachineIconBadge = "new"
-//                enen2MachineIconBadge = "update"
-//                enen2MenuScreenBadge = "update"
-//                enen2MenuRegBadge = "update"
-//                enen2MenuNormalBadge = "update"
-//                kabaneriUnatoisUnlocked = false
-//                kabaneriUnatoMachineIconBadge = "new"
+//                kabaneriUnatoMachineIconBadge = "update"
+//                kabaneriUnatoMenuNormalBadge = "update"
+//                kokakukidotaiMenuCzBadge = "update"
+//                kokakukidotaiMachineIconBadge = "update"
+//                tekken6MachineIconBadge = "update"
+//                tekken6MenuCzBadge = "new"
+//                gobsla2MachineIconBadge = "update"
+//                gobsla2MenuEndingBadge = "new"
+//                kabaneriUnatoMenuHayajiroBadge = "new"
+//                hihodenMachineIconBadge = "update"
+//                hihodenMenuDuringBonusBadge = "update"
+//                hihodenMenuNormalBadge = "update"
+//                hihodenMenuLegendBadge = "update"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
@@ -711,6 +682,5 @@ class commonVar: ObservableObject {
 //            print("初回起動です")
 //        }
 //    }
-    
 }
 
