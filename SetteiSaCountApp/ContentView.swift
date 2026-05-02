@@ -86,6 +86,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
     @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
     @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
+    @AppStorage("isSelectedFavoriteRioAce") var isSelectedFavoriteRioAce = true
 }
 
 
@@ -153,6 +154,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// リオエース２、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRioAce == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(rioAceViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("rioAceMachineIcon"),
+                                        machineName: "リオエース2",
+                                        isUnLocked: $common.rioAceisUnlocked,
+                                        tempUnlockDateDouble: $common.rioAceTempUnlockDateDouble,
+                                        badgeStatus: common.rioAceMachineIconBadge,
                                     )
                                 }
                                 
