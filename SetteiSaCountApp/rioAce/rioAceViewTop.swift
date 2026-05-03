@@ -33,17 +33,17 @@ struct rioAceViewTop: View {
                 
                 Section {
                     // 通常時
-//                    NavigationLink(destination: rioAceViewNormal(
-//                        rioAce: rioAce,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.rioAceMenuNormalBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: rioAceViewNormal(
+                        rioAce: rioAce,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.rioAceMenuNormalBadge,
+                        )
+                    }
                     
 //                    // CZ
 //                    NavigationLink(destination: rioAceViewCz(
@@ -59,17 +59,17 @@ struct rioAceViewTop: View {
 //                    }
                     
                     // 初当り
-//                    NavigationLink(destination: rioAceViewFirstHit(
-//                        rioAce: rioAce,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.rioAceMenuFirstHitBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: rioAceViewFirstHit(
+                        rioAce: rioAce,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.rioAceMenuFirstHitBadge,
+                        )
+                    }
                     
 //                    // REG
 //                    NavigationLink(destination: rioAceViewReg(
@@ -133,28 +133,28 @@ struct rioAceViewTop: View {
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: rioAceView95Ci(
-//                    rioAce: rioAce,
-//                    selection: 2,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: rioAceView95Ci(
+                    rioAce: rioAce,
+                    selection: 4,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: rioAceViewBayes(
-//                    rioAce: rioAce,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.rioAceMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: rioAceViewBayes(
+                    rioAce: rioAce,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.rioAceMenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4984")
