@@ -86,6 +86,7 @@ class commonVar: ObservableObject {
     let initMachine: [Machine] = [
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
+        Machine(id: "4974", name: "バイオRE3", fullName: "バイオハザードRE:3", iconName: "bioRe3MachineIcon", btBadge: false),
         Machine(id: "4984", name: "リオエース2", fullName: "スーパーリオエース2", iconName: "rioAceMachineIcon", btBadge: false),
         Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false),
         Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false),

@@ -19,31 +19,31 @@ struct bioRe3ViewTop: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    // 注意事項
-                    Text("スロプラNEXTの利用を前提としています\n遊技前にスロプラNEXTを開始してください")
-                        .foregroundStyle(Color.secondary)
-                        .font(.footnote)
-                } header: {
-                    unitLabelMachineTopTitle(
-                        machineName: bioRe3.machineName,
-                        titleFont: .title2,
-                    )
-                }
+//                Section {
+//                    // 注意事項
+//                    Text("スロプラNEXTの利用を前提としています\n遊技前にスロプラNEXTを開始してください")
+//                        .foregroundStyle(Color.secondary)
+//                        .font(.footnote)
+//                } header: {
+//                    unitLabelMachineTopTitle(
+//                        machineName: bioRe3.machineName,
+//                        titleFont: .title2,
+//                    )
+//                }
                 
                 Section {
                     // 通常時
-//                    NavigationLink(destination: bioRe3ViewNormal(
-//                        bioRe3: bioRe3,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.bioRe3MenuNormalBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: bioRe3ViewNormal(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.bioRe3MenuNormalBadge,
+                        )
+                    }
                     
 //                    // CZ
 //                    NavigationLink(destination: bioRe3ViewCz(
@@ -59,17 +59,17 @@ struct bioRe3ViewTop: View {
 //                    }
                     
                     // 初当り
-//                    NavigationLink(destination: bioRe3ViewFirstHit(
-//                        bioRe3: bioRe3,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.bioRe3MenuFirstHitBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: bioRe3ViewFirstHit(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.bioRe3MenuFirstHitBadge,
+                        )
+                    }
                     
 //                    // REG
 //                    NavigationLink(destination: bioRe3ViewReg(
@@ -130,39 +130,43 @@ struct bioRe3ViewTop: View {
 //                            textBody: "ケロットトロフィー"
 //                        )
 //                    }
+                } header: {
+                    unitLabelMachineTopTitle(
+                        machineName: bioRe3.machineName,
+                        titleFont: .title2,
+                    )
                 }
                 
                 // 設定推測グラフ
-//                NavigationLink(destination: bioRe3View95Ci(
-//                    bioRe3: bioRe3,
-//                    selection: 4,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "chart.bar.xaxis",
-//                        textBody: "設定推測グラフ"
-//                    )
-//                }
+                NavigationLink(destination: bioRe3View95Ci(
+                    bioRe3: bioRe3,
+                    selection: 4,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
 
                 // 設定期待値計算
-//                NavigationLink(destination: bioRe3ViewBayes(
-//                    bioRe3: bioRe3,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.bioRe3MenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: bioRe3ViewBayes(
+                    bioRe3: bioRe3,
+                    bayes: bayes,
+                    viewModel: viewModel,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.bioRe3MenuBayesBadge
+                    )
+                }
                 
                 // 解析サイトへのリンク
-                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4984")
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/4974")
                 
                 // コピーライト
                 unitSectionCopyright {
-                    Text("©コーエーテクモウェーブ All rights reserved.")
-                    Text("©YAMASA NEXT")
+                    Text("©CAPCOM")
                 }
             }
         }
