@@ -239,6 +239,15 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
+    // ---- バイオRE3
+    @AppStorage("bioRe3isUnlocked") var bioRe3isUnlocked: Bool = true
+    @AppStorage("bioRe3TempUnlockDateDouble") var bioRe3TempUnlockDateDouble: Double = 0.0
+    @AppStorage("bioRe3MachineIconBadge") var bioRe3MachineIconBadge: String = "none"
+    @AppStorage("bioRe3MenuNormalBadge") var bioRe3MenuNormalBadge: String = "none"
+    @AppStorage("bioRe3MenuFirstHitBadge") var bioRe3MenuFirstHitBadge: String = "none"
+    @AppStorage("bioRe3MenuBayesBadge") var bioRe3MenuBayesBadge: String = "none"
+    @AppStorage("bioRe3MenuScreenBadge") var bioRe3MenuScreenBadge: String = "none"
+    
     // ---- リオエース２
     @AppStorage("rioAceisUnlocked") var rioAceisUnlocked: Bool = true
     @AppStorage("rioAceTempUnlockDateDouble") var rioAceTempUnlockDateDouble: Double = 0.0
@@ -541,6 +550,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 rioAceisUnlocked = false
                 rioAceMachineIconBadge = "new"
+                bioRe3isUnlocked = false
+                bioRe3MachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

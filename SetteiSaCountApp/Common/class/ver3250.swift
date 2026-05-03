@@ -15,7 +15,7 @@ struct tipVer3250UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・スーパーリオエース2")
+        Text("・バイオRE3\n・スーパーリオエース2")
     }
     var image: Image? {
         Image(systemName: "star")

@@ -87,6 +87,7 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
     @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
     @AppStorage("isSelectedFavoriteRioAce") var isSelectedFavoriteRioAce = true
+    @AppStorage("isSelectedFavoriteBioRe3") var isSelectedFavoriteBioRe3 = true
 }
 
 
@@ -154,6 +155,23 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// バイオRE3、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBioRe3 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(bioRe3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bioRe3MachineIcon"),
+                                        machineName: "バイオRE3",
+                                        isUnLocked: $common.bioRe3isUnlocked,
+                                        tempUnlockDateDouble: $common.bioRe3TempUnlockDateDouble,
+                                        badgeStatus: common.bioRe3MachineIconBadge,
                                     )
                                 }
                                 
@@ -1116,6 +1134,46 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// バイオRE3、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBioRe3 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(bioRe3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bioRe3MachineIcon"),
+                                        machineName: "バイオハザードRE:3",
+                                        makerName: "エンターライズ",
+                                        releaseYear: 2026,
+                                        releaseMonth: 5,
+                                        isUnLocked: $common.bioRe3isUnlocked,
+                                        tempUnlockDateDouble: $common.bioRe3TempUnlockDateDouble,
+                                        badgeStatus: common.bioRe3MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// リオエース、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRioAce == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(rioAceViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("rioAceMachineIcon"),
+                                        machineName: "スーパーリオエース2",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 5,
+                                        isUnLocked: $common.rioAceisUnlocked,
+                                        tempUnlockDateDouble: $common.rioAceTempUnlockDateDouble,
+                                        badgeStatus: common.rioAceMachineIconBadge,
                                     )
                                 }
                                 
@@ -2395,6 +2453,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // バイオRE3
+                Toggle("バイオハザードRE:3", isOn: $favoriteSet.isSelectedFavoriteBioRe3)
+                // リオエース２
+                Toggle("スーパーリオエース2", isOn: $favoriteSet.isSelectedFavoriteRioAce)
                 // ゴッド軌跡
                 Toggle("ミリオンゴッド〜神々の軌跡〜", isOn: $favoriteSet.isSelectedFavoriteGodKiseki)
                 // ヨルムンガンド
