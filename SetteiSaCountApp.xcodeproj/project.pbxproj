@@ -555,6 +555,7 @@
 		0F7568D82FA6BC7900A66336 /* rioAceViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */; };
 		0F7568DA2FA6C0A000A66336 /* rioAceView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */; };
 		0F7568DC2FA6C19C00A66336 /* rioAceViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */; };
+		0F7568DE2FA6D95400A66336 /* rioAceViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568DD2FA6D95400A66336 /* rioAceViewScreen.swift */; };
 		0F7655252E32E93200B0CF0F /* magiaViewStoryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7655242E32E93200B0CF0F /* magiaViewStoryOrder.swift */; };
 		0F7655272E3476FD00B0CF0F /* countUpDownInout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7655262E3476FD00B0CF0F /* countUpDownInout.swift */; };
 		0F7655292E34791C00B0CF0F /* unitCountSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7655282E34791C00B0CF0F /* unitCountSubmitButton.swift */; };
@@ -2011,6 +2012,7 @@
 		0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewFirstHit.swift; sourceTree = "<group>"; };
 		0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceView95Ci.swift; sourceTree = "<group>"; };
 		0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewBayes.swift; sourceTree = "<group>"; };
+		0F7568DD2FA6D95400A66336 /* rioAceViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewScreen.swift; sourceTree = "<group>"; };
 		0F7655242E32E93200B0CF0F /* magiaViewStoryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryOrder.swift; sourceTree = "<group>"; };
 		0F7655262E3476FD00B0CF0F /* countUpDownInout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countUpDownInout.swift; sourceTree = "<group>"; };
 		0F7655282E34791C00B0CF0F /* unitCountSubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitCountSubmitButton.swift; sourceTree = "<group>"; };
@@ -3682,6 +3684,7 @@
 				0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */,
 				0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */,
 				0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */,
+				0F7568DD2FA6D95400A66336 /* rioAceViewScreen.swift */,
 			);
 			path = rioAce;
 			sourceTree = "<group>";
@@ -6304,6 +6307,7 @@
 				0FA63D512F8D0BA60006E8F7 /* ver3240.swift in Sources */,
 				0F868ADE2D5ED73F00D952D9 /* sevenSwordsView95Ci.swift in Sources */,
 				0F51C9B72F65812400D9DDE1 /* thunderView95Ci.swift in Sources */,
+				0F7568DE2FA6D95400A66336 /* rioAceViewScreen.swift in Sources */,
 				0FCF78962E470D040000748B /* mt5TableAoshimaScreen.swift in Sources */,
 				0FB9CA922DDDBC64009FC6AF /* modifierBackGroundFlashBool.swift in Sources */,
 				0FC720022E6BC9BC000DD53B /* unitLabelHeaderScreenCount.swift in Sources */,

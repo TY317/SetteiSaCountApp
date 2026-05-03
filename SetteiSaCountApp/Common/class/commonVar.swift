@@ -246,6 +246,7 @@ class commonVar: ObservableObject {
     @AppStorage("rioAceMenuNormalBadge") var rioAceMenuNormalBadge: String = "none"
     @AppStorage("rioAceMenuFirstHitBadge") var rioAceMenuFirstHitBadge: String = "none"
     @AppStorage("rioAceMenuBayesBadge") var rioAceMenuBayesBadge: String = "none"
+    @AppStorage("rioAceMenuScreenBadge") var rioAceMenuScreenBadge: String = "none"
     
     // ---- ミリオンゴッド軌跡
     @AppStorage("godKisekiisUnlocked") var godKisekiisUnlocked: Bool = true

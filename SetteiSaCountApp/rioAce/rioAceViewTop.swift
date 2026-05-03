@@ -84,19 +84,19 @@ struct rioAceViewTop: View {
 //                        )
 //                    }
 //
-//                    // AT終了画面
-//                    NavigationLink(destination: rioAceViewScreen(
-//                        rioAce: rioAce,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "photo.on.rectangle.angled.fill",
-//                            textBody: "ボーナス終了画面",
-//                            badgeStatus: common.rioAceMenuScreenBadge,
-//                        )
-//                    }
-//
+                    // AT終了画面
+                    NavigationLink(destination: rioAceViewScreen(
+                        rioAce: rioAce,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signature",
+                            textBody: "ボーナス・AT終了画面",
+                            badgeStatus: common.rioAceMenuScreenBadge,
+                        )
+                    }
+
 //                    // エンディング
 //                    NavigationLink(destination: rioAceViewEnding(
 //                        rioAce: rioAce,

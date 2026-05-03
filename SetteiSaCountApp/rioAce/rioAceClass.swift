@@ -43,6 +43,33 @@ class RioAce: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // 終了画面
+    // ---------
+    @AppStorage("rioAceScreenCountNone") var screenCountNone: Int = 0
+    @AppStorage("rioAceScreenCountRio") var screenCountRio: Int = 0
+    @AppStorage("rioAceScreenCountMint") var screenCountMint: Int = 0
+    @AppStorage("rioAceScreenCountRina") var screenCountRina: Int = 0
+    @AppStorage("rioAceScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountNone,
+            screenCountRio,
+            screenCountMint,
+            screenCountRina,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountNone = 0
+        screenCountRio = 0
+        screenCountMint = 0
+        screenCountRina = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -53,5 +80,6 @@ class RioAce: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
