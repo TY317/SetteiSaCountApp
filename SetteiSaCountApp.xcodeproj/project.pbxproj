@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F00FAA52FACB87E0076283F /* commonViewInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */; };
+		0F00FAA72FACBA1C0076283F /* commonViewInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */; };
+		0F00FAF52FACBD040076283F /* unitAppRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F00FAF42FACBD040076283F /* unitAppRecommend.swift */; };
+		0F00FAF62FACBD040076283F /* unitAppRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F00FAF42FACBD040076283F /* unitAppRecommend.swift */; };
+		0F00FAF82FACBD340076283F /* recommendHikakukakakuAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */; };
+		0F00FAF92FACBD340076283F /* recommendHikakukakakuAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */; };
+		0F00FAFB2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F00FAFA2FACBD960076283F /* recommendLotteryMemoAssets.xcassets */; };
+		0F00FAFC2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F00FAFA2FACBD960076283F /* recommendLotteryMemoAssets.xcassets */; };
 		0F03BD2A2F0B88B300222339 /* shakeViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD292F0B88B300222339 /* shakeViewTop.swift */; };
 		0F03BD2C2F0B88BC00222339 /* shakeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD2B2F0B88BC00222339 /* shakeClass.swift */; };
 		0F03BD2E2F0B88C600222339 /* shakeAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F03BD2D2F0B88C600222339 /* shakeAssets.xcassets */; };
@@ -1549,6 +1557,10 @@
 
 /* Begin PBXFileReference section */
 		035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewInfoSheet.swift; sourceTree = "<group>"; };
+		0F00FAF42FACBD040076283F /* unitAppRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitAppRecommend.swift; sourceTree = "<group>"; };
+		0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendHikakukakakuAssets.xcassets; sourceTree = "<group>"; };
+		0F00FAFA2FACBD960076283F /* recommendLotteryMemoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendLotteryMemoAssets.xcassets; sourceTree = "<group>"; };
 		0F03BD292F0B88B300222339 /* shakeViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewTop.swift; sourceTree = "<group>"; };
 		0F03BD2B2F0B88BC00222339 /* shakeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeClass.swift; sourceTree = "<group>"; };
 		0F03BD2D2F0B88C600222339 /* shakeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = shakeAssets.xcassets; sourceTree = "<group>"; };
@@ -3002,6 +3014,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0F00FAA62FACB9F10076283F /* appInfo */ = {
+			isa = PBXGroup;
+			children = (
+				0F00FAF32FACBC5B0076283F /* hikakukakaku */,
+				0F00FAF22FACBC300076283F /* lotteryMemo */,
+				0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */,
+				0F00FAF42FACBD040076283F /* unitAppRecommend.swift */,
+			);
+			path = appInfo;
+			sourceTree = "<group>";
+		};
+		0F00FAF22FACBC300076283F /* lotteryMemo */ = {
+			isa = PBXGroup;
+			children = (
+				0F00FAFA2FACBD960076283F /* recommendLotteryMemoAssets.xcassets */,
+			);
+			path = lotteryMemo;
+			sourceTree = "<group>";
+		};
+		0F00FAF32FACBC5B0076283F /* hikakukakaku */ = {
+			isa = PBXGroup;
+			children = (
+				0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */,
+			);
+			path = hikakukakaku;
+			sourceTree = "<group>";
+		};
 		0F03BD282F0B889B00222339 /* shake */ = {
 			isa = PBXGroup;
 			children = (
@@ -3949,6 +3988,7 @@
 		0F80310E2C625060001F008E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0F00FAA62FACB9F10076283F /* appInfo */,
 				0F4471E62F6E72550048E9CE /* machineSelect */,
 				0F2A4DEB2F36EEBD00B3C583 /* ocr */,
 				0F9A79842E48AA8900D996CA /* bayes */,
@@ -5585,6 +5625,7 @@
 				0F815FD22E3B8B360086127D /* reSwordAssets.xcassets in Resources */,
 				0F6BD7CD2D806914003F5563 /* bioAssets.xcassets in Resources */,
 				0FA024512CDF5C93004B3FD5 /* commonAssets.xcassets in Resources */,
+				0F00FAFC2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */,
 				0FF156452D73E30600B17F83 /* arifureAssets.xcassets in Resources */,
 				0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */,
 				0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */,
@@ -5620,6 +5661,7 @@
 				0FA0249D2D05D14C004B3FD5 /* lupinAssets.xcassets in Resources */,
 				0F0DE8172EDC343A00D85BCA /* bakemonoAssets.xcassets in Resources */,
 				0FF156192D67195800B17F83 /* tokyoGhoulAssets.xcassets in Resources */,
+				0F00FAF92FACBD340076283F /* recommendHikakukakakuAssets.xcassets in Resources */,
 				0F59EED32F9CAFDB00CF0C55 /* AppIcon_rev2.icon in Resources */,
 				0F9D9BF72EA0C46000450B23 /* vvv2Assets.xcassets in Resources */,
 				0F3759FF2F809A8B00982F7A /* jormungandAssets.xcassets in Resources */,
@@ -5691,9 +5733,11 @@
 				0F45A5E12F079CC40022E355 /* tekken6Assets.xcassets in Resources */,
 				0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */,
 				0F45A5D92F073B210022E355 /* hokutoTenseiAssets.xcassets in Resources */,
+				0F00FAF82FACBD340076283F /* recommendHikakukakakuAssets.xcassets in Resources */,
 				0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */,
 				0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 				0F4471D52F6C24080048E9CE /* shakeAssets.xcassets in Resources */,
+				0F00FAFB2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6395,6 +6439,7 @@
 				0FD974EE2F4183470067CED7 /* hanabiViewRtReplay.swift in Sources */,
 				0F868AAE2D583AC100D952D9 /* funky2Ver2ViewJissenStartData.swift in Sources */,
 				0F19D4342F25D367004A6D9F /* ver3180.swift in Sources */,
+				0F00FAA52FACB87E0076283F /* commonViewInfoSheet.swift in Sources */,
 				0F56A4AC2C99B25B0015EC22 /* symphoViewScreen.swift in Sources */,
 				0F868A542D47BB4100D952D9 /* draHanaSenkohVer2ViewKenDataInput.swift in Sources */,
 				0F1E12022DD0B9B800F69AFF /* lupinTableKiteiGame.swift in Sources */,
@@ -7072,6 +7117,7 @@
 				0FCF789A2E4710B00000748B /* karakuriTableMode.swift in Sources */,
 				0FA0A7EB2EFAC971003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
 				0F815FC52E35DECD0086127D /* darlingView95Ci.swift in Sources */,
+				0F00FAF62FACBD040076283F /* unitAppRecommend.swift in Sources */,
 				0FD357992DAB3E760069BD1A /* godzillaTableOpelatorMessage.swift in Sources */,
 				0F59EBE82F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift in Sources */,
 				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
@@ -7292,6 +7338,7 @@
 				0F59EBDC2F97A50800CF0C55 /* commonSectionCustomSammy.swift in Sources */,
 				0F45A60B2F0903C40022E355 /* mushotenSectionCzPercent.swift in Sources */,
 				0F45A5D32F0502E10022E355 /* tekken6TableScreen.swift in Sources */,
+				0F00FAA72FACBA1C0076283F /* commonViewInfoSheet.swift in Sources */,
 				0F45A5DC2F0740B90022E355 /* hokutoTenseiTableMode.swift in Sources */,
 				0FA0A7D32EF6947C003EF8BD /* unitReelDefault.swift in Sources */,
 				0F0FAF712F5853CB00118DC1 /* tekken6TableAfterCzMode.swift in Sources */,
@@ -7319,6 +7366,7 @@
 				0F2A4DEE2F36EEDA00B3C583 /* ocrTest.swift in Sources */,
 				0FD9750A2F48BBD90067CED7 /* newKingHanaTableBellBonus.swift in Sources */,
 				0F59EBF12F9A53F100CF0C55 /* jormungandTableChara12.swift in Sources */,
+				0F00FAF52FACBD040076283F /* unitAppRecommend.swift in Sources */,
 				0FD974F12F4188AD0067CED7 /* hanabiTableRtReplay.swift in Sources */,
 				0F7496672F86712400B7EFFA /* jormungandTableRareCz.swift in Sources */,
 				0FDE0F1F2F2F471A00B1DA18 /* unitTableGameIndex.swift in Sources */,

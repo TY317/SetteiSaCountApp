@@ -115,6 +115,7 @@ struct ContentView: View {
     }
     
     @EnvironmentObject var rewardViewModel: RewardedViewModel
+    @State var isShowInfoSheet: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -2335,6 +2336,16 @@ struct ContentView: View {
                 
                 // //// ツールバーボタン
                 .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            self.isShowInfoSheet.toggle()
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                        .sheet(isPresented: self.$isShowInfoSheet) {
+                            commonViewInfoSheet()
+                        }
+                    }
                     ToolbarItem(placement: .automatic) {
                         // 外観切り替えボタン（システム/ライト/ダーク）
                         Menu {
