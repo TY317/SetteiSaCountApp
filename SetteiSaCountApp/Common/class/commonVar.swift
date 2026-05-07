@@ -553,6 +553,8 @@ class commonVar: ObservableObject {
                 rioAceMachineIconBadge = "new"
                 bioRe3isUnlocked = false
                 bioRe3MachineIconBadge = "new"
+                kabaneriUnatoMachineIconBadge = "update"
+                kabaneriUnatoMenuOmikujiBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

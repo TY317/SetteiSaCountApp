@@ -154,6 +154,7 @@ class KabaneriUnato: ObservableObject {
             omikujiCountOver2,
             omikujiCountOver4,
             omikujiCountOver6,
+            omikujiCount7,
         )
     }
     
@@ -169,6 +170,8 @@ class KabaneriUnato: ObservableObject {
         omikujiCountOver6 = 0
         omikujiCountSum = 0
         minusCheck = false
+        
+        omikujiCount7 = 0
     }
     
     // -----------
@@ -224,6 +227,11 @@ class KabaneriUnato: ObservableObject {
     let ratioCharaWomen7000: [Double] = [50,57.5,41.5,58.5,30,60]
     let ratioCharaMen7000: [Double] = [50,42.5,58.5,31.5,60,25]
     let ratioCharaBiba7000: [Double] = [0,0,0,10,10,15]
+    
+    // ----------
+    // ver3.25.0
+    // ----------
+    @AppStorage("kabaneriUnatoOmikujiCount7") var omikujiCount7: Int = 0
 }
 
 
@@ -269,6 +277,11 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoHayajiroCountMissMemory1") var hayajiroCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountHitMemory1") var hayajiroCountHit: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountSumMemory1") var hayajiroCountSum: Int = 0
+    
+    // ----------
+    // ver3.25.0
+    // ----------
+    @AppStorage("kabaneriUnatoOmikujiCount7Memory1") var omikujiCount7: Int = 0
 }
 
 
@@ -314,6 +327,11 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoHayajiroCountMissMemory2") var hayajiroCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountHitMemory2") var hayajiroCountHit: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountSumMemory2") var hayajiroCountSum: Int = 0
+    
+    // ----------
+    // ver3.25.0
+    // ----------
+    @AppStorage("kabaneriUnatoOmikujiCount7Memory2") var omikujiCount7: Int = 0
 }
 
 
@@ -359,4 +377,9 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoHayajiroCountMissMemory3") var hayajiroCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountHitMemory3") var hayajiroCountHit: Int = 0
     @AppStorage("kabaneriUnatoHayajiroCountSumMemory3") var hayajiroCountSum: Int = 0
+    
+    // ----------
+    // ver3.25.0
+    // ----------
+    @AppStorage("kabaneriUnatoOmikujiCount7Memory3") var omikujiCount7: Int = 0
 }

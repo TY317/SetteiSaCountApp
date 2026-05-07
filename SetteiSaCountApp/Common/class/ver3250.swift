@@ -23,17 +23,17 @@ struct tipVer3250UpdateInfo: Tip {
 }
 
 
-// //////////////////
-// Tip：アクダマ　終了画面
-// //////////////////
-//struct tipVer3240AkudamaScreen: Tip {
-//    var title: Text {
-//        Text("情報更新")
-//    }
-//    var message: Text? {
-//        Text("終了画面示唆の内容が判明")
-//    }
-//    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-//    }
-//}
+ //////////////////
+ // Tip：カバネリ　おみくじ
+ //////////////////
+struct tipVer3250KabaneriUnatoOmikuji: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("おみくじの示唆内容 一部が判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

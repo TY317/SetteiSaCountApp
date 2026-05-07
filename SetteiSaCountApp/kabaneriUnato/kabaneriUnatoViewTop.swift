@@ -263,6 +263,11 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory1.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory1.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory1.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnatoMemory1.omikujiCount7 = kabaneriUnato.omikujiCount7
     }
     func saveMemory2() {
         kabaneriUnatoMemory2.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -304,6 +309,11 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory2.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory2.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory2.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnatoMemory2.omikujiCount7 = kabaneriUnato.omikujiCount7
     }
     func saveMemory3() {
         kabaneriUnatoMemory3.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -345,6 +355,11 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory3.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory3.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory3.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnatoMemory3.omikujiCount7 = kabaneriUnato.omikujiCount7
     }
 }
 
@@ -415,6 +430,11 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory1.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory1.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory1.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory1.omikujiCount7
     }
     func loadMemory2() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory2.flushCountMiss
@@ -456,6 +476,11 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory2.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory2.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory2.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory2.omikujiCount7
     }
     func loadMemory3() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory3.flushCountMiss
@@ -497,6 +522,11 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory3.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory3.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory3.hayajiroCountSum
+        
+        // ----------
+        // ver3.25.0
+        // ----------
+        kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory3.omikujiCount7
     }
 }
 
