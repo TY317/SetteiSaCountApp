@@ -81,6 +81,12 @@ class commonVar: ObservableObject {
     }
     
     // ----------
+    // ver3.25.0より
+    // 新アプリ関連のインフォメーション
+    // ----------
+    @AppStorage("commonNewAppInfoShowed") var newAppInfoShow: Bool = false
+    
+    // ----------
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
@@ -555,6 +561,7 @@ class commonVar: ObservableObject {
                 bioRe3MachineIconBadge = "new"
                 kabaneriUnatoMachineIconBadge = "update"
                 kabaneriUnatoMenuOmikujiBadge = "update"
+                newAppInfoShow = true
             }
             else {
                 print("\(targetVersion)以上です")

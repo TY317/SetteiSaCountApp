@@ -2285,6 +2285,15 @@ struct ContentView: View {
                         Spacer()
                     }
                     
+                    // 新アプリ　リリース情報
+                    if common.newAppInfoShow {
+                        unitViewNewAppRelease(
+                            appIcon: "lotteryMemoAppIcon",
+                            appName: "抽選履歴メモ",
+                            promotionText: "あなたは引き強？　パチ屋の朝抽選の記録に特化したアプリが誕生しました！朝の抽選をもっと楽しく！",
+                            appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",
+                        )
+                    }
                 }
                 // //// firebaseログ
                 .onAppear {
