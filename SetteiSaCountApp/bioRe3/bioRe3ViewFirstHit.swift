@@ -40,6 +40,15 @@ struct bioRe3ViewFirstHit: View {
                 
                 // カウントボタン横並び
                 HStack {
+                    // CZ
+                    unitCountButtonVerticalDenominate(
+                        title: "CZ",
+                        count: $bioRe3.firstHitCountCz,
+                        color: .personalSummerLightPurple,
+                        bigNumber: $bioRe3.normalGame,
+                        numberofDicimal: 0,
+                        minusBool: $bioRe3.minusCheck
+                    )
                     // AT
                     unitCountButtonVerticalDenominate(
                         title: "AT",
@@ -55,6 +64,10 @@ struct bioRe3ViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "CZ",
+                            denominateList: bioRe3.ratioFirstHitCz
+                        )
                         unitTableDenominate(
                             columTitle: "AT",
                             denominateList: bioRe3.ratioFirstHitAt

@@ -51,6 +51,25 @@ struct bioRe3View95Ci: View {
 //            )
 //            .tag(5)
 //
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+//                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $bioRe3.firstHitCountCz,
+                        bigNumber: $bioRe3.normalGame,
+                        setting1Denominate: bioRe3.ratioFirstHitCz[0],
+                        setting2Denominate: bioRe3.ratioFirstHitCz[1],
+                        setting3Denominate: bioRe3.ratioFirstHitCz[2],
+                        setting4Denominate: bioRe3.ratioFirstHitCz[3],
+                        setting5Denominate: bioRe3.ratioFirstHitCz[4],
+                        setting6Denominate: bioRe3.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(1)
+            
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",
@@ -68,7 +87,7 @@ struct bioRe3View95Ci: View {
                     )
                 )
             )
-            .tag(1)
+            .tag(2)
             
 //            // 直撃ボーナス以外 初当り回数
 //            unitListSection95Ci(
