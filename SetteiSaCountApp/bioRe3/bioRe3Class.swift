@@ -26,6 +26,51 @@ class BioRe3: ObservableObject {
         minusCheck = false
     }
     
+    // ---------
+    // フィギュア
+    // ---------
+    @AppStorage("bioRe3FigureCountKisuJaku") var figureCountKisuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountKisuKyo") var figureCountKisuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountGusuJaku") var figureCountGusuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountGusuKyo") var figureCountGusuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountHighJaku") var figureCountHighJaku: Int = 0
+    @AppStorage("bioRe3FigureCountHighChu") var figureCountHighChu: Int = 0
+    @AppStorage("bioRe3FigureCountHighKyo") var figureCountHighKyo: Int = 0
+    @AppStorage("bioRe3FigureCountOver2") var figureCountOver2: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With16") var figureCountOver4With16: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With15") var figureCountOver4With15: Int = 0
+    @AppStorage("bioRe3FigureCountSum") var figureCountSum: Int = 0
+    
+    func figureSumFunc() {
+        figureCountSum = countSum(
+            figureCountKisuJaku,
+            figureCountKisuKyo,
+            figureCountGusuJaku,
+            figureCountGusuKyo,
+            figureCountHighJaku,
+            figureCountHighChu,
+            figureCountHighKyo,
+            figureCountOver2,
+            figureCountOver4With16,
+            figureCountOver4With15,
+        )
+    }
+    
+    func resetFigure() {
+        figureCountKisuJaku = 0
+        figureCountKisuKyo = 0
+        figureCountGusuJaku = 0
+        figureCountGusuKyo = 0
+        figureCountHighJaku = 0
+        figureCountHighChu = 0
+        figureCountHighKyo = 0
+        figureCountOver2 = 0
+        figureCountOver4With16 = 0
+        figureCountOver4With15 = 0
+        figureCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -35,5 +80,6 @@ class BioRe3: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetFigure()
     }
 }

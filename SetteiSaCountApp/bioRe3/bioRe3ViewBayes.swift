@@ -14,6 +14,7 @@ struct bioRe3ViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.6, 100.9, 105.4, 110.5, 113.1]
     @State var firstHitAtEnable: Bool = true
+    @State var figureEnable: Bool = true
     
     
     // 全機種共通
@@ -47,7 +48,13 @@ struct bioRe3ViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
-                
+                // フィギュアコレクション
+                unitToggleWithQuestion(enable: self.$figureEnable, title: "フィギュアコレクション") {
+                    unitExView5body2image(
+                        title: "フィギュアコレクション",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
             }
             
             // //// STEP3
@@ -119,6 +126,18 @@ struct bioRe3ViewBayes: View {
             )
         }
         
+        // フィギュア
+        var logPostFigure: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.figureEnable {
+            if bioRe3.figureCountOver2 > 0 {
+                logPostFigure[0] = -Double.infinity
+            }
+            if bioRe3.figureCountOver4With15 > 0 && bioRe3.figureCountOver4With16 > 0 {
+                logPostFigure[0] = -Double.infinity
+                logPostFigure[1] = -Double.infinity
+                logPostFigure[2] = -Double.infinity
+            }
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -158,6 +177,7 @@ struct bioRe3ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
+            logPostFigure,
             
             logPostTrophy,
             logPostBefore,

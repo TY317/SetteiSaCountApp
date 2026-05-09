@@ -71,19 +71,19 @@ struct bioRe3ViewTop: View {
                         )
                     }
                     
-//                    // REG
-//                    NavigationLink(destination: bioRe3ViewReg(
-//                        bioRe3: bioRe3,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "person.2.fill",
-//                            textBody: "REG",
-//                            badgeStatus: common.bioRe3MenuRegBadge,
-//                        )
-//                    }
-//
+                    // フィギュアコレクション
+                    NavigationLink(destination: bioRe3ViewFigure(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.stand",
+                            textBody: "フィギュアコレクション",
+                            badgeStatus: common.bioRe3MenuFigureBadge,
+                        )
+                    }
+
                     // AT終了画面
 //                    NavigationLink(destination: bioRe3ViewScreen(
 //                        bioRe3: bioRe3,
