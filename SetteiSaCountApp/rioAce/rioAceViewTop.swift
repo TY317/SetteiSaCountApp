@@ -13,9 +13,9 @@ struct rioAceViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var rioAce = RioAce()
     @State var isShowAlert: Bool = false
-//    @StateObject var rioAceMemory1 = RioAceMemory1()
-//    @StateObject var rioAceMemory2 = RioAceMemory2()
-//    @StateObject var rioAceMemory3 = RioAceMemory3()
+    @StateObject var rioAceMemory1 = RioAceMemory1()
+    @StateObject var rioAceMemory2 = RioAceMemory2()
+    @StateObject var rioAceMemory3 = RioAceMemory3()
     var body: some View {
         NavigationStack {
             List {
@@ -27,7 +27,7 @@ struct rioAceViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: rioAce.machineName,
-                        titleFont: .title2,
+//                        titleFont: .title2,
                     )
                 }
                 
@@ -182,21 +182,21 @@ struct rioAceViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(rioAceSubViewLoadMemory(
-//                    rioAce: rioAce,
-//                    rioAceMemory1: rioAceMemory1,
-//                    rioAceMemory2: rioAceMemory2,
-//                    rioAceMemory3: rioAceMemory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(rioAceSubViewLoadMemory(
+                    rioAce: rioAce,
+                    rioAceMemory1: rioAceMemory1,
+                    rioAceMemory2: rioAceMemory2,
+                    rioAceMemory3: rioAceMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(rioAceSubViewSaveMemory(
-//                    rioAce: rioAce,
-//                    rioAceMemory1: rioAceMemory1,
-//                    rioAceMemory2: rioAceMemory2,
-//                    rioAceMemory3: rioAceMemory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(rioAceSubViewSaveMemory(
+                    rioAce: rioAce,
+                    rioAceMemory1: rioAceMemory1,
+                    rioAceMemory2: rioAceMemory2,
+                    rioAceMemory3: rioAceMemory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -207,6 +207,141 @@ struct rioAceViewTop: View {
                 )
             }
         }
+    }
+}
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct rioAceSubViewSaveMemory: View {
+    @ObservedObject var rioAce: RioAce
+    @ObservedObject var rioAceMemory1: RioAceMemory1
+    @ObservedObject var rioAceMemory2: RioAceMemory2
+    @ObservedObject var rioAceMemory3: RioAceMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: rioAce.machineName,
+            selectedMemory: $rioAce.selectedMemory,
+            memoMemory1: $rioAceMemory1.memo,
+            dateDoubleMemory1: $rioAceMemory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $rioAceMemory2.memo,
+            dateDoubleMemory2: $rioAceMemory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $rioAceMemory3.memo,
+            dateDoubleMemory3: $rioAceMemory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        rioAceMemory1.kiteiReplay = rioAce.kiteiReplay
+        rioAceMemory1.kiteiReplayHit = rioAce.kiteiReplayHit
+        rioAceMemory1.normalGame = rioAce.normalGame
+        rioAceMemory1.firstHitCountNoirRoom = rioAce.firstHitCountNoirRoom
+        rioAceMemory1.firstHitCountDirectBonus = rioAce.firstHitCountDirectBonus
+        rioAceMemory1.firstHitCountWithoutDirect = rioAce.firstHitCountWithoutDirect
+        rioAceMemory1.screenCountNone = rioAce.screenCountNone
+        rioAceMemory1.screenCountRio = rioAce.screenCountRio
+        rioAceMemory1.screenCountMint = rioAce.screenCountMint
+        rioAceMemory1.screenCountRina = rioAce.screenCountRina
+        rioAceMemory1.screenCountSum = rioAce.screenCountSum
+    }
+    func saveMemory2() {
+        rioAceMemory2.kiteiReplay = rioAce.kiteiReplay
+        rioAceMemory2.kiteiReplayHit = rioAce.kiteiReplayHit
+        rioAceMemory2.normalGame = rioAce.normalGame
+        rioAceMemory2.firstHitCountNoirRoom = rioAce.firstHitCountNoirRoom
+        rioAceMemory2.firstHitCountDirectBonus = rioAce.firstHitCountDirectBonus
+        rioAceMemory2.firstHitCountWithoutDirect = rioAce.firstHitCountWithoutDirect
+        rioAceMemory2.screenCountNone = rioAce.screenCountNone
+        rioAceMemory2.screenCountRio = rioAce.screenCountRio
+        rioAceMemory2.screenCountMint = rioAce.screenCountMint
+        rioAceMemory2.screenCountRina = rioAce.screenCountRina
+        rioAceMemory2.screenCountSum = rioAce.screenCountSum
+    }
+    func saveMemory3() {
+        rioAceMemory3.kiteiReplay = rioAce.kiteiReplay
+        rioAceMemory3.kiteiReplayHit = rioAce.kiteiReplayHit
+        rioAceMemory3.normalGame = rioAce.normalGame
+        rioAceMemory3.firstHitCountNoirRoom = rioAce.firstHitCountNoirRoom
+        rioAceMemory3.firstHitCountDirectBonus = rioAce.firstHitCountDirectBonus
+        rioAceMemory3.firstHitCountWithoutDirect = rioAce.firstHitCountWithoutDirect
+        rioAceMemory3.screenCountNone = rioAce.screenCountNone
+        rioAceMemory3.screenCountRio = rioAce.screenCountRio
+        rioAceMemory3.screenCountMint = rioAce.screenCountMint
+        rioAceMemory3.screenCountRina = rioAce.screenCountRina
+        rioAceMemory3.screenCountSum = rioAce.screenCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct rioAceSubViewLoadMemory: View {
+    @ObservedObject var rioAce: RioAce
+    @ObservedObject var rioAceMemory1: RioAceMemory1
+    @ObservedObject var rioAceMemory2: RioAceMemory2
+    @ObservedObject var rioAceMemory3: RioAceMemory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: rioAce.machineName,
+            selectedMemory: $rioAce.selectedMemory,
+            memoMemory1: rioAceMemory1.memo,
+            dateDoubleMemory1: rioAceMemory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: rioAceMemory2.memo,
+            dateDoubleMemory2: rioAceMemory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: rioAceMemory3.memo,
+            dateDoubleMemory3: rioAceMemory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        rioAce.kiteiReplay = rioAceMemory1.kiteiReplay
+        rioAce.kiteiReplayHit = rioAceMemory1.kiteiReplayHit
+        rioAce.normalGame = rioAceMemory1.normalGame
+        rioAce.firstHitCountNoirRoom = rioAceMemory1.firstHitCountNoirRoom
+        rioAce.firstHitCountDirectBonus = rioAceMemory1.firstHitCountDirectBonus
+        rioAce.firstHitCountWithoutDirect = rioAceMemory1.firstHitCountWithoutDirect
+        rioAce.screenCountNone = rioAceMemory1.screenCountNone
+        rioAce.screenCountRio = rioAceMemory1.screenCountRio
+        rioAce.screenCountMint = rioAceMemory1.screenCountMint
+        rioAce.screenCountRina = rioAceMemory1.screenCountRina
+        rioAce.screenCountSum = rioAceMemory1.screenCountSum
+    }
+    func loadMemory2() {
+        rioAce.kiteiReplay = rioAceMemory2.kiteiReplay
+        rioAce.kiteiReplayHit = rioAceMemory2.kiteiReplayHit
+        rioAce.normalGame = rioAceMemory2.normalGame
+        rioAce.firstHitCountNoirRoom = rioAceMemory2.firstHitCountNoirRoom
+        rioAce.firstHitCountDirectBonus = rioAceMemory2.firstHitCountDirectBonus
+        rioAce.firstHitCountWithoutDirect = rioAceMemory2.firstHitCountWithoutDirect
+        rioAce.screenCountNone = rioAceMemory2.screenCountNone
+        rioAce.screenCountRio = rioAceMemory2.screenCountRio
+        rioAce.screenCountMint = rioAceMemory2.screenCountMint
+        rioAce.screenCountRina = rioAceMemory2.screenCountRina
+        rioAce.screenCountSum = rioAceMemory2.screenCountSum
+    }
+    func loadMemory3() {
+        rioAce.kiteiReplay = rioAceMemory3.kiteiReplay
+        rioAce.kiteiReplayHit = rioAceMemory3.kiteiReplayHit
+        rioAce.normalGame = rioAceMemory3.normalGame
+        rioAce.firstHitCountNoirRoom = rioAceMemory3.firstHitCountNoirRoom
+        rioAce.firstHitCountDirectBonus = rioAceMemory3.firstHitCountDirectBonus
+        rioAce.firstHitCountWithoutDirect = rioAceMemory3.firstHitCountWithoutDirect
+        rioAce.screenCountNone = rioAceMemory3.screenCountNone
+        rioAce.screenCountRio = rioAceMemory3.screenCountRio
+        rioAce.screenCountMint = rioAceMemory3.screenCountMint
+        rioAce.screenCountRina = rioAceMemory3.screenCountRina
+        rioAce.screenCountSum = rioAceMemory3.screenCountSum
     }
 }
 

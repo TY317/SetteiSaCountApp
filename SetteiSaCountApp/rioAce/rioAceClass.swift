@@ -86,3 +86,52 @@ class RioAce: ObservableObject {
         resetScreen()
     }
 }
+
+
+class RioAceMemory1: ObservableObject {
+    @AppStorage("rioAceKiteiReplayCountMemory1") var kiteiReplay: Int = 0
+    @AppStorage("rioAceKiteiReplayCountHitMemory1") var kiteiReplayHit: Int = 0
+    @AppStorage("rioAceNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("rioAceFirstHitCountNoirRoomMemory1") var firstHitCountNoirRoom: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusDirectBonusMemory1") var firstHitCountDirectBonus: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusWithoutDirectMemory1") var firstHitCountWithoutDirect: Int = 0
+    @AppStorage("rioAceScreenCountNoneMemory1") var screenCountNone: Int = 0
+    @AppStorage("rioAceScreenCountRioMemory1") var screenCountRio: Int = 0
+    @AppStorage("rioAceScreenCountMintMemory1") var screenCountMint: Int = 0
+    @AppStorage("rioAceScreenCountRinaMemory1") var screenCountRina: Int = 0
+    @AppStorage("rioAceScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("rioAceMemoMemory1") var memo = ""
+    @AppStorage("rioAceDateMemory1") var dateDouble = 0.0
+}
+
+class RioAceMemory2: ObservableObject {
+    @AppStorage("rioAceKiteiReplayCountMemory2") var kiteiReplay: Int = 0
+    @AppStorage("rioAceKiteiReplayCountHitMemory2") var kiteiReplayHit: Int = 0
+    @AppStorage("rioAceNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("rioAceFirstHitCountNoirRoomMemory2") var firstHitCountNoirRoom: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusDirectBonusMemory2") var firstHitCountDirectBonus: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusWithoutDirectMemory2") var firstHitCountWithoutDirect: Int = 0
+    @AppStorage("rioAceScreenCountNoneMemory2") var screenCountNone: Int = 0
+    @AppStorage("rioAceScreenCountRioMemory2") var screenCountRio: Int = 0
+    @AppStorage("rioAceScreenCountMintMemory2") var screenCountMint: Int = 0
+    @AppStorage("rioAceScreenCountRinaMemory2") var screenCountRina: Int = 0
+    @AppStorage("rioAceScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("rioAceMemoMemory2") var memo = ""
+    @AppStorage("rioAceDateMemory2") var dateDouble = 0.0
+}
+
+class RioAceMemory3: ObservableObject {
+    @AppStorage("rioAceKiteiReplayCountMemory3") var kiteiReplay: Int = 0
+    @AppStorage("rioAceKiteiReplayCountHitMemory3") var kiteiReplayHit: Int = 0
+    @AppStorage("rioAceNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("rioAceFirstHitCountNoirRoomMemory3") var firstHitCountNoirRoom: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusDirectBonusMemory3") var firstHitCountDirectBonus: Int = 0
+    @AppStorage("rioAceFirstHitCountDirectBonusWithoutDirectMemory3") var firstHitCountWithoutDirect: Int = 0
+    @AppStorage("rioAceScreenCountNoneMemory3") var screenCountNone: Int = 0
+    @AppStorage("rioAceScreenCountRioMemory3") var screenCountRio: Int = 0
+    @AppStorage("rioAceScreenCountMintMemory3") var screenCountMint: Int = 0
+    @AppStorage("rioAceScreenCountRinaMemory3") var screenCountRina: Int = 0
+    @AppStorage("rioAceScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("rioAceMemoMemory3") var memo = ""
+    @AppStorage("rioAceDateMemory3") var dateDouble = 0.0
+}
