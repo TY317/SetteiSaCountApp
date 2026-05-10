@@ -86,6 +86,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteJormungand") var isSelectedFavoriteJormungand = true
     @AppStorage("isSelectedFavoriteAkudama") var isSelectedFavoriteAkudama = true
     @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
+    @AppStorage("isSelectedFavoriteRioAce") var isSelectedFavoriteRioAce = true
+    @AppStorage("isSelectedFavoriteBioRe3") var isSelectedFavoriteBioRe3 = true
 }
 
 
@@ -113,11 +115,12 @@ struct ContentView: View {
     }
     
     @EnvironmentObject var rewardViewModel: RewardedViewModel
+    @State var isShowInfoSheet: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3240UpdateInfo())
+                TipView(tipVer3250UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -153,6 +156,40 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// バイオRE3、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBioRe3 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(bioRe3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bioRe3MachineIcon"),
+                                        machineName: "バイオRE3",
+                                        isUnLocked: $common.bioRe3isUnlocked,
+                                        tempUnlockDateDouble: $common.bioRe3TempUnlockDateDouble,
+                                        badgeStatus: common.bioRe3MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// リオエース２、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRioAce == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(rioAceViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("rioAceMachineIcon"),
+                                        machineName: "リオエース2",
+                                        isUnLocked: $common.rioAceisUnlocked,
+                                        tempUnlockDateDouble: $common.rioAceTempUnlockDateDouble,
+                                        badgeStatus: common.rioAceMachineIconBadge,
                                     )
                                 }
                                 
@@ -1098,6 +1135,46 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// バイオRE3、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteBioRe3 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(bioRe3ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("bioRe3MachineIcon"),
+                                        machineName: "バイオハザードRE:3",
+                                        makerName: "エンターライズ",
+                                        releaseYear: 2026,
+                                        releaseMonth: 5,
+                                        isUnLocked: $common.bioRe3isUnlocked,
+                                        tempUnlockDateDouble: $common.bioRe3TempUnlockDateDouble,
+                                        badgeStatus: common.bioRe3MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// リオエース、26年5月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteRioAce == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(rioAceViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("rioAceMachineIcon"),
+                                        machineName: "スーパーリオエース2",
+                                        makerName: "山佐",
+                                        releaseYear: 2026,
+                                        releaseMonth: 5,
+                                        isUnLocked: $common.rioAceisUnlocked,
+                                        tempUnlockDateDouble: $common.rioAceTempUnlockDateDouble,
+                                        badgeStatus: common.rioAceMachineIconBadge,
                                     )
                                 }
                                 
@@ -2208,6 +2285,15 @@ struct ContentView: View {
                         Spacer()
                     }
                     
+                    // 新アプリ　リリース情報
+                    if common.newAppInfoShow {
+                        unitViewNewAppRelease(
+                            appIcon: "lotteryMemoAppIcon",
+                            appName: "抽選履歴メモ",
+                            promotionText: "あなたは引き強？　パチ屋の朝抽選の記録に特化したアプリが誕生しました！朝の抽選をもっと楽しく！",
+                            appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",
+                        )
+                    }
                 }
                 // //// firebaseログ
                 .onAppear {
@@ -2259,6 +2345,16 @@ struct ContentView: View {
                 
                 // //// ツールバーボタン
                 .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            self.isShowInfoSheet.toggle()
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                        .sheet(isPresented: self.$isShowInfoSheet) {
+                            commonViewInfoSheet()
+                        }
+                    }
                     ToolbarItem(placement: .automatic) {
                         // 外観切り替えボタン（システム/ライト/ダーク）
                         Menu {
@@ -2377,6 +2473,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // バイオRE3
+                Toggle("バイオハザードRE:3", isOn: $favoriteSet.isSelectedFavoriteBioRe3)
+                // リオエース２
+                Toggle("スーパーリオエース2", isOn: $favoriteSet.isSelectedFavoriteRioAce)
                 // ゴッド軌跡
                 Toggle("ミリオンゴッド〜神々の軌跡〜", isOn: $favoriteSet.isSelectedFavoriteGodKiseki)
                 // ヨルムンガンド
@@ -2569,8 +2669,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

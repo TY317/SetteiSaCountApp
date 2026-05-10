@@ -31,6 +31,7 @@ struct kabaneriUnatoViewOmikuji: View {
         "無名の短銃",
         "自決袋",
         "来栖の刀",
+        "無名のけん玉",
         "菖蒲の弓",
         "ミヤマカラスアゲハ",
         "小吉",
@@ -38,10 +39,11 @@ struct kabaneriUnatoViewOmikuji: View {
         "大吉",
     ]
     let sisaList: [String] = [
-        "???",
-        "???",
-        "???",
-        "???",
+        "設定4で出にくい",
+        "設定3で出にくい",
+        "設定1で出にくい",
+        "特定設定を否定(刀)",
+        "特定設定を否定(けん玉)",
         "高設定示唆",
         "高設定示唆 強",
         "設定2 以上濃厚",
@@ -49,10 +51,11 @@ struct kabaneriUnatoViewOmikuji: View {
         "設定6 濃厚",
     ]
     let resultTextList: [String] = [
-        "???(ツラヌキ筒)",
-        "???(無名の短銃)",
-        "???(自決袋)",
-        "???(来栖の刀)",
+        "設定4で出にくい",
+        "設定3で出にくい",
+        "設定1で出にくい",
+        "特定設定を否定(刀)",
+        "特定設定を否定(けん玉)",
         "高設定示唆",
         "高設定示唆 強",
         "設定2 以上濃厚",
@@ -85,6 +88,7 @@ struct kabaneriUnatoViewOmikuji: View {
                     minusCheck: $kabaneriUnato.minusCheck) {
                         kabaneriUnato.omikujiSumFunc()
                     }
+                    .popoverTip(tipVer3250KabaneriUnatoOmikuji())
             } header: {
                 Text("アイテムくじ選択")
             }
@@ -105,7 +109,7 @@ struct kabaneriUnatoViewOmikuji: View {
                 unitLinkButtonViewBuilder(sheetTitle: "小吉 出現タイミングの法則") {
                     kabaneriUnatoTableShokichi()
                 }
-                .popoverTip(tipVer3220KabaneriUnatoShokichi())
+//                .popoverTip(tipVer3220KabaneriUnatoShokichi())
             } header: {
                 Text("カウント結果")
             }
@@ -159,6 +163,7 @@ struct kabaneriUnatoViewOmikuji: View {
         case self.selectList[6]: return self.sisaList[6]
         case self.selectList[7]: return self.sisaList[7]
         case self.selectList[8]: return self.sisaList[8]
+        case self.selectList[9]: return self.sisaList[9]
         default: return "???"
         }
     }
@@ -169,20 +174,22 @@ struct kabaneriUnatoViewOmikuji: View {
         case self.selectList[1]: return $kabaneriUnato.omikujiCount2
         case self.selectList[2]: return $kabaneriUnato.omikujiCount3
         case self.selectList[3]: return $kabaneriUnato.omikujiCount4
-        case self.selectList[4]: return $kabaneriUnato.omikujiCount5
-        case self.selectList[5]: return $kabaneriUnato.omikujiCount6
-        case self.selectList[6]: return $kabaneriUnato.omikujiCountOver2
-        case self.selectList[7]: return $kabaneriUnato.omikujiCountOver4
-        case self.selectList[8]: return $kabaneriUnato.omikujiCountOver6
+        case self.selectList[4]: return $kabaneriUnato.omikujiCount7
+        case self.selectList[5]: return $kabaneriUnato.omikujiCount5
+        case self.selectList[6]: return $kabaneriUnato.omikujiCount6
+        case self.selectList[7]: return $kabaneriUnato.omikujiCountOver2
+        case self.selectList[8]: return $kabaneriUnato.omikujiCountOver4
+        case self.selectList[9]: return $kabaneriUnato.omikujiCountOver6
         case self.resultTextList[0]: return $kabaneriUnato.omikujiCount1
         case self.resultTextList[1]: return $kabaneriUnato.omikujiCount2
         case self.resultTextList[2]: return $kabaneriUnato.omikujiCount3
         case self.resultTextList[3]: return $kabaneriUnato.omikujiCount4
-        case self.resultTextList[4]: return $kabaneriUnato.omikujiCount5
-        case self.resultTextList[5]: return $kabaneriUnato.omikujiCount6
-        case self.resultTextList[6]: return $kabaneriUnato.omikujiCountOver2
-        case self.resultTextList[7]: return $kabaneriUnato.omikujiCountOver4
-        case self.resultTextList[8]: return $kabaneriUnato.omikujiCountOver6
+        case self.resultTextList[4]: return $kabaneriUnato.omikujiCount7
+        case self.resultTextList[5]: return $kabaneriUnato.omikujiCount5
+        case self.resultTextList[6]: return $kabaneriUnato.omikujiCount6
+        case self.resultTextList[7]: return $kabaneriUnato.omikujiCountOver2
+        case self.resultTextList[8]: return $kabaneriUnato.omikujiCountOver4
+        case self.resultTextList[9]: return $kabaneriUnato.omikujiCountOver6
         default: return .constant(0)
         }
     }
@@ -193,20 +200,22 @@ struct kabaneriUnatoViewOmikuji: View {
         case self.selectList[1]: return Color.gray
         case self.selectList[2]: return Color.purple
         case self.selectList[3]: return Color.purple
-        case self.selectList[4]: return Color.red
+        case self.selectList[4]: return Color.purple
         case self.selectList[5]: return Color.red
-        case self.selectList[6]: return Color.brown
-        case self.selectList[7]: return Color.gray
-        case self.selectList[8]: return Color.orange
+        case self.selectList[6]: return Color.red
+        case self.selectList[7]: return Color.brown
+        case self.selectList[8]: return Color.gray
+        case self.selectList[9]: return Color.orange
         case self.resultTextList[0]: return Color.gray
         case self.resultTextList[1]: return Color.gray
         case self.resultTextList[2]: return Color.purple
         case self.resultTextList[3]: return Color.purple
-        case self.resultTextList[4]: return Color.red
+        case self.resultTextList[4]: return Color.purple
         case self.resultTextList[5]: return Color.red
-        case self.resultTextList[6]: return Color.brown
-        case self.resultTextList[7]: return Color.gray
-        case self.resultTextList[8]: return Color.orange
+        case self.resultTextList[6]: return Color.red
+        case self.resultTextList[7]: return Color.brown
+        case self.resultTextList[8]: return Color.gray
+        case self.resultTextList[9]: return Color.orange
         default: return Color.gray
         }
     }

@@ -152,7 +152,7 @@ struct hihodenViewDuringBonus: View {
             } header: {
                 Text("REG中のキャラ紹介")
             }
-            .popoverTip(tipVer3211HihodenChara())
+//            .popoverTip(tipVer3211HihodenChara())
             
             // カウント結果
             Section {

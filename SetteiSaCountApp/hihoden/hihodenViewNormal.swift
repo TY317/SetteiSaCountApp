@@ -139,7 +139,7 @@ struct hihodenViewNormal: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3211HihodenChanseKokaku())
+//                .popoverTip(tipVer3211HihodenChanseKokaku())
                 // 参考情報）高確率関連の注目ポイント
                 unitLinkButtonViewBuilder(sheetTitle: "高確率関連の注目ポイント") {
                     VStack(alignment: .leading) {

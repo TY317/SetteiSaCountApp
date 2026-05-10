@@ -122,13 +122,13 @@ struct jormungandViewTop: View {
 //                        )
 //                    }
 //
-//                    // サミートロフィー
-//                    NavigationLink(destination: commonViewSammyTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "サミートロフィー"
-//                        )
-//                    }
+                    // ケロッとトロフィー
+                    NavigationLink(destination: commonViewKerottoTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "ケロットトロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ

@@ -56,7 +56,7 @@ struct hihodenViewLegend: View {
                             hihoden.legendSumFunc()
                         }
                 }
-                .popoverTip(tipVer3211HihodenLegendKokakuMiss())
+//                .popoverTip(tipVer3211HihodenLegendKokakuMiss())
                 
                 // 確率結果
                 unitResultRatioPercent2Line(

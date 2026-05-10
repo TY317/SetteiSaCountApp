@@ -90,6 +90,14 @@ struct newOni3ViewTop: View {
                             textBody: "エンディング"
                         )
                     }
+                    
+                    // トロフィー
+                    NavigationLink(destination: commonViewEnteriseTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "エンタトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(machineName: newOni3.machineName)
                 }

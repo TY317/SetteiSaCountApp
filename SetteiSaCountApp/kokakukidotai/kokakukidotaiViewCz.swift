@@ -172,7 +172,7 @@ struct kokakukidotaiViewCz: View {
                     Text("終了画面カウント")
                         .foregroundStyle(Color.blue)
                 }
-                .popoverTip(tipVer3211KokakukidotaiCz())
+//                .popoverTip(tipVer3211KokakukidotaiCz())
 
             } header: {
                 unitLabelHeaderScreenCount(title: "終了画面")
