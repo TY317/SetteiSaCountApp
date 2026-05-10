@@ -24,6 +24,9 @@ class RioAce: ObservableObject {
         minusCheck = false
     }
     
+    // スイカ成功抽選
+    let ratioSuikaCz: [Double] = [10.2,-1,12.9,-1,-1,-1]
+    
     // ---------
     // 初当り
     // ---------

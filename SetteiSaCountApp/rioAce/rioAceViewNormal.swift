@@ -28,7 +28,21 @@ struct rioAceViewNormal: View {
     
     var body: some View {
         List {
-            // 規定リプレイからの当選
+            // ---- 小役関連
+            Section {
+                // Vベルシステム
+                unitLinkButtonViewBuilder(sheetTitle: "Vベルシステムについて") {
+                    rioAceTableVBellSystem()
+                }
+                
+                // レア役停止系
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
+                    rioAceTableKoyakuPattern()
+                }
+            } header: {
+                Text("小役")
+            }
+            // ---- 規定リプレイからの当選
             Section {
                 // 確率結果
                 unitResultRatioPercent2Line(
@@ -94,6 +108,60 @@ struct rioAceViewNormal: View {
                 }
             } header: {
                 Text("規定リプレイからの当選")
+            }
+            
+            // ---- スイカでの成功当選
+            Section {
+                // 注意書き
+                unitLabelCautionText {
+                    Text("スイカ成立時の第3停止後、PUSHボタン両サイドのランプに要注目")
+                }
+                
+                // 参考情報）スイカでの次回成功抽選
+                unitLinkButtonViewBuilder(sheetTitle: "スイカでの次回成功抽選") {
+                    Text("・通常時のスイカで次回ノワールルームの成功抽選")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "成功当選",
+                            percentList: rioAce.ratioSuikaCz
+                        )
+                    }
+                }
+                
+                // PUSHボタン両サイドのランプ示唆
+                unitLinkButtonViewBuilder(sheetTitle: "PUSHボタン両サイドのランプ示唆") {
+                    rioAceTablePushSideLamp()
+                }
+            } header: {
+                Text("スイカでの成功当選")
+            }
+            
+            // ---- 演出での示唆
+            Section {
+                // リール枠エフェクト矛盾
+                unitLinkButtonViewBuilder(sheetTitle: "リール枠エフェクト矛盾") {
+                    VStack(alignment: .leading) {
+                        Text("・リール枠エフェクト色の対応役が外れた場合は本前兆の期待大")
+                        Text("・本前兆も外れた場合は高設定のチャンス")
+                    }
+                    .padding(.bottom)
+                    rioAceTableReelEffect()
+                }
+                
+                // アイキャッチ
+                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチ法則矛盾") {
+                    VStack(alignment: .leading) {
+                        Text("・全員集合アイキャッチが出現した場合、次回ノワールルームで")
+                        Text("　　　・のわーるるーむ")
+                        Text("　　　・AT当選")
+                        Text("　　　・ノワールタイム")
+                        Text("　のいずれかに当選")
+                        Text("・どれにも当選しなかった場合は高設定の期待度が大幅アップ")
+                    }
+                }
+            } header: {
+                Text("演出での示唆")
             }
         }
         // //// バッジのリセット
