@@ -33,10 +33,10 @@ struct rioAceViewScreen: View {
         "リナ",
     ]
     let sisaList: [String] = [
-        "???(なし)",
-        "???(リオ)",
-        "???(ミント)",
-        "???(リナ)",
+        "デフォルト",
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 強",
     ]
     var body: some View {
         List {
