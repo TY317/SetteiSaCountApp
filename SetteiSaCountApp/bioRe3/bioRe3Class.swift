@@ -83,3 +83,63 @@ class BioRe3: ObservableObject {
         resetFigure()
     }
 }
+
+
+class BioRe3Memory1: ObservableObject {
+    @AppStorage("bioRe3NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("bioRe3FirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("bioRe3FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("bioRe3FigureCountKisuJakuMemory1") var figureCountKisuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountKisuKyoMemory1") var figureCountKisuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountGusuJakuMemory1") var figureCountGusuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountGusuKyoMemory1") var figureCountGusuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountHighJakuMemory1") var figureCountHighJaku: Int = 0
+    @AppStorage("bioRe3FigureCountHighChuMemory1") var figureCountHighChu: Int = 0
+    @AppStorage("bioRe3FigureCountHighKyoMemory1") var figureCountHighKyo: Int = 0
+    @AppStorage("bioRe3FigureCountOver2Memory1") var figureCountOver2: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With16Memory1") var figureCountOver4With16: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With15Memory1") var figureCountOver4With15: Int = 0
+    @AppStorage("bioRe3FigureCountSumMemory1") var figureCountSum: Int = 0
+    @AppStorage("bioRe3MemoMemory1") var memo = ""
+    @AppStorage("bioRe3DateMemory1") var dateDouble = 0.0
+}
+
+
+class BioRe3Memory2: ObservableObject {
+    @AppStorage("bioRe3NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("bioRe3FirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("bioRe3FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("bioRe3FigureCountKisuJakuMemory2") var figureCountKisuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountKisuKyoMemory2") var figureCountKisuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountGusuJakuMemory2") var figureCountGusuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountGusuKyoMemory2") var figureCountGusuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountHighJakuMemory2") var figureCountHighJaku: Int = 0
+    @AppStorage("bioRe3FigureCountHighChuMemory2") var figureCountHighChu: Int = 0
+    @AppStorage("bioRe3FigureCountHighKyoMemory2") var figureCountHighKyo: Int = 0
+    @AppStorage("bioRe3FigureCountOver2Memory2") var figureCountOver2: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With16Memory2") var figureCountOver4With16: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With15Memory2") var figureCountOver4With15: Int = 0
+    @AppStorage("bioRe3FigureCountSumMemory2") var figureCountSum: Int = 0
+    @AppStorage("bioRe3MemoMemory2") var memo = ""
+    @AppStorage("bioRe3DateMemory2") var dateDouble = 0.0
+}
+
+
+class BioRe3Memory3: ObservableObject {
+    @AppStorage("bioRe3NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("bioRe3FirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("bioRe3FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("bioRe3FigureCountKisuJakuMemory3") var figureCountKisuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountKisuKyoMemory3") var figureCountKisuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountGusuJakuMemory3") var figureCountGusuJaku: Int = 0
+    @AppStorage("bioRe3FigureCountGusuKyoMemory3") var figureCountGusuKyo: Int = 0
+    @AppStorage("bioRe3FigureCountHighJakuMemory3") var figureCountHighJaku: Int = 0
+    @AppStorage("bioRe3FigureCountHighChuMemory3") var figureCountHighChu: Int = 0
+    @AppStorage("bioRe3FigureCountHighKyoMemory3") var figureCountHighKyo: Int = 0
+    @AppStorage("bioRe3FigureCountOver2Memory3") var figureCountOver2: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With16Memory3") var figureCountOver4With16: Int = 0
+    @AppStorage("bioRe3FigureCountOver4With15Memory3") var figureCountOver4With15: Int = 0
+    @AppStorage("bioRe3FigureCountSumMemory3") var figureCountSum: Int = 0
+    @AppStorage("bioRe3MemoMemory3") var memo = ""
+    @AppStorage("bioRe3DateMemory3") var dateDouble = 0.0
+}

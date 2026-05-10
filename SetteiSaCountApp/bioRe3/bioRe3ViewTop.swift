@@ -13,9 +13,9 @@ struct bioRe3ViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var bioRe3 = BioRe3()
     @State var isShowAlert: Bool = false
-//    @StateObject var bioRe3Memory1 = BioRe3Memory1()
-//    @StateObject var bioRe3Memory2 = BioRe3Memory2()
-//    @StateObject var bioRe3Memory3 = BioRe3Memory3()
+    @StateObject var bioRe3Memory1 = BioRe3Memory1()
+    @StateObject var bioRe3Memory2 = BioRe3Memory2()
+    @StateObject var bioRe3Memory3 = BioRe3Memory3()
     var body: some View {
         NavigationStack {
             List {
@@ -133,7 +133,7 @@ struct bioRe3ViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: bioRe3.machineName,
-                        titleFont: .title2,
+                        titleFont: .title,
                     )
                 }
                 
@@ -186,21 +186,21 @@ struct bioRe3ViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(bioRe3SubViewLoadMemory(
-//                    bioRe3: bioRe3,
-//                    bioRe3Memory1: bioRe3Memory1,
-//                    bioRe3Memory2: bioRe3Memory2,
-//                    bioRe3Memory3: bioRe3Memory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(bioRe3SubViewLoadMemory(
+                    bioRe3: bioRe3,
+                    bioRe3Memory1: bioRe3Memory1,
+                    bioRe3Memory2: bioRe3Memory2,
+                    bioRe3Memory3: bioRe3Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(bioRe3SubViewSaveMemory(
-//                    bioRe3: bioRe3,
-//                    bioRe3Memory1: bioRe3Memory1,
-//                    bioRe3Memory2: bioRe3Memory2,
-//                    bioRe3Memory3: bioRe3Memory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(bioRe3SubViewSaveMemory(
+                    bioRe3: bioRe3,
+                    bioRe3Memory1: bioRe3Memory1,
+                    bioRe3Memory2: bioRe3Memory2,
+                    bioRe3Memory3: bioRe3Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -211,6 +211,160 @@ struct bioRe3ViewTop: View {
                 )
             }
         }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct bioRe3SubViewSaveMemory: View {
+    @ObservedObject var bioRe3: BioRe3
+    @ObservedObject var bioRe3Memory1: BioRe3Memory1
+    @ObservedObject var bioRe3Memory2: BioRe3Memory2
+    @ObservedObject var bioRe3Memory3: BioRe3Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: bioRe3.machineName,
+            selectedMemory: $bioRe3.selectedMemory,
+            memoMemory1: $bioRe3Memory1.memo,
+            dateDoubleMemory1: $bioRe3Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $bioRe3Memory2.memo,
+            dateDoubleMemory2: $bioRe3Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $bioRe3Memory3.memo,
+            dateDoubleMemory3: $bioRe3Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        bioRe3Memory1.normalGame = bioRe3.normalGame
+        bioRe3Memory1.firstHitCountCz = bioRe3.firstHitCountCz
+        bioRe3Memory1.firstHitCountAt = bioRe3.firstHitCountAt
+        bioRe3Memory1.figureCountKisuJaku = bioRe3.figureCountKisuJaku
+        bioRe3Memory1.figureCountKisuKyo = bioRe3.figureCountKisuKyo
+        bioRe3Memory1.figureCountGusuJaku = bioRe3.figureCountGusuJaku
+        bioRe3Memory1.figureCountGusuKyo = bioRe3.figureCountGusuKyo
+        bioRe3Memory1.figureCountHighJaku = bioRe3.figureCountHighJaku
+        bioRe3Memory1.figureCountHighChu = bioRe3.figureCountHighChu
+        bioRe3Memory1.figureCountHighKyo = bioRe3.figureCountHighKyo
+        bioRe3Memory1.figureCountOver2 = bioRe3.figureCountOver2
+        bioRe3Memory1.figureCountOver4With16 = bioRe3.figureCountOver4With16
+        bioRe3Memory1.figureCountOver4With15 = bioRe3.figureCountOver4With15
+        bioRe3Memory1.figureCountSum = bioRe3.figureCountSum
+    }
+    func saveMemory2() {
+        bioRe3Memory2.normalGame = bioRe3.normalGame
+        bioRe3Memory2.firstHitCountCz = bioRe3.firstHitCountCz
+        bioRe3Memory2.firstHitCountAt = bioRe3.firstHitCountAt
+        bioRe3Memory2.figureCountKisuJaku = bioRe3.figureCountKisuJaku
+        bioRe3Memory2.figureCountKisuKyo = bioRe3.figureCountKisuKyo
+        bioRe3Memory2.figureCountGusuJaku = bioRe3.figureCountGusuJaku
+        bioRe3Memory2.figureCountGusuKyo = bioRe3.figureCountGusuKyo
+        bioRe3Memory2.figureCountHighJaku = bioRe3.figureCountHighJaku
+        bioRe3Memory2.figureCountHighChu = bioRe3.figureCountHighChu
+        bioRe3Memory2.figureCountHighKyo = bioRe3.figureCountHighKyo
+        bioRe3Memory2.figureCountOver2 = bioRe3.figureCountOver2
+        bioRe3Memory2.figureCountOver4With16 = bioRe3.figureCountOver4With16
+        bioRe3Memory2.figureCountOver4With15 = bioRe3.figureCountOver4With15
+        bioRe3Memory2.figureCountSum = bioRe3.figureCountSum
+    }
+    func saveMemory3() {
+        bioRe3Memory3.normalGame = bioRe3.normalGame
+        bioRe3Memory3.firstHitCountCz = bioRe3.firstHitCountCz
+        bioRe3Memory3.firstHitCountAt = bioRe3.firstHitCountAt
+        bioRe3Memory3.figureCountKisuJaku = bioRe3.figureCountKisuJaku
+        bioRe3Memory3.figureCountKisuKyo = bioRe3.figureCountKisuKyo
+        bioRe3Memory3.figureCountGusuJaku = bioRe3.figureCountGusuJaku
+        bioRe3Memory3.figureCountGusuKyo = bioRe3.figureCountGusuKyo
+        bioRe3Memory3.figureCountHighJaku = bioRe3.figureCountHighJaku
+        bioRe3Memory3.figureCountHighChu = bioRe3.figureCountHighChu
+        bioRe3Memory3.figureCountHighKyo = bioRe3.figureCountHighKyo
+        bioRe3Memory3.figureCountOver2 = bioRe3.figureCountOver2
+        bioRe3Memory3.figureCountOver4With16 = bioRe3.figureCountOver4With16
+        bioRe3Memory3.figureCountOver4With15 = bioRe3.figureCountOver4With15
+        bioRe3Memory3.figureCountSum = bioRe3.figureCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct bioRe3SubViewLoadMemory: View {
+    @ObservedObject var bioRe3: BioRe3
+    @ObservedObject var bioRe3Memory1: BioRe3Memory1
+    @ObservedObject var bioRe3Memory2: BioRe3Memory2
+    @ObservedObject var bioRe3Memory3: BioRe3Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: bioRe3.machineName,
+            selectedMemory: $bioRe3.selectedMemory,
+            memoMemory1: bioRe3Memory1.memo,
+            dateDoubleMemory1: bioRe3Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: bioRe3Memory2.memo,
+            dateDoubleMemory2: bioRe3Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: bioRe3Memory3.memo,
+            dateDoubleMemory3: bioRe3Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        bioRe3.normalGame = bioRe3Memory1.normalGame
+        bioRe3.firstHitCountCz = bioRe3Memory1.firstHitCountCz
+        bioRe3.firstHitCountAt = bioRe3Memory1.firstHitCountAt
+        bioRe3.figureCountKisuJaku = bioRe3Memory1.figureCountKisuJaku
+        bioRe3.figureCountKisuKyo = bioRe3Memory1.figureCountKisuKyo
+        bioRe3.figureCountGusuJaku = bioRe3Memory1.figureCountGusuJaku
+        bioRe3.figureCountGusuKyo = bioRe3Memory1.figureCountGusuKyo
+        bioRe3.figureCountHighJaku = bioRe3Memory1.figureCountHighJaku
+        bioRe3.figureCountHighChu = bioRe3Memory1.figureCountHighChu
+        bioRe3.figureCountHighKyo = bioRe3Memory1.figureCountHighKyo
+        bioRe3.figureCountOver2 = bioRe3Memory1.figureCountOver2
+        bioRe3.figureCountOver4With16 = bioRe3Memory1.figureCountOver4With16
+        bioRe3.figureCountOver4With15 = bioRe3Memory1.figureCountOver4With15
+        bioRe3.figureCountSum = bioRe3Memory1.figureCountSum
+    }
+    func loadMemory2() {
+        bioRe3.normalGame = bioRe3Memory2.normalGame
+        bioRe3.firstHitCountCz = bioRe3Memory2.firstHitCountCz
+        bioRe3.firstHitCountAt = bioRe3Memory2.firstHitCountAt
+        bioRe3.figureCountKisuJaku = bioRe3Memory2.figureCountKisuJaku
+        bioRe3.figureCountKisuKyo = bioRe3Memory2.figureCountKisuKyo
+        bioRe3.figureCountGusuJaku = bioRe3Memory2.figureCountGusuJaku
+        bioRe3.figureCountGusuKyo = bioRe3Memory2.figureCountGusuKyo
+        bioRe3.figureCountHighJaku = bioRe3Memory2.figureCountHighJaku
+        bioRe3.figureCountHighChu = bioRe3Memory2.figureCountHighChu
+        bioRe3.figureCountHighKyo = bioRe3Memory2.figureCountHighKyo
+        bioRe3.figureCountOver2 = bioRe3Memory2.figureCountOver2
+        bioRe3.figureCountOver4With16 = bioRe3Memory2.figureCountOver4With16
+        bioRe3.figureCountOver4With15 = bioRe3Memory2.figureCountOver4With15
+        bioRe3.figureCountSum = bioRe3Memory2.figureCountSum
+    }
+    func loadMemory3() {
+        bioRe3.normalGame = bioRe3Memory3.normalGame
+        bioRe3.firstHitCountCz = bioRe3Memory3.firstHitCountCz
+        bioRe3.firstHitCountAt = bioRe3Memory3.firstHitCountAt
+        bioRe3.figureCountKisuJaku = bioRe3Memory3.figureCountKisuJaku
+        bioRe3.figureCountKisuKyo = bioRe3Memory3.figureCountKisuKyo
+        bioRe3.figureCountGusuJaku = bioRe3Memory3.figureCountGusuJaku
+        bioRe3.figureCountGusuKyo = bioRe3Memory3.figureCountGusuKyo
+        bioRe3.figureCountHighJaku = bioRe3Memory3.figureCountHighJaku
+        bioRe3.figureCountHighChu = bioRe3Memory3.figureCountHighChu
+        bioRe3.figureCountHighKyo = bioRe3Memory3.figureCountHighKyo
+        bioRe3.figureCountOver2 = bioRe3Memory3.figureCountOver2
+        bioRe3.figureCountOver4With16 = bioRe3Memory3.figureCountOver4With16
+        bioRe3.figureCountOver4With15 = bioRe3Memory3.figureCountOver4With15
+        bioRe3.figureCountSum = bioRe3Memory3.figureCountSum
     }
 }
 
