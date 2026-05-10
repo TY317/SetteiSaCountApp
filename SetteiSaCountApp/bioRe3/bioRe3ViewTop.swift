@@ -97,19 +97,19 @@ struct bioRe3ViewTop: View {
 //                        )
 //                    }
 
-//                    // エンディング
-//                    NavigationLink(destination: bioRe3ViewEnding(
-//                        bioRe3: bioRe3,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "flag.pattern.checkered",
-//                            textBody: "エンディング",
-//                            badgeStatus: common.bioRe3MenuEndingBadge,
-//                        )
-//                    }
-//
+                    // エンディング
+                    NavigationLink(destination: bioRe3ViewFigure(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.bioRe3MenuEndingBadge,
+                        )
+                    }
+
 //                    // おみくじ
 //                    NavigationLink(destination: bioRe3ViewOmikuji(
 //                        bioRe3: bioRe3,
@@ -123,13 +123,13 @@ struct bioRe3ViewTop: View {
 //                        )
 //                    }
 //
-                    // ケロッとトロフィー
-//                    NavigationLink(destination: commonViewKerottoTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "ケロットトロフィー"
-//                        )
-//                    }
+                    // トロフィー
+                    NavigationLink(destination: commonViewEnteriseTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "エンタトロフィー"
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: bioRe3.machineName,

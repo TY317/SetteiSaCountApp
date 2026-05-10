@@ -13,7 +13,7 @@ class BioRe3: ObservableObject {
     // ---------
     // 初当り
     // ---------
-    let ratioFirstHitCz: [Double] = [143.3,0,0,0,0,0]
+    let ratioFirstHitCz: [Double] = [143.3,-1,-1,-1,-1,-1]
     let ratioFirstHitAt: [Double] = [399,391.4,372.8,349.8,323.5,311.2]
     @AppStorage("bioRe3NormalGame") var normalGame: Int = 0
     @AppStorage("bioRe3FirstHitCountCz") var firstHitCountCz: Int = 0

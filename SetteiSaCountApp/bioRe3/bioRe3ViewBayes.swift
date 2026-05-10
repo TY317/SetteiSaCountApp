@@ -55,6 +55,14 @@ struct bioRe3ViewBayes: View {
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
+                // エンタトロフィー
+                DisclosureGroup("エンタトロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "紅葉柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3
