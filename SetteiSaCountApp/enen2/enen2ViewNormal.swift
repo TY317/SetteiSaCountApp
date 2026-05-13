@@ -36,7 +36,7 @@ struct enen2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "振分け") {
                     enen2TableModeRatio()
                 }
-                .popoverTip(tipVer3220enen2Mode())
+//                .popoverTip(tipVer3220enen2Mode())
                 unitLinkButtonViewBuilder(sheetTitle: "ミニキャラでの示唆") {
                     enen2TableMiniChara()
                 }
