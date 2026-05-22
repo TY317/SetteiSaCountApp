@@ -256,6 +256,7 @@ class commonVar: ObservableObject {
     @AppStorage("bioRe3MenuScreenBadge") var bioRe3MenuScreenBadge: String = "none"
     @AppStorage("bioRe3MenuFigureBadge") var bioRe3MenuFigureBadge: String = "none"
     @AppStorage("bioRe3MenuEndingBadge") var bioRe3MenuEndingBadge: String = "none"
+    @AppStorage("bioRe3MenuCzBadge") var bioRe3MenuCzBadge: String = "none"
     
     // ---- リオエース２
     @AppStorage("rioAceisUnlocked") var rioAceisUnlocked: Bool = true
@@ -558,7 +559,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                bioRe3MachineIconBadge = "update"
+                bioRe3MenuCzBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
