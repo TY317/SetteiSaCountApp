@@ -563,6 +563,8 @@ class commonVar: ObservableObject {
                 bioRe3MenuCzBadge = "new"
                 bakemonoMachineIconBadge = "update"
                 bakemonoMenuNormalBadge = "update"
+                rioAceMachineIconBadge = "update"
+                rioAceMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

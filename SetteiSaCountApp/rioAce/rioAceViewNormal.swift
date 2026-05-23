@@ -151,17 +151,34 @@ struct rioAceViewNormal: View {
                 
                 // アイキャッチ
                 unitLinkButtonViewBuilder(sheetTitle: "アイキャッチ法則矛盾") {
-                    VStack(alignment: .leading) {
-                        Text("・全員集合アイキャッチが出現した場合、次回ノワールルームで")
-                        Text("　　　・のわーるるーむ")
-                        Text("　　　・AT当選")
-                        Text("　　　・ノワールタイム")
-                        Text("　のいずれかに当選")
-                        Text("・どれにも当選しなかった場合は高設定の期待度が大幅アップ")
-                    }
+                    rioAceTableEyeCatch()
+//                    VStack(alignment: .leading) {
+//                        Text("・全員集合アイキャッチが出現した場合、次回ノワールルームで")
+//                        Text("　　　・のわーるるーむ")
+//                        Text("　　　・AT当選")
+//                        Text("　　　・ノワールタイム")
+//                        Text("　のいずれかに当選")
+//                        Text("・どれにも当選しなかった場合は高設定の期待度が大幅アップ")
+//                    }
                 }
             } header: {
                 Text("演出での示唆")
+            }
+            
+            // ---- エースモード
+            Section {
+                // エースモード概要
+                unitLinkButtonViewBuilder(sheetTitle: "エースモードについて") {
+                    rioAceTableAceMode()
+                }
+                .popoverTip(tipVer3260RioAceMode())
+                
+                // アイキャッチでの示唆
+                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
+                    rioAceTableEyeCatch()
+                }
+            } header: {
+                Text("エースモード")
             }
         }
         // //// バッジのリセット

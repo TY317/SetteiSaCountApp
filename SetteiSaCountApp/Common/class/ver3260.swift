@@ -37,3 +37,19 @@ struct tipVer3260BakemonoAfterAtKaijuren: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リオエース　エースモード
+//////////////////
+struct tipVer3260RioAceMode: Tip {
+   var title: Text {
+       Text("情報更新")
+   }
+   var message: Text? {
+       Text("エースモードの情報を追加")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}

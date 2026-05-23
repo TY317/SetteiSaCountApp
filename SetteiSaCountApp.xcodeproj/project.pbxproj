@@ -1175,6 +1175,10 @@
 		0FCCC5142E925E3800CE164D /* newOni3ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCC5132E925E3800CE164D /* newOni3ViewNormal.swift */; };
 		0FCCC5162E92890F00CE164D /* newOni3View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCC5152E92890F00CE164D /* newOni3View95Ci.swift */; };
 		0FCCC51A2E953DBE00CE164D /* azurLaneTableKagaRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCC5192E953DBE00CE164D /* azurLaneTableKagaRatio.swift */; };
+		0FCE1C602FC1E8F1004A1D2A /* rioAceTableAceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C5F2FC1E8F1004A1D2A /* rioAceTableAceMode.swift */; };
+		0FCE1C612FC1E8F9004A1D2A /* rioAceTableAceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C5F2FC1E8F1004A1D2A /* rioAceTableAceMode.swift */; };
+		0FCE1C632FC26970004A1D2A /* rioAceTableEyeCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C622FC26970004A1D2A /* rioAceTableEyeCatch.swift */; };
+		0FCE1C642FC2697F004A1D2A /* rioAceTableEyeCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C622FC26970004A1D2A /* rioAceTableEyeCatch.swift */; };
 		0FCF788E2E46D6A90000748B /* reSwordViewFranSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */; };
 		0FCF78902E46F2AD0000748B /* mt5TableFunaken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */; };
 		0FCF78922E470A5E0000748B /* mt5TableMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF78912E470A5E0000748B /* mt5TableMedal.swift */; };
@@ -2612,6 +2616,8 @@
 		0FCCC5132E925E3800CE164D /* newOni3ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newOni3ViewNormal.swift; sourceTree = "<group>"; };
 		0FCCC5152E92890F00CE164D /* newOni3View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newOni3View95Ci.swift; sourceTree = "<group>"; };
 		0FCCC5192E953DBE00CE164D /* azurLaneTableKagaRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azurLaneTableKagaRatio.swift; sourceTree = "<group>"; };
+		0FCE1C5F2FC1E8F1004A1D2A /* rioAceTableAceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceTableAceMode.swift; sourceTree = "<group>"; };
+		0FCE1C622FC26970004A1D2A /* rioAceTableEyeCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceTableEyeCatch.swift; sourceTree = "<group>"; };
 		0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reSwordViewFranSleep.swift; sourceTree = "<group>"; };
 		0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableFunaken.swift; sourceTree = "<group>"; };
 		0FCF78912E470A5E0000748B /* mt5TableMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableMedal.swift; sourceTree = "<group>"; };
@@ -3759,6 +3765,8 @@
 				0F00FBF12FB04FC70076283F /* rioAceTableKoyakuPattern.swift */,
 				0F00FBF42FB090EB0076283F /* rioAceTableReelEffect.swift */,
 				0F00FBF72FB0953F0076283F /* rioAceTablePushSideLamp.swift */,
+				0FCE1C5F2FC1E8F1004A1D2A /* rioAceTableAceMode.swift */,
+				0FCE1C622FC26970004A1D2A /* rioAceTableEyeCatch.swift */,
 			);
 			path = rioAce;
 			sourceTree = "<group>";
@@ -6285,6 +6293,7 @@
 				0F4471EA2F6E72960048E9CE /* Machine.swift in Sources */,
 				0F3B70522CA7F439002C7F44 /* karakuriViewTop.swift in Sources */,
 				0FA024432CDB929B004B3FD5 /* bangdreamViewTop.swift in Sources */,
+				0FCE1C632FC26970004A1D2A /* rioAceTableEyeCatch.swift in Sources */,
 				0F8689E82D3E7EC300D952D9 /* myJug5Ver2View95CiTotal.swift in Sources */,
 				0F25C27D2C889E5F008B4707 /* toloveruViewEndScreen.swift in Sources */,
 				0F64DDAF2DC5F8800027315D /* unitReelPattern.swift in Sources */,
@@ -6321,6 +6330,7 @@
 				0F1E121C2DD61C3100F69AFF /* mhrTableKiteiPt.swift in Sources */,
 				0F9A4F9E2DF40E2E003B6337 /* guiltyCrown2TableFirstHit.swift in Sources */,
 				0F7546B22C9318E20007A277 /* godeaterViewVoice.swift in Sources */,
+				0FCE1C602FC1E8F1004A1D2A /* rioAceTableAceMode.swift in Sources */,
 				0F9318892DEAA5DB00511BEF /* izaBanchoTableBBChokugeki.swift in Sources */,
 				0F6BD7DC2D8310D0003F5563 /* bioView95Ci.swift in Sources */,
 				0F815FD82E3B91D80086127D /* reSwordTableKoyakuPattern.swift in Sources */,
@@ -7371,11 +7381,13 @@
 				0F461F992F9363FA00F6B6A1 /* godKisekiTableModeBlackHole.swift in Sources */,
 				0FDE0F252F3066BA00B1DA18 /* enen2TableMode.swift in Sources */,
 				0F461F962F93627300F6B6A1 /* godKisekiTableHikariNoKaze.swift in Sources */,
+				0FCE1C642FC2697F004A1D2A /* rioAceTableEyeCatch.swift in Sources */,
 				0F461F862F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */,
 				0FB972EB2F66592000D1E56B /* enen2TableModeRatio.swift in Sources */,
 				0F375A082F80BA4300982F7A /* jormungandTableKoyakuPattern.swift in Sources */,
 				0FA0A7D42EF6947C003EF8BD /* unitReelBar.swift in Sources */,
 				0F19D44B2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift in Sources */,
+				0FCE1C612FC1E8F9004A1D2A /* rioAceTableAceMode.swift in Sources */,
 				0F461F8F2F93336A00F6B6A1 /* godKisekiTableDeme.swift in Sources */,
 				0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */,
 				0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */,
