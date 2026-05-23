@@ -241,6 +241,13 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory1.kiteiCount300Miss = bakemono.kiteiCount300Miss
         bakemonoMemory1.kiteiCount300Hit = bakemono.kiteiCount300Hit
         bakemonoMemory1.kiteiCount300Sum = bakemono.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemonoMemory1.afterAtRenCountMiss = bakemono.afterAtRenCountMiss
+        bakemonoMemory1.afterAtRenCountHit = bakemono.afterAtRenCountHit
+        bakemonoMemory1.afterAtRenCountSum = bakemono.afterAtRenCountSum
     }
     func saveMemory2() {
         bakemonoMemory2.totalGame = bakemono.totalGame
@@ -289,6 +296,13 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory2.kiteiCount300Miss = bakemono.kiteiCount300Miss
         bakemonoMemory2.kiteiCount300Hit = bakemono.kiteiCount300Hit
         bakemonoMemory2.kiteiCount300Sum = bakemono.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemonoMemory2.afterAtRenCountMiss = bakemono.afterAtRenCountMiss
+        bakemonoMemory2.afterAtRenCountHit = bakemono.afterAtRenCountHit
+        bakemonoMemory2.afterAtRenCountSum = bakemono.afterAtRenCountSum
     }
     func saveMemory3() {
         bakemonoMemory3.totalGame = bakemono.totalGame
@@ -337,6 +351,13 @@ struct bakemonoSubViewSaveMemory: View {
         bakemonoMemory3.kiteiCount300Miss = bakemono.kiteiCount300Miss
         bakemonoMemory3.kiteiCount300Hit = bakemono.kiteiCount300Hit
         bakemonoMemory3.kiteiCount300Sum = bakemono.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemonoMemory3.afterAtRenCountMiss = bakemono.afterAtRenCountMiss
+        bakemonoMemory3.afterAtRenCountHit = bakemono.afterAtRenCountHit
+        bakemonoMemory3.afterAtRenCountSum = bakemono.afterAtRenCountSum
     }
 }
 
@@ -414,6 +435,13 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.kiteiCount300Miss = bakemonoMemory1.kiteiCount300Miss
         bakemono.kiteiCount300Hit = bakemonoMemory1.kiteiCount300Hit
         bakemono.kiteiCount300Sum = bakemonoMemory1.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemono.afterAtRenCountMiss = bakemonoMemory1.afterAtRenCountMiss
+        bakemono.afterAtRenCountHit = bakemonoMemory1.afterAtRenCountHit
+        bakemono.afterAtRenCountSum = bakemonoMemory1.afterAtRenCountSum
     }
     func loadMemory2() {
         bakemono.totalGame = bakemonoMemory2.totalGame
@@ -462,6 +490,13 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.kiteiCount300Miss = bakemonoMemory2.kiteiCount300Miss
         bakemono.kiteiCount300Hit = bakemonoMemory2.kiteiCount300Hit
         bakemono.kiteiCount300Sum = bakemonoMemory2.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemono.afterAtRenCountMiss = bakemonoMemory2.afterAtRenCountMiss
+        bakemono.afterAtRenCountHit = bakemonoMemory2.afterAtRenCountHit
+        bakemono.afterAtRenCountSum = bakemonoMemory2.afterAtRenCountSum
     }
     func loadMemory3() {
         bakemono.totalGame = bakemonoMemory3.totalGame
@@ -510,6 +545,13 @@ struct bakemonoSubViewLoadMemory: View {
         bakemono.kiteiCount300Miss = bakemonoMemory3.kiteiCount300Miss
         bakemono.kiteiCount300Hit = bakemonoMemory3.kiteiCount300Hit
         bakemono.kiteiCount300Sum = bakemonoMemory3.kiteiCount300Sum
+        
+        // ----------
+        // ver3.26.0
+        // ----------
+        bakemono.afterAtRenCountMiss = bakemonoMemory3.afterAtRenCountMiss
+        bakemono.afterAtRenCountHit = bakemonoMemory3.afterAtRenCountHit
+        bakemono.afterAtRenCountSum = bakemonoMemory3.afterAtRenCountSum
     }
 }
 

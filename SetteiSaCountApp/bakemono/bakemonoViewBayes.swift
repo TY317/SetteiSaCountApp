@@ -19,6 +19,7 @@ struct bakemonoViewBayes: View {
     @State var suikaEnable: Bool = true
     @State var rareCzEnable: Bool = true
     @State var gameKaijuEnable: Bool = true
+    @State var afterAtKaijurenEnable: Bool = true
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -62,6 +63,9 @@ struct bakemonoViewBayes: View {
                 
                 // ゲーム数での解呪ノ儀当選率
                 unitToggleWithQuestion(enable: self.$gameKaijuEnable, title: "ゲーム数での解呪ノ儀当選率")
+                
+                // AT終了後の解呪連移行率
+                unitToggleWithQuestion(enable: self.$afterAtKaijurenEnable, title: "AT終了後の解呪連移行率")
                 
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "AT初当り確率")
@@ -233,6 +237,17 @@ struct bakemonoViewBayes: View {
                 bigNumber: bakemono.kiteiCount300Sum
             )
         }
+        
+        // AT終了後の解呪連移行率
+        var logPostAfterAtRen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.afterAtKaijurenEnable {
+            logPostAfterAtRen = logPostPercentBino(
+                ratio: bakemono.ratioAfterAtKaijuren,
+                Count: bakemono.afterAtRenCountHit,
+                bigNumber: bakemono.afterAtRenCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -278,6 +293,7 @@ struct bakemonoViewBayes: View {
             logPostRareCzKyoRare,
             logPostKitei200,
             logPostKitei300,
+            logPostAfterAtRen,
             
             logPostTrophy,
             logPostBefore,

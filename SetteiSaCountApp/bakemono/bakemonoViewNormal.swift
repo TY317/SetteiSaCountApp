@@ -271,7 +271,7 @@ struct bakemonoViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer3221BakemonoGameKaiju())
+//                .popoverTip(tipVer3221BakemonoGameKaiju())
                 
                 // カウントボタン横並び
                 HStack {
@@ -361,6 +361,70 @@ struct bakemonoViewNormal: View {
                 }
             } header: {
                 Text("ゲーム数での解呪ノ儀当選率")
+            }
+            
+            // ---- AT終了後の解呪連移行
+            Section {
+                // カウントボタン横並び
+                HStack {
+                    // 移行なし
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "移行なし",
+                        count: $bakemono.afterAtRenCountMiss,
+                        color: .personalSummerLightBlue,
+                        minusBool: $bakemono.minusCheck) {
+                            bakemono.afterAtRenSumFunc()
+                        }
+                    // 移行あり
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "移行あり",
+                        count: $bakemono.afterAtRenCountHit,
+                        color: .personalSummerLightRed,
+                        minusBool: $bakemono.minusCheck) {
+                            bakemono.afterAtRenSumFunc()
+                        }
+                }
+                .popoverTip(tipVer3260BakemonoAfterAtKaijuren())
+                
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "解呪連移行",
+                    count: $bakemono.afterAtRenCountHit,
+                    bigNumber: $bakemono.afterAtRenCountSum,
+                    numberofDicimal: 0
+                )
+                
+                // 参考情報
+                unitLinkButtonViewBuilder(sheetTitle: "AT終了後の解呪連移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "解呪連移行",
+                            percentList: bakemono.ratioAfterAtKaijuren
+                        )
+                    }
+                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        bakemonoView95Ci(
+                            bakemono: bakemono,
+                            selection: 7,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    bakemonoViewBayes(
+                        bakemono: bakemono,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
+            } header: {
+                Text("AT終了後の解呪連移行")
             }
             
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)

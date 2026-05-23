@@ -107,6 +107,25 @@ struct bakemonoView95Ci: View {
             )
             .tag(6)
             
+            // AT終了後の解呪連移行
+            unitListSection95Ci(
+                grafTitle: "AT終了後の解呪連移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bakemono.afterAtRenCountHit,
+                        bigNumber: $bakemono.afterAtRenCountSum,
+                        setting1Percent: bakemono.ratioAfterAtKaijuren[0],
+                        setting2Percent: bakemono.ratioAfterAtKaijuren[1],
+                        setting3Percent: bakemono.ratioAfterAtKaijuren[2],
+                        setting4Percent: bakemono.ratioAfterAtKaijuren[3],
+                        setting5Percent: bakemono.ratioAfterAtKaijuren[4],
+                        setting6Percent: bakemono.ratioAfterAtKaijuren[5]
+                    )
+                )
+            )
+            .tag(7)
+            
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",
