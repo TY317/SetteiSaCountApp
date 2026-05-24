@@ -45,18 +45,18 @@ struct bioRe3ViewTop: View {
                         )
                     }
                     
-//                    // CZ
-//                    NavigationLink(destination: bioRe3ViewCz(
-//                        bioRe3: bioRe3,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "scope",
-//                            textBody: "CZ",
-//                            badgeStatus: common.bioRe3MenuCzBadge,
-//                        )
-//                    }
+                    // CZ
+                    NavigationLink(destination: bioRe3ViewCz(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.bioRe3MenuCzBadge,
+                        )
+                    }
                     
                     // 初当り
                     NavigationLink(destination: bioRe3ViewFirstHit(

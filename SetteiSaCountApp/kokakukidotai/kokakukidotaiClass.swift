@@ -27,6 +27,13 @@ class Kokakukidotai: ObservableObject {
         iedeCountSuccess = 0
         iedeCountSum = 0
         minusCheck = false
+        
+        czColorCountBlueMiss = 0
+        czColorCountBlueHit = 0
+        czColorCountBlueSum = 0
+        czColorCountGreenMiss = 0
+        czColorCountGreenHit = 0
+        czColorCountGreenSum = 0
     }
     
     // ----------
@@ -189,6 +196,23 @@ class Kokakukidotai: ObservableObject {
         sikakuHackCountSum = 0
         minusCheck = false
     }
+    
+    // ---------
+    // ver3.26.0
+    // ---------
+    let ratioCzColorBlue: [Double] = [3.8,3.8,4.6,5.4,7.5,9.6]
+    let ratioCzColorGreen: [Double] = [-1,-1,-1,-1,-1,-1,]
+    @AppStorage("kokakukidotaiCzColorCountBlueMiss") var czColorCountBlueMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueHit") var czColorCountBlueHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueSum") var czColorCountBlueSum: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenMiss") var czColorCountGreenMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenHit") var czColorCountGreenHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenSum") var czColorCountGreenSum: Int = 0
+    
+    func czColorSumFunc() {
+        czColorCountBlueSum = czColorCountBlueMiss + czColorCountBlueHit
+        czColorCountGreenSum = czColorCountGreenMiss + czColorCountGreenHit
+    }
 }
 
 class KokakukidotaiMemory1: ObservableObject {
@@ -232,6 +256,16 @@ class KokakukidotaiMemory1: ObservableObject {
     @AppStorage("kokakukidotaiSikakuHackCountMissMemory1") var sikakuHackCountMiss: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountHitMemory1") var sikakuHackCountHit: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountSumMemory1") var sikakuHackCountSum: Int = 0
+    
+    // ---------
+    // ver3.26.0
+    // ---------
+    @AppStorage("kokakukidotaiCzColorCountBlueMissMemory1") var czColorCountBlueMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueHitMemory1") var czColorCountBlueHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueSumMemory1") var czColorCountBlueSum: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenMissMemory1") var czColorCountGreenMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenHitMemory1") var czColorCountGreenHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenSumMemory1") var czColorCountGreenSum: Int = 0
 }
 
 
@@ -276,6 +310,16 @@ class KokakukidotaiMemory2: ObservableObject {
     @AppStorage("kokakukidotaiSikakuHackCountMissMemory2") var sikakuHackCountMiss: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountHitMemory2") var sikakuHackCountHit: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountSumMemory2") var sikakuHackCountSum: Int = 0
+    
+    // ---------
+    // ver3.26.0
+    // ---------
+    @AppStorage("kokakukidotaiCzColorCountBlueMissMemory2") var czColorCountBlueMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueHitMemory2") var czColorCountBlueHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueSumMemory2") var czColorCountBlueSum: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenMissMemory2") var czColorCountGreenMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenHitMemory2") var czColorCountGreenHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenSumMemory2") var czColorCountGreenSum: Int = 0
 }
 
 
@@ -320,4 +364,14 @@ class KokakukidotaiMemory3: ObservableObject {
     @AppStorage("kokakukidotaiSikakuHackCountMissMemory3") var sikakuHackCountMiss: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountHitMemory3") var sikakuHackCountHit: Int = 0
     @AppStorage("kokakukidotaiSikakuHackCountSumMemory3") var sikakuHackCountSum: Int = 0
+    
+    // ---------
+    // ver3.26.0
+    // ---------
+    @AppStorage("kokakukidotaiCzColorCountBlueMissMemory3") var czColorCountBlueMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueHitMemory3") var czColorCountBlueHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountBlueSumMemory3") var czColorCountBlueSum: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenMissMemory3") var czColorCountGreenMiss: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenHitMemory3") var czColorCountGreenHit: Int = 0
+    @AppStorage("kokakukidotaiCzColorCountGreenSumMemory3") var czColorCountGreenSum: Int = 0
 }

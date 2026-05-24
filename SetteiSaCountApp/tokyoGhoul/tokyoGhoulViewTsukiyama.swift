@@ -189,6 +189,7 @@ struct tokyoGhoulViewTsukiyama: View {
                             textBody1: "・6種類のモードで規定ゲーム数の抽選テーブルを管理",
                             textBody2: "・モード移行契機はCZ失敗時",
                             textBody3: "・天国以外は転落なし",
+                            textBody4: "・AT駆け抜け(BITESや百足覚醒・隻眼の梟に突入せず1戦目で終了)時はモードB以上濃厚",
                             tableView: AnyView(tokyoGhoulTableModeTable())
                         )
                     )

@@ -32,6 +32,44 @@ struct kokakukidotaiView95Ci: View {
             )
             .tag(3)
             
+            // 殲滅ゾーン　青発展での成功回数
+            unitListSection95Ci(
+                grafTitle: "殲滅ゾーン\n青発展での成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.czColorCountBlueHit,
+                        bigNumber: $kokakukidotai.czColorCountBlueSum,
+                        setting1Percent: kokakukidotai.ratioCzColorBlue[0],
+                        setting2Percent: kokakukidotai.ratioCzColorBlue[1],
+                        setting3Percent: kokakukidotai.ratioCzColorBlue[2],
+                        setting4Percent: kokakukidotai.ratioCzColorBlue[3],
+                        setting5Percent: kokakukidotai.ratioCzColorBlue[4],
+                        setting6Percent: kokakukidotai.ratioCzColorBlue[5]
+                    )
+                )
+            )
+            .tag(6)
+            
+//            // 殲滅ゾーン　緑発展での成功回数
+//            unitListSection95Ci(
+//                grafTitle: "殲滅ゾーン\n緑発展での成功回数",
+//                titleFont: .title2,
+//                grafView: AnyView(
+//                    unitChart95CiPercent(
+//                        currentCount: $kokakukidotai.czColorCountGreenHit,
+//                        bigNumber: $kokakukidotai.czColorCountGreenSum,
+//                        setting1Percent: kokakukidotai.ratioCzColorGreen[0],
+//                        setting2Percent: kokakukidotai.ratioCzColorGreen[1],
+//                        setting3Percent: kokakukidotai.ratioCzColorGreen[2],
+//                        setting4Percent: kokakukidotai.ratioCzColorGreen[3],
+//                        setting5Percent: kokakukidotai.ratioCzColorGreen[4],
+//                        setting6Percent: kokakukidotai.ratioCzColorGreen[5]
+//                    )
+//                )
+//            )
+//            .tag(7)
+            
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",

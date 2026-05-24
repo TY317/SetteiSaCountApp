@@ -37,6 +37,10 @@ class Bakemono: ObservableObject {
         kiteiCount300Miss = 0
         kiteiCount300Hit = 0
         kiteiCount300Sum = 0
+        
+        afterAtRenCountMiss = 0
+        afterAtRenCountHit = 0
+        afterAtRenCountSum = 0
     }
     
     // ------------
@@ -176,6 +180,18 @@ class Bakemono: ObservableObject {
         kiteiCount200Sum = kiteiCount200Hit + kiteiCount200Miss
         kiteiCount300Sum = kiteiCount300Hit + kiteiCount300Miss
     }
+    
+    // ----------
+    // ver3.26.0
+    // ----------
+    let ratioAfterAtKaijuren: [Double] = [10,10,10.4,12.5,14.6,15.0]
+    @AppStorage("bakemonoAfterAtRenCountMiss") var afterAtRenCountMiss: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountHit") var afterAtRenCountHit: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountSum") var afterAtRenCountSum: Int = 0
+    
+    func afterAtRenSumFunc() {
+        afterAtRenCountSum = afterAtRenCountHit + afterAtRenCountMiss
+    }
 }
 
 class BakemonoMemory1: ObservableObject {
@@ -227,6 +243,13 @@ class BakemonoMemory1: ObservableObject {
     @AppStorage("bakemonoKiteiCount300MissMemory1") var kiteiCount300Miss: Int = 0
     @AppStorage("bakemonoKiteiCount300HitMemory1") var kiteiCount300Hit: Int = 0
     @AppStorage("bakemonoKiteiCount300SumMemory1") var kiteiCount300Sum: Int = 0
+    
+    // ----------
+    // ver3.26.0
+    // ----------
+    @AppStorage("bakemonoAfterAtRenCountMissMemory1") var afterAtRenCountMiss: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountHitMemory1") var afterAtRenCountHit: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountSumMemory1") var afterAtRenCountSum: Int = 0
 }
 
 class BakemonoMemory2: ObservableObject {
@@ -278,6 +301,13 @@ class BakemonoMemory2: ObservableObject {
     @AppStorage("bakemonoKiteiCount300MissMemory2") var kiteiCount300Miss: Int = 0
     @AppStorage("bakemonoKiteiCount300HitMemory2") var kiteiCount300Hit: Int = 0
     @AppStorage("bakemonoKiteiCount300SumMemory2") var kiteiCount300Sum: Int = 0
+    
+    // ----------
+    // ver3.26.0
+    // ----------
+    @AppStorage("bakemonoAfterAtRenCountMissMemory2") var afterAtRenCountMiss: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountHitMemory2") var afterAtRenCountHit: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountSumMemory2") var afterAtRenCountSum: Int = 0
 }
 
 class BakemonoMemory3: ObservableObject {
@@ -329,4 +359,11 @@ class BakemonoMemory3: ObservableObject {
     @AppStorage("bakemonoKiteiCount300MissMemory3") var kiteiCount300Miss: Int = 0
     @AppStorage("bakemonoKiteiCount300HitMemory3") var kiteiCount300Hit: Int = 0
     @AppStorage("bakemonoKiteiCount300SumMemory3") var kiteiCount300Sum: Int = 0
+    
+    // ----------
+    // ver3.26.0
+    // ----------
+    @AppStorage("bakemonoAfterAtRenCountMissMemory3") var afterAtRenCountMiss: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountHitMemory3") var afterAtRenCountHit: Int = 0
+    @AppStorage("bakemonoAfterAtRenCountSumMemory3") var afterAtRenCountSum: Int = 0
 }

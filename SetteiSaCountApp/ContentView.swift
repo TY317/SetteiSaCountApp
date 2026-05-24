@@ -2288,10 +2288,10 @@ struct ContentView: View {
                     // 新アプリ　リリース情報
                     if common.newAppInfoShow {
                         unitViewNewAppRelease(
-                            appIcon: "lotteryMemoAppIcon",
-                            appName: "抽選履歴メモ",
-                            promotionText: "あなたは引き強？　パチ屋の朝抽選の記録に特化したアプリが誕生しました！朝の抽選をもっと楽しく！",
-                            appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",
+                            appIcon: "shimazuMakerAppIcon",
+                            appName: "島図メーカー",
+                            promotionText: "パチ屋の島図をスマホで作って、台ごとに色付けやメモが残せる——これまでにない、立ち回り用アプリが誕生",
+                            appStoreURL: "https://apps.apple.com/jp/app/島図メーカー/id6766023404",
                         )
                     }
                 }
@@ -2669,8 +2669,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

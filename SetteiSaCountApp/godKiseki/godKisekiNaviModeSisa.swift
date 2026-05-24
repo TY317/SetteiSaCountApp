@@ -62,6 +62,26 @@ struct godKisekiNaviModeSisa: View {
                     )
                 }
                 
+                // 雷
+                NavigationLink(destination: godKisekiModeThunder(
+                    isPresented: self.$isPresented
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "bolt.fill",
+                        textBody: "雷"
+                    )
+                }
+                
+                // アルテミスの矢
+                NavigationLink(destination: godKisekiModeArrow(
+                    isPresented: self.$isPresented
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "figure.archery",
+                        textBody: "アルテミスの矢"
+                    )
+                }
+                
                 // 遅れ
                 NavigationLink(destination: godKisekiTableModeOkure(
                     isPresented: self.$isPresented

@@ -64,6 +64,7 @@ struct godKisekiViewNormal: View {
                             .presentationDetents([.large])
                     }
                 }
+                .popoverTip(tipVer3260GodKisekiUratensisa())
             } header: {
                 Text("モード")
             }
@@ -113,7 +114,7 @@ struct godKisekiViewNormal: View {
                     sheetTitle: "小役連での当選率") {
                         godKisekiTableKoyakuRen(godKiseki: godKiseki)
                     }
-                    .popoverTip(tipVer3241GodKisekiKoyakuRen())
+//                    .popoverTip(tipVer3241GodKisekiKoyakuRen())
                 
                 DisclosureGroup {
                     // セグメントピッカー

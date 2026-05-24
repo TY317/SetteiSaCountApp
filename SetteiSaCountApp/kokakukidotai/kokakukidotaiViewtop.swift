@@ -259,6 +259,16 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory1.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
         kokakukidotaiMemory1.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
         kokakukidotaiMemory1.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotaiMemory1.czColorCountBlueMiss = kokakukidotai.czColorCountBlueMiss
+        kokakukidotaiMemory1.czColorCountBlueHit = kokakukidotai.czColorCountBlueHit
+        kokakukidotaiMemory1.czColorCountBlueSum = kokakukidotai.czColorCountBlueSum
+        kokakukidotaiMemory1.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
+        kokakukidotaiMemory1.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
+        kokakukidotaiMemory1.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
     }
     func saveMemory2() {
         kokakukidotaiMemory2.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -299,6 +309,16 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory2.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
         kokakukidotaiMemory2.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
         kokakukidotaiMemory2.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotaiMemory2.czColorCountBlueMiss = kokakukidotai.czColorCountBlueMiss
+        kokakukidotaiMemory2.czColorCountBlueHit = kokakukidotai.czColorCountBlueHit
+        kokakukidotaiMemory2.czColorCountBlueSum = kokakukidotai.czColorCountBlueSum
+        kokakukidotaiMemory2.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
+        kokakukidotaiMemory2.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
+        kokakukidotaiMemory2.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
     }
     func saveMemory3() {
         kokakukidotaiMemory3.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -339,6 +359,16 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory3.sikakuHackCountMiss = kokakukidotai.sikakuHackCountMiss
         kokakukidotaiMemory3.sikakuHackCountHit = kokakukidotai.sikakuHackCountHit
         kokakukidotaiMemory3.sikakuHackCountSum = kokakukidotai.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotaiMemory3.czColorCountBlueMiss = kokakukidotai.czColorCountBlueMiss
+        kokakukidotaiMemory3.czColorCountBlueHit = kokakukidotai.czColorCountBlueHit
+        kokakukidotaiMemory3.czColorCountBlueSum = kokakukidotai.czColorCountBlueSum
+        kokakukidotaiMemory3.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
+        kokakukidotaiMemory3.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
+        kokakukidotaiMemory3.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
     }
 }
 
@@ -408,6 +438,16 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory1.sikakuHackCountMiss
         kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory1.sikakuHackCountHit
         kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory1.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotai.czColorCountBlueMiss = kokakukidotaiMemory1.czColorCountBlueMiss
+        kokakukidotai.czColorCountBlueHit = kokakukidotaiMemory1.czColorCountBlueHit
+        kokakukidotai.czColorCountBlueSum = kokakukidotaiMemory1.czColorCountBlueSum
+        kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory1.czColorCountGreenMiss
+        kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory1.czColorCountGreenHit
+        kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory1.czColorCountGreenSum
     }
     func loadMemory2() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory2.iedeCountMiss
@@ -448,6 +488,16 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory2.sikakuHackCountMiss
         kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory2.sikakuHackCountHit
         kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory2.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotai.czColorCountBlueMiss = kokakukidotaiMemory2.czColorCountBlueMiss
+        kokakukidotai.czColorCountBlueHit = kokakukidotaiMemory2.czColorCountBlueHit
+        kokakukidotai.czColorCountBlueSum = kokakukidotaiMemory2.czColorCountBlueSum
+        kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory2.czColorCountGreenMiss
+        kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory2.czColorCountGreenHit
+        kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory2.czColorCountGreenSum
     }
     func loadMemory3() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory3.iedeCountMiss
@@ -488,6 +538,16 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.sikakuHackCountMiss = kokakukidotaiMemory3.sikakuHackCountMiss
         kokakukidotai.sikakuHackCountHit = kokakukidotaiMemory3.sikakuHackCountHit
         kokakukidotai.sikakuHackCountSum = kokakukidotaiMemory3.sikakuHackCountSum
+        
+        // ---------
+        // ver3.26.0
+        // ---------
+        kokakukidotai.czColorCountBlueMiss = kokakukidotaiMemory3.czColorCountBlueMiss
+        kokakukidotai.czColorCountBlueHit = kokakukidotaiMemory3.czColorCountBlueHit
+        kokakukidotai.czColorCountBlueSum = kokakukidotaiMemory3.czColorCountBlueSum
+        kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory3.czColorCountGreenMiss
+        kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory3.czColorCountGreenHit
+        kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory3.czColorCountGreenSum
     }
 }
 

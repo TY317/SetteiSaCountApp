@@ -79,7 +79,7 @@ struct newOni3ViewFirstHit: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3220newOni3UraMode())
+//                .popoverTip(tipVer3220newOni3UraMode())
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(
