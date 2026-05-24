@@ -53,3 +53,19 @@ struct tipVer3260RioAceMode: Tip {
        Image(systemName: "exclamationmark.bubble")
    }
 }
+
+
+//////////////////
+// Tip：ゴッド　裏天国示唆
+//////////////////
+struct tipVer3260GodKisekiUratensisa: Tip {
+   var title: Text {
+       Text("情報更新")
+   }
+   var message: Text? {
+       Text("裏天国示唆の演出情報を追加")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
