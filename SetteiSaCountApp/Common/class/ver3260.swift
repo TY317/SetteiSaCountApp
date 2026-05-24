@@ -69,3 +69,19 @@ struct tipVer3260GodKisekiUratensisa: Tip {
        Image(systemName: "exclamationmark.bubble")
    }
 }
+
+
+//////////////////
+// Tip：攻殻機動隊　色ごとのCZ成功率
+//////////////////
+struct tipVer3260KokakukidotaiCz: Tip {
+   var title: Text {
+       Text("機能更新")
+   }
+   var message: Text? {
+       Text("発展色ごとの成功率が判明\nカウント機能を追加しました")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}

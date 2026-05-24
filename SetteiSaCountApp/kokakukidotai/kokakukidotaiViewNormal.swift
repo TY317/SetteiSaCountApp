@@ -12,6 +12,10 @@ struct kokakukidotaiViewNormal: View {
     @ObservedObject var bayes: Bayes
     @ObservedObject var viewModel: InterstitialViewModel
     @EnvironmentObject var common: commonVar
+    
+    let itemList: [String] = ["青", "緑",]
+    @State var selectedItem: String = "青"
+    
     var body: some View {
         List {
             // タチコマの家出
@@ -89,6 +93,126 @@ struct kokakukidotaiViewNormal: View {
             } header: {
                 Text("AT終了時200or400GでのCZ当選")
             }
+            
+            // ---- 発展色ごとの成功率
+            Section {
+                // 確率結果
+                HStack {
+                    // 青
+                    unitResultRatioPercent2Line(
+                        title: "青",
+                        count: $kokakukidotai.czColorCountBlueHit,
+                        bigNumber: $kokakukidotai.czColorCountBlueSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    
+                    // 緑
+                    unitResultRatioPercent2Line(
+                        title: "緑",
+                        count: $kokakukidotai.czColorCountGreenHit,
+                        bigNumber: $kokakukidotai.czColorCountGreenSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer3260KokakukidotaiCz())
+                
+                // 参考情報）発展色ごとの
+                unitLinkButtonViewBuilder(sheetTitle: "発展色ごとのCZ以上当選率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "青",
+                            percentList: kokakukidotai.ratioCzColorBlue,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "緑",
+                            percentList: kokakukidotai.ratioCzColorGreen,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                
+                DisclosureGroup {
+                    // セグメントピッカー
+                    Picker("", selection: self.$selectedItem) {
+                        ForEach(self.itemList, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // 青
+                        if self.selectedItem == self.itemList[0] {
+                            // ハズレ
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "ハズレ",
+                                count: $kokakukidotai.czColorCountBlueMiss,
+                                color: .personalSummerLightBlue,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.czColorSumFunc()
+                                }
+                            // CZ以上当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "CZ以上当選",
+                                count: $kokakukidotai.czColorCountBlueHit,
+                                color: .blue,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.czColorSumFunc()
+                                }
+                        }
+                        // 緑
+                        else {
+                            // ハズレ
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "ハズレ",
+                                count: $kokakukidotai.czColorCountGreenMiss,
+                                color: .personalSummerLightGreen,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.czColorSumFunc()
+                                }
+                            // CZ以上当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "CZ以上当選",
+                                count: $kokakukidotai.czColorCountGreenHit,
+                                color: .green,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.czColorSumFunc()
+                                }
+                        }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 6,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("殲滅ゾーン 発展色ごとの成功率")
+            }
+            
             
             // レア役
             Section {
