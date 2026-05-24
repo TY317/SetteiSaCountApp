@@ -2288,10 +2288,10 @@ struct ContentView: View {
                     // 新アプリ　リリース情報
                     if common.newAppInfoShow {
                         unitViewNewAppRelease(
-                            appIcon: "lotteryMemoAppIcon",
-                            appName: "抽選履歴メモ",
-                            promotionText: "あなたは引き強？　パチ屋の朝抽選の記録に特化したアプリが誕生しました！朝の抽選をもっと楽しく！",
-                            appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",
+                            appIcon: "shimazuMakerAppIcon",
+                            appName: "島図メーカー",
+                            promotionText: "パチ屋の島図をスマホで作って、台ごとに色付けやメモが残せる——これまでにない、立ち回り用アプリが誕生",
+                            appStoreURL: "https://apps.apple.com/jp/app/島図メーカー/id6766023404",
                         )
                     }
                 }

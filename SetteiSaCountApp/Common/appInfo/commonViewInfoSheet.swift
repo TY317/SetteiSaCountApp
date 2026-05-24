@@ -26,6 +26,20 @@ struct commonViewInfoSheet: View {
                 // おすすめアプリ
                 Section {
                     unitAppRecommend(
+                        iconImage: "shimazuMakerAppIcon",
+                        appTitle: "島図メーカー",
+                        appStoreURL: "https://apps.apple.com/jp/app/島図メーカー/id6766023404",
+                        previewImages: [
+                            "recommendShimazuMakerPreview1",
+                            "recommendShimazuMakerPreview2",
+                            "recommendShimazuMakerPreview3",
+                            "recommendShimazuMakerPreview4",
+                            "recommendShimazuMakerPreview5",
+                            "recommendShimazuMakerPreview6",
+                        ],
+                        promotionText: "パチ屋の島図をスマホで作って、台ごとに色付けやメモが残せる——これまでにない、立ち回り用アプリが誕生。マイホをそっくり再現して、その日の状況をまるごと記録。QR コードで仲間と即シェア。前日下見・当日立ち回り・軍団稼働、ぜんぶこれ 1 つ。"
+                    )
+                    unitAppRecommend(
                         iconImage: "lotteryMemoAppIcon",
                         appTitle: "抽選履歴メモ",
                         appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",

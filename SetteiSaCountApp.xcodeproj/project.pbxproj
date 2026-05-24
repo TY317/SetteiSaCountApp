@@ -1183,6 +1183,8 @@
 		0FCE1C672FC27109004A1D2A /* godKisekiModeThunder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C652FC27109004A1D2A /* godKisekiModeThunder.swift */; };
 		0FCE1C692FC272FE004A1D2A /* godKisekiModeArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C682FC272FE004A1D2A /* godKisekiModeArrow.swift */; };
 		0FCE1C6A2FC272FE004A1D2A /* godKisekiModeArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE1C682FC272FE004A1D2A /* godKisekiModeArrow.swift */; };
+		0FCE1C6D2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE1C6C2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets */; };
+		0FCE1C6E2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE1C6C2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets */; };
 		0FCF788E2E46D6A90000748B /* reSwordViewFranSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */; };
 		0FCF78902E46F2AD0000748B /* mt5TableFunaken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */; };
 		0FCF78922E470A5E0000748B /* mt5TableMedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF78912E470A5E0000748B /* mt5TableMedal.swift */; };
@@ -2624,6 +2626,7 @@
 		0FCE1C622FC26970004A1D2A /* rioAceTableEyeCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceTableEyeCatch.swift; sourceTree = "<group>"; };
 		0FCE1C652FC27109004A1D2A /* godKisekiModeThunder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiModeThunder.swift; sourceTree = "<group>"; };
 		0FCE1C682FC272FE004A1D2A /* godKisekiModeArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiModeArrow.swift; sourceTree = "<group>"; };
+		0FCE1C6C2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendShimazuMakerAssets.xcassets; sourceTree = "<group>"; };
 		0FCF788D2E46D6A90000748B /* reSwordViewFranSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reSwordViewFranSleep.swift; sourceTree = "<group>"; };
 		0FCF788F2E46F2AD0000748B /* mt5TableFunaken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableFunaken.swift; sourceTree = "<group>"; };
 		0FCF78912E470A5E0000748B /* mt5TableMedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableMedal.swift; sourceTree = "<group>"; };
@@ -3042,6 +3045,7 @@
 		0F00FAA62FACB9F10076283F /* appInfo */ = {
 			isa = PBXGroup;
 			children = (
+				0FCE1C6B2FC29A67004A1D2A /* shimazuMaker */,
 				0F00FAF32FACBC5B0076283F /* hikakukakaku */,
 				0F00FAF22FACBC300076283F /* lotteryMemo */,
 				0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */,
@@ -5096,6 +5100,14 @@
 			path = newOni3;
 			sourceTree = "<group>";
 		};
+		0FCE1C6B2FC29A67004A1D2A /* shimazuMaker */ = {
+			isa = PBXGroup;
+			children = (
+				0FCE1C6C2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets */,
+			);
+			path = shimazuMaker;
+			sourceTree = "<group>";
+		};
 		0FD3578B2DAB32900069BD1A /* godzilla */ = {
 			isa = PBXGroup;
 			children = (
@@ -5732,6 +5744,7 @@
 				0FDC32832D260767005B3D06 /* dumbbellAssets.xcassets in Resources */,
 				0FF369142E5AF292002BE0CE /* azurLaneAsetts.xcassets in Resources */,
 				0FA662E82F1521E900F3259F /* kokakukidotaiAssets.xcassets in Resources */,
+				0FCE1C6E2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets in Resources */,
 				0F6B59B62DFD276300DB1A2B /* evaYakusokuAssets.xcassets in Resources */,
 				0F8090402C83DC410061480F /* hokutoAssets.xcassets in Resources */,
 				0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */,
@@ -5762,6 +5775,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FCE1C6D2FC29A7F004A1D2A /* recommendShimazuMakerAssets.xcassets in Resources */,
 				0F4471D42F6C23D60048E9CE /* kabaneriUnatoAssets.xcassets in Resources */,
 				0F45A5E12F079CC40022E355 /* tekken6Assets.xcassets in Resources */,
 				0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */,
@@ -7597,7 +7611,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.25.0;
+				MARKETING_VERSION = 3.26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -7637,7 +7651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.25.0;
+				MARKETING_VERSION = 3.26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
