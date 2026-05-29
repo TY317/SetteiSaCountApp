@@ -87,6 +87,7 @@
 		0F19D44F2F2D95B7004A6D9F /* tekken6TableRareDirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */; };
 		0F19D4502F2D95BD004A6D9F /* tekken6TableRareDirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */; };
 		0F19D4522F2DAB08004A6D9F /* tekken6ViewBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4512F2DAB08004A6D9F /* tekken6ViewBonus.swift */; };
+		0F1A7D812FCA5C7D00B3DB2A /* ver3270.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D802FCA5C7D00B3DB2A /* ver3270.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1633,6 +1634,7 @@
 		0F19D44A2F2D7D58004A6D9F /* hokutoTenseiTableTengekiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hokutoTenseiTableTengekiDetail.swift; sourceTree = "<group>"; };
 		0F19D44E2F2D95B7004A6D9F /* tekken6TableRareDirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6TableRareDirect.swift; sourceTree = "<group>"; };
 		0F19D4512F2DAB08004A6D9F /* tekken6ViewBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6ViewBonus.swift; sourceTree = "<group>"; };
+		0F1A7D802FCA5C7D00B3DB2A /* ver3270.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3270.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -4471,6 +4473,7 @@
 				0F59EBED2F9A245300CF0C55 /* ver3241.swift */,
 				0F7568CC2FA613A600A66336 /* ver3250.swift */,
 				0F186E6A2FB4ADA600FAAEB7 /* ver3260.swift */,
+				0F1A7D802FCA5C7D00B3DB2A /* ver3270.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -6796,6 +6799,7 @@
 				0F7F863E2D9D50E800F26486 /* tokyoGhoulTableJakuCherryCz.swift in Sources */,
 				0F8872762C6AE38C00AADD2B /* myModifier.swift in Sources */,
 				0F868A002D4278FE00D952D9 /* goJug3Ver2ViewKenDataInput.swift in Sources */,
+				0F1A7D812FCA5C7D00B3DB2A /* ver3270.swift in Sources */,
 				0FD975032F4349B50067CED7 /* newKingHanaViewTop.swift in Sources */,
 				0FB2095B2E0FE5DD0029D940 /* guiltyCrown2TableBonusDetail.swift in Sources */,
 				0F9D9C0B2EA33CEF00450B23 /* urmiraViewShimaData.swift in Sources */,
