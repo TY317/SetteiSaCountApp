@@ -684,48 +684,22 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3221FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.22.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                dmc5MachineIconBadge = "update"
-                dmc5MenuPremiumStBadge = "update"
-                enen2MachineIconBadge = "update"
-                enen2MenuScreenBadge = "update"
-                bakemonoMachineIconBadge = "update"
-                bakemonoMenuNormalBadge = "update"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuFirstHitBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    
-//    func ver3220FirstLaunch() {
+//    func ver3221FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.22.0"
+//        let targetVersion: String = "3.22.1"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                thunderisUnlocked = false
-//                thunderMachineIconBadge = "new"
-//                kabaneriUnatoMenuOmikujiBadge = "update"
-//                kabaneriUnatoMachineIconBadge = "update"
+//                dmc5MachineIconBadge = "update"
+//                dmc5MenuPremiumStBadge = "update"
 //                enen2MachineIconBadge = "update"
-//                enen2MenuNormalBadge = "update"
-//                newOni3MachineIconBadge = "update"
-//                newOni3MenuFirstHitBadge = "update"
+//                enen2MenuScreenBadge = "update"
+//                bakemonoMachineIconBadge = "update"
+//                bakemonoMenuNormalBadge = "update"
+//                kokakukidotaiMachineIconBadge = "update"
+//                kokakukidotaiMenuFirstHitBadge = "update"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
@@ -734,5 +708,7 @@ class commonVar: ObservableObject {
 //            print("初回起動です")
 //        }
 //    }
+    
+    
 }
 

@@ -172,7 +172,7 @@ struct dmc5ViewVoice: View {
                 unitLinkButtonViewBuilder(sheetTitle: "終了後のモード振分け") {
                     dmc5TablePremiumStMode()
                 }
-                .popoverTip(tipVer3221Dmc5PremiumStMode())
+//                .popoverTip(tipVer3221Dmc5PremiumStMode())
                 
                 // 通常時のモード
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
