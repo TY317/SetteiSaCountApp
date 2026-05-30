@@ -71,17 +71,17 @@ struct tipVer3270GodKisekiZzoneRise: Tip {
 //}
 //
 //
-////////////////////
-//// Tip：攻殻機動隊　色ごとのCZ成功率
-////////////////////
-//struct tipVer3260KokakukidotaiCz: Tip {
-//   var title: Text {
-//       Text("機能更新")
-//   }
-//   var message: Text? {
-//       Text("発展色ごとの成功率が判明\nカウント機能を追加しました")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
+//////////////////
+// Tip：攻殻機動隊　色ごとのCZ成功率
+//////////////////
+struct tipVer3270KokakukidotaiCz: Tip {
+   var title: Text {
+       Text("情報更新")
+   }
+   var message: Text? {
+       Text("緑発展の成功率が判明")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}

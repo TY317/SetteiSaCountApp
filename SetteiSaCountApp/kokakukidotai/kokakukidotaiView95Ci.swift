@@ -51,24 +51,24 @@ struct kokakukidotaiView95Ci: View {
             )
             .tag(6)
             
-//            // 殲滅ゾーン　緑発展での成功回数
-//            unitListSection95Ci(
-//                grafTitle: "殲滅ゾーン\n緑発展での成功回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kokakukidotai.czColorCountGreenHit,
-//                        bigNumber: $kokakukidotai.czColorCountGreenSum,
-//                        setting1Percent: kokakukidotai.ratioCzColorGreen[0],
-//                        setting2Percent: kokakukidotai.ratioCzColorGreen[1],
-//                        setting3Percent: kokakukidotai.ratioCzColorGreen[2],
-//                        setting4Percent: kokakukidotai.ratioCzColorGreen[3],
-//                        setting5Percent: kokakukidotai.ratioCzColorGreen[4],
-//                        setting6Percent: kokakukidotai.ratioCzColorGreen[5]
-//                    )
-//                )
-//            )
-//            .tag(7)
+            // 殲滅ゾーン　緑発展での成功回数
+            unitListSection95Ci(
+                grafTitle: "殲滅ゾーン\n緑発展での成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.czColorCountGreenHit,
+                        bigNumber: $kokakukidotai.czColorCountGreenSum,
+                        setting1Percent: kokakukidotai.ratioCzColorGreen[0],
+                        setting2Percent: kokakukidotai.ratioCzColorGreen[1],
+                        setting3Percent: kokakukidotai.ratioCzColorGreen[2],
+                        setting4Percent: kokakukidotai.ratioCzColorGreen[3],
+                        setting5Percent: kokakukidotai.ratioCzColorGreen[4],
+                        setting6Percent: kokakukidotai.ratioCzColorGreen[5]
+                    )
+                )
+            )
+            .tag(7)
             
             // CZ初当り回数
             unitListSection95Ci(

@@ -564,6 +564,8 @@ class commonVar: ObservableObject {
                 jormungandMenuHighCzBadge = "new"
                 godKisekiMachineIconBadge = "update"
                 godKisekiMenuFirstHitBadge = "update"
+                kokakukidotaiMachineIconBadge = "update"
+                kokakukidotaiMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

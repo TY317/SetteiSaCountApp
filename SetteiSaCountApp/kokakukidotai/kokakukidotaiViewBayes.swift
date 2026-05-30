@@ -237,11 +237,17 @@ struct kokakukidotaiViewBayes: View {
         
         // 殲滅ゾーン　発展色ごとの成功率
         var logPostCzColorBlue: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostCzColorGreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.czColorEnable {
             logPostCzColorBlue = logPostPercentBino(
                 ratio: kokakukidotai.ratioCzColorBlue,
                 Count: kokakukidotai.czColorCountBlueHit,
                 bigNumber: kokakukidotai.czColorCountBlueSum
+            )
+            logPostCzColorGreen = logPostPercentBino(
+                ratio: kokakukidotai.ratioCzColorGreen,
+                Count: kokakukidotai.czColorCountGreenHit,
+                bigNumber: kokakukidotai.czColorCountGreenSum
             )
         }
         
@@ -290,6 +296,7 @@ struct kokakukidotaiViewBayes: View {
             logPostCzScreen,
             logPostSikakuHack,
             logPostCzColorBlue,
+            logPostCzColorGreen,
             
             logPostTrophy,
             logPostBefore,

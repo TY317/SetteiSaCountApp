@@ -117,7 +117,6 @@ struct kokakukidotaiViewNormal: View {
                     )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
-                .popoverTip(tipVer3260KokakukidotaiCz())
                 
                 // 参考情報）発展色ごとの
                 unitLinkButtonViewBuilder(sheetTitle: "発展色ごとのCZ以上当選率") {
@@ -131,10 +130,11 @@ struct kokakukidotaiViewNormal: View {
                         unitTablePercent(
                             columTitle: "緑",
                             percentList: kokakukidotai.ratioCzColorGreen,
-                            numberofDicimal: 1,
+//                            numberofDicimal: 1,
                         )
                     }
                 }
+                .popoverTip(tipVer3270KokakukidotaiCz())
                 
                 DisclosureGroup {
                     // セグメントピッカー
