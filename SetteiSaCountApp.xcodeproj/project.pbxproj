@@ -75,6 +75,9 @@
 		0F1217FB2FCA963300E50794 /* sao2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1217FA2FCA963300E50794 /* sao2ViewTop.swift */; };
 		0F1217FD2FCA968700E50794 /* otome5Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1217FC2FCA968700E50794 /* otome5Assets.xcassets */; };
 		0F1217FF2FCA96D200E50794 /* sao2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1217FE2FCA96D200E50794 /* sao2Assets.xcassets */; };
+		0F12186D2FCAEAAF00E50794 /* sao2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12186C2FCAEAAF00E50794 /* sao2Class.swift */; };
+		0F12186F2FCAEB7E00E50794 /* sao2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12186E2FCAEB7E00E50794 /* sao2View95Ci.swift */; };
+		0F1218712FCAEB8D00E50794 /* sao2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1218702FCAEB8D00E50794 /* sao2ViewBayes.swift */; };
 		0F186E6B2FB4ADA600FAAEB7 /* ver3260.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F186E6A2FB4ADA600FAAEB7 /* ver3260.swift */; };
 		0F19D4362F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4352F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift */; };
 		0F19D4382F2602F8004A6D9F /* kokakukidotaiViewAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19D4372F2602F8004A6D9F /* kokakukidotaiViewAt.swift */; };
@@ -1632,6 +1635,9 @@
 		0F1217FA2FCA963300E50794 /* sao2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewTop.swift; sourceTree = "<group>"; };
 		0F1217FC2FCA968700E50794 /* otome5Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = otome5Assets.xcassets; sourceTree = "<group>"; };
 		0F1217FE2FCA96D200E50794 /* sao2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sao2Assets.xcassets; sourceTree = "<group>"; };
+		0F12186C2FCAEAAF00E50794 /* sao2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2Class.swift; sourceTree = "<group>"; };
+		0F12186E2FCAEB7E00E50794 /* sao2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2View95Ci.swift; sourceTree = "<group>"; };
+		0F1218702FCAEB8D00E50794 /* sao2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewBayes.swift; sourceTree = "<group>"; };
 		0F186E6A2FB4ADA600FAAEB7 /* ver3260.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3260.swift; sourceTree = "<group>"; };
 		0F19D4352F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewFirstHit.swift; sourceTree = "<group>"; };
 		0F19D4372F2602F8004A6D9F /* kokakukidotaiViewAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiViewAt.swift; sourceTree = "<group>"; };
@@ -3155,6 +3161,9 @@
 			children = (
 				0F1217FA2FCA963300E50794 /* sao2ViewTop.swift */,
 				0F1217FE2FCA96D200E50794 /* sao2Assets.xcassets */,
+				0F12186C2FCAEAAF00E50794 /* sao2Class.swift */,
+				0F12186E2FCAEB7E00E50794 /* sao2View95Ci.swift */,
+				0F1218702FCAEB8D00E50794 /* sao2ViewBayes.swift */,
 			);
 			path = sao2;
 			sourceTree = "<group>";
@@ -6060,6 +6069,7 @@
 				0FA662FC2F23449500F3259F /* hokutoTenseiTableAfterDensho.swift in Sources */,
 				0F19D4522F2DAB08004A6D9F /* tekken6ViewBonus.swift in Sources */,
 				0F9A4F792DEC1631003B6337 /* dmc5TableKoyakuPattern.swift in Sources */,
+				0F12186D2FCAEAAF00E50794 /* sao2Class.swift in Sources */,
 				0F6EC0052F74033A001AF24E /* bakemonoTableKiteiGameKaiju.swift in Sources */,
 				0F64DD572DC08F220027315D /* danvineTableHazure3ren.swift in Sources */,
 				0F93187F2DEA973E00511BEF /* izaBanchoTableCommonBellA.swift in Sources */,
@@ -7271,6 +7281,7 @@
 				0FC7200A2E6C618A000DD53B /* kaguyaViewBayes.swift in Sources */,
 				0FA024912D013AF5004B3FD5 /* mhrViewEnding.swift in Sources */,
 				0F7E4F732D28AC77001CC916 /* dumbbellView95Ci.swift in Sources */,
+				0F12186F2FCAEB7E00E50794 /* sao2View95Ci.swift in Sources */,
 				0F9D9C102EA33FBD00450B23 /* urmiraVer2View95CiShima.swift in Sources */,
 				0FEC57BD2D917D7200FF1024 /* rslViewTop.swift in Sources */,
 				0F6FB8F42DE7306300207855 /* bangdreamTableCycle1Band.swift in Sources */,
@@ -7289,6 +7300,7 @@
 				0F2A4DF52F3715FE00B3C583 /* hanabiViewStart.swift in Sources */,
 				0F9D9BDA2E9DEDC800450B23 /* zeni5ViewTop.swift in Sources */,
 				0F868A362D45CC7000D952D9 /* hanaTenshoVer2View95CiKen.swift in Sources */,
+				0F1218712FCAEB8D00E50794 /* sao2ViewBayes.swift in Sources */,
 				0FC14A822E4BFC9B00F85D84 /* mt5ViewBayes.swift in Sources */,
 				0FD357802DAA2FAE0069BD1A /* sbjTableKoyakuRatio.swift in Sources */,
 				0F868AD42D5E282500D952D9 /* sevenSwordsViewTop.swift in Sources */,
