@@ -14,6 +14,7 @@ struct godKisekiViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.2, 99.1, 102.1, 106.9, 111.7, 114.6]
     @State var firstHitAtEnable: Bool = true
+    @State var riseZzoneEnable: Bool = true
     
     
     // 全機種共通
@@ -47,7 +48,16 @@ struct godKisekiViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
-                
+                // Z-ZONE昇格りつ
+                unitToggleWithQuestion(enable: self.$riseZzoneEnable, title: "Z-ZONE昇格率")
+                // ユニバプレート
+                DisclosureGroup("ユニバプレート") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "花火柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3
@@ -118,7 +128,15 @@ struct godKisekiViewBayes: View {
                 bigNumber: godKiseki.normalGame
             )
         }
-        
+        // Z-ZONE昇格率
+        var logPostRiseZzone: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.riseZzoneEnable {
+            logPostRiseZzone = logPostPercentBino(
+                ratio: godKiseki.ratioRiseZzone,
+                Count: godKiseki.riseZzoneCount,
+                bigNumber: godKiseki.firstHitCountAt
+            )
+        }
         
         
         // トロフィー
@@ -159,6 +177,7 @@ struct godKisekiViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
+            logPostRiseZzone,
             
             logPostTrophy,
             logPostBefore,

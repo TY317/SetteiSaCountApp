@@ -23,22 +23,22 @@ struct tipVer3270UpdateInfo: Tip {
 }
 
 
-// //////////////////
-// // Tip：化物語　解呪連
-// //////////////////
-//struct tipVer3260BakemonoAfterAtKaijuren: Tip {
-//    var title: Text {
-//        Text("情報更新")
-//    }
-//    var message: Text? {
-//        Text("AT終了後の解呪連移行率が判明\nカウント機能を追加しました")
-//    }
-//    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-//    }
-//}
-//
-//
+//////////////////
+// Tip：ゴッド軌跡　昇格Z-Zone
+//////////////////
+struct tipVer3270GodKisekiZzoneRise: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("GG当選時のZ-ZONE昇格率が判明\nカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
 ////////////////////
 //// Tip：リオエース　エースモード
 ////////////////////

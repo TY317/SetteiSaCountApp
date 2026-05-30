@@ -144,24 +144,24 @@ struct godKisekiView95Ci: View {
 //            .tag(2)
 //
 //
-//            // REG,後終了画面デフォルト回数
-//            unitListSection95Ci(
-//                grafTitle: "REG,アクセルボーナス,灰焔ボーナス後\n終了画面 デフォルト回数",
+            // Z-ZONE昇格回数
+            unitListSection95Ci(
+                grafTitle: "Z-ZONE昇格回数",
 //                titleFont: .body,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $godKiseki.screenCount1,
-//                        bigNumber: $godKiseki.screenCountSum,
-//                        setting1Percent: godKiseki.ratioScreen1[0],
-//                        setting2Percent: godKiseki.ratioScreen1[1],
-//                        setting3Percent: godKiseki.ratioScreen1[2],
-//                        setting4Percent: godKiseki.ratioScreen1[3],
-//                        setting5Percent: godKiseki.ratioScreen1[4],
-//                        setting6Percent: godKiseki.ratioScreen1[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $godKiseki.riseZzoneCount,
+                        bigNumber: $godKiseki.firstHitCountAt,
+                        setting1Percent: godKiseki.ratioRiseZzone[0],
+                        setting2Percent: godKiseki.ratioRiseZzone[1],
+                        setting3Percent: godKiseki.ratioRiseZzone[2],
+                        setting4Percent: godKiseki.ratioRiseZzone[3],
+                        setting5Percent: godKiseki.ratioRiseZzone[4],
+                        setting6Percent: godKiseki.ratioRiseZzone[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

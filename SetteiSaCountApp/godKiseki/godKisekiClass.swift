@@ -40,6 +40,8 @@ class GodKiseki: ObservableObject {
         normalGame = 0
         firstHitCountAt = 0
         minusCheck = false
+        
+        riseZzoneCount = 0
     }
     
     // -----------
@@ -61,6 +63,12 @@ class GodKiseki: ObservableObject {
     let ratioReplay4Hit: [Double] = [33.2,50,-1,-1,-1,-1]
     @AppStorage("godKisekiRen4CountBlue") var ren4CountBlue: Int = 0
     @AppStorage("godKisekiRen4CountBlueHit") var ren4CountBlueHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    let ratioRiseZzone: [Double] = [1.2,1.0,4.2,1.0,11.6,1]
+    @AppStorage("godKisekiRiseZzoneCount") var riseZzoneCount: Int = 0
 }
 
 
@@ -79,6 +87,11 @@ class GodKisekiMemory1: ObservableObject {
     // ---------
     @AppStorage("godKisekiRen4CountBlueMemory1") var ren4CountBlue: Int = 0
     @AppStorage("godKisekiRen4CountBlueHitMemory1") var ren4CountBlueHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("godKisekiRiseZzoneCountMemory1") var riseZzoneCount: Int = 0
 }
 
 
@@ -97,6 +110,11 @@ class GodKisekiMemory2: ObservableObject {
     // ---------
     @AppStorage("godKisekiRen4CountBlueMemory2") var ren4CountBlue: Int = 0
     @AppStorage("godKisekiRen4CountBlueHitMemory2") var ren4CountBlueHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("godKisekiRiseZzoneCountMemory2") var riseZzoneCount: Int = 0
 }
 
 
@@ -115,4 +133,9 @@ class GodKisekiMemory3: ObservableObject {
     // ---------
     @AppStorage("godKisekiRen4CountBlueMemory3") var ren4CountBlue: Int = 0
     @AppStorage("godKisekiRen4CountBlueHitMemory3") var ren4CountBlueHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("godKisekiRiseZzoneCountMemory3") var riseZzoneCount: Int = 0
 }
