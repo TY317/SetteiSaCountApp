@@ -92,6 +92,8 @@ class commonVar: ObservableObject {
     let initMachine: [Machine] = [
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
+        Machine(id: "5009", name: "戦国乙女5", fullName: "戦国乙女5", iconName: "otome5MachineIcon", btBadge: false),
+        Machine(id: "5025", name: "SAO2", fullName: "ソードアート・オンラインⅡ", iconName: "sao2MachineIcon", btBadge: false),
         Machine(id: "4974", name: "バイオRE3", fullName: "バイオハザードRE:3", iconName: "bioRe3MachineIcon", btBadge: false),
         Machine(id: "4984", name: "リオエース2", fullName: "スーパーリオエース2", iconName: "rioAceMachineIcon", btBadge: false),
         Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false),
@@ -245,6 +247,24 @@ class commonVar: ObservableObject {
     // ハナハナ鳳凰
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
+    
+    // ---- 戦国乙女5
+    @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
+    @AppStorage("otome5TempUnlockDateDouble") var otome5TempUnlockDateDouble: Double = 0.0
+    @AppStorage("otome5MachineIconBadge") var otome5MachineIconBadge: String = "none"
+    @AppStorage("otome5MenuNormalBadge") var otome5MenuNormalBadge: String = "none"
+    @AppStorage("otome5MenuFirstHitBadge") var otome5MenuFirstHitBadge: String = "none"
+    @AppStorage("otome5MenuBayesBadge") var otome5MenuBayesBadge: String = "none"
+    @AppStorage("otome5MenuScreenBadge") var otome5MenuScreenBadge: String = "none"
+    
+    // ---- SAO2
+    @AppStorage("sao2isUnlocked") var sao2isUnlocked: Bool = true
+    @AppStorage("sao2TempUnlockDateDouble") var sao2TempUnlockDateDouble: Double = 0.0
+    @AppStorage("sao2MachineIconBadge") var sao2MachineIconBadge: String = "none"
+    @AppStorage("sao2MenuNormalBadge") var sao2MenuNormalBadge: String = "none"
+    @AppStorage("sao2MenuFirstHitBadge") var sao2MenuFirstHitBadge: String = "none"
+    @AppStorage("sao2MenuBayesBadge") var sao2MenuBayesBadge: String = "none"
+    @AppStorage("sao2MenuScreenBadge") var sao2MenuScreenBadge: String = "none"
     
     // ---- バイオRE3
     @AppStorage("bioRe3isUnlocked") var bioRe3isUnlocked: Bool = true
@@ -566,6 +586,10 @@ class commonVar: ObservableObject {
                 godKisekiMenuFirstHitBadge = "update"
                 kokakukidotaiMachineIconBadge = "update"
                 kokakukidotaiMenuNormalBadge = "update"
+                otome5isUnlocked = false
+                otome5MachineIconBadge = "new"
+                sao2isUnlocked = false
+                sao2MachineIconBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
