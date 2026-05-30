@@ -95,6 +95,19 @@ struct jormungandViewTop: View {
                             badgeStatus: common.jormungandMenuScreenBadge,
                         )
                     }
+                    
+                    // 恥の世紀
+                    NavigationLink(destination: jormungandViewHighCz(
+                        jormungand: jormungand,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "恥の世紀(上位CZ)",
+                            badgeStatus: common.jormungandMenuHighCzBadge,
+                        )
+                    }
 
                     // エンディング
                     NavigationLink(destination: jormungandViewEnding(
@@ -286,6 +299,13 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory1.chara3CountSum = jormungand.chara3CountSum
         jormungandMemory1.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
         jormungandMemory1.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungandMemory1.highCzCountMiss = jormungand.highCzCountMiss
+        jormungandMemory1.highCzCountHit = jormungand.highCzCountHit
+        jormungandMemory1.highCzCountSum = jormungand.highCzCountSum
     }
     func saveMemory2() {
         jormungandMemory2.rareCzCountChance = jormungand.rareCzCountChance
@@ -338,6 +358,13 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory2.chara3CountSum = jormungand.chara3CountSum
         jormungandMemory2.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
         jormungandMemory2.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungandMemory2.highCzCountMiss = jormungand.highCzCountMiss
+        jormungandMemory2.highCzCountHit = jormungand.highCzCountHit
+        jormungandMemory2.highCzCountSum = jormungand.highCzCountSum
     }
     func saveMemory3() {
         jormungandMemory3.rareCzCountChance = jormungand.rareCzCountChance
@@ -390,6 +417,13 @@ struct jormungandSubViewSaveMemory: View {
         jormungandMemory3.chara3CountSum = jormungand.chara3CountSum
         jormungandMemory3.rareCzCountJakuRare = jormungand.rareCzCountJakuRare
         jormungandMemory3.rareCzCountJakuRareHit = jormungand.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungandMemory3.highCzCountMiss = jormungand.highCzCountMiss
+        jormungandMemory3.highCzCountHit = jormungand.highCzCountHit
+        jormungandMemory3.highCzCountSum = jormungand.highCzCountSum
     }
 }
 
@@ -471,6 +505,13 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.chara3CountSum = jormungandMemory1.chara3CountSum
         jormungand.rareCzCountJakuRare = jormungandMemory1.rareCzCountJakuRare
         jormungand.rareCzCountJakuRareHit = jormungandMemory1.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungand.highCzCountMiss = jormungandMemory1.highCzCountMiss
+        jormungand.highCzCountHit = jormungandMemory1.highCzCountHit
+        jormungand.highCzCountSum = jormungandMemory1.highCzCountSum
     }
     func loadMemory2() {
         jormungand.rareCzCountChance = jormungandMemory2.rareCzCountChance
@@ -523,6 +564,13 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.chara3CountSum = jormungandMemory2.chara3CountSum
         jormungand.rareCzCountJakuRare = jormungandMemory2.rareCzCountJakuRare
         jormungand.rareCzCountJakuRareHit = jormungandMemory2.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungand.highCzCountMiss = jormungandMemory2.highCzCountMiss
+        jormungand.highCzCountHit = jormungandMemory2.highCzCountHit
+        jormungand.highCzCountSum = jormungandMemory2.highCzCountSum
     }
     func loadMemory3() {
         jormungand.rareCzCountChance = jormungandMemory3.rareCzCountChance
@@ -575,6 +623,13 @@ struct jormungandSubViewLoadMemory: View {
         jormungand.chara3CountSum = jormungandMemory3.chara3CountSum
         jormungand.rareCzCountJakuRare = jormungandMemory3.rareCzCountJakuRare
         jormungand.rareCzCountJakuRareHit = jormungandMemory3.rareCzCountJakuRareHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        jormungand.highCzCountMiss = jormungandMemory3.highCzCountMiss
+        jormungand.highCzCountHit = jormungandMemory3.highCzCountHit
+        jormungand.highCzCountSum = jormungandMemory3.highCzCountSum
     }
 }
 

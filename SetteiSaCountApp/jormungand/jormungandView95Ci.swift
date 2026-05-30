@@ -125,23 +125,24 @@ struct jormungandView95Ci: View {
             )
             .tag(2)
             
-//            // 炎炎ループ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "炎炎ループ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $jormungand.firstHitCountLoop,
-//                        bigNumber: $jormungand.normalGame,
-//                        setting1Denominate: jormungand.ratioFirstHitLoop[0],
-//                        setting2Denominate: jormungand.ratioFirstHitLoop[1],
-//                        setting3Denominate: jormungand.ratioFirstHitLoop[2],
-//                        setting4Denominate: jormungand.ratioFirstHitLoop[3],
-//                        setting5Denominate: jormungand.ratioFirstHitLoop[4],
-//                        setting6Denominate: jormungand.ratioFirstHitLoop[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
+            // 上位CZ 自力以外成功回数
+            unitListSection95Ci(
+                grafTitle: "恥の世紀\n自力以外での成功回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $jormungand.highCzCountHit,
+                        bigNumber: $jormungand.highCzCountSum,
+                        setting1Percent: jormungand.ratioHighCzHit[0],
+                        setting2Percent: jormungand.ratioHighCzHit[1],
+                        setting3Percent: jormungand.ratioHighCzHit[2],
+                        setting4Percent: jormungand.ratioHighCzHit[3],
+                        setting5Percent: jormungand.ratioHighCzHit[4],
+                        setting6Percent: jormungand.ratioHighCzHit[5]
+                    )
+                )
+            )
+            .tag(7)
 //
 //
 //            // REG,後終了画面デフォルト回数

@@ -296,6 +296,7 @@ class commonVar: ObservableObject {
     @AppStorage("jormungandMenuScreenBadge") var jormungandMenuScreenBadge: String = "none"
     @AppStorage("jormungandMenuRegBadge") var jormungandMenuRegBadge: String = "none"
     @AppStorage("jormungandMenuEndingBadge") var jormungandMenuEndingBadge: String = "none"
+    @AppStorage("jormungandMenuHighCzBadge") var jormungandMenuHighCzBadge: String = "none"
     
     // ---- 吉宗真打
     @AppStorage("shinYoshiisUnlocked") var shinYoshiisUnlocked: Bool = true
@@ -559,7 +560,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                jormungandMachineIconBadge = "update"
+                jormungandMenuHighCzBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

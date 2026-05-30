@@ -57,7 +57,14 @@ struct rioAceViewBayes: View {
                         textBody1: "・直撃ボーナス以外と直撃ボーナス確率をそれぞれ計算要素に加えます"
                     )
                 }
-                
+                // ケロットトロフィー
+                DisclosureGroup("ケロットトロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3

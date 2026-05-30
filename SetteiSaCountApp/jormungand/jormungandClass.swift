@@ -212,6 +212,7 @@ class Jormungand: ObservableObject {
         resetNormal()
         resetScreen()
         resetReg()
+        resetHighCz()
     }
     
     // --------
@@ -241,6 +242,25 @@ class Jormungand: ObservableObject {
     let ratioRareCzHighJakuRare: [Double] = [5.1,5.9,8.2,10.2,10.2,10.2]
     @AppStorage("jormungandRareCzCountJakuRare") var rareCzCountJakuRare: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareHit") var rareCzCountJakuRareHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    let ratioHighCzHit: [Double] = [16.0,16.4,16.8,25,46.9,57.4]
+    @AppStorage("jormungandHighCzCountMiss") var highCzCountMiss: Int = 0
+    @AppStorage("jormungandHighCzCountHit") var highCzCountHit: Int = 0
+    @AppStorage("jormungandHighCzCountSum") var highCzCountSum: Int = 0
+    
+    func highCzSumFunc() {
+        highCzCountSum = highCzCountMiss + highCzCountHit
+    }
+    
+    func resetHighCz() {
+        highCzCountMiss = 0
+        highCzCountHit = 0
+        highCzCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -297,6 +317,13 @@ class JormungandMemory1: ObservableObject {
     @AppStorage("jormungandChara3CountSumMemory1") var chara3CountSum: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareMemory1") var rareCzCountJakuRare: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareHitMemory1") var rareCzCountJakuRareHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("jormungandHighCzCountMissMemory1") var highCzCountMiss: Int = 0
+    @AppStorage("jormungandHighCzCountHitMemory1") var highCzCountHit: Int = 0
+    @AppStorage("jormungandHighCzCountSumMemory1") var highCzCountSum: Int = 0
 }
 
 
@@ -353,6 +380,13 @@ class JormungandMemory2: ObservableObject {
     @AppStorage("jormungandChara3CountSumMemory2") var chara3CountSum: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareMemory2") var rareCzCountJakuRare: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareHitMemory2") var rareCzCountJakuRareHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("jormungandHighCzCountMissMemory2") var highCzCountMiss: Int = 0
+    @AppStorage("jormungandHighCzCountHitMemory2") var highCzCountHit: Int = 0
+    @AppStorage("jormungandHighCzCountSumMemory2") var highCzCountSum: Int = 0
 }
 
 
@@ -409,4 +443,11 @@ class JormungandMemory3: ObservableObject {
     @AppStorage("jormungandChara3CountSumMemory3") var chara3CountSum: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareMemory3") var rareCzCountJakuRare: Int = 0
     @AppStorage("jormungandRareCzCountJakuRareHitMemory3") var rareCzCountJakuRareHit: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("jormungandHighCzCountMissMemory3") var highCzCountMiss: Int = 0
+    @AppStorage("jormungandHighCzCountHitMemory3") var highCzCountHit: Int = 0
+    @AppStorage("jormungandHighCzCountSumMemory3") var highCzCountSum: Int = 0
 }

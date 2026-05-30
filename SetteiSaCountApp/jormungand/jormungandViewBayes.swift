@@ -19,6 +19,7 @@ struct jormungandViewBayes: View {
     @State var tenjoEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var highCzEnable: Bool = true
     
     
     // 全機種共通
@@ -72,7 +73,16 @@ struct jormungandViewBayes: View {
                         textBody1: "・確定系、否定系のみ反映させます"
                     )
                 }
-                
+                // 恥の世紀 自力以外成功率
+                unitToggleWithQuestion(enable: self.$highCzEnable, title: "恥の世紀 自力以外成功率")
+                // ケロットトロフィー
+                DisclosureGroup("ケロットトロフィー") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "ケロット柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
             }
             
             // //// STEP3
@@ -256,6 +266,16 @@ struct jormungandViewBayes: View {
             }
         }
         
+        // 上位CZ
+        var logPostHighCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.highCzEnable {
+            logPostHighCz = logPostPercentBino(
+                ratio: jormungand.ratioHighCzHit,
+                Count: jormungand.highCzCountHit,
+                bigNumber: jormungand.highCzCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -302,6 +322,7 @@ struct jormungandViewBayes: View {
             logPostChara,
             logPostChara3,
             logPostScreen,
+            logPostHighCz,
             
             logPostTrophy,
             logPostBefore,
