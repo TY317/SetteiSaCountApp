@@ -150,9 +150,9 @@ struct sao2ViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: sao2ViewBayes(
-//                    sao2: sao2,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    sao2: sao2,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
