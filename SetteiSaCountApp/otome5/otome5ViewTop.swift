@@ -34,9 +34,9 @@ struct otome5ViewTop: View {
                 Section {
                     // 通常時
                     NavigationLink(destination: otome5ViewNormal(
-//                        otome5: otome5,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
@@ -139,8 +139,8 @@ struct otome5ViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: otome5View95Ci(
-//                    otome5: otome5,
-//                    selection: 1,
+                    otome5: otome5,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -150,9 +150,9 @@ struct otome5ViewTop: View {
 
                 // 設定期待値計算
                 NavigationLink(destination: otome5ViewBayes(
-//                    otome5: otome5,
-//                    bayes: bayes,
-//                    viewModel: viewModel,
+                    otome5: otome5,
+                    bayes: bayes,
+                    viewModel: viewModel,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "gauge.open.with.lines.needle.33percent",
