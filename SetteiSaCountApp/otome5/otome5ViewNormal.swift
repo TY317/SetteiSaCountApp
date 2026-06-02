@@ -33,19 +33,28 @@ struct otome5ViewNormal: View {
                 
                 // 参考情報）乙女アタック当選率
                 unitLinkButtonViewBuilder(sheetTitle: "乙女アタック当選率") {
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
-                        unitTablePercent(
-                            columTitle: "乙女アタック当選率",
-                            percentList: otome5.ratioOtomeAttack
-                        )
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・乙女ストラップモード カンスケ滞在時は別確率で抽選")
+                            Text("・乙女アタックの勝率に設定差はなし")
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "乙女アタック当選率",
+                                percentList: otome5.ratioOtomeAttack
+                            )
+                        }
                     }
                 }
                 
                 // カウント
                 DisclosureGroup {
                     // 説明
-                    Text("巫女カウンター到達からの当選有無をカウント")
+                    unitLabelCautionText {
+                        Text("・乙女ストラップモード カンスケ滞在時はカウント除外")
+                        Text("・巫女カウンター到達からの当選有無をカウント")
+                    }
                     
                     // カウントボタン横並び
                     HStack {
@@ -89,8 +98,37 @@ struct otome5ViewNormal: View {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
                 }
+                
+                // 周期モード
+                Section {
+                    // 周期テーブル
+                    unitLinkButtonViewBuilder(sheetTitle: "周期テーブル") {
+                        otome5TableCycleTable()
+                    }
+                    
+                    // ゲーム数モード
+                    unitLinkButtonViewBuilder(sheetTitle: "規定ゲーム数モード") {
+                        otome5TableGameMode()
+                    }
+                } header: {
+                    Text("周期・モード")
+                }
             } header: {
                 Text("乙女アタック当選率")
+            }
+            
+            // 乙女ストラップモード
+            Section {
+                // 概要
+                unitLinkButtonViewBuilder(sheetTitle: "乙女ストラップモードについて") {
+                    otome5TableStrapMode()
+                }
+                // 示唆
+                unitLinkButtonViewBuilder(sheetTitle: "示唆演出") {
+                    otome5TableStrapSisa()
+                }
+            } header: {
+                Text("乙女ストラップモード")
             }
         }
         // //// バッジのリセット
