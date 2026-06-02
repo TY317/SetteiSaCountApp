@@ -32,19 +32,19 @@ struct sao2ViewTop: View {
                 }
                 
                 Section {
-//                    // 通常時
-//                    NavigationLink(destination: sao2ViewNormal(
-//                        sao2: sao2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "bell.fill",
-//                            textBody: "通常時",
-//                            badgeStatus: common.sao2MenuNormalBadge,
-//                        )
-//                    }
-//                    
+                    // 通常時
+                    NavigationLink(destination: sao2ViewNormal(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.sao2MenuNormalBadge,
+                        )
+                    }
+                    
 //                    // CZ
 //                    NavigationLink(destination: sao2ViewCz(
 //                        sao2: sao2,
@@ -139,8 +139,8 @@ struct sao2ViewTop: View {
                 
                 // 設定推測グラフ
                 NavigationLink(destination: sao2View95Ci(
-//                    sao2: sao2,
-//                    selection: 4,
+                    sao2: sao2,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
