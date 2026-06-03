@@ -256,6 +256,7 @@ class commonVar: ObservableObject {
     @AppStorage("otome5MenuFirstHitBadge") var otome5MenuFirstHitBadge: String = "none"
     @AppStorage("otome5MenuBayesBadge") var otome5MenuBayesBadge: String = "none"
     @AppStorage("otome5MenuScreenBadge") var otome5MenuScreenBadge: String = "none"
+    @AppStorage("otome5MenuHistoryBadge") var otome5MenuHistoryBadge: String = "none"
     
     // ---- SAO2
     @AppStorage("sao2isUnlocked") var sao2isUnlocked: Bool = true

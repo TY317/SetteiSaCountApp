@@ -21,7 +21,7 @@ struct otome5ViewTop: View {
             List {
                 Section {
                     // 注意事項
-                    Text("ダイトモの利用を前提としています\n遊技前にダイトモを開始してください")
+                    Text("打-WINの利用を前提としています\n遊技前に打-WINを開始してください")
                         .foregroundStyle(Color.secondary)
                         .font(.footnote)
                 } header: {
@@ -45,18 +45,18 @@ struct otome5ViewTop: View {
                         )
                     }
                     
-//                    // CZ
-//                    NavigationLink(destination: otome5ViewCz(
-//                        otome5: otome5,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "scope",
-//                            textBody: "CZ",
-//                            badgeStatus: common.otome5MenuCzBadge,
-//                        )
-//                    }
+                    // CZ
+                    NavigationLink(destination: otome5ViewHistory(
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "",
+                            textBody: "周期履歴メモ",
+                            badgeStatus: common.otome5MenuHistoryBadge,
+                        )
+                    }
 //
 //                    // 初当り
 //                    NavigationLink(destination: otome5ViewFirstHit(

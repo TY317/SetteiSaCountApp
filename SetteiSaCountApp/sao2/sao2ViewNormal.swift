@@ -193,6 +193,30 @@ struct sao2ViewNormal: View {
         }
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $sao2.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: sao2.resetNormal)
+            }
+        }
     }
 }
 

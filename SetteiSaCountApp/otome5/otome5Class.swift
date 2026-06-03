@@ -30,6 +30,56 @@ class Otome5: ObservableObject {
         minusCheck = false
     }
     
+    // -----------
+    // 周期履歴
+    // -----------
+    // 選択肢
+    let cycleList: [Int] = [1,2,3,4,5,6]
+    let kindList: [String] = ["焔舞", "紫炎"]
+    
+    // 選択結果
+    @AppStorage("otome5InputGame") var inputGame: Int = 0
+    @AppStorage("otome5SelectedCycle") var selectedCycle: Int = 1
+    @AppStorage("otome5SelectedKind") var selectedKind: String = "焔舞"
+    
+    // ゲーム数配列
+    let gameArrayKey: String = "otome5GameArrayKey"
+    @AppStorage("otome5GameArrayKey") var gameArrayData: Data?
+    // 周期配列
+    let cycleArrayKey: String = "otome5CycleArrayKey"
+    @AppStorage("otome5CycleArrayKey") var cycleArrayData: Data?
+    // 種類配列
+    let kindArrayKey: String = "otome5KindArrayKey"
+    @AppStorage("otome5KindArrayKey") var kindArrayData: Data?
+    
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayIntAddData(arrayData: cycleArrayData, addData: selectedCycle, key: cycleArrayKey)
+        arrayStringAddData(arrayData: kindArrayData, addData: selectedKind, key: kindArrayKey)
+        addRemoveCommon()
+    }
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayIntRemoveLast(arrayData: cycleArrayData, key: cycleArrayKey)
+        arrayStringRemoveLast(arrayData: kindArrayData, key: kindArrayKey)
+        addRemoveCommon()
+    }
+    
+    func resetHistory() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayIntRemoveAll(arrayData: cycleArrayData, key: cycleArrayKey)
+        arrayStringRemoveAll(arrayData: kindArrayData, key: kindArrayKey)
+        addRemoveCommon()
+        inputGame = 0
+        minusCheck = false
+    }
+    
+    func addRemoveCommon() {
+        
+    }
     
     
     // -----------
@@ -41,5 +91,6 @@ class Otome5: ObservableObject {
     
     func resetAll() {
         resetNormal()
+        resetHistory()
     }
 }
