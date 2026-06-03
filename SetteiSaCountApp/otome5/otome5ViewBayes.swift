@@ -14,6 +14,8 @@ struct otome5ViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.9, 101.0, 106.2, 111.1, 114.9]
     @State var attackEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
+    @State var firstHitDirectEnable: Bool = true
     
     
     
@@ -48,6 +50,10 @@ struct otome5ViewBayes: View {
             bayesSubStep2Section {
                 // 乙女アタック当選率
                 unitToggleWithQuestion(enable: self.$attackEnable, title: "乙女アタック当選率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // 直撃ボーナス確率
+                unitToggleWithQuestion(enable: self.$firstHitDirectEnable, title: "直撃ボーナス初当り確率")
             }
             
             // //// STEP3
@@ -118,8 +124,24 @@ struct otome5ViewBayes: View {
                 bigNumber: otome5.otomeAttackSum
             )
         }
-        
-        
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: otome5.ratioFirstHitAt,
+                Count: otome5.firstHitCountAt,
+                bigNumber: otome5.normalGame
+            )
+        }
+        // 直撃ボーナス初当り確率
+        var logPostFirstHitDirect: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitDirectEnable {
+            logPostFirstHitDirect = logPostDenoBino(
+                ratio: otome5.ratioFirstHitDirect,
+                Count: otome5.firstHitCountDirect,
+                bigNumber: otome5.normalGame
+            )
+        }
         
         
         // トロフィー
@@ -160,6 +182,8 @@ struct otome5ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostAttack,
+            logPostFirstHitAt,
+            logPostFirstHitDirect,
             
             
             logPostTrophy,

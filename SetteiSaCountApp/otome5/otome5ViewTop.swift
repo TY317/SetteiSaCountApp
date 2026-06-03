@@ -52,25 +52,25 @@ struct otome5ViewTop: View {
                         viewModel: viewModel,
                     )) {
                         unitLabelMenu(
-                            imageSystemName: "",
+                            imageSystemName: "pencil.and.list.clipboard",
                             textBody: "周期履歴メモ",
                             badgeStatus: common.otome5MenuHistoryBadge,
                         )
                     }
-//
-//                    // 初当り
-//                    NavigationLink(destination: otome5ViewFirstHit(
-//                        otome5: otome5,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.otome5MenuFirstHitBadge,
-//                        )
-//                    }
-//
+
+                    // 初当り
+                    NavigationLink(destination: otome5ViewFirstHit(
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.otome5MenuFirstHitBadge,
+                        )
+                    }
+
 //                    // フィギュアコレクション
 //                    NavigationLink(destination: otome5ViewFigure(
 //                        otome5: otome5,

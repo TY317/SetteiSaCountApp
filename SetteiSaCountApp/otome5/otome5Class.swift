@@ -81,6 +81,21 @@ class Otome5: ObservableObject {
         
     }
     
+    // --------
+    // 初当り
+    // --------
+    let ratioFirstHitAt: [Double] = [359.5,350.8,332.5,302.8,281.0,262.9]
+    let ratioFirstHitDirect: [Double] = [21206.7,15648.9,13143.5,8143.4,6427.6,5502.7]
+    @AppStorage("otome5NormalGame") var normalGame: Int = 0
+    @AppStorage("otome5FirstHitCountAt") var firstHitCountAt: Int = 0
+    @AppStorage("otome5FirstHitCountDirect") var firstHitCountDirect: Int = 0
+    
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
+        firstHitCountDirect = 0
+        minusCheck = false
+    }
     
     // -----------
     // 共通
@@ -92,5 +107,6 @@ class Otome5: ObservableObject {
     func resetAll() {
         resetNormal()
         resetHistory()
+        resetFirstHit()
     }
 }

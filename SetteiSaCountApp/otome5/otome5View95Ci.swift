@@ -108,42 +108,41 @@ struct otome5View95Ci: View {
 //            .tag(1)
             
             // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $otome5.firstHitCountAt,
-//                        bigNumber: $otome5.normalGame,
-//                        setting1Denominate: otome5.ratioFirstHitAt[0],
-//                        setting2Denominate: otome5.ratioFirstHitAt[1],
-//                        setting3Denominate: otome5.ratioFirstHitAt[2],
-//                        setting4Denominate: otome5.ratioFirstHitAt[3],
-//                        setting5Denominate: otome5.ratioFirstHitAt[4],
-//                        setting6Denominate: otome5.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $otome5.firstHitCountAt,
+                        bigNumber: $otome5.normalGame,
+                        setting1Denominate: otome5.ratioFirstHitAt[0],
+                        setting2Denominate: otome5.ratioFirstHitAt[1],
+                        setting3Denominate: otome5.ratioFirstHitAt[2],
+                        setting4Denominate: otome5.ratioFirstHitAt[3],
+                        setting5Denominate: otome5.ratioFirstHitAt[4],
+                        setting6Denominate: otome5.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(2)
             
-//            // 炎炎ループ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "炎炎ループ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $otome5.firstHitCountLoop,
-//                        bigNumber: $otome5.normalGame,
-//                        setting1Denominate: otome5.ratioFirstHitLoop[0],
-//                        setting2Denominate: otome5.ratioFirstHitLoop[1],
-//                        setting3Denominate: otome5.ratioFirstHitLoop[2],
-//                        setting4Denominate: otome5.ratioFirstHitLoop[3],
-//                        setting5Denominate: otome5.ratioFirstHitLoop[4],
-//                        setting6Denominate: otome5.ratioFirstHitLoop[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//
+            // 直撃ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "直撃ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $otome5.firstHitCountDirect,
+                        bigNumber: $otome5.normalGame,
+                        setting1Denominate: otome5.ratioFirstHitDirect[0],
+                        setting2Denominate: otome5.ratioFirstHitDirect[1],
+                        setting3Denominate: otome5.ratioFirstHitDirect[2],
+                        setting4Denominate: otome5.ratioFirstHitDirect[3],
+                        setting5Denominate: otome5.ratioFirstHitDirect[4],
+                        setting6Denominate: otome5.ratioFirstHitDirect[5]
+                    )
+                )
+            )
+            .tag(3)
+            
             // Z-ZONE昇格回数
 //            unitListSection95Ci(
 //                grafTitle: "Z-ZONE昇格回数",
