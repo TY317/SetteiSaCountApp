@@ -16,6 +16,7 @@ struct otome5ViewBayes: View {
     @State var attackEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var firstHitDirectEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     
@@ -54,6 +55,8 @@ struct otome5ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // 直撃ボーナス確率
                 unitToggleWithQuestion(enable: self.$firstHitDirectEnable, title: "直撃ボーナス初当り確率")
+                // 終了画面スタンプ
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面スタンプ")
             }
             
             // //// STEP3
@@ -142,7 +145,35 @@ struct otome5ViewBayes: View {
                 bigNumber: otome5.normalGame
             )
         }
-        
+        // 終了画面スタンプ
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if otome5.screenCountOver2 > 0 {
+                logPostScreen[0] = -Double.infinity
+            }
+            if otome5.screenCountOver3 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+            }
+            if otome5.screenCountOver4 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if otome5.screenCountOver5 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+            }
+            if otome5.screenCountOver6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)

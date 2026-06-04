@@ -85,17 +85,17 @@ struct otome5ViewTop: View {
 //                    }
 
                     // AT終了画面
-//                    NavigationLink(destination: otome5ViewScreen(
-//                        otome5: otome5,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "signature",
-//                            textBody: "ボーナス・AT終了画面",
-//                            badgeStatus: common.otome5MenuScreenBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: otome5ViewScreen(
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.otome5MenuScreenBadge,
+                        )
+                    }
 
 //                    // エンディング
 //                    NavigationLink(destination: otome5ViewFigure(

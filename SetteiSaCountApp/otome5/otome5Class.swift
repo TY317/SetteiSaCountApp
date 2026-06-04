@@ -97,6 +97,39 @@ class Otome5: ObservableObject {
         minusCheck = false
     }
     
+    // --------
+    // 終了画面スタンプ
+    // --------
+    @AppStorage("otome5ScreenCountDefaut") var screenCountDefaut: Int = 0
+    @AppStorage("otome5ScreenCountOver2") var screenCountOver2: Int = 0
+    @AppStorage("otome5ScreenCountOver3") var screenCountOver3: Int = 0
+    @AppStorage("otome5ScreenCountOver4") var screenCountOver4: Int = 0
+    @AppStorage("otome5ScreenCountOver5") var screenCountOver5: Int = 0
+    @AppStorage("otome5ScreenCountOver6") var screenCountOver6: Int = 0
+    @AppStorage("otome5ScreenCountSum") var screenCountSum: Int = 0
+    
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCountDefaut,
+            screenCountOver2,
+            screenCountOver3,
+            screenCountOver4,
+            screenCountOver5,
+            screenCountOver6,
+        )
+    }
+    
+    func resetScreen() {
+        screenCountDefaut = 0
+        screenCountOver2 = 0
+        screenCountOver3 = 0
+        screenCountOver4 = 0
+        screenCountOver5 = 0
+        screenCountOver6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -108,5 +141,6 @@ class Otome5: ObservableObject {
         resetNormal()
         resetHistory()
         resetFirstHit()
+        resetScreen()
     }
 }
