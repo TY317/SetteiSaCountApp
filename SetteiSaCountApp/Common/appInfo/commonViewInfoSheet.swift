@@ -40,6 +40,19 @@ struct commonViewInfoSheet: View {
                         promotionText: "パチ屋の島図をスマホで作って、台ごとに色付けやメモが残せる——これまでにない、立ち回り用アプリが誕生。マイホをそっくり再現して、その日の状況をまるごと記録。QR コードで仲間と即シェア。前日下見・当日立ち回り・軍団稼働、ぜんぶこれ 1 つ。"
                     )
                     unitAppRecommend(
+                        iconImage: "lapTimerAppIcon",
+                        appTitle: "LAP&LEAN",
+                        appStoreURL: "https://apps.apple.com/jp/app/lap-lean/id6772683694",
+                        previewImages: [
+                            "recommendLapTimerPreview1",
+                            "recommendLapTimerPreview2",
+                            "recommendLapTimerPreview3",
+                            "recommendLapTimerPreview4",
+                            "recommendLapTimerPreview5",
+                        ],
+                        promotionText: "バイク専用設計だから、ラップタイムだけじゃない——車体のバンク角まで計測できるラップタイマーが誕生。さらにコースは自分で作れるから、プリセットに無いローカルサーキットや練習コースにも対応。GPSラップ・セクター・コーナー分析を推移グラフで可視化し、あなたの走りをデータで速くする。"
+                    )
+                    unitAppRecommend(
                         iconImage: "lotteryMemoAppIcon",
                         appTitle: "抽選履歴メモ",
                         appStoreURL: "https://apps.apple.com/jp/app/抽選履歴メモ/id6764254123",

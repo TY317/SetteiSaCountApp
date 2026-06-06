@@ -97,18 +97,18 @@ struct otome5ViewTop: View {
                         )
                     }
 
-//                    // エンディング
-//                    NavigationLink(destination: otome5ViewFigure(
-//                        otome5: otome5,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "flag.pattern.checkered",
-//                            textBody: "エンディング",
-//                            badgeStatus: common.otome5MenuEndingBadge,
-//                        )
-//                    }
+                    // エンディング
+                    NavigationLink(destination: otome5ViewEnding(
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.otome5MenuEndingBadge,
+                        )
+                    }
 
 //                    // おみくじ
 //                    NavigationLink(destination: otome5ViewOmikuji(
@@ -123,13 +123,13 @@ struct otome5ViewTop: View {
 //                        )
 //                    }
 //
-//                    // トロフィー
-//                    NavigationLink(destination: commonViewEnteriseTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "エンタトロフィー"
-//                        )
-//                    }
+                    // 隠れ凪
+                    NavigationLink(destination: commonViewKakureNagi()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "隠れ凪"
+                        )
+                    }
 //                } header: {
 //                    unitLabelMachineTopTitle(
 //                        machineName: otome5.machineName,

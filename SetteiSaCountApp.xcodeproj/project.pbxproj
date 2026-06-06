@@ -1325,6 +1325,9 @@
 		0FD6BAD32FCF9C77003D3707 /* otome5ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6BAD22FCF9C77003D3707 /* otome5ViewHistory.swift */; };
 		0FD6BAD52FD056E9003D3707 /* otome5ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6BAD42FD056E9003D3707 /* otome5ViewFirstHit.swift */; };
 		0FD6BAD72FD05DE6003D3707 /* otome5ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6BAD62FD05DE6003D3707 /* otome5ViewScreen.swift */; };
+		0FD6BAD92FD1B4B7003D3707 /* otome5ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6BAD82FD1B4B7003D3707 /* otome5ViewEnding.swift */; };
+		0FD6BC752FD39EFE003D3707 /* recommendLapTimerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */; };
+		0FD6BC762FD39EFE003D3707 /* recommendLapTimerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */; };
 		0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
 		0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
 		0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */; };
@@ -2790,6 +2793,8 @@
 		0FD6BAD22FCF9C77003D3707 /* otome5ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewHistory.swift; sourceTree = "<group>"; };
 		0FD6BAD42FD056E9003D3707 /* otome5ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewFirstHit.swift; sourceTree = "<group>"; };
 		0FD6BAD62FD05DE6003D3707 /* otome5ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewScreen.swift; sourceTree = "<group>"; };
+		0FD6BAD82FD1B4B7003D3707 /* otome5ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewEnding.swift; sourceTree = "<group>"; };
+		0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendLapTimerAssets.xcassets; sourceTree = "<group>"; };
 		0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiSubViewCzScreen.swift; sourceTree = "<group>"; };
 		0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenTableHonkiBonus.swift; sourceTree = "<group>"; };
 		0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableReplayFlush.swift; sourceTree = "<group>"; };
@@ -3097,6 +3102,7 @@
 		0F00FAA62FACB9F10076283F /* appInfo */ = {
 			isa = PBXGroup;
 			children = (
+				0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */,
 				0FCE1C6B2FC29A67004A1D2A /* shimazuMaker */,
 				0F00FAF32FACBC5B0076283F /* hikakukakaku */,
 				0F00FAF22FACBC300076283F /* lotteryMemo */,
@@ -3198,6 +3204,7 @@
 				0FD6BAD22FCF9C77003D3707 /* otome5ViewHistory.swift */,
 				0FD6BAD42FD056E9003D3707 /* otome5ViewFirstHit.swift */,
 				0FD6BAD62FD05DE6003D3707 /* otome5ViewScreen.swift */,
+				0FD6BAD82FD1B4B7003D3707 /* otome5ViewEnding.swift */,
 			);
 			path = otome5;
 			sourceTree = "<group>";
@@ -5762,6 +5769,7 @@
 				0F6BD7CD2D806914003F5563 /* bioAssets.xcassets in Resources */,
 				0FA024512CDF5C93004B3FD5 /* commonAssets.xcassets in Resources */,
 				0F00FAFC2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */,
+				0FD6BC762FD39EFE003D3707 /* recommendLapTimerAssets.xcassets in Resources */,
 				0FF156452D73E30600B17F83 /* arifureAssets.xcassets in Resources */,
 				0F0B4BC32CCD240E00B12B00 /* rezero2Assets.xcassets in Resources */,
 				0F8030E32C6249FE001F008E /* Preview Assets.xcassets in Resources */,
@@ -5877,6 +5885,7 @@
 				0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */,
 				0F2A4DDD2F34CF0C00B3C583 /* Assets.xcassets in Resources */,
 				0F4471D52F6C24080048E9CE /* shakeAssets.xcassets in Resources */,
+				0FD6BC752FD39EFE003D3707 /* recommendLapTimerAssets.xcassets in Resources */,
 				0F00FAFB2FACBD960076283F /* recommendLotteryMemoAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7315,6 +7324,7 @@
 				0FF3692C2E62827D002BE0CE /* azurLaneTableModeSisa.swift in Sources */,
 				0FA63D562F8D0D7C0006E8F7 /* godKisekiClass.swift in Sources */,
 				0FF156102D604EAC00B17F83 /* starHanaVer2View95CiStart.swift in Sources */,
+				0FD6BAD92FD1B4B7003D3707 /* otome5ViewEnding.swift in Sources */,
 				0FC71FE22E670265000DD53B /* toreveTableKoyakuPattern.swift in Sources */,
 				0F4B0F4F2F53D319008D79E1 /* kabaneriUnatoViewOmikuji.swift in Sources */,
 				0F80311F2C69E495001F008E /* exViewCzModeVVV.swift in Sources */,
