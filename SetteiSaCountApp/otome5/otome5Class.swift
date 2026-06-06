@@ -144,3 +144,69 @@ class Otome5: ObservableObject {
         resetScreen()
     }
 }
+
+
+class Otome5Memory1: ObservableObject {
+    @AppStorage("otome5OtomeAttackCountMissMemory1") var otomeAttackMiss: Int = 0
+    @AppStorage("otome5OtomeAttackCountHitMemory1") var otomeAttackHit: Int = 0
+    @AppStorage("otome5OtomeAttackCountSumMemory1") var otomeAttackSum: Int = 0
+    @AppStorage("otome5GameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("otome5CycleArrayKeyMemory1") var cycleArrayData: Data?
+    @AppStorage("otome5KindArrayKeyMemory1") var kindArrayData: Data?
+    @AppStorage("otome5NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("otome5FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("otome5FirstHitCountDirectMemory1") var firstHitCountDirect: Int = 0
+    @AppStorage("otome5ScreenCountDefautMemory1") var screenCountDefaut: Int = 0
+    @AppStorage("otome5ScreenCountOver2Memory1") var screenCountOver2: Int = 0
+    @AppStorage("otome5ScreenCountOver3Memory1") var screenCountOver3: Int = 0
+    @AppStorage("otome5ScreenCountOver4Memory1") var screenCountOver4: Int = 0
+    @AppStorage("otome5ScreenCountOver5Memory1") var screenCountOver5: Int = 0
+    @AppStorage("otome5ScreenCountOver6Memory1") var screenCountOver6: Int = 0
+    @AppStorage("otome5ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("otome5MemoMemory1") var memo = ""
+    @AppStorage("otome5DateMemory1") var dateDouble = 0.0
+}
+
+
+class Otome5Memory2: ObservableObject {
+    @AppStorage("otome5OtomeAttackCountMissMemory2") var otomeAttackMiss: Int = 0
+    @AppStorage("otome5OtomeAttackCountHitMemory2") var otomeAttackHit: Int = 0
+    @AppStorage("otome5OtomeAttackCountSumMemory2") var otomeAttackSum: Int = 0
+    @AppStorage("otome5GameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("otome5CycleArrayKeyMemory2") var cycleArrayData: Data?
+    @AppStorage("otome5KindArrayKeyMemory2") var kindArrayData: Data?
+    @AppStorage("otome5NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("otome5FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("otome5FirstHitCountDirectMemory2") var firstHitCountDirect: Int = 0
+    @AppStorage("otome5ScreenCountDefautMemory2") var screenCountDefaut: Int = 0
+    @AppStorage("otome5ScreenCountOver2Memory2") var screenCountOver2: Int = 0
+    @AppStorage("otome5ScreenCountOver3Memory2") var screenCountOver3: Int = 0
+    @AppStorage("otome5ScreenCountOver4Memory2") var screenCountOver4: Int = 0
+    @AppStorage("otome5ScreenCountOver5Memory2") var screenCountOver5: Int = 0
+    @AppStorage("otome5ScreenCountOver6Memory2") var screenCountOver6: Int = 0
+    @AppStorage("otome5ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("otome5MemoMemory2") var memo = ""
+    @AppStorage("otome5DateMemory2") var dateDouble = 0.0
+}
+
+
+class Otome5Memory3: ObservableObject {
+    @AppStorage("otome5OtomeAttackCountMissMemory3") var otomeAttackMiss: Int = 0
+    @AppStorage("otome5OtomeAttackCountHitMemory3") var otomeAttackHit: Int = 0
+    @AppStorage("otome5OtomeAttackCountSumMemory3") var otomeAttackSum: Int = 0
+    @AppStorage("otome5GameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("otome5CycleArrayKeyMemory3") var cycleArrayData: Data?
+    @AppStorage("otome5KindArrayKeyMemory3") var kindArrayData: Data?
+    @AppStorage("otome5NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("otome5FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("otome5FirstHitCountDirectMemory3") var firstHitCountDirect: Int = 0
+    @AppStorage("otome5ScreenCountDefautMemory3") var screenCountDefaut: Int = 0
+    @AppStorage("otome5ScreenCountOver2Memory3") var screenCountOver2: Int = 0
+    @AppStorage("otome5ScreenCountOver3Memory3") var screenCountOver3: Int = 0
+    @AppStorage("otome5ScreenCountOver4Memory3") var screenCountOver4: Int = 0
+    @AppStorage("otome5ScreenCountOver5Memory3") var screenCountOver5: Int = 0
+    @AppStorage("otome5ScreenCountOver6Memory3") var screenCountOver6: Int = 0
+    @AppStorage("otome5ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("otome5MemoMemory3") var memo = ""
+    @AppStorage("otome5DateMemory3") var dateDouble = 0.0
+}

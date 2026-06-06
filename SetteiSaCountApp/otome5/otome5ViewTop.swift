@@ -13,9 +13,9 @@ struct otome5ViewTop: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @StateObject var otome5 = Otome5()
     @State var isShowAlert: Bool = false
-//    @StateObject var otome5Memory1 = otome5Memory1()
-//    @StateObject var otome5Memory2 = otome5Memory2()
-//    @StateObject var otome5Memory3 = otome5Memory3()
+    @StateObject var otome5Memory1 = Otome5Memory1()
+    @StateObject var otome5Memory2 = Otome5Memory2()
+    @StateObject var otome5Memory3 = Otome5Memory3()
     var body: some View {
         NavigationStack {
             List {
@@ -187,21 +187,21 @@ struct otome5ViewTop: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // データ読み出し
-//                unitButtonLoadMemory(loadView: AnyView(otome5SubViewLoadMemory(
-//                    otome5: otome5,
-//                    otome5Memory1: otome5Memory1,
-//                    otome5Memory2: otome5Memory2,
-//                    otome5Memory3: otome5Memory3
-//                )))
+                unitButtonLoadMemory(loadView: AnyView(otome5SubViewLoadMemory(
+                    otome5: otome5,
+                    otome5Memory1: otome5Memory1,
+                    otome5Memory2: otome5Memory2,
+                    otome5Memory3: otome5Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データ保存
-//                unitButtonSaveMemory(saveView: AnyView(otome5SubViewSaveMemory(
-//                    otome5: otome5,
-//                    otome5Memory1: otome5Memory1,
-//                    otome5Memory2: otome5Memory2,
-//                    otome5Memory3: otome5Memory3
-//                )))
+                unitButtonSaveMemory(saveView: AnyView(otome5SubViewSaveMemory(
+                    otome5: otome5,
+                    otome5Memory1: otome5Memory1,
+                    otome5Memory2: otome5Memory2,
+                    otome5Memory3: otome5Memory3
+                )))
             }
             ToolbarItem(placement: .automatic) {
                 // データリセット
@@ -212,6 +212,189 @@ struct otome5ViewTop: View {
                 )
             }
         }
+    }
+}
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct otome5SubViewSaveMemory: View {
+    @ObservedObject var otome5: Otome5
+    @ObservedObject var otome5Memory1: Otome5Memory1
+    @ObservedObject var otome5Memory2: Otome5Memory2
+    @ObservedObject var otome5Memory3: Otome5Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: otome5.machineName,
+            selectedMemory: $otome5.selectedMemory,
+            memoMemory1: $otome5Memory1.memo,
+            dateDoubleMemory1: $otome5Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $otome5Memory2.memo,
+            dateDoubleMemory2: $otome5Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $otome5Memory3.memo,
+            dateDoubleMemory3: $otome5Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+        otome5Memory1.otomeAttackMiss = otome5.otomeAttackMiss
+        otome5Memory1.otomeAttackHit = otome5.otomeAttackHit
+        otome5Memory1.otomeAttackSum = otome5.otomeAttackSum
+        otome5Memory1.gameArrayData = otome5.gameArrayData
+        otome5Memory1.cycleArrayData = otome5.cycleArrayData
+        otome5Memory1.kindArrayData = otome5.kindArrayData
+        otome5Memory1.normalGame = otome5.normalGame
+        otome5Memory1.firstHitCountAt = otome5.firstHitCountAt
+        otome5Memory1.firstHitCountDirect = otome5.firstHitCountDirect
+        otome5Memory1.screenCountDefaut = otome5.screenCountDefaut
+        otome5Memory1.screenCountOver2 = otome5.screenCountOver2
+        otome5Memory1.screenCountOver3 = otome5.screenCountOver3
+        otome5Memory1.screenCountOver4 = otome5.screenCountOver4
+        otome5Memory1.screenCountOver5 = otome5.screenCountOver5
+        otome5Memory1.screenCountOver6 = otome5.screenCountOver6
+        otome5Memory1.screenCountSum = otome5.screenCountSum
+    }
+    func saveMemory2() {
+        otome5Memory2.otomeAttackMiss = otome5.otomeAttackMiss
+        otome5Memory2.otomeAttackHit = otome5.otomeAttackHit
+        otome5Memory2.otomeAttackSum = otome5.otomeAttackSum
+        otome5Memory2.gameArrayData = otome5.gameArrayData
+        otome5Memory2.cycleArrayData = otome5.cycleArrayData
+        otome5Memory2.kindArrayData = otome5.kindArrayData
+        otome5Memory2.normalGame = otome5.normalGame
+        otome5Memory2.firstHitCountAt = otome5.firstHitCountAt
+        otome5Memory2.firstHitCountDirect = otome5.firstHitCountDirect
+        otome5Memory2.screenCountDefaut = otome5.screenCountDefaut
+        otome5Memory2.screenCountOver2 = otome5.screenCountOver2
+        otome5Memory2.screenCountOver3 = otome5.screenCountOver3
+        otome5Memory2.screenCountOver4 = otome5.screenCountOver4
+        otome5Memory2.screenCountOver5 = otome5.screenCountOver5
+        otome5Memory2.screenCountOver6 = otome5.screenCountOver6
+        otome5Memory2.screenCountSum = otome5.screenCountSum
+    }
+    func saveMemory3() {
+        otome5Memory3.otomeAttackMiss = otome5.otomeAttackMiss
+        otome5Memory3.otomeAttackHit = otome5.otomeAttackHit
+        otome5Memory3.otomeAttackSum = otome5.otomeAttackSum
+        otome5Memory3.gameArrayData = otome5.gameArrayData
+        otome5Memory3.cycleArrayData = otome5.cycleArrayData
+        otome5Memory3.kindArrayData = otome5.kindArrayData
+        otome5Memory3.normalGame = otome5.normalGame
+        otome5Memory3.firstHitCountAt = otome5.firstHitCountAt
+        otome5Memory3.firstHitCountDirect = otome5.firstHitCountDirect
+        otome5Memory3.screenCountDefaut = otome5.screenCountDefaut
+        otome5Memory3.screenCountOver2 = otome5.screenCountOver2
+        otome5Memory3.screenCountOver3 = otome5.screenCountOver3
+        otome5Memory3.screenCountOver4 = otome5.screenCountOver4
+        otome5Memory3.screenCountOver5 = otome5.screenCountOver5
+        otome5Memory3.screenCountOver6 = otome5.screenCountOver6
+        otome5Memory3.screenCountSum = otome5.screenCountSum
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct otome5SubViewLoadMemory: View {
+    @ObservedObject var otome5: Otome5
+    @ObservedObject var otome5Memory1: Otome5Memory1
+    @ObservedObject var otome5Memory2: Otome5Memory2
+    @ObservedObject var otome5Memory3: Otome5Memory3
+    @State var isShowSaveAlert: Bool = false
+    
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: otome5.machineName,
+            selectedMemory: $otome5.selectedMemory,
+            memoMemory1: otome5Memory1.memo,
+            dateDoubleMemory1: otome5Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: otome5Memory2.memo,
+            dateDoubleMemory2: otome5Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: otome5Memory3.memo,
+            dateDoubleMemory3: otome5Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+        otome5.otomeAttackMiss = otome5Memory1.otomeAttackMiss
+        otome5.otomeAttackHit = otome5Memory1.otomeAttackHit
+        otome5.otomeAttackSum = otome5Memory1.otomeAttackSum
+        let array = decodeIntArray(from: otome5Memory1.cycleArrayData)
+        let array2 = decodeIntArray(from: otome5Memory1.gameArrayData)
+        let array3 = decodeStringArray(from: otome5Memory1.kindArrayData)
+        saveArray(array, forKey: otome5.gameArrayKey)
+        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array3, forKey: otome5.kindArrayKey)
+//        otome5.gameArrayData = otome5Memory1.gameArrayData
+//        otome5.cycleArrayData = otome5Memory1.cycleArrayData
+//        otome5.kindArrayData = otome5Memory1.kindArrayData
+        otome5.normalGame = otome5Memory1.normalGame
+        otome5.firstHitCountAt = otome5Memory1.firstHitCountAt
+        otome5.firstHitCountDirect = otome5Memory1.firstHitCountDirect
+        otome5.screenCountDefaut = otome5Memory1.screenCountDefaut
+        otome5.screenCountOver2 = otome5Memory1.screenCountOver2
+        otome5.screenCountOver3 = otome5Memory1.screenCountOver3
+        otome5.screenCountOver4 = otome5Memory1.screenCountOver4
+        otome5.screenCountOver5 = otome5Memory1.screenCountOver5
+        otome5.screenCountOver6 = otome5Memory1.screenCountOver6
+        otome5.screenCountSum = otome5Memory1.screenCountSum
+    }
+    func loadMemory2() {
+        otome5.otomeAttackMiss = otome5Memory2.otomeAttackMiss
+        otome5.otomeAttackHit = otome5Memory2.otomeAttackHit
+        otome5.otomeAttackSum = otome5Memory2.otomeAttackSum
+        let array = decodeIntArray(from: otome5Memory2.cycleArrayData)
+        let array2 = decodeIntArray(from: otome5Memory2.gameArrayData)
+        let array3 = decodeStringArray(from: otome5Memory2.kindArrayData)
+        saveArray(array, forKey: otome5.gameArrayKey)
+        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array3, forKey: otome5.kindArrayKey)
+//        otome5.gameArrayData = otome5Memory2.gameArrayData
+//        otome5.cycleArrayData = otome5Memory2.cycleArrayData
+//        otome5.kindArrayData = otome5Memory2.kindArrayData
+        otome5.normalGame = otome5Memory2.normalGame
+        otome5.firstHitCountAt = otome5Memory2.firstHitCountAt
+        otome5.firstHitCountDirect = otome5Memory2.firstHitCountDirect
+        otome5.screenCountDefaut = otome5Memory2.screenCountDefaut
+        otome5.screenCountOver2 = otome5Memory2.screenCountOver2
+        otome5.screenCountOver3 = otome5Memory2.screenCountOver3
+        otome5.screenCountOver4 = otome5Memory2.screenCountOver4
+        otome5.screenCountOver5 = otome5Memory2.screenCountOver5
+        otome5.screenCountOver6 = otome5Memory2.screenCountOver6
+        otome5.screenCountSum = otome5Memory2.screenCountSum
+    }
+    func loadMemory3() {
+        otome5.otomeAttackMiss = otome5Memory3.otomeAttackMiss
+        otome5.otomeAttackHit = otome5Memory3.otomeAttackHit
+        otome5.otomeAttackSum = otome5Memory3.otomeAttackSum
+        let array = decodeIntArray(from: otome5Memory3.cycleArrayData)
+        let array2 = decodeIntArray(from: otome5Memory3.gameArrayData)
+        let array3 = decodeStringArray(from: otome5Memory3.kindArrayData)
+        saveArray(array, forKey: otome5.gameArrayKey)
+        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array3, forKey: otome5.kindArrayKey)
+//        otome5.gameArrayData = otome5Memory3.gameArrayData
+//        otome5.cycleArrayData = otome5Memory3.cycleArrayData
+//        otome5.kindArrayData = otome5Memory3.kindArrayData
+        otome5.normalGame = otome5Memory3.normalGame
+        otome5.firstHitCountAt = otome5Memory3.firstHitCountAt
+        otome5.firstHitCountDirect = otome5Memory3.firstHitCountDirect
+        otome5.screenCountDefaut = otome5Memory3.screenCountDefaut
+        otome5.screenCountOver2 = otome5Memory3.screenCountOver2
+        otome5.screenCountOver3 = otome5Memory3.screenCountOver3
+        otome5.screenCountOver4 = otome5Memory3.screenCountOver4
+        otome5.screenCountOver5 = otome5Memory3.screenCountOver5
+        otome5.screenCountOver6 = otome5Memory3.screenCountOver6
+        otome5.screenCountSum = otome5Memory3.screenCountSum
     }
 }
 
