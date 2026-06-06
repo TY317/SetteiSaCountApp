@@ -45,19 +45,19 @@ struct sao2ViewTop: View {
                         )
                     }
                     
-//                    // CZ
-//                    NavigationLink(destination: sao2ViewCz(
-//                        sao2: sao2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "scope",
-//                            textBody: "CZ",
-//                            badgeStatus: common.sao2MenuCzBadge,
-//                        )
-//                    }
-//                    
+                    // CZ
+                    NavigationLink(destination: sao2ViewCz(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.sao2MenuCzBadge,
+                        )
+                    }
+                    
 //                    // 初当り
 //                    NavigationLink(destination: sao2ViewFirstHit(
 //                        sao2: sao2,

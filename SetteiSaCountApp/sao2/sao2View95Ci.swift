@@ -70,25 +70,44 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(3)
-//
-//            // 天井短縮回数
-//            unitListSection95Ci(
-//                grafTitle: "天井短縮回数",
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $sao2.tenjoCountHit,
-//                        bigNumber: $sao2.tenjoCountSum,
-//                        setting1Percent: sao2.ratioTenjoCut[0],
-//                        setting2Percent: sao2.ratioTenjoCut[1],
-//                        setting3Percent: sao2.ratioTenjoCut[2],
-//                        setting4Percent: sao2.ratioTenjoCut[3],
-//                        setting5Percent: sao2.ratioTenjoCut[4],
-//                        setting6Percent: sao2.ratioTenjoCut[5]
-//                    )
-//                )
-//            )
-//            .tag(5)
-//
+
+            // CZ失敗時のアイテム獲得回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗時\nアイテム獲得回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.czItemCountHit,
+                        bigNumber: $sao2.czItemCountSum,
+                        setting1Percent: sao2.ratioCzItemGet[0],
+                        setting2Percent: sao2.ratioCzItemGet[1],
+                        setting3Percent: sao2.ratioCzItemGet[2],
+                        setting4Percent: sao2.ratioCzItemGet[3],
+                        setting5Percent: sao2.ratioCzItemGet[4],
+                        setting6Percent: sao2.ratioCzItemGet[5]
+                    )
+                )
+            )
+            .tag(4)
+
+            // CZ失敗時の決闘突入回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗時\n曠野の決闘 突入回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.czKettouCountHit,
+                        bigNumber: $sao2.czKettouCountSum,
+                        setting1Percent: sao2.ratioCzKettouGet[0],
+                        setting2Percent: sao2.ratioCzKettouGet[1],
+                        setting3Percent: sao2.ratioCzKettouGet[2],
+                        setting4Percent: sao2.ratioCzKettouGet[3],
+                        setting5Percent: sao2.ratioCzKettouGet[4],
+                        setting6Percent: sao2.ratioCzKettouGet[5]
+                    )
+                )
+            )
+            .tag(5)
 //            // CZ初当り回数
 //            unitListSection95Ci(
 //                grafTitle: "CZ初当り回数",

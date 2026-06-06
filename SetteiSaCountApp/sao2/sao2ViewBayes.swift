@@ -16,6 +16,8 @@ struct sao2ViewBayes: View {
     @State var lowSuikaHitEnable: Bool = true
     @State var lowKyoCherryHitEnable: Bool = true
     @State var highKyoCherryHitEnable: Bool = true
+    @State var czItemGetEnable: Bool = true
+    @State var czKettouGetEnable: Bool = true
     
     
     // 全機種共通
@@ -51,6 +53,8 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowSuikaHitEnable, title: "低確 🍉からのシューティングチャージ当選率")
                 unitToggleWithQuestion(enable: self.$lowKyoCherryHitEnable, title: "低確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$highKyoCherryHitEnable, title: "高確 強🍒からのCZ当選率")
+                unitToggleWithQuestion(enable: self.$czItemGetEnable, title: "CZ失敗時のアイテム獲得率")
+                unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -150,6 +154,25 @@ struct sao2ViewBayes: View {
             )
         }
         
+        // CZ失敗時のアイテム獲得率
+        var logPostCzFailItem: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.czItemGetEnable {
+            logPostCzFailItem = logPostPercentBino(
+                ratio: sao2.ratioCzItemGet,
+                Count: sao2.czItemCountHit,
+                bigNumber: sao2.czItemCountSum
+            )
+        }
+        
+        // CZ失敗時の決闘突入率
+        var logPostCzFailKettou: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.czKettouGetEnable {
+            logPostCzFailKettou = logPostPercentBino(
+                ratio: sao2.ratioCzKettouGet,
+                Count: sao2.czKettouCountHit,
+                bigNumber: sao2.czKettouCountSum
+            )
+        }
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -191,6 +214,8 @@ struct sao2ViewBayes: View {
             logPostLowSuikaHit,
             logPostLowStrongCherryHit,
             logPostHighStrongCherryHit,
+            logPostCzFailItem,
+            logPostCzFailKettou,
             
             logPostTrophy,
             logPostBefore,

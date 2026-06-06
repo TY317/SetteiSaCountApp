@@ -201,11 +201,11 @@ struct sao2ViewNormal: View {
                     sao2TableGGOMode()
                 }
                 // 移行りつ
-                unitLinkButtonViewBuilder(sheetTitle: "GGOモード移行率") {
+                unitLinkButtonViewBuilder(sheetTitle: "GGOモード滞在率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTablePercent(
-                            columTitle: "移行率",
+                            columTitle: "滞在率",
                             percentList: sao2.ratioGgoMode
                         )
                     }

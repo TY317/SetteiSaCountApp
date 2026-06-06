@@ -1064,6 +1064,7 @@
 		0FAB9A6D2FD437130038AEE7 /* sao2TableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB9A6B2FD4370A0038AEE7 /* sao2TableMode.swift */; };
 		0FAB9A6F2FD43A490038AEE7 /* sao2TableGGOMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB9A6E2FD43A490038AEE7 /* sao2TableGGOMode.swift */; };
 		0FAB9A702FD43A500038AEE7 /* sao2TableGGOMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB9A6E2FD43A490038AEE7 /* sao2TableGGOMode.swift */; };
+		0FAB9A722FD4403A0038AEE7 /* sao2ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB9A712FD4403A0038AEE7 /* sao2ViewCz.swift */; };
 		0FB023AE2EAC5B1B00218EEE /* shamanKingViewQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */; };
 		0FB023B02EAC61BF00218EEE /* shamanKingTableQualify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */; };
 		0FB023B22EAC6BAF00218EEE /* shamanKingViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */; };
@@ -2547,6 +2548,7 @@
 		0FA663022F243ED000F3259F /* mt5TableRareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mt5TableRareItem.swift; sourceTree = "<group>"; };
 		0FAB9A6B2FD4370A0038AEE7 /* sao2TableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2TableMode.swift; sourceTree = "<group>"; };
 		0FAB9A6E2FD43A490038AEE7 /* sao2TableGGOMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2TableGGOMode.swift; sourceTree = "<group>"; };
+		0FAB9A712FD4403A0038AEE7 /* sao2ViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewCz.swift; sourceTree = "<group>"; };
 		0FB023AD2EAC5B1B00218EEE /* shamanKingViewQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewQualify.swift; sourceTree = "<group>"; };
 		0FB023AF2EAC61BF00218EEE /* shamanKingTableQualify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingTableQualify.swift; sourceTree = "<group>"; };
 		0FB023B12EAC6BAF00218EEE /* shamanKingViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shamanKingViewBayes.swift; sourceTree = "<group>"; };
@@ -3227,6 +3229,7 @@
 				0F1218742FCAFB1E00E50794 /* sao2TableKoyakuPattern.swift */,
 				0FAB9A6B2FD4370A0038AEE7 /* sao2TableMode.swift */,
 				0FAB9A6E2FD43A490038AEE7 /* sao2TableGGOMode.swift */,
+				0FAB9A712FD4403A0038AEE7 /* sao2ViewCz.swift */,
 			);
 			path = sao2;
 			sourceTree = "<group>";
@@ -6105,6 +6108,7 @@
 				0FA0247B2CF49B82004B3FD5 /* kaguyaView95Ci.swift in Sources */,
 				0FF156082D604D1400B17F83 /* starHanaVer2ViewJissenCount.swift in Sources */,
 				0F9A4F7D2DEC1BD9003B6337 /* dmc5TableModeSuisoku.swift in Sources */,
+				0FAB9A722FD4403A0038AEE7 /* sao2ViewCz.swift in Sources */,
 				0FCF78B82E476E030000748B /* kabaneriTableCharaFemale.swift in Sources */,
 				0F8571792E7FBEE600BDC2CE /* isVersionCompare.swift in Sources */,
 				0F8689DA2D3BB75800D952D9 /* myJug5Ver2View95CiStart.swift in Sources */,

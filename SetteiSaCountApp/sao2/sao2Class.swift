@@ -36,6 +36,37 @@ class Sao2: ObservableObject {
     // GGOモード
     let ratioGgoMode: [Double] = [20,-1,-1,-1,-1,-1,]
     
+    // ---------
+    // CZ
+    // ---------
+    let ratioCzItemGet: [Double] = [20.3,21.1,21.9,22.7,25,30.1]
+    @AppStorage("sao2CzItemCountMiss") var czItemCountMiss: Int = 0
+    @AppStorage("sao2CzItemCountHit") var czItemCountHit: Int = 0
+    @AppStorage("sao2CzItemCountSum") var czItemCountSum: Int = 0
+    
+    func czItemSumFunc() {
+        czItemCountSum = czItemCountMiss + czItemCountHit
+    }
+    
+    // 曠野の決闘 突入率
+    let ratioCzKettouGet: [Double] = [0.78,-1,-1,-1,-1,1.56]
+    @AppStorage("sao2CzKettouCountMiss") var czKettouCountMiss: Int = 0
+    @AppStorage("sao2CzKettouCountHit") var czKettouCountHit: Int = 0
+    @AppStorage("sao2CzKettouCountSum") var czKettouCountSum: Int = 0
+    
+    func czKettouSumFunc() {
+        czKettouCountSum = czKettouCountMiss + czKettouCountHit
+    }
+    
+    func resetCz() {
+        czItemCountMiss = 0
+        czItemCountHit = 0
+        czItemCountSum = 0
+        czKettouCountMiss = 0
+        czKettouCountHit = 0
+        czKettouCountSum = 0
+        minusCheck = false
+    }
     
     // -----------
     // 共通
@@ -46,5 +77,6 @@ class Sao2: ObservableObject {
     
     func resetAll() {
         resetNormal()
+        resetCz()
     }
 }

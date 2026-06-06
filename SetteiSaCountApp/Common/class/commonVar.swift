@@ -267,6 +267,7 @@ class commonVar: ObservableObject {
     @AppStorage("sao2MenuFirstHitBadge") var sao2MenuFirstHitBadge: String = "none"
     @AppStorage("sao2MenuBayesBadge") var sao2MenuBayesBadge: String = "none"
     @AppStorage("sao2MenuScreenBadge") var sao2MenuScreenBadge: String = "none"
+    @AppStorage("sao2MenuCzBadge") var sao2MenuCzBadge: String = "none"
     
     // ---- バイオRE3
     @AppStorage("bioRe3isUnlocked") var bioRe3isUnlocked: Bool = true
