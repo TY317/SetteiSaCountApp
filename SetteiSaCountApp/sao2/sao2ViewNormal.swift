@@ -43,6 +43,7 @@ struct sao2ViewNormal: View {
                             bigNumber: $sao2.lowSuikaCount,
                             numberofDicimal: 0,
                             spacerBool: false,
+                            titelFont: .subheadline,
                         )
                         // 強🍒からのCZ
                         unitResultRatioPercent2Line(
@@ -51,6 +52,7 @@ struct sao2ViewNormal: View {
                             bigNumber: $sao2.kyoCherryCount,
                             numberofDicimal: 0,
                             spacerBool: false,
+                            titelFont: .subheadline,
                         )
                         // 高確強🍒からのCZ
                         unitResultRatioPercent2Line(
@@ -59,6 +61,7 @@ struct sao2ViewNormal: View {
                             bigNumber: $sao2.highKyoCherryCount,
                             numberofDicimal: 0,
                             spacerBool: false,
+                            titelFont: .subheadline,
                         )
                     }
                     Text("※ SC：シューティングチャージ")
@@ -179,6 +182,36 @@ struct sao2ViewNormal: View {
                 }
             } header: {
                 Text("小役からの当選")
+            }
+            
+            // ---- 通常モード
+            Section {
+                // 規定G数モード
+                unitLinkButtonViewBuilder(sheetTitle: "通常モード") {
+                    sao2TableMode()
+                }
+            } header: {
+                Text("通常モード")
+            }
+            
+            // ---- GGOモード
+            Section {
+                // GGOモード
+                unitLinkButtonViewBuilder(sheetTitle: "GGOモード") {
+                    sao2TableGGOMode()
+                }
+                // 移行りつ
+                unitLinkButtonViewBuilder(sheetTitle: "GGOモード移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "移行率",
+                            percentList: sao2.ratioGgoMode
+                        )
+                    }
+                }
+            } header: {
+                Text("GGOモード")
             }
         }
         // //// バッジのリセット

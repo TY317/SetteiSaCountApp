@@ -33,6 +33,10 @@ class Sao2: ObservableObject {
         minusCheck = false
     }
     
+    // GGOモード
+    let ratioGgoMode: [Double] = [20,-1,-1,-1,-1,-1,]
+    
+    
     // -----------
     // 共通
     // -----------
