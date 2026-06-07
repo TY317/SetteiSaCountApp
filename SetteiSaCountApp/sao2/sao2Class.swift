@@ -163,3 +163,108 @@ class Sao2: ObservableObject {
         resetComeBack()
     }
 }
+
+
+class Sao2Memory1: ObservableObject {
+    @AppStorage("sao2LowSuikaCountMemory1") var lowSuikaCount: Int = 0
+    @AppStorage("sao2LowSuikaCountShootingHitMemory1") var lowSuikaCountShootingHit: Int = 0
+    @AppStorage("sao2KyoCherryCountMemory1") var kyoCherryCount: Int = 0
+    @AppStorage("sao2KyoCherryCountCzHitMemory1") var kyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2HighKyoCherryCountMemory1") var highKyoCherryCount: Int = 0
+    @AppStorage("sao2HighKyoCherryCountCzHitMemory1") var highKyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2CzItemCountMissMemory1") var czItemCountMiss: Int = 0
+    @AppStorage("sao2CzItemCountHitMemory1") var czItemCountHit: Int = 0
+    @AppStorage("sao2CzItemCountSumMemory1") var czItemCountSum: Int = 0
+    @AppStorage("sao2CzKettouCountMissMemory1") var czKettouCountMiss: Int = 0
+    @AppStorage("sao2CzKettouCountHitMemory1") var czKettouCountHit: Int = 0
+    @AppStorage("sao2CzKettouCountSumMemory1") var czKettouCountSum: Int = 0
+    @AppStorage("sao2NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("sao2FirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("sao2FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("sao2ScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("sao2ScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("sao2ScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("sao2ScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("sao2ScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("sao2ScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("sao2ScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("sao2ScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("sao2ScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("sao2ScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("sao2ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("sao2ComeBackCountMissMemory1") var comeBackCountMiss: Int = 0
+    @AppStorage("sao2ComeBackCountHitMemory1") var comeBackCountHit: Int = 0
+    @AppStorage("sao2ComeBackCountSumMemory1") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MemoMemory1") var memo = ""
+    @AppStorage("sao2DateMemory1") var dateDouble = 0.0
+}
+
+
+class Sao2Memory2: ObservableObject {
+    @AppStorage("sao2LowSuikaCountMemory2") var lowSuikaCount: Int = 0
+    @AppStorage("sao2LowSuikaCountShootingHitMemory2") var lowSuikaCountShootingHit: Int = 0
+    @AppStorage("sao2KyoCherryCountMemory2") var kyoCherryCount: Int = 0
+    @AppStorage("sao2KyoCherryCountCzHitMemory2") var kyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2HighKyoCherryCountMemory2") var highKyoCherryCount: Int = 0
+    @AppStorage("sao2HighKyoCherryCountCzHitMemory2") var highKyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2CzItemCountMissMemory2") var czItemCountMiss: Int = 0
+    @AppStorage("sao2CzItemCountHitMemory2") var czItemCountHit: Int = 0
+    @AppStorage("sao2CzItemCountSumMemory2") var czItemCountSum: Int = 0
+    @AppStorage("sao2CzKettouCountMissMemory2") var czKettouCountMiss: Int = 0
+    @AppStorage("sao2CzKettouCountHitMemory2") var czKettouCountHit: Int = 0
+    @AppStorage("sao2CzKettouCountSumMemory2") var czKettouCountSum: Int = 0
+    @AppStorage("sao2NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("sao2FirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("sao2FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("sao2ScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("sao2ScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("sao2ScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("sao2ScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("sao2ScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("sao2ScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("sao2ScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("sao2ScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("sao2ScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("sao2ScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("sao2ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("sao2ComeBackCountMissMemory2") var comeBackCountMiss: Int = 0
+    @AppStorage("sao2ComeBackCountHitMemory2") var comeBackCountHit: Int = 0
+    @AppStorage("sao2ComeBackCountSumMemory2") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MemoMemory2") var memo = ""
+    @AppStorage("sao2DateMemory2") var dateDouble = 0.0
+}
+
+
+class Sao2Memory3: ObservableObject {
+    @AppStorage("sao2LowSuikaCountMemory3") var lowSuikaCount: Int = 0
+    @AppStorage("sao2LowSuikaCountShootingHitMemory3") var lowSuikaCountShootingHit: Int = 0
+    @AppStorage("sao2KyoCherryCountMemory3") var kyoCherryCount: Int = 0
+    @AppStorage("sao2KyoCherryCountCzHitMemory3") var kyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2HighKyoCherryCountMemory3") var highKyoCherryCount: Int = 0
+    @AppStorage("sao2HighKyoCherryCountCzHitMemory3") var highKyoCherryCountCzHit: Int = 0
+    @AppStorage("sao2CzItemCountMissMemory3") var czItemCountMiss: Int = 0
+    @AppStorage("sao2CzItemCountHitMemory3") var czItemCountHit: Int = 0
+    @AppStorage("sao2CzItemCountSumMemory3") var czItemCountSum: Int = 0
+    @AppStorage("sao2CzKettouCountMissMemory3") var czKettouCountMiss: Int = 0
+    @AppStorage("sao2CzKettouCountHitMemory3") var czKettouCountHit: Int = 0
+    @AppStorage("sao2CzKettouCountSumMemory3") var czKettouCountSum: Int = 0
+    @AppStorage("sao2NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("sao2FirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("sao2FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("sao2ScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("sao2ScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("sao2ScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("sao2ScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("sao2ScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("sao2ScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("sao2ScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("sao2ScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("sao2ScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("sao2ScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("sao2ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("sao2ComeBackCountMissMemory3") var comeBackCountMiss: Int = 0
+    @AppStorage("sao2ComeBackCountHitMemory3") var comeBackCountHit: Int = 0
+    @AppStorage("sao2ComeBackCountSumMemory3") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MemoMemory3") var memo = ""
+    @AppStorage("sao2DateMemory3") var dateDouble = 0.0
+}
