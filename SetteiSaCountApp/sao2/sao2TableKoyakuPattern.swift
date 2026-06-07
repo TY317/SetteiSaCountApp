@@ -120,47 +120,46 @@ struct sao2TableKoyakuPattern: View {
             }
             
             // //// 3段目
-            VStack(spacing: 7) {
-                unitReelLongTitle(titleText: "強チャンス目")
-                VStack {
-                    HStack(spacing: 15) {
-                        // 強チャンス目A
-                        unitReelPattern(
-                            leftReel: unitReelColumn(
-                                upper: unitReelText(textBody: "🍉"),
-                                middle: unitReelText(textBody: "🔔"),
-                                lower: unitReelReplay()
-                            ),
-                            centerReel: unitReelColumn(
-                                upper: unitReelDefault(),
-                                middle: unitReelText(textBody: "🍉"),
-                                lower: unitReelDefault(),
-                            ),
-                            rightReel: unitReelColumn(
-                                upper: unitReelDefault(),
-                                middle: unitReelText(textBody: "🍉"),
-                                lower: unitReelDefault(),
-                            ),
-                        )
-                        // チャンス目２
-                        unitReelPattern(
-                            leftReel: unitReelColumn(
-                                upper: unitReelText(textBody: "🍉"),
-                                middle: unitReelText(textBody: "🔔"),
-                                lower: unitReelReplay()
-                            ),
-                            centerReel: unitReelColumn(
-                                upper: unitReelText(textBody: "🍉"),
-                                middle: unitReelDefault(),
-                                lower: unitReelDefault(),
-                            ),
-                            rightReel: unitReelColumn(
-                                upper: unitReelDefault(),
-                                middle: unitReelDefault(),
-                                lower: unitReelText(textBody: "🍉"),
-                            ),
-                        )
-                    }
+            VStack {
+                HStack(spacing: 15) {
+                    // 強チャンス目A
+                    unitReelPattern(
+                        titleText: "強チャンス目A",
+                        leftReel: unitReelColumn(
+                            upper: unitReelText(textBody: "🍉"),
+                            middle: unitReelText(textBody: "🔔"),
+                            lower: unitReelReplay()
+                        ),
+                        centerReel: unitReelColumn(
+                            upper: unitReelDefault(),
+                            middle: unitReelText(textBody: "🍉"),
+                            lower: unitReelDefault(),
+                        ),
+                        rightReel: unitReelColumn(
+                            upper: unitReelDefault(),
+                            middle: unitReelText(textBody: "🍉"),
+                            lower: unitReelDefault(),
+                        ),
+                    )
+                    // 強チャンス目B
+                    unitReelPattern(
+                        titleText: "強チャンス目B",
+                        leftReel: unitReelColumn(
+                            upper: unitReelText(textBody: "🍉"),
+                            middle: unitReelText(textBody: "🔔"),
+                            lower: unitReelReplay()
+                        ),
+                        centerReel: unitReelColumn(
+                            upper: unitReelText(textBody: "🍉"),
+                            middle: unitReelDefault(),
+                            lower: unitReelDefault(),
+                        ),
+                        rightReel: unitReelColumn(
+                            upper: unitReelDefault(),
+                            middle: unitReelDefault(),
+                            lower: unitReelText(textBody: "🍉"),
+                        ),
+                    )
                 }
             }
         }
