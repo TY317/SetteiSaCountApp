@@ -129,6 +129,25 @@ class Sao2: ObservableObject {
         minusCheck = false
     }
     
+    // ----------
+    // 引き戻し
+    // ----------
+    let ratioComeBack: [Double] = [-1,-1,-1,-1,-1,-1,]
+    @AppStorage("sao2ComeBackCountMiss") var comeBackCountMiss: Int = 0
+    @AppStorage("sao2ComeBackCountHit") var comeBackCountHit: Int = 0
+    @AppStorage("sao2ComeBackCountSum") var comeBackCountSum: Int = 0
+    
+    func comeBackSumFunc() {
+        comeBackCountSum = comeBackCountMiss + comeBackCountHit
+    }
+    
+    func resetComeBack() {
+        comeBackCountMiss = 0
+        comeBackCountHit = 0
+        comeBackCountSum = 0
+        minusCheck = false
+    }
+    
     // -----------
     // 共通
     // -----------
@@ -141,5 +160,6 @@ class Sao2: ObservableObject {
         resetCz()
         resetFirstHit()
         resetScreen()
+        resetComeBack()
     }
 }

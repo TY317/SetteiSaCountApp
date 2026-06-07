@@ -96,6 +96,19 @@ struct sao2ViewTop: View {
                             badgeStatus: common.sao2MenuScreenBadge,
                         )
                     }
+                    
+                    // 引き戻し
+                    NavigationLink(destination: sao2ViewComeBack(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "引き戻し",
+                            badgeStatus: common.sao2MenuComeBackBadge,
+                        )
+                    }
 
 //                    // エンディング
 //                    NavigationLink(destination: sao2ViewFigure(
