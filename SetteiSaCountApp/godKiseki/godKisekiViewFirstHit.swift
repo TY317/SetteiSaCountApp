@@ -129,6 +129,7 @@ struct godKisekiViewFirstHit: View {
             } header: {
                 Text("初当り")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.godKisekiMenuFirstHitBadge)

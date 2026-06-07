@@ -99,7 +99,7 @@ struct otome5ViewNormal: View {
                         Ci95view: AnyView(
                             otome5View95Ci(
                                 otome5: otome5,
-                                selection: 2,
+                                selection: 1,
                             )
                         )
                     )

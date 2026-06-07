@@ -52,9 +52,10 @@ struct sao2ViewCz: View {
                         spacerBool: false,
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）アイテム獲得率
-                unitLinkButtonViewBuilder(sheetTitle: "アイテム獲得率") {
+                unitLinkButtonViewBuilder(sheetTitle: "CZ失敗時 アイテム獲得率") {
                     Text("・CZ失敗の次ゲームにアイテム獲得する可能性あり")
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
@@ -66,7 +67,7 @@ struct sao2ViewCz: View {
                 }
                 
                 // 参考情報）アイテム獲得率
-                unitLinkButtonViewBuilder(sheetTitle: "曠野の決闘 突入率") {
+                unitLinkButtonViewBuilder(sheetTitle: "CZ失敗時 曠野の決闘 突入率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTablePercent(
@@ -194,6 +195,30 @@ struct sao2ViewCz: View {
         }
         .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $sao2.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: sao2.resetCz)
+            }
+        }
     }
 }
 

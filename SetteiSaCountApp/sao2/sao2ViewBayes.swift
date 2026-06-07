@@ -56,7 +56,7 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowKyoCherryHitEnable, title: "低確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$highKyoCherryHitEnable, title: "高確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$czItemGetEnable, title: "CZ失敗時のアイテム獲得率")
-                unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
+//                unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
@@ -171,14 +171,14 @@ struct sao2ViewBayes: View {
         }
         
         // CZ失敗時の決闘突入率
-        var logPostCzFailKettou: [Double] = [Double](repeating: 0, count: self.settingList.count)
-        if self.czKettouGetEnable {
-            logPostCzFailKettou = logPostPercentBino(
-                ratio: sao2.ratioCzKettouGet,
-                Count: sao2.czKettouCountHit,
-                bigNumber: sao2.czKettouCountSum
-            )
-        }
+//        var logPostCzFailKettou: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        if self.czKettouGetEnable {
+//            logPostCzFailKettou = logPostPercentBino(
+//                ratio: sao2.ratioCzKettouGet,
+//                Count: sao2.czKettouCountHit,
+//                bigNumber: sao2.czKettouCountSum
+//            )
+//        }
         
         // CZ初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -241,7 +241,7 @@ struct sao2ViewBayes: View {
             logPostLowStrongCherryHit,
             logPostHighStrongCherryHit,
             logPostCzFailItem,
-            logPostCzFailKettou,
+//            logPostCzFailKettou,
             logPostFirstHitCz,
             logPostFirstHitAt,
             

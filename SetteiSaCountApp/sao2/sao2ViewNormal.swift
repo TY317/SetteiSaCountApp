@@ -163,7 +163,7 @@ struct sao2ViewNormal: View {
                         Ci95view: AnyView(
                             sao2View95Ci(
                                 sao2: sao2,
-                                selection: 2,
+                                selection: 1,
                             )
                         )
                     )

@@ -188,6 +188,7 @@ class Jormungand: ObservableObject {
         charaCountOver2 = 0
         charaCountOver4 = 0
         charaCountOver6 = 0
+        charaCountSum = 0
         minusCheck = false
         
         chara3CountKisu = 0

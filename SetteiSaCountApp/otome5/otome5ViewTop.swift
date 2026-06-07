@@ -27,7 +27,7 @@ struct otome5ViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: otome5.machineName,
-                        titleFont: .title2,
+//                        titleFont: .title2,
                     )
                 }
                 
@@ -331,8 +331,8 @@ struct otome5SubViewLoadMemory: View {
         let array = decodeIntArray(from: otome5Memory1.cycleArrayData)
         let array2 = decodeIntArray(from: otome5Memory1.gameArrayData)
         let array3 = decodeStringArray(from: otome5Memory1.kindArrayData)
-        saveArray(array, forKey: otome5.gameArrayKey)
-        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array2, forKey: otome5.gameArrayKey)
+        saveArray(array, forKey: otome5.cycleArrayKey)
         saveArray(array3, forKey: otome5.kindArrayKey)
 //        otome5.gameArrayData = otome5Memory1.gameArrayData
 //        otome5.cycleArrayData = otome5Memory1.cycleArrayData
@@ -355,8 +355,8 @@ struct otome5SubViewLoadMemory: View {
         let array = decodeIntArray(from: otome5Memory2.cycleArrayData)
         let array2 = decodeIntArray(from: otome5Memory2.gameArrayData)
         let array3 = decodeStringArray(from: otome5Memory2.kindArrayData)
-        saveArray(array, forKey: otome5.gameArrayKey)
-        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array2, forKey: otome5.gameArrayKey)
+        saveArray(array, forKey: otome5.cycleArrayKey)
         saveArray(array3, forKey: otome5.kindArrayKey)
 //        otome5.gameArrayData = otome5Memory2.gameArrayData
 //        otome5.cycleArrayData = otome5Memory2.cycleArrayData
@@ -379,8 +379,8 @@ struct otome5SubViewLoadMemory: View {
         let array = decodeIntArray(from: otome5Memory3.cycleArrayData)
         let array2 = decodeIntArray(from: otome5Memory3.gameArrayData)
         let array3 = decodeStringArray(from: otome5Memory3.kindArrayData)
-        saveArray(array, forKey: otome5.gameArrayKey)
-        saveArray(array2, forKey: otome5.cycleArrayKey)
+        saveArray(array2, forKey: otome5.gameArrayKey)
+        saveArray(array, forKey: otome5.cycleArrayKey)
         saveArray(array3, forKey: otome5.kindArrayKey)
 //        otome5.gameArrayData = otome5Memory3.gameArrayData
 //        otome5.cycleArrayData = otome5Memory3.cycleArrayData

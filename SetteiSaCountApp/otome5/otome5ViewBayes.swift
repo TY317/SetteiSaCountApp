@@ -57,6 +57,13 @@ struct otome5ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitDirectEnable, title: "直撃ボーナス初当り確率")
                 // 終了画面スタンプ
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面スタンプ")
+                // 隠れ凪
+                DisclosureGroup("隠れ凪") {
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "緑")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "赤")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "金")
+                }
             }
             
             // //// STEP3
@@ -215,6 +222,7 @@ struct otome5ViewBayes: View {
             logPostAttack,
             logPostFirstHitAt,
             logPostFirstHitDirect,
+            logPostScreen,
             
             
             logPostTrophy,

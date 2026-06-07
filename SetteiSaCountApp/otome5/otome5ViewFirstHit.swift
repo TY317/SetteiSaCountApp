@@ -80,7 +80,7 @@ struct otome5ViewFirstHit: View {
                     Ci95view: AnyView(
                         otome5View95Ci(
                             otome5: otome5,
-                            selection: 1,
+                            selection: 2,
                         )
                     )
                 )

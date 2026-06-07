@@ -169,6 +169,14 @@ struct kabaneriUnatoViewNormal: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "3周期目 当選率",
+                    count: $kabaneriUnato.cycle3CountHit,
+                    bigNumber: $kabaneriUnato.cycle3CountSum,
+                    numberofDicimal: 0
+                )
+                
                 // 参考情報）3周期目の当選率
                 unitLinkButtonViewBuilder(sheetTitle: "3周期目の当選率") {
                     VStack(spacing: 20) {
@@ -222,6 +230,7 @@ struct kabaneriUnatoViewNormal: View {
             } header: {
                 Text("3周期目 当選率")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kabaneriUnatoMenuNormalBadge)
