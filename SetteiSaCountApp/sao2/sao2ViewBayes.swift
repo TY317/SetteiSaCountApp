@@ -18,6 +18,8 @@ struct sao2ViewBayes: View {
     @State var highKyoCherryHitEnable: Bool = true
     @State var czItemGetEnable: Bool = true
     @State var czKettouGetEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     
     
     // 全機種共通
@@ -55,6 +57,10 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$highKyoCherryHitEnable, title: "高確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$czItemGetEnable, title: "CZ失敗時のアイテム獲得率")
                 unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -174,6 +180,26 @@ struct sao2ViewBayes: View {
             )
         }
         
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: sao2.ratioFirstHitCz,
+                Count: sao2.firstHitCountCz,
+                bigNumber: sao2.normalGame
+            )
+        }
+        
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: sao2.ratioFirstHitAt,
+                Count: sao2.firstHitCountAt,
+                bigNumber: sao2.normalGame
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -216,6 +242,8 @@ struct sao2ViewBayes: View {
             logPostHighStrongCherryHit,
             logPostCzFailItem,
             logPostCzFailKettou,
+            logPostFirstHitCz,
+            logPostFirstHitAt,
             
             logPostTrophy,
             logPostBefore,

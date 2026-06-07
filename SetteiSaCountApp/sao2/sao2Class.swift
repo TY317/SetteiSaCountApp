@@ -69,6 +69,22 @@ class Sao2: ObservableObject {
     }
     
     // -----------
+    // 初当り
+    // -----------
+    let ratioFirstHitCz: [Double] = [238.4,232.3,232.7,218.9,225.2,191.7]
+    let ratioFirstHitAt: [Double] = [386.2,364.3,368.1,326.8,340.6,269.6]
+    @AppStorage("sao2NormalGame") var normalGame: Int = 0
+    @AppStorage("sao2FirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("sao2FirstHitCountAt") var firstHitCountAt: Int = 0
+    
+    func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountAt = 0
+        minusCheck = false
+    }
+    
+    // -----------
     // 共通
     // -----------
     let machineName: String = "ソードアート・オンラインⅡ"
@@ -78,5 +94,6 @@ class Sao2: ObservableObject {
     func resetAll() {
         resetNormal()
         resetCz()
+        resetFirstHit()
     }
 }

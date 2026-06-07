@@ -108,41 +108,41 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(5)
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $sao2.firstHitCountCz,
-//                        bigNumber: $sao2.normalGame,
-//                        setting1Denominate: sao2.ratioFirstHitCz[0],
-//                        setting2Denominate: sao2.ratioFirstHitCz[1],
-//                        setting3Denominate: sao2.ratioFirstHitCz[2],
-//                        setting4Denominate: sao2.ratioFirstHitCz[3],
-//                        setting5Denominate: sao2.ratioFirstHitCz[4],
-//                        setting6Denominate: sao2.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $sao2.firstHitCountCz,
+                        bigNumber: $sao2.normalGame,
+                        setting1Denominate: sao2.ratioFirstHitCz[0],
+                        setting2Denominate: sao2.ratioFirstHitCz[1],
+                        setting3Denominate: sao2.ratioFirstHitCz[2],
+                        setting4Denominate: sao2.ratioFirstHitCz[3],
+                        setting5Denominate: sao2.ratioFirstHitCz[4],
+                        setting6Denominate: sao2.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(6)
             
             // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $sao2.firstHitCountAt,
-//                        bigNumber: $sao2.normalGame,
-//                        setting1Denominate: sao2.ratioFirstHitAt[0],
-//                        setting2Denominate: sao2.ratioFirstHitAt[1],
-//                        setting3Denominate: sao2.ratioFirstHitAt[2],
-//                        setting4Denominate: sao2.ratioFirstHitAt[3],
-//                        setting5Denominate: sao2.ratioFirstHitAt[4],
-//                        setting6Denominate: sao2.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $sao2.firstHitCountAt,
+                        bigNumber: $sao2.normalGame,
+                        setting1Denominate: sao2.ratioFirstHitAt[0],
+                        setting2Denominate: sao2.ratioFirstHitAt[1],
+                        setting3Denominate: sao2.ratioFirstHitAt[2],
+                        setting4Denominate: sao2.ratioFirstHitAt[3],
+                        setting5Denominate: sao2.ratioFirstHitAt[4],
+                        setting6Denominate: sao2.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(7)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(

@@ -58,19 +58,19 @@ struct sao2ViewTop: View {
                         )
                     }
                     
-//                    // 初当り
-//                    NavigationLink(destination: sao2ViewFirstHit(
-//                        sao2: sao2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "party.popper.fill",
-//                            textBody: "初当り",
-//                            badgeStatus: common.sao2MenuFirstHitBadge,
-//                        )
-//                    }
-//                    
+                    // 初当り
+                    NavigationLink(destination: sao2ViewFirstHit(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.sao2MenuFirstHitBadge,
+                        )
+                    }
+                    
 //                    // フィギュアコレクション
 //                    NavigationLink(destination: sao2ViewFigure(
 //                        sao2: sao2,
