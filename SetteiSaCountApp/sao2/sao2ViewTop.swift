@@ -71,6 +71,19 @@ struct sao2ViewTop: View {
                         )
                     }
                     
+                    // AT中
+                    NavigationLink(destination: sao2ViewDuringAt(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.hunting",
+                            textBody: "AT中",
+                            badgeStatus: common.sao2MenuDuringAtBadge,
+                        )
+                    }
+                    
                     // AT終了画面
                     NavigationLink(destination: sao2ViewScreen(
                         sao2: sao2,
@@ -110,18 +123,13 @@ struct sao2ViewTop: View {
 //                        )
 //                    }
 //
-//                    // トロフィー
-//                    NavigationLink(destination: commonViewEnteriseTrophy()) {
-//                        unitLabelMenu(
-//                            imageSystemName: "trophy.fill",
-//                            textBody: "エンタトロフィー"
-//                        )
-//                    }
-//                } header: {
-//                    unitLabelMachineTopTitle(
-//                        machineName: sao2.machineName,
-//                        titleFont: .title,
-//                    )
+                    // トロフィー
+                    NavigationLink(destination: commonViewKopandaTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "コパンダトロフィー"
+                        )
+                    }
                 }
                 
                 // 設定推測グラフ
