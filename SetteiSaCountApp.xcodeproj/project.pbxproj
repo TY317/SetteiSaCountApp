@@ -1489,6 +1489,8 @@
 		0FEC7A342FD4F01C00B4D0D7 /* sao2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */; };
 		0FEC7A362FD5179C00B4D0D7 /* sao2ViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */; };
 		0FEC7A382FD51A5400B4D0D7 /* sao2ViewComeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */; };
+		0FEC7A3A2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
+		0FEC7A3B2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
 		0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */; };
 		0FF155F72D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */; };
 		0FF155FA2D60320100B17F83 /* starHanaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F92D60320100B17F83 /* starHanaViewTop.swift */; };
@@ -2949,6 +2951,7 @@
 		0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewScreen.swift; sourceTree = "<group>"; };
 		0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewDuringAt.swift; sourceTree = "<group>"; };
 		0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewComeBack.swift; sourceTree = "<group>"; };
+		0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableKoyakuHit.swift; sourceTree = "<group>"; };
 		0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sevenSwordsViewEnding.swift; sourceTree = "<group>"; };
 		0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitMachineIconLinkWithSfsymbol.swift; sourceTree = "<group>"; };
 		0FF155F92D60320100B17F83 /* starHanaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starHanaViewTop.swift; sourceTree = "<group>"; };
@@ -4984,6 +4987,7 @@
 				0F59EF4D2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift */,
 				0FCE1C652FC27109004A1D2A /* godKisekiModeThunder.swift */,
 				0FCE1C682FC272FE004A1D2A /* godKisekiModeArrow.swift */,
+				0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */,
 			);
 			path = godKiseki;
 			sourceTree = "<group>";
@@ -6521,6 +6525,7 @@
 				0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */,
 				0F9A798C2E48B9F600D996CA /* bayesSubStep1Section.swift in Sources */,
 				0F9A4F852DEC62F9003B6337 /* unitButtonScreenChoiceVer3.swift in Sources */,
+				0FEC7A3A2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */,
 				0F461F952F93627300F6B6A1 /* godKisekiTableHikariNoKaze.swift in Sources */,
 				0F9A4F962DF3AC43003B6337 /* guiltyCrown2TableReplayPattern.swift in Sources */,
 				0F45A5DB2F0740B10022E355 /* hokutoTenseiTableMode.swift in Sources */,
@@ -7542,6 +7547,7 @@
 				0FDE0F1E2F2F461800B1DA18 /* kokakukidotaiTableMode.swift in Sources */,
 				0F51C9C52F66391500D9DDE1 /* thunderTableScreenBig.swift in Sources */,
 				0F45A5D82F073B180022E355 /* hokutoTenseiSubViewMachineLamp.swift in Sources */,
+				0FEC7A3B2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */,
 				0FA0A7D12EF6947C003EF8BD /* unitReelAny.swift in Sources */,
 				0F447C742F4AC7E2006DAF11 /* kokakukidotaiClass.swift in Sources */,
 				0F45A5C42F04A9790022E355 /* tekken6TableKoyakuPattern.swift in Sources */,

@@ -40,21 +40,21 @@ struct tipVer3270GodKisekiZzoneRise: Tip {
 
 
 ////////////////////
-//// Tip：リオエース　エースモード
+//// Tip：ゴッド軌跡　小役での当選率
 ////////////////////
-//struct tipVer3260RioAceMode: Tip {
-//   var title: Text {
-//       Text("情報更新")
-//   }
-//   var message: Text? {
-//       Text("エースモードの情報を追加")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
-//
+struct tipVer3270GodKisekiKoyakuHit: Tip {
+   var title: Text {
+       Text("情報更新")
+   }
+   var message: Text? {
+       Text("小役からのGG当選率の情報を追加")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
+
 ////////////////////
 //// Tip：ゴッド　裏天国示唆
 ////////////////////

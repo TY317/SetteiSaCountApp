@@ -38,6 +38,11 @@ struct godKisekiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "小役停止形") {
                     godKisekiKoyakuPattern()
                 }
+                // 参考情報）小役からのGG当選率
+                unitLinkButtonViewBuilder(sheetTitle: "小役からのGG当選率") {
+                    godKisekiTableKoyakuHit()
+                }
+                .popoverTip(tipVer3270GodKisekiKoyakuHit())
             } header: {
                 Text("小役")
             }

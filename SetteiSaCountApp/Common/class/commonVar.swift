@@ -595,6 +595,7 @@ class commonVar: ObservableObject {
                 otome5MachineIconBadge = "new"
                 sao2isUnlocked = false
                 sao2MachineIconBadge = "new"
+                godKisekiMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
