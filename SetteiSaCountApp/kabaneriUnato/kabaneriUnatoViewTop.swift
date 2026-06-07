@@ -275,6 +275,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory1.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
         kabaneriUnatoMemory1.cycle3CountHit = kabaneriUnato.cycle3CountHit
         kabaneriUnatoMemory1.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory1.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory1.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory1.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
     func saveMemory2() {
         kabaneriUnatoMemory2.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -328,6 +331,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory2.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
         kabaneriUnatoMemory2.cycle3CountHit = kabaneriUnato.cycle3CountHit
         kabaneriUnatoMemory2.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory2.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory2.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory2.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
     func saveMemory3() {
         kabaneriUnatoMemory3.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -381,6 +387,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory3.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
         kabaneriUnatoMemory3.cycle3CountHit = kabaneriUnato.cycle3CountHit
         kabaneriUnatoMemory3.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory3.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory3.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory3.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
 }
 
@@ -463,6 +472,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory1.cycle3CountMiss
         kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory1.cycle3CountHit
         kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory1.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory1.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory1.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory1.cycle4CountSum
     }
     func loadMemory2() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory2.flushCountMiss
@@ -516,6 +528,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory2.cycle3CountMiss
         kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory2.cycle3CountHit
         kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory2.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory2.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory2.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory2.cycle4CountSum
     }
     func loadMemory3() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory3.flushCountMiss
@@ -569,6 +584,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory3.cycle3CountMiss
         kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory3.cycle3CountHit
         kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory3.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory3.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory3.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory3.cycle4CountSum
     }
 }
 

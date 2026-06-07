@@ -34,6 +34,9 @@ class KabaneriUnato: ObservableObject {
         cycle3CountMiss = 0
         cycle3CountHit = 0
         cycle3CountSum = 0
+        cycle4CountMiss = 0
+        cycle4CountHit = 0
+        cycle4CountSum = 0
     }
     
     // ---------
@@ -241,12 +244,17 @@ class KabaneriUnato: ObservableObject {
     // ver3.27.0
     // --------
     let ratioCycle3Hit: [Double] = [18.4,23.8,21.1,28.5,32.4,37.1]
+    let ratioCycle4Hit: [Double] = [33.6,35.2,36.3,40.2,43.4,46.9]
     @AppStorage("kabaneriUnatoCycle3CountMiss") var cycle3CountMiss: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountHit") var cycle3CountHit: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountSum") var cycle3CountSum: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountMiss") var cycle4CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountHit") var cycle4CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountSum") var cycle4CountSum: Int = 0
     
-    func cycle3SumFunc() {
+    func cycleSumFunc() {
         cycle3CountSum = cycle3CountMiss + cycle3CountHit
+        cycle4CountSum = cycle4CountMiss + cycle4CountHit
     }
 }
 
@@ -305,6 +313,9 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoCycle3CountMissMemory1") var cycle3CountMiss: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountHitMemory1") var cycle3CountHit: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountSumMemory1") var cycle3CountSum: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountMissMemory1") var cycle4CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountHitMemory1") var cycle4CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountSumMemory1") var cycle4CountSum: Int = 0
 }
 
 
@@ -362,6 +373,9 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoCycle3CountMissMemory2") var cycle3CountMiss: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountHitMemory2") var cycle3CountHit: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountSumMemory2") var cycle3CountSum: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountMissMemory2") var cycle4CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountHitMemory2") var cycle4CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountSumMemory2") var cycle4CountSum: Int = 0
 }
 
 
@@ -419,4 +433,7 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoCycle3CountMissMemory3") var cycle3CountMiss: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountHitMemory3") var cycle3CountHit: Int = 0
     @AppStorage("kabaneriUnatoCycle3CountSumMemory3") var cycle3CountSum: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountMissMemory3") var cycle4CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountHitMemory3") var cycle4CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle4CountSumMemory3") var cycle4CountSum: Int = 0
 }

@@ -63,7 +63,7 @@ struct tipVer3270KabaneriCycle3: Tip {
        Text("機能更新")
    }
    var message: Text? {
-       Text("3周期目での当選率設定差が判明\nカウント機能を追加")
+       Text("3,4周期目での当選率設定差が判明\nカウント機能を追加")
    }
    var image: Image? {
        Image(systemName: "exclamationmark.bubble")

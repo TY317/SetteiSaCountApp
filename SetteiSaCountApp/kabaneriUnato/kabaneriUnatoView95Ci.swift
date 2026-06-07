@@ -34,7 +34,6 @@ struct kabaneriUnatoView95Ci: View {
             // 3周期目 当選回数
             unitListSection95Ci(
                 grafTitle: "3周期目 当選回数",
-//                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $kabaneriUnato.cycle3CountHit,
@@ -49,6 +48,24 @@ struct kabaneriUnatoView95Ci: View {
                 )
             )
             .tag(4)
+            
+            // 4周期目 当選回数
+            unitListSection95Ci(
+                grafTitle: "4周期目 当選回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.cycle4CountHit,
+                        bigNumber: $kabaneriUnato.cycle4CountSum,
+                        setting1Percent: kabaneriUnato.ratioCycle4Hit[0],
+                        setting2Percent: kabaneriUnato.ratioCycle4Hit[1],
+                        setting3Percent: kabaneriUnato.ratioCycle4Hit[2],
+                        setting4Percent: kabaneriUnato.ratioCycle4Hit[3],
+                        setting5Percent: kabaneriUnato.ratioCycle4Hit[4],
+                        setting6Percent: kabaneriUnato.ratioCycle4Hit[5]
+                    )
+                )
+            )
+            .tag(5)
 
 //            // AT初当り回数
 //            unitListSection95Ci(

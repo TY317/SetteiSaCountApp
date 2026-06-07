@@ -59,6 +59,7 @@ struct otome5ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面スタンプ")
                 // 隠れ凪
                 DisclosureGroup("隠れ凪") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "青")
                     unitToggleWithQuestion(enable: self.$over3Check, title: "緑")
                     unitToggleWithQuestion(enable: self.$over4Check, title: "赤")
                     unitToggleWithQuestion(enable: self.$over5Check, title: "銀")

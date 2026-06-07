@@ -18,6 +18,7 @@ struct kabaneriUnatoViewBayes: View {
     @State var voiceEnable: Bool = true
     @State var charaEnable: Bool = true
     @State var cycle3Enable: Bool = true
+    @State var cycle4Enable: Bool = true
     
     
     // 全機種共通
@@ -53,6 +54,8 @@ struct kabaneriUnatoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowerBellEnable, title: "下段ベル確率")
                 // 3周期目 当選率
                 unitToggleWithQuestion(enable: self.$cycle3Enable, title: "3周期目 当選率")
+                // 4周期目 当選率
+                unitToggleWithQuestion(enable: self.$cycle4Enable, title: "4周期目 当選率")
                 //早じろボーナス単チャンス目３０００
                 unitToggleWithQuestion(enable: self.$hayajiro3000Enable, title: "駿城 単チャンス目3000pt")
                 
@@ -204,6 +207,16 @@ struct kabaneriUnatoViewBayes: View {
             )
         }
         
+        // 4周期目当選率
+        var logPostCycle4: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cycle4Enable {
+            logPostCycle4 = logPostPercentBino(
+                ratio: kabaneriUnato.ratioCycle4Hit,
+                Count: kabaneriUnato.cycle4CountHit,
+                bigNumber: kabaneriUnato.cycle4CountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -246,6 +259,7 @@ struct kabaneriUnatoViewBayes: View {
             logPostVoice,
             logPostCharacter,
             logPostCycle3,
+            logPostCycle4,
             
             logPostTrophy,
             logPostBefore,
