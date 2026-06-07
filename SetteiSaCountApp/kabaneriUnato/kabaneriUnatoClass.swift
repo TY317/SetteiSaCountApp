@@ -30,6 +30,10 @@ class KabaneriUnato: ObservableObject {
         
         koyakuCountLowerBell = 0
         normalGame = 0
+        
+        cycle3CountMiss = 0
+        cycle3CountHit = 0
+        cycle3CountSum = 0
     }
     
     // ---------
@@ -232,6 +236,18 @@ class KabaneriUnato: ObservableObject {
     // ver3.25.0
     // ----------
     @AppStorage("kabaneriUnatoOmikujiCount7") var omikujiCount7: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    let ratioCycle3Hit: [Double] = [18.4,23.8,21.1,28.5,32.4,37.1]
+    @AppStorage("kabaneriUnatoCycle3CountMiss") var cycle3CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountHit") var cycle3CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountSum") var cycle3CountSum: Int = 0
+    
+    func cycle3SumFunc() {
+        cycle3CountSum = cycle3CountMiss + cycle3CountHit
+    }
 }
 
 
@@ -282,6 +298,13 @@ class KabaneriUnatoMemory1: ObservableObject {
     // ver3.25.0
     // ----------
     @AppStorage("kabaneriUnatoOmikujiCount7Memory1") var omikujiCount7: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("kabaneriUnatoCycle3CountMissMemory1") var cycle3CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountHitMemory1") var cycle3CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountSumMemory1") var cycle3CountSum: Int = 0
 }
 
 
@@ -332,6 +355,13 @@ class KabaneriUnatoMemory2: ObservableObject {
     // ver3.25.0
     // ----------
     @AppStorage("kabaneriUnatoOmikujiCount7Memory2") var omikujiCount7: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("kabaneriUnatoCycle3CountMissMemory2") var cycle3CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountHitMemory2") var cycle3CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountSumMemory2") var cycle3CountSum: Int = 0
 }
 
 
@@ -382,4 +412,11 @@ class KabaneriUnatoMemory3: ObservableObject {
     // ver3.25.0
     // ----------
     @AppStorage("kabaneriUnatoOmikujiCount7Memory3") var omikujiCount7: Int = 0
+    
+    // --------
+    // ver3.27.0
+    // --------
+    @AppStorage("kabaneriUnatoCycle3CountMissMemory3") var cycle3CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountHitMemory3") var cycle3CountHit: Int = 0
+    @AppStorage("kabaneriUnatoCycle3CountSumMemory3") var cycle3CountSum: Int = 0
 }

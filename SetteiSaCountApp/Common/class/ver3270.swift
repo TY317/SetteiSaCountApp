@@ -55,22 +55,22 @@ struct tipVer3270GodKisekiKoyakuHit: Tip {
 }
 
 
-////////////////////
-//// Tip：ゴッド　裏天国示唆
-////////////////////
-//struct tipVer3260GodKisekiUratensisa: Tip {
-//   var title: Text {
-//       Text("情報更新")
-//   }
-//   var message: Text? {
-//       Text("裏天国示唆の演出情報を追加")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
-//
+//////////////////
+// Tip：カバネリ　3周期当選率
+//////////////////
+struct tipVer3270KabaneriCycle3: Tip {
+   var title: Text {
+       Text("機能更新")
+   }
+   var message: Text? {
+       Text("3周期目での当選率設定差が判明\nカウント機能を追加")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
+
 //////////////////
 // Tip：攻殻機動隊　色ごとのCZ成功率
 //////////////////

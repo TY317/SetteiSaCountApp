@@ -148,6 +148,43 @@ struct kabaneriUnatoViewNormal: View {
             
             // ---- 周期
             Section {
+                // カウントボタン横並び
+                HStack {
+                    // ハズレ
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "ハズレ",
+                        count: $kabaneriUnato.cycle3CountMiss,
+                        color: .personalSummerLightBlue,
+                        minusBool: $kabaneriUnato.minusCheck) {
+                            kabaneriUnato.cycle3SumFunc()
+                        }
+                    // 当選
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "当選",
+                        count: $kabaneriUnato.cycle3CountHit,
+                        color: .personalSummerLightRed,
+                        minusBool: $kabaneriUnato.minusCheck) {
+                            kabaneriUnato.cycle3SumFunc()
+                        }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報）3周期目の当選率
+                unitLinkButtonViewBuilder(sheetTitle: "3周期目の当選率") {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・3周期目での当選は高設定ほど優遇")
+                            Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "3周期目当選率",
+                                percentList: kabaneriUnato.ratioCycle3Hit
+                            )
+                        }
+                    }
+                }
                 // 参考情報）周期について
                 unitLinkButtonViewBuilder(sheetTitle: "周期について") {
                     VStack(alignment: .leading) {
@@ -157,15 +194,33 @@ struct kabaneriUnatoViewNormal: View {
                     }
                 }
                 
-                // 参考情報）高設定時の挙動
-                unitLinkButtonViewBuilder(sheetTitle: "注目ポイント") {
-                    VStack(alignment: .leading) {
-                        Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
-                        Text("・3周期目での当選は高設定ほど優遇")
-                    }
+//                // 参考情報）高設定時の挙動
+//                unitLinkButtonViewBuilder(sheetTitle: "注目ポイント") {
+//                    VStack(alignment: .leading) {
+//                        Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
+//                        Text("・3周期目での当選は高設定ほど優遇")
+//                    }
+//                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kabaneriUnatoView95Ci(
+                            kabaneriUnato: kabaneriUnato,
+                            selection: 4
+                        )
+                    )
+                )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kabaneriUnatoViewBayes(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
             } header: {
-                Text("周期")
+                Text("3周期目 当選率")
             }
         }
         // //// バッジのリセット

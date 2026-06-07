@@ -13,25 +13,6 @@ struct kabaneriUnatoView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
-//            // 300or500G到達時のCZ当選回数
-//            unitListSection95Ci(
-//                grafTitle: "300・500G到達時\nCZ当選回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kabaneriUnato.game35HitCountHit,
-//                        bigNumber: $kabaneriUnato.game35HitCountSum,
-//                        setting1Percent: kabaneriUnato.ratio35Hit[0],
-//                        setting2Percent: kabaneriUnato.ratio35Hit[1],
-//                        setting3Percent: kabaneriUnato.ratio35Hit[2],
-//                        setting4Percent: kabaneriUnato.ratio35Hit[3],
-//                        setting5Percent: kabaneriUnato.ratio35Hit[4],
-//                        setting6Percent: kabaneriUnato.ratio35Hit[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "下段ベル回数",
@@ -49,6 +30,26 @@ struct kabaneriUnatoView95Ci: View {
                 )
             )
             .tag(1)
+            
+            // 3周期目 当選回数
+            unitListSection95Ci(
+                grafTitle: "3周期目 当選回数",
+//                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.cycle3CountHit,
+                        bigNumber: $kabaneriUnato.cycle3CountSum,
+                        setting1Percent: kabaneriUnato.ratioCycle3Hit[0],
+                        setting2Percent: kabaneriUnato.ratioCycle3Hit[1],
+                        setting3Percent: kabaneriUnato.ratioCycle3Hit[2],
+                        setting4Percent: kabaneriUnato.ratioCycle3Hit[3],
+                        setting5Percent: kabaneriUnato.ratioCycle3Hit[4],
+                        setting6Percent: kabaneriUnato.ratioCycle3Hit[5]
+                    )
+                )
+            )
+            .tag(4)
+
 //            // AT初当り回数
 //            unitListSection95Ci(
 //                grafTitle: "AT初当り回数",
