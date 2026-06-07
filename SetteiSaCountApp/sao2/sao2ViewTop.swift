@@ -71,31 +71,18 @@ struct sao2ViewTop: View {
                         )
                     }
                     
-//                    // フィギュアコレクション
-//                    NavigationLink(destination: sao2ViewFigure(
-//                        sao2: sao2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "figure.stand",
-//                            textBody: "フィギュアコレクション",
-//                            badgeStatus: common.sao2MenuFigureBadge,
-//                        )
-//                    }
-
                     // AT終了画面
-//                    NavigationLink(destination: sao2ViewScreen(
-//                        sao2: sao2,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "signature",
-//                            textBody: "ボーナス・AT終了画面",
-//                            badgeStatus: common.sao2MenuScreenBadge,
-//                        )
-//                    }
+                    NavigationLink(destination: sao2ViewScreen(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.sao2MenuScreenBadge,
+                        )
+                    }
 
 //                    // エンディング
 //                    NavigationLink(destination: sao2ViewFigure(
