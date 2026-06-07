@@ -21,7 +21,8 @@ struct unitLinkButtonViewBuilder<destination: View>: View {
         HStack {
             Spacer()
             Button {
-                self.isShowDestination.toggle()
+//                self.isShowDestination.toggle()
+                self.isShowDestination = true
             } label: {
                 if let linkText = self.linkText {
                     Text(">> \(linkText)")

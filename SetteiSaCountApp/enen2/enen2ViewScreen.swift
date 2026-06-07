@@ -82,7 +82,7 @@ struct enen2ViewScreen: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .popoverTip(tipVer3221Enen2Screen())
+//                    .popoverTip(tipVer3221Enen2Screen())
                     Text("それ以外：REG,アクセルボーナス,灰焔ボーナス後")
                         .font(.caption)
                         .foregroundColor(.secondary)

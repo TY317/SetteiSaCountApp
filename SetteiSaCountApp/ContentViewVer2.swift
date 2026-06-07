@@ -249,6 +249,8 @@ struct ContentViewVer2: View {
         switch id {
         case "5555": return AnyView(JuglerSeriesViewTop(bayes: bayes, viewModel: viewModel))
         case "8787": return AnyView(hanahanaSeriesViewTop(bayes: bayes, viewModel: viewModel))
+        case "5009": return AnyView(otome5ViewTop(bayes: bayes,viewModel: viewModel))
+        case "5025": return AnyView(sao2ViewTop(bayes: bayes,viewModel: viewModel))
         case "4961": return AnyView(godKisekiViewTop(bayes: bayes,viewModel: viewModel))
         case "4974": return AnyView(bioRe3ViewTop(bayes: bayes,viewModel: viewModel))
         case "4984": return AnyView(rioAceViewTop(bayes: bayes,viewModel: viewModel))

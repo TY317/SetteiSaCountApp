@@ -268,6 +268,16 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnatoMemory1.omikujiCount7 = kabaneriUnato.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnatoMemory1.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
+        kabaneriUnatoMemory1.cycle3CountHit = kabaneriUnato.cycle3CountHit
+        kabaneriUnatoMemory1.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory1.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory1.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory1.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
     func saveMemory2() {
         kabaneriUnatoMemory2.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -314,6 +324,16 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnatoMemory2.omikujiCount7 = kabaneriUnato.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnatoMemory2.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
+        kabaneriUnatoMemory2.cycle3CountHit = kabaneriUnato.cycle3CountHit
+        kabaneriUnatoMemory2.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory2.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory2.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory2.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
     func saveMemory3() {
         kabaneriUnatoMemory3.flushCountMiss = kabaneriUnato.flushCountMiss
@@ -360,6 +380,16 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnatoMemory3.omikujiCount7 = kabaneriUnato.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnatoMemory3.cycle3CountMiss = kabaneriUnato.cycle3CountMiss
+        kabaneriUnatoMemory3.cycle3CountHit = kabaneriUnato.cycle3CountHit
+        kabaneriUnatoMemory3.cycle3CountSum = kabaneriUnato.cycle3CountSum
+        kabaneriUnatoMemory3.cycle4CountMiss = kabaneriUnato.cycle4CountMiss
+        kabaneriUnatoMemory3.cycle4CountHit = kabaneriUnato.cycle4CountHit
+        kabaneriUnatoMemory3.cycle4CountSum = kabaneriUnato.cycle4CountSum
     }
 }
 
@@ -435,6 +465,16 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory1.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory1.cycle3CountMiss
+        kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory1.cycle3CountHit
+        kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory1.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory1.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory1.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory1.cycle4CountSum
     }
     func loadMemory2() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory2.flushCountMiss
@@ -481,6 +521,16 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory2.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory2.cycle3CountMiss
+        kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory2.cycle3CountHit
+        kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory2.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory2.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory2.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory2.cycle4CountSum
     }
     func loadMemory3() {
         kabaneriUnato.flushCountMiss = kabaneriUnatoMemory3.flushCountMiss
@@ -527,6 +577,16 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         // ver3.25.0
         // ----------
         kabaneriUnato.omikujiCount7 = kabaneriUnatoMemory3.omikujiCount7
+        
+        // --------
+        // ver3.27.0
+        // --------
+        kabaneriUnato.cycle3CountMiss = kabaneriUnatoMemory3.cycle3CountMiss
+        kabaneriUnato.cycle3CountHit = kabaneriUnatoMemory3.cycle3CountHit
+        kabaneriUnato.cycle3CountSum = kabaneriUnatoMemory3.cycle3CountSum
+        kabaneriUnato.cycle4CountMiss = kabaneriUnatoMemory3.cycle4CountMiss
+        kabaneriUnato.cycle4CountHit = kabaneriUnatoMemory3.cycle4CountHit
+        kabaneriUnato.cycle4CountSum = kabaneriUnatoMemory3.cycle4CountSum
     }
 }
 

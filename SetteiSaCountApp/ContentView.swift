@@ -88,6 +88,8 @@ class favoriteSetVar: ObservableObject {
     @AppStorage("isSelectedFavoriteGodKiseki") var isSelectedFavoriteGodKiseki = true
     @AppStorage("isSelectedFavoriteRioAce") var isSelectedFavoriteRioAce = true
     @AppStorage("isSelectedFavoriteBioRe3") var isSelectedFavoriteBioRe3 = true
+    @AppStorage("isSelectedFavoriteOtome5") var isSelectedFavoriteOtome5 = true
+    @AppStorage("isSelectedFavoriteSao2") var isSelectedFavoriteSao2 = true
 }
 
 
@@ -120,7 +122,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer3250UpdateInfo())
+                TipView(tipVer3270UpdateInfo())
                 ZStack {
                     // //// アイコン表示モード
                     if common.iconDisplayMode {
@@ -156,6 +158,40 @@ struct ContentView: View {
                                         iconImage: Image("machineIconHanahanaSeries"),
                                         machineName: "ハナハナ",
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 戦国乙女5、26年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteOtome5 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(otome5ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("otome5MachineIcon"),
+                                        machineName: "戦国乙女5",
+                                        isUnLocked: $common.otome5isUnlocked,
+                                        tempUnlockDateDouble: $common.otome5TempUnlockDateDouble,
+                                        badgeStatus: common.otome5MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// SAO2、26年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSao2 == false {
+                                    
+                                } else {
+                                    unitMachineIconLinkWithLock(
+                                        linkView: AnyView(sao2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("sao2MachineIcon"),
+                                        machineName: "SAO2",
+                                        isUnLocked: $common.sao2isUnlocked,
+                                        tempUnlockDateDouble: $common.sao2TempUnlockDateDouble,
+                                        badgeStatus: common.sao2MachineIconBadge,
                                     )
                                 }
                                 
@@ -1135,6 +1171,46 @@ struct ContentView: View {
                                         releaseYear: 2001,
                                         releaseMonth: 5,
                                         badgeStatus: common.hanaSeriesBadge,
+                                    )
+                                }
+                                
+                                // //// 戦国乙女5、26年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteOtome5 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(otome5ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("otome5MachineIcon"),
+                                        machineName: "戦国乙女5",
+                                        makerName: "平和",
+                                        releaseYear: 2026,
+                                        releaseMonth: 6,
+                                        isUnLocked: $common.otome5isUnlocked,
+                                        tempUnlockDateDouble: $common.otome5TempUnlockDateDouble,
+                                        badgeStatus: common.otome5MachineIconBadge,
+                                    )
+                                }
+                                
+                                // //// SAO2、26年6月
+                                if isSelectedDisplayMode == "お気に入り" && favoriteSet.isSelectedFavoriteSao2 == false {
+                                    
+                                } else {
+                                    unitMachineListLinkWithLock(
+                                        linkView: AnyView(sao2ViewTop(
+                                            bayes: bayes,
+                                            viewModel: viewModel,
+                                        )),
+                                        iconImage: Image("sao2MachineIcon"),
+                                        machineName: "ソードアート・オンラインⅡ",
+                                        makerName: "大都技研",
+                                        releaseYear: 2026,
+                                        releaseMonth: 6,
+                                        isUnLocked: $common.sao2isUnlocked,
+                                        tempUnlockDateDouble: $common.sao2TempUnlockDateDouble,
+                                        badgeStatus: common.sao2MachineIconBadge,
                                     )
                                 }
                                 
@@ -2473,6 +2549,10 @@ struct favoriteSettingView: View {
                 Toggle("ジャグラーシリーズ", isOn: $favoriteSet.isSelectedJuglerSeries)
                 // ハナハナシリーズ
                 Toggle("ハナハナシリーズ", isOn: $favoriteSet.isSelectedHanahanaSeries)
+                // 戦国乙女5
+                Toggle("戦国乙女5", isOn: $favoriteSet.isSelectedFavoriteOtome5)
+                // SAO2
+                Toggle("ソードアート・オンラインⅡ", isOn: $favoriteSet.isSelectedFavoriteSao2)
                 // バイオRE3
                 Toggle("バイオハザードRE:3", isOn: $favoriteSet.isSelectedFavoriteBioRe3)
                 // リオエース２
@@ -2669,8 +2749,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

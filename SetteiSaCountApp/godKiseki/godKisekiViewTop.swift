@@ -249,6 +249,11 @@ struct godKisekiSubViewSaveMemory: View {
         // ---------
         godKisekiMemory1.ren4CountBlue = godKiseki.ren4CountBlue
         godKisekiMemory1.ren4CountBlueHit = godKiseki.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKisekiMemory1.riseZzoneCount = godKiseki.riseZzoneCount
     }
     func saveMemory2() {
         godKisekiMemory2.ren3CountBlue = godKiseki.ren3CountBlue
@@ -263,6 +268,11 @@ struct godKisekiSubViewSaveMemory: View {
         // ---------
         godKisekiMemory2.ren4CountBlue = godKiseki.ren4CountBlue
         godKisekiMemory2.ren4CountBlueHit = godKiseki.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKisekiMemory2.riseZzoneCount = godKiseki.riseZzoneCount
     }
     func saveMemory3() {
         godKisekiMemory3.ren3CountBlue = godKiseki.ren3CountBlue
@@ -277,6 +287,11 @@ struct godKisekiSubViewSaveMemory: View {
         // ---------
         godKisekiMemory3.ren4CountBlue = godKiseki.ren4CountBlue
         godKisekiMemory3.ren4CountBlueHit = godKiseki.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKisekiMemory3.riseZzoneCount = godKiseki.riseZzoneCount
     }
 }
 
@@ -320,6 +335,11 @@ struct godKisekiSubViewLoadMemory: View {
         // ---------
         godKiseki.ren4CountBlue = godKisekiMemory1.ren4CountBlue
         godKiseki.ren4CountBlueHit = godKisekiMemory1.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKiseki.riseZzoneCount = godKisekiMemory1.riseZzoneCount
     }
     func loadMemory2() {
         godKiseki.ren3CountBlue = godKisekiMemory2.ren3CountBlue
@@ -334,6 +354,11 @@ struct godKisekiSubViewLoadMemory: View {
         // ---------
         godKiseki.ren4CountBlue = godKisekiMemory2.ren4CountBlue
         godKiseki.ren4CountBlueHit = godKisekiMemory2.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKiseki.riseZzoneCount = godKisekiMemory2.riseZzoneCount
     }
     func loadMemory3() {
         godKiseki.ren3CountBlue = godKisekiMemory3.ren3CountBlue
@@ -348,6 +373,11 @@ struct godKisekiSubViewLoadMemory: View {
         // ---------
         godKiseki.ren4CountBlue = godKisekiMemory3.ren4CountBlue
         godKiseki.ren4CountBlueHit = godKisekiMemory3.ren4CountBlueHit
+        
+        // --------
+        // ver3.27.0
+        // --------
+        godKiseki.riseZzoneCount = godKisekiMemory3.riseZzoneCount
     }
 }
 

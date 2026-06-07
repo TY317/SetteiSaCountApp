@@ -201,7 +201,7 @@ class Kokakukidotai: ObservableObject {
     // ver3.26.0
     // ---------
     let ratioCzColorBlue: [Double] = [3.8,3.8,4.6,5.4,7.5,9.6]
-    let ratioCzColorGreen: [Double] = [-1,-1,-1,-1,-1,-1,]
+    let ratioCzColorGreen: [Double] = [20,20.4,22.1,25.1,27.5,30.4]
     @AppStorage("kokakukidotaiCzColorCountBlueMiss") var czColorCountBlueMiss: Int = 0
     @AppStorage("kokakukidotaiCzColorCountBlueHit") var czColorCountBlueHit: Int = 0
     @AppStorage("kokakukidotaiCzColorCountBlueSum") var czColorCountBlueSum: Int = 0

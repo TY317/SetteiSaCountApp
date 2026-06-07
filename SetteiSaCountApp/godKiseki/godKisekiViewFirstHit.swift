@@ -40,15 +40,51 @@ struct godKisekiViewFirstHit: View {
                 // カウントボタン横並び
                 HStack {
                     // AT
-                    unitCountButtonVerticalDenominate(
+//                    unitCountButtonVerticalDenominate(
+//                        title: "AT",
+//                        count: $godKiseki.firstHitCountAt,
+//                        color: .personalSummerLightRed,
+//                        bigNumber: $godKiseki.normalGame,
+//                        numberofDicimal: 0,
+//                        minusBool: $godKiseki.minusCheck
+//                    )
+                    unitCountButtonVerticalWithoutRatio(
                         title: "AT",
                         count: $godKiseki.firstHitCountAt,
                         color: .personalSummerLightRed,
-                        bigNumber: $godKiseki.normalGame,
-                        numberofDicimal: 0,
                         minusBool: $godKiseki.minusCheck
                     )
+                    
+                    // 昇格Z-ZONE
+                    unitCountButtonVerticalWithoutRatio(
+                        title: "昇格Z-ZONE",
+                        count: $godKiseki.riseZzoneCount,
+                        color: .personalSummerLightPurple,
+                        minusBool: $godKiseki.minusCheck
+                    )
+                    .popoverTip(tipVer3270GodKisekiZzoneRise())
                 }
+                
+                // 確率結果
+                HStack {
+                    // AT
+                    unitResultRatioDenomination2Line(
+                        title: "AT初当り",
+                        count: $godKiseki.firstHitCountAt,
+                        bigNumber: $godKiseki.normalGame,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 昇格率
+                    unitResultRatioPercent2Line(
+                        title: "Z-ZONE昇格率",
+                        count: $godKiseki.riseZzoneCount,
+                        bigNumber: $godKiseki.firstHitCountAt,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
                 // 参考情報）初当り確率
                 unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
@@ -57,6 +93,17 @@ struct godKisekiViewFirstHit: View {
                         unitTableDenominate(
                             columTitle: "AT",
                             denominateList: godKiseki.ratioFirstHitAt
+                        )
+                    }
+                }
+                
+                // 参考情報）GG当選時のZ-ZONE昇格率
+                unitLinkButtonViewBuilder(sheetTitle: "GG当選時のZ-ZONE昇格率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "Z-ZONE昇格",
+                            percentList: godKiseki.ratioRiseZzone
                         )
                     }
                 }
@@ -82,6 +129,7 @@ struct godKisekiViewFirstHit: View {
             } header: {
                 Text("初当り")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.godKisekiMenuFirstHitBadge)

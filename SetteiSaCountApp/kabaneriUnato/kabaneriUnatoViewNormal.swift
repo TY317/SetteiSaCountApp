@@ -26,6 +26,8 @@ struct kabaneriUnatoViewNormal: View {
     @State var lazyVGridCount: Int = 3
     
     @FocusState var isFocused: Bool
+    let items: [String] = ["3周期目", "4周期目"]
+    @State var selectedItem: String = "3周期目"
     
     var body: some View {
         List {
@@ -148,6 +150,96 @@ struct kabaneriUnatoViewNormal: View {
             
             // ---- 周期
             Section {
+                // セグメントピッカー
+                Picker("", selection: self.$selectedItem) {
+                    ForEach(self.items, id: \.self) { item in
+                        Text(item)
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                // カウントボタン横並び
+                HStack {
+                    // 3周期目
+                    if self.selectedItem == self.items[0] {
+                        // ハズレ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "ハズレ",
+                            count: $kabaneriUnato.cycle3CountMiss,
+                            color: .personalSummerLightGreen,
+                            minusBool: $kabaneriUnato.minusCheck) {
+                                kabaneriUnato.cycleSumFunc()
+                            }
+                        // 当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $kabaneriUnato.cycle3CountHit,
+                            color: .green,
+                            minusBool: $kabaneriUnato.minusCheck) {
+                                kabaneriUnato.cycleSumFunc()
+                            }
+                    }
+                    // 4周期目
+                    else {
+                        // ハズレ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "ハズレ",
+                            count: $kabaneriUnato.cycle4CountMiss,
+                            color: .personalSummerLightRed,
+                            minusBool: $kabaneriUnato.minusCheck) {
+                                kabaneriUnato.cycleSumFunc()
+                            }
+                        // 当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $kabaneriUnato.cycle4CountHit,
+                            color: .red,
+                            minusBool: $kabaneriUnato.minusCheck) {
+                                kabaneriUnato.cycleSumFunc()
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 確率結果
+                HStack {
+                    unitResultRatioPercent2Line(
+                        title: "3周期目",
+                        count: $kabaneriUnato.cycle3CountHit,
+                        bigNumber: $kabaneriUnato.cycle3CountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    unitResultRatioPercent2Line(
+                        title: "4周期目",
+                        count: $kabaneriUnato.cycle4CountHit,
+                        bigNumber: $kabaneriUnato.cycle4CountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報）3周期目の当選率
+                unitLinkButtonViewBuilder(sheetTitle: "3,4周期目の当選率") {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・3,4周期目での当選は高設定ほど優遇")
+                            Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "3周期目",
+                                percentList: kabaneriUnato.ratioCycle3Hit
+                            )
+                            unitTablePercent(
+                                columTitle: "4周期目",
+                                percentList: kabaneriUnato.ratioCycle4Hit
+                            )
+                        }
+                    }
+                }
                 // 参考情報）周期について
                 unitLinkButtonViewBuilder(sheetTitle: "周期について") {
                     VStack(alignment: .leading) {
@@ -157,16 +249,35 @@ struct kabaneriUnatoViewNormal: View {
                     }
                 }
                 
-                // 参考情報）高設定時の挙動
-                unitLinkButtonViewBuilder(sheetTitle: "注目ポイント") {
-                    VStack(alignment: .leading) {
-                        Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
-                        Text("・3周期目での当選は高設定ほど優遇")
-                    }
+//                // 参考情報）高設定時の挙動
+//                unitLinkButtonViewBuilder(sheetTitle: "注目ポイント") {
+//                    VStack(alignment: .leading) {
+//                        Text("・高設定は1・2周期でのボーナス当選率が33%以上！？")
+//                        Text("・3周期目での当選は高設定ほど優遇")
+//                    }
+//                }
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kabaneriUnatoView95Ci(
+                            kabaneriUnato: kabaneriUnato,
+                            selection: 4
+                        )
+                    )
+                )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kabaneriUnatoViewBayes(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
                 }
             } header: {
-                Text("周期")
+                Text("3周期目 当選率")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kabaneriUnatoMenuNormalBadge)

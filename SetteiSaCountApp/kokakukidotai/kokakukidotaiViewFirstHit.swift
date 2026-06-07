@@ -107,7 +107,7 @@ struct kokakukidotaiViewFirstHit: View {
                         .font(.caption)
                     }
                 }
-                .popoverTip(tipVer3221KokakukidotaiAtChoku())
+//                .popoverTip(tipVer3221KokakukidotaiAtChoku())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
