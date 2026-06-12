@@ -572,6 +572,9 @@ class commonVar: ObservableObject {
         kabaneriUnatoisUnlocked = true
         gobsla2isUnlocked = true
         thunderisUnlocked = true
+        shinYoshiisUnlocked = true
+        jormungandisUnlocked = true
+        akudamaisUnlocked = true
     }
     
     // //////////////////////////////////////
@@ -711,51 +714,26 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3230FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.23.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                shinYoshiisUnlocked = false
-                shinYoshiMachineIconBadge = "new"
-                jormungandisUnlocked = false
-                jormungandMachineIconBadge = "new"
-                kabaneriUnatoMachineIconBadge = "update"
-                kabaneriUnatoMenuKabaneriBonusBadge = "update"
-                akudamaMachineIconBadge = "new"
-                akudamaisUnlocked = false
-                enen2MachineIconBadge = "update"
-                enen2MenuRegBadge = "update"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuAtBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3221FirstLaunch() {
+//    func ver3230FirstLaunch() {
 //        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.22.1"
+//        let targetVersion: String = "3.23.0"
 //        
 //        if firstLaunchAppVersion != nil {
 //            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
 //            if isVersionCompare(lastVersion, lessThan: targetVersion) {
 //                print("\(targetVersion)未満からアップデートされました")
-//                dmc5MachineIconBadge = "update"
-//                dmc5MenuPremiumStBadge = "update"
+//                shinYoshiisUnlocked = false
+//                shinYoshiMachineIconBadge = "new"
+//                jormungandisUnlocked = false
+//                jormungandMachineIconBadge = "new"
+//                kabaneriUnatoMachineIconBadge = "update"
+//                kabaneriUnatoMenuKabaneriBonusBadge = "update"
+//                akudamaMachineIconBadge = "new"
+//                akudamaisUnlocked = false
 //                enen2MachineIconBadge = "update"
-//                enen2MenuScreenBadge = "update"
-//                bakemonoMachineIconBadge = "update"
-//                bakemonoMenuNormalBadge = "update"
+//                enen2MenuRegBadge = "update"
 //                kokakukidotaiMachineIconBadge = "update"
-//                kokakukidotaiMenuFirstHitBadge = "update"
+//                kokakukidotaiMenuAtBadge = "update"
 //            }
 //            else {
 //                print("\(targetVersion)以上です")
@@ -764,7 +742,6 @@ class commonVar: ObservableObject {
 //            print("初回起動です")
 //        }
 //    }
-    
     
 }
 

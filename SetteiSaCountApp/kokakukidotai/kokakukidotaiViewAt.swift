@@ -90,7 +90,7 @@ struct kokakukidotaiViewAt: View {
                         }
                     }
                 }
-                .popoverTip(tipVer3230KokakukidotaiReboot())
+//                .popoverTip(tipVer3230KokakukidotaiReboot())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
