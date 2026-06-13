@@ -53,16 +53,16 @@ struct sao2ViewScreen: View {
         "パジャマ",
     ]
     let lowerBeltTextList: [String] = [
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
-        "？？？",
+        "デフォルト",
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆",
+        "高設定示唆 強",
+        "設定5示唆",
+        "設定2 以上濃厚",
+        "設定3 以上濃厚",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
     ]
     let sisaText: [String] = [
         "???(シノン＆キリト)",
@@ -123,6 +123,7 @@ struct sao2ViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
+                    .popoverTip(tipVer3271Sao2ScreenSisa())
                 }
                 
                 // //// カウント結果
@@ -130,13 +131,13 @@ struct sao2ViewScreen: View {
 //                ForEach(self.indexListResult, id: \.self) { index in
                     if self.lowerBeltTextList.indices.contains(index) &&
 //                    if self.upperBeltTextList.indices.contains(index) &&
-//                        self.flashColorList.indices.contains(index) {
-                        self.flashColorList.indices.contains(index) &&
-                        self.sisaText.indices.contains(index) {
+                        self.flashColorList.indices.contains(index) {
+//                        self.flashColorList.indices.contains(index) &&
+//                        self.sisaText.indices.contains(index) {
                         unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
+                            title: self.lowerBeltTextList[index],
 //                            title: self.upperBeltTextList[index],
-                            title: self.sisaText[index],
+//                            title: self.sisaText[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $sao2.screenCountSum,

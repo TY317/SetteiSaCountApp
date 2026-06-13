@@ -42,22 +42,22 @@ struct tipVer3271RioAceAceMode: Tip {
 }
 
 
-////////////////////
-//// Tip：カバネリ　3周期当選率
-////////////////////
-//struct tipVer3270KabaneriCycle3: Tip {
-//   var title: Text {
-//       Text("機能更新")
-//   }
-//   var message: Text? {
-//       Text("3,4周期目での当選率設定差が判明\nカウント機能を追加")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
-//
+//////////////////
+// Tip：SAO2 終了画面示唆
+//////////////////
+struct tipVer3271Sao2ScreenSisa: Tip {
+   var title: Text {
+       Text("情報更新")
+   }
+   var message: Text? {
+       Text("終了画面の示唆が全て判明")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
+
 ////////////////////
 //// Tip：攻殻機動隊　色ごとのCZ成功率
 ////////////////////
