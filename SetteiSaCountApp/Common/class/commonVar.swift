@@ -258,6 +258,7 @@ class commonVar: ObservableObject {
     @AppStorage("otome5MenuScreenBadge") var otome5MenuScreenBadge: String = "none"
     @AppStorage("otome5MenuHistoryBadge") var otome5MenuHistoryBadge: String = "none"
     @AppStorage("otome5MenuEndingBadge") var otome5MenuEndingBadge: String = "none"
+    @AppStorage("otome5MenuAtScreenBadge") var otome5MenuAtScreenBadge: String = "none"
     
     // ---- SAO2
     @AppStorage("sao2isUnlocked") var sao2isUnlocked: Bool = true
@@ -588,7 +589,11 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                otome5MachineIconBadge = "update"
+                otome5MenuAtScreenBadge = "new"
+                rioAceMachineIconBadge = "update"
+                rioAceMenuScreenBadge = "update"
+                rioAceMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
