@@ -16,6 +16,7 @@ struct rioAceViewBayes: View {
     @State var firstHitNoirRoomEnable: Bool = true
     @State var firstHitBonusAtEnable: Bool = true
     @State var kiteiReplayEnable: Bool = true
+    @State var aceModeEnable: Bool = true
     
     
     // 全機種共通
@@ -49,6 +50,8 @@ struct rioAceViewBayes: View {
             bayesSubStep2Section {
                 // 規定リプレイからの当選率
                 unitToggleWithQuestion(enable: self.$kiteiReplayEnable, title: "規定リプレイからの当選率")
+                // エースモード突入率
+                unitToggleWithQuestion(enable: self.$aceModeEnable, title: "エースモード突入率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitNoirRoomEnable, title: "ノワールルーム初当り確率")
                 unitToggleWithQuestion(enable: self.$firstHitBonusAtEnable, title: "ボーナス・AT初当り確率") {
@@ -159,6 +162,16 @@ struct rioAceViewBayes: View {
             )
         }
         
+        // エースモード突入率
+        var logPostAceMode: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.aceModeEnable {
+            logPostAceMode = logPostPercentBino(
+                ratio: rioAce.ratioAceMode,
+                Count: rioAce.aceModeCountHit,
+                bigNumber: rioAce.aceModeCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -199,6 +212,7 @@ struct rioAceViewBayes: View {
             logPostKiteiReplay,
             logPostFirstHitNoirRoom,
             logPostFirstHit,
+            logPostAceMode,
             
             logPostTrophy,
             logPostBefore,

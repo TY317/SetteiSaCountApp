@@ -22,6 +22,10 @@ class RioAce: ObservableObject {
         kiteiReplay = 0
         kiteiReplayHit = 0
         minusCheck = false
+        
+        aceModeCountMiss = 0
+        aceModeCountHit = 0
+        aceModeCountSum = 0
     }
     
     // スイカ成功抽選
@@ -84,6 +88,18 @@ class RioAce: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+    }
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    let ratioAceMode: [Double] = [30.1,32,34.4,37.5,40.6,43.8]
+    @AppStorage("rioAceAceModeCountMiss") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHit") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSum") var aceModeCountSum: Int = 0
+    
+    func aceModeSumFunc() {
+        aceModeCountSum = aceModeCountMiss + aceModeCountHit
     }
 }
 

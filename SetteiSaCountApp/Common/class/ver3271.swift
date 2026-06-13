@@ -10,38 +10,38 @@ import SwiftUI
 import TipKit
 
 
+//////////////////
+// Tip：リオエース　リナサイン
+//////////////////
+struct tipVer3271RioAceRinaSign: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("リナサインの出現率設定差が判明\n設定判別機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
 ////////////////////
-//// Tip：ゴッド軌跡　昇格Z-Zone
+//// Tip：リオエース エースモード
 ////////////////////
-//struct tipVer3270GodKisekiZzoneRise: Tip {
-//    var title: Text {
-//        Text("機能更新")
-//    }
-//    var message: Text? {
-//        Text("GG当選時のZ-ZONE昇格率が判明\nカウント機能を追加しました")
-//    }
-//    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-//    }
-//}
-//
-//
-//////////////////////
-////// Tip：ゴッド軌跡　小役での当選率
-//////////////////////
-//struct tipVer3270GodKisekiKoyakuHit: Tip {
-//   var title: Text {
-//       Text("情報更新")
-//   }
-//   var message: Text? {
-//       Text("小役からのGG当選率の情報を追加")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
-//
+struct tipVer3271RioAceAceMode: Tip {
+   var title: Text {
+       Text("機能更新")
+   }
+   var message: Text? {
+       Text("エースモードの突入率設定差が判明\nカウント機能を追加しました")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
+
 ////////////////////
 //// Tip：カバネリ　3周期当選率
 ////////////////////
