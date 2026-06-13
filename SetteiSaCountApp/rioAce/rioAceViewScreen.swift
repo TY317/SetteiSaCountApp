@@ -80,6 +80,38 @@ struct rioAceViewScreen: View {
                         bigNumber: $rioAce.screenCountSum
                     )
                 }
+                
+                // 参考情報）リナサイン出現率
+                unitLinkButtonViewBuilder(sheetTitle: "リナサイン(高設定示唆 強)出現率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "リナサイン",
+                            percentList: rioAce.ratioRinaSign,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                .popoverTip(tipVer3271RioAceRinaSign())
+                
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        rioAceView95Ci(
+                            rioAce: rioAce,
+                            selection: 6,
+                        )
+                    )
+                )
+                
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    rioAceViewBayes(
+                        rioAce: rioAce,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }

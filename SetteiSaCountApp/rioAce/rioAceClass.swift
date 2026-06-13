@@ -101,6 +101,9 @@ class RioAce: ObservableObject {
     func aceModeSumFunc() {
         aceModeCountSum = aceModeCountMiss + aceModeCountHit
     }
+    
+    // リナサイン
+    let ratioRinaSign: [Double] = [1,2,3,4,4.5,5]
 }
 
 

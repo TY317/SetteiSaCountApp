@@ -107,26 +107,26 @@ struct rioAceView95Ci: View {
                 )
             )
             .tag(3)
-//
-//
-//            // REG,後終了画面デフォルト回数
-//            unitListSection95Ci(
-//                grafTitle: "REG,アクセルボーナス,灰焔ボーナス後\n終了画面 デフォルト回数",
+
+
+            // リナサイン出現回数
+            unitListSection95Ci(
+                grafTitle: "リナサイン出現回数",
 //                titleFont: .body,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $rioAce.screenCount1,
-//                        bigNumber: $rioAce.screenCountSum,
-//                        setting1Percent: rioAce.ratioScreen1[0],
-//                        setting2Percent: rioAce.ratioScreen1[1],
-//                        setting3Percent: rioAce.ratioScreen1[2],
-//                        setting4Percent: rioAce.ratioScreen1[3],
-//                        setting5Percent: rioAce.ratioScreen1[4],
-//                        setting6Percent: rioAce.ratioScreen1[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $rioAce.screenCountRina,
+                        bigNumber: $rioAce.screenCountSum,
+                        setting1Percent: rioAce.ratioRinaSign[0],
+                        setting2Percent: rioAce.ratioRinaSign[1],
+                        setting3Percent: rioAce.ratioRinaSign[2],
+                        setting4Percent: rioAce.ratioRinaSign[3],
+                        setting5Percent: rioAce.ratioRinaSign[4],
+                        setting6Percent: rioAce.ratioRinaSign[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {
