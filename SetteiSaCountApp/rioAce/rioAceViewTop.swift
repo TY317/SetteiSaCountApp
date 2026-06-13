@@ -248,6 +248,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory1.screenCountMint = rioAce.screenCountMint
         rioAceMemory1.screenCountRina = rioAce.screenCountRina
         rioAceMemory1.screenCountSum = rioAce.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAceMemory1.aceModeCountMiss = rioAce.aceModeCountMiss
+        rioAceMemory1.aceModeCountHit = rioAce.aceModeCountHit
+        rioAceMemory1.aceModeCountSum = rioAce.aceModeCountSum
     }
     func saveMemory2() {
         rioAceMemory2.kiteiReplay = rioAce.kiteiReplay
@@ -261,6 +268,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory2.screenCountMint = rioAce.screenCountMint
         rioAceMemory2.screenCountRina = rioAce.screenCountRina
         rioAceMemory2.screenCountSum = rioAce.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAceMemory2.aceModeCountMiss = rioAce.aceModeCountMiss
+        rioAceMemory2.aceModeCountHit = rioAce.aceModeCountHit
+        rioAceMemory2.aceModeCountSum = rioAce.aceModeCountSum
     }
     func saveMemory3() {
         rioAceMemory3.kiteiReplay = rioAce.kiteiReplay
@@ -274,6 +288,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory3.screenCountMint = rioAce.screenCountMint
         rioAceMemory3.screenCountRina = rioAce.screenCountRina
         rioAceMemory3.screenCountSum = rioAce.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAceMemory3.aceModeCountMiss = rioAce.aceModeCountMiss
+        rioAceMemory3.aceModeCountHit = rioAce.aceModeCountHit
+        rioAceMemory3.aceModeCountSum = rioAce.aceModeCountSum
     }
 }
 
@@ -316,6 +337,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.screenCountMint = rioAceMemory1.screenCountMint
         rioAce.screenCountRina = rioAceMemory1.screenCountRina
         rioAce.screenCountSum = rioAceMemory1.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAce.aceModeCountMiss = rioAceMemory1.aceModeCountMiss
+        rioAce.aceModeCountHit = rioAceMemory1.aceModeCountHit
+        rioAce.aceModeCountSum = rioAceMemory1.aceModeCountSum
     }
     func loadMemory2() {
         rioAce.kiteiReplay = rioAceMemory2.kiteiReplay
@@ -329,6 +357,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.screenCountMint = rioAceMemory2.screenCountMint
         rioAce.screenCountRina = rioAceMemory2.screenCountRina
         rioAce.screenCountSum = rioAceMemory2.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAce.aceModeCountMiss = rioAceMemory2.aceModeCountMiss
+        rioAce.aceModeCountHit = rioAceMemory2.aceModeCountHit
+        rioAce.aceModeCountSum = rioAceMemory2.aceModeCountSum
     }
     func loadMemory3() {
         rioAce.kiteiReplay = rioAceMemory3.kiteiReplay
@@ -342,6 +377,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.screenCountMint = rioAceMemory3.screenCountMint
         rioAce.screenCountRina = rioAceMemory3.screenCountRina
         rioAce.screenCountSum = rioAceMemory3.screenCountSum
+        
+        // ------------
+        // ver3.27.1
+        // ------------
+        rioAce.aceModeCountMiss = rioAceMemory3.aceModeCountMiss
+        rioAce.aceModeCountHit = rioAceMemory3.aceModeCountHit
+        rioAce.aceModeCountSum = rioAceMemory3.aceModeCountSum
     }
 }
 

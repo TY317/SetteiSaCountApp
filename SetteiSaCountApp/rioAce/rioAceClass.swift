@@ -121,6 +121,13 @@ class RioAceMemory1: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory1") var memo = ""
     @AppStorage("rioAceDateMemory1") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory1") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory1") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory1") var aceModeCountSum: Int = 0
 }
 
 class RioAceMemory2: ObservableObject {
@@ -137,6 +144,13 @@ class RioAceMemory2: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory2") var memo = ""
     @AppStorage("rioAceDateMemory2") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory2") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory2") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory2") var aceModeCountSum: Int = 0
 }
 
 class RioAceMemory3: ObservableObject {
@@ -153,4 +167,11 @@ class RioAceMemory3: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory3") var memo = ""
     @AppStorage("rioAceDateMemory3") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory3") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory3") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory3") var aceModeCountSum: Int = 0
 }
