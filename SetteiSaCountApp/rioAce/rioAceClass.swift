@@ -22,6 +22,10 @@ class RioAce: ObservableObject {
         kiteiReplay = 0
         kiteiReplayHit = 0
         minusCheck = false
+        
+        aceModeCountMiss = 0
+        aceModeCountHit = 0
+        aceModeCountSum = 0
     }
     
     // スイカ成功抽選
@@ -85,6 +89,21 @@ class RioAce: ObservableObject {
         resetFirstHit()
         resetScreen()
     }
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    let ratioAceMode: [Double] = [30.1,32,34.4,37.5,40.6,43.8]
+    @AppStorage("rioAceAceModeCountMiss") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHit") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSum") var aceModeCountSum: Int = 0
+    
+    func aceModeSumFunc() {
+        aceModeCountSum = aceModeCountMiss + aceModeCountHit
+    }
+    
+    // リナサイン
+    let ratioRinaSign: [Double] = [1,2,3,4,4.5,5]
 }
 
 
@@ -102,6 +121,13 @@ class RioAceMemory1: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory1") var memo = ""
     @AppStorage("rioAceDateMemory1") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory1") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory1") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory1") var aceModeCountSum: Int = 0
 }
 
 class RioAceMemory2: ObservableObject {
@@ -118,6 +144,13 @@ class RioAceMemory2: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory2") var memo = ""
     @AppStorage("rioAceDateMemory2") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory2") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory2") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory2") var aceModeCountSum: Int = 0
 }
 
 class RioAceMemory3: ObservableObject {
@@ -134,4 +167,11 @@ class RioAceMemory3: ObservableObject {
     @AppStorage("rioAceScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("rioAceMemoMemory3") var memo = ""
     @AppStorage("rioAceDateMemory3") var dateDouble = 0.0
+    
+    // ------------
+    // ver3.27.1
+    // ------------
+    @AppStorage("rioAceAceModeCountMissMemory3") var aceModeCountMiss: Int = 0
+    @AppStorage("rioAceAceModeCountHitMemory3") var aceModeCountHit: Int = 0
+    @AppStorage("rioAceAceModeCountSumMemory3") var aceModeCountSum: Int = 0
 }

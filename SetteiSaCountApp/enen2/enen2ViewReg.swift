@@ -559,7 +559,7 @@ struct enen2ViewReg: View {
                 unitLinkButtonViewBuilder(sheetTitle: "シナリオ振分け") {
                     enen2TableCharaRatio(enen2: enen2)
                 }
-                .popoverTip(tipVer3230Enen2Chara())
+//                .popoverTip(tipVer3230Enen2Chara())
                 
                 ForEach(self.indexList, id: \.self) { index in
                     unitResultCountListPercent(

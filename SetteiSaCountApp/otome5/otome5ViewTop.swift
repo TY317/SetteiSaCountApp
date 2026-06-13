@@ -84,7 +84,7 @@ struct otome5ViewTop: View {
 //                        )
 //                    }
 
-                    // AT終了画面
+                    // 出陣ボーナス終了画面
                     NavigationLink(destination: otome5ViewScreen(
                         otome5: otome5,
                         bayes: bayes,
@@ -92,8 +92,21 @@ struct otome5ViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "ボーナス終了画面",
+                            textBody: "出陣ボーナス終了画面",
                             badgeStatus: common.otome5MenuScreenBadge,
+                        )
+                    }
+                    
+                    // AT終了画面
+                    NavigationLink(destination: otome5ViewAtScreen(
+                        otome5: otome5,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.otome5MenuAtScreenBadge,
                         )
                     }
 

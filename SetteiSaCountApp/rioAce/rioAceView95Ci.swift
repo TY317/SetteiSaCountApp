@@ -32,25 +32,25 @@ struct rioAceView95Ci: View {
                 )
             )
             .tag(4)
-//
-//            // 天井短縮回数
-//            unitListSection95Ci(
-//                grafTitle: "天井短縮回数",
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $rioAce.tenjoCountHit,
-//                        bigNumber: $rioAce.tenjoCountSum,
-//                        setting1Percent: rioAce.ratioTenjoCut[0],
-//                        setting2Percent: rioAce.ratioTenjoCut[1],
-//                        setting3Percent: rioAce.ratioTenjoCut[2],
-//                        setting4Percent: rioAce.ratioTenjoCut[3],
-//                        setting5Percent: rioAce.ratioTenjoCut[4],
-//                        setting6Percent: rioAce.ratioTenjoCut[5]
-//                    )
-//                )
-//            )
-//            .tag(5)
-//
+
+            // エースモード突入回数
+            unitListSection95Ci(
+                grafTitle: "エースモード突入回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $rioAce.aceModeCountHit,
+                        bigNumber: $rioAce.aceModeCountSum,
+                        setting1Percent: rioAce.ratioAceMode[0],
+                        setting2Percent: rioAce.ratioAceMode[1],
+                        setting3Percent: rioAce.ratioAceMode[2],
+                        setting4Percent: rioAce.ratioAceMode[3],
+                        setting5Percent: rioAce.ratioAceMode[4],
+                        setting6Percent: rioAce.ratioAceMode[5]
+                    )
+                )
+            )
+            .tag(5)
+
             // ノワールルーム初当り回数
             unitListSection95Ci(
                 grafTitle: "ノワールルーム初当り回数",
@@ -107,26 +107,26 @@ struct rioAceView95Ci: View {
                 )
             )
             .tag(3)
-//
-//
-//            // REG,後終了画面デフォルト回数
-//            unitListSection95Ci(
-//                grafTitle: "REG,アクセルボーナス,灰焔ボーナス後\n終了画面 デフォルト回数",
+
+
+            // リナサイン出現回数
+            unitListSection95Ci(
+                grafTitle: "リナサイン出現回数",
 //                titleFont: .body,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $rioAce.screenCount1,
-//                        bigNumber: $rioAce.screenCountSum,
-//                        setting1Percent: rioAce.ratioScreen1[0],
-//                        setting2Percent: rioAce.ratioScreen1[1],
-//                        setting3Percent: rioAce.ratioScreen1[2],
-//                        setting4Percent: rioAce.ratioScreen1[3],
-//                        setting5Percent: rioAce.ratioScreen1[4],
-//                        setting6Percent: rioAce.ratioScreen1[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $rioAce.screenCountRina,
+                        bigNumber: $rioAce.screenCountSum,
+                        setting1Percent: rioAce.ratioRinaSign[0],
+                        setting2Percent: rioAce.ratioRinaSign[1],
+                        setting3Percent: rioAce.ratioRinaSign[2],
+                        setting4Percent: rioAce.ratioRinaSign[3],
+                        setting5Percent: rioAce.ratioRinaSign[4],
+                        setting6Percent: rioAce.ratioRinaSign[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

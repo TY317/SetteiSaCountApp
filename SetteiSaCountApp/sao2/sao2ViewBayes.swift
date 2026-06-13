@@ -20,6 +20,7 @@ struct sao2ViewBayes: View {
     @State var czKettouGetEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -61,6 +62,13 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // コパンダトロフィー
                 DisclosureGroup("コパンダトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -200,6 +208,30 @@ struct sao2ViewBayes: View {
             )
         }
         
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if sao2.screenCount7 > 0 {
+                logPostScreen[0] = -Double.infinity
+            }
+            if sao2.screenCount8 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+            }
+            if sao2.screenCount9 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if sao2.screenCount10 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -244,6 +276,7 @@ struct sao2ViewBayes: View {
 //            logPostCzFailKettou,
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

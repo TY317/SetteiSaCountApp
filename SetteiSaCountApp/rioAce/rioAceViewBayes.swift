@@ -16,6 +16,8 @@ struct rioAceViewBayes: View {
     @State var firstHitNoirRoomEnable: Bool = true
     @State var firstHitBonusAtEnable: Bool = true
     @State var kiteiReplayEnable: Bool = true
+    @State var aceModeEnable: Bool = true
+    @State var rinaSignEnable: Bool = true
     
     
     // 全機種共通
@@ -49,6 +51,8 @@ struct rioAceViewBayes: View {
             bayesSubStep2Section {
                 // 規定リプレイからの当選率
                 unitToggleWithQuestion(enable: self.$kiteiReplayEnable, title: "規定リプレイからの当選率")
+                // エースモード突入率
+                unitToggleWithQuestion(enable: self.$aceModeEnable, title: "エースモード突入率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitNoirRoomEnable, title: "ノワールルーム初当り確率")
                 unitToggleWithQuestion(enable: self.$firstHitBonusAtEnable, title: "ボーナス・AT初当り確率") {
@@ -57,6 +61,8 @@ struct rioAceViewBayes: View {
                         textBody1: "・直撃ボーナス以外と直撃ボーナス確率をそれぞれ計算要素に加えます"
                     )
                 }
+                // リナサイン出現率
+                unitToggleWithQuestion(enable: self.$rinaSignEnable, title: "リナサイン出現率")
                 // ケロットトロフィー
                 DisclosureGroup("ケロットトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -159,6 +165,26 @@ struct rioAceViewBayes: View {
             )
         }
         
+        // エースモード突入率
+        var logPostAceMode: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.aceModeEnable {
+            logPostAceMode = logPostPercentBino(
+                ratio: rioAce.ratioAceMode,
+                Count: rioAce.aceModeCountHit,
+                bigNumber: rioAce.aceModeCountSum
+            )
+        }
+        
+        // リナサイン
+        var logPostRinaSign: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rinaSignEnable {
+            logPostRinaSign = logPostPercentBino(
+                ratio: rioAce.ratioRinaSign,
+                Count: rioAce.screenCountRina,
+                bigNumber: rioAce.screenCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -199,6 +225,8 @@ struct rioAceViewBayes: View {
             logPostKiteiReplay,
             logPostFirstHitNoirRoom,
             logPostFirstHit,
+            logPostAceMode,
+            logPostRinaSign,
             
             logPostTrophy,
             logPostBefore,

@@ -176,7 +176,7 @@ struct kabaneriUnatoViewKabaneriBonus: View {
                 unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介振分け") {
                     kabaneriUnatoTableChara(kabaneriUnato: kabaneriUnato)
                 }
-                .popoverTip(tipVer3230KabaneriUnatoChara())
+//                .popoverTip(tipVer3230KabaneriUnatoChara())
                 
                 DisclosureGroup {
                     // サークルピッカー

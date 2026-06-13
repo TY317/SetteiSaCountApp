@@ -110,6 +110,91 @@ struct rioAceViewNormal: View {
                 Text("規定リプレイからの当選")
             }
             
+            // ---- エースモード
+            Section {
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "エースモード突入",
+                    count: $rioAce.aceModeCountHit,
+                    bigNumber: $rioAce.aceModeCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer3271RioAceAceMode())
+                
+                // エースモード突入率
+                unitLinkButtonViewBuilder(sheetTitle: "エースモード突入率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "突入率",
+                            percentList: rioAce.ratioAceMode
+                        )
+                    }
+                }
+                
+                // エースモード概要
+                unitLinkButtonViewBuilder(sheetTitle: "エースモードについて") {
+                    rioAceTableAceMode()
+                }
+                .popoverTip(tipVer3260RioAceMode())
+                
+                // アイキャッチでの示唆
+                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
+                    rioAceTableEyeCatch()
+                }
+                
+                // カウントボタン横並び
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("見抜けないことが多いと思います\nメモ代わり程度でご利用ください")
+                    }
+                    
+                    HStack {
+                        // 突入なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入なし",
+                            count: $rioAce.aceModeCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $rioAce.minusCheck) {
+                                rioAce.aceModeSumFunc()
+                            }
+                        // 突入
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入",
+                            count: $rioAce.aceModeCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $rioAce.minusCheck) {
+                                rioAce.aceModeSumFunc()
+                            }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            rioAceView95Ci(
+                                rioAce: rioAce,
+                                selection: 5,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        rioAceViewBayes(
+                            rioAce: rioAce,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("エースモード")
+            }
+            
             // ---- スイカでの成功当選
             Section {
                 // 注意書き
@@ -163,22 +248,6 @@ struct rioAceViewNormal: View {
                 }
             } header: {
                 Text("演出での示唆")
-            }
-            
-            // ---- エースモード
-            Section {
-                // エースモード概要
-                unitLinkButtonViewBuilder(sheetTitle: "エースモードについて") {
-                    rioAceTableAceMode()
-                }
-                .popoverTip(tipVer3260RioAceMode())
-                
-                // アイキャッチでの示唆
-                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
-                    rioAceTableEyeCatch()
-                }
-            } header: {
-                Text("エースモード")
             }
         }
         // //// バッジのリセット
