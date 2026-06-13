@@ -81,6 +81,54 @@ class BioRe3: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetFigure()
+        resetNormal()
+    }
+    
+    // ---------
+    // ver3.27.1
+    // ---------
+    let ratioJakuRareNormalACz: [Double] = [0.4,-1,-1,-1,-1,-1,]
+    let ratioJakuRareNormalBCz: [Double] = [0.4,-1,-1,-1,-1,-1,]
+    let ratioJakuRareHighCz: [Double] = [6.3,-1,-1,-1,-1,-1,]
+    let ratioJakuRareSuperHighCz: [Double] = [25,-1,-1,-1,-1,-1,]
+    let ratioJakuRareNormalAAt: [Double] = [0,0,0,0,0,0]
+    let ratioJakuRareNormalBAt: [Double] = [0,0,0,0,0,0]
+    let ratioJakuRareHighAt: [Double] = [0,0,0,0,0,0]
+    let ratioJakuRareSuperHighAt: [Double] = [0,0,0,0,0,0]
+    let ratioKyoRareNormalACz: [Double] = [12.1,-1,-1,-1,-1,-1,]
+    let ratioKyoRareNormalBCz: [Double] = [16.4,-1,-1,-1,-1,-1,]
+    let ratioKyoRareHighCz: [Double] = [49.6,-1,-1,-1,-1,-1,]
+    let ratioKyoRareSuperHighCz: [Double] = [87.5,-1,-1,-1,-1,-1,]
+    let ratioKyoRareNormalAAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
+    let ratioKyoRareNormalBAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
+    let ratioKyoRareHighAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
+    let ratioKyoRareSuperHighAt: [Double] = [12.5,-1,-1,-1,-1,-1,]
+    @AppStorage("bioRe3JakuRareCountJakuCherry") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("bioRe3JakuRareCountSuika") var jakuRareCountSuika: Int = 0
+    @AppStorage("bioRe3JakuRareCountKoyakuSum") var jakuRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3JakuRareCountCzHit") var jakuRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountKyoCherry") var kyoRareCountKyoCherry: Int = 0
+    @AppStorage("bioRe3KyoRareCountChance") var kyoRareCountChance: Int = 0
+    @AppStorage("bioRe3KyoRareCountKoyakuSum") var kyoRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3KyoRareCountCzHit") var kyoRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountAtHit") var kyoRareCountAtHit: Int = 0
+    
+    func koyakuCountSumFunc() {
+        jakuRareCountKoyakuSum = jakuRareCountJakuCherry + jakuRareCountSuika
+        kyoRareCountKoyakuSum = kyoRareCountKyoCherry + kyoRareCountChance
+    }
+    
+    func resetNormal() {
+        jakuRareCountJakuCherry = 0
+        jakuRareCountSuika = 0
+        jakuRareCountKoyakuSum = 0
+        jakuRareCountCzHit = 0
+        kyoRareCountKyoCherry = 0
+        kyoRareCountChance = 0
+        kyoRareCountKoyakuSum = 0
+        kyoRareCountCzHit = 0
+        kyoRareCountAtHit = 0
+        minusCheck = false
     }
 }
 
@@ -102,6 +150,19 @@ class BioRe3Memory1: ObservableObject {
     @AppStorage("bioRe3FigureCountSumMemory1") var figureCountSum: Int = 0
     @AppStorage("bioRe3MemoMemory1") var memo = ""
     @AppStorage("bioRe3DateMemory1") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.27.1
+    // ---------
+    @AppStorage("bioRe3JakuRareCountJakuCherryMemory1") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("bioRe3JakuRareCountSuikaMemory1") var jakuRareCountSuika: Int = 0
+    @AppStorage("bioRe3JakuRareCountKoyakuSumMemory1") var jakuRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3JakuRareCountCzHitMemory1") var jakuRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountKyoCherryMemory1") var kyoRareCountKyoCherry: Int = 0
+    @AppStorage("bioRe3KyoRareCountChanceMemory1") var kyoRareCountChance: Int = 0
+    @AppStorage("bioRe3KyoRareCountKoyakuSumMemory1") var kyoRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3KyoRareCountCzHitMemory1") var kyoRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountAtHitMemory1") var kyoRareCountAtHit: Int = 0
 }
 
 
@@ -122,6 +183,19 @@ class BioRe3Memory2: ObservableObject {
     @AppStorage("bioRe3FigureCountSumMemory2") var figureCountSum: Int = 0
     @AppStorage("bioRe3MemoMemory2") var memo = ""
     @AppStorage("bioRe3DateMemory2") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.27.1
+    // ---------
+    @AppStorage("bioRe3JakuRareCountJakuCherryMemory2") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("bioRe3JakuRareCountSuikaMemory2") var jakuRareCountSuika: Int = 0
+    @AppStorage("bioRe3JakuRareCountKoyakuSumMemory2") var jakuRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3JakuRareCountCzHitMemory2") var jakuRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountKyoCherryMemory2") var kyoRareCountKyoCherry: Int = 0
+    @AppStorage("bioRe3KyoRareCountChanceMemory2") var kyoRareCountChance: Int = 0
+    @AppStorage("bioRe3KyoRareCountKoyakuSumMemory2") var kyoRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3KyoRareCountCzHitMemory2") var kyoRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountAtHitMemory2") var kyoRareCountAtHit: Int = 0
 }
 
 
@@ -142,4 +216,17 @@ class BioRe3Memory3: ObservableObject {
     @AppStorage("bioRe3FigureCountSumMemory3") var figureCountSum: Int = 0
     @AppStorage("bioRe3MemoMemory3") var memo = ""
     @AppStorage("bioRe3DateMemory3") var dateDouble = 0.0
+    
+    // ---------
+    // ver3.27.1
+    // ---------
+    @AppStorage("bioRe3JakuRareCountJakuCherryMemory3") var jakuRareCountJakuCherry: Int = 0
+    @AppStorage("bioRe3JakuRareCountSuikaMemory3") var jakuRareCountSuika: Int = 0
+    @AppStorage("bioRe3JakuRareCountKoyakuSumMemory3") var jakuRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3JakuRareCountCzHitMemory3") var jakuRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountKyoCherryMemory3") var kyoRareCountKyoCherry: Int = 0
+    @AppStorage("bioRe3KyoRareCountChanceMemory3") var kyoRareCountChance: Int = 0
+    @AppStorage("bioRe3KyoRareCountKoyakuSumMemory3") var kyoRareCountKoyakuSum: Int = 0
+    @AppStorage("bioRe3KyoRareCountCzHitMemory3") var kyoRareCountCzHit: Int = 0
+    @AppStorage("bioRe3KyoRareCountAtHitMemory3") var kyoRareCountAtHit: Int = 0
 }

@@ -256,6 +256,19 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory1.figureCountOver4With16 = bioRe3.figureCountOver4With16
         bioRe3Memory1.figureCountOver4With15 = bioRe3.figureCountOver4With15
         bioRe3Memory1.figureCountSum = bioRe3.figureCountSum
+        
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3Memory1.jakuRareCountJakuCherry = bioRe3.jakuRareCountJakuCherry
+        bioRe3Memory1.jakuRareCountSuika = bioRe3.jakuRareCountSuika
+        bioRe3Memory1.jakuRareCountKoyakuSum = bioRe3.jakuRareCountKoyakuSum
+        bioRe3Memory1.jakuRareCountCzHit = bioRe3.jakuRareCountCzHit
+        bioRe3Memory1.kyoRareCountKyoCherry = bioRe3.kyoRareCountKyoCherry
+        bioRe3Memory1.kyoRareCountChance = bioRe3.kyoRareCountChance
+        bioRe3Memory1.kyoRareCountKoyakuSum = bioRe3.kyoRareCountKoyakuSum
+        bioRe3Memory1.kyoRareCountCzHit = bioRe3.kyoRareCountCzHit
+        bioRe3Memory1.kyoRareCountAtHit = bioRe3.kyoRareCountAtHit
     }
     func saveMemory2() {
         bioRe3Memory2.normalGame = bioRe3.normalGame
@@ -272,6 +285,19 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory2.figureCountOver4With16 = bioRe3.figureCountOver4With16
         bioRe3Memory2.figureCountOver4With15 = bioRe3.figureCountOver4With15
         bioRe3Memory2.figureCountSum = bioRe3.figureCountSum
+        
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3Memory2.jakuRareCountJakuCherry = bioRe3.jakuRareCountJakuCherry
+        bioRe3Memory2.jakuRareCountSuika = bioRe3.jakuRareCountSuika
+        bioRe3Memory2.jakuRareCountKoyakuSum = bioRe3.jakuRareCountKoyakuSum
+        bioRe3Memory2.jakuRareCountCzHit = bioRe3.jakuRareCountCzHit
+        bioRe3Memory2.kyoRareCountKyoCherry = bioRe3.kyoRareCountKyoCherry
+        bioRe3Memory2.kyoRareCountChance = bioRe3.kyoRareCountChance
+        bioRe3Memory2.kyoRareCountKoyakuSum = bioRe3.kyoRareCountKoyakuSum
+        bioRe3Memory2.kyoRareCountCzHit = bioRe3.kyoRareCountCzHit
+        bioRe3Memory2.kyoRareCountAtHit = bioRe3.kyoRareCountAtHit
     }
     func saveMemory3() {
         bioRe3Memory3.normalGame = bioRe3.normalGame
@@ -288,6 +314,19 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory3.figureCountOver4With16 = bioRe3.figureCountOver4With16
         bioRe3Memory3.figureCountOver4With15 = bioRe3.figureCountOver4With15
         bioRe3Memory3.figureCountSum = bioRe3.figureCountSum
+        
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3Memory3.jakuRareCountJakuCherry = bioRe3.jakuRareCountJakuCherry
+        bioRe3Memory3.jakuRareCountSuika = bioRe3.jakuRareCountSuika
+        bioRe3Memory3.jakuRareCountKoyakuSum = bioRe3.jakuRareCountKoyakuSum
+        bioRe3Memory3.jakuRareCountCzHit = bioRe3.jakuRareCountCzHit
+        bioRe3Memory3.kyoRareCountKyoCherry = bioRe3.kyoRareCountKyoCherry
+        bioRe3Memory3.kyoRareCountChance = bioRe3.kyoRareCountChance
+        bioRe3Memory3.kyoRareCountKoyakuSum = bioRe3.kyoRareCountKoyakuSum
+        bioRe3Memory3.kyoRareCountCzHit = bioRe3.kyoRareCountCzHit
+        bioRe3Memory3.kyoRareCountAtHit = bioRe3.kyoRareCountAtHit
     }
 }
 
@@ -333,6 +372,18 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.figureCountOver4With16 = bioRe3Memory1.figureCountOver4With16
         bioRe3.figureCountOver4With15 = bioRe3Memory1.figureCountOver4With15
         bioRe3.figureCountSum = bioRe3Memory1.figureCountSum
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3.jakuRareCountJakuCherry = bioRe3Memory1.jakuRareCountJakuCherry
+        bioRe3.jakuRareCountSuika = bioRe3Memory1.jakuRareCountSuika
+        bioRe3.jakuRareCountKoyakuSum = bioRe3Memory1.jakuRareCountKoyakuSum
+        bioRe3.jakuRareCountCzHit = bioRe3Memory1.jakuRareCountCzHit
+        bioRe3.kyoRareCountKyoCherry = bioRe3Memory1.kyoRareCountKyoCherry
+        bioRe3.kyoRareCountChance = bioRe3Memory1.kyoRareCountChance
+        bioRe3.kyoRareCountKoyakuSum = bioRe3Memory1.kyoRareCountKoyakuSum
+        bioRe3.kyoRareCountCzHit = bioRe3Memory1.kyoRareCountCzHit
+        bioRe3.kyoRareCountAtHit = bioRe3Memory1.kyoRareCountAtHit
     }
     func loadMemory2() {
         bioRe3.normalGame = bioRe3Memory2.normalGame
@@ -349,6 +400,19 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.figureCountOver4With16 = bioRe3Memory2.figureCountOver4With16
         bioRe3.figureCountOver4With15 = bioRe3Memory2.figureCountOver4With15
         bioRe3.figureCountSum = bioRe3Memory2.figureCountSum
+        
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3.jakuRareCountJakuCherry = bioRe3Memory2.jakuRareCountJakuCherry
+        bioRe3.jakuRareCountSuika = bioRe3Memory2.jakuRareCountSuika
+        bioRe3.jakuRareCountKoyakuSum = bioRe3Memory2.jakuRareCountKoyakuSum
+        bioRe3.jakuRareCountCzHit = bioRe3Memory2.jakuRareCountCzHit
+        bioRe3.kyoRareCountKyoCherry = bioRe3Memory2.kyoRareCountKyoCherry
+        bioRe3.kyoRareCountChance = bioRe3Memory2.kyoRareCountChance
+        bioRe3.kyoRareCountKoyakuSum = bioRe3Memory2.kyoRareCountKoyakuSum
+        bioRe3.kyoRareCountCzHit = bioRe3Memory2.kyoRareCountCzHit
+        bioRe3.kyoRareCountAtHit = bioRe3Memory2.kyoRareCountAtHit
     }
     func loadMemory3() {
         bioRe3.normalGame = bioRe3Memory3.normalGame
@@ -365,6 +429,19 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.figureCountOver4With16 = bioRe3Memory3.figureCountOver4With16
         bioRe3.figureCountOver4With15 = bioRe3Memory3.figureCountOver4With15
         bioRe3.figureCountSum = bioRe3Memory3.figureCountSum
+        
+        // ---------
+        // ver3.27.1
+        // ---------
+        bioRe3.jakuRareCountJakuCherry = bioRe3Memory3.jakuRareCountJakuCherry
+        bioRe3.jakuRareCountSuika = bioRe3Memory3.jakuRareCountSuika
+        bioRe3.jakuRareCountKoyakuSum = bioRe3Memory3.jakuRareCountKoyakuSum
+        bioRe3.jakuRareCountCzHit = bioRe3Memory3.jakuRareCountCzHit
+        bioRe3.kyoRareCountKyoCherry = bioRe3Memory3.kyoRareCountKyoCherry
+        bioRe3.kyoRareCountChance = bioRe3Memory3.kyoRareCountChance
+        bioRe3.kyoRareCountKoyakuSum = bioRe3Memory3.kyoRareCountKoyakuSum
+        bioRe3.kyoRareCountCzHit = bioRe3Memory3.kyoRareCountCzHit
+        bioRe3.kyoRareCountAtHit = bioRe3Memory3.kyoRareCountAtHit
     }
 }
 

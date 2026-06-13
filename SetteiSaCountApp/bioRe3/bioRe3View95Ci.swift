@@ -14,25 +14,63 @@ struct bioRe3View95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
-//            // 規定リプレイ到達からのハワードゲーム当選
-//            unitListSection95Ci(
-//                grafTitle: "規定リプレイ到達\nハワードゲーム当選回数",
-//                titleFont: .title3,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $bioRe3.kiteiReplayHit,
-//                        bigNumber: $bioRe3.kiteiReplay,
-//                        setting1Percent: bioRe3.ratioKiteiReplayHit[0],
-//                        setting2Percent: bioRe3.ratioKiteiReplayHit[1],
-//                        setting3Percent: bioRe3.ratioKiteiReplayHit[2],
-//                        setting4Percent: bioRe3.ratioKiteiReplayHit[3],
-//                        setting5Percent: bioRe3.ratioKiteiReplayHit[4],
-//                        setting6Percent: bioRe3.ratioKiteiReplayHit[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
-//
+            // 弱レア役からのCZ直撃当選
+            unitListSection95Ci(
+                grafTitle: "通常A 弱レア役\nCZ直撃回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bioRe3.jakuRareCountCzHit,
+                        bigNumber: $bioRe3.jakuRareCountKoyakuSum,
+                        setting1Percent: bioRe3.ratioJakuRareNormalACz[0],
+                        setting2Percent: bioRe3.ratioJakuRareNormalACz[1],
+                        setting3Percent: bioRe3.ratioJakuRareNormalACz[2],
+                        setting4Percent: bioRe3.ratioJakuRareNormalACz[3],
+                        setting5Percent: bioRe3.ratioJakuRareNormalACz[4],
+                        setting6Percent: bioRe3.ratioJakuRareNormalACz[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // 強レア役からのCZ直撃当選
+            unitListSection95Ci(
+                grafTitle: "通常A 強レア役\nCZ直撃回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bioRe3.kyoRareCountCzHit,
+                        bigNumber: $bioRe3.kyoRareCountKoyakuSum,
+                        setting1Percent: bioRe3.ratioKyoRareNormalACz[0],
+                        setting2Percent: bioRe3.ratioKyoRareNormalACz[1],
+                        setting3Percent: bioRe3.ratioKyoRareNormalACz[2],
+                        setting4Percent: bioRe3.ratioKyoRareNormalACz[3],
+                        setting5Percent: bioRe3.ratioKyoRareNormalACz[4],
+                        setting6Percent: bioRe3.ratioKyoRareNormalACz[5]
+                    )
+                )
+            )
+            .tag(4)
+            
+            // 強レア役からのAT直撃当選
+            unitListSection95Ci(
+                grafTitle: "通常A 強レア役\nAT直撃回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bioRe3.kyoRareCountAtHit,
+                        bigNumber: $bioRe3.kyoRareCountKoyakuSum,
+                        setting1Percent: bioRe3.ratioKyoRareNormalAAt[0],
+                        setting2Percent: bioRe3.ratioKyoRareNormalAAt[1],
+                        setting3Percent: bioRe3.ratioKyoRareNormalAAt[2],
+                        setting4Percent: bioRe3.ratioKyoRareNormalAAt[3],
+                        setting5Percent: bioRe3.ratioKyoRareNormalAAt[4],
+                        setting6Percent: bioRe3.ratioKyoRareNormalAAt[5]
+                    )
+                )
+            )
+            .tag(5)
+
 //            // 天井短縮回数
 //            unitListSection95Ci(
 //                grafTitle: "天井短縮回数",

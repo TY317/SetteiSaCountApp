@@ -103,6 +103,9 @@
 		0F1B31692FDCD2BA00DEEF8C /* otome5ViewAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B31682FDCD2BA00DEEF8C /* otome5ViewAtScreen.swift */; };
 		0F1B316D2FDCD36500DEEF8C /* otome5TableAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B316C2FDCD36500DEEF8C /* otome5TableAtScreen.swift */; };
 		0F1B316E2FDCD37400DEEF8C /* otome5TableAtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B316C2FDCD36500DEEF8C /* otome5TableAtScreen.swift */; };
+		0F1B31FA2FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B31F92FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift */; };
+		0F1B31FB2FDCF2DD00DEEF8C /* bioRe3TableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B31F92FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift */; };
+		0F1B31FC2FDCF5BB00DEEF8C /* bioRe3Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568E22FA6ECAD00A66336 /* bioRe3Class.swift */; };
 		0F1E11EA2DC853A400F69AFF /* gundamSeedViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */; };
 		0F1E11EC2DC853B300F69AFF /* gundamSeedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */; };
 		0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */; };
@@ -1694,6 +1697,7 @@
 		0F1B31662FDCD13C00DEEF8C /* ver3271.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3271.swift; sourceTree = "<group>"; };
 		0F1B31682FDCD2BA00DEEF8C /* otome5ViewAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewAtScreen.swift; sourceTree = "<group>"; };
 		0F1B316C2FDCD36500DEEF8C /* otome5TableAtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5TableAtScreen.swift; sourceTree = "<group>"; };
+		0F1B31F92FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3TableKoyakuHit.swift; sourceTree = "<group>"; };
 		0F1E11E92DC853A400F69AFF /* gundamSeedViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedViewTop.swift; sourceTree = "<group>"; };
 		0F1E11EB2DC853B300F69AFF /* gundamSeedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = gundamSeedAssets.xcassets; sourceTree = "<group>"; };
 		0F1E11ED2DC853BD00F69AFF /* gundamSeedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gundamSeedClass.swift; sourceTree = "<group>"; };
@@ -3925,6 +3929,7 @@
 				0F00FB002FAEAAD80076283F /* bioRe3ViewFigure.swift */,
 				0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */,
 				0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */,
+				0F1B31F92FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift */,
 			);
 			path = bioRe3;
 			sourceTree = "<group>";
@@ -6114,6 +6119,7 @@
 				0F59EBDE2F97AF7D00CF0C55 /* commonSectionCustomUniversal.swift in Sources */,
 				0FD357BD2DB1389C0069BD1A /* mahjongViewFirstHit.swift in Sources */,
 				0F7D3F1F2C81C69300A3FE7D /* kabaneriViewCzBonus.swift in Sources */,
+				0F1B31FA2FDCF2D800DEEF8C /* bioRe3TableKoyakuHit.swift in Sources */,
 				0F19D4442F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,
 				0F868A0A2D4279D100D952D9 /* goJug3Ver2View95CiKen.swift in Sources */,
 				0FFAB87B2E76A00600296A4F /* toreveViewStartScreen.swift in Sources */,
@@ -7496,6 +7502,7 @@
 				0FA662F72F23292C00F3259F /* hokutoTenseiTableKokakuSisa.swift in Sources */,
 				0F45A5D02F0501A60022E355 /* tekken6TextScreenCaution.swift in Sources */,
 				0F51C9C02F662F2F00D9DDE1 /* thunderTableBbKoyaku.swift in Sources */,
+				0F1B31FB2FDCF2DD00DEEF8C /* bioRe3TableKoyakuHit.swift in Sources */,
 				0FD6BACB2FCF9043003D3707 /* otome5TableGameMode.swift in Sources */,
 				0F461F932F9340B600F6B6A1 /* godKisekiTableModeStageChange.swift in Sources */,
 				0FA0A7EC2EFAC980003EF8BD /* hihodenTableLegendSisa.swift in Sources */,
@@ -7603,6 +7610,7 @@
 				0FA662F42F1FB11500F3259F /* hokutoTenseiTableFake.swift in Sources */,
 				0FD974E62F4165FC0067CED7 /* kokakukidotaiTableReplayFlush.swift in Sources */,
 				0FD974F22F4188E80067CED7 /* hanabiClass.swift in Sources */,
+				0F1B31FC2FDCF5BB00DEEF8C /* bioRe3Class.swift in Sources */,
 				0FD6BAD12FCF96E0003D3707 /* otome5TableStrapSisa.swift in Sources */,
 				0F461F9E2F93687900F6B6A1 /* godKisekiTableModeOkure.swift in Sources */,
 				0F59EBD92F96668500CF0C55 /* commonSectionCustomEnterise.swift in Sources */,
