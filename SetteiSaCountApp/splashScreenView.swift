@@ -74,6 +74,7 @@ struct splashScreenView: View {
                         common.ver3260FirstLaunch()
                         common.ver3270FirstLaunch()
                         common.ver3271FirstLaunch()
+                        common.ver400FirstLaunch()
                         common.saveAppVersions()
                         common.forcedUnlockReward()
                     }
