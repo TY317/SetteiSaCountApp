@@ -45,6 +45,12 @@
 		0F03BD492F0BE96A00222339 /* shakeViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD482F0BE96A00222339 /* shakeViewScreen.swift */; };
 		0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */; };
 		0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */; };
+		0F0733DF2FDE546600CA7A5A /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733DE2FDE546600CA7A5A /* GoogleMobileAds */; };
+		0F0733E22FDE54DA00CA7A5A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E12FDE54DA00CA7A5A /* FirebaseAnalytics */; };
+		0F0733E42FDE54DA00CA7A5A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E32FDE54DA00CA7A5A /* FirebaseCore */; };
+		0F0733E62FDE54DA00CA7A5A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E52FDE54DA00CA7A5A /* FirebaseCrashlytics */; };
+		0F0733E92FDE555C00CA7A5A /* UnityAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E82FDE555C00CA7A5A /* UnityAdapterTarget */; };
+		0F0733EC2FDE55A400CA7A5A /* LineAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733EB2FDE55A400CA7A5A /* LineAdapterTarget */; };
 		0F09C4C42FB5FCC60095CAF4 /* bioRe3ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */; };
 		0F09C4C62FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
 		0F09C4C72FB5FE170095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
@@ -1602,9 +1608,6 @@
 		0FFAEBD22EC99A90006C0371 /* neoplaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */; };
 		0FFAEBD82ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */; };
 		0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */; };
-		49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
-		9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */; };
-		B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1625,7 +1628,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewInfoSheet.swift; sourceTree = "<group>"; };
 		0F00FAF42FACBD040076283F /* unitAppRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitAppRecommend.swift; sourceTree = "<group>"; };
 		0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendHikakukakakuAssets.xcassets; sourceTree = "<group>"; };
@@ -3067,14 +3069,6 @@
 		0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewScreen.swift; sourceTree = "<group>"; };
 		0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableCycleModeHitRatio.swift; sourceTree = "<group>"; };
 		0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableModeMove.swift; sourceTree = "<group>"; };
-		370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
-		8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
-		877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -3086,7 +3080,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */,
+				0F0733E22FDE54DA00CA7A5A /* FirebaseAnalytics in Frameworks */,
+				0F0733E62FDE54DA00CA7A5A /* FirebaseCrashlytics in Frameworks */,
+				0F0733E42FDE54DA00CA7A5A /* FirebaseCore in Frameworks */,
+				0F0733DF2FDE546600CA7A5A /* GoogleMobileAds in Frameworks */,
+				0F0733E92FDE555C00CA7A5A /* UnityAdapterTarget in Frameworks */,
+				0F0733EC2FDE55A400CA7A5A /* LineAdapterTarget in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,7 +3093,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3102,7 +3100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3119,12 +3116,6 @@
 		05F029BDD164F61DF798A3AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */,
-				8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */,
-				370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
-				D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
-				3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
-				F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -4016,7 +4007,6 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
-				826985462005EF98D407193F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -5659,16 +5649,6 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
-		826985462005EF98D407193F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */,
-				877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
-				890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5676,13 +5656,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FC2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountApp" */;
 			buildPhases = (
-				2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */,
 				0F8030D42C6249FC001F008E /* Sources */,
 				0F8030D52C6249FC001F008E /* Frameworks */,
 				0F8030D62C6249FC001F008E /* Resources */,
 				0F6B59D92E067A0700DB1A2B /* ShellScript */,
-				5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */,
-				52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5697,7 +5674,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FF2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppTests" */;
 			buildPhases = (
-				B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */,
 				0F8030E42C6249FE001F008E /* Sources */,
 				0F8030E52C6249FE001F008E /* Frameworks */,
 				0F8030E62C6249FE001F008E /* Resources */,
@@ -5716,12 +5692,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8031022C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppUITests" */;
 			buildPhases = (
-				3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */,
 				0F8030EE2C6249FE001F008E /* Sources */,
 				0F8030EF2C6249FE001F008E /* Frameworks */,
 				0F8030F02C6249FE001F008E /* Resources */,
-				CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */,
-				DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5788,6 +5761,12 @@
 				ja,
 			);
 			mainGroup = 0F8030CF2C6249FC001F008E;
+			packageReferences = (
+				0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */,
+				0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */,
+			);
 			productRefGroup = 0F8030D92C6249FC001F008E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -5945,7 +5924,7 @@
 			);
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"$(SRCROOT)/newInputFile${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
 				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
@@ -5956,157 +5935,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Firebase Crashlytics (SPM) dSYM upload\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -7777,7 +7606,6 @@
 		};
 		0F8030FD2C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -7817,7 +7645,6 @@
 		};
 		0F8030FE2C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -7856,7 +7683,6 @@
 		};
 		0F8031002C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -7875,7 +7701,6 @@
 		};
 		0F8031012C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -7894,7 +7719,6 @@
 		};
 		0F8031032C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -7911,7 +7735,6 @@
 		};
 		0F8031042C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -8052,6 +7875,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.5.0;
+			};
+		};
+		0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.14.0;
+			};
+		};
+		0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/googleads-mobile-ios-mediation-unity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.18.100;
+			};
+		};
+		0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/googleads-mobile-ios-mediation-line.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.102;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F0733DE2FDE546600CA7A5A /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		0F0733E12FDE54DA00CA7A5A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0F0733E32FDE54DA00CA7A5A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		0F0733E52FDE54DA00CA7A5A /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		0F0733E82FDE555C00CA7A5A /* UnityAdapterTarget */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */;
+			productName = UnityAdapterTarget;
+		};
+		0F0733EB2FDE55A400CA7A5A /* LineAdapterTarget */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */;
+			productName = LineAdapterTarget;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F8030D02C6249FC001F008E /* Project object */;
 }
