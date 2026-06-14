@@ -203,7 +203,7 @@ struct ContentViewVer2: View {
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
                 GeometryReader { geometry in
-                    let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
+                    let adSize = inlineAdaptiveBanner(width: geometry.size.width, maxHeight: 50)
                     
                     ZStack {
                         Rectangle()
@@ -214,7 +214,7 @@ struct ContentViewVer2: View {
                     }
                     .frame(height: adSize.size.height)
                 }
-                .frame(height: currentOrientationAnchoredAdaptiveBanner(width: UIScreen.main.bounds.width).size.height)
+                .frame(height: inlineAdaptiveBanner(width: UIScreen.main.bounds.width, maxHeight: 50).size.height)
             }
         }
         // リワード広告のロード

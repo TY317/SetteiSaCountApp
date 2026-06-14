@@ -2488,7 +2488,7 @@ struct ContentView: View {
             if !isKeyboardVisible {
                 GeometryReader { geometry in
 //                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
-                    let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
+                    let adSize = inlineAdaptiveBanner(width: geometry.size.width, maxHeight: 50)
                     
                     ZStack {
                         Rectangle()
@@ -2501,7 +2501,7 @@ struct ContentView: View {
                     .frame(height: adSize.size.height)
                 }
 //                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
-                .frame(height: currentOrientationAnchoredAdaptiveBanner(width: UIScreen.main.bounds.width).size.height)
+                .frame(height: inlineAdaptiveBanner(width: UIScreen.main.bounds.width, maxHeight: 50).size.height)
             }
         }
         // リワード広告のロード
