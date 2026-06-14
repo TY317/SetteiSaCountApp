@@ -115,6 +115,14 @@ struct ContentView: View {
         get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }
         set { appearanceModeRaw = newValue.rawValue }
     }
+
+    // バナーサイズ：縦＝ラージアンカー（高単価/動画デマンド狙い）、横＝インライン高さ50（大きすぎ回避）
+    private func bannerAdSize(width: CGFloat) -> AdSize {
+        let isLandscape = orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape)
+        return isLandscape
+            ? inlineAdaptiveBanner(width: width, maxHeight: 50)
+            : largeAnchoredAdaptiveBanner(width: width)
+    }
     
     @EnvironmentObject var rewardViewModel: RewardedViewModel
     @State var isShowInfoSheet: Bool = false
@@ -2488,7 +2496,7 @@ struct ContentView: View {
             if !isKeyboardVisible {
                 GeometryReader { geometry in
 //                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
-                    let adSize = inlineAdaptiveBanner(width: geometry.size.width, maxHeight: 50)
+                    let adSize = bannerAdSize(width: geometry.size.width)
                     
                     ZStack {
                         Rectangle()
@@ -2501,7 +2509,7 @@ struct ContentView: View {
                     .frame(height: adSize.size.height)
                 }
 //                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
-                .frame(height: inlineAdaptiveBanner(width: UIScreen.main.bounds.width, maxHeight: 50).size.height)
+                .frame(height: bannerAdSize(width: UIScreen.main.bounds.width).size.height)
             }
         }
         // リワード広告のロード
