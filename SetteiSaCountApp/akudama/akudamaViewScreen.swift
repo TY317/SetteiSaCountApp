@@ -116,7 +116,7 @@ struct akudamaViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    .popoverTip(tipVer3240AkudamaScreen())
+//                    .popoverTip(tipVer3240AkudamaScreen())
                     
                     Text("※ 天井示唆：処刑課バトルの天井示唆")
                         .foregroundStyle(Color.secondary)
