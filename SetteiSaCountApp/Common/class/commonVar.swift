@@ -162,41 +162,41 @@ class commonVar: ObservableObject {
         Machine(id: "4160", name: "カバネリ", fullName: "甲鉄城のカバネリ", iconName: "machineIconKabaneri", btBadge: false),
     ]
     // 永続化用のストレージ
-//    @AppStorage("savedMachinesData") private var savedMachinesData: String = ""
+    @AppStorage("savedMachinesData") private var savedMachinesData: String = ""
     
     // 配列が更新されたら自動で保存
     @Published var machines: [Machine] = [] {
         didSet {
-//            saveMachines()
+            saveMachines()
         }
     }
     
-//    init() {
-//        loadMachines()
+    init() {
+        loadMachines()
 //        machines = initMachine
-//    }
-//    
-//    // 保存ロジック（JSON変換）
-//    private func saveMachines() {
-//        if let encoded = try? JSONEncoder().encode(machines) {
-//            let jsonString = String(data: encoded, encoding: .utf8) ?? ""
-//            // 無駄な書き込みを減らすため、内容が変わった時だけAppStorageを更新
-//            if savedMachinesData != jsonString {
-//                savedMachinesData = jsonString
-//            }
-//        }
-//    }
-//    
-//    // 読み込みロジック
-//    private func loadMachines() {
-//        if let data = savedMachinesData.data(using: .utf8),
-//           let decoded = try? JSONDecoder().decode([Machine].self, from: data) {
-//            self.machines = decoded
-//        } else {
-//            // データがない場合の初期値設定
-//            self.machines = self.initMachine
-//        }
-//    }
+    }
+    
+    // 保存ロジック（JSON変換）
+    private func saveMachines() {
+        if let encoded = try? JSONEncoder().encode(machines) {
+            let jsonString = String(data: encoded, encoding: .utf8) ?? ""
+            // 無駄な書き込みを減らすため、内容が変わった時だけAppStorageを更新
+            if savedMachinesData != jsonString {
+                savedMachinesData = jsonString
+            }
+        }
+    }
+    
+    // 読み込みロジック
+    private func loadMachines() {
+        if let data = savedMachinesData.data(using: .utf8),
+           let decoded = try? JSONDecoder().decode([Machine].self, from: data) {
+            self.machines = decoded
+        } else {
+            // データがない場合の初期値設定
+            self.machines = self.initMachine
+        }
+    }
     
     // //////////////////////////////////////
     // バッジ
