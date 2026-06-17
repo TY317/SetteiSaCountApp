@@ -108,7 +108,7 @@ struct ContentViewVer2: View {
                                         }
                                     }
                                     .id(machine.id) // SwiftUIに同一のビューであることを保証する
-                                    .modifier(JitterModifier(isEditing: isEditingMode))
+                                    .modifier(JitterModifier(isEditing: isEditingMode, seed: jitterSeed(for: machine.id)))
                                     // ★if extension を使って、isEditingMode が true の時だけ onDrag を付与する
                                         .if(isEditingMode) { view in
                                             view.onDrag {
@@ -253,6 +253,12 @@ struct ContentViewVer2: View {
     }
     
     // IDに基づいて遷移先のViewを返す関数
+    // アイコンIDから安定した揺れ位相(0..1)を生成（プルプルの同期を崩す）
+    private func jitterSeed(for id: String) -> Double {
+        let sum = id.unicodeScalars.reduce(0) { $0 + Int($1.value) }
+        return Double(sum % 100) / 100.0
+    }
+
     func getLinkView(for id: String) -> AnyView {
         switch id {
         case "5555": return AnyView(JuglerSeriesViewTop(bayes: bayes, viewModel: viewModel))
