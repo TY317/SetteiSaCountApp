@@ -189,14 +189,94 @@ class commonVar: ObservableObject {
     
     // 読み込みロジック
     private func loadMachines() {
+        var loaded: [Machine]
         if let data = savedMachinesData.data(using: .utf8),
            let decoded = try? JSONDecoder().decode([Machine].self, from: data) {
-            self.machines = decoded
+            loaded = decoded
         } else {
             // データがない場合の初期値設定
-            self.machines = self.initMachine
+            loaded = self.initMachine
         }
+        // makerはiconNameから補完（永続化していないため毎回ここで埋める）
+        for i in loaded.indices where loaded[i].maker.isEmpty {
+            loaded[i].maker = Self.makerByIcon[loaded[i].iconName] ?? ""
+        }
+        self.machines = loaded
     }
+
+    // iconName → メーカー（旧ContentViewのリスト表示のmakerNameから生成）
+    static let makerByIcon: [String: String] = [
+        "machineIconJuglerSeries": "北電子",
+        "machineIconHanahanaSeries": "パイオニア",
+        "otome5MachineIcon": "平和",
+        "sao2MachineIcon": "大都技研",
+        "bioRe3MachineIcon": "エンターライズ",
+        "rioAceMachineIcon": "山佐",
+        "godKisekiMachineIcon": "UNIVERSAL",
+        "jormungandMachineIcon": "山佐",
+        "shinYoshiMachineIcon": "大都技研",
+        "akudamaMachineIcon": "SANYO",
+        "thunderMachineIcon": "UNIVERSAL",
+        "kabaneriUnatoMachineIcon": "サミー",
+        "gobsla2MachineIcon": "藤商事",
+        "hanabiMachineIcon": "UNIVERSAL",
+        "enen2MachineIcon": "SANKYO",
+        "kokakukidotaiMachineIcon": "サミー",
+        "tekken6MachineIcon": "山佐",
+        "hokutoTenseiMachineIcon": "サミー",
+        "mushotenMachineIcon": "ニューギン",
+        "hihodenMachineIcon": "大都技研",
+        "bakemonoMachineIcon": "サミー",
+        "neoplaMachineIcon": "山佐",
+        "railgunMachineIcon": "藤商事",
+        "vvv2MachineIcon": "SANKYO",
+        "shakeMachineIcon": "大都技研",
+        "newOni3MachineIcon": "エンターライズ",
+        "zeni5MachineIcon": "平和",
+        "creaMachineIcon": "大都技研",
+        "toreveMachineIcon": "サミー",
+        "azurLaneMachineIcon": "京楽",
+        "darlingMachineIcon": "Spiky",
+        "reSwordMachineIcon": "コナミ",
+        "evaYakusokuMachineIcon": "SANKYO",
+        "watakonMachineIcon": "コナミ",
+        "guiltyCrown2MachineIcon": "UNIVERSAL",
+        "dmc5MachineIcon": "エンターライズ",
+        "izaBanchoMachineIcon": "大都技研",
+        "toloveru87MachineIcon": "平和",
+        "gundamSeedMachineIcon": "SANKYO",
+        "midoriDonMachineIcon": "UNIVERSAL",
+        "yoshimuneMachineIcon": "大都技研",
+        "mahjongMachineIcon": "平和",
+        "godzillaMachineIcon": "ニューギン",
+        "magiaMachineIcon": "UNIVERSAL",
+        "rslMachineIcon": "オーイズミ",
+        "bioMachineIcon": "エンターライズ",
+        "kaijiMachineIcon": "サミー",
+        "arifureMachineIcon": "SANKYO",
+        "tokyoGhoulMachineIcon": "Spiky",
+        "shamanKingMachineIcon": "UNIVERSAL",
+        "sbjMachineIcon": "山佐",
+        "sevenSwordsMachineIcon": "コナミ",
+        "acceleratorMachineIcon": "藤商事",
+        "dumbbellMachineIcon": "SANKYO",
+        "danvineMachineIcone": "サミー",
+        "lupinMachineIcon": "平和",
+        "mhrMachineIcon": "アデリオン",
+        "bangdreamMachinIcon": "平和",
+        "rezero2MachineIcon": "大都技研",
+        "kaguyaMachineIcon": "SANKYO",
+        "symphoMachineIcon": "SANKYO",
+        "godeaterMachinIcon": "山佐",
+        "toloveruMachineIcon": "平和",
+        "enenMachineIcon": "SANKYO",
+        "machinIconGoeva": "ビスティ",
+        "mt5MachineIconWhite": "山佐",
+        "karakuriMachineIcon": "SANKYO",
+        "machineIconHokuto": "サミー",
+        "machineIconVVV": "SANKYO",
+        "machineIconKabaneri": "サミー",
+    ]
     
     // //////////////////////////////////////
     // バッジ

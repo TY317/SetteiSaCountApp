@@ -40,6 +40,7 @@ struct ContentViewVer2: View {
     @State private var showingDeleteAlert = false // アラート表示フラグ
     @State private var machineToDelete: Machine? // 削除対象を一時保存
     @State private var isShowingFavoriteSheet = false // シート表示用フラグ
+    @State private var homeTab = 0   // 0:ホーム 1:アプリライブラリ
     
     // ライト・ダークモードの切り替え用
     @AppStorage("appearanceMode") private var appearanceModeRaw: Int = AppearanceMode.system.rawValue
@@ -66,7 +67,8 @@ struct ContentViewVer2: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // ホーム画面
+            TabView(selection: $homeTab) {
+            // ホーム画面（1ページ目）
             NavigationStack {
                 ScrollView {
                     LazyVGrid(
@@ -208,6 +210,15 @@ struct ContentViewVer2: View {
             } message: { _ in
                 Text("ホーム画面から取り除きます。\n（いつでも右上の♡から復活させることができます）")
             }
+            .tag(0)
+
+            // アプリライブラリ（2ページ目）
+            appLibraryPage
+                .tag(1)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .always))
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
                 GeometryReader { geometry in
@@ -225,6 +236,7 @@ struct ContentViewVer2: View {
                 .frame(height: bannerAdSize(width: UIScreen.main.bounds.width).size.height)
             }
         }
+        .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
         // リワード広告のロード
         .onAppear {
             Task { await rewardViewModel.loadAd() }
@@ -257,6 +269,131 @@ struct ContentViewVer2: View {
     private func jitterSeed(for id: String) -> Double {
         let sum = id.unicodeScalars.reduce(0) { $0 + Int($1.value) }
         return Double(sum % 100) / 100.0
+    }
+
+    // MARK: - アプリライブラリ（2ページ目）
+
+    // メーカー別グルーピング（機種数が多い順、同数はメーカー名昇順）
+    private func makerGroups() -> [(maker: String, ids: [String])] {
+        var dict: [String: [String]] = [:]
+        for m in common.machines {
+            let mk = m.maker.isEmpty ? "その他" : m.maker
+            dict[mk, default: []].append(m.id)
+        }
+        return dict.map { (maker: $0.key, ids: $0.value) }
+            .sorted { a, b in
+                a.ids.count != b.ids.count ? a.ids.count > b.ids.count : a.maker < b.maker
+            }
+    }
+
+    @ViewBuilder
+    private var appLibraryPage: some View {
+        NavigationStack {
+            GeometryReader { geo in
+                let cols = 2
+                let outerPad: CGFloat = 16
+                let colSpacing: CGFloat = 16
+                let tile = max(60, (geo.size.width - outerPad * 2 - colSpacing * CGFloat(cols - 1)) / CGFloat(cols))
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(.fixed(tile), spacing: colSpacing), count: cols), spacing: 22) {
+                        ForEach(makerGroups(), id: \.maker) { group in
+                            NavigationLink {
+                                makerDetailView(maker: group.maker)
+                            } label: {
+                                makerFolder(maker: group.maker, ids: group.ids, size: tile)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    .padding(.horizontal, outerPad)
+                    .padding(.vertical, 20)
+                }
+                .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+                .navigationTitle("アプリライブラリ")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+    }
+
+    // メーカーのフォルダ（固定サイズの2x2プレビュー＋メーカー名）
+    @ViewBuilder
+    private func makerFolder(maker: String, ids: [String], size: CGFloat) -> some View {
+        VStack(spacing: 6) {
+            folderPreview(ids: ids, size: size)
+            Text(maker)
+                .font(.caption)
+                .lineLimit(1)
+                .foregroundStyle(.primary)
+        }
+    }
+
+    // フォルダ内の2x2アイコンプレビュー（固定サイズ＝再レイアウトで縮まない）
+    @ViewBuilder
+    private func folderPreview(ids: [String], size: CGFloat) -> some View {
+        let cells = Array(ids.prefix(4))
+        let pad: CGFloat = 10
+        let inner: CGFloat = 6
+        let iconSide = max(10, (size - pad * 2 - inner) / 2)
+        VStack(spacing: inner) {
+            ForEach(0..<2, id: \.self) { row in
+                HStack(spacing: inner) {
+                    ForEach(0..<2, id: \.self) { col in
+                        let idx = row * 2 + col
+                        ZStack {
+                            if idx < cells.count, let m = common.machines.first(where: { $0.id == cells[idx] }) {
+                                Image(m.iconName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                if idx == 3 && ids.count > 4 {
+                                    RoundedRectangle(cornerRadius: 8).fill(.black.opacity(0.45))
+                                    Text("+\(ids.count - 3)").font(.caption2).bold().foregroundStyle(.white)
+                                }
+                            } else {
+                                Color.clear
+                            }
+                        }
+                        .frame(width: iconSide, height: iconSide)
+                    }
+                }
+            }
+        }
+        .frame(width: size, height: size)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
+    }
+
+    // メーカーの全機種（ライブラリのナビゲーションにpush＝シートではなく通常遷移）
+    @ViewBuilder
+    private func makerDetailView(maker: String) -> some View {
+        let ids = common.machines.filter { ($0.maker.isEmpty ? "その他" : $0.maker) == maker }.map { $0.id }
+        ScrollView {
+            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: 4), spacing: common.lazyVGridSpacing) {
+                ForEach(ids, id: \.self) { id in
+                    libraryIcon(id: id)
+                }
+            }
+            .padding()
+        }
+        .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        .navigationTitle(maker)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    // ライブラリ内の1アイコン（ロック維持・タップで遷移）
+    @ViewBuilder
+    private func libraryIcon(id: String) -> some View {
+        if let i = common.machines.firstIndex(where: { $0.id == id }) {
+            let m = common.machines[i]
+            unitMachineIconLinkWithLock(
+                linkView: getLinkView(for: m.id),
+                iconImage: Image(m.iconName),
+                machineName: m.name,
+                isUnLocked: $common.machines[i].isUnlocked,
+                tempUnlockDateDouble: $common.machines[i].unlockDate,
+                badgeStatus: m.badgeStatus,
+                btBadgeBool: m.btBadge
+            )
+        }
     }
 
     func getLinkView(for id: String) -> AnyView {

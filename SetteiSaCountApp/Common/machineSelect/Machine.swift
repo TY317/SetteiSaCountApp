@@ -18,7 +18,13 @@ struct Machine: Identifiable, Codable, Equatable {
     var unlockDate: Double = 0.0    // 24時間開放用の時刻設定
     var badgeStatus: String = "none"    // 更新、新のバッジ
     var btBadge: Bool     // BTバッジ
-    
+    var maker: String = ""   // メーカー（iconNameから補完。永続化はせずcommonVarでバックフィル）
+
+    // 永続化対象（makerは除外＝旧データ移行を安全に。makerはiconNameから毎回補完する）
+    enum CodingKeys: String, CodingKey {
+        case id, name, fullName, onHome, iconName, isUnlocked, unlockDate, badgeStatus, btBadge
+    }
+
     // 省略して書くための専用のイニシャライザ
     init(
         id: String,
@@ -30,7 +36,8 @@ struct Machine: Identifiable, Codable, Equatable {
         onHome: Bool = true,
         isUnlocked: Bool = true,
         unlockDate: Double = 0.0,
-        badgeStatus: String = "none"
+        badgeStatus: String = "none",
+        maker: String = ""
     ) {
         self.id = id
         self.name = name
@@ -41,6 +48,7 @@ struct Machine: Identifiable, Codable, Equatable {
         self.isUnlocked = isUnlocked
         self.unlockDate = unlockDate
         self.badgeStatus = badgeStatus
+        self.maker = maker
     }
 }
 
