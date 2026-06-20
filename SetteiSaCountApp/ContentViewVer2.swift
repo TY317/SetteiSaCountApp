@@ -293,9 +293,11 @@ struct ContentViewVer2: View {
                 let cols = 2
                 let outerPad: CGFloat = 16
                 let colSpacing: CGFloat = 16
-                let tile = max(60, (geo.size.width - outerPad * 2 - colSpacing * CGFloat(cols - 1)) / CGFloat(cols))
+//                let tile = max(60, (geo.size.width - outerPad * 2 - colSpacing * CGFloat(cols - 1)) / CGFloat(cols))
+                let tile: CGFloat = 162
                 ScrollView {
-                    LazyVGrid(columns: Array(repeating: GridItem(.fixed(tile), spacing: colSpacing), count: cols), spacing: 22) {
+//                    LazyVGrid(columns: Array(repeating: GridItem(.fixed(tile), spacing: colSpacing), count: cols), spacing: 22) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.fixed(tile), spacing: colSpacing), count: (self.lazyVGridCount/2)), spacing: 22) {
                         ForEach(makerGroups(), id: \.maker) { group in
                             NavigationLink {
                                 makerDetailView(maker: group.maker)
@@ -309,7 +311,7 @@ struct ContentViewVer2: View {
                     .padding(.vertical, 20)
                 }
                 .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
-                .navigationTitle("アプリライブラリ")
+                .navigationTitle("全機種ライブラリ")
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
@@ -331,9 +333,10 @@ struct ContentViewVer2: View {
     @ViewBuilder
     private func folderPreview(ids: [String], size: CGFloat) -> some View {
         let cells = Array(ids.prefix(4))
-        let pad: CGFloat = 10
-        let inner: CGFloat = 6
-        let iconSide = max(10, (size - pad * 2 - inner) / 2)
+//        let pad: CGFloat = 10
+//        let inner: CGFloat = 6
+        let inner: CGFloat = 10
+//        let iconSide = max(10, (size - pad * 2 - inner) / 2)
         VStack(spacing: inner) {
             ForEach(0..<2, id: \.self) { row in
                 HStack(spacing: inner) {
@@ -344,22 +347,24 @@ struct ContentViewVer2: View {
                                 Image(m.iconName)
                                     .resizable()
                                     .scaledToFit()
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .clipShape(RoundedRectangle(cornerRadius: 16.0))
                                 if idx == 3 && ids.count > 4 {
-                                    RoundedRectangle(cornerRadius: 8).fill(.black.opacity(0.45))
+                                    RoundedRectangle(cornerRadius: 17).fill(.black.opacity(0.45))
                                     Text("+\(ids.count - 3)").font(.caption2).bold().foregroundStyle(.white)
                                 }
                             } else {
                                 Color.clear
                             }
                         }
-                        .frame(width: iconSide, height: iconSide)
+//                        .frame(width: iconSide, height: iconSide)
+                        .frame(width: 64, height: 64)
                     }
                 }
             }
         }
         .frame(width: size, height: size)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
+//        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
+        .background(Color(UIColor.systemGray5), in: RoundedRectangle(cornerRadius: 25))
     }
 
     // メーカーの全機種（ライブラリのナビゲーションにpush＝シートではなく通常遷移）
