@@ -244,6 +244,12 @@ struct ContentViewVer2: View {
             }
         }
         .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        // ver4.0.0 新ホーム画面の使い方オンボーディング（初回起動で一度だけ）
+        .overlay {
+            if !common.homeOnboardingDone {
+                unitViewHomeOnboarding()
+            }
+        }
         // リワード広告のロード
         .onAppear {
             Task { await rewardViewModel.loadAd() }

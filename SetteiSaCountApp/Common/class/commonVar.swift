@@ -85,7 +85,14 @@ class commonVar: ObservableObject {
     // 新アプリ関連のインフォメーション
     // ----------
     @AppStorage("commonNewAppInfoShowed") var newAppInfoShow: Bool = false
-    
+
+    // ----------
+    // ver4.0.0 新ホーム画面の使い方オンボーディング
+    // 初回起動で一度だけ表示。閉じると true になり以後表示しない（再表示導線なし）。
+    // 既存ユーザーも新規キーのため初期値 false ＝ 未完了 → 表示される。
+    // ----------
+    @AppStorage("homeOnboardingDoneVer4") var homeOnboardingDone: Bool = false
+
     // ----------
     // 新トップページ用
     // ----------
