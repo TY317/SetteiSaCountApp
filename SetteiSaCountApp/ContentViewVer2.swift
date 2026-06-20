@@ -83,7 +83,7 @@ struct ContentViewVer2: View {
                                     ZStack(alignment: .topLeading) {
                                         // 1. 既存のロック付きアイコンコンポーネントを呼び出す
                                         unitMachineIconLinkWithLock(
-                                            linkView: getLinkView(for: machine.id), // IDから遷移先を取得
+                                            linkView: machineDestination(for: machine.id), // IDから遷移先を取得（外観モード適用）
                                             iconImage: Image(machine.iconName),
                                             machineName: machine.name,
                                             isUnLocked: $machine.isUnlocked,
@@ -151,16 +151,19 @@ struct ContentViewVer2: View {
                         Menu {
                             Button {
                                 self.appearanceModeRaw = 0
+                                applyAppInterfaceStyle(.system)
                             } label: {
                                 Label("システムに合わせる", systemImage: self.appearanceModeRaw == 0 ? "checkmark" : "gearshape")
                             }
                             Button {
                                 self.appearanceModeRaw = 1
+                                applyAppInterfaceStyle(.light)
                             } label: {
                                 Label("ライト", systemImage: self.appearanceModeRaw == 1 ? "checkmark" : "sun.max")
                             }
                             Button {
                                 self.appearanceModeRaw = 2
+                                applyAppInterfaceStyle(.dark)
                             } label: {
                                 Label("ダーク", systemImage: self.appearanceModeRaw == 2 ? "checkmark" : "moon.fill")
                             }
@@ -390,7 +393,7 @@ struct ContentViewVer2: View {
         if let i = common.machines.firstIndex(where: { $0.id == id }) {
             let m = common.machines[i]
             unitMachineIconLinkWithLock(
-                linkView: getLinkView(for: m.id),
+                linkView: machineDestination(for: m.id),
                 iconImage: Image(m.iconName),
                 machineName: m.name,
                 isUnLocked: $common.machines[i].isUnlocked,
@@ -399,6 +402,23 @@ struct ContentViewVer2: View {
                 btBadgeBool: m.btBadge
             )
         }
+    }
+
+    // 機種ページ遷移先に外観モードを適用（各機種ページは独自NavigationStackを持ち、
+    // ルートのpreferredColorSchemeやウィンドウ上書きが届かないため個別に当てる）
+    private func machineDestination(for id: String) -> AnyView {
+        AnyView(
+            getLinkView(for: id)
+                .preferredColorScheme(appearanceMode.colorScheme)
+                // 機種ページ（独自NavigationStack）が表示された瞬間に全VCへスタイルを強制適用
+                // push直後のレイアウト確定後にも当たるよう、わずかに遅延しても再適用する
+                .onAppear {
+                    applyAppInterfaceStyle(appearanceMode)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                        applyAppInterfaceStyle(appearanceMode)
+                    }
+                }
+        )
     }
 
     func getLinkView(for id: String) -> AnyView {

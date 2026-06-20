@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct unitMachineIconLinkWithLock: View {
-    @State var linkView: AnyView
+    var linkView: AnyView   // 親の変更を反映させるため@Stateにしない（外観モード切替を遷移先へ伝えるため）
     @State var iconImage: Image
     @State var machineName: String
     @Binding var isUnLocked: Bool
