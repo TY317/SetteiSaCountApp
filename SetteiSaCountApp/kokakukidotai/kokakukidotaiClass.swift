@@ -34,6 +34,12 @@ class Kokakukidotai: ObservableObject {
         czColorCountGreenMiss = 0
         czColorCountGreenHit = 0
         czColorCountGreenSum = 0
+        
+        modeCountA = 0
+        modeCountB = 0
+        modeCountC = 0
+        modeCountD = 0
+        modeCountSum = 0
     }
     
     // ----------
@@ -213,6 +219,28 @@ class Kokakukidotai: ObservableObject {
         czColorCountBlueSum = czColorCountBlueMiss + czColorCountBlueHit
         czColorCountGreenSum = czColorCountGreenMiss + czColorCountGreenHit
     }
+    
+    // -------
+    // ver4.0.0
+    // -------
+    let ratioModeA: [Double] = [50,48.7,42.5,37.5,26.2,20]
+    let ratioModeB: [Double] = [20,21.3,22.5,22.5,23.8,25]
+    let ratioModeC: [Double] = [15,15,17.5,20,22.5,25]
+    let ratioModeD: [Double] = [15,15,17.5,20,27.5,30]
+    @AppStorage("kokakukidotaiModeCountA") var modeCountA: Int = 0
+    @AppStorage("kokakukidotaiModeCountB") var modeCountB: Int = 0
+    @AppStorage("kokakukidotaiModeCountC") var modeCountC: Int = 0
+    @AppStorage("kokakukidotaiModeCountD") var modeCountD: Int = 0
+    @AppStorage("kokakukidotaiModeCountSum") var modeCountSum: Int = 0
+    
+    func modeSumFunc() {
+        modeCountSum = countSum(
+            modeCountA,
+            modeCountB,
+            modeCountC,
+            modeCountD,
+        )
+    }
 }
 
 class KokakukidotaiMemory1: ObservableObject {
@@ -266,6 +294,15 @@ class KokakukidotaiMemory1: ObservableObject {
     @AppStorage("kokakukidotaiCzColorCountGreenMissMemory1") var czColorCountGreenMiss: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenHitMemory1") var czColorCountGreenHit: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenSumMemory1") var czColorCountGreenSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("kokakukidotaiModeCountAMemory1") var modeCountA: Int = 0
+    @AppStorage("kokakukidotaiModeCountBMemory1") var modeCountB: Int = 0
+    @AppStorage("kokakukidotaiModeCountCMemory1") var modeCountC: Int = 0
+    @AppStorage("kokakukidotaiModeCountDMemory1") var modeCountD: Int = 0
+    @AppStorage("kokakukidotaiModeCountSumMemory1") var modeCountSum: Int = 0
 }
 
 
@@ -320,6 +357,15 @@ class KokakukidotaiMemory2: ObservableObject {
     @AppStorage("kokakukidotaiCzColorCountGreenMissMemory2") var czColorCountGreenMiss: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenHitMemory2") var czColorCountGreenHit: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenSumMemory2") var czColorCountGreenSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("kokakukidotaiModeCountAMemory2") var modeCountA: Int = 0
+    @AppStorage("kokakukidotaiModeCountBMemory2") var modeCountB: Int = 0
+    @AppStorage("kokakukidotaiModeCountCMemory2") var modeCountC: Int = 0
+    @AppStorage("kokakukidotaiModeCountDMemory2") var modeCountD: Int = 0
+    @AppStorage("kokakukidotaiModeCountSumMemory2") var modeCountSum: Int = 0
 }
 
 
@@ -374,4 +420,13 @@ class KokakukidotaiMemory3: ObservableObject {
     @AppStorage("kokakukidotaiCzColorCountGreenMissMemory3") var czColorCountGreenMiss: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenHitMemory3") var czColorCountGreenHit: Int = 0
     @AppStorage("kokakukidotaiCzColorCountGreenSumMemory3") var czColorCountGreenSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("kokakukidotaiModeCountAMemory3") var modeCountA: Int = 0
+    @AppStorage("kokakukidotaiModeCountBMemory3") var modeCountB: Int = 0
+    @AppStorage("kokakukidotaiModeCountCMemory3") var modeCountC: Int = 0
+    @AppStorage("kokakukidotaiModeCountDMemory3") var modeCountD: Int = 0
+    @AppStorage("kokakukidotaiModeCountSumMemory3") var modeCountSum: Int = 0
 }

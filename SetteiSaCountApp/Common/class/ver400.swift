@@ -26,37 +26,37 @@ struct tipVer400RioAceNormalSuika: Tip {
 }
 
 
-//////////////////////
-////// Tip：リオエース エースモード
-//////////////////////
-//struct tipVer3271RioAceAceMode: Tip {
-//   var title: Text {
-//       Text("機能更新")
-//   }
-//   var message: Text? {
-//       Text("エースモードの突入率設定差が判明\nカウント機能を追加しました")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
-//
 ////////////////////
-//// Tip：SAO2 終了画面示唆
+//// Tip：バイオRE3　心音レベル
 ////////////////////
-//struct tipVer3271Sao2ScreenSisa: Tip {
-//   var title: Text {
-//       Text("情報更新")
-//   }
-//   var message: Text? {
-//       Text("終了画面の示唆が全て判明")
-//   }
-//   var image: Image? {
-//       Image(systemName: "exclamationmark.bubble")
-//   }
-//}
-//
+struct tipVer400BioRe3Shinon: Tip {
+   var title: Text {
+       Text("機能更新")
+   }
+   var message: Text? {
+       Text("心音レベル転落率の設定差が判明\nカウント機能を追加しました")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
+
+//////////////////
+// Tip：攻殻機動隊　殲滅モード移行率
+//////////////////
+struct tipVer400KokakukidotaiSenmetuMode: Tip {
+   var title: Text {
+       Text("機能更新")
+   }
+   var message: Text? {
+       Text("CZ失敗後の殲滅モード以降率が判明\nカウント機能を追加しました")
+   }
+   var image: Image? {
+       Image(systemName: "exclamationmark.bubble")
+   }
+}
+
 
 ////////////////////
 //// Tip：攻殻機動隊　色ごとのCZ成功率

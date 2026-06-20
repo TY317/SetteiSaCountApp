@@ -52,6 +52,8 @@
 		0F0733E92FDE555C00CA7A5A /* UnityAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E82FDE555C00CA7A5A /* UnityAdapterTarget */; };
 		0F0733EC2FDE55A400CA7A5A /* LineAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733EB2FDE55A400CA7A5A /* LineAdapterTarget */; };
 		0F0734882FDE750B00CA7A5A /* ver400.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734872FDE750B00CA7A5A /* ver400.swift */; };
+		0F0734A62FE67F7000CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
+		0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
 		0F09C4C42FB5FCC60095CAF4 /* bioRe3ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */; };
 		0F09C4C62FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
 		0F09C4C72FB5FE170095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
@@ -1651,6 +1653,7 @@
 		0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunViewDuringAt.swift; sourceTree = "<group>"; };
 		0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableMaisuSisa.swift; sourceTree = "<group>"; };
 		0F0734872FDE750B00CA7A5A /* ver400.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver400.swift; sourceTree = "<group>"; };
+		0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableModeMoveRatio.swift; sourceTree = "<group>"; };
 		0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewCz.swift; sourceTree = "<group>"; };
 		0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3TableCzVoice.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
@@ -5036,6 +5039,7 @@
 				0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */,
 				0F447C702F4AC639006DAF11 /* kokakukidotaiViewAfterAt.swift */,
 				0F447C722F4AC74B006DAF11 /* kokakukidotaiTableAfterAt.swift */,
+				0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -6927,6 +6931,7 @@
 				0FD357402DA227B70069BD1A /* arifureTableHeavenHit.swift in Sources */,
 				0F64DD3F2DC06E1F0027315D /* acceleratorTableTaidenModeRatio.swift in Sources */,
 				0FEC57DD2D99680400FF1024 /* rslViewKoyakuStyle.swift in Sources */,
+				0F0734A62FE67F7000CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */,
 				0F64DDA52DC5F4340027315D /* unitReelDefault.swift in Sources */,
 				0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */,
 				0F59EBE62F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift in Sources */,
@@ -7378,6 +7383,7 @@
 				0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */,
 				0FA662E12F1516A800F3259F /* hihodenTableRegSisa.swift in Sources */,
 				0F3759F82F80910700982F7A /* shinYoshiTableScreen.swift in Sources */,
+				0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */,
 				0F4471F52F700E790048E9CE /* dmc5TablePremiumStMode.swift in Sources */,
 				0F0FAF7E2F5BDE2600118DC1 /* hihodenTableLengedMoveBonus.swift in Sources */,
 				0FA0A7D02EF6947C003EF8BD /* unitReelPinkBar.swift in Sources */,

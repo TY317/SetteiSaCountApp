@@ -70,6 +70,82 @@ struct kokakukidotaiView95Ci: View {
             )
             .tag(7)
             
+            // CZ失敗後のモード移行　通常A回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗後のモード移行\n通常A回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.modeCountA,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        setting1Percent: kokakukidotai.ratioModeA[0],
+                        setting2Percent: kokakukidotai.ratioModeA[1],
+                        setting3Percent: kokakukidotai.ratioModeA[2],
+                        setting4Percent: kokakukidotai.ratioModeA[3],
+                        setting5Percent: kokakukidotai.ratioModeA[4],
+                        setting6Percent: kokakukidotai.ratioModeA[5]
+                    )
+                )
+            )
+            .tag(8)
+            
+            // CZ失敗後のモード移行　通常B回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗後のモード移行\n通常B回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.modeCountB,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        setting1Percent: kokakukidotai.ratioModeB[0],
+                        setting2Percent: kokakukidotai.ratioModeB[1],
+                        setting3Percent: kokakukidotai.ratioModeB[2],
+                        setting4Percent: kokakukidotai.ratioModeB[3],
+                        setting5Percent: kokakukidotai.ratioModeB[4],
+                        setting6Percent: kokakukidotai.ratioModeB[5]
+                    )
+                )
+            )
+            .tag(9)
+            
+            // CZ失敗後のモード移行　通常C回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗後のモード移行\n通常C回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.modeCountC,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        setting1Percent: kokakukidotai.ratioModeC[0],
+                        setting2Percent: kokakukidotai.ratioModeC[1],
+                        setting3Percent: kokakukidotai.ratioModeC[2],
+                        setting4Percent: kokakukidotai.ratioModeC[3],
+                        setting5Percent: kokakukidotai.ratioModeC[4],
+                        setting6Percent: kokakukidotai.ratioModeC[5]
+                    )
+                )
+            )
+            .tag(10)
+            
+            // CZ失敗後のモード移行　通常D回数
+            unitListSection95Ci(
+                grafTitle: "CZ失敗後のモード移行\n通常D回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.modeCountD,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        setting1Percent: kokakukidotai.ratioModeD[0],
+                        setting2Percent: kokakukidotai.ratioModeD[1],
+                        setting3Percent: kokakukidotai.ratioModeD[2],
+                        setting4Percent: kokakukidotai.ratioModeD[3],
+                        setting5Percent: kokakukidotai.ratioModeD[4],
+                        setting6Percent: kokakukidotai.ratioModeD[5]
+                    )
+                )
+            )
+            .tag(11)
+            
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",

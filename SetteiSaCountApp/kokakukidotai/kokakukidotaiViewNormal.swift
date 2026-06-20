@@ -34,47 +34,20 @@ struct kokakukidotaiViewNormal: View {
         List {
             // タチコマの家出
             Section {
-                // 注意書き
-                HStack {
-                    Text("⚠️")
-                    VStack(alignment: .leading) {
-                        Text("・AT終了時200or400Gでの当否がカウント対象")
-                        Text("・リセット時、CZ終了時の200or400Gは対象外")
-                    }
-                    .foregroundStyle(Color.secondary)
-                    .font(.caption)
-                }
-                
-                // カウントボタン横並び
-                HStack {
-                    // ハズレ
-                    unitCountButtonPercentWithFunc(
-                        title: "ハズレ",
-                        count: $kokakukidotai.iedeCountMiss,
-                        color: .personalSummerLightBlue,
-                        bigNumber: $kokakukidotai.iedeCountSum,
-                        numberofDicimal: 0,
-                        minusBool: $kokakukidotai.minusCheck) {
-                            kokakukidotai.iedeSumFunc()
-                        }
-                    // 当選
-                    unitCountButtonPercentWithFunc(
-                        title: "当選",
-                        count: $kokakukidotai.iedeCountSuccess,
-                        color: .personalSummerLightRed,
-                        bigNumber: $kokakukidotai.iedeCountSum,
-                        numberofDicimal: 0,
-                        minusBool: $kokakukidotai.minusCheck) {
-                            kokakukidotai.iedeSumFunc()
-                        }
-                }
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "200,400GでのCZ",
+                    count: $kokakukidotai.iedeCountSuccess,
+                    bigNumber: $kokakukidotai.iedeCountSum,
+                    numberofDicimal: 0
+                )
                 
                 // 参考情報）200or400GでのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "200or400GでのCZ期待度") {
                     VStack {
                         VStack(alignment: .leading) {
                             Text("・AT終了時の200or400G時にタチコマの家出を抽選")
-                            Text("・CZ合算の期待度に設定")
+                            Text("・CZ合算の期待度に設定差")
                         }
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
@@ -86,23 +59,77 @@ struct kokakukidotaiViewNormal: View {
                     }
                 }
                 
-                // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(
-                    Ci95view: AnyView(
-                        kokakukidotaiView95Ci(
-                            kokakukidotai: kokakukidotai,
-                            selection: 3,
+                DisclosureGroup {
+                    // 注意書き
+                    HStack {
+                        Text("⚠️")
+                        VStack(alignment: .leading) {
+                            Text("・AT終了時200or400Gでの当否がカウント対象")
+                            Text("・リセット時、CZ終了時の200or400Gは対象外")
+                        }
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // ハズレ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "ハズレ",
+                            count: $kokakukidotai.iedeCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.iedeSumFunc()
+                            }
+//                        unitCountButtonPercentWithFunc(
+//                            title: "ハズレ",
+//                            count: $kokakukidotai.iedeCountMiss,
+//                            color: .personalSummerLightBlue,
+//                            bigNumber: $kokakukidotai.iedeCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $kokakukidotai.minusCheck) {
+//                                kokakukidotai.iedeSumFunc()
+//                            }
+                        // 当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $kokakukidotai.iedeCountSuccess,
+                            color: .personalSummerLightRed,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.iedeSumFunc()
+                            }
+//                        unitCountButtonPercentWithFunc(
+//                            title: "当選",
+//                            count: $kokakukidotai.iedeCountSuccess,
+//                            color: .personalSummerLightRed,
+//                            bigNumber: $kokakukidotai.iedeCountSum,
+//                            numberofDicimal: 0,
+//                            minusBool: $kokakukidotai.minusCheck) {
+//                                kokakukidotai.iedeSumFunc()
+//                            }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 3,
+                            )
                         )
                     )
-                )
-                
-                // //// 設定期待値へのリンク
-                unitNaviLinkBayes {
-                    kokakukidotaiViewBayes(
-                        kokakukidotai: kokakukidotai,
-                        bayes: bayes,
-                        viewModel: viewModel,
-                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
                 }
             } header: {
                 Text("AT終了時200or400GでのCZ当選")
@@ -148,7 +175,7 @@ struct kokakukidotaiViewNormal: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3270KokakukidotaiCz())
+//                .popoverTip(tipVer3270KokakukidotaiCz())
                 
                 DisclosureGroup {
                     // セグメントピッカー
@@ -227,6 +254,127 @@ struct kokakukidotaiViewNormal: View {
                 Text("殲滅ゾーン 発展色ごとの成功率")
             }
             
+            // モード
+            Section {
+                // 確率結果
+                HStack {
+                    // 通常A
+                    unitResultRatioPercent2Line(
+                        title: "通常A",
+                        count: $kokakukidotai.modeCountA,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 通常B
+                    unitResultRatioPercent2Line(
+                        title: "通常B",
+                        count: $kokakukidotai.modeCountB,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 通常C
+                    unitResultRatioPercent2Line(
+                        title: "通常C",
+                        count: $kokakukidotai.modeCountC,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 通常D
+                    unitResultRatioPercent2Line(
+                        title: "通常D",
+                        count: $kokakukidotai.modeCountD,
+                        bigNumber: $kokakukidotai.modeCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                unitLinkButtonViewBuilder(sheetTitle: "CZ失敗後のモード移行率") {
+                    kokakukidotaiTableModeMoveRatio(kokakukidotai: kokakukidotai)
+                }
+                .popoverTip(tipVer400KokakukidotaiSenmetuMode())
+                DisclosureGroup {
+                    // 注意
+                    unitLabelCautionText {
+                        Text("AT後の移行は設定差ないためカウント除外")
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // 通常A
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "通常A",
+                            count: $kokakukidotai.modeCountA,
+                            color: .personalSummerLightBlue,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.modeSumFunc()
+                            }
+                        // 通常B
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "通常B",
+                            count: $kokakukidotai.modeCountB,
+                            color: .personalSpringLightYellow,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.modeSumFunc()
+                            }
+                        // 通常C
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "通常C",
+                            count: $kokakukidotai.modeCountC,
+                            color: .personalSummerLightGreen,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.modeSumFunc()
+                            }
+                        // 通常D
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "通常D",
+                            count: $kokakukidotai.modeCountD,
+                            color: .personalSummerLightRed,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.modeSumFunc()
+                            }
+                    }
+                    unitLinkButtonViewBuilder(sheetTitle: "モードについて") {
+                        kokakukidotaiTableMode()
+                    }
+                    unitLinkButtonViewBuilder(sheetTitle: "前兆有無での示唆") {
+                        Text("・100Gで4G以上のロング前兆無ければ通常B or 通常D")
+                        Text("・300Gで4G以上のロング前兆あれば通常B濃厚")
+                    }
+                    unitLinkButtonViewBuilder(sheetTitle: "リプレイフラッシュでの示唆") {
+                        kokakukidotaiTableReplayFlush()
+                    }
+                    unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
+                        kokakukidotaiTableEyechatch()
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 8,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("通常時のモード")
+            }
             
             // レア役
             Section {
@@ -237,21 +385,7 @@ struct kokakukidotaiViewNormal: View {
                 Text("レア役")
             }
             
-            // モード
-            Section {
-                unitLinkButtonViewBuilder(sheetTitle: "モードについて") {
-                    kokakukidotaiTableMode()
-                }
-                unitLinkButtonViewBuilder(sheetTitle: "リプレイフラッシュでの示唆") {
-                    kokakukidotaiTableReplayFlush()
-                }
-//                .popoverTip(tipVer3190KokakukidotaiModeSisa())
-                unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
-                    kokakukidotaiTableEyechatch()
-                }
-            } header: {
-                Text("通常時のモード")
-            }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuNormalBadge)
