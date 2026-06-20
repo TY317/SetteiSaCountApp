@@ -129,7 +129,7 @@ struct ContentViewVer2: View {
                             }
                             .padding()
                     }
-                    .background(Color(UIColor.systemGroupedBackground))
+//                    .background(Color(UIColor.systemGroupedBackground))
                     .navigationTitle("機種選択")
                     .toolbarTitleDisplayMode(.inline)
                     // //// 画面の向き情報の取得部分
@@ -222,7 +222,9 @@ struct ContentViewVer2: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+                .background(Color(UIColor.systemGroupedBackground))
             }
+            .background(Color(UIColor.systemGroupedBackground))
 
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
