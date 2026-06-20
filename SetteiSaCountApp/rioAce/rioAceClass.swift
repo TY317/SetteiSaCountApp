@@ -139,6 +139,13 @@ class RioAceMemory1: ObservableObject {
     @AppStorage("rioAceAceModeCountMissMemory1") var aceModeCountMiss: Int = 0
     @AppStorage("rioAceAceModeCountHitMemory1") var aceModeCountHit: Int = 0
     @AppStorage("rioAceAceModeCountSumMemory1") var aceModeCountSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("rioAceSuikaCountMemory1") var suikaCount: Int = 0
+    @AppStorage("rioAceRoomSuccessCountMemory1") var roomSuccessCount: Int = 0
+    @AppStorage("rioAceDuringRoomSuikaCountMemoMemory1") var duringRoomSuikaCountMemo: Int = 0
 }
 
 class RioAceMemory2: ObservableObject {
@@ -162,6 +169,13 @@ class RioAceMemory2: ObservableObject {
     @AppStorage("rioAceAceModeCountMissMemory2") var aceModeCountMiss: Int = 0
     @AppStorage("rioAceAceModeCountHitMemory2") var aceModeCountHit: Int = 0
     @AppStorage("rioAceAceModeCountSumMemory2") var aceModeCountSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("rioAceSuikaCountMemory2") var suikaCount: Int = 0
+    @AppStorage("rioAceRoomSuccessCountMemory2") var roomSuccessCount: Int = 0
+    @AppStorage("rioAceDuringRoomSuikaCountMemoMemory2") var duringRoomSuikaCountMemo: Int = 0
 }
 
 class RioAceMemory3: ObservableObject {
@@ -185,4 +199,11 @@ class RioAceMemory3: ObservableObject {
     @AppStorage("rioAceAceModeCountMissMemory3") var aceModeCountMiss: Int = 0
     @AppStorage("rioAceAceModeCountHitMemory3") var aceModeCountHit: Int = 0
     @AppStorage("rioAceAceModeCountSumMemory3") var aceModeCountSum: Int = 0
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("rioAceSuikaCountMemory3") var suikaCount: Int = 0
+    @AppStorage("rioAceRoomSuccessCountMemory3") var roomSuccessCount: Int = 0
+    @AppStorage("rioAceDuringRoomSuikaCountMemoMemory3") var duringRoomSuikaCountMemo: Int = 0
 }
