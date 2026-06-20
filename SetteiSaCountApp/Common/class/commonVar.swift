@@ -679,6 +679,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
                 rioAceMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
+                bioRe3MenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

@@ -24,8 +24,8 @@ struct rioAceTablePushSideLamp: View {
                     columTitle: "示唆",
                     stringList: [
                         "デフォルト",
-                        "当選期待度 52%",
-                        "当選期待度 84%",
+                        "当選期待度 35%",
+                        "当選期待度 75%",
                     ]
                 )
             }
