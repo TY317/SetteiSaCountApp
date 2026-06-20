@@ -67,160 +67,162 @@ struct ContentViewVer2: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            TabView(selection: $homeTab) {
-            // ホーム画面（1ページ目）
             NavigationStack {
-                ScrollView {
-                    LazyVGrid(
-                        columns: Array(
-                            repeating: GridItem(.fixed(common.lazyVGridSize),
-                                                spacing: common.lazyVGridSpacing),
-                            count: self.lazyVGridCount
-                        ),
-                        spacing: common.lazyVGridSpacing) {
-                            ForEach($common.machines) { $machine in
-                                if machine.onHome {
-                                    ZStack(alignment: .topLeading) {
-                                        // 1. 既存のロック付きアイコンコンポーネントを呼び出す
-                                        unitMachineIconLinkWithLock(
-                                            linkView: machineDestination(for: machine.id), // IDから遷移先を取得（外観モード適用）
-                                            iconImage: Image(machine.iconName),
-                                            machineName: machine.name,
-                                            isUnLocked: $machine.isUnlocked,
-                                            tempUnlockDateDouble: $machine.unlockDate,
-                                            badgeStatus: machine.badgeStatus,
-                                            btBadgeBool: machine.btBadge,
-                                        )
-                                        // 編集モード中はタップ（遷移）を無効化して、ドラッグ操作を優先
-                                        .disabled(isEditingMode)
-                                        
-                                        // 2. 編集モード中の「✕」ボタン
-                                        if isEditingMode {
-                                            Button(action: {
-                                                // 削除対象をセットしてアラートを表示
-                                                machineToDelete = machine
-                                                showingDeleteAlert = true
-                                            }) {
-                                                Image(systemName: "minus.circle.fill")
-                                                    .foregroundColor(.red)
-                                                    .background(Circle().fill(.white))
-                                                    .font(.title2)
+                TabView(selection: $homeTab) {
+                // ホーム画面（1ページ目）
+    //            NavigationStack {
+                    ScrollView {
+                        LazyVGrid(
+                            columns: Array(
+                                repeating: GridItem(.fixed(common.lazyVGridSize),
+                                                    spacing: common.lazyVGridSpacing),
+                                count: self.lazyVGridCount
+                            ),
+                            spacing: common.lazyVGridSpacing) {
+                                ForEach($common.machines) { $machine in
+                                    if machine.onHome {
+                                        ZStack(alignment: .topLeading) {
+                                            // 1. 既存のロック付きアイコンコンポーネントを呼び出す
+                                            unitMachineIconLinkWithLock(
+                                                linkView: machineDestination(for: machine.id), // IDから遷移先を取得（外観モード適用）
+                                                iconImage: Image(machine.iconName),
+                                                machineName: machine.name,
+                                                isUnLocked: $machine.isUnlocked,
+                                                tempUnlockDateDouble: $machine.unlockDate,
+                                                badgeStatus: machine.badgeStatus,
+                                                btBadgeBool: machine.btBadge,
+                                            )
+                                            // 編集モード中はタップ（遷移）を無効化して、ドラッグ操作を優先
+                                            .disabled(isEditingMode)
+                                            
+                                            // 2. 編集モード中の「✕」ボタン
+                                            if isEditingMode {
+                                                Button(action: {
+                                                    // 削除対象をセットしてアラートを表示
+                                                    machineToDelete = machine
+                                                    showingDeleteAlert = true
+                                                }) {
+                                                    Image(systemName: "minus.circle.fill")
+                                                        .foregroundColor(.red)
+                                                        .background(Circle().fill(.white))
+                                                        .font(.title2)
+                                                }
+                                                .offset(x: -4, y: -4)
                                             }
-                                            .offset(x: -4, y: -4)
                                         }
+                                        .id(machine.id) // SwiftUIに同一のビューであることを保証する
+                                        .modifier(JitterModifier(isEditing: isEditingMode, seed: jitterSeed(for: machine.id)))
+                                        // ★if extension を使って、isEditingMode が true の時だけ onDrag を付与する
+                                            .if(isEditingMode) { view in
+                                                view.onDrag {
+                                                    self.draggedItem = machine
+                                                    return NSItemProvider(object: machine.id as NSString)
+                                                }
+                                            }
+                                        .onDrop(of: [.text], delegate: MachineDropDelegate(
+                                            item: machine,
+                                            items: $common.machines,
+                                            draggedItem: $draggedItem
+                                        ))
                                     }
-                                    .id(machine.id) // SwiftUIに同一のビューであることを保証する
-                                    .modifier(JitterModifier(isEditing: isEditingMode, seed: jitterSeed(for: machine.id)))
-                                    // ★if extension を使って、isEditingMode が true の時だけ onDrag を付与する
-                                        .if(isEditingMode) { view in
-                                            view.onDrag {
-                                                self.draggedItem = machine
-                                                return NSItemProvider(object: machine.id as NSString)
-                                            }
-                                        }
-                                    .onDrop(of: [.text], delegate: MachineDropDelegate(
-                                        item: machine,
-                                        items: $common.machines,
-                                        draggedItem: $draggedItem
-                                    ))
                                 }
                             }
+                            .padding()
+                    }
+                    .background(Color(UIColor.systemGroupedBackground))
+                    .navigationTitle("機種選択")
+                    .toolbarTitleDisplayMode(.inline)
+                    // //// 画面の向き情報の取得部分
+                    .applyOrientationHandling(
+                        orientation: self.$orientation,
+                        lastOrientation: self.$lastOrientation,
+                        scrollViewHeight: self.$scrollViewHeight,
+                        spaceHeight: self.$spaceHeight,
+                        lazyVGridCount: self.$lazyVGridCount,
+                        scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+                        scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+                        spaceHeightPortrait: self.spaceHeightPortrait,
+                        spaceHeightLandscape: self.spaceHeightLandscape,
+                        lazyVGridCountPortrait: common.lazyVGridColumnsPortlait,
+                        lazyVGridCountLandscape: common.lazyVGridColumnsLandscape,
+                    )
+                    .toolbar {
+                        // 外観切り替えボタン（システム/ライト/ダーク）
+                        ToolbarItem(placement: .automatic) {
+                            Menu {
+                                Button {
+                                    self.appearanceModeRaw = 0
+                                    applyAppInterfaceStyle(.system)
+                                } label: {
+                                    Label("システムに合わせる", systemImage: self.appearanceModeRaw == 0 ? "checkmark" : "gearshape")
+                                }
+                                Button {
+                                    self.appearanceModeRaw = 1
+                                    applyAppInterfaceStyle(.light)
+                                } label: {
+                                    Label("ライト", systemImage: self.appearanceModeRaw == 1 ? "checkmark" : "sun.max")
+                                }
+                                Button {
+                                    self.appearanceModeRaw = 2
+                                    applyAppInterfaceStyle(.dark)
+                                } label: {
+                                    Label("ダーク", systemImage: self.appearanceModeRaw == 2 ? "checkmark" : "moon.fill")
+                                }
+                            } label: {
+                                Image(systemName: "circle.lefthalf.filled")
+                            }
                         }
-                        .padding()
-                }
-                .background(Color(UIColor.systemGroupedBackground))
-                .navigationTitle("機種選択")
-                .toolbarTitleDisplayMode(.inline)
-                // //// 画面の向き情報の取得部分
-                .applyOrientationHandling(
-                    orientation: self.$orientation,
-                    lastOrientation: self.$lastOrientation,
-                    scrollViewHeight: self.$scrollViewHeight,
-                    spaceHeight: self.$spaceHeight,
-                    lazyVGridCount: self.$lazyVGridCount,
-                    scrollViewHeightPortrait: self.scrollViewHeightPortrait,
-                    scrollViewHeightLandscape: self.scrollViewHeightLandscape,
-                    spaceHeightPortrait: self.spaceHeightPortrait,
-                    spaceHeightLandscape: self.spaceHeightLandscape,
-                    lazyVGridCountPortrait: common.lazyVGridColumnsPortlait,
-                    lazyVGridCountLandscape: common.lazyVGridColumnsLandscape,
-                )
-                .toolbar {
-                    // 外観切り替えボタン（システム/ライト/ダーク）
-                    ToolbarItem(placement: .automatic) {
-                        Menu {
+                        // ホーム編集
+                        ToolbarItem(placement: .automatic) {
                             Button {
-                                self.appearanceModeRaw = 0
-                                applyAppInterfaceStyle(.system)
+                                withAnimation {
+                                    isEditingMode.toggle()
+                                }
                             } label: {
-                                Label("システムに合わせる", systemImage: self.appearanceModeRaw == 0 ? "checkmark" : "gearshape")
+                                Image(systemName: "apps.iphone")
+                                    .foregroundColor(isEditingMode ? .red : .primary)
                             }
+                        }
+                        // ホーム画面表示
+                        ToolbarItem(placement: .automatic) {
                             Button {
-                                self.appearanceModeRaw = 1
-                                applyAppInterfaceStyle(.light)
+                                isShowingFavoriteSheet = true
                             } label: {
-                                Label("ライト", systemImage: self.appearanceModeRaw == 1 ? "checkmark" : "sun.max")
+                                Image(systemName: "heart")
                             }
-                            Button {
-                                self.appearanceModeRaw = 2
-                                applyAppInterfaceStyle(.dark)
-                            } label: {
-                                Label("ダーク", systemImage: self.appearanceModeRaw == 2 ? "checkmark" : "moon.fill")
-                            }
-                        } label: {
-                            Image(systemName: "circle.lefthalf.filled")
                         }
                     }
-                    // ホーム編集
-                    ToolbarItem(placement: .automatic) {
-                        Button {
+                    // シートの呼び出し
+                    .sheet(isPresented: $isShowingFavoriteSheet) {
+                        FavoriteManageView(machines: $common.machines)
+                    }
+    //            }
+                // 削除確認アラートの実装
+                .alert("'\(machineToDelete?.name ?? "")'を取り除きますか？", isPresented: $showingDeleteAlert, presenting: machineToDelete) { machine in
+                    Button("キャンセル", role: .cancel) {
+                        machineToDelete = nil
+                    }
+                    Button("取り除く", role: .destructive) {
+                        // 配列内の該当機種の onHome を false に更新
+                        if let index = common.machines.firstIndex(where: { $0.id == machine.id }) {
                             withAnimation {
-                                isEditingMode.toggle()
+                                common.machines[index].onHome = false
                             }
-                        } label: {
-                            Image(systemName: "apps.iphone")
-                                .foregroundColor(isEditingMode ? .red : .primary)
                         }
+                        machineToDelete = nil
                     }
-                    // ホーム画面表示
-                    ToolbarItem(placement: .automatic) {
-                        Button {
-                            isShowingFavoriteSheet = true
-                        } label: {
-                            Image(systemName: "heart")
-                        }
-                    }
+                } message: { _ in
+                    Text("ホーム画面から取り除きます。\n（いつでも右上の♡から復活させることができます）")
                 }
-                // シートの呼び出し
-                .sheet(isPresented: $isShowingFavoriteSheet) {
-                    FavoriteManageView(machines: $common.machines)
-                }
-            }
-            // 削除確認アラートの実装
-            .alert("'\(machineToDelete?.name ?? "")'を取り除きますか？", isPresented: $showingDeleteAlert, presenting: machineToDelete) { machine in
-                Button("キャンセル", role: .cancel) {
-                    machineToDelete = nil
-                }
-                Button("取り除く", role: .destructive) {
-                    // 配列内の該当機種の onHome を false に更新
-                    if let index = common.machines.firstIndex(where: { $0.id == machine.id }) {
-                        withAnimation {
-                            common.machines[index].onHome = false
-                        }
-                    }
-                    machineToDelete = nil
-                }
-            } message: { _ in
-                Text("ホーム画面から取り除きます。\n（いつでも右上の♡から復活させることができます）")
-            }
-            .tag(0)
+                .tag(0)
 
-            // アプリライブラリ（2ページ目）
-            appLibraryPage
-                .tag(1)
+                // アプリライブラリ（2ページ目）
+                appLibraryPage
+                    .tag(1)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .indexViewStyle(.page(backgroundDisplayMode: .interactive))
             }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
 
             // バナー広告の常時表示。キーボード出現時は非表示にする。
             if !isKeyboardVisible {
