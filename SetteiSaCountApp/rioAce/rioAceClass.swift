@@ -26,10 +26,14 @@ class RioAce: ObservableObject {
         aceModeCountMiss = 0
         aceModeCountHit = 0
         aceModeCountSum = 0
+        
+        suikaCount = 0
+        roomSuccessCount = 0
+        duringRoomSuikaCountMemo = 0
     }
     
     // スイカ成功抽選
-    let ratioSuikaCz: [Double] = [10.2,-1,12.9,-1,-1,-1]
+    let ratioSuikaCz: [Double] = [10.2,10.9,12.9,18.0,19.5,21.9]
     
     // ---------
     // 初当り
@@ -104,6 +108,13 @@ class RioAce: ObservableObject {
     
     // リナサイン
     let ratioRinaSign: [Double] = [1,2,3,4,4.5,5]
+    
+    // -------
+    // ver4.0.0
+    // -------
+    @AppStorage("rioAceSuikaCount") var suikaCount: Int = 0
+    @AppStorage("rioAceRoomSuccessCount") var roomSuccessCount: Int = 0
+    @AppStorage("rioAceDuringRoomSuikaCountMemo") var duringRoomSuikaCountMemo: Int = 0
 }
 
 

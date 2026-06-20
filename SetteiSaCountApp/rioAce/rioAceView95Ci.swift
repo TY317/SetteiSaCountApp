@@ -50,6 +50,25 @@ struct rioAceView95Ci: View {
                 )
             )
             .tag(5)
+            
+            // スイカからのルーム成功抽選当選回数
+            unitListSection95Ci(
+                grafTitle: "🍉→ルーム成功抽選当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $rioAce.roomSuccessCount,
+                        bigNumber: $rioAce.suikaCount,
+                        setting1Percent: rioAce.ratioSuikaCz[0],
+                        setting2Percent: rioAce.ratioSuikaCz[1],
+                        setting3Percent: rioAce.ratioSuikaCz[2],
+                        setting4Percent: rioAce.ratioSuikaCz[3],
+                        setting5Percent: rioAce.ratioSuikaCz[4],
+                        setting6Percent: rioAce.ratioSuikaCz[5]
+                    )
+                )
+            )
+            .tag(7)
 
             // ノワールルーム初当り回数
             unitListSection95Ci(

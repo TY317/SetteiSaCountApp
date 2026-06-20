@@ -167,8 +167,8 @@ struct rioAceViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.rioAceMachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.rioAceMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4984")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

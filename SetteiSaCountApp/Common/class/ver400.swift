@@ -10,22 +10,22 @@ import SwiftUI
 import TipKit
 
 
-////////////////////
-//// Tip：リオエース　リナサイン
-////////////////////
-//struct tipVer3271RioAceRinaSign: Tip {
-//    var title: Text {
-//        Text("機能更新")
-//    }
-//    var message: Text? {
-//        Text("リナサインの出現率設定差が判明\n設定判別機能を追加しました")
-//    }
-//    var image: Image? {
-//        Image(systemName: "exclamationmark.bubble")
-//    }
-//}
-//
-//
+//////////////////
+// Tip：リオエース　スイカ
+//////////////////
+struct tipVer400RioAceNormalSuika: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("成功抽選の設定差が判明\nカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
 //////////////////////
 ////// Tip：リオエース エースモード
 //////////////////////
