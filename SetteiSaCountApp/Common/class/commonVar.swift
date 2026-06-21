@@ -181,6 +181,7 @@ class commonVar: ObservableObject {
     init() {
         loadMachines()
         loadJuglerMachines()
+        loadHanahanaMachines()
 //        machines = initMachine
     }
     
@@ -261,6 +262,39 @@ class commonVar: ObservableObject {
             self.juglerMachines = Self.merged(saved: decoded, catalog: initJuglerMachine)
         } else {
             self.juglerMachines = initJuglerMachine
+        }
+    }
+
+    // ----------
+    // ハナハナ系 機種選択（ホーム方式の並び替えページ用）
+    // idは各ハナハナページの unitLinkSectionDMM のURL下4桁
+    // ----------
+    let initHanahanaMachine: [Machine] = [
+        Machine(id: "4912", name: "ニューキング", fullName: "ニューキングハナハナV", iconName: "newKingHanaMachineIcon", btBadge: true, maker: "パイオニア"),
+        Machine(id: "4680", name: "スターハナハナ", fullName: "スターハナハナ", iconName: "starHanaMachineIcon", btBadge: false, maker: "パイオニア"),
+        Machine(id: "4453", name: "ドラゴン閃光", fullName: "ドラゴンハナハナ閃光", iconName: "machineImageDragonHanahanaSenkoh2", btBadge: false, maker: "パイオニア"),
+        Machine(id: "4311", name: "キングハナハナ", fullName: "キングハナハナ", iconName: "kingHanaMachineIcon", btBadge: false, maker: "パイオニア"),
+        Machine(id: "4014", name: "鳳凰 天翔", fullName: "ハナハナ鳳凰天翔", iconName: "hanatenshoMachineIcon", btBadge: false, maker: "パイオニア"),
+    ]
+    @AppStorage("savedHanahanaMachinesData") private var savedHanahanaMachinesData: String = ""
+    @Published var hanahanaMachines: [Machine] = [] {
+        didSet { saveHanahanaMachines() }
+    }
+    private func saveHanahanaMachines() {
+        if let encoded = try? JSONEncoder().encode(hanahanaMachines) {
+            let jsonString = String(data: encoded, encoding: .utf8) ?? ""
+            if savedHanahanaMachinesData != jsonString {
+                savedHanahanaMachinesData = jsonString
+            }
+        }
+    }
+    private func loadHanahanaMachines() {
+        if let data = savedHanahanaMachinesData.data(using: .utf8),
+           let decoded = try? JSONDecoder().decode([Machine].self, from: data),
+           !decoded.isEmpty {
+            self.hanahanaMachines = Self.merged(saved: decoded, catalog: initHanahanaMachine)
+        } else {
+            self.hanahanaMachines = initHanahanaMachine
         }
     }
 

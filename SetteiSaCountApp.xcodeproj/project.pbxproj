@@ -55,6 +55,7 @@
 		0F0734A62FE67F7000CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
 		0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
 		0F07359A2FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0735992FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift */; };
+		0F07359D2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */; };
 		0F09C4C42FB5FCC60095CAF4 /* bioRe3ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */; };
 		0F09C4C62FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
 		0F09C4C72FB5FE170095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
@@ -1656,6 +1657,7 @@
 		0F0734872FDE750B00CA7A5A /* ver400.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver400.swift; sourceTree = "<group>"; };
 		0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableModeMoveRatio.swift; sourceTree = "<group>"; };
 		0F0735992FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuglerSeriesViewTopVer2.swift; sourceTree = "<group>"; };
+		0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanahanaSeriesViewTopVer2.swift; sourceTree = "<group>"; };
 		0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewCz.swift; sourceTree = "<group>"; };
 		0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3TableCzVoice.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
@@ -3676,6 +3678,7 @@
 				0FD3572F2DA14DE30069BD1A /* hanahanaCommonTableBigLump.swift */,
 				0FD357312DA1511D0069BD1A /* hanahanaCommonTableRegSideLamp.swift */,
 				0FD357332DA1545C0069BD1A /* hanahanaCommonTableRegTopLamp.swift */,
+				0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */,
 			);
 			path = hanahanaSeries;
 			sourceTree = "<group>";
@@ -6923,6 +6926,7 @@
 				0F868A102D44917A00D952D9 /* unitTextBackCaluculateStatus.swift in Sources */,
 				0FD357422DA25BE90069BD1A /* arifureTableAfterKokaku.swift in Sources */,
 				0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */,
+				0F07359D2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift in Sources */,
 				0FFAB85D2E6D0A3600296A4F /* mhrViewBayes.swift in Sources */,
 				0F7568ED2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
