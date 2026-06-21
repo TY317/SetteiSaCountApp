@@ -180,6 +180,7 @@ class commonVar: ObservableObject {
     
     init() {
         loadMachines()
+        loadJuglerMachines()
 //        machines = initMachine
     }
     
@@ -196,31 +197,71 @@ class commonVar: ObservableObject {
     
     // 読み込みロジック（initMachineをカタログ＋固定項目の正とし、保存はユーザー状態のみマージ）
     private func loadMachines() {
-        let initById = Dictionary(initMachine.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
-        guard let data = savedMachinesData.data(using: .utf8),
-              let decoded = try? JSONDecoder().decode([Machine].self, from: data),
-              !decoded.isEmpty else {
+        if let data = savedMachinesData.data(using: .utf8),
+           let decoded = try? JSONDecoder().decode([Machine].self, from: data),
+           !decoded.isEmpty {
+            self.machines = Self.merged(saved: decoded, catalog: initMachine)
+        } else {
             // 保存なし → カタログそのまま
             self.machines = initMachine
-            return
         }
+    }
+
+    // 保存(ユーザー状態)とカタログ(固定項目)をidでマージ。
+    // 保存の並び順を維持し、固定項目(名前/アイコン/メーカー/btBadge)はカタログで上書き、
+    // ユーザー状態(表示/解放/バッジ)だけ引き継ぐ。新機種は先頭、消えた機種は除外。
+    static func merged(saved: [Machine], catalog: [Machine]) -> [Machine] {
+        let byId = Dictionary(catalog.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
         var result: [Machine] = []
         var seen = Set<String>()
-        // 保存の並び順を維持。固定項目(名前/アイコン/メーカー/btBadge)はinitMachineで上書きし、
-        // ユーザー状態(表示/解放/バッジ)だけ引き継ぐ
-        for saved in decoded {
-            guard let base = initById[saved.id] else { continue }  // カタログから消えた機種は除外
+        for s in saved {
+            guard let base = byId[s.id] else { continue }  // カタログから消えた機種は除外
             var m = base
-            m.onHome = saved.onHome
-            m.isUnlocked = saved.isUnlocked
-            m.unlockDate = saved.unlockDate
-            m.badgeStatus = saved.badgeStatus
+            m.onHome = s.onHome
+            m.isUnlocked = s.isUnlocked
+            m.unlockDate = s.unlockDate
+            m.badgeStatus = s.badgeStatus
             result.append(m)
-            seen.insert(saved.id)
+            seen.insert(s.id)
         }
-        // 新機種（保存に無い）は先頭に追加（initMachineの順序を維持）
-        let newOnes = initMachine.filter { !seen.contains($0.id) }
-        self.machines = newOnes + result
+        let newOnes = catalog.filter { !seen.contains($0.id) }  // 新機種は先頭（カタログ順）
+        return newOnes + result
+    }
+
+    // ----------
+    // ジャグラー系 機種選択（ホーム方式の並び替えページ用）
+    // idは各ジャグラーページの unitLinkSectionDMM のURL下4桁
+    // ----------
+    let initJuglerMachine: [Machine] = [
+        Machine(id: "4683", name: "ウルミラ", fullName: "ウルトラミラクルジャグラー", iconName: "urmiraMachineIcon", btBadge: false, maker: "北電子"),
+        Machine(id: "4588", name: "ミスター", fullName: "ミスタージャグラー", iconName: "mrJugMachineIcon", btBadge: false, maker: "北電子"),
+        Machine(id: "4540", name: "ガールズSS", fullName: "ジャグラーガールズSS", iconName: "girlsSSMachineIcon", btBadge: false, maker: "北電子"),
+        Machine(id: "4375", name: "ゴージャグ3", fullName: "ゴーゴージャグラー3", iconName: "goJug3MachineIcon", btBadge: false, maker: "北電子"),
+        Machine(id: "4230", name: "ハッピーV3", fullName: "ハッピージャグラーV3", iconName: "machineIconHappyJugV3", btBadge: false, maker: "北電子"),
+        Machine(id: "4029", name: "マイジャグ5", fullName: "マイジャグラー5", iconName: "machineIconMyJug5", btBadge: false, maker: "北電子"),
+        Machine(id: "3961", name: "ファンキー2", fullName: "ファンキージャグラー2", iconName: "funky2MachineIcon", btBadge: false, maker: "北電子"),
+        Machine(id: "3626", name: "アイムEX", fullName: "アイムジャグラーEX", iconName: "imJugExMachinIcon", btBadge: false, maker: "北電子"),
+    ]
+    @AppStorage("savedJuglerMachinesData") private var savedJuglerMachinesData: String = ""
+    @Published var juglerMachines: [Machine] = [] {
+        didSet { saveJuglerMachines() }
+    }
+    private func saveJuglerMachines() {
+        if let encoded = try? JSONEncoder().encode(juglerMachines) {
+            let jsonString = String(data: encoded, encoding: .utf8) ?? ""
+            if savedJuglerMachinesData != jsonString {
+                savedJuglerMachinesData = jsonString
+            }
+        }
+    }
+    private func loadJuglerMachines() {
+        if let data = savedJuglerMachinesData.data(using: .utf8),
+           let decoded = try? JSONDecoder().decode([Machine].self, from: data),
+           !decoded.isEmpty {
+            self.juglerMachines = Self.merged(saved: decoded, catalog: initJuglerMachine)
+        } else {
+            self.juglerMachines = initJuglerMachine
+        }
     }
 
     // //////////////////////////////////////
