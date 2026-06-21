@@ -286,10 +286,23 @@ struct ContentViewVer2: View {
 
     // MARK: - アプリライブラリ（2ページ目）
 
+    // ライブラリ用の合成カタログ：ホーム機種（集約のジャグラー5555/ハナハナ8787は除外）＋
+    // ジャグラー個別機種＋ハナハナ個別機種。onHomeは無視（全機種アクセスの方針）。
+    private func libraryMachines() -> [Machine] {
+        common.machines.filter { $0.id != "5555" && $0.id != "8787" }
+            + common.juglerMachines
+            + common.hanahanaMachines
+    }
+    private func libraryMachine(id: String) -> Machine? {
+        common.machines.first { $0.id == id }
+            ?? common.juglerMachines.first { $0.id == id }
+            ?? common.hanahanaMachines.first { $0.id == id }
+    }
+
     // メーカー別グルーピング（機種数が多い順、同数はメーカー名昇順）
     private func makerGroups() -> [(maker: String, ids: [String])] {
         var dict: [String: [String]] = [:]
-        for m in common.machines {
+        for m in libraryMachines() {
             let mk = m.maker.isEmpty ? "その他" : m.maker
             dict[mk, default: []].append(m.id)
         }
@@ -356,7 +369,7 @@ struct ContentViewVer2: View {
                     ForEach(0..<2, id: \.self) { col in
                         let idx = row * 2 + col
                         ZStack {
-                            if idx < cells.count, let m = common.machines.first(where: { $0.id == cells[idx] }) {
+                            if idx < cells.count, let m = libraryMachine(id: cells[idx]) {
                                 Image(m.iconName)
                                     .resizable()
                                     .scaledToFit()
@@ -383,7 +396,7 @@ struct ContentViewVer2: View {
     // メーカーの全機種（ライブラリのナビゲーションにpush＝シートではなく通常遷移）
     @ViewBuilder
     private func makerDetailView(maker: String) -> some View {
-        let ids = common.machines.filter { ($0.maker.isEmpty ? "その他" : $0.maker) == maker }.map { $0.id }
+        let ids = libraryMachines().filter { ($0.maker.isEmpty ? "その他" : $0.maker) == maker }.map { $0.id }
         ScrollView {
 //            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: 4), spacing: common.lazyVGridSpacing) {
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridCount), spacing: common.lazyVGridSpacing) {
@@ -398,7 +411,7 @@ struct ContentViewVer2: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    // ライブラリ内の1アイコン（ロック維持・タップで遷移）
+    // ライブラリ内の1アイコン（ロック維持・タップで遷移）。3配列(ホーム/ジャグラー/ハナハナ)に対応。
     @ViewBuilder
     private func libraryIcon(id: String) -> some View {
         if let i = common.machines.firstIndex(where: { $0.id == id }) {
@@ -412,6 +425,41 @@ struct ContentViewVer2: View {
                 badgeStatus: m.badgeStatus,
                 btBadgeBool: m.btBadge
             )
+        } else if let i = common.juglerMachines.firstIndex(where: { $0.id == id }) {
+            let m = common.juglerMachines[i]
+            unitMachineIconLinkWithLock(
+                linkView: machineDestination(for: m.id),
+                iconImage: Image(m.iconName),
+                machineName: m.name,
+                isUnLocked: $common.juglerMachines[i].isUnlocked,
+                tempUnlockDateDouble: $common.juglerMachines[i].unlockDate,
+                badgeStatus: m.badgeStatus,
+                btBadgeBool: m.btBadge
+            )
+        } else if let i = common.hanahanaMachines.firstIndex(where: { $0.id == id }) {
+            let m = common.hanahanaMachines[i]
+            if m.id == "4912" {
+                // ニューキング：ロックは専用@AppStorageを使用して維持
+                unitMachineIconLinkWithLock(
+                    linkView: machineDestination(for: m.id),
+                    iconImage: Image(m.iconName),
+                    machineName: m.name,
+                    isUnLocked: $common.newKingHanaisUnlocked,
+                    tempUnlockDateDouble: $common.newKingHanaTempUnlockDateDouble,
+                    badgeStatus: m.badgeStatus,
+                    btBadgeBool: m.btBadge
+                )
+            } else {
+                unitMachineIconLinkWithLock(
+                    linkView: machineDestination(for: m.id),
+                    iconImage: Image(m.iconName),
+                    machineName: m.name,
+                    isUnLocked: $common.hanahanaMachines[i].isUnlocked,
+                    tempUnlockDateDouble: $common.hanahanaMachines[i].unlockDate,
+                    badgeStatus: m.badgeStatus,
+                    btBadgeBool: m.btBadge
+                )
+            }
         }
     }
 
@@ -504,6 +552,21 @@ struct ContentViewVer2: View {
         case "4301": return AnyView(hokutoViewTop(bayes: bayes,viewModel: viewModel))
         case "4244": return AnyView(VVV_Top(bayes: bayes,viewModel: viewModel))
         case "4160": return AnyView(kabaneriViewTop())
+        // ジャグラー系サブ機種（ライブラリ表示用）
+        case "4683": return AnyView(urmiraViewTop(bayes: bayes, viewModel: viewModel))
+        case "4588": return AnyView(mrJugViewTop(bayes: bayes, viewModel: viewModel))
+        case "4540": return AnyView(girlsSSViewTop(bayes: bayes, viewModel: viewModel))
+        case "4375": return AnyView(goJug3Ver2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4230": return AnyView(happyJugV3Ver2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4029": return AnyView(myJug5Ver2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "3961": return AnyView(funky2Ver2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "3626": return AnyView(imJugExVer2ViewTop(bayes: bayes, viewModel: viewModel))
+        // ハナハナ系サブ機種（ライブラリ表示用）
+        case "4912": return AnyView(newKingHanaViewTop(bayes: bayes, viewModel: viewModel))
+        case "4680": return AnyView(starHanaViewTop(bayes: bayes, viewModel: viewModel))
+        case "4453": return AnyView(draHanaSenkohVer2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4311": return AnyView(kingHanaVer2ViewTop(bayes: bayes, viewModel: viewModel))
+        case "4014": return AnyView(hanaTenshoVer2ViewTop(bayes: bayes, viewModel: viewModel))
         default: return AnyView(Text("準備中"))
         }
     }
