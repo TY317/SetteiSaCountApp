@@ -303,7 +303,7 @@ struct ContentViewVer2: View {
     private var appLibraryPage: some View {
         NavigationStack {
             GeometryReader { geo in
-                let cols = 2
+//                let cols = 2
                 let outerPad: CGFloat = 16
                 let colSpacing: CGFloat = 16
 //                let tile = max(60, (geo.size.width - outerPad * 2 - colSpacing * CGFloat(cols - 1)) / CGFloat(cols))
@@ -385,7 +385,8 @@ struct ContentViewVer2: View {
     private func makerDetailView(maker: String) -> some View {
         let ids = common.machines.filter { ($0.maker.isEmpty ? "その他" : $0.maker) == maker }.map { $0.id }
         ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: 4), spacing: common.lazyVGridSpacing) {
+//            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: 4), spacing: common.lazyVGridSpacing) {
+            LazyVGrid(columns: Array(repeating: GridItem(.fixed(common.lazyVGridSize), spacing: common.lazyVGridSpacing), count: self.lazyVGridCount), spacing: common.lazyVGridSpacing) {
                 ForEach(ids, id: \.self) { id in
                     libraryIcon(id: id)
                 }

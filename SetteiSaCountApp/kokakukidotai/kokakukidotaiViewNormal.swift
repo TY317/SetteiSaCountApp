@@ -340,8 +340,10 @@ struct kokakukidotaiViewNormal: View {
                         kokakukidotaiTableMode()
                     }
                     unitLinkButtonViewBuilder(sheetTitle: "前兆有無での示唆") {
-                        Text("・100Gで4G以上のロング前兆無ければ通常B or 通常D")
-                        Text("・300Gで4G以上のロング前兆あれば通常B濃厚")
+                        VStack(alignment: .leading) {
+                            Text("・100Gで4G以上のロング前兆無ければ通常B or 通常D")
+                            Text("・300Gで4G以上のロング前兆あれば通常B濃厚")
+                        }
                     }
                     unitLinkButtonViewBuilder(sheetTitle: "リプレイフラッシュでの示唆") {
                         kokakukidotaiTableReplayFlush()

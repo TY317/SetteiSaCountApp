@@ -203,7 +203,17 @@ struct bioRe3ViewNormal: View {
                 
                 DisclosureGroup {
                     VStack {
-                        Text("[STゲーム数メモ]")
+                        HStack {
+                            Text("[STゲーム数メモ]")
+                            unitToolbarButtonQuestion {
+                                unitExView5body2image(
+                                    title: "STゲーム数メモ",
+                                    textBody1: "・タップで点灯、消灯を切り替えられます",
+                                    textBody2: "・心音レベルが昇格したら全点灯状態にさせ、ST再セットなければ1Gごとにタップで消灯させて下さい",
+                                    textBody3: "・全消灯状態でのゲームがカウント対象となります",
+                                )
+                            }
+                        }
                         // STゲーム数ボタン
                         HStack(spacing: 25) {
                             ForEach(0..<6, id: \.self) { i in
@@ -245,10 +255,12 @@ struct bioRe3ViewNormal: View {
                     
                     // 心音レベルの転落について
                     unitLinkButtonViewBuilder(sheetTitle: "心音レベルの転落について") {
-                        Text("・心音が緑以上の際は補償6G間のST状態になる")
-                        Text("・リプレイ、レア役、前兆突入、前兆終了で補償G数を再セット")
-                        Text("・転落直後のSTは補償4Gでセットされる。その4G間に再セット条件を満たすと以降は6Gで再セット")
-                        Text("・補償G数消化後はハズレ・ベル成立時に転落抽選")
+                        VStack(alignment: .leading) {
+                            Text("・心音が緑以上の際は補償6G間のST状態になる")
+                            Text("・リプレイ、レア役、前兆突入、前兆終了で補償G数を再セット")
+                            Text("・転落直後のSTは補償4Gでセットされる。その4G間に再セット条件を満たすと以降は6Gで再セット")
+                            Text("・補償G数消化後はハズレ・ベル成立時に転落抽選")
+                        }
                     }
                     
                     // //// 95%信頼区間グラフへのリンク
