@@ -97,76 +97,76 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
-        Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false),
-        Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false),
-        Machine(id: "5009", name: "戦国乙女5", fullName: "戦国乙女5", iconName: "otome5MachineIcon", btBadge: false),
-        Machine(id: "5025", name: "SAO2", fullName: "ソードアート・オンラインⅡ", iconName: "sao2MachineIcon", btBadge: false),
-        Machine(id: "4974", name: "バイオRE3", fullName: "バイオハザードRE:3", iconName: "bioRe3MachineIcon", btBadge: false),
-        Machine(id: "4984", name: "リオエース2", fullName: "スーパーリオエース2", iconName: "rioAceMachineIcon", btBadge: false),
-        Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false),
-        Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false),
-        Machine(id: "4983", name: "真打吉宗", fullName: "真打 吉宗", iconName: "shinYoshiMachineIcon", btBadge: false),
-        Machine(id: "4956", name: "アクダマドライブ", fullName: "アクダマドライブ", iconName: "akudamaMachineIcon", btBadge: false),
-        Machine(id: "4943", name: "サンダーV", fullName: "サンダーV", iconName: "thunderMachineIcon", btBadge: true),
-        Machine(id: "4930", name: "カバネリ海門", fullName: "カバネリ海門決戦", iconName: "kabaneriUnatoMachineIcon", btBadge: false),
-        Machine(id: "4950", name: "ゴブスレ2", fullName: "ゴブリンスレイヤー2", iconName: "gobsla2MachineIcon", btBadge: false),
-        Machine(id: "4928", name: "ハナビ", fullName: "ハナビ", iconName: "hanabiMachineIcon", btBadge: false),
-        Machine(id: "4926", name: "炎炎2", fullName: "炎炎ノ消防隊2", iconName: "enen2MachineIcon", btBadge: false),
-        Machine(id: "4931", name: "攻殻機動隊", fullName: "攻殻機動隊", iconName: "kokakukidotaiMachineIcon", btBadge: false),
-        Machine(id: "4913", name: "鉄拳6", fullName: "鉄拳6", iconName: "tekken6MachineIcon", btBadge: false),
-        Machine(id: "4909", name: "北斗転生", fullName: "北斗 転生の章2", iconName: "hokutoTenseiMachineIcon", btBadge: false),
-        Machine(id: "4924", name: "無職転生", fullName: "無職転生", iconName: "mushotenMachineIcon", btBadge: false),
-        Machine(id: "4929", name: "秘宝伝", fullName: "秘宝伝", iconName: "hihodenMachineIcon", btBadge: false),
-        Machine(id: "4898", name: "化物語", fullName: "化物語", iconName: "bakemonoMachineIcon", btBadge: false),
-        Machine(id: "4873", name: "ネオプラ", fullName: "ネオプラネット", iconName: "neoplaMachineIcon", btBadge: false),
-        Machine(id: "4892", name: "超電磁砲2", fullName: "とある科学の超電磁砲2", iconName: "railgunMachineIcon", btBadge: false),
-        Machine(id: "4885", name: "ヴヴヴ2", fullName: "革命機ヴァルヴレイヴ2", iconName: "vvv2MachineIcon", btBadge: false),
-        Machine(id: "4893", name: "シェイク", fullName: "シェイクBT", iconName: "shakeMachineIcon", btBadge: true),
-        Machine(id: "4880", name: "新鬼武者3", fullName: "新鬼武者3", iconName: "newOni3MachineIcon", btBadge: false),
-        Machine(id: "4877", name: "銭形5", fullName: "主役は銭形5", iconName: "zeni5MachineIcon", btBadge: false),
-        Machine(id: "4860", name: "クレアBT", fullName: "クレアの秘宝伝BT", iconName: "creaMachineIcon", btBadge: true),
-        Machine(id: "4849", name: "東リベ", fullName: "東京リベンジャーズ", iconName: "toreveMachineIcon", btBadge: false),
-        Machine(id: "4847", name: "アズレン", fullName: "アズールレーン", iconName: "azurLaneMachineIcon", btBadge: false),
-        Machine(id: "4855", name: "ダリフラ", fullName: "ダーリン・イン・ザ・フランキス", iconName: "darlingMachineIcon", btBadge: false),
-        Machine(id: "4843", name: "転剣", fullName: "転生したら剣でした", iconName: "reSwordMachineIcon", btBadge: false),
-        Machine(id: "4830", name: "ヱヴァ約束", fullName: "ヱヴァンゲリヲン〜約束の扉〜", iconName: "evaYakusokuMachineIcon", btBadge: true),
-        Machine(id: "4803", name: "わた婚", fullName: "わたしの幸せな結婚", iconName: "watakonMachineIcon", btBadge: false),
-        Machine(id: "4790", name: "ギルクラ2", fullName: "ギルティクラウン2", iconName: "guiltyCrown2MachineIcon", btBadge: false),
-        Machine(id: "4814", name: "DevilMayCry5", fullName: "Devil May Cry5", iconName: "dmc5MachineIcon", btBadge: false),
-        Machine(id: "4805", name: "いざ！番長", fullName: "いざ！番長", iconName: "izaBanchoMachineIcon", btBadge: false),
-        Machine(id: "4806", name: "ToLOVEる8.7", fullName: "ToLOVEる TRANCE ver8.7", iconName: "toloveru87MachineIcon", btBadge: false),
-        Machine(id: "4788", name: "SEED", fullName: "ガンダムSEED", iconName: "gundamSeedMachineIcon", btBadge: false),
-        Machine(id: "4763", name: "緑ドン", fullName: "緑ドン VIVA情熱南米編", iconName: "midoriDonMachineIcon", btBadge: false),
-        Machine(id: "4778", name: "吉宗", fullName: "吉宗", iconName: "yoshimuneMachineIcon", btBadge: false),
-        Machine(id: "4777", name: "麻雀物語", fullName: "麻雀物語", iconName: "mahjongMachineIcon", btBadge: false),
-        Machine(id: "4752", name: "ゴジラ", fullName: "ゴジラ", iconName: "godzillaMachineIcon", btBadge: false),
-        Machine(id: "4745", name: "マギレコ", fullName: "マギアレコード", iconName: "magiaMachineIcon", btBadge: false),
-        Machine(id: "4706", name: "レビュースタァライト", fullName: "レビュースタァライト", iconName: "rslMachineIcon", btBadge: false),
-        Machine(id: "4754", name: "バイオ5", fullName: "バイオハザード5", iconName: "bioMachineIcon", btBadge: false),
-        Machine(id: "4734", name: "カイジ狂宴", fullName: "回胴黙示録カイジ 狂宴", iconName: "kaijiMachineIcon", btBadge: false),
-        Machine(id: "4715", name: "ありふれ", fullName: "ありふれた職業で世界最強", iconName: "arifureMachineIcon", btBadge: false),
-        Machine(id: "4742", name: "東京喰種", fullName: "東京喰種", iconName: "tokyoGhoulMachineIcon", btBadge: false),
-        Machine(id: "4719", name: "シャーマンキング", fullName: "シャーマンキング", iconName: "shamanKingMachineIcon", btBadge: false),
-        Machine(id: "4712", name: "SBJ", fullName: "スーパーブラックジャック", iconName: "sbjMachineIcon", btBadge: false),
-        Machine(id: "4709", name: "七つの魔剣が支配する", fullName: "七つの魔剣が支配する", iconName: "sevenSwordsMachineIcon", btBadge: false),
-        Machine(id: "4686", name: "一方通行", fullName: "一方通行 とある魔術の禁書目録", iconName: "acceleratorMachineIcon", btBadge: false),
-        Machine(id: "4669", name: "ダンベル", fullName: "ダンベル何キロ持てる？", iconName: "dumbbellMachineIcon", btBadge: false),
-        Machine(id: "4681", name: "ダンバイン", fullName: "ダンバイン", iconName: "danvineMachineIcone", btBadge: false),
-        Machine(id: "4689", name: "ルパン大航海", fullName: "ルパン3世 大航海者の秘宝", iconName: "lupinMachineIcon", btBadge: false),
-        Machine(id: "4676", name: "モンハンライズ", fullName: "モンスターハンター ライズ", iconName: "mhrMachineIcon", btBadge: false),
-        Machine(id: "4641", name: "バンドリ!", fullName: "バンドリ!", iconName: "bangdreamMachinIcon", btBadge: false),
-        Machine(id: "4658", name: "Re:ゼロ2", fullName: "Re:ゼロ season2", iconName: "rezero2MachineIcon", btBadge: false),
-        Machine(id: "4618", name: "かぐや様", fullName: "かぐや様は告らせたい", iconName: "kaguyaMachineIcon", btBadge: false),
-        Machine(id: "4579", name: "シンフォギア", fullName: "戦姫絶唱シンフォギア 正義の歌", iconName: "symphoMachineIcon", btBadge: false),
-        Machine(id: "4602", name: "ゴッドイーター", fullName: "ゴッドイーター リザレクション", iconName: "godeaterMachinIcon", btBadge: false),
-        Machine(id: "4571", name: "ToLOVEる", fullName: "ToLOVEるダークネス", iconName: "toloveruMachineIcon", btBadge: false),
-        Machine(id: "4555", name: "スマスロ炎炎", fullName: "スマスロ炎炎ノ消防隊", iconName: "enenMachineIcon", btBadge: false),
-        Machine(id: "4501", name: "ゴジエヴァ", fullName: "ゴジラvsエヴァンゲリオン", iconName: "machinIconGoeva", btBadge: false),
-        Machine(id: "4450", name: "モンキー5", fullName: "モンキーターン5", iconName: "mt5MachineIconWhite", btBadge: false),
-        Machine(id: "4360", name: "からくりサーカス", fullName: "からくりサーカス", iconName: "karakuriMachineIcon", btBadge: false),
-        Machine(id: "4301", name: "北斗の拳", fullName: "北斗の拳", iconName: "machineIconHokuto", btBadge: false),
-        Machine(id: "4244", name: "ヴヴヴ", fullName: "革命機ヴァルヴレイヴ", iconName: "machineIconVVV", btBadge: false),
-        Machine(id: "4160", name: "カバネリ", fullName: "甲鉄城のカバネリ", iconName: "machineIconKabaneri", btBadge: false),
+        Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false, maker: "北電子"),
+        Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false, maker: "パイオニア"),
+        Machine(id: "5009", name: "戦国乙女5", fullName: "戦国乙女5", iconName: "otome5MachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "5025", name: "SAO2", fullName: "ソードアート・オンラインⅡ", iconName: "sao2MachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4974", name: "バイオRE3", fullName: "バイオハザードRE:3", iconName: "bioRe3MachineIcon", btBadge: false, maker: "エンターライズ"),
+        Machine(id: "4984", name: "リオエース2", fullName: "スーパーリオエース2", iconName: "rioAceMachineIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4961", name: "ゴッド軌跡", fullName: "ミリオンゴッド〜神々の軌跡〜", iconName: "godKisekiMachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4970", name: "ヨルムンガンド", fullName: "ヨルムンガンド", iconName: "jormungandMachineIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4983", name: "真打吉宗", fullName: "真打 吉宗", iconName: "shinYoshiMachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4956", name: "アクダマドライブ", fullName: "アクダマドライブ", iconName: "akudamaMachineIcon", btBadge: false, maker: "SANYO"),
+        Machine(id: "4943", name: "サンダーV", fullName: "サンダーV", iconName: "thunderMachineIcon", btBadge: true, maker: "UNIVERSAL"),
+        Machine(id: "4930", name: "カバネリ海門", fullName: "カバネリ海門決戦", iconName: "kabaneriUnatoMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4950", name: "ゴブスレ2", fullName: "ゴブリンスレイヤー2", iconName: "gobsla2MachineIcon", btBadge: false, maker: "藤商事"),
+        Machine(id: "4928", name: "ハナビ", fullName: "ハナビ", iconName: "hanabiMachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4926", name: "炎炎2", fullName: "炎炎ノ消防隊2", iconName: "enen2MachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4931", name: "攻殻機動隊", fullName: "攻殻機動隊", iconName: "kokakukidotaiMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4913", name: "鉄拳6", fullName: "鉄拳6", iconName: "tekken6MachineIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4909", name: "北斗転生", fullName: "北斗 転生の章2", iconName: "hokutoTenseiMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4924", name: "無職転生", fullName: "無職転生", iconName: "mushotenMachineIcon", btBadge: false, maker: "ニューギン"),
+        Machine(id: "4929", name: "秘宝伝", fullName: "秘宝伝", iconName: "hihodenMachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4898", name: "化物語", fullName: "化物語", iconName: "bakemonoMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4873", name: "ネオプラ", fullName: "ネオプラネット", iconName: "neoplaMachineIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4892", name: "超電磁砲2", fullName: "とある科学の超電磁砲2", iconName: "railgunMachineIcon", btBadge: false, maker: "藤商事"),
+        Machine(id: "4885", name: "ヴヴヴ2", fullName: "革命機ヴァルヴレイヴ2", iconName: "vvv2MachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4893", name: "シェイク", fullName: "シェイクBT", iconName: "shakeMachineIcon", btBadge: true, maker: "大都技研"),
+        Machine(id: "4880", name: "新鬼武者3", fullName: "新鬼武者3", iconName: "newOni3MachineIcon", btBadge: false, maker: "エンターライズ"),
+        Machine(id: "4877", name: "銭形5", fullName: "主役は銭形5", iconName: "zeni5MachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4860", name: "クレアBT", fullName: "クレアの秘宝伝BT", iconName: "creaMachineIcon", btBadge: true, maker: "大都技研"),
+        Machine(id: "4849", name: "東リベ", fullName: "東京リベンジャーズ", iconName: "toreveMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4847", name: "アズレン", fullName: "アズールレーン", iconName: "azurLaneMachineIcon", btBadge: false, maker: "京楽"),
+        Machine(id: "4855", name: "ダリフラ", fullName: "ダーリン・イン・ザ・フランキス", iconName: "darlingMachineIcon", btBadge: false, maker: "Spiky"),
+        Machine(id: "4843", name: "転剣", fullName: "転生したら剣でした", iconName: "reSwordMachineIcon", btBadge: false, maker: "コナミ"),
+        Machine(id: "4830", name: "ヱヴァ約束", fullName: "ヱヴァンゲリヲン〜約束の扉〜", iconName: "evaYakusokuMachineIcon", btBadge: true, maker: "SANKYO"),
+        Machine(id: "4803", name: "わた婚", fullName: "わたしの幸せな結婚", iconName: "watakonMachineIcon", btBadge: false, maker: "コナミ"),
+        Machine(id: "4790", name: "ギルクラ2", fullName: "ギルティクラウン2", iconName: "guiltyCrown2MachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4814", name: "DevilMayCry5", fullName: "Devil May Cry5", iconName: "dmc5MachineIcon", btBadge: false, maker: "エンターライズ"),
+        Machine(id: "4805", name: "いざ！番長", fullName: "いざ！番長", iconName: "izaBanchoMachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4806", name: "ToLOVEる8.7", fullName: "ToLOVEる TRANCE ver8.7", iconName: "toloveru87MachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4788", name: "SEED", fullName: "ガンダムSEED", iconName: "gundamSeedMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4763", name: "緑ドン", fullName: "緑ドン VIVA情熱南米編", iconName: "midoriDonMachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4778", name: "吉宗", fullName: "吉宗", iconName: "yoshimuneMachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4777", name: "麻雀物語", fullName: "麻雀物語", iconName: "mahjongMachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4752", name: "ゴジラ", fullName: "ゴジラ", iconName: "godzillaMachineIcon", btBadge: false, maker: "ニューギン"),
+        Machine(id: "4745", name: "マギレコ", fullName: "マギアレコード", iconName: "magiaMachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4706", name: "レビュースタァライト", fullName: "レビュースタァライト", iconName: "rslMachineIcon", btBadge: false, maker: "オーイズミ"),
+        Machine(id: "4754", name: "バイオ5", fullName: "バイオハザード5", iconName: "bioMachineIcon", btBadge: false, maker: "エンターライズ"),
+        Machine(id: "4734", name: "カイジ狂宴", fullName: "回胴黙示録カイジ 狂宴", iconName: "kaijiMachineIcon", btBadge: false, maker: "サミー"),
+        Machine(id: "4715", name: "ありふれ", fullName: "ありふれた職業で世界最強", iconName: "arifureMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4742", name: "東京喰種", fullName: "東京喰種", iconName: "tokyoGhoulMachineIcon", btBadge: false, maker: "Spiky"),
+        Machine(id: "4719", name: "シャーマンキング", fullName: "シャーマンキング", iconName: "shamanKingMachineIcon", btBadge: false, maker: "UNIVERSAL"),
+        Machine(id: "4712", name: "SBJ", fullName: "スーパーブラックジャック", iconName: "sbjMachineIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4709", name: "七つの魔剣が支配する", fullName: "七つの魔剣が支配する", iconName: "sevenSwordsMachineIcon", btBadge: false, maker: "コナミ"),
+        Machine(id: "4686", name: "一方通行", fullName: "一方通行 とある魔術の禁書目録", iconName: "acceleratorMachineIcon", btBadge: false, maker: "藤商事"),
+        Machine(id: "4669", name: "ダンベル", fullName: "ダンベル何キロ持てる？", iconName: "dumbbellMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4681", name: "ダンバイン", fullName: "ダンバイン", iconName: "danvineMachineIcone", btBadge: false, maker: "サミー"),
+        Machine(id: "4689", name: "ルパン大航海", fullName: "ルパン3世 大航海者の秘宝", iconName: "lupinMachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4676", name: "モンハンライズ", fullName: "モンスターハンター ライズ", iconName: "mhrMachineIcon", btBadge: false, maker: "エンターライズ"),
+        Machine(id: "4641", name: "バンドリ!", fullName: "バンドリ!", iconName: "bangdreamMachinIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4658", name: "Re:ゼロ2", fullName: "Re:ゼロ season2", iconName: "rezero2MachineIcon", btBadge: false, maker: "大都技研"),
+        Machine(id: "4618", name: "かぐや様", fullName: "かぐや様は告らせたい", iconName: "kaguyaMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4579", name: "シンフォギア", fullName: "戦姫絶唱シンフォギア 正義の歌", iconName: "symphoMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4602", name: "ゴッドイーター", fullName: "ゴッドイーター リザレクション", iconName: "godeaterMachinIcon", btBadge: false, maker: "山佐"),
+        Machine(id: "4571", name: "ToLOVEる", fullName: "ToLOVEるダークネス", iconName: "toloveruMachineIcon", btBadge: false, maker: "平和"),
+        Machine(id: "4555", name: "スマスロ炎炎", fullName: "スマスロ炎炎ノ消防隊", iconName: "enenMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4501", name: "ゴジエヴァ", fullName: "ゴジラvsエヴァンゲリオン", iconName: "machinIconGoeva", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4450", name: "モンキー5", fullName: "モンキーターン5", iconName: "mt5MachineIconWhite", btBadge: false, maker: "山佐"),
+        Machine(id: "4360", name: "からくりサーカス", fullName: "からくりサーカス", iconName: "karakuriMachineIcon", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4301", name: "北斗の拳", fullName: "北斗の拳", iconName: "machineIconHokuto", btBadge: false, maker: "サミー"),
+        Machine(id: "4244", name: "ヴヴヴ", fullName: "革命機ヴァルヴレイヴ", iconName: "machineIconVVV", btBadge: false, maker: "SANKYO"),
+        Machine(id: "4160", name: "カバネリ", fullName: "甲鉄城のカバネリ", iconName: "machineIconKabaneri", btBadge: false, maker: "サミー"),
     ]
     // 永続化用のストレージ
     @AppStorage("savedMachinesData") private var savedMachinesData: String = ""
@@ -194,97 +194,35 @@ class commonVar: ObservableObject {
         }
     }
     
-    // 読み込みロジック
+    // 読み込みロジック（initMachineをカタログ＋固定項目の正とし、保存はユーザー状態のみマージ）
     private func loadMachines() {
-        var loaded: [Machine]
-        if let data = savedMachinesData.data(using: .utf8),
-           let decoded = try? JSONDecoder().decode([Machine].self, from: data) {
-            loaded = decoded
-        } else {
-            // データがない場合の初期値設定
-            loaded = self.initMachine
+        let initById = Dictionary(initMachine.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        guard let data = savedMachinesData.data(using: .utf8),
+              let decoded = try? JSONDecoder().decode([Machine].self, from: data),
+              !decoded.isEmpty else {
+            // 保存なし → カタログそのまま
+            self.machines = initMachine
+            return
         }
-        // makerはiconNameから補完（永続化していないため毎回ここで埋める）
-        for i in loaded.indices where loaded[i].maker.isEmpty {
-            loaded[i].maker = Self.makerByIcon[loaded[i].iconName] ?? ""
+        var result: [Machine] = []
+        var seen = Set<String>()
+        // 保存の並び順を維持。固定項目(名前/アイコン/メーカー/btBadge)はinitMachineで上書きし、
+        // ユーザー状態(表示/解放/バッジ)だけ引き継ぐ
+        for saved in decoded {
+            guard let base = initById[saved.id] else { continue }  // カタログから消えた機種は除外
+            var m = base
+            m.onHome = saved.onHome
+            m.isUnlocked = saved.isUnlocked
+            m.unlockDate = saved.unlockDate
+            m.badgeStatus = saved.badgeStatus
+            result.append(m)
+            seen.insert(saved.id)
         }
-        self.machines = loaded
+        // 新機種（保存に無い）は先頭に追加（initMachineの順序を維持）
+        let newOnes = initMachine.filter { !seen.contains($0.id) }
+        self.machines = newOnes + result
     }
 
-    // iconName → メーカー（旧ContentViewのリスト表示のmakerNameから生成）
-    static let makerByIcon: [String: String] = [
-        "machineIconJuglerSeries": "北電子",
-        "machineIconHanahanaSeries": "パイオニア",
-        "otome5MachineIcon": "平和",
-        "sao2MachineIcon": "大都技研",
-        "bioRe3MachineIcon": "エンターライズ",
-        "rioAceMachineIcon": "山佐",
-        "godKisekiMachineIcon": "UNIVERSAL",
-        "jormungandMachineIcon": "山佐",
-        "shinYoshiMachineIcon": "大都技研",
-        "akudamaMachineIcon": "SANYO",
-        "thunderMachineIcon": "UNIVERSAL",
-        "kabaneriUnatoMachineIcon": "サミー",
-        "gobsla2MachineIcon": "藤商事",
-        "hanabiMachineIcon": "UNIVERSAL",
-        "enen2MachineIcon": "SANKYO",
-        "kokakukidotaiMachineIcon": "サミー",
-        "tekken6MachineIcon": "山佐",
-        "hokutoTenseiMachineIcon": "サミー",
-        "mushotenMachineIcon": "ニューギン",
-        "hihodenMachineIcon": "大都技研",
-        "bakemonoMachineIcon": "サミー",
-        "neoplaMachineIcon": "山佐",
-        "railgunMachineIcon": "藤商事",
-        "vvv2MachineIcon": "SANKYO",
-        "shakeMachineIcon": "大都技研",
-        "newOni3MachineIcon": "エンターライズ",
-        "zeni5MachineIcon": "平和",
-        "creaMachineIcon": "大都技研",
-        "toreveMachineIcon": "サミー",
-        "azurLaneMachineIcon": "京楽",
-        "darlingMachineIcon": "Spiky",
-        "reSwordMachineIcon": "コナミ",
-        "evaYakusokuMachineIcon": "SANKYO",
-        "watakonMachineIcon": "コナミ",
-        "guiltyCrown2MachineIcon": "UNIVERSAL",
-        "dmc5MachineIcon": "エンターライズ",
-        "izaBanchoMachineIcon": "大都技研",
-        "toloveru87MachineIcon": "平和",
-        "gundamSeedMachineIcon": "SANKYO",
-        "midoriDonMachineIcon": "UNIVERSAL",
-        "yoshimuneMachineIcon": "大都技研",
-        "mahjongMachineIcon": "平和",
-        "godzillaMachineIcon": "ニューギン",
-        "magiaMachineIcon": "UNIVERSAL",
-        "rslMachineIcon": "オーイズミ",
-        "bioMachineIcon": "エンターライズ",
-        "kaijiMachineIcon": "サミー",
-        "arifureMachineIcon": "SANKYO",
-        "tokyoGhoulMachineIcon": "Spiky",
-        "shamanKingMachineIcon": "UNIVERSAL",
-        "sbjMachineIcon": "山佐",
-        "sevenSwordsMachineIcon": "コナミ",
-        "acceleratorMachineIcon": "藤商事",
-        "dumbbellMachineIcon": "SANKYO",
-        "danvineMachineIcone": "サミー",
-        "lupinMachineIcon": "平和",
-        "mhrMachineIcon": "エンターライズ",
-        "bangdreamMachinIcon": "平和",
-        "rezero2MachineIcon": "大都技研",
-        "kaguyaMachineIcon": "SANKYO",
-        "symphoMachineIcon": "SANKYO",
-        "godeaterMachinIcon": "山佐",
-        "toloveruMachineIcon": "平和",
-        "enenMachineIcon": "SANKYO",
-        "machinIconGoeva": "SANKYO",
-        "mt5MachineIconWhite": "山佐",
-        "karakuriMachineIcon": "SANKYO",
-        "machineIconHokuto": "サミー",
-        "machineIconVVV": "SANKYO",
-        "machineIconKabaneri": "サミー",
-    ]
-    
     // //////////////////////////////////////
     // バッジ
     // //////////////////////////////////////
