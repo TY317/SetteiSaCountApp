@@ -9,7 +9,7 @@ import SwiftUI
 
 // ハナハナ機種選択（ホーム=ContentViewVer2と同じ並び替えグリッド方式）
 // 編集モードでプルプル＋ドラッグ並び替え＋「−」で非表示、♡で再表示。全機種ライブラリは無し。
-// 既存機種はアイコン部品が3種混在（lock / sfsymbol / 通常）→ id で出し分け。
+// アイコンは id で出し分け：ニューキングのみ Lock（リワード）、他は自己完結アイコンの通常表示。
 // 今後の新機種は default で unitMachineIconLinkWithLock（Machine自身の値）で描画。
 struct hanahanaSeriesViewTopVer2: View {
     @ObservedObject var bayes: Bayes
@@ -169,13 +169,8 @@ struct hanahanaSeriesViewTopVer2: View {
                 badgeStatus: hanaBadge(for: m.id),
                 btBadgeBool: m.btBadge
             )
-        case "4680":
-            unitMachineIconLinkWithSfsymbol(linkView: dest, iconImage: Image(m.iconName), machineName: m.name, badgeStatus: hanaBadge(for: m.id), sfSymbolName: "star.fill")
-        case "4453":
-            unitMachineIconLinkWithSfsymbol(linkView: dest, iconImage: Image(m.iconName), machineName: m.name, badgeStatus: hanaBadge(for: m.id), sfSymbolName: "bolt.fill")
-        case "4311":
-            unitMachineIconLinkWithSfsymbol(linkView: dest, iconImage: Image(m.iconName), machineName: m.name, badgeStatus: hanaBadge(for: m.id), sfSymbolName: "crown.fill")
-        case "4014":
+        case "4680", "4453", "4311", "4014":
+            // 自己完結アイコンに差し替え済みのためSFシンボル重ねは廃止。通常アイコン表示。
             unitMachineIconLink(linkView: dest, iconImage: Image(m.iconName), machineName: m.name, badgeStatus: hanaBadge(for: m.id))
         default:
             // 今後の新機種：標準のLock部品。Machine自身の値を使用
