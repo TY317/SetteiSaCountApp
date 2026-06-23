@@ -70,6 +70,25 @@ struct bioRe3View95Ci: View {
                 )
             )
             .tag(5)
+            
+            // 弱レア役からのCZ直撃当選
+            unitListSection95Ci(
+                grafTitle: "心音レベル転落回数",
+//                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $bioRe3.shinonCountDrop,
+                        bigNumber: $bioRe3.shinonCountSum,
+                        setting1Percent: bioRe3.ratioShinonDrop[0],
+                        setting2Percent: bioRe3.ratioShinonDrop[1],
+                        setting3Percent: bioRe3.ratioShinonDrop[2],
+                        setting4Percent: bioRe3.ratioShinonDrop[3],
+                        setting5Percent: bioRe3.ratioShinonDrop[4],
+                        setting6Percent: bioRe3.ratioShinonDrop[5]
+                    )
+                )
+            )
+            .tag(6)
 
 //            // 天井短縮回数
 //            unitListSection95Ci(

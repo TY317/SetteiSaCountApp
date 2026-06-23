@@ -119,7 +119,7 @@ struct rioAceViewNormal: View {
                     bigNumber: $rioAce.aceModeCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer3271RioAceAceMode())
+//                .popoverTip(tipVer3271RioAceAceMode())
                 
                 // エースモード突入率
                 unitLinkButtonViewBuilder(sheetTitle: "エースモード突入率") {
@@ -136,7 +136,7 @@ struct rioAceViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "エースモードについて") {
                     rioAceTableAceMode()
                 }
-                .popoverTip(tipVer3260RioAceMode())
+//                .popoverTip(tipVer3260RioAceMode())
                 
                 // アイキャッチでの示唆
                 unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
@@ -197,10 +197,14 @@ struct rioAceViewNormal: View {
             
             // ---- スイカでの成功当選
             Section {
-                // 注意書き
-                unitLabelCautionText {
-                    Text("スイカ成立時の第3停止後、PUSHボタン両サイドのランプに要注目")
-                }
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "🍉→成功抽選当選",
+                    count: $rioAce.roomSuccessCount,
+                    bigNumber: $rioAce.suikaCount,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer400RioAceNormalSuika())
                 
                 // 参考情報）スイカでの次回成功抽選
                 unitLinkButtonViewBuilder(sheetTitle: "スイカでの次回成功抽選") {
@@ -214,9 +218,68 @@ struct rioAceViewNormal: View {
                     }
                 }
                 
-                // PUSHボタン両サイドのランプ示唆
-                unitLinkButtonViewBuilder(sheetTitle: "PUSHボタン両サイドのランプ示唆") {
-                    rioAceTablePushSideLamp()
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・スイカ成立時の第3停止後、PUSHボタン両サイドのランプに要注目")
+                        Text("・ルーム自力当選の場合は当選有無は不明となるのでカウントから除外")
+                        Text("・まずメモにルーム間のスイカ回数をメモし、自力当選なかった場合にスイカ回数と成功抽選を増減させてください")
+                    }
+                    
+                    // ルーム間スイカ回数のメモ
+                    Stepper(value: $rioAce.duringRoomSuikaCountMemo, in: 0...100) {
+                        Text("ルーム間 スイカ回数メモ：\(rioAce.duringRoomSuikaCountMemo) 回")
+                            .font(.subheadline)
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // スイカ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "🍉",
+                            count: $rioAce.suikaCount,
+                            color: .personalSummerLightGreen,
+                            minusBool: $rioAce.minusCheck) {
+                                
+                            }
+                        
+                        // 成功抽選当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "成功抽選当選",
+                            count: $rioAce.roomSuccessCount,
+                            color: .personalSummerLightRed,
+                            minusBool: $rioAce.minusCheck) {
+                                
+                            }
+                    }
+                    
+                    // PUSHボタン両サイドのランプ示唆
+                    unitLinkButtonViewBuilder(sheetTitle: "PUSHボタン両サイドのランプ示唆") {
+                        rioAceTablePushSideLamp()
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            rioAceView95Ci(
+                                rioAce: rioAce,
+                                selection: 7,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        rioAceViewBayes(
+                            rioAce: rioAce,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                    
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
                 }
             } header: {
                 Text("スイカでの成功当選")

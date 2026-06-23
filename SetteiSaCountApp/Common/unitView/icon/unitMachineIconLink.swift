@@ -11,7 +11,7 @@ import SwiftUI
 // ビュー：機種選択ページ　アイコン表示用のリンク
 // //////////////////////////
 struct unitMachineIconLink: View {
-    @State var linkView: AnyView
+    var linkView: AnyView   // 親の変更を反映させるため@Stateにしない（外観モード切替を遷移先へ伝えるため）
     @State var iconImage: Image
     @State var machineName: String
     var badgeStatus: String = "none"

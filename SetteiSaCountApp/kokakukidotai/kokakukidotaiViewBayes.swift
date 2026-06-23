@@ -20,6 +20,7 @@ struct kokakukidotaiViewBayes: View {
     @State var czScreenEnable: Bool = true
     @State var sikakuHackEnable: Bool = true
     @State var czColorEnable: Bool = true
+    @State var modeEnable: Bool = true
     
     
     // 全機種共通
@@ -56,6 +57,9 @@ struct kokakukidotaiViewBayes: View {
                 
                 // 殲滅ゾーン　発展色ごとの成功率
                 unitToggleWithQuestion(enable: self.$czColorEnable, title: "殲滅ゾーン 発展色ごとの成功率")
+                
+                // CZ失敗後のモード移行率
+                unitToggleWithQuestion(enable: self.$modeEnable, title: "CZ失敗後のモード移行率")
                 
                 // CZ狩猟画面
                 unitToggleWithQuestion(enable: self.$czScreenEnable, title: "CZ終了画面") {
@@ -251,6 +255,22 @@ struct kokakukidotaiViewBayes: View {
             )
         }
         
+        // CZ失敗後のモード移行率
+        var logPostMode: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.modeEnable {
+            logPostMode = logPostPercentMulti(
+                countList: [
+                    kokakukidotai.modeCountA,
+                    kokakukidotai.modeCountB,
+                    kokakukidotai.modeCountC,
+                ], ratioList: [
+                    kokakukidotai.ratioModeA,
+                    kokakukidotai.ratioModeB,
+                    kokakukidotai.ratioModeC,
+                ], bigNumber: kokakukidotai.modeCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -297,6 +317,7 @@ struct kokakukidotaiViewBayes: View {
             logPostSikakuHack,
             logPostCzColorBlue,
             logPostCzColorGreen,
+            logPostMode,
             
             logPostTrophy,
             logPostBefore,

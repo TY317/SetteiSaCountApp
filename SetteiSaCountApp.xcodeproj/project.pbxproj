@@ -45,6 +45,17 @@
 		0F03BD492F0BE96A00222339 /* shakeViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F03BD482F0BE96A00222339 /* shakeViewScreen.swift */; };
 		0F05EE592EC7F5FF00AF8B13 /* railgunViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */; };
 		0F05EE5B2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */; };
+		0F0733DF2FDE546600CA7A5A /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733DE2FDE546600CA7A5A /* GoogleMobileAds */; };
+		0F0733E22FDE54DA00CA7A5A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E12FDE54DA00CA7A5A /* FirebaseAnalytics */; };
+		0F0733E42FDE54DA00CA7A5A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E32FDE54DA00CA7A5A /* FirebaseCore */; };
+		0F0733E62FDE54DA00CA7A5A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E52FDE54DA00CA7A5A /* FirebaseCrashlytics */; };
+		0F0733E92FDE555C00CA7A5A /* UnityAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733E82FDE555C00CA7A5A /* UnityAdapterTarget */; };
+		0F0733EC2FDE55A400CA7A5A /* LineAdapterTarget in Frameworks */ = {isa = PBXBuildFile; productRef = 0F0733EB2FDE55A400CA7A5A /* LineAdapterTarget */; };
+		0F0734882FDE750B00CA7A5A /* ver400.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734872FDE750B00CA7A5A /* ver400.swift */; };
+		0F0734A62FE67F7000CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
+		0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */; };
+		0F07359A2FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0735992FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift */; };
+		0F07359D2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */; };
 		0F09C4C42FB5FCC60095CAF4 /* bioRe3ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */; };
 		0F09C4C62FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
 		0F09C4C72FB5FE170095CAF4 /* bioRe3TableCzVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */; };
@@ -57,7 +68,6 @@
 		0F0DE81B2EDC385000D85BCA /* bakemonoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */; };
 		0F0DE81D2EDC5EF300D85BCA /* bakemonoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */; };
 		0F0DE81F2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */; };
-		0F0FAF682F55BB1400118DC1 /* ver3211.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FAF672F55BB1400118DC1 /* ver3211.swift */; };
 		0F0FAF6A2F55BF1F00118DC1 /* kabaneriUnatoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FAF692F55BF1F00118DC1 /* kabaneriUnatoView95Ci.swift */; };
 		0F0FAF6C2F55C02000118DC1 /* kabaneriUnatoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FAF6B2F55C02000118DC1 /* kabaneriUnatoViewBayes.swift */; };
 		0F0FAF6E2F58516700118DC1 /* tekken6ViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0FAF6D2F58516700118DC1 /* tekken6ViewCz.swift */; };
@@ -179,7 +189,6 @@
 		0F3465C12CB4128900B5D2DD /* ver120Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3465C02CB4128900B5D2DD /* ver120Tip.swift */; };
 		0F35EF372EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F35EF362EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift */; };
 		0F35EF392EBB6D0300E7D2C2 /* vvv2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F35EF382EBB6D0300E7D2C2 /* vvv2TableKoyakuPattern.swift */; };
-		0F3759D92F7807CF00982F7A /* ver3230.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759D82F7807CF00982F7A /* ver3230.swift */; };
 		0F3759DC2F794D3400982F7A /* shinYoshiViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759DB2F794D3400982F7A /* shinYoshiViewTop.swift */; };
 		0F3759DE2F794D8F00982F7A /* shinYoshiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759DD2F794D8F00982F7A /* shinYoshiClass.swift */; };
 		0F3759E02F794D9C00982F7A /* shinYoshiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3759DF2F794D9C00982F7A /* shinYoshiAssets.xcassets */; };
@@ -231,7 +240,6 @@
 		0F4471EC2F6E73F10048E9CE /* JitterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */; };
 		0F4471EE2F6E75120048E9CE /* MachineDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */; };
 		0F4471F02F6E75480048E9CE /* FavoriteManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */; };
-		0F4471F22F700C0B0048E9CE /* ver3221.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471F12F700C0B0048E9CE /* ver3221.swift */; };
 		0F4471F42F700E730048E9CE /* dmc5TablePremiumStMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471F32F700E730048E9CE /* dmc5TablePremiumStMode.swift */; };
 		0F4471F52F700E790048E9CE /* dmc5TablePremiumStMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4471F32F700E730048E9CE /* dmc5TablePremiumStMode.swift */; };
 		0F447C5F2F49304F006DAF11 /* newKingHanaViewJissenCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */; };
@@ -343,7 +351,6 @@
 		0F51C63F2E8412C80006794A /* creaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C63E2E8412C80006794A /* creaViewBayes.swift */; };
 		0F51C6412E8415140006794A /* creaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6402E8415140006794A /* creaViewNormal.swift */; };
 		0F51C6452E8437170006794A /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */; };
-		0F51C9A62F5EE2C400D9DDE1 /* ver3220.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */; };
 		0F51C9A92F5EF71600D9DDE1 /* thunderViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9A82F5EF71600D9DDE1 /* thunderViewTop.swift */; };
 		0F51C9AB2F5EF83B00D9DDE1 /* thunderAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F51C9AA2F5EF83B00D9DDE1 /* thunderAssets.xcassets */; };
 		0F51C9AD2F5EF86C00D9DDE1 /* thunderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C9AC2F5EF86C00D9DDE1 /* thunderClass.swift */; };
@@ -1602,9 +1609,6 @@
 		0FFAEBD22EC99A90006C0371 /* neoplaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */; };
 		0FFAEBD82ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */; };
 		0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */; };
-		49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */; };
-		9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */; };
-		B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1625,7 +1629,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewInfoSheet.swift; sourceTree = "<group>"; };
 		0F00FAF42FACBD040076283F /* unitAppRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitAppRecommend.swift; sourceTree = "<group>"; };
 		0F00FAF72FACBD340076283F /* recommendHikakukakakuAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendHikakukakakuAssets.xcassets; sourceTree = "<group>"; };
@@ -1651,6 +1654,10 @@
 		0F03BD482F0BE96A00222339 /* shakeViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeViewScreen.swift; sourceTree = "<group>"; };
 		0F05EE582EC7F5FF00AF8B13 /* railgunViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunViewDuringAt.swift; sourceTree = "<group>"; };
 		0F05EE5A2EC801ED00AF8B13 /* railgunTableMaisuSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = railgunTableMaisuSisa.swift; sourceTree = "<group>"; };
+		0F0734872FDE750B00CA7A5A /* ver400.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver400.swift; sourceTree = "<group>"; };
+		0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableModeMoveRatio.swift; sourceTree = "<group>"; };
+		0F0735992FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuglerSeriesViewTopVer2.swift; sourceTree = "<group>"; };
+		0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanahanaSeriesViewTopVer2.swift; sourceTree = "<group>"; };
 		0F09C4C32FB5FCC60095CAF4 /* bioRe3ViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewCz.swift; sourceTree = "<group>"; };
 		0F09C4C52FB5FDDD0095CAF4 /* bioRe3TableCzVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3TableCzVoice.swift; sourceTree = "<group>"; };
 		0F0B4BC02CCD23FB00B12B00 /* rezero2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rezero2ViewTop.swift; sourceTree = "<group>"; };
@@ -1662,7 +1669,6 @@
 		0F0DE81A2EDC385000D85BCA /* bakemonoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewBayes.swift; sourceTree = "<group>"; };
 		0F0DE81C2EDC5EF300D85BCA /* bakemonoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoViewNormal.swift; sourceTree = "<group>"; };
 		0F0DE81E2EDC600D00D85BCA /* bakemonoTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableKoyakuPattern.swift; sourceTree = "<group>"; };
-		0F0FAF672F55BB1400118DC1 /* ver3211.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3211.swift; sourceTree = "<group>"; };
 		0F0FAF692F55BF1F00118DC1 /* kabaneriUnatoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoView95Ci.swift; sourceTree = "<group>"; };
 		0F0FAF6B2F55C02000118DC1 /* kabaneriUnatoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoViewBayes.swift; sourceTree = "<group>"; };
 		0F0FAF6D2F58516700118DC1 /* tekken6ViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tekken6ViewCz.swift; sourceTree = "<group>"; };
@@ -1766,7 +1772,6 @@
 		0F3465C02CB4128900B5D2DD /* ver120Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver120Tip.swift; sourceTree = "<group>"; };
 		0F35EF362EBB630000E7D2C2 /* tokyoGhoulTableSuperHigh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokyoGhoulTableSuperHigh.swift; sourceTree = "<group>"; };
 		0F35EF382EBB6D0300E7D2C2 /* vvv2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableKoyakuPattern.swift; sourceTree = "<group>"; };
-		0F3759D82F7807CF00982F7A /* ver3230.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3230.swift; sourceTree = "<group>"; };
 		0F3759DB2F794D3400982F7A /* shinYoshiViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiViewTop.swift; sourceTree = "<group>"; };
 		0F3759DD2F794D8F00982F7A /* shinYoshiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiClass.swift; sourceTree = "<group>"; };
 		0F3759DF2F794D9C00982F7A /* shinYoshiAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = shinYoshiAssets.xcassets; sourceTree = "<group>"; };
@@ -1806,7 +1811,6 @@
 		0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitterModifier.swift; sourceTree = "<group>"; };
 		0F4471ED2F6E75120048E9CE /* MachineDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDropDelegate.swift; sourceTree = "<group>"; };
 		0F4471EF2F6E75480048E9CE /* FavoriteManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManageView.swift; sourceTree = "<group>"; };
-		0F4471F12F700C0B0048E9CE /* ver3221.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3221.swift; sourceTree = "<group>"; };
 		0F4471F32F700E730048E9CE /* dmc5TablePremiumStMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dmc5TablePremiumStMode.swift; sourceTree = "<group>"; };
 		0F447C5E2F49304F006DAF11 /* newKingHanaViewJissenCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaViewJissenCount.swift; sourceTree = "<group>"; };
 		0F447C612F493319006DAF11 /* newKingHanaSubViewCountInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newKingHanaSubViewCountInput.swift; sourceTree = "<group>"; };
@@ -1888,7 +1892,6 @@
 		0F51C63E2E8412C80006794A /* creaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewBayes.swift; sourceTree = "<group>"; };
 		0F51C6402E8415140006794A /* creaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewNormal.swift; sourceTree = "<group>"; };
 		0F51C6442E8437170006794A /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
-		0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3220.swift; sourceTree = "<group>"; };
 		0F51C9A82F5EF71600D9DDE1 /* thunderViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thunderViewTop.swift; sourceTree = "<group>"; };
 		0F51C9AA2F5EF83B00D9DDE1 /* thunderAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = thunderAssets.xcassets; sourceTree = "<group>"; };
 		0F51C9AC2F5EF86C00D9DDE1 /* thunderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thunderClass.swift; sourceTree = "<group>"; };
@@ -3067,14 +3070,6 @@
 		0FFAEBD12EC99A90006C0371 /* neoplaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = neoplaViewScreen.swift; sourceTree = "<group>"; };
 		0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toreveTableCycleModeHitRatio.swift; sourceTree = "<group>"; };
 		0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vvv2TableModeMove.swift; sourceTree = "<group>"; };
-		370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.debug.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.debug.xcconfig"; sourceTree = "<group>"; };
-		8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp.release.xcconfig"; sourceTree = "<group>"; };
-		877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetteiSaCountAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetteiSaCountAppTests.release.xcconfig"; path = "Target Support Files/Pods-SetteiSaCountAppTests/Pods-SetteiSaCountAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -3086,7 +3081,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9345392F2AAF7D373E6B34E7 /* Pods_SetteiSaCountApp.framework in Frameworks */,
+				0F0733E22FDE54DA00CA7A5A /* FirebaseAnalytics in Frameworks */,
+				0F0733E62FDE54DA00CA7A5A /* FirebaseCrashlytics in Frameworks */,
+				0F0733E42FDE54DA00CA7A5A /* FirebaseCore in Frameworks */,
+				0F0733DF2FDE546600CA7A5A /* GoogleMobileAds in Frameworks */,
+				0F0733E92FDE555C00CA7A5A /* UnityAdapterTarget in Frameworks */,
+				0F0733EC2FDE55A400CA7A5A /* LineAdapterTarget in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,7 +3094,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FBC30CF4B9384D9214B144 /* Pods_SetteiSaCountAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3102,7 +3101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49A180D7E35D2DA09B2DA463 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3119,12 +3117,6 @@
 		05F029BDD164F61DF798A3AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */,
-				8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */,
-				370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */,
-				D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */,
-				3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */,
-				F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -3641,6 +3633,7 @@
 				0F654BBB2C6DD79B00F37849 /* myJug5 */,
 				0F654BB72C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets */,
 				0F654BB92C6DD39E00F37849 /* JuglerSeriesViewTop.swift */,
+				0F0735992FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift */,
 			);
 			path = JuglerSeries;
 			sourceTree = "<group>";
@@ -3685,6 +3678,7 @@
 				0FD3572F2DA14DE30069BD1A /* hanahanaCommonTableBigLump.swift */,
 				0FD357312DA1511D0069BD1A /* hanahanaCommonTableRegSideLamp.swift */,
 				0FD357332DA1545C0069BD1A /* hanahanaCommonTableRegTopLamp.swift */,
+				0F07359C2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift */,
 			);
 			path = hanahanaSeries;
 			sourceTree = "<group>";
@@ -4016,7 +4010,6 @@
 				0FA0A79E2EF692C3003EF8BD /* SCPreview */,
 				0F8030D92C6249FC001F008E /* Products */,
 				05F029BDD164F61DF798A3AF /* Pods */,
-				826985462005EF98D407193F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4600,16 +4593,13 @@
 			children = (
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
-				0F0FAF672F55BB1400118DC1 /* ver3211.swift */,
-				0F51C9A52F5EE2C400D9DDE1 /* ver3220.swift */,
-				0F4471F12F700C0B0048E9CE /* ver3221.swift */,
-				0F3759D82F7807CF00982F7A /* ver3230.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
 				0F59EBED2F9A245300CF0C55 /* ver3241.swift */,
 				0F7568CC2FA613A600A66336 /* ver3250.swift */,
 				0F186E6A2FB4ADA600FAAEB7 /* ver3260.swift */,
 				0F1A7D802FCA5C7D00B3DB2A /* ver3270.swift */,
 				0F1B31662FDCD13C00DEEF8C /* ver3271.swift */,
+				0F0734872FDE750B00CA7A5A /* ver400.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -5055,6 +5045,7 @@
 				0FD974E72F4167C90067CED7 /* kokakukidotaiTableEyechatch.swift */,
 				0F447C702F4AC639006DAF11 /* kokakukidotaiViewAfterAt.swift */,
 				0F447C722F4AC74B006DAF11 /* kokakukidotaiTableAfterAt.swift */,
+				0F0734A52FE67F6F00CA7A5A /* kokakukidotaiTableModeMoveRatio.swift */,
 			);
 			path = kokakukidotai;
 			sourceTree = "<group>";
@@ -5659,16 +5650,6 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
-		826985462005EF98D407193F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				035FDDE43EB1E7766A789DD2 /* Pods_SetteiSaCountApp.framework */,
-				877F90B3CA13D79028929120 /* Pods_SetteiSaCountApp_SetteiSaCountAppUITests.framework */,
-				890431855C9587D1E2062C42 /* Pods_SetteiSaCountAppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5676,13 +5657,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FC2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountApp" */;
 			buildPhases = (
-				2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */,
 				0F8030D42C6249FC001F008E /* Sources */,
 				0F8030D52C6249FC001F008E /* Frameworks */,
 				0F8030D62C6249FC001F008E /* Resources */,
 				0F6B59D92E067A0700DB1A2B /* ShellScript */,
-				5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */,
-				52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5697,7 +5675,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8030FF2C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppTests" */;
 			buildPhases = (
-				B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */,
 				0F8030E42C6249FE001F008E /* Sources */,
 				0F8030E52C6249FE001F008E /* Frameworks */,
 				0F8030E62C6249FE001F008E /* Resources */,
@@ -5716,12 +5693,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8031022C6249FE001F008E /* Build configuration list for PBXNativeTarget "SetteiSaCountAppUITests" */;
 			buildPhases = (
-				3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */,
 				0F8030EE2C6249FE001F008E /* Sources */,
 				0F8030EF2C6249FE001F008E /* Frameworks */,
 				0F8030F02C6249FE001F008E /* Resources */,
-				CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */,
-				DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5788,6 +5762,12 @@
 				ja,
 			);
 			mainGroup = 0F8030CF2C6249FC001F008E;
+			packageReferences = (
+				0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */,
+				0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */,
+			);
 			productRefGroup = 0F8030D92C6249FC001F008E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -5945,7 +5925,7 @@
 			);
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"$(SRCROOT)/newInputFile${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
 				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
@@ -5956,157 +5936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		2D2999E3DEAAB90FF2DFD091 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EA9835E5AED5536DE2D84C8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52BD9089D13B3DE641C2B449 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5F3FCA691941CEC5D24D06A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp/Pods-SetteiSaCountApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B60868977477DB8DE12D24E1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SetteiSaCountAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF3AB4379794F855039A574B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC63818BFA9A15CECCF09DE3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SetteiSaCountApp-SetteiSaCountAppUITests/Pods-SetteiSaCountApp-SetteiSaCountAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Firebase Crashlytics (SPM) dSYM upload\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -6126,7 +5956,6 @@
 				0FEB2E082E3E2598004C5F45 /* reSwordViewFranChara.swift in Sources */,
 				0F6BD7CB2D806908003F5563 /* bioViewTop.swift in Sources */,
 				0FB9CAA82DE178C7009FC6AF /* toloveru87TablePtSisa.swift in Sources */,
-				0F0FAF682F55BB1400118DC1 /* ver3211.swift in Sources */,
 				0FD357742DAA18640069BD1A /* tokyoGhoulTableModeTable.swift in Sources */,
 				0FE23B342C79C88A000E65D7 /* myTips.swift in Sources */,
 				0FFAB86B2E71A17700296A4F /* funky2ViewBayes.swift in Sources */,
@@ -6166,6 +5995,7 @@
 				0F9D9C2C2EA3C64A00450B23 /* starHanaVer2View95CiShima.swift in Sources */,
 				0FA024772CF495D3004B3FD5 /* bangdreamView95Ci.swift in Sources */,
 				0FD3572C2DA14ACC0069BD1A /* hanahanaCommonClass.swift in Sources */,
+				0F07359A2FE7A6F600CA7A5A /* JuglerSeriesViewTopVer2.swift in Sources */,
 				0F35EF392EBB6D0300E7D2C2 /* vvv2TableKoyakuPattern.swift in Sources */,
 				0F461F982F9363FA00F6B6A1 /* godKisekiTableModeBlackHole.swift in Sources */,
 				0FDE0F242F30669D00B1DA18 /* enen2TableMode.swift in Sources */,
@@ -6267,7 +6097,6 @@
 				0F3759F52F808F4600982F7A /* shinYoshiViewScreen.swift in Sources */,
 				0FD357622DA2951F0069BD1A /* magiaTableFirstHit.swift in Sources */,
 				0FD975132F48C3230067CED7 /* newKingHanaVer2View95CiShima.swift in Sources */,
-				0F51C9A62F5EE2C400D9DDE1 /* ver3220.swift in Sources */,
 				0FA024A42D0873AF004B3FD5 /* lupinViewHistory.swift in Sources */,
 				0FE23B222C717C39000E65D7 /* kingHanaExViewAfterRegLamp.swift in Sources */,
 				0F654BD42C6F130700F37849 /* draHanaSenkohViewTop.swift in Sources */,
@@ -6549,6 +6378,7 @@
 				0F868A1F2D44B71A00D952D9 /* happyJugV3Ver2View95CiTotal.swift in Sources */,
 				0FCF78B22E476A780000748B /* kabaneriTableMumeiNavi.swift in Sources */,
 				0FDBDADD2E8D48BC00197B94 /* urmiraTableRatio.swift in Sources */,
+				0F0734882FDE750B00CA7A5A /* ver400.swift in Sources */,
 				0F9318792DEA8A6500511BEF /* izaBanchoViewNormal.swift in Sources */,
 				0FF1563E2D7275CF00B17F83 /* shamanKingViewEnding.swift in Sources */,
 				0F64DD352DC066C30027315D /* acceleratorTableShutterOpenGame.swift in Sources */,
@@ -6945,7 +6775,6 @@
 				0F9D9C222EA3A13B00450B23 /* funky2ViewShimaData.swift in Sources */,
 				0FB209792E1548EF0029D940 /* unitReelGrayMark.swift in Sources */,
 				0F6B59E92E07D09200DB1A2B /* goevaTableEndingVoice.swift in Sources */,
-				0F3759D92F7807CF00982F7A /* ver3230.swift in Sources */,
 				0FD3571E2DA0BC4C0069BD1A /* danvineTableExRushStart.swift in Sources */,
 				0FFAEBC82EC9758E006C0371 /* neoplaTableMode.swift in Sources */,
 				0FD357542DA2874A0069BD1A /* magiaView95Ci.swift in Sources */,
@@ -7030,7 +6859,6 @@
 				0F868A382D45D08C00D952D9 /* hanaTenshoVer2View95CiStart.swift in Sources */,
 				0FF369332E62E8E9002BE0CE /* godeaterViewBayes.swift in Sources */,
 				0F19D44F2F2D95B7004A6D9F /* tekken6TableRareDirect.swift in Sources */,
-				0F4471F22F700C0B0048E9CE /* ver3221.swift in Sources */,
 				0F8031102C6251AB001F008E /* VVV_Top.swift in Sources */,
 				0F868A492D460F0500D952D9 /* kingHanaVer2View95CiKen.swift in Sources */,
 				0F6B59F42E0C16CD00DB1A2B /* watakonClass.swift in Sources */,
@@ -7098,6 +6926,7 @@
 				0F868A102D44917A00D952D9 /* unitTextBackCaluculateStatus.swift in Sources */,
 				0FD357422DA25BE90069BD1A /* arifureTableAfterKokaku.swift in Sources */,
 				0FDC328D2D2774E9005B3D06 /* dumbbellViewCheatDay.swift in Sources */,
+				0F07359D2FE7ACD100CA7A5A /* hanahanaSeriesViewTopVer2.swift in Sources */,
 				0FFAB85D2E6D0A3600296A4F /* mhrViewBayes.swift in Sources */,
 				0F7568ED2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift in Sources */,
 				0F8325B42C7DFE530037226E /* mt5ViewRoundScreen.swift in Sources */,
@@ -7110,6 +6939,7 @@
 				0FD357402DA227B70069BD1A /* arifureTableHeavenHit.swift in Sources */,
 				0F64DD3F2DC06E1F0027315D /* acceleratorTableTaidenModeRatio.swift in Sources */,
 				0FEC57DD2D99680400FF1024 /* rslViewKoyakuStyle.swift in Sources */,
+				0F0734A62FE67F7000CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */,
 				0F64DDA52DC5F4340027315D /* unitReelDefault.swift in Sources */,
 				0FA662EA2F1526AC00F3259F /* kokakukidotaiView95Ci.swift in Sources */,
 				0F59EBE62F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift in Sources */,
@@ -7561,6 +7391,7 @@
 				0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */,
 				0FA662E12F1516A800F3259F /* hihodenTableRegSisa.swift in Sources */,
 				0F3759F82F80910700982F7A /* shinYoshiTableScreen.swift in Sources */,
+				0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */,
 				0F4471F52F700E790048E9CE /* dmc5TablePremiumStMode.swift in Sources */,
 				0F0FAF7E2F5BDE2600118DC1 /* hihodenTableLengedMoveBonus.swift in Sources */,
 				0FA0A7D02EF6947C003EF8BD /* unitReelPinkBar.swift in Sources */,
@@ -7777,7 +7608,6 @@
 		};
 		0F8030FD2C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64EB7F03B5F85C228B254FAB /* Pods-SetteiSaCountApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -7801,7 +7631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.27.1;
+				MARKETING_VERSION = 4.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -7817,7 +7647,6 @@
 		};
 		0F8030FE2C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8681899F6241A0F10A21D186 /* Pods-SetteiSaCountApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_rev2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -7841,7 +7670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.27.1;
+				MARKETING_VERSION = 4.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToruYokota.SetteiSaCountApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -7856,7 +7685,6 @@
 		};
 		0F8031002C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3713E6A4DE26C4BAD337CED0 /* Pods-SetteiSaCountAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -7875,7 +7703,6 @@
 		};
 		0F8031012C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3FFAE771CD9C6659C4419A6 /* Pods-SetteiSaCountAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -7894,7 +7721,6 @@
 		};
 		0F8031032C6249FE001F008E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 370C050157480E91F378F9C2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -7911,7 +7737,6 @@
 		};
 		0F8031042C6249FE001F008E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1F4C9F8507172D12EEBD7A2 /* Pods-SetteiSaCountApp-SetteiSaCountAppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -8052,6 +7877,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.5.0;
+			};
+		};
+		0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.14.0;
+			};
+		};
+		0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/googleads-mobile-ios-mediation-unity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.18.100;
+			};
+		};
+		0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/googleads-mobile-ios-mediation-line.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.102;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F0733DE2FDE546600CA7A5A /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733DD2FDE546600CA7A5A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		0F0733E12FDE54DA00CA7A5A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0F0733E32FDE54DA00CA7A5A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		0F0733E52FDE54DA00CA7A5A /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E02FDE54DA00CA7A5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		0F0733E82FDE555C00CA7A5A /* UnityAdapterTarget */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733E72FDE555C00CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-unity" */;
+			productName = UnityAdapterTarget;
+		};
+		0F0733EB2FDE55A400CA7A5A /* LineAdapterTarget */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F0733EA2FDE55A400CA7A5A /* XCRemoteSwiftPackageReference "googleads-mobile-ios-mediation-line" */;
+			productName = LineAdapterTarget;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F8030D02C6249FC001F008E /* Project object */;
 }

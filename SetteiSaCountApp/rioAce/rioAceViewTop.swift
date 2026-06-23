@@ -167,8 +167,8 @@ struct rioAceViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.rioAceMachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.rioAceMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4984")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -255,6 +255,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory1.aceModeCountMiss = rioAce.aceModeCountMiss
         rioAceMemory1.aceModeCountHit = rioAce.aceModeCountHit
         rioAceMemory1.aceModeCountSum = rioAce.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAceMemory1.suikaCount = rioAce.suikaCount
+        rioAceMemory1.roomSuccessCount = rioAce.roomSuccessCount
+        rioAceMemory1.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
     }
     func saveMemory2() {
         rioAceMemory2.kiteiReplay = rioAce.kiteiReplay
@@ -275,6 +282,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory2.aceModeCountMiss = rioAce.aceModeCountMiss
         rioAceMemory2.aceModeCountHit = rioAce.aceModeCountHit
         rioAceMemory2.aceModeCountSum = rioAce.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAceMemory2.suikaCount = rioAce.suikaCount
+        rioAceMemory2.roomSuccessCount = rioAce.roomSuccessCount
+        rioAceMemory2.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
     }
     func saveMemory3() {
         rioAceMemory3.kiteiReplay = rioAce.kiteiReplay
@@ -295,6 +309,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory3.aceModeCountMiss = rioAce.aceModeCountMiss
         rioAceMemory3.aceModeCountHit = rioAce.aceModeCountHit
         rioAceMemory3.aceModeCountSum = rioAce.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAceMemory3.suikaCount = rioAce.suikaCount
+        rioAceMemory3.roomSuccessCount = rioAce.roomSuccessCount
+        rioAceMemory3.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
     }
 }
 
@@ -344,6 +365,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.aceModeCountMiss = rioAceMemory1.aceModeCountMiss
         rioAce.aceModeCountHit = rioAceMemory1.aceModeCountHit
         rioAce.aceModeCountSum = rioAceMemory1.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAce.suikaCount = rioAceMemory1.suikaCount
+        rioAce.roomSuccessCount = rioAceMemory1.roomSuccessCount
+        rioAce.duringRoomSuikaCountMemo = rioAceMemory1.duringRoomSuikaCountMemo
     }
     func loadMemory2() {
         rioAce.kiteiReplay = rioAceMemory2.kiteiReplay
@@ -364,6 +392,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.aceModeCountMiss = rioAceMemory2.aceModeCountMiss
         rioAce.aceModeCountHit = rioAceMemory2.aceModeCountHit
         rioAce.aceModeCountSum = rioAceMemory2.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAce.suikaCount = rioAceMemory2.suikaCount
+        rioAce.roomSuccessCount = rioAceMemory2.roomSuccessCount
+        rioAce.duringRoomSuikaCountMemo = rioAceMemory2.duringRoomSuikaCountMemo
     }
     func loadMemory3() {
         rioAce.kiteiReplay = rioAceMemory3.kiteiReplay
@@ -384,6 +419,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.aceModeCountMiss = rioAceMemory3.aceModeCountMiss
         rioAce.aceModeCountHit = rioAceMemory3.aceModeCountHit
         rioAce.aceModeCountSum = rioAceMemory3.aceModeCountSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        rioAce.suikaCount = rioAceMemory3.suikaCount
+        rioAce.roomSuccessCount = rioAceMemory3.roomSuccessCount
+        rioAce.duringRoomSuikaCountMemo = rioAceMemory3.duringRoomSuikaCountMemo
     }
 }
 

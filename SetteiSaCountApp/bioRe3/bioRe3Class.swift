@@ -129,7 +129,24 @@ class BioRe3: ObservableObject {
         kyoRareCountCzHit = 0
         kyoRareCountAtHit = 0
         minusCheck = false
+        
+        shinonCountDrop = 0
+        shinonCountStay = 0
+        shinonCountSum = 0
     }
+    
+    // ---------
+    // ver4.0.0
+    // ---------
+    let ratioShinonDrop: [Double] = [50,49.6,48.4,45.3,43.8,43.4]
+    @AppStorage("bioRe3ShinonCountDrop") var shinonCountDrop: Int = 0
+    @AppStorage("bioRe3ShinonCountStay") var shinonCountStay: Int = 0
+    @AppStorage("bioRe3ShinonCountSum") var shinonCountSum: Int = 0
+    
+    func shinonSumFunc() {
+        shinonCountSum = shinonCountDrop + shinonCountStay
+    }
+    
 }
 
 
@@ -163,6 +180,13 @@ class BioRe3Memory1: ObservableObject {
     @AppStorage("bioRe3KyoRareCountKoyakuSumMemory1") var kyoRareCountKoyakuSum: Int = 0
     @AppStorage("bioRe3KyoRareCountCzHitMemory1") var kyoRareCountCzHit: Int = 0
     @AppStorage("bioRe3KyoRareCountAtHitMemory1") var kyoRareCountAtHit: Int = 0
+    
+    // ---------
+    // ver4.0.0
+    // ---------
+    @AppStorage("bioRe3ShinonCountDropMemory1") var shinonCountDrop: Int = 0
+    @AppStorage("bioRe3ShinonCountStayMemory1") var shinonCountStay: Int = 0
+    @AppStorage("bioRe3ShinonCountSumMemory1") var shinonCountSum: Int = 0
 }
 
 
@@ -196,6 +220,13 @@ class BioRe3Memory2: ObservableObject {
     @AppStorage("bioRe3KyoRareCountKoyakuSumMemory2") var kyoRareCountKoyakuSum: Int = 0
     @AppStorage("bioRe3KyoRareCountCzHitMemory2") var kyoRareCountCzHit: Int = 0
     @AppStorage("bioRe3KyoRareCountAtHitMemory2") var kyoRareCountAtHit: Int = 0
+    
+    // ---------
+    // ver4.0.0
+    // ---------
+    @AppStorage("bioRe3ShinonCountDropMemory2") var shinonCountDrop: Int = 0
+    @AppStorage("bioRe3ShinonCountStayMemory2") var shinonCountStay: Int = 0
+    @AppStorage("bioRe3ShinonCountSumMemory2") var shinonCountSum: Int = 0
 }
 
 
@@ -229,4 +260,11 @@ class BioRe3Memory3: ObservableObject {
     @AppStorage("bioRe3KyoRareCountKoyakuSumMemory3") var kyoRareCountKoyakuSum: Int = 0
     @AppStorage("bioRe3KyoRareCountCzHitMemory3") var kyoRareCountCzHit: Int = 0
     @AppStorage("bioRe3KyoRareCountAtHitMemory3") var kyoRareCountAtHit: Int = 0
+    
+    // ---------
+    // ver4.0.0
+    // ---------
+    @AppStorage("bioRe3ShinonCountDropMemory3") var shinonCountDrop: Int = 0
+    @AppStorage("bioRe3ShinonCountStayMemory3") var shinonCountStay: Int = 0
+    @AppStorage("bioRe3ShinonCountSumMemory3") var shinonCountSum: Int = 0
 }

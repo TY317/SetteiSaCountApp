@@ -115,6 +115,14 @@ struct ContentView: View {
         get { AppearanceMode(rawValue: appearanceModeRaw) ?? .system }
         set { appearanceModeRaw = newValue.rawValue }
     }
+
+    // バナーサイズ：縦＝ラージアンカー（高単価/動画デマンド狙い）、横＝インライン高さ50（大きすぎ回避）
+    private func bannerAdSize(width: CGFloat) -> AdSize {
+        let isLandscape = orientation.isLandscape || (orientation.isFlat && lastOrientation.isLandscape)
+        return isLandscape
+            ? inlineAdaptiveBanner(width: width, maxHeight: 50)
+            : largeAnchoredAdaptiveBanner(width: width)
+    }
     
     @EnvironmentObject var rewardViewModel: RewardedViewModel
     @State var isShowInfoSheet: Bool = false
@@ -2488,7 +2496,7 @@ struct ContentView: View {
             if !isKeyboardVisible {
                 GeometryReader { geometry in
 //                    let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
-                    let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
+                    let adSize = bannerAdSize(width: geometry.size.width)
                     
                     ZStack {
                         Rectangle()
@@ -2501,7 +2509,7 @@ struct ContentView: View {
                     .frame(height: adSize.size.height)
                 }
 //                .frame(height: GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size.height)
-                .frame(height: currentOrientationAnchoredAdaptiveBanner(width: UIScreen.main.bounds.width).size.height)
+                .frame(height: bannerAdSize(width: UIScreen.main.bounds.width).size.height)
             }
         }
         // リワード広告のロード
@@ -2749,8 +2757,8 @@ struct BannerAdView: UIViewRepresentable {
 //            let banner = GADBannerView(adSize: parent.adSize)
             let banner = BannerView(adSize: parent.adSize)
             // [START load_ad]
-//            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
-            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
+            banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"     // テスト用
+//            banner.adUnitID = "ca-app-pub-2339669527176370/9695161925"     // 本番用
             
             // 広告リクエストを作成
 //            let adRequest = GADRequest()

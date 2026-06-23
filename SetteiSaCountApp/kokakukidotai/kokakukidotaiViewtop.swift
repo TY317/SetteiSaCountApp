@@ -152,7 +152,8 @@ struct kokakukidotaiViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.kokakukidotaiMachineIconBadge)
+//        .resetBadgeOnAppear($common.kokakukidotaiMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4931")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -269,6 +270,15 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory1.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
         kokakukidotaiMemory1.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
         kokakukidotaiMemory1.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotaiMemory1.modeCountA = kokakukidotai.modeCountA
+        kokakukidotaiMemory1.modeCountB = kokakukidotai.modeCountB
+        kokakukidotaiMemory1.modeCountC = kokakukidotai.modeCountC
+        kokakukidotaiMemory1.modeCountD = kokakukidotai.modeCountD
+        kokakukidotaiMemory1.modeCountSum = kokakukidotai.modeCountSum
     }
     func saveMemory2() {
         kokakukidotaiMemory2.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -319,6 +329,15 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory2.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
         kokakukidotaiMemory2.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
         kokakukidotaiMemory2.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotaiMemory2.modeCountA = kokakukidotai.modeCountA
+        kokakukidotaiMemory2.modeCountB = kokakukidotai.modeCountB
+        kokakukidotaiMemory2.modeCountC = kokakukidotai.modeCountC
+        kokakukidotaiMemory2.modeCountD = kokakukidotai.modeCountD
+        kokakukidotaiMemory2.modeCountSum = kokakukidotai.modeCountSum
     }
     func saveMemory3() {
         kokakukidotaiMemory3.iedeCountMiss = kokakukidotai.iedeCountMiss
@@ -369,6 +388,15 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory3.czColorCountGreenMiss = kokakukidotai.czColorCountGreenMiss
         kokakukidotaiMemory3.czColorCountGreenHit = kokakukidotai.czColorCountGreenHit
         kokakukidotaiMemory3.czColorCountGreenSum = kokakukidotai.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotaiMemory3.modeCountA = kokakukidotai.modeCountA
+        kokakukidotaiMemory3.modeCountB = kokakukidotai.modeCountB
+        kokakukidotaiMemory3.modeCountC = kokakukidotai.modeCountC
+        kokakukidotaiMemory3.modeCountD = kokakukidotai.modeCountD
+        kokakukidotaiMemory3.modeCountSum = kokakukidotai.modeCountSum
     }
 }
 
@@ -448,6 +476,15 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory1.czColorCountGreenMiss
         kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory1.czColorCountGreenHit
         kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory1.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotai.modeCountA = kokakukidotaiMemory1.modeCountA
+        kokakukidotai.modeCountB = kokakukidotaiMemory1.modeCountB
+        kokakukidotai.modeCountC = kokakukidotaiMemory1.modeCountC
+        kokakukidotai.modeCountD = kokakukidotaiMemory1.modeCountD
+        kokakukidotai.modeCountSum = kokakukidotaiMemory1.modeCountSum
     }
     func loadMemory2() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory2.iedeCountMiss
@@ -498,6 +535,15 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory2.czColorCountGreenMiss
         kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory2.czColorCountGreenHit
         kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory2.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotai.modeCountA = kokakukidotaiMemory2.modeCountA
+        kokakukidotai.modeCountB = kokakukidotaiMemory2.modeCountB
+        kokakukidotai.modeCountC = kokakukidotaiMemory2.modeCountC
+        kokakukidotai.modeCountD = kokakukidotaiMemory2.modeCountD
+        kokakukidotai.modeCountSum = kokakukidotaiMemory2.modeCountSum
     }
     func loadMemory3() {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory3.iedeCountMiss
@@ -548,6 +594,15 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.czColorCountGreenMiss = kokakukidotaiMemory3.czColorCountGreenMiss
         kokakukidotai.czColorCountGreenHit = kokakukidotaiMemory3.czColorCountGreenHit
         kokakukidotai.czColorCountGreenSum = kokakukidotaiMemory3.czColorCountGreenSum
+        
+        // -------
+        // ver4.0.0
+        // -------
+        kokakukidotai.modeCountA = kokakukidotaiMemory3.modeCountA
+        kokakukidotai.modeCountB = kokakukidotaiMemory3.modeCountB
+        kokakukidotai.modeCountC = kokakukidotaiMemory3.modeCountC
+        kokakukidotai.modeCountD = kokakukidotaiMemory3.modeCountD
+        kokakukidotai.modeCountSum = kokakukidotaiMemory3.modeCountSum
     }
 }
 

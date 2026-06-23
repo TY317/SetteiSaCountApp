@@ -15,6 +15,7 @@ struct bioRe3ViewBayes: View {
     let payoutList: [Double] = [97.5, 98.6, 100.9, 105.4, 110.5, 113.1]
     @State var firstHitAtEnable: Bool = true
     @State var figureEnable: Bool = true
+    @State var shinonEnable: Bool = true
     
     
     // 全機種共通
@@ -46,6 +47,8 @@ struct bioRe3ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 心音レベル転落率
+                unitToggleWithQuestion(enable: self.$shinonEnable, title: "心音レベル転落率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // フィギュアコレクション
@@ -147,6 +150,16 @@ struct bioRe3ViewBayes: View {
             }
         }
         
+        // 心音レベル
+        var logPostShinon: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.shinonEnable {
+            logPostShinon = logPostPercentBino(
+                ratio: bioRe3.ratioShinonDrop,
+                Count: bioRe3.shinonCountDrop,
+                bigNumber: bioRe3.shinonCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -186,6 +199,7 @@ struct bioRe3ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
             logPostFigure,
+            logPostShinon,
             
             logPostTrophy,
             logPostBefore,
