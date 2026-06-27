@@ -812,57 +812,5 @@ class commonVar: ObservableObject {
             print("初回起動です")
         }
     }
-    
-    func ver3241FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.24.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                jormungandMachineIconBadge = "update"
-                jormungandMenuRegBadge = "update"
-                godKisekiMachineIconBadge = "update"
-                godKisekiMenuNormalBadge = "update"
-                jormungandMenuNormalBadge = "update"
-                shinYoshiMachineIconBadge = "update"
-                shinYoshiMenuScreenBadge = "update"
-//                if let index = machines.firstIndex(where: { $0.id == "4961" }) {
-//                    // 見つかった場合、その要素のbadgeStatusを更新
-//                    machines[index].badgeStatus = "update" // または "update" など
-//                }
-//                machines.updateMachineBadgeStatus(id: "4961", newStatus: "update")
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-//    func ver3240FirstLaunch() {
-//        // 比較対象となるバージョンを設定
-//        let targetVersion: String = "3.24.0"
-//        
-//        if firstLaunchAppVersion != nil {
-//            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-//            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-//                print("\(targetVersion)未満からアップデートされました")
-//                godKisekiisUnlocked = false
-//                godKisekiMachineIconBadge = "new"
-//                akudamaMachineIconBadge = "update"
-//                akudamaMenuScreenBadge = "update"
-//                enen2MachineIconBadge = "update"
-//                enen2MenuEndingBadge = "new"
-//            }
-//            else {
-//                print("\(targetVersion)以上です")
-//            }
-//        } else {
-//            print("初回起動です")
-//        }
-//    }
 }
 

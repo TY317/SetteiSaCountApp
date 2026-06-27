@@ -17,7 +17,6 @@ struct shinYoshiViewScreen: View {
             // 参考情報）終了画面示唆
             shinYoshiTableScreen()
                 .frame(maxWidth: .infinity, alignment: .center)
-                .popoverTip(tipVer3241ShinYoshiScreen())
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.shinYoshiMenuScreenBadge)

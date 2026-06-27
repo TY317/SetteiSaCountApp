@@ -388,7 +388,6 @@
 		0F59EBE82F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */; };
 		0F59EBEA2F98E34500CF0C55 /* commonSectionCustomGinchan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */; };
 		0F59EBEC2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */; };
-		0F59EBEE2F9A245300CF0C55 /* ver3241.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBED2F9A245300CF0C55 /* ver3241.swift */; };
 		0F59EBF02F9A53E900CF0C55 /* jormungandTableChara12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */; };
 		0F59EBF12F9A53F100CF0C55 /* jormungandTableChara12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */; };
 		0F59EBF32F9A57EB00CF0C55 /* jormungandTableChara3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */; };
@@ -1921,7 +1920,6 @@
 		0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomTamachan.swift; sourceTree = "<group>"; };
 		0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomGinchan.swift; sourceTree = "<group>"; };
 		0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomKopanda.swift; sourceTree = "<group>"; };
-		0F59EBED2F9A245300CF0C55 /* ver3241.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver3241.swift; sourceTree = "<group>"; };
 		0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara12.swift; sourceTree = "<group>"; };
 		0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara3.swift; sourceTree = "<group>"; };
 		0F59EED22F9CAFDB00CF0C55 /* AppIcon_rev2.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_rev2.icon; sourceTree = "<group>"; };
@@ -4594,7 +4592,6 @@
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
-				0F59EBED2F9A245300CF0C55 /* ver3241.swift */,
 				0F7568CC2FA613A600A66336 /* ver3250.swift */,
 				0F186E6A2FB4ADA600FAAEB7 /* ver3260.swift */,
 				0F1A7D802FCA5C7D00B3DB2A /* ver3270.swift */,
@@ -7250,7 +7247,6 @@
 				0F973F502F9455E300818DD9 /* enen2TableEnding.swift in Sources */,
 				0F64DD412DC071790027315D /* acceleratorTableFirstHit.swift in Sources */,
 				0F8872782C6B0C8F00AADD2B /* VVVexViewEndScreen.swift in Sources */,
-				0F59EBEE2F9A245300CF0C55 /* ver3241.swift in Sources */,
 				0F9A4FA02DF41251003B6337 /* guiltyCrown2ViewBonusScreen.swift in Sources */,
 				0FB9CAB22DE1AFF6009FC6AF /* FirebaseScreenLogger.swift in Sources */,
 				0F2A4DF52F3715FE00B3C583 /* hanabiViewStart.swift in Sources */,

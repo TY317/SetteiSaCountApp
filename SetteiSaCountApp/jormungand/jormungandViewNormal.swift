@@ -85,7 +85,6 @@ struct jormungandViewNormal: View {
                         numberofDicimal: 0,
                         spacerBool: false,
                     )
-                    .popoverTip(tipVer3241JormungandKokakuJakuRare())
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 // 参考情報）レア役からのCZ当選率
