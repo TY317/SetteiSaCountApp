@@ -682,6 +682,24 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver410FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.1.0"
+        
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+    
     func ver400FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.0.0"
