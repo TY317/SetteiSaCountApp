@@ -1,0 +1,58 @@
+//
+//  __prefix__Class.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹.
+//
+
+import Foundation
+import SwiftUI
+import Combine
+
+class __Prefix__: ObservableObject {
+    // -------
+    // 通常時
+    // -------
+
+    func resetNormal() {
+        minusCheck = false
+    }
+
+    // --------
+    // 初当り
+    // --------
+
+    func resetFirstHit() {
+        minusCheck = false
+    }
+
+    // -----------
+    // 共通
+    // -----------
+    let machineName: String = "__FULLNAME__"
+    @AppStorage("__prefix__MinusCheck") var minusCheck: Bool = false
+    @AppStorage("__prefix__SelectedMemory") var selectedMemory = "メモリー1"
+
+    func resetAll() {
+        resetNormal()
+        resetFirstHit()
+    }
+}
+
+
+class __Prefix__Memory1: ObservableObject {
+    @AppStorage("__prefix__MemoMemory1") var memo = ""
+    @AppStorage("__prefix__DateMemory1") var dateDouble = 0.0
+}
+
+
+class __Prefix__Memory2: ObservableObject {
+    @AppStorage("__prefix__MemoMemory2") var memo = ""
+    @AppStorage("__prefix__DateMemory2") var dateDouble = 0.0
+}
+
+
+class __Prefix__Memory3: ObservableObject {
+    @AppStorage("__prefix__MemoMemory3") var memo = ""
+    @AppStorage("__prefix__DateMemory3") var dateDouble = 0.0
+}
