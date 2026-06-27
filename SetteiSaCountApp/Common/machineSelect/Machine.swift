@@ -75,4 +75,11 @@ extension Array where Element == Machine {
             self[index].badgeStatus = newStatus
         }
     }
+
+    /// 指定したIDの機種のロック状態(isUnlocked)を更新する
+    mutating func updateMachineIsUnlocked(id: String, isUnlocked: Bool) {
+        if let index = self.firstIndex(where: { $0.id == id }) {
+            self[index].isUnlocked = isUnlocked
+        }
+    }
 }
