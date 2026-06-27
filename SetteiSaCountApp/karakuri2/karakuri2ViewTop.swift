@@ -19,16 +19,16 @@ struct karakuri2ViewTop: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    // 注意事項
-                    Text("の利用を前提としています\n遊技前にを開始してください")
-                        .foregroundStyle(Color.secondary)
-                        .font(.footnote)
-                } header: {
-                    unitLabelMachineTopTitle(
-                        machineName: karakuri2.machineName,
-                    )
-                }
+//                Section {
+//                    // 注意事項
+//                    Text("の利用を前提としています\n遊技前にを開始してください")
+//                        .foregroundStyle(Color.secondary)
+//                        .font(.footnote)
+//                } header: {
+//                    unitLabelMachineTopTitle(
+//                        machineName: karakuri2.machineName,
+//                    )
+//                }
                 
                 Section {
                     // 通常時
@@ -52,11 +52,11 @@ struct karakuri2ViewTop: View {
                             badgeStatus: common.karakuri2MenuFirstHitBadge,
                         )
                     }
-//                } header: {
-//                    unitLabelMachineTopTitle(
-//                        machineName: karakuri2.machineName,
-//                        titleFont: .title,
-//                    )
+                } header: {
+                    unitLabelMachineTopTitle(
+                        machineName: karakuri2.machineName,
+                        titleFont: .title,
+                    )
                 }
                 
                 // 設定推測グラフ
