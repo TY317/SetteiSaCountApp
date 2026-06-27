@@ -482,6 +482,7 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5019": return AnyView(karakuri2ViewTop())
         case "5555": return AnyView(JuglerSeriesViewTopVer2(bayes: bayes, viewModel: viewModel))
         case "8787": return AnyView(hanahanaSeriesViewTopVer2(bayes: bayes, viewModel: viewModel))
         case "5009": return AnyView(otome5ViewTop(bayes: bayes,viewModel: viewModel))

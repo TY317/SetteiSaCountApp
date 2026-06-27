@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5019", name: "からくり2", fullName: "からくりサーカス2", iconName: "karakuri2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false, maker: "北電子"),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false, maker: "パイオニア"),
         Machine(id: "5009", name: "戦国乙女5", fullName: "戦国乙女5", iconName: "otome5MachineIcon", btBadge: false, maker: "平和"),
@@ -347,6 +348,13 @@ class commonVar: ObservableObject {
     // ハナハナ鳳凰
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
+    
+    
+    // ---- からくりサーカス2
+    @AppStorage("karakuri2MenuNormalBadge") var karakuri2MenuNormalBadge: String = "none"
+    @AppStorage("karakuri2MenuFirstHitBadge") var karakuri2MenuFirstHitBadge: String = "none"
+    @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
+    @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -690,7 +698,8 @@ class commonVar: ObservableObject {
             let lastVersion = lastLaunchAppVersion ?? "0.0.0"
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
-                
+                machines.updateMachineBadgeStatus(id: "5019", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5019", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
