@@ -10,6 +10,7 @@
 		04F56560F0CE483F8ED67FA9 /* sencole6ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */; };
 		2A82310038B94C63B2AE3F72 /* sencole6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */; };
 		BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */; };
+		10A574EFD84C46978C1AF1C3 /* sencole6ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */; };
 		91D567BEF0D647738C0AE0C0 /* sencole6ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 		BE26FEDC9851484B953B493D /* sencole6Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */; };
@@ -1647,6 +1648,7 @@
 		C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewTop.swift; sourceTree = "<group>"; };
 		45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6Class.swift; sourceTree = "<group>"; };
 		105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewNormal.swift; sourceTree = "<group>"; };
+		F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewBayes.swift; sourceTree = "<group>"; };
 		42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewFirstHit.swift; sourceTree = "<group>"; };
 		9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6View95Ci.swift; sourceTree = "<group>"; };
 		2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sencole6Assets.xcassets; sourceTree = "<group>"; };
@@ -3149,6 +3151,7 @@
 				C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */,
 				45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */,
 				105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */,
+				F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */,
 				42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */,
 				9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */,
 				2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */,
@@ -7248,6 +7251,7 @@
 				04F56560F0CE483F8ED67FA9 /* sencole6ViewTop.swift in Sources */,
 				2A82310038B94C63B2AE3F72 /* sencole6Class.swift in Sources */,
 				BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */,
+				10A574EFD84C46978C1AF1C3 /* sencole6ViewBayes.swift in Sources */,
 				91D567BEF0D647738C0AE0C0 /* sencole6ViewFirstHit.swift in Sources */,
 				F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */,
 				0FD357992DAB3E760069BD1A /* godzillaTableOpelatorMessage.swift in Sources */,
