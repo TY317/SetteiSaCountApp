@@ -322,6 +322,8 @@
 		0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */; };
 		0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
 		0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
+		BDCA6E98F3654C8999FE012F /* sencole6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */; };
+		4BC49742BA6F4B45B8A911C2 /* sencole6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */; };
 		0F461F852F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F862F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F8B2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F8A2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift */; };
@@ -1889,6 +1891,7 @@
 		0F45A6102F0943890022E355 /* mushotenViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewEnding.swift; sourceTree = "<group>"; };
 		0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenSectionEndingTable.swift; sourceTree = "<group>"; };
 		0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiKoyakuPattern.swift; sourceTree = "<group>"; };
+		8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableModeGaiyo.swift; sourceTree = "<group>"; };
 		0F461F8A2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiNaviModeSisa.swift; sourceTree = "<group>"; };
 		0F461F8D2F93336A00F6B6A1 /* godKisekiTableDeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableDeme.swift; sourceTree = "<group>"; };
@@ -3151,6 +3154,7 @@
 				C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */,
 				45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */,
 				105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */,
+				8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */,
 				F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */,
 				42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */,
 				9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */,
@@ -6507,6 +6511,7 @@
 				0FD357262DA0F0630069BD1A /* shamanKingViewCzFuriwake.swift in Sources */,
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				BDCA6E98F3654C8999FE012F /* sencole6TableKoyakuPattern.swift in Sources */,
 				0F64DDC22DC6DF880027315D /* unitReelLongTitle.swift in Sources */,
 				0F375A292F827E8200982F7A /* akudamaViewBayes.swift in Sources */,
 				0F868A5A2D47BB7100D952D9 /* draHanaSenkohVer2ViewJissenTotalDataCheck.swift in Sources */,
@@ -7453,6 +7458,7 @@
 				0F3759EC2F7C0A3600982F7A /* shinYoshiTableMode.swift in Sources */,
 				0F00FBF02FB04C210076283F /* rioAceTableVBellSystem.swift in Sources */,
 				0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				4BC49742BA6F4B45B8A911C2 /* sencole6TableKoyakuPattern.swift in Sources */,
 				0FA0A7E02EF96AAE003EF8BD /* myFunction.swift in Sources */,
 				0FA0A7E32EF96BD3003EF8BD /* vvv2TableScreenRatio.swift in Sources */,
 				0FCE1C6A2FC272FE004A1D2A /* godKisekiModeArrow.swift in Sources */,
