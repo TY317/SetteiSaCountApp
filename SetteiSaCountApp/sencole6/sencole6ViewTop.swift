@@ -52,6 +52,15 @@ struct sencole6ViewTop: View {
                             badgeStatus: common.sencole6MenuFirstHitBadge,
                         )
                     }
+                    
+                    // トロフィー
+                    NavigationLink(destination: commonViewArisuTrophy()) {
+                        unitLabelMenu(
+                            imageSystemName: "trophy.fill",
+                            textBody: "アリストロフィー"
+                        )
+                    }
+                    
 //                } header: {
 //                    unitLabelMachineTopTitle(
 //                        machineName: sencole6.machineName,
