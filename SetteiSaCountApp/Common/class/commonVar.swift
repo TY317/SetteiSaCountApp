@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5010", name: "戦コレ6", fullName: "戦国コレクション6", iconName: "sencole6MachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5019", name: "からくり2", fullName: "からくりサーカス2", iconName: "karakuri2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false, maker: "北電子"),
         Machine(id: "8787", name: "ハナハナ", fullName: "ハナハナシリーズ", iconName: "machineIconHanahanaSeries", btBadge: false, maker: "パイオニア"),
@@ -350,6 +351,12 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
     
+    // ---- 戦国コレクション6
+    @AppStorage("sencole6MenuNormalBadge") var sencole6MenuNormalBadge: String = "none"
+    @AppStorage("sencole6MenuFirstHitBadge") var sencole6MenuFirstHitBadge: String = "none"
+    @AppStorage("sencole6MenuBayesBadge") var sencole6MenuBayesBadge: String = "none"
+    @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
+
     // ---- からくりサーカス2
     @AppStorage("karakuri2MenuNormalBadge") var karakuri2MenuNormalBadge: String = "none"
     @AppStorage("karakuri2MenuFirstHitBadge") var karakuri2MenuFirstHitBadge: String = "none"
@@ -700,6 +707,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 machines.updateMachineBadgeStatus(id: "5019", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5019", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5010", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
