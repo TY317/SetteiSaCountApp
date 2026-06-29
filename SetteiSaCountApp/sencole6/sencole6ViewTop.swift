@@ -21,7 +21,7 @@ struct sencole6ViewTop: View {
             List {
                 Section {
                     // 注意事項
-                    Text("の利用を前提としています\n遊技前にを開始してください")
+                    Text("e-slot+の利用を前提としています\n遊技前にe-slot+を開始してください")
                         .foregroundStyle(Color.secondary)
                         .font(.footnote)
                 } header: {
