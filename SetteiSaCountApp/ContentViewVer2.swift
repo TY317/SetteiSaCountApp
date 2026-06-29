@@ -223,6 +223,14 @@ struct ContentViewVer2: View {
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .interactive))
                 .background(Color(UIColor.systemGroupedBackground))
+                // //// firebaseログ
+                .onAppear {
+                    let screenClass = String(describing: Self.self)
+                    logEventFirebaseScreen(
+                        screenName: "機種選択",
+                        screenClass: screenClass
+                    )
+                }
             }
             .background(Color(UIColor.systemGroupedBackground))
 
@@ -250,6 +258,14 @@ struct ContentViewVer2: View {
                 unitViewHomeOnboarding()
             }
         }
+//        // //// firebaseログ
+//        .onAppear {
+//            let screenClass = String(describing: Self.self)
+//            logEventFirebaseScreen(
+//                screenName: "機種選択",
+//                screenClass: screenClass
+//            )
+//        }
         // リワード広告のロード
         .onAppear {
             Task { await rewardViewModel.loadAd() }
