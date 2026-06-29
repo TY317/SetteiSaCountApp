@@ -19,17 +19,7 @@ struct __prefix__ViewTop: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    // 注意事項
-                    Text("の利用を前提としています\n遊技前にを開始してください")
-                        .foregroundStyle(Color.secondary)
-                        .font(.footnote)
-                } header: {
-                    unitLabelMachineTopTitle(
-                        machineName: __prefix__.machineName,
-                    )
-                }
-
+__CAUTION_SECTION__
                 Section {
                     // 通常時
                     NavigationLink(destination: __prefix__ViewNormal(
