@@ -71,7 +71,7 @@ struct sencole6ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: sencole6View95Ci(
                     sencole6: sencole6,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

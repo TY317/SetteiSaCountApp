@@ -51,23 +51,23 @@ struct sencole6View95Ci: View {
 //            )
 //            .tag(2)
 //
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $sencole6.firstHitCountAt,
-//                        bigNumber: $sencole6.normalGame,
-//                        setting1Denominate: sencole6.ratioFirstHitAt[0],
-//                        setting2Denominate: sencole6.ratioFirstHitAt[1],
-//                        setting3Denominate: sencole6.ratioFirstHitAt[2],
-//                        setting4Denominate: sencole6.ratioFirstHitAt[3],
-//                        setting5Denominate: sencole6.ratioFirstHitAt[4],
-//                        setting6Denominate: sencole6.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $sencole6.firstHitCountAt,
+                        bigNumber: $sencole6.normalGame,
+                        setting1Denominate: sencole6.ratioFirstHitAt[0],
+                        setting2Denominate: sencole6.ratioFirstHitAt[1],
+                        setting3Denominate: sencole6.ratioFirstHitAt[2],
+                        setting4Denominate: sencole6.ratioFirstHitAt[3],
+                        setting5Denominate: sencole6.ratioFirstHitAt[4],
+                        setting6Denominate: sencole6.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {

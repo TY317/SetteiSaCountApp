@@ -21,8 +21,13 @@ class Sencole6: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitAt: [Double] = [363.6,350.4,329.8,289.4,268.5,252.2]
+    @AppStorage("sencole6NormalGame") var normalGame: Int = 0
+    @AppStorage("sencole6FirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

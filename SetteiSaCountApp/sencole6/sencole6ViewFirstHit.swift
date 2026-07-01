@@ -28,7 +28,54 @@ struct sencole6ViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
-
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $sencole6.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
+            
+            // カウントボタン横並び
+            HStack {
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $sencole6.firstHitCountAt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $sencole6.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $sencole6.minusCheck
+                )
+            }
+            
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: sencole6.ratioFirstHitAt
+                    )
+                }
+            }
+            
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    sencole6View95Ci(
+                        sencole6: sencole6,
+                        selection: 2,
+                    )
+                )
+            )
+            
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                sencole6ViewBayes(
+                    sencole6: sencole6,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.sencole6MenuFirstHitBadge)
