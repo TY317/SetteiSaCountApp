@@ -53,6 +53,17 @@ struct sencole6ViewTop: View {
                         )
                     }
                     
+                    // 初当り
+                    NavigationLink(destination: sencole6ViewScreen(
+                        sencole6: sencole6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.sencole6MenuScreenBadge,
+                        )
+                    }
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewArisuTrophy()) {
                         unitLabelMenu(
