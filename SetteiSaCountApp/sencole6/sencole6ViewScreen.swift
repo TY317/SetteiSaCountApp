@@ -113,6 +113,15 @@ struct sencole6ViewScreen: View {
             } header: {
                 unitLabelHeaderScreenCount()
             }
+            
+            // コナミコマンド
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "コナミコマンドでのボイス") {
+                    sencole6TableCommand()
+                }
+            } header: {
+                Text("コナミコマンド")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.sencole6MenuScreenBadge)
