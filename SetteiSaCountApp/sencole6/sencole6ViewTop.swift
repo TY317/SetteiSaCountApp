@@ -64,6 +64,17 @@ struct sencole6ViewTop: View {
                         )
                     }
                     
+                    // AT中
+                    NavigationLink(destination: sencole6ViewDuringAt(
+                        sencole6: sencole6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.equestrian.sports",
+                            textBody: "AT中",
+                            badgeStatus: common.sencole6MenuDuringAtBadge,
+                        )
+                    }
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewArisuTrophy()) {
                         unitLabelMenu(

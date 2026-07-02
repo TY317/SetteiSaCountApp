@@ -356,6 +356,7 @@ class commonVar: ObservableObject {
     @AppStorage("sencole6MenuFirstHitBadge") var sencole6MenuFirstHitBadge: String = "none"
     @AppStorage("sencole6MenuBayesBadge") var sencole6MenuBayesBadge: String = "none"
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
+    @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
 
     // ---- からくりサーカス2
     @AppStorage("karakuri2MenuNormalBadge") var karakuri2MenuNormalBadge: String = "none"
