@@ -37,6 +37,26 @@ struct sencole6ViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // モード
+            Section {
+                // 周期・モード
+                unitLinkButtonViewBuilder(sheetTitle: "周期・モードについて") {
+                    sencole6TableMode()
+                }
+                
+                // 裏モード
+                unitLinkButtonViewBuilder(sheetTitle: "裏モード") {
+                    sencole6TableUraMode()
+                }
+                
+                // モード示唆
+                unitLinkButtonViewBuilder(sheetTitle: "モード示唆", detent: .large) {
+                    sencole6TableModeSisa()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.sencole6MenuNormalBadge)
