@@ -193,13 +193,40 @@ struct sencole6SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        sencole6Memory1.normalGame = sencole6.normalGame
+        sencole6Memory1.firstHitCountAt = sencole6.firstHitCountAt
+        sencole6Memory1.screenCount1 = sencole6.screenCount1
+        sencole6Memory1.screenCount2 = sencole6.screenCount2
+        sencole6Memory1.screenCount3 = sencole6.screenCount3
+        sencole6Memory1.screenCount4 = sencole6.screenCount4
+        sencole6Memory1.screenCount5 = sencole6.screenCount5
+        sencole6Memory1.screenCount6 = sencole6.screenCount6
+        sencole6Memory1.screenCount7 = sencole6.screenCount7
+        sencole6Memory1.screenCountSum = sencole6.screenCountSum
     }
     func saveMemory2() {
-
+        sencole6Memory2.normalGame = sencole6.normalGame
+        sencole6Memory2.firstHitCountAt = sencole6.firstHitCountAt
+        sencole6Memory2.screenCount1 = sencole6.screenCount1
+        sencole6Memory2.screenCount2 = sencole6.screenCount2
+        sencole6Memory2.screenCount3 = sencole6.screenCount3
+        sencole6Memory2.screenCount4 = sencole6.screenCount4
+        sencole6Memory2.screenCount5 = sencole6.screenCount5
+        sencole6Memory2.screenCount6 = sencole6.screenCount6
+        sencole6Memory2.screenCount7 = sencole6.screenCount7
+        sencole6Memory2.screenCountSum = sencole6.screenCountSum
     }
     func saveMemory3() {
-
+        sencole6Memory3.normalGame = sencole6.normalGame
+        sencole6Memory3.firstHitCountAt = sencole6.firstHitCountAt
+        sencole6Memory3.screenCount1 = sencole6.screenCount1
+        sencole6Memory3.screenCount2 = sencole6.screenCount2
+        sencole6Memory3.screenCount3 = sencole6.screenCount3
+        sencole6Memory3.screenCount4 = sencole6.screenCount4
+        sencole6Memory3.screenCount5 = sencole6.screenCount5
+        sencole6Memory3.screenCount6 = sencole6.screenCount6
+        sencole6Memory3.screenCount7 = sencole6.screenCount7
+        sencole6Memory3.screenCountSum = sencole6.screenCountSum
     }
 }
 
@@ -231,13 +258,40 @@ struct sencole6SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        sencole6.normalGame = sencole6Memory1.normalGame
+        sencole6.firstHitCountAt = sencole6Memory1.firstHitCountAt
+        sencole6.screenCount1 = sencole6Memory1.screenCount1
+        sencole6.screenCount2 = sencole6Memory1.screenCount2
+        sencole6.screenCount3 = sencole6Memory1.screenCount3
+        sencole6.screenCount4 = sencole6Memory1.screenCount4
+        sencole6.screenCount5 = sencole6Memory1.screenCount5
+        sencole6.screenCount6 = sencole6Memory1.screenCount6
+        sencole6.screenCount7 = sencole6Memory1.screenCount7
+        sencole6.screenCountSum = sencole6Memory1.screenCountSum
     }
     func loadMemory2() {
-
+        sencole6.normalGame = sencole6Memory2.normalGame
+        sencole6.firstHitCountAt = sencole6Memory2.firstHitCountAt
+        sencole6.screenCount1 = sencole6Memory2.screenCount1
+        sencole6.screenCount2 = sencole6Memory2.screenCount2
+        sencole6.screenCount3 = sencole6Memory2.screenCount3
+        sencole6.screenCount4 = sencole6Memory2.screenCount4
+        sencole6.screenCount5 = sencole6Memory2.screenCount5
+        sencole6.screenCount6 = sencole6Memory2.screenCount6
+        sencole6.screenCount7 = sencole6Memory2.screenCount7
+        sencole6.screenCountSum = sencole6Memory2.screenCountSum
     }
     func loadMemory3() {
-
+        sencole6.normalGame = sencole6Memory3.normalGame
+        sencole6.firstHitCountAt = sencole6Memory3.firstHitCountAt
+        sencole6.screenCount1 = sencole6Memory3.screenCount1
+        sencole6.screenCount2 = sencole6Memory3.screenCount2
+        sencole6.screenCount3 = sencole6Memory3.screenCount3
+        sencole6.screenCount4 = sencole6Memory3.screenCount4
+        sencole6.screenCount5 = sencole6Memory3.screenCount5
+        sencole6.screenCount6 = sencole6Memory3.screenCount6
+        sencole6.screenCount7 = sencole6Memory3.screenCount7
+        sencole6.screenCountSum = sencole6Memory3.screenCountSum
     }
 }
 

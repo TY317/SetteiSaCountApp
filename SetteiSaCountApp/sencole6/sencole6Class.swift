@@ -83,18 +83,48 @@ class Sencole6: ObservableObject {
 
 
 class Sencole6Memory1: ObservableObject {
+    @AppStorage("sencole6NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("sencole6FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("sencole6ScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("sencole6ScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("sencole6ScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("sencole6ScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("sencole6ScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("sencole6ScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("sencole6ScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("sencole6ScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory1") var memo = ""
     @AppStorage("sencole6DateMemory1") var dateDouble = 0.0
 }
 
 
 class Sencole6Memory2: ObservableObject {
+    @AppStorage("sencole6NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("sencole6FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("sencole6ScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("sencole6ScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("sencole6ScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("sencole6ScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("sencole6ScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("sencole6ScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("sencole6ScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("sencole6ScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory2") var memo = ""
     @AppStorage("sencole6DateMemory2") var dateDouble = 0.0
 }
 
 
 class Sencole6Memory3: ObservableObject {
+    @AppStorage("sencole6NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("sencole6FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("sencole6ScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("sencole6ScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("sencole6ScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("sencole6ScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("sencole6ScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("sencole6ScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("sencole6ScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("sencole6ScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory3") var memo = ""
     @AppStorage("sencole6DateMemory3") var dateDouble = 0.0
 }
