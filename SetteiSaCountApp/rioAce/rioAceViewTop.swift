@@ -262,6 +262,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory1.suikaCount = rioAce.suikaCount
         rioAceMemory1.roomSuccessCount = rioAce.roomSuccessCount
         rioAceMemory1.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
+        
+        rioAceMemory1.voiceCount1 = rioAce.voiceCount1
+        rioAceMemory1.voiceCount2 = rioAce.voiceCount2
+        rioAceMemory1.voiceCount3 = rioAce.voiceCount3
+        rioAceMemory1.voiceCount4 = rioAce.voiceCount4
+        rioAceMemory1.voiceCount5 = rioAce.voiceCount5
+        rioAceMemory1.voiceCountSum = rioAce.voiceCountSum
     }
     func saveMemory2() {
         rioAceMemory2.kiteiReplay = rioAce.kiteiReplay
@@ -289,6 +296,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory2.suikaCount = rioAce.suikaCount
         rioAceMemory2.roomSuccessCount = rioAce.roomSuccessCount
         rioAceMemory2.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
+        
+        rioAceMemory2.voiceCount1 = rioAce.voiceCount1
+        rioAceMemory2.voiceCount2 = rioAce.voiceCount2
+        rioAceMemory2.voiceCount3 = rioAce.voiceCount3
+        rioAceMemory2.voiceCount4 = rioAce.voiceCount4
+        rioAceMemory2.voiceCount5 = rioAce.voiceCount5
+        rioAceMemory2.voiceCountSum = rioAce.voiceCountSum
     }
     func saveMemory3() {
         rioAceMemory3.kiteiReplay = rioAce.kiteiReplay
@@ -316,6 +330,13 @@ struct rioAceSubViewSaveMemory: View {
         rioAceMemory3.suikaCount = rioAce.suikaCount
         rioAceMemory3.roomSuccessCount = rioAce.roomSuccessCount
         rioAceMemory3.duringRoomSuikaCountMemo = rioAce.duringRoomSuikaCountMemo
+        
+        rioAceMemory3.voiceCount1 = rioAce.voiceCount1
+        rioAceMemory3.voiceCount2 = rioAce.voiceCount2
+        rioAceMemory3.voiceCount3 = rioAce.voiceCount3
+        rioAceMemory3.voiceCount4 = rioAce.voiceCount4
+        rioAceMemory3.voiceCount5 = rioAce.voiceCount5
+        rioAceMemory3.voiceCountSum = rioAce.voiceCountSum
     }
 }
 
@@ -372,6 +393,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.suikaCount = rioAceMemory1.suikaCount
         rioAce.roomSuccessCount = rioAceMemory1.roomSuccessCount
         rioAce.duringRoomSuikaCountMemo = rioAceMemory1.duringRoomSuikaCountMemo
+        
+        rioAce.voiceCount1 = rioAceMemory1.voiceCount1
+        rioAce.voiceCount2 = rioAceMemory1.voiceCount2
+        rioAce.voiceCount3 = rioAceMemory1.voiceCount3
+        rioAce.voiceCount4 = rioAceMemory1.voiceCount4
+        rioAce.voiceCount5 = rioAceMemory1.voiceCount5
+        rioAce.voiceCountSum = rioAceMemory1.voiceCountSum
     }
     func loadMemory2() {
         rioAce.kiteiReplay = rioAceMemory2.kiteiReplay
@@ -399,6 +427,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.suikaCount = rioAceMemory2.suikaCount
         rioAce.roomSuccessCount = rioAceMemory2.roomSuccessCount
         rioAce.duringRoomSuikaCountMemo = rioAceMemory2.duringRoomSuikaCountMemo
+        
+        rioAce.voiceCount1 = rioAceMemory2.voiceCount1
+        rioAce.voiceCount2 = rioAceMemory2.voiceCount2
+        rioAce.voiceCount3 = rioAceMemory2.voiceCount3
+        rioAce.voiceCount4 = rioAceMemory2.voiceCount4
+        rioAce.voiceCount5 = rioAceMemory2.voiceCount5
+        rioAce.voiceCountSum = rioAceMemory2.voiceCountSum
     }
     func loadMemory3() {
         rioAce.kiteiReplay = rioAceMemory3.kiteiReplay
@@ -426,6 +461,13 @@ struct rioAceSubViewLoadMemory: View {
         rioAce.suikaCount = rioAceMemory3.suikaCount
         rioAce.roomSuccessCount = rioAceMemory3.roomSuccessCount
         rioAce.duringRoomSuikaCountMemo = rioAceMemory3.duringRoomSuikaCountMemo
+        
+        rioAce.voiceCount1 = rioAceMemory3.voiceCount1
+        rioAce.voiceCount2 = rioAceMemory3.voiceCount2
+        rioAce.voiceCount3 = rioAceMemory3.voiceCount3
+        rioAce.voiceCount4 = rioAceMemory3.voiceCount4
+        rioAce.voiceCount5 = rioAceMemory3.voiceCount5
+        rioAce.voiceCountSum = rioAceMemory3.voiceCountSum
     }
 }
 
