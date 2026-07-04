@@ -714,6 +714,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
                 rioAceMenuEndingBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
+                bioRe3MenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
