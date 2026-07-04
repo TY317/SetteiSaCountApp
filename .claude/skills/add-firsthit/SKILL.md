@@ -86,6 +86,22 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
         }
 ```
 
+### 3b. キーボード完了ボタン（`.toolbar` に追加）
+ゲーム数入力（キーボード）を閉じるため、`<prefix>ViewFirstHit.swift` の既存 `.toolbar { … }` ブロック（マイナスチェック／リセットの ToolbarItem がある所）の**末尾に**、キーボード用 ToolbarItem を追加する（`isFocused` は雛形の `@FocusState var isFocused` を使用）：
+```swift
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
+```
+
 ## 4. View95Ci 編集（`<prefix>View95Ci.swift`）
 `TabView(selection: self.$selection) {` 内のコメントアウトされた placeholder セクション群（`// 回数`/`CZ初当り回数`/`AT初当り回数` 等）を**丸ごと削除**し、種類ごとに以下を生成。**tag は 2 から連番**（先頭種類=2）。各セクション間は空行1つ：
 ```swift
@@ -123,3 +139,4 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
 - `normalGame` と `resetFirstHit()` 内 `normalGame = 0` は**1回だけ**（種類ぶん重複させない）。
 - View95Ci の tag は 2 始まり（tag 1 相当の通常時 percent グラフは本スキルでは生成しない）。ViewTop・ViewFirstHit の `selection:` は先頭タグ 2 に合わせる。
 - 生成コードは sencole6（単一種）/ tekken6（多種）の実装と同型。カウント処理・小役確率・レア役停止系（add-koyaku-pattern）・Bayes 本体（add-bayes）はスコープ外。
+- ゲーム数入力のキーボードを閉じる `.keyboard` ToolbarItem（「完了」ボタン）を `.toolbar` に必ず追加（step 3b）。
