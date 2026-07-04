@@ -1,0 +1,135 @@
+// ============================================================
+// (A) Class（__prefix__Class.swift）— クラス末尾の count 群の後に挿入
+// ============================================================
+
+    // -------
+    // __SELECT_HEADER__
+    // -------
+__COUNT_APPSTORAGE__
+    @AppStorage("__prefix____Element__CountSum") var __element__CountSum: Int = 0
+
+    func __element__SumFunc() {
+        __element__CountSum = countSum(
+__COUNT_SUMARGS__
+        )
+    }
+
+    func reset__Element__() {
+__COUNT_RESET__
+        __element__CountSum = 0
+        minusCheck = false
+    }
+
+// → resetAll() に「reset__Element__()」を1行追加
+
+
+// ============================================================
+// (B) View プロパティ（標準 @State 群の後・`var body` の前に挿入）
+// ============================================================
+
+    @State var selectedItem: String = "__DEFAULT_ITEM__"
+    let selectList: [String] = [
+__SELECT_LIST__
+    ]
+    let sisaList: [String] = [
+__SISA_LIST__
+    ]
+
+
+// ============================================================
+// (C) List の中身（`List { }` 内に2 Section 追加）
+// ============================================================
+
+            // __SELECT_HEADER__
+            Section {
+                // サークルピッカー
+                Picker("", selection: self.$selectedItem) {
+                    ForEach(self.selectList, id: \.self) { item in
+                        Text(item)
+                    }
+                }
+                .pickerStyle(.wheel)
+                .frame(height: 150)
+
+                // //// 示唆＆登録ボタン
+                unitCountSubmitWithResult(
+                    title: sisaText(item: self.selectedItem),
+                    count: binding__Element__(item: self.selectedItem),
+                    bigNumber: $__prefix__.__element__CountSum,
+                    flushColor: flushColor(item: self.selectedItem),
+                    minusCheck: $__prefix__.minusCheck) {
+                        __prefix__.__element__SumFunc()
+                    }
+            } header: {
+                Text("__SELECT_HEADER__")
+            }
+
+            // カウント結果
+            Section {
+                ForEach(self.selectList, id: \.self) { item in
+                    unitResultCountListPercent(
+                        title: sisaText(item: item),
+                        count: binding__Element__(item: item),
+                        flashColor: flushColor(item: item),
+                        bigNumber: $__prefix__.__element__CountSum
+                    )
+                }
+            } header: {
+                Text("__RESULT_HEADER__")
+            }
+
+
+// ============================================================
+// (D) toolbar（`.applyOrientationHandling(...)` の直後に追加）
+//     既に .toolbar があれば、中の ToolbarItem 2つだけを統合する
+// ============================================================
+
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $__prefix__.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: __prefix__.reset__Element__)
+            }
+        }
+
+
+// ============================================================
+// (E) ヘルパー3関数（struct 末尾の `}` の前に挿入）
+// ============================================================
+
+    private func sisaText(item: String) -> String {
+        switch item {
+__SISA_SWITCH__
+        default: return "???"
+        }
+    }
+
+    private func binding__Element__(item: String) -> Binding<Int> {
+        switch item {
+__BINDING_SWITCH__
+        default: return .constant(0)
+        }
+    }
+
+    private func flushColor(item: String) -> Color {
+        switch item {
+__COLOR_SWITCH__
+        default: return .gray
+        }
+    }
+
+
+// ============================================================
+// トークン生成規則（N＝選択肢数、k＝0..N-1）
+// ============================================================
+// __COUNT_APPSTORAGE__ : 各行 `    @AppStorage("__prefix____Element__Count<k+1>") var __element__Count<k+1>: Int = 0`
+// __COUNT_SUMARGS__    : 各行 `            __element__Count<k+1>,`
+// __COUNT_RESET__      : 各行 `        __element__Count<k+1> = 0`
+// __SELECT_LIST__      : 各行 `        "<選択肢k>",`（字下げ8）
+// __SISA_LIST__        : 各行 `        "<示唆k>",`（字下げ8）
+// __SISA_SWITCH__      : 各行 `        case self.selectList[k]: return self.sisaList[k]`（字下げ8）
+// __BINDING_SWITCH__   : 各行 `        case self.selectList[k]: return $__prefix__.__element__Count<k+1>`
+// __COLOR_SWITCH__     : 各行 `        case self.selectList[k]: return <colorK>`
