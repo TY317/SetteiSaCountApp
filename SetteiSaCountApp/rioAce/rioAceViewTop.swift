@@ -97,19 +97,19 @@ struct rioAceViewTop: View {
                         )
                     }
 
-//                    // エンディング
-//                    NavigationLink(destination: rioAceViewEnding(
-//                        rioAce: rioAce,
-//                        bayes: bayes,
-//                        viewModel: viewModel,
-//                    )) {
-//                        unitLabelMenu(
-//                            imageSystemName: "flag.pattern.checkered",
-//                            textBody: "エンディング",
-//                            badgeStatus: common.rioAceMenuEndingBadge,
-//                        )
-//                    }
-//
+                    // エンディング
+                    NavigationLink(destination: rioAceViewEnding(
+                        rioAce: rioAce,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.rioAceMenuEndingBadge,
+                        )
+                    }
+
 //                    // おみくじ
 //                    NavigationLink(destination: rioAceViewOmikuji(
 //                        rioAce: rioAce,

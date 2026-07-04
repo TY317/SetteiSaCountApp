@@ -598,6 +598,7 @@
 		0F7568D22FA6179E00A66336 /* rioAceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D12FA6179E00A66336 /* rioAceClass.swift */; };
 		0F7568D42FA6199F00A66336 /* rioAceAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7568D32FA6199F00A66336 /* rioAceAssets.xcassets */; };
 		0F7568D62FA6B8CB00A66336 /* rioAceViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D52FA6B8CB00A66336 /* rioAceViewNormal.swift */; };
+		237993D88DD94F8C85B00E71 /* rioAceViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */; };
 		0F7568D82FA6BC7900A66336 /* rioAceViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */; };
 		0F7568DA2FA6C0A000A66336 /* rioAceView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */; };
 		0F7568DC2FA6C19C00A66336 /* rioAceViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */; };
@@ -2154,6 +2155,7 @@
 		0F7568D12FA6179E00A66336 /* rioAceClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceClass.swift; sourceTree = "<group>"; };
 		0F7568D32FA6199F00A66336 /* rioAceAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = rioAceAssets.xcassets; sourceTree = "<group>"; };
 		0F7568D52FA6B8CB00A66336 /* rioAceViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewNormal.swift; sourceTree = "<group>"; };
+		D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewEnding.swift; sourceTree = "<group>"; };
 		0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewFirstHit.swift; sourceTree = "<group>"; };
 		0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceView95Ci.swift; sourceTree = "<group>"; };
 		0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewBayes.swift; sourceTree = "<group>"; };
@@ -3951,6 +3953,7 @@
 				0F7568D12FA6179E00A66336 /* rioAceClass.swift */,
 				0F7568D32FA6199F00A66336 /* rioAceAssets.xcassets */,
 				0F7568D52FA6B8CB00A66336 /* rioAceViewNormal.swift */,
+				D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */,
 				0F7568D72FA6BC7900A66336 /* rioAceViewFirstHit.swift */,
 				0F7568D92FA6C0A000A66336 /* rioAceView95Ci.swift */,
 				0F7568DB2FA6C19C00A66336 /* rioAceViewBayes.swift */,
@@ -7116,6 +7119,7 @@
 				0F1E120A2DD0BF0E00F69AFF /* lupinTableChara.swift in Sources */,
 				0FD357602DA293F60069BD1A /* magiaViewFirstHit.swift in Sources */,
 				0F7568D62FA6B8CB00A66336 /* rioAceViewNormal.swift in Sources */,
+				237993D88DD94F8C85B00E71 /* rioAceViewEnding.swift in Sources */,
 				0F1E11F22DCF32E300F69AFF /* magiaTableMagicGirlMode.swift in Sources */,
 				0FD357342DA1545C0069BD1A /* hanahanaCommonTableRegTopLamp.swift in Sources */,
 				0F0DE81B2EDC385000D85BCA /* bakemonoViewBayes.swift in Sources */,

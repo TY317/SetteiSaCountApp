@@ -409,7 +409,8 @@ class commonVar: ObservableObject {
     @AppStorage("rioAceMenuFirstHitBadge") var rioAceMenuFirstHitBadge: String = "none"
     @AppStorage("rioAceMenuBayesBadge") var rioAceMenuBayesBadge: String = "none"
     @AppStorage("rioAceMenuScreenBadge") var rioAceMenuScreenBadge: String = "none"
-    
+    @AppStorage("rioAceMenuEndingBadge") var rioAceMenuEndingBadge: String = "none"
+
     // ---- ミリオンゴッド軌跡
     @AppStorage("godKisekiisUnlocked") var godKisekiisUnlocked: Bool = true
     @AppStorage("godKisekiTempUnlockDateDouble") var godKisekiTempUnlockDateDouble: Double = 0.0
@@ -711,6 +712,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5019", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5010", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
+                rioAceMenuEndingBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
