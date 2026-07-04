@@ -185,13 +185,49 @@ struct karakuri2SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-        
+        karakuri2Memory1.normalGame = karakuri2.normalGame
+        karakuri2Memory1.firstHitCountCz = karakuri2.firstHitCountCz
+        karakuri2Memory1.firstHitCountAt = karakuri2.firstHitCountAt
+        karakuri2Memory1.screenCount1 = karakuri2.screenCount1
+        karakuri2Memory1.screenCount2 = karakuri2.screenCount2
+        karakuri2Memory1.screenCount3 = karakuri2.screenCount3
+        karakuri2Memory1.screenCount4 = karakuri2.screenCount4
+        karakuri2Memory1.screenCount5 = karakuri2.screenCount5
+        karakuri2Memory1.screenCount6 = karakuri2.screenCount6
+        karakuri2Memory1.screenCountSum = karakuri2.screenCountSum
+        karakuri2Memory1.gameArrayData = karakuri2.gameArrayData
+        karakuri2Memory1.kindArrayData = karakuri2.kindArrayData
+        karakuri2Memory1.screenArrayData = karakuri2.screenArrayData
     }
     func saveMemory2() {
-        
+        karakuri2Memory2.normalGame = karakuri2.normalGame
+        karakuri2Memory2.firstHitCountCz = karakuri2.firstHitCountCz
+        karakuri2Memory2.firstHitCountAt = karakuri2.firstHitCountAt
+        karakuri2Memory2.screenCount1 = karakuri2.screenCount1
+        karakuri2Memory2.screenCount2 = karakuri2.screenCount2
+        karakuri2Memory2.screenCount3 = karakuri2.screenCount3
+        karakuri2Memory2.screenCount4 = karakuri2.screenCount4
+        karakuri2Memory2.screenCount5 = karakuri2.screenCount5
+        karakuri2Memory2.screenCount6 = karakuri2.screenCount6
+        karakuri2Memory2.screenCountSum = karakuri2.screenCountSum
+        karakuri2Memory2.gameArrayData = karakuri2.gameArrayData
+        karakuri2Memory2.kindArrayData = karakuri2.kindArrayData
+        karakuri2Memory2.screenArrayData = karakuri2.screenArrayData
     }
     func saveMemory3() {
-        
+        karakuri2Memory3.normalGame = karakuri2.normalGame
+        karakuri2Memory3.firstHitCountCz = karakuri2.firstHitCountCz
+        karakuri2Memory3.firstHitCountAt = karakuri2.firstHitCountAt
+        karakuri2Memory3.screenCount1 = karakuri2.screenCount1
+        karakuri2Memory3.screenCount2 = karakuri2.screenCount2
+        karakuri2Memory3.screenCount3 = karakuri2.screenCount3
+        karakuri2Memory3.screenCount4 = karakuri2.screenCount4
+        karakuri2Memory3.screenCount5 = karakuri2.screenCount5
+        karakuri2Memory3.screenCount6 = karakuri2.screenCount6
+        karakuri2Memory3.screenCountSum = karakuri2.screenCountSum
+        karakuri2Memory3.gameArrayData = karakuri2.gameArrayData
+        karakuri2Memory3.kindArrayData = karakuri2.kindArrayData
+        karakuri2Memory3.screenArrayData = karakuri2.screenArrayData
     }
 }
 
@@ -223,13 +259,58 @@ struct karakuri2SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-        
+        karakuri2.normalGame = karakuri2Memory1.normalGame
+        karakuri2.firstHitCountCz = karakuri2Memory1.firstHitCountCz
+        karakuri2.firstHitCountAt = karakuri2Memory1.firstHitCountAt
+        karakuri2.screenCount1 = karakuri2Memory1.screenCount1
+        karakuri2.screenCount2 = karakuri2Memory1.screenCount2
+        karakuri2.screenCount3 = karakuri2Memory1.screenCount3
+        karakuri2.screenCount4 = karakuri2Memory1.screenCount4
+        karakuri2.screenCount5 = karakuri2Memory1.screenCount5
+        karakuri2.screenCount6 = karakuri2Memory1.screenCount6
+        karakuri2.screenCountSum = karakuri2Memory1.screenCountSum
+        let gameArrayDataDecoded = decodeIntArray(from: karakuri2Memory1.gameArrayData)
+        saveArray(gameArrayDataDecoded, forKey: karakuri2.gameArrayKey)
+        let kindArrayDataDecoded = decodeStringArray(from: karakuri2Memory1.kindArrayData)
+        saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
+        let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory1.screenArrayData)
+        saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
     }
     func loadMemory2() {
-        
+        karakuri2.normalGame = karakuri2Memory2.normalGame
+        karakuri2.firstHitCountCz = karakuri2Memory2.firstHitCountCz
+        karakuri2.firstHitCountAt = karakuri2Memory2.firstHitCountAt
+        karakuri2.screenCount1 = karakuri2Memory2.screenCount1
+        karakuri2.screenCount2 = karakuri2Memory2.screenCount2
+        karakuri2.screenCount3 = karakuri2Memory2.screenCount3
+        karakuri2.screenCount4 = karakuri2Memory2.screenCount4
+        karakuri2.screenCount5 = karakuri2Memory2.screenCount5
+        karakuri2.screenCount6 = karakuri2Memory2.screenCount6
+        karakuri2.screenCountSum = karakuri2Memory2.screenCountSum
+        let gameArrayDataDecoded = decodeIntArray(from: karakuri2Memory2.gameArrayData)
+        saveArray(gameArrayDataDecoded, forKey: karakuri2.gameArrayKey)
+        let kindArrayDataDecoded = decodeStringArray(from: karakuri2Memory2.kindArrayData)
+        saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
+        let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory2.screenArrayData)
+        saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
     }
     func loadMemory3() {
-        
+        karakuri2.normalGame = karakuri2Memory3.normalGame
+        karakuri2.firstHitCountCz = karakuri2Memory3.firstHitCountCz
+        karakuri2.firstHitCountAt = karakuri2Memory3.firstHitCountAt
+        karakuri2.screenCount1 = karakuri2Memory3.screenCount1
+        karakuri2.screenCount2 = karakuri2Memory3.screenCount2
+        karakuri2.screenCount3 = karakuri2Memory3.screenCount3
+        karakuri2.screenCount4 = karakuri2Memory3.screenCount4
+        karakuri2.screenCount5 = karakuri2Memory3.screenCount5
+        karakuri2.screenCount6 = karakuri2Memory3.screenCount6
+        karakuri2.screenCountSum = karakuri2Memory3.screenCountSum
+        let gameArrayDataDecoded = decodeIntArray(from: karakuri2Memory3.gameArrayData)
+        saveArray(gameArrayDataDecoded, forKey: karakuri2.gameArrayKey)
+        let kindArrayDataDecoded = decodeStringArray(from: karakuri2Memory3.kindArrayData)
+        saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
+        let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory3.screenArrayData)
+        saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
     }
 }
 
