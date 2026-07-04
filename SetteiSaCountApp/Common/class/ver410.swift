@@ -26,6 +26,21 @@ struct tipVer410UpdateInfo: Tip {
 //////////////////
 // Tip：
 //////////////////
+struct tipVer410BioRe3Cz: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("CZ確率の詳細が判明\n設定期待値計算に追加")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+//////////////////
+// Tip：
+//////////////////
 struct tipVer410: Tip {
     var title: Text {
         Text("機能更新")

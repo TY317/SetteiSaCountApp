@@ -713,7 +713,7 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "5010", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
-                rioAceMenuEndingBadge = "update"
+                rioAceMenuEndingBadge = "new"
                 machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
                 bioRe3MenuFirstHitBadge = "update"
             }
