@@ -112,6 +112,17 @@ struct sencole6ViewFirstHit: View {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: sencole6.resetFirstHit)
             }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
         }
     }
 }
