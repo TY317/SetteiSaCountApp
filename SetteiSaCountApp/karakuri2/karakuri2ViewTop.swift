@@ -52,6 +52,17 @@ struct karakuri2ViewTop: View {
                             badgeStatus: common.karakuri2MenuFirstHitBadge,
                         )
                     }
+
+                    // 終了画面
+                    NavigationLink(destination: karakuri2ViewScreen(
+                        karakuri2: karakuri2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.karakuri2MenuScreenBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: karakuri2.machineName,

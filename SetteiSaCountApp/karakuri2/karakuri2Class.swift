@@ -33,7 +33,40 @@ class Karakuri2: ObservableObject {
         firstHitCountAt = 0
         minusCheck = false
     }
-    
+
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("karakuri2ScreenCount1") var screenCount1: Int = 0
+    @AppStorage("karakuri2ScreenCount2") var screenCount2: Int = 0
+    @AppStorage("karakuri2ScreenCount3") var screenCount3: Int = 0
+    @AppStorage("karakuri2ScreenCount4") var screenCount4: Int = 0
+    @AppStorage("karakuri2ScreenCount5") var screenCount5: Int = 0
+    @AppStorage("karakuri2ScreenCount6") var screenCount6: Int = 0
+    @AppStorage("karakuri2ScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+            screenCount6,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCount6 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -44,6 +77,7 @@ class Karakuri2: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 
