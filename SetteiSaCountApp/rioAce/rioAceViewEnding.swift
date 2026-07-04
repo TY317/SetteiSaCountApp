@@ -79,6 +79,11 @@ struct rioAceViewEnding: View {
                     )
                 }
                 
+                // ボイス振分け
+                unitLinkButtonViewBuilder(sheetTitle: "ボイス振分け") {
+                    rioAceTableVoiceFuriwake(rioAce: rioAce)
+                }
+                
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     rioAceViewBayes(
