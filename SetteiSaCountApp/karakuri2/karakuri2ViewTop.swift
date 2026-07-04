@@ -42,6 +42,17 @@ struct karakuri2ViewTop: View {
                         )
                     }
                     
+                    // CZ履歴
+                    NavigationLink(destination: karakuri2ViewHistory(
+                        karakuri2: karakuri2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "pencil.and.list.clipboard",
+                            textBody: "CZ履歴",
+                            badgeStatus: common.karakuri2MenuHistoryBadge,
+                        )
+                    }
+                    
                     // 初当り
                     NavigationLink(destination: karakuri2ViewFirstHit(
                         karakuri2: karakuri2,
@@ -64,16 +75,6 @@ struct karakuri2ViewTop: View {
                         )
                     }
 
-                    // CZ履歴
-                    NavigationLink(destination: karakuri2ViewHistory(
-                        karakuri2: karakuri2,
-                    )) {
-                        unitLabelMenu(
-                            imageSystemName: "pencil.and.list.clipboard",
-                            textBody: "CZ履歴",
-                            badgeStatus: common.karakuri2MenuHistoryBadge,
-                        )
-                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: karakuri2.machineName,

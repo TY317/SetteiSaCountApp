@@ -66,6 +66,55 @@ class Karakuri2: ObservableObject {
         screenCountSum = 0
         minusCheck = false
     }
+    
+    // ----------
+    // 履歴
+    // ----------
+    // 選択肢
+    let kindList: [String] = ["機械仕掛けの女神","幕間チャンス(AT後)","幕間チャンス(通常時)","劇場ジャッジ"]
+    // 選択結果
+    @AppStorage("karakuri2InputGame") var inputGame: Int = 0
+    @AppStorage("karakuri2SelectedKind") var selectedKind: String = "機械仕掛けの女神"
+    @AppStorage("karakuri2SelectedImageName") var selectedImageName: String = ""
+    
+    // ゲーム数配列
+    let gameArrayKey: String = "karakuri2GameArrayKey"
+    @AppStorage("karakuri2GameArrayKey") var gameArrayData: Data?
+    // 種類配列
+    let kindArrayKey: String = "karakuri2KindArrayKey"
+    @AppStorage("karakuri2KindArrayKey") var kindArrayData: Data?
+    // 画面配列
+    let screenArrayKey: String = "karakuri2ScreenArrayKey"
+    @AppStorage("karakuri2ScreenArrayKey") var screenArrayData: Data?
+    
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: kindArrayData, addData: selectedKind, key: kindArrayKey)
+        arrayStringAddData(arrayData: screenArrayData, addData: selectedImageName, key: screenArrayKey)
+        addRemoveCommon()
+    }
+    
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: kindArrayData, key: kindArrayKey)
+        arrayStringRemoveLast(arrayData: screenArrayData, key: screenArrayKey)
+        addRemoveCommon()
+    }
+    
+    func resetHistory() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: kindArrayData, key: kindArrayKey)
+        arrayStringRemoveAll(arrayData: screenArrayData, key: screenArrayKey)
+        addRemoveCommon()
+        inputGame = 0
+        minusCheck = false
+    }
+    
+    func addRemoveCommon() {
+        
+    }
 
     // -----------
     // 共通
@@ -78,6 +127,7 @@ class Karakuri2: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetHistory()
     }
 }
 
