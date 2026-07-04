@@ -21,8 +21,16 @@ class Karakuri2: ObservableObject {
     // --------
     // 初当り
     // --------
-    
+    let ratioFirstHitCz: [Double] = [342,341,339,339,327,318]
+    let ratioFirstHitAt: [Double] = [519,504,474,458,430,410]
+    @AppStorage("karakuri2NormalGame") var normalGame: Int = 0
+    @AppStorage("karakuri2FirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("karakuri2FirstHitCountAt") var firstHitCountAt: Int = 0
+
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
     

@@ -13,7 +13,9 @@ struct karakuri2ViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.8, 101.2, 104.3, 110.5, 114.9]
-    
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
+
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,7 +46,11 @@ struct karakuri2ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
-                
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
                 // トロフィー
                 DisclosureGroup("トロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -114,7 +120,25 @@ struct karakuri2ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: karakuri2.ratioFirstHitCz,
+                Count: karakuri2.firstHitCountCz,
+                bigNumber: karakuri2.normalGame
+            )
+        }
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: karakuri2.ratioFirstHitAt,
+                Count: karakuri2.firstHitCountAt,
+                bigNumber: karakuri2.normalGame
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -152,8 +176,8 @@ struct karakuri2ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
-            
-            
+            logPostFirstHitCz,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])
