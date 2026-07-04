@@ -363,7 +363,8 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuFirstHitBadge") var karakuri2MenuFirstHitBadge: String = "none"
     @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
-    
+    @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
+
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
     @AppStorage("otome5TempUnlockDateDouble") var otome5TempUnlockDateDouble: Double = 0.0
