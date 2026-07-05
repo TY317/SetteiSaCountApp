@@ -92,6 +92,7 @@ class RioAce: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetVoice()
     }
     
     // ------------
@@ -115,6 +116,41 @@ class RioAce: ObservableObject {
     @AppStorage("rioAceSuikaCount") var suikaCount: Int = 0
     @AppStorage("rioAceRoomSuccessCount") var roomSuccessCount: Int = 0
     @AppStorage("rioAceDuringRoomSuikaCountMemo") var duringRoomSuikaCountMemo: Int = 0
+    
+    // -------
+    // ver4.1.0
+    // -------
+    let ratioVoiceDefault: [Double] = [59,55,54,49,48,45]
+    let ratioVoiceHighJaku: [Double] = [30,31,32,33,34,35]
+    let ratioVoiceHighChu: [Double] = [10,12,12,14,14,16]
+    let ratioVoiceHighKyo: [Double] = [1,2,2,3,3,3]
+    let ratioVoiceOver4: [Double] = [0,0,0,1,1,1]
+    @AppStorage("rioAceVoiceCount1") var voiceCount1: Int = 0
+    @AppStorage("rioAceVoiceCount2") var voiceCount2: Int = 0
+    @AppStorage("rioAceVoiceCount3") var voiceCount3: Int = 0
+    @AppStorage("rioAceVoiceCount4") var voiceCount4: Int = 0
+    @AppStorage("rioAceVoiceCount5") var voiceCount5: Int = 0
+    @AppStorage("rioAceVoiceCountSum") var voiceCountSum: Int = 0
+    
+    func voiceSumFunc() {
+        voiceCountSum = countSum(
+            voiceCount1,
+            voiceCount2,
+            voiceCount3,
+            voiceCount4,
+            voiceCount5,
+        )
+    }
+    
+    func resetVoice() {
+        voiceCount1 = 0
+        voiceCount2 = 0
+        voiceCount3 = 0
+        voiceCount4 = 0
+        voiceCount5 = 0
+        voiceCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -146,6 +182,16 @@ class RioAceMemory1: ObservableObject {
     @AppStorage("rioAceSuikaCountMemory1") var suikaCount: Int = 0
     @AppStorage("rioAceRoomSuccessCountMemory1") var roomSuccessCount: Int = 0
     @AppStorage("rioAceDuringRoomSuikaCountMemoMemory1") var duringRoomSuikaCountMemo: Int = 0
+
+    // -------
+    // ver4.1.0
+    // -------
+    @AppStorage("rioAceVoiceCount1Memory1") var voiceCount1: Int = 0
+    @AppStorage("rioAceVoiceCount2Memory1") var voiceCount2: Int = 0
+    @AppStorage("rioAceVoiceCount3Memory1") var voiceCount3: Int = 0
+    @AppStorage("rioAceVoiceCount4Memory1") var voiceCount4: Int = 0
+    @AppStorage("rioAceVoiceCount5Memory1") var voiceCount5: Int = 0
+    @AppStorage("rioAceVoiceCountSumMemory1") var voiceCountSum: Int = 0
 }
 
 class RioAceMemory2: ObservableObject {
@@ -176,6 +222,16 @@ class RioAceMemory2: ObservableObject {
     @AppStorage("rioAceSuikaCountMemory2") var suikaCount: Int = 0
     @AppStorage("rioAceRoomSuccessCountMemory2") var roomSuccessCount: Int = 0
     @AppStorage("rioAceDuringRoomSuikaCountMemoMemory2") var duringRoomSuikaCountMemo: Int = 0
+
+    // -------
+    // ver4.1.0
+    // -------
+    @AppStorage("rioAceVoiceCount1Memory2") var voiceCount1: Int = 0
+    @AppStorage("rioAceVoiceCount2Memory2") var voiceCount2: Int = 0
+    @AppStorage("rioAceVoiceCount3Memory2") var voiceCount3: Int = 0
+    @AppStorage("rioAceVoiceCount4Memory2") var voiceCount4: Int = 0
+    @AppStorage("rioAceVoiceCount5Memory2") var voiceCount5: Int = 0
+    @AppStorage("rioAceVoiceCountSumMemory2") var voiceCountSum: Int = 0
 }
 
 class RioAceMemory3: ObservableObject {
@@ -206,4 +262,14 @@ class RioAceMemory3: ObservableObject {
     @AppStorage("rioAceSuikaCountMemory3") var suikaCount: Int = 0
     @AppStorage("rioAceRoomSuccessCountMemory3") var roomSuccessCount: Int = 0
     @AppStorage("rioAceDuringRoomSuikaCountMemoMemory3") var duringRoomSuikaCountMemo: Int = 0
+
+    // -------
+    // ver4.1.0
+    // -------
+    @AppStorage("rioAceVoiceCount1Memory3") var voiceCount1: Int = 0
+    @AppStorage("rioAceVoiceCount2Memory3") var voiceCount2: Int = 0
+    @AppStorage("rioAceVoiceCount3Memory3") var voiceCount3: Int = 0
+    @AppStorage("rioAceVoiceCount4Memory3") var voiceCount4: Int = 0
+    @AppStorage("rioAceVoiceCount5Memory3") var voiceCount5: Int = 0
+    @AppStorage("rioAceVoiceCountSumMemory3") var voiceCountSum: Int = 0
 }

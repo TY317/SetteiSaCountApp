@@ -68,6 +68,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
+                TipView(tipVer410UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {
@@ -223,6 +224,14 @@ struct ContentViewVer2: View {
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .interactive))
                 .background(Color(UIColor.systemGroupedBackground))
+                // //// firebaseログ
+                .onAppear {
+                    let screenClass = String(describing: Self.self)
+                    logEventFirebaseScreen(
+                        screenName: "機種選択",
+                        screenClass: screenClass
+                    )
+                }
             }
             .background(Color(UIColor.systemGroupedBackground))
 
@@ -250,6 +259,14 @@ struct ContentViewVer2: View {
                 unitViewHomeOnboarding()
             }
         }
+//        // //// firebaseログ
+//        .onAppear {
+//            let screenClass = String(describing: Self.self)
+//            logEventFirebaseScreen(
+//                screenName: "機種選択",
+//                screenClass: screenClass
+//            )
+//        }
         // リワード広告のロード
         .onAppear {
             Task { await rewardViewModel.loadAd() }
@@ -482,6 +499,8 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5010": return AnyView(sencole6ViewTop())
+        case "5019": return AnyView(karakuri2ViewTop())
         case "5555": return AnyView(JuglerSeriesViewTopVer2(bayes: bayes, viewModel: viewModel))
         case "8787": return AnyView(hanahanaSeriesViewTopVer2(bayes: bayes, viewModel: viewModel))
         case "5009": return AnyView(otome5ViewTop(bayes: bayes,viewModel: viewModel))

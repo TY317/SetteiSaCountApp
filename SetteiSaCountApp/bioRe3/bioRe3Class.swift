@@ -13,7 +13,7 @@ class BioRe3: ObservableObject {
     // ---------
     // 初当り
     // ---------
-    let ratioFirstHitCz: [Double] = [143.3,-1,-1,-1,-1,-1]
+    let ratioFirstHitCz: [Double] = [143.3,140.1,131.8,121.9,110.6,105.7]
     let ratioFirstHitAt: [Double] = [399,391.4,372.8,349.8,323.5,311.2]
     @AppStorage("bioRe3NormalGame") var normalGame: Int = 0
     @AppStorage("bioRe3FirstHitCountCz") var firstHitCountCz: Int = 0
@@ -82,6 +82,7 @@ class BioRe3: ObservableObject {
         resetFirstHit()
         resetFigure()
         resetNormal()
+        resetDuringAt()
     }
     
     // ---------
@@ -147,6 +148,18 @@ class BioRe3: ObservableObject {
         shinonCountSum = shinonCountDrop + shinonCountStay
     }
     
+    // ---------
+    // ver4.1.0
+    // ---------
+    let ratioDuringAtCz: [Double] = [222.8,216.7,201.8,188.2,168.6,160.8]
+    @AppStorage("bioRe3AtGame") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCz") var duringAtCountCz: Int = 0
+    
+    func resetDuringAt() {
+        atGame = 0
+        duringAtCountCz = 0
+        minusCheck = false
+    }
 }
 
 
@@ -187,6 +200,12 @@ class BioRe3Memory1: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory1") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory1") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory1") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory1") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory1") var duringAtCountCz: Int = 0
 }
 
 
@@ -227,6 +246,12 @@ class BioRe3Memory2: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory2") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory2") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory2") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory2") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory2") var duringAtCountCz: Int = 0
 }
 
 
@@ -267,4 +292,10 @@ class BioRe3Memory3: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory3") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory3") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory3") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory3") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory3") var duringAtCountCz: Int = 0
 }

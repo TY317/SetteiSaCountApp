@@ -16,6 +16,8 @@ struct bioRe3ViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var figureEnable: Bool = true
     @State var shinonEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var duringAtEnable: Bool = true
     
     
     // 全機種共通
@@ -49,8 +51,12 @@ struct bioRe3ViewBayes: View {
             bayesSubStep2Section {
                 // 心音レベル転落率
                 unitToggleWithQuestion(enable: self.$shinonEnable, title: "心音レベル転落率")
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // AT中 CZ確率
+                unitToggleWithQuestion(enable: self.$duringAtEnable, title: "AT中 CZ確率")
                 // フィギュアコレクション
                 unitToggleWithQuestion(enable: self.$figureEnable, title: "フィギュアコレクション") {
                     unitExView5body2image(
@@ -160,6 +166,26 @@ struct bioRe3ViewBayes: View {
             )
         }
         
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: bioRe3.ratioFirstHitCz,
+                Count: bioRe3.firstHitCountCz,
+                bigNumber: bioRe3.normalGame
+            )
+        }
+
+        // AT中 CZ確率
+        var logPostDuringAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.duringAtEnable {
+            logPostDuringAt = logPostDenoBino(
+                ratio: bioRe3.ratioDuringAtCz,
+                Count: bioRe3.duringAtCountCz,
+                bigNumber: bioRe3.atGame
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -197,6 +223,8 @@ struct bioRe3ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
+            logPostDuringAt,
             logPostFirstHitAt,
             logPostFigure,
             logPostShinon,

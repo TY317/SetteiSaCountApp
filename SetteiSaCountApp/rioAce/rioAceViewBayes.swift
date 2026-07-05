@@ -19,6 +19,7 @@ struct rioAceViewBayes: View {
     @State var aceModeEnable: Bool = true
     @State var rinaSignEnable: Bool = true
     @State var suikaSuccessEnable: Bool = true
+    @State var voiceEnable: Bool = true
     
     
     // 全機種共通
@@ -66,6 +67,8 @@ struct rioAceViewBayes: View {
                 }
                 // リナサイン出現率
                 unitToggleWithQuestion(enable: self.$rinaSignEnable, title: "リナサイン出現率")
+                // エンディング中ボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス")
                 // ケロットトロフィー
                 DisclosureGroup("ケロットトロフィー") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
@@ -198,6 +201,26 @@ struct rioAceViewBayes: View {
             )
         }
         
+        // エンディング中ボイス
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            logPostVoice = logPostPercentMulti(
+                countList: [
+                    rioAce.voiceCount2,
+                    rioAce.voiceCount3,
+                    rioAce.voiceCount4,
+                    rioAce.voiceCount5,
+                ],
+                ratioList: [
+                    rioAce.ratioVoiceHighJaku,
+                    rioAce.ratioVoiceHighChu,
+                    rioAce.ratioVoiceHighKyo,
+                    rioAce.ratioVoiceOver4,
+                ],
+                bigNumber: rioAce.voiceCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -235,6 +258,7 @@ struct rioAceViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostVoice,
             logPostKiteiReplay,
             logPostFirstHitNoirRoom,
             logPostFirstHit,

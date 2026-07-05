@@ -53,7 +53,7 @@ struct otome5ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "乙女アタック当選率") {
                     VStack(spacing: 20) {
                         VStack(alignment: .leading) {
-                            Text("・乙女ストラップモード カンスケ滞在時は別確率で抽選")
+                            Text("・乙女ストラップモード カンスケ滞在時は40%で当選")
                             Text("・乙女アタックの勝率に設定差はなし")
                         }
                         HStack(spacing: 0) {
@@ -145,6 +145,7 @@ struct otome5ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "示唆演出") {
                     otome5TableStrapSisa()
                 }
+                .popoverTip(tipVer410Otome5Strap())
             } header: {
                 Text("乙女ストラップモード")
             }

@@ -1,0 +1,95 @@
+//
+//  __prefix__View95Ci.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹.
+//
+
+import SwiftUI
+
+struct __prefix__View95Ci: View {
+    @ObservedObject var __prefix__: __Prefix__
+    @State var selection = 1
+    @State var isShow95CiExplain = false
+
+    var body: some View {
+        TabView(selection: self.$selection) {
+            // 回数
+//            unitListSection95Ci(
+//                grafTitle: "回数",
+//                titleFont: .title2,
+//                grafView: AnyView(
+//                    unitChart95CiPercent(
+//                        currentCount: $__prefix__.otomeAttackHit,
+//                        bigNumber: $__prefix__.otomeAttackSum,
+//                        setting1Percent: __prefix__.ratioOtomeAttack[0],
+//                        setting2Percent: __prefix__.ratioOtomeAttack[1],
+//                        setting3Percent: __prefix__.ratioOtomeAttack[2],
+//                        setting4Percent: __prefix__.ratioOtomeAttack[3],
+//                        setting5Percent: __prefix__.ratioOtomeAttack[4],
+//                        setting6Percent: __prefix__.ratioOtomeAttack[5]
+//                    )
+//                )
+//            )
+//            .tag(1)
+//
+//            // CZ初当り回数
+//            unitListSection95Ci(
+//                grafTitle: "CZ初当り回数",
+//                grafView: AnyView(
+//                    unitChart95CiDenominate(
+//                        currentCount: $__prefix__.firstHitCountCz,
+//                        bigNumber: $__prefix__.normalGame,
+//                        setting1Denominate: __prefix__.ratioFirstHitCz[0],
+//                        setting2Denominate: __prefix__.ratioFirstHitCz[1],
+//                        setting3Denominate: __prefix__.ratioFirstHitCz[2],
+//                        setting4Denominate: __prefix__.ratioFirstHitCz[3],
+//                        setting5Denominate: __prefix__.ratioFirstHitCz[4],
+//                        setting6Denominate: __prefix__.ratioFirstHitCz[5]
+//                    )
+//                )
+//            )
+//            .tag(2)
+//
+//            // AT初当り回数
+//            unitListSection95Ci(
+//                grafTitle: "AT初当り回数",
+//                grafView: AnyView(
+//                    unitChart95CiDenominate(
+//                        currentCount: $__prefix__.firstHitCountAt,
+//                        bigNumber: $__prefix__.normalGame,
+//                        setting1Denominate: __prefix__.ratioFirstHitAt[0],
+//                        setting2Denominate: __prefix__.ratioFirstHitAt[1],
+//                        setting3Denominate: __prefix__.ratioFirstHitAt[2],
+//                        setting4Denominate: __prefix__.ratioFirstHitAt[3],
+//                        setting5Denominate: __prefix__.ratioFirstHitAt[4],
+//                        setting6Denominate: __prefix__.ratioFirstHitAt[5]
+//                    )
+//                )
+//            )
+//            .tag(3)
+        }
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: __prefix__.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("95%信頼区間グラフ")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitButton95CiExplain(isShow95CiExplain: isShow95CiExplain)
+            }
+        }
+        .tabViewStyle(.page)
+    }
+}
+
+#Preview {
+    __prefix__View95Ci(
+        __prefix__: __Prefix__(),
+    )
+}

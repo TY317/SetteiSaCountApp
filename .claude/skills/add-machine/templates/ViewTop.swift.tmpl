@@ -1,0 +1,208 @@
+//
+//  __prefix__ViewTop.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹.
+//
+
+import SwiftUI
+
+struct __prefix__ViewTop: View {
+    @EnvironmentObject var common: commonVar
+    @EnvironmentObject var bayes: Bayes
+    @EnvironmentObject var viewModel: InterstitialViewModel
+    @StateObject var __prefix__ = __Prefix__()
+    @State var isShowAlert: Bool = false
+    @StateObject var __prefix__Memory1 = __Prefix__Memory1()
+    @StateObject var __prefix__Memory2 = __Prefix__Memory2()
+    @StateObject var __prefix__Memory3 = __Prefix__Memory3()
+    var body: some View {
+        NavigationStack {
+            List {
+__CAUTION_SECTION__
+                Section {
+                    // 通常時
+                    NavigationLink(destination: __prefix__ViewNormal(
+                        __prefix__: __prefix__,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "bell.fill",
+                            textBody: "通常時",
+                            badgeStatus: common.__prefix__MenuNormalBadge,
+                        )
+                    }
+
+                    // 初当り
+                    NavigationLink(destination: __prefix__ViewFirstHit(
+                        __prefix__: __prefix__,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "初当り",
+                            badgeStatus: common.__prefix__MenuFirstHitBadge,
+                        )
+                    }
+__TROPHY_LINK__
+//                } header: {
+//                    unitLabelMachineTopTitle(
+//                        machineName: __prefix__.machineName,
+//                        titleFont: .title,
+//                    )
+                }
+
+                // 設定推測グラフ
+                NavigationLink(destination: __prefix__View95Ci(
+                    __prefix__: __prefix__,
+                    selection: 1,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "chart.bar.xaxis",
+                        textBody: "設定推測グラフ"
+                    )
+                }
+
+                // 設定期待値計算
+//                NavigationLink(destination: __prefix__ViewBayes(
+//                    __prefix__: __prefix__,
+//                )) {
+//                    unitLabelMenu(
+//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+//                        textBody: "設定期待値",
+//                        badgeStatus: common.__prefix__MenuBayesBadge
+//                    )
+//                }
+
+                // 解析サイトへのリンク
+                unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/__ID__")
+
+                // コピーライト
+                unitSectionCopyright {
+__COPYRIGHT__
+                }
+            }
+        }
+        // //// バッジのリセット
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "__ID__")
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: __prefix__.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("メニュー")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // データ読み出し
+                unitButtonLoadMemory(loadView: AnyView(__prefix__SubViewLoadMemory(
+                    __prefix__: __prefix__,
+                    __prefix__Memory1: __prefix__Memory1,
+                    __prefix__Memory2: __prefix__Memory2,
+                    __prefix__Memory3: __prefix__Memory3
+                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データ保存
+                unitButtonSaveMemory(saveView: AnyView(__prefix__SubViewSaveMemory(
+                    __prefix__: __prefix__,
+                    __prefix__Memory1: __prefix__Memory1,
+                    __prefix__Memory2: __prefix__Memory2,
+                    __prefix__Memory3: __prefix__Memory3
+                )))
+            }
+            ToolbarItem(placement: .automatic) {
+                // データリセット
+                unitButtonReset(
+                    isShowAlert: $isShowAlert,
+                    action: __prefix__.resetAll,
+                    message: "この機種のデータを全てリセットします"
+                )
+            }
+        }
+    }
+}
+
+
+// ///////////////////////
+// メモリーセーブ画面
+// ///////////////////////
+struct __prefix__SubViewSaveMemory: View {
+    @ObservedObject var __prefix__: __Prefix__
+    @ObservedObject var __prefix__Memory1: __Prefix__Memory1
+    @ObservedObject var __prefix__Memory2: __Prefix__Memory2
+    @ObservedObject var __prefix__Memory3: __Prefix__Memory3
+    @State var isShowSaveAlert: Bool = false
+
+    var body: some View {
+        unitViewSaveMemory(
+            machineName: __prefix__.machineName,
+            selectedMemory: $__prefix__.selectedMemory,
+            memoMemory1: $__prefix__Memory1.memo,
+            dateDoubleMemory1: $__prefix__Memory1.dateDouble,
+            actionMemory1: saveMemory1,
+            memoMemory2: $__prefix__Memory2.memo,
+            dateDoubleMemory2: $__prefix__Memory2.dateDouble,
+            actionMemory2: saveMemory2,
+            memoMemory3: $__prefix__Memory3.memo,
+            dateDoubleMemory3: $__prefix__Memory3.dateDouble,
+            actionMemory3: saveMemory3,
+            isShowSaveAlert: $isShowSaveAlert
+        )
+    }
+    func saveMemory1() {
+
+    }
+    func saveMemory2() {
+
+    }
+    func saveMemory3() {
+
+    }
+}
+
+
+// ///////////////////////
+// メモリーロード画面
+// ///////////////////////
+struct __prefix__SubViewLoadMemory: View {
+    @ObservedObject var __prefix__: __Prefix__
+    @ObservedObject var __prefix__Memory1: __Prefix__Memory1
+    @ObservedObject var __prefix__Memory2: __Prefix__Memory2
+    @ObservedObject var __prefix__Memory3: __Prefix__Memory3
+    @State var isShowSaveAlert: Bool = false
+
+    var body: some View {
+        unitViewLoadMemory(
+            machineName: __prefix__.machineName,
+            selectedMemory: $__prefix__.selectedMemory,
+            memoMemory1: __prefix__Memory1.memo,
+            dateDoubleMemory1: __prefix__Memory1.dateDouble,
+            actionMemory1: loadMemory1,
+            memoMemory2: __prefix__Memory2.memo,
+            dateDoubleMemory2: __prefix__Memory2.dateDouble,
+            actionMemory2: loadMemory2,
+            memoMemory3: __prefix__Memory3.memo,
+            dateDoubleMemory3: __prefix__Memory3.dateDouble,
+            actionMemory3: loadMemory3,
+            isShowLoadAlert: $isShowSaveAlert
+        )
+    }
+    func loadMemory1() {
+
+    }
+    func loadMemory2() {
+
+    }
+    func loadMemory3() {
+
+    }
+}
+
+#Preview {
+    __prefix__ViewTop()
+        .environmentObject(commonVar())
+        .environmentObject(Bayes())
+        .environmentObject(InterstitialViewModel())
+}

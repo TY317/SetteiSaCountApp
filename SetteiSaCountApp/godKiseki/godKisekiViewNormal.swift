@@ -119,7 +119,6 @@ struct godKisekiViewNormal: View {
                     sheetTitle: "小役連での当選率") {
                         godKisekiTableKoyakuRen(godKiseki: godKiseki)
                     }
-//                    .popoverTip(tipVer3241GodKisekiKoyakuRen())
                 
                 DisclosureGroup {
                     // セグメントピッカー
