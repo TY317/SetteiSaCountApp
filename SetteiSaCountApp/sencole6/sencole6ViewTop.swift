@@ -53,17 +53,6 @@ struct sencole6ViewTop: View {
                         )
                     }
                     
-                    // 初当り
-                    NavigationLink(destination: sencole6ViewScreen(
-                        sencole6: sencole6,
-                    )) {
-                        unitLabelMenu(
-                            imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "終了画面",
-                            badgeStatus: common.sencole6MenuScreenBadge,
-                        )
-                    }
-                    
                     // AT中
                     NavigationLink(destination: sencole6ViewDuringAt(
                         sencole6: sencole6,
@@ -72,6 +61,17 @@ struct sencole6ViewTop: View {
                             imageSystemName: "figure.equestrian.sports",
                             textBody: "AT中",
                             badgeStatus: common.sencole6MenuDuringAtBadge,
+                        )
+                    }
+                    
+                    // AT終了画面
+                    NavigationLink(destination: sencole6ViewScreen(
+                        sencole6: sencole6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.sencole6MenuScreenBadge,
                         )
                     }
                     

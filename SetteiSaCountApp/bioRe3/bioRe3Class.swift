@@ -82,6 +82,7 @@ class BioRe3: ObservableObject {
         resetFirstHit()
         resetFigure()
         resetNormal()
+        resetDuringAt()
     }
     
     // ---------

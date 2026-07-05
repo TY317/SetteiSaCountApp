@@ -52,13 +52,13 @@ struct karakuri2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // トロフィー
-                DisclosureGroup("トロフィー") {
-                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
-                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
-                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
-                    unitToggleWithQuestion(enable: self.$over5Check, title: "特殊柄")
-                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
-                }
+//                DisclosureGroup("トロフィー") {
+//                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+//                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+//                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+//                    unitToggleWithQuestion(enable: self.$over5Check, title: "特殊柄")
+//                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+//                }
             }
             
             // //// STEP3

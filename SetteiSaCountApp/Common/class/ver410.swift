@@ -15,7 +15,7 @@ struct tipVer410UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・")
+        Text("・からくりサーカス2\n・戦国コレクション6")
     }
     var image: Image? {
         Image(systemName: "star")

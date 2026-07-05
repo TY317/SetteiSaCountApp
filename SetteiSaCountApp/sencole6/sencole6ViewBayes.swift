@@ -14,6 +14,7 @@ struct sencole6ViewBayes: View {
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.1, 99.1, 100.9, 106.0, 110.1, 114.9]
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -47,6 +48,14 @@ struct sencole6ViewBayes: View {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("アリストロフィー") {
@@ -127,6 +136,26 @@ struct sencole6ViewBayes: View {
                 bigNumber: sencole6.normalGame
             )
         }
+        
+        // 終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            if sencole6.screenCount5 > 0 {
+                logPostScreen[0] = -Double.infinity
+            }
+            if sencole6.screenCount6 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+            }
+            if sencole6.screenCount7 > 0 {
+                logPostScreen[0] = -Double.infinity
+                logPostScreen[1] = -Double.infinity
+                logPostScreen[2] = -Double.infinity
+                logPostScreen[3] = -Double.infinity
+                logPostScreen[4] = -Double.infinity
+            }
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -166,6 +195,7 @@ struct sencole6ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
+            logPostScreen,
             
             logPostTrophy,
             logPostBefore,

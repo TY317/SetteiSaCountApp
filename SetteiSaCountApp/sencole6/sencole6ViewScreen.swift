@@ -133,7 +133,7 @@ struct sencole6ViewScreen: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("終了画面")
+        .navigationTitle("AT終了画面")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
