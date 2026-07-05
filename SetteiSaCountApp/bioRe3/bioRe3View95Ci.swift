@@ -146,63 +146,24 @@ struct bioRe3View95Ci: View {
             )
             .tag(2)
             
-//            // 直撃ボーナス以外 初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "直撃ボーナス以外 初当り回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $bioRe3.firstHitCountWithoutDirect,
-//                        bigNumber: $bioRe3.normalGame,
-//                        setting1Denominate: bioRe3.ratioFirstHitWithoutDirect[0],
-//                        setting2Denominate: bioRe3.ratioFirstHitWithoutDirect[1],
-//                        setting3Denominate: bioRe3.ratioFirstHitWithoutDirect[2],
-//                        setting4Denominate: bioRe3.ratioFirstHitWithoutDirect[3],
-//                        setting5Denominate: bioRe3.ratioFirstHitWithoutDirect[4],
-//                        setting6Denominate: bioRe3.ratioFirstHitWithoutDirect[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//            
-//            // 直撃ボーナス初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "直撃ボーナス初当り回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $bioRe3.firstHitCountDirectBonus,
-//                        bigNumber: $bioRe3.normalGame,
-//                        setting1Denominate: bioRe3.ratioFirstHitDirectBonus[0],
-//                        setting2Denominate: bioRe3.ratioFirstHitDirectBonus[1],
-//                        setting3Denominate: bioRe3.ratioFirstHitDirectBonus[2],
-//                        setting4Denominate: bioRe3.ratioFirstHitDirectBonus[3],
-//                        setting5Denominate: bioRe3.ratioFirstHitDirectBonus[4],
-//                        setting6Denominate: bioRe3.ratioFirstHitDirectBonus[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
-//
-//
-//            // REG,後終了画面デフォルト回数
-//            unitListSection95Ci(
-//                grafTitle: "REG,アクセルボーナス,灰焔ボーナス後\n終了画面 デフォルト回数",
-//                titleFont: .body,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $bioRe3.screenCount1,
-//                        bigNumber: $bioRe3.screenCountSum,
-//                        setting1Percent: bioRe3.ratioScreen1[0],
-//                        setting2Percent: bioRe3.ratioScreen1[1],
-//                        setting3Percent: bioRe3.ratioScreen1[2],
-//                        setting4Percent: bioRe3.ratioScreen1[3],
-//                        setting5Percent: bioRe3.ratioScreen1[4],
-//                        setting6Percent: bioRe3.ratioScreen1[5]
-//                    )
-//                )
-//            )
-//            .tag(4)
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT中\nCZ初当り回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $bioRe3.duringAtCountCz,
+                        bigNumber: $bioRe3.atGame,
+                        setting1Denominate: bioRe3.ratioDuringAtCz[0],
+                        setting2Denominate: bioRe3.ratioDuringAtCz[1],
+                        setting3Denominate: bioRe3.ratioDuringAtCz[2],
+                        setting4Denominate: bioRe3.ratioDuringAtCz[3],
+                        setting5Denominate: bioRe3.ratioDuringAtCz[4],
+                        setting6Denominate: bioRe3.ratioDuringAtCz[5]
+                    )
+                )
+            )
+            .tag(7)
         }
         // //// firebaseログ
         .onAppear {

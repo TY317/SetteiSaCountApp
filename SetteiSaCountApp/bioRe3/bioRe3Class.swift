@@ -147,6 +147,18 @@ class BioRe3: ObservableObject {
         shinonCountSum = shinonCountDrop + shinonCountStay
     }
     
+    // ---------
+    // ver4.1.0
+    // ---------
+    let ratioDuringAtCz: [Double] = [222.8,216.7,201.8,188.2,168.6,160.8]
+    @AppStorage("bioRe3AtGame") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCz") var duringAtCountCz: Int = 0
+    
+    func resetDuringAt() {
+        atGame = 0
+        duringAtCountCz = 0
+        minusCheck = false
+    }
 }
 
 

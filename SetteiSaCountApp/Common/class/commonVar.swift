@@ -400,7 +400,8 @@ class commonVar: ObservableObject {
     @AppStorage("bioRe3MenuFigureBadge") var bioRe3MenuFigureBadge: String = "none"
     @AppStorage("bioRe3MenuEndingBadge") var bioRe3MenuEndingBadge: String = "none"
     @AppStorage("bioRe3MenuCzBadge") var bioRe3MenuCzBadge: String = "none"
-    
+    @AppStorage("bioRe3MenuDuringAtBadge") var bioRe3MenuDuringAtBadge: String = "none"
+
     // ---- リオエース２
     @AppStorage("rioAceisUnlocked") var rioAceisUnlocked: Bool = true
     @AppStorage("rioAceTempUnlockDateDouble") var rioAceTempUnlockDateDouble: Double = 0.0
@@ -716,6 +717,7 @@ class commonVar: ObservableObject {
                 rioAceMenuEndingBadge = "new"
                 machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
                 bioRe3MenuFirstHitBadge = "update"
+                bioRe3MenuDuringAtBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

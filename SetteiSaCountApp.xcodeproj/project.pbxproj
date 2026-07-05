@@ -608,6 +608,7 @@
 		0F7568E72FA7077C00A66336 /* bioRe3View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568E62FA7077C00A66336 /* bioRe3View95Ci.swift */; };
 		0F7568E92FA7079300A66336 /* bioRe3ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568E82FA7079300A66336 /* bioRe3ViewBayes.swift */; };
 		0F7568EB2FA707B600A66336 /* bioRe3ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568EA2FA707B600A66336 /* bioRe3ViewNormal.swift */; };
+		63309E6996D34357A033EE20 /* bioRe3ViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */; };
 		0F7568ED2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568EC2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift */; };
 		0F7568EE2FA7086D00A66336 /* bioRe3TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568EC2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift */; };
 		0F7568F02FA7160400A66336 /* bioRe3ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7568EF2FA7160400A66336 /* bioRe3ViewFirstHit.swift */; };
@@ -2168,6 +2169,7 @@
 		0F7568E62FA7077C00A66336 /* bioRe3View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3View95Ci.swift; sourceTree = "<group>"; };
 		0F7568E82FA7079300A66336 /* bioRe3ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewBayes.swift; sourceTree = "<group>"; };
 		0F7568EA2FA707B600A66336 /* bioRe3ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewNormal.swift; sourceTree = "<group>"; };
+		F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewDuringAt.swift; sourceTree = "<group>"; };
 		0F7568EC2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0F7568EF2FA7160400A66336 /* bioRe3ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewFirstHit.swift; sourceTree = "<group>"; };
 		0F7655242E32E93200B0CF0F /* magiaViewStoryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magiaViewStoryOrder.swift; sourceTree = "<group>"; };
@@ -3982,6 +3984,7 @@
 				0F7568E62FA7077C00A66336 /* bioRe3View95Ci.swift */,
 				0F7568E82FA7079300A66336 /* bioRe3ViewBayes.swift */,
 				0F7568EA2FA707B600A66336 /* bioRe3ViewNormal.swift */,
+				F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */,
 				0F7568EC2FA7084300A66336 /* bioRe3TableKoyakuPattern.swift */,
 				0F7568EF2FA7160400A66336 /* bioRe3ViewFirstHit.swift */,
 				0F00FB002FAEAAD80076283F /* bioRe3ViewFigure.swift */,
@@ -7334,6 +7337,7 @@
 				0FD3577C2DAA2CFD0069BD1A /* sbjTableNormalChance.swift in Sources */,
 				0F6B59BE2DFD824300DB1A2B /* kaguyaSamaTableClothChange.swift in Sources */,
 				0F7568EB2FA707B600A66336 /* bioRe3ViewNormal.swift in Sources */,
+				63309E6996D34357A033EE20 /* bioRe3ViewDuringAt.swift in Sources */,
 				0FDF23832E52025200249CAC /* enenViewAdora.swift in Sources */,
 				0F19D4362F25F8FE004A6D9F /* kokakukidotaiViewFirstHit.swift in Sources */,
 				0FDF238B2E54B0AA00249CAC /* hokutoViewBayes.swift in Sources */,
