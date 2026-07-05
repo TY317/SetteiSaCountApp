@@ -41,12 +41,12 @@ struct tipVer410BioRe3Cz: Tip {
 //////////////////
 // Tip：
 //////////////////
-struct tipVer410: Tip {
+struct tipVer410Otome5Strap: Tip {
     var title: Text {
-        Text("機能更新")
+        Text("情報更新")
     }
     var message: Text? {
-        Text("")
+        Text("ストラップ出現時の期待度など情報更新")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

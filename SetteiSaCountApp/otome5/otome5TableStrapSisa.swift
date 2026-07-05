@@ -31,8 +31,8 @@ struct otome5TableStrapSisa: View {
             unitTableString(
                 columTitle: "",
                 stringList: [
-                    "当該キャラのモード滞在期待度アップ",
-                    "当該キャラのモード滞在 濃厚",
+                    "当該キャラのモード滞在期待度 32%",
+                    "当該キャラのモード滞在期待度 95%",
                 ],
                 maxWidth: 250,
                 lineList: self.lineList1,

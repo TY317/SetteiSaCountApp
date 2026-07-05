@@ -15,6 +15,7 @@ struct otome5TableStrapMode: View {
                 Text("・滞在中は通常時が有利となるモード")
                 Text("・移行時はAT当選まで滞在")
                 Text("・モンキー5のライバルモードのようなもの")
+                Text("・ノブナガ、ゴエモン、ヒデヨシには設定差あり")
             }
             
             HStack(spacing: 0) {
