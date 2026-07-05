@@ -26,7 +26,7 @@ struct rioAceViewEnding: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     
-    @State var selectedItem: String = "サインなし"
+    @State var selectedItem: String = "お客様がお望みなら(青)"
     let selectList: [String] = [
         "お客様がお望みなら(青)",
         "ちゅうもーく(黄)",

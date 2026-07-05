@@ -289,6 +289,12 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory1.shinonCountDrop = bioRe3.shinonCountDrop
         bioRe3Memory1.shinonCountStay = bioRe3.shinonCountStay
         bioRe3Memory1.shinonCountSum = bioRe3.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3Memory1.atGame = bioRe3.atGame
+        bioRe3Memory1.duringAtCountCz = bioRe3.duringAtCountCz
     }
     func saveMemory2() {
         bioRe3Memory2.normalGame = bioRe3.normalGame
@@ -325,6 +331,12 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory2.shinonCountDrop = bioRe3.shinonCountDrop
         bioRe3Memory2.shinonCountStay = bioRe3.shinonCountStay
         bioRe3Memory2.shinonCountSum = bioRe3.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3Memory2.atGame = bioRe3.atGame
+        bioRe3Memory2.duringAtCountCz = bioRe3.duringAtCountCz
     }
     func saveMemory3() {
         bioRe3Memory3.normalGame = bioRe3.normalGame
@@ -361,6 +373,12 @@ struct bioRe3SubViewSaveMemory: View {
         bioRe3Memory3.shinonCountDrop = bioRe3.shinonCountDrop
         bioRe3Memory3.shinonCountStay = bioRe3.shinonCountStay
         bioRe3Memory3.shinonCountSum = bioRe3.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3Memory3.atGame = bioRe3.atGame
+        bioRe3Memory3.duringAtCountCz = bioRe3.duringAtCountCz
     }
 }
 
@@ -425,6 +443,12 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.shinonCountDrop = bioRe3Memory1.shinonCountDrop
         bioRe3.shinonCountStay = bioRe3Memory1.shinonCountStay
         bioRe3.shinonCountSum = bioRe3Memory1.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3.atGame = bioRe3Memory1.atGame
+        bioRe3.duringAtCountCz = bioRe3Memory1.duringAtCountCz
     }
     func loadMemory2() {
         bioRe3.normalGame = bioRe3Memory2.normalGame
@@ -461,6 +485,12 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.shinonCountDrop = bioRe3Memory2.shinonCountDrop
         bioRe3.shinonCountStay = bioRe3Memory2.shinonCountStay
         bioRe3.shinonCountSum = bioRe3Memory2.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3.atGame = bioRe3Memory2.atGame
+        bioRe3.duringAtCountCz = bioRe3Memory2.duringAtCountCz
     }
     func loadMemory3() {
         bioRe3.normalGame = bioRe3Memory3.normalGame
@@ -497,6 +527,12 @@ struct bioRe3SubViewLoadMemory: View {
         bioRe3.shinonCountDrop = bioRe3Memory3.shinonCountDrop
         bioRe3.shinonCountStay = bioRe3Memory3.shinonCountStay
         bioRe3.shinonCountSum = bioRe3Memory3.shinonCountSum
+
+        // ---------
+        // ver4.1.0
+        // ---------
+        bioRe3.atGame = bioRe3Memory3.atGame
+        bioRe3.duringAtCountCz = bioRe3Memory3.duringAtCountCz
     }
 }
 

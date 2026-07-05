@@ -168,6 +168,7 @@ struct karakuri2ViewHistory: View {
                                             image: Image(self.imageNameList[screenIndex]),
                                             upperBeltText: self.upperBeltTextList[screenIndex],
                                             upperBeltFont: .subheadline,
+                                            upperBeltBool: false,
                                             lowerBeltText: self.lowerBeltTextList[screenIndex],
                                             lowerBeltFont: .subheadline,
                                         )

@@ -185,8 +185,8 @@ struct otome5ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.otome5MachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.otome5MachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

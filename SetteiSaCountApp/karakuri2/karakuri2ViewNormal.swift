@@ -64,16 +64,16 @@ struct karakuri2ViewNormal: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
-                // //// マイナスチェック
-                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
-            }
-            ToolbarItem(placement: .automatic) {
-                // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .automatic) {
+//                // //// マイナスチェック
+//                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
+//            }
+//            ToolbarItem(placement: .automatic) {
+//                // /// リセット
+//                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
+//            }
+//        }
     }
 }
 

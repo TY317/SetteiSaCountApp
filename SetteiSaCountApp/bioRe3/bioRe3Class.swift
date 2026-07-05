@@ -199,6 +199,12 @@ class BioRe3Memory1: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory1") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory1") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory1") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory1") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory1") var duringAtCountCz: Int = 0
 }
 
 
@@ -239,6 +245,12 @@ class BioRe3Memory2: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory2") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory2") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory2") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory2") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory2") var duringAtCountCz: Int = 0
 }
 
 
@@ -279,4 +291,10 @@ class BioRe3Memory3: ObservableObject {
     @AppStorage("bioRe3ShinonCountDropMemory3") var shinonCountDrop: Int = 0
     @AppStorage("bioRe3ShinonCountStayMemory3") var shinonCountStay: Int = 0
     @AppStorage("bioRe3ShinonCountSumMemory3") var shinonCountSum: Int = 0
+
+    // ---------
+    // ver4.1.0
+    // ---------
+    @AppStorage("bioRe3AtGameMemory3") var atGame: Int = 0
+    @AppStorage("bioRe3DuringAtCountCzMemory3") var duringAtCountCz: Int = 0
 }
