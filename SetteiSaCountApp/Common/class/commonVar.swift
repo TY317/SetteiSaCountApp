@@ -696,6 +696,8 @@ class commonVar: ObservableObject {
         jormungandisUnlocked = true
         akudamaisUnlocked = true
         godKisekiisUnlocked = true
+        rioAceisUnlocked = true
+        bioRe3isUnlocked = true
     }
     
     // //////////////////////////////////////
@@ -826,30 +828,6 @@ class commonVar: ObservableObject {
                 godKisekiMenuNormalBadge = "update"
                 kokakukidotaiMachineIconBadge = "update"
                 kokakukidotaiMenuNormalBadge = "update"
-                newAppInfoShow = true
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    func ver3250FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.25.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                rioAceisUnlocked = false
-                rioAceMachineIconBadge = "new"
-                bioRe3isUnlocked = false
-                bioRe3MachineIconBadge = "new"
-                kabaneriUnatoMachineIconBadge = "update"
-                kabaneriUnatoMenuOmikujiBadge = "update"
                 newAppInfoShow = true
             }
             else {

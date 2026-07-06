@@ -88,7 +88,6 @@ struct kabaneriUnatoViewOmikuji: View {
                     minusCheck: $kabaneriUnato.minusCheck) {
                         kabaneriUnato.omikujiSumFunc()
                     }
-                    .popoverTip(tipVer3250KabaneriUnatoOmikuji())
             } header: {
                 Text("アイテムくじ選択")
             }
