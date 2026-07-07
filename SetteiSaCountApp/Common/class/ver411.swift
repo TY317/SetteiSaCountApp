@@ -26,12 +26,12 @@ struct tipVer411UpdateInfo: Tip {
 //////////////////
 // Tip：
 //////////////////
-struct tipVer411: Tip {
+struct tipVer411Karakuri2Mode: Tip {
     var title: Text {
-        Text("機能更新")
+        Text("情報更新")
     }
     var message: Text? {
-        Text("")
+        Text("モードの情報を追加")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

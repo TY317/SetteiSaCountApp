@@ -37,6 +37,17 @@ struct karakuri2ViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // モード
+            Section {
+                // モード
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    karakuri2TableMode()
+                }
+                .popoverTip(tipVer411Karakuri2Mode())
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.karakuri2MenuNormalBadge)
