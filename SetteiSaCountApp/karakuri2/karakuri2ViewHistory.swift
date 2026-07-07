@@ -107,6 +107,7 @@ struct karakuri2ViewHistory: View {
                                         unitScreenOnlyDisplay(
                                             image: Image(self.imageNameList[index]),
                                             upperBeltText: self.upperBeltTextList[index],
+                                            upperBeltFont: .subheadline,
                                             lowerBeltText: self.lowerBeltTextList[index],
                                         )
                                         .overlay {
