@@ -37,3 +37,19 @@ struct tipVer411Karakuri2Mode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer411Karakuri2CzScreen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("CZ終了画面の種類を追加")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
