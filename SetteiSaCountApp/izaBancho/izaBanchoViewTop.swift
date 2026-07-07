@@ -36,7 +36,7 @@ struct izaBanchoViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-//                            badgeStatus: ver350.izaBanchoMenuNormalBadgeStaus,
+                            badgeStatus: common.izaBanchoMenuNormalBadge,
                         )
                     }
                     // CZ
@@ -100,7 +100,8 @@ struct izaBanchoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.izaBanchoMachineIconBadge)
+//        .resetBadgeOnAppear($common.izaBanchoMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4805")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

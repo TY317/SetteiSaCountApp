@@ -647,6 +647,7 @@ class commonVar: ObservableObject {
     // //// いざ番長
     @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
     @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
+    @AppStorage("izaBanchoMenuNormalBadge") var izaBanchoMenuNormalBadge: String = "none"
     
     // //// デビルメイクライ
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
@@ -715,6 +716,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
                 karakuri2MenuNormalBadge = "update"
                 karakuri2MenuHistoryBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4805", newStatus: "update")
+                izaBanchoMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
