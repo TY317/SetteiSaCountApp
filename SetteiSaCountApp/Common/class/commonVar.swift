@@ -648,7 +648,8 @@ class commonVar: ObservableObject {
     @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
     @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
     @AppStorage("izaBanchoMenuNormalBadge") var izaBanchoMenuNormalBadge: String = "none"
-    
+    @AppStorage("izaBanchoMenuZecchoBadge") var izaBanchoMenuZecchoBadge: String = "none"
+
     // //// デビルメイクライ
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"

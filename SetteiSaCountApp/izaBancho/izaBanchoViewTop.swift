@@ -80,8 +80,19 @@ struct izaBanchoViewTop: View {
 //                            badgeStatus: ver350.izaBanchoMenuScreenBadgeStaus,
                         )
                     }
+
+                    // 絶頂中の楽曲変化
+                    NavigationLink(destination: izaBanchoViewZeccho(
+                        izaBancho: izaBancho
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "music.note",
+                            textBody: "絶頂中の楽曲変化",
+                            badgeStatus: common.izaBanchoMenuZecchoBadge,
+                        )
+                    }
                 }
-                
+
                 // 設定推測グラフ
                 NavigationLink(destination: izaBanchoView95Ci(
                     izaBancho: izaBancho,
