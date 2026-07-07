@@ -94,6 +94,7 @@ n=1..N について `SetteiSaCountApp/<prefix>/<prefix>Assets.xcassets/<prefix>S
 - 提案コミットメッセージ：`[機能]<prefix> 終了画面カウントページを実装`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 
 ## 注意
+- `.toolbar` は雛形で「画面選択解除（`unitButtonToolbarScreenSelectReset`、`currentKeyword: $selectedImageName`）／マイナスチェック／リセット」の3ボタンを既定生成する。**画面選択解除は終了画面の必須ボタン**（選択中の画面をクリアする）なので削除しない。
 - `screenCountSum`・`countSum(...)`・`resetScreen()` 内 `minusCheck = false` を忘れない。`resetAll()` への `resetScreen()` 追加も必須。
 - 3リスト（upper/lower/flashColor）は必ず N 個ずつ。過不足があるとインデックスの `indices.contains` ガードで表示/結果が欠ける。
 - 終了画面のベイズ判別（`logPostPercentMulti` で `screenCount*` を尤度化）は本スキルのスコープ外＝別途 add-bayes-element。

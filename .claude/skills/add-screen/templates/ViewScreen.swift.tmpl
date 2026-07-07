@@ -118,6 +118,12 @@ __FLASH_COLOR_LIST__
         )
         .toolbar {
             ToolbarItem(placement: .automatic) {
+                // //// 画面選択解除
+                unitButtonToolbarScreenSelectReset(
+                    currentKeyword: self.$selectedImageName
+                )
+            }
+            ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $__prefix__.minusCheck)
             }

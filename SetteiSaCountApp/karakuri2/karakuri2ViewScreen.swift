@@ -149,6 +149,12 @@ struct karakuri2ViewScreen: View {
         )
         .toolbar {
             ToolbarItem(placement: .automatic) {
+                // //// 画面選択解除
+                unitButtonToolbarScreenSelectReset(
+                    currentKeyword: self.$selectedImageName
+                )
+            }
+            ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
             }
