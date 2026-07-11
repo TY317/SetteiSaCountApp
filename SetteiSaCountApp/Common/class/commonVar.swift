@@ -388,6 +388,8 @@ class commonVar: ObservableObject {
     @AppStorage("sao2MenuCzBadge") var sao2MenuCzBadge: String = "none"
     @AppStorage("sao2MenuDuringAtBadge") var sao2MenuDuringAtBadge: String = "none"
     @AppStorage("sao2MenuComeBackBadge") var sao2MenuComeBackBadge: String = "none"
+    @AppStorage("sao2MenuEndingBadge") var sao2MenuEndingBadge: String = "none"
+    @AppStorage("sao2MenuMothersBadge") var sao2MenuMothersBadge: String = "none"
     
     // ---- バイオRE3
     @AppStorage("bioRe3isUnlocked") var bioRe3isUnlocked: Bool = true
@@ -647,7 +649,9 @@ class commonVar: ObservableObject {
     // //// いざ番長
     @AppStorage("izaBanchoMachineIconBadge") var izaBanchoMachineIconBadge: String = "none"
     @AppStorage("izaBanchoMenuFirstHitBadge") var izaBanchoMenuFirstHitBadge: String = "none"
-    
+    @AppStorage("izaBanchoMenuNormalBadge") var izaBanchoMenuNormalBadge: String = "none"
+    @AppStorage("izaBanchoMenuZecchoBadge") var izaBanchoMenuZecchoBadge: String = "none"
+
     // //// デビルメイクライ
     @AppStorage("dmc5MachineIconBadge") var dmc5MachineIconBadge: String = "none"
     @AppStorage("dmc5MenuFirstHitBadge") var dmc5MenuFirstHitBadge: String = "none"
@@ -696,11 +700,40 @@ class commonVar: ObservableObject {
         jormungandisUnlocked = true
         akudamaisUnlocked = true
         godKisekiisUnlocked = true
+        rioAceisUnlocked = true
+        bioRe3isUnlocked = true
     }
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver411FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.1.1"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
+                karakuri2MenuNormalBadge = "update"
+                karakuri2MenuHistoryBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4805", newStatus: "update")
+                izaBanchoMenuNormalBadge = "update"
+                izaBanchoMenuZecchoBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
+                sao2MenuEndingBadge = "new"
+                sao2MenuMothersBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver410FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.1.0"
@@ -826,30 +859,6 @@ class commonVar: ObservableObject {
                 godKisekiMenuNormalBadge = "update"
                 kokakukidotaiMachineIconBadge = "update"
                 kokakukidotaiMenuNormalBadge = "update"
-                newAppInfoShow = true
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    func ver3250FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.25.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                rioAceisUnlocked = false
-                rioAceMachineIconBadge = "new"
-                bioRe3isUnlocked = false
-                bioRe3MachineIconBadge = "new"
-                kabaneriUnatoMachineIconBadge = "update"
-                kabaneriUnatoMenuOmikujiBadge = "update"
                 newAppInfoShow = true
             }
             else {

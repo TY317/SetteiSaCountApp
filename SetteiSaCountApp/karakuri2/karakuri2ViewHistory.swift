@@ -35,16 +35,24 @@ struct karakuri2ViewHistory: View {
         "karakuri2CzScreen5",
         "karakuri2CzScreen6",
         "karakuri2CzScreen7",
+        "karakuri2CzScreen8",
+        "karakuri2CzScreen9",
+        "karakuri2CzScreen10",
+        "karakuri2CzScreen11",
     ]
     let upperBeltTextList: [String] = [
         "AT当選",
         "鳴海",
         "勝",
-        "しろがね",
+        "フランシーヌ(祈り)",
         "ギイ＆オリンピア",
         "舌出し",
         "オートマータ",
         "ピエロ",
+        "フランシーヌ(笑顔)",
+        "手",
+        "フランシーヌ人形",
+        "才賀アンジェリーナ",
     ]
     let lowerBeltTextList: [String] = [
         "-",
@@ -55,8 +63,12 @@ struct karakuri2ViewHistory: View {
         "???",
         "???",
         "???",
+        "???",
+        "???",
+        "???",
+        "???",
     ]
-    let indexList: [Int] = [0,1,2,3,4,5,6,7]
+    let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9,10,11]
 
     var body: some View {
         List {
@@ -75,41 +87,46 @@ struct karakuri2ViewHistory: View {
                     selected: $karakuri2.selectedKind,
                     selectlist: karakuri2.kindList
                 )
-                // カウントボタン
-                ScrollView(.horizontal) {
-                    HStack(spacing: 20) {
-                        ForEach(self.indexList, id: \.self) { index in
-                            if self.imageNameList.indices.contains(index) &&
-                                self.upperBeltTextList.indices.contains(index) &&
-                                self.lowerBeltTextList.indices.contains(index) {
-                                Button {
-                                    if karakuri2.selectedImageName == self.imageNameList[index] {
-                                        karakuri2.selectedImageName = ""
-                                    }
-                                    else {
-                                        karakuri2.selectedImageName = self.imageNameList[index]
-                                    }
-                                } label: {
-                                    unitScreenOnlyDisplay(
-                                        image: Image(self.imageNameList[index]),
-                                        upperBeltText: self.upperBeltTextList[index],
-                                        lowerBeltText: self.lowerBeltTextList[index],
-                                    )
-                                    .overlay {
+                // 失敗画面
+                VStack {
+                    Text("[CZ終了画面]")
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 20) {
+                            ForEach(self.indexList, id: \.self) { index in
+                                if self.imageNameList.indices.contains(index) &&
+                                    self.upperBeltTextList.indices.contains(index) &&
+                                    self.lowerBeltTextList.indices.contains(index) {
+                                    Button {
                                         if karakuri2.selectedImageName == self.imageNameList[index] {
-                                            Rectangle()
-                                                .foregroundStyle(Color.white)
-                                                .opacity(0.6)
-                                                .border(Color.green, width: 10)
-                                                .cornerRadius(10)
+                                            karakuri2.selectedImageName = ""
+                                        }
+                                        else {
+                                            karakuri2.selectedImageName = self.imageNameList[index]
+                                        }
+                                    } label: {
+                                        unitScreenOnlyDisplay(
+                                            image: Image(self.imageNameList[index]),
+                                            upperBeltText: self.upperBeltTextList[index],
+                                            upperBeltFont: .subheadline,
+                                            lowerBeltText: self.lowerBeltTextList[index],
+                                        )
+                                        .overlay {
+                                            if karakuri2.selectedImageName == self.imageNameList[index] {
+                                                Rectangle()
+                                                    .foregroundStyle(Color.white)
+                                                    .opacity(0.6)
+                                                    .border(Color.green, width: 10)
+                                                    .cornerRadius(10)
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
+                    .frame(height: common.screenScrollHeight)
+                    .popoverTip(tipVer411Karakuri2CzScreen())
                 }
-                .frame(height: common.screenScrollHeight)
                 // //// 登録ボタン
                 Button {
                     // マイナスチェック入っていれば1行削除

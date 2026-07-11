@@ -110,6 +110,32 @@ struct sao2ViewTop: View {
                         )
                     }
 
+                    // マザーズ・ロザリオ
+                    NavigationLink(destination: sao2ViewMothers(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.hunting",
+                            textBody: "マザーズ・ロザリオ",
+                            badgeStatus: common.sao2MenuMothersBadge,
+                        )
+                    }
+
+                    // エンディング
+                    NavigationLink(destination: sao2ViewEnding(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.sao2MenuEndingBadge,
+                        )
+                    }
+
 //                    // エンディング
 //                    NavigationLink(destination: sao2ViewFigure(
 //                        sao2: sao2,
@@ -180,8 +206,8 @@ struct sao2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.sao2MachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.sao2MachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "5025")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -279,6 +305,24 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.comeBackCountMiss = sao2.comeBackCountMiss
         sao2Memory1.comeBackCountHit = sao2.comeBackCountHit
         sao2Memory1.comeBackCountSum = sao2.comeBackCountSum
+        sao2Memory1.miniCharaCount1 = sao2.miniCharaCount1
+        sao2Memory1.miniCharaCount2 = sao2.miniCharaCount2
+        sao2Memory1.miniCharaCount3 = sao2.miniCharaCount3
+        sao2Memory1.miniCharaCount4 = sao2.miniCharaCount4
+        sao2Memory1.miniCharaCount5 = sao2.miniCharaCount5
+        sao2Memory1.miniCharaCount6 = sao2.miniCharaCount6
+        sao2Memory1.miniCharaCount7 = sao2.miniCharaCount7
+        sao2Memory1.miniCharaCount8 = sao2.miniCharaCount8
+        sao2Memory1.miniCharaCountSum = sao2.miniCharaCountSum
+        sao2Memory1.motherMiniCharaCount1 = sao2.motherMiniCharaCount1
+        sao2Memory1.motherMiniCharaCount2 = sao2.motherMiniCharaCount2
+        sao2Memory1.motherMiniCharaCount3 = sao2.motherMiniCharaCount3
+        sao2Memory1.motherMiniCharaCount4 = sao2.motherMiniCharaCount4
+        sao2Memory1.motherMiniCharaCount5 = sao2.motherMiniCharaCount5
+        sao2Memory1.motherMiniCharaCount6 = sao2.motherMiniCharaCount6
+        sao2Memory1.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
+        sao2Memory1.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
+        sao2Memory1.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
     }
     func saveMemory2() {
         sao2Memory2.lowSuikaCount = sao2.lowSuikaCount
@@ -310,6 +354,24 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.comeBackCountMiss = sao2.comeBackCountMiss
         sao2Memory2.comeBackCountHit = sao2.comeBackCountHit
         sao2Memory2.comeBackCountSum = sao2.comeBackCountSum
+        sao2Memory2.miniCharaCount1 = sao2.miniCharaCount1
+        sao2Memory2.miniCharaCount2 = sao2.miniCharaCount2
+        sao2Memory2.miniCharaCount3 = sao2.miniCharaCount3
+        sao2Memory2.miniCharaCount4 = sao2.miniCharaCount4
+        sao2Memory2.miniCharaCount5 = sao2.miniCharaCount5
+        sao2Memory2.miniCharaCount6 = sao2.miniCharaCount6
+        sao2Memory2.miniCharaCount7 = sao2.miniCharaCount7
+        sao2Memory2.miniCharaCount8 = sao2.miniCharaCount8
+        sao2Memory2.miniCharaCountSum = sao2.miniCharaCountSum
+        sao2Memory2.motherMiniCharaCount1 = sao2.motherMiniCharaCount1
+        sao2Memory2.motherMiniCharaCount2 = sao2.motherMiniCharaCount2
+        sao2Memory2.motherMiniCharaCount3 = sao2.motherMiniCharaCount3
+        sao2Memory2.motherMiniCharaCount4 = sao2.motherMiniCharaCount4
+        sao2Memory2.motherMiniCharaCount5 = sao2.motherMiniCharaCount5
+        sao2Memory2.motherMiniCharaCount6 = sao2.motherMiniCharaCount6
+        sao2Memory2.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
+        sao2Memory2.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
+        sao2Memory2.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
     }
     func saveMemory3() {
         sao2Memory3.lowSuikaCount = sao2.lowSuikaCount
@@ -341,6 +403,24 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory3.comeBackCountMiss = sao2.comeBackCountMiss
         sao2Memory3.comeBackCountHit = sao2.comeBackCountHit
         sao2Memory3.comeBackCountSum = sao2.comeBackCountSum
+        sao2Memory3.miniCharaCount1 = sao2.miniCharaCount1
+        sao2Memory3.miniCharaCount2 = sao2.miniCharaCount2
+        sao2Memory3.miniCharaCount3 = sao2.miniCharaCount3
+        sao2Memory3.miniCharaCount4 = sao2.miniCharaCount4
+        sao2Memory3.miniCharaCount5 = sao2.miniCharaCount5
+        sao2Memory3.miniCharaCount6 = sao2.miniCharaCount6
+        sao2Memory3.miniCharaCount7 = sao2.miniCharaCount7
+        sao2Memory3.miniCharaCount8 = sao2.miniCharaCount8
+        sao2Memory3.miniCharaCountSum = sao2.miniCharaCountSum
+        sao2Memory3.motherMiniCharaCount1 = sao2.motherMiniCharaCount1
+        sao2Memory3.motherMiniCharaCount2 = sao2.motherMiniCharaCount2
+        sao2Memory3.motherMiniCharaCount3 = sao2.motherMiniCharaCount3
+        sao2Memory3.motherMiniCharaCount4 = sao2.motherMiniCharaCount4
+        sao2Memory3.motherMiniCharaCount5 = sao2.motherMiniCharaCount5
+        sao2Memory3.motherMiniCharaCount6 = sao2.motherMiniCharaCount6
+        sao2Memory3.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
+        sao2Memory3.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
+        sao2Memory3.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
     }
 }
 
@@ -401,6 +481,24 @@ struct sao2SubViewLoadMemory: View {
         sao2.comeBackCountMiss = sao2Memory1.comeBackCountMiss
         sao2.comeBackCountHit = sao2Memory1.comeBackCountHit
         sao2.comeBackCountSum = sao2Memory1.comeBackCountSum
+        sao2.miniCharaCount1 = sao2Memory1.miniCharaCount1
+        sao2.miniCharaCount2 = sao2Memory1.miniCharaCount2
+        sao2.miniCharaCount3 = sao2Memory1.miniCharaCount3
+        sao2.miniCharaCount4 = sao2Memory1.miniCharaCount4
+        sao2.miniCharaCount5 = sao2Memory1.miniCharaCount5
+        sao2.miniCharaCount6 = sao2Memory1.miniCharaCount6
+        sao2.miniCharaCount7 = sao2Memory1.miniCharaCount7
+        sao2.miniCharaCount8 = sao2Memory1.miniCharaCount8
+        sao2.miniCharaCountSum = sao2Memory1.miniCharaCountSum
+        sao2.motherMiniCharaCount1 = sao2Memory1.motherMiniCharaCount1
+        sao2.motherMiniCharaCount2 = sao2Memory1.motherMiniCharaCount2
+        sao2.motherMiniCharaCount3 = sao2Memory1.motherMiniCharaCount3
+        sao2.motherMiniCharaCount4 = sao2Memory1.motherMiniCharaCount4
+        sao2.motherMiniCharaCount5 = sao2Memory1.motherMiniCharaCount5
+        sao2.motherMiniCharaCount6 = sao2Memory1.motherMiniCharaCount6
+        sao2.motherMiniCharaCount7 = sao2Memory1.motherMiniCharaCount7
+        sao2.motherMiniCharaCount8 = sao2Memory1.motherMiniCharaCount8
+        sao2.motherMiniCharaCountSum = sao2Memory1.motherMiniCharaCountSum
     }
     func loadMemory2() {
         sao2.lowSuikaCount = sao2Memory2.lowSuikaCount
@@ -432,6 +530,24 @@ struct sao2SubViewLoadMemory: View {
         sao2.comeBackCountMiss = sao2Memory2.comeBackCountMiss
         sao2.comeBackCountHit = sao2Memory2.comeBackCountHit
         sao2.comeBackCountSum = sao2Memory2.comeBackCountSum
+        sao2.miniCharaCount1 = sao2Memory2.miniCharaCount1
+        sao2.miniCharaCount2 = sao2Memory2.miniCharaCount2
+        sao2.miniCharaCount3 = sao2Memory2.miniCharaCount3
+        sao2.miniCharaCount4 = sao2Memory2.miniCharaCount4
+        sao2.miniCharaCount5 = sao2Memory2.miniCharaCount5
+        sao2.miniCharaCount6 = sao2Memory2.miniCharaCount6
+        sao2.miniCharaCount7 = sao2Memory2.miniCharaCount7
+        sao2.miniCharaCount8 = sao2Memory2.miniCharaCount8
+        sao2.miniCharaCountSum = sao2Memory2.miniCharaCountSum
+        sao2.motherMiniCharaCount1 = sao2Memory2.motherMiniCharaCount1
+        sao2.motherMiniCharaCount2 = sao2Memory2.motherMiniCharaCount2
+        sao2.motherMiniCharaCount3 = sao2Memory2.motherMiniCharaCount3
+        sao2.motherMiniCharaCount4 = sao2Memory2.motherMiniCharaCount4
+        sao2.motherMiniCharaCount5 = sao2Memory2.motherMiniCharaCount5
+        sao2.motherMiniCharaCount6 = sao2Memory2.motherMiniCharaCount6
+        sao2.motherMiniCharaCount7 = sao2Memory2.motherMiniCharaCount7
+        sao2.motherMiniCharaCount8 = sao2Memory2.motherMiniCharaCount8
+        sao2.motherMiniCharaCountSum = sao2Memory2.motherMiniCharaCountSum
     }
     func loadMemory3() {
         sao2.lowSuikaCount = sao2Memory3.lowSuikaCount
@@ -463,6 +579,24 @@ struct sao2SubViewLoadMemory: View {
         sao2.comeBackCountMiss = sao2Memory3.comeBackCountMiss
         sao2.comeBackCountHit = sao2Memory3.comeBackCountHit
         sao2.comeBackCountSum = sao2Memory3.comeBackCountSum
+        sao2.miniCharaCount1 = sao2Memory3.miniCharaCount1
+        sao2.miniCharaCount2 = sao2Memory3.miniCharaCount2
+        sao2.miniCharaCount3 = sao2Memory3.miniCharaCount3
+        sao2.miniCharaCount4 = sao2Memory3.miniCharaCount4
+        sao2.miniCharaCount5 = sao2Memory3.miniCharaCount5
+        sao2.miniCharaCount6 = sao2Memory3.miniCharaCount6
+        sao2.miniCharaCount7 = sao2Memory3.miniCharaCount7
+        sao2.miniCharaCount8 = sao2Memory3.miniCharaCount8
+        sao2.miniCharaCountSum = sao2Memory3.miniCharaCountSum
+        sao2.motherMiniCharaCount1 = sao2Memory3.motherMiniCharaCount1
+        sao2.motherMiniCharaCount2 = sao2Memory3.motherMiniCharaCount2
+        sao2.motherMiniCharaCount3 = sao2Memory3.motherMiniCharaCount3
+        sao2.motherMiniCharaCount4 = sao2Memory3.motherMiniCharaCount4
+        sao2.motherMiniCharaCount5 = sao2Memory3.motherMiniCharaCount5
+        sao2.motherMiniCharaCount6 = sao2Memory3.motherMiniCharaCount6
+        sao2.motherMiniCharaCount7 = sao2Memory3.motherMiniCharaCount7
+        sao2.motherMiniCharaCount8 = sao2Memory3.motherMiniCharaCount8
+        sao2.motherMiniCharaCountSum = sao2Memory3.motherMiniCharaCountSum
     }
 }
 

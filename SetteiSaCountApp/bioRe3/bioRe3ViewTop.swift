@@ -83,6 +83,19 @@ struct bioRe3ViewTop: View {
                             badgeStatus: common.bioRe3MenuFigureBadge,
                         )
                     }
+                    
+                    // AT中
+                    NavigationLink(destination: bioRe3ViewDuringAt(
+                        bioRe3: bioRe3,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "allergens.fill",
+                            textBody: "AT中",
+                            badgeStatus: common.bioRe3MenuDuringAtBadge,
+                        )
+                    }
 
                     // AT終了画面
 //                    NavigationLink(destination: bioRe3ViewScreen(
@@ -122,20 +135,7 @@ struct bioRe3ViewTop: View {
 //                            badgeStatus: common.bioRe3MenuOmikujiBadge,
 //                        )
 //                    }
-//
-                    // AT中
-                    NavigationLink(destination: bioRe3ViewDuringAt(
-                        bioRe3: bioRe3,
-                        bayes: bayes,
-                        viewModel: viewModel,
-                    )) {
-                        unitLabelMenu(
-                            imageSystemName: "allergens.fill",
-                            textBody: "AT中",
-                            badgeStatus: common.bioRe3MenuDuringAtBadge,
-                        )
-                    }
-
+                    
                     // トロフィー
                     NavigationLink(destination: commonViewEnteriseTrophy()) {
                         unitLabelMenu(

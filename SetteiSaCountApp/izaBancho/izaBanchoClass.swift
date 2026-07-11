@@ -12,7 +12,7 @@ class IzaBancho: ObservableObject {
     // /////////////////
     // 通常時
     // /////////////////
-    let ratioCommonBellA: [Double] = [74.9,-1,-1,-1,-1,-1]
+    let ratioCommonBellA: [Double] = [74.9,74.5,72.7,64,60.1,58]
     
     
     // /////////////////
@@ -163,7 +163,7 @@ class IzaBancho: ObservableObject {
     }
     
     // //// 弱チェリー確率
-    let ratioJakuCherry: [Double] = [79.9,-1,-1,-1,-1,-1]
+    let ratioJakuCherry: [Double] = [79.9,79.6,79.3,78.9,78.3,77.6]
     
     // /////////////
     // ver3.5.0で追加

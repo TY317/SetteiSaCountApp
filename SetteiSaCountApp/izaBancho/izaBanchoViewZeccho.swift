@@ -1,17 +1,17 @@
 //
-//  karakuri2ViewNormal.swift
+//  izaBanchoViewZeccho.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/06/27.
+//  Created by 横田徹.
 //
 
 import SwiftUI
 
-struct karakuri2ViewNormal: View {
+struct izaBanchoViewZeccho: View {
     @EnvironmentObject var common: commonVar
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
-    @ObservedObject var karakuri2: Karakuri2
+    @ObservedObject var izaBancho: IzaBancho
     @State var isShowDestination: Bool = false
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -26,40 +26,39 @@ struct karakuri2ViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+
     var body: some View {
         List {
-            // レア役
+            // 楽曲変化
             Section {
-                // レア役停止系
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
-                    karakuri2TableKoyakuPattern()
+                // 説明
+                Text("絶頂開始時にミーモ斬シングが流れれば当該＋3セット以上継続濃厚かつ設定3・5・6示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // 楽曲変化
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTablePercent(
+                        columTitle: "楽曲変化",
+                        percentList: [6,6,10,6,16,16]
+                    )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
             } header: {
-                Text("小役")
-            }
-            
-            // モード
-            Section {
-                // モード
-                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
-                    karakuri2TableMode()
-                }
-                .popoverTip(tipVer411Karakuri2Mode())
-            } header: {
-                Text("モード")
+                Text("楽曲変化 発生率")
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.karakuri2MenuNormalBadge)
+        .resetBadgeOnAppear($common.izaBanchoMenuZecchoBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: karakuri2.machineName,
+                screenName: izaBancho.machineName,
                 screenClass: screenClass
             )
         }
-        .navigationTitle("通常時")
+        .navigationTitle("絶頂中")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -75,22 +74,12 @@ struct karakuri2ViewNormal: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-//        .toolbar {
-//            ToolbarItem(placement: .automatic) {
-//                // //// マイナスチェック
-//                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
-//            }
-//            ToolbarItem(placement: .automatic) {
-//                // /// リセット
-//                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
-//            }
-//        }
     }
 }
 
 #Preview {
-    karakuri2ViewNormal(
-        karakuri2: Karakuri2(),
+    izaBanchoViewZeccho(
+        izaBancho: IzaBancho(),
     )
     .environmentObject(commonVar())
     .environmentObject(Bayes())

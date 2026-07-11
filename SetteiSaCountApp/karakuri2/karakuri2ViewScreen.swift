@@ -40,7 +40,7 @@ struct karakuri2ViewScreen: View {
         "しろがね",
         "歯車",
         "敵キャラ",
-        "しろがね＆ルシール",
+        "アンジェリーナ＆ルシール",
         "鳴海＆勝",
         "大好き",
     ]
@@ -56,7 +56,7 @@ struct karakuri2ViewScreen: View {
         "???(しろがね)",
         "???(歯車)",
         "???(敵キャラ)",
-        "???(しろがね＆ルシール)",
+        "???(アンジェリーナ＆ルシール)",
         "???(鳴海＆勝)",
         "???(大好き)",
     ]
@@ -85,6 +85,7 @@ struct karakuri2ViewScreen: View {
                                         screen: unitScreenOnlyDisplay(
                                             image: Image(self.imageNameList[index]),
                                             upperBeltText: self.upperBeltTextList[index],
+                                            upperBeltFont: .subheadline,
                                             lowerBeltText: self.lowerBeltTextList[index],
                                         ),
                                         screenName: self.imageNameList[index],
@@ -147,6 +148,12 @@ struct karakuri2ViewScreen: View {
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
         .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// 画面選択解除
+                unitButtonToolbarScreenSelectReset(
+                    currentKeyword: self.$selectedImageName
+                )
+            }
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)

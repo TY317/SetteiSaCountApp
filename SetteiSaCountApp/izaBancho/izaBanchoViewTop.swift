@@ -36,7 +36,7 @@ struct izaBanchoViewTop: View {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
                             textBody: "通常時",
-//                            badgeStatus: ver350.izaBanchoMenuNormalBadgeStaus,
+                            badgeStatus: common.izaBanchoMenuNormalBadge,
                         )
                     }
                     // CZ
@@ -80,8 +80,19 @@ struct izaBanchoViewTop: View {
 //                            badgeStatus: ver350.izaBanchoMenuScreenBadgeStaus,
                         )
                     }
+
+                    // 絶頂中の楽曲変化
+                    NavigationLink(destination: izaBanchoViewZeccho(
+                        izaBancho: izaBancho
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "music.note",
+                            textBody: "絶頂中の楽曲変化",
+                            badgeStatus: common.izaBanchoMenuZecchoBadge,
+                        )
+                    }
                 }
-                
+
                 // 設定推測グラフ
                 NavigationLink(destination: izaBanchoView95Ci(
                     izaBancho: izaBancho,
@@ -100,7 +111,8 @@ struct izaBanchoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.izaBanchoMachineIconBadge)
+//        .resetBadgeOnAppear($common.izaBanchoMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4805")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

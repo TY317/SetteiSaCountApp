@@ -10,6 +10,7 @@ import SwiftUI
 struct izaBanchoViewNormal: View {
 //    @ObservedObject var ver350: Ver350
     @ObservedObject var izaBancho: IzaBancho
+    @EnvironmentObject var common: commonVar
     var body: some View {
         List {
             // //// 小役関連
@@ -46,6 +47,7 @@ struct izaBanchoViewNormal: View {
                         )
                     )
                 )
+                .popoverTip(tipVer411IzabanchoKoyaku())
             } header: {
                 Text("小役確率")
             }
@@ -112,7 +114,7 @@ struct izaBanchoViewNormal: View {
             }
         }
         // //// バッジのリセット
-//        .resetBadgeOnAppear($ver350.izaBanchoMenuNormalBadgeStaus)
+        .resetBadgeOnAppear($common.izaBanchoMenuNormalBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -131,4 +133,5 @@ struct izaBanchoViewNormal: View {
 //        ver350: Ver350(),
         izaBancho: IzaBancho(),
     )
+    .environmentObject(commonVar())
 }
