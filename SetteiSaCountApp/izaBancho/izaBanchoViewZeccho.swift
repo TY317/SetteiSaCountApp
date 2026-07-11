@@ -29,7 +29,24 @@ struct izaBanchoViewZeccho: View {
 
     var body: some View {
         List {
-
+            // 楽曲変化
+            Section {
+                // 説明
+                Text("絶頂開始時にミーモ斬シングが流れれば当該＋3セット以上継続濃厚かつ設定3・5・6示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // 楽曲変化
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTablePercent(
+                        columTitle: "楽曲変化",
+                        percentList: [6,6,10,6,16,16]
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+            } header: {
+                Text("楽曲変化 発生率")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.izaBanchoMenuZecchoBadge)
