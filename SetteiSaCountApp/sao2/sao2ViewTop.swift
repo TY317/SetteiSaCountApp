@@ -110,6 +110,19 @@ struct sao2ViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: sao2ViewEnding(
+                        sao2: sao2,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.sao2MenuEndingBadge,
+                        )
+                    }
+
 //                    // エンディング
 //                    NavigationLink(destination: sao2ViewFigure(
 //                        sao2: sao2,

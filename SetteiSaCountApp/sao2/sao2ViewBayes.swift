@@ -21,6 +21,7 @@ struct sao2ViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var endingEnable: Bool = true
     
     
     // 全機種共通
@@ -66,6 +67,13 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // エンディング中ミニキャラ
+                unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング中ミニキャラ") {
+                    unitExView5body2image(
+                        title: "ミニキャラ",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -232,6 +240,16 @@ struct sao2ViewBayes: View {
             }
         }
         
+        // エンディング中ミニキャラ
+        var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingEnable {
+            logPostEnding = logPostPercentMulti(
+                countList: [sao2.miniCharaCount7, sao2.miniCharaCount8],
+                ratioList: [sao2.ratioMiniCharaOver4, sao2.ratioMiniCharaOver6],
+                bigNumber: sao2.miniCharaCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -277,7 +295,8 @@ struct sao2ViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
-            
+            logPostEnding,
+
             logPostTrophy,
             logPostBefore,
         ])

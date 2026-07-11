@@ -161,6 +161,48 @@ class Sao2: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetComeBack()
+        resetMiniChara()
+    }
+
+    // -------
+    // ミニキャラ選択
+    // -------
+    let ratioMiniCharaOver4: [Double] = [0,0,0,1,1,1]
+    let ratioMiniCharaOver6: [Double] = [0,0,0,0,0,1]
+    @AppStorage("sao2MiniCharaCount1") var miniCharaCount1: Int = 0
+    @AppStorage("sao2MiniCharaCount2") var miniCharaCount2: Int = 0
+    @AppStorage("sao2MiniCharaCount3") var miniCharaCount3: Int = 0
+    @AppStorage("sao2MiniCharaCount4") var miniCharaCount4: Int = 0
+    @AppStorage("sao2MiniCharaCount5") var miniCharaCount5: Int = 0
+    @AppStorage("sao2MiniCharaCount6") var miniCharaCount6: Int = 0
+    @AppStorage("sao2MiniCharaCount7") var miniCharaCount7: Int = 0
+    @AppStorage("sao2MiniCharaCount8") var miniCharaCount8: Int = 0
+    @AppStorage("sao2MiniCharaCountSum") var miniCharaCountSum: Int = 0
+
+    func miniCharaSumFunc() {
+        miniCharaCountSum = countSum(
+            miniCharaCount1,
+            miniCharaCount2,
+            miniCharaCount3,
+            miniCharaCount4,
+            miniCharaCount5,
+            miniCharaCount6,
+            miniCharaCount7,
+            miniCharaCount8,
+        )
+    }
+
+    func resetMiniChara() {
+        miniCharaCount1 = 0
+        miniCharaCount2 = 0
+        miniCharaCount3 = 0
+        miniCharaCount4 = 0
+        miniCharaCount5 = 0
+        miniCharaCount6 = 0
+        miniCharaCount7 = 0
+        miniCharaCount8 = 0
+        miniCharaCountSum = 0
+        minusCheck = false
     }
 }
 

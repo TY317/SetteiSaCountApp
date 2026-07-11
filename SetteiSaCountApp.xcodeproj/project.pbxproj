@@ -1530,6 +1530,7 @@
 		0FEC7A342FD4F01C00B4D0D7 /* sao2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */; };
 		0FEC7A362FD5179C00B4D0D7 /* sao2ViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */; };
 		0FEC7A382FD51A5400B4D0D7 /* sao2ViewComeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */; };
+		EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */; };
 		0FEC7A3A2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
 		0FEC7A3B2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
 		0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */; };
@@ -3022,6 +3023,7 @@
 		0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewScreen.swift; sourceTree = "<group>"; };
 		0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewDuringAt.swift; sourceTree = "<group>"; };
 		0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewComeBack.swift; sourceTree = "<group>"; };
+		F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewEnding.swift; sourceTree = "<group>"; };
 		0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableKoyakuHit.swift; sourceTree = "<group>"; };
 		0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sevenSwordsViewEnding.swift; sourceTree = "<group>"; };
 		0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitMachineIconLinkWithSfsymbol.swift; sourceTree = "<group>"; };
@@ -3319,6 +3321,7 @@
 				0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */,
 				0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */,
 				0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */,
+				F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */,
 			);
 			path = sao2;
 			sourceTree = "<group>";
@@ -6247,6 +6250,7 @@
 				0F2DA9FB2EC079620083704E /* neoplaClass.swift in Sources */,
 				0F9D9C1C2EA349E400450B23 /* goJug3Ver2View95CiShima.swift in Sources */,
 				0FEC7A382FD51A5400B4D0D7 /* sao2ViewComeBack.swift in Sources */,
+				EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */,
 				0F1E11F42DCF6B5300F69AFF /* gundamSeedView95Ci.swift in Sources */,
 				0FA024752CF354C0004B3FD5 /* goevaView95Ci.swift in Sources */,
 				0F64DD5B2DC091400027315D /* danvineTableAttackStartRatio.swift in Sources */,
