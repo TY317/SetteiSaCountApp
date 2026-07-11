@@ -162,6 +162,7 @@ class Sao2: ObservableObject {
         resetScreen()
         resetComeBack()
         resetMiniChara()
+        resetMotherMiniChara()
     }
 
     // -------
@@ -204,6 +205,47 @@ class Sao2: ObservableObject {
         miniCharaCountSum = 0
         minusCheck = false
     }
+
+    // -------
+    // キャラ選択
+    // -------
+    let ratioMotherMiniCharaOver4: [Double] = [0,0,0,1,1,1]
+    let ratioMotherMiniCharaOver6: [Double] = [0,0,0,0,0,1]
+    @AppStorage("sao2MotherMiniCharaCount1") var motherMiniCharaCount1: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount2") var motherMiniCharaCount2: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount3") var motherMiniCharaCount3: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount4") var motherMiniCharaCount4: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount5") var motherMiniCharaCount5: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount6") var motherMiniCharaCount6: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount7") var motherMiniCharaCount7: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount8") var motherMiniCharaCount8: Int = 0
+    @AppStorage("sao2MotherMiniCharaCountSum") var motherMiniCharaCountSum: Int = 0
+
+    func motherMiniCharaSumFunc() {
+        motherMiniCharaCountSum = countSum(
+            motherMiniCharaCount1,
+            motherMiniCharaCount2,
+            motherMiniCharaCount3,
+            motherMiniCharaCount4,
+            motherMiniCharaCount5,
+            motherMiniCharaCount6,
+            motherMiniCharaCount7,
+            motherMiniCharaCount8,
+        )
+    }
+
+    func resetMotherMiniChara() {
+        motherMiniCharaCount1 = 0
+        motherMiniCharaCount2 = 0
+        motherMiniCharaCount3 = 0
+        motherMiniCharaCount4 = 0
+        motherMiniCharaCount5 = 0
+        motherMiniCharaCount6 = 0
+        motherMiniCharaCount7 = 0
+        motherMiniCharaCount8 = 0
+        motherMiniCharaCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -237,6 +279,24 @@ class Sao2Memory1: ObservableObject {
     @AppStorage("sao2ComeBackCountMissMemory1") var comeBackCountMiss: Int = 0
     @AppStorage("sao2ComeBackCountHitMemory1") var comeBackCountHit: Int = 0
     @AppStorage("sao2ComeBackCountSumMemory1") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MiniCharaCount1Memory1") var miniCharaCount1: Int = 0
+    @AppStorage("sao2MiniCharaCount2Memory1") var miniCharaCount2: Int = 0
+    @AppStorage("sao2MiniCharaCount3Memory1") var miniCharaCount3: Int = 0
+    @AppStorage("sao2MiniCharaCount4Memory1") var miniCharaCount4: Int = 0
+    @AppStorage("sao2MiniCharaCount5Memory1") var miniCharaCount5: Int = 0
+    @AppStorage("sao2MiniCharaCount6Memory1") var miniCharaCount6: Int = 0
+    @AppStorage("sao2MiniCharaCount7Memory1") var miniCharaCount7: Int = 0
+    @AppStorage("sao2MiniCharaCount8Memory1") var miniCharaCount8: Int = 0
+    @AppStorage("sao2MiniCharaCountSumMemory1") var miniCharaCountSum: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount1Memory1") var motherMiniCharaCount1: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount2Memory1") var motherMiniCharaCount2: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount3Memory1") var motherMiniCharaCount3: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount4Memory1") var motherMiniCharaCount4: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount5Memory1") var motherMiniCharaCount5: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount6Memory1") var motherMiniCharaCount6: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount7Memory1") var motherMiniCharaCount7: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount8Memory1") var motherMiniCharaCount8: Int = 0
+    @AppStorage("sao2MotherMiniCharaCountSumMemory1") var motherMiniCharaCountSum: Int = 0
     @AppStorage("sao2MemoMemory1") var memo = ""
     @AppStorage("sao2DateMemory1") var dateDouble = 0.0
 }
@@ -272,6 +332,24 @@ class Sao2Memory2: ObservableObject {
     @AppStorage("sao2ComeBackCountMissMemory2") var comeBackCountMiss: Int = 0
     @AppStorage("sao2ComeBackCountHitMemory2") var comeBackCountHit: Int = 0
     @AppStorage("sao2ComeBackCountSumMemory2") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MiniCharaCount1Memory2") var miniCharaCount1: Int = 0
+    @AppStorage("sao2MiniCharaCount2Memory2") var miniCharaCount2: Int = 0
+    @AppStorage("sao2MiniCharaCount3Memory2") var miniCharaCount3: Int = 0
+    @AppStorage("sao2MiniCharaCount4Memory2") var miniCharaCount4: Int = 0
+    @AppStorage("sao2MiniCharaCount5Memory2") var miniCharaCount5: Int = 0
+    @AppStorage("sao2MiniCharaCount6Memory2") var miniCharaCount6: Int = 0
+    @AppStorage("sao2MiniCharaCount7Memory2") var miniCharaCount7: Int = 0
+    @AppStorage("sao2MiniCharaCount8Memory2") var miniCharaCount8: Int = 0
+    @AppStorage("sao2MiniCharaCountSumMemory2") var miniCharaCountSum: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount1Memory2") var motherMiniCharaCount1: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount2Memory2") var motherMiniCharaCount2: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount3Memory2") var motherMiniCharaCount3: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount4Memory2") var motherMiniCharaCount4: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount5Memory2") var motherMiniCharaCount5: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount6Memory2") var motherMiniCharaCount6: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount7Memory2") var motherMiniCharaCount7: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount8Memory2") var motherMiniCharaCount8: Int = 0
+    @AppStorage("sao2MotherMiniCharaCountSumMemory2") var motherMiniCharaCountSum: Int = 0
     @AppStorage("sao2MemoMemory2") var memo = ""
     @AppStorage("sao2DateMemory2") var dateDouble = 0.0
 }
@@ -307,6 +385,24 @@ class Sao2Memory3: ObservableObject {
     @AppStorage("sao2ComeBackCountMissMemory3") var comeBackCountMiss: Int = 0
     @AppStorage("sao2ComeBackCountHitMemory3") var comeBackCountHit: Int = 0
     @AppStorage("sao2ComeBackCountSumMemory3") var comeBackCountSum: Int = 0
+    @AppStorage("sao2MiniCharaCount1Memory3") var miniCharaCount1: Int = 0
+    @AppStorage("sao2MiniCharaCount2Memory3") var miniCharaCount2: Int = 0
+    @AppStorage("sao2MiniCharaCount3Memory3") var miniCharaCount3: Int = 0
+    @AppStorage("sao2MiniCharaCount4Memory3") var miniCharaCount4: Int = 0
+    @AppStorage("sao2MiniCharaCount5Memory3") var miniCharaCount5: Int = 0
+    @AppStorage("sao2MiniCharaCount6Memory3") var miniCharaCount6: Int = 0
+    @AppStorage("sao2MiniCharaCount7Memory3") var miniCharaCount7: Int = 0
+    @AppStorage("sao2MiniCharaCount8Memory3") var miniCharaCount8: Int = 0
+    @AppStorage("sao2MiniCharaCountSumMemory3") var miniCharaCountSum: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount1Memory3") var motherMiniCharaCount1: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount2Memory3") var motherMiniCharaCount2: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount3Memory3") var motherMiniCharaCount3: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount4Memory3") var motherMiniCharaCount4: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount5Memory3") var motherMiniCharaCount5: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount6Memory3") var motherMiniCharaCount6: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount7Memory3") var motherMiniCharaCount7: Int = 0
+    @AppStorage("sao2MotherMiniCharaCount8Memory3") var motherMiniCharaCount8: Int = 0
+    @AppStorage("sao2MotherMiniCharaCountSumMemory3") var motherMiniCharaCountSum: Int = 0
     @AppStorage("sao2MemoMemory3") var memo = ""
     @AppStorage("sao2DateMemory3") var dateDouble = 0.0
 }

@@ -22,7 +22,8 @@ struct sao2ViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
-    
+    @State var mothersEnable: Bool = true
+
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -71,9 +72,9 @@ struct sao2ViewBayes: View {
                     )
                 }
                 // エンディング中ミニキャラ
-                unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング中ミニキャラ") {
+                unitToggleWithQuestion(enable: self.$endingEnable, title: "ミニキャラ示唆") {
                     unitExView5body2image(
-                        title: "ミニキャラ",
+                        title: "ミニキャラ示唆",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -242,13 +243,29 @@ struct sao2ViewBayes: View {
         
         // エンディング中ミニキャラ
         var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostMothers: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.endingEnable {
             logPostEnding = logPostPercentMulti(
                 countList: [sao2.miniCharaCount7, sao2.miniCharaCount8],
                 ratioList: [sao2.ratioMiniCharaOver4, sao2.ratioMiniCharaOver6],
                 bigNumber: sao2.miniCharaCountSum
             )
+            logPostMothers = logPostPercentMulti(
+                countList: [sao2.motherMiniCharaCount7, sao2.motherMiniCharaCount8],
+                ratioList: [sao2.ratioMotherMiniCharaOver4, sao2.ratioMotherMiniCharaOver6],
+                bigNumber: sao2.motherMiniCharaCountSum
+            )
         }
+
+        // マザーズ・ロザリオ中ミニキャラ示唆
+//        var logPostMothers: [Double] = [Double](repeating: 0, count: self.settingList.count)
+//        if self.mothersEnable {
+//            logPostMothers = logPostPercentMulti(
+//                countList: [sao2.motherMiniCharaCount7, sao2.motherMiniCharaCount8],
+//                ratioList: [sao2.ratioMotherMiniCharaOver4, sao2.ratioMotherMiniCharaOver6],
+//                bigNumber: sao2.motherMiniCharaCountSum
+//            )
+//        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -296,6 +313,7 @@ struct sao2ViewBayes: View {
             logPostFirstHitAt,
             logPostScreen,
             logPostEnding,
+//            logPostMothers,
 
             logPostTrophy,
             logPostBefore,
