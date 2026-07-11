@@ -52,6 +52,9 @@ struct sao2ViewMothers: View {
         List {
             // キャラ選択
             Section {
+                Text("レア役時に登場するミニキャラで設定を示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in
@@ -71,7 +74,7 @@ struct sao2ViewMothers: View {
                         sao2.motherMiniCharaSumFunc()
                     }
             } header: {
-                Text("キャラ選択")
+                Text("ミニキャラ選択")
             }
 
             // カウント結果

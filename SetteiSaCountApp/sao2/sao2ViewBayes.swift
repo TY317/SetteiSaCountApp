@@ -313,7 +313,7 @@ struct sao2ViewBayes: View {
             logPostFirstHitAt,
             logPostScreen,
             logPostEnding,
-//            logPostMothers,
+            logPostMothers,
 
             logPostTrophy,
             logPostBefore,

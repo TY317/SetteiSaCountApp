@@ -52,6 +52,9 @@ struct sao2ViewEnding: View {
         List {
             // ミニキャラ選択
             Section {
+                Text("レア役時に登場するミニキャラで設定を示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in

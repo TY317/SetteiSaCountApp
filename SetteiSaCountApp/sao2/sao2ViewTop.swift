@@ -206,8 +206,8 @@ struct sao2ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.sao2MachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.sao2MachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "5025")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
