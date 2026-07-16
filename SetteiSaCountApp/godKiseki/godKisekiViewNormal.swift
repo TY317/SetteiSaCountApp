@@ -69,7 +69,6 @@ struct godKisekiViewNormal: View {
                             .presentationDetents([.large])
                     }
                 }
-                .popoverTip(tipVer3260GodKisekiUratensisa())
             } header: {
                 Text("モード")
             }
