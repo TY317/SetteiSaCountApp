@@ -129,6 +129,13 @@ class Karakuri2: ObservableObject {
         resetScreen()
         resetHistory()
     }
+    
+    // ----------
+    // ver4.1.2
+    // ----------
+    let ratioScreenOver2: [Double] = [0,1,1,1,1,1]
+    let ratioScreenOver4: [Double] = [0,0,0,1,1,1]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,1]
 }
 
 
