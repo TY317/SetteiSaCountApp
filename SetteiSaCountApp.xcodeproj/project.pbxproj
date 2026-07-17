@@ -231,6 +231,7 @@
 		0F3B70542CA7F448002C7F44 /* karakuriAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */; };
 		0F3B70562CA90B43002C7F44 /* karakuriViewMakuai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */; };
 		0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */; };
+		0F431EEB300917EB008560DE /* ver412.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F431EEA300917EB008560DE /* ver412.swift */; };
 		0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F654BB72C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets */; };
 		0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F80903F2C83DC410061480F /* hokutoAssets.xcassets */; };
 		0F4471D42F6C23D60048E9CE /* kabaneriUnatoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2020682F52E31200FDA263 /* kabaneriUnatoAssets.xcassets */; };
@@ -845,7 +846,6 @@
 		0F93188B2DEAA86C00511BEF /* izaBanchoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188A2DEAA86C00511BEF /* izaBanchoView95Ci.swift */; };
 		0F93188D2DEAA9E700511BEF /* izaBanchoViewAtGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188C2DEAA9E700511BEF /* izaBanchoViewAtGift.swift */; };
 		0F93188F2DEAAA6F00511BEF /* izaBanchoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F93188E2DEAAA6F00511BEF /* izaBanchoViewScreen.swift */; };
-		E0906EFDB5EA423EACA0A3F7 /* izaBanchoViewZeccho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */; };
 		0F973F4D2F9454D900818DD9 /* enen2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */; };
 		0F973F502F9455E300818DD9 /* enen2TableEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */; };
 		0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */; };
@@ -1529,8 +1529,6 @@
 		0FEC7A342FD4F01C00B4D0D7 /* sao2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */; };
 		0FEC7A362FD5179C00B4D0D7 /* sao2ViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */; };
 		0FEC7A382FD51A5400B4D0D7 /* sao2ViewComeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */; };
-		EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */; };
-		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
 		0FEC7A3A2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
 		0FEC7A3B2FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */; };
 		0FF155F52D5F1A5900B17F83 /* sevenSwordsViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */; };
@@ -1648,6 +1646,9 @@
 		BDCA6E98F3654C8999FE012F /* sencole6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */; };
 		BE26FEDC9851484B953B493D /* sencole6Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */; };
 		BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */; };
+		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
+		E0906EFDB5EA423EACA0A3F7 /* izaBanchoViewZeccho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */; };
+		EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 /* End PBXBuildFile section */
 
@@ -1845,6 +1846,7 @@
 		0F3B70532CA7F448002C7F44 /* karakuriAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuriAssets.xcassets; sourceTree = "<group>"; };
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
 		0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewCzHistory.swift; sourceTree = "<group>"; };
+		0F431EEA300917EB008560DE /* ver412.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver412.swift; sourceTree = "<group>"; };
 		0F4471CE2F69891F0048E9CE /* ContentViewVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVer2.swift; sourceTree = "<group>"; };
 		0F4471E92F6E72960048E9CE /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitterModifier.swift; sourceTree = "<group>"; };
@@ -2412,7 +2414,6 @@
 		0F93188A2DEAA86C00511BEF /* izaBanchoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoView95Ci.swift; sourceTree = "<group>"; };
 		0F93188C2DEAA9E700511BEF /* izaBanchoViewAtGift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewAtGift.swift; sourceTree = "<group>"; };
 		0F93188E2DEAAA6F00511BEF /* izaBanchoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewScreen.swift; sourceTree = "<group>"; };
-		789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewZeccho.swift; sourceTree = "<group>"; };
 		0F973F4C2F9454D900818DD9 /* enen2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2ViewEnding.swift; sourceTree = "<group>"; };
 		0F973F4F2F9455E300818DD9 /* enen2TableEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEnding.swift; sourceTree = "<group>"; };
 		0F973F522F94571C00818DD9 /* enen2TableEndingRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enen2TableEndingRatio.swift; sourceTree = "<group>"; };
@@ -3022,8 +3023,6 @@
 		0FEC7A332FD4F01C00B4D0D7 /* sao2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewScreen.swift; sourceTree = "<group>"; };
 		0FEC7A352FD5179C00B4D0D7 /* sao2ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewDuringAt.swift; sourceTree = "<group>"; };
 		0FEC7A372FD51A5400B4D0D7 /* sao2ViewComeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewComeBack.swift; sourceTree = "<group>"; };
-		F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewEnding.swift; sourceTree = "<group>"; };
-		765B7676889241FBBE79A504 /* sao2ViewMothers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewMothers.swift; sourceTree = "<group>"; };
 		0FEC7A392FD5248300B4D0D7 /* godKisekiTableKoyakuHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableKoyakuHit.swift; sourceTree = "<group>"; };
 		0FF155F42D5F1A5900B17F83 /* sevenSwordsViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sevenSwordsViewEnding.swift; sourceTree = "<group>"; };
 		0FF155F62D602B7600B17F83 /* unitMachineIconLinkWithSfsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitMachineIconLinkWithSfsymbol.swift; sourceTree = "<group>"; };
@@ -3133,6 +3132,8 @@
 		2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sencole6Assets.xcassets; sourceTree = "<group>"; };
 		42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewFirstHit.swift; sourceTree = "<group>"; };
 		45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6Class.swift; sourceTree = "<group>"; };
+		765B7676889241FBBE79A504 /* sao2ViewMothers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewMothers.swift; sourceTree = "<group>"; };
+		789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewZeccho.swift; sourceTree = "<group>"; };
 		8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6View95Ci.swift; sourceTree = "<group>"; };
 		C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewTop.swift; sourceTree = "<group>"; };
@@ -3141,6 +3142,7 @@
 		DF259627DC414784A55426DE /* karakuri2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewHistory.swift; sourceTree = "<group>"; };
 		F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewBayes.swift; sourceTree = "<group>"; };
 		F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewDuringAt.swift; sourceTree = "<group>"; };
+		F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewEnding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -4678,6 +4680,7 @@
 				0F0734872FDE750B00CA7A5A /* ver400.swift */,
 				0FD586A52FEFB485005689C6 /* ver410.swift */,
 				0F82F4A32FFBEAD4005431B8 /* ver411.swift */,
+				0F431EEA300917EB008560DE /* ver412.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -6518,6 +6521,7 @@
 				0FC14A842E4C100900F85D84 /* bayesOnAppearModifier.swift in Sources */,
 				0F868A2A2D45C1A800D952D9 /* hanaTenshoVer2ViewTop.swift in Sources */,
 				0F2A4DF92F371E0200B3C583 /* hanabiViewBayesStart.swift in Sources */,
+				0F431EEB300917EB008560DE /* ver412.swift in Sources */,
 				0F3759F02F8001A100982F7A /* shinYoshiTableOshirasu.swift in Sources */,
 				0FD975112F48C27D0067CED7 /* newKingHanaViewShimaData.swift in Sources */,
 				0F7568D22FA6179E00A66336 /* rioAceClass.swift in Sources */,
