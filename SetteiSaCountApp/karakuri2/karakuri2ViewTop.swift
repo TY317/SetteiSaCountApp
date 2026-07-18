@@ -198,6 +198,8 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory1.gameArrayData = karakuri2.gameArrayData
         karakuri2Memory1.kindArrayData = karakuri2.kindArrayData
         karakuri2Memory1.screenArrayData = karakuri2.screenArrayData
+        karakuri2Memory1.kyoCherryCount = karakuri2.kyoCherryCount
+        karakuri2Memory1.kyoCherryCountHit = karakuri2.kyoCherryCountHit
     }
     func saveMemory2() {
         karakuri2Memory2.normalGame = karakuri2.normalGame
@@ -213,6 +215,8 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory2.gameArrayData = karakuri2.gameArrayData
         karakuri2Memory2.kindArrayData = karakuri2.kindArrayData
         karakuri2Memory2.screenArrayData = karakuri2.screenArrayData
+        karakuri2Memory2.kyoCherryCount = karakuri2.kyoCherryCount
+        karakuri2Memory2.kyoCherryCountHit = karakuri2.kyoCherryCountHit
     }
     func saveMemory3() {
         karakuri2Memory3.normalGame = karakuri2.normalGame
@@ -228,6 +232,8 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory3.gameArrayData = karakuri2.gameArrayData
         karakuri2Memory3.kindArrayData = karakuri2.kindArrayData
         karakuri2Memory3.screenArrayData = karakuri2.screenArrayData
+        karakuri2Memory3.kyoCherryCount = karakuri2.kyoCherryCount
+        karakuri2Memory3.kyoCherryCountHit = karakuri2.kyoCherryCountHit
     }
 }
 
@@ -275,6 +281,8 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
         let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory1.screenArrayData)
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
+        karakuri2.kyoCherryCount = karakuri2Memory1.kyoCherryCount
+        karakuri2.kyoCherryCountHit = karakuri2Memory1.kyoCherryCountHit
     }
     func loadMemory2() {
         karakuri2.normalGame = karakuri2Memory2.normalGame
@@ -293,6 +301,8 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
         let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory2.screenArrayData)
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
+        karakuri2.kyoCherryCount = karakuri2Memory2.kyoCherryCount
+        karakuri2.kyoCherryCountHit = karakuri2Memory2.kyoCherryCountHit
     }
     func loadMemory3() {
         karakuri2.normalGame = karakuri2Memory3.normalGame
@@ -311,6 +321,8 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(kindArrayDataDecoded, forKey: karakuri2.kindArrayKey)
         let screenArrayDataDecoded = decodeStringArray(from: karakuri2Memory3.screenArrayData)
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
+        karakuri2.kyoCherryCount = karakuri2Memory3.kyoCherryCount
+        karakuri2.kyoCherryCountHit = karakuri2Memory3.kyoCherryCountHit
     }
 }
 
