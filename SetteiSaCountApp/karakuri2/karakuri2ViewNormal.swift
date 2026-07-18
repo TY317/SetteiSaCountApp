@@ -45,6 +45,11 @@ struct karakuri2ViewNormal: View {
                     karakuri2TableMode()
                 }
                 .popoverTip(tipVer411Karakuri2Mode())
+                
+                // モード示唆演出
+                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
+                    karakuri2TableModeSisa()
+                }
             } header: {
                 Text("モード")
             }
