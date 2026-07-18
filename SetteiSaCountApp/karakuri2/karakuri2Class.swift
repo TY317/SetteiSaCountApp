@@ -16,6 +16,9 @@ class Karakuri2: ObservableObject {
     
     func resetNormal() {
         minusCheck = false
+        
+        kyoCherryCount = 0
+        kyoCherryCountHit = 0
     }
     
     // --------
@@ -136,6 +139,11 @@ class Karakuri2: ObservableObject {
     let ratioScreenOver2: [Double] = [0,1,1,1,1,1]
     let ratioScreenOver4: [Double] = [0,0,0,1,1,1]
     let ratioScreenOver6: [Double] = [0,0,0,0,0,1]
+    
+    // 強チェリー当選率
+    let ratioKyoCherryHit: [Double] = [9.8,-1,-1,-1,-1,-1]
+    @AppStorage("karakuri2KyoCherryCount") var kyoCherryCount: Int = 0
+    @AppStorage("karakuri2KyoCherryCountHit") var kyoCherryCountHit: Int = 0
 }
 
 

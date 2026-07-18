@@ -14,6 +14,24 @@ struct karakuri2View95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 強チェリーからの当選
+            unitListSection95Ci(
+                grafTitle: "通常時 強🍒\nCZ・AT当選回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $karakuri2.kyoCherryCountHit,
+                        bigNumber: $karakuri2.kyoCherryCount,
+                        setting1Percent: karakuri2.ratioKyoCherryHit[0],
+                        setting2Percent: karakuri2.ratioKyoCherryHit[1],
+                        setting3Percent: karakuri2.ratioKyoCherryHit[2],
+                        setting4Percent: karakuri2.ratioKyoCherryHit[3],
+                        setting5Percent: karakuri2.ratioKyoCherryHit[4],
+                        setting6Percent: karakuri2.ratioKyoCherryHit[5]
+                    )
+                )
+            )
+            .tag(1)
+            
             // CZ初当り回数
             unitListSection95Ci(
                 grafTitle: "CZ初当り回数",

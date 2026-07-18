@@ -85,7 +85,7 @@ struct karakuri2ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: karakuri2View95Ci(
                     karakuri2: karakuri2,
-                    selection: 2,
+                    selection: 1,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
