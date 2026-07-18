@@ -37,6 +37,7 @@ struct karakuri2ViewNormal: View {
                     bigNumber: $karakuri2.kyoCherryCount,
                     numberofDicimal: 0,
                 )
+                .popoverTip(tipVer412Karakuri2Kyocherry())
                 // 強🍒からのCZ・AT当選率
                 unitLinkButtonViewBuilder(sheetTitle: "強🍒からのCZ・AT当選率") {
                     HStack(spacing: 0) {
@@ -103,7 +104,7 @@ struct karakuri2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     karakuri2TableMode()
                 }
-                .popoverTip(tipVer411Karakuri2Mode())
+//                .popoverTip(tipVer411Karakuri2Mode())
                 
                 // モード示唆演出
                 unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
