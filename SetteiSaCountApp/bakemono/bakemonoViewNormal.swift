@@ -384,8 +384,7 @@ struct bakemonoViewNormal: View {
                             bakemono.afterAtRenSumFunc()
                         }
                 }
-                .popoverTip(tipVer3260BakemonoAfterAtKaijuren())
-                
+
                 // 確率結果
                 unitResultRatioPercent2Line(
                     title: "解呪連移行",

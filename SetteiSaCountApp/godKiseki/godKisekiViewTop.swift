@@ -166,8 +166,8 @@ struct godKisekiViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.godKisekiMachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.godKisekiMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -254,6 +254,9 @@ struct godKisekiSubViewSaveMemory: View {
         // ver3.27.0
         // --------
         godKisekiMemory1.riseZzoneCount = godKiseki.riseZzoneCount
+        godKisekiMemory1.bellGame = godKiseki.bellGame
+        godKisekiMemory1.bellCountOshijun = godKiseki.bellCountOshijun
+        godKisekiMemory1.bellCountGedan = godKiseki.bellCountGedan
     }
     func saveMemory2() {
         godKisekiMemory2.ren3CountBlue = godKiseki.ren3CountBlue
@@ -273,6 +276,9 @@ struct godKisekiSubViewSaveMemory: View {
         // ver3.27.0
         // --------
         godKisekiMemory2.riseZzoneCount = godKiseki.riseZzoneCount
+        godKisekiMemory2.bellGame = godKiseki.bellGame
+        godKisekiMemory2.bellCountOshijun = godKiseki.bellCountOshijun
+        godKisekiMemory2.bellCountGedan = godKiseki.bellCountGedan
     }
     func saveMemory3() {
         godKisekiMemory3.ren3CountBlue = godKiseki.ren3CountBlue
@@ -292,6 +298,9 @@ struct godKisekiSubViewSaveMemory: View {
         // ver3.27.0
         // --------
         godKisekiMemory3.riseZzoneCount = godKiseki.riseZzoneCount
+        godKisekiMemory3.bellGame = godKiseki.bellGame
+        godKisekiMemory3.bellCountOshijun = godKiseki.bellCountOshijun
+        godKisekiMemory3.bellCountGedan = godKiseki.bellCountGedan
     }
 }
 
@@ -340,6 +349,9 @@ struct godKisekiSubViewLoadMemory: View {
         // ver3.27.0
         // --------
         godKiseki.riseZzoneCount = godKisekiMemory1.riseZzoneCount
+        godKiseki.bellGame = godKisekiMemory1.bellGame
+        godKiseki.bellCountOshijun = godKisekiMemory1.bellCountOshijun
+        godKiseki.bellCountGedan = godKisekiMemory1.bellCountGedan
     }
     func loadMemory2() {
         godKiseki.ren3CountBlue = godKisekiMemory2.ren3CountBlue
@@ -359,6 +371,9 @@ struct godKisekiSubViewLoadMemory: View {
         // ver3.27.0
         // --------
         godKiseki.riseZzoneCount = godKisekiMemory2.riseZzoneCount
+        godKiseki.bellGame = godKisekiMemory2.bellGame
+        godKiseki.bellCountOshijun = godKisekiMemory2.bellCountOshijun
+        godKiseki.bellCountGedan = godKisekiMemory2.bellCountGedan
     }
     func loadMemory3() {
         godKiseki.ren3CountBlue = godKisekiMemory3.ren3CountBlue
@@ -378,6 +393,9 @@ struct godKisekiSubViewLoadMemory: View {
         // ver3.27.0
         // --------
         godKiseki.riseZzoneCount = godKisekiMemory3.riseZzoneCount
+        godKiseki.bellGame = godKisekiMemory3.bellGame
+        godKiseki.bellCountOshijun = godKisekiMemory3.bellCountOshijun
+        godKiseki.bellCountGedan = godKisekiMemory3.bellCountGedan
     }
 }
 

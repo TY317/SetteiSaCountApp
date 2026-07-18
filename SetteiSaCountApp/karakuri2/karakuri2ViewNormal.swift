@@ -30,12 +30,72 @@ struct karakuri2ViewNormal: View {
         List {
             // レア役
             Section {
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "強🍒からのCZ・AT当選",
+                    count: $karakuri2.kyoCherryCountHit,
+                    bigNumber: $karakuri2.kyoCherryCount,
+                    numberofDicimal: 0,
+                )
+                .popoverTip(tipVer412Karakuri2Kyocherry())
+                // 強🍒からのCZ・AT当選率
+                unitLinkButtonViewBuilder(sheetTitle: "強🍒からのCZ・AT当選率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "通常滞在時",
+                            percentList: karakuri2.ratioKyoCherryHit
+                        )
+                    }
+                }
                 // レア役停止系
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
                     karakuri2TableKoyakuPattern()
                 }
+                
+                // カウント
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("通常滞在中の強🍒が対象です")
+                    }
+                    
+                    // カウントボタン横並び
+                    HStack {
+                        // 強チェリー
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "強🍒",
+                            count: $karakuri2.kyoCherryCount,
+                            color: .personalSummerLightRed,
+                            minusBool: $karakuri2.minusCheck) {
+                                
+                            }
+                        
+                        // CZ・AT当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "CZ・AT当選",
+                            count: $karakuri2.kyoCherryCountHit,
+                            color: .personalSummerLightPurple,
+                            minusBool: $karakuri2.minusCheck) {
+                                
+                            }
+                    }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            karakuri2View95Ci(
+                                karakuri2: karakuri2,
+                                selection: 1,
+                            )
+                        )
+                    )
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
             } header: {
-                Text("小役")
+                Text("通常 強🍒からの当選")
             }
             
             // モード
@@ -44,7 +104,12 @@ struct karakuri2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     karakuri2TableMode()
                 }
-                .popoverTip(tipVer411Karakuri2Mode())
+//                .popoverTip(tipVer411Karakuri2Mode())
+                
+                // モード示唆演出
+                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
+                    karakuri2TableModeSisa()
+                }
             } header: {
                 Text("モード")
             }
@@ -75,16 +140,16 @@ struct karakuri2ViewNormal: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-//        .toolbar {
-//            ToolbarItem(placement: .automatic) {
-//                // //// マイナスチェック
-//                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
-//            }
-//            ToolbarItem(placement: .automatic) {
-//                // /// リセット
-//                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
-//            }
-//        }
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
+            }
+        }
     }
 }
 

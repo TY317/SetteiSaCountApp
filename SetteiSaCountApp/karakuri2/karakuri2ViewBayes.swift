@@ -15,6 +15,7 @@ struct karakuri2ViewBayes: View {
     let payoutList: [Double] = [97.7, 98.8, 101.2, 104.3, 110.5, 114.9]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
 
     
     // 全機種共通
@@ -50,6 +51,13 @@ struct karakuri2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
 
                 // トロフィー
 //                DisclosureGroup("トロフィー") {
@@ -138,6 +146,15 @@ struct karakuri2ViewBayes: View {
                 bigNumber: karakuri2.normalGame
             )
         }
+        // AT終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [karakuri2.screenCount2, karakuri2.screenCount5, karakuri2.screenCount6],
+                ratioList: [karakuri2.ratioScreenOver2, karakuri2.ratioScreenOver4, karakuri2.ratioScreenOver6],
+                bigNumber: karakuri2.screenCountSum
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -178,6 +195,7 @@ struct karakuri2ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

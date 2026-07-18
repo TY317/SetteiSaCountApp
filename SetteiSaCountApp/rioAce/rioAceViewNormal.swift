@@ -136,8 +136,7 @@ struct rioAceViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "エースモードについて") {
                     rioAceTableAceMode()
                 }
-//                .popoverTip(tipVer3260RioAceMode())
-                
+
                 // アイキャッチでの示唆
                 unitLinkButtonViewBuilder(sheetTitle: "アイキャッチでの示唆") {
                     rioAceTableEyeCatch()

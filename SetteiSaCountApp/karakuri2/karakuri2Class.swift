@@ -16,6 +16,9 @@ class Karakuri2: ObservableObject {
     
     func resetNormal() {
         minusCheck = false
+        
+        kyoCherryCount = 0
+        kyoCherryCountHit = 0
     }
     
     // --------
@@ -129,6 +132,18 @@ class Karakuri2: ObservableObject {
         resetScreen()
         resetHistory()
     }
+    
+    // ----------
+    // ver4.1.2
+    // ----------
+    let ratioScreenOver2: [Double] = [0,1,1,1,1,1]
+    let ratioScreenOver4: [Double] = [0,0,0,1,1,1]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,1]
+    
+    // 強チェリー当選率
+    let ratioKyoCherryHit: [Double] = [9.8,-1,-1,-1,-1,-1]
+    @AppStorage("karakuri2KyoCherryCount") var kyoCherryCount: Int = 0
+    @AppStorage("karakuri2KyoCherryCountHit") var kyoCherryCountHit: Int = 0
 }
 
 
@@ -146,6 +161,8 @@ class Karakuri2Memory1: ObservableObject {
     @AppStorage("karakuri2GameArrayKeyMemory1") var gameArrayData: Data?
     @AppStorage("karakuri2KindArrayKeyMemory1") var kindArrayData: Data?
     @AppStorage("karakuri2ScreenArrayKeyMemory1") var screenArrayData: Data?
+    @AppStorage("karakuri2KyoCherryCountMemory1") var kyoCherryCount: Int = 0
+    @AppStorage("karakuri2KyoCherryCountHitMemory1") var kyoCherryCountHit: Int = 0
     @AppStorage("karakuri2MemoMemory1") var memo = ""
     @AppStorage("karakuri2DateMemory1") var dateDouble = 0.0
 }
@@ -165,6 +182,8 @@ class Karakuri2Memory2: ObservableObject {
     @AppStorage("karakuri2GameArrayKeyMemory2") var gameArrayData: Data?
     @AppStorage("karakuri2KindArrayKeyMemory2") var kindArrayData: Data?
     @AppStorage("karakuri2ScreenArrayKeyMemory2") var screenArrayData: Data?
+    @AppStorage("karakuri2KyoCherryCountMemory2") var kyoCherryCount: Int = 0
+    @AppStorage("karakuri2KyoCherryCountHitMemory2") var kyoCherryCountHit: Int = 0
     @AppStorage("karakuri2MemoMemory2") var memo = ""
     @AppStorage("karakuri2DateMemory2") var dateDouble = 0.0
 }
@@ -184,6 +203,8 @@ class Karakuri2Memory3: ObservableObject {
     @AppStorage("karakuri2GameArrayKeyMemory3") var gameArrayData: Data?
     @AppStorage("karakuri2KindArrayKeyMemory3") var kindArrayData: Data?
     @AppStorage("karakuri2ScreenArrayKeyMemory3") var screenArrayData: Data?
+    @AppStorage("karakuri2KyoCherryCountMemory3") var kyoCherryCount: Int = 0
+    @AppStorage("karakuri2KyoCherryCountHitMemory3") var kyoCherryCountHit: Int = 0
     @AppStorage("karakuri2MemoMemory3") var memo = ""
     @AppStorage("karakuri2DateMemory3") var dateDouble = 0.0
 }

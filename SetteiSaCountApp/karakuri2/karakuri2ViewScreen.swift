@@ -45,12 +45,12 @@ struct karakuri2ViewScreen: View {
         "大好き",
     ]
     let lowerBeltTextList: [String] = [
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
+        "デフォルト",
+        "設定2 以上濃厚",
+        "奇数かつ高設定示唆",
+        "偶数かつ高設定示唆",
+        "設定4 以上濃厚",
+        "設定6 濃厚",
     ]
     let sisaTextList: [String] = [
         "???(しろがね)",
@@ -68,7 +68,7 @@ struct karakuri2ViewScreen: View {
         .orange,
         .purple,
     ]
-    let indexList: [Int] = [0,1,2,3,4,5]
+    let indexList: [Int] = [0,2,3,1,4,5]
     var body: some View {
         List {
             // 画面カウント
@@ -99,16 +99,17 @@ struct karakuri2ViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
+                    .popoverTip(tipVer412KarakuriScreen())
                 }
 
                 // //// カウント結果
                 ForEach(self.indexList, id: \.self) { index in
-//                    if self.lowerBeltTextList.indices.contains(index) &&
-                    if self.sisaTextList.indices.contains(index) &&
+                    if self.lowerBeltTextList.indices.contains(index) &&
+//                    if self.sisaTextList.indices.contains(index) &&
                         self.flashColorList.indices.contains(index) {
                         unitResultCountListPercent(
-//                            title: self.lowerBeltTextList[index],
-                            title: self.sisaTextList[index],
+                            title: self.lowerBeltTextList[index],
+//                            title: self.sisaTextList[index],
                             count: bindingForScreenCount(index: index),
                             flashColor: self.flashColorList[index],
                             bigNumber: $karakuri2.screenCountSum,

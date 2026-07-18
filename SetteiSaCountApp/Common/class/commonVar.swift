@@ -707,6 +707,30 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver412FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.1.2"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
+                karakuri2MenuScreenBadge = "update"
+                karakuri2MenuHistoryBadge = "update"
+                karakuri2MenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4961", newStatus: "update")
+                godKisekiMenuNormalBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver411FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.1.1"
@@ -841,32 +865,5 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3260FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.26.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                bioRe3MachineIconBadge = "update"
-                bioRe3MenuCzBadge = "new"
-                bakemonoMachineIconBadge = "update"
-                bakemonoMenuNormalBadge = "update"
-                rioAceMachineIconBadge = "update"
-                rioAceMenuNormalBadge = "update"
-                godKisekiMachineIconBadge = "update"
-                godKisekiMenuNormalBadge = "update"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuNormalBadge = "update"
-                newAppInfoShow = true
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
 }
 

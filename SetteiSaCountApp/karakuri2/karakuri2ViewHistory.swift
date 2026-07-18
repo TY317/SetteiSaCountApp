@@ -39,6 +39,9 @@ struct karakuri2ViewHistory: View {
         "karakuri2CzScreen9",
         "karakuri2CzScreen10",
         "karakuri2CzScreen11",
+        "karakuri2CzScreen12",
+        "karakuri2CzScreen13",
+        "karakuri2CzScreen14",
     ]
     let upperBeltTextList: [String] = [
         "AT当選",
@@ -53,22 +56,29 @@ struct karakuri2ViewHistory: View {
         "手",
         "フランシーヌ人形",
         "才賀アンジェリーナ",
+        "しろがね",
+        "リーゼ",
+        "真夜中のサーカス",
     ]
     let lowerBeltTextList: [String] = [
         "-",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
-        "???",
+        "デフォルト",
+        "通常B示唆",
+        "通常D示唆",
+        "天国濃厚",
+        "5回中3回以上天国",
+        "5回中2回以上天国",
+        "通常C or 天国",
+        "3回以内に通常D",
+        "3回以内に天国",
+        "当該セットが通常D",
+        "5回以内に通常D",
+        "通常C示唆",
+        "3回以内全て通常B以上",
+        "2回以内に天国",
     ]
-    let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9,10,11]
+//    let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9,10,11]
+    let indexList: [Int] = [0,1,2,12,3,10,8,11,13,14,6,9,4,5,7]
 
     var body: some View {
         List {
@@ -109,6 +119,7 @@ struct karakuri2ViewHistory: View {
                                             upperBeltText: self.upperBeltTextList[index],
                                             upperBeltFont: .subheadline,
                                             lowerBeltText: self.lowerBeltTextList[index],
+                                            lowerBeltFont: .subheadline,
                                         )
                                         .overlay {
                                             if karakuri2.selectedImageName == self.imageNameList[index] {
@@ -125,7 +136,7 @@ struct karakuri2ViewHistory: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    .popoverTip(tipVer411Karakuri2CzScreen())
+                    .popoverTip(tipVer412KarakuriCzScreen())
                 }
                 // //// 登録ボタン
                 Button {
@@ -187,7 +198,7 @@ struct karakuri2ViewHistory: View {
                                             upperBeltFont: .subheadline,
                                             upperBeltBool: false,
                                             lowerBeltText: self.lowerBeltTextList[screenIndex],
-                                            lowerBeltFont: .subheadline,
+                                            lowerBeltFont: .caption,
                                         )
                                         .frame(height: 80)
                                         .frame(maxWidth: .infinity)
@@ -208,6 +219,16 @@ struct karakuri2ViewHistory: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                
+                // モード
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    karakuri2TableMode()
+                }
+                
+                // モード示唆演出
+                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
+                    karakuri2TableModeSisa()
+                }
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "液晶G数",
