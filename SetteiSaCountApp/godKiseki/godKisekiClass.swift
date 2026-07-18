@@ -103,6 +103,13 @@ class GodKisekiMemory1: ObservableObject {
     // ver3.27.0
     // --------
     @AppStorage("godKisekiRiseZzoneCountMemory1") var riseZzoneCount: Int = 0
+
+    // ---------
+    // ver4.1.2
+    // ---------
+    @AppStorage("godKisekiBellGameMemory1") var bellGame: Int = 0
+    @AppStorage("godKisekiBellCountOshijunMemory1") var bellCountOshijun: Int = 0
+    @AppStorage("godKisekiBellCountGedanMemory1") var bellCountGedan: Int = 0
 }
 
 
@@ -126,6 +133,13 @@ class GodKisekiMemory2: ObservableObject {
     // ver3.27.0
     // --------
     @AppStorage("godKisekiRiseZzoneCountMemory2") var riseZzoneCount: Int = 0
+
+    // ---------
+    // ver4.1.2
+    // ---------
+    @AppStorage("godKisekiBellGameMemory2") var bellGame: Int = 0
+    @AppStorage("godKisekiBellCountOshijunMemory2") var bellCountOshijun: Int = 0
+    @AppStorage("godKisekiBellCountGedanMemory2") var bellCountGedan: Int = 0
 }
 
 
@@ -149,4 +163,11 @@ class GodKisekiMemory3: ObservableObject {
     // ver3.27.0
     // --------
     @AppStorage("godKisekiRiseZzoneCountMemory3") var riseZzoneCount: Int = 0
+
+    // ---------
+    // ver4.1.2
+    // ---------
+    @AppStorage("godKisekiBellGameMemory3") var bellGame: Int = 0
+    @AppStorage("godKisekiBellCountOshijunMemory3") var bellCountOshijun: Int = 0
+    @AppStorage("godKisekiBellCountGedanMemory3") var bellCountGedan: Int = 0
 }
