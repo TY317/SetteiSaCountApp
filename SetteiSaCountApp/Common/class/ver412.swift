@@ -69,3 +69,19 @@ struct tipVer412Karakuri2Kyocherry: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer412GodKisekiBell: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("押し順🔔、下段🔔のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

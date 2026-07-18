@@ -166,8 +166,8 @@ struct godKisekiViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.godKisekiMachineIconBadge)
-//        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
+//        .resetBadgeOnAppear($common.godKisekiMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4961")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

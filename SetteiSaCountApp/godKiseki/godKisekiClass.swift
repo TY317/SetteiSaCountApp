@@ -28,6 +28,10 @@ class GodKiseki: ObservableObject {
         
         ren4CountBlue = 0
         ren4CountBlueHit = 0
+        
+        bellGame = 0
+        bellCountOshijun = 0
+        bellCountGedan = 0
     }
     // ---------
     // 初当り
@@ -69,6 +73,13 @@ class GodKiseki: ObservableObject {
     // --------
     let ratioRiseZzone: [Double] = [1.2,1.0,4.2,1.0,11.6,1]
     @AppStorage("godKisekiRiseZzoneCount") var riseZzoneCount: Int = 0
+    
+    // ---------
+    // ver4.1.2
+    // ---------
+    @AppStorage("godKisekiBellGame") var bellGame: Int = 0
+    @AppStorage("godKisekiBellCountOshijun") var bellCountOshijun: Int = 0
+    @AppStorage("godKisekiBellCountGedan") var bellCountGedan: Int = 0
 }
 
 

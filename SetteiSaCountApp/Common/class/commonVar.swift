@@ -720,6 +720,8 @@ class commonVar: ObservableObject {
                 karakuri2MenuScreenBadge = "update"
                 karakuri2MenuHistoryBadge = "update"
                 karakuri2MenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4961", newStatus: "update")
+                godKisekiMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
