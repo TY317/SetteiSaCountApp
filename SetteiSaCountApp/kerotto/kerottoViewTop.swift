@@ -79,15 +79,15 @@ struct kerottoViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: kerottoViewBayes(
-//                    kerotto: kerotto,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.kerottoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: kerottoViewBayes(
+                    kerotto: kerotto,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.kerottoMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5015")
