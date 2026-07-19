@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5015", name: "ケロットBT", fullName: "ケロット5 BT", iconName: "kerottoMachineIcon", btBadge: true, maker: "山佐"),
         Machine(id: "5010", name: "戦コレ6", fullName: "戦国コレクション6", iconName: "sencole6MachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5019", name: "からくり2", fullName: "からくりサーカス2", iconName: "karakuri2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false, maker: "北電子"),
@@ -364,6 +365,12 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
+
+    // ---- ケロット5 BT
+    @AppStorage("kerottoMenuNormalBadge") var kerottoMenuNormalBadge: String = "none"
+    @AppStorage("kerottoMenuFirstHitBadge") var kerottoMenuFirstHitBadge: String = "none"
+    @AppStorage("kerottoMenuBayesBadge") var kerottoMenuBayesBadge: String = "none"
+    @AppStorage("kerottoMenuScreenBadge") var kerottoMenuScreenBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -718,6 +725,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5015", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5015", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")

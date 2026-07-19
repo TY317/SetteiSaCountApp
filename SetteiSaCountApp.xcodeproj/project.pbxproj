@@ -1638,19 +1638,25 @@
 		0FFAEBD82ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD72ED55ACD006C0371 /* toreveTableCycleModeHitRatio.swift */; };
 		0FFAEBDA2ED58FF9006C0371 /* vvv2TableModeMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFAEBD92ED58FF9006C0371 /* vvv2TableModeMove.swift */; };
 		10A574EFD84C46978C1AF1C3 /* sencole6ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */; };
+		154935E26E904F8AAE8B5C25 /* kerottoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */; };
 		237993D88DD94F8C85B00E71 /* rioAceViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */; };
 		2A82310038B94C63B2AE3F72 /* sencole6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */; };
+		34ED2A89F21340BE89AC8DB8 /* kerottoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE82618305844A5BBF533CE /* kerottoViewTop.swift */; };
 		4BC49742BA6F4B45B8A911C2 /* sencole6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */; };
 		63309E6996D34357A033EE20 /* bioRe3ViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */; };
+		864D5A04494B4BEBBBC8A4F1 /* kerottoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14300121464D5CA8645DFC /* kerottoView95Ci.swift */; };
 		91D567BEF0D647738C0AE0C0 /* sencole6ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */; };
 		A98286A72E8B4AAD88BF18CA /* karakuri2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C8428663144DA9986FC6AE /* karakuri2ViewScreen.swift */; };
+		A9EECBC1FB564CEEB8774F24 /* kerottoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDEA6FADE4F04E3FB3FF78C7 /* kerottoAssets.xcassets */; };
 		BB137CF3CD3E4EF19A7BE824 /* karakuri2ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF259627DC414784A55426DE /* karakuri2ViewHistory.swift */; };
 		BDCA6E98F3654C8999FE012F /* sencole6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */; };
 		BE26FEDC9851484B953B493D /* sencole6Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */; };
 		BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */; };
 		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
 		E0906EFDB5EA423EACA0A3F7 /* izaBanchoViewZeccho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */; };
+		EBFDFA0E4CD8431DAF1B6FC1 /* kerottoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A6C51CB134D30B3DDDEA2 /* kerottoViewFirstHit.swift */; };
 		EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */; };
+		F5314EF934C0414A95ED3977 /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 /* End PBXBuildFile section */
 
@@ -3135,14 +3141,20 @@
 		2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sencole6Assets.xcassets; sourceTree = "<group>"; };
 		42A4E1AE5EDE453DB82B9CE3 /* sencole6ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewFirstHit.swift; sourceTree = "<group>"; };
 		45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6Class.swift; sourceTree = "<group>"; };
+		745D8A25D55D491BA23F25BC /* kerottoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoClass.swift; sourceTree = "<group>"; };
 		765B7676889241FBBE79A504 /* sao2ViewMothers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewMothers.swift; sourceTree = "<group>"; };
 		789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = izaBanchoViewZeccho.swift; sourceTree = "<group>"; };
+		816A6C51CB134D30B3DDDEA2 /* kerottoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewFirstHit.swift; sourceTree = "<group>"; };
 		8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6TableKoyakuPattern.swift; sourceTree = "<group>"; };
+		9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewNormal.swift; sourceTree = "<group>"; };
+		9AE82618305844A5BBF533CE /* kerottoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewTop.swift; sourceTree = "<group>"; };
 		9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6View95Ci.swift; sourceTree = "<group>"; };
 		C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewTop.swift; sourceTree = "<group>"; };
+		CDEA6FADE4F04E3FB3FF78C7 /* kerottoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kerottoAssets.xcassets; sourceTree = "<group>"; };
 		D0C8428663144DA9986FC6AE /* karakuri2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewScreen.swift; sourceTree = "<group>"; };
 		D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewEnding.swift; sourceTree = "<group>"; };
 		DF259627DC414784A55426DE /* karakuri2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewHistory.swift; sourceTree = "<group>"; };
+		EC14300121464D5CA8645DFC /* kerottoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoView95Ci.swift; sourceTree = "<group>"; };
 		F05F0C68B2AB49DD875FB1C8 /* sencole6ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewBayes.swift; sourceTree = "<group>"; };
 		F3E5B32611634DD6B6C75241 /* bioRe3ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioRe3ViewDuringAt.swift; sourceTree = "<group>"; };
 		F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewEnding.swift; sourceTree = "<group>"; };
@@ -4114,6 +4126,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				A39BA60F028340A6A0B630A4 /* kerotto */,
 				0FD586A72FEFBEB1005689C6 /* karakuri2 */,
 				A86DB711F56A49D5B8A7252C /* sencole6 */,
 				0F1217F62FCA95D500E50794 /* otome5 */,
@@ -5753,6 +5766,19 @@
 			path = kaguyaSama;
 			sourceTree = "<group>";
 		};
+		A39BA60F028340A6A0B630A4 /* kerotto */ = {
+			isa = PBXGroup;
+			children = (
+				9AE82618305844A5BBF533CE /* kerottoViewTop.swift */,
+				745D8A25D55D491BA23F25BC /* kerottoClass.swift */,
+				9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */,
+				816A6C51CB134D30B3DDDEA2 /* kerottoViewFirstHit.swift */,
+				EC14300121464D5CA8645DFC /* kerottoView95Ci.swift */,
+				CDEA6FADE4F04E3FB3FF78C7 /* kerottoAssets.xcassets */,
+			);
+			path = kerotto;
+			sourceTree = "<group>";
+		};
 		A86DB711F56A49D5B8A7252C /* sencole6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -5924,6 +5950,7 @@
 				0FC14A8B2E4E10BA00F85D84 /* bayesMind.pdf in Resources */,
 				0FA63D582F8D0D8B0006E8F7 /* godKisekiAssets.xcassets in Resources */,
 				0FD586B52FEFDE8C005689C6 /* karakuri2Assets.xcassets in Resources */,
+				A9EECBC1FB564CEEB8774F24 /* kerottoAssets.xcassets in Resources */,
 				BE26FEDC9851484B953B493D /* sencole6Assets.xcassets in Resources */,
 				0FF155FC2D60321900B17F83 /* starHanaAssets.xcassets in Resources */,
 				0FD3578F2DAB32FF0069BD1A /* godzillaAssets.xcassets in Resources */,
@@ -7327,6 +7354,11 @@
 				0F815FC52E35DECD0086127D /* darlingView95Ci.swift in Sources */,
 				0F00FAF62FACBD040076283F /* unitAppRecommend.swift in Sources */,
 				0FD586A92FEFBFF1005689C6 /* karakuri2ViewTop.swift in Sources */,
+				34ED2A89F21340BE89AC8DB8 /* kerottoViewTop.swift in Sources */,
+				F5314EF934C0414A95ED3977 /* kerottoClass.swift in Sources */,
+				154935E26E904F8AAE8B5C25 /* kerottoViewNormal.swift in Sources */,
+				EBFDFA0E4CD8431DAF1B6FC1 /* kerottoViewFirstHit.swift in Sources */,
+				864D5A04494B4BEBBBC8A4F1 /* kerottoView95Ci.swift in Sources */,
 				04F56560F0CE483F8ED67FA9 /* sencole6ViewTop.swift in Sources */,
 				2A82310038B94C63B2AE3F72 /* sencole6Class.swift in Sources */,
 				BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */,
