@@ -13,6 +13,7 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
 - **suffix**：var 識別子（camelCase、例 `firstHitAt`）。→ Enable変数 `<suffix>Enable`、対数尤度変数 `logPost<Suffix>`（`<Suffix>`＝suffix先頭大文字）。
 - **func**：対数尤度関数を選択（下表）。
 - **引数**：選んだ関数のシグネチャに沿って各引数の式を入力（例 `ratio: <prefix>.ratioFirstHitAt` の右辺）。カウント/ratio 変数は Class 側に存在する前提（無ければ add-firsthit 等で先に用意）。
+- **説明ボタンの有無**：トグルに注意書きシート（`unitExView5body2image`）を付けるか。付ける場合は文言（textBody…）を確認。→ (B') 参照。終了画面など「確定系のみ反映」系で多用。
 
 ### 対数尤度関数（`SetteiSaCountApp/Common/bayes/func/`）
 | func | 引数 | 用途 |
@@ -34,6 +35,19 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
                 // <title>
                 unitToggleWithQuestion(enable: self.$<suffix>Enable, title: "<title>")
 ```
+
+**(B') 説明ボタン付きトグル（任意・要素ごとに確認）**：終了画面など「確定系のみ反映」等の注意書きを付けたい要素では、`unitToggleWithQuestion` に末尾クロージャで説明シート `unitExView5body2image` を付ける。付けるか・文言（textBody1…）は都度ユーザーに確認。
+```swift
+                // <title>
+                unitToggleWithQuestion(enable: self.$<suffix>Enable, title: "<title>") {
+                    unitExView5body2image(
+                        title: "<title>",
+                        textBody1: "<説明文1>",
+                    )
+                }
+```
+- `unitExView5body2image`（`SetteiSaCountApp/Common/unitView/myViewUnit.swift`）：`title` 必須、`textBody1`〜`textBody5`／`image1Title`/`image1`/`image2Title`/`image2`/`tableView` は任意。行数・画像は要素に応じて増やす。定番文言：`・確定系のみ反映させます`。
+- 参考実装：`karakuri2ViewBayes`（AT終了画面）、`kerottoViewBayes`（BIG終了画面）。
 
 **(C) bayesRatio 対数尤度**：アンカー `// ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す` の直後（字下げ8スペース）
 ```swift
