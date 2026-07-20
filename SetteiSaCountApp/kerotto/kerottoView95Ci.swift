@@ -14,60 +14,78 @@ struct kerottoView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
+            // SBB初当り回数
+            unitListSection95Ci(
+                grafTitle: "SBB初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kerotto.firstHitCountSBBSum,
+                        bigNumber: $kerotto.gameNumberPlay,
+                        setting1Denominate: kerotto.ratioFirstHitSbb[0],
+                        setting2Denominate: kerotto.ratioFirstHitSbb[1],
+                        setting3Denominate: kerotto.ratioFirstHitSbb[2],
+                        setting4Denominate: kerotto.ratioFirstHitSbb[3],
+                        setting5Denominate: kerotto.ratioFirstHitSbb[4],
+                        setting6Denominate: kerotto.ratioFirstHitSbb[5]
+                    )
+                )
+            )
+            .tag(1)
+            
+            // BB初当り回数
+            unitListSection95Ci(
+                grafTitle: "BB初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kerotto.firstHitCountBBSum,
+                        bigNumber: $kerotto.gameNumberPlay,
+                        setting1Denominate: kerotto.ratioFirstHitBb[0],
+                        setting2Denominate: kerotto.ratioFirstHitBb[1],
+                        setting3Denominate: kerotto.ratioFirstHitBb[2],
+                        setting4Denominate: kerotto.ratioFirstHitBb[3],
+                        setting5Denominate: kerotto.ratioFirstHitBb[4],
+                        setting6Denominate: kerotto.ratioFirstHitBb[5]
+                    )
+                )
+            )
+            .tag(2)
+            
+            // REG初当り回数
+            unitListSection95Ci(
+                grafTitle: "REG初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kerotto.firstHitCountREGSum,
+                        bigNumber: $kerotto.gameNumberPlay,
+                        setting1Denominate: kerotto.ratioFirstHitReg[0],
+                        setting2Denominate: kerotto.ratioFirstHitReg[1],
+                        setting3Denominate: kerotto.ratioFirstHitReg[2],
+                        setting4Denominate: kerotto.ratioFirstHitReg[3],
+                        setting5Denominate: kerotto.ratioFirstHitReg[4],
+                        setting6Denominate: kerotto.ratioFirstHitReg[5]
+                    )
+                )
+            )
+            .tag(3)
+            
+            // 赤頭回数
+            unitListSection95Ci(
+                grafTitle: "赤頭回数",
 //                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kerotto.otomeAttackHit,
-//                        bigNumber: $kerotto.otomeAttackSum,
-//                        setting1Percent: kerotto.ratioOtomeAttack[0],
-//                        setting2Percent: kerotto.ratioOtomeAttack[1],
-//                        setting3Percent: kerotto.ratioOtomeAttack[2],
-//                        setting4Percent: kerotto.ratioOtomeAttack[3],
-//                        setting5Percent: kerotto.ratioOtomeAttack[4],
-//                        setting6Percent: kerotto.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kerotto.firstHitCountCz,
-//                        bigNumber: $kerotto.normalGame,
-//                        setting1Denominate: kerotto.ratioFirstHitCz[0],
-//                        setting2Denominate: kerotto.ratioFirstHitCz[1],
-//                        setting3Denominate: kerotto.ratioFirstHitCz[2],
-//                        setting4Denominate: kerotto.ratioFirstHitCz[3],
-//                        setting5Denominate: kerotto.ratioFirstHitCz[4],
-//                        setting6Denominate: kerotto.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kerotto.firstHitCountAt,
-//                        bigNumber: $kerotto.normalGame,
-//                        setting1Denominate: kerotto.ratioFirstHitAt[0],
-//                        setting2Denominate: kerotto.ratioFirstHitAt[1],
-//                        setting3Denominate: kerotto.ratioFirstHitAt[2],
-//                        setting4Denominate: kerotto.ratioFirstHitAt[3],
-//                        setting5Denominate: kerotto.ratioFirstHitAt[4],
-//                        setting6Denominate: kerotto.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kerotto.firstHitCountRSum,
+                        bigNumber: $kerotto.firstHitCountAllSum,
+                        setting1Percent: kerotto.ratioFirstHitRed[0],
+                        setting2Percent: kerotto.ratioFirstHitRed[1],
+                        setting3Percent: kerotto.ratioFirstHitRed[2],
+                        setting4Percent: kerotto.ratioFirstHitRed[3],
+                        setting5Percent: kerotto.ratioFirstHitRed[4],
+                        setting6Percent: kerotto.ratioFirstHitRed[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

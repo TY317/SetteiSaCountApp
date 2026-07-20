@@ -13,6 +13,8 @@ struct kerottoViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [98.2, 99.1, 101.1, 104.5, 107, 111]
+    @State var firstHitBonusEnable: Bool = true
+    @State var bonusRWEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,6 +46,10 @@ struct kerottoViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // ボーナス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+                // ボーナス赤白比率
+                unitToggleWithQuestion(enable: self.$bonusRWEnable, title: "ボーナス赤白比率")
 
                 // トロフィー
                 DisclosureGroup("ケロットトロフィー") {
@@ -115,6 +121,24 @@ struct kerottoViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // ボーナス初当り確率
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitBonusEnable {
+            logPostFirstHitBonus = logPostDenoMulti(
+                countList: [kerotto.firstHitCountSBBSum, kerotto.firstHitCountBBSum, kerotto.firstHitCountREGSum],
+                denoList: [kerotto.ratioFirstHitSbb, kerotto.ratioFirstHitBb, kerotto.ratioFirstHitReg],
+                bigNumber: kerotto.gameNumberPlay
+            )
+        }
+        // ボーナス赤白比率
+        var logPostBonusRW: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bonusRWEnable {
+            logPostBonusRW = logPostPercentBino(
+                ratio: kerotto.ratioFirstHitRed,
+                Count: kerotto.firstHitCountRSum,
+                bigNumber: kerotto.firstHitCountAllSum
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -153,6 +177,8 @@ struct kerottoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitBonus,
+            logPostBonusRW,
             logPostTrophy,
             logPostBefore,
         ])
