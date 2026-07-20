@@ -15,6 +15,7 @@ struct kerottoViewBayes: View {
     let payoutList: [Double] = [98.2, 99.1, 101.1, 104.5, 107, 111]
     @State var firstHitBonusEnable: Bool = true
     @State var bonusRWEnable: Bool = true
+    @State var bigScreenEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,13 @@ struct kerottoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // ボーナス赤白比率
                 unitToggleWithQuestion(enable: self.$bonusRWEnable, title: "ボーナス赤白比率")
+                // BIG終了画面
+                unitToggleWithQuestion(enable: self.$bigScreenEnable, title: "BIG終了画面") {
+                    unitExView5body2image(
+                        title: "BIG終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("ケロットトロフィー") {
@@ -139,6 +147,15 @@ struct kerottoViewBayes: View {
                 bigNumber: kerotto.firstHitCountAllSum
             )
         }
+        // BIG終了画面
+        var logPostBigScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bigScreenEnable {
+            logPostBigScreen = logPostPercentMulti(
+                countList: [kerotto.screenCount5, kerotto.screenCount6, kerotto.screenCount7],
+                ratioList: [kerotto.ratioScreenOver2, kerotto.ratioScreenOver4, kerotto.ratioScreenOver5],
+                bigNumber: kerotto.screenCountSum
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -179,6 +196,7 @@ struct kerottoViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitBonus,
             logPostBonusRW,
+            logPostBigScreen,
             logPostTrophy,
             logPostBefore,
         ])

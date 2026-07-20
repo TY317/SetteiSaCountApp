@@ -53,6 +53,17 @@ struct kerottoViewTop: View {
                         )
                     }
 
+                    // BIG終了画面
+                    NavigationLink(destination: kerottoViewBigScreen(
+                        kerotto: kerotto,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "BIG終了画面",
+                            badgeStatus: common.kerottoMenuBigScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKerottoTrophy()) {
                         unitLabelMenu(
