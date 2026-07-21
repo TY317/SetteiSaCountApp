@@ -54,6 +54,11 @@ struct kerottoViewBonusScreen: View {
         List {
             // 画面カウント
             Section {
+                // コメント
+                Text("虹河ラキモードかつBIG以上の確定画面で設定示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                
                 VStack {
                     // カウントボタン
                     ScrollView(.horizontal) {

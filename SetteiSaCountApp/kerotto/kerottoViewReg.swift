@@ -47,6 +47,11 @@ struct kerottoViewReg: View {
         List {
             // カットイン選択
             Section {
+                // コメント
+                Text("目押しチャレンジ成功時のカットイン種類で設定を示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in

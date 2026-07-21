@@ -66,6 +66,11 @@ struct kerottoViewBigScreen: View {
         List {
             // 画面選択
             Section {
+                // コメント
+                Text("SBB,BB終了画面でPUSHボタンを押すと、切り替わった画面で設定を示唆")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                
                 // セグメントピッカー
                 Picker("", selection: self.$selectedSegment) {
                     ForEach(self.segmentList, id: \.self) { seg in
