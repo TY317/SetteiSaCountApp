@@ -134,10 +134,35 @@ class Kerotto: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // ボーナス確定画面
+    // --------
+    @AppStorage("kerottoBonusScreenCount1") var bonusScreenCount1: Int = 0
+    @AppStorage("kerottoBonusScreenCount2") var bonusScreenCount2: Int = 0
+    @AppStorage("kerottoBonusScreenCount3") var bonusScreenCount3: Int = 0
+    @AppStorage("kerottoBonusScreenCountSum") var bonusScreenCountSum: Int = 0
+
+    func bonusScreenSumFunc() {
+        bonusScreenCountSum = countSum(
+            bonusScreenCount1,
+            bonusScreenCount2,
+            bonusScreenCount3,
+        )
+    }
+
+    func resetBonusScreen() {
+        bonusScreenCount1 = 0
+        bonusScreenCount2 = 0
+        bonusScreenCount3 = 0
+        bonusScreenCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetBonusScreen()
     }
 }
 

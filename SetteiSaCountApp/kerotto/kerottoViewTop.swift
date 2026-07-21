@@ -42,6 +42,17 @@ struct kerottoViewTop: View {
                         )
                     }
 
+                    // ボーナス確定画面
+                    NavigationLink(destination: kerottoViewBonusScreen(
+                        kerotto: kerotto,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス確定画面",
+                            badgeStatus: common.kerottoMenuBonusScreenBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: kerottoViewFirstHit(
                         kerotto: kerotto,
