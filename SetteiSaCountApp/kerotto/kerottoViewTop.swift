@@ -64,6 +64,17 @@ struct kerottoViewTop: View {
                         )
                     }
 
+                    // REG中
+                    NavigationLink(destination: kerottoViewReg(
+                        kerotto: kerotto,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "REG中",
+                            badgeStatus: common.kerottoMenuRegBadge,
+                        )
+                    }
+
                     // BIG終了画面
                     NavigationLink(destination: kerottoViewBigScreen(
                         kerotto: kerotto,

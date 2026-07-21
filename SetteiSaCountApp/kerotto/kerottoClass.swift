@@ -158,11 +158,45 @@ class Kerotto: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // カットイン選択
+    // -------
+    let ratioCutinOver2: [Double] = [0,1,1,1,1,1]
+    let ratioCutinOver4: [Double] = [0,0,0,1,1,1]
+    let ratioCutinOver5: [Double] = [0,0,0,0,1,1]
+    @AppStorage("kerottoCutinCount1") var cutinCount1: Int = 0
+    @AppStorage("kerottoCutinCount2") var cutinCount2: Int = 0
+    @AppStorage("kerottoCutinCount3") var cutinCount3: Int = 0
+    @AppStorage("kerottoCutinCount4") var cutinCount4: Int = 0
+    @AppStorage("kerottoCutinCount5") var cutinCount5: Int = 0
+    @AppStorage("kerottoCutinCountSum") var cutinCountSum: Int = 0
+
+    func cutinSumFunc() {
+        cutinCountSum = countSum(
+            cutinCount1,
+            cutinCount2,
+            cutinCount3,
+            cutinCount4,
+            cutinCount5,
+        )
+    }
+
+    func resetCutin() {
+        cutinCount1 = 0
+        cutinCount2 = 0
+        cutinCount3 = 0
+        cutinCount4 = 0
+        cutinCount5 = 0
+        cutinCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
         resetScreen()
         resetBonusScreen()
+        resetCutin()
     }
 }
 

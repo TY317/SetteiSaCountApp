@@ -16,6 +16,7 @@ struct kerottoViewBayes: View {
     @State var firstHitBonusEnable: Bool = true
     @State var bonusRWEnable: Bool = true
     @State var bigScreenEnable: Bool = true
+    @State var cutinEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -55,6 +56,13 @@ struct kerottoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$bigScreenEnable, title: "BIG終了画面") {
                     unitExView5body2image(
                         title: "BIG終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                // REG中カットイン
+                unitToggleWithQuestion(enable: self.$cutinEnable, title: "REG中カットイン") {
+                    unitExView5body2image(
+                        title: "REG中カットイン",
                         textBody1: "・確定系のみ反映させます",
                     )
                 }
@@ -156,6 +164,15 @@ struct kerottoViewBayes: View {
                 bigNumber: kerotto.screenCountSum
             )
         }
+        // REG中カットイン
+        var logPostCutin: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cutinEnable {
+            logPostCutin = logPostPercentMulti(
+                countList: [kerotto.cutinCount3, kerotto.cutinCount4, kerotto.cutinCount5],
+                ratioList: [kerotto.ratioCutinOver2, kerotto.ratioCutinOver4, kerotto.ratioCutinOver5],
+                bigNumber: kerotto.cutinCountSum
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -197,6 +214,7 @@ struct kerottoViewBayes: View {
             logPostFirstHitBonus,
             logPostBonusRW,
             logPostBigScreen,
+            logPostCutin,
             logPostTrophy,
             logPostBefore,
         ])

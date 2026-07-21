@@ -373,6 +373,7 @@ class commonVar: ObservableObject {
     @AppStorage("kerottoMenuScreenBadge") var kerottoMenuScreenBadge: String = "none"
     @AppStorage("kerottoMenuBigScreenBadge") var kerottoMenuBigScreenBadge: String = "none"
     @AppStorage("kerottoMenuBonusScreenBadge") var kerottoMenuBonusScreenBadge: String = "none"
+    @AppStorage("kerottoMenuRegBadge") var kerottoMenuRegBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
