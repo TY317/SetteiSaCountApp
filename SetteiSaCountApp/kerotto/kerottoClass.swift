@@ -13,8 +13,23 @@ class Kerotto: ObservableObject {
     // -------
     // 通常時
     // -------
+    let ratioHeikoOrange: [Double] = [91.4,-1,-1,-1,-1,-1]
+    let ratioNanameOrange: [Double] = [187.3,-1,-1,-1,-1,-1]
+    let ratioChofukuHeikoOrange: [Double] = [16.2,-1,-1,-1,-1,-1]
+    let ratioChofukuNanameOrange: [Double] = [40.0,-1,-1,-1,-1,-1]
+    @AppStorage("kerottoKoyakuCountHeikoOrange") var koyakuCountHeikoOrange: Int = 0
+    @AppStorage("kerottoKoyakuCountNanameOrange") var koyakuCountNanameOrange: Int = 0
+    @AppStorage("kerottoChofukuCountHeikoOrange") var chofukuCountHeikoOrange: Int = 0
+    @AppStorage("kerottoChofukuCountNanameOrange") var chofukuCountNanameOrange: Int = 0
 
     func resetNormal() {
+        koyakuCountHeikoOrange = 0
+        koyakuCountNanameOrange = 0
+        chofukuCountHeikoOrange = 0
+        chofukuCountNanameOrange = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
 
