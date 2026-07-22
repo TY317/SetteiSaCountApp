@@ -30,8 +30,8 @@ struct kerottoViewBigScreen: View {
     @State var selectedItem: String = "枠なし"
     let selectList: [String] = [
         "枠なし",
-        "青枠 カメ",
-        "青枠 フクロウ",
+        "青枠(ケロット1匹＋他)",
+        "青枠(コガエル2匹＋他)",
         "赤枠",
         "銀枠",
         "金枠 ケロ3匹",
