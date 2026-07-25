@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct kerottoViewNormal: View {
     @EnvironmentObject var common: commonVar
@@ -28,6 +29,11 @@ struct kerottoViewNormal: View {
     @State var lazyVGridCount: Int = 3
     @State var selectedSegment: String = "小役カウント"
     let segmentList: [String] = ["小役カウント", "重複当選"]
+    
+    @State private var isAutoCountOn: Bool = false
+    @State private var nextAutoCountDate: Date? = nil
+    private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
+    
     
     var body: some View {
         List {
@@ -187,6 +193,13 @@ struct kerottoViewNormal: View {
                 screenClass: screenClass
             )
         }
+        // オートゲーム数カウント
+        .autoGameCount(
+            isOn: self.$isAutoCountOn,
+            currentGames: self.$kerotto.gameNumberCurrent,
+            nextDate: self.$nextAutoCountDate,
+            interval: common.autoGameInterval
+        )
         .navigationTitle("通常時")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
@@ -204,6 +217,14 @@ struct kerottoViewNormal: View {
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
         .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // 自動G数カウント
+                unitToolbarButtonAutoGameCount(
+                    autoBool: self.$isAutoCountOn,
+                    nextAutoCountDate: self.$nextAutoCountDate,
+                )
+                .popoverTip(commonTipAutoGameCount())
+            }
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $kerotto.minusCheck)
