@@ -28,6 +28,33 @@ struct bioRe3ViewCz: View {
             } header: {
                 Text("失敗時のボイス")
             }
+            
+            // ---- スルー天井振り分け
+            Section {
+                // 説明
+                Text("今作はスルー天井に設定差なし")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // スルー天井振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "スルー天井振分け") {
+                    Text("・全設定共通")
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "",
+                            stringList: ["1回","2回","3回","4回","5回","6回","7回",],
+                            maxWidth: 80,
+                        )
+                        unitTablePercent(
+                            columTitle: "振分け",
+                            percentList: [3.5,3.5,12.5,4.7,25,4.7,46.1],
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                .popoverTip(tipVer420BioRe3Cz())
+            } header: {
+                Text("スルー天井")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.bioRe3MenuCzBadge)

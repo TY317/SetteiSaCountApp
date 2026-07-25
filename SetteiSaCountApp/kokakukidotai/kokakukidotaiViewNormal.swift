@@ -175,8 +175,7 @@ struct kokakukidotaiViewNormal: View {
                         )
                     }
                 }
-//                .popoverTip(tipVer3270KokakukidotaiCz())
-                
+
                 DisclosureGroup {
                     // セグメントピッカー
                     Picker("", selection: self.$selectedItem) {

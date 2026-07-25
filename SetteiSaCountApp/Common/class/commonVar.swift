@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5015", name: "ケロットBT", fullName: "ケロット5 BT", iconName: "kerottoMachineIcon", btBadge: true, maker: "山佐"),
         Machine(id: "5010", name: "戦コレ6", fullName: "戦国コレクション6", iconName: "sencole6MachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5019", name: "からくり2", fullName: "からくりサーカス2", iconName: "karakuri2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5555", name: "ジャグラー", fullName: "ジャグラーシリーズ", iconName: "machineIconJuglerSeries", btBadge: false, maker: "北電子"),
@@ -364,6 +365,15 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
+
+    // ---- ケロット5 BT
+    @AppStorage("kerottoMenuNormalBadge") var kerottoMenuNormalBadge: String = "none"
+    @AppStorage("kerottoMenuFirstHitBadge") var kerottoMenuFirstHitBadge: String = "none"
+    @AppStorage("kerottoMenuBayesBadge") var kerottoMenuBayesBadge: String = "none"
+    @AppStorage("kerottoMenuScreenBadge") var kerottoMenuScreenBadge: String = "none"
+    @AppStorage("kerottoMenuBigScreenBadge") var kerottoMenuBigScreenBadge: String = "none"
+    @AppStorage("kerottoMenuBonusScreenBadge") var kerottoMenuBonusScreenBadge: String = "none"
+    @AppStorage("kerottoMenuRegBadge") var kerottoMenuRegBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -702,11 +712,36 @@ class commonVar: ObservableObject {
         godKisekiisUnlocked = true
         rioAceisUnlocked = true
         bioRe3isUnlocked = true
+        otome5isUnlocked = true
+        sao2isUnlocked = true
     }
     
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver420FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.2.0"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5015", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5015", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
+                bioRe3MenuNormalBadge = "update"
+                bioRe3MenuCzBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver412FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.1.2"
@@ -826,36 +861,6 @@ class commonVar: ObservableObject {
                 bioRe3MenuNormalBadge = "update"
                 sao2MachineIconBadge = "update"
                 sao2MenuScreenBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    func ver3270FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.27.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                jormungandMachineIconBadge = "update"
-                jormungandMenuHighCzBadge = "new"
-                godKisekiMachineIconBadge = "update"
-                godKisekiMenuFirstHitBadge = "update"
-                kokakukidotaiMachineIconBadge = "update"
-                kokakukidotaiMenuNormalBadge = "update"
-                otome5isUnlocked = false
-                otome5MachineIconBadge = "new"
-                sao2isUnlocked = false
-                sao2MachineIconBadge = "new"
-                godKisekiMenuNormalBadge = "update"
-                kabaneriUnatoMachineIconBadge = "update"
-                kabaneriUnatoMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

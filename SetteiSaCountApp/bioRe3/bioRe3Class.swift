@@ -88,22 +88,22 @@ class BioRe3: ObservableObject {
     // ---------
     // ver3.27.1
     // ---------
-    let ratioJakuRareNormalACz: [Double] = [0.4,-1,-1,-1,-1,-1,]
-    let ratioJakuRareNormalBCz: [Double] = [0.4,-1,-1,-1,-1,-1,]
-    let ratioJakuRareHighCz: [Double] = [6.3,-1,-1,-1,-1,-1,]
-    let ratioJakuRareSuperHighCz: [Double] = [25,-1,-1,-1,-1,-1,]
+    let ratioJakuRareNormalACz: [Double] = [0.4,0.4,0.4,0.8,1.2,1.6]
+    let ratioJakuRareNormalBCz: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioJakuRareHighCz: [Double] = [6.3,6.3,6.3,7.8,11.7,12.5]
+    let ratioJakuRareSuperHighCz: [Double] = [25,25,25,25,25,25]
     let ratioJakuRareNormalAAt: [Double] = [0,0,0,0,0,0]
     let ratioJakuRareNormalBAt: [Double] = [0,0,0,0,0,0]
     let ratioJakuRareHighAt: [Double] = [0,0,0,0,0,0]
     let ratioJakuRareSuperHighAt: [Double] = [0,0,0,0,0,0]
-    let ratioKyoRareNormalACz: [Double] = [12.1,-1,-1,-1,-1,-1,]
-    let ratioKyoRareNormalBCz: [Double] = [16.4,-1,-1,-1,-1,-1,]
-    let ratioKyoRareHighCz: [Double] = [49.6,-1,-1,-1,-1,-1,]
-    let ratioKyoRareSuperHighCz: [Double] = [87.5,-1,-1,-1,-1,-1,]
-    let ratioKyoRareNormalAAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
-    let ratioKyoRareNormalBAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
-    let ratioKyoRareHighAt: [Double] = [0.4,-1,-1,-1,-1,-1,]
-    let ratioKyoRareSuperHighAt: [Double] = [12.5,-1,-1,-1,-1,-1,]
+    let ratioKyoRareNormalACz: [Double] = [12.1,12.5,15.6,16.4,19.1,19.5]
+    let ratioKyoRareNormalBCz: [Double] = [16.4,17.2,21.1,21.9,24.2,24.6]
+    let ratioKyoRareHighCz: [Double] = [49.6,50.8,53.9,54.7,58.2,58.6]
+    let ratioKyoRareSuperHighCz: [Double] = [87.5,87.5,87.5,87.5,87.5,87.5]
+    let ratioKyoRareNormalAAt: [Double] = [0.4,0.4,0.4,0.8,1.2,1.6]
+    let ratioKyoRareNormalBAt: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioKyoRareHighAt: [Double] = [0.4,0.8,1.2,2.0,2.7,3.1]
+    let ratioKyoRareSuperHighAt: [Double] = [12.5,12.5,12.5,12.5,12.5,12.5]
     @AppStorage("bioRe3JakuRareCountJakuCherry") var jakuRareCountJakuCherry: Int = 0
     @AppStorage("bioRe3JakuRareCountSuika") var jakuRareCountSuika: Int = 0
     @AppStorage("bioRe3JakuRareCountKoyakuSum") var jakuRareCountKoyakuSum: Int = 0

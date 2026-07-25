@@ -76,6 +76,7 @@ struct bioRe3ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ,AT直撃率") {
                     bioRe3TableKoyakuHit(bioRe3: bioRe3)
                 }
+                .popoverTip(tipVer420BioRe3Ratio())
                 
                 // レア役停止形
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {

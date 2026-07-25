@@ -62,7 +62,6 @@ struct godKisekiViewFirstHit: View {
                         color: .personalSummerLightPurple,
                         minusBool: $godKiseki.minusCheck
                     )
-                    .popoverTip(tipVer3270GodKisekiZzoneRise())
                 }
                 
                 // 確率結果
