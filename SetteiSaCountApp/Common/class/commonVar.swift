@@ -730,6 +730,9 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5015", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5015", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
+                bioRe3MenuNormalBadge = "update"
+                bioRe3MenuCzBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

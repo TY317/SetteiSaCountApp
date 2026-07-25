@@ -26,12 +26,28 @@ struct tipVer420UpdateInfo: Tip {
 //////////////////
 // Tip：
 //////////////////
-struct tipVer420: Tip {
+struct tipVer420BioRe3Ratio: Tip {
     var title: Text {
-        Text("機能更新")
+        Text("情報更新")
     }
     var message: Text? {
-        Text("")
+        Text("レア役からの当選率 設定差が全て判明")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer420BioRe3Cz: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("スルー天井振分けの情報を追加")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
