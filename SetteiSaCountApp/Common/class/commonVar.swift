@@ -844,31 +844,5 @@ class commonVar: ObservableObject {
         }
     }
     
-    func ver3271FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.27.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                otome5MachineIconBadge = "update"
-                otome5MenuAtScreenBadge = "new"
-                rioAceMachineIconBadge = "update"
-                rioAceMenuScreenBadge = "update"
-                rioAceMenuNormalBadge = "update"
-                bioRe3MachineIconBadge = "update"
-                bioRe3MenuNormalBadge = "update"
-                sao2MachineIconBadge = "update"
-                sao2MenuScreenBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
 }
 

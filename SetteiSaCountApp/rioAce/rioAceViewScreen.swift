@@ -92,8 +92,7 @@ struct rioAceViewScreen: View {
                         )
                     }
                 }
-                .popoverTip(tipVer3271RioAceRinaSign())
-                
+
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

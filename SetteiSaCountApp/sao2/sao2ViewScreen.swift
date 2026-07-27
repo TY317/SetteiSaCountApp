@@ -123,7 +123,6 @@ struct sao2ViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    .popoverTip(tipVer3271Sao2ScreenSisa())
                 }
                 
                 // //// カウント結果
