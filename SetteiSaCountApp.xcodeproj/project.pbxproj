@@ -1378,6 +1378,8 @@
 		0FD77BDA300CE1DB00F792DC /* kerottoTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77BD8300CE1D500F792DC /* kerottoTableFirstHit.swift */; };
 		0FD77BDB300CE21900F792DC /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
 		0FD77CE4301782BE00F792DC /* ver421.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE3301782BE00F792DC /* ver421.swift */; };
+		0FD77CE63017863000F792DC /* karakuri2TableVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */; };
+		0FD77CE73017863900F792DC /* karakuri2TableVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */; };
 		0FD974DE2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
 		0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */; };
 		0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C9FC22E2B812000F22EA0 /* unitLinkButtonViewBuilder.swift */; };
@@ -2900,6 +2902,7 @@
 		0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendLapTimerAssets.xcassets; sourceTree = "<group>"; };
 		0FD77BD8300CE1D500F792DC /* kerottoTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoTableFirstHit.swift; sourceTree = "<group>"; };
 		0FD77CE3301782BE00F792DC /* ver421.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver421.swift; sourceTree = "<group>"; };
+		0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableVoice.swift; sourceTree = "<group>"; };
 		0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiSubViewCzScreen.swift; sourceTree = "<group>"; };
 		0FD974E12F415D7E0067CED7 /* mushotenTableHonkiBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenTableHonkiBonus.swift; sourceTree = "<group>"; };
 		0FD974E42F4165F50067CED7 /* kokakukidotaiTableReplayFlush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiTableReplayFlush.swift; sourceTree = "<group>"; };
@@ -5417,6 +5420,7 @@
 				0FD586B92FF0C90A005689C6 /* karakuri2ViewBayes.swift */,
 				0F82F4A52FFC5E4E005431B8 /* karakuri2TableMode.swift */,
 				0F431EEC300AF81B008560DE /* karakuri2TableModeSisa.swift */,
+				0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */,
 			);
 			path = karakuri2;
 			sourceTree = "<group>";
@@ -7431,6 +7435,7 @@
 				0FD6BAC02FCEFB84003D3707 /* otome5View95Ci.swift in Sources */,
 				0F431EED300AF81B008560DE /* karakuri2TableModeSisa.swift in Sources */,
 				0FC720062E6BE927000DD53B /* toreveViewPremiumAt.swift in Sources */,
+				0FD77CE63017863000F792DC /* karakuri2TableVoice.swift in Sources */,
 				0F6B59D62E06566600DB1A2B /* godeaterTableKyoCherryChokugeki.swift in Sources */,
 				0FA024AE2D0C00E5004B3FD5 /* lupinViewAtScreen.swift in Sources */,
 				0FD586B72FEFFACC005689C6 /* karakuri2TableKoyakuPattern.swift in Sources */,
@@ -7544,6 +7549,7 @@
 				0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */,
 				0FA662F72F23292C00F3259F /* hokutoTenseiTableKokakuSisa.swift in Sources */,
 				0F45A5D02F0501A60022E355 /* tekken6TextScreenCaution.swift in Sources */,
+				0FD77CE73017863900F792DC /* karakuri2TableVoice.swift in Sources */,
 				0F51C9C02F662F2F00D9DDE1 /* thunderTableBbKoyaku.swift in Sources */,
 				0F1B31FB2FDCF2DD00DEEF8C /* bioRe3TableKoyakuHit.swift in Sources */,
 				0FD587242FF932D3005689C6 /* rioAceClass.swift in Sources */,

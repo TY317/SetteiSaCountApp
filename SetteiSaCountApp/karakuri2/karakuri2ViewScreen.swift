@@ -99,7 +99,7 @@ struct karakuri2ViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    .popoverTip(tipVer412KarakuriScreen())
+//                    .popoverTip(tipVer412KarakuriScreen())
                 }
 
                 // //// カウント結果
@@ -120,6 +120,20 @@ struct karakuri2ViewScreen: View {
                 }
             } header: {
                 unitLabelHeaderScreenCount()
+            }
+            
+            // ボイス
+            Section {
+                Text("リール下の液晶画面をタッチするとボイスが発生")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                // ボイス示唆
+                unitLinkButtonViewBuilder(sheetTitle: "ボイス示唆") {
+                    karakuri2TableVoice()
+                }
+                .popoverTip(tipVer421Karakuri2Voice())
+            } header: {
+                Text("ボイス")
             }
         }
         // //// バッジのリセット
