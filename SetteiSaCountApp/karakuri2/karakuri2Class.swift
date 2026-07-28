@@ -141,7 +141,7 @@ class Karakuri2: ObservableObject {
     let ratioScreenOver6: [Double] = [0,0,0,0,0,1]
     
     // 強チェリー当選率
-    let ratioKyoCherryHit: [Double] = [9.8,-1,-1,-1,-1,-1]
+    let ratioKyoCherryHit: [Double] = [9.8,10.2,12.5,13.7,14.8,16.4]
     @AppStorage("karakuri2KyoCherryCount") var kyoCherryCount: Int = 0
     @AppStorage("karakuri2KyoCherryCountHit") var kyoCherryCountHit: Int = 0
 }
