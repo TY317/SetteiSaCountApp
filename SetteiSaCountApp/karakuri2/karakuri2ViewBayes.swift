@@ -16,6 +16,7 @@ struct karakuri2ViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var kyoCherryEnable: Bool = true
 
     
     // 全機種共通
@@ -47,6 +48,8 @@ struct karakuri2ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 強チェリーからのCZ・AT当選
+                unitToggleWithQuestion(enable: self.$kyoCherryEnable, title: "強チェリーからのCZ・AT当選")
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
@@ -155,6 +158,15 @@ struct karakuri2ViewBayes: View {
                 bigNumber: karakuri2.screenCountSum
             )
         }
+        // 強チェリーからのCZ・AT当選
+        var logPostKyoCherry: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.kyoCherryEnable {
+            logPostKyoCherry = logPostPercentBino(
+                ratio: karakuri2.ratioKyoCherryHit,
+                Count: karakuri2.kyoCherryCountHit,
+                bigNumber: karakuri2.kyoCherryCount
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -196,6 +208,7 @@ struct karakuri2ViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
+            logPostKyoCherry,
             logPostTrophy,
             logPostBefore,
         ])
