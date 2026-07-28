@@ -74,7 +74,7 @@ class Karakuri2: ObservableObject {
     // 履歴
     // ----------
     // 選択肢
-    let kindList: [String] = ["機械仕掛けの女神","幕間チャンス(AT後)","幕間チャンス(通常時)","劇場ジャッジ"]
+    let kindList: [String] = ["機械仕掛けの女神","幕間チャンス(AT後)","幕間チャンス(通常時)","劇場ジャッジ","AT直撃","その他"]
     // 選択結果
     @AppStorage("karakuri2InputGame") var inputGame: Int = 0
     @AppStorage("karakuri2SelectedKind") var selectedKind: String = "機械仕掛けの女神"

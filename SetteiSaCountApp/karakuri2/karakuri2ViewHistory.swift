@@ -292,6 +292,8 @@ struct karakuri2ViewHistory: View {
         case karakuri2.kindList[1]: return "幕間(AT後)"
         case karakuri2.kindList[2]: return "幕間(通常時)"
         case karakuri2.kindList[3]: return "劇場"
+        case karakuri2.kindList[4]: return "AT直撃"
+        case karakuri2.kindList[5]: return "その他"
         default: return "女神"
         }
     }
