@@ -131,6 +131,7 @@ class Karakuri2: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetHistory()
+        resetChara()
     }
     
     // ----------
@@ -144,6 +145,33 @@ class Karakuri2: ObservableObject {
     let ratioKyoCherryHit: [Double] = [9.8,10.2,12.5,13.7,14.8,16.4]
     @AppStorage("karakuri2KyoCherryCount") var kyoCherryCount: Int = 0
     @AppStorage("karakuri2KyoCherryCountHit") var kyoCherryCountHit: Int = 0
+
+    // -------
+    // 1回目のキャラ選択
+    // -------
+    @AppStorage("karakuri2CharaCount1") var charaCount1: Int = 0
+    @AppStorage("karakuri2CharaCount2") var charaCount2: Int = 0
+    @AppStorage("karakuri2CharaCount3") var charaCount3: Int = 0
+    @AppStorage("karakuri2CharaCount4") var charaCount4: Int = 0
+    @AppStorage("karakuri2CharaCountSum") var charaCountSum: Int = 0
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+            charaCount4,
+        )
+    }
+
+    func resetChara() {
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCount4 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
 }
 
 

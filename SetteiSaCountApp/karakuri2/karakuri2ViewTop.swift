@@ -64,6 +64,17 @@ struct karakuri2ViewTop: View {
                         )
                     }
 
+                    // AT中
+                    NavigationLink(destination: karakuri2ViewDuringAt(
+                        karakuri2: karakuri2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "robotic.vacuum.fill",
+                            textBody: "AT中",
+                            badgeStatus: common.karakuri2MenuDuringAtBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: karakuri2ViewScreen(
                         karakuri2: karakuri2,

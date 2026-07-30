@@ -365,6 +365,7 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
+    @AppStorage("karakuri2MenuDuringAtBadge") var karakuri2MenuDuringAtBadge: String = "none"
 
     // ---- ケロット5 BT
     @AppStorage("kerottoMenuNormalBadge") var kerottoMenuNormalBadge: String = "none"
@@ -731,6 +732,7 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
                 karakuri2MenuScreenBadge = "update"
                 karakuri2MenuNormalBadge = "update"
+                karakuri2MenuDuringAtBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
