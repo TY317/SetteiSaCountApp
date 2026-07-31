@@ -34,6 +34,13 @@ struct kerottoViewNormal: View {
     @State private var nextAutoCountDate: Date? = nil
     private var autoCountTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: common.autoGameInterval, on: .main, in: .common).autoconnect() }
     
+    enum KerottoField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: KerottoField?
+    let kindList: [String] = ["🔔","🍒","平行🍊","斜め🍊","確定役"]
     
     var body: some View {
         List {
@@ -47,60 +54,133 @@ struct kerottoViewNormal: View {
                 }
                 .pickerStyle(.segmented)
                 
-                // ---- 小役カウント
-                if self.selectedSegment == self.segmentList[0] {
-                    HStack {
-                        // 平行オレンジ
-                        unitCountButtonDenominateWithFunc(
-                            title: "平行🍊",
-                            count: $kerotto.koyakuCountHeikoOrange,
-                            color: .personalSpringLightYellow,
-                            bigNumber: $kerotto.gameNumberPlay,
-                            numberofDicimal: 0,
-                            minusBool: $kerotto.minusCheck) {
-                                
-                            }
-                        // 斜めオレンジ
-                        unitCountButtonDenominateWithFunc(
-                            title: "斜め🍊",
-                            count: $kerotto.koyakuCountNanameOrange,
-                            color: .personalSummerLightRed,
-                            bigNumber: $kerotto.gameNumberPlay,
-                            numberofDicimal: 0,
-                            minusBool: $kerotto.minusCheck) {
-                                
-                            }
+                // //// カウントボタン横並び
+                let gridItem = Array(
+                    repeating: GridItem(
+                        .flexible(minimum: 80, maximum: 150),
+                        spacing: 5,
+                        alignment: .center,
+                    ),
+                    count: self.lazyVGridCount
+                )
+                LazyVGrid(columns: gridItem) {
+                    // ---- 小役カウント
+                    if self.selectedSegment == self.segmentList[0] {
+//                        HStack {
+                            // ベル
+                            unitCountButtonDenominateWithFunc(
+                                title: "🔔",
+                                count: $kerotto.koyakuCountBell,
+                                color: .personalSpringLightYellow,
+                                bigNumber: $kerotto.gameNumberPlay,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            // チェリー
+                            unitCountButtonDenominateWithFunc(
+                                title: "🍒",
+                                count: $kerotto.koyakuCountCherry,
+                                color: .personalSummerLightRed,
+                                bigNumber: $kerotto.gameNumberPlay,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            // 平行オレンジ
+                            unitCountButtonDenominateWithFunc(
+                                title: "平行🍊",
+                                count: $kerotto.koyakuCountHeikoOrange,
+                                color: .personalAutumLightOrange,
+                                bigNumber: $kerotto.gameNumberPlay,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            // 斜めオレンジ
+                            unitCountButtonDenominateWithFunc(
+                                title: "斜め🍊",
+                                count: $kerotto.koyakuCountNanameOrange,
+                                color: .personalSpringLightBrown,
+                                bigNumber: $kerotto.gameNumberPlay,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            // 確定役
+                            unitCountButtonDenominateWithFunc(
+                                title: "確定役",
+                                count: $kerotto.koyakuCountKakuteiyaku,
+                                color: .personalSummerLightPurple,
+                                bigNumber: $kerotto.gameNumberPlay,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+//                        }
                     }
-                }
-                // ---- 重複カウント
-                else {
-                    HStack {
-                        // 平行オレンジ
-                        unitCountButtonPercentWithFunc(
-                            title: "平行🍊",
-                            count: $kerotto.chofukuCountHeikoOrange,
-                            color: .orange,
-                            bigNumber: $kerotto.koyakuCountHeikoOrange,
-                            numberofDicimal: 0,
-                            minusBool: $kerotto.minusCheck) {
-                                
-                            }
-                        
-                        // 斜めオレンジ
-                        unitCountButtonPercentWithFunc(
-                            title: "斜め🍊",
-                            count: $kerotto.chofukuCountNanameOrange,
-                            color: .red,
-                            bigNumber: $kerotto.koyakuCountNanameOrange,
-                            numberofDicimal: 0,
-                            minusBool: $kerotto.minusCheck) {
-                                
-                            }
+                    // ---- 重複カウント
+                    else {
+//                        HStack {
+                            // チェリー
+                            unitCountButtonPercentWithFunc(
+                                title: "🍒",
+                                count: $kerotto.chofukuCountCherry,
+                                color: .red,
+                                bigNumber: $kerotto.koyakuCountCherry,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            
+                            // 平行オレンジ
+                            unitCountButtonPercentWithFunc(
+                                title: "平行🍊",
+                                count: $kerotto.chofukuCountHeikoOrange,
+                                color: .orange,
+                                bigNumber: $kerotto.koyakuCountHeikoOrange,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+                            
+                            // 斜めオレンジ
+                            unitCountButtonPercentWithFunc(
+                                title: "斜め🍊",
+                                count: $kerotto.chofukuCountNanameOrange,
+                                color: .brown,
+                                bigNumber: $kerotto.koyakuCountNanameOrange,
+                                numberofDicimal: 0,
+                                minusBool: $kerotto.minusCheck) {
+                                    
+                                }
+                                .padding(.bottom)
+//                        }
                     }
                 }
                 
                 // 小役確率
                 unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "🔔",
+                            denominateList: kerotto.ratioBell,
+                            numberofDicimal: 1,
+                        )
+                        unitTableDenominate(
+                            columTitle: "🍒",
+                            denominateList: kerotto.ratioCherry,
+                            numberofDicimal: 1,
+                        )
+                    }
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTableDenominate(
@@ -111,6 +191,10 @@ struct kerottoViewNormal: View {
                             columTitle: "斜め🍊",
                             denominateList: kerotto.ratioNanameOrange
                         )
+                        unitTableDenominate(
+                            columTitle: "確定役",
+                            denominateList: kerotto.ratioKakuteiyaku
+                        )
                     }
                 }
                 
@@ -118,6 +202,11 @@ struct kerottoViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "重複期待度") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "🍒",
+                            percentList: kerotto.ratioChofukuCherry,
+                            numberofDicimal: 1,
+                        )
                         unitTablePercent(
                             columTitle: "平行🍊",
                             percentList: kerotto.ratioChofukuHeikoOrange
@@ -127,6 +216,22 @@ struct kerottoViewNormal: View {
                             percentList: kerotto.ratioChofukuNanameOrange
                         )
                     }
+                }
+                
+                // 95%信頼区間グラフ
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kerottoView95Ci(
+                            kerotto: kerotto,
+                            selection: 5
+                        )
+                    )
+                )
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kerottoViewBayes(
+                        kerotto: kerotto,
+                    )
                 }
             } header: {
                 HStack {
@@ -150,7 +255,8 @@ struct kerottoViewNormal: View {
                     inputValue: $kerotto.gameNumberStart,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: kerotto.gameNumberStart) {
                     let playGame = kerotto.gameNumberCurrent - kerotto.gameNumberStart
                     kerotto.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -161,7 +267,8 @@ struct kerottoViewNormal: View {
                     inputValue: $kerotto.gameNumberCurrent,
                     unitText: "Ｇ"
                 )
-                .focused(self.$isFocused)
+//                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: kerotto.gameNumberCurrent) {
                     let playGame = kerotto.gameNumberCurrent - kerotto.gameNumberStart
                     kerotto.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -225,6 +332,61 @@ struct kerottoViewNormal: View {
                 )
                 .popoverTip(commonTipAutoGameCount())
             }
+            // カウント値ダイレクト入力
+            ToolbarItem(placement: .automatic) {
+                UnitToolbarButtonCountDirectInputEnumFocus<KerottoField, AnyView>(
+                    focus: $focusedField,
+                    inputView: {
+                        AnyView(
+                            ForEach(self.kindList.indices, id: \.self) { index in
+                                if self.kindList.indices.contains(index) {
+                                    UnitTextFieldNumberInputWithUnitEnumFocus<KerottoField>(
+                                        title: self.kindList[index],
+                                        inputValue: bindingCount(index),
+                                        focusedField: $focusedField,
+                                        thisField: .count(index)
+                                    )
+                                }
+                            }
+                        )
+                    }
+                )
+//                unitToolbarButtonCountDirectInput(
+//                    inputView: {
+//                        // ベル
+//                        unitTextFieldNumberInputWithUnit(
+//                            title: "🔔",
+//                            inputValue: $kerotto.koyakuCountBell
+//                        )
+//                        .focused(self.$isFocused)
+//                        // チェリー
+//                        unitTextFieldNumberInputWithUnit(
+//                            title: "🍒",
+//                            inputValue: $kerotto.koyakuCountCherry
+//                        )
+//                        .focused(self.$isFocused)
+//                        // 平行オレンジ
+//                        unitTextFieldNumberInputWithUnit(
+//                            title: "平行🍊",
+//                            inputValue: $kerotto.koyakuCountHeikoOrange
+//                        )
+//                        .focused(self.$isFocused)
+//                        // 斜めオレンジ
+//                        unitTextFieldNumberInputWithUnit(
+//                            title: "斜め🍊",
+//                            inputValue: $kerotto.koyakuCountNanameOrange
+//                        )
+//                        .focused(self.$isFocused)
+//                        // 確定役
+//                        unitTextFieldNumberInputWithUnit(
+//                            title: "確定役",
+//                            inputValue: $kerotto.koyakuCountKakuteiyaku
+//                        )
+//                        .focused(self.$isFocused)
+//                    },
+//                    focus: $isFocused
+//                )
+            }
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $kerotto.minusCheck)
@@ -237,13 +399,25 @@ struct kerottoViewNormal: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+//                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)
                     })
                 }
             }
+        }
+    }
+    private func bindingCount(_ index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $kerotto.koyakuCountBell
+        case 1: return $kerotto.koyakuCountCherry
+        case 2: return $kerotto.koyakuCountHeikoOrange
+        case 3: return $kerotto.koyakuCountNanameOrange
+        case 4: return $kerotto.koyakuCountKakuteiyaku
+        default: return .constant(0)
         }
     }
 }

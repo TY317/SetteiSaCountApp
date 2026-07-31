@@ -733,6 +733,8 @@ class commonVar: ObservableObject {
                 karakuri2MenuScreenBadge = "update"
                 karakuri2MenuNormalBadge = "update"
                 karakuri2MenuDuringAtBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5015", newStatus: "update")
+                kerottoMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

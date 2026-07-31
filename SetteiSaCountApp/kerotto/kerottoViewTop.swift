@@ -103,7 +103,7 @@ struct kerottoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: kerottoView95Ci(
                     kerotto: kerotto,
-                    selection: 1,
+                    selection: 5,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
