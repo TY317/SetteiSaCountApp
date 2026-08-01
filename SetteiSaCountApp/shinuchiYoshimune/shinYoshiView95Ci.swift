@@ -32,6 +32,26 @@ struct shinYoshiView95Ci: View {
                 )
             )
             .tag(2)
+            
+            // 柳生選択回数
+            unitListSection95Ci(
+                grafTitle: "CZ\n柳生選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shinYoshi.czCharaCountYagyu,
+                        bigNumber: $shinYoshi.czCharaCountSum,
+                        setting1Percent: shinYoshi.ratioCzYagyu[0],
+                        setting2Percent: shinYoshi.ratioCzYagyu[1],
+                        setting3Percent: shinYoshi.ratioCzYagyu[2],
+                        setting4Percent: shinYoshi.ratioCzYagyu[3],
+                        setting5Percent: shinYoshi.ratioCzYagyu[4],
+                        setting6Percent: shinYoshi.ratioCzYagyu[5]
+                    )
+                )
+            )
+            .tag(3)
+            
             // ボーナス初当り回数
             unitListSection95Ci(
                 grafTitle: "ボーナス初当り回数",

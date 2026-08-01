@@ -465,6 +465,7 @@ class commonVar: ObservableObject {
     @AppStorage("shinYoshiMenuBayesBadge") var shinYoshiMenuBayesBadge: String = "none"
     @AppStorage("shinYoshiMenuOshirasuBadge") var shinYoshiMenuOshirasuBadge: String = "none"
     @AppStorage("shinYoshiMenuScreenBadge") var shinYoshiMenuScreenBadge: String = "none"
+    @AppStorage("shinYoshiMenuCzBadge") var shinYoshiMenuCzBadge: String = "none"
     
     // ---- サンダー
     @AppStorage("thunderisUnlocked") var thunderisUnlocked: Bool = true
@@ -737,6 +738,7 @@ class commonVar: ObservableObject {
                 kerottoMenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4983", newStatus: "update")
                 shinYoshiMenuNormalBadge = "update"
+                shinYoshiMenuCzBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

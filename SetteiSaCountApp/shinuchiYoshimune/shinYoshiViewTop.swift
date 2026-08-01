@@ -45,7 +45,18 @@ struct shinYoshiViewTop: View {
                             badgeStatus: common.shinYoshiMenuNormalBadge,
                         )
                     }
-                    
+
+                    // CZ
+                    NavigationLink(destination: shinYoshiViewCz(
+                        shinYoshi: shinYoshi,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.shinYoshiMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: shinYoshiViewFirstHit(
                         shinYoshi: shinYoshi,

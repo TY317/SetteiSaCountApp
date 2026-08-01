@@ -33,6 +33,7 @@ class ShinYoshi: ObservableObject {
     func resetAll() {
         resetFirstHit()
         resetNormal()
+        resetCz()
     }
     
     // ---------
@@ -52,6 +53,23 @@ class ShinYoshi: ObservableObject {
         battoCountMiss = 0
         battoCountHit = 0
         battoCountSum = 0
+        minusCheck = false
+    }
+    
+    // 柳生選択率
+    let ratioCzYagyu: [Double] = [3.7,3.9,4.7,6.2,7.81,8.7]
+    @AppStorage("shinYoshiCzCharaCountOther") var czCharaCountOther: Int = 0
+    @AppStorage("shinYoshiCzCharaCountYagyu") var czCharaCountYagyu: Int = 0
+    @AppStorage("shinYoshiCzCharaCountSum") var czCharaCountSum: Int = 0
+    
+    func czCharaSumFunc() {
+        czCharaCountSum = czCharaCountOther + czCharaCountYagyu
+    }
+    
+    func resetCz() {
+        czCharaCountOther = 0
+        czCharaCountYagyu = 0
+        czCharaCountSum = 0
         minusCheck = false
     }
 }

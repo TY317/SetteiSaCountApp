@@ -15,6 +15,7 @@ struct shinYoshiViewBayes: View {
     let payoutList: [Double] = [97.8, 98.6, 101.0, 104.5, 108.0, 114.0]
     @State var firstHitEnable: Bool = true
     @State var battoChanceEnable: Bool = true
+    @State var yagyuEnable: Bool = true
     
     
     // 全機種共通
@@ -48,6 +49,8 @@ struct shinYoshiViewBayes: View {
             bayesSubStep2Section {
                 // 抜刀チャンス当選率
                 unitToggleWithQuestion(enable: self.$battoChanceEnable, title: "抜刀チャンス当選率")
+                // 柳生選択率
+                unitToggleWithQuestion(enable: self.$yagyuEnable, title: "柳生選択率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 
@@ -130,6 +133,15 @@ struct shinYoshiViewBayes: View {
                 bigNumber: shinYoshi.battoCountSum
             )
         }
+        // 柳生選択率
+        var logPostYagyu: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.yagyuEnable {
+            logPostYagyu = logPostPercentBino(
+                ratio: shinYoshi.ratioCzYagyu,
+                Count: shinYoshi.czCharaCountYagyu,
+                bigNumber: shinYoshi.czCharaCountSum
+            )
+        }
 
 
         // トロフィー
@@ -171,6 +183,7 @@ struct shinYoshiViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
             logPostBattoChance,
+            logPostYagyu,
 
 
             logPostTrophy,
