@@ -78,6 +78,12 @@ class ShinYoshi: ObservableObject {
 class ShinYoshiMemory1: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory1") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("shinYoshiBattoCountMissMemory1") var battoCountMiss: Int = 0
+    @AppStorage("shinYoshiBattoCountHitMemory1") var battoCountHit: Int = 0
+    @AppStorage("shinYoshiBattoCountSumMemory1") var battoCountSum: Int = 0
+    @AppStorage("shinYoshiCzCharaCountOtherMemory1") var czCharaCountOther: Int = 0
+    @AppStorage("shinYoshiCzCharaCountYagyuMemory1") var czCharaCountYagyu: Int = 0
+    @AppStorage("shinYoshiCzCharaCountSumMemory1") var czCharaCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory1") var memo = ""
     @AppStorage("shinYoshiDateMemory1") var dateDouble = 0.0
 }
@@ -86,6 +92,12 @@ class ShinYoshiMemory1: ObservableObject {
 class ShinYoshiMemory2: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory2") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("shinYoshiBattoCountMissMemory2") var battoCountMiss: Int = 0
+    @AppStorage("shinYoshiBattoCountHitMemory2") var battoCountHit: Int = 0
+    @AppStorage("shinYoshiBattoCountSumMemory2") var battoCountSum: Int = 0
+    @AppStorage("shinYoshiCzCharaCountOtherMemory2") var czCharaCountOther: Int = 0
+    @AppStorage("shinYoshiCzCharaCountYagyuMemory2") var czCharaCountYagyu: Int = 0
+    @AppStorage("shinYoshiCzCharaCountSumMemory2") var czCharaCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory2") var memo = ""
     @AppStorage("shinYoshiDateMemory2") var dateDouble = 0.0
 }
@@ -94,6 +106,12 @@ class ShinYoshiMemory2: ObservableObject {
 class ShinYoshiMemory3: ObservableObject {
     @AppStorage("shinYoshiNormalGameMemory3") var normalGame: Int = 0
     @AppStorage("shinYoshiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("shinYoshiBattoCountMissMemory3") var battoCountMiss: Int = 0
+    @AppStorage("shinYoshiBattoCountHitMemory3") var battoCountHit: Int = 0
+    @AppStorage("shinYoshiBattoCountSumMemory3") var battoCountSum: Int = 0
+    @AppStorage("shinYoshiCzCharaCountOtherMemory3") var czCharaCountOther: Int = 0
+    @AppStorage("shinYoshiCzCharaCountYagyuMemory3") var czCharaCountYagyu: Int = 0
+    @AppStorage("shinYoshiCzCharaCountSumMemory3") var czCharaCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory3") var memo = ""
     @AppStorage("shinYoshiDateMemory3") var dateDouble = 0.0
 }
