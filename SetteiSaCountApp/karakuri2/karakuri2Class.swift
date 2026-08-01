@@ -191,6 +191,11 @@ class Karakuri2Memory1: ObservableObject {
     @AppStorage("karakuri2ScreenArrayKeyMemory1") var screenArrayData: Data?
     @AppStorage("karakuri2KyoCherryCountMemory1") var kyoCherryCount: Int = 0
     @AppStorage("karakuri2KyoCherryCountHitMemory1") var kyoCherryCountHit: Int = 0
+    @AppStorage("karakuri2CharaCount1Memory1") var charaCount1: Int = 0
+    @AppStorage("karakuri2CharaCount2Memory1") var charaCount2: Int = 0
+    @AppStorage("karakuri2CharaCount3Memory1") var charaCount3: Int = 0
+    @AppStorage("karakuri2CharaCount4Memory1") var charaCount4: Int = 0
+    @AppStorage("karakuri2CharaCountSumMemory1") var charaCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory1") var memo = ""
     @AppStorage("karakuri2DateMemory1") var dateDouble = 0.0
 }
@@ -212,6 +217,11 @@ class Karakuri2Memory2: ObservableObject {
     @AppStorage("karakuri2ScreenArrayKeyMemory2") var screenArrayData: Data?
     @AppStorage("karakuri2KyoCherryCountMemory2") var kyoCherryCount: Int = 0
     @AppStorage("karakuri2KyoCherryCountHitMemory2") var kyoCherryCountHit: Int = 0
+    @AppStorage("karakuri2CharaCount1Memory2") var charaCount1: Int = 0
+    @AppStorage("karakuri2CharaCount2Memory2") var charaCount2: Int = 0
+    @AppStorage("karakuri2CharaCount3Memory2") var charaCount3: Int = 0
+    @AppStorage("karakuri2CharaCount4Memory2") var charaCount4: Int = 0
+    @AppStorage("karakuri2CharaCountSumMemory2") var charaCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory2") var memo = ""
     @AppStorage("karakuri2DateMemory2") var dateDouble = 0.0
 }
@@ -233,6 +243,11 @@ class Karakuri2Memory3: ObservableObject {
     @AppStorage("karakuri2ScreenArrayKeyMemory3") var screenArrayData: Data?
     @AppStorage("karakuri2KyoCherryCountMemory3") var kyoCherryCount: Int = 0
     @AppStorage("karakuri2KyoCherryCountHitMemory3") var kyoCherryCountHit: Int = 0
+    @AppStorage("karakuri2CharaCount1Memory3") var charaCount1: Int = 0
+    @AppStorage("karakuri2CharaCount2Memory3") var charaCount2: Int = 0
+    @AppStorage("karakuri2CharaCount3Memory3") var charaCount3: Int = 0
+    @AppStorage("karakuri2CharaCount4Memory3") var charaCount4: Int = 0
+    @AppStorage("karakuri2CharaCountSumMemory3") var charaCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory3") var memo = ""
     @AppStorage("karakuri2DateMemory3") var dateDouble = 0.0
 }

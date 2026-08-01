@@ -211,6 +211,11 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory1.screenArrayData = karakuri2.screenArrayData
         karakuri2Memory1.kyoCherryCount = karakuri2.kyoCherryCount
         karakuri2Memory1.kyoCherryCountHit = karakuri2.kyoCherryCountHit
+        karakuri2Memory1.charaCount1 = karakuri2.charaCount1
+        karakuri2Memory1.charaCount2 = karakuri2.charaCount2
+        karakuri2Memory1.charaCount3 = karakuri2.charaCount3
+        karakuri2Memory1.charaCount4 = karakuri2.charaCount4
+        karakuri2Memory1.charaCountSum = karakuri2.charaCountSum
     }
     func saveMemory2() {
         karakuri2Memory2.normalGame = karakuri2.normalGame
@@ -228,6 +233,11 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory2.screenArrayData = karakuri2.screenArrayData
         karakuri2Memory2.kyoCherryCount = karakuri2.kyoCherryCount
         karakuri2Memory2.kyoCherryCountHit = karakuri2.kyoCherryCountHit
+        karakuri2Memory2.charaCount1 = karakuri2.charaCount1
+        karakuri2Memory2.charaCount2 = karakuri2.charaCount2
+        karakuri2Memory2.charaCount3 = karakuri2.charaCount3
+        karakuri2Memory2.charaCount4 = karakuri2.charaCount4
+        karakuri2Memory2.charaCountSum = karakuri2.charaCountSum
     }
     func saveMemory3() {
         karakuri2Memory3.normalGame = karakuri2.normalGame
@@ -245,6 +255,11 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory3.screenArrayData = karakuri2.screenArrayData
         karakuri2Memory3.kyoCherryCount = karakuri2.kyoCherryCount
         karakuri2Memory3.kyoCherryCountHit = karakuri2.kyoCherryCountHit
+        karakuri2Memory3.charaCount1 = karakuri2.charaCount1
+        karakuri2Memory3.charaCount2 = karakuri2.charaCount2
+        karakuri2Memory3.charaCount3 = karakuri2.charaCount3
+        karakuri2Memory3.charaCount4 = karakuri2.charaCount4
+        karakuri2Memory3.charaCountSum = karakuri2.charaCountSum
     }
 }
 
@@ -294,6 +309,11 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
         karakuri2.kyoCherryCount = karakuri2Memory1.kyoCherryCount
         karakuri2.kyoCherryCountHit = karakuri2Memory1.kyoCherryCountHit
+        karakuri2.charaCount1 = karakuri2Memory1.charaCount1
+        karakuri2.charaCount2 = karakuri2Memory1.charaCount2
+        karakuri2.charaCount3 = karakuri2Memory1.charaCount3
+        karakuri2.charaCount4 = karakuri2Memory1.charaCount4
+        karakuri2.charaCountSum = karakuri2Memory1.charaCountSum
     }
     func loadMemory2() {
         karakuri2.normalGame = karakuri2Memory2.normalGame
@@ -314,6 +334,11 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
         karakuri2.kyoCherryCount = karakuri2Memory2.kyoCherryCount
         karakuri2.kyoCherryCountHit = karakuri2Memory2.kyoCherryCountHit
+        karakuri2.charaCount1 = karakuri2Memory2.charaCount1
+        karakuri2.charaCount2 = karakuri2Memory2.charaCount2
+        karakuri2.charaCount3 = karakuri2Memory2.charaCount3
+        karakuri2.charaCount4 = karakuri2Memory2.charaCount4
+        karakuri2.charaCountSum = karakuri2Memory2.charaCountSum
     }
     func loadMemory3() {
         karakuri2.normalGame = karakuri2Memory3.normalGame
@@ -334,6 +359,11 @@ struct karakuri2SubViewLoadMemory: View {
         saveArray(screenArrayDataDecoded, forKey: karakuri2.screenArrayKey)
         karakuri2.kyoCherryCount = karakuri2Memory3.kyoCherryCount
         karakuri2.kyoCherryCountHit = karakuri2Memory3.kyoCherryCountHit
+        karakuri2.charaCount1 = karakuri2Memory3.charaCount1
+        karakuri2.charaCount2 = karakuri2Memory3.charaCount2
+        karakuri2.charaCount3 = karakuri2Memory3.charaCount3
+        karakuri2.charaCount4 = karakuri2Memory3.charaCount4
+        karakuri2.charaCountSum = karakuri2Memory3.charaCountSum
     }
 }
 
