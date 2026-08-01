@@ -74,7 +74,7 @@ struct kerottoViewNormal: View {
                                 count: $kerotto.koyakuCountBell,
                                 color: .personalSpringLightYellow,
                                 bigNumber: $kerotto.gameNumberPlay,
-                                numberofDicimal: 0,
+                                numberofDicimal: 1,
                                 minusBool: $kerotto.minusCheck) {
                                     
                                 }
@@ -85,7 +85,7 @@ struct kerottoViewNormal: View {
                                 count: $kerotto.koyakuCountCherry,
                                 color: .personalSummerLightRed,
                                 bigNumber: $kerotto.gameNumberPlay,
-                                numberofDicimal: 0,
+                                numberofDicimal: 1,
                                 minusBool: $kerotto.minusCheck) {
                                     
                                 }

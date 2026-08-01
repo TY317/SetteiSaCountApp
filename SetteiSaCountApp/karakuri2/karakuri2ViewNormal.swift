@@ -96,6 +96,13 @@ struct karakuri2ViewNormal: View {
                             )
                         )
                     )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        karakuri2ViewBayes(
+                            karakuri2: karakuri2,
+                        )
+                    }
                 } label: {
                     Text("カウント")
                         .foregroundStyle(Color.blue)

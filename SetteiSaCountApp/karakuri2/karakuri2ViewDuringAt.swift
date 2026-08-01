@@ -63,6 +63,11 @@ struct karakuri2ViewDuringAt: View {
                     minusCheck: $karakuri2.minusCheck) {
                         karakuri2.charaSumFunc()
                     }
+                
+                // キャラシナリオ
+                unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ") {
+                    karakuri2TableSenario()
+                }
             } header: {
                 Text("1回目のキャラ選択")
             }
