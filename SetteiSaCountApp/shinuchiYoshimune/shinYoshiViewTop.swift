@@ -123,7 +123,7 @@ struct shinYoshiViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: shinYoshiView95Ci(
                     shinYoshi: shinYoshi,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -154,7 +154,8 @@ struct shinYoshiViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.shinYoshiMachineIconBadge)
+//        .resetBadgeOnAppear($common.shinYoshiMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4983")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

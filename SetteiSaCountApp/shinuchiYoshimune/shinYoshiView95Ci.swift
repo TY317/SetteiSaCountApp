@@ -14,6 +14,24 @@ struct shinYoshiView95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 抜刀チャンス当選回数
+            unitListSection95Ci(
+                grafTitle: "抜刀メーターMAX時\n抜刀チャンス当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $shinYoshi.battoCountHit,
+                        bigNumber: $shinYoshi.battoCountSum,
+                        setting1Percent: shinYoshi.ratioBattoChance[0],
+                        setting2Percent: shinYoshi.ratioBattoChance[1],
+                        setting3Percent: shinYoshi.ratioBattoChance[2],
+                        setting4Percent: shinYoshi.ratioBattoChance[3],
+                        setting5Percent: shinYoshi.ratioBattoChance[4],
+                        setting6Percent: shinYoshi.ratioBattoChance[5]
+                    )
+                )
+            )
+            .tag(2)
             // ボーナス初当り回数
             unitListSection95Ci(
                 grafTitle: "ボーナス初当り回数",
@@ -49,25 +67,7 @@ struct shinYoshiView95Ci: View {
 //                )
 //            )
 //            .tag(2)
-//            
-//            // 炎炎ボーナス後終了画面デフォルト回数
-//            unitListSection95Ci(
-//                grafTitle: "炎炎ボーナス後\n終了画面 デフォルト回数",
-//                titleFont: .body,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $shinYoshi.screenCountBig1,
-//                        bigNumber: $shinYoshi.screenCountBigSum,
-//                        setting1Percent: shinYoshi.ratioScreenBig1[0],
-//                        setting2Percent: shinYoshi.ratioScreenBig1[1],
-//                        setting3Percent: shinYoshi.ratioScreenBig1[2],
-//                        setting4Percent: shinYoshi.ratioScreenBig1[3],
-//                        setting5Percent: shinYoshi.ratioScreenBig1[4],
-//                        setting6Percent: shinYoshi.ratioScreenBig1[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+//
 //            
 //            // REG,後終了画面デフォルト回数
 //            unitListSection95Ci(

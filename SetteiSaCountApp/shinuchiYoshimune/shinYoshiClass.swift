@@ -32,6 +32,27 @@ class ShinYoshi: ObservableObject {
     
     func resetAll() {
         resetFirstHit()
+        resetNormal()
+    }
+    
+    // ---------
+    // ver4.2.1
+    // ---------
+    // 抜刀チャンス当選率
+    let ratioBattoChance: [Double] = [20.31,22.27,22.27,24.22,24.22,25.78]
+    @AppStorage("shinYoshiBattoCountMiss") var battoCountMiss: Int = 0
+    @AppStorage("shinYoshiBattoCountHit") var battoCountHit: Int = 0
+    @AppStorage("shinYoshiBattoCountSum") var battoCountSum: Int = 0
+    
+    func battoSumFunc() {
+        battoCountSum = battoCountMiss + battoCountHit
+    }
+    
+    func resetNormal() {
+        battoCountMiss = 0
+        battoCountHit = 0
+        battoCountSum = 0
+        minusCheck = false
     }
 }
 
