@@ -14,6 +14,8 @@ struct shinYoshiViewBayes: View {
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.6, 101.0, 104.5, 108.0, 114.0]
     @State var firstHitEnable: Bool = true
+    @State var battoChanceEnable: Bool = true
+    @State var yagyuEnable: Bool = true
     
     
     // 全機種共通
@@ -45,6 +47,10 @@ struct shinYoshiViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 抜刀チャンス当選率
+                unitToggleWithQuestion(enable: self.$battoChanceEnable, title: "抜刀チャンス当選率")
+                // 柳生選択率
+                unitToggleWithQuestion(enable: self.$yagyuEnable, title: "柳生選択率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
                 
@@ -118,8 +124,26 @@ struct shinYoshiViewBayes: View {
                 bigNumber: shinYoshi.normalGame
             )
         }
-        
-        
+        // 抜刀チャンス当選率
+        var logPostBattoChance: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.battoChanceEnable {
+            logPostBattoChance = logPostPercentBino(
+                ratio: shinYoshi.ratioBattoChance,
+                Count: shinYoshi.battoCountHit,
+                bigNumber: shinYoshi.battoCountSum
+            )
+        }
+        // 柳生選択率
+        var logPostYagyu: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.yagyuEnable {
+            logPostYagyu = logPostPercentBino(
+                ratio: shinYoshi.ratioCzYagyu,
+                Count: shinYoshi.czCharaCountYagyu,
+                bigNumber: shinYoshi.czCharaCountSum
+            )
+        }
+
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -158,8 +182,10 @@ struct shinYoshiViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
-            
-            
+            logPostBattoChance,
+            logPostYagyu,
+
+
             logPostTrophy,
             logPostBefore,
         ])

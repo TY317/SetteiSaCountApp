@@ -1,17 +1,17 @@
 //
-//  karakuri2ViewNormal.swift
+//  shinYoshiViewCz.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/06/27.
+//  Created by 横田徹.
 //
 
 import SwiftUI
 
-struct karakuri2ViewNormal: View {
+struct shinYoshiViewCz: View {
     @EnvironmentObject var common: commonVar
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
-    @ObservedObject var karakuri2: Karakuri2
+    @ObservedObject var shinYoshi: ShinYoshi
     @State var isShowDestination: Bool = false
     @State var isShowAlert: Bool = false
     @FocusState var isFocused: Bool
@@ -26,81 +26,68 @@ struct karakuri2ViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+
     var body: some View {
         List {
-            // レア役
+            // 柳生選択率
             Section {
                 // 確率結果
                 unitResultRatioPercent2Line(
-                    title: "強🍒からのCZ・AT当選",
-                    count: $karakuri2.kyoCherryCountHit,
-                    bigNumber: $karakuri2.kyoCherryCount,
-                    numberofDicimal: 0,
+                    title: "柳生選択率",
+                    count: $shinYoshi.czCharaCountYagyu,
+                    bigNumber: $shinYoshi.czCharaCountSum,
+                    numberofDicimal: 0
                 )
-                // 強🍒からのCZ・AT当選率
-                unitLinkButtonViewBuilder(sheetTitle: "強🍒からのCZ・AT当選率") {
+                
+                // 選択率
+                unitLinkButtonViewBuilder(sheetTitle: "柳生選択率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTablePercent(
-                            columTitle: "通常滞在時",
-                            percentList: karakuri2.ratioKyoCherryHit
-                        )
-                        unitTablePercent(
-                            columTitle: "高確滞在時",
-                            percentList: [25],
-                            lineList: [6],
-                            colorList: [.white]
+                            columTitle: "柳生選択率",
+                            percentList: shinYoshi.ratioCzYagyu,
+                            numberofDicimal: 1,
                         )
                     }
-                }
-                .popoverTip(tipVer421Karakuri2Mode())
-                // レア役停止系
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
-                    karakuri2TableKoyakuPattern()
                 }
                 
                 // カウント
                 DisclosureGroup {
-                    // 注意書き
-                    unitLabelCautionText {
-                        Text("通常滞在中の強🍒が対象です")
-                    }
-                    
                     // カウントボタン横並び
                     HStack {
-                        // 強チェリー
+                        // 柳生以外
                         unitCountButtonWithoutRatioWithFunc(
-                            title: "強🍒",
-                            count: $karakuri2.kyoCherryCount,
-                            color: .personalSummerLightRed,
-                            minusBool: $karakuri2.minusCheck) {
-                                
+                            title: "柳生以外",
+                            count: $shinYoshi.czCharaCountOther,
+                            color: .personalSummerLightBlue,
+                            minusBool: $shinYoshi.minusCheck) {
+                                shinYoshi.czCharaSumFunc()
                             }
-                        
-                        // CZ・AT当選
+                        // 柳生
                         unitCountButtonWithoutRatioWithFunc(
-                            title: "CZ・AT当選",
-                            count: $karakuri2.kyoCherryCountHit,
-                            color: .personalSummerLightPurple,
-                            minusBool: $karakuri2.minusCheck) {
-                                
+                            title: "柳生",
+                            count: $shinYoshi.czCharaCountYagyu,
+                            color: .personalSummerLightRed,
+                            minusBool: $shinYoshi.minusCheck) {
+                                shinYoshi.czCharaSumFunc()
                             }
                     }
-                    
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(
                         Ci95view: AnyView(
-                            karakuri2View95Ci(
-                                karakuri2: karakuri2,
-                                selection: 1,
+                            shinYoshiView95Ci(
+                                shinYoshi: shinYoshi,
+                                selection: 3,
                             )
                         )
                     )
                     
                     // //// 設定期待値へのリンク
                     unitNaviLinkBayes {
-                        karakuri2ViewBayes(
-                            karakuri2: karakuri2,
+                        shinYoshiViewBayes(
+                            shinYoshi: shinYoshi,
+                            bayes: bayes,
+                            viewModel: viewModel,
                         )
                     }
                 } label: {
@@ -108,36 +95,20 @@ struct karakuri2ViewNormal: View {
                         .foregroundStyle(Color.blue)
                 }
             } header: {
-                Text("通常 強🍒からの当選")
-            }
-            
-            // モード
-            Section {
-                // モード
-                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
-                    karakuri2TableMode()
-                }
-//                .popoverTip(tipVer421Karakuri2Mode())
-                
-                // モード示唆演出
-                unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {
-                    karakuri2TableModeSisa()
-                }
-            } header: {
-                Text("モード")
+                Text("柳生選択率")
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.karakuri2MenuNormalBadge)
+        .resetBadgeOnAppear($common.shinYoshiMenuCzBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
             logEventFirebaseScreen(
-                screenName: karakuri2.machineName,
+                screenName: shinYoshi.machineName,
                 screenClass: screenClass
             )
         }
-        .navigationTitle("通常時")
+        .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -156,19 +127,19 @@ struct karakuri2ViewNormal: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
-                unitButtonMinusCheck(minusCheck: $karakuri2.minusCheck)
+                unitButtonMinusCheck(minusCheck: $shinYoshi.minusCheck)
             }
             ToolbarItem(placement: .automatic) {
                 // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetNormal)
+                unitButtonReset(isShowAlert: $isShowAlert, action: shinYoshi.resetCz)
             }
         }
     }
 }
 
 #Preview {
-    karakuri2ViewNormal(
-        karakuri2: Karakuri2(),
+    shinYoshiViewCz(
+        shinYoshi: ShinYoshi(),
     )
     .environmentObject(commonVar())
     .environmentObject(Bayes())

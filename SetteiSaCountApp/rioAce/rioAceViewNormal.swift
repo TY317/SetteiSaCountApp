@@ -119,8 +119,7 @@ struct rioAceViewNormal: View {
                     bigNumber: $rioAce.aceModeCountSum,
                     numberofDicimal: 0
                 )
-//                .popoverTip(tipVer3271RioAceAceMode())
-                
+
                 // エースモード突入率
                 unitLinkButtonViewBuilder(sheetTitle: "エースモード突入率") {
                     HStack(spacing: 0) {

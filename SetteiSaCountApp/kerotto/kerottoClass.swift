@@ -13,10 +13,10 @@ class Kerotto: ObservableObject {
     // -------
     // 通常時
     // -------
-    let ratioHeikoOrange: [Double] = [91.4,-1,-1,-1,-1,-1]
-    let ratioNanameOrange: [Double] = [187.3,-1,-1,-1,-1,-1]
-    let ratioChofukuHeikoOrange: [Double] = [16.2,-1,-1,-1,-1,-1]
-    let ratioChofukuNanameOrange: [Double] = [40.0,-1,-1,-1,-1,-1]
+    let ratioHeikoOrange: [Double] = [91.4,90.5,89.5,87.7,86.8,84.9]
+    let ratioNanameOrange: [Double] = [187.3,184.1,181.0,177.1,171.1,163]
+    let ratioChofukuHeikoOrange: [Double] = [16.2,16.4,16.5,17.5,17.6,18.9]
+    let ratioChofukuNanameOrange: [Double] = [40.0,40.2,40.6,41.1,42.3,44.3]
     @AppStorage("kerottoKoyakuCountHeikoOrange") var koyakuCountHeikoOrange: Int = 0
     @AppStorage("kerottoKoyakuCountNanameOrange") var koyakuCountNanameOrange: Int = 0
     @AppStorage("kerottoChofukuCountHeikoOrange") var chofukuCountHeikoOrange: Int = 0
@@ -31,6 +31,12 @@ class Kerotto: ObservableObject {
         gameNumberCurrent = 0
         gameNumberPlay = 0
         minusCheck = false
+        
+        koyakuCountBell = 0
+        koyakuCountCherry = 0
+        koyakuCountKakuteiyaku = 0
+        chofukuCountBell = 0
+        chofukuCountCherry = 0
     }
 
     // --------
@@ -213,6 +219,19 @@ class Kerotto: ObservableObject {
         resetBonusScreen()
         resetCutin()
     }
+    
+    // -----------
+    // ver4.2.1
+    // -----------
+    let ratioBell: [Double] = [7,6.9,6.9,6.8,6.6,6.5]
+    let ratioCherry: [Double] = [24.2,23.9,22.8,22.2,21.6,21]
+    let ratioKakuteiyaku: [Double] = [1524.1,1524.1,1489.5,1310.7,1191.6,993]
+    let ratioChofukuCherry: [Double] = [1.3,1.3,1.3,1.3,1.2,1.2]
+    @AppStorage("kerottoKoyakuCountBell") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherry") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyaku") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBell") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherry") var chofukuCountCherry: Int = 0
 }
 
 
@@ -254,6 +273,11 @@ class KerottoMemory1: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory1") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory1") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory1") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory1") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory1") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory1") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory1") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory1") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory1") var memo = ""
     @AppStorage("kerottoDateMemory1") var dateDouble = 0.0
 }
@@ -297,6 +321,11 @@ class KerottoMemory2: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory2") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory2") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory2") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory2") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory2") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory2") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory2") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory2") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory2") var memo = ""
     @AppStorage("kerottoDateMemory2") var dateDouble = 0.0
 }
@@ -340,6 +369,11 @@ class KerottoMemory3: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory3") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory3") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory3") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory3") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory3") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory3") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory3") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory3") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory3") var memo = ""
     @AppStorage("kerottoDateMemory3") var dateDouble = 0.0
 }

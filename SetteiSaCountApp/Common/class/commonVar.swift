@@ -365,6 +365,7 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuBayesBadge") var karakuri2MenuBayesBadge: String = "none"
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
+    @AppStorage("karakuri2MenuDuringAtBadge") var karakuri2MenuDuringAtBadge: String = "none"
 
     // ---- ケロット5 BT
     @AppStorage("kerottoMenuNormalBadge") var kerottoMenuNormalBadge: String = "none"
@@ -464,6 +465,7 @@ class commonVar: ObservableObject {
     @AppStorage("shinYoshiMenuBayesBadge") var shinYoshiMenuBayesBadge: String = "none"
     @AppStorage("shinYoshiMenuOshirasuBadge") var shinYoshiMenuOshirasuBadge: String = "none"
     @AppStorage("shinYoshiMenuScreenBadge") var shinYoshiMenuScreenBadge: String = "none"
+    @AppStorage("shinYoshiMenuCzBadge") var shinYoshiMenuCzBadge: String = "none"
     
     // ---- サンダー
     @AppStorage("thunderisUnlocked") var thunderisUnlocked: Bool = true
@@ -719,6 +721,33 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver421FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.2.1"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
+                karakuri2MenuScreenBadge = "update"
+                karakuri2MenuNormalBadge = "update"
+                karakuri2MenuDuringAtBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5015", newStatus: "update")
+                kerottoMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4983", newStatus: "update")
+                shinYoshiMenuNormalBadge = "update"
+                shinYoshiMenuCzBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver420FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.2.0"
@@ -835,32 +864,6 @@ class commonVar: ObservableObject {
                 bioRe3MenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4931", newStatus: "update")
                 kokakukidotaiMenuNormalBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-    
-    func ver3271FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "3.27.1"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                otome5MachineIconBadge = "update"
-                otome5MenuAtScreenBadge = "new"
-                rioAceMachineIconBadge = "update"
-                rioAceMenuScreenBadge = "update"
-                rioAceMenuNormalBadge = "update"
-                bioRe3MachineIconBadge = "update"
-                bioRe3MenuNormalBadge = "update"
-                sao2MachineIconBadge = "update"
-                sao2MenuScreenBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

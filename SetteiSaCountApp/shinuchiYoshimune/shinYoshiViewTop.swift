@@ -45,7 +45,18 @@ struct shinYoshiViewTop: View {
                             badgeStatus: common.shinYoshiMenuNormalBadge,
                         )
                     }
-                    
+
+                    // CZ
+                    NavigationLink(destination: shinYoshiViewCz(
+                        shinYoshi: shinYoshi,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.shinYoshiMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: shinYoshiViewFirstHit(
                         shinYoshi: shinYoshi,
@@ -123,7 +134,7 @@ struct shinYoshiViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: shinYoshiView95Ci(
                     shinYoshi: shinYoshi,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -154,7 +165,8 @@ struct shinYoshiViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.shinYoshiMachineIconBadge)
+//        .resetBadgeOnAppear($common.shinYoshiMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4983")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -226,14 +238,32 @@ struct shinYoshiSubViewSaveMemory: View {
     func saveMemory1() {
         shinYoshiMemory1.normalGame = shinYoshi.normalGame
         shinYoshiMemory1.firstHitCountAt = shinYoshi.firstHitCountAt
+        shinYoshiMemory1.battoCountMiss = shinYoshi.battoCountMiss
+        shinYoshiMemory1.battoCountHit = shinYoshi.battoCountHit
+        shinYoshiMemory1.battoCountSum = shinYoshi.battoCountSum
+        shinYoshiMemory1.czCharaCountOther = shinYoshi.czCharaCountOther
+        shinYoshiMemory1.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
+        shinYoshiMemory1.czCharaCountSum = shinYoshi.czCharaCountSum
     }
     func saveMemory2() {
         shinYoshiMemory2.normalGame = shinYoshi.normalGame
         shinYoshiMemory2.firstHitCountAt = shinYoshi.firstHitCountAt
+        shinYoshiMemory2.battoCountMiss = shinYoshi.battoCountMiss
+        shinYoshiMemory2.battoCountHit = shinYoshi.battoCountHit
+        shinYoshiMemory2.battoCountSum = shinYoshi.battoCountSum
+        shinYoshiMemory2.czCharaCountOther = shinYoshi.czCharaCountOther
+        shinYoshiMemory2.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
+        shinYoshiMemory2.czCharaCountSum = shinYoshi.czCharaCountSum
     }
     func saveMemory3() {
         shinYoshiMemory3.normalGame = shinYoshi.normalGame
         shinYoshiMemory3.firstHitCountAt = shinYoshi.firstHitCountAt
+        shinYoshiMemory3.battoCountMiss = shinYoshi.battoCountMiss
+        shinYoshiMemory3.battoCountHit = shinYoshi.battoCountHit
+        shinYoshiMemory3.battoCountSum = shinYoshi.battoCountSum
+        shinYoshiMemory3.czCharaCountOther = shinYoshi.czCharaCountOther
+        shinYoshiMemory3.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
+        shinYoshiMemory3.czCharaCountSum = shinYoshi.czCharaCountSum
     }
 }
 
@@ -267,14 +297,32 @@ struct shinYoshiSubViewLoadMemory: View {
     func loadMemory1() {
         shinYoshi.normalGame = shinYoshiMemory1.normalGame
         shinYoshi.firstHitCountAt = shinYoshiMemory1.firstHitCountAt
+        shinYoshi.battoCountMiss = shinYoshiMemory1.battoCountMiss
+        shinYoshi.battoCountHit = shinYoshiMemory1.battoCountHit
+        shinYoshi.battoCountSum = shinYoshiMemory1.battoCountSum
+        shinYoshi.czCharaCountOther = shinYoshiMemory1.czCharaCountOther
+        shinYoshi.czCharaCountYagyu = shinYoshiMemory1.czCharaCountYagyu
+        shinYoshi.czCharaCountSum = shinYoshiMemory1.czCharaCountSum
     }
     func loadMemory2() {
         shinYoshi.normalGame = shinYoshiMemory2.normalGame
         shinYoshi.firstHitCountAt = shinYoshiMemory2.firstHitCountAt
+        shinYoshi.battoCountMiss = shinYoshiMemory2.battoCountMiss
+        shinYoshi.battoCountHit = shinYoshiMemory2.battoCountHit
+        shinYoshi.battoCountSum = shinYoshiMemory2.battoCountSum
+        shinYoshi.czCharaCountOther = shinYoshiMemory2.czCharaCountOther
+        shinYoshi.czCharaCountYagyu = shinYoshiMemory2.czCharaCountYagyu
+        shinYoshi.czCharaCountSum = shinYoshiMemory2.czCharaCountSum
     }
     func loadMemory3() {
         shinYoshi.normalGame = shinYoshiMemory3.normalGame
         shinYoshi.firstHitCountAt = shinYoshiMemory3.firstHitCountAt
+        shinYoshi.battoCountMiss = shinYoshiMemory3.battoCountMiss
+        shinYoshi.battoCountHit = shinYoshiMemory3.battoCountHit
+        shinYoshi.battoCountSum = shinYoshiMemory3.battoCountSum
+        shinYoshi.czCharaCountOther = shinYoshiMemory3.czCharaCountOther
+        shinYoshi.czCharaCountYagyu = shinYoshiMemory3.czCharaCountYagyu
+        shinYoshi.czCharaCountSum = shinYoshiMemory3.czCharaCountSum
     }
 }
 

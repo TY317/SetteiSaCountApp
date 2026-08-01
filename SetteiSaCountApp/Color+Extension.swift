@@ -16,6 +16,8 @@ extension Color {
     static let personalSummerLightBlue = Color("personalSummerLightBlue")
     static let personalSummerLightGreen = Color("personalSummerLightGreen")
     static let personalSummerLightPurple = Color("personalSummerLightPurple")
+    static let personalAutumLightOrange = Color("personalAutumLightOrange")
+    static let personalSpringLightBrown = Color("personalSpringLightBrown")
     static let pinkBar = Color("pinkBar")
     static let reelBack = Color("reelBack")
     static let tableBlue = Color("tableBlue")

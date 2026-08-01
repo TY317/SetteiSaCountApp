@@ -13,6 +13,8 @@ struct kerottoViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [98.2, 99.1, 101.1, 104.5, 107, 111]
+    @State var koyakuEnable: Bool = true
+    @State var chofukuEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var bonusRWEnable: Bool = true
     @State var bigScreenEnable: Bool = true
@@ -48,6 +50,10 @@ struct kerottoViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // 小役確率
+                unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役確率")
+                // 小役重複確率
+                unitToggleWithQuestion(enable: self.$chofukuEnable, title: "小役重複確率")
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // ボーナス赤白比率
@@ -137,6 +143,39 @@ struct kerottoViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // 小役確率
+        var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koyakuEnable {
+            logPostKoyaku = logPostDenoMulti(
+                countList: [kerotto.koyakuCountBell, kerotto.koyakuCountCherry, kerotto.koyakuCountHeikoOrange, kerotto.koyakuCountNanameOrange, kerotto.koyakuCountKakuteiyaku],
+                denoList: [kerotto.ratioBell, kerotto.ratioCherry, kerotto.ratioHeikoOrange, kerotto.ratioNanameOrange, kerotto.ratioKakuteiyaku],
+                bigNumber: kerotto.gameNumberPlay
+            )
+        }
+        // 小役重複確率
+        var logPostChofuku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chofukuEnable {
+            let logPostChofukuCherry = logPostPercentBino(
+                ratio: kerotto.ratioChofukuCherry,
+                Count: kerotto.chofukuCountCherry,
+                bigNumber: kerotto.koyakuCountCherry
+            )
+            let logPostChofukuHeikoOrange = logPostPercentBino(
+                ratio: kerotto.ratioChofukuHeikoOrange,
+                Count: kerotto.chofukuCountHeikoOrange,
+                bigNumber: kerotto.koyakuCountHeikoOrange
+            )
+            let logPostChofukuNanameOrange = logPostPercentBino(
+                ratio: kerotto.ratioChofukuNanameOrange,
+                Count: kerotto.chofukuCountNanameOrange,
+                bigNumber: kerotto.koyakuCountNanameOrange
+            )
+            logPostChofuku = arraySumDouble([
+                logPostChofukuCherry,
+                logPostChofukuHeikoOrange,
+                logPostChofukuNanameOrange,
+            ])
+        }
         // ボーナス初当り確率
         var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitBonusEnable {
@@ -211,6 +250,8 @@ struct kerottoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostKoyaku,
+            logPostChofuku,
             logPostFirstHitBonus,
             logPostBonusRW,
             logPostBigScreen,
