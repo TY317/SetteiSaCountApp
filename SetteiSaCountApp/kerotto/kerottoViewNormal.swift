@@ -351,41 +351,6 @@ struct kerottoViewNormal: View {
                         )
                     }
                 )
-//                unitToolbarButtonCountDirectInput(
-//                    inputView: {
-//                        // ベル
-//                        unitTextFieldNumberInputWithUnit(
-//                            title: "🔔",
-//                            inputValue: $kerotto.koyakuCountBell
-//                        )
-//                        .focused(self.$isFocused)
-//                        // チェリー
-//                        unitTextFieldNumberInputWithUnit(
-//                            title: "🍒",
-//                            inputValue: $kerotto.koyakuCountCherry
-//                        )
-//                        .focused(self.$isFocused)
-//                        // 平行オレンジ
-//                        unitTextFieldNumberInputWithUnit(
-//                            title: "平行🍊",
-//                            inputValue: $kerotto.koyakuCountHeikoOrange
-//                        )
-//                        .focused(self.$isFocused)
-//                        // 斜めオレンジ
-//                        unitTextFieldNumberInputWithUnit(
-//                            title: "斜め🍊",
-//                            inputValue: $kerotto.koyakuCountNanameOrange
-//                        )
-//                        .focused(self.$isFocused)
-//                        // 確定役
-//                        unitTextFieldNumberInputWithUnit(
-//                            title: "確定役",
-//                            inputValue: $kerotto.koyakuCountKakuteiyaku
-//                        )
-//                        .focused(self.$isFocused)
-//                    },
-//                    focus: $isFocused
-//                )
             }
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
