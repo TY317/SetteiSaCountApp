@@ -53,7 +53,8 @@ struct kerottoViewNormal: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                
+                .popoverTip(tipVer421KerottoKoyaku())
+
                 // //// カウントボタン横並び
                 let gridItem = Array(
                     repeating: GridItem(

@@ -58,6 +58,22 @@ struct tipVer421Karakuri2Mode: Tip {
 //////////////////
 // Tip：
 //////////////////
+struct tipVer421KerottoKoyaku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("小役確率・ボーナス重複当選率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
+
+
+//////////////////
+// Tip：
+//////////////////
 struct tipVer421ShinYoshiBatto: Tip {
     var title: Text {
         Text("機能更新")

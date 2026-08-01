@@ -37,6 +37,7 @@ struct shinYoshiViewNormal: View {
                     bigNumber: $shinYoshi.battoCountSum,
                     numberofDicimal: 0
                 )
+                .popoverTip(tipVer421ShinYoshiBatto())
                 
                 // 参考情報）当選率
                 unitLinkButtonViewBuilder(sheetTitle: "抜刀チャンス当選率") {
