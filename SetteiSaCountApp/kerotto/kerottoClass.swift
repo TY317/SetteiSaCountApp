@@ -273,6 +273,11 @@ class KerottoMemory1: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory1") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory1") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory1") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory1") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory1") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory1") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory1") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory1") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory1") var memo = ""
     @AppStorage("kerottoDateMemory1") var dateDouble = 0.0
 }
@@ -316,6 +321,11 @@ class KerottoMemory2: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory2") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory2") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory2") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory2") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory2") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory2") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory2") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory2") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory2") var memo = ""
     @AppStorage("kerottoDateMemory2") var dateDouble = 0.0
 }
@@ -359,6 +369,11 @@ class KerottoMemory3: ObservableObject {
     @AppStorage("kerottoCutinCount4Memory3") var cutinCount4: Int = 0
     @AppStorage("kerottoCutinCount5Memory3") var cutinCount5: Int = 0
     @AppStorage("kerottoCutinCountSumMemory3") var cutinCountSum: Int = 0
+    @AppStorage("kerottoKoyakuCountBellMemory3") var koyakuCountBell: Int = 0
+    @AppStorage("kerottoKoyakuCountCherryMemory3") var koyakuCountCherry: Int = 0
+    @AppStorage("kerottoKoyakuCountKakuteiyakuMemory3") var koyakuCountKakuteiyaku: Int = 0
+    @AppStorage("kerottoChofukuCountBellMemory3") var chofukuCountBell: Int = 0
+    @AppStorage("kerottoChofukuCountCherryMemory3") var chofukuCountCherry: Int = 0
     @AppStorage("kerottoMemoMemory3") var memo = ""
     @AppStorage("kerottoDateMemory3") var dateDouble = 0.0
 }

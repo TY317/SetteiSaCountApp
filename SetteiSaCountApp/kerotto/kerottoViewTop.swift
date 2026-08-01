@@ -240,6 +240,11 @@ struct kerottoSubViewSaveMemory: View {
         kerottoMemory1.cutinCount4 = kerotto.cutinCount4
         kerottoMemory1.cutinCount5 = kerotto.cutinCount5
         kerottoMemory1.cutinCountSum = kerotto.cutinCountSum
+        kerottoMemory1.koyakuCountBell = kerotto.koyakuCountBell
+        kerottoMemory1.koyakuCountCherry = kerotto.koyakuCountCherry
+        kerottoMemory1.koyakuCountKakuteiyaku = kerotto.koyakuCountKakuteiyaku
+        kerottoMemory1.chofukuCountBell = kerotto.chofukuCountBell
+        kerottoMemory1.chofukuCountCherry = kerotto.chofukuCountCherry
     }
     func saveMemory2() {
         kerottoMemory2.koyakuCountHeikoOrange = kerotto.koyakuCountHeikoOrange
@@ -279,6 +284,11 @@ struct kerottoSubViewSaveMemory: View {
         kerottoMemory2.cutinCount4 = kerotto.cutinCount4
         kerottoMemory2.cutinCount5 = kerotto.cutinCount5
         kerottoMemory2.cutinCountSum = kerotto.cutinCountSum
+        kerottoMemory2.koyakuCountBell = kerotto.koyakuCountBell
+        kerottoMemory2.koyakuCountCherry = kerotto.koyakuCountCherry
+        kerottoMemory2.koyakuCountKakuteiyaku = kerotto.koyakuCountKakuteiyaku
+        kerottoMemory2.chofukuCountBell = kerotto.chofukuCountBell
+        kerottoMemory2.chofukuCountCherry = kerotto.chofukuCountCherry
     }
     func saveMemory3() {
         kerottoMemory3.koyakuCountHeikoOrange = kerotto.koyakuCountHeikoOrange
@@ -318,6 +328,11 @@ struct kerottoSubViewSaveMemory: View {
         kerottoMemory3.cutinCount4 = kerotto.cutinCount4
         kerottoMemory3.cutinCount5 = kerotto.cutinCount5
         kerottoMemory3.cutinCountSum = kerotto.cutinCountSum
+        kerottoMemory3.koyakuCountBell = kerotto.koyakuCountBell
+        kerottoMemory3.koyakuCountCherry = kerotto.koyakuCountCherry
+        kerottoMemory3.koyakuCountKakuteiyaku = kerotto.koyakuCountKakuteiyaku
+        kerottoMemory3.chofukuCountBell = kerotto.chofukuCountBell
+        kerottoMemory3.chofukuCountCherry = kerotto.chofukuCountCherry
     }
 }
 
@@ -386,6 +401,11 @@ struct kerottoSubViewLoadMemory: View {
         kerotto.cutinCount4 = kerottoMemory1.cutinCount4
         kerotto.cutinCount5 = kerottoMemory1.cutinCount5
         kerotto.cutinCountSum = kerottoMemory1.cutinCountSum
+        kerotto.koyakuCountBell = kerottoMemory1.koyakuCountBell
+        kerotto.koyakuCountCherry = kerottoMemory1.koyakuCountCherry
+        kerotto.koyakuCountKakuteiyaku = kerottoMemory1.koyakuCountKakuteiyaku
+        kerotto.chofukuCountBell = kerottoMemory1.chofukuCountBell
+        kerotto.chofukuCountCherry = kerottoMemory1.chofukuCountCherry
     }
     func loadMemory2() {
         kerotto.koyakuCountHeikoOrange = kerottoMemory2.koyakuCountHeikoOrange
@@ -425,6 +445,11 @@ struct kerottoSubViewLoadMemory: View {
         kerotto.cutinCount4 = kerottoMemory2.cutinCount4
         kerotto.cutinCount5 = kerottoMemory2.cutinCount5
         kerotto.cutinCountSum = kerottoMemory2.cutinCountSum
+        kerotto.koyakuCountBell = kerottoMemory2.koyakuCountBell
+        kerotto.koyakuCountCherry = kerottoMemory2.koyakuCountCherry
+        kerotto.koyakuCountKakuteiyaku = kerottoMemory2.koyakuCountKakuteiyaku
+        kerotto.chofukuCountBell = kerottoMemory2.chofukuCountBell
+        kerotto.chofukuCountCherry = kerottoMemory2.chofukuCountCherry
     }
     func loadMemory3() {
         kerotto.koyakuCountHeikoOrange = kerottoMemory3.koyakuCountHeikoOrange
@@ -464,6 +489,11 @@ struct kerottoSubViewLoadMemory: View {
         kerotto.cutinCount4 = kerottoMemory3.cutinCount4
         kerotto.cutinCount5 = kerottoMemory3.cutinCount5
         kerotto.cutinCountSum = kerottoMemory3.cutinCountSum
+        kerotto.koyakuCountBell = kerottoMemory3.koyakuCountBell
+        kerotto.koyakuCountCherry = kerottoMemory3.koyakuCountCherry
+        kerotto.koyakuCountKakuteiyaku = kerottoMemory3.koyakuCountKakuteiyaku
+        kerotto.chofukuCountBell = kerottoMemory3.chofukuCountBell
+        kerotto.chofukuCountCherry = kerottoMemory3.chofukuCountCherry
     }
 }
 
