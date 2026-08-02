@@ -79,22 +79,23 @@ struct worldDaiStarViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: worldDaiStarViewBayes(
-//                    worldDaiStar: worldDaiStar,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.worldDaiStarMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: worldDaiStarViewBayes(
+                    worldDaiStar: worldDaiStar,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.worldDaiStarMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5055")
 
                 // コピーライト
                 unitSectionCopyright {
-                    Text("©︎Sirius/Project WDS, ©︎DAITO GIKEN,INC")
+                    Text("©︎Sirius/Project WDS")
+                    Text("©︎DAITO GIKEN,INC")
                 }
             }
         }
