@@ -31,6 +31,7 @@ class Index2: ObservableObject {
     // --------
     let ratioFirstHitCz: [Double] = [235.6,233.4,230.8,222.3,215.8,207.2]
     let ratioFirstHitAt: [Double] = [398.8,394.5,389.6,369.5,358,338.4]
+    let ratioDirectAt: [Double] = [8000,-1,-1,-1,-1,4000]
     @AppStorage("index2NormalGame") var normalGame: Int = 0
     @AppStorage("index2FirstHitCountCz") var firstHitCountCz: Int = 0
     @AppStorage("index2FirstHitCountAt") var firstHitCountAt: Int = 0

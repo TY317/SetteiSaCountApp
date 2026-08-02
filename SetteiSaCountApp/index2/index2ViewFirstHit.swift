@@ -72,6 +72,17 @@ struct index2ViewFirstHit: View {
                     )
                 }
             }
+            
+            // 参考情報）直撃確率
+            unitLinkButtonViewBuilder(sheetTitle: "AT直撃確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT直撃",
+                        denominateList: index2.ratioDirectAt
+                    )
+                }
+            }
 
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
