@@ -14,24 +14,43 @@ struct index2View95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $index2.otomeAttackHit,
-//                        bigNumber: $index2.otomeAttackSum,
-//                        setting1Percent: index2.ratioOtomeAttack[0],
-//                        setting2Percent: index2.ratioOtomeAttack[1],
-//                        setting3Percent: index2.ratioOtomeAttack[2],
-//                        setting4Percent: index2.ratioOtomeAttack[3],
-//                        setting5Percent: index2.ratioOtomeAttack[4],
-//                        setting6Percent: index2.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
+            // 🍉→高確移行回数
+            unitListSection95Ci(
+                grafTitle: "🍉→高確移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $index2.suikaCountKokaku,
+                        bigNumber: $index2.suikaCountKoyaku,
+                        setting1Percent: index2.ratioSuikaKokaku[0],
+                        setting2Percent: index2.ratioSuikaKokaku[1],
+                        setting3Percent: index2.ratioSuikaKokaku[2],
+                        setting4Percent: index2.ratioSuikaKokaku[3],
+                        setting5Percent: index2.ratioSuikaKokaku[4],
+                        setting6Percent: index2.ratioSuikaKokaku[5]
+                    )
+                )
+            )
+            .tag(1)
+            
+            // 🍉→美琴高確移行回数
+            unitListSection95Ci(
+                grafTitle: "🍉→美琴高確移行回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $index2.suikaCountMikoto,
+                        bigNumber: $index2.suikaCountKoyaku,
+                        setting1Percent: index2.ratioSuikaMikotoKokaku[0],
+                        setting2Percent: index2.ratioSuikaMikotoKokaku[1],
+                        setting3Percent: index2.ratioSuikaMikotoKokaku[2],
+                        setting4Percent: index2.ratioSuikaMikotoKokaku[3],
+                        setting5Percent: index2.ratioSuikaMikotoKokaku[4],
+                        setting6Percent: index2.ratioSuikaMikotoKokaku[5]
+                    )
+                )
+            )
+            .tag(2)
 //
 //            // CZ初当り回数
 //            unitListSection95Ci(

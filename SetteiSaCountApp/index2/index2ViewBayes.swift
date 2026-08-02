@@ -13,6 +13,7 @@ struct index2ViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.7, 100, 104.5, 108.2, 113.3]
+    @State var suikaKokakuEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,6 +45,13 @@ struct index2ViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // 🍉からの高確移行率
+                unitToggleWithQuestion(enable: self.$suikaKokakuEnable, title: "🍉からの高確移行率") {
+                    unitExView5body2image(
+                        title: "🍉からの高確移行率",
+                        textBody1: "・高確移行率、美琴高確移行率を計算要素に加えます",
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("藤丸コイン") {
@@ -115,6 +123,15 @@ struct index2ViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // 🍉からの高確移行率
+        var logPostSuikaKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.suikaKokakuEnable {
+            logPostSuikaKokaku = logPostPercentMulti(
+                countList: [index2.suikaCountKokaku, index2.suikaCountMikoto],
+                ratioList: [index2.ratioSuikaKokaku, index2.ratioSuikaMikotoKokaku],
+                bigNumber: index2.suikaCountKoyaku
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -153,6 +170,7 @@ struct index2ViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostSuikaKokaku,
             logPostTrophy,
             logPostBefore,
         ])

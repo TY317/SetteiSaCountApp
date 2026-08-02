@@ -13,8 +13,16 @@ class Index2: ObservableObject {
     // -------
     // 通常時
     // -------
+    let ratioSuikaKokaku: [Double] = [47.7,48,49.2,50.4,54.7,55.5]
+    let ratioSuikaMikotoKokaku: [Double] = [14.3,14.5,14.8,15.2,16.4,16.7]
+    @AppStorage("index2SuikaCountKoyaku") var suikaCountKoyaku: Int = 0
+    @AppStorage("index2SuikaCountKokaku") var suikaCountKokaku: Int = 0
+    @AppStorage("index2SuikaCountMikoto") var suikaCountMikoto: Int = 0
 
     func resetNormal() {
+        suikaCountKoyaku = 0
+        suikaCountKokaku = 0
+        suikaCountMikoto = 0
         minusCheck = false
     }
 

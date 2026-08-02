@@ -28,6 +28,95 @@ struct index2ViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- スイカからの高確移行
+            Section {
+                // 確率結果
+                HStack {
+                    // 高確移行
+                    unitResultRatioPercent2Line(
+                        title: "🍉→高確",
+                        count: $index2.suikaCountKokaku,
+                        bigNumber: $index2.suikaCountKoyaku,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 美琴高確移行
+                    unitResultRatioPercent2Line(
+                        title: "🍉→美琴高確",
+                        count: $index2.suikaCountMikoto,
+                        bigNumber: $index2.suikaCountKoyaku,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報）移行率
+                unitLinkButtonViewBuilder(sheetTitle: "高確移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "高確移行",
+                            percentList: index2.ratioSuikaKokaku
+                        )
+                        unitTablePercent(
+                            columTitle: "美琴高確移行",
+                            percentList: index2.ratioSuikaMikotoKokaku
+                        )
+                    }
+                }
+                
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // スイカ成立
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "🍉",
+                            count: $index2.suikaCountKoyaku,
+                            color: .personalSummerLightGreen,
+                            minusBool: $index2.minusCheck) {
+                                
+                            }
+                        // 高確移行
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "高確移行",
+                            count: $index2.suikaCountKokaku,
+                            color: .personalSummerLightPurple,
+                            minusBool: $index2.minusCheck) {
+                                
+                            }
+                        // 美琴高確移行
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "美琴高確",
+                            count: $index2.suikaCountMikoto,
+                            color: .personalSummerLightRed,
+                            minusBool: $index2.minusCheck) {
+                                
+                            }
+                    }
+                    
+                    // 95%信頼区間グラフ
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            index2View95Ci(
+                                index2: index2,
+                                selection: 1
+                            )
+                        )
+                    )
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        index2ViewBayes(
+                            index2: index2,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("🍉からの高確移行")
+            }
             // レア役
             Section {
                 // レア役停止系
