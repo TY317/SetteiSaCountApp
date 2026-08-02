@@ -64,6 +64,17 @@ struct worldDaiStarViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: worldDaiStarViewEnding(
+                        worldDaiStar: worldDaiStar,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.worldDaiStarMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(

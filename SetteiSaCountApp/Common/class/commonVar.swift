@@ -390,6 +390,7 @@ class commonVar: ObservableObject {
     @AppStorage("worldDaiStarMenuFirstHitBadge") var worldDaiStarMenuFirstHitBadge: String = "none"
     @AppStorage("worldDaiStarMenuBayesBadge") var worldDaiStarMenuBayesBadge: String = "none"
     @AppStorage("worldDaiStarMenuScreenBadge") var worldDaiStarMenuScreenBadge: String = "none"
+    @AppStorage("worldDaiStarMenuEndingBadge") var worldDaiStarMenuEndingBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
