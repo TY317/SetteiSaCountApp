@@ -53,6 +53,17 @@ struct worldDaiStarViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: worldDaiStarViewScreen(
+                        worldDaiStar: worldDaiStar,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.worldDaiStarMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(

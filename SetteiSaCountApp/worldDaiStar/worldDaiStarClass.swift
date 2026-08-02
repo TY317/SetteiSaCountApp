@@ -26,6 +26,30 @@ class WorldDaiStar: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("worldDaiStarScreenCount1") var screenCount1: Int = 0
+    @AppStorage("worldDaiStarScreenCount2") var screenCount2: Int = 0
+    @AppStorage("worldDaiStarScreenCount3") var screenCount3: Int = 0
+    @AppStorage("worldDaiStarScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -36,6 +60,7 @@ class WorldDaiStar: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 
