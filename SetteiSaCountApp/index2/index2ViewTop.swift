@@ -181,13 +181,94 @@ struct index2SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        index2Memory1.suikaCountKoyaku = index2.suikaCountKoyaku
+        index2Memory1.suikaCountKokaku = index2.suikaCountKokaku
+        index2Memory1.suikaCountMikoto = index2.suikaCountMikoto
+        index2Memory1.normalGame = index2.normalGame
+        index2Memory1.firstHitCountCz = index2.firstHitCountCz
+        index2Memory1.firstHitCountAt = index2.firstHitCountAt
+        index2Memory1.screenCount1 = index2.screenCount1
+        index2Memory1.screenCount2 = index2.screenCount2
+        index2Memory1.screenCount3 = index2.screenCount3
+        index2Memory1.screenCount4 = index2.screenCount4
+        index2Memory1.screenCount5 = index2.screenCount5
+        index2Memory1.screenCount6 = index2.screenCount6
+        index2Memory1.screenCount7 = index2.screenCount7
+        index2Memory1.screenCount8 = index2.screenCount8
+        index2Memory1.screenCount9 = index2.screenCount9
+        index2Memory1.screenCount10 = index2.screenCount10
+        index2Memory1.screenCount11 = index2.screenCount11
+        index2Memory1.screenCountSum = index2.screenCountSum
+        index2Memory1.commentCount1 = index2.commentCount1
+        index2Memory1.commentCount2 = index2.commentCount2
+        index2Memory1.commentCount3 = index2.commentCount3
+        index2Memory1.commentCount4 = index2.commentCount4
+        index2Memory1.commentCount5 = index2.commentCount5
+        index2Memory1.commentCount6 = index2.commentCount6
+        index2Memory1.commentCount7 = index2.commentCount7
+        index2Memory1.commentCount8 = index2.commentCount8
+        index2Memory1.commentCount9 = index2.commentCount9
+        index2Memory1.commentCountSum = index2.commentCountSum
     }
     func saveMemory2() {
-
+        index2Memory2.suikaCountKoyaku = index2.suikaCountKoyaku
+        index2Memory2.suikaCountKokaku = index2.suikaCountKokaku
+        index2Memory2.suikaCountMikoto = index2.suikaCountMikoto
+        index2Memory2.normalGame = index2.normalGame
+        index2Memory2.firstHitCountCz = index2.firstHitCountCz
+        index2Memory2.firstHitCountAt = index2.firstHitCountAt
+        index2Memory2.screenCount1 = index2.screenCount1
+        index2Memory2.screenCount2 = index2.screenCount2
+        index2Memory2.screenCount3 = index2.screenCount3
+        index2Memory2.screenCount4 = index2.screenCount4
+        index2Memory2.screenCount5 = index2.screenCount5
+        index2Memory2.screenCount6 = index2.screenCount6
+        index2Memory2.screenCount7 = index2.screenCount7
+        index2Memory2.screenCount8 = index2.screenCount8
+        index2Memory2.screenCount9 = index2.screenCount9
+        index2Memory2.screenCount10 = index2.screenCount10
+        index2Memory2.screenCount11 = index2.screenCount11
+        index2Memory2.screenCountSum = index2.screenCountSum
+        index2Memory2.commentCount1 = index2.commentCount1
+        index2Memory2.commentCount2 = index2.commentCount2
+        index2Memory2.commentCount3 = index2.commentCount3
+        index2Memory2.commentCount4 = index2.commentCount4
+        index2Memory2.commentCount5 = index2.commentCount5
+        index2Memory2.commentCount6 = index2.commentCount6
+        index2Memory2.commentCount7 = index2.commentCount7
+        index2Memory2.commentCount8 = index2.commentCount8
+        index2Memory2.commentCount9 = index2.commentCount9
+        index2Memory2.commentCountSum = index2.commentCountSum
     }
     func saveMemory3() {
-
+        index2Memory3.suikaCountKoyaku = index2.suikaCountKoyaku
+        index2Memory3.suikaCountKokaku = index2.suikaCountKokaku
+        index2Memory3.suikaCountMikoto = index2.suikaCountMikoto
+        index2Memory3.normalGame = index2.normalGame
+        index2Memory3.firstHitCountCz = index2.firstHitCountCz
+        index2Memory3.firstHitCountAt = index2.firstHitCountAt
+        index2Memory3.screenCount1 = index2.screenCount1
+        index2Memory3.screenCount2 = index2.screenCount2
+        index2Memory3.screenCount3 = index2.screenCount3
+        index2Memory3.screenCount4 = index2.screenCount4
+        index2Memory3.screenCount5 = index2.screenCount5
+        index2Memory3.screenCount6 = index2.screenCount6
+        index2Memory3.screenCount7 = index2.screenCount7
+        index2Memory3.screenCount8 = index2.screenCount8
+        index2Memory3.screenCount9 = index2.screenCount9
+        index2Memory3.screenCount10 = index2.screenCount10
+        index2Memory3.screenCount11 = index2.screenCount11
+        index2Memory3.screenCountSum = index2.screenCountSum
+        index2Memory3.commentCount1 = index2.commentCount1
+        index2Memory3.commentCount2 = index2.commentCount2
+        index2Memory3.commentCount3 = index2.commentCount3
+        index2Memory3.commentCount4 = index2.commentCount4
+        index2Memory3.commentCount5 = index2.commentCount5
+        index2Memory3.commentCount6 = index2.commentCount6
+        index2Memory3.commentCount7 = index2.commentCount7
+        index2Memory3.commentCount8 = index2.commentCount8
+        index2Memory3.commentCount9 = index2.commentCount9
+        index2Memory3.commentCountSum = index2.commentCountSum
     }
 }
 
@@ -219,13 +300,94 @@ struct index2SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        index2.suikaCountKoyaku = index2Memory1.suikaCountKoyaku
+        index2.suikaCountKokaku = index2Memory1.suikaCountKokaku
+        index2.suikaCountMikoto = index2Memory1.suikaCountMikoto
+        index2.normalGame = index2Memory1.normalGame
+        index2.firstHitCountCz = index2Memory1.firstHitCountCz
+        index2.firstHitCountAt = index2Memory1.firstHitCountAt
+        index2.screenCount1 = index2Memory1.screenCount1
+        index2.screenCount2 = index2Memory1.screenCount2
+        index2.screenCount3 = index2Memory1.screenCount3
+        index2.screenCount4 = index2Memory1.screenCount4
+        index2.screenCount5 = index2Memory1.screenCount5
+        index2.screenCount6 = index2Memory1.screenCount6
+        index2.screenCount7 = index2Memory1.screenCount7
+        index2.screenCount8 = index2Memory1.screenCount8
+        index2.screenCount9 = index2Memory1.screenCount9
+        index2.screenCount10 = index2Memory1.screenCount10
+        index2.screenCount11 = index2Memory1.screenCount11
+        index2.screenCountSum = index2Memory1.screenCountSum
+        index2.commentCount1 = index2Memory1.commentCount1
+        index2.commentCount2 = index2Memory1.commentCount2
+        index2.commentCount3 = index2Memory1.commentCount3
+        index2.commentCount4 = index2Memory1.commentCount4
+        index2.commentCount5 = index2Memory1.commentCount5
+        index2.commentCount6 = index2Memory1.commentCount6
+        index2.commentCount7 = index2Memory1.commentCount7
+        index2.commentCount8 = index2Memory1.commentCount8
+        index2.commentCount9 = index2Memory1.commentCount9
+        index2.commentCountSum = index2Memory1.commentCountSum
     }
     func loadMemory2() {
-
+        index2.suikaCountKoyaku = index2Memory2.suikaCountKoyaku
+        index2.suikaCountKokaku = index2Memory2.suikaCountKokaku
+        index2.suikaCountMikoto = index2Memory2.suikaCountMikoto
+        index2.normalGame = index2Memory2.normalGame
+        index2.firstHitCountCz = index2Memory2.firstHitCountCz
+        index2.firstHitCountAt = index2Memory2.firstHitCountAt
+        index2.screenCount1 = index2Memory2.screenCount1
+        index2.screenCount2 = index2Memory2.screenCount2
+        index2.screenCount3 = index2Memory2.screenCount3
+        index2.screenCount4 = index2Memory2.screenCount4
+        index2.screenCount5 = index2Memory2.screenCount5
+        index2.screenCount6 = index2Memory2.screenCount6
+        index2.screenCount7 = index2Memory2.screenCount7
+        index2.screenCount8 = index2Memory2.screenCount8
+        index2.screenCount9 = index2Memory2.screenCount9
+        index2.screenCount10 = index2Memory2.screenCount10
+        index2.screenCount11 = index2Memory2.screenCount11
+        index2.screenCountSum = index2Memory2.screenCountSum
+        index2.commentCount1 = index2Memory2.commentCount1
+        index2.commentCount2 = index2Memory2.commentCount2
+        index2.commentCount3 = index2Memory2.commentCount3
+        index2.commentCount4 = index2Memory2.commentCount4
+        index2.commentCount5 = index2Memory2.commentCount5
+        index2.commentCount6 = index2Memory2.commentCount6
+        index2.commentCount7 = index2Memory2.commentCount7
+        index2.commentCount8 = index2Memory2.commentCount8
+        index2.commentCount9 = index2Memory2.commentCount9
+        index2.commentCountSum = index2Memory2.commentCountSum
     }
     func loadMemory3() {
-
+        index2.suikaCountKoyaku = index2Memory3.suikaCountKoyaku
+        index2.suikaCountKokaku = index2Memory3.suikaCountKokaku
+        index2.suikaCountMikoto = index2Memory3.suikaCountMikoto
+        index2.normalGame = index2Memory3.normalGame
+        index2.firstHitCountCz = index2Memory3.firstHitCountCz
+        index2.firstHitCountAt = index2Memory3.firstHitCountAt
+        index2.screenCount1 = index2Memory3.screenCount1
+        index2.screenCount2 = index2Memory3.screenCount2
+        index2.screenCount3 = index2Memory3.screenCount3
+        index2.screenCount4 = index2Memory3.screenCount4
+        index2.screenCount5 = index2Memory3.screenCount5
+        index2.screenCount6 = index2Memory3.screenCount6
+        index2.screenCount7 = index2Memory3.screenCount7
+        index2.screenCount8 = index2Memory3.screenCount8
+        index2.screenCount9 = index2Memory3.screenCount9
+        index2.screenCount10 = index2Memory3.screenCount10
+        index2.screenCount11 = index2Memory3.screenCount11
+        index2.screenCountSum = index2Memory3.screenCountSum
+        index2.commentCount1 = index2Memory3.commentCount1
+        index2.commentCount2 = index2Memory3.commentCount2
+        index2.commentCount3 = index2Memory3.commentCount3
+        index2.commentCount4 = index2Memory3.commentCount4
+        index2.commentCount5 = index2Memory3.commentCount5
+        index2.commentCount6 = index2Memory3.commentCount6
+        index2.commentCount7 = index2Memory3.commentCount7
+        index2.commentCount8 = index2Memory3.commentCount8
+        index2.commentCount9 = index2Memory3.commentCount9
+        index2.commentCountSum = index2Memory3.commentCountSum
     }
 }
 

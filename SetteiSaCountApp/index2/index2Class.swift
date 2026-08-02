@@ -150,18 +150,102 @@ class Index2: ObservableObject {
 
 
 class Index2Memory1: ObservableObject {
+    @AppStorage("index2SuikaCountKoyakuMemory1") var suikaCountKoyaku: Int = 0
+    @AppStorage("index2SuikaCountKokakuMemory1") var suikaCountKokaku: Int = 0
+    @AppStorage("index2SuikaCountMikotoMemory1") var suikaCountMikoto: Int = 0
+    @AppStorage("index2NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("index2FirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("index2FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("index2ScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("index2ScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("index2ScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("index2ScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("index2ScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("index2ScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("index2ScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("index2ScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("index2ScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("index2ScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("index2ScreenCount11Memory1") var screenCount11: Int = 0
+    @AppStorage("index2ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("index2CommentCount1Memory1") var commentCount1: Int = 0
+    @AppStorage("index2CommentCount2Memory1") var commentCount2: Int = 0
+    @AppStorage("index2CommentCount3Memory1") var commentCount3: Int = 0
+    @AppStorage("index2CommentCount4Memory1") var commentCount4: Int = 0
+    @AppStorage("index2CommentCount5Memory1") var commentCount5: Int = 0
+    @AppStorage("index2CommentCount6Memory1") var commentCount6: Int = 0
+    @AppStorage("index2CommentCount7Memory1") var commentCount7: Int = 0
+    @AppStorage("index2CommentCount8Memory1") var commentCount8: Int = 0
+    @AppStorage("index2CommentCount9Memory1") var commentCount9: Int = 0
+    @AppStorage("index2CommentCountSumMemory1") var commentCountSum: Int = 0
     @AppStorage("index2MemoMemory1") var memo = ""
     @AppStorage("index2DateMemory1") var dateDouble = 0.0
 }
 
 
 class Index2Memory2: ObservableObject {
+    @AppStorage("index2SuikaCountKoyakuMemory2") var suikaCountKoyaku: Int = 0
+    @AppStorage("index2SuikaCountKokakuMemory2") var suikaCountKokaku: Int = 0
+    @AppStorage("index2SuikaCountMikotoMemory2") var suikaCountMikoto: Int = 0
+    @AppStorage("index2NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("index2FirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("index2FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("index2ScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("index2ScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("index2ScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("index2ScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("index2ScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("index2ScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("index2ScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("index2ScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("index2ScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("index2ScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("index2ScreenCount11Memory2") var screenCount11: Int = 0
+    @AppStorage("index2ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("index2CommentCount1Memory2") var commentCount1: Int = 0
+    @AppStorage("index2CommentCount2Memory2") var commentCount2: Int = 0
+    @AppStorage("index2CommentCount3Memory2") var commentCount3: Int = 0
+    @AppStorage("index2CommentCount4Memory2") var commentCount4: Int = 0
+    @AppStorage("index2CommentCount5Memory2") var commentCount5: Int = 0
+    @AppStorage("index2CommentCount6Memory2") var commentCount6: Int = 0
+    @AppStorage("index2CommentCount7Memory2") var commentCount7: Int = 0
+    @AppStorage("index2CommentCount8Memory2") var commentCount8: Int = 0
+    @AppStorage("index2CommentCount9Memory2") var commentCount9: Int = 0
+    @AppStorage("index2CommentCountSumMemory2") var commentCountSum: Int = 0
     @AppStorage("index2MemoMemory2") var memo = ""
     @AppStorage("index2DateMemory2") var dateDouble = 0.0
 }
 
 
 class Index2Memory3: ObservableObject {
+    @AppStorage("index2SuikaCountKoyakuMemory3") var suikaCountKoyaku: Int = 0
+    @AppStorage("index2SuikaCountKokakuMemory3") var suikaCountKokaku: Int = 0
+    @AppStorage("index2SuikaCountMikotoMemory3") var suikaCountMikoto: Int = 0
+    @AppStorage("index2NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("index2FirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("index2FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("index2ScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("index2ScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("index2ScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("index2ScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("index2ScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("index2ScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("index2ScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("index2ScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("index2ScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("index2ScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("index2ScreenCount11Memory3") var screenCount11: Int = 0
+    @AppStorage("index2ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("index2CommentCount1Memory3") var commentCount1: Int = 0
+    @AppStorage("index2CommentCount2Memory3") var commentCount2: Int = 0
+    @AppStorage("index2CommentCount3Memory3") var commentCount3: Int = 0
+    @AppStorage("index2CommentCount4Memory3") var commentCount4: Int = 0
+    @AppStorage("index2CommentCount5Memory3") var commentCount5: Int = 0
+    @AppStorage("index2CommentCount6Memory3") var commentCount6: Int = 0
+    @AppStorage("index2CommentCount7Memory3") var commentCount7: Int = 0
+    @AppStorage("index2CommentCount8Memory3") var commentCount8: Int = 0
+    @AppStorage("index2CommentCount9Memory3") var commentCount9: Int = 0
+    @AppStorage("index2CommentCountSumMemory3") var commentCountSum: Int = 0
     @AppStorage("index2MemoMemory3") var memo = ""
     @AppStorage("index2DateMemory3") var dateDouble = 0.0
 }
