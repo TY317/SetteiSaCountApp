@@ -43,6 +43,17 @@ struct index2ViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: index2ViewScreen(
+                        index2: index2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.index2MenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewFujimaruCoin()) {
                         unitLabelMenu(

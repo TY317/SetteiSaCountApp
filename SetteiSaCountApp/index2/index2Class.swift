@@ -43,6 +43,54 @@ class Index2: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("index2ScreenCount1") var screenCount1: Int = 0
+    @AppStorage("index2ScreenCount2") var screenCount2: Int = 0
+    @AppStorage("index2ScreenCount3") var screenCount3: Int = 0
+    @AppStorage("index2ScreenCount4") var screenCount4: Int = 0
+    @AppStorage("index2ScreenCount5") var screenCount5: Int = 0
+    @AppStorage("index2ScreenCount6") var screenCount6: Int = 0
+    @AppStorage("index2ScreenCount7") var screenCount7: Int = 0
+    @AppStorage("index2ScreenCount8") var screenCount8: Int = 0
+    @AppStorage("index2ScreenCount9") var screenCount9: Int = 0
+    @AppStorage("index2ScreenCount10") var screenCount10: Int = 0
+    @AppStorage("index2ScreenCount11") var screenCount11: Int = 0
+    @AppStorage("index2ScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+            screenCount6,
+            screenCount7,
+            screenCount8,
+            screenCount9,
+            screenCount10,
+            screenCount11,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCount6 = 0
+        screenCount7 = 0
+        screenCount8 = 0
+        screenCount9 = 0
+        screenCount10 = 0
+        screenCount11 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -53,6 +101,7 @@ class Index2: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 
