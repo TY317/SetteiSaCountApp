@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5053", name: "禁書目録2", fullName: "とある魔術の禁書目録2", iconName: "index2MachineIcon", btBadge: false, maker: "藤商事"),
         Machine(id: "5015", name: "ケロットBT", fullName: "ケロット5 BT", iconName: "kerottoMachineIcon", btBadge: true, maker: "山佐"),
         Machine(id: "5010", name: "戦コレ6", fullName: "戦国コレクション6", iconName: "sencole6MachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5019", name: "からくり2", fullName: "からくりサーカス2", iconName: "karakuri2MachineIcon", btBadge: false, maker: "SANKYO"),
@@ -375,6 +376,12 @@ class commonVar: ObservableObject {
     @AppStorage("kerottoMenuBigScreenBadge") var kerottoMenuBigScreenBadge: String = "none"
     @AppStorage("kerottoMenuBonusScreenBadge") var kerottoMenuBonusScreenBadge: String = "none"
     @AppStorage("kerottoMenuRegBadge") var kerottoMenuRegBadge: String = "none"
+
+    // ---- とある魔術の禁書目録2
+    @AppStorage("index2MenuNormalBadge") var index2MenuNormalBadge: String = "none"
+    @AppStorage("index2MenuFirstHitBadge") var index2MenuFirstHitBadge: String = "none"
+    @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
+    @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -730,6 +737,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5053", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5053", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
