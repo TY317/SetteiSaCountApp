@@ -1681,6 +1681,12 @@
 		EBFDFA0E4CD8431DAF1B6FC1 /* kerottoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A6C51CB134D30B3DDDEA2 /* kerottoViewFirstHit.swift */; };
 		EE61916860EE406D9B11FE9A /* sao2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E5422D4BE41A5AE3783B9 /* sao2ViewEnding.swift */; };
 		EF8AEC55716A4376957DC659 /* index2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E124166C3E947F5B056B163 /* index2ViewTop.swift */; };
+		54F14B0207674D8FB8A42570 /* worldDaiStarViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF508CCF4C7F448082EAE74F /* worldDaiStarViewTop.swift */; };
+		A33EBE14F63348ACBAA53401 /* worldDaiStarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0C6E9545DC41D7B28FA99D /* worldDaiStarClass.swift */; };
+		5D90F5ADF9284F9588A3816F /* worldDaiStarViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA283B3E244A31AB964F1E /* worldDaiStarViewNormal.swift */; };
+		A2BB5CD11CDE4DD1893EE587 /* worldDaiStarViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */; };
+		81F715EE58F24EED929BC16F /* worldDaiStarView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62005F7FEE64F9AA6C77A74 /* worldDaiStarView95Ci.swift */; };
+		06979EC369F64E69980608FD /* worldDaiStarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C051FE2E074B48E0BDCAA466 /* worldDaiStarAssets.xcassets */; };
 		F5314EF934C0414A95ED3977 /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 /* End PBXBuildFile section */
@@ -3181,6 +3187,12 @@
 		45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6Class.swift; sourceTree = "<group>"; };
 		57B559DD19D84572A38BE426 /* index2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = index2Assets.xcassets; sourceTree = "<group>"; };
 		5E124166C3E947F5B056B163 /* index2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewTop.swift; sourceTree = "<group>"; };
+		AF508CCF4C7F448082EAE74F /* worldDaiStarViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewTop.swift; sourceTree = "<group>"; };
+		BA0C6E9545DC41D7B28FA99D /* worldDaiStarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarClass.swift; sourceTree = "<group>"; };
+		58DA283B3E244A31AB964F1E /* worldDaiStarViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewNormal.swift; sourceTree = "<group>"; };
+		05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewFirstHit.swift; sourceTree = "<group>"; };
+		C62005F7FEE64F9AA6C77A74 /* worldDaiStarView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarView95Ci.swift; sourceTree = "<group>"; };
+		C051FE2E074B48E0BDCAA466 /* worldDaiStarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = worldDaiStarAssets.xcassets; sourceTree = "<group>"; };
 		6D514E60BE1F48879D28F014 /* karakuri2ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewDuringAt.swift; sourceTree = "<group>"; };
 		745D8A25D55D491BA23F25BC /* kerottoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoClass.swift; sourceTree = "<group>"; };
 		765B7676889241FBBE79A504 /* sao2ViewMothers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sao2ViewMothers.swift; sourceTree = "<group>"; };
@@ -4173,6 +4185,7 @@
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
 				DB79DE2BE7014B839A25C574 /* index2 */,
+				A2810C658C7B4038A69E5423 /* worldDaiStar */,
 				A39BA60F028340A6A0B630A4 /* kerotto */,
 				0FD586A72FEFBEB1005689C6 /* karakuri2 */,
 				A86DB711F56A49D5B8A7252C /* sencole6 */,
@@ -5857,6 +5870,19 @@
 			path = sencole6;
 			sourceTree = "<group>";
 		};
+		A2810C658C7B4038A69E5423 /* worldDaiStar */ = {
+			isa = PBXGroup;
+			children = (
+				AF508CCF4C7F448082EAE74F /* worldDaiStarViewTop.swift */,
+				BA0C6E9545DC41D7B28FA99D /* worldDaiStarClass.swift */,
+				58DA283B3E244A31AB964F1E /* worldDaiStarViewNormal.swift */,
+				05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */,
+				C62005F7FEE64F9AA6C77A74 /* worldDaiStarView95Ci.swift */,
+				C051FE2E074B48E0BDCAA466 /* worldDaiStarAssets.xcassets */,
+			);
+			path = worldDaiStar;
+			sourceTree = "<group>";
+		};
 		DB79DE2BE7014B839A25C574 /* index2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -6024,6 +6050,7 @@
 				0FA63D582F8D0D8B0006E8F7 /* godKisekiAssets.xcassets in Resources */,
 				0FD586B52FEFDE8C005689C6 /* karakuri2Assets.xcassets in Resources */,
 				A480D10DC5A14EA38530DEAC /* index2Assets.xcassets in Resources */,
+				06979EC369F64E69980608FD /* worldDaiStarAssets.xcassets in Resources */,
 				A9EECBC1FB564CEEB8774F24 /* kerottoAssets.xcassets in Resources */,
 				BE26FEDC9851484B953B493D /* sencole6Assets.xcassets in Resources */,
 				0FF155FC2D60321900B17F83 /* starHanaAssets.xcassets in Resources */,
@@ -7433,6 +7460,11 @@
 				0F00FAF62FACBD040076283F /* unitAppRecommend.swift in Sources */,
 				0FD586A92FEFBFF1005689C6 /* karakuri2ViewTop.swift in Sources */,
 				EF8AEC55716A4376957DC659 /* index2ViewTop.swift in Sources */,
+				54F14B0207674D8FB8A42570 /* worldDaiStarViewTop.swift in Sources */,
+				A33EBE14F63348ACBAA53401 /* worldDaiStarClass.swift in Sources */,
+				5D90F5ADF9284F9588A3816F /* worldDaiStarViewNormal.swift in Sources */,
+				A2BB5CD11CDE4DD1893EE587 /* worldDaiStarViewFirstHit.swift in Sources */,
+				81F715EE58F24EED929BC16F /* worldDaiStarView95Ci.swift in Sources */,
 				05199C0DD7CA4E5EB3FF51A8 /* index2Class.swift in Sources */,
 				2DA6BE6405DD49D19ADC952B /* index2ViewNormal.swift in Sources */,
 				7C5C0152D0D14823BD52BEAC /* index2ViewEnding.swift in Sources */,

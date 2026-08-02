@@ -15,7 +15,7 @@ struct tipVer430UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("とある魔術の禁書目録2")
+        Text("とある魔術の禁書目録2\nワールダイスター")
     }
     var image: Image? {
         Image(systemName: "star")
