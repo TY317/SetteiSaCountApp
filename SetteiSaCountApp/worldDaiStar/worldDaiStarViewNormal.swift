@@ -28,6 +28,17 @@ struct worldDaiStarViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            Section {
+                // レア役停止形
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
+                    VStack(alignment: .leading) {
+                        Text("・レア役はチャンス目のみ")
+                        Text("・カバネリ、ToLOVEると同じ")
+                    }
+                }
+            } header: {
+                Text("小役")
+            }
 
         }
         // //// バッジのリセット
