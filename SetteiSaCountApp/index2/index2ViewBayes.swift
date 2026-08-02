@@ -14,6 +14,8 @@ struct index2ViewBayes: View {
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.7, 100, 104.5, 108.2, 113.3]
     @State var suikaKokakuEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -52,6 +54,10 @@ struct index2ViewBayes: View {
                         textBody1: "・高確移行率、美琴高確移行率を計算要素に加えます",
                     )
                 }
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // トロフィー
                 DisclosureGroup("藤丸コイン") {
@@ -123,6 +129,24 @@ struct index2ViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: index2.ratioFirstHitCz,
+                Count: index2.firstHitCountCz,
+                bigNumber: index2.normalGame
+            )
+        }
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: index2.ratioFirstHitAt,
+                Count: index2.firstHitCountAt,
+                bigNumber: index2.normalGame
+            )
+        }
         // 🍉からの高確移行率
         var logPostSuikaKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.suikaKokakuEnable {
@@ -171,6 +195,8 @@ struct index2ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostSuikaKokaku,
+            logPostFirstHitCz,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

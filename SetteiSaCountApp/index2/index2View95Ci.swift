@@ -51,42 +51,42 @@ struct index2View95Ci: View {
                 )
             )
             .tag(2)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $index2.firstHitCountCz,
-//                        bigNumber: $index2.normalGame,
-//                        setting1Denominate: index2.ratioFirstHitCz[0],
-//                        setting2Denominate: index2.ratioFirstHitCz[1],
-//                        setting3Denominate: index2.ratioFirstHitCz[2],
-//                        setting4Denominate: index2.ratioFirstHitCz[3],
-//                        setting5Denominate: index2.ratioFirstHitCz[4],
-//                        setting6Denominate: index2.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $index2.firstHitCountAt,
-//                        bigNumber: $index2.normalGame,
-//                        setting1Denominate: index2.ratioFirstHitAt[0],
-//                        setting2Denominate: index2.ratioFirstHitAt[1],
-//                        setting3Denominate: index2.ratioFirstHitAt[2],
-//                        setting4Denominate: index2.ratioFirstHitAt[3],
-//                        setting5Denominate: index2.ratioFirstHitAt[4],
-//                        setting6Denominate: index2.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $index2.firstHitCountCz,
+                        bigNumber: $index2.normalGame,
+                        setting1Denominate: index2.ratioFirstHitCz[0],
+                        setting2Denominate: index2.ratioFirstHitCz[1],
+                        setting3Denominate: index2.ratioFirstHitCz[2],
+                        setting4Denominate: index2.ratioFirstHitCz[3],
+                        setting5Denominate: index2.ratioFirstHitCz[4],
+                        setting6Denominate: index2.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(3)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $index2.firstHitCountAt,
+                        bigNumber: $index2.normalGame,
+                        setting1Denominate: index2.ratioFirstHitAt[0],
+                        setting2Denominate: index2.ratioFirstHitAt[1],
+                        setting3Denominate: index2.ratioFirstHitAt[2],
+                        setting4Denominate: index2.ratioFirstHitAt[3],
+                        setting5Denominate: index2.ratioFirstHitAt[4],
+                        setting6Denominate: index2.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

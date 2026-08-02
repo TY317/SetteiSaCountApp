@@ -28,7 +28,67 @@ struct index2ViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $index2.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // CZ
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $index2.firstHitCountCz,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $index2.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $index2.minusCheck
+                )
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $index2.firstHitCountAt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $index2.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $index2.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ",
+                        denominateList: index2.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: index2.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    index2View95Ci(
+                        index2: index2,
+                        selection: 3,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                index2ViewBayes(
+                    index2: index2,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.index2MenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct index2ViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: index2.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }
