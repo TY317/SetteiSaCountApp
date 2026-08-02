@@ -21,8 +21,16 @@ class WorldDaiStar: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [180.6, 173.8, 168.3, 164.9, 163, 156]
+    let ratioFirstHitAt: [Double] = [306.5, 297.1, 284.1, 262.1, 257.1, 246.6]
+    @AppStorage("worldDaiStarNormalGame") var normalGame: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

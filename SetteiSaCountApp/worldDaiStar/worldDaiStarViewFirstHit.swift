@@ -28,7 +28,67 @@ struct worldDaiStarViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $worldDaiStar.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // CZ
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $worldDaiStar.firstHitCountCz,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $worldDaiStar.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $worldDaiStar.minusCheck
+                )
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $worldDaiStar.firstHitCountAt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $worldDaiStar.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $worldDaiStar.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ",
+                        denominateList: worldDaiStar.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: worldDaiStar.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    worldDaiStarView95Ci(
+                        worldDaiStar: worldDaiStar,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                worldDaiStarViewBayes(
+                    worldDaiStar: worldDaiStar,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.worldDaiStarMenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct worldDaiStarViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: worldDaiStar.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

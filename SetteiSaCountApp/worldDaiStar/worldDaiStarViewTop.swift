@@ -81,7 +81,7 @@ struct worldDaiStarViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: worldDaiStarView95Ci(
                     worldDaiStar: worldDaiStar,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
