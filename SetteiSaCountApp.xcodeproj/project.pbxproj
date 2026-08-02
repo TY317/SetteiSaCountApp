@@ -558,6 +558,7 @@
 		0F6BD7EA2D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7E92D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift */; };
 		0F6EC0052F74033A001AF24E /* bakemonoTableKiteiGameKaiju.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EC0042F74033A001AF24E /* bakemonoTableKiteiGameKaiju.swift */; };
 		0F6EC0062F7403BB001AF24E /* bakemonoTableKiteiGameKaiju.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EC0042F74033A001AF24E /* bakemonoTableKiteiGameKaiju.swift */; };
+		0F6F0818301EC5210088F00C /* ver430.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0817301EC5210088F00C /* ver430.swift */; };
 		0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7C2CA382AB008554A0 /* hanaTenshoViewTop.swift */; };
 		0F6F1F7F2CA382C2008554A0 /* hanaTenshoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7E2CA382C2008554A0 /* hanaTenshoAssets.xcassets */; };
 		0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FB8E12DE5DD8900207855 /* mhrTableQuestTable.swift */; };
@@ -2148,6 +2149,7 @@
 		0F6BD7E72D8863A6003F5563 /* arifureSubViewTablePremiumAtHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureSubViewTablePremiumAtHit.swift; sourceTree = "<group>"; };
 		0F6BD7E92D886861003F5563 /* arifureSubViewTableKakuseiSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureSubViewTableKakuseiSuccess.swift; sourceTree = "<group>"; };
 		0F6EC0042F74033A001AF24E /* bakemonoTableKiteiGameKaiju.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bakemonoTableKiteiGameKaiju.swift; sourceTree = "<group>"; };
+		0F6F0817301EC5210088F00C /* ver430.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver430.swift; sourceTree = "<group>"; };
 		0F6F1F7C2CA382AB008554A0 /* hanaTenshoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoViewTop.swift; sourceTree = "<group>"; };
 		0F6F1F7E2CA382C2008554A0 /* hanaTenshoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hanaTenshoAssets.xcassets; sourceTree = "<group>"; };
 		0F6FB8E12DE5DD8900207855 /* mhrTableQuestTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrTableQuestTable.swift; sourceTree = "<group>"; };
@@ -4720,6 +4722,7 @@
 				0F431EEA300917EB008560DE /* ver412.swift */,
 				0F431F35300C4E22008560DE /* ver420.swift */,
 				0FD77CE3301782BE00F792DC /* ver421.swift */,
+				0F6F0817301EC5210088F00C /* ver430.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -7135,6 +7138,7 @@
 				0FD357AC2DAE98DE0069BD1A /* mahjongViewTop.swift in Sources */,
 				0F9A4F982DF3AF83003B6337 /* guiltyCrown2TableBellPattern.swift in Sources */,
 				0FF6D21E2EED8DB40045265B /* hihodenView95Ci.swift in Sources */,
+				0F6F0818301EC5210088F00C /* ver430.swift in Sources */,
 				0FD587222FF932A1005689C6 /* rioAceTableVoiceFuriwake.swift in Sources */,
 				0FD357862DAA76EA0069BD1A /* sbjTableEndScreen.swift in Sources */,
 				0F447C6F2F4A773D006DAF11 /* newKingHanaView95CiTotal.swift in Sources */,
