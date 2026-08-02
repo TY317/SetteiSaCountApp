@@ -54,6 +54,17 @@ struct index2ViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: index2ViewEnding(
+                        index2: index2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.index2MenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewFujimaruCoin()) {
                         unitLabelMenu(

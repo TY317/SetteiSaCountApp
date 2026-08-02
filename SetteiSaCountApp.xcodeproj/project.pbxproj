@@ -1654,6 +1654,7 @@
 		237993D88DD94F8C85B00E71 /* rioAceViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */; };
 		2A82310038B94C63B2AE3F72 /* sencole6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDD80644654A75A9D3A3D1 /* sencole6Class.swift */; };
 		2DA6BE6405DD49D19ADC952B /* index2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E705DB1AFC3495285B5FAE8 /* index2ViewNormal.swift */; };
+		7C5C0152D0D14823BD52BEAC /* index2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E2C426FBE4F20B5BE1112 /* index2ViewEnding.swift */; };
 		D0F2547A32FA4B6090ABCD18 /* index2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0F45DF7174A9497281784 /* index2ViewScreen.swift */; };
 		442C3827C83C45ED9DB05F04 /* index2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2072FB4B7D4AA68845BAF4 /* index2ViewBayes.swift */; };
 		34ED2A89F21340BE89AC8DB8 /* kerottoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE82618305844A5BBF533CE /* kerottoViewTop.swift */; };
@@ -3171,6 +3172,7 @@
 		105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewNormal.swift; sourceTree = "<group>"; };
 		1BCAE4CEF67E4E1CA9315F0A /* index2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2Class.swift; sourceTree = "<group>"; };
 		1E705DB1AFC3495285B5FAE8 /* index2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewNormal.swift; sourceTree = "<group>"; };
+		266E2C426FBE4F20B5BE1112 /* index2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewEnding.swift; sourceTree = "<group>"; };
 		D4D0F45DF7174A9497281784 /* index2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewScreen.swift; sourceTree = "<group>"; };
 		EF2072FB4B7D4AA68845BAF4 /* index2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewBayes.swift; sourceTree = "<group>"; };
 		2112D5FC23C0424CBFDE0527 /* sencole6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sencole6Assets.xcassets; sourceTree = "<group>"; };
@@ -5861,6 +5863,7 @@
 				5E124166C3E947F5B056B163 /* index2ViewTop.swift */,
 				1BCAE4CEF67E4E1CA9315F0A /* index2Class.swift */,
 				1E705DB1AFC3495285B5FAE8 /* index2ViewNormal.swift */,
+				266E2C426FBE4F20B5BE1112 /* index2ViewEnding.swift */,
 				D4D0F45DF7174A9497281784 /* index2ViewScreen.swift */,
 				DEB4C919C7B64CFF975CF67F /* index2TableKoyakuPattern.swift */,
 				EF2072FB4B7D4AA68845BAF4 /* index2ViewBayes.swift */,
@@ -7432,6 +7435,7 @@
 				EF8AEC55716A4376957DC659 /* index2ViewTop.swift in Sources */,
 				05199C0DD7CA4E5EB3FF51A8 /* index2Class.swift in Sources */,
 				2DA6BE6405DD49D19ADC952B /* index2ViewNormal.swift in Sources */,
+				7C5C0152D0D14823BD52BEAC /* index2ViewEnding.swift in Sources */,
 				D0F2547A32FA4B6090ABCD18 /* index2ViewScreen.swift in Sources */,
 				442C3827C83C45ED9DB05F04 /* index2ViewBayes.swift in Sources */,
 				445F491E82024DF19716ACAE /* index2ViewFirstHit.swift in Sources */,

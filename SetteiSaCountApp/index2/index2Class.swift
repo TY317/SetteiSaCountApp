@@ -98,10 +98,53 @@ class Index2: ObservableObject {
     @AppStorage("index2MinusCheck") var minusCheck: Bool = false
     @AppStorage("index2SelectedMemory") var selectedMemory = "メモリー1"
 
+    // -------
+    // セリフ選択
+    // -------
+    @AppStorage("index2CommentCount1") var commentCount1: Int = 0
+    @AppStorage("index2CommentCount2") var commentCount2: Int = 0
+    @AppStorage("index2CommentCount3") var commentCount3: Int = 0
+    @AppStorage("index2CommentCount4") var commentCount4: Int = 0
+    @AppStorage("index2CommentCount5") var commentCount5: Int = 0
+    @AppStorage("index2CommentCount6") var commentCount6: Int = 0
+    @AppStorage("index2CommentCount7") var commentCount7: Int = 0
+    @AppStorage("index2CommentCount8") var commentCount8: Int = 0
+    @AppStorage("index2CommentCount9") var commentCount9: Int = 0
+    @AppStorage("index2CommentCountSum") var commentCountSum: Int = 0
+
+    func commentSumFunc() {
+        commentCountSum = countSum(
+            commentCount1,
+            commentCount2,
+            commentCount3,
+            commentCount4,
+            commentCount5,
+            commentCount6,
+            commentCount7,
+            commentCount8,
+            commentCount9,
+        )
+    }
+
+    func resetComment() {
+        commentCount1 = 0
+        commentCount2 = 0
+        commentCount3 = 0
+        commentCount4 = 0
+        commentCount5 = 0
+        commentCount6 = 0
+        commentCount7 = 0
+        commentCount8 = 0
+        commentCount9 = 0
+        commentCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetComment()
     }
 }
 

@@ -382,6 +382,7 @@ class commonVar: ObservableObject {
     @AppStorage("index2MenuFirstHitBadge") var index2MenuFirstHitBadge: String = "none"
     @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
     @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
+    @AppStorage("index2MenuEndingBadge") var index2MenuEndingBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
