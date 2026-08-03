@@ -126,6 +126,15 @@ struct index2ViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // モード
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    index2TableMode()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.index2MenuNormalBadge)
