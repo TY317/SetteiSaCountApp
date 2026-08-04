@@ -39,6 +39,21 @@ struct worldDaiStarViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // ---- モード
+            Section {
+                // 規定G数
+                unitLinkButtonViewBuilder(sheetTitle: "規定G数消化時の抽選") {
+                    worldDaiStarTableKiteiGame()
+                }
+                
+                // ラッキーモード
+                unitLinkButtonViewBuilder(sheetTitle: "ラッキーモード") {
+                    worldDaiStarTableLuckyMode()
+                }
+            } header: {
+                Text("規定G数、モード")
+            }
 
         }
         // //// バッジのリセット
