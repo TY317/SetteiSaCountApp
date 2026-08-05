@@ -20,6 +20,7 @@ struct mt5ViewBayes: View {
     @State var blackMedalEnable: Bool = true
     @State var aoshimaScreenEnable: Bool = true
     @State var rareItemEnable: Bool = true
+    @State var medalBYEnable: Bool = true
     
     // 全機種共通
     @ObservedObject var bayes: Bayes   // BayesClassのインスタンス
@@ -64,6 +65,8 @@ struct mt5ViewBayes: View {
                 }
                 // ライバルモード
                 unitToggleWithQuestion(enable: self.$rivalEnable, title: "ライバルモード")
+                // メダル青・黄比率
+                unitToggleWithQuestion(enable: self.$medalBYEnable, title: "メダル青・黄比率")
                 // 黒メダル
                 unitToggleWithQuestion(enable: self.$blackMedalEnable, title: "黒メダル出現率")
                 // 青島SGラウンド開始画面
@@ -232,6 +235,16 @@ struct mt5ViewBayes: View {
             }
         }
         
+        // メダル青・黄色比率
+        var logPostMedalBY = [Double](repeating: 0, count: self.settingList.count)
+        if self.medalBYEnable {
+            logPostMedalBY = logPostPercentBino(
+                ratio: mt5.ratioMedalBYBlue,
+                Count: mt5.blueMedalCount,
+                bigNumber: mt5.medalCountBYSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -273,6 +286,7 @@ struct mt5ViewBayes: View {
             logPostScreen,
             logPostTrophy,
             logPostBefore,
+            logPostMedalBY,
         ])
         
         // 事後確率の算出

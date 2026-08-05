@@ -115,6 +115,27 @@ struct mt5View95Ci: View {
 //                .popoverTip(tipUnit95CiViewExplain())
             }
             .tag(5)
+            
+            // メダル青・黄色比率　青回数
+            List {
+                Section {
+                    unitChart95CiPercent(
+                        currentCount: $mt5.blueMedalCount,
+                        bigNumber: $mt5.medalCountBYSum,
+                        setting1Percent: mt5.ratioMedalBYBlue[0],
+                        setting2Percent: mt5.ratioMedalBYBlue[1],
+                        setting3Enable: false,
+                        setting3Percent: -100.0,
+                        setting4Percent: mt5.ratioMedalBYBlue[2],
+                        setting5Percent: mt5.ratioMedalBYBlue[3],
+                        setting6Percent: mt5.ratioMedalBYBlue[4]
+                    )
+                } header: {
+                    unitLabelMachineTopTitle(machineName: "メダル青・黄色比率\n 青 回数")
+                }
+            }
+            .tag(8)
+            
             // 黒メダル回数
             List {
                 Section {

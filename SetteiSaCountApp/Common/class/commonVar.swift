@@ -705,6 +705,7 @@ class commonVar: ObservableObject {
     @AppStorage("mt5MachineIconBadge") var mt5MachineIconBadge: String = "none"
     @AppStorage("mt5MenuGekisoBadge") var mt5MenuGekisoBadge: String = "none"
     @AppStorage("mt5MenuBayesBadge") var mt5MenuBayesBadge: String = "none"
+    @AppStorage("mt5MenuMedalBadge") var mt5MenuMedalBadge: String = "none"
     
     // //// スマスロ北斗
     @AppStorage("hokutoMachineIconBadge") var hokutoMachineIconBadge = "none"
@@ -750,6 +751,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5053", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5055", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5055", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "4450", newStatus: "update")
+                mt5MenuMedalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
