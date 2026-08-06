@@ -710,6 +710,9 @@ class commonVar: ObservableObject {
     // //// スマスロ北斗
     @AppStorage("hokutoMachineIconBadge") var hokutoMachineIconBadge = "none"
     
+    // ---- スーパーブラックジャック
+    @AppStorage("sbjMenuNormalBadgeStatus") var sbjMenuNormalBadgeStatus = "none"
+    
     // -------
     // リワード広告の強制アンロック
     // -------
@@ -755,6 +758,8 @@ class commonVar: ObservableObject {
                 mt5MenuMedalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4742", newStatus: "update")
                 tokyoGhoulMenuFirstHitBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4712", newStatus: "update")
+                sbjMenuNormalBadgeStatus = "update"
             }
             else {
                 print("\(targetVersion)以上です")

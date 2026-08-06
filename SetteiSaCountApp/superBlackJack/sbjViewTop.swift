@@ -17,6 +17,7 @@ struct sbjViewTop: View {
     @StateObject var sbjMemory1 = SbjMemory1()
     @StateObject var sbjMemory2 = SbjMemory2()
     @StateObject var sbjMemory3 = SbjMemory3()
+    @EnvironmentObject var common: commonVar
     
     var body: some View {
         NavigationStack {
@@ -38,8 +39,8 @@ struct sbjViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "bell.fill",
-                            textBody: "通常時 小役、高確、初当り"
-//                            badgeStatus: ver310.sbjMenuNormalBadgeStatus
+                            textBody: "通常時 小役、高確、初当り",
+                            badgeStatus: common.sbjMenuNormalBadgeStatus
                         )
                     }
                     // 規定ゲーム数でのステージ移行
@@ -96,6 +97,8 @@ struct sbjViewTop: View {
                 }
             }
         }
+        // //// バッジのリセット
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4712")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -432,4 +435,5 @@ struct sbjSubViewLoadMemory: View {
     sbjViewTop(
 //        ver310: Ver310()
     )
+    .environmentObject(commonVar())
 }

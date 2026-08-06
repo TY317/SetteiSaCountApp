@@ -53,3 +53,19 @@ struct tipVer430TokyoGhoulUraAt: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer430SbjBbTenjo: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("BBスルー天井の振分けを追加")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
