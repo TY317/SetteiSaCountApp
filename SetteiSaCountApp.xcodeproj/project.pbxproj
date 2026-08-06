@@ -571,6 +571,8 @@
 		0F6F08A23020CF790088F00C /* worldDaiStarTableKiteiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08A03020CF710088F00C /* worldDaiStarTableKiteiGame.swift */; };
 		0F6F08A4302210200088F00C /* worldDaiStarTableLuckyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08A3302210200088F00C /* worldDaiStarTableLuckyMode.swift */; };
 		0F6F08A5302210DE0088F00C /* worldDaiStarTableLuckyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08A3302210200088F00C /* worldDaiStarTableLuckyMode.swift */; };
+		0F6F08A63024BC2B0088F00C /* tokyoGhoulSubViewTableUraAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC579D2D8EE69300FF1024 /* tokyoGhoulSubViewTableUraAt.swift */; };
+		0F6F08A73024BC3E0088F00C /* tokyoGhoulClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1561A2D67196C00B17F83 /* tokyoGhoulClass.swift */; };
 		0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7C2CA382AB008554A0 /* hanaTenshoViewTop.swift */; };
 		0F6F1F7F2CA382C2008554A0 /* hanaTenshoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7E2CA382C2008554A0 /* hanaTenshoAssets.xcassets */; };
 		0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FB8E12DE5DD8900207855 /* mhrTableQuestTable.swift */; };
@@ -7679,6 +7681,7 @@
 				0F45A5C92F04BB3B0022E355 /* tekkenTableMode.swift in Sources */,
 				0F6EC0062F7403BB001AF24E /* bakemonoTableKiteiGameKaiju.swift in Sources */,
 				0F6F08A23020CF790088F00C /* worldDaiStarTableKiteiGame.swift in Sources */,
+				0F6F08A63024BC2B0088F00C /* tokyoGhoulSubViewTableUraAt.swift in Sources */,
 				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
 				0F1218762FCAFB5200E50794 /* sao2TableKoyakuPattern.swift in Sources */,
 				0FD586F32FF7F18C005689C6 /* sencole6TableModeSisa.swift in Sources */,
@@ -7724,6 +7727,7 @@
 				0F03BD392F0B961C00222339 /* shakeTableKoyakuRatio.swift in Sources */,
 				0F19D4452F2D7A31004A6D9F /* hokutoTenseiTableTengeki.swift in Sources */,
 				0F59EF4E2F9CE0D200CF0C55 /* godKisekiTableKoyakuRen.swift in Sources */,
+				0F6F08A73024BC3E0088F00C /* tokyoGhoulClass.swift in Sources */,
 				0FA662FE2F234AD500F3259F /* bakemonoClass.swift in Sources */,
 				0FA0A7CE2EF6947C003EF8BD /* unitReelWhiteBar.swift in Sources */,
 				0F973F512F9455E300818DD9 /* enen2TableEnding.swift in Sources */,

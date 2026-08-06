@@ -37,3 +37,19 @@ struct tipVer430: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer430TokyoGhoulUraAt: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("規定ゲーム数での当選時 裏AT突入率の情報を追加")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

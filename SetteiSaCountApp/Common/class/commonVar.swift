@@ -753,6 +753,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5055", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "4450", newStatus: "update")
                 mt5MenuMedalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4742", newStatus: "update")
+                tokyoGhoulMenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
