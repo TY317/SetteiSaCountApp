@@ -247,6 +247,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory1.episodeCountNone = tekken6.episodeCountNone
         tekken6Memory1.episodeCountHit = tekken6.episodeCountHit
         tekken6Memory1.episodeCountSum = tekken6.episodeCountSum
+        tekken6Memory1.chanceColorCountRed = tekken6.chanceColorCountRed
+        tekken6Memory1.chanceColorCountAnother = tekken6.chanceColorCountAnother
+        tekken6Memory1.chanceColorCountSum = tekken6.chanceColorCountSum
     }
     func saveMemory2() {
         tekken6Memory2.normalGame = tekken6.normalGame
@@ -272,6 +275,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory2.episodeCountNone = tekken6.episodeCountNone
         tekken6Memory2.episodeCountHit = tekken6.episodeCountHit
         tekken6Memory2.episodeCountSum = tekken6.episodeCountSum
+        tekken6Memory2.chanceColorCountRed = tekken6.chanceColorCountRed
+        tekken6Memory2.chanceColorCountAnother = tekken6.chanceColorCountAnother
+        tekken6Memory2.chanceColorCountSum = tekken6.chanceColorCountSum
     }
     func saveMemory3() {
         tekken6Memory3.normalGame = tekken6.normalGame
@@ -297,6 +303,9 @@ struct tekken6SubViewSaveMemory: View {
         tekken6Memory3.episodeCountNone = tekken6.episodeCountNone
         tekken6Memory3.episodeCountHit = tekken6.episodeCountHit
         tekken6Memory3.episodeCountSum = tekken6.episodeCountSum
+        tekken6Memory3.chanceColorCountRed = tekken6.chanceColorCountRed
+        tekken6Memory3.chanceColorCountAnother = tekken6.chanceColorCountAnother
+        tekken6Memory3.chanceColorCountSum = tekken6.chanceColorCountSum
     }
 }
 
@@ -351,6 +360,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.episodeCountNone = tekken6Memory1.episodeCountNone
         tekken6.episodeCountHit = tekken6Memory1.episodeCountHit
         tekken6.episodeCountSum = tekken6Memory1.episodeCountSum
+        tekken6.chanceColorCountRed = tekken6Memory1.chanceColorCountRed
+        tekken6.chanceColorCountAnother = tekken6Memory1.chanceColorCountAnother
+        tekken6.chanceColorCountSum = tekken6Memory1.chanceColorCountSum
     }
     func loadMemory2() {
         tekken6.normalGame = tekken6Memory2.normalGame
@@ -376,6 +388,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.episodeCountNone = tekken6Memory2.episodeCountNone
         tekken6.episodeCountHit = tekken6Memory2.episodeCountHit
         tekken6.episodeCountSum = tekken6Memory2.episodeCountSum
+        tekken6.chanceColorCountRed = tekken6Memory2.chanceColorCountRed
+        tekken6.chanceColorCountAnother = tekken6Memory2.chanceColorCountAnother
+        tekken6.chanceColorCountSum = tekken6Memory2.chanceColorCountSum
     }
     func loadMemory3() {
         tekken6.normalGame = tekken6Memory3.normalGame
@@ -401,6 +416,9 @@ struct tekken6SubViewLoadMemory: View {
         tekken6.episodeCountNone = tekken6Memory3.episodeCountNone
         tekken6.episodeCountHit = tekken6Memory3.episodeCountHit
         tekken6.episodeCountSum = tekken6Memory3.episodeCountSum
+        tekken6.chanceColorCountRed = tekken6Memory3.chanceColorCountRed
+        tekken6.chanceColorCountAnother = tekken6Memory3.chanceColorCountAnother
+        tekken6.chanceColorCountSum = tekken6Memory3.chanceColorCountSum
     }
 }
 

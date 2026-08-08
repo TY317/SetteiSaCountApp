@@ -69,6 +69,7 @@ class Tekken6: ObservableObject {
         resetBack()
         resetNormal()
         resetBonus()
+        resetDuringAt()
     }
     
     // -------
@@ -116,6 +117,26 @@ class Tekken6: ObservableObject {
         episodeCountSum = 0
         minusCheck = false
     }
+    
+    
+    // --------
+    // ver4.3.0
+    // --------
+    let ratioChanceColorRed: [Double] = [4,5,7,8,10,13]
+    @AppStorage("tekken6chanceColorCountRed") var chanceColorCountRed: Int = 0
+    @AppStorage("tekken6chanceColorCountAnother") var chanceColorCountAnother: Int = 0
+    @AppStorage("tekken6chanceColorCountSum") var chanceColorCountSum: Int = 0
+    
+    func chanceSumFunc() {
+        chanceColorCountSum = chanceColorCountRed + chanceColorCountAnother
+    }
+    
+    func resetDuringAt() {
+        chanceColorCountRed = 0
+        chanceColorCountAnother = 0
+        chanceColorCountSum = 0
+        minusCheck = false
+    }
 }
 
 
@@ -145,6 +166,9 @@ class Tekken6Memory1: ObservableObject {
     @AppStorage("tekken6episodeCountNoneMemory1") var episodeCountNone: Int = 0
     @AppStorage("tekken6episodeCountHitMemory1") var episodeCountHit: Int = 0
     @AppStorage("tekken6episodeCountSumMemory1") var episodeCountSum: Int = 0
+    @AppStorage("tekken6chanceColorCountRedMemory1") var chanceColorCountRed: Int = 0
+    @AppStorage("tekken6chanceColorCountAnotherMemory1") var chanceColorCountAnother: Int = 0
+    @AppStorage("tekken6chanceColorCountSumMemory1") var chanceColorCountSum: Int = 0
 }
 
 
@@ -174,6 +198,9 @@ class Tekken6Memory2: ObservableObject {
     @AppStorage("tekken6episodeCountNoneMemor21") var episodeCountNone: Int = 0
     @AppStorage("tekken6episodeCountHitMemory2") var episodeCountHit: Int = 0
     @AppStorage("tekken6episodeCountSumMemory2") var episodeCountSum: Int = 0
+    @AppStorage("tekken6chanceColorCountRedMemory2") var chanceColorCountRed: Int = 0
+    @AppStorage("tekken6chanceColorCountAnotherMemory2") var chanceColorCountAnother: Int = 0
+    @AppStorage("tekken6chanceColorCountSumMemory2") var chanceColorCountSum: Int = 0
 }
 
 
@@ -203,4 +230,7 @@ class Tekken6Memory3: ObservableObject {
     @AppStorage("tekken6episodeCountNoneMemory3") var episodeCountNone: Int = 0
     @AppStorage("tekken6episodeCountHitMemory3") var episodeCountHit: Int = 0
     @AppStorage("tekken6episodeCountSumMemory3") var episodeCountSum: Int = 0
+    @AppStorage("tekken6chanceColorCountRedMemory3") var chanceColorCountRed: Int = 0
+    @AppStorage("tekken6chanceColorCountAnotherMemory3") var chanceColorCountAnother: Int = 0
+    @AppStorage("tekken6chanceColorCountSumMemory3") var chanceColorCountSum: Int = 0
 }

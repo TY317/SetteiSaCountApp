@@ -760,6 +760,8 @@ class commonVar: ObservableObject {
                 tokyoGhoulMenuFirstHitBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4712", newStatus: "update")
                 sbjMenuNormalBadgeStatus = "update"
+                machines.updateMachineBadgeStatus(id: "4913", newStatus: "update")
+                tekken6MenuScreenBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
