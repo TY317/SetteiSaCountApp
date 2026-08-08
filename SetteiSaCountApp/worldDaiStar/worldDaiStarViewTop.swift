@@ -192,13 +192,31 @@ struct worldDaiStarSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        worldDaiStarMemory1.normalGame = worldDaiStar.normalGame
+        worldDaiStarMemory1.firstHitCountCz = worldDaiStar.firstHitCountCz
+        worldDaiStarMemory1.firstHitCountAt = worldDaiStar.firstHitCountAt
+        worldDaiStarMemory1.screenCount1 = worldDaiStar.screenCount1
+        worldDaiStarMemory1.screenCount2 = worldDaiStar.screenCount2
+        worldDaiStarMemory1.screenCount3 = worldDaiStar.screenCount3
+        worldDaiStarMemory1.screenCountSum = worldDaiStar.screenCountSum
     }
     func saveMemory2() {
-
+        worldDaiStarMemory2.normalGame = worldDaiStar.normalGame
+        worldDaiStarMemory2.firstHitCountCz = worldDaiStar.firstHitCountCz
+        worldDaiStarMemory2.firstHitCountAt = worldDaiStar.firstHitCountAt
+        worldDaiStarMemory2.screenCount1 = worldDaiStar.screenCount1
+        worldDaiStarMemory2.screenCount2 = worldDaiStar.screenCount2
+        worldDaiStarMemory2.screenCount3 = worldDaiStar.screenCount3
+        worldDaiStarMemory2.screenCountSum = worldDaiStar.screenCountSum
     }
     func saveMemory3() {
-
+        worldDaiStarMemory3.normalGame = worldDaiStar.normalGame
+        worldDaiStarMemory3.firstHitCountCz = worldDaiStar.firstHitCountCz
+        worldDaiStarMemory3.firstHitCountAt = worldDaiStar.firstHitCountAt
+        worldDaiStarMemory3.screenCount1 = worldDaiStar.screenCount1
+        worldDaiStarMemory3.screenCount2 = worldDaiStar.screenCount2
+        worldDaiStarMemory3.screenCount3 = worldDaiStar.screenCount3
+        worldDaiStarMemory3.screenCountSum = worldDaiStar.screenCountSum
     }
 }
 
@@ -230,13 +248,31 @@ struct worldDaiStarSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        worldDaiStar.normalGame = worldDaiStarMemory1.normalGame
+        worldDaiStar.firstHitCountCz = worldDaiStarMemory1.firstHitCountCz
+        worldDaiStar.firstHitCountAt = worldDaiStarMemory1.firstHitCountAt
+        worldDaiStar.screenCount1 = worldDaiStarMemory1.screenCount1
+        worldDaiStar.screenCount2 = worldDaiStarMemory1.screenCount2
+        worldDaiStar.screenCount3 = worldDaiStarMemory1.screenCount3
+        worldDaiStar.screenCountSum = worldDaiStarMemory1.screenCountSum
     }
     func loadMemory2() {
-
+        worldDaiStar.normalGame = worldDaiStarMemory2.normalGame
+        worldDaiStar.firstHitCountCz = worldDaiStarMemory2.firstHitCountCz
+        worldDaiStar.firstHitCountAt = worldDaiStarMemory2.firstHitCountAt
+        worldDaiStar.screenCount1 = worldDaiStarMemory2.screenCount1
+        worldDaiStar.screenCount2 = worldDaiStarMemory2.screenCount2
+        worldDaiStar.screenCount3 = worldDaiStarMemory2.screenCount3
+        worldDaiStar.screenCountSum = worldDaiStarMemory2.screenCountSum
     }
     func loadMemory3() {
-
+        worldDaiStar.normalGame = worldDaiStarMemory3.normalGame
+        worldDaiStar.firstHitCountCz = worldDaiStarMemory3.firstHitCountCz
+        worldDaiStar.firstHitCountAt = worldDaiStarMemory3.firstHitCountAt
+        worldDaiStar.screenCount1 = worldDaiStarMemory3.screenCount1
+        worldDaiStar.screenCount2 = worldDaiStarMemory3.screenCount2
+        worldDaiStar.screenCount3 = worldDaiStarMemory3.screenCount3
+        worldDaiStar.screenCountSum = worldDaiStarMemory3.screenCountSum
     }
 }
 

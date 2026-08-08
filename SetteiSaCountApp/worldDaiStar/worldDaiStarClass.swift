@@ -74,18 +74,39 @@ class WorldDaiStar: ObservableObject {
 
 
 class WorldDaiStarMemory1: ObservableObject {
+    @AppStorage("worldDaiStarNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("worldDaiStarScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("worldDaiStarScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("worldDaiStarScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("worldDaiStarScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory1") var memo = ""
     @AppStorage("worldDaiStarDateMemory1") var dateDouble = 0.0
 }
 
 
 class WorldDaiStarMemory2: ObservableObject {
+    @AppStorage("worldDaiStarNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("worldDaiStarScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("worldDaiStarScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("worldDaiStarScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("worldDaiStarScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory2") var memo = ""
     @AppStorage("worldDaiStarDateMemory2") var dateDouble = 0.0
 }
 
 
 class WorldDaiStarMemory3: ObservableObject {
+    @AppStorage("worldDaiStarNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("worldDaiStarFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("worldDaiStarScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("worldDaiStarScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("worldDaiStarScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("worldDaiStarScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory3") var memo = ""
     @AppStorage("worldDaiStarDateMemory3") var dateDouble = 0.0
 }
