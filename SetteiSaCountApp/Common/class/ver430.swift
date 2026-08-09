@@ -26,12 +26,12 @@ struct tipVer430UpdateInfo: Tip {
 //////////////////
 // Tip：
 //////////////////
-struct tipVer430: Tip {
+struct tipVer430Mt5Medal: Tip {
     var title: Text {
         Text("機能更新")
     }
     var message: Text? {
-        Text("")
+        Text("青・黄メダルの比率設定差が判明\n算出機能を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

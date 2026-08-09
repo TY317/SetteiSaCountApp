@@ -106,7 +106,7 @@ struct index2ViewTop: View {
 
                 // コピーライト
                 unitSectionCopyright {
-                    Text("2017 鎌池和馬／ＫＡＤＯＫＡＷＡ　アスキー・メディアワークス／PROJECT-INDEX Ⅲ")
+                    Text("©︎2017 鎌池和馬／ＫＡＤＯＫＡＷＡ　アスキー・メディアワークス／PROJECT-INDEX Ⅲ")
                 }
             }
         }

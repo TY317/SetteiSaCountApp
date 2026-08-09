@@ -54,6 +54,7 @@ struct mt5ViewMedal: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .center)
                     }
+                    .popoverTip(tipVer430Mt5Medal())
                     // 参考情報リンク
                     unitLinkButton(title: "メダルについて", exview: AnyView(mt5ExViewMedal()))
                     unitLinkButtonViewBuilder(sheetTitle: "青・黄比率") {

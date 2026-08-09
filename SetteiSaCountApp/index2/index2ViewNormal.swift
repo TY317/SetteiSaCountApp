@@ -67,6 +67,9 @@ struct index2ViewNormal: View {
                 }
                 
                 DisclosureGroup {
+                    Text("高確は主にロシアステージで示唆される")
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
                     // カウントボタン横並び
                     HStack {
                         // スイカ成立

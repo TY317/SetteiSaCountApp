@@ -154,7 +154,8 @@ struct tekken6ViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.tekken6MachineIconBadge)
+//        .resetBadgeOnAppear($common.tekken6MachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4913")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
