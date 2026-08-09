@@ -16,6 +16,8 @@ struct index2ViewBayes: View {
     @State var suikaKokakuEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
+    @State var commentEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -58,6 +60,20 @@ struct index2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                // エンディング セリフ
+                unitToggleWithQuestion(enable: self.$commentEnable, title: "エンディング セリフ") {
+                    unitExView5body2image(
+                        title: "エンディング セリフ",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("藤丸コイン") {
@@ -147,6 +163,24 @@ struct index2ViewBayes: View {
                 bigNumber: index2.normalGame
             )
         }
+        // AT終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [index2.screenCount5, index2.screenCount6, index2.screenCount7],
+                ratioList: [index2.ratioScreenGusu, index2.ratioScreenOver4, index2.ratioScreenOver6],
+                bigNumber: index2.screenCountSum
+            )
+        }
+        // エンディング セリフ
+        var logPostComment: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.commentEnable {
+            logPostComment = logPostPercentMulti(
+                countList: [index2.commentCount5, index2.commentCount6, index2.commentCount7, index2.commentCount8, index2.commentCount9],
+                ratioList: [index2.ratioCommentOver2, index2.ratioCommentOver3, index2.ratioCommentOver4, index2.ratioCommentOver5, index2.ratioCommentOver6],
+                bigNumber: index2.commentCountSum
+            )
+        }
         // 🍉からの高確移行率
         var logPostSuikaKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.suikaKokakuEnable {
@@ -197,6 +231,8 @@ struct index2ViewBayes: View {
             logPostSuikaKokaku,
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
+            logPostComment,
             logPostTrophy,
             logPostBefore,
         ])

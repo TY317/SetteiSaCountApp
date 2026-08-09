@@ -46,6 +46,9 @@ class Index2: ObservableObject {
     // --------
     // 終了画面
     // --------
+    let ratioScreenGusu: [Double] = [0,0.1,0,0.1,0,0.1]
+    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1]
     @AppStorage("index2ScreenCount1") var screenCount1: Int = 0
     @AppStorage("index2ScreenCount2") var screenCount2: Int = 0
     @AppStorage("index2ScreenCount3") var screenCount3: Int = 0
@@ -101,6 +104,11 @@ class Index2: ObservableObject {
     // -------
     // セリフ選択
     // -------
+    let ratioCommentOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioCommentOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
+    let ratioCommentOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioCommentOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioCommentOver6: [Double] = [0,0,0,0,0,0.1,]
     @AppStorage("index2CommentCount1") var commentCount1: Int = 0
     @AppStorage("index2CommentCount2") var commentCount2: Int = 0
     @AppStorage("index2CommentCount3") var commentCount3: Int = 0
