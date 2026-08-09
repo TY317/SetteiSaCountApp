@@ -13,6 +13,7 @@ struct otome5ViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.9, 101.0, 106.2, 111.1, 114.9]
+    @State var endingVoiceEnable: Bool = true
     @State var attackEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var firstHitDirectEnable: Bool = true
@@ -57,6 +58,13 @@ struct otome5ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitDirectEnable, title: "直撃ボーナス初当り確率")
                 // 終了画面スタンプ
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面スタンプ")
+                // エンディング ボイス
+                unitToggleWithQuestion(enable: self.$endingVoiceEnable, title: "エンディング ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング ボイス",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
                 // 隠れ凪
                 DisclosureGroup("隠れ凪") {
                     unitToggleWithQuestion(enable: self.$over2Check, title: "青")
@@ -182,7 +190,16 @@ struct otome5ViewBayes: View {
                 logPostScreen[4] = -Double.infinity
             }
         }
-        
+        // エンディング ボイス
+        var logPostEndingVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingVoiceEnable {
+            logPostEndingVoice = logPostPercentMulti(
+                countList: [otome5.voiceCount6, otome5.voiceCount7, otome5.voiceCount8, otome5.voiceCount9, otome5.voiceCount10, otome5.voiceCount11, otome5.voiceCount12],
+                ratioList: [otome5.ratioEndingVoiceOver2, otome5.ratioEndingVoiceOver3, otome5.ratioEndingVoiceOver4, otome5.ratioEndingVoiceOver5, otome5.ratioEndingVoiceOver6, otome5.ratioEndingVoiceNegate2, otome5.ratioEndingVoiceNegate3],
+                bigNumber: otome5.voiceCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -224,8 +241,9 @@ struct otome5ViewBayes: View {
             logPostFirstHitAt,
             logPostFirstHitDirect,
             logPostScreen,
-            
-            
+            logPostEndingVoice,
+
+
             logPostTrophy,
             logPostBefore,
         ])

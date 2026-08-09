@@ -14,6 +14,12 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
 - **func**：対数尤度関数を選択（下表）。
 - **引数**：選んだ関数のシグネチャに沿って各引数の式を入力（例 `ratio: <prefix>.ratioFirstHitAt` の右辺）。カウント/ratio 変数は Class 側に存在する前提（無ければ add-firsthit 等で先に用意）。
 - **説明ボタンの有無**：トグルに注意書きシート（`unitExView5body2image`）を付けるか。付ける場合は文言（textBody…）を確認。→ (B') 参照。終了画面など「確定系のみ反映」系で多用。
+- **トグルの挿入位置**：まず対象 ViewBayes の `bayesSubStep2Section { … }` を読み、**既存トグルを上から順に一覧提示**（`// <title>` コメント／`unitToggleWithQuestion(enable: self.$<suffix>Enable, …)` で識別）。そのうえでユーザーに位置を確認する。指定形式：
+  - 「〈既存トグル〉の**直後**」／「〈既存トグル〉の**直前**」
+  - 「**先頭**」（STEP2 の最初のトグルの前＝アンカーコメント直後）
+  - 「**末尾**」（トロフィー DisclosureGroup の直前。トロフィーが無ければ Section 末尾）
+  - **既定は設けない。毎回必ずユーザーに確認する**（未指定のまま挿入しない）。判別要素は表示順が使い勝手に直結するため。
+  - **トロフィー DisclosureGroup は常に最下部を維持**（その後ろには挿入しない）。
 
 ### 対数尤度関数（`SetteiSaCountApp/Common/bayes/func/`）
 | func | 引数 | 用途 |
@@ -30,11 +36,17 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
     @State var <suffix>Enable: Bool = true
 ```
 
-**(B) STEP2 トグル**：アンカー `// ここに小役確率など機種固有の判別要素トグルを後で追加する` の直後（字下げ16スペース）
+**(B) STEP2 トグル**：**手順1で確定した挿入位置**に入れる（字下げ16スペース）
 ```swift
                 // <title>
                 unitToggleWithQuestion(enable: self.$<suffix>Enable, title: "<title>")
 ```
+**アンカーの決め方**（手順1の指定に応じて）：
+- 「〈既存トグル〉の**直後**」→ 対象トグルの行（`unitToggleWithQuestion(...)`。説明ボタン付きなら閉じ `}` まで）の直後に挿入。
+- 「〈既存トグル〉の**直前**」→ 対象トグルの `// <title>` コメントの直前に挿入。
+- 「**先頭**」→ アンカーコメント `// ここに小役確率など機種固有の判別要素トグルを後で追加する` の直後に挿入。
+- 「**末尾**」→ トロフィー `DisclosureGroup` の直前（トロフィーが無ければ `bayesSubStep2Section` の閉じ `}` の直前）に挿入。
+- アンカーコメント行自体は**残す**（次回以降の目印）。add-bayes 以前の手書き ViewBayes にはアンカーが無い場合があり、その時は既存トグルの並びを基準にする。
 
 **(B') 説明ボタン付きトグル（任意・要素ごとに確認）**：終了画面など「確定系のみ反映」等の注意書きを付けたい要素では、`unitToggleWithQuestion` に末尾クロージャで説明シート `unitExView5body2image` を付ける。付けるか・文言（textBody1…）は都度ユーザーに確認。
 ```swift
@@ -71,6 +83,8 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
 
 複数要素の場合は各要素について (A)〜(D) を順に挿入する。
 
+**(A)(C)(D) の順序について**：ユーザーに確認するのは **(B) のトグル位置だけ**（画面の表示順＝使い勝手に直結するため）。(A) @State・(C) 対数尤度・(D) 合算は**順序が挙動に影響しない**ので確認不要。ただし読みやすさのため、可能なら (B) で決めた並びに合わせる。
+
 ## 3. 検証・報告
 - `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
 - 提案コミットメッセージ：`[機能]<prefix> 設定期待値ページに判別要素を追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
@@ -78,5 +92,6 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
 
 ## 注意
 - 4箇所すべてに挿入しないと動かない（トグルだけ／尤度だけの片手落ちに注意）。特に **(D) logPostSum への追加を忘れない**（忘れると計算に反映されない）。
-- アンカーコメントは add-bayes 生成の全 ViewBayes に必ず存在。字下げは既存トロフィーブロックに合わせる。
+- アンカーコメントは add-bayes 生成の ViewBayes には存在する（add-bayes 以前の手書き実装＝karakuri2/shinYoshi 等には無いので、既存要素の並びを基準に挿入する）。字下げは既存トロフィーブロックに合わせる。
+- **(B) のトグル挿入位置は毎回ユーザーに確認する**（手順1）。既存トグルの一覧を提示してから聞くこと。
 - 本スキルは判別要素の配線のみ。Class 側のカウント変数・ratio 配列、トロフィー/事前確率（add-bayes）はスコープ外。

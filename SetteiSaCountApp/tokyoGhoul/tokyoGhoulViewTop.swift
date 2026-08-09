@@ -111,7 +111,8 @@ struct tokyoGhoulViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.tokyoGhoulMachineIconBadge)
+//        .resetBadgeOnAppear($common.tokyoGhoulMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4742")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)

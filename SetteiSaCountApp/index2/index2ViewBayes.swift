@@ -1,0 +1,269 @@
+//
+//  index2ViewBayes.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹.
+//
+
+import SwiftUI
+
+struct index2ViewBayes: View {
+    @ObservedObject var index2: Index2
+
+    // 機種ごとに見直し
+    let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
+    let payoutList: [Double] = [97.9, 98.7, 100, 104.5, 108.2, 113.3]
+    @State var suikaKokakuEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
+    @State var commentEnable: Bool = true
+
+    // 全機種共通
+    @EnvironmentObject var common: commonVar
+    @EnvironmentObject var bayes: Bayes
+    @EnvironmentObject var viewModel: InterstitialViewModel
+    @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
+    @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
+    @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
+    @State var resultGuess: [Double] = []   // 計算結果の入れ物
+    @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+        @State var over2Check: Bool = false
+        @State var over3Check: Bool = false
+        @State var over4Check: Bool = false
+        @State var over5Check: Bool = false
+        @State var over6Check: Bool = false
+    @State var selectedBeforeGuessPattern: String = "デフォルト"
+    var body: some View {
+        List {
+            // //// STEP1
+            bayesSubStep1Section(
+                bayes: bayes,
+                settingList: self.settingList,
+                guessCustom1: self.$guessCustom1,
+                guessCustom2: self.$guessCustom2,
+                guessCustom3: self.$guessCustom3,
+                selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
+            )
+
+            // //// STEP2
+            bayesSubStep2Section {
+                // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // 🍉からの高確移行率
+                unitToggleWithQuestion(enable: self.$suikaKokakuEnable, title: "🍉からの高確移行率") {
+                    unitExView5body2image(
+                        title: "🍉からの高確移行率",
+                        textBody1: "・高確移行率、美琴高確移行率を計算要素に加えます",
+                    )
+                }
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+                // エンディング セリフ
+                unitToggleWithQuestion(enable: self.$commentEnable, title: "エンディング セリフ") {
+                    unitExView5body2image(
+                        title: "エンディング セリフ",
+                        textBody1: "・確定系のみ反映させます",
+                    )
+                }
+
+                // トロフィー
+                DisclosureGroup("藤丸コイン") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "デンジャー柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
+            }
+
+            // //// STEP3
+            bayesSubStep3Section(viewModel: viewModel) {
+                self.resultGuess = bayesRatio()
+            }
+        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.index2MenuBayesBadge)
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: index2.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("設定期待値")
+        .navigationBarTitleDisplayMode(.inline)
+        // //// 画面表示時の処理
+        .bayesOnAppear(
+            bayes: bayes,
+            viewModel: viewModel,
+            settingList: self.settingList,
+            guessCustom1: self.$guessCustom1,
+            guessCustom2: self.$guessCustom2,
+            guessCustom3: self.$guessCustom3
+        )
+        // //// 計算結果シートの表示発火処理
+        .onChange(of: viewModel.isAdDismissed) {
+            if viewModel.isAdDismissed {
+                self.isShowResult = true
+            }
+        }
+        .sheet(isPresented: self.$isShowResult) {
+            bayesResultView(
+                settingList: self.settingList,
+                resultGuess: self.resultGuess,
+                payoutList: self.payoutList,
+            )
+                .presentationDetents([.large])
+        }
+        // //// ツールバー
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitToolbarButtonCustomSheet(
+                    settingList: self.settingList,
+                    bayes: bayes,
+                    guessCustom1: self.$guessCustom1,
+                    guessCustom2: self.$guessCustom2,
+                    guessCustom3: self.$guessCustom3,
+                    selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                bayesInfoButtonBayes()
+            }
+        }
+    }
+    // //// 事後確率の算出
+    private func bayesRatio() -> [Double] {
+        // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: index2.ratioFirstHitCz,
+                Count: index2.firstHitCountCz,
+                bigNumber: index2.normalGame
+            )
+        }
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: index2.ratioFirstHitAt,
+                Count: index2.firstHitCountAt,
+                bigNumber: index2.normalGame
+            )
+        }
+        // AT終了画面
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [index2.screenCount5, index2.screenCount6, index2.screenCount7],
+                ratioList: [index2.ratioScreenGusu, index2.ratioScreenOver4, index2.ratioScreenOver6],
+                bigNumber: index2.screenCountSum
+            )
+        }
+        // エンディング セリフ
+        var logPostComment: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.commentEnable {
+            logPostComment = logPostPercentMulti(
+                countList: [index2.commentCount5, index2.commentCount6, index2.commentCount7, index2.commentCount8, index2.commentCount9],
+                ratioList: [index2.ratioCommentOver2, index2.ratioCommentOver3, index2.ratioCommentOver4, index2.ratioCommentOver5, index2.ratioCommentOver6],
+                bigNumber: index2.commentCountSum
+            )
+        }
+        // 🍉からの高確移行率
+        var logPostSuikaKokaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.suikaKokakuEnable {
+            logPostSuikaKokaku = logPostPercentMulti(
+                countList: [index2.suikaCountKokaku, index2.suikaCountMikoto],
+                ratioList: [index2.ratioSuikaKokaku, index2.ratioSuikaMikotoKokaku],
+                bigNumber: index2.suikaCountKoyaku
+            )
+        }
+
+        // トロフィー
+        var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.over2Check {
+            logPostTrophy[0] = -Double.infinity
+        }
+        if self.over3Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+        }
+        if self.over4Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+        }
+        if self.over5Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+            logPostTrophy[3] = -Double.infinity
+        }
+        if self.over6Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+            logPostTrophy[3] = -Double.infinity
+            logPostTrophy[4] = -Double.infinity
+        }
+
+        // 事前確率の対数尤度
+        let logPostBefore = logPostBeforeFunc(
+            guess: selectedGuess(
+                pattern: self.selectedBeforeGuessPattern
+            )
+        )
+
+        // 判別要素の尤度合算
+        let logPostSum: [Double] = arraySumDouble([
+            logPostSuikaKokaku,
+            logPostFirstHitCz,
+            logPostFirstHitAt,
+            logPostScreen,
+            logPostComment,
+            logPostTrophy,
+            logPostBefore,
+        ])
+
+        // 事後確率の算出
+        let afterGuess = bayesResultRatioFunc(logPost: logPostSum)
+
+        return afterGuess
+    }
+
+    // //// 選択した設定配分配列を返す
+    func selectedGuess(pattern: String) -> [Int] {
+        switch pattern {
+        case bayes.guessPatternList[0]: return bayes.guess6Default
+        case bayes.guessPatternList[1]: return bayes.guess6JugDefault
+        case bayes.guessPatternList[2]: return bayes.guess6Evenly
+        case bayes.guessPatternList[3]: return bayes.guess6Half
+        case bayes.guessPatternList[4]: return bayes.guess6Quater
+        case bayes.guessPatternList[5]: return self.guessCustom1
+        case bayes.guessPatternList[6]: return self.guessCustom2
+        case bayes.guessPatternList[7]: return self.guessCustom3
+        default: return bayes.guess6Default
+        }
+    }
+}
+
+#Preview {
+    index2ViewBayes(
+        index2: Index2(),
+    )
+    .environmentObject(commonVar())
+    .environmentObject(Bayes())
+    .environmentObject(InterstitialViewModel())
+}

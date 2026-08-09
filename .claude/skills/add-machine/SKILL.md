@@ -26,6 +26,7 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
 - `__COPYRIGHT__` → コピーライトの `Text("...")` 行（20スペース字下げ）。複数行可。
 - `__CAUTION_SECTION__` → メーカー法則で注意事項（前提ツール）Section or 空（→「2.6 注意事項セクション」参照）。
 - `__TROPHY_LINK__` → メーカー法則でトロフィー系リンクブロック or 空（→「2.5 トロフィー系リンク」参照）。
+- `__MENU_SECTION_HEADER__` → メニュー Section のヘッダー。**`__CAUTION_SECTION__` の有無と連動**（→「2.65 メニューSectionヘッダー」参照）。
 生成ファイル：
 - `<prefix>ViewTop.swift`（ViewTop.swift.tmpl）
 - `<prefix>Class.swift`（Class.swift.tmpl）
@@ -79,7 +80,7 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
 | サミー | マイスロ |
 | 平和 | 打-WIN |
 
-表に無いメーカー（Spiky・藤商事・ニューギン・北電子・パイオニア・オーイズミ・SANKYO・エンターライズ 等）は `__CAUTION_SECTION__` を空に置換（先頭セクション無し＝`unitLabelMachineTopTitle` ヘッダーも出ない。既存の `godzilla`/`karakuri2` と同形）。同一メーカーで揺れる／判断に迷う場合はユーザーに確認・手動調整可。
+表に無いメーカー（Spiky・藤商事・ニューギン・北電子・パイオニア・オーイズミ・SANKYO・エンターライズ 等）は `__CAUTION_SECTION__` を**空に置換**（先頭の注意事項セクション自体を作らない）。この場合は代わりに**メニュー Section のヘッダーを有効化して機種名を出す**（→「2.65」）。同一メーカーで揺れる／判断に迷う場合はユーザーに確認・手動調整可。
 
 該当時の置換ブロック（行頭16スペース字下げ。末尾に空行1つ＝次の通常時 Section と1行空ける）：
 ```swift
@@ -95,6 +96,33 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
                 }
 
 ```
+
+## 2.65 メニューSectionヘッダー（`__MENU_SECTION_HEADER__` の置換）
+機種トップに**機種名が必ず1回表示される**ようにするための出し分け。`__CAUTION_SECTION__`（2.6）の結果と**必ず連動**させる。
+
+| `__CAUTION_SECTION__` | `__MENU_SECTION_HEADER__` | 機種名の表示場所 |
+|---|---|---|
+| **あり**（メーカーが2.6の表にある） | **コメントアウト版**（下記A） | 注意事項セクションのヘッダー |
+| **空**（表に無いメーカー） | **有効版**（下記B） | メニュー Section のヘッダー |
+
+**A. 注意事項セクションが「ある」場合**（重複表示を避けるためコメントアウト。後で使えるよう残す）：
+```swift
+//                } header: {
+//                    unitLabelMachineTopTitle(
+//                        machineName: <prefix>.machineName,
+//                        titleFont: .title,
+//                    )
+```
+
+**B. 注意事項セクションが「空」の場合**（有効化。これが無いと機種名がどこにも出ない）：
+```swift
+                } header: {
+                    unitLabelMachineTopTitle(
+                        machineName: <prefix>.machineName,
+                        titleFont: .title,
+                    )
+```
+※ B は直後にテンプレート側の `                }`（Section の閉じ）が続くため、`} header: {` から始まる形で正しく閉じる。
 
 ## 3. アセットカタログ生成（画像PNGはユーザーがXcodeで後入れ）
 - `SetteiSaCountApp/<prefix>/<prefix>Assets.xcassets/Contents.json`：

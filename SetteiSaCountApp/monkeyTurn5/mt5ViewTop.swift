@@ -240,8 +240,16 @@ class Mt5: ObservableObject, mt5Protocol {
     // ////////////////////
     // AT終了後のメダル用
     // ////////////////////
-    @AppStorage("mt5BlueMedalCount") var blueMedalCount = 0
-    @AppStorage("mt5YellowMedalCount") var yellowMedalCount = 0
+    @AppStorage("mt5BlueMedalCount") var blueMedalCount = 0 {
+        didSet {
+            medalCountBYSum = blueMedalCount + yellowMedalCount
+        }
+    }
+    @AppStorage("mt5YellowMedalCount") var yellowMedalCount = 0 {
+        didSet {
+            medalCountBYSum = blueMedalCount + yellowMedalCount
+        }
+    }
     @AppStorage("mt5BlackMedalCount") var blackMedalCount = 0
     
     // AT回数のカウント
@@ -257,6 +265,8 @@ class Mt5: ObservableObject, mt5Protocol {
         yellowMedalCount = 0
         blackMedalCount = 0
         minusCheck = false
+        
+        medalCountBYSum = 0
     }
     
     // //////////////////////
@@ -331,6 +341,13 @@ class Mt5: ObservableObject, mt5Protocol {
     func rareItemJakuSumFunc() {
         rareItemCountJakuRareSum = rareItemCountJakuCherry + rareItemCountSuika
     }
+    
+    // -----------
+    // ver4.3.0
+    // -----------
+    let ratioMedalBYBlue: [Double] = [50,60,50,25,45.5]
+    let ratioMedalBYYellow: [Double] = [50,40,50,75,54.5]
+    @AppStorage("mt5MedalCountBYSum") var medalCountBYSum = 0
 }
 
 
@@ -374,6 +391,11 @@ class Mt5Memory1: ObservableObject {
     @AppStorage("mt5RareItemCountJakuChanceHitMemory1") var rareItemCountJakuChanceHit: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceMemory1") var rareItemCountKyoChance: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceHitMemory1") var rareItemCountKyoChanceHit: Int = 0
+    
+    // -----------
+    // ver4.3.0
+    // -----------
+    @AppStorage("mt5MedalCountBYSumMemory1") var medalCountBYSum = 0
 }
 // //// メモリー2
 class Mt5Memory2: ObservableObject {
@@ -415,6 +437,11 @@ class Mt5Memory2: ObservableObject {
     @AppStorage("mt5RareItemCountJakuChanceHitMemory2") var rareItemCountJakuChanceHit: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceMemory2") var rareItemCountKyoChance: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceHitMemory2") var rareItemCountKyoChanceHit: Int = 0
+    
+    // -----------
+    // ver4.3.0
+    // -----------
+    @AppStorage("mt5MedalCountBYSumMemory2") var medalCountBYSum = 0
 }
 // //// メモリー3
 class Mt5Memory3: ObservableObject {
@@ -456,6 +483,11 @@ class Mt5Memory3: ObservableObject {
     @AppStorage("mt5RareItemCountJakuChanceHitMemory3") var rareItemCountJakuChanceHit: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceMemory3") var rareItemCountKyoChance: Int = 0
     @AppStorage("mt5RareItemCountKyoChanceHitMemory3") var rareItemCountKyoChanceHit: Int = 0
+    
+    // -----------
+    // ver4.3.0
+    // -----------
+    @AppStorage("mt5MedalCountBYSumMemory3") var medalCountBYSum = 0
 }
 
 
@@ -534,7 +566,11 @@ struct mt5ViewTop: View {
                         bayes: bayes,
                         viewModel: viewModel,
                     )) {
-                        unitLabelMenu(imageSystemName: "medal", textBody: "AT終了後のメダル")
+                        unitLabelMenu(
+                            imageSystemName: "medal",
+                            textBody: "AT終了後のメダル",
+                            badgeStatus: common.mt5MenuMedalBadge,
+                        )
                     }
                     // 青島SG
                     NavigationLink(destination: mt5ViewAoshimaSG(
@@ -582,7 +618,8 @@ struct mt5ViewTop: View {
                 }
             }
             // //// バッジのリセット
-            .resetBadgeOnAppear($common.mt5MachineIconBadge)
+//            .resetBadgeOnAppear($common.mt5MachineIconBadge)
+            .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4450")
             // //// firebaseログ
             .onAppear {
                 let screenClass = String(describing: Self.self)
@@ -696,6 +733,11 @@ struct mt5ViewSaveMemory: View {
         mt5Memory1.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
         mt5Memory1.rareItemCountKyoChance = mt5.rareItemCountKyoChance
         mt5Memory1.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5Memory1.medalCountBYSum = mt5.medalCountBYSum
     }
     func saveMemory2() {
         mt5Memory2.coin5Count = mt5.coin5Count
@@ -734,6 +776,11 @@ struct mt5ViewSaveMemory: View {
         mt5Memory2.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
         mt5Memory2.rareItemCountKyoChance = mt5.rareItemCountKyoChance
         mt5Memory2.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5Memory2.medalCountBYSum = mt5.medalCountBYSum
     }
     func saveMemory3() {
         mt5Memory3.coin5Count = mt5.coin5Count
@@ -772,6 +819,11 @@ struct mt5ViewSaveMemory: View {
         mt5Memory3.rareItemCountJakuChanceHit = mt5.rareItemCountJakuChanceHit
         mt5Memory3.rareItemCountKyoChance = mt5.rareItemCountKyoChance
         mt5Memory3.rareItemCountKyoChanceHit = mt5.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5Memory3.medalCountBYSum = mt5.medalCountBYSum
     }
 }
 
@@ -846,6 +898,11 @@ struct mt5ViewLoadMemory: View {
         mt5.rareItemCountJakuChanceHit = mt5Memory1.rareItemCountJakuChanceHit
         mt5.rareItemCountKyoChance = mt5Memory1.rareItemCountKyoChance
         mt5.rareItemCountKyoChanceHit = mt5Memory1.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5.medalCountBYSum = mt5Memory1.medalCountBYSum
     }
     func loadMemory2() {
         mt5.coin5Count = mt5Memory2.coin5Count
@@ -892,6 +949,11 @@ struct mt5ViewLoadMemory: View {
         mt5.rareItemCountJakuChanceHit = mt5Memory2.rareItemCountJakuChanceHit
         mt5.rareItemCountKyoChance = mt5Memory2.rareItemCountKyoChance
         mt5.rareItemCountKyoChanceHit = mt5Memory2.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5.medalCountBYSum = mt5Memory2.medalCountBYSum
     }
     func loadMemory3() {
         mt5.coin5Count = mt5Memory3.coin5Count
@@ -938,6 +1000,11 @@ struct mt5ViewLoadMemory: View {
         mt5.rareItemCountJakuChanceHit = mt5Memory3.rareItemCountJakuChanceHit
         mt5.rareItemCountKyoChance = mt5Memory3.rareItemCountKyoChance
         mt5.rareItemCountKyoChanceHit = mt5Memory3.rareItemCountKyoChanceHit
+        
+        // -----------
+        // ver4.3.0
+        // -----------
+        mt5.medalCountBYSum = mt5Memory3.medalCountBYSum
     }
 }
 

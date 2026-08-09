@@ -47,6 +47,7 @@ struct sbjViewNormal: View {
 //    @ObservedObject var ver240 = Ver240()
 //    @ObservedObject var sbj = Sbj()
     @ObservedObject var sbj: Sbj
+    @EnvironmentObject var common: commonVar
     @FocusState var isFocused: Bool
     @State var isShowAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -327,6 +328,12 @@ struct sbjViewNormal: View {
                         )
                     )
                 )
+                
+                // ---- BBスルー天井振分け
+                unitLinkButtonViewBuilder(sheetTitle: "BBスルー天井振分け") {
+                    sbjTableBbTenjo()
+                }
+                .popoverTip(tipVer430SbjBbTenjo())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
@@ -365,11 +372,8 @@ struct sbjViewNormal: View {
                 screenClass: screenClass
             )
         }
-//        .onAppear {
-//            if ver310.sbjMenuNormalBadgeStatus != "none" {
-//                ver310.sbjMenuNormalBadgeStatus = "none"
-//            }
-//        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.sbjMenuNormalBadgeStatus)
         // //// 画面の向き情報の取得部分
         .onAppear {
             // ビューが表示されるときにデバイスの向きを取得
@@ -432,4 +436,5 @@ struct sbjViewNormal: View {
 //        ver310: Ver310(),
         sbj: Sbj()
     )
+    .environmentObject(commonVar())
 }

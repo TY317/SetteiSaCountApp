@@ -13,6 +13,7 @@ struct tekken6ViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 98.9, 100.5, 105.2, 110.3, 114.9]
+    @State var chanceRedEnable: Bool = true
     @State var firstHitEnable: Bool = true
     @State var backEnable: Bool = true
     @State var rareDirectEnable: Bool = true
@@ -60,6 +61,8 @@ struct tekken6ViewBayes: View {
                         textBody1: "・CZ,ボーナス合算,ATの初当り確率を計算要素に加えます"
                     )
                 }
+                // 鉄拳チャンス赤
+                unitToggleWithQuestion(enable: self.$chanceRedEnable, title: "鉄拳チャンス赤")
                 // 引き戻し当選率
                 unitToggleWithQuestion(enable: self.$backEnable, title: "引き戻し当選率")
                 // ケロットトロフィー
@@ -167,6 +170,15 @@ struct tekken6ViewBayes: View {
                 bigNumber: tekken6.normalGame,
             )
         }
+        // 鉄拳チャンス赤
+        var logPostChanceRed: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chanceRedEnable {
+            logPostChanceRed = logPostPercentBino(
+                ratio: tekken6.ratioChanceColorRed,
+                Count: tekken6.chanceColorCountRed,
+                bigNumber: tekken6.chanceColorCountSum
+            )
+        }
         // 引き戻し
         var logPostBack: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.backEnable {
@@ -218,6 +230,7 @@ struct tekken6ViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostChanceRed,
             logPostBack,
             
             logPostTrophy,

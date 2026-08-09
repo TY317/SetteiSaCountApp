@@ -120,6 +120,25 @@ struct tekken6View95Ci: View {
             )
             .tag(7)
             
+            // 鉄拳チャンス赤回数
+            unitListSection95Ci(
+                grafTitle: "鉄拳チャンス赤回数",
+//                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tekken6.chanceColorCountRed,
+                        bigNumber: $tekken6.chanceColorCountSum,
+                        setting1Percent: tekken6.ratioChanceColorRed[0],
+                        setting2Percent: tekken6.ratioChanceColorRed[1],
+                        setting3Percent: tekken6.ratioChanceColorRed[2],
+                        setting4Percent: tekken6.ratioChanceColorRed[3],
+                        setting5Percent: tekken6.ratioChanceColorRed[4],
+                        setting6Percent: tekken6.ratioChanceColorRed[5]
+                    )
+                )
+            )
+            .tag(8)
+            
             // 引き戻し回数
             unitListSection95Ci(
                 grafTitle: "引き戻し回数",
