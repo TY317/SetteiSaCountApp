@@ -137,11 +137,70 @@ class Otome5: ObservableObject {
     @AppStorage("otome5MinusCheck") var minusCheck: Bool = false
     @AppStorage("otome5SelectedMemory") var selectedMemory = "メモリー1"
     
+    // -------
+    // ボイス選択
+    // -------
+    let ratioEndingVoiceOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioEndingVoiceOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
+    let ratioEndingVoiceOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioEndingVoiceOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioEndingVoiceOver6: [Double] = [0,0,0,0,0,0.1,]
+    let ratioEndingVoiceNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
+    let ratioEndingVoiceNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
+    @AppStorage("otome5VoiceCount1") var voiceCount1: Int = 0
+    @AppStorage("otome5VoiceCount2") var voiceCount2: Int = 0
+    @AppStorage("otome5VoiceCount3") var voiceCount3: Int = 0
+    @AppStorage("otome5VoiceCount4") var voiceCount4: Int = 0
+    @AppStorage("otome5VoiceCount5") var voiceCount5: Int = 0
+    @AppStorage("otome5VoiceCount6") var voiceCount6: Int = 0
+    @AppStorage("otome5VoiceCount7") var voiceCount7: Int = 0
+    @AppStorage("otome5VoiceCount8") var voiceCount8: Int = 0
+    @AppStorage("otome5VoiceCount9") var voiceCount9: Int = 0
+    @AppStorage("otome5VoiceCount10") var voiceCount10: Int = 0
+    @AppStorage("otome5VoiceCount11") var voiceCount11: Int = 0
+    @AppStorage("otome5VoiceCount12") var voiceCount12: Int = 0
+    @AppStorage("otome5VoiceCountSum") var voiceCountSum: Int = 0
+
+    func voiceSumFunc() {
+        voiceCountSum = countSum(
+            voiceCount1,
+            voiceCount2,
+            voiceCount3,
+            voiceCount4,
+            voiceCount5,
+            voiceCount6,
+            voiceCount7,
+            voiceCount8,
+            voiceCount9,
+            voiceCount10,
+            voiceCount11,
+            voiceCount12,
+        )
+    }
+
+    func resetVoice() {
+        voiceCount1 = 0
+        voiceCount2 = 0
+        voiceCount3 = 0
+        voiceCount4 = 0
+        voiceCount5 = 0
+        voiceCount6 = 0
+        voiceCount7 = 0
+        voiceCount8 = 0
+        voiceCount9 = 0
+        voiceCount10 = 0
+        voiceCount11 = 0
+        voiceCount12 = 0
+        voiceCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetHistory()
         resetFirstHit()
         resetScreen()
+        resetVoice()
     }
 }
 
@@ -163,6 +222,19 @@ class Otome5Memory1: ObservableObject {
     @AppStorage("otome5ScreenCountOver5Memory1") var screenCountOver5: Int = 0
     @AppStorage("otome5ScreenCountOver6Memory1") var screenCountOver6: Int = 0
     @AppStorage("otome5ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("otome5VoiceCount1Memory1") var voiceCount1: Int = 0
+    @AppStorage("otome5VoiceCount2Memory1") var voiceCount2: Int = 0
+    @AppStorage("otome5VoiceCount3Memory1") var voiceCount3: Int = 0
+    @AppStorage("otome5VoiceCount4Memory1") var voiceCount4: Int = 0
+    @AppStorage("otome5VoiceCount5Memory1") var voiceCount5: Int = 0
+    @AppStorage("otome5VoiceCount6Memory1") var voiceCount6: Int = 0
+    @AppStorage("otome5VoiceCount7Memory1") var voiceCount7: Int = 0
+    @AppStorage("otome5VoiceCount8Memory1") var voiceCount8: Int = 0
+    @AppStorage("otome5VoiceCount9Memory1") var voiceCount9: Int = 0
+    @AppStorage("otome5VoiceCount10Memory1") var voiceCount10: Int = 0
+    @AppStorage("otome5VoiceCount11Memory1") var voiceCount11: Int = 0
+    @AppStorage("otome5VoiceCount12Memory1") var voiceCount12: Int = 0
+    @AppStorage("otome5VoiceCountSumMemory1") var voiceCountSum: Int = 0
     @AppStorage("otome5MemoMemory1") var memo = ""
     @AppStorage("otome5DateMemory1") var dateDouble = 0.0
 }
@@ -185,6 +257,19 @@ class Otome5Memory2: ObservableObject {
     @AppStorage("otome5ScreenCountOver5Memory2") var screenCountOver5: Int = 0
     @AppStorage("otome5ScreenCountOver6Memory2") var screenCountOver6: Int = 0
     @AppStorage("otome5ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("otome5VoiceCount1Memory2") var voiceCount1: Int = 0
+    @AppStorage("otome5VoiceCount2Memory2") var voiceCount2: Int = 0
+    @AppStorage("otome5VoiceCount3Memory2") var voiceCount3: Int = 0
+    @AppStorage("otome5VoiceCount4Memory2") var voiceCount4: Int = 0
+    @AppStorage("otome5VoiceCount5Memory2") var voiceCount5: Int = 0
+    @AppStorage("otome5VoiceCount6Memory2") var voiceCount6: Int = 0
+    @AppStorage("otome5VoiceCount7Memory2") var voiceCount7: Int = 0
+    @AppStorage("otome5VoiceCount8Memory2") var voiceCount8: Int = 0
+    @AppStorage("otome5VoiceCount9Memory2") var voiceCount9: Int = 0
+    @AppStorage("otome5VoiceCount10Memory2") var voiceCount10: Int = 0
+    @AppStorage("otome5VoiceCount11Memory2") var voiceCount11: Int = 0
+    @AppStorage("otome5VoiceCount12Memory2") var voiceCount12: Int = 0
+    @AppStorage("otome5VoiceCountSumMemory2") var voiceCountSum: Int = 0
     @AppStorage("otome5MemoMemory2") var memo = ""
     @AppStorage("otome5DateMemory2") var dateDouble = 0.0
 }
@@ -207,6 +292,19 @@ class Otome5Memory3: ObservableObject {
     @AppStorage("otome5ScreenCountOver5Memory3") var screenCountOver5: Int = 0
     @AppStorage("otome5ScreenCountOver6Memory3") var screenCountOver6: Int = 0
     @AppStorage("otome5ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("otome5VoiceCount1Memory3") var voiceCount1: Int = 0
+    @AppStorage("otome5VoiceCount2Memory3") var voiceCount2: Int = 0
+    @AppStorage("otome5VoiceCount3Memory3") var voiceCount3: Int = 0
+    @AppStorage("otome5VoiceCount4Memory3") var voiceCount4: Int = 0
+    @AppStorage("otome5VoiceCount5Memory3") var voiceCount5: Int = 0
+    @AppStorage("otome5VoiceCount6Memory3") var voiceCount6: Int = 0
+    @AppStorage("otome5VoiceCount7Memory3") var voiceCount7: Int = 0
+    @AppStorage("otome5VoiceCount8Memory3") var voiceCount8: Int = 0
+    @AppStorage("otome5VoiceCount9Memory3") var voiceCount9: Int = 0
+    @AppStorage("otome5VoiceCount10Memory3") var voiceCount10: Int = 0
+    @AppStorage("otome5VoiceCount11Memory3") var voiceCount11: Int = 0
+    @AppStorage("otome5VoiceCount12Memory3") var voiceCount12: Int = 0
+    @AppStorage("otome5VoiceCountSumMemory3") var voiceCountSum: Int = 0
     @AppStorage("otome5MemoMemory3") var memo = ""
     @AppStorage("otome5DateMemory3") var dateDouble = 0.0
 }

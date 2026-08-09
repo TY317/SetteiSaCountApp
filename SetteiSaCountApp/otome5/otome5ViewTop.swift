@@ -271,6 +271,19 @@ struct otome5SubViewSaveMemory: View {
         otome5Memory1.screenCountOver5 = otome5.screenCountOver5
         otome5Memory1.screenCountOver6 = otome5.screenCountOver6
         otome5Memory1.screenCountSum = otome5.screenCountSum
+        otome5Memory1.voiceCount1 = otome5.voiceCount1
+        otome5Memory1.voiceCount2 = otome5.voiceCount2
+        otome5Memory1.voiceCount3 = otome5.voiceCount3
+        otome5Memory1.voiceCount4 = otome5.voiceCount4
+        otome5Memory1.voiceCount5 = otome5.voiceCount5
+        otome5Memory1.voiceCount6 = otome5.voiceCount6
+        otome5Memory1.voiceCount7 = otome5.voiceCount7
+        otome5Memory1.voiceCount8 = otome5.voiceCount8
+        otome5Memory1.voiceCount9 = otome5.voiceCount9
+        otome5Memory1.voiceCount10 = otome5.voiceCount10
+        otome5Memory1.voiceCount11 = otome5.voiceCount11
+        otome5Memory1.voiceCount12 = otome5.voiceCount12
+        otome5Memory1.voiceCountSum = otome5.voiceCountSum
     }
     func saveMemory2() {
         otome5Memory2.otomeAttackMiss = otome5.otomeAttackMiss
@@ -289,6 +302,19 @@ struct otome5SubViewSaveMemory: View {
         otome5Memory2.screenCountOver5 = otome5.screenCountOver5
         otome5Memory2.screenCountOver6 = otome5.screenCountOver6
         otome5Memory2.screenCountSum = otome5.screenCountSum
+        otome5Memory2.voiceCount1 = otome5.voiceCount1
+        otome5Memory2.voiceCount2 = otome5.voiceCount2
+        otome5Memory2.voiceCount3 = otome5.voiceCount3
+        otome5Memory2.voiceCount4 = otome5.voiceCount4
+        otome5Memory2.voiceCount5 = otome5.voiceCount5
+        otome5Memory2.voiceCount6 = otome5.voiceCount6
+        otome5Memory2.voiceCount7 = otome5.voiceCount7
+        otome5Memory2.voiceCount8 = otome5.voiceCount8
+        otome5Memory2.voiceCount9 = otome5.voiceCount9
+        otome5Memory2.voiceCount10 = otome5.voiceCount10
+        otome5Memory2.voiceCount11 = otome5.voiceCount11
+        otome5Memory2.voiceCount12 = otome5.voiceCount12
+        otome5Memory2.voiceCountSum = otome5.voiceCountSum
     }
     func saveMemory3() {
         otome5Memory3.otomeAttackMiss = otome5.otomeAttackMiss
@@ -307,6 +333,19 @@ struct otome5SubViewSaveMemory: View {
         otome5Memory3.screenCountOver5 = otome5.screenCountOver5
         otome5Memory3.screenCountOver6 = otome5.screenCountOver6
         otome5Memory3.screenCountSum = otome5.screenCountSum
+        otome5Memory3.voiceCount1 = otome5.voiceCount1
+        otome5Memory3.voiceCount2 = otome5.voiceCount2
+        otome5Memory3.voiceCount3 = otome5.voiceCount3
+        otome5Memory3.voiceCount4 = otome5.voiceCount4
+        otome5Memory3.voiceCount5 = otome5.voiceCount5
+        otome5Memory3.voiceCount6 = otome5.voiceCount6
+        otome5Memory3.voiceCount7 = otome5.voiceCount7
+        otome5Memory3.voiceCount8 = otome5.voiceCount8
+        otome5Memory3.voiceCount9 = otome5.voiceCount9
+        otome5Memory3.voiceCount10 = otome5.voiceCount10
+        otome5Memory3.voiceCount11 = otome5.voiceCount11
+        otome5Memory3.voiceCount12 = otome5.voiceCount12
+        otome5Memory3.voiceCountSum = otome5.voiceCountSum
     }
 }
 
@@ -360,6 +399,19 @@ struct otome5SubViewLoadMemory: View {
         otome5.screenCountOver5 = otome5Memory1.screenCountOver5
         otome5.screenCountOver6 = otome5Memory1.screenCountOver6
         otome5.screenCountSum = otome5Memory1.screenCountSum
+        otome5.voiceCount1 = otome5Memory1.voiceCount1
+        otome5.voiceCount2 = otome5Memory1.voiceCount2
+        otome5.voiceCount3 = otome5Memory1.voiceCount3
+        otome5.voiceCount4 = otome5Memory1.voiceCount4
+        otome5.voiceCount5 = otome5Memory1.voiceCount5
+        otome5.voiceCount6 = otome5Memory1.voiceCount6
+        otome5.voiceCount7 = otome5Memory1.voiceCount7
+        otome5.voiceCount8 = otome5Memory1.voiceCount8
+        otome5.voiceCount9 = otome5Memory1.voiceCount9
+        otome5.voiceCount10 = otome5Memory1.voiceCount10
+        otome5.voiceCount11 = otome5Memory1.voiceCount11
+        otome5.voiceCount12 = otome5Memory1.voiceCount12
+        otome5.voiceCountSum = otome5Memory1.voiceCountSum
     }
     func loadMemory2() {
         otome5.otomeAttackMiss = otome5Memory2.otomeAttackMiss
@@ -384,6 +436,19 @@ struct otome5SubViewLoadMemory: View {
         otome5.screenCountOver5 = otome5Memory2.screenCountOver5
         otome5.screenCountOver6 = otome5Memory2.screenCountOver6
         otome5.screenCountSum = otome5Memory2.screenCountSum
+        otome5.voiceCount1 = otome5Memory2.voiceCount1
+        otome5.voiceCount2 = otome5Memory2.voiceCount2
+        otome5.voiceCount3 = otome5Memory2.voiceCount3
+        otome5.voiceCount4 = otome5Memory2.voiceCount4
+        otome5.voiceCount5 = otome5Memory2.voiceCount5
+        otome5.voiceCount6 = otome5Memory2.voiceCount6
+        otome5.voiceCount7 = otome5Memory2.voiceCount7
+        otome5.voiceCount8 = otome5Memory2.voiceCount8
+        otome5.voiceCount9 = otome5Memory2.voiceCount9
+        otome5.voiceCount10 = otome5Memory2.voiceCount10
+        otome5.voiceCount11 = otome5Memory2.voiceCount11
+        otome5.voiceCount12 = otome5Memory2.voiceCount12
+        otome5.voiceCountSum = otome5Memory2.voiceCountSum
     }
     func loadMemory3() {
         otome5.otomeAttackMiss = otome5Memory3.otomeAttackMiss
@@ -408,6 +473,19 @@ struct otome5SubViewLoadMemory: View {
         otome5.screenCountOver5 = otome5Memory3.screenCountOver5
         otome5.screenCountOver6 = otome5Memory3.screenCountOver6
         otome5.screenCountSum = otome5Memory3.screenCountSum
+        otome5.voiceCount1 = otome5Memory3.voiceCount1
+        otome5.voiceCount2 = otome5Memory3.voiceCount2
+        otome5.voiceCount3 = otome5Memory3.voiceCount3
+        otome5.voiceCount4 = otome5Memory3.voiceCount4
+        otome5.voiceCount5 = otome5Memory3.voiceCount5
+        otome5.voiceCount6 = otome5Memory3.voiceCount6
+        otome5.voiceCount7 = otome5Memory3.voiceCount7
+        otome5.voiceCount8 = otome5Memory3.voiceCount8
+        otome5.voiceCount9 = otome5Memory3.voiceCount9
+        otome5.voiceCount10 = otome5Memory3.voiceCount10
+        otome5.voiceCount11 = otome5Memory3.voiceCount11
+        otome5.voiceCount12 = otome5Memory3.voiceCount12
+        otome5.voiceCountSum = otome5Memory3.voiceCountSum
     }
 }
 

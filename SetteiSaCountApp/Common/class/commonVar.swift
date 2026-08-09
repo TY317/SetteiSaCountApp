@@ -762,6 +762,8 @@ class commonVar: ObservableObject {
                 sbjMenuNormalBadgeStatus = "update"
                 machines.updateMachineBadgeStatus(id: "4913", newStatus: "update")
                 tekken6MenuScreenBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
+                otome5MenuEndingBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
