@@ -153,7 +153,7 @@ struct bioRe3ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: bioRe3View95Ci(
                     bioRe3: bioRe3,
-                    selection: 4,
+                    selection: 8,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

@@ -134,6 +134,9 @@ class BioRe3: ObservableObject {
         shinonCountDrop = 0
         shinonCountStay = 0
         shinonCountSum = 0
+        
+        playGame = 0
+        koyakuCountBell = 0
     }
     
     // ---------
@@ -160,6 +163,13 @@ class BioRe3: ObservableObject {
         duringAtCountCz = 0
         minusCheck = false
     }
+    
+    // -------
+    // ver4.4.0
+    // -------
+    let ratioBell: [Double] = [20,19.3,18.6,18,17.2,15.9]
+    @AppStorage("bioRe3PlayGame") var playGame: Int = 0
+    @AppStorage("bioRe3KoyakuCountBell") var koyakuCountBell: Int = 0
 }
 
 

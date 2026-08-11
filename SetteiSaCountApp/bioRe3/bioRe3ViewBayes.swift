@@ -18,7 +18,8 @@ struct bioRe3ViewBayes: View {
     @State var shinonEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var duringAtEnable: Bool = true
-    
+    @State var bellEnable: Bool = true
+
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -49,6 +50,8 @@ struct bioRe3ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 5枚ベル確率
+                unitToggleWithQuestion(enable: self.$bellEnable, title: "5枚🔔確率")
                 // 心音レベル転落率
                 unitToggleWithQuestion(enable: self.$shinonEnable, title: "心音レベル転落率")
                 // CZ初当り確率
@@ -133,6 +136,16 @@ struct bioRe3ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 5枚ベル確率
+        var logPostBell: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bellEnable {
+            logPostBell = logPostDenoBino(
+                ratio: bioRe3.ratioBell,
+                Count: bioRe3.koyakuCountBell,
+                bigNumber: bioRe3.playGame
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -223,6 +236,7 @@ struct bioRe3ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostBell,
             logPostFirstHitCz,
             logPostDuringAt,
             logPostFirstHitAt,

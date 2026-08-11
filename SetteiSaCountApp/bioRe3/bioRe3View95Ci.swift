@@ -14,6 +14,25 @@ struct bioRe3View95Ci: View {
     
     var body: some View {
         TabView(selection: self.$selection) {
+            // 5枚ベル回数
+            unitListSection95Ci(
+                grafTitle: "5枚🔔回数",
+//                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $bioRe3.koyakuCountBell,
+                        bigNumber: $bioRe3.playGame,
+                        setting1Denominate: bioRe3.ratioBell[0],
+                        setting2Denominate: bioRe3.ratioBell[1],
+                        setting3Denominate: bioRe3.ratioBell[2],
+                        setting4Denominate: bioRe3.ratioBell[3],
+                        setting5Denominate: bioRe3.ratioBell[4],
+                        setting6Denominate: bioRe3.ratioBell[5]
+                    )
+                )
+            )
+            .tag(8)
+
             // 弱レア役からのCZ直撃当選
             unitListSection95Ci(
                 grafTitle: "通常A 弱レア役\nCZ直撃回数",
