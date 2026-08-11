@@ -77,7 +77,7 @@ struct splashScreenView: View {
                         // ----- リリース前にコメントアウト！！！
 //                        common.firstLaunchAppVersion = nil
 //                        common.lastLaunchAppVersion = nil
-//                        common.lastLaunchAppVersion = "4.2.1"
+                        common.lastLaunchAppVersion = "4.3.0"
                         // --------------------------------
                         common.ver400FirstLaunch()
                         common.ver410FirstLaunch()
@@ -86,6 +86,7 @@ struct splashScreenView: View {
                         common.ver420FirstLaunch()
                         common.ver421FirstLaunch()
                         common.ver430FirstLaunch()
+                        common.ver440FirstLaunch()
                         common.saveAppVersions()
                         common.forcedUnlockReward()
                     }
