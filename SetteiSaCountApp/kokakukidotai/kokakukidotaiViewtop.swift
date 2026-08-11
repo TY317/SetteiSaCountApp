@@ -225,6 +225,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory1.iedeCountMiss = kokakukidotai.iedeCountMiss
         kokakukidotaiMemory1.iedeCountSuccess = kokakukidotai.iedeCountSuccess
         kokakukidotaiMemory1.iedeCountSum = kokakukidotai.iedeCountSum
+        kokakukidotaiMemory1.iedeCount400Miss = kokakukidotai.iedeCount400Miss
+        kokakukidotaiMemory1.iedeCount400Success = kokakukidotai.iedeCount400Success
+        kokakukidotaiMemory1.iedeCount400Sum = kokakukidotai.iedeCount400Sum
         kokakukidotaiMemory1.normalGame = kokakukidotai.normalGame
         kokakukidotaiMemory1.firstHitCountAt = kokakukidotai.firstHitCountAt
         kokakukidotaiMemory1.firstHitCountCz = kokakukidotai.firstHitCountCz
@@ -284,6 +287,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory2.iedeCountMiss = kokakukidotai.iedeCountMiss
         kokakukidotaiMemory2.iedeCountSuccess = kokakukidotai.iedeCountSuccess
         kokakukidotaiMemory2.iedeCountSum = kokakukidotai.iedeCountSum
+        kokakukidotaiMemory2.iedeCount400Miss = kokakukidotai.iedeCount400Miss
+        kokakukidotaiMemory2.iedeCount400Success = kokakukidotai.iedeCount400Success
+        kokakukidotaiMemory2.iedeCount400Sum = kokakukidotai.iedeCount400Sum
         kokakukidotaiMemory2.normalGame = kokakukidotai.normalGame
         kokakukidotaiMemory2.firstHitCountAt = kokakukidotai.firstHitCountAt
         kokakukidotaiMemory2.firstHitCountCz = kokakukidotai.firstHitCountCz
@@ -343,6 +349,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory3.iedeCountMiss = kokakukidotai.iedeCountMiss
         kokakukidotaiMemory3.iedeCountSuccess = kokakukidotai.iedeCountSuccess
         kokakukidotaiMemory3.iedeCountSum = kokakukidotai.iedeCountSum
+        kokakukidotaiMemory3.iedeCount400Miss = kokakukidotai.iedeCount400Miss
+        kokakukidotaiMemory3.iedeCount400Success = kokakukidotai.iedeCount400Success
+        kokakukidotaiMemory3.iedeCount400Sum = kokakukidotai.iedeCount400Sum
         kokakukidotaiMemory3.normalGame = kokakukidotai.normalGame
         kokakukidotaiMemory3.firstHitCountAt = kokakukidotai.firstHitCountAt
         kokakukidotaiMemory3.firstHitCountCz = kokakukidotai.firstHitCountCz
@@ -431,6 +440,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory1.iedeCountMiss
         kokakukidotai.iedeCountSuccess = kokakukidotaiMemory1.iedeCountSuccess
         kokakukidotai.iedeCountSum = kokakukidotaiMemory1.iedeCountSum
+        kokakukidotai.iedeCount400Miss = kokakukidotaiMemory1.iedeCount400Miss
+        kokakukidotai.iedeCount400Success = kokakukidotaiMemory1.iedeCount400Success
+        kokakukidotai.iedeCount400Sum = kokakukidotaiMemory1.iedeCount400Sum
         kokakukidotai.normalGame = kokakukidotaiMemory1.normalGame
         kokakukidotai.firstHitCountAt = kokakukidotaiMemory1.firstHitCountAt
         kokakukidotai.firstHitCountCz = kokakukidotaiMemory1.firstHitCountCz
@@ -490,6 +502,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory2.iedeCountMiss
         kokakukidotai.iedeCountSuccess = kokakukidotaiMemory2.iedeCountSuccess
         kokakukidotai.iedeCountSum = kokakukidotaiMemory2.iedeCountSum
+        kokakukidotai.iedeCount400Miss = kokakukidotaiMemory2.iedeCount400Miss
+        kokakukidotai.iedeCount400Success = kokakukidotaiMemory2.iedeCount400Success
+        kokakukidotai.iedeCount400Sum = kokakukidotaiMemory2.iedeCount400Sum
         kokakukidotai.normalGame = kokakukidotaiMemory2.normalGame
         kokakukidotai.firstHitCountAt = kokakukidotaiMemory2.firstHitCountAt
         kokakukidotai.firstHitCountCz = kokakukidotaiMemory2.firstHitCountCz
@@ -549,6 +564,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.iedeCountMiss = kokakukidotaiMemory3.iedeCountMiss
         kokakukidotai.iedeCountSuccess = kokakukidotaiMemory3.iedeCountSuccess
         kokakukidotai.iedeCountSum = kokakukidotaiMemory3.iedeCountSum
+        kokakukidotai.iedeCount400Miss = kokakukidotaiMemory3.iedeCount400Miss
+        kokakukidotai.iedeCount400Success = kokakukidotaiMemory3.iedeCount400Success
+        kokakukidotai.iedeCount400Sum = kokakukidotaiMemory3.iedeCount400Sum
         kokakukidotai.normalGame = kokakukidotaiMemory3.normalGame
         kokakukidotai.firstHitCountAt = kokakukidotaiMemory3.firstHitCountAt
         kokakukidotai.firstHitCountCz = kokakukidotaiMemory3.firstHitCountCz

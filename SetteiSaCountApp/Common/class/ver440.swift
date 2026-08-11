@@ -53,3 +53,19 @@ struct tipVer440KokakuCzScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer440KokakuIede: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT終了時200G・400Gそれぞれの設定差が判明\n個別カウントに対応しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -30,30 +30,49 @@ struct kokakukidotaiViewNormal: View {
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
     
+    let itemListTachikoma: [String] = ["200G", "400G",]
+    @State var selectedItemTachikoma: String = "200G"
+    
     var body: some View {
         List {
             // タチコマの家出
             Section {
                 // 確率結果
-                unitResultRatioPercent2Line(
-                    title: "200,400GでのCZ",
-                    count: $kokakukidotai.iedeCountSuccess,
-                    bigNumber: $kokakukidotai.iedeCountSum,
-                    numberofDicimal: 0
-                )
+                HStack {
+                    unitResultRatioPercent2Line(
+                        title: "200G",
+                        count: $kokakukidotai.iedeCountSuccess,
+                        bigNumber: $kokakukidotai.iedeCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    unitResultRatioPercent2Line(
+                        title: "400G",
+                        count: $kokakukidotai.iedeCount400Success,
+                        bigNumber: $kokakukidotai.iedeCount400Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer440KokakuIede())
                 
                 // 参考情報）200or400GでのCZ当選率
-                unitLinkButtonViewBuilder(sheetTitle: "200or400GでのCZ期待度") {
+                unitLinkButtonViewBuilder(sheetTitle: "200,400GでのCZ期待度") {
                     VStack {
                         VStack(alignment: .leading) {
-                            Text("・AT終了時の200or400G時にタチコマの家出を抽選")
-                            Text("・CZ合算の期待度に設定差")
+                            Text("・AT終了時の200,400G時にタチコマの家出を抽選")
+//                            Text("・CZ合算の期待度に設定差")
                         }
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
                             unitTablePercent(
-                                columTitle: "合算期待度",
-                                percentList: kokakukidotai.ratioIede
+                                columTitle: "200G",
+                                percentList: kokakukidotai.ratioIede200
+                            )
+                            unitTablePercent(
+                                columTitle: "400G",
+                                percentList: kokakukidotai.ratioIede400
                             )
                         }
                     }
@@ -71,42 +90,53 @@ struct kokakukidotaiViewNormal: View {
                         .font(.caption)
                     }
                     
+                    // セグメントピッカー
+                    Picker("", selection: self.$selectedItemTachikoma) {
+                        ForEach(self.itemListTachikoma, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    
                     // カウントボタン横並び
-                    HStack {
-                        // ハズレ
-                        unitCountButtonWithoutRatioWithFunc(
-                            title: "ハズレ",
-                            count: $kokakukidotai.iedeCountMiss,
-                            color: .personalSummerLightBlue,
-                            minusBool: $kokakukidotai.minusCheck) {
-                                kokakukidotai.iedeSumFunc()
-                            }
-//                        unitCountButtonPercentWithFunc(
-//                            title: "ハズレ",
-//                            count: $kokakukidotai.iedeCountMiss,
-//                            color: .personalSummerLightBlue,
-//                            bigNumber: $kokakukidotai.iedeCountSum,
-//                            numberofDicimal: 0,
-//                            minusBool: $kokakukidotai.minusCheck) {
-//                                kokakukidotai.iedeSumFunc()
-//                            }
-                        // 当選
-                        unitCountButtonWithoutRatioWithFunc(
-                            title: "当選",
-                            count: $kokakukidotai.iedeCountSuccess,
-                            color: .personalSummerLightRed,
-                            minusBool: $kokakukidotai.minusCheck) {
-                                kokakukidotai.iedeSumFunc()
-                            }
-//                        unitCountButtonPercentWithFunc(
-//                            title: "当選",
-//                            count: $kokakukidotai.iedeCountSuccess,
-//                            color: .personalSummerLightRed,
-//                            bigNumber: $kokakukidotai.iedeCountSum,
-//                            numberofDicimal: 0,
-//                            minusBool: $kokakukidotai.minusCheck) {
-//                                kokakukidotai.iedeSumFunc()
-//                            }
+                    if self.selectedItemTachikoma == self.itemListTachikoma[0] {
+                        HStack {
+                            // ハズレ
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "ハズレ",
+                                count: $kokakukidotai.iedeCountMiss,
+                                color: .personalSummerLightBlue,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.iedeSumFunc()
+                                }
+                            // 当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "当選",
+                                count: $kokakukidotai.iedeCountSuccess,
+                                color: .personalSummerLightRed,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.iedeSumFunc()
+                                }
+                        }
+                    } else {
+                        HStack {
+                            // ハズレ
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "ハズレ",
+                                count: $kokakukidotai.iedeCount400Miss,
+                                color: .blue,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.iedeSumFunc()
+                                }
+                            // 当選
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "当選",
+                                count: $kokakukidotai.iedeCount400Success,
+                                color: .red,
+                                minusBool: $kokakukidotai.minusCheck) {
+                                    kokakukidotai.iedeSumFunc()
+                                }
+                        }
                     }
                     
                     // //// 95%信頼区間グラフへのリンク
@@ -293,7 +323,7 @@ struct kokakukidotaiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "CZ失敗後のモード移行率") {
                     kokakukidotaiTableModeMoveRatio(kokakukidotai: kokakukidotai)
                 }
-                .popoverTip(tipVer400KokakukidotaiSenmetuMode())
+//                .popoverTip(tipVer400KokakukidotaiSenmetuMode())
                 DisclosureGroup {
                     // 注意
                     unitLabelCautionText {

@@ -752,6 +752,7 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "4931", newStatus: "update")
                 kokakukidotaiMenuCzBadge = "update"
+                kokakukidotaiMenuNormalBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
