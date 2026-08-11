@@ -70,6 +70,25 @@ struct kokakukidotaiView95Ci: View {
             )
             .tag(7)
             
+            // CZ終了画面　イシカワ回数
+            unitListSection95Ci(
+                grafTitle: "CZ終了画面\nイシカワ回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.czScreenCountHighKyo,
+                        bigNumber: $kokakukidotai.czScreenCountSum,
+                        setting1Percent: kokakukidotai.ratioCzScreenIshikawa[0],
+                        setting2Percent: kokakukidotai.ratioCzScreenIshikawa[1],
+                        setting3Percent: kokakukidotai.ratioCzScreenIshikawa[2],
+                        setting4Percent: kokakukidotai.ratioCzScreenIshikawa[3],
+                        setting5Percent: kokakukidotai.ratioCzScreenIshikawa[4],
+                        setting6Percent: kokakukidotai.ratioCzScreenIshikawa[5]
+                    )
+                )
+            )
+            .tag(12)
+            
             // CZ失敗後のモード移行　通常A回数
             unitListSection95Ci(
                 grafTitle: "CZ失敗後のモード移行\n通常A回数",

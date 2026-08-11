@@ -37,3 +37,19 @@ struct tipVer440: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer440KokakuCzScreen: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("CZ終了画面 イシカワの設定差が判明\n算出機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

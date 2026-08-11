@@ -241,6 +241,11 @@ class Kokakukidotai: ObservableObject {
             modeCountD,
         )
     }
+    
+    // -----
+    // ver4.4.0
+    // -----
+    let ratioCzScreenIshikawa: [Double] = [9.4, -1,-1,-1,-1, 18.8]
 }
 
 class KokakukidotaiMemory1: ObservableObject {
