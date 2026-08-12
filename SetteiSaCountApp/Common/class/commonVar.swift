@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5020", name: "邪神ちゃん", fullName: "邪神ちゃんドロップキック", iconName: "dropkickMachineIcon", btBadge: false, maker: "SANYO"),
         Machine(id: "5055", name: "ワダスタ", fullName: "ワールドダイスター", iconName: "worldDaiStarMachineIcon", btBadge: false, maker: "大都技研"),
         Machine(id: "5053", name: "禁書目録2", fullName: "とある魔術の禁書目録2", iconName: "index2MachineIcon", btBadge: false, maker: "藤商事"),
         Machine(id: "5015", name: "ケロットBT", fullName: "ケロット5 BT", iconName: "kerottoMachineIcon", btBadge: true, maker: "山佐"),
@@ -384,6 +385,12 @@ class commonVar: ObservableObject {
     @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
     @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
     @AppStorage("index2MenuEndingBadge") var index2MenuEndingBadge: String = "none"
+
+    // ---- 邪神ちゃんドロップキック
+    @AppStorage("dropkickMenuNormalBadge") var dropkickMenuNormalBadge: String = "none"
+    @AppStorage("dropkickMenuFirstHitBadge") var dropkickMenuFirstHitBadge: String = "none"
+    @AppStorage("dropkickMenuBayesBadge") var dropkickMenuBayesBadge: String = "none"
+    @AppStorage("dropkickMenuScreenBadge") var dropkickMenuScreenBadge: String = "none"
 
     // ---- ワールドダイスター
     @AppStorage("worldDaiStarMenuNormalBadge") var worldDaiStarMenuNormalBadge: String = "none"
@@ -757,6 +764,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
                 bioRe3MenuNormalBadge = "update"
                 bioRe3MenuPointBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5020", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5020", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
