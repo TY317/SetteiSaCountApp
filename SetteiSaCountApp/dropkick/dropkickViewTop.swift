@@ -31,6 +31,17 @@ struct dropkickViewTop: View {
                         )
                     }
 
+                    // とにかくうれしいちゃんす
+                    NavigationLink(destination: dropkickViewTuc(
+                        dropkick: dropkick,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.text.rectangle.fill",
+                            textBody: "とにかくうれしいちゃんす",
+                            badgeStatus: common.dropkickMenuTucBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: dropkickViewFirstHit(
                         dropkick: dropkick,

@@ -146,6 +146,45 @@ class Dropkick: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // とにかくうれしいちゃんす シール
+    // --------
+    let ratioTucSealOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioTucSealOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("dropkickTucSealCount1") var tucSealCount1: Int = 0
+    @AppStorage("dropkickTucSealCount2") var tucSealCount2: Int = 0
+    @AppStorage("dropkickTucSealCount3") var tucSealCount3: Int = 0
+    @AppStorage("dropkickTucSealCount4") var tucSealCount4: Int = 0
+    @AppStorage("dropkickTucSealCount5") var tucSealCount5: Int = 0
+    @AppStorage("dropkickTucSealCount6") var tucSealCount6: Int = 0
+    @AppStorage("dropkickTucSealCount7") var tucSealCount7: Int = 0
+    @AppStorage("dropkickTucSealCountSum") var tucSealCountSum: Int = 0
+
+    func tucSealSumFunc() {
+        tucSealCountSum = countSum(
+            tucSealCount1,
+            tucSealCount2,
+            tucSealCount3,
+            tucSealCount4,
+            tucSealCount5,
+            tucSealCount6,
+            tucSealCount7,
+        )
+    }
+
+    func resetTucSeal() {
+        tucSealCount1 = 0
+        tucSealCount2 = 0
+        tucSealCount3 = 0
+        tucSealCount4 = 0
+        tucSealCount5 = 0
+        tucSealCount6 = 0
+        tucSealCount7 = 0
+        tucSealCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -158,6 +197,7 @@ class Dropkick: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetChara()
+        resetTucSeal()
     }
 }
 

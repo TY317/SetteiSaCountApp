@@ -13,6 +13,7 @@ struct dropkickViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.6, 100.4, 106.1, 110.4, 114.1]
+    @State var tucSealEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var charaEnable: Bool = true
@@ -48,6 +49,13 @@ struct dropkickViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // とにかくうれしいちゃんす シール
+                unitToggleWithQuestion(enable: self.$tucSealEnable, title: "とにかくうれしいちゃんす シール") {
+                    unitExView5body2image(
+                        title: "とにかくうれしいちゃんす シール",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // AT初当り確率
@@ -137,6 +145,23 @@ struct dropkickViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // とにかくうれしいちゃんす シール
+        // 確定系2バケットのみ渡し、示唆系は残余バケットに吸収させる
+        var logPostTucSeal: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tucSealEnable {
+            logPostTucSeal = logPostPercentMulti(
+                countList: [
+                    dropkick.tucSealCount6,
+                    dropkick.tucSealCount7,
+                ],
+                ratioList: [
+                    dropkick.ratioTucSealOver4,
+                    dropkick.ratioTucSealOver6,
+                ],
+                bigNumber: dropkick.tucSealCountSum
+            )
+        }
 
         // ボーナス初当り確率
         var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -243,6 +268,7 @@ struct dropkickViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostTucSeal,
             logPostFirstHitBonus,
             logPostFirstHitAt,
             logPostChara,
