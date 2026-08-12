@@ -83,6 +83,7 @@ class BioRe3: ObservableObject {
         resetFigure()
         resetNormal()
         resetDuringAt()
+        resetPoint()
     }
     
     // ---------
@@ -170,6 +171,128 @@ class BioRe3: ObservableObject {
     let ratioBell: [Double] = [20,19.3,18.6,18,17.2,15.9]
     @AppStorage("bioRe3PlayGame") var playGame: Int = 0
     @AppStorage("bioRe3KoyakuCountBell") var koyakuCountBell: Int = 0
+
+    // -------
+    // 規定ネメシスポイント
+    // -------
+    // 通常時
+    @AppStorage("bioRe3PointNormalCount1") var pointNormalCount1: Int = 0
+    @AppStorage("bioRe3PointNormalCount2") var pointNormalCount2: Int = 0
+    @AppStorage("bioRe3PointNormalCount3") var pointNormalCount3: Int = 0
+    @AppStorage("bioRe3PointNormalCount4") var pointNormalCount4: Int = 0
+    @AppStorage("bioRe3PointNormalCount5") var pointNormalCount5: Int = 0
+    @AppStorage("bioRe3PointNormalCount6") var pointNormalCount6: Int = 0
+    @AppStorage("bioRe3PointNormalCount7") var pointNormalCount7: Int = 0
+    @AppStorage("bioRe3PointNormalCount8") var pointNormalCount8: Int = 0
+    @AppStorage("bioRe3PointNormalCount9") var pointNormalCount9: Int = 0
+    @AppStorage("bioRe3PointNormalCount10") var pointNormalCount10: Int = 0
+    @AppStorage("bioRe3PointNormalCountSum") var pointNormalCountSum: Int = 0
+    // AT中
+    @AppStorage("bioRe3PointAtCount1") var pointAtCount1: Int = 0
+    @AppStorage("bioRe3PointAtCount2") var pointAtCount2: Int = 0
+    @AppStorage("bioRe3PointAtCount3") var pointAtCount3: Int = 0
+    @AppStorage("bioRe3PointAtCount4") var pointAtCount4: Int = 0
+    @AppStorage("bioRe3PointAtCount5") var pointAtCount5: Int = 0
+    @AppStorage("bioRe3PointAtCount6") var pointAtCount6: Int = 0
+    @AppStorage("bioRe3PointAtCount7") var pointAtCount7: Int = 0
+    @AppStorage("bioRe3PointAtCount8") var pointAtCount8: Int = 0
+    @AppStorage("bioRe3PointAtCount9") var pointAtCount9: Int = 0
+    @AppStorage("bioRe3PointAtCount10") var pointAtCount10: Int = 0
+    @AppStorage("bioRe3PointAtCountSum") var pointAtCountSum: Int = 0
+    // 上位AT中
+    @AppStorage("bioRe3PointHighAtCount1") var pointHighAtCount1: Int = 0
+    @AppStorage("bioRe3PointHighAtCount2") var pointHighAtCount2: Int = 0
+    @AppStorage("bioRe3PointHighAtCount3") var pointHighAtCount3: Int = 0
+    @AppStorage("bioRe3PointHighAtCount4") var pointHighAtCount4: Int = 0
+    @AppStorage("bioRe3PointHighAtCount5") var pointHighAtCount5: Int = 0
+    @AppStorage("bioRe3PointHighAtCount6") var pointHighAtCount6: Int = 0
+    @AppStorage("bioRe3PointHighAtCount7") var pointHighAtCount7: Int = 0
+    @AppStorage("bioRe3PointHighAtCount8") var pointHighAtCount8: Int = 0
+    @AppStorage("bioRe3PointHighAtCount9") var pointHighAtCount9: Int = 0
+    @AppStorage("bioRe3PointHighAtCount10") var pointHighAtCount10: Int = 0
+    @AppStorage("bioRe3PointHighAtCountSum") var pointHighAtCountSum: Int = 0
+
+    func pointNormalSumFunc() {
+        pointNormalCountSum = countSum(
+            pointNormalCount1,
+            pointNormalCount2,
+            pointNormalCount3,
+            pointNormalCount4,
+            pointNormalCount5,
+            pointNormalCount6,
+            pointNormalCount7,
+            pointNormalCount8,
+            pointNormalCount9,
+            pointNormalCount10,
+        )
+    }
+
+    func pointAtSumFunc() {
+        pointAtCountSum = countSum(
+            pointAtCount1,
+            pointAtCount2,
+            pointAtCount3,
+            pointAtCount4,
+            pointAtCount5,
+            pointAtCount6,
+            pointAtCount7,
+            pointAtCount8,
+            pointAtCount9,
+            pointAtCount10,
+        )
+    }
+
+    func pointHighAtSumFunc() {
+        pointHighAtCountSum = countSum(
+            pointHighAtCount1,
+            pointHighAtCount2,
+            pointHighAtCount3,
+            pointHighAtCount4,
+            pointHighAtCount5,
+            pointHighAtCount6,
+            pointHighAtCount7,
+            pointHighAtCount8,
+            pointHighAtCount9,
+            pointHighAtCount10,
+        )
+    }
+
+    func resetPoint() {
+        pointNormalCount1 = 0
+        pointNormalCount2 = 0
+        pointNormalCount3 = 0
+        pointNormalCount4 = 0
+        pointNormalCount5 = 0
+        pointNormalCount6 = 0
+        pointNormalCount7 = 0
+        pointNormalCount8 = 0
+        pointNormalCount9 = 0
+        pointNormalCount10 = 0
+        pointNormalCountSum = 0
+        pointAtCount1 = 0
+        pointAtCount2 = 0
+        pointAtCount3 = 0
+        pointAtCount4 = 0
+        pointAtCount5 = 0
+        pointAtCount6 = 0
+        pointAtCount7 = 0
+        pointAtCount8 = 0
+        pointAtCount9 = 0
+        pointAtCount10 = 0
+        pointAtCountSum = 0
+        pointHighAtCount1 = 0
+        pointHighAtCount2 = 0
+        pointHighAtCount3 = 0
+        pointHighAtCount4 = 0
+        pointHighAtCount5 = 0
+        pointHighAtCount6 = 0
+        pointHighAtCount7 = 0
+        pointHighAtCount8 = 0
+        pointHighAtCount9 = 0
+        pointHighAtCount10 = 0
+        pointHighAtCountSum = 0
+        minusCheck = false
+    }
 }
 
 

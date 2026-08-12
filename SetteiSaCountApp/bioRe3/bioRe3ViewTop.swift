@@ -45,6 +45,17 @@ struct bioRe3ViewTop: View {
                         )
                     }
                     
+                    // 規定ネメシスポイント
+                    NavigationLink(destination: bioRe3ViewPoint(
+                        bioRe3: bioRe3,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "11.circle",
+                            textBody: "規定ネメシスポイント",
+                            badgeStatus: common.bioRe3MenuPointBadge,
+                        )
+                    }
+
                     // CZ
                     NavigationLink(destination: bioRe3ViewCz(
                         bioRe3: bioRe3,

@@ -430,6 +430,7 @@ class commonVar: ObservableObject {
     @AppStorage("bioRe3MenuEndingBadge") var bioRe3MenuEndingBadge: String = "none"
     @AppStorage("bioRe3MenuCzBadge") var bioRe3MenuCzBadge: String = "none"
     @AppStorage("bioRe3MenuDuringAtBadge") var bioRe3MenuDuringAtBadge: String = "none"
+    @AppStorage("bioRe3MenuPointBadge") var bioRe3MenuPointBadge: String = "none"
 
     // ---- リオエース２
     @AppStorage("rioAceisUnlocked") var rioAceisUnlocked: Bool = true
@@ -755,6 +756,7 @@ class commonVar: ObservableObject {
                 kokakukidotaiMenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
                 bioRe3MenuNormalBadge = "update"
+                bioRe3MenuPointBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
