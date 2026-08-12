@@ -59,7 +59,7 @@ struct dropkickViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: dropkickView95Ci(
                     dropkick: dropkick,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

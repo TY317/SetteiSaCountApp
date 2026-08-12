@@ -28,7 +28,67 @@ struct dropkickViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $dropkick.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // ボーナス
+                unitCountButtonVerticalDenominate(
+                    title: "ボーナス",
+                    count: $dropkick.firstHitCountBonus,
+                    color: .personalSummerLightRed,
+                    bigNumber: $dropkick.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $dropkick.minusCheck
+                )
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $dropkick.firstHitCountAt,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $dropkick.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $dropkick.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "ボーナス",
+                        denominateList: dropkick.ratioFirstHitBonus
+                    )
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: dropkick.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    dropkickView95Ci(
+                        dropkick: dropkick,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                dropkickViewBayes(
+                    dropkick: dropkick,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.dropkickMenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct dropkickViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: dropkick.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

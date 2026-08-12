@@ -21,8 +21,16 @@ class Dropkick: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitBonus: [Double] = [253.1,248.1,241.6,222.5,211.8,210.0]
+    let ratioFirstHitAt: [Double] = [758.2,746.3,722.8,655.9,615.9,606.2]
+    @AppStorage("dropkickNormalGame") var normalGame: Int = 0
+    @AppStorage("dropkickFirstHitCountBonus") var firstHitCountBonus: Int = 0
+    @AppStorage("dropkickFirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBonus = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

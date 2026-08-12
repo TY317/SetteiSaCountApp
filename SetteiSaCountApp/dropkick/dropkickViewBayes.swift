@@ -13,6 +13,8 @@ struct dropkickViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.6, 100.4, 106.1, 110.4, 114.1]
+    @State var firstHitBonusEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,6 +46,10 @@ struct dropkickViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // ボーナス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // トロフィー
                 DisclosureGroup("クジラッキートロフィー") {
@@ -116,6 +122,26 @@ struct dropkickViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // ボーナス初当り確率
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitBonusEnable {
+            logPostFirstHitBonus = logPostDenoBino(
+                ratio: dropkick.ratioFirstHitBonus,
+                Count: dropkick.firstHitCountBonus,
+                bigNumber: dropkick.normalGame
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: dropkick.ratioFirstHitAt,
+                Count: dropkick.firstHitCountAt,
+                bigNumber: dropkick.normalGame
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -153,6 +179,8 @@ struct dropkickViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitBonus,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

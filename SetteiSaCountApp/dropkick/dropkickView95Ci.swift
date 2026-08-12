@@ -14,60 +14,41 @@ struct dropkickView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $dropkick.otomeAttackHit,
-//                        bigNumber: $dropkick.otomeAttackSum,
-//                        setting1Percent: dropkick.ratioOtomeAttack[0],
-//                        setting2Percent: dropkick.ratioOtomeAttack[1],
-//                        setting3Percent: dropkick.ratioOtomeAttack[2],
-//                        setting4Percent: dropkick.ratioOtomeAttack[3],
-//                        setting5Percent: dropkick.ratioOtomeAttack[4],
-//                        setting6Percent: dropkick.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $dropkick.firstHitCountCz,
-//                        bigNumber: $dropkick.normalGame,
-//                        setting1Denominate: dropkick.ratioFirstHitCz[0],
-//                        setting2Denominate: dropkick.ratioFirstHitCz[1],
-//                        setting3Denominate: dropkick.ratioFirstHitCz[2],
-//                        setting4Denominate: dropkick.ratioFirstHitCz[3],
-//                        setting5Denominate: dropkick.ratioFirstHitCz[4],
-//                        setting6Denominate: dropkick.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $dropkick.firstHitCountAt,
-//                        bigNumber: $dropkick.normalGame,
-//                        setting1Denominate: dropkick.ratioFirstHitAt[0],
-//                        setting2Denominate: dropkick.ratioFirstHitAt[1],
-//                        setting3Denominate: dropkick.ratioFirstHitAt[2],
-//                        setting4Denominate: dropkick.ratioFirstHitAt[3],
-//                        setting5Denominate: dropkick.ratioFirstHitAt[4],
-//                        setting6Denominate: dropkick.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $dropkick.firstHitCountBonus,
+                        bigNumber: $dropkick.normalGame,
+                        setting1Denominate: dropkick.ratioFirstHitBonus[0],
+                        setting2Denominate: dropkick.ratioFirstHitBonus[1],
+                        setting3Denominate: dropkick.ratioFirstHitBonus[2],
+                        setting4Denominate: dropkick.ratioFirstHitBonus[3],
+                        setting5Denominate: dropkick.ratioFirstHitBonus[4],
+                        setting6Denominate: dropkick.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $dropkick.firstHitCountAt,
+                        bigNumber: $dropkick.normalGame,
+                        setting1Denominate: dropkick.ratioFirstHitAt[0],
+                        setting2Denominate: dropkick.ratioFirstHitAt[1],
+                        setting3Denominate: dropkick.ratioFirstHitAt[2],
+                        setting4Denominate: dropkick.ratioFirstHitAt[3],
+                        setting5Denominate: dropkick.ratioFirstHitAt[4],
+                        setting6Denominate: dropkick.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {
