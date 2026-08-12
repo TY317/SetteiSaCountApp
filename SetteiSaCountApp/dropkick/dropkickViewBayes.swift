@@ -15,6 +15,7 @@ struct dropkickViewBayes: View {
     let payoutList: [Double] = [97.8, 98.6, 100.4, 106.1, 110.4, 114.1]
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,13 @@ struct dropkickViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("クジラッキートロフィー") {
@@ -142,6 +150,27 @@ struct dropkickViewBayes: View {
             )
         }
 
+        // 終了画面
+        // 確定系4画面のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    dropkick.screenCount8,
+                    dropkick.screenCount9,
+                    dropkick.screenCount10,
+                    dropkick.screenCount11,
+                ],
+                ratioList: [
+                    dropkick.ratioScreenOver2,
+                    dropkick.ratioScreenOver4,
+                    dropkick.ratioScreenOver5,
+                    dropkick.ratioScreenOver6,
+                ],
+                bigNumber: dropkick.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -181,6 +210,7 @@ struct dropkickViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

@@ -34,6 +34,59 @@ class Dropkick: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // 終了画面
+    // --------
+    let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioScreenOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("dropkickScreenCount1") var screenCount1: Int = 0
+    @AppStorage("dropkickScreenCount2") var screenCount2: Int = 0
+    @AppStorage("dropkickScreenCount3") var screenCount3: Int = 0
+    @AppStorage("dropkickScreenCount4") var screenCount4: Int = 0
+    @AppStorage("dropkickScreenCount5") var screenCount5: Int = 0
+    @AppStorage("dropkickScreenCount6") var screenCount6: Int = 0
+    @AppStorage("dropkickScreenCount7") var screenCount7: Int = 0
+    @AppStorage("dropkickScreenCount8") var screenCount8: Int = 0
+    @AppStorage("dropkickScreenCount9") var screenCount9: Int = 0
+    @AppStorage("dropkickScreenCount10") var screenCount10: Int = 0
+    @AppStorage("dropkickScreenCount11") var screenCount11: Int = 0
+    @AppStorage("dropkickScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+            screenCount6,
+            screenCount7,
+            screenCount8,
+            screenCount9,
+            screenCount10,
+            screenCount11,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCount6 = 0
+        screenCount7 = 0
+        screenCount8 = 0
+        screenCount9 = 0
+        screenCount10 = 0
+        screenCount11 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -44,6 +97,7 @@ class Dropkick: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 

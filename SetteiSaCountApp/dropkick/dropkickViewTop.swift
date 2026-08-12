@@ -42,6 +42,17 @@ struct dropkickViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: dropkickViewScreen(
+                        dropkick: dropkick,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.dropkickMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKujiluckyTrophy()) {
                         unitLabelMenu(
