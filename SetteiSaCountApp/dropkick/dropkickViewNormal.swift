@@ -28,7 +28,15 @@ struct dropkickViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
-
+            // レア役
+            Section {
+                // レア役停止系
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
+                    dropkickTableKoyakuPattern()
+                }
+            } header: {
+                Text("小役")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.dropkickMenuNormalBadge)
