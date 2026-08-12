@@ -85,3 +85,19 @@ struct tipVer440BioRe3Bell: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：
+//////////////////
+struct tipVer440BioRe3Point: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("規定ネメシスポイントは滞在状態で振分けが異なります\n通常時・AT中・上位AT中を切り替えてカウントして下さい")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
