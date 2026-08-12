@@ -176,6 +176,16 @@ class BioRe3: ObservableObject {
     // 規定ネメシスポイント
     // -------
     // 通常時
+    let ratioPointNormal50: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal100: [Double] = [19.5,20.3,21.5,23.4,27.3,28.5]
+    let ratioPointNormal150: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal200: [Double] = [6.6,7.4,8.2,10.2,10.5,10.9]
+    let ratioPointNormal250: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal300: [Double] = [35.9,35.9,35.9,35.9,35.9,35.9,]
+    let ratioPointNormal350: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal400: [Double] = [9.8,9.8,9.8,9.8,9.8,9.8,]
+    let ratioPointNormal450: [Double] = [1.6,1.2,1.2,0.8,0.8,0.8,]
+    let ratioPointNormal500: [Double] = [25,23.8,20.3,15.2,10.5,8.2]
     @AppStorage("bioRe3PointNormalCount1") var pointNormalCount1: Int = 0
     @AppStorage("bioRe3PointNormalCount2") var pointNormalCount2: Int = 0
     @AppStorage("bioRe3PointNormalCount3") var pointNormalCount3: Int = 0
@@ -188,6 +198,16 @@ class BioRe3: ObservableObject {
     @AppStorage("bioRe3PointNormalCount10") var pointNormalCount10: Int = 0
     @AppStorage("bioRe3PointNormalCountSum") var pointNormalCountSum: Int = 0
     // AT中
+    let ratioPointAt50: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt100: [Double] = [30.5,30.9,33.2,34.4,38.3,39.5]
+    let ratioPointAt150: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt200: [Double] = [12.5,12.5,12.5,12.5,12.5,12.5,]
+    let ratioPointAt250: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt300: [Double] = [27.3,27.3,27.3,27.3,27.3,27.3,]
+    let ratioPointAt350: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointAt400: [Double] = [9.4,8.6,7.4,7,6.6,5.4]
+    let ratioPointAt450: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointAt500: [Double] = [17.2,16.4,14.1,12.1,7.4,6.3]
     @AppStorage("bioRe3PointAtCount1") var pointAtCount1: Int = 0
     @AppStorage("bioRe3PointAtCount2") var pointAtCount2: Int = 0
     @AppStorage("bioRe3PointAtCount3") var pointAtCount3: Int = 0
@@ -200,6 +220,16 @@ class BioRe3: ObservableObject {
     @AppStorage("bioRe3PointAtCount10") var pointAtCount10: Int = 0
     @AppStorage("bioRe3PointAtCountSum") var pointAtCountSum: Int = 0
     // 上位AT中
+    let ratioPointHighAt50: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt100: [Double] = [25,25.8,26.6,27.3,28.1,31.3]
+    let ratioPointHighAt150: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt200: [Double] = [7.8,9.4,10.9,12.5,14.8,17.2]
+    let ratioPointHighAt250: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt300: [Double] = [19.9,20.7,21.5,22.3,23,24.2,]
+    let ratioPointHighAt350: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointHighAt400: [Double] = [9.4,9.4,9.4,9.4,9.4,9.4,]
+    let ratioPointHighAt450: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointHighAt500: [Double] = [35.9,31.6,27.3,23,18,10.2]
     @AppStorage("bioRe3PointHighAtCount1") var pointHighAtCount1: Int = 0
     @AppStorage("bioRe3PointHighAtCount2") var pointHighAtCount2: Int = 0
     @AppStorage("bioRe3PointHighAtCount3") var pointHighAtCount3: Int = 0
