@@ -40,10 +40,11 @@ Section {
 ```
 
 ## 5. 検証・報告
-- ビルド成功（`xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build`）。失敗時は pbxproj をバックアップから復元して報告。
+- **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。高速チェックで代替する：`plutil -lint SetteiSaCountApp.xcodeproj/project.pbxproj` が OK ＋ `grep -c "<prefix>TableKoyakuPattern.swift in Sources"` が **4**（2ターゲット登録）。異常時は pbxproj をバックアップから復元して報告。
+- 報告時に「フルビルド検証は省略（高速チェック済み／コミット前ビルドに委ねる）」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> 通常時にレア役停止系を追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - ユーザーに「テーブルの図柄/役は実機に合わせて編集してください」と再度案内。
 
 ## 注意
-- pbxproj は必ずバックアップ＋ビルド検証。本テーブルは**2ターゲット登録が既定**（`in Sources` が計4）。ちょうど2になるようにし、1（片方のみ）や3以上（過剰）にしない。判断に迷ったら既存 *KoyakuPattern テーブルの登録を手本にする。
+- pbxproj は必ずバックアップ（検証は手順5の高速チェック。フルビルドは行わない）。本テーブルは**2ターゲット登録が既定**（`in Sources` が計4）。ちょうど2になるようにし、1（片方のみ）や3以上（過剰）にしない。判断に迷ったら既存 *KoyakuPattern テーブルの登録を手本にする。
 - 図柄パーツ：`unitReelPattern / unitReelColumn / unitReelAny / unitReelHazure / unitReelSpacer / unitReelLongTitle / unitReelReplay(xmarkBool:) / unitReelBar / unitReelText(textBody:) / unitReelDefault`。

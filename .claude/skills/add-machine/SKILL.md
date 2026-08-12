@@ -161,6 +161,7 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
 
 ## 6. 検証・報告
 - `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。失敗時は pbxproj をバックアップから復元して原因報告。
+  - **フルビルドを行うのは全スキル中この add-machine だけ**（pbxproj手術が最重量＝13エントリ・5セクション）。他スキルは高速チェックか検証なし（方針：`skill-build-verify-policy`）。1回およそ10分かかるので、他スキルに流用しない。
 - ビルド成功後、ユーザーに「**Xcodeで `<prefix>MachineIcon` の imageset に機種アイコンPNGを配置してください**」と案内。
 - トロフィー系リンク・注意事項セクションをメーカー法則で追加/省略した旨を報告（この機種固有で法則と異なる場合は手動で調整可、と案内）。
 - 提案コミットメッセージ：`[機能]新機種 <fullName>(id:<id>) を追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。

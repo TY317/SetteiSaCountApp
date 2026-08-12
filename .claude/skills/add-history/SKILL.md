@@ -72,7 +72,7 @@ description: 機種の「履歴」ページ(液晶ゲーム数＋種類を登録
 - `__KIND_PICKER__`・`__KIND_DECODE_DISPLAY__` は**型に応じて**雛形末尾の String版/Int版から選び、`//` を外して字下げのまま採用（String=`unitPickerMenuString`/`decodeStringArray`/`Text(kindArray[i])`、Int=`unitPickerMenuIntToString`/`decodeIntArray`/`Text("\(kindArray[i])<接尾>")`）。
 
 ## 4. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
+- **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
 - 提案コミット：`[機能]<prefix> 履歴ページを実装`（末尾 `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - **案内**：履歴のJSON配列 `gameArrayData`/`kindArrayData`（`Data?`）はメモリー保存対象。**`/sync-memory` を実行して Memory1/2/3 に同期**（load は decode＋saveArray の B パターン）。`inputGame`/`selectedKind` はメモリー対象外。
 

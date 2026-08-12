@@ -26,7 +26,8 @@ description: AdMob広告をテスト/本番で一括切替する。バナー/イ
 5. **検証**：
    - `grep -rn "ca-app-pub" SetteiSaCountApp --include="*.swift"` で**有効行（先頭が `//` でない行）のIDが全てモード一致**（test=`3940256099942544`、prod=`2339669527176370`）であること。コメント行の逆IDは残ってよい。
    - Info.plist の `GADApplicationIdentifier` もモード一致。
-   - ビルド成功（`xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build`）。
+   - **フルビルドは行わない**（`//` の付け替えと plist 文字列置換のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。上記2つの grep 確認で足りる。報告時に「ビルド検証は省略」と一言添える。
+   - ただし `prod` 切替時は**ユーザーによる実機確認が必須**（本番広告が正しく配信されるか）。これはビルド検証とは別件なので必ず案内する。
 6. **報告**（コミットはユーザー指示後）。提案コミットメッセージ：`[調整]広告をテストに切替` / `[調整]広告を本番に戻す`。
 
 ## 注意

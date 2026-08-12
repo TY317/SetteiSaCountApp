@@ -102,7 +102,7 @@ description: 既存の設定期待値(ベイズ)ページ <prefix>ViewBayes.swif
 **(A)(C)(D) の順序について**：ユーザーに確認するのは **(B) のトグル位置だけ**（画面の表示順＝使い勝手に直結するため）。(A) @State・(C) 対数尤度・(D) 合算は**順序が挙動に影響しない**ので確認不要。ただし読みやすさのため、可能なら (B) で決めた並びに合わせる。
 
 ## 3. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
+- **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> 設定期待値ページに判別要素を追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - 案内：引数に使うカウント変数（`firstHitCount*` / `normalGame` 等）・ratio 配列は Class 側に存在が前提。無ければ先に用意（add-firsthit 等）。
 

@@ -49,9 +49,10 @@ description: 機種に「終了画面」カウントページを実装する。C
 ## 3. ViewScreen 生成（テンプレ置換）
 `templates/ViewScreen.swift.tmpl` を以下置換して `SetteiSaCountApp/<prefix>/<prefix>ViewScreen.swift` に生成：
 - `__prefix__`→prefix、`__Prefix__`→Prefix
-- `__IMAGE_NAME_LIST__`→ `<prefix>Screen1`…`<prefix>ScreenN` の各行（`                "<name>",` 字下げ16、末尾カンマ）
-- `__UPPER_BELT_LIST__` / `__LOWER_BELT_LIST__`→ 各リストの `                "<text>",`（字下げ16）
-- `__FLASH_COLOR_LIST__`→ 各色 `                <color>,`（字下げ16）
+- `__IMAGE_NAME_LIST__`→ `<prefix>Screen1`…`<prefix>ScreenN` の各行（`        "<name>",` 字下げ8、末尾カンマ）
+- `__UPPER_BELT_LIST__` / `__LOWER_BELT_LIST__`→ 各リストの `        "<text>",`（字下げ8）
+- `__FLASH_COLOR_LIST__`→ 各色 `        <color>,`（字下げ8）
+- ※4つのリテラル配列の要素は**字下げ8スペース**（`let` の中身の標準字下げ）。既存実装 `sencole6ViewScreen` / `neoplaViewScreen` と揃える。
 - `__INDEX_LIST__`→ `[0,1,…,N-1]`
 - `__BINDING_SWITCH__`→ N ケース（字下げ8）：
   ```swift
@@ -89,7 +90,8 @@ n=1..N について `SetteiSaCountApp/<prefix>/<prefix>Assets.xcassets/<prefix>S
 ```
 
 ## 7. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。失敗時は pbxproj をバックアップ復元して報告。
+- **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。高速チェックで代替する：`plutil -lint SetteiSaCountApp.xcodeproj/project.pbxproj` が OK ＋ `grep -c "<prefix>ViewScreen.swift in Sources"` が 2。異常時は pbxproj をバックアップ復元して報告。
+- 報告時に「フルビルド検証は省略（高速チェック済み／コミット前ビルドに委ねる）」と一言添える。
 - 案内：「Xcode で `<prefix>Screen1`…`<prefix>Screen<N>` の imageset に画面PNGを配置してください」。ベルト文言・色は実機に合わせ調整可。
 - 提案コミットメッセージ：`[機能]<prefix> 終了画面カウントページを実装`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 
@@ -98,4 +100,4 @@ n=1..N について `SetteiSaCountApp/<prefix>/<prefix>Assets.xcassets/<prefix>S
 - `screenCountSum`・`countSum(...)`・`resetScreen()` 内 `minusCheck = false` を忘れない。`resetAll()` への `resetScreen()` 追加も必須。
 - 3リスト（upper/lower/flashColor）は必ず N 個ずつ。過不足があるとインデックスの `indices.contains` ガードで表示/結果が欠ける。
 - 終了画面のベイズ判別（`logPostPercentMulti` で `screenCount*` を尤度化）は本スキルのスコープ外＝別途 add-bayes-element。
-- pbxproj はバックアップ＋ビルド検証必須。
+- pbxproj はバックアップ必須（検証は手順7の高速チェック。フルビルドは行わない）。
