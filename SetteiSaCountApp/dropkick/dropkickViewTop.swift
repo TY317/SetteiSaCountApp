@@ -42,13 +42,24 @@ struct dropkickViewTop: View {
                         )
                     }
 
+                    // 小悪魔ボーナス
+                    NavigationLink(destination: dropkickViewKoakuma(
+                        dropkick: dropkick,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "小悪魔ボーナス",
+                            badgeStatus: common.dropkickMenuKoakumaBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: dropkickViewScreen(
                         dropkick: dropkick,
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "終了画面",
+                            textBody: "AT終了画面",
                             badgeStatus: common.dropkickMenuScreenBadge,
                         )
                     }

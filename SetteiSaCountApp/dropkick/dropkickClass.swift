@@ -87,6 +87,65 @@ class Dropkick: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // 小悪魔ボーナス キャラ
+    // --------
+    let ratioCharaNegate1: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioCharaNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
+    let ratioCharaNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
+    let ratioCharaOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
+    let ratioCharaNegate13: [Double] = [0,0.1,0,0.1,0.1,0.1,]
+    let ratioCharaOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioCharaOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("dropkickCharaCount1") var charaCount1: Int = 0
+    @AppStorage("dropkickCharaCount2") var charaCount2: Int = 0
+    @AppStorage("dropkickCharaCount3") var charaCount3: Int = 0
+    @AppStorage("dropkickCharaCount4") var charaCount4: Int = 0
+    @AppStorage("dropkickCharaCount5") var charaCount5: Int = 0
+    @AppStorage("dropkickCharaCount6") var charaCount6: Int = 0
+    @AppStorage("dropkickCharaCount7") var charaCount7: Int = 0
+    @AppStorage("dropkickCharaCount8") var charaCount8: Int = 0
+    @AppStorage("dropkickCharaCount9") var charaCount9: Int = 0
+    @AppStorage("dropkickCharaCount10") var charaCount10: Int = 0
+    @AppStorage("dropkickCharaCount11") var charaCount11: Int = 0
+    @AppStorage("dropkickCharaCount12") var charaCount12: Int = 0
+    @AppStorage("dropkickCharaCountSum") var charaCountSum: Int = 0
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+            charaCount4,
+            charaCount5,
+            charaCount6,
+            charaCount7,
+            charaCount8,
+            charaCount9,
+            charaCount10,
+            charaCount11,
+            charaCount12,
+        )
+    }
+
+    func resetChara() {
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCount4 = 0
+        charaCount5 = 0
+        charaCount6 = 0
+        charaCount7 = 0
+        charaCount8 = 0
+        charaCount9 = 0
+        charaCount10 = 0
+        charaCount11 = 0
+        charaCount12 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -98,6 +157,7 @@ class Dropkick: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetChara()
     }
 }
 

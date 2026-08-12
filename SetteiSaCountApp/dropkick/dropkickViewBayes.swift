@@ -15,6 +15,7 @@ struct dropkickViewBayes: View {
     let payoutList: [Double] = [97.8, 98.6, 100.4, 106.1, 110.4, 114.1]
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var charaEnable: Bool = true
     @State var screenEnable: Bool = true
 
     // 全機種共通
@@ -51,6 +52,13 @@ struct dropkickViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // 小悪魔ボーナス キャラ
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "小悪魔ボーナス キャラ") {
+                    unitExView5body2image(
+                        title: "小悪魔ボーナス キャラ",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -150,6 +158,33 @@ struct dropkickViewBayes: View {
             )
         }
 
+        // 小悪魔ボーナス キャラ
+        // 確定系7バケットのみ渡し、示唆系は残余バケットに吸収させる
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    dropkick.charaCount6,
+                    dropkick.charaCount7,
+                    dropkick.charaCount8,
+                    dropkick.charaCount9,
+                    dropkick.charaCount10,
+                    dropkick.charaCount11,
+                    dropkick.charaCount12,
+                ],
+                ratioList: [
+                    dropkick.ratioCharaNegate1,
+                    dropkick.ratioCharaNegate2,
+                    dropkick.ratioCharaNegate3,
+                    dropkick.ratioCharaOver3,
+                    dropkick.ratioCharaNegate13,
+                    dropkick.ratioCharaOver4,
+                    dropkick.ratioCharaOver6,
+                ],
+                bigNumber: dropkick.charaCountSum
+            )
+        }
+
         // 終了画面
         // 確定系4画面のみ渡し、示唆系は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -210,6 +245,7 @@ struct dropkickViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostChara,
             logPostScreen,
             logPostTrophy,
             logPostBefore,
