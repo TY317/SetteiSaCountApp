@@ -13,8 +13,43 @@ class Dropkick: ObservableObject {
     // -------
     // 通常時
     // -------
+    // ポイント推定
+    @AppStorage("dropkickPtMigisagari") var ptMigisagari: Int = 0
+    @AppStorage("dropkickPtUpper") var ptUpper: Int = 0
+    @AppStorage("dropkickPtMiddle") var ptMiddle: Int = 0
+    @AppStorage("dropkickPtLower") var ptLower: Int = 0
+    @AppStorage("dropkickPtMigiagari") var ptMigiagari: Int = 0
+
+    func resetPtMigisagari() {
+        ptMigisagari = 0
+    }
+
+    func resetPtUpper() {
+        ptUpper = 0
+    }
+
+    func resetPtMiddle() {
+        ptMiddle = 0
+    }
+
+    func resetPtLower() {
+        ptLower = 0
+    }
+
+    func resetPtMigiagari() {
+        ptMigiagari = 0
+    }
+
+    func resetPt() {
+        ptMigisagari = 0
+        ptUpper = 0
+        ptMiddle = 0
+        ptLower = 0
+        ptMigiagari = 0
+    }
 
     func resetNormal() {
+        resetPt()
         minusCheck = false
     }
 
