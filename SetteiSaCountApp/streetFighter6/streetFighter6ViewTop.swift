@@ -68,15 +68,15 @@ struct streetFighter6ViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: streetFighter6ViewBayes(
-//                    streetFighter6: streetFighter6,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.streetFighter6MenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: streetFighter6ViewBayes(
+                    streetFighter6: streetFighter6,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.streetFighter6MenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5068")
