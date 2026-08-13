@@ -222,6 +222,11 @@ struct dropkickViewNormal: View {
                         message: "右上がりの推定ポイントのみリセットします"
                     )
                 }
+                
+                // 参考情報　ラインポイント
+                unitLinkButtonViewBuilder(sheetTitle: "ラインポイントについて") {
+                    dropkickTableLinePoint()
+                }
             } header: {
                 Text("ポイント推定カウント")
             }
