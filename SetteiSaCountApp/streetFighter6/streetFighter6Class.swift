@@ -77,6 +77,38 @@ class StreetFighter6: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // エンディング
+    // --------
+    let ratioEndingOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    @AppStorage("streetFighter6EndingCount1") var endingCount1: Int = 0
+    @AppStorage("streetFighter6EndingCount2") var endingCount2: Int = 0
+    @AppStorage("streetFighter6EndingCount3") var endingCount3: Int = 0
+    @AppStorage("streetFighter6EndingCount4") var endingCount4: Int = 0
+    @AppStorage("streetFighter6EndingCount5") var endingCount5: Int = 0
+    @AppStorage("streetFighter6EndingCountSum") var endingCountSum: Int = 0
+
+    func endingSumFunc() {
+        endingCountSum = countSum(
+            endingCount1,
+            endingCount2,
+            endingCount3,
+            endingCount4,
+            endingCount5,
+        )
+    }
+
+    func resetEnding() {
+        endingCount1 = 0
+        endingCount2 = 0
+        endingCount3 = 0
+        endingCount4 = 0
+        endingCount5 = 0
+        endingCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -88,6 +120,7 @@ class StreetFighter6: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetEnding()
     }
 }
 

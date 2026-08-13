@@ -53,6 +53,17 @@ struct streetFighter6ViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: streetFighter6ViewEnding(
+                        streetFighter6: streetFighter6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.streetFighter6MenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewEnteriseTrophy()) {
                         unitLabelMenu(

@@ -16,6 +16,7 @@ struct streetFighter6ViewBayes: View {
     @State var firstHitFbEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var endingEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -55,6 +56,13 @@ struct streetFighter6ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // エンディング ボイス
+                unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング ボイス",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -169,6 +177,17 @@ struct streetFighter6ViewBayes: View {
             )
         }
 
+        // エンディング ボイス
+        // 確定系「シゴロー」のみ反映（単一事象なので二項）
+        var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingEnable {
+            logPostEnding = logPostPercentBino(
+                ratio: streetFighter6.ratioEndingOver4,
+                Count: streetFighter6.endingCount5,
+                bigNumber: streetFighter6.endingCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -209,6 +228,7 @@ struct streetFighter6ViewBayes: View {
             logPostFirstHitFb,
             logPostFirstHitBonus,
             logPostScreen,
+            logPostEnding,
             logPostTrophy,
             logPostBefore,
         ])
