@@ -14,60 +14,41 @@ struct streetFighter6View95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $streetFighter6.otomeAttackHit,
-//                        bigNumber: $streetFighter6.otomeAttackSum,
-//                        setting1Percent: streetFighter6.ratioOtomeAttack[0],
-//                        setting2Percent: streetFighter6.ratioOtomeAttack[1],
-//                        setting3Percent: streetFighter6.ratioOtomeAttack[2],
-//                        setting4Percent: streetFighter6.ratioOtomeAttack[3],
-//                        setting5Percent: streetFighter6.ratioOtomeAttack[4],
-//                        setting6Percent: streetFighter6.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $streetFighter6.firstHitCountCz,
-//                        bigNumber: $streetFighter6.normalGame,
-//                        setting1Denominate: streetFighter6.ratioFirstHitCz[0],
-//                        setting2Denominate: streetFighter6.ratioFirstHitCz[1],
-//                        setting3Denominate: streetFighter6.ratioFirstHitCz[2],
-//                        setting4Denominate: streetFighter6.ratioFirstHitCz[3],
-//                        setting5Denominate: streetFighter6.ratioFirstHitCz[4],
-//                        setting6Denominate: streetFighter6.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $streetFighter6.firstHitCountAt,
-//                        bigNumber: $streetFighter6.normalGame,
-//                        setting1Denominate: streetFighter6.ratioFirstHitAt[0],
-//                        setting2Denominate: streetFighter6.ratioFirstHitAt[1],
-//                        setting3Denominate: streetFighter6.ratioFirstHitAt[2],
-//                        setting4Denominate: streetFighter6.ratioFirstHitAt[3],
-//                        setting5Denominate: streetFighter6.ratioFirstHitAt[4],
-//                        setting6Denominate: streetFighter6.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // FB初当り回数
+            unitListSection95Ci(
+                grafTitle: "FB初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $streetFighter6.firstHitCountFb,
+                        bigNumber: $streetFighter6.normalGame,
+                        setting1Denominate: streetFighter6.ratioFirstHitFb[0],
+                        setting2Denominate: streetFighter6.ratioFirstHitFb[1],
+                        setting3Denominate: streetFighter6.ratioFirstHitFb[2],
+                        setting4Denominate: streetFighter6.ratioFirstHitFb[3],
+                        setting5Denominate: streetFighter6.ratioFirstHitFb[4],
+                        setting6Denominate: streetFighter6.ratioFirstHitFb[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $streetFighter6.firstHitCountBonus,
+                        bigNumber: $streetFighter6.normalGame,
+                        setting1Denominate: streetFighter6.ratioFirstHitBonus[0],
+                        setting2Denominate: streetFighter6.ratioFirstHitBonus[1],
+                        setting3Denominate: streetFighter6.ratioFirstHitBonus[2],
+                        setting4Denominate: streetFighter6.ratioFirstHitBonus[3],
+                        setting5Denominate: streetFighter6.ratioFirstHitBonus[4],
+                        setting6Denominate: streetFighter6.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

@@ -28,7 +28,67 @@ struct streetFighter6ViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $streetFighter6.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // FB
+                unitCountButtonVerticalDenominate(
+                    title: "FB",
+                    count: $streetFighter6.firstHitCountFb,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $streetFighter6.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $streetFighter6.minusCheck
+                )
+                // ボーナス
+                unitCountButtonVerticalDenominate(
+                    title: "ボーナス",
+                    count: $streetFighter6.firstHitCountBonus,
+                    color: .personalSummerLightRed,
+                    bigNumber: $streetFighter6.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $streetFighter6.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "FB",
+                        denominateList: streetFighter6.ratioFirstHitFb
+                    )
+                    unitTableDenominate(
+                        columTitle: "ボーナス",
+                        denominateList: streetFighter6.ratioFirstHitBonus
+                    )
+                }
+            }
+
+            // //// 95%%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    streetFighter6View95Ci(
+                        streetFighter6: streetFighter6,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                streetFighter6ViewBayes(
+                    streetFighter6: streetFighter6,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.streetFighter6MenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct streetFighter6ViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: streetFighter6.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

@@ -59,7 +59,7 @@ struct streetFighter6ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: streetFighter6View95Ci(
                     streetFighter6: streetFighter6,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

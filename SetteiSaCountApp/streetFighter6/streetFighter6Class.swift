@@ -21,8 +21,16 @@ class StreetFighter6: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitFb: [Double] = [278.6,272.1,264.6,258.9,255.3,252.6]
+    let ratioFirstHitBonus: [Double] = [487.6,473.3,447.2,425.6,405.9,389.9]
+    @AppStorage("streetFighter6NormalGame") var normalGame: Int = 0
+    @AppStorage("streetFighter6FirstHitCountFb") var firstHitCountFb: Int = 0
+    @AppStorage("streetFighter6FirstHitCountBonus") var firstHitCountBonus: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountFb = 0
+        firstHitCountBonus = 0
         minusCheck = false
     }
 
