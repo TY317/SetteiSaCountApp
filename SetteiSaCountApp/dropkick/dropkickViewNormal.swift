@@ -240,6 +240,18 @@ struct dropkickViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // モード
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモードについて") {
+                    dropkickTableMode()
+                }
+                unitLinkButtonViewBuilder(sheetTitle: "モードごとのG数テーブル") {
+                    dropkickTableModeTable()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.dropkickMenuNormalBadge)

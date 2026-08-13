@@ -579,6 +579,10 @@
 		0F6F0900302AA8730088F00C /* ver440.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08FF302AA8730088F00C /* ver440.swift */; };
 		0F6F0972302D6B4C0088F00C /* dropkickTableLinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */; };
 		0F6F0973302D6B550088F00C /* dropkickTableLinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */; };
+		0F6F0975302D72090088F00C /* dropkickTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0974302D72090088F00C /* dropkickTableMode.swift */; };
+		0F6F0976302D72520088F00C /* dropkickTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0974302D72090088F00C /* dropkickTableMode.swift */; };
+		0F6F0978302D761F0088F00C /* dropkickTableModeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0977302D761F0088F00C /* dropkickTableModeTable.swift */; };
+		0F6F0979302D76280088F00C /* dropkickTableModeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0977302D761F0088F00C /* dropkickTableModeTable.swift */; };
 		0F6F1F7D2CA382AB008554A0 /* hanaTenshoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7C2CA382AB008554A0 /* hanaTenshoViewTop.swift */; };
 		0F6F1F7F2CA382C2008554A0 /* hanaTenshoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F1F7E2CA382C2008554A0 /* hanaTenshoAssets.xcassets */; };
 		0F6FB8E22DE5DD8900207855 /* mhrTableQuestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6FB8E12DE5DD8900207855 /* mhrTableQuestTable.swift */; };
@@ -2212,6 +2216,8 @@
 		0F6F08B63024C1880088F00C /* sbjTableBbTenjo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjTableBbTenjo.swift; sourceTree = "<group>"; };
 		0F6F08FF302AA8730088F00C /* ver440.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver440.swift; sourceTree = "<group>"; };
 		0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableLinePoint.swift; sourceTree = "<group>"; };
+		0F6F0974302D72090088F00C /* dropkickTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableMode.swift; sourceTree = "<group>"; };
+		0F6F0977302D761F0088F00C /* dropkickTableModeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableModeTable.swift; sourceTree = "<group>"; };
 		0F6F1F7C2CA382AB008554A0 /* hanaTenshoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hanaTenshoViewTop.swift; sourceTree = "<group>"; };
 		0F6F1F7E2CA382C2008554A0 /* hanaTenshoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hanaTenshoAssets.xcassets; sourceTree = "<group>"; };
 		0F6FB8E12DE5DD8900207855 /* mhrTableQuestTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrTableQuestTable.swift; sourceTree = "<group>"; };
@@ -5909,6 +5915,8 @@
 				A2DF87BC7F6F47C8B75F039F /* dropkickView95Ci.swift */,
 				8B6056CC6F564CAA8469DDFB /* dropkickAssets.xcassets */,
 				0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */,
+				0F6F0974302D72090088F00C /* dropkickTableMode.swift */,
+				0F6F0977302D761F0088F00C /* dropkickTableModeTable.swift */,
 			);
 			path = dropkick;
 			sourceTree = "<group>";
@@ -7050,6 +7058,7 @@
 				0F9D9C2A2EA3C5F200450B23 /* starHanaViewShimaData.swift in Sources */,
 				0FA0247D2CF49E1F004B3FD5 /* symphoView95Ci.swift in Sources */,
 				0F8689E22D3CE67D00D952D9 /* myJug5Ver2View95CiPersonal.swift in Sources */,
+				0F6F0978302D761F0088F00C /* dropkickTableModeTable.swift in Sources */,
 				0F6F089B3020C2340088F00C /* index2TableMode.swift in Sources */,
 				0F868A412D460E7500D952D9 /* kingHanaVer2ViewJissenStartData.swift in Sources */,
 				0FC720042E6BDEFB000DD53B /* toreveViewRevenge.swift in Sources */,
@@ -7535,6 +7544,7 @@
 				0F9D9BF92EA0CAB500450B23 /* vvv2View95Ci.swift in Sources */,
 				0F45A5EA2F07CAD10022E355 /* rewardViewModelClass.swift in Sources */,
 				0FCF78A22E472CAE0000748B /* hokutoTableRareKoyakuRatio.swift in Sources */,
+				0F6F0975302D72090088F00C /* dropkickTableMode.swift in Sources */,
 				0F64DDB62DC6D4840027315D /* midoriDonViewTop.swift in Sources */,
 				0F868A672D4910BA00D952D9 /* ver200Tip.swift in Sources */,
 				0F868A3A2D45D43C00D952D9 /* hanaTenshoVer2View95CiPersonal.swift in Sources */,
@@ -7759,6 +7769,7 @@
 				0F6F08B83024C1900088F00C /* sbjTableBbTenjo.swift in Sources */,
 				0F6F08A63024BC2B0088F00C /* tokyoGhoulSubViewTableUraAt.swift in Sources */,
 				0FA0A7DF2EF96A7F003EF8BD /* vvv2Class.swift in Sources */,
+				0F6F0976302D72520088F00C /* dropkickTableMode.swift in Sources */,
 				0F1218762FCAFB5200E50794 /* sao2TableKoyakuPattern.swift in Sources */,
 				0FD586F32FF7F18C005689C6 /* sencole6TableModeSisa.swift in Sources */,
 				0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */,
@@ -7881,6 +7892,7 @@
 				0F461F8F2F93336A00F6B6A1 /* godKisekiTableDeme.swift in Sources */,
 				0FA0A7D52EF6947C003EF8BD /* unitReelReplay.swift in Sources */,
 				0FA0A7D62EF6947C003EF8BD /* unitReelLongTitle.swift in Sources */,
+				0F6F0979302D76280088F00C /* dropkickTableModeTable.swift in Sources */,
 				0FD974E92F4167D40067CED7 /* kokakukidotaiTableEyechatch.swift in Sources */,
 				0F19D4462F2D7A7C004A6D9F /* hokutoTenseiClass.swift in Sources */,
 				0F6F0899301F762A0088F00C /* worldDaiStarTableEnding.swift in Sources */,
