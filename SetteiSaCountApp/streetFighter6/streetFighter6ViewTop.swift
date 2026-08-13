@@ -42,6 +42,17 @@ struct streetFighter6ViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: streetFighter6ViewScreen(
+                        streetFighter6: streetFighter6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.streetFighter6MenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewEnteriseTrophy()) {
                         unitLabelMenu(

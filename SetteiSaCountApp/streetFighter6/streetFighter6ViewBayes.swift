@@ -15,6 +15,7 @@ struct streetFighter6ViewBayes: View {
     let payoutList: [Double] = [97.4, 98.4, 100.4, 103.2, 106.1, 110]
     @State var firstHitFbEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var screenEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,13 @@ struct streetFighter6ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitFbEnable, title: "FB初当り確率")
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("エンタトロフィー") {
@@ -142,6 +150,25 @@ struct streetFighter6ViewBayes: View {
             )
         }
 
+        // 終了画面
+        // 確定系3画面のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    streetFighter6.screenCount6,
+                    streetFighter6.screenCount7,
+                    streetFighter6.screenCount8,
+                ],
+                ratioList: [
+                    streetFighter6.ratioScreenOver2,
+                    streetFighter6.ratioScreenOver4,
+                    streetFighter6.ratioScreenOver6,
+                ],
+                bigNumber: streetFighter6.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -181,6 +208,7 @@ struct streetFighter6ViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitFb,
             logPostFirstHitBonus,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])
