@@ -75,6 +75,17 @@ struct dropkickViewTop: View {
                         )
                     }
 
+                    // 引き戻し
+                    NavigationLink(destination: dropkickViewBack(
+                        dropkick: dropkick,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "引き戻し",
+                            badgeStatus: common.dropkickMenuBackBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKujiluckyTrophy()) {
                         unitLabelMenu(

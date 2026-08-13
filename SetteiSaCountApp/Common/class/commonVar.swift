@@ -393,6 +393,7 @@ class commonVar: ObservableObject {
     @AppStorage("dropkickMenuScreenBadge") var dropkickMenuScreenBadge: String = "none"
     @AppStorage("dropkickMenuKoakumaBadge") var dropkickMenuKoakumaBadge: String = "none"
     @AppStorage("dropkickMenuTucBadge") var dropkickMenuTucBadge: String = "none"
+    @AppStorage("dropkickMenuBackBadge") var dropkickMenuBackBadge: String = "none"
 
     // ---- ワールドダイスター
     @AppStorage("worldDaiStarMenuNormalBadge") var worldDaiStarMenuNormalBadge: String = "none"
