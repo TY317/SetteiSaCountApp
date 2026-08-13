@@ -238,18 +238,156 @@ class Dropkick: ObservableObject {
 
 
 class DropkickMemory1: ObservableObject {
+    // ポイント推定
+    @AppStorage("dropkickPtMigisagariMemory1") var ptMigisagari: Int = 0
+    @AppStorage("dropkickPtUpperMemory1") var ptUpper: Int = 0
+    @AppStorage("dropkickPtMiddleMemory1") var ptMiddle: Int = 0
+    @AppStorage("dropkickPtLowerMemory1") var ptLower: Int = 0
+    @AppStorage("dropkickPtMigiagariMemory1") var ptMigiagari: Int = 0
+    // 初当り
+    @AppStorage("dropkickNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("dropkickFirstHitCountBonusMemory1") var firstHitCountBonus: Int = 0
+    @AppStorage("dropkickFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    // 終了画面
+    @AppStorage("dropkickScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("dropkickScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("dropkickScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("dropkickScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("dropkickScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("dropkickScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("dropkickScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("dropkickScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("dropkickScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("dropkickScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("dropkickScreenCount11Memory1") var screenCount11: Int = 0
+    @AppStorage("dropkickScreenCountSumMemory1") var screenCountSum: Int = 0
+    // 小悪魔ボーナス キャラ
+    @AppStorage("dropkickCharaCount1Memory1") var charaCount1: Int = 0
+    @AppStorage("dropkickCharaCount2Memory1") var charaCount2: Int = 0
+    @AppStorage("dropkickCharaCount3Memory1") var charaCount3: Int = 0
+    @AppStorage("dropkickCharaCount4Memory1") var charaCount4: Int = 0
+    @AppStorage("dropkickCharaCount5Memory1") var charaCount5: Int = 0
+    @AppStorage("dropkickCharaCount6Memory1") var charaCount6: Int = 0
+    @AppStorage("dropkickCharaCount7Memory1") var charaCount7: Int = 0
+    @AppStorage("dropkickCharaCount8Memory1") var charaCount8: Int = 0
+    @AppStorage("dropkickCharaCount9Memory1") var charaCount9: Int = 0
+    @AppStorage("dropkickCharaCount10Memory1") var charaCount10: Int = 0
+    @AppStorage("dropkickCharaCount11Memory1") var charaCount11: Int = 0
+    @AppStorage("dropkickCharaCount12Memory1") var charaCount12: Int = 0
+    @AppStorage("dropkickCharaCountSumMemory1") var charaCountSum: Int = 0
+    // とにかくうれしいちゃんす シール
+    @AppStorage("dropkickTucSealCount1Memory1") var tucSealCount1: Int = 0
+    @AppStorage("dropkickTucSealCount2Memory1") var tucSealCount2: Int = 0
+    @AppStorage("dropkickTucSealCount3Memory1") var tucSealCount3: Int = 0
+    @AppStorage("dropkickTucSealCount4Memory1") var tucSealCount4: Int = 0
+    @AppStorage("dropkickTucSealCount5Memory1") var tucSealCount5: Int = 0
+    @AppStorage("dropkickTucSealCount6Memory1") var tucSealCount6: Int = 0
+    @AppStorage("dropkickTucSealCount7Memory1") var tucSealCount7: Int = 0
+    @AppStorage("dropkickTucSealCountSumMemory1") var tucSealCountSum: Int = 0
     @AppStorage("dropkickMemoMemory1") var memo = ""
     @AppStorage("dropkickDateMemory1") var dateDouble = 0.0
 }
 
 
 class DropkickMemory2: ObservableObject {
+    // ポイント推定
+    @AppStorage("dropkickPtMigisagariMemory2") var ptMigisagari: Int = 0
+    @AppStorage("dropkickPtUpperMemory2") var ptUpper: Int = 0
+    @AppStorage("dropkickPtMiddleMemory2") var ptMiddle: Int = 0
+    @AppStorage("dropkickPtLowerMemory2") var ptLower: Int = 0
+    @AppStorage("dropkickPtMigiagariMemory2") var ptMigiagari: Int = 0
+    // 初当り
+    @AppStorage("dropkickNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("dropkickFirstHitCountBonusMemory2") var firstHitCountBonus: Int = 0
+    @AppStorage("dropkickFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    // 終了画面
+    @AppStorage("dropkickScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("dropkickScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("dropkickScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("dropkickScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("dropkickScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("dropkickScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("dropkickScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("dropkickScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("dropkickScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("dropkickScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("dropkickScreenCount11Memory2") var screenCount11: Int = 0
+    @AppStorage("dropkickScreenCountSumMemory2") var screenCountSum: Int = 0
+    // 小悪魔ボーナス キャラ
+    @AppStorage("dropkickCharaCount1Memory2") var charaCount1: Int = 0
+    @AppStorage("dropkickCharaCount2Memory2") var charaCount2: Int = 0
+    @AppStorage("dropkickCharaCount3Memory2") var charaCount3: Int = 0
+    @AppStorage("dropkickCharaCount4Memory2") var charaCount4: Int = 0
+    @AppStorage("dropkickCharaCount5Memory2") var charaCount5: Int = 0
+    @AppStorage("dropkickCharaCount6Memory2") var charaCount6: Int = 0
+    @AppStorage("dropkickCharaCount7Memory2") var charaCount7: Int = 0
+    @AppStorage("dropkickCharaCount8Memory2") var charaCount8: Int = 0
+    @AppStorage("dropkickCharaCount9Memory2") var charaCount9: Int = 0
+    @AppStorage("dropkickCharaCount10Memory2") var charaCount10: Int = 0
+    @AppStorage("dropkickCharaCount11Memory2") var charaCount11: Int = 0
+    @AppStorage("dropkickCharaCount12Memory2") var charaCount12: Int = 0
+    @AppStorage("dropkickCharaCountSumMemory2") var charaCountSum: Int = 0
+    // とにかくうれしいちゃんす シール
+    @AppStorage("dropkickTucSealCount1Memory2") var tucSealCount1: Int = 0
+    @AppStorage("dropkickTucSealCount2Memory2") var tucSealCount2: Int = 0
+    @AppStorage("dropkickTucSealCount3Memory2") var tucSealCount3: Int = 0
+    @AppStorage("dropkickTucSealCount4Memory2") var tucSealCount4: Int = 0
+    @AppStorage("dropkickTucSealCount5Memory2") var tucSealCount5: Int = 0
+    @AppStorage("dropkickTucSealCount6Memory2") var tucSealCount6: Int = 0
+    @AppStorage("dropkickTucSealCount7Memory2") var tucSealCount7: Int = 0
+    @AppStorage("dropkickTucSealCountSumMemory2") var tucSealCountSum: Int = 0
     @AppStorage("dropkickMemoMemory2") var memo = ""
     @AppStorage("dropkickDateMemory2") var dateDouble = 0.0
 }
 
 
 class DropkickMemory3: ObservableObject {
+    // ポイント推定
+    @AppStorage("dropkickPtMigisagariMemory3") var ptMigisagari: Int = 0
+    @AppStorage("dropkickPtUpperMemory3") var ptUpper: Int = 0
+    @AppStorage("dropkickPtMiddleMemory3") var ptMiddle: Int = 0
+    @AppStorage("dropkickPtLowerMemory3") var ptLower: Int = 0
+    @AppStorage("dropkickPtMigiagariMemory3") var ptMigiagari: Int = 0
+    // 初当り
+    @AppStorage("dropkickNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("dropkickFirstHitCountBonusMemory3") var firstHitCountBonus: Int = 0
+    @AppStorage("dropkickFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    // 終了画面
+    @AppStorage("dropkickScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("dropkickScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("dropkickScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("dropkickScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("dropkickScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("dropkickScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("dropkickScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("dropkickScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("dropkickScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("dropkickScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("dropkickScreenCount11Memory3") var screenCount11: Int = 0
+    @AppStorage("dropkickScreenCountSumMemory3") var screenCountSum: Int = 0
+    // 小悪魔ボーナス キャラ
+    @AppStorage("dropkickCharaCount1Memory3") var charaCount1: Int = 0
+    @AppStorage("dropkickCharaCount2Memory3") var charaCount2: Int = 0
+    @AppStorage("dropkickCharaCount3Memory3") var charaCount3: Int = 0
+    @AppStorage("dropkickCharaCount4Memory3") var charaCount4: Int = 0
+    @AppStorage("dropkickCharaCount5Memory3") var charaCount5: Int = 0
+    @AppStorage("dropkickCharaCount6Memory3") var charaCount6: Int = 0
+    @AppStorage("dropkickCharaCount7Memory3") var charaCount7: Int = 0
+    @AppStorage("dropkickCharaCount8Memory3") var charaCount8: Int = 0
+    @AppStorage("dropkickCharaCount9Memory3") var charaCount9: Int = 0
+    @AppStorage("dropkickCharaCount10Memory3") var charaCount10: Int = 0
+    @AppStorage("dropkickCharaCount11Memory3") var charaCount11: Int = 0
+    @AppStorage("dropkickCharaCount12Memory3") var charaCount12: Int = 0
+    @AppStorage("dropkickCharaCountSumMemory3") var charaCountSum: Int = 0
+    // とにかくうれしいちゃんす シール
+    @AppStorage("dropkickTucSealCount1Memory3") var tucSealCount1: Int = 0
+    @AppStorage("dropkickTucSealCount2Memory3") var tucSealCount2: Int = 0
+    @AppStorage("dropkickTucSealCount3Memory3") var tucSealCount3: Int = 0
+    @AppStorage("dropkickTucSealCount4Memory3") var tucSealCount4: Int = 0
+    @AppStorage("dropkickTucSealCount5Memory3") var tucSealCount5: Int = 0
+    @AppStorage("dropkickTucSealCount6Memory3") var tucSealCount6: Int = 0
+    @AppStorage("dropkickTucSealCount7Memory3") var tucSealCount7: Int = 0
+    @AppStorage("dropkickTucSealCountSumMemory3") var tucSealCountSum: Int = 0
     @AppStorage("dropkickMemoMemory3") var memo = ""
     @AppStorage("dropkickDateMemory3") var dateDouble = 0.0
 }
