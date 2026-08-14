@@ -180,13 +180,112 @@ struct streetFighter6SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        streetFighter6Memory1.normalGame = streetFighter6.normalGame
+        streetFighter6Memory1.firstHitCountFb = streetFighter6.firstHitCountFb
+        streetFighter6Memory1.firstHitCountBonus = streetFighter6.firstHitCountBonus
+        streetFighter6Memory1.fbTenjoCount1Miss = streetFighter6.fbTenjoCount1Miss
+        streetFighter6Memory1.fbTenjoCount1Hit = streetFighter6.fbTenjoCount1Hit
+        streetFighter6Memory1.fbTenjoCount1Sum = streetFighter6.fbTenjoCount1Sum
+        streetFighter6Memory1.fbTenjoCount2Miss = streetFighter6.fbTenjoCount2Miss
+        streetFighter6Memory1.fbTenjoCount2Hit = streetFighter6.fbTenjoCount2Hit
+        streetFighter6Memory1.fbTenjoCount2Sum = streetFighter6.fbTenjoCount2Sum
+        streetFighter6Memory1.fbTenjoCount3Miss = streetFighter6.fbTenjoCount3Miss
+        streetFighter6Memory1.fbTenjoCount3Hit = streetFighter6.fbTenjoCount3Hit
+        streetFighter6Memory1.fbTenjoCount3Sum = streetFighter6.fbTenjoCount3Sum
+        streetFighter6Memory1.fbTenjoCount4Miss = streetFighter6.fbTenjoCount4Miss
+        streetFighter6Memory1.fbTenjoCount4Hit = streetFighter6.fbTenjoCount4Hit
+        streetFighter6Memory1.fbTenjoCount4Sum = streetFighter6.fbTenjoCount4Sum
+        streetFighter6Memory1.fbTenjoCountOver2 = streetFighter6.fbTenjoCountOver2
+        streetFighter6Memory1.fbTenjoCountOver3 = streetFighter6.fbTenjoCountOver3
+        streetFighter6Memory1.fbTenjoCountOver4 = streetFighter6.fbTenjoCountOver4
+        streetFighter6Memory1.fbTenjoCountAllSum = streetFighter6.fbTenjoCountAllSum
+        streetFighter6Memory1.screenCount1 = streetFighter6.screenCount1
+        streetFighter6Memory1.screenCount2 = streetFighter6.screenCount2
+        streetFighter6Memory1.screenCount3 = streetFighter6.screenCount3
+        streetFighter6Memory1.screenCount4 = streetFighter6.screenCount4
+        streetFighter6Memory1.screenCount5 = streetFighter6.screenCount5
+        streetFighter6Memory1.screenCount6 = streetFighter6.screenCount6
+        streetFighter6Memory1.screenCount7 = streetFighter6.screenCount7
+        streetFighter6Memory1.screenCount8 = streetFighter6.screenCount8
+        streetFighter6Memory1.screenCountSum = streetFighter6.screenCountSum
+        streetFighter6Memory1.endingCount1 = streetFighter6.endingCount1
+        streetFighter6Memory1.endingCount2 = streetFighter6.endingCount2
+        streetFighter6Memory1.endingCount3 = streetFighter6.endingCount3
+        streetFighter6Memory1.endingCount4 = streetFighter6.endingCount4
+        streetFighter6Memory1.endingCount5 = streetFighter6.endingCount5
+        streetFighter6Memory1.endingCountSum = streetFighter6.endingCountSum
     }
     func saveMemory2() {
-
+        streetFighter6Memory2.normalGame = streetFighter6.normalGame
+        streetFighter6Memory2.firstHitCountFb = streetFighter6.firstHitCountFb
+        streetFighter6Memory2.firstHitCountBonus = streetFighter6.firstHitCountBonus
+        streetFighter6Memory2.fbTenjoCount1Miss = streetFighter6.fbTenjoCount1Miss
+        streetFighter6Memory2.fbTenjoCount1Hit = streetFighter6.fbTenjoCount1Hit
+        streetFighter6Memory2.fbTenjoCount1Sum = streetFighter6.fbTenjoCount1Sum
+        streetFighter6Memory2.fbTenjoCount2Miss = streetFighter6.fbTenjoCount2Miss
+        streetFighter6Memory2.fbTenjoCount2Hit = streetFighter6.fbTenjoCount2Hit
+        streetFighter6Memory2.fbTenjoCount2Sum = streetFighter6.fbTenjoCount2Sum
+        streetFighter6Memory2.fbTenjoCount3Miss = streetFighter6.fbTenjoCount3Miss
+        streetFighter6Memory2.fbTenjoCount3Hit = streetFighter6.fbTenjoCount3Hit
+        streetFighter6Memory2.fbTenjoCount3Sum = streetFighter6.fbTenjoCount3Sum
+        streetFighter6Memory2.fbTenjoCount4Miss = streetFighter6.fbTenjoCount4Miss
+        streetFighter6Memory2.fbTenjoCount4Hit = streetFighter6.fbTenjoCount4Hit
+        streetFighter6Memory2.fbTenjoCount4Sum = streetFighter6.fbTenjoCount4Sum
+        streetFighter6Memory2.fbTenjoCountOver2 = streetFighter6.fbTenjoCountOver2
+        streetFighter6Memory2.fbTenjoCountOver3 = streetFighter6.fbTenjoCountOver3
+        streetFighter6Memory2.fbTenjoCountOver4 = streetFighter6.fbTenjoCountOver4
+        streetFighter6Memory2.fbTenjoCountAllSum = streetFighter6.fbTenjoCountAllSum
+        streetFighter6Memory2.screenCount1 = streetFighter6.screenCount1
+        streetFighter6Memory2.screenCount2 = streetFighter6.screenCount2
+        streetFighter6Memory2.screenCount3 = streetFighter6.screenCount3
+        streetFighter6Memory2.screenCount4 = streetFighter6.screenCount4
+        streetFighter6Memory2.screenCount5 = streetFighter6.screenCount5
+        streetFighter6Memory2.screenCount6 = streetFighter6.screenCount6
+        streetFighter6Memory2.screenCount7 = streetFighter6.screenCount7
+        streetFighter6Memory2.screenCount8 = streetFighter6.screenCount8
+        streetFighter6Memory2.screenCountSum = streetFighter6.screenCountSum
+        streetFighter6Memory2.endingCount1 = streetFighter6.endingCount1
+        streetFighter6Memory2.endingCount2 = streetFighter6.endingCount2
+        streetFighter6Memory2.endingCount3 = streetFighter6.endingCount3
+        streetFighter6Memory2.endingCount4 = streetFighter6.endingCount4
+        streetFighter6Memory2.endingCount5 = streetFighter6.endingCount5
+        streetFighter6Memory2.endingCountSum = streetFighter6.endingCountSum
     }
     func saveMemory3() {
-
+        streetFighter6Memory3.normalGame = streetFighter6.normalGame
+        streetFighter6Memory3.firstHitCountFb = streetFighter6.firstHitCountFb
+        streetFighter6Memory3.firstHitCountBonus = streetFighter6.firstHitCountBonus
+        streetFighter6Memory3.fbTenjoCount1Miss = streetFighter6.fbTenjoCount1Miss
+        streetFighter6Memory3.fbTenjoCount1Hit = streetFighter6.fbTenjoCount1Hit
+        streetFighter6Memory3.fbTenjoCount1Sum = streetFighter6.fbTenjoCount1Sum
+        streetFighter6Memory3.fbTenjoCount2Miss = streetFighter6.fbTenjoCount2Miss
+        streetFighter6Memory3.fbTenjoCount2Hit = streetFighter6.fbTenjoCount2Hit
+        streetFighter6Memory3.fbTenjoCount2Sum = streetFighter6.fbTenjoCount2Sum
+        streetFighter6Memory3.fbTenjoCount3Miss = streetFighter6.fbTenjoCount3Miss
+        streetFighter6Memory3.fbTenjoCount3Hit = streetFighter6.fbTenjoCount3Hit
+        streetFighter6Memory3.fbTenjoCount3Sum = streetFighter6.fbTenjoCount3Sum
+        streetFighter6Memory3.fbTenjoCount4Miss = streetFighter6.fbTenjoCount4Miss
+        streetFighter6Memory3.fbTenjoCount4Hit = streetFighter6.fbTenjoCount4Hit
+        streetFighter6Memory3.fbTenjoCount4Sum = streetFighter6.fbTenjoCount4Sum
+        streetFighter6Memory3.fbTenjoCountOver2 = streetFighter6.fbTenjoCountOver2
+        streetFighter6Memory3.fbTenjoCountOver3 = streetFighter6.fbTenjoCountOver3
+        streetFighter6Memory3.fbTenjoCountOver4 = streetFighter6.fbTenjoCountOver4
+        streetFighter6Memory3.fbTenjoCountAllSum = streetFighter6.fbTenjoCountAllSum
+        streetFighter6Memory3.screenCount1 = streetFighter6.screenCount1
+        streetFighter6Memory3.screenCount2 = streetFighter6.screenCount2
+        streetFighter6Memory3.screenCount3 = streetFighter6.screenCount3
+        streetFighter6Memory3.screenCount4 = streetFighter6.screenCount4
+        streetFighter6Memory3.screenCount5 = streetFighter6.screenCount5
+        streetFighter6Memory3.screenCount6 = streetFighter6.screenCount6
+        streetFighter6Memory3.screenCount7 = streetFighter6.screenCount7
+        streetFighter6Memory3.screenCount8 = streetFighter6.screenCount8
+        streetFighter6Memory3.screenCountSum = streetFighter6.screenCountSum
+        streetFighter6Memory3.endingCount1 = streetFighter6.endingCount1
+        streetFighter6Memory3.endingCount2 = streetFighter6.endingCount2
+        streetFighter6Memory3.endingCount3 = streetFighter6.endingCount3
+        streetFighter6Memory3.endingCount4 = streetFighter6.endingCount4
+        streetFighter6Memory3.endingCount5 = streetFighter6.endingCount5
+        streetFighter6Memory3.endingCountSum = streetFighter6.endingCountSum
     }
 }
 
@@ -218,13 +317,112 @@ struct streetFighter6SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        streetFighter6.normalGame = streetFighter6Memory1.normalGame
+        streetFighter6.firstHitCountFb = streetFighter6Memory1.firstHitCountFb
+        streetFighter6.firstHitCountBonus = streetFighter6Memory1.firstHitCountBonus
+        streetFighter6.fbTenjoCount1Miss = streetFighter6Memory1.fbTenjoCount1Miss
+        streetFighter6.fbTenjoCount1Hit = streetFighter6Memory1.fbTenjoCount1Hit
+        streetFighter6.fbTenjoCount1Sum = streetFighter6Memory1.fbTenjoCount1Sum
+        streetFighter6.fbTenjoCount2Miss = streetFighter6Memory1.fbTenjoCount2Miss
+        streetFighter6.fbTenjoCount2Hit = streetFighter6Memory1.fbTenjoCount2Hit
+        streetFighter6.fbTenjoCount2Sum = streetFighter6Memory1.fbTenjoCount2Sum
+        streetFighter6.fbTenjoCount3Miss = streetFighter6Memory1.fbTenjoCount3Miss
+        streetFighter6.fbTenjoCount3Hit = streetFighter6Memory1.fbTenjoCount3Hit
+        streetFighter6.fbTenjoCount3Sum = streetFighter6Memory1.fbTenjoCount3Sum
+        streetFighter6.fbTenjoCount4Miss = streetFighter6Memory1.fbTenjoCount4Miss
+        streetFighter6.fbTenjoCount4Hit = streetFighter6Memory1.fbTenjoCount4Hit
+        streetFighter6.fbTenjoCount4Sum = streetFighter6Memory1.fbTenjoCount4Sum
+        streetFighter6.fbTenjoCountOver2 = streetFighter6Memory1.fbTenjoCountOver2
+        streetFighter6.fbTenjoCountOver3 = streetFighter6Memory1.fbTenjoCountOver3
+        streetFighter6.fbTenjoCountOver4 = streetFighter6Memory1.fbTenjoCountOver4
+        streetFighter6.fbTenjoCountAllSum = streetFighter6Memory1.fbTenjoCountAllSum
+        streetFighter6.screenCount1 = streetFighter6Memory1.screenCount1
+        streetFighter6.screenCount2 = streetFighter6Memory1.screenCount2
+        streetFighter6.screenCount3 = streetFighter6Memory1.screenCount3
+        streetFighter6.screenCount4 = streetFighter6Memory1.screenCount4
+        streetFighter6.screenCount5 = streetFighter6Memory1.screenCount5
+        streetFighter6.screenCount6 = streetFighter6Memory1.screenCount6
+        streetFighter6.screenCount7 = streetFighter6Memory1.screenCount7
+        streetFighter6.screenCount8 = streetFighter6Memory1.screenCount8
+        streetFighter6.screenCountSum = streetFighter6Memory1.screenCountSum
+        streetFighter6.endingCount1 = streetFighter6Memory1.endingCount1
+        streetFighter6.endingCount2 = streetFighter6Memory1.endingCount2
+        streetFighter6.endingCount3 = streetFighter6Memory1.endingCount3
+        streetFighter6.endingCount4 = streetFighter6Memory1.endingCount4
+        streetFighter6.endingCount5 = streetFighter6Memory1.endingCount5
+        streetFighter6.endingCountSum = streetFighter6Memory1.endingCountSum
     }
     func loadMemory2() {
-
+        streetFighter6.normalGame = streetFighter6Memory2.normalGame
+        streetFighter6.firstHitCountFb = streetFighter6Memory2.firstHitCountFb
+        streetFighter6.firstHitCountBonus = streetFighter6Memory2.firstHitCountBonus
+        streetFighter6.fbTenjoCount1Miss = streetFighter6Memory2.fbTenjoCount1Miss
+        streetFighter6.fbTenjoCount1Hit = streetFighter6Memory2.fbTenjoCount1Hit
+        streetFighter6.fbTenjoCount1Sum = streetFighter6Memory2.fbTenjoCount1Sum
+        streetFighter6.fbTenjoCount2Miss = streetFighter6Memory2.fbTenjoCount2Miss
+        streetFighter6.fbTenjoCount2Hit = streetFighter6Memory2.fbTenjoCount2Hit
+        streetFighter6.fbTenjoCount2Sum = streetFighter6Memory2.fbTenjoCount2Sum
+        streetFighter6.fbTenjoCount3Miss = streetFighter6Memory2.fbTenjoCount3Miss
+        streetFighter6.fbTenjoCount3Hit = streetFighter6Memory2.fbTenjoCount3Hit
+        streetFighter6.fbTenjoCount3Sum = streetFighter6Memory2.fbTenjoCount3Sum
+        streetFighter6.fbTenjoCount4Miss = streetFighter6Memory2.fbTenjoCount4Miss
+        streetFighter6.fbTenjoCount4Hit = streetFighter6Memory2.fbTenjoCount4Hit
+        streetFighter6.fbTenjoCount4Sum = streetFighter6Memory2.fbTenjoCount4Sum
+        streetFighter6.fbTenjoCountOver2 = streetFighter6Memory2.fbTenjoCountOver2
+        streetFighter6.fbTenjoCountOver3 = streetFighter6Memory2.fbTenjoCountOver3
+        streetFighter6.fbTenjoCountOver4 = streetFighter6Memory2.fbTenjoCountOver4
+        streetFighter6.fbTenjoCountAllSum = streetFighter6Memory2.fbTenjoCountAllSum
+        streetFighter6.screenCount1 = streetFighter6Memory2.screenCount1
+        streetFighter6.screenCount2 = streetFighter6Memory2.screenCount2
+        streetFighter6.screenCount3 = streetFighter6Memory2.screenCount3
+        streetFighter6.screenCount4 = streetFighter6Memory2.screenCount4
+        streetFighter6.screenCount5 = streetFighter6Memory2.screenCount5
+        streetFighter6.screenCount6 = streetFighter6Memory2.screenCount6
+        streetFighter6.screenCount7 = streetFighter6Memory2.screenCount7
+        streetFighter6.screenCount8 = streetFighter6Memory2.screenCount8
+        streetFighter6.screenCountSum = streetFighter6Memory2.screenCountSum
+        streetFighter6.endingCount1 = streetFighter6Memory2.endingCount1
+        streetFighter6.endingCount2 = streetFighter6Memory2.endingCount2
+        streetFighter6.endingCount3 = streetFighter6Memory2.endingCount3
+        streetFighter6.endingCount4 = streetFighter6Memory2.endingCount4
+        streetFighter6.endingCount5 = streetFighter6Memory2.endingCount5
+        streetFighter6.endingCountSum = streetFighter6Memory2.endingCountSum
     }
     func loadMemory3() {
-
+        streetFighter6.normalGame = streetFighter6Memory3.normalGame
+        streetFighter6.firstHitCountFb = streetFighter6Memory3.firstHitCountFb
+        streetFighter6.firstHitCountBonus = streetFighter6Memory3.firstHitCountBonus
+        streetFighter6.fbTenjoCount1Miss = streetFighter6Memory3.fbTenjoCount1Miss
+        streetFighter6.fbTenjoCount1Hit = streetFighter6Memory3.fbTenjoCount1Hit
+        streetFighter6.fbTenjoCount1Sum = streetFighter6Memory3.fbTenjoCount1Sum
+        streetFighter6.fbTenjoCount2Miss = streetFighter6Memory3.fbTenjoCount2Miss
+        streetFighter6.fbTenjoCount2Hit = streetFighter6Memory3.fbTenjoCount2Hit
+        streetFighter6.fbTenjoCount2Sum = streetFighter6Memory3.fbTenjoCount2Sum
+        streetFighter6.fbTenjoCount3Miss = streetFighter6Memory3.fbTenjoCount3Miss
+        streetFighter6.fbTenjoCount3Hit = streetFighter6Memory3.fbTenjoCount3Hit
+        streetFighter6.fbTenjoCount3Sum = streetFighter6Memory3.fbTenjoCount3Sum
+        streetFighter6.fbTenjoCount4Miss = streetFighter6Memory3.fbTenjoCount4Miss
+        streetFighter6.fbTenjoCount4Hit = streetFighter6Memory3.fbTenjoCount4Hit
+        streetFighter6.fbTenjoCount4Sum = streetFighter6Memory3.fbTenjoCount4Sum
+        streetFighter6.fbTenjoCountOver2 = streetFighter6Memory3.fbTenjoCountOver2
+        streetFighter6.fbTenjoCountOver3 = streetFighter6Memory3.fbTenjoCountOver3
+        streetFighter6.fbTenjoCountOver4 = streetFighter6Memory3.fbTenjoCountOver4
+        streetFighter6.fbTenjoCountAllSum = streetFighter6Memory3.fbTenjoCountAllSum
+        streetFighter6.screenCount1 = streetFighter6Memory3.screenCount1
+        streetFighter6.screenCount2 = streetFighter6Memory3.screenCount2
+        streetFighter6.screenCount3 = streetFighter6Memory3.screenCount3
+        streetFighter6.screenCount4 = streetFighter6Memory3.screenCount4
+        streetFighter6.screenCount5 = streetFighter6Memory3.screenCount5
+        streetFighter6.screenCount6 = streetFighter6Memory3.screenCount6
+        streetFighter6.screenCount7 = streetFighter6Memory3.screenCount7
+        streetFighter6.screenCount8 = streetFighter6Memory3.screenCount8
+        streetFighter6.screenCountSum = streetFighter6Memory3.screenCountSum
+        streetFighter6.endingCount1 = streetFighter6Memory3.endingCount1
+        streetFighter6.endingCount2 = streetFighter6Memory3.endingCount2
+        streetFighter6.endingCount3 = streetFighter6Memory3.endingCount3
+        streetFighter6.endingCount4 = streetFighter6Memory3.endingCount4
+        streetFighter6.endingCount5 = streetFighter6Memory3.endingCount5
+        streetFighter6.endingCountSum = streetFighter6Memory3.endingCountSum
     }
 }
 

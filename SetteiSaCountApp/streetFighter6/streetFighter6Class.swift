@@ -175,18 +175,132 @@ class StreetFighter6: ObservableObject {
 
 
 class StreetFighter6Memory1: ObservableObject {
+    // 初当り
+    @AppStorage("streetFighter6NormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("streetFighter6FirstHitCountFbMemory1") var firstHitCountFb: Int = 0
+    @AppStorage("streetFighter6FirstHitCountBonusMemory1") var firstHitCountBonus: Int = 0
+    // FBスルー天井
+    @AppStorage("streetFighter6FbTenjoCount1MissMemory1") var fbTenjoCount1Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1HitMemory1") var fbTenjoCount1Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1SumMemory1") var fbTenjoCount1Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2MissMemory1") var fbTenjoCount2Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2HitMemory1") var fbTenjoCount2Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2SumMemory1") var fbTenjoCount2Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3MissMemory1") var fbTenjoCount3Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3HitMemory1") var fbTenjoCount3Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3SumMemory1") var fbTenjoCount3Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4MissMemory1") var fbTenjoCount4Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4HitMemory1") var fbTenjoCount4Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4SumMemory1") var fbTenjoCount4Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver2Memory1") var fbTenjoCountOver2: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver3Memory1") var fbTenjoCountOver3: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver4Memory1") var fbTenjoCountOver4: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountAllSumMemory1") var fbTenjoCountAllSum: Int = 0
+    // 終了画面
+    @AppStorage("streetFighter6ScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("streetFighter6ScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("streetFighter6ScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("streetFighter6ScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("streetFighter6ScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("streetFighter6ScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("streetFighter6ScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("streetFighter6ScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("streetFighter6ScreenCountSumMemory1") var screenCountSum: Int = 0
+    // エンディング
+    @AppStorage("streetFighter6EndingCount1Memory1") var endingCount1: Int = 0
+    @AppStorage("streetFighter6EndingCount2Memory1") var endingCount2: Int = 0
+    @AppStorage("streetFighter6EndingCount3Memory1") var endingCount3: Int = 0
+    @AppStorage("streetFighter6EndingCount4Memory1") var endingCount4: Int = 0
+    @AppStorage("streetFighter6EndingCount5Memory1") var endingCount5: Int = 0
+    @AppStorage("streetFighter6EndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory1") var memo = ""
     @AppStorage("streetFighter6DateMemory1") var dateDouble = 0.0
 }
 
 
 class StreetFighter6Memory2: ObservableObject {
+    // 初当り
+    @AppStorage("streetFighter6NormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("streetFighter6FirstHitCountFbMemory2") var firstHitCountFb: Int = 0
+    @AppStorage("streetFighter6FirstHitCountBonusMemory2") var firstHitCountBonus: Int = 0
+    // FBスルー天井
+    @AppStorage("streetFighter6FbTenjoCount1MissMemory2") var fbTenjoCount1Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1HitMemory2") var fbTenjoCount1Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1SumMemory2") var fbTenjoCount1Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2MissMemory2") var fbTenjoCount2Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2HitMemory2") var fbTenjoCount2Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2SumMemory2") var fbTenjoCount2Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3MissMemory2") var fbTenjoCount3Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3HitMemory2") var fbTenjoCount3Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3SumMemory2") var fbTenjoCount3Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4MissMemory2") var fbTenjoCount4Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4HitMemory2") var fbTenjoCount4Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4SumMemory2") var fbTenjoCount4Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver2Memory2") var fbTenjoCountOver2: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver3Memory2") var fbTenjoCountOver3: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver4Memory2") var fbTenjoCountOver4: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountAllSumMemory2") var fbTenjoCountAllSum: Int = 0
+    // 終了画面
+    @AppStorage("streetFighter6ScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("streetFighter6ScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("streetFighter6ScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("streetFighter6ScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("streetFighter6ScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("streetFighter6ScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("streetFighter6ScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("streetFighter6ScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("streetFighter6ScreenCountSumMemory2") var screenCountSum: Int = 0
+    // エンディング
+    @AppStorage("streetFighter6EndingCount1Memory2") var endingCount1: Int = 0
+    @AppStorage("streetFighter6EndingCount2Memory2") var endingCount2: Int = 0
+    @AppStorage("streetFighter6EndingCount3Memory2") var endingCount3: Int = 0
+    @AppStorage("streetFighter6EndingCount4Memory2") var endingCount4: Int = 0
+    @AppStorage("streetFighter6EndingCount5Memory2") var endingCount5: Int = 0
+    @AppStorage("streetFighter6EndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory2") var memo = ""
     @AppStorage("streetFighter6DateMemory2") var dateDouble = 0.0
 }
 
 
 class StreetFighter6Memory3: ObservableObject {
+    // 初当り
+    @AppStorage("streetFighter6NormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("streetFighter6FirstHitCountFbMemory3") var firstHitCountFb: Int = 0
+    @AppStorage("streetFighter6FirstHitCountBonusMemory3") var firstHitCountBonus: Int = 0
+    // FBスルー天井
+    @AppStorage("streetFighter6FbTenjoCount1MissMemory3") var fbTenjoCount1Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1HitMemory3") var fbTenjoCount1Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1SumMemory3") var fbTenjoCount1Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2MissMemory3") var fbTenjoCount2Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2HitMemory3") var fbTenjoCount2Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2SumMemory3") var fbTenjoCount2Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3MissMemory3") var fbTenjoCount3Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3HitMemory3") var fbTenjoCount3Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3SumMemory3") var fbTenjoCount3Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4MissMemory3") var fbTenjoCount4Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4HitMemory3") var fbTenjoCount4Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4SumMemory3") var fbTenjoCount4Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver2Memory3") var fbTenjoCountOver2: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver3Memory3") var fbTenjoCountOver3: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver4Memory3") var fbTenjoCountOver4: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountAllSumMemory3") var fbTenjoCountAllSum: Int = 0
+    // 終了画面
+    @AppStorage("streetFighter6ScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("streetFighter6ScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("streetFighter6ScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("streetFighter6ScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("streetFighter6ScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("streetFighter6ScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("streetFighter6ScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("streetFighter6ScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("streetFighter6ScreenCountSumMemory3") var screenCountSum: Int = 0
+    // エンディング
+    @AppStorage("streetFighter6EndingCount1Memory3") var endingCount1: Int = 0
+    @AppStorage("streetFighter6EndingCount2Memory3") var endingCount2: Int = 0
+    @AppStorage("streetFighter6EndingCount3Memory3") var endingCount3: Int = 0
+    @AppStorage("streetFighter6EndingCount4Memory3") var endingCount4: Int = 0
+    @AppStorage("streetFighter6EndingCount5Memory3") var endingCount5: Int = 0
+    @AppStorage("streetFighter6EndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory3") var memo = ""
     @AppStorage("streetFighter6DateMemory3") var dateDouble = 0.0
 }
