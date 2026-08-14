@@ -58,7 +58,8 @@ struct bioRe3ViewNormal: View {
                         unitTableSettingIndex()
                         unitTableDenominate(
                             columTitle: "5枚🔔",
-                            denominateList: bioRe3.ratioBell
+                            denominateList: bioRe3.ratioBell,
+                            numberofDicimal: 1,
                         )
                     }
                 }

@@ -107,6 +107,11 @@ struct bioRe3ViewPoint: View {
                     // （分けないとセグメント切替でcountの値が変わり、フラッシュが誤発火する）
                     .id("\(self.selectedMode)-\(item)")
                 }
+                
+                // 参考情報　規定ポイント振分け
+                unitLinkButtonViewBuilder(sheetTitle: "規定ポイント振分け") {
+                    bioRe3TablePoint(bioRe3: bioRe3)
+                }
             } header: {
                 Text("カウント結果（\(self.selectedMode)）")
             }

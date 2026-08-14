@@ -96,7 +96,7 @@ struct dropkickViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: dropkick.machineName,
-                        titleFont: .title,
+                        titleFont: .title2,
                     )
                 }
 

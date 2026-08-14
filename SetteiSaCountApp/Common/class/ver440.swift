@@ -15,7 +15,7 @@ struct tipVer440UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("")
+        Text("・ストリートファイター6\n・邪神ちゃんドロップキック")
     }
     var image: Image? {
         Image(systemName: "star")

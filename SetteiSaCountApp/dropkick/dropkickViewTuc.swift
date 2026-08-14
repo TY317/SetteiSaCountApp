@@ -51,6 +51,9 @@ struct dropkickViewTuc: View {
         List {
             // シール種類選択
             Section {
+                Text("アイテムではなく設定示唆のシールが出現する場合あり")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in

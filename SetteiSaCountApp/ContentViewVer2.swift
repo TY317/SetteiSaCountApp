@@ -68,7 +68,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer430UpdateInfo())
+                TipView(tipVer440UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {

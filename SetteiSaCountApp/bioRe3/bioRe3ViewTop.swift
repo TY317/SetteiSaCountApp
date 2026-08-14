@@ -50,7 +50,7 @@ struct bioRe3ViewTop: View {
                         bioRe3: bioRe3,
                     )) {
                         unitLabelMenu(
-                            imageSystemName: "11.circle",
+                            imageSystemName: "p.circle.fill",
                             textBody: "規定ネメシスポイント",
                             badgeStatus: common.bioRe3MenuPointBadge,
                         )
