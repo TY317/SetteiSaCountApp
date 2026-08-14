@@ -31,7 +31,56 @@ class StreetFighter6: ObservableObject {
         normalGame = 0
         firstHitCountFb = 0
         firstHitCountBonus = 0
+        fbTenjoCount1Miss = 0
+        fbTenjoCount1Hit = 0
+        fbTenjoCount1Sum = 0
+        fbTenjoCount2Miss = 0
+        fbTenjoCount2Hit = 0
+        fbTenjoCount2Sum = 0
+        fbTenjoCount3Miss = 0
+        fbTenjoCount3Hit = 0
+        fbTenjoCount3Sum = 0
+        fbTenjoCount4Miss = 0
+        fbTenjoCount4Hit = 0
+        fbTenjoCount4Sum = 0
+        fbTenjoCountOver2 = 0
+        fbTenjoCountOver3 = 0
+        fbTenjoCountOver4 = 0
+        fbTenjoCountAllSum = 0
         minusCheck = false
+    }
+    
+    // ---- FBスルー天井
+    let ratioFbTenjo1: [Double] = [0.8,0.8,0.8,1.6,2.3,3.1]
+    let ratioFbTenjo2: [Double] = [0.8,1.6,3.1,6.3,9.4,12.5]
+    let ratioFbTenjo3: [Double] = [25,28.1,31.3,37.5,40.6,43.8]
+    let ratioFbTenjo4: [Double] = [73.4,69.5,64.8,54.7,47.7,40.6]
+    @AppStorage("streetFighter6FbTenjoCount1Miss") var fbTenjoCount1Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1Hit") var fbTenjoCount1Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount1Sum") var fbTenjoCount1Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2Miss") var fbTenjoCount2Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2Hit") var fbTenjoCount2Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount2Sum") var fbTenjoCount2Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3Miss") var fbTenjoCount3Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3Hit") var fbTenjoCount3Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount3Sum") var fbTenjoCount3Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4Miss") var fbTenjoCount4Miss: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4Hit") var fbTenjoCount4Hit: Int = 0
+    @AppStorage("streetFighter6FbTenjoCount4Sum") var fbTenjoCount4Sum: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver2") var fbTenjoCountOver2: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver3") var fbTenjoCountOver3: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountOver4") var fbTenjoCountOver4: Int = 0
+    @AppStorage("streetFighter6FbTenjoCountAllSum") var fbTenjoCountAllSum: Int = 0
+    
+    func fbTenjoSumFunc () {
+        fbTenjoCountAllSum = fbTenjoCount1Hit + fbTenjoCount1Miss
+        fbTenjoCountOver2 = fbTenjoCount1Miss
+        fbTenjoCountOver3 = fbTenjoCount2Miss + fbTenjoCountOver2
+        fbTenjoCountOver4 = fbTenjoCount3Miss + fbTenjoCountOver3
+        fbTenjoCount1Sum = fbTenjoCount1Miss + fbTenjoCount1Hit
+        fbTenjoCount2Sum = fbTenjoCount2Miss + fbTenjoCount2Hit
+        fbTenjoCount3Sum = fbTenjoCount3Miss + fbTenjoCount3Hit
+        fbTenjoCount4Sum = fbTenjoCount4Miss + fbTenjoCount4Hit
     }
 
 

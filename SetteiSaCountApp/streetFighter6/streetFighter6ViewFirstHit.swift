@@ -26,6 +26,10 @@ struct streetFighter6ViewFirstHit: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    
+    let itemList: [String] = ["1回目", "2回目","3回目","4回目",]
+    @State var selectedItem: String = "1回目"
+    
     var body: some View {
         List {
             // ゲーム数入力
@@ -88,6 +92,168 @@ struct streetFighter6ViewFirstHit: View {
                 streetFighter6ViewBayes(
                     streetFighter6: streetFighter6,
                 )
+            }
+            
+            // ---- FBスルー天井
+            Section {
+                // 確率結果
+                HStack {
+                    // 1回以
+                    unitResultRatioPercent2Line(
+                        title: "1回",
+                        count: $streetFighter6.fbTenjoCount1Hit,
+                        bigNumber: $streetFighter6.fbTenjoCount1Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 2回以
+                    unitResultRatioPercent2Line(
+                        title: "2回",
+                        count: $streetFighter6.fbTenjoCount2Hit,
+                        bigNumber: $streetFighter6.fbTenjoCount2Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 3回以
+                    unitResultRatioPercent2Line(
+                        title: "3回",
+                        count: $streetFighter6.fbTenjoCount3Hit,
+                        bigNumber: $streetFighter6.fbTenjoCount3Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 4回以
+                    unitResultRatioPercent2Line(
+                        title: "4回",
+                        count: $streetFighter6.fbTenjoCount4Hit,
+                        bigNumber: $streetFighter6.fbTenjoCount4Sum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
+                // 参考情報 FBスルー天井振分け
+                unitLinkButtonViewBuilder(sheetTitle: "FBスルー天井振分け") {
+                    streetFighter6TableFbTenjo(streetFighter6: streetFighter6)
+                }
+                
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・FB天井到達時はFB突入時に全て一撃アイコンの勝利濃厚状態でスタートとなるため、それで天井ありなしを判断")
+                    }
+                    VStack {
+                        // セグメントピッカー
+                        Picker("", selection: self.$selectedItem) {
+                            ForEach(self.itemList, id: \.self) { item in
+                                Text(item)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        
+                        if self.selectedItem == self.itemList[0] {
+                            Text("0スルー状態 1回目のFB")
+                        } else if self.selectedItem == self.itemList[1] {
+                            Text("1スルー状態 2回目のFB")
+                        } else if self.selectedItem == self.itemList[2] {
+                            Text("2スルー状態 3回目のFB")
+                        } else {
+                            Text("3スルー状態 4回目のFB")
+                        }
+                    }
+                    
+                    // カウントボタン横並び
+                    // 1回目
+                    if self.selectedItem == self.itemList[0] {
+                        HStack {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $streetFighter6.fbTenjoCount1Miss,
+                                color: .personalSummerLightBlue,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $streetFighter6.fbTenjoCount1Hit,
+                                color: .personalSpringLightYellow,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                        }
+                    }
+                    // 2回目
+                    else if self.selectedItem == self.itemList[1] {
+                        HStack {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $streetFighter6.fbTenjoCount2Miss,
+                                color: .personalSummerLightGreen,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $streetFighter6.fbTenjoCount2Hit,
+                                color: .personalSummerLightRed,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                        }
+                    }
+                    // 3回目
+                    else if self.selectedItem == self.itemList[2] {
+                        HStack {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $streetFighter6.fbTenjoCount3Miss,
+                                color: .blue,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $streetFighter6.fbTenjoCount3Hit,
+                                color: .yellow,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                        }
+                    }
+                    // 2回目
+                    else{
+                        HStack {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $streetFighter6.fbTenjoCount4Miss,
+                                color: .green,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $streetFighter6.fbTenjoCount4Hit,
+                                color: .red,
+                                minusBool: $streetFighter6.minusCheck) {
+                                    streetFighter6.fbTenjoSumFunc()
+                                }
+                        }
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("FBスルー天井振分け")
             }
         }
         // //// バッジのリセット
