@@ -36,7 +36,7 @@ description: 特定バージョンの初回起動移行コードを撤去する�
 
 4. **検証**
    - `grep -rn "verNNNN\|VerNNNN" SetteiSaCountApp --include="*.swift"` が **0件**、pbxproj も `verNNNN` 0件。
-   - ビルド：`xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build`（`** BUILD SUCCEEDED **`）。CoreSimulator警告でsimビルドが通らない時は `xcodebuild -list` でパース確認＋ユーザーにXcodeビルド確認を依頼。
+   - **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。削除対象の `verNNNN` が全ファイルから消えているか grep で確認し（残骸ゼロ）、pbxproj を編集した場合は `plutil -lint` を通す。報告時に「フルビルド検証は省略（コミット前ビルドに委ねる）」と一言添える。
 
 5. **報告**（コミットはしない）
    - 削除した対象一覧、isUnlocked 引き継ぎの有無を報告。

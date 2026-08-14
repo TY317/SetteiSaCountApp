@@ -34,7 +34,7 @@ description: 既存ページにホイール(サークル)ピッカーのカウ�
   - `__COLOR_SWITCH__`：`        case self.selectList[k]: return <colorK>`
 
 ## 4. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
+- **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
 - 提案コミット：`[機能]<prefix> <選択ヘッダー>カウントを追加`（末尾 `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - **案内**：`<element>Count1..N`/`<element>CountSum`（単純 @AppStorage）はメモリー対象。**`/sync-memory` を実行して Memory に同期**。
 

@@ -55,7 +55,7 @@ description: 機種Class の @AppStorage 状態変数と Memory1/2/3 クラス�
   （ヘルパー：`SetteiSaCountApp/Common/function/myFunction.swift` の `decodeIntArray`/`decodeStringArray`/`saveArray`）
 
 ## 5. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
+- **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> メモリーに不足変数を同期`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 
 ## 注意

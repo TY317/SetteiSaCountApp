@@ -99,11 +99,12 @@ step1 の `maker` を「2.5 トロフィー段名（メーカー別）」表で�
 `SetteiSaCountApp/<prefix>/<prefix>ViewTop.swift` の「// 設定期待値計算」のコメントアウトされた `NavigationLink(destination: <prefix>ViewBayes(...))` ブロックを**有効化**（各行頭の `//` を除去）。
 
 ## 5. 検証・報告
-- ビルド成功（`xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build`）。失敗時は pbxproj をバックアップ復元して報告。
+- **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。高速チェックで代替する：`plutil -lint SetteiSaCountApp.xcodeproj/project.pbxproj` が OK ＋ `grep -c "<prefix>ViewBayes.swift in Sources"` が 2。異常時は pbxproj をバックアップ復元して報告。
+- 報告時に「フルビルド検証は省略（高速チェック済み／コミット前ビルドに委ねる）」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> 設定期待値ページを追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - ユーザー案内：「**トロフィー段名はメーカー別（2.5表）で自動設定済み。ただし over5 の柄名は機種テーマで変わる場合があるので確認を**（1機種しか実績が無いメーカー＝京楽/SANYO/ニューギン/コナミ、Spikyは要注意）。小役確率など count ベースの判別要素は STEP2 のトグルと bayesRatio()・logPostSum に機種仕様で追記してください（本スキルはトロフィー＋事前確率のスケルトンのみ）」。
 
 ## 注意
 - 段数で `bayesRatio` トロフィー部と `selectedGuess`（guess<N>*）が変わる。一般則は references（6=karakuri2 / 5=mt5 / 4=hanabi）と一致。
 - 雛形は判別要素＝トロフィー＋事前確率のみ。count ベースの尤度（`logPostDenoBino`/`logPostPercentBino`/`logPostDenoMulti` 等）と Class への counts/ratios 追加は機能実装時に別途。
-- pbxproj はバックアップ＋ビルド検証必須。
+- pbxproj はバックアップ必須（検証は手順5の高速チェック。フルビルドは行わない）。

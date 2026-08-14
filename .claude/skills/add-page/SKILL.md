@@ -63,11 +63,12 @@ description: 機種に汎用の空ページ(サブメニュー)を1枚追加す�
 機種のブロックがまだ無ければ、機種アイコンバッジ更新（`machines.updateMachineBadgeStatus(id: "<機種ID>", newStatus: "update")`）とセットで追加する。手順1で「行わない」（新機種の初回追加等）を選んだ場合はこの手順をスキップ。
 
 ## 7. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。失敗時は pbxproj をバックアップ復元して報告。
+- **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。高速チェックで代替する：`plutil -lint SetteiSaCountApp.xcodeproj/project.pbxproj` が OK ＋ `grep -c "<prefix>View<PageName>.swift in Sources"` が 2。異常時は pbxproj をバックアップ復元して報告。
+- 報告時に「フルビルド検証は省略（高速チェック済み／コミット前ビルドに委ねる）」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> <navigationTitle>ページ（空）を追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - 案内：ページ本体（カウント要素・テーブル・グラフ等）は別途実装。
 
 ## 注意
 - バッジ変数名・View struct 名・ファイル名の `<PageName>` を揃える（`<prefix>Menu<PageName>Badge` / `<prefix>View<PageName>`）。
 - スケルトンはツールバー無し・空List（意図的）。カウント/リセット等は中身実装時に追加。
-- pbxproj はバックアップ＋ビルド検証必須（imageset 等リソースは無いので Resources 登録は不要）。
+- pbxproj はバックアップ必須（検証は手順7の高速チェック。フルビルドは行わない）。imageset 等リソースは無いので Resources 登録は不要。

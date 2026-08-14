@@ -13,24 +13,43 @@ struct kokakukidotaiView95Ci: View {
     @State var isShow95CiExplain = false
     var body: some View {
         TabView(selection: self.$selection) {
-            // 引き戻し成功ストック回数
+            // タチコマの家出200回数
             unitListSection95Ci(
-                grafTitle: "AT終了時200or400G\nCZ合算回数",
+                grafTitle: "AT終了時200or400G\n200Gでの当選回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $kokakukidotai.iedeCountSuccess,
                         bigNumber: $kokakukidotai.iedeCountSum,
-                        setting1Percent: kokakukidotai.ratioIede[0],
-                        setting2Percent: kokakukidotai.ratioIede[1],
-                        setting3Percent: kokakukidotai.ratioIede[2],
-                        setting4Percent: kokakukidotai.ratioIede[3],
-                        setting5Percent: kokakukidotai.ratioIede[4],
-                        setting6Percent: kokakukidotai.ratioIede[5]
+                        setting1Percent: kokakukidotai.ratioIede200[0],
+                        setting2Percent: kokakukidotai.ratioIede200[1],
+                        setting3Percent: kokakukidotai.ratioIede200[2],
+                        setting4Percent: kokakukidotai.ratioIede200[3],
+                        setting5Percent: kokakukidotai.ratioIede200[4],
+                        setting6Percent: kokakukidotai.ratioIede200[5]
                     )
                 )
             )
             .tag(3)
+            
+            // タチコマの家出400回数
+            unitListSection95Ci(
+                grafTitle: "AT終了時200or400G\n400Gでの当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.iedeCount400Success,
+                        bigNumber: $kokakukidotai.iedeCount400Sum,
+                        setting1Percent: kokakukidotai.ratioIede400[0],
+                        setting2Percent: kokakukidotai.ratioIede400[1],
+                        setting3Percent: kokakukidotai.ratioIede400[2],
+                        setting4Percent: kokakukidotai.ratioIede400[3],
+                        setting5Percent: kokakukidotai.ratioIede400[4],
+                        setting6Percent: kokakukidotai.ratioIede400[5]
+                    )
+                )
+            )
+            .tag(13)
             
             // 殲滅ゾーン　青発展での成功回数
             unitListSection95Ci(
@@ -69,6 +88,25 @@ struct kokakukidotaiView95Ci: View {
                 )
             )
             .tag(7)
+            
+            // CZ終了画面　イシカワ回数
+            unitListSection95Ci(
+                grafTitle: "CZ終了画面\nイシカワ回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.czScreenCountHighKyo,
+                        bigNumber: $kokakukidotai.czScreenCountSum,
+                        setting1Percent: kokakukidotai.ratioCzScreenIshikawa[0],
+                        setting2Percent: kokakukidotai.ratioCzScreenIshikawa[1],
+                        setting3Percent: kokakukidotai.ratioCzScreenIshikawa[2],
+                        setting4Percent: kokakukidotai.ratioCzScreenIshikawa[3],
+                        setting5Percent: kokakukidotai.ratioCzScreenIshikawa[4],
+                        setting6Percent: kokakukidotai.ratioCzScreenIshikawa[5]
+                    )
+                )
+            )
+            .tag(12)
             
             // CZ失敗後のモード移行　通常A回数
             unitListSection95Ci(

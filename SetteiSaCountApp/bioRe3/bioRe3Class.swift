@@ -83,6 +83,7 @@ class BioRe3: ObservableObject {
         resetFigure()
         resetNormal()
         resetDuringAt()
+        resetPoint()
     }
     
     // ---------
@@ -134,6 +135,9 @@ class BioRe3: ObservableObject {
         shinonCountDrop = 0
         shinonCountStay = 0
         shinonCountSum = 0
+        
+        playGame = 0
+        koyakuCountBell = 0
     }
     
     // ---------
@@ -158,6 +162,165 @@ class BioRe3: ObservableObject {
     func resetDuringAt() {
         atGame = 0
         duringAtCountCz = 0
+        minusCheck = false
+    }
+    
+    // -------
+    // ver4.4.0
+    // -------
+    let ratioBell: [Double] = [20,19.3,18.6,18,17.2,15.9]
+    @AppStorage("bioRe3PlayGame") var playGame: Int = 0
+    @AppStorage("bioRe3KoyakuCountBell") var koyakuCountBell: Int = 0
+
+    // -------
+    // 規定ネメシスポイント
+    // -------
+    // 通常時
+    let ratioPointNormal50: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal100: [Double] = [19.5,20.3,21.5,23.4,27.3,28.5]
+    let ratioPointNormal150: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal200: [Double] = [6.6,7.4,8.2,10.2,10.5,10.9]
+    let ratioPointNormal250: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal300: [Double] = [35.9,35.9,35.9,35.9,35.9,35.9,]
+    let ratioPointNormal350: [Double] = [0.4,0.4,0.8,1.2,1.2,1.6]
+    let ratioPointNormal400: [Double] = [9.8,9.8,9.8,9.8,9.8,9.8,]
+    let ratioPointNormal450: [Double] = [1.6,1.2,1.2,0.8,0.8,0.8,]
+    let ratioPointNormal500: [Double] = [25,23.8,20.3,15.2,10.5,8.2]
+    @AppStorage("bioRe3PointNormalCount1") var pointNormalCount1: Int = 0
+    @AppStorage("bioRe3PointNormalCount2") var pointNormalCount2: Int = 0
+    @AppStorage("bioRe3PointNormalCount3") var pointNormalCount3: Int = 0
+    @AppStorage("bioRe3PointNormalCount4") var pointNormalCount4: Int = 0
+    @AppStorage("bioRe3PointNormalCount5") var pointNormalCount5: Int = 0
+    @AppStorage("bioRe3PointNormalCount6") var pointNormalCount6: Int = 0
+    @AppStorage("bioRe3PointNormalCount7") var pointNormalCount7: Int = 0
+    @AppStorage("bioRe3PointNormalCount8") var pointNormalCount8: Int = 0
+    @AppStorage("bioRe3PointNormalCount9") var pointNormalCount9: Int = 0
+    @AppStorage("bioRe3PointNormalCount10") var pointNormalCount10: Int = 0
+    @AppStorage("bioRe3PointNormalCountSum") var pointNormalCountSum: Int = 0
+    // AT中
+    let ratioPointAt50: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt100: [Double] = [30.5,30.9,33.2,34.4,38.3,39.5]
+    let ratioPointAt150: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt200: [Double] = [12.5,12.5,12.5,12.5,12.5,12.5,]
+    let ratioPointAt250: [Double] = [0.8,1.2,1.6,2,2.3,2.7]
+    let ratioPointAt300: [Double] = [27.3,27.3,27.3,27.3,27.3,27.3,]
+    let ratioPointAt350: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointAt400: [Double] = [9.4,8.6,7.4,7,6.6,5.4]
+    let ratioPointAt450: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointAt500: [Double] = [17.2,16.4,14.1,12.1,7.4,6.3]
+    @AppStorage("bioRe3PointAtCount1") var pointAtCount1: Int = 0
+    @AppStorage("bioRe3PointAtCount2") var pointAtCount2: Int = 0
+    @AppStorage("bioRe3PointAtCount3") var pointAtCount3: Int = 0
+    @AppStorage("bioRe3PointAtCount4") var pointAtCount4: Int = 0
+    @AppStorage("bioRe3PointAtCount5") var pointAtCount5: Int = 0
+    @AppStorage("bioRe3PointAtCount6") var pointAtCount6: Int = 0
+    @AppStorage("bioRe3PointAtCount7") var pointAtCount7: Int = 0
+    @AppStorage("bioRe3PointAtCount8") var pointAtCount8: Int = 0
+    @AppStorage("bioRe3PointAtCount9") var pointAtCount9: Int = 0
+    @AppStorage("bioRe3PointAtCount10") var pointAtCount10: Int = 0
+    @AppStorage("bioRe3PointAtCountSum") var pointAtCountSum: Int = 0
+    // 上位AT中
+    let ratioPointHighAt50: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt100: [Double] = [25,25.8,26.6,27.3,28.1,31.3]
+    let ratioPointHighAt150: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt200: [Double] = [7.8,9.4,10.9,12.5,14.8,17.2]
+    let ratioPointHighAt250: [Double] = [0.4,0.8,1.2,1.6,2.0,2.3]
+    let ratioPointHighAt300: [Double] = [19.9,20.7,21.5,22.3,23,24.2,]
+    let ratioPointHighAt350: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointHighAt400: [Double] = [9.4,9.4,9.4,9.4,9.4,9.4,]
+    let ratioPointHighAt450: [Double] = [0.4,0.4,0.4,0.4,0.4,0.4,]
+    let ratioPointHighAt500: [Double] = [35.9,31.6,27.3,23,18,10.2]
+    @AppStorage("bioRe3PointHighAtCount1") var pointHighAtCount1: Int = 0
+    @AppStorage("bioRe3PointHighAtCount2") var pointHighAtCount2: Int = 0
+    @AppStorage("bioRe3PointHighAtCount3") var pointHighAtCount3: Int = 0
+    @AppStorage("bioRe3PointHighAtCount4") var pointHighAtCount4: Int = 0
+    @AppStorage("bioRe3PointHighAtCount5") var pointHighAtCount5: Int = 0
+    @AppStorage("bioRe3PointHighAtCount6") var pointHighAtCount6: Int = 0
+    @AppStorage("bioRe3PointHighAtCount7") var pointHighAtCount7: Int = 0
+    @AppStorage("bioRe3PointHighAtCount8") var pointHighAtCount8: Int = 0
+    @AppStorage("bioRe3PointHighAtCount9") var pointHighAtCount9: Int = 0
+    @AppStorage("bioRe3PointHighAtCount10") var pointHighAtCount10: Int = 0
+    @AppStorage("bioRe3PointHighAtCountSum") var pointHighAtCountSum: Int = 0
+
+    func pointNormalSumFunc() {
+        pointNormalCountSum = countSum(
+            pointNormalCount1,
+            pointNormalCount2,
+            pointNormalCount3,
+            pointNormalCount4,
+            pointNormalCount5,
+            pointNormalCount6,
+            pointNormalCount7,
+            pointNormalCount8,
+            pointNormalCount9,
+            pointNormalCount10,
+        )
+    }
+
+    func pointAtSumFunc() {
+        pointAtCountSum = countSum(
+            pointAtCount1,
+            pointAtCount2,
+            pointAtCount3,
+            pointAtCount4,
+            pointAtCount5,
+            pointAtCount6,
+            pointAtCount7,
+            pointAtCount8,
+            pointAtCount9,
+            pointAtCount10,
+        )
+    }
+
+    func pointHighAtSumFunc() {
+        pointHighAtCountSum = countSum(
+            pointHighAtCount1,
+            pointHighAtCount2,
+            pointHighAtCount3,
+            pointHighAtCount4,
+            pointHighAtCount5,
+            pointHighAtCount6,
+            pointHighAtCount7,
+            pointHighAtCount8,
+            pointHighAtCount9,
+            pointHighAtCount10,
+        )
+    }
+
+    func resetPoint() {
+        pointNormalCount1 = 0
+        pointNormalCount2 = 0
+        pointNormalCount3 = 0
+        pointNormalCount4 = 0
+        pointNormalCount5 = 0
+        pointNormalCount6 = 0
+        pointNormalCount7 = 0
+        pointNormalCount8 = 0
+        pointNormalCount9 = 0
+        pointNormalCount10 = 0
+        pointNormalCountSum = 0
+        pointAtCount1 = 0
+        pointAtCount2 = 0
+        pointAtCount3 = 0
+        pointAtCount4 = 0
+        pointAtCount5 = 0
+        pointAtCount6 = 0
+        pointAtCount7 = 0
+        pointAtCount8 = 0
+        pointAtCount9 = 0
+        pointAtCount10 = 0
+        pointAtCountSum = 0
+        pointHighAtCount1 = 0
+        pointHighAtCount2 = 0
+        pointHighAtCount3 = 0
+        pointHighAtCount4 = 0
+        pointHighAtCount5 = 0
+        pointHighAtCount6 = 0
+        pointHighAtCount7 = 0
+        pointHighAtCount8 = 0
+        pointHighAtCount9 = 0
+        pointHighAtCount10 = 0
+        pointHighAtCountSum = 0
         minusCheck = false
     }
 }
@@ -206,6 +369,45 @@ class BioRe3Memory1: ObservableObject {
     // ---------
     @AppStorage("bioRe3AtGameMemory1") var atGame: Int = 0
     @AppStorage("bioRe3DuringAtCountCzMemory1") var duringAtCountCz: Int = 0
+
+    // ---------
+    // ver4.4.0
+    // ---------
+    @AppStorage("bioRe3PlayGameMemory1") var playGame: Int = 0
+    @AppStorage("bioRe3KoyakuCountBellMemory1") var koyakuCountBell: Int = 0
+    @AppStorage("bioRe3PointNormalCount1Memory1") var pointNormalCount1: Int = 0
+    @AppStorage("bioRe3PointNormalCount2Memory1") var pointNormalCount2: Int = 0
+    @AppStorage("bioRe3PointNormalCount3Memory1") var pointNormalCount3: Int = 0
+    @AppStorage("bioRe3PointNormalCount4Memory1") var pointNormalCount4: Int = 0
+    @AppStorage("bioRe3PointNormalCount5Memory1") var pointNormalCount5: Int = 0
+    @AppStorage("bioRe3PointNormalCount6Memory1") var pointNormalCount6: Int = 0
+    @AppStorage("bioRe3PointNormalCount7Memory1") var pointNormalCount7: Int = 0
+    @AppStorage("bioRe3PointNormalCount8Memory1") var pointNormalCount8: Int = 0
+    @AppStorage("bioRe3PointNormalCount9Memory1") var pointNormalCount9: Int = 0
+    @AppStorage("bioRe3PointNormalCount10Memory1") var pointNormalCount10: Int = 0
+    @AppStorage("bioRe3PointNormalCountSumMemory1") var pointNormalCountSum: Int = 0
+    @AppStorage("bioRe3PointAtCount1Memory1") var pointAtCount1: Int = 0
+    @AppStorage("bioRe3PointAtCount2Memory1") var pointAtCount2: Int = 0
+    @AppStorage("bioRe3PointAtCount3Memory1") var pointAtCount3: Int = 0
+    @AppStorage("bioRe3PointAtCount4Memory1") var pointAtCount4: Int = 0
+    @AppStorage("bioRe3PointAtCount5Memory1") var pointAtCount5: Int = 0
+    @AppStorage("bioRe3PointAtCount6Memory1") var pointAtCount6: Int = 0
+    @AppStorage("bioRe3PointAtCount7Memory1") var pointAtCount7: Int = 0
+    @AppStorage("bioRe3PointAtCount8Memory1") var pointAtCount8: Int = 0
+    @AppStorage("bioRe3PointAtCount9Memory1") var pointAtCount9: Int = 0
+    @AppStorage("bioRe3PointAtCount10Memory1") var pointAtCount10: Int = 0
+    @AppStorage("bioRe3PointAtCountSumMemory1") var pointAtCountSum: Int = 0
+    @AppStorage("bioRe3PointHighAtCount1Memory1") var pointHighAtCount1: Int = 0
+    @AppStorage("bioRe3PointHighAtCount2Memory1") var pointHighAtCount2: Int = 0
+    @AppStorage("bioRe3PointHighAtCount3Memory1") var pointHighAtCount3: Int = 0
+    @AppStorage("bioRe3PointHighAtCount4Memory1") var pointHighAtCount4: Int = 0
+    @AppStorage("bioRe3PointHighAtCount5Memory1") var pointHighAtCount5: Int = 0
+    @AppStorage("bioRe3PointHighAtCount6Memory1") var pointHighAtCount6: Int = 0
+    @AppStorage("bioRe3PointHighAtCount7Memory1") var pointHighAtCount7: Int = 0
+    @AppStorage("bioRe3PointHighAtCount8Memory1") var pointHighAtCount8: Int = 0
+    @AppStorage("bioRe3PointHighAtCount9Memory1") var pointHighAtCount9: Int = 0
+    @AppStorage("bioRe3PointHighAtCount10Memory1") var pointHighAtCount10: Int = 0
+    @AppStorage("bioRe3PointHighAtCountSumMemory1") var pointHighAtCountSum: Int = 0
 }
 
 
@@ -252,6 +454,45 @@ class BioRe3Memory2: ObservableObject {
     // ---------
     @AppStorage("bioRe3AtGameMemory2") var atGame: Int = 0
     @AppStorage("bioRe3DuringAtCountCzMemory2") var duringAtCountCz: Int = 0
+
+    // ---------
+    // ver4.4.0
+    // ---------
+    @AppStorage("bioRe3PlayGameMemory2") var playGame: Int = 0
+    @AppStorage("bioRe3KoyakuCountBellMemory2") var koyakuCountBell: Int = 0
+    @AppStorage("bioRe3PointNormalCount1Memory2") var pointNormalCount1: Int = 0
+    @AppStorage("bioRe3PointNormalCount2Memory2") var pointNormalCount2: Int = 0
+    @AppStorage("bioRe3PointNormalCount3Memory2") var pointNormalCount3: Int = 0
+    @AppStorage("bioRe3PointNormalCount4Memory2") var pointNormalCount4: Int = 0
+    @AppStorage("bioRe3PointNormalCount5Memory2") var pointNormalCount5: Int = 0
+    @AppStorage("bioRe3PointNormalCount6Memory2") var pointNormalCount6: Int = 0
+    @AppStorage("bioRe3PointNormalCount7Memory2") var pointNormalCount7: Int = 0
+    @AppStorage("bioRe3PointNormalCount8Memory2") var pointNormalCount8: Int = 0
+    @AppStorage("bioRe3PointNormalCount9Memory2") var pointNormalCount9: Int = 0
+    @AppStorage("bioRe3PointNormalCount10Memory2") var pointNormalCount10: Int = 0
+    @AppStorage("bioRe3PointNormalCountSumMemory2") var pointNormalCountSum: Int = 0
+    @AppStorage("bioRe3PointAtCount1Memory2") var pointAtCount1: Int = 0
+    @AppStorage("bioRe3PointAtCount2Memory2") var pointAtCount2: Int = 0
+    @AppStorage("bioRe3PointAtCount3Memory2") var pointAtCount3: Int = 0
+    @AppStorage("bioRe3PointAtCount4Memory2") var pointAtCount4: Int = 0
+    @AppStorage("bioRe3PointAtCount5Memory2") var pointAtCount5: Int = 0
+    @AppStorage("bioRe3PointAtCount6Memory2") var pointAtCount6: Int = 0
+    @AppStorage("bioRe3PointAtCount7Memory2") var pointAtCount7: Int = 0
+    @AppStorage("bioRe3PointAtCount8Memory2") var pointAtCount8: Int = 0
+    @AppStorage("bioRe3PointAtCount9Memory2") var pointAtCount9: Int = 0
+    @AppStorage("bioRe3PointAtCount10Memory2") var pointAtCount10: Int = 0
+    @AppStorage("bioRe3PointAtCountSumMemory2") var pointAtCountSum: Int = 0
+    @AppStorage("bioRe3PointHighAtCount1Memory2") var pointHighAtCount1: Int = 0
+    @AppStorage("bioRe3PointHighAtCount2Memory2") var pointHighAtCount2: Int = 0
+    @AppStorage("bioRe3PointHighAtCount3Memory2") var pointHighAtCount3: Int = 0
+    @AppStorage("bioRe3PointHighAtCount4Memory2") var pointHighAtCount4: Int = 0
+    @AppStorage("bioRe3PointHighAtCount5Memory2") var pointHighAtCount5: Int = 0
+    @AppStorage("bioRe3PointHighAtCount6Memory2") var pointHighAtCount6: Int = 0
+    @AppStorage("bioRe3PointHighAtCount7Memory2") var pointHighAtCount7: Int = 0
+    @AppStorage("bioRe3PointHighAtCount8Memory2") var pointHighAtCount8: Int = 0
+    @AppStorage("bioRe3PointHighAtCount9Memory2") var pointHighAtCount9: Int = 0
+    @AppStorage("bioRe3PointHighAtCount10Memory2") var pointHighAtCount10: Int = 0
+    @AppStorage("bioRe3PointHighAtCountSumMemory2") var pointHighAtCountSum: Int = 0
 }
 
 
@@ -298,4 +539,43 @@ class BioRe3Memory3: ObservableObject {
     // ---------
     @AppStorage("bioRe3AtGameMemory3") var atGame: Int = 0
     @AppStorage("bioRe3DuringAtCountCzMemory3") var duringAtCountCz: Int = 0
+
+    // ---------
+    // ver4.4.0
+    // ---------
+    @AppStorage("bioRe3PlayGameMemory3") var playGame: Int = 0
+    @AppStorage("bioRe3KoyakuCountBellMemory3") var koyakuCountBell: Int = 0
+    @AppStorage("bioRe3PointNormalCount1Memory3") var pointNormalCount1: Int = 0
+    @AppStorage("bioRe3PointNormalCount2Memory3") var pointNormalCount2: Int = 0
+    @AppStorage("bioRe3PointNormalCount3Memory3") var pointNormalCount3: Int = 0
+    @AppStorage("bioRe3PointNormalCount4Memory3") var pointNormalCount4: Int = 0
+    @AppStorage("bioRe3PointNormalCount5Memory3") var pointNormalCount5: Int = 0
+    @AppStorage("bioRe3PointNormalCount6Memory3") var pointNormalCount6: Int = 0
+    @AppStorage("bioRe3PointNormalCount7Memory3") var pointNormalCount7: Int = 0
+    @AppStorage("bioRe3PointNormalCount8Memory3") var pointNormalCount8: Int = 0
+    @AppStorage("bioRe3PointNormalCount9Memory3") var pointNormalCount9: Int = 0
+    @AppStorage("bioRe3PointNormalCount10Memory3") var pointNormalCount10: Int = 0
+    @AppStorage("bioRe3PointNormalCountSumMemory3") var pointNormalCountSum: Int = 0
+    @AppStorage("bioRe3PointAtCount1Memory3") var pointAtCount1: Int = 0
+    @AppStorage("bioRe3PointAtCount2Memory3") var pointAtCount2: Int = 0
+    @AppStorage("bioRe3PointAtCount3Memory3") var pointAtCount3: Int = 0
+    @AppStorage("bioRe3PointAtCount4Memory3") var pointAtCount4: Int = 0
+    @AppStorage("bioRe3PointAtCount5Memory3") var pointAtCount5: Int = 0
+    @AppStorage("bioRe3PointAtCount6Memory3") var pointAtCount6: Int = 0
+    @AppStorage("bioRe3PointAtCount7Memory3") var pointAtCount7: Int = 0
+    @AppStorage("bioRe3PointAtCount8Memory3") var pointAtCount8: Int = 0
+    @AppStorage("bioRe3PointAtCount9Memory3") var pointAtCount9: Int = 0
+    @AppStorage("bioRe3PointAtCount10Memory3") var pointAtCount10: Int = 0
+    @AppStorage("bioRe3PointAtCountSumMemory3") var pointAtCountSum: Int = 0
+    @AppStorage("bioRe3PointHighAtCount1Memory3") var pointHighAtCount1: Int = 0
+    @AppStorage("bioRe3PointHighAtCount2Memory3") var pointHighAtCount2: Int = 0
+    @AppStorage("bioRe3PointHighAtCount3Memory3") var pointHighAtCount3: Int = 0
+    @AppStorage("bioRe3PointHighAtCount4Memory3") var pointHighAtCount4: Int = 0
+    @AppStorage("bioRe3PointHighAtCount5Memory3") var pointHighAtCount5: Int = 0
+    @AppStorage("bioRe3PointHighAtCount6Memory3") var pointHighAtCount6: Int = 0
+    @AppStorage("bioRe3PointHighAtCount7Memory3") var pointHighAtCount7: Int = 0
+    @AppStorage("bioRe3PointHighAtCount8Memory3") var pointHighAtCount8: Int = 0
+    @AppStorage("bioRe3PointHighAtCount9Memory3") var pointHighAtCount9: Int = 0
+    @AppStorage("bioRe3PointHighAtCount10Memory3") var pointHighAtCount10: Int = 0
+    @AppStorage("bioRe3PointHighAtCountSumMemory3") var pointHighAtCountSum: Int = 0
 }

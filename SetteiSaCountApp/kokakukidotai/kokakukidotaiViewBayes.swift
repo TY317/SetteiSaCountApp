@@ -53,7 +53,7 @@ struct kokakukidotaiViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // AT終了時200or400G CZ当選
-                unitToggleWithQuestion(enable: self.$iedeEnable, title: "AT終了時200or400G CZ当選")
+                unitToggleWithQuestion(enable: self.$iedeEnable, title: "AT終了時200,400G CZ当選")
                 
                 // 殲滅ゾーン　発展色ごとの成功率
                 unitToggleWithQuestion(enable: self.$czColorEnable, title: "殲滅ゾーン 発展色ごとの成功率")
@@ -161,11 +161,17 @@ struct kokakukidotaiViewBayes: View {
     private func bayesRatio() -> [Double] {
         // AT終了時200or400
         var logPostIede: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostIede400: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.iedeEnable {
             logPostIede = logPostPercentBino(
-                ratio: kokakukidotai.ratioIede,
+                ratio: kokakukidotai.ratioIede200,
                 Count: kokakukidotai.iedeCountSuccess,
                 bigNumber: kokakukidotai.iedeCountSum
+            )
+            logPostIede400 = logPostPercentBino(
+                ratio: kokakukidotai.ratioIede400,
+                Count: kokakukidotai.iedeCount400Success,
+                bigNumber: kokakukidotai.iedeCount400Sum
             )
         }
         
@@ -309,6 +315,7 @@ struct kokakukidotaiViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostIede,
+            logPostIede400,
             logPostFirstHitAt,
             logPostFirstHitCz,
             logPostReboot,

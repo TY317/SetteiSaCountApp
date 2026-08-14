@@ -18,7 +18,9 @@ struct bioRe3ViewBayes: View {
     @State var shinonEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var duringAtEnable: Bool = true
-    
+    @State var bellEnable: Bool = true
+    @State var pointEnable: Bool = true
+
     
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -49,8 +51,17 @@ struct bioRe3ViewBayes: View {
             
             // //// STEP2
             bayesSubStep2Section {
+                // 5枚ベル確率
+                unitToggleWithQuestion(enable: self.$bellEnable, title: "5枚🔔確率")
                 // 心音レベル転落率
                 unitToggleWithQuestion(enable: self.$shinonEnable, title: "心音レベル転落率")
+                // 規定ネメシスポイント
+                unitToggleWithQuestion(enable: self.$pointEnable, title: "規定ネメシスポイント") {
+                    unitExView5body2image(
+                        title: "規定ネメシスポイント",
+                        textBody1: "・通常時、AT中、上位AT中全てのカウント結果を計算要素に加えます"
+                    )
+                }
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
@@ -133,6 +144,95 @@ struct bioRe3ViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
+        // 5枚ベル確率
+        var logPostBell: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bellEnable {
+            logPostBell = logPostDenoBino(
+                ratio: bioRe3.ratioBell,
+                Count: bioRe3.koyakuCountBell,
+                bigNumber: bioRe3.playGame
+            )
+        }
+
+        // 規定ネメシスポイント
+        var logPostPointNormal: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPointAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        var logPostPointHighAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.pointEnable {
+            // 通常時
+            // 300pt・400ptは全設定同値のため除外
+            // （残余バケットに吸収させ、丸め誤差による正規化ズレを避ける）
+            logPostPointNormal = logPostPercentMulti(
+                countList: [
+                    bioRe3.pointNormalCount1,
+                    bioRe3.pointNormalCount2,
+                    bioRe3.pointNormalCount3,
+                    bioRe3.pointNormalCount4,
+                    bioRe3.pointNormalCount5,
+                    bioRe3.pointNormalCount7,
+                    bioRe3.pointNormalCount9,
+                    bioRe3.pointNormalCount10,
+                ],
+                ratioList: [
+                    bioRe3.ratioPointNormal50,
+                    bioRe3.ratioPointNormal100,
+                    bioRe3.ratioPointNormal150,
+                    bioRe3.ratioPointNormal200,
+                    bioRe3.ratioPointNormal250,
+                    bioRe3.ratioPointNormal350,
+                    bioRe3.ratioPointNormal450,
+                    bioRe3.ratioPointNormal500,
+                ],
+                bigNumber: bioRe3.pointNormalCountSum
+            )
+            // AT中
+            // 200pt・300pt・350pt・450ptは全設定同値のため除外
+            // （残余バケットに吸収させ、丸め誤差による正規化ズレを避ける）
+            logPostPointAt = logPostPercentMulti(
+                countList: [
+                    bioRe3.pointAtCount1,
+                    bioRe3.pointAtCount2,
+                    bioRe3.pointAtCount3,
+                    bioRe3.pointAtCount5,
+                    bioRe3.pointAtCount8,
+                    bioRe3.pointAtCount10,
+                ],
+                ratioList: [
+                    bioRe3.ratioPointAt50,
+                    bioRe3.ratioPointAt100,
+                    bioRe3.ratioPointAt150,
+                    bioRe3.ratioPointAt250,
+                    bioRe3.ratioPointAt400,
+                    bioRe3.ratioPointAt500,
+                ],
+                bigNumber: bioRe3.pointAtCountSum
+            )
+            // 上位AT中
+            // 350pt・400pt・450ptは全設定同値のため除外
+            // （残余バケットに吸収させ、丸め誤差による正規化ズレを避ける）
+            logPostPointHighAt = logPostPercentMulti(
+                countList: [
+                    bioRe3.pointHighAtCount1,
+                    bioRe3.pointHighAtCount2,
+                    bioRe3.pointHighAtCount3,
+                    bioRe3.pointHighAtCount4,
+                    bioRe3.pointHighAtCount5,
+                    bioRe3.pointHighAtCount6,
+                    bioRe3.pointHighAtCount10,
+                ],
+                ratioList: [
+                    bioRe3.ratioPointHighAt50,
+                    bioRe3.ratioPointHighAt100,
+                    bioRe3.ratioPointHighAt150,
+                    bioRe3.ratioPointHighAt200,
+                    bioRe3.ratioPointHighAt250,
+                    bioRe3.ratioPointHighAt300,
+                    bioRe3.ratioPointHighAt500,
+                ],
+                bigNumber: bioRe3.pointHighAtCountSum
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -223,12 +323,16 @@ struct bioRe3ViewBayes: View {
         
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostBell,
             logPostFirstHitCz,
             logPostDuringAt,
             logPostFirstHitAt,
             logPostFigure,
             logPostShinon,
-            
+            logPostPointNormal,
+            logPostPointAt,
+            logPostPointHighAt,
+
             logPostTrophy,
             logPostBefore,
         ])

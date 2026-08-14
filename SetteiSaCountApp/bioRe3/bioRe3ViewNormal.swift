@@ -41,6 +41,74 @@ struct bioRe3ViewNormal: View {
 
     var body: some View {
         List {
+            // ベル
+            Section {
+                // 確率結果
+                unitResultRatioDenomination2Line(
+                    title: "5枚🔔",
+                    count: $bioRe3.koyakuCountBell,
+                    bigNumber: $bioRe3.playGame,
+                    numberofDicimal: 1
+                )
+                .popoverTip(tipVer440BioRe3Bell())
+
+                // 参考情報）5枚ベル確率
+                unitLinkButtonViewBuilder(sheetTitle: "5枚🔔確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "5枚🔔",
+                            denominateList: bioRe3.ratioBell,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                
+                DisclosureGroup {
+                    // ゲーム数入力
+                    unitTextFieldNumberInputWithUnit(
+                        title: "ゲーム数",
+                        inputValue: $bioRe3.playGame,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    
+                    // カウントボタン
+                    unitCountButtonWithoutRatioWithFunc(
+                        title: "5枚🔔",
+                        count: $bioRe3.koyakuCountBell,
+                        color: .personalSpringLightYellow,
+                        minusBool: $bioRe3.minusCheck,
+                        flushColor: .yellow) {
+                            
+                        }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            bioRe3View95Ci(
+                                bioRe3: bioRe3,
+                                selection: 8,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        bioRe3ViewBayes(
+                            bioRe3: bioRe3,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("5枚🔔")
+            }
+            
             // 小役関連
             Section {
                 // 確率結果
@@ -76,7 +144,7 @@ struct bioRe3ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "レア役からのCZ,AT直撃率") {
                     bioRe3TableKoyakuHit(bioRe3: bioRe3)
                 }
-                .popoverTip(tipVer420BioRe3Ratio())
+//                .popoverTip(tipVer420BioRe3Ratio())
                 
                 // レア役停止形
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止形") {
@@ -189,7 +257,7 @@ struct bioRe3ViewNormal: View {
                     bigNumber: $bioRe3.shinonCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer400BioRe3Shinon())
+//                .popoverTip(tipVer400BioRe3Shinon())
                 
                 // 参考情報）心音レベル転落率
                 unitLinkButtonViewBuilder(sheetTitle: "心音レベル転落率") {
@@ -326,6 +394,17 @@ struct bioRe3ViewNormal: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: bioRe3.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

@@ -38,7 +38,7 @@ description: 新バージョンの初回起動処理スケルトンを追加す�
 5. **splashScreenView.swift（移行テスト用 lastLaunchAppVersion 設定）**：`onAppear` 内「`// ----- リリース前にコメントアウト！！！`」〜「`// --------------------------------`」のブロックにある `common.lastLaunchAppVersion = "..."` 行を**有効化（行頭の `//` を外す）し、値を `<prevVersion>` に設定**する（既に有効ならその値を `<prevVersion>` に更新）。`common.firstLaunchAppVersion = nil` / `common.lastLaunchAppVersion = nil` の2行は**コメントのまま**残す。
    - `<prevVersion>` ＝ **今回の新 func を挿入する前の「直近最新 `verXXXXFirstLaunch`」の targetVersion**（例：`ver410` 追加時は `ver400` の `"4.0.0"`）。導出できなければユーザーに直前リリース版を尋ねる。
    - 目的：`lastLaunchAppVersion` を直前リリース版に偽装し、次回起動で新 `verNNNNFirstLaunch()` の移行処理（新機種の new バッジ／リワードロック等）を**実機テスト**できるようにする。
-6. **検証**：ビルド成功（`xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build`）。`verNNNN` が commonVar/splash/ファイルに揃っているか grep 確認。
+6. **検証**：**フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。`verNNNN` が commonVar/splash/ファイルに揃っているか grep 確認する。報告時に「フルビルド検証は省略（コミット前ビルドに委ねる）」と一言添える。
 7. **報告**（コミットはユーザー指示後）。提案コミットメッセージ：`[追加]verNNNN 初回起動処理スケルトンを追加`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**手順5の `lastLaunchAppVersion` 行はリリース前に再コメントアウトが必要**である旨を必ず併記する。
 
 ## 注意

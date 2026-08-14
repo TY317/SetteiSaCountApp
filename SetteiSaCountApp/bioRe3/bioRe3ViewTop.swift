@@ -45,6 +45,17 @@ struct bioRe3ViewTop: View {
                         )
                     }
                     
+                    // 規定ネメシスポイント
+                    NavigationLink(destination: bioRe3ViewPoint(
+                        bioRe3: bioRe3,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "p.circle.fill",
+                            textBody: "規定ネメシスポイント",
+                            badgeStatus: common.bioRe3MenuPointBadge,
+                        )
+                    }
+
                     // CZ
                     NavigationLink(destination: bioRe3ViewCz(
                         bioRe3: bioRe3,
@@ -153,7 +164,7 @@ struct bioRe3ViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: bioRe3View95Ci(
                     bioRe3: bioRe3,
-                    selection: 4,
+                    selection: 8,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -295,6 +306,45 @@ struct bioRe3SubViewSaveMemory: View {
         // ---------
         bioRe3Memory1.atGame = bioRe3.atGame
         bioRe3Memory1.duringAtCountCz = bioRe3.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3Memory1.playGame = bioRe3.playGame
+        bioRe3Memory1.koyakuCountBell = bioRe3.koyakuCountBell
+        bioRe3Memory1.pointNormalCount1 = bioRe3.pointNormalCount1
+        bioRe3Memory1.pointNormalCount2 = bioRe3.pointNormalCount2
+        bioRe3Memory1.pointNormalCount3 = bioRe3.pointNormalCount3
+        bioRe3Memory1.pointNormalCount4 = bioRe3.pointNormalCount4
+        bioRe3Memory1.pointNormalCount5 = bioRe3.pointNormalCount5
+        bioRe3Memory1.pointNormalCount6 = bioRe3.pointNormalCount6
+        bioRe3Memory1.pointNormalCount7 = bioRe3.pointNormalCount7
+        bioRe3Memory1.pointNormalCount8 = bioRe3.pointNormalCount8
+        bioRe3Memory1.pointNormalCount9 = bioRe3.pointNormalCount9
+        bioRe3Memory1.pointNormalCount10 = bioRe3.pointNormalCount10
+        bioRe3Memory1.pointNormalCountSum = bioRe3.pointNormalCountSum
+        bioRe3Memory1.pointAtCount1 = bioRe3.pointAtCount1
+        bioRe3Memory1.pointAtCount2 = bioRe3.pointAtCount2
+        bioRe3Memory1.pointAtCount3 = bioRe3.pointAtCount3
+        bioRe3Memory1.pointAtCount4 = bioRe3.pointAtCount4
+        bioRe3Memory1.pointAtCount5 = bioRe3.pointAtCount5
+        bioRe3Memory1.pointAtCount6 = bioRe3.pointAtCount6
+        bioRe3Memory1.pointAtCount7 = bioRe3.pointAtCount7
+        bioRe3Memory1.pointAtCount8 = bioRe3.pointAtCount8
+        bioRe3Memory1.pointAtCount9 = bioRe3.pointAtCount9
+        bioRe3Memory1.pointAtCount10 = bioRe3.pointAtCount10
+        bioRe3Memory1.pointAtCountSum = bioRe3.pointAtCountSum
+        bioRe3Memory1.pointHighAtCount1 = bioRe3.pointHighAtCount1
+        bioRe3Memory1.pointHighAtCount2 = bioRe3.pointHighAtCount2
+        bioRe3Memory1.pointHighAtCount3 = bioRe3.pointHighAtCount3
+        bioRe3Memory1.pointHighAtCount4 = bioRe3.pointHighAtCount4
+        bioRe3Memory1.pointHighAtCount5 = bioRe3.pointHighAtCount5
+        bioRe3Memory1.pointHighAtCount6 = bioRe3.pointHighAtCount6
+        bioRe3Memory1.pointHighAtCount7 = bioRe3.pointHighAtCount7
+        bioRe3Memory1.pointHighAtCount8 = bioRe3.pointHighAtCount8
+        bioRe3Memory1.pointHighAtCount9 = bioRe3.pointHighAtCount9
+        bioRe3Memory1.pointHighAtCount10 = bioRe3.pointHighAtCount10
+        bioRe3Memory1.pointHighAtCountSum = bioRe3.pointHighAtCountSum
     }
     func saveMemory2() {
         bioRe3Memory2.normalGame = bioRe3.normalGame
@@ -337,6 +387,45 @@ struct bioRe3SubViewSaveMemory: View {
         // ---------
         bioRe3Memory2.atGame = bioRe3.atGame
         bioRe3Memory2.duringAtCountCz = bioRe3.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3Memory2.playGame = bioRe3.playGame
+        bioRe3Memory2.koyakuCountBell = bioRe3.koyakuCountBell
+        bioRe3Memory2.pointNormalCount1 = bioRe3.pointNormalCount1
+        bioRe3Memory2.pointNormalCount2 = bioRe3.pointNormalCount2
+        bioRe3Memory2.pointNormalCount3 = bioRe3.pointNormalCount3
+        bioRe3Memory2.pointNormalCount4 = bioRe3.pointNormalCount4
+        bioRe3Memory2.pointNormalCount5 = bioRe3.pointNormalCount5
+        bioRe3Memory2.pointNormalCount6 = bioRe3.pointNormalCount6
+        bioRe3Memory2.pointNormalCount7 = bioRe3.pointNormalCount7
+        bioRe3Memory2.pointNormalCount8 = bioRe3.pointNormalCount8
+        bioRe3Memory2.pointNormalCount9 = bioRe3.pointNormalCount9
+        bioRe3Memory2.pointNormalCount10 = bioRe3.pointNormalCount10
+        bioRe3Memory2.pointNormalCountSum = bioRe3.pointNormalCountSum
+        bioRe3Memory2.pointAtCount1 = bioRe3.pointAtCount1
+        bioRe3Memory2.pointAtCount2 = bioRe3.pointAtCount2
+        bioRe3Memory2.pointAtCount3 = bioRe3.pointAtCount3
+        bioRe3Memory2.pointAtCount4 = bioRe3.pointAtCount4
+        bioRe3Memory2.pointAtCount5 = bioRe3.pointAtCount5
+        bioRe3Memory2.pointAtCount6 = bioRe3.pointAtCount6
+        bioRe3Memory2.pointAtCount7 = bioRe3.pointAtCount7
+        bioRe3Memory2.pointAtCount8 = bioRe3.pointAtCount8
+        bioRe3Memory2.pointAtCount9 = bioRe3.pointAtCount9
+        bioRe3Memory2.pointAtCount10 = bioRe3.pointAtCount10
+        bioRe3Memory2.pointAtCountSum = bioRe3.pointAtCountSum
+        bioRe3Memory2.pointHighAtCount1 = bioRe3.pointHighAtCount1
+        bioRe3Memory2.pointHighAtCount2 = bioRe3.pointHighAtCount2
+        bioRe3Memory2.pointHighAtCount3 = bioRe3.pointHighAtCount3
+        bioRe3Memory2.pointHighAtCount4 = bioRe3.pointHighAtCount4
+        bioRe3Memory2.pointHighAtCount5 = bioRe3.pointHighAtCount5
+        bioRe3Memory2.pointHighAtCount6 = bioRe3.pointHighAtCount6
+        bioRe3Memory2.pointHighAtCount7 = bioRe3.pointHighAtCount7
+        bioRe3Memory2.pointHighAtCount8 = bioRe3.pointHighAtCount8
+        bioRe3Memory2.pointHighAtCount9 = bioRe3.pointHighAtCount9
+        bioRe3Memory2.pointHighAtCount10 = bioRe3.pointHighAtCount10
+        bioRe3Memory2.pointHighAtCountSum = bioRe3.pointHighAtCountSum
     }
     func saveMemory3() {
         bioRe3Memory3.normalGame = bioRe3.normalGame
@@ -379,6 +468,45 @@ struct bioRe3SubViewSaveMemory: View {
         // ---------
         bioRe3Memory3.atGame = bioRe3.atGame
         bioRe3Memory3.duringAtCountCz = bioRe3.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3Memory3.playGame = bioRe3.playGame
+        bioRe3Memory3.koyakuCountBell = bioRe3.koyakuCountBell
+        bioRe3Memory3.pointNormalCount1 = bioRe3.pointNormalCount1
+        bioRe3Memory3.pointNormalCount2 = bioRe3.pointNormalCount2
+        bioRe3Memory3.pointNormalCount3 = bioRe3.pointNormalCount3
+        bioRe3Memory3.pointNormalCount4 = bioRe3.pointNormalCount4
+        bioRe3Memory3.pointNormalCount5 = bioRe3.pointNormalCount5
+        bioRe3Memory3.pointNormalCount6 = bioRe3.pointNormalCount6
+        bioRe3Memory3.pointNormalCount7 = bioRe3.pointNormalCount7
+        bioRe3Memory3.pointNormalCount8 = bioRe3.pointNormalCount8
+        bioRe3Memory3.pointNormalCount9 = bioRe3.pointNormalCount9
+        bioRe3Memory3.pointNormalCount10 = bioRe3.pointNormalCount10
+        bioRe3Memory3.pointNormalCountSum = bioRe3.pointNormalCountSum
+        bioRe3Memory3.pointAtCount1 = bioRe3.pointAtCount1
+        bioRe3Memory3.pointAtCount2 = bioRe3.pointAtCount2
+        bioRe3Memory3.pointAtCount3 = bioRe3.pointAtCount3
+        bioRe3Memory3.pointAtCount4 = bioRe3.pointAtCount4
+        bioRe3Memory3.pointAtCount5 = bioRe3.pointAtCount5
+        bioRe3Memory3.pointAtCount6 = bioRe3.pointAtCount6
+        bioRe3Memory3.pointAtCount7 = bioRe3.pointAtCount7
+        bioRe3Memory3.pointAtCount8 = bioRe3.pointAtCount8
+        bioRe3Memory3.pointAtCount9 = bioRe3.pointAtCount9
+        bioRe3Memory3.pointAtCount10 = bioRe3.pointAtCount10
+        bioRe3Memory3.pointAtCountSum = bioRe3.pointAtCountSum
+        bioRe3Memory3.pointHighAtCount1 = bioRe3.pointHighAtCount1
+        bioRe3Memory3.pointHighAtCount2 = bioRe3.pointHighAtCount2
+        bioRe3Memory3.pointHighAtCount3 = bioRe3.pointHighAtCount3
+        bioRe3Memory3.pointHighAtCount4 = bioRe3.pointHighAtCount4
+        bioRe3Memory3.pointHighAtCount5 = bioRe3.pointHighAtCount5
+        bioRe3Memory3.pointHighAtCount6 = bioRe3.pointHighAtCount6
+        bioRe3Memory3.pointHighAtCount7 = bioRe3.pointHighAtCount7
+        bioRe3Memory3.pointHighAtCount8 = bioRe3.pointHighAtCount8
+        bioRe3Memory3.pointHighAtCount9 = bioRe3.pointHighAtCount9
+        bioRe3Memory3.pointHighAtCount10 = bioRe3.pointHighAtCount10
+        bioRe3Memory3.pointHighAtCountSum = bioRe3.pointHighAtCountSum
     }
 }
 
@@ -449,6 +577,45 @@ struct bioRe3SubViewLoadMemory: View {
         // ---------
         bioRe3.atGame = bioRe3Memory1.atGame
         bioRe3.duringAtCountCz = bioRe3Memory1.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3.playGame = bioRe3Memory1.playGame
+        bioRe3.koyakuCountBell = bioRe3Memory1.koyakuCountBell
+        bioRe3.pointNormalCount1 = bioRe3Memory1.pointNormalCount1
+        bioRe3.pointNormalCount2 = bioRe3Memory1.pointNormalCount2
+        bioRe3.pointNormalCount3 = bioRe3Memory1.pointNormalCount3
+        bioRe3.pointNormalCount4 = bioRe3Memory1.pointNormalCount4
+        bioRe3.pointNormalCount5 = bioRe3Memory1.pointNormalCount5
+        bioRe3.pointNormalCount6 = bioRe3Memory1.pointNormalCount6
+        bioRe3.pointNormalCount7 = bioRe3Memory1.pointNormalCount7
+        bioRe3.pointNormalCount8 = bioRe3Memory1.pointNormalCount8
+        bioRe3.pointNormalCount9 = bioRe3Memory1.pointNormalCount9
+        bioRe3.pointNormalCount10 = bioRe3Memory1.pointNormalCount10
+        bioRe3.pointNormalCountSum = bioRe3Memory1.pointNormalCountSum
+        bioRe3.pointAtCount1 = bioRe3Memory1.pointAtCount1
+        bioRe3.pointAtCount2 = bioRe3Memory1.pointAtCount2
+        bioRe3.pointAtCount3 = bioRe3Memory1.pointAtCount3
+        bioRe3.pointAtCount4 = bioRe3Memory1.pointAtCount4
+        bioRe3.pointAtCount5 = bioRe3Memory1.pointAtCount5
+        bioRe3.pointAtCount6 = bioRe3Memory1.pointAtCount6
+        bioRe3.pointAtCount7 = bioRe3Memory1.pointAtCount7
+        bioRe3.pointAtCount8 = bioRe3Memory1.pointAtCount8
+        bioRe3.pointAtCount9 = bioRe3Memory1.pointAtCount9
+        bioRe3.pointAtCount10 = bioRe3Memory1.pointAtCount10
+        bioRe3.pointAtCountSum = bioRe3Memory1.pointAtCountSum
+        bioRe3.pointHighAtCount1 = bioRe3Memory1.pointHighAtCount1
+        bioRe3.pointHighAtCount2 = bioRe3Memory1.pointHighAtCount2
+        bioRe3.pointHighAtCount3 = bioRe3Memory1.pointHighAtCount3
+        bioRe3.pointHighAtCount4 = bioRe3Memory1.pointHighAtCount4
+        bioRe3.pointHighAtCount5 = bioRe3Memory1.pointHighAtCount5
+        bioRe3.pointHighAtCount6 = bioRe3Memory1.pointHighAtCount6
+        bioRe3.pointHighAtCount7 = bioRe3Memory1.pointHighAtCount7
+        bioRe3.pointHighAtCount8 = bioRe3Memory1.pointHighAtCount8
+        bioRe3.pointHighAtCount9 = bioRe3Memory1.pointHighAtCount9
+        bioRe3.pointHighAtCount10 = bioRe3Memory1.pointHighAtCount10
+        bioRe3.pointHighAtCountSum = bioRe3Memory1.pointHighAtCountSum
     }
     func loadMemory2() {
         bioRe3.normalGame = bioRe3Memory2.normalGame
@@ -491,6 +658,45 @@ struct bioRe3SubViewLoadMemory: View {
         // ---------
         bioRe3.atGame = bioRe3Memory2.atGame
         bioRe3.duringAtCountCz = bioRe3Memory2.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3.playGame = bioRe3Memory2.playGame
+        bioRe3.koyakuCountBell = bioRe3Memory2.koyakuCountBell
+        bioRe3.pointNormalCount1 = bioRe3Memory2.pointNormalCount1
+        bioRe3.pointNormalCount2 = bioRe3Memory2.pointNormalCount2
+        bioRe3.pointNormalCount3 = bioRe3Memory2.pointNormalCount3
+        bioRe3.pointNormalCount4 = bioRe3Memory2.pointNormalCount4
+        bioRe3.pointNormalCount5 = bioRe3Memory2.pointNormalCount5
+        bioRe3.pointNormalCount6 = bioRe3Memory2.pointNormalCount6
+        bioRe3.pointNormalCount7 = bioRe3Memory2.pointNormalCount7
+        bioRe3.pointNormalCount8 = bioRe3Memory2.pointNormalCount8
+        bioRe3.pointNormalCount9 = bioRe3Memory2.pointNormalCount9
+        bioRe3.pointNormalCount10 = bioRe3Memory2.pointNormalCount10
+        bioRe3.pointNormalCountSum = bioRe3Memory2.pointNormalCountSum
+        bioRe3.pointAtCount1 = bioRe3Memory2.pointAtCount1
+        bioRe3.pointAtCount2 = bioRe3Memory2.pointAtCount2
+        bioRe3.pointAtCount3 = bioRe3Memory2.pointAtCount3
+        bioRe3.pointAtCount4 = bioRe3Memory2.pointAtCount4
+        bioRe3.pointAtCount5 = bioRe3Memory2.pointAtCount5
+        bioRe3.pointAtCount6 = bioRe3Memory2.pointAtCount6
+        bioRe3.pointAtCount7 = bioRe3Memory2.pointAtCount7
+        bioRe3.pointAtCount8 = bioRe3Memory2.pointAtCount8
+        bioRe3.pointAtCount9 = bioRe3Memory2.pointAtCount9
+        bioRe3.pointAtCount10 = bioRe3Memory2.pointAtCount10
+        bioRe3.pointAtCountSum = bioRe3Memory2.pointAtCountSum
+        bioRe3.pointHighAtCount1 = bioRe3Memory2.pointHighAtCount1
+        bioRe3.pointHighAtCount2 = bioRe3Memory2.pointHighAtCount2
+        bioRe3.pointHighAtCount3 = bioRe3Memory2.pointHighAtCount3
+        bioRe3.pointHighAtCount4 = bioRe3Memory2.pointHighAtCount4
+        bioRe3.pointHighAtCount5 = bioRe3Memory2.pointHighAtCount5
+        bioRe3.pointHighAtCount6 = bioRe3Memory2.pointHighAtCount6
+        bioRe3.pointHighAtCount7 = bioRe3Memory2.pointHighAtCount7
+        bioRe3.pointHighAtCount8 = bioRe3Memory2.pointHighAtCount8
+        bioRe3.pointHighAtCount9 = bioRe3Memory2.pointHighAtCount9
+        bioRe3.pointHighAtCount10 = bioRe3Memory2.pointHighAtCount10
+        bioRe3.pointHighAtCountSum = bioRe3Memory2.pointHighAtCountSum
     }
     func loadMemory3() {
         bioRe3.normalGame = bioRe3Memory3.normalGame
@@ -533,6 +739,45 @@ struct bioRe3SubViewLoadMemory: View {
         // ---------
         bioRe3.atGame = bioRe3Memory3.atGame
         bioRe3.duringAtCountCz = bioRe3Memory3.duringAtCountCz
+
+        // ---------
+        // ver4.4.0
+        // ---------
+        bioRe3.playGame = bioRe3Memory3.playGame
+        bioRe3.koyakuCountBell = bioRe3Memory3.koyakuCountBell
+        bioRe3.pointNormalCount1 = bioRe3Memory3.pointNormalCount1
+        bioRe3.pointNormalCount2 = bioRe3Memory3.pointNormalCount2
+        bioRe3.pointNormalCount3 = bioRe3Memory3.pointNormalCount3
+        bioRe3.pointNormalCount4 = bioRe3Memory3.pointNormalCount4
+        bioRe3.pointNormalCount5 = bioRe3Memory3.pointNormalCount5
+        bioRe3.pointNormalCount6 = bioRe3Memory3.pointNormalCount6
+        bioRe3.pointNormalCount7 = bioRe3Memory3.pointNormalCount7
+        bioRe3.pointNormalCount8 = bioRe3Memory3.pointNormalCount8
+        bioRe3.pointNormalCount9 = bioRe3Memory3.pointNormalCount9
+        bioRe3.pointNormalCount10 = bioRe3Memory3.pointNormalCount10
+        bioRe3.pointNormalCountSum = bioRe3Memory3.pointNormalCountSum
+        bioRe3.pointAtCount1 = bioRe3Memory3.pointAtCount1
+        bioRe3.pointAtCount2 = bioRe3Memory3.pointAtCount2
+        bioRe3.pointAtCount3 = bioRe3Memory3.pointAtCount3
+        bioRe3.pointAtCount4 = bioRe3Memory3.pointAtCount4
+        bioRe3.pointAtCount5 = bioRe3Memory3.pointAtCount5
+        bioRe3.pointAtCount6 = bioRe3Memory3.pointAtCount6
+        bioRe3.pointAtCount7 = bioRe3Memory3.pointAtCount7
+        bioRe3.pointAtCount8 = bioRe3Memory3.pointAtCount8
+        bioRe3.pointAtCount9 = bioRe3Memory3.pointAtCount9
+        bioRe3.pointAtCount10 = bioRe3Memory3.pointAtCount10
+        bioRe3.pointAtCountSum = bioRe3Memory3.pointAtCountSum
+        bioRe3.pointHighAtCount1 = bioRe3Memory3.pointHighAtCount1
+        bioRe3.pointHighAtCount2 = bioRe3Memory3.pointHighAtCount2
+        bioRe3.pointHighAtCount3 = bioRe3Memory3.pointHighAtCount3
+        bioRe3.pointHighAtCount4 = bioRe3Memory3.pointHighAtCount4
+        bioRe3.pointHighAtCount5 = bioRe3Memory3.pointHighAtCount5
+        bioRe3.pointHighAtCount6 = bioRe3Memory3.pointHighAtCount6
+        bioRe3.pointHighAtCount7 = bioRe3Memory3.pointHighAtCount7
+        bioRe3.pointHighAtCount8 = bioRe3Memory3.pointHighAtCount8
+        bioRe3.pointHighAtCount9 = bioRe3Memory3.pointHighAtCount9
+        bioRe3.pointHighAtCount10 = bioRe3Memory3.pointHighAtCount10
+        bioRe3.pointHighAtCountSum = bioRe3Memory3.pointHighAtCountSum
     }
 }
 

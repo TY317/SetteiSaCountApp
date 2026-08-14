@@ -20,6 +20,7 @@ class Kokakukidotai: ObservableObject {
     
     func iedeSumFunc() {
         iedeCountSum = iedeCountMiss + iedeCountSuccess
+        iedeCount400Sum = iedeCount400Miss + iedeCount400Success
     }
     
     func resetNormal() {
@@ -40,6 +41,10 @@ class Kokakukidotai: ObservableObject {
         modeCountC = 0
         modeCountD = 0
         modeCountSum = 0
+        
+        iedeCount400Miss = 0
+        iedeCount400Success = 0
+        iedeCount400Sum = 0
     }
     
     // ----------
@@ -241,12 +246,27 @@ class Kokakukidotai: ObservableObject {
             modeCountD,
         )
     }
+    
+    // -----
+    // ver4.4.0
+    // -----
+    let ratioCzScreenIshikawa: [Double] = [9.4, -1,-1,-1,-1, 18.8]
+    
+    // タチコマCZ
+    let ratioIede200: [Double] = [10,10.4,11.7,13.3,14.2,15]
+    let ratioIede400: [Double] = [20,22.5,25.8,28.4,31.6,33.3]
+    @AppStorage("kokakukidotaiIedeCount400Miss") var iedeCount400Miss: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400Success") var iedeCount400Success: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400Sum") var iedeCount400Sum: Int = 0
 }
 
 class KokakukidotaiMemory1: ObservableObject {
     @AppStorage("kokakukidotaiIedeCountMissMemory1") var iedeCountMiss: Int = 0
     @AppStorage("kokakukidotaiIedeCountSuccessMemory1") var iedeCountSuccess: Int = 0
     @AppStorage("kokakukidotaiIedeCountSumMemory1") var iedeCountSum: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400MissMemory1") var iedeCount400Miss: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SuccessMemory1") var iedeCount400Success: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SumMemory1") var iedeCount400Sum: Int = 0
     @AppStorage("kokakukidotaiNormalGameMemory1") var normalGame: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
@@ -310,6 +330,9 @@ class KokakukidotaiMemory2: ObservableObject {
     @AppStorage("kokakukidotaiIedeCountMissMemory2") var iedeCountMiss: Int = 0
     @AppStorage("kokakukidotaiIedeCountSuccessMemory2") var iedeCountSuccess: Int = 0
     @AppStorage("kokakukidotaiIedeCountSumMemory2") var iedeCountSum: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400MissMemory2") var iedeCount400Miss: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SuccessMemory2") var iedeCount400Success: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SumMemory2") var iedeCount400Sum: Int = 0
     @AppStorage("kokakukidotaiNormalGameMemory2") var normalGame: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
@@ -373,6 +396,9 @@ class KokakukidotaiMemory3: ObservableObject {
     @AppStorage("kokakukidotaiIedeCountMissMemory3") var iedeCountMiss: Int = 0
     @AppStorage("kokakukidotaiIedeCountSuccessMemory3") var iedeCountSuccess: Int = 0
     @AppStorage("kokakukidotaiIedeCountSumMemory3") var iedeCountSum: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400MissMemory3") var iedeCount400Miss: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SuccessMemory3") var iedeCount400Success: Int = 0
+    @AppStorage("kokakukidotaiIedeCount400SumMemory3") var iedeCount400Sum: Int = 0
     @AppStorage("kokakukidotaiNormalGameMemory3") var normalGame: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
     @AppStorage("kokakukidotaiFirstHitCountCzMemory3") var firstHitCountCz: Int = 0

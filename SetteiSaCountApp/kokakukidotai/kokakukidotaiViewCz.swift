@@ -122,6 +122,26 @@ struct kokakukidotaiViewCz: View {
             
             // CZ終了画面の示唆
             Section {
+                // 確率結果
+                unitResultRatioPercent2Line(
+                    title: "イシカワ画面",
+                    count: $kokakukidotai.czScreenCountHighKyo,
+                    bigNumber: $kokakukidotai.czScreenCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer440KokakuCzScreen())
+                
+                // 参考情報）イシカワ画面振分け
+                unitLinkButtonViewBuilder(sheetTitle: "イシカワ画面振分け") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "イシカワ画面",
+                            percentList: kokakukidotai.ratioCzScreenIshikawa
+                        )
+                    }
+                }
+                
                 DisclosureGroup {
                     // カウントボタン
                     ScrollView(.horizontal) {
@@ -168,6 +188,16 @@ struct kokakukidotaiViewCz: View {
                             )
                         }
                     }
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 12,
+                            )
+                        )
+                    )
                 } label: {
                     Text("終了画面カウント")
                         .foregroundStyle(Color.blue)

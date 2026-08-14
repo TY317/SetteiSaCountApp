@@ -128,7 +128,7 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
 「設定推測グラフ」の `NavigationLink(destination: <prefix>View95Ci(... selection: X))` の `selection:` を **2**（先頭種類のタグ）に更新。
 
 ## 6. 検証・報告
-- `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。
+- **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
 - 提案コミットメッセージ：`[機能]<prefix> 初当りページを実装`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。**コミットはユーザー指示後**。
 - 案内：
   - ratio 値・種類名（label）・色は実機仕様に合わせて調整可。
