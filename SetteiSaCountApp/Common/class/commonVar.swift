@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5027", name: "やじきた", fullName: "やじきた道中記参る！", iconName: "yajikitaMachineIcon", btBadge: false, maker: "UNIVERSAL"),
         Machine(id: "5068", name: "スト6", fullName: "ストリートファイター6", iconName: "streetFighter6MachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5020", name: "邪神ちゃん", fullName: "邪神ちゃんドロップキック", iconName: "dropkickMachineIcon", btBadge: false, maker: "SANYO"),
         Machine(id: "5055", name: "ワダスタ", fullName: "ワールドダイスター", iconName: "worldDaiStarMachineIcon", btBadge: false, maker: "大都技研"),
@@ -386,6 +387,12 @@ class commonVar: ObservableObject {
     @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
     @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
     @AppStorage("index2MenuEndingBadge") var index2MenuEndingBadge: String = "none"
+
+    // ---- やじきた道中記参る！
+    @AppStorage("yajikitaMenuNormalBadge") var yajikitaMenuNormalBadge: String = "none"
+    @AppStorage("yajikitaMenuFirstHitBadge") var yajikitaMenuFirstHitBadge: String = "none"
+    @AppStorage("yajikitaMenuBayesBadge") var yajikitaMenuBayesBadge: String = "none"
+    @AppStorage("yajikitaMenuScreenBadge") var yajikitaMenuScreenBadge: String = "none"
 
     // ---- ストリートファイター6
     @AppStorage("streetFighter6MenuNormalBadge") var streetFighter6MenuNormalBadge: String = "none"
@@ -769,6 +776,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5027", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5027", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
