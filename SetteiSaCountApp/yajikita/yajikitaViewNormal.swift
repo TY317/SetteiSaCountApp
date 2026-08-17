@@ -37,6 +37,20 @@ struct yajikitaViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // モード
+            Section {
+                // 規定まいるテーブル
+                unitLinkButtonViewBuilder(sheetTitle: "モードごとの規定まいるテーブル") {
+                    yajikitaTableMileTable()
+                }
+                // モード移行振分け
+                unitLinkButtonViewBuilder(sheetTitle: "モード移行振分け") {
+                    yajikitaTableModeMoveRatio()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.yajikitaMenuNormalBadge)
