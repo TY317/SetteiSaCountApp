@@ -38,6 +38,15 @@ struct yajikitaViewFirstHit: View {
 
             // カウントボタン横並び
             HStack {
+                // CZ
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $yajikita.firstHitCountCz,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $yajikita.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $yajikita.minusCheck
+                )
                 // AT
                 unitCountButtonVerticalDenominate(
                     title: "AT",
@@ -53,6 +62,10 @@ struct yajikitaViewFirstHit: View {
             unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                 HStack(spacing: 0) {
                     unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ",
+                        denominateList: yajikita.ratioFirstHitCz
+                    )
                     unitTableDenominate(
                         columTitle: "AT",
                         denominateList: yajikita.ratioFirstHitAt
