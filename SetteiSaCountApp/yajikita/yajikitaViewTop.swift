@@ -191,13 +191,40 @@ struct yajikitaSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        yajikitaMemory1.normalGame = yajikita.normalGame
+        yajikitaMemory1.firstHitCountCz = yajikita.firstHitCountCz
+        yajikitaMemory1.firstHitCountAt = yajikita.firstHitCountAt
+        yajikitaMemory1.screenCount1 = yajikita.screenCount1
+        yajikitaMemory1.screenCount2 = yajikita.screenCount2
+        yajikitaMemory1.screenCount3 = yajikita.screenCount3
+        yajikitaMemory1.screenCountSum = yajikita.screenCountSum
+        yajikitaMemory1.endingCount1 = yajikita.endingCount1
+        yajikitaMemory1.endingCount2 = yajikita.endingCount2
+        yajikitaMemory1.endingCountSum = yajikita.endingCountSum
     }
     func saveMemory2() {
-
+        yajikitaMemory2.normalGame = yajikita.normalGame
+        yajikitaMemory2.firstHitCountCz = yajikita.firstHitCountCz
+        yajikitaMemory2.firstHitCountAt = yajikita.firstHitCountAt
+        yajikitaMemory2.screenCount1 = yajikita.screenCount1
+        yajikitaMemory2.screenCount2 = yajikita.screenCount2
+        yajikitaMemory2.screenCount3 = yajikita.screenCount3
+        yajikitaMemory2.screenCountSum = yajikita.screenCountSum
+        yajikitaMemory2.endingCount1 = yajikita.endingCount1
+        yajikitaMemory2.endingCount2 = yajikita.endingCount2
+        yajikitaMemory2.endingCountSum = yajikita.endingCountSum
     }
     func saveMemory3() {
-
+        yajikitaMemory3.normalGame = yajikita.normalGame
+        yajikitaMemory3.firstHitCountCz = yajikita.firstHitCountCz
+        yajikitaMemory3.firstHitCountAt = yajikita.firstHitCountAt
+        yajikitaMemory3.screenCount1 = yajikita.screenCount1
+        yajikitaMemory3.screenCount2 = yajikita.screenCount2
+        yajikitaMemory3.screenCount3 = yajikita.screenCount3
+        yajikitaMemory3.screenCountSum = yajikita.screenCountSum
+        yajikitaMemory3.endingCount1 = yajikita.endingCount1
+        yajikitaMemory3.endingCount2 = yajikita.endingCount2
+        yajikitaMemory3.endingCountSum = yajikita.endingCountSum
     }
 }
 
@@ -229,13 +256,40 @@ struct yajikitaSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        yajikita.normalGame = yajikitaMemory1.normalGame
+        yajikita.firstHitCountCz = yajikitaMemory1.firstHitCountCz
+        yajikita.firstHitCountAt = yajikitaMemory1.firstHitCountAt
+        yajikita.screenCount1 = yajikitaMemory1.screenCount1
+        yajikita.screenCount2 = yajikitaMemory1.screenCount2
+        yajikita.screenCount3 = yajikitaMemory1.screenCount3
+        yajikita.screenCountSum = yajikitaMemory1.screenCountSum
+        yajikita.endingCount1 = yajikitaMemory1.endingCount1
+        yajikita.endingCount2 = yajikitaMemory1.endingCount2
+        yajikita.endingCountSum = yajikitaMemory1.endingCountSum
     }
     func loadMemory2() {
-
+        yajikita.normalGame = yajikitaMemory2.normalGame
+        yajikita.firstHitCountCz = yajikitaMemory2.firstHitCountCz
+        yajikita.firstHitCountAt = yajikitaMemory2.firstHitCountAt
+        yajikita.screenCount1 = yajikitaMemory2.screenCount1
+        yajikita.screenCount2 = yajikitaMemory2.screenCount2
+        yajikita.screenCount3 = yajikitaMemory2.screenCount3
+        yajikita.screenCountSum = yajikitaMemory2.screenCountSum
+        yajikita.endingCount1 = yajikitaMemory2.endingCount1
+        yajikita.endingCount2 = yajikitaMemory2.endingCount2
+        yajikita.endingCountSum = yajikitaMemory2.endingCountSum
     }
     func loadMemory3() {
-
+        yajikita.normalGame = yajikitaMemory3.normalGame
+        yajikita.firstHitCountCz = yajikitaMemory3.firstHitCountCz
+        yajikita.firstHitCountAt = yajikitaMemory3.firstHitCountAt
+        yajikita.screenCount1 = yajikitaMemory3.screenCount1
+        yajikita.screenCount2 = yajikitaMemory3.screenCount2
+        yajikita.screenCount3 = yajikitaMemory3.screenCount3
+        yajikita.screenCountSum = yajikitaMemory3.screenCountSum
+        yajikita.endingCount1 = yajikitaMemory3.endingCount1
+        yajikita.endingCount2 = yajikitaMemory3.endingCount2
+        yajikita.endingCountSum = yajikitaMemory3.endingCountSum
     }
 }
 
