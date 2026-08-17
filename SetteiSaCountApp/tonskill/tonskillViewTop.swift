@@ -27,6 +27,7 @@ struct tonskillViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: tonskill.machineName,
+                        titleFont: .title2
                     )
                 }
 
@@ -181,13 +182,49 @@ struct tonskillSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        tonskillMemory1.ptSui = tonskill.ptSui
+        tonskillMemory1.ptMukoda = tonskill.ptMukoda
+        tonskillMemory1.ptFeru = tonskill.ptFeru
+        tonskillMemory1.normalGame = tonskill.normalGame
+        tonskillMemory1.firstHitCountCz = tonskill.firstHitCountCz
+        tonskillMemory1.firstHitCountBonus = tonskill.firstHitCountBonus
+        tonskillMemory1.endingCount1 = tonskill.endingCount1
+        tonskillMemory1.endingCount2 = tonskill.endingCount2
+        tonskillMemory1.endingCount3 = tonskill.endingCount3
+        tonskillMemory1.endingCount4 = tonskill.endingCount4
+        tonskillMemory1.endingCount5 = tonskill.endingCount5
+        tonskillMemory1.endingCount6 = tonskill.endingCount6
+        tonskillMemory1.endingCountSum = tonskill.endingCountSum
     }
     func saveMemory2() {
-
+        tonskillMemory2.ptSui = tonskill.ptSui
+        tonskillMemory2.ptMukoda = tonskill.ptMukoda
+        tonskillMemory2.ptFeru = tonskill.ptFeru
+        tonskillMemory2.normalGame = tonskill.normalGame
+        tonskillMemory2.firstHitCountCz = tonskill.firstHitCountCz
+        tonskillMemory2.firstHitCountBonus = tonskill.firstHitCountBonus
+        tonskillMemory2.endingCount1 = tonskill.endingCount1
+        tonskillMemory2.endingCount2 = tonskill.endingCount2
+        tonskillMemory2.endingCount3 = tonskill.endingCount3
+        tonskillMemory2.endingCount4 = tonskill.endingCount4
+        tonskillMemory2.endingCount5 = tonskill.endingCount5
+        tonskillMemory2.endingCount6 = tonskill.endingCount6
+        tonskillMemory2.endingCountSum = tonskill.endingCountSum
     }
     func saveMemory3() {
-
+        tonskillMemory3.ptSui = tonskill.ptSui
+        tonskillMemory3.ptMukoda = tonskill.ptMukoda
+        tonskillMemory3.ptFeru = tonskill.ptFeru
+        tonskillMemory3.normalGame = tonskill.normalGame
+        tonskillMemory3.firstHitCountCz = tonskill.firstHitCountCz
+        tonskillMemory3.firstHitCountBonus = tonskill.firstHitCountBonus
+        tonskillMemory3.endingCount1 = tonskill.endingCount1
+        tonskillMemory3.endingCount2 = tonskill.endingCount2
+        tonskillMemory3.endingCount3 = tonskill.endingCount3
+        tonskillMemory3.endingCount4 = tonskill.endingCount4
+        tonskillMemory3.endingCount5 = tonskill.endingCount5
+        tonskillMemory3.endingCount6 = tonskill.endingCount6
+        tonskillMemory3.endingCountSum = tonskill.endingCountSum
     }
 }
 
@@ -219,13 +256,49 @@ struct tonskillSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        tonskill.ptSui = tonskillMemory1.ptSui
+        tonskill.ptMukoda = tonskillMemory1.ptMukoda
+        tonskill.ptFeru = tonskillMemory1.ptFeru
+        tonskill.normalGame = tonskillMemory1.normalGame
+        tonskill.firstHitCountCz = tonskillMemory1.firstHitCountCz
+        tonskill.firstHitCountBonus = tonskillMemory1.firstHitCountBonus
+        tonskill.endingCount1 = tonskillMemory1.endingCount1
+        tonskill.endingCount2 = tonskillMemory1.endingCount2
+        tonskill.endingCount3 = tonskillMemory1.endingCount3
+        tonskill.endingCount4 = tonskillMemory1.endingCount4
+        tonskill.endingCount5 = tonskillMemory1.endingCount5
+        tonskill.endingCount6 = tonskillMemory1.endingCount6
+        tonskill.endingCountSum = tonskillMemory1.endingCountSum
     }
     func loadMemory2() {
-
+        tonskill.ptSui = tonskillMemory2.ptSui
+        tonskill.ptMukoda = tonskillMemory2.ptMukoda
+        tonskill.ptFeru = tonskillMemory2.ptFeru
+        tonskill.normalGame = tonskillMemory2.normalGame
+        tonskill.firstHitCountCz = tonskillMemory2.firstHitCountCz
+        tonskill.firstHitCountBonus = tonskillMemory2.firstHitCountBonus
+        tonskill.endingCount1 = tonskillMemory2.endingCount1
+        tonskill.endingCount2 = tonskillMemory2.endingCount2
+        tonskill.endingCount3 = tonskillMemory2.endingCount3
+        tonskill.endingCount4 = tonskillMemory2.endingCount4
+        tonskill.endingCount5 = tonskillMemory2.endingCount5
+        tonskill.endingCount6 = tonskillMemory2.endingCount6
+        tonskill.endingCountSum = tonskillMemory2.endingCountSum
     }
     func loadMemory3() {
-
+        tonskill.ptSui = tonskillMemory3.ptSui
+        tonskill.ptMukoda = tonskillMemory3.ptMukoda
+        tonskill.ptFeru = tonskillMemory3.ptFeru
+        tonskill.normalGame = tonskillMemory3.normalGame
+        tonskill.firstHitCountCz = tonskillMemory3.firstHitCountCz
+        tonskill.firstHitCountBonus = tonskillMemory3.firstHitCountBonus
+        tonskill.endingCount1 = tonskillMemory3.endingCount1
+        tonskill.endingCount2 = tonskillMemory3.endingCount2
+        tonskill.endingCount3 = tonskillMemory3.endingCount3
+        tonskill.endingCount4 = tonskillMemory3.endingCount4
+        tonskill.endingCount5 = tonskillMemory3.endingCount5
+        tonskill.endingCount6 = tonskillMemory3.endingCount6
+        tonskill.endingCountSum = tonskillMemory3.endingCountSum
     }
 }
 
