@@ -13,8 +13,31 @@ class Tonskill: ObservableObject {
     // -------
     // 通常時
     // -------
+    // ポイント推定
+    @AppStorage("tonskillPtSui") var ptSui: Int = 0
+    @AppStorage("tonskillPtMukoda") var ptMukoda: Int = 0
+    @AppStorage("tonskillPtFeru") var ptFeru: Int = 0
+
+    func resetPtSui() {
+        ptSui = 0
+    }
+
+    func resetPtMukoda() {
+        ptMukoda = 0
+    }
+
+    func resetPtFeru() {
+        ptFeru = 0
+    }
+
+    func resetPt() {
+        ptSui = 0
+        ptMukoda = 0
+        ptFeru = 0
+    }
 
     func resetNormal() {
+        resetPt()
         minusCheck = false
     }
 

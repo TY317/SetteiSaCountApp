@@ -26,8 +26,126 @@ struct tonskillViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    @State var isShowAlertSui: Bool = false
+    @State var isShowAlertMukoda: Bool = false
+    @State var isShowAlertFeru: Bool = false
     var body: some View {
         List {
+            // ポイント推定カウント
+            Section {
+                Text("ポイント蓄積量のメモ代わりとして活用ください")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+                HStack {
+                    VStack {
+                        Text("[スイ]")
+                            .font(.title2)
+                        // +3pt
+                        unitPlusButton(
+                            count: $tonskill.ptSui,
+                            plusNumber: 3,
+                            buttonColor: .red,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // +15pt
+                        unitPlusButton(
+                            count: $tonskill.ptSui,
+                            plusNumber: 15,
+                            buttonColor: .red,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // 推定ポイント
+                        unitResultCount2Line(
+                            title: "スイ",
+                            color: .personalSummerLightRed,
+                            count: $tonskill.ptSui,
+                            spacerBool: false
+                        )
+                        .padding(.top, 5)
+                        // リセットボタン
+                        unitButtonResetBorderedStyle(
+                            isShowAlert: self.$isShowAlertSui,
+                            buttonText: "リセット",
+                            action: tonskill.resetPtSui,
+                            message: "スイの推定ポイントのみリセットします"
+                        )
+                    }
+                    VStack {
+                        Text("[ムコーダ]")
+                            .font(.title2)
+                        // +3pt
+                        unitPlusButton(
+                            count: $tonskill.ptMukoda,
+                            plusNumber: 3,
+                            buttonColor: .green,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // +15pt
+                        unitPlusButton(
+                            count: $tonskill.ptMukoda,
+                            plusNumber: 15,
+                            buttonColor: .green,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // 推定ポイント
+                        unitResultCount2Line(
+                            title: "ムコーダ",
+                            color: .personalSummerLightGreen,
+                            count: $tonskill.ptMukoda,
+                            spacerBool: false
+                        )
+                        .padding(.top, 5)
+                        // リセットボタン
+                        unitButtonResetBorderedStyle(
+                            isShowAlert: self.$isShowAlertMukoda,
+                            buttonText: "リセット",
+                            action: tonskill.resetPtMukoda,
+                            message: "ムコーダの推定ポイントのみリセットします"
+                        )
+                    }
+                    VStack {
+                        Text("[フェル]")
+                            .font(.title2)
+                        // +3pt
+                        unitPlusButton(
+                            count: $tonskill.ptFeru,
+                            plusNumber: 3,
+                            buttonColor: .purple,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // +15pt
+                        unitPlusButton(
+                            count: $tonskill.ptFeru,
+                            plusNumber: 15,
+                            buttonColor: .purple,
+                            minusCheck: tonskill.minusCheck
+                        )
+                        // 推定ポイント
+                        unitResultCount2Line(
+                            title: "フェル",
+                            color: .personalSummerLightPurple,
+                            count: $tonskill.ptFeru,
+                            spacerBool: false
+                        )
+                        .padding(.top, 5)
+                        // リセットボタン
+                        unitButtonResetBorderedStyle(
+                            isShowAlert: self.$isShowAlertFeru,
+                            buttonText: "リセット",
+                            action: tonskill.resetPtFeru,
+                            message: "フェルの推定ポイントのみリセットします"
+                        )
+                    }
+                }
+                
+                // 参考情報 CZポイントについて
+                unitLinkButtonViewBuilder(sheetTitle: "CZポイントについて") {
+                    tonskillTableCzPoint()
+                }
+            } header: {
+                Text("ポイント推定カウント")
+            }
+
             // レア役
             Section {
                 // レア役停止系
@@ -38,6 +156,16 @@ struct tonskillViewNormal: View {
                 }
             } header: {
                 Text("小役")
+            }
+            
+             // モード
+            Section {
+                // 参考情報　通常時のモード
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
+                    tonskillTableMode()
+                }
+            } header: {
+                Text("モード")
             }
         }
         // //// バッジのリセット
