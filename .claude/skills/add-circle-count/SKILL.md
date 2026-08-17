@@ -43,3 +43,4 @@ description: 既存ページにホイール(サークル)ピッカーのカウ�
 - `binding<Element>` は要素名で個別化するが、`selectedItem`/`selectList`/`sisaList`/`sisaText`/`flushColor` は共有名＝**1ページに1つのサークルカウンター前提**。複数は手動リネーム。
 - 対象 View に既に `selectedItem`/`sisaText`/`flushColor` がある場合は名前衝突に注意（rioAceViewScreen 等）。
 - ページshell＝`/add-page`、メモリー同期＝`/sync-memory`、画像付き画面カウント＝`/add-screen`。
+- 確定系（濃厚／否定）を設定期待値に反映する場合は `/add-bayes-confirmed`（示唆ラベルから振分け配列の生成まで一連で行う）。
