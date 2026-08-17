@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5030", name: "とんスキ", fullName: "とんでもスキルで異世界放浪メシ", iconName: "tonskillMachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5027", name: "やじきた", fullName: "やじきた道中記参る！", iconName: "yajikitaMachineIcon", btBadge: false, maker: "UNIVERSAL"),
         Machine(id: "5068", name: "スト6", fullName: "ストリートファイター6", iconName: "streetFighter6MachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5020", name: "邪神ちゃん", fullName: "邪神ちゃんドロップキック", iconName: "dropkickMachineIcon", btBadge: false, maker: "SANYO"),
@@ -387,6 +388,12 @@ class commonVar: ObservableObject {
     @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
     @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
     @AppStorage("index2MenuEndingBadge") var index2MenuEndingBadge: String = "none"
+
+    // ---- とんでもスキルで異世界放浪メシ
+    @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
+    @AppStorage("tonskillMenuFirstHitBadge") var tonskillMenuFirstHitBadge: String = "none"
+    @AppStorage("tonskillMenuBayesBadge") var tonskillMenuBayesBadge: String = "none"
+    @AppStorage("tonskillMenuScreenBadge") var tonskillMenuScreenBadge: String = "none"
 
     // ---- やじきた道中記参る！
     @AppStorage("yajikitaMenuNormalBadge") var yajikitaMenuNormalBadge: String = "none"
@@ -779,6 +786,8 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5027", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5027", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5030", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5030", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")

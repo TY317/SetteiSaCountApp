@@ -1368,11 +1368,17 @@
 		0FD357D32DB3836D0069BD1A /* yoshimuneTableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */; };
 		0FD586A62FEFB485005689C6 /* ver410.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586A52FEFB485005689C6 /* ver410.swift */; };
 		0FD586A92FEFBFF1005689C6 /* karakuri2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586A82FEFBFF1005689C6 /* karakuri2ViewTop.swift */; };
+		BACF02A68BFA486B93B53952 /* tonskillViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79F0D66DE064A37B32144BD /* tonskillViewTop.swift */; };
 		0FD586AB2FEFC054005689C6 /* karakuri2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586AA2FEFC054005689C6 /* karakuri2Class.swift */; };
+		FA124AE82DC44761B6540A10 /* tonskillClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990AEE25C2347CBA9561E48 /* tonskillClass.swift */; };
 		0FD586AF2FEFC18E005689C6 /* karakuri2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586AE2FEFC18E005689C6 /* karakuri2ViewNormal.swift */; };
+		0591A3D173D3461EB94760A5 /* tonskillViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B99571C152F4AC9BCFEC54B /* tonskillViewNormal.swift */; };
 		0FD586B12FEFC357005689C6 /* karakuri2ViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586B02FEFC357005689C6 /* karakuri2ViewFirstHit.swift */; };
+		952158E2685A41ECAB1D6BC5 /* tonskillViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66441199CF5F4CD2AD2420B4 /* tonskillViewFirstHit.swift */; };
 		0FD586B32FEFC433005689C6 /* karakuri2View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586B22FEFC433005689C6 /* karakuri2View95Ci.swift */; };
+		9A20A85601A740748DD771CE /* tonskillView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E18B0C4BCC4C8799FE73A9 /* tonskillView95Ci.swift */; };
 		0FD586B52FEFDE8C005689C6 /* karakuri2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD586B42FEFDE8C005689C6 /* karakuri2Assets.xcassets */; };
+		A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3C72C6932E489C9EAC136F /* tonskillAssets.xcassets */; };
 		0FD586B72FEFFACC005689C6 /* karakuri2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586B62FEFFACC005689C6 /* karakuri2TableKoyakuPattern.swift */; };
 		0FD586B82FEFFB1D005689C6 /* karakuri2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586B62FEFFACC005689C6 /* karakuri2TableKoyakuPattern.swift */; };
 		0FD586BA2FF0C90A005689C6 /* karakuri2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586B92FF0C90A005689C6 /* karakuri2ViewBayes.swift */; };
@@ -2985,11 +2991,17 @@
 		0FD357D22DB3836D0069BD1A /* yoshimuneTableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yoshimuneTableModeSisa.swift; sourceTree = "<group>"; };
 		0FD586A52FEFB485005689C6 /* ver410.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver410.swift; sourceTree = "<group>"; };
 		0FD586A82FEFBFF1005689C6 /* karakuri2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewTop.swift; sourceTree = "<group>"; };
+		F79F0D66DE064A37B32144BD /* tonskillViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewTop.swift; sourceTree = "<group>"; };
 		0FD586AA2FEFC054005689C6 /* karakuri2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2Class.swift; sourceTree = "<group>"; };
+		6990AEE25C2347CBA9561E48 /* tonskillClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillClass.swift; sourceTree = "<group>"; };
 		0FD586AE2FEFC18E005689C6 /* karakuri2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewNormal.swift; sourceTree = "<group>"; };
+		6B99571C152F4AC9BCFEC54B /* tonskillViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewNormal.swift; sourceTree = "<group>"; };
 		0FD586B02FEFC357005689C6 /* karakuri2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewFirstHit.swift; sourceTree = "<group>"; };
+		66441199CF5F4CD2AD2420B4 /* tonskillViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewFirstHit.swift; sourceTree = "<group>"; };
 		0FD586B22FEFC433005689C6 /* karakuri2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2View95Ci.swift; sourceTree = "<group>"; };
+		B0E18B0C4BCC4C8799FE73A9 /* tonskillView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillView95Ci.swift; sourceTree = "<group>"; };
 		0FD586B42FEFDE8C005689C6 /* karakuri2Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = karakuri2Assets.xcassets; sourceTree = "<group>"; };
+		4E3C72C6932E489C9EAC136F /* tonskillAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = tonskillAssets.xcassets; sourceTree = "<group>"; };
 		0FD586B62FEFFACC005689C6 /* karakuri2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0FD586B92FF0C90A005689C6 /* karakuri2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewBayes.swift; sourceTree = "<group>"; };
 		0FD586E52FF541BA005689C6 /* sencole6ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewScreen.swift; sourceTree = "<group>"; };
@@ -4317,6 +4329,7 @@
 				A2810C658C7B4038A69E5423 /* worldDaiStar */,
 				A39BA60F028340A6A0B630A4 /* kerotto */,
 				0FD586A72FEFBEB1005689C6 /* karakuri2 */,
+				047E460FBE2B4314B24DF2FA /* tonskill */,
 				A86DB711F56A49D5B8A7252C /* sencole6 */,
 				0F1217F62FCA95D500E50794 /* otome5 */,
 				0F1217F72FCA95E200E50794 /* sao2 */,
@@ -5607,6 +5620,19 @@
 			path = karakuri2;
 			sourceTree = "<group>";
 		};
+		047E460FBE2B4314B24DF2FA /* tonskill */ = {
+			isa = PBXGroup;
+			children = (
+				F79F0D66DE064A37B32144BD /* tonskillViewTop.swift */,
+				6990AEE25C2347CBA9561E48 /* tonskillClass.swift */,
+				6B99571C152F4AC9BCFEC54B /* tonskillViewNormal.swift */,
+				66441199CF5F4CD2AD2420B4 /* tonskillViewFirstHit.swift */,
+				B0E18B0C4BCC4C8799FE73A9 /* tonskillView95Ci.swift */,
+				4E3C72C6932E489C9EAC136F /* tonskillAssets.xcassets */,
+			);
+			path = tonskill;
+			sourceTree = "<group>";
+		};
 		0FD975012F43494E0067CED7 /* newKingHana */ = {
 			isa = PBXGroup;
 			children = (
@@ -6249,6 +6275,7 @@
 				0FC14A8B2E4E10BA00F85D84 /* bayesMind.pdf in Resources */,
 				0FA63D582F8D0D8B0006E8F7 /* godKisekiAssets.xcassets in Resources */,
 				0FD586B52FEFDE8C005689C6 /* karakuri2Assets.xcassets in Resources */,
+				A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */,
 				BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */,
 				9863844F22A545D7A229A262 /* streetFighter6Assets.xcassets in Resources */,
 				367836D941B740E884D8A897 /* dropkickAssets.xcassets in Resources */,
@@ -6516,6 +6543,7 @@
 				0F7568E12FA6EC7900A66336 /* bioRe3ViewTop.swift in Sources */,
 				0FD357BB2DAFCF6B0069BD1A /* mahjongViewNormal.swift in Sources */,
 				0FD586B32FEFC433005689C6 /* karakuri2View95Ci.swift in Sources */,
+				9A20A85601A740748DD771CE /* tonskillView95Ci.swift in Sources */,
 				E48077905878475F8F6D2191 /* yajikitaView95Ci.swift in Sources */,
 				EE2C99E4364B46968D3402F2 /* streetFighter6View95Ci.swift in Sources */,
 				AFFC59D4392744E2A94944F4 /* dropkickView95Ci.swift in Sources */,
@@ -7332,6 +7360,7 @@
 				0F9D9C382EA4691700450B23 /* hanaTenshoViewShimaData.swift in Sources */,
 				0F6B59DB2E06A17F00DB1A2B /* toloveruTableFirstHit.swift in Sources */,
 				0FD586AF2FEFC18E005689C6 /* karakuri2ViewNormal.swift in Sources */,
+				0591A3D173D3461EB94760A5 /* tonskillViewNormal.swift in Sources */,
 				E10924E516C344009A175DD0 /* yajikitaViewNormal.swift in Sources */,
 				E7C19055B1DB4E2B9AB68299 /* yajikitaViewEnding.swift in Sources */,
 				640B30EED3674446BC1F0172 /* yajikitaViewScreen.swift in Sources */,
@@ -7468,6 +7497,7 @@
 				0FD586BA2FF0C90A005689C6 /* karakuri2ViewBayes.swift in Sources */,
 				0F9A4F812DEC2CD3003B6337 /* dmc5TableFirstHit.swift in Sources */,
 				0FD586B12FEFC357005689C6 /* karakuri2ViewFirstHit.swift in Sources */,
+				952158E2685A41ECAB1D6BC5 /* tonskillViewFirstHit.swift in Sources */,
 				856A4E66670B4DC19B60D004 /* yajikitaViewFirstHit.swift in Sources */,
 				1C5700CE33424715B9E6645A /* streetFighter6ViewFirstHit.swift in Sources */,
 				BAFD808390074E719AEFE954 /* dropkickViewFirstHit.swift in Sources */,
@@ -7607,6 +7637,7 @@
 				0F461FA42F93786400F6B6A1 /* akudamaTableScreen.swift in Sources */,
 				0F80311D2C69B42A001F008E /* myFunction.swift in Sources */,
 				0FD586AB2FEFC054005689C6 /* karakuri2Class.swift in Sources */,
+				FA124AE82DC44761B6540A10 /* tonskillClass.swift in Sources */,
 				6E755A2580F4444096EE4147 /* yajikitaClass.swift in Sources */,
 				D25E217B3F744E64934B275F /* streetFighter6Class.swift in Sources */,
 				F868AB71DF16408E89C39D6F /* dropkickClass.swift in Sources */,
@@ -7704,6 +7735,7 @@
 				0F815FC52E35DECD0086127D /* darlingView95Ci.swift in Sources */,
 				0F00FAF62FACBD040076283F /* unitAppRecommend.swift in Sources */,
 				0FD586A92FEFBFF1005689C6 /* karakuri2ViewTop.swift in Sources */,
+				BACF02A68BFA486B93B53952 /* tonskillViewTop.swift in Sources */,
 				EB9BFDB6200E4F9EBE7574B7 /* yajikitaViewTop.swift in Sources */,
 				41BE4DD3F5984CC086AD0E28 /* streetFighter6ViewTop.swift in Sources */,
 				5CA53C3712FC44AB8522EFE1 /* dropkickViewTop.swift in Sources */,

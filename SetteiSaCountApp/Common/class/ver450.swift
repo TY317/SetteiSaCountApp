@@ -15,7 +15,7 @@ struct tipVer450UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・やじきた道中記")
+        Text("・やじきた道中記\n・とんでもスキルで異世界放浪メシ")
     }
     var image: Image? {
         Image(systemName: "star")
