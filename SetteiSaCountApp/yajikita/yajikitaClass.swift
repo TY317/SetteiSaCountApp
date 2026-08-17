@@ -21,8 +21,13 @@ class Yajikita: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitAt: [Double] = [473.9,457.5,431.6,388.1,352.1,318.3]
+    @AppStorage("yajikitaNormalGame") var normalGame: Int = 0
+    @AppStorage("yajikitaFirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

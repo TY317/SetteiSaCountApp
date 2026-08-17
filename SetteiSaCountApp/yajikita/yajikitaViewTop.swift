@@ -70,7 +70,7 @@ struct yajikitaViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: yajikitaView95Ci(
                     yajikita: yajikita,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

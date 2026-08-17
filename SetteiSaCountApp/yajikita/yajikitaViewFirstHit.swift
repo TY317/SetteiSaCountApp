@@ -28,7 +28,54 @@ struct yajikitaViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $yajikita.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $yajikita.firstHitCountAt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $yajikita.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $yajikita.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: yajikita.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    yajikitaView95Ci(
+                        yajikita: yajikita,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                yajikitaViewBayes(
+                    yajikita: yajikita,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.yajikitaMenuFirstHitBadge)
@@ -64,6 +111,17 @@ struct yajikitaViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: yajikita.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }
