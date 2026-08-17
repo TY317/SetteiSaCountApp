@@ -79,15 +79,15 @@ struct yajikitaViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: yajikitaViewBayes(
-//                    yajikita: yajikita,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.yajikitaMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: yajikitaViewBayes(
+                    yajikita: yajikita,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.yajikitaMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5027")
