@@ -70,7 +70,7 @@ struct tonskillViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: tonskillView95Ci(
                     tonskill: tonskill,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

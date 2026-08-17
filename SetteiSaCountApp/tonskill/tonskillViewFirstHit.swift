@@ -28,7 +28,67 @@ struct tonskillViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $tonskill.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // CZ
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $tonskill.firstHitCountCz,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $tonskill.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $tonskill.minusCheck
+                )
+                // ボーナス
+                unitCountButtonVerticalDenominate(
+                    title: "ボーナス",
+                    count: $tonskill.firstHitCountBonus,
+                    color: .personalSummerLightRed,
+                    bigNumber: $tonskill.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $tonskill.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ",
+                        denominateList: tonskill.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "ボーナス",
+                        denominateList: tonskill.ratioFirstHitBonus
+                    )
+                }
+            }
+
+            // //// 95%%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    tonskillView95Ci(
+                        tonskill: tonskill,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                tonskillViewBayes(
+                    tonskill: tonskill,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.tonskillMenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct tonskillViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: tonskill.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

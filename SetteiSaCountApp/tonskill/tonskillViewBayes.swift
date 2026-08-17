@@ -13,6 +13,8 @@ struct tonskillViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.9, 99.1, 101, 105.3, 109.1, 112.1]
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitBonusEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,6 +46,10 @@ struct tonskillViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // ボーナス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
 
                 // トロフィー
                 DisclosureGroup("アリストロフィー") {
@@ -116,6 +122,26 @@ struct tonskillViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: tonskill.ratioFirstHitCz,
+                Count: tonskill.firstHitCountCz,
+                bigNumber: tonskill.normalGame
+            )
+        }
+
+        // ボーナス初当り確率
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitBonusEnable {
+            logPostFirstHitBonus = logPostDenoBino(
+                ratio: tonskill.ratioFirstHitBonus,
+                Count: tonskill.firstHitCountBonus,
+                bigNumber: tonskill.normalGame
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -153,6 +179,8 @@ struct tonskillViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
+            logPostFirstHitBonus,
             logPostTrophy,
             logPostBefore,
         ])

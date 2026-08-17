@@ -44,8 +44,16 @@ class Tonskill: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [216.7,215.6,212.7,203.7,195.3,189.5]
+    let ratioFirstHitBonus: [Double] = [349.3,339.2,322.4,286.5,263.7,247.3]
+    @AppStorage("tonskillNormalGame") var normalGame: Int = 0
+    @AppStorage("tonskillFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("tonskillFirstHitCountBonus") var firstHitCountBonus: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountBonus = 0
         minusCheck = false
     }
 
