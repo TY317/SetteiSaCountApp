@@ -53,6 +53,17 @@ struct yajikitaViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: yajikitaViewScreen(
+                        yajikita: yajikita,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.yajikitaMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewUniversalPlate()) {
                         unitLabelMenu(

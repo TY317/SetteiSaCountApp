@@ -34,6 +34,31 @@ class Yajikita: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("yajikitaScreenCount1") var screenCount1: Int = 0
+    @AppStorage("yajikitaScreenCount2") var screenCount2: Int = 0
+    @AppStorage("yajikitaScreenCount3") var screenCount3: Int = 0
+    @AppStorage("yajikitaScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -44,6 +69,7 @@ class Yajikita: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 

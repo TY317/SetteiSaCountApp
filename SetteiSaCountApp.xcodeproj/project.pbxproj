@@ -1747,6 +1747,7 @@
 		DCB0B1BB6B4B405085DC7894 /* unitTablePointIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9FA5DE221443AAF9F8E24 /* unitTablePointIndex.swift */; };
 		E0906EFDB5EA423EACA0A3F7 /* izaBanchoViewZeccho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A875711F44A7896D3435E /* izaBanchoViewZeccho.swift */; };
 		E10924E516C344009A175DD0 /* yajikitaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */; };
+		640B30EED3674446BC1F0172 /* yajikitaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392813DD26334FD595586F47 /* yajikitaViewScreen.swift */; };
 		E48077905878475F8F6D2191 /* yajikitaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BB01461DF84AC082903ED8 /* yajikitaView95Ci.swift */; };
 		EB9BFDB6200E4F9EBE7574B7 /* yajikitaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD5825A92045D0A1D30B56 /* yajikitaViewTop.swift */; };
 		EBFDFA0E4CD8431DAF1B6FC1 /* kerottoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A6C51CB134D30B3DDDEA2 /* kerottoViewFirstHit.swift */; };
@@ -3298,6 +3299,7 @@
 		9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewNormal.swift; sourceTree = "<group>"; };
 		97C7E241D73C4ECE8F973A53 /* index2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewFirstHit.swift; sourceTree = "<group>"; };
 		982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewNormal.swift; sourceTree = "<group>"; };
+		392813DD26334FD595586F47 /* yajikitaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewScreen.swift; sourceTree = "<group>"; };
 		9AE82618305844A5BBF533CE /* kerottoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewTop.swift; sourceTree = "<group>"; };
 		9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6View95Ci.swift; sourceTree = "<group>"; };
 		A2DF87BC7F6F47C8B75F039F /* dropkickView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickView95Ci.swift; sourceTree = "<group>"; };
@@ -5988,6 +5990,7 @@
 				7EFD5825A92045D0A1D30B56 /* yajikitaViewTop.swift */,
 				DFB74A0916A44C038CD06BF0 /* yajikitaClass.swift */,
 				982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */,
+				392813DD26334FD595586F47 /* yajikitaViewScreen.swift */,
 				3FFA8D8CEC354470888944DF /* yajikitaViewBayes.swift */,
 				D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */,
 				BECCCF124E364C89840884AD /* yajikitaViewFirstHit.swift */,
@@ -7327,6 +7330,7 @@
 				0F6B59DB2E06A17F00DB1A2B /* toloveruTableFirstHit.swift in Sources */,
 				0FD586AF2FEFC18E005689C6 /* karakuri2ViewNormal.swift in Sources */,
 				E10924E516C344009A175DD0 /* yajikitaViewNormal.swift in Sources */,
+				640B30EED3674446BC1F0172 /* yajikitaViewScreen.swift in Sources */,
 				85D3D192D14942C6BDC09308 /* yajikitaViewBayes.swift in Sources */,
 				7753D68957D84C03858B8B3A /* streetFighter6ViewNormal.swift in Sources */,
 				A1BEAA89BEA941F2930B738C /* streetFighter6ViewEnding.swift in Sources */,
