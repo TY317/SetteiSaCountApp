@@ -159,6 +159,15 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
 - **ContentViewVer2.swift**：`getLinkView(for:)` の `switch id {` 直後に
   `case "<id>": return AnyView(<prefix>ViewTop())`
 
+## 5.5 更新Tipへの機種名追記＋TipView切替（新機種追加とセットで毎回行う）
+ホーム画面に出る「機種追加！」の告知 Tip を、開発中バージョンのものに揃える。**add-machine のたびに実施**（2機種目以降は message への追記のみ）。
+
+- **`SetteiSaCountApp/Common/class/verNNNN.swift`**（開発中バージョン。MARKETING_VERSION と一致するもの）の `tipVerNNNNUpdateInfo` の `message` に `・<機種名>` を追記する。
+  - 既に他機種の行があれば `\n` 区切りで**末尾に追加**（例 ver440：`Text("・ストリートファイター6\n・邪神ちゃんドロップキック")`）。
+  - 機種名は `fullName` が基本。長すぎて折り返す場合は短縮可（例 `やじきた道中記参る！` → `やじきた道中記`）。**短縮するかはユーザーに確認**する。
+  - `title` は雛形の「機種追加！」のままでよい（機能追加のみの版では `//` を付け替えて「機能追加！」を使う）。
+- **`SetteiSaCountApp/ContentViewVer2.swift`**：`TipView(tipVerXXXXUpdateInfo())` の引数を**開発中バージョンの `tipVerNNNNUpdateInfo()`** に差し替える（前バージョンのままになっているのが通常）。既に差し替え済みなら何もしない（冪等）。
+
 ## 6. 検証・報告
 - `xcodebuild -scheme SetteiSaCountApp -destination 'generic/platform=iOS Simulator' -configuration Debug build` で `** BUILD SUCCEEDED **`。失敗時は pbxproj をバックアップから復元して原因報告。
   - **フルビルドを行うのは全スキル中この add-machine だけ**（pbxproj手術が最重量＝13エントリ・5セクション）。他スキルは高速チェックか検証なし（方針：`skill-build-verify-policy`）。1回およそ10分かかるので、他スキルに流用しない。
@@ -170,3 +179,4 @@ karakuri2(からくりサーカス2, id 5019, コミット `0a8c2eb`) と同型�
 - pbxproj はファイル追加＝GUID生成を伴うため必ずバックアップ＋ビルド検証。失敗時は復元。
 - 雛形のコメントアウト部・空のList/メモ関数は意図的（後の機能実装で埋める）。削らない。
 - カウント処理・テーブル・Bayes・95Ciチャートの中身は本スキルでは作らない（雛形のみ）。実装は機種ごとに別途。
+- **手順5.5（更新Tipの機種名追記＋TipView切替）を忘れない**。これを飛ばすとホームに前バージョンの告知が出たまま、新機種がユーザーに気づかれない。
