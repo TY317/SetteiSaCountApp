@@ -320,6 +320,8 @@
 		0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */; };
 		0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
 		0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
+		352BF2F6BE5D4C659D7CF478 /* yajikitaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */; };
+		FCA2BC42D8534E9D8DBA7858 /* yajikitaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */; };
 		0F461F852F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F862F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F8B2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F8A2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift */; };
@@ -3290,6 +3292,7 @@
 		97C7E241D73C4ECE8F973A53 /* index2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewFirstHit.swift; sourceTree = "<group>"; };
 		982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewNormal.swift; sourceTree = "<group>"; };
 		3FFA8D8CEC354470888944DF /* yajikitaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewBayes.swift; sourceTree = "<group>"; };
+		D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		9AE82618305844A5BBF533CE /* kerottoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewTop.swift; sourceTree = "<group>"; };
 		9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6View95Ci.swift; sourceTree = "<group>"; };
 		A2DF87BC7F6F47C8B75F039F /* dropkickView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickView95Ci.swift; sourceTree = "<group>"; };
@@ -5980,6 +5983,7 @@
 				DFB74A0916A44C038CD06BF0 /* yajikitaClass.swift */,
 				982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */,
 				3FFA8D8CEC354470888944DF /* yajikitaViewBayes.swift */,
+				D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */,
 				BECCCF124E364C89840884AD /* yajikitaViewFirstHit.swift */,
 				A7BB01461DF84AC082903ED8 /* yajikitaView95Ci.swift */,
 				2F1CF3253B774565BE5966B1 /* yajikitaAssets.xcassets */,
@@ -6895,6 +6899,7 @@
 				0FD357262DA0F0630069BD1A /* shamanKingViewCzFuriwake.swift in Sources */,
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				352BF2F6BE5D4C659D7CF478 /* yajikitaTableKoyakuPattern.swift in Sources */,
 				60A29E97A2E44A8D8410D49D /* streetFighter6TableKoyakuPattern.swift in Sources */,
 				5D0D42C09B694883A4BE36B8 /* dropkickTableKoyakuPattern.swift in Sources */,
 				9E9BC39C9D324381873DD69D /* index2TableKoyakuPattern.swift in Sources */,
@@ -7931,6 +7936,7 @@
 				0F3759EC2F7C0A3600982F7A /* shinYoshiTableMode.swift in Sources */,
 				0F00FBF02FB04C210076283F /* rioAceTableVBellSystem.swift in Sources */,
 				0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				FCA2BC42D8534E9D8DBA7858 /* yajikitaTableKoyakuPattern.swift in Sources */,
 				DAD45DD83F6B4457854B7280 /* streetFighter6TableKoyakuPattern.swift in Sources */,
 				ECB35EA2A4874C7E84549082 /* dropkickTableKoyakuPattern.swift in Sources */,
 				2EBE1CCF5D63496A86040F4F /* index2TableKoyakuPattern.swift in Sources */,
