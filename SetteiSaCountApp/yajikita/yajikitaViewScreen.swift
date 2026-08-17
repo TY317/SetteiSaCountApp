@@ -54,6 +54,9 @@ struct yajikitaViewScreen: View {
             // 画面カウント
             Section {
                 VStack {
+                    Text("これ以外も画面種類あり。詳細調査中")
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
                     // カウントボタン
                     ScrollView(.horizontal) {
                         HStack(spacing: 20) {

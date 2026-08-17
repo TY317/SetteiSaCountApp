@@ -64,6 +64,17 @@ struct yajikitaViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: yajikitaViewEnding(
+                        yajikita: yajikita,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.yajikitaMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewUniversalPlate()) {
                         unitLabelMenu(

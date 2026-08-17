@@ -59,6 +59,28 @@ class Yajikita: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // 手形
+    // --------
+    @AppStorage("yajikitaEndingCount1") var endingCount1: Int = 0
+    @AppStorage("yajikitaEndingCount2") var endingCount2: Int = 0
+    @AppStorage("yajikitaEndingCountSum") var endingCountSum: Int = 0
+
+    func endingSumFunc() {
+        endingCountSum = countSum(
+            endingCount1,
+            endingCount2,
+        )
+    }
+
+    func resetEnding() {
+        endingCount1 = 0
+        endingCount2 = 0
+        endingCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -70,6 +92,7 @@ class Yajikita: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetEnding()
     }
 }
 

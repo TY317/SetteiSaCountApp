@@ -393,6 +393,7 @@ class commonVar: ObservableObject {
     @AppStorage("yajikitaMenuFirstHitBadge") var yajikitaMenuFirstHitBadge: String = "none"
     @AppStorage("yajikitaMenuBayesBadge") var yajikitaMenuBayesBadge: String = "none"
     @AppStorage("yajikitaMenuScreenBadge") var yajikitaMenuScreenBadge: String = "none"
+    @AppStorage("yajikitaMenuEndingBadge") var yajikitaMenuEndingBadge: String = "none"
 
     // ---- ストリートファイター6
     @AppStorage("streetFighter6MenuNormalBadge") var streetFighter6MenuNormalBadge: String = "none"
