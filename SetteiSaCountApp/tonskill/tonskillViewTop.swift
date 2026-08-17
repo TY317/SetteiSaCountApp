@@ -53,6 +53,17 @@ struct tonskillViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: tonskillViewEnding(
+                        tonskill: tonskill,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.tonskillMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewArisuTrophy()) {
                         unitLabelMenu(

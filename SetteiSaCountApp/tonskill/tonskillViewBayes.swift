@@ -15,6 +15,7 @@ struct tonskillViewBayes: View {
     let payoutList: [Double] = [97.9, 99.1, 101, 105.3, 109.1, 112.1]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var endingEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,13 @@ struct tonskillViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+                // エンディング枠
+                unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング枠") {
+                    unitExView5body2image(
+                        title: "エンディング枠",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("アリストロフィー") {
@@ -142,6 +150,23 @@ struct tonskillViewBayes: View {
             )
         }
 
+        // エンディング枠
+        // 確定系（金枠・虹枠）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingEnable {
+            logPostEnding = logPostPercentMulti(
+                countList: [
+                    tonskill.endingCount5,
+                    tonskill.endingCount6,
+                ],
+                ratioList: [
+                    tonskill.ratioEndingOver4,
+                    tonskill.ratioEndingOver6,
+                ],
+                bigNumber: tonskill.endingCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -181,6 +206,7 @@ struct tonskillViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitBonus,
+            logPostEnding,
             logPostTrophy,
             logPostBefore,
         ])

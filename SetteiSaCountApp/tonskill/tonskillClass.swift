@@ -57,6 +57,42 @@ class Tonskill: ObservableObject {
         minusCheck = false
     }
 
+
+    // --------
+    // エンディング枠
+    // --------
+    let ratioEndingOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioEndingOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("tonskillEndingCount1") var endingCount1: Int = 0
+    @AppStorage("tonskillEndingCount2") var endingCount2: Int = 0
+    @AppStorage("tonskillEndingCount3") var endingCount3: Int = 0
+    @AppStorage("tonskillEndingCount4") var endingCount4: Int = 0
+    @AppStorage("tonskillEndingCount5") var endingCount5: Int = 0
+    @AppStorage("tonskillEndingCount6") var endingCount6: Int = 0
+    @AppStorage("tonskillEndingCountSum") var endingCountSum: Int = 0
+
+    func endingSumFunc() {
+        endingCountSum = countSum(
+            endingCount1,
+            endingCount2,
+            endingCount3,
+            endingCount4,
+            endingCount5,
+            endingCount6,
+        )
+    }
+
+    func resetEnding() {
+        endingCount1 = 0
+        endingCount2 = 0
+        endingCount3 = 0
+        endingCount4 = 0
+        endingCount5 = 0
+        endingCount6 = 0
+        endingCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -67,6 +103,7 @@ class Tonskill: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetEnding()
     }
 }
 
