@@ -121,6 +121,11 @@ struct gareiViewFirstHit: View {
 //                    )
 //                }
             }
+            
+            // 参考情報）設定差の大きいボーナス
+            unitLinkButtonViewBuilder(sheetTitle: "設定差の大きいボーナス") {
+                gareiTableFirstHitSpecial()
+            }
 
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
