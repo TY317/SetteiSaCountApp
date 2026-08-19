@@ -211,6 +211,24 @@ struct gareiView95Ci: View {
                 )
             )
             .tag(11)
+
+            // 乱撃突入率
+            unitListSection95Ci(
+                grafTitle: "乱撃突入率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $garei.czRangekiCountHit,
+                        bigNumber: $garei.czRangekiCountSum,
+                        setting1Percent: garei.ratioCzRangeki[0],
+                        setting2Percent: garei.ratioCzRangeki[1],
+                        setting3Percent: garei.ratioCzRangeki[2],
+                        setting4Percent: garei.ratioCzRangeki[3],
+                        setting5Percent: garei.ratioCzRangeki[4],
+                        setting6Percent: garei.ratioCzRangeki[5]
+                    )
+                )
+            )
+            .tag(12)
         }
         // //// firebaseログ
         .onAppear {

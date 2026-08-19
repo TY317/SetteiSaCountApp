@@ -47,6 +47,25 @@ class Garei: ObservableObject {
         gameNumberPlay = 0
         minusCheck = false
     }
+    
+    // -------
+    // CZ
+    // -------
+    let ratioCzRangeki: [Double] = [1.6,-1,-1,-1,-1,-1]
+    @AppStorage("gareiCzRangekiCountMiss") var czRangekiCountMiss: Int = 0
+    @AppStorage("gareiCzRangekiCountHit") var czRangekiCountHit: Int = 0
+    @AppStorage("gareiCzRangekiCountSum") var czRangekiCountSum: Int = 0
+    
+    func rangekiSumFunc() {
+        czRangekiCountSum = czRangekiCountHit + czRangekiCountMiss
+    }
+    
+    func resetCz() {
+        czRangekiCountMiss = 0
+        czRangekiCountHit = 0
+        czRangekiCountSum = 0
+        minusCheck = false
+    }
 
     // --------
     // 初当り
@@ -141,6 +160,7 @@ class Garei: ObservableObject {
         resetFirstHit()
         resetBonusScreen()
         resetArtScreen()
+        resetCz()
     }
 }
 

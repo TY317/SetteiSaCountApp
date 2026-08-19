@@ -29,11 +29,66 @@ struct gareiViewCz: View {
 
     var body: some View {
         List {
-            // ---- キャラ紹介
+            // ---- 乱撃突入率
             Section {
-                Text("キャラ紹介の示唆有無　調査中")
+                // 突入率
+                unitResultRatioPercent2Line(
+                    title: "突入率",
+                    count: $garei.czRangekiCountHit,
+                    bigNumber: $garei.czRangekiCountSum,
+                    numberofDicimal: 1
+                )
+                
+                // 参考情報）乱撃突入率
+                unitLinkButtonViewBuilder(sheetTitle: "乱撃突入率") {
+                    Text("・超自然災害モード突入時の乱撃突入率に設定差あり")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "乱撃突入率",
+                            percentList: garei.ratioCzRangeki,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 突入なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入なし",
+                            count: $garei.czRangekiCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $garei.minusCheck) {
+                                garei.rangekiSumFunc()
+                            }
+                        // 突入
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入あり",
+                            count: $garei.czRangekiCountHit,
+                            color: .personalSummerLightPurple,
+                            minusBool: $garei.minusCheck) {
+                                garei.rangekiSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            gareiView95Ci(
+                                garei: garei,
+                                selection: 12,
+                            )
+                        )
+                    )
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
             } header: {
-                Text("キャラ紹介")
+                Text("乱撃突入率")
             }
 
         }
