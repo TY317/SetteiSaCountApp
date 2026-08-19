@@ -53,6 +53,17 @@ struct gareiViewTop: View {
                         )
                     }
 
+                    // RB
+                    NavigationLink(destination: gareiViewDuringRb(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "RB",
+                            badgeStatus: common.gareiMenuDuringRbBadge,
+                        )
+                    }
+
                     // ボーナス終了画面
                     NavigationLink(destination: gareiViewBonusScreen(
                         garei: garei,

@@ -397,6 +397,7 @@ class commonVar: ObservableObject {
     @AppStorage("gareiMenuScreenBadge") var gareiMenuScreenBadge: String = "none"
     @AppStorage("gareiMenuArtScreenBadge") var gareiMenuArtScreenBadge: String = "none"
     @AppStorage("gareiMenuCzBadge") var gareiMenuCzBadge: String = "none"
+    @AppStorage("gareiMenuDuringRbBadge") var gareiMenuDuringRbBadge: String = "none"
 
     // ---- とんでもスキルで異世界放浪メシ
     @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
