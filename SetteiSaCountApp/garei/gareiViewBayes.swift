@@ -26,6 +26,7 @@ struct gareiViewBayes: View {
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     @State var koyakuEnable: Bool = true
     @State var chofukuEnable: Bool = true
+    @State var firstHitEnable: Bool = true
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
     var body: some View {
@@ -57,6 +58,15 @@ struct gareiViewBayes: View {
                         title: "CZ重複当選率",
                         textBody1: "・通常時の弱🍒と強🍒からのCZ重複当選率を計算要素に加えます",
                         textBody2: "・通常時ページの「CZ重複当選」でカウントした回数と、各小役のカウント数から算出します",
+                    )
+                }
+
+                // ボーナス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "ボーナス初当り確率") {
+                    unitExView5body2image(
+                        title: "ボーナス初当り確率",
+                        textBody1: "・BIGとREGの初当り確率を計算要素に加えます",
+//                        textBody2: "・CZとARTは設定1以外の確率が非公開のため計算には使えません",
                     )
                 }
 
@@ -184,6 +194,26 @@ struct gareiViewBayes: View {
             ])
         }
 
+        // ボーナス初当り確率
+        // 全設定の確率が判明しているBIGとREGのみ。役ごとの二項尤度を足す
+        var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            let logPostFirstHitBig = logPostDenoBino(
+                ratio: garei.ratioFirstHitBig,
+                Count: garei.firstHitCountBig,
+                bigNumber: garei.normalGame
+            )
+            let logPostFirstHitReg = logPostDenoBino(
+                ratio: garei.ratioFirstHitReg,
+                Count: garei.firstHitCountReg,
+                bigNumber: garei.normalGame
+            )
+            logPostFirstHit = arraySumDouble([
+                logPostFirstHitBig,
+                logPostFirstHitReg,
+            ])
+        }
+
         // ボーナス終了画面
         // 確定系（設定2 以上濃厚／設定4 以上濃厚／設定6 濃厚）のみ渡し、
         // デフォルトは残余バケットに吸収させる
@@ -236,6 +266,7 @@ struct gareiViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostKoyaku,
             logPostChofuku,
+            logPostFirstHit,
             logPostBonusScreen,
             logPostArtScreen,
             logPostTrophy,

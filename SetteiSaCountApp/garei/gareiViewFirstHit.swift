@@ -23,9 +23,9 @@ struct gareiViewFirstHit: View {
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
-    let lazyVGridCountPortrait: Int = 3
-    let lazyVGridCountLandscape: Int = 5
-    @State var lazyVGridCount: Int = 3
+    let lazyVGridCountPortrait: Int = 4
+    let lazyVGridCountLandscape: Int = 6
+    @State var lazyVGridCount: Int = 4
     var body: some View {
         List {
             // ゲーム数入力
@@ -37,16 +37,55 @@ struct gareiViewFirstHit: View {
             .focused(self.$isFocused)
 
             // カウントボタン横並び
-            HStack {
-                // ボーナス
+            let gridItem = Array(
+                repeating: GridItem(
+                    .flexible(minimum: 80, maximum: 150),
+                    spacing: 5,
+                    alignment: .center,
+                ),
+                count: self.lazyVGridCount
+            )
+            LazyVGrid(columns: gridItem) {
+                // CZ
                 unitCountButtonVerticalDenominate(
-                    title: "ボーナス",
-                    count: $garei.firstHitCountBonus,
+                    title: "CZ",
+                    count: $garei.firstHitCountCz,
+                    color: .personalSummerLightGreen,
+                    bigNumber: $garei.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $garei.minusCheck
+                )
+                .padding(.bottom)
+                // BIG
+                unitCountButtonVerticalDenominate(
+                    title: "BIG",
+                    count: $garei.firstHitCountBig,
                     color: .personalSummerLightRed,
                     bigNumber: $garei.normalGame,
                     numberofDicimal: 0,
                     minusBool: $garei.minusCheck
                 )
+                .padding(.bottom)
+                // REG
+                unitCountButtonVerticalDenominate(
+                    title: "REG",
+                    count: $garei.firstHitCountReg,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $garei.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $garei.minusCheck
+                )
+                .padding(.bottom)
+                // ART
+                unitCountButtonVerticalDenominate(
+                    title: "ART",
+                    count: $garei.firstHitCountArt,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $garei.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $garei.minusCheck
+                )
+                .padding(.bottom)
             }
 
             // 参考情報）初当り確率
@@ -54,10 +93,33 @@ struct gareiViewFirstHit: View {
                 HStack(spacing: 0) {
                     unitTableSettingIndex()
                     unitTableDenominate(
-                        columTitle: "ボーナス",
-                        denominateList: garei.ratioFirstHitBonus
+                        columTitle: "CZ",
+                        denominateList: garei.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "BIG",
+                        denominateList: garei.ratioFirstHitBig
+                    )
+                    unitTableDenominate(
+                        columTitle: "REG",
+                        denominateList: garei.ratioFirstHitReg
+                    )
+                    unitTableDenominate(
+                        columTitle: "ART",
+                        denominateList: garei.ratioFirstHitArt
                     )
                 }
+//                HStack(spacing: 0) {
+//                    unitTableSettingIndex()
+//                    unitTableDenominate(
+//                        columTitle: "REG",
+//                        denominateList: garei.ratioFirstHitReg
+//                    )
+//                    unitTableDenominate(
+//                        columTitle: "ART",
+//                        denominateList: garei.ratioFirstHitArt
+//                    )
+//                }
             }
 
             // //// 95%信頼区間グラフへのリンク
