@@ -27,6 +27,7 @@ struct gareiViewBayes: View {
     @State var koyakuEnable: Bool = false
     @State var chofukuEnable: Bool = false
     @State var bonusScreenEnable: Bool = true
+    @State var artScreenEnable: Bool = true
     var body: some View {
         List {
             // //// STEP1
@@ -63,6 +64,14 @@ struct gareiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$bonusScreenEnable, title: "ボーナス終了画面") {
                     unitExView5body2image(
                         title: "ボーナス終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // ART終了画面
+                unitToggleWithQuestion(enable: self.$artScreenEnable, title: "ART終了画面") {
+                    unitExView5body2image(
+                        title: "ART終了画面",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -195,6 +204,24 @@ struct gareiViewBayes: View {
             )
         }
 
+        // ART終了画面
+        // 確定系（設定2 以上濃厚／設定4 以上濃厚）のみ渡し、
+        // デフォルトとエンディング専用は残余バケットに吸収させる
+        var logPostArtScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.artScreenEnable {
+            logPostArtScreen = logPostPercentMulti(
+                countList: [
+                    garei.artScreenCount2,
+                    garei.artScreenCount3,
+                ],
+                ratioList: [
+                    garei.ratioArtScreenOver2,
+                    garei.ratioArtScreenOver4,
+                ],
+                bigNumber: garei.artScreenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -210,6 +237,7 @@ struct gareiViewBayes: View {
             logPostKoyaku,
             logPostChofuku,
             logPostBonusScreen,
+            logPostArtScreen,
             logPostTrophy,
             logPostBefore,
         ])

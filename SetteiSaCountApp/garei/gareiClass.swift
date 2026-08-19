@@ -91,6 +91,35 @@ class Garei: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // ART終了画面
+    // --------
+    let ratioArtScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioArtScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    @AppStorage("gareiArtScreenCount1") var artScreenCount1: Int = 0
+    @AppStorage("gareiArtScreenCount2") var artScreenCount2: Int = 0
+    @AppStorage("gareiArtScreenCount3") var artScreenCount3: Int = 0
+    @AppStorage("gareiArtScreenCount4") var artScreenCount4: Int = 0
+    @AppStorage("gareiArtScreenCountSum") var artScreenCountSum: Int = 0
+
+    func artScreenSumFunc() {
+        artScreenCountSum = countSum(
+            artScreenCount1,
+            artScreenCount2,
+            artScreenCount3,
+            artScreenCount4,
+        )
+    }
+
+    func resetArtScreen() {
+        artScreenCount1 = 0
+        artScreenCount2 = 0
+        artScreenCount3 = 0
+        artScreenCount4 = 0
+        artScreenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -102,6 +131,7 @@ class Garei: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetBonusScreen()
+        resetArtScreen()
     }
 }
 
