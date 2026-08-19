@@ -72,7 +72,7 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
                 Ci95view: AnyView(
                     <prefix>View95Ci(
                         <prefix>: <prefix>,
-                        selection: 2,
+                        selection: <FIRST_TAG>,
                     )
                 )
             )
@@ -103,7 +103,15 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
 ```
 
 ## 4. View95Ci 編集（`<prefix>View95Ci.swift`）
-`TabView(selection: self.$selection) {` 内のコメントアウトされた placeholder セクション群（`// 回数`/`CZ初当り回数`/`AT初当り回数` 等）を**丸ごと削除**し、種類ごとに以下を生成。**tag は 2 から連番**（先頭種類=2）。各セクション間は空行1つ：
+`TabView(selection: self.$selection) {` 内のコメントアウトされた placeholder セクション群（`// 回数`/`CZ初当り回数`/`AT初当り回数` 等）を**丸ごと削除**し、種類ごとに以下を生成。各セクション間は空行1つ：
+
+### tag の採番（`<FIRST_TAG>` の決め方）
+**既に有効化されている（コメントアウトされていない）`.tag(n)` の最大値 ＋1 から連番**にする。`grep -n "\.tag(" <prefix>View95Ci.swift` で確認し、`//` が付いた行は数えない。
+
+- 雛形のまま（有効な tag が無い）＝ **2 から連番**。placeholder の tag 1 は通常時の percent グラフ用に空けておく慣習。
+- **通常時の小役グラフ等を先に作っている機種は 2 始まりにならない。** 例：garei は小役5本＋重複2本で tag 1〜7 が埋まっていたため、初当りは **8 から**。既存 tag を上書きすると TabView のページが衝突するので必ず確認する。
+
+`<FIRST_TAG>` ＝ 先頭種類の tag。手順3（ViewFirstHit）と手順5（ViewTop）の `selection:` はこの値に合わせる。
 ```swift
             // <label>初当り回数
             unitListSection95Ci(
@@ -125,7 +133,9 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
 ```
 
 ## 5. ViewTop 編集（`<prefix>ViewTop.swift`）
-「設定推測グラフ」の `NavigationLink(destination: <prefix>View95Ci(... selection: X))` の `selection:` を **2**（先頭種類のタグ）に更新。
+「設定推測グラフ」の `NavigationLink(destination: <prefix>View95Ci(... selection: X))` の `selection:` を `<FIRST_TAG>` に更新。
+
+**ただし既存の有効な tag があった機種（＝`<FIRST_TAG>` が 2 でない場合）は、ViewTop を書き換えるかユーザーに確認する。** 先に作った通常時グラフを設定推測グラフの入口にしている可能性があるため、勝手に初当りへ飛ばさない。
 
 ## 6. 検証・報告
 - **ビルド検証は行わない**（既存Swiftの編集のみ。フルビルドは add-machine のみ／`xcodebuild` はおよそ10分。方針：`skill-build-verify-policy`）。コンパイル確認はユーザーのコミット前ビルドに委ねる。報告時に「ビルド検証は省略」と一言添える。
@@ -137,6 +147,6 @@ description: 機種の「初当り」ページを雛形の空Listから実デー
 
 ## 注意
 - `normalGame` と `resetFirstHit()` 内 `normalGame = 0` は**1回だけ**（種類ぶん重複させない）。
-- View95Ci の tag は 2 始まり（tag 1 相当の通常時 percent グラフは本スキルでは生成しない）。ViewTop・ViewFirstHit の `selection:` は先頭タグ 2 に合わせる。
+- **View95Ci の tag は「既存の有効な tag の最大値＋1」から連番**（雛形のままなら 2 始まり）。着手前に `grep "\.tag("` で必ず確認する。ViewFirstHit の `selection:` は先頭タグに合わせる（ViewTop は手順5の注意を参照）。
 - 生成コードは sencole6（単一種）/ tekken6（多種）の実装と同型。カウント処理・小役確率・レア役停止系（add-koyaku-pattern）・Bayes 本体（add-bayes）はスコープ外。
 - ゲーム数入力のキーボードを閉じる `.keyboard` ToolbarItem（「完了」ボタン）を `.toolbar` に必ず追加（step 3b）。
