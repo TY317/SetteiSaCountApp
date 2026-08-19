@@ -24,8 +24,8 @@ struct gareiViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var selectedBeforeGuessPattern: String = "デフォルト"
-    @State var koyakuEnable: Bool = false
-    @State var chofukuEnable: Bool = false
+    @State var koyakuEnable: Bool = true
+    @State var chofukuEnable: Bool = true
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
     var body: some View {
