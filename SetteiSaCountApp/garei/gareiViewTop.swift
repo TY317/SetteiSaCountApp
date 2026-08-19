@@ -31,6 +31,17 @@ struct gareiViewTop: View {
                         )
                     }
 
+                    // CZ
+                    NavigationLink(destination: gareiViewCz(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.gareiMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: gareiViewFirstHit(
                         garei: garei,
