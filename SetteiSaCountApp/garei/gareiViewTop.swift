@@ -195,13 +195,94 @@ struct gareiSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        gareiMemory1.koyakuCountSuika = garei.koyakuCountSuika
+        gareiMemory1.koyakuCountJakuCherry = garei.koyakuCountJakuCherry
+        gareiMemory1.koyakuCountKyoCherry = garei.koyakuCountKyoCherry
+        gareiMemory1.koyakuCountJakuChance = garei.koyakuCountJakuChance
+        gareiMemory1.koyakuCountKyoChance = garei.koyakuCountKyoChance
+        gareiMemory1.chofukuCountJakuCherry = garei.chofukuCountJakuCherry
+        gareiMemory1.chofukuCountKyoCherry = garei.chofukuCountKyoCherry
+        gareiMemory1.gameNumberStart = garei.gameNumberStart
+        gareiMemory1.gameNumberCurrent = garei.gameNumberCurrent
+        gareiMemory1.gameNumberPlay = garei.gameNumberPlay
+        gareiMemory1.czRangekiCountMiss = garei.czRangekiCountMiss
+        gareiMemory1.czRangekiCountHit = garei.czRangekiCountHit
+        gareiMemory1.czRangekiCountSum = garei.czRangekiCountSum
+        gareiMemory1.normalGame = garei.normalGame
+        gareiMemory1.firstHitCountCz = garei.firstHitCountCz
+        gareiMemory1.firstHitCountBig = garei.firstHitCountBig
+        gareiMemory1.firstHitCountReg = garei.firstHitCountReg
+        gareiMemory1.firstHitCountArt = garei.firstHitCountArt
+        gareiMemory1.bonusScreenCount1 = garei.bonusScreenCount1
+        gareiMemory1.bonusScreenCount2 = garei.bonusScreenCount2
+        gareiMemory1.bonusScreenCount3 = garei.bonusScreenCount3
+        gareiMemory1.bonusScreenCount4 = garei.bonusScreenCount4
+        gareiMemory1.bonusScreenCountSum = garei.bonusScreenCountSum
+        gareiMemory1.artScreenCount1 = garei.artScreenCount1
+        gareiMemory1.artScreenCount2 = garei.artScreenCount2
+        gareiMemory1.artScreenCount3 = garei.artScreenCount3
+        gareiMemory1.artScreenCount4 = garei.artScreenCount4
+        gareiMemory1.artScreenCountSum = garei.artScreenCountSum
     }
     func saveMemory2() {
-
+        gareiMemory2.koyakuCountSuika = garei.koyakuCountSuika
+        gareiMemory2.koyakuCountJakuCherry = garei.koyakuCountJakuCherry
+        gareiMemory2.koyakuCountKyoCherry = garei.koyakuCountKyoCherry
+        gareiMemory2.koyakuCountJakuChance = garei.koyakuCountJakuChance
+        gareiMemory2.koyakuCountKyoChance = garei.koyakuCountKyoChance
+        gareiMemory2.chofukuCountJakuCherry = garei.chofukuCountJakuCherry
+        gareiMemory2.chofukuCountKyoCherry = garei.chofukuCountKyoCherry
+        gareiMemory2.gameNumberStart = garei.gameNumberStart
+        gareiMemory2.gameNumberCurrent = garei.gameNumberCurrent
+        gareiMemory2.gameNumberPlay = garei.gameNumberPlay
+        gareiMemory2.czRangekiCountMiss = garei.czRangekiCountMiss
+        gareiMemory2.czRangekiCountHit = garei.czRangekiCountHit
+        gareiMemory2.czRangekiCountSum = garei.czRangekiCountSum
+        gareiMemory2.normalGame = garei.normalGame
+        gareiMemory2.firstHitCountCz = garei.firstHitCountCz
+        gareiMemory2.firstHitCountBig = garei.firstHitCountBig
+        gareiMemory2.firstHitCountReg = garei.firstHitCountReg
+        gareiMemory2.firstHitCountArt = garei.firstHitCountArt
+        gareiMemory2.bonusScreenCount1 = garei.bonusScreenCount1
+        gareiMemory2.bonusScreenCount2 = garei.bonusScreenCount2
+        gareiMemory2.bonusScreenCount3 = garei.bonusScreenCount3
+        gareiMemory2.bonusScreenCount4 = garei.bonusScreenCount4
+        gareiMemory2.bonusScreenCountSum = garei.bonusScreenCountSum
+        gareiMemory2.artScreenCount1 = garei.artScreenCount1
+        gareiMemory2.artScreenCount2 = garei.artScreenCount2
+        gareiMemory2.artScreenCount3 = garei.artScreenCount3
+        gareiMemory2.artScreenCount4 = garei.artScreenCount4
+        gareiMemory2.artScreenCountSum = garei.artScreenCountSum
     }
     func saveMemory3() {
-
+        gareiMemory3.koyakuCountSuika = garei.koyakuCountSuika
+        gareiMemory3.koyakuCountJakuCherry = garei.koyakuCountJakuCherry
+        gareiMemory3.koyakuCountKyoCherry = garei.koyakuCountKyoCherry
+        gareiMemory3.koyakuCountJakuChance = garei.koyakuCountJakuChance
+        gareiMemory3.koyakuCountKyoChance = garei.koyakuCountKyoChance
+        gareiMemory3.chofukuCountJakuCherry = garei.chofukuCountJakuCherry
+        gareiMemory3.chofukuCountKyoCherry = garei.chofukuCountKyoCherry
+        gareiMemory3.gameNumberStart = garei.gameNumberStart
+        gareiMemory3.gameNumberCurrent = garei.gameNumberCurrent
+        gareiMemory3.gameNumberPlay = garei.gameNumberPlay
+        gareiMemory3.czRangekiCountMiss = garei.czRangekiCountMiss
+        gareiMemory3.czRangekiCountHit = garei.czRangekiCountHit
+        gareiMemory3.czRangekiCountSum = garei.czRangekiCountSum
+        gareiMemory3.normalGame = garei.normalGame
+        gareiMemory3.firstHitCountCz = garei.firstHitCountCz
+        gareiMemory3.firstHitCountBig = garei.firstHitCountBig
+        gareiMemory3.firstHitCountReg = garei.firstHitCountReg
+        gareiMemory3.firstHitCountArt = garei.firstHitCountArt
+        gareiMemory3.bonusScreenCount1 = garei.bonusScreenCount1
+        gareiMemory3.bonusScreenCount2 = garei.bonusScreenCount2
+        gareiMemory3.bonusScreenCount3 = garei.bonusScreenCount3
+        gareiMemory3.bonusScreenCount4 = garei.bonusScreenCount4
+        gareiMemory3.bonusScreenCountSum = garei.bonusScreenCountSum
+        gareiMemory3.artScreenCount1 = garei.artScreenCount1
+        gareiMemory3.artScreenCount2 = garei.artScreenCount2
+        gareiMemory3.artScreenCount3 = garei.artScreenCount3
+        gareiMemory3.artScreenCount4 = garei.artScreenCount4
+        gareiMemory3.artScreenCountSum = garei.artScreenCountSum
     }
 }
 
@@ -233,13 +314,94 @@ struct gareiSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        garei.koyakuCountSuika = gareiMemory1.koyakuCountSuika
+        garei.koyakuCountJakuCherry = gareiMemory1.koyakuCountJakuCherry
+        garei.koyakuCountKyoCherry = gareiMemory1.koyakuCountKyoCherry
+        garei.koyakuCountJakuChance = gareiMemory1.koyakuCountJakuChance
+        garei.koyakuCountKyoChance = gareiMemory1.koyakuCountKyoChance
+        garei.chofukuCountJakuCherry = gareiMemory1.chofukuCountJakuCherry
+        garei.chofukuCountKyoCherry = gareiMemory1.chofukuCountKyoCherry
+        garei.gameNumberStart = gareiMemory1.gameNumberStart
+        garei.gameNumberCurrent = gareiMemory1.gameNumberCurrent
+        garei.gameNumberPlay = gareiMemory1.gameNumberPlay
+        garei.czRangekiCountMiss = gareiMemory1.czRangekiCountMiss
+        garei.czRangekiCountHit = gareiMemory1.czRangekiCountHit
+        garei.czRangekiCountSum = gareiMemory1.czRangekiCountSum
+        garei.normalGame = gareiMemory1.normalGame
+        garei.firstHitCountCz = gareiMemory1.firstHitCountCz
+        garei.firstHitCountBig = gareiMemory1.firstHitCountBig
+        garei.firstHitCountReg = gareiMemory1.firstHitCountReg
+        garei.firstHitCountArt = gareiMemory1.firstHitCountArt
+        garei.bonusScreenCount1 = gareiMemory1.bonusScreenCount1
+        garei.bonusScreenCount2 = gareiMemory1.bonusScreenCount2
+        garei.bonusScreenCount3 = gareiMemory1.bonusScreenCount3
+        garei.bonusScreenCount4 = gareiMemory1.bonusScreenCount4
+        garei.bonusScreenCountSum = gareiMemory1.bonusScreenCountSum
+        garei.artScreenCount1 = gareiMemory1.artScreenCount1
+        garei.artScreenCount2 = gareiMemory1.artScreenCount2
+        garei.artScreenCount3 = gareiMemory1.artScreenCount3
+        garei.artScreenCount4 = gareiMemory1.artScreenCount4
+        garei.artScreenCountSum = gareiMemory1.artScreenCountSum
     }
     func loadMemory2() {
-
+        garei.koyakuCountSuika = gareiMemory2.koyakuCountSuika
+        garei.koyakuCountJakuCherry = gareiMemory2.koyakuCountJakuCherry
+        garei.koyakuCountKyoCherry = gareiMemory2.koyakuCountKyoCherry
+        garei.koyakuCountJakuChance = gareiMemory2.koyakuCountJakuChance
+        garei.koyakuCountKyoChance = gareiMemory2.koyakuCountKyoChance
+        garei.chofukuCountJakuCherry = gareiMemory2.chofukuCountJakuCherry
+        garei.chofukuCountKyoCherry = gareiMemory2.chofukuCountKyoCherry
+        garei.gameNumberStart = gareiMemory2.gameNumberStart
+        garei.gameNumberCurrent = gareiMemory2.gameNumberCurrent
+        garei.gameNumberPlay = gareiMemory2.gameNumberPlay
+        garei.czRangekiCountMiss = gareiMemory2.czRangekiCountMiss
+        garei.czRangekiCountHit = gareiMemory2.czRangekiCountHit
+        garei.czRangekiCountSum = gareiMemory2.czRangekiCountSum
+        garei.normalGame = gareiMemory2.normalGame
+        garei.firstHitCountCz = gareiMemory2.firstHitCountCz
+        garei.firstHitCountBig = gareiMemory2.firstHitCountBig
+        garei.firstHitCountReg = gareiMemory2.firstHitCountReg
+        garei.firstHitCountArt = gareiMemory2.firstHitCountArt
+        garei.bonusScreenCount1 = gareiMemory2.bonusScreenCount1
+        garei.bonusScreenCount2 = gareiMemory2.bonusScreenCount2
+        garei.bonusScreenCount3 = gareiMemory2.bonusScreenCount3
+        garei.bonusScreenCount4 = gareiMemory2.bonusScreenCount4
+        garei.bonusScreenCountSum = gareiMemory2.bonusScreenCountSum
+        garei.artScreenCount1 = gareiMemory2.artScreenCount1
+        garei.artScreenCount2 = gareiMemory2.artScreenCount2
+        garei.artScreenCount3 = gareiMemory2.artScreenCount3
+        garei.artScreenCount4 = gareiMemory2.artScreenCount4
+        garei.artScreenCountSum = gareiMemory2.artScreenCountSum
     }
     func loadMemory3() {
-
+        garei.koyakuCountSuika = gareiMemory3.koyakuCountSuika
+        garei.koyakuCountJakuCherry = gareiMemory3.koyakuCountJakuCherry
+        garei.koyakuCountKyoCherry = gareiMemory3.koyakuCountKyoCherry
+        garei.koyakuCountJakuChance = gareiMemory3.koyakuCountJakuChance
+        garei.koyakuCountKyoChance = gareiMemory3.koyakuCountKyoChance
+        garei.chofukuCountJakuCherry = gareiMemory3.chofukuCountJakuCherry
+        garei.chofukuCountKyoCherry = gareiMemory3.chofukuCountKyoCherry
+        garei.gameNumberStart = gareiMemory3.gameNumberStart
+        garei.gameNumberCurrent = gareiMemory3.gameNumberCurrent
+        garei.gameNumberPlay = gareiMemory3.gameNumberPlay
+        garei.czRangekiCountMiss = gareiMemory3.czRangekiCountMiss
+        garei.czRangekiCountHit = gareiMemory3.czRangekiCountHit
+        garei.czRangekiCountSum = gareiMemory3.czRangekiCountSum
+        garei.normalGame = gareiMemory3.normalGame
+        garei.firstHitCountCz = gareiMemory3.firstHitCountCz
+        garei.firstHitCountBig = gareiMemory3.firstHitCountBig
+        garei.firstHitCountReg = gareiMemory3.firstHitCountReg
+        garei.firstHitCountArt = gareiMemory3.firstHitCountArt
+        garei.bonusScreenCount1 = gareiMemory3.bonusScreenCount1
+        garei.bonusScreenCount2 = gareiMemory3.bonusScreenCount2
+        garei.bonusScreenCount3 = gareiMemory3.bonusScreenCount3
+        garei.bonusScreenCount4 = gareiMemory3.bonusScreenCount4
+        garei.bonusScreenCountSum = gareiMemory3.bonusScreenCountSum
+        garei.artScreenCount1 = gareiMemory3.artScreenCount1
+        garei.artScreenCount2 = gareiMemory3.artScreenCount2
+        garei.artScreenCount3 = gareiMemory3.artScreenCount3
+        garei.artScreenCount4 = gareiMemory3.artScreenCount4
+        garei.artScreenCountSum = gareiMemory3.artScreenCountSum
     }
 }
 

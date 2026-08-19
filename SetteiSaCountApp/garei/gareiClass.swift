@@ -166,18 +166,102 @@ class Garei: ObservableObject {
 
 
 class GareiMemory1: ObservableObject {
+    @AppStorage("gareiKoyakuCountSuikaMemory1") var koyakuCountSuika: Int = 0
+    @AppStorage("gareiKoyakuCountJakuCherryMemory1") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("gareiKoyakuCountKyoCherryMemory1") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("gareiKoyakuCountJakuChanceMemory1") var koyakuCountJakuChance: Int = 0
+    @AppStorage("gareiKoyakuCountKyoChanceMemory1") var koyakuCountKyoChance: Int = 0
+    @AppStorage("gareiChofukuCountJakuCherryMemory1") var chofukuCountJakuCherry: Int = 0
+    @AppStorage("gareiChofukuCountKyoCherryMemory1") var chofukuCountKyoCherry: Int = 0
+    @AppStorage("gareiGameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("gareiGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("gareiGameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("gareiCzRangekiCountMissMemory1") var czRangekiCountMiss: Int = 0
+    @AppStorage("gareiCzRangekiCountHitMemory1") var czRangekiCountHit: Int = 0
+    @AppStorage("gareiCzRangekiCountSumMemory1") var czRangekiCountSum: Int = 0
+    @AppStorage("gareiNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("gareiFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("gareiFirstHitCountBigMemory1") var firstHitCountBig: Int = 0
+    @AppStorage("gareiFirstHitCountRegMemory1") var firstHitCountReg: Int = 0
+    @AppStorage("gareiFirstHitCountArtMemory1") var firstHitCountArt: Int = 0
+    @AppStorage("gareiBonusScreenCount1Memory1") var bonusScreenCount1: Int = 0
+    @AppStorage("gareiBonusScreenCount2Memory1") var bonusScreenCount2: Int = 0
+    @AppStorage("gareiBonusScreenCount3Memory1") var bonusScreenCount3: Int = 0
+    @AppStorage("gareiBonusScreenCount4Memory1") var bonusScreenCount4: Int = 0
+    @AppStorage("gareiBonusScreenCountSumMemory1") var bonusScreenCountSum: Int = 0
+    @AppStorage("gareiArtScreenCount1Memory1") var artScreenCount1: Int = 0
+    @AppStorage("gareiArtScreenCount2Memory1") var artScreenCount2: Int = 0
+    @AppStorage("gareiArtScreenCount3Memory1") var artScreenCount3: Int = 0
+    @AppStorage("gareiArtScreenCount4Memory1") var artScreenCount4: Int = 0
+    @AppStorage("gareiArtScreenCountSumMemory1") var artScreenCountSum: Int = 0
     @AppStorage("gareiMemoMemory1") var memo = ""
     @AppStorage("gareiDateMemory1") var dateDouble = 0.0
 }
 
 
 class GareiMemory2: ObservableObject {
+    @AppStorage("gareiKoyakuCountSuikaMemory2") var koyakuCountSuika: Int = 0
+    @AppStorage("gareiKoyakuCountJakuCherryMemory2") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("gareiKoyakuCountKyoCherryMemory2") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("gareiKoyakuCountJakuChanceMemory2") var koyakuCountJakuChance: Int = 0
+    @AppStorage("gareiKoyakuCountKyoChanceMemory2") var koyakuCountKyoChance: Int = 0
+    @AppStorage("gareiChofukuCountJakuCherryMemory2") var chofukuCountJakuCherry: Int = 0
+    @AppStorage("gareiChofukuCountKyoCherryMemory2") var chofukuCountKyoCherry: Int = 0
+    @AppStorage("gareiGameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("gareiGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("gareiGameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("gareiCzRangekiCountMissMemory2") var czRangekiCountMiss: Int = 0
+    @AppStorage("gareiCzRangekiCountHitMemory2") var czRangekiCountHit: Int = 0
+    @AppStorage("gareiCzRangekiCountSumMemory2") var czRangekiCountSum: Int = 0
+    @AppStorage("gareiNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("gareiFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("gareiFirstHitCountBigMemory2") var firstHitCountBig: Int = 0
+    @AppStorage("gareiFirstHitCountRegMemory2") var firstHitCountReg: Int = 0
+    @AppStorage("gareiFirstHitCountArtMemory2") var firstHitCountArt: Int = 0
+    @AppStorage("gareiBonusScreenCount1Memory2") var bonusScreenCount1: Int = 0
+    @AppStorage("gareiBonusScreenCount2Memory2") var bonusScreenCount2: Int = 0
+    @AppStorage("gareiBonusScreenCount3Memory2") var bonusScreenCount3: Int = 0
+    @AppStorage("gareiBonusScreenCount4Memory2") var bonusScreenCount4: Int = 0
+    @AppStorage("gareiBonusScreenCountSumMemory2") var bonusScreenCountSum: Int = 0
+    @AppStorage("gareiArtScreenCount1Memory2") var artScreenCount1: Int = 0
+    @AppStorage("gareiArtScreenCount2Memory2") var artScreenCount2: Int = 0
+    @AppStorage("gareiArtScreenCount3Memory2") var artScreenCount3: Int = 0
+    @AppStorage("gareiArtScreenCount4Memory2") var artScreenCount4: Int = 0
+    @AppStorage("gareiArtScreenCountSumMemory2") var artScreenCountSum: Int = 0
     @AppStorage("gareiMemoMemory2") var memo = ""
     @AppStorage("gareiDateMemory2") var dateDouble = 0.0
 }
 
 
 class GareiMemory3: ObservableObject {
+    @AppStorage("gareiKoyakuCountSuikaMemory3") var koyakuCountSuika: Int = 0
+    @AppStorage("gareiKoyakuCountJakuCherryMemory3") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("gareiKoyakuCountKyoCherryMemory3") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("gareiKoyakuCountJakuChanceMemory3") var koyakuCountJakuChance: Int = 0
+    @AppStorage("gareiKoyakuCountKyoChanceMemory3") var koyakuCountKyoChance: Int = 0
+    @AppStorage("gareiChofukuCountJakuCherryMemory3") var chofukuCountJakuCherry: Int = 0
+    @AppStorage("gareiChofukuCountKyoCherryMemory3") var chofukuCountKyoCherry: Int = 0
+    @AppStorage("gareiGameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("gareiGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("gareiGameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("gareiCzRangekiCountMissMemory3") var czRangekiCountMiss: Int = 0
+    @AppStorage("gareiCzRangekiCountHitMemory3") var czRangekiCountHit: Int = 0
+    @AppStorage("gareiCzRangekiCountSumMemory3") var czRangekiCountSum: Int = 0
+    @AppStorage("gareiNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("gareiFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("gareiFirstHitCountBigMemory3") var firstHitCountBig: Int = 0
+    @AppStorage("gareiFirstHitCountRegMemory3") var firstHitCountReg: Int = 0
+    @AppStorage("gareiFirstHitCountArtMemory3") var firstHitCountArt: Int = 0
+    @AppStorage("gareiBonusScreenCount1Memory3") var bonusScreenCount1: Int = 0
+    @AppStorage("gareiBonusScreenCount2Memory3") var bonusScreenCount2: Int = 0
+    @AppStorage("gareiBonusScreenCount3Memory3") var bonusScreenCount3: Int = 0
+    @AppStorage("gareiBonusScreenCount4Memory3") var bonusScreenCount4: Int = 0
+    @AppStorage("gareiBonusScreenCountSumMemory3") var bonusScreenCountSum: Int = 0
+    @AppStorage("gareiArtScreenCount1Memory3") var artScreenCount1: Int = 0
+    @AppStorage("gareiArtScreenCount2Memory3") var artScreenCount2: Int = 0
+    @AppStorage("gareiArtScreenCount3Memory3") var artScreenCount3: Int = 0
+    @AppStorage("gareiArtScreenCount4Memory3") var artScreenCount4: Int = 0
+    @AppStorage("gareiArtScreenCountSumMemory3") var artScreenCountSum: Int = 0
     @AppStorage("gareiMemoMemory3") var memo = ""
     @AppStorage("gareiDateMemory3") var dateDouble = 0.0
 }
