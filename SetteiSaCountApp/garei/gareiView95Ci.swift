@@ -140,60 +140,23 @@ struct gareiView95Ci: View {
             )
             .tag(7)
 
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $garei.otomeAttackHit,
-//                        bigNumber: $garei.otomeAttackSum,
-//                        setting1Percent: garei.ratioOtomeAttack[0],
-//                        setting2Percent: garei.ratioOtomeAttack[1],
-//                        setting3Percent: garei.ratioOtomeAttack[2],
-//                        setting4Percent: garei.ratioOtomeAttack[3],
-//                        setting5Percent: garei.ratioOtomeAttack[4],
-//                        setting6Percent: garei.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(8)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $garei.firstHitCountCz,
-//                        bigNumber: $garei.normalGame,
-//                        setting1Denominate: garei.ratioFirstHitCz[0],
-//                        setting2Denominate: garei.ratioFirstHitCz[1],
-//                        setting3Denominate: garei.ratioFirstHitCz[2],
-//                        setting4Denominate: garei.ratioFirstHitCz[3],
-//                        setting5Denominate: garei.ratioFirstHitCz[4],
-//                        setting6Denominate: garei.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(9)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $garei.firstHitCountAt,
-//                        bigNumber: $garei.normalGame,
-//                        setting1Denominate: garei.ratioFirstHitAt[0],
-//                        setting2Denominate: garei.ratioFirstHitAt[1],
-//                        setting3Denominate: garei.ratioFirstHitAt[2],
-//                        setting4Denominate: garei.ratioFirstHitAt[3],
-//                        setting5Denominate: garei.ratioFirstHitAt[4],
-//                        setting6Denominate: garei.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(10)
+            // ボーナス初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $garei.firstHitCountBonus,
+                        bigNumber: $garei.normalGame,
+                        setting1Denominate: garei.ratioFirstHitBonus[0],
+                        setting2Denominate: garei.ratioFirstHitBonus[1],
+                        setting3Denominate: garei.ratioFirstHitBonus[2],
+                        setting4Denominate: garei.ratioFirstHitBonus[3],
+                        setting5Denominate: garei.ratioFirstHitBonus[4],
+                        setting6Denominate: garei.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(8)
         }
         // //// firebaseログ
         .onAppear {

@@ -51,8 +51,13 @@ class Garei: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitBonus: [Double] = [199.8,198.6,195,189.4,186.2,182]
+    @AppStorage("gareiNormalGame") var normalGame: Int = 0
+    @AppStorage("gareiFirstHitCountBonus") var firstHitCountBonus: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBonus = 0
         minusCheck = false
     }
 
