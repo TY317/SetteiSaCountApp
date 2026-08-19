@@ -24,6 +24,8 @@ struct gareiViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var selectedBeforeGuessPattern: String = "デフォルト"
+    @State var koyakuEnable: Bool = false
+    @State var chofukuEnable: Bool = false
     var body: some View {
         List {
             // //// STEP1
@@ -38,7 +40,23 @@ struct gareiViewBayes: View {
 
             // //// STEP2
             bayesSubStep2Section {
-                // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // 小役確率
+                unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役確率") {
+                    unitExView5body2image(
+                        title: "小役確率",
+                        textBody1: "・通常時ページでカウントした🍉と弱🍒の確率を計算要素に加えます",
+                        textBody2: "・強🍒、弱チャンス目、強チャンス目は設定1以外の確率が非公開のため計算には使えません",
+                    )
+                }
+
+                // CZ重複当選率
+                unitToggleWithQuestion(enable: self.$chofukuEnable, title: "CZ重複当選率") {
+                    unitExView5body2image(
+                        title: "CZ重複当選率",
+                        textBody1: "・通常時の弱🍒と強🍒からのCZ重複当選率を計算要素に加えます",
+                        textBody2: "・通常時ページの「CZ重複当選」でカウントした回数と、各小役のカウント数から算出します",
+                    )
+                }
 
                 // トロフィー
 //                DisclosureGroup("トロフィー") {
@@ -109,7 +127,44 @@ struct gareiViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // 小役確率
+        // （全設定の確率が判明している🍉と弱🍒のみ。役ごとの二項尤度を足す）
+        var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koyakuEnable {
+            let logPostSuika = logPostDenoBino(
+                ratio: garei.ratioSuika,
+                Count: garei.koyakuCountSuika,
+                bigNumber: garei.gameNumberPlay
+            )
+            let logPostJakuCherry = logPostDenoBino(
+                ratio: garei.ratioJakuCherry,
+                Count: garei.koyakuCountJakuCherry,
+                bigNumber: garei.gameNumberPlay
+            )
+            logPostKoyaku = arraySumDouble([
+                logPostSuika,
+                logPostJakuCherry,
+            ])
+        }
+
+        // CZ重複当選率
+        var logPostChofuku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.chofukuEnable {
+            let logPostChofukuJakuCherry = logPostPercentBino(
+                ratio: garei.ratioChofukuJakuCherry,
+                Count: garei.chofukuCountJakuCherry,
+                bigNumber: garei.koyakuCountJakuCherry
+            )
+            let logPostChofukuKyoCherry = logPostPercentBino(
+                ratio: garei.ratioChofukuKyoCherry,
+                Count: garei.chofukuCountKyoCherry,
+                bigNumber: garei.koyakuCountKyoCherry
+            )
+            logPostChofuku = arraySumDouble([
+                logPostChofukuJakuCherry,
+                logPostChofukuKyoCherry,
+            ])
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -123,6 +178,8 @@ struct gareiViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostKoyaku,
+            logPostChofuku,
             logPostTrophy,
             logPostBefore,
         ])

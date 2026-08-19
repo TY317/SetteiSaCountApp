@@ -13,8 +13,38 @@ class Garei: ObservableObject {
     // -------
     // 通常時
     // -------
+    // 小役（-1 は全設定の確率が非公開）
+    let ratioSuika: [Double] = [81.9,79.9,77.8,75.6,73.8,72.1]
+    let ratioJakuCherry: [Double] = [99,95.3,91,85.1,80.5,78.2]
+    let ratioKyoCherry: [Double] = [481.9,-1,-1,-1,-1,-1]
+    let ratioJakuChance: [Double] = [136.5,-1,-1,-1,-1,-1]
+    let ratioKyoChance: [Double] = [546.1,-1,-1,-1,-1,-1]
+    @AppStorage("gareiKoyakuCountSuika") var koyakuCountSuika: Int = 0
+    @AppStorage("gareiKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
+    @AppStorage("gareiKoyakuCountKyoCherry") var koyakuCountKyoCherry: Int = 0
+    @AppStorage("gareiKoyakuCountJakuChance") var koyakuCountJakuChance: Int = 0
+    @AppStorage("gareiKoyakuCountKyoChance") var koyakuCountKyoChance: Int = 0
+    // ボーナス重複当選（弱🍒・強🍒のみ）
+    let ratioChofukuJakuCherry: [Double] = [8.2,8.2,9.2,10.3,11.1,11.7]
+    let ratioChofukuKyoCherry: [Double] = [25.3,25.3,28.1,31.5,34,35.9]
+    @AppStorage("gareiChofukuCountJakuCherry") var chofukuCountJakuCherry: Int = 0
+    @AppStorage("gareiChofukuCountKyoCherry") var chofukuCountKyoCherry: Int = 0
+    // ゲーム数
+    @AppStorage("gareiGameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("gareiGameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("gareiGameNumberPlay") var gameNumberPlay: Int = 0
 
     func resetNormal() {
+        koyakuCountSuika = 0
+        koyakuCountJakuCherry = 0
+        koyakuCountKyoCherry = 0
+        koyakuCountJakuChance = 0
+        koyakuCountKyoChance = 0
+        chofukuCountJakuCherry = 0
+        chofukuCountKyoCherry = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
 
