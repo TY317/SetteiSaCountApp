@@ -41,6 +41,17 @@ struct gareiViewTop: View {
                             badgeStatus: common.gareiMenuFirstHitBadge,
                         )
                     }
+
+                    // ボーナス終了画面
+                    NavigationLink(destination: gareiViewBonusScreen(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ボーナス終了画面",
+                            badgeStatus: common.gareiMenuScreenBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: garei.machineName,

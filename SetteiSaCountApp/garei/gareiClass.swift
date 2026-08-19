@@ -61,6 +61,36 @@ class Garei: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // ボーナス終了画面
+    // --------
+    let ratioBonusScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioBonusScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioBonusScreenOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("gareiBonusScreenCount1") var bonusScreenCount1: Int = 0
+    @AppStorage("gareiBonusScreenCount2") var bonusScreenCount2: Int = 0
+    @AppStorage("gareiBonusScreenCount3") var bonusScreenCount3: Int = 0
+    @AppStorage("gareiBonusScreenCount4") var bonusScreenCount4: Int = 0
+    @AppStorage("gareiBonusScreenCountSum") var bonusScreenCountSum: Int = 0
+
+    func bonusScreenSumFunc() {
+        bonusScreenCountSum = countSum(
+            bonusScreenCount1,
+            bonusScreenCount2,
+            bonusScreenCount3,
+            bonusScreenCount4,
+        )
+    }
+
+    func resetBonusScreen() {
+        bonusScreenCount1 = 0
+        bonusScreenCount2 = 0
+        bonusScreenCount3 = 0
+        bonusScreenCount4 = 0
+        bonusScreenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -71,6 +101,7 @@ class Garei: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetBonusScreen()
     }
 }
 

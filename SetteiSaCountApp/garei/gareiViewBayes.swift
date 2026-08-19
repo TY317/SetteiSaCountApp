@@ -26,6 +26,7 @@ struct gareiViewBayes: View {
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     @State var koyakuEnable: Bool = false
     @State var chofukuEnable: Bool = false
+    @State var bonusScreenEnable: Bool = true
     var body: some View {
         List {
             // //// STEP1
@@ -55,6 +56,14 @@ struct gareiViewBayes: View {
                         title: "CZ重複当選率",
                         textBody1: "・通常時の弱🍒と強🍒からのCZ重複当選率を計算要素に加えます",
                         textBody2: "・通常時ページの「CZ重複当選」でカウントした回数と、各小役のカウント数から算出します",
+                    )
+                }
+
+                // ボーナス終了画面
+                unitToggleWithQuestion(enable: self.$bonusScreenEnable, title: "ボーナス終了画面") {
+                    unitExView5body2image(
+                        title: "ボーナス終了画面",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
 
@@ -166,6 +175,26 @@ struct gareiViewBayes: View {
             ])
         }
 
+        // ボーナス終了画面
+        // 確定系（設定2 以上濃厚／設定4 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルトは残余バケットに吸収させる
+        var logPostBonusScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bonusScreenEnable {
+            logPostBonusScreen = logPostPercentMulti(
+                countList: [
+                    garei.bonusScreenCount2,
+                    garei.bonusScreenCount3,
+                    garei.bonusScreenCount4,
+                ],
+                ratioList: [
+                    garei.ratioBonusScreenOver2,
+                    garei.ratioBonusScreenOver4,
+                    garei.ratioBonusScreenOver6,
+                ],
+                bigNumber: garei.bonusScreenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -180,6 +209,7 @@ struct gareiViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostKoyaku,
             logPostChofuku,
+            logPostBonusScreen,
             logPostTrophy,
             logPostBefore,
         ])
