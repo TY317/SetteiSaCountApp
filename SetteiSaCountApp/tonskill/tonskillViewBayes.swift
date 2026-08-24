@@ -15,6 +15,7 @@ struct tonskillViewBayes: View {
     let payoutList: [Double] = [97.9, 99.1, 101, 105.3, 109.1, 112.1]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
 
     // 全機種共通
@@ -52,6 +53,14 @@ struct tonskillViewBayes: View {
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // エンディング枠
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
                 unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング枠") {
                     unitExView5body2image(
                         title: "エンディング枠",
@@ -150,6 +159,26 @@ struct tonskillViewBayes: View {
             )
         }
 
+        // 終了画面
+        // 確定系（設定2 以上濃厚／設定4 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルト・奇数/偶数示唆・高設定示唆は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    tonskill.screenCount6,
+                    tonskill.screenCount7,
+                    tonskill.screenCount8,
+                ],
+                ratioList: [
+                    tonskill.ratioScreenOver2,
+                    tonskill.ratioScreenOver4,
+                    tonskill.ratioScreenOver6,
+                ],
+                bigNumber: tonskill.screenCountSum
+            )
+        }
+
         // エンディング枠
         // 確定系（金枠・虹枠）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -206,6 +235,7 @@ struct tonskillViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitBonus,
+            logPostScreen,
             logPostEnding,
             logPostTrophy,
             logPostBefore,

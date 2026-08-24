@@ -54,6 +54,17 @@ struct tonskillViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: tonskillViewScreen(
+                        tonskill: tonskill,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.tonskillMenuScreenBadge,
+                        )
+                    }
+
                     // エンディング
                     NavigationLink(destination: tonskillViewEnding(
                         tonskill: tonskill,
