@@ -37,3 +37,19 @@ struct tipVer450: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：スト6 通常時スマホ演出の示唆
+//////////////////
+struct tipVer450StreetFighter6SmartPhone: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("通常時スマホ演出の示唆内容を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
