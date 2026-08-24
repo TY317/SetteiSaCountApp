@@ -53,3 +53,19 @@ struct tipVer450StreetFighter6SmartPhone: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：禁書目録2 前兆発生ゲーム数での法則
+//////////////////
+struct tipVer450Index2ZenchoGame: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("前兆発生ゲーム数によるモード示唆を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -355,6 +355,8 @@
 		0F4E45453035DCCF0059FE1F /* gareiTableFirstHitSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E45433035DCCA0059FE1F /* gareiTableFirstHitSpecial.swift */; };
 		0F4E45633039473F0059FE1F /* streetFighter6TableSmartPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E45623039473F0059FE1F /* streetFighter6TableSmartPhone.swift */; };
 		0F4E4564303947490059FE1F /* streetFighter6TableSmartPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E45623039473F0059FE1F /* streetFighter6TableSmartPhone.swift */; };
+		0F4E4566303C6C690059FE1F /* index2TableZenchoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4565303C6C690059FE1F /* index2TableZenchoGame.swift */; };
+		0F4E4567303C6C700059FE1F /* index2TableZenchoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4565303C6C690059FE1F /* index2TableZenchoGame.swift */; };
 		0F51C6342E82CB020006794A /* evaYakusokuViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */; };
 		0F51C6372E840CFD0006794A /* creaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6362E840CFD0006794A /* creaViewTop.swift */; };
 		0F51C6392E840D140006794A /* CreaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6382E840D140006794A /* CreaClass.swift */; };
@@ -2074,6 +2076,7 @@
 		0F4B0F4E2F53D319008D79E1 /* kabaneriUnatoViewOmikuji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabaneriUnatoViewOmikuji.swift; sourceTree = "<group>"; };
 		0F4E45433035DCCA0059FE1F /* gareiTableFirstHitSpecial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiTableFirstHitSpecial.swift; sourceTree = "<group>"; };
 		0F4E45623039473F0059FE1F /* streetFighter6TableSmartPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6TableSmartPhone.swift; sourceTree = "<group>"; };
+		0F4E4565303C6C690059FE1F /* index2TableZenchoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2TableZenchoGame.swift; sourceTree = "<group>"; };
 		0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuViewBayes.swift; sourceTree = "<group>"; };
 		0F51C6362E840CFD0006794A /* creaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewTop.swift; sourceTree = "<group>"; };
 		0F51C6382E840D140006794A /* CreaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaClass.swift; sourceTree = "<group>"; };
@@ -6193,6 +6196,7 @@
 				E0071441528E4E5596EB5980 /* index2View95Ci.swift */,
 				57B559DD19D84572A38BE426 /* index2Assets.xcassets */,
 				0F6F089A3020C2340088F00C /* index2TableMode.swift */,
+				0F4E4565303C6C690059FE1F /* index2TableZenchoGame.swift */,
 			);
 			path = index2;
 			sourceTree = "<group>";
@@ -7885,6 +7889,7 @@
 				0FEC57C72D94203500FF1024 /* rslViewScreen.swift in Sources */,
 				0FD3577C2DAA2CFD0069BD1A /* sbjTableNormalChance.swift in Sources */,
 				0F6B59BE2DFD824300DB1A2B /* kaguyaSamaTableClothChange.swift in Sources */,
+				0F4E4566303C6C690059FE1F /* index2TableZenchoGame.swift in Sources */,
 				0F7568EB2FA707B600A66336 /* bioRe3ViewNormal.swift in Sources */,
 				0F7568EB2FB40A1100A66336 /* bioRe3ViewPoint.swift in Sources */,
 				63309E6996D34357A033EE20 /* bioRe3ViewDuringAt.swift in Sources */,
@@ -8024,6 +8029,7 @@
 				0F6F0976302D72520088F00C /* dropkickTableMode.swift in Sources */,
 				0F1218762FCAFB5200E50794 /* sao2TableKoyakuPattern.swift in Sources */,
 				0FD586F32FF7F18C005689C6 /* sencole6TableModeSisa.swift in Sources */,
+				0F4E4567303C6C700059FE1F /* index2TableZenchoGame.swift in Sources */,
 				0FD974E02F415A9A0067CED7 /* unitLinkButtonViewBuilder.swift in Sources */,
 				0FA662F72F23292C00F3259F /* hokutoTenseiTableKokakuSisa.swift in Sources */,
 				0F4E4564303947490059FE1F /* streetFighter6TableSmartPhone.swift in Sources */,
