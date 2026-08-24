@@ -69,3 +69,19 @@ struct tipVer450Index2ZenchoGame: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：SAO2 AT直撃発生率
+//////////////////
+struct tipVer450Sao2Chokugeki: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("AT直撃発生率の設定差を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

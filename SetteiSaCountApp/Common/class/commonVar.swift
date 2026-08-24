@@ -805,6 +805,8 @@ class commonVar: ObservableObject {
                 streetFighter6MenuFirstHitBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5053", newStatus: "update")
                 index2MenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
+                sao2MenuFirstHitBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")
