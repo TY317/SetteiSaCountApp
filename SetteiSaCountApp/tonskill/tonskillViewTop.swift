@@ -43,6 +43,17 @@ struct tonskillViewTop: View {
                         )
                     }
 
+                    // CZ
+                    NavigationLink(destination: tonskillViewCz(
+                        tonskill: tonskill,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.tonskillMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: tonskillViewFirstHit(
                         tonskill: tonskill,

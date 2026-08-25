@@ -85,3 +85,19 @@ struct tipVer450Sao2Chokugeki: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：とんスキ スイCZ失敗時のゴブリン残数
+//////////////////
+struct tipVer450TonskillGoblinRemain: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("スイCZ失敗時のゴブリン残数による設定示唆を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

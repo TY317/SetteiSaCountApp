@@ -405,6 +405,7 @@ class commonVar: ObservableObject {
     @AppStorage("tonskillMenuBayesBadge") var tonskillMenuBayesBadge: String = "none"
     @AppStorage("tonskillMenuScreenBadge") var tonskillMenuScreenBadge: String = "none"
     @AppStorage("tonskillMenuEndingBadge") var tonskillMenuEndingBadge: String = "none"
+    @AppStorage("tonskillMenuCzBadge") var tonskillMenuCzBadge: String = "none"
 
     // ---- やじきた道中記参る！
     @AppStorage("yajikitaMenuNormalBadge") var yajikitaMenuNormalBadge: String = "none"
