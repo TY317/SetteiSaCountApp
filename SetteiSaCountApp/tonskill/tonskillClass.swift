@@ -168,6 +168,15 @@ class TonskillMemory1: ObservableObject {
     @AppStorage("tonskillEndingCount5Memory1") var endingCount5: Int = 0
     @AppStorage("tonskillEndingCount6Memory1") var endingCount6: Int = 0
     @AppStorage("tonskillEndingCountSumMemory1") var endingCountSum: Int = 0
+    @AppStorage("tonskillScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("tonskillScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("tonskillScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("tonskillScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("tonskillScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("tonskillScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("tonskillScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("tonskillScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("tonskillScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("tonskillMemoMemory1") var memo = ""
     @AppStorage("tonskillDateMemory1") var dateDouble = 0.0
 }
@@ -190,6 +199,15 @@ class TonskillMemory2: ObservableObject {
     @AppStorage("tonskillEndingCount5Memory2") var endingCount5: Int = 0
     @AppStorage("tonskillEndingCount6Memory2") var endingCount6: Int = 0
     @AppStorage("tonskillEndingCountSumMemory2") var endingCountSum: Int = 0
+    @AppStorage("tonskillScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("tonskillScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("tonskillScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("tonskillScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("tonskillScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("tonskillScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("tonskillScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("tonskillScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("tonskillScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("tonskillMemoMemory2") var memo = ""
     @AppStorage("tonskillDateMemory2") var dateDouble = 0.0
 }
@@ -212,6 +230,15 @@ class TonskillMemory3: ObservableObject {
     @AppStorage("tonskillEndingCount5Memory3") var endingCount5: Int = 0
     @AppStorage("tonskillEndingCount6Memory3") var endingCount6: Int = 0
     @AppStorage("tonskillEndingCountSumMemory3") var endingCountSum: Int = 0
+    @AppStorage("tonskillScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("tonskillScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("tonskillScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("tonskillScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("tonskillScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("tonskillScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("tonskillScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("tonskillScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("tonskillScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("tonskillMemoMemory3") var memo = ""
     @AppStorage("tonskillDateMemory3") var dateDouble = 0.0
 }
