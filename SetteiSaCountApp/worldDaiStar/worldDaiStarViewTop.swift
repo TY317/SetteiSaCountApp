@@ -210,6 +210,9 @@ struct worldDaiStarSubViewSaveMemory: View {
         worldDaiStarMemory1.screenCount2 = worldDaiStar.screenCount2
         worldDaiStarMemory1.screenCount3 = worldDaiStar.screenCount3
         worldDaiStarMemory1.screenCountSum = worldDaiStar.screenCountSum
+        worldDaiStarMemory1.comeBackCountMiss = worldDaiStar.comeBackCountMiss
+        worldDaiStarMemory1.comeBackCountHit = worldDaiStar.comeBackCountHit
+        worldDaiStarMemory1.comeBackCountSum = worldDaiStar.comeBackCountSum
     }
     func saveMemory2() {
         worldDaiStarMemory2.normalGame = worldDaiStar.normalGame
@@ -219,6 +222,9 @@ struct worldDaiStarSubViewSaveMemory: View {
         worldDaiStarMemory2.screenCount2 = worldDaiStar.screenCount2
         worldDaiStarMemory2.screenCount3 = worldDaiStar.screenCount3
         worldDaiStarMemory2.screenCountSum = worldDaiStar.screenCountSum
+        worldDaiStarMemory2.comeBackCountMiss = worldDaiStar.comeBackCountMiss
+        worldDaiStarMemory2.comeBackCountHit = worldDaiStar.comeBackCountHit
+        worldDaiStarMemory2.comeBackCountSum = worldDaiStar.comeBackCountSum
     }
     func saveMemory3() {
         worldDaiStarMemory3.normalGame = worldDaiStar.normalGame
@@ -228,6 +234,9 @@ struct worldDaiStarSubViewSaveMemory: View {
         worldDaiStarMemory3.screenCount2 = worldDaiStar.screenCount2
         worldDaiStarMemory3.screenCount3 = worldDaiStar.screenCount3
         worldDaiStarMemory3.screenCountSum = worldDaiStar.screenCountSum
+        worldDaiStarMemory3.comeBackCountMiss = worldDaiStar.comeBackCountMiss
+        worldDaiStarMemory3.comeBackCountHit = worldDaiStar.comeBackCountHit
+        worldDaiStarMemory3.comeBackCountSum = worldDaiStar.comeBackCountSum
     }
 }
 
@@ -266,6 +275,9 @@ struct worldDaiStarSubViewLoadMemory: View {
         worldDaiStar.screenCount2 = worldDaiStarMemory1.screenCount2
         worldDaiStar.screenCount3 = worldDaiStarMemory1.screenCount3
         worldDaiStar.screenCountSum = worldDaiStarMemory1.screenCountSum
+        worldDaiStar.comeBackCountMiss = worldDaiStarMemory1.comeBackCountMiss
+        worldDaiStar.comeBackCountHit = worldDaiStarMemory1.comeBackCountHit
+        worldDaiStar.comeBackCountSum = worldDaiStarMemory1.comeBackCountSum
     }
     func loadMemory2() {
         worldDaiStar.normalGame = worldDaiStarMemory2.normalGame
@@ -275,6 +287,9 @@ struct worldDaiStarSubViewLoadMemory: View {
         worldDaiStar.screenCount2 = worldDaiStarMemory2.screenCount2
         worldDaiStar.screenCount3 = worldDaiStarMemory2.screenCount3
         worldDaiStar.screenCountSum = worldDaiStarMemory2.screenCountSum
+        worldDaiStar.comeBackCountMiss = worldDaiStarMemory2.comeBackCountMiss
+        worldDaiStar.comeBackCountHit = worldDaiStarMemory2.comeBackCountHit
+        worldDaiStar.comeBackCountSum = worldDaiStarMemory2.comeBackCountSum
     }
     func loadMemory3() {
         worldDaiStar.normalGame = worldDaiStarMemory3.normalGame
@@ -284,6 +299,9 @@ struct worldDaiStarSubViewLoadMemory: View {
         worldDaiStar.screenCount2 = worldDaiStarMemory3.screenCount2
         worldDaiStar.screenCount3 = worldDaiStarMemory3.screenCount3
         worldDaiStar.screenCountSum = worldDaiStarMemory3.screenCountSum
+        worldDaiStar.comeBackCountMiss = worldDaiStarMemory3.comeBackCountMiss
+        worldDaiStar.comeBackCountHit = worldDaiStarMemory3.comeBackCountHit
+        worldDaiStar.comeBackCountSum = worldDaiStarMemory3.comeBackCountSum
     }
 }
 

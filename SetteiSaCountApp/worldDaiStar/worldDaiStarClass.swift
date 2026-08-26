@@ -104,6 +104,9 @@ class WorldDaiStarMemory1: ObservableObject {
     @AppStorage("worldDaiStarScreenCount2Memory1") var screenCount2: Int = 0
     @AppStorage("worldDaiStarScreenCount3Memory1") var screenCount3: Int = 0
     @AppStorage("worldDaiStarScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("worldDaiStarComeBackCountMissMemory1") var comeBackCountMiss: Int = 0
+    @AppStorage("worldDaiStarComeBackCountHitMemory1") var comeBackCountHit: Int = 0
+    @AppStorage("worldDaiStarComeBackCountSumMemory1") var comeBackCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory1") var memo = ""
     @AppStorage("worldDaiStarDateMemory1") var dateDouble = 0.0
 }
@@ -117,6 +120,9 @@ class WorldDaiStarMemory2: ObservableObject {
     @AppStorage("worldDaiStarScreenCount2Memory2") var screenCount2: Int = 0
     @AppStorage("worldDaiStarScreenCount3Memory2") var screenCount3: Int = 0
     @AppStorage("worldDaiStarScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("worldDaiStarComeBackCountMissMemory2") var comeBackCountMiss: Int = 0
+    @AppStorage("worldDaiStarComeBackCountHitMemory2") var comeBackCountHit: Int = 0
+    @AppStorage("worldDaiStarComeBackCountSumMemory2") var comeBackCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory2") var memo = ""
     @AppStorage("worldDaiStarDateMemory2") var dateDouble = 0.0
 }
@@ -130,6 +136,9 @@ class WorldDaiStarMemory3: ObservableObject {
     @AppStorage("worldDaiStarScreenCount2Memory3") var screenCount2: Int = 0
     @AppStorage("worldDaiStarScreenCount3Memory3") var screenCount3: Int = 0
     @AppStorage("worldDaiStarScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("worldDaiStarComeBackCountMissMemory3") var comeBackCountMiss: Int = 0
+    @AppStorage("worldDaiStarComeBackCountHitMemory3") var comeBackCountHit: Int = 0
+    @AppStorage("worldDaiStarComeBackCountSumMemory3") var comeBackCountSum: Int = 0
     @AppStorage("worldDaiStarMemoMemory3") var memo = ""
     @AppStorage("worldDaiStarDateMemory3") var dateDouble = 0.0
 }
