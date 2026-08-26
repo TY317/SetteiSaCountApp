@@ -53,6 +53,17 @@ struct yajikitaViewTop: View {
                         )
                     }
 
+                    // AT中
+                    NavigationLink(destination: yajikitaViewDuringAt(
+                        yajikita: yajikita,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "party.popper.fill",
+                            textBody: "AT中",
+                            badgeStatus: common.yajikitaMenuDuringAtBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: yajikitaViewScreen(
                         yajikita: yajikita,
