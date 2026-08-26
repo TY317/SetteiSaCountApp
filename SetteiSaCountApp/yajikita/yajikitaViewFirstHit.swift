@@ -72,6 +72,18 @@ struct yajikitaViewFirstHit: View {
                     )
                 }
             }
+            
+            // 参考情報）AT直撃当選率
+            unitLinkButtonViewBuilder(sheetTitle: "AT直撃当選率") {
+                Text("・「死闘！ワズシ麻雀」成功時はAT直撃当選濃厚\n　（勝利濃厚のCZ経由してAT突入）")
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT直撃当選率",
+                        denominateList: yajikita.ratioDirectAt
+                    )
+                }
+            }
 
             // //// 95%%信頼区間グラフへのリンク
             unitNaviLink95Ci(

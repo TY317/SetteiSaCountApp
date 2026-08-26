@@ -23,6 +23,7 @@ class Yajikita: ObservableObject {
     // --------
     let ratioFirstHitCz: [Double] = [231.1,222.7,209.5,191.5,173.1,157.5]
     let ratioFirstHitAt: [Double] = [473.9,457.5,431.6,388.1,352.1,318.3]
+    let ratioDirectAt: [Double] = [12302.7,-1,-1,-1,-1,-1,]
     @AppStorage("yajikitaNormalGame") var normalGame: Int = 0
     @AppStorage("yajikitaFirstHitCountCz") var firstHitCountCz: Int = 0
     @AppStorage("yajikitaFirstHitCountAt") var firstHitCountAt: Int = 0
