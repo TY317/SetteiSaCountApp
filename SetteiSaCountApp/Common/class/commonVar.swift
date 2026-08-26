@@ -437,6 +437,7 @@ class commonVar: ObservableObject {
     @AppStorage("worldDaiStarMenuBayesBadge") var worldDaiStarMenuBayesBadge: String = "none"
     @AppStorage("worldDaiStarMenuScreenBadge") var worldDaiStarMenuScreenBadge: String = "none"
     @AppStorage("worldDaiStarMenuEndingBadge") var worldDaiStarMenuEndingBadge: String = "none"
+    @AppStorage("worldDaiStarMenuComeBackBadge") var worldDaiStarMenuComeBackBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -809,6 +810,8 @@ class commonVar: ObservableObject {
                 index2MenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
                 sao2MenuFirstHitBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5055", newStatus: "update")
+                worldDaiStarMenuComeBackBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

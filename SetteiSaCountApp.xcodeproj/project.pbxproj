@@ -1753,6 +1753,7 @@
 		9E9BC39C9D324381873DD69D /* index2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4C919C7B64CFF975CF67F /* index2TableKoyakuPattern.swift */; };
 		A1BEAA89BEA941F2930B738C /* streetFighter6ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8577DECFA140D491DC7FD6 /* streetFighter6ViewEnding.swift */; };
 		A2BB5CD11CDE4DD1893EE587 /* worldDaiStarViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */; };
+		BC88F0B93F0B4698B032BE6A /* worldDaiStarViewComeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7920256516E405E9F9AA7EB /* worldDaiStarViewComeBack.swift */; };
 		A33EBE14F63348ACBAA53401 /* worldDaiStarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0C6E9545DC41D7B28FA99D /* worldDaiStarClass.swift */; };
 		A480D10DC5A14EA38530DEAC /* index2Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B559DD19D84572A38BE426 /* index2Assets.xcassets */; };
 		A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3C72C6932E489C9EAC136F /* tonskillAssets.xcassets */; };
@@ -1824,6 +1825,7 @@
 		01B69FE471144EBEA02F47A0 /* gareiViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiViewCz.swift; sourceTree = "<group>"; };
 		04A3FE16202C49DDAEDC3983 /* kerottoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewBayes.swift; sourceTree = "<group>"; };
 		05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewFirstHit.swift; sourceTree = "<group>"; };
+		A7920256516E405E9F9AA7EB /* worldDaiStarViewComeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewComeBack.swift; sourceTree = "<group>"; };
 		0BA01361766B404EB2925B1B /* kerottoViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewReg.swift; sourceTree = "<group>"; };
 		0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickViewTuc.swift; sourceTree = "<group>"; };
 		0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewInfoSheet.swift; sourceTree = "<group>"; };
@@ -6131,6 +6133,7 @@
 				0F65BF2F457A42DAA6F70F9A /* worldDaiStarViewScreen.swift */,
 				5040F498C664405EAAA291C9 /* worldDaiStarViewBayes.swift */,
 				05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */,
+				A7920256516E405E9F9AA7EB /* worldDaiStarViewComeBack.swift */,
 				C62005F7FEE64F9AA6C77A74 /* worldDaiStarView95Ci.swift */,
 				C051FE2E074B48E0BDCAA466 /* worldDaiStarAssets.xcassets */,
 				0F6F0897301F76220088F00C /* worldDaiStarTableEnding.swift */,
@@ -7863,6 +7866,7 @@
 				CBF3D71F81CA494497BE05FC /* worldDaiStarViewScreen.swift in Sources */,
 				54DB387AA3A24AF2A0EB46F7 /* worldDaiStarViewBayes.swift in Sources */,
 				A2BB5CD11CDE4DD1893EE587 /* worldDaiStarViewFirstHit.swift in Sources */,
+				BC88F0B93F0B4698B032BE6A /* worldDaiStarViewComeBack.swift in Sources */,
 				81F715EE58F24EED929BC16F /* worldDaiStarView95Ci.swift in Sources */,
 				05199C0DD7CA4E5EB3FF51A8 /* index2Class.swift in Sources */,
 				2DA6BE6405DD49D19ADC952B /* index2ViewNormal.swift in Sources */,

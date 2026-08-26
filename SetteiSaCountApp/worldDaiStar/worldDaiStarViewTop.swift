@@ -64,6 +64,17 @@ struct worldDaiStarViewTop: View {
                         )
                     }
 
+                    // 引き戻し
+                    NavigationLink(destination: worldDaiStarViewComeBack(
+                        worldDaiStar: worldDaiStar,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "引き戻し",
+                            badgeStatus: common.worldDaiStarMenuComeBackBadge,
+                        )
+                    }
+
                     // エンディング
                     NavigationLink(destination: worldDaiStarViewEnding(
                         worldDaiStar: worldDaiStar,

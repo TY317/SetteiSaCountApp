@@ -69,6 +69,29 @@ class WorldDaiStar: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetComeBack()
+    }
+    
+    // -----------
+    // ver4.5.0
+    // -----------
+    let ratioComeBack: [Double] = [12.5,12.5,16,16,22.5,25.5]
+    @AppStorage("worldDaiStarComeBackCountMiss") var comeBackCountMiss: Int = 0
+    @AppStorage("worldDaiStarComeBackCountHit") var comeBackCountHit: Int = 0
+    @AppStorage("worldDaiStarComeBackCountSum") var comeBackCountSum: Int = 0
+    
+    func comeBackSumFunc() {
+        comeBackCountSum = countSum(
+            comeBackCountMiss,
+            comeBackCountHit,
+        )
+    }
+    
+    func resetComeBack() {
+        comeBackCountMiss = 0
+        comeBackCountHit = 0
+        comeBackCountSum = 0
+        minusCheck = false
     }
 }
 

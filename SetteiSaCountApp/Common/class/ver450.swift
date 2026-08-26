@@ -101,3 +101,19 @@ struct tipVer450TonskillGoblinRemain: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ワダスタ 引き戻しゾーン移行率
+//////////////////
+struct tipVer450WorldDaiStarComeBack: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("上位ST後の引き戻しゾーン移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
