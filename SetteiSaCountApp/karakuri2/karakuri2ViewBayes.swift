@@ -17,6 +17,7 @@ struct karakuri2ViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var lampColorEnable: Bool = true
     @State var kyoCherryEnable: Bool = true
 
     
@@ -69,6 +70,15 @@ struct karakuri2ViewBayes: View {
                         title: "激情ジャッジ キャラシナリオ",
                         textBody1: "・1回目に選択されたキャラの振分けを計算要素に加えます",
                         textBody2: "・4キャラすべての振分けが判明しているため、全キャラのカウントを計算に使います",
+                    )
+                }
+
+                // エンディング ランプ色
+                unitToggleWithQuestion(enable: self.$lampColorEnable, title: "エンディング ランプ色") {
+                    unitExView5body2image(
+                        title: "エンディング ランプ色",
+                        textBody1: "・エンディングのランプ色の振分けを計算要素に加えます",
+                        textBody2: "・7色すべての振分けが判明しているため、全色のカウントを計算に使います",
                     )
                 }
 
@@ -199,6 +209,33 @@ struct karakuri2ViewBayes: View {
             )
         }
 
+        // エンディング ランプ色
+        // 7色の振分けは各設定で合計100%ちょうどのため、全カテゴリを渡してよい
+        var logPostLampColor: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.lampColorEnable {
+            logPostLampColor = logPostPercentMulti(
+                countList: [
+                    karakuri2.lampColorCount1,
+                    karakuri2.lampColorCount2,
+                    karakuri2.lampColorCount3,
+                    karakuri2.lampColorCount4,
+                    karakuri2.lampColorCount5,
+                    karakuri2.lampColorCount6,
+                    karakuri2.lampColorCount7,
+                ],
+                ratioList: [
+                    karakuri2.ratioLampColorWhite,
+                    karakuri2.ratioLampColorBlue,
+                    karakuri2.ratioLampColorYellow,
+                    karakuri2.ratioLampColorGreen,
+                    karakuri2.ratioLampColorRed,
+                    karakuri2.ratioLampColorPurple,
+                    karakuri2.ratioLampColorRainbow,
+                ],
+                bigNumber: karakuri2.lampColorCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -241,6 +278,7 @@ struct karakuri2ViewBayes: View {
             logPostScreen,
             logPostKyoCherry,
             logPostChara,
+            logPostLampColor,
             logPostTrophy,
             logPostBefore,
         ])

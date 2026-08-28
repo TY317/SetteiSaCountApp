@@ -86,6 +86,17 @@ struct karakuri2ViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: karakuri2ViewEnding(
+                        karakuri2: karakuri2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.karakuri2MenuEndingBadge,
+                        )
+                    }
+
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: karakuri2.machineName,

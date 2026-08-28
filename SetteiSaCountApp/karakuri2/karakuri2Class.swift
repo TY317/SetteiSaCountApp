@@ -132,6 +132,7 @@ class Karakuri2: ObservableObject {
         resetScreen()
         resetHistory()
         resetChara()
+        resetLampColor()
     }
     
     // ----------
@@ -184,6 +185,50 @@ class Karakuri2: ObservableObject {
         charaCountKisuSum = 0
         charaCountGusuSum = 0
     }
+
+    // -------
+    // ランプ色選択
+    // -------
+    let ratioLampColorWhite: [Double] = [49,45,44,40,38,35]
+    let ratioLampColorBlue: [Double] = [22,15,22,15,22,18]
+    let ratioLampColorYellow: [Double] = [15,22,15,22,15,18]
+    let ratioLampColorGreen: [Double] = [13,15,16,18,20,22]
+    let ratioLampColorRed: [Double] = [1,3,3,3,3,3]
+    let ratioLampColorPurple: [Double] = [0,0,0,2,2,2]
+    let ratioLampColorRainbow: [Double] = [0,0,0,0,0,2]
+    @AppStorage("karakuri2LampColorCount1") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSum") var lampColorCountSum: Int = 0
+
+    func lampColorSumFunc() {
+        lampColorCountSum = countSum(
+            lampColorCount1,
+            lampColorCount2,
+            lampColorCount3,
+            lampColorCount4,
+            lampColorCount5,
+            lampColorCount6,
+            lampColorCount7,
+        )
+    }
+
+    func resetLampColor() {
+        lampColorCount1 = 0
+        lampColorCount2 = 0
+        lampColorCount3 = 0
+        lampColorCount4 = 0
+        lampColorCount5 = 0
+        lampColorCount6 = 0
+        lampColorCount7 = 0
+        lampColorCountSum = 0
+        minusCheck = false
+    }
+
 }
 
 
