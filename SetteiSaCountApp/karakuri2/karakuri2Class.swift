@@ -149,11 +149,19 @@ class Karakuri2: ObservableObject {
     // -------
     // 1回目のキャラ選択
     // -------
+    let ratioChara1: [Double] = [56,37,54,36,51,42]
+    let ratioChara2: [Double] = [38,54,37,52,35,42]
+    let ratioChara3: [Double] = [2,6,3,8,5,8]
+    let ratioChara4: [Double] = [4,3,6,4,9,8]
+    let ratioCharaKisu: [Double] = [60,40,60,40,60,50]
+    let ratioCharaGusu: [Double] = [40,60,40,60,40,50]
     @AppStorage("karakuri2CharaCount1") var charaCount1: Int = 0
     @AppStorage("karakuri2CharaCount2") var charaCount2: Int = 0
     @AppStorage("karakuri2CharaCount3") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSum") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSum") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSum") var charaCountGusuSum: Int = 0
 
     func charaSumFunc() {
         charaCountSum = countSum(
@@ -162,6 +170,8 @@ class Karakuri2: ObservableObject {
             charaCount3,
             charaCount4,
         )
+        charaCountKisuSum = charaCount1 + charaCount4
+        charaCountGusuSum = charaCount2 + charaCount3
     }
 
     func resetChara() {
@@ -171,6 +181,8 @@ class Karakuri2: ObservableObject {
         charaCount4 = 0
         charaCountSum = 0
         minusCheck = false
+        charaCountKisuSum = 0
+        charaCountGusuSum = 0
     }
 }
 

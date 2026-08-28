@@ -117,3 +117,19 @@ struct tipVer450WorldDaiStarComeBack: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：からくり2 激情ジャッジ キャラシナリオ
+//////////////////
+struct tipVer450Karakuri2CharaSenario: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("激情ジャッジのキャラシナリオ振分けと奇数・偶数示唆の合算カウントを追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -16,6 +16,7 @@ struct karakuri2ViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var charaEnable: Bool = true
     @State var kyoCherryEnable: Bool = true
 
     
@@ -59,6 +60,15 @@ struct karakuri2ViewBayes: View {
                     unitExView5body2image(
                         title: "AT終了画面",
                         textBody1: "・確定系のみ反映させます",
+                    )
+                }
+
+                // 激情ジャッジ キャラシナリオ
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "激情ジャッジ キャラシナリオ") {
+                    unitExView5body2image(
+                        title: "激情ジャッジ キャラシナリオ",
+                        textBody1: "・1回目に選択されたキャラの振分けを計算要素に加えます",
+                        textBody2: "・4キャラすべての振分けが判明しているため、全キャラのカウントを計算に使います",
                     )
                 }
 
@@ -168,6 +178,27 @@ struct karakuri2ViewBayes: View {
             )
         }
 
+        // 激情ジャッジ キャラシナリオ
+        // 4キャラの振分けは各設定で合計100%ちょうどのため、全カテゴリを渡してよい
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    karakuri2.charaCount1,
+                    karakuri2.charaCount2,
+                    karakuri2.charaCount3,
+                    karakuri2.charaCount4,
+                ],
+                ratioList: [
+                    karakuri2.ratioChara1,
+                    karakuri2.ratioChara2,
+                    karakuri2.ratioChara3,
+                    karakuri2.ratioChara4,
+                ],
+                bigNumber: karakuri2.charaCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -209,6 +240,7 @@ struct karakuri2ViewBayes: View {
             logPostFirstHitAt,
             logPostScreen,
             logPostKyoCherry,
+            logPostChara,
             logPostTrophy,
             logPostBefore,
         ])

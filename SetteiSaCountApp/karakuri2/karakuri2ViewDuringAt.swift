@@ -45,46 +45,140 @@ struct karakuri2ViewDuringAt: View {
         List {
             // 1回目のキャラ選択
             Section {
-                // サークルピッカー
-                Picker("", selection: self.$selectedItem) {
-                    ForEach(self.selectList, id: \.self) { item in
-                        Text(item)
-                    }
+                // 確率結果
+                HStack {
+                    // 奇数示唆
+                    unitResultRatioPercent2Line(
+                        title: "奇数示唆合算",
+                        count: $karakuri2.charaCountKisuSum,
+                        bigNumber: $karakuri2.charaCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
+                    // 偶数示唆
+                    unitResultRatioPercent2Line(
+                        title: "偶数示唆合算",
+                        count: $karakuri2.charaCountGusuSum,
+                        bigNumber: $karakuri2.charaCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false
+                    )
                 }
-                .pickerStyle(.wheel)
-                .frame(height: 150)
-
-                // //// 示唆＆登録ボタン
-                unitCountSubmitWithResult(
-                    title: sisaText(item: self.selectedItem),
-                    count: bindingChara(item: self.selectedItem),
-                    bigNumber: $karakuri2.charaCountSum,
-                    flushColor: flushColor(item: self.selectedItem),
-                    minusCheck: $karakuri2.minusCheck) {
-                        karakuri2.charaSumFunc()
-                    }
+                .frame(maxWidth: .infinity, alignment: .center)
                 
-                // キャラシナリオ
-                unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ") {
-                    karakuri2TableSenario()
+                // 参考情報）奇遇合算
+                unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ振分け") {
+                    karakuri2TableCharaSenario(karakuri2: karakuri2)
                 }
+                .popoverTip(tipVer450Karakuri2CharaSenario())
+                
+                DisclosureGroup {
+                    // サークルピッカー
+                    Picker("", selection: self.$selectedItem) {
+                        ForEach(self.selectList, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(height: 150)
+                    
+                    // //// 示唆＆登録ボタン
+                    unitCountSubmitWithResult(
+                        title: sisaText(item: self.selectedItem),
+                        count: bindingChara(item: self.selectedItem),
+                        bigNumber: $karakuri2.charaCountSum,
+                        flushColor: flushColor(item: self.selectedItem),
+                        minusCheck: $karakuri2.minusCheck) {
+                            karakuri2.charaSumFunc()
+                        }
+                    
+                    // キャラシナリオ
+                    unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ") {
+                        karakuri2TableSenario()
+                    }
+                    
+                    // スペース用の行
+                    Text("")
+                        .listRowBackground(Color(UIColor.systemGroupedBackground))
+                        .listRowSeparator(.hidden)
+                    
+                    // カウント結果
+                    ForEach(self.selectList, id: \.self) { item in
+                        unitResultCountListPercent(
+                            title: sisaText(item: item),
+                            count: bindingChara(item: item),
+                            flashColor: flushColor(item: item),
+                            bigNumber: $karakuri2.charaCountSum
+                        )
+                    }
+                    
+                    // 参考情報）奇遇合算
+                    unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ振分け") {
+                        karakuri2TableCharaSenario(karakuri2: karakuri2)
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            karakuri2View95Ci(
+                                karakuri2: karakuri2,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        karakuri2ViewBayes(
+                            karakuri2: karakuri2,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+                
+//                // サークルピッカー
+//                Picker("", selection: self.$selectedItem) {
+//                    ForEach(self.selectList, id: \.self) { item in
+//                        Text(item)
+//                    }
+//                }
+//                .pickerStyle(.wheel)
+//                .frame(height: 150)
+//
+//                // //// 示唆＆登録ボタン
+//                unitCountSubmitWithResult(
+//                    title: sisaText(item: self.selectedItem),
+//                    count: bindingChara(item: self.selectedItem),
+//                    bigNumber: $karakuri2.charaCountSum,
+//                    flushColor: flushColor(item: self.selectedItem),
+//                    minusCheck: $karakuri2.minusCheck) {
+//                        karakuri2.charaSumFunc()
+//                    }
+//                
+//                // キャラシナリオ
+//                unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ") {
+//                    karakuri2TableSenario()
+//                }
             } header: {
-                Text("1回目のキャラ選択")
+//                Text("1回目のキャラ選択")
+                Text("激情ジャッジ キャラシナリオ")
             }
 
             // カウント結果
-            Section {
-                ForEach(self.selectList, id: \.self) { item in
-                    unitResultCountListPercent(
-                        title: sisaText(item: item),
-                        count: bindingChara(item: item),
-                        flashColor: flushColor(item: item),
-                        bigNumber: $karakuri2.charaCountSum
-                    )
-                }
-            } header: {
-                Text("カウント結果")
-            }
+//            Section {
+//                ForEach(self.selectList, id: \.self) { item in
+//                    unitResultCountListPercent(
+//                        title: sisaText(item: item),
+//                        count: bindingChara(item: item),
+//                        flashColor: flushColor(item: item),
+//                        bigNumber: $karakuri2.charaCountSum
+//                    )
+//                }
+//            } header: {
+//                Text("カウント結果")
+//            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.karakuri2MenuDuringAtBadge)
@@ -128,8 +222,8 @@ struct karakuri2ViewDuringAt: View {
         switch item {
         case self.selectList[0]: return self.sisaList[0]
         case self.selectList[1]: return self.sisaList[1]
-        case self.selectList[2]: return self.sisaList[2]
-        case self.selectList[3]: return self.sisaList[3]
+        case self.selectList[2]: return self.sisaList[3]
+        case self.selectList[3]: return self.sisaList[2]
         default: return "???"
         }
     }

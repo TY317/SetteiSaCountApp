@@ -67,6 +67,24 @@ struct karakuri2View95Ci: View {
                 )
             )
             .tag(3)
+
+            // 激情ジャッジ 奇数示唆合算
+            unitListSection95Ci(
+                grafTitle: "激情ジャッジ\n奇数示唆合算の回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $karakuri2.charaCountKisuSum,
+                        bigNumber: $karakuri2.charaCountSum,
+                        setting1Percent: karakuri2.ratioCharaKisu[0],
+                        setting2Percent: karakuri2.ratioCharaKisu[1],
+                        setting3Percent: karakuri2.ratioCharaKisu[2],
+                        setting4Percent: karakuri2.ratioCharaKisu[3],
+                        setting5Percent: karakuri2.ratioCharaKisu[4],
+                        setting6Percent: karakuri2.ratioCharaKisu[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
