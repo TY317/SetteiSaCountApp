@@ -212,20 +212,34 @@ struct karakuri2ViewDuringAt: View {
             } header: {
                 Text("激情ジャッジ キャラシナリオ")
             }
-
-            // カウント結果
-//            Section {
-//                ForEach(self.selectList, id: \.self) { item in
-//                    unitResultCountListPercent(
-//                        title: sisaText(item: item),
-//                        count: bindingChara(item: item),
-//                        flashColor: flushColor(item: item),
-//                        bigNumber: $karakuri2.charaCountSum
-//                    )
-//                }
-//            } header: {
-//                Text("カウント結果")
-//            }
+            
+            // 踊れオリンピア
+            Section {
+                // 枚数表示
+                unitLinkButtonViewBuilder(sheetTitle: "連打中の枚数表示") {
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "",
+                            stringList: [
+                                "+20",
+                                "+4",
+                                "+6",
+                            ],
+                            maxWidth: 80,
+                        )
+                        unitTableString(
+                            columTitle: "示唆",
+                            stringList: [
+                                "設定2 以上濃厚",
+                                "設定4 以上濃厚",
+                                "設定6 濃厚",
+                            ]
+                        )
+                    }
+                }
+            } header: {
+                Text("踊れオリンピア")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.karakuri2MenuDuringAtBadge)
