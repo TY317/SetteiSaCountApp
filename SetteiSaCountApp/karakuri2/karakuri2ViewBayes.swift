@@ -57,14 +57,15 @@ struct karakuri2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
-                // AT終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                
+                // AT開始時のステージ
+                unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ") {
                     unitExView5body2image(
-                        title: "AT終了画面",
-                        textBody1: "・確定系のみ反映させます",
+                        title: "AT開始時のステージ",
+                        textBody1: "・AT開始時に鳴海ステージと勝ステージのどちらから始まったかを計算要素に加えます",
                     )
                 }
-
+                
                 // 激情ジャッジ キャラシナリオ
                 unitToggleWithQuestion(enable: self.$charaEnable, title: "激情ジャッジ キャラシナリオ") {
                     unitExView5body2image(
@@ -73,12 +74,12 @@ struct karakuri2ViewBayes: View {
                         textBody2: "・4キャラすべての振分けが判明しているため、全キャラのカウントを計算に使います",
                     )
                 }
-
-                // AT開始時のステージ
-                unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ") {
+                
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
-                        title: "AT開始時のステージ",
-                        textBody1: "・AT開始時に鳴海ステージと勝ステージのどちらから始まったかを計算要素に加えます",
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます",
                     )
                 }
 
