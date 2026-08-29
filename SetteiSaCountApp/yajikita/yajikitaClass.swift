@@ -124,6 +124,9 @@ class YajikitaMemory1: ObservableObject {
     @AppStorage("yajikitaEndingCount1Memory1") var endingCount1: Int = 0
     @AppStorage("yajikitaEndingCount2Memory1") var endingCount2: Int = 0
     @AppStorage("yajikitaEndingCountSumMemory1") var endingCountSum: Int = 0
+    @AppStorage("yajikitaOnsenCountMissMemory1") var onsenCountMiss: Int = 0
+    @AppStorage("yajikitaOnsenCountHitMemory1") var onsenCountHit: Int = 0
+    @AppStorage("yajikitaOnsenCountSumMemory1") var onsenCountSum: Int = 0
     @AppStorage("yajikitaMemoMemory1") var memo = ""
     @AppStorage("yajikitaDateMemory1") var dateDouble = 0.0
 }
@@ -143,6 +146,9 @@ class YajikitaMemory2: ObservableObject {
     @AppStorage("yajikitaEndingCount1Memory2") var endingCount1: Int = 0
     @AppStorage("yajikitaEndingCount2Memory2") var endingCount2: Int = 0
     @AppStorage("yajikitaEndingCountSumMemory2") var endingCountSum: Int = 0
+    @AppStorage("yajikitaOnsenCountMissMemory2") var onsenCountMiss: Int = 0
+    @AppStorage("yajikitaOnsenCountHitMemory2") var onsenCountHit: Int = 0
+    @AppStorage("yajikitaOnsenCountSumMemory2") var onsenCountSum: Int = 0
     @AppStorage("yajikitaMemoMemory2") var memo = ""
     @AppStorage("yajikitaDateMemory2") var dateDouble = 0.0
 }
@@ -162,6 +168,9 @@ class YajikitaMemory3: ObservableObject {
     @AppStorage("yajikitaEndingCount1Memory3") var endingCount1: Int = 0
     @AppStorage("yajikitaEndingCount2Memory3") var endingCount2: Int = 0
     @AppStorage("yajikitaEndingCountSumMemory3") var endingCountSum: Int = 0
+    @AppStorage("yajikitaOnsenCountMissMemory3") var onsenCountMiss: Int = 0
+    @AppStorage("yajikitaOnsenCountHitMemory3") var onsenCountHit: Int = 0
+    @AppStorage("yajikitaOnsenCountSumMemory3") var onsenCountSum: Int = 0
     @AppStorage("yajikitaMemoMemory3") var memo = ""
     @AppStorage("yajikitaDateMemory3") var dateDouble = 0.0
 }

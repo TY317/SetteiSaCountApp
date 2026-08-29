@@ -212,6 +212,9 @@ struct yajikitaSubViewSaveMemory: View {
         yajikitaMemory1.endingCount1 = yajikita.endingCount1
         yajikitaMemory1.endingCount2 = yajikita.endingCount2
         yajikitaMemory1.endingCountSum = yajikita.endingCountSum
+        yajikitaMemory1.onsenCountMiss = yajikita.onsenCountMiss
+        yajikitaMemory1.onsenCountHit = yajikita.onsenCountHit
+        yajikitaMemory1.onsenCountSum = yajikita.onsenCountSum
     }
     func saveMemory2() {
         yajikitaMemory2.normalGame = yajikita.normalGame
@@ -224,6 +227,9 @@ struct yajikitaSubViewSaveMemory: View {
         yajikitaMemory2.endingCount1 = yajikita.endingCount1
         yajikitaMemory2.endingCount2 = yajikita.endingCount2
         yajikitaMemory2.endingCountSum = yajikita.endingCountSum
+        yajikitaMemory2.onsenCountMiss = yajikita.onsenCountMiss
+        yajikitaMemory2.onsenCountHit = yajikita.onsenCountHit
+        yajikitaMemory2.onsenCountSum = yajikita.onsenCountSum
     }
     func saveMemory3() {
         yajikitaMemory3.normalGame = yajikita.normalGame
@@ -236,6 +242,9 @@ struct yajikitaSubViewSaveMemory: View {
         yajikitaMemory3.endingCount1 = yajikita.endingCount1
         yajikitaMemory3.endingCount2 = yajikita.endingCount2
         yajikitaMemory3.endingCountSum = yajikita.endingCountSum
+        yajikitaMemory3.onsenCountMiss = yajikita.onsenCountMiss
+        yajikitaMemory3.onsenCountHit = yajikita.onsenCountHit
+        yajikitaMemory3.onsenCountSum = yajikita.onsenCountSum
     }
 }
 
@@ -277,6 +286,9 @@ struct yajikitaSubViewLoadMemory: View {
         yajikita.endingCount1 = yajikitaMemory1.endingCount1
         yajikita.endingCount2 = yajikitaMemory1.endingCount2
         yajikita.endingCountSum = yajikitaMemory1.endingCountSum
+        yajikita.onsenCountMiss = yajikitaMemory1.onsenCountMiss
+        yajikita.onsenCountHit = yajikitaMemory1.onsenCountHit
+        yajikita.onsenCountSum = yajikitaMemory1.onsenCountSum
     }
     func loadMemory2() {
         yajikita.normalGame = yajikitaMemory2.normalGame
@@ -289,6 +301,9 @@ struct yajikitaSubViewLoadMemory: View {
         yajikita.endingCount1 = yajikitaMemory2.endingCount1
         yajikita.endingCount2 = yajikitaMemory2.endingCount2
         yajikita.endingCountSum = yajikitaMemory2.endingCountSum
+        yajikita.onsenCountMiss = yajikitaMemory2.onsenCountMiss
+        yajikita.onsenCountHit = yajikitaMemory2.onsenCountHit
+        yajikita.onsenCountSum = yajikitaMemory2.onsenCountSum
     }
     func loadMemory3() {
         yajikita.normalGame = yajikitaMemory3.normalGame
@@ -301,6 +316,9 @@ struct yajikitaSubViewLoadMemory: View {
         yajikita.endingCount1 = yajikitaMemory3.endingCount1
         yajikita.endingCount2 = yajikitaMemory3.endingCount2
         yajikita.endingCountSum = yajikitaMemory3.endingCountSum
+        yajikita.onsenCountMiss = yajikitaMemory3.onsenCountMiss
+        yajikita.onsenCountHit = yajikitaMemory3.onsenCountHit
+        yajikita.onsenCountSum = yajikitaMemory3.onsenCountSum
     }
 }
 
