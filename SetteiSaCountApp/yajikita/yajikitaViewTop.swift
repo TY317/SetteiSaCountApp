@@ -70,7 +70,7 @@ struct yajikitaViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "終了画面",
+                            textBody: "AT終了画面",
                             badgeStatus: common.yajikitaMenuScreenBadge,
                         )
                     }

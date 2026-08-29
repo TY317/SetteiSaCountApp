@@ -150,7 +150,7 @@ struct tonskillViewEnding: View {
     private func flushColor(item: String) -> Color {
         switch item {
         case self.selectList[0]: return .blue
-        case self.selectList[1]: return .yellow
+        case self.selectList[1]: return .blue
         case self.selectList[2]: return .red
         case self.selectList[3]: return .purple
         case self.selectList[4]: return .orange

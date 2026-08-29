@@ -150,9 +150,11 @@ struct tonskillViewNormal: View {
             Section {
                 // レア役停止系
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
-                    Text("・チャンス目図柄が停止してリプレイ・ベル揃いなしでチャンス目")
-                    Text("・全リール適当押しでOK")
-                    Text("・カバネリと同じ")
+                    VStack(alignment: .leading) {
+                        Text("・チャンス目図柄が停止してリプレイ・ベル揃いなしでチャンス目")
+                        Text("・全リール適当押しでOK")
+                        Text("・カバネリと同じ")
+                    }
                 }
             } header: {
                 Text("小役")

@@ -71,7 +71,7 @@ struct tonskillViewTop: View {
                     )) {
                         unitLabelMenu(
                             imageSystemName: "photo.on.rectangle.angled.fill",
-                            textBody: "終了画面",
+                            textBody: "ボーナス終了画面",
                             badgeStatus: common.tonskillMenuScreenBadge,
                         )
                     }
