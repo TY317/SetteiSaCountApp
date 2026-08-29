@@ -363,6 +363,8 @@
 		0F4E4597303F002D0059FE1F /* yajikitaTableAkaneChance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4595303F00260059FE1F /* yajikitaTableAkaneChance.swift */; };
 		0F4E45A7304075130059FE1F /* karakuri2TableCharaSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E45A6304075130059FE1F /* karakuri2TableCharaSenario.swift */; };
 		0F4E45A8304075200059FE1F /* karakuri2TableCharaSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E45A6304075130059FE1F /* karakuri2TableCharaSenario.swift */; };
+		274306B3723343F1A03E77D5 /* karakuri2TableLampColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEE2DE798C4C219035184C /* karakuri2TableLampColor.swift */; };
+		B0F291178FC64D56A0B06BAC /* karakuri2TableLampColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEE2DE798C4C219035184C /* karakuri2TableLampColor.swift */; };
 		0F4E45A93040758B0059FE1F /* karakuri2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD586AA2FEFC054005689C6 /* karakuri2Class.swift */; };
 		0F51C6342E82CB020006794A /* evaYakusokuViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */; };
 		0F51C6372E840CFD0006794A /* creaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C6362E840CFD0006794A /* creaViewTop.swift */; };
@@ -2092,6 +2094,7 @@
 		0F4E4584303C7BBF0059FE1F /* tonskillTableGoblinRemain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillTableGoblinRemain.swift; sourceTree = "<group>"; };
 		0F4E4595303F00260059FE1F /* yajikitaTableAkaneChance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaTableAkaneChance.swift; sourceTree = "<group>"; };
 		0F4E45A6304075130059FE1F /* karakuri2TableCharaSenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableCharaSenario.swift; sourceTree = "<group>"; };
+		D2CEE2DE798C4C219035184C /* karakuri2TableLampColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableLampColor.swift; sourceTree = "<group>"; };
 		0F51C6332E82CB020006794A /* evaYakusokuViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = evaYakusokuViewBayes.swift; sourceTree = "<group>"; };
 		0F51C6362E840CFD0006794A /* creaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = creaViewTop.swift; sourceTree = "<group>"; };
 		0F51C6382E840D140006794A /* CreaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaClass.swift; sourceTree = "<group>"; };
@@ -5707,6 +5710,7 @@
 				0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */,
 				0FD77D04301DCDA100F792DC /* karakuri2TableSenario.swift */,
 				0F4E45A6304075130059FE1F /* karakuri2TableCharaSenario.swift */,
+				D2CEE2DE798C4C219035184C /* karakuri2TableLampColor.swift */,
 			);
 			path = karakuri2;
 			sourceTree = "<group>";
@@ -6638,6 +6642,7 @@
 				0F64DD942DC5CC350027315D /* funky2SubViewCountInput.swift in Sources */,
 				0F868AA62D58339C00D952D9 /* funky2Ver2ViewTop.swift in Sources */,
 				0F4E45A7304075130059FE1F /* karakuri2TableCharaSenario.swift in Sources */,
+				274306B3723343F1A03E77D5 /* karakuri2TableLampColor.swift in Sources */,
 				0FA024812CF4A6DC004B3FD5 /* karakuriView95Ci.swift in Sources */,
 				0FFAB8792E75577900296A4F /* enenViewBayes.swift in Sources */,
 				0F461F9C2F93655700F6B6A1 /* godKisekiModeKagero.swift in Sources */,
@@ -8137,6 +8142,7 @@
 				0FA0A7DB2EF76682003EF8BD /* hihodenClass.swift in Sources */,
 				0F00FBF92FB095460076283F /* rioAceTablePushSideLamp.swift in Sources */,
 				0F4E45A8304075200059FE1F /* karakuri2TableCharaSenario.swift in Sources */,
+				B0F291178FC64D56A0B06BAC /* karakuri2TableLampColor.swift in Sources */,
 				0F375A102F8142A900982F7A /* kabaneriUnatoClass.swift in Sources */,
 				0F461F9B2F93655700F6B6A1 /* godKisekiModeKagero.swift in Sources */,
 				0F6F09C6302EE4A20088F00C /* bioRe3TablePoint.swift in Sources */,

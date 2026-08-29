@@ -69,14 +69,6 @@ struct karakuri2ViewEnding: View {
                     minusCheck: $karakuri2.minusCheck) {
                         karakuri2.lampColorSumFunc()
                     }
-                    .popoverTip(tipVer450Karakuri2LampColor())
-
-                // //// 設定期待値へのリンク
-                unitNaviLinkBayes {
-                    karakuri2ViewBayes(
-                        karakuri2: karakuri2,
-                    )
-                }
             } header: {
                 Text("ランプ色選択")
             }
@@ -91,9 +83,21 @@ struct karakuri2ViewEnding: View {
                         bigNumber: $karakuri2.lampColorCountSum
                     )
                 }
+                // 参考情報）ランプ色振分け
+                unitLinkButtonViewBuilder(sheetTitle: "ランプ色振分け") {
+                    karakuri2TableLampColor(karakuri2: karakuri2)
+                }
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    karakuri2ViewBayes(
+                        karakuri2: karakuri2,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.karakuri2MenuEndingBadge)
