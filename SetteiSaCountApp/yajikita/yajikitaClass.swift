@@ -14,7 +14,19 @@ class Yajikita: ObservableObject {
     // 通常時
     // -------
 
+    let ratioOnsen: [Double] = [4.7,4.7,4.7,7,7,11.7]
+    @AppStorage("yajikitaOnsenCountMiss") var onsenCountMiss: Int = 0
+    @AppStorage("yajikitaOnsenCountHit") var onsenCountHit: Int = 0
+    @AppStorage("yajikitaOnsenCountSum") var onsenCountSum: Int = 0
+
+    func onsenSumFunc() {
+        onsenCountSum = onsenCountHit + onsenCountMiss
+    }
+
     func resetNormal() {
+        onsenCountMiss = 0
+        onsenCountHit = 0
+        onsenCountSum = 0
         minusCheck = false
     }
 

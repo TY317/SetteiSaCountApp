@@ -28,6 +28,84 @@ struct yajikitaViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 温泉前兆移行率
+            Section {
+                // 移行率
+                unitResultRatioPercent2Line(
+                    title: "移行率",
+                    count: $yajikita.onsenCountHit,
+                    bigNumber: $yajikita.onsenCountSum,
+                    numberofDicimal: 0,
+                )
+
+                // 参考情報）温泉前兆移行率
+                unitLinkButtonViewBuilder(sheetTitle: "温泉前兆移行率") {
+                    VStack(alignment: .leading) {
+                        Text("・まいるチャージ4回以上かつ終了時に規定まいる到達なし")
+                        Text("・関所チャレンジ本前兆突入時")
+                        Text("に温泉前兆移行抽選")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "温泉前兆移行率",
+                            percentList: yajikita.ratioOnsen,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・まいるチャージ4回以上かつ終了時に規定まいる到達なし")
+                        Text("・関所チャレンジ本前兆突入時")
+                        Text("がカウント対象")
+                    }
+                    // カウントボタン横並び
+                    HStack {
+                        // 移行なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行なし",
+                            count: $yajikita.onsenCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $yajikita.minusCheck) {
+                                yajikita.onsenSumFunc()
+                            }
+                        // 移行あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行あり",
+                            count: $yajikita.onsenCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $yajikita.minusCheck) {
+                                yajikita.onsenSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            yajikitaView95Ci(
+                                yajikita: yajikita,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        yajikitaViewBayes(
+                            yajikita: yajikita,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("温泉前兆移行率")
+            }
             // レア役
             Section {
                 // レア役停止系

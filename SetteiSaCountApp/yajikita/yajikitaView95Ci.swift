@@ -49,6 +49,24 @@ struct yajikitaView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 温泉前兆移行率
+            unitListSection95Ci(
+                grafTitle: "温泉前兆移行率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $yajikita.onsenCountHit,
+                        bigNumber: $yajikita.onsenCountSum,
+                        setting1Percent: yajikita.ratioOnsen[0],
+                        setting2Percent: yajikita.ratioOnsen[1],
+                        setting3Percent: yajikita.ratioOnsen[2],
+                        setting4Percent: yajikita.ratioOnsen[3],
+                        setting5Percent: yajikita.ratioOnsen[4],
+                        setting6Percent: yajikita.ratioOnsen[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

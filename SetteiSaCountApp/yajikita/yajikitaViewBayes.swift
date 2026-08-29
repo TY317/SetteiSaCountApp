@@ -13,6 +13,7 @@ struct yajikitaViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1,2,3,4,5,6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.7, 100.6, 105.2, 109.5, 114.5]
+    @State var onsenEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
 
@@ -47,6 +48,14 @@ struct yajikitaViewBayes: View {
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // CZ初当り確率
+                // 温泉前兆移行率
+                unitToggleWithQuestion(enable: self.$onsenEnable, title: "温泉前兆移行率") {
+                    unitExView5body2image(
+                        title: "温泉前兆移行率",
+                        textBody1: "・通常時ページでカウントした温泉前兆への移行率を計算要素に加えます",
+                    )
+                }
+
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
@@ -122,6 +131,16 @@ struct yajikitaViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // 温泉前兆移行率
+        var logPostOnsen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.onsenEnable {
+            logPostOnsen = logPostPercentBino(
+                ratio: yajikita.ratioOnsen,
+                Count: yajikita.onsenCountHit,
+                bigNumber: yajikita.onsenCountSum
+            )
+        }
+
         // CZ初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
@@ -179,6 +198,7 @@ struct yajikitaViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostOnsen,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostTrophy,
