@@ -133,3 +133,19 @@ struct tipVer450Karakuri2CharaSenario: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：からくり2 AT開始時のステージ
+//////////////////
+struct tipVer450Karakuri2StartStage: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT開始時のステージ振分けのカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

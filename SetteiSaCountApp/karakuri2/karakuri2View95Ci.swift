@@ -85,6 +85,24 @@ struct karakuri2View95Ci: View {
                 )
             )
             .tag(4)
+
+            // AT開始時のステージ
+            unitListSection95Ci(
+                grafTitle: "AT開始時\n鳴海ステージの回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $karakuri2.startStageCountHit,
+                        bigNumber: $karakuri2.startStageCountSum,
+                        setting1Percent: karakuri2.ratioStartStageNarumi[0],
+                        setting2Percent: karakuri2.ratioStartStageNarumi[1],
+                        setting3Percent: karakuri2.ratioStartStageNarumi[2],
+                        setting4Percent: karakuri2.ratioStartStageNarumi[3],
+                        setting5Percent: karakuri2.ratioStartStageNarumi[4],
+                        setting6Percent: karakuri2.ratioStartStageNarumi[5]
+                    )
+                )
+            )
+            .tag(5)
         }
         // //// firebaseログ
         .onAppear {

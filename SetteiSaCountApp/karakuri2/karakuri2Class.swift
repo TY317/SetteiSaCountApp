@@ -131,7 +131,7 @@ class Karakuri2: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetHistory()
-        resetChara()
+        resetDuringAt()
         resetLampColor()
     }
     
@@ -227,6 +227,33 @@ class Karakuri2: ObservableObject {
         lampColorCount7 = 0
         lampColorCountSum = 0
         minusCheck = false
+    }
+
+
+    // -------
+    // AT開始時のステージ
+    // -------
+    let ratioStartStageNarumi: [Double] = [60,40,60,40,60,50]
+    let ratioStartStageKatsu: [Double] = [40,60,40,60,40,50]
+    @AppStorage("karakuri2StartStageCountMiss") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHit") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSum") var startStageCountSum: Int = 0
+
+    func startStageSumFunc() {
+        startStageCountSum = startStageCountHit + startStageCountMiss
+    }
+
+    func resetStartStage() {
+        startStageCountMiss = 0
+        startStageCountHit = 0
+        startStageCountSum = 0
+        minusCheck = false
+    }
+
+    // AT中ページのリセット（キャラシナリオ＋AT開始時のステージ）
+    func resetDuringAt() {
+        resetChara()
+        resetStartStage()
     }
 
 }

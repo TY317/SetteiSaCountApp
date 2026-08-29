@@ -43,6 +43,78 @@ struct karakuri2ViewDuringAt: View {
 
     var body: some View {
         List {
+            // ---- AT開始時のステージ
+            Section {
+                // 鳴海ステージ率
+                unitResultRatioPercent2Line(
+                    title: "鳴海ステージ率",
+                    count: $karakuri2.startStageCountHit,
+                    bigNumber: $karakuri2.startStageCountSum,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）AT開始時のステージ
+                unitLinkButtonViewBuilder(sheetTitle: "AT開始時のステージ") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "鳴海ステージ",
+                            percentList: karakuri2.ratioStartStageNarumi
+                        )
+                        unitTablePercent(
+                            columTitle: "勝ステージ",
+                            percentList: karakuri2.ratioStartStageKatsu
+                        )
+                    }
+                }
+                .popoverTip(tipVer450Karakuri2StartStage())
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 勝ステージ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "勝ステージ",
+                            count: $karakuri2.startStageCountMiss,
+                            color: .personalSummerLightRed,
+                            minusBool: $karakuri2.minusCheck) {
+                                karakuri2.startStageSumFunc()
+                            }
+                        // 鳴海ステージ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "鳴海ステージ",
+                            count: $karakuri2.startStageCountHit,
+                            color: .personalSummerLightGreen,
+                            minusBool: $karakuri2.minusCheck) {
+                                karakuri2.startStageSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            karakuri2View95Ci(
+                                karakuri2: karakuri2,
+                                selection: 5,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        karakuri2ViewBayes(
+                            karakuri2: karakuri2,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("AT開始時のステージ")
+            }
+            
             // 1回目のキャラ選択
             Section {
                 // 確率結果
@@ -137,32 +209,7 @@ struct karakuri2ViewDuringAt: View {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
                 }
-                
-//                // サークルピッカー
-//                Picker("", selection: self.$selectedItem) {
-//                    ForEach(self.selectList, id: \.self) { item in
-//                        Text(item)
-//                    }
-//                }
-//                .pickerStyle(.wheel)
-//                .frame(height: 150)
-//
-//                // //// 示唆＆登録ボタン
-//                unitCountSubmitWithResult(
-//                    title: sisaText(item: self.selectedItem),
-//                    count: bindingChara(item: self.selectedItem),
-//                    bigNumber: $karakuri2.charaCountSum,
-//                    flushColor: flushColor(item: self.selectedItem),
-//                    minusCheck: $karakuri2.minusCheck) {
-//                        karakuri2.charaSumFunc()
-//                    }
-//                
-//                // キャラシナリオ
-//                unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ") {
-//                    karakuri2TableSenario()
-//                }
             } header: {
-//                Text("1回目のキャラ選択")
                 Text("激情ジャッジ キャラシナリオ")
             }
 
@@ -213,7 +260,7 @@ struct karakuri2ViewDuringAt: View {
             }
             ToolbarItem(placement: .automatic) {
                 // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetChara)
+                unitButtonReset(isShowAlert: $isShowAlert, action: karakuri2.resetDuringAt)
             }
         }
     }

@@ -17,6 +17,7 @@ struct karakuri2ViewBayes: View {
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var startStageEnable: Bool = true
     @State var lampColorEnable: Bool = true
     @State var kyoCherryEnable: Bool = true
 
@@ -70,6 +71,14 @@ struct karakuri2ViewBayes: View {
                         title: "激情ジャッジ キャラシナリオ",
                         textBody1: "・1回目に選択されたキャラの振分けを計算要素に加えます",
                         textBody2: "・4キャラすべての振分けが判明しているため、全キャラのカウントを計算に使います",
+                    )
+                }
+
+                // AT開始時のステージ
+                unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ") {
+                    unitExView5body2image(
+                        title: "AT開始時のステージ",
+                        textBody1: "・AT開始時に鳴海ステージと勝ステージのどちらから始まったかを計算要素に加えます",
                     )
                 }
 
@@ -208,6 +217,16 @@ struct karakuri2ViewBayes: View {
                 bigNumber: karakuri2.charaCountSum
             )
         }
+        
+        // AT開始時のステージ
+        var logPostStartStage: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.startStageEnable {
+            logPostStartStage = logPostPercentBino(
+                ratio: karakuri2.ratioStartStageNarumi,
+                Count: karakuri2.startStageCountHit,
+                bigNumber: karakuri2.startStageCountSum
+            )
+        }
 
         // エンディング ランプ色
         // 7色の振分けは各設定で合計100%ちょうどのため、全カテゴリを渡してよい
@@ -278,6 +297,7 @@ struct karakuri2ViewBayes: View {
             logPostScreen,
             logPostKyoCherry,
             logPostChara,
+            logPostStartStage,
             logPostLampColor,
             logPostTrophy,
             logPostBefore,
