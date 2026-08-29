@@ -131,7 +131,8 @@ class Karakuri2: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetHistory()
-        resetChara()
+        resetDuringAt()
+        resetLampColor()
     }
     
     // ----------
@@ -149,11 +150,19 @@ class Karakuri2: ObservableObject {
     // -------
     // 1回目のキャラ選択
     // -------
+    let ratioChara1: [Double] = [56,37,54,36,51,42]
+    let ratioChara2: [Double] = [38,54,37,52,35,42]
+    let ratioChara3: [Double] = [2,6,3,8,5,8]
+    let ratioChara4: [Double] = [4,3,6,4,9,8]
+    let ratioCharaKisu: [Double] = [60,40,60,40,60,50]
+    let ratioCharaGusu: [Double] = [40,60,40,60,40,50]
     @AppStorage("karakuri2CharaCount1") var charaCount1: Int = 0
     @AppStorage("karakuri2CharaCount2") var charaCount2: Int = 0
     @AppStorage("karakuri2CharaCount3") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSum") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSum") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSum") var charaCountGusuSum: Int = 0
 
     func charaSumFunc() {
         charaCountSum = countSum(
@@ -162,6 +171,8 @@ class Karakuri2: ObservableObject {
             charaCount3,
             charaCount4,
         )
+        charaCountKisuSum = charaCount1 + charaCount4
+        charaCountGusuSum = charaCount2 + charaCount3
     }
 
     func resetChara() {
@@ -171,7 +182,80 @@ class Karakuri2: ObservableObject {
         charaCount4 = 0
         charaCountSum = 0
         minusCheck = false
+        charaCountKisuSum = 0
+        charaCountGusuSum = 0
     }
+
+    // -------
+    // ランプ色選択
+    // -------
+    let ratioLampColorWhite: [Double] = [49,45,44,40,38,35]
+    let ratioLampColorBlue: [Double] = [22,15,22,15,22,18]
+    let ratioLampColorYellow: [Double] = [15,22,15,22,15,18]
+    let ratioLampColorGreen: [Double] = [13,15,16,18,20,22]
+    let ratioLampColorRed: [Double] = [1,3,3,3,3,3]
+    let ratioLampColorPurple: [Double] = [0,0,0,2,2,2]
+    let ratioLampColorRainbow: [Double] = [0,0,0,0,0,2]
+    @AppStorage("karakuri2LampColorCount1") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSum") var lampColorCountSum: Int = 0
+
+    func lampColorSumFunc() {
+        lampColorCountSum = countSum(
+            lampColorCount1,
+            lampColorCount2,
+            lampColorCount3,
+            lampColorCount4,
+            lampColorCount5,
+            lampColorCount6,
+            lampColorCount7,
+        )
+    }
+
+    func resetLampColor() {
+        lampColorCount1 = 0
+        lampColorCount2 = 0
+        lampColorCount3 = 0
+        lampColorCount4 = 0
+        lampColorCount5 = 0
+        lampColorCount6 = 0
+        lampColorCount7 = 0
+        lampColorCountSum = 0
+        minusCheck = false
+    }
+
+
+    // -------
+    // AT開始時のステージ
+    // -------
+    let ratioStartStageNarumi: [Double] = [60,40,60,40,60,50]
+    let ratioStartStageKatsu: [Double] = [40,60,40,60,40,50]
+    @AppStorage("karakuri2StartStageCountMiss") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHit") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSum") var startStageCountSum: Int = 0
+
+    func startStageSumFunc() {
+        startStageCountSum = startStageCountHit + startStageCountMiss
+    }
+
+    func resetStartStage() {
+        startStageCountMiss = 0
+        startStageCountHit = 0
+        startStageCountSum = 0
+        minusCheck = false
+    }
+
+    // AT中ページのリセット（キャラシナリオ＋AT開始時のステージ）
+    func resetDuringAt() {
+        resetChara()
+        resetStartStage()
+    }
+
 }
 
 
@@ -196,6 +280,19 @@ class Karakuri2Memory1: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory1") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory1") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory1") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory1") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory1") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory1") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory1") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory1") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory1") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory1") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory1") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory1") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory1") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory1") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory1") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory1") var memo = ""
     @AppStorage("karakuri2DateMemory1") var dateDouble = 0.0
 }
@@ -222,6 +319,19 @@ class Karakuri2Memory2: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory2") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory2") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory2") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory2") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory2") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory2") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory2") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory2") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory2") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory2") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory2") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory2") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory2") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory2") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory2") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory2") var memo = ""
     @AppStorage("karakuri2DateMemory2") var dateDouble = 0.0
 }
@@ -248,6 +358,19 @@ class Karakuri2Memory3: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory3") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory3") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory3") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory3") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory3") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory3") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory3") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory3") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory3") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory3") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory3") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory3") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory3") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory3") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory3") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory3") var memo = ""
     @AppStorage("karakuri2DateMemory3") var dateDouble = 0.0
 }

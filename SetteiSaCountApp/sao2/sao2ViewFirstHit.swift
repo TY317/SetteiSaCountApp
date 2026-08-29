@@ -76,6 +76,24 @@ struct sao2ViewFirstHit: View {
                     }
                 }
                 
+                // 参考情報）AT直撃発生率
+                unitLinkButtonViewBuilder(sheetTitle: "AT直撃発生率") {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・GGOモード詩乃での直撃実質発生率")
+                            Text("・ウルティマチェリー、ロングフリーズ、Pt特化中7停止、引き戻し、AT天井以外でのAT直撃はGGOモード詩乃契機での当選が濃厚")
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "AT直撃発生率",
+                                denominateList: [18091.8, 14160.5, 14390.8, 8498.0, 4723.3, 3417.5]
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer450Sao2Chokugeki())
+                
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
                     Ci95view: AnyView(

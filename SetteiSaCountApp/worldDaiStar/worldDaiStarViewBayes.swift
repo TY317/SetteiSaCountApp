@@ -15,6 +15,7 @@ struct worldDaiStarViewBayes: View {
     let payoutList: [Double] = [97.8, 98.8, 101.1, 104, 107, 112.4]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var comeBackEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -50,6 +51,9 @@ struct worldDaiStarViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // 引き戻しゾーン移行率
+                unitToggleWithQuestion(enable: self.$comeBackEnable, title: "引き戻しゾーン移行率")
 
                 // トロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -140,6 +144,16 @@ struct worldDaiStarViewBayes: View {
             )
         }
 
+        // 引き戻しゾーン移行率
+        var logPostComeBack: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.comeBackEnable {
+            logPostComeBack = logPostPercentBino(
+                ratio: worldDaiStar.ratioComeBack,
+                Count: worldDaiStar.comeBackCountHit,
+                bigNumber: worldDaiStar.comeBackCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -179,6 +193,7 @@ struct worldDaiStarViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostComeBack,
             logPostTrophy,
             logPostBefore,
         ])

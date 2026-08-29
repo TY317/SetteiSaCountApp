@@ -135,6 +135,12 @@ struct index2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     index2TableMode()
                 }
+                
+                // 参考情報）前兆発生G数での法則
+                unitLinkButtonViewBuilder(sheetTitle: "前兆発生ゲーム数での法則") {
+                    index2TableZenchoGame()
+                }
+                .popoverTip(tipVer450Index2ZenchoGame())
             } header: {
                 Text("モード")
             }

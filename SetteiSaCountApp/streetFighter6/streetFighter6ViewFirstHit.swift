@@ -138,6 +138,12 @@ struct streetFighter6ViewFirstHit: View {
                     streetFighter6TableFbTenjo(streetFighter6: streetFighter6)
                 }
                 
+                // 参考情報）
+                unitLinkButtonViewBuilder(sheetTitle: "通常時スマホ演出での示唆") {
+                    streetFighter6TableSmartPhone()
+                }
+                .popoverTip(tipVer450StreetFighter6SmartPhone())
+                
                 DisclosureGroup {
                     // 注意書き
                     unitLabelCautionText {

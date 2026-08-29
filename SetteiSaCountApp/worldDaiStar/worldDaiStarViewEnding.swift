@@ -31,15 +31,23 @@ struct worldDaiStarViewEnding: View {
         List {
             Section {
                 VStack(alignment: .leading) {
-                    Text("・チャンス目成立時にPUSHでサイン出現の可能性あり")
-                    Text("・サインの文字色で設定を示唆")
+                    Text("・チャンス目成立時にPUSHでボイス・サイン出現の可能性あり")
+                    Text("・ボイス種類、サインの文字色で設定を示唆")
                 }
                 .foregroundStyle(Color.secondary)
                 .font(.caption)
-                worldDaiStarTableEnding()
-                    .frame(maxWidth: .infinity, alignment: .center)
+                VStack {
+                    Text("[ボイス]")
+                    worldDaiStarTableVoice()
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                VStack {
+                    Text("[サイン]")
+                    worldDaiStarTableEnding()
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
             } header: {
-                Text("チャンス目時のサイン")
+                Text("チャンス目時の示唆")
             }
 
         }

@@ -97,6 +97,9 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5028", name: "喰霊", fullName: "喰霊-零-Re", iconName: "gareiMachineIcon", btBadge: false, maker: "オーイズミ"),
+        Machine(id: "5030", name: "とんスキ", fullName: "とんでもスキルで異世界放浪メシ", iconName: "tonskillMachineIcon", btBadge: false, maker: "コナミ"),
+        Machine(id: "5027", name: "やじきた", fullName: "やじきた道中記参る！", iconName: "yajikitaMachineIcon", btBadge: false, maker: "UNIVERSAL"),
         Machine(id: "5068", name: "スト6", fullName: "ストリートファイター6", iconName: "streetFighter6MachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5020", name: "邪神ちゃん", fullName: "邪神ちゃんドロップキック", iconName: "dropkickMachineIcon", btBadge: false, maker: "SANYO"),
         Machine(id: "5055", name: "ワダスタ", fullName: "ワールドダイスター", iconName: "worldDaiStarMachineIcon", btBadge: false, maker: "大都技研"),
@@ -370,6 +373,7 @@ class commonVar: ObservableObject {
     @AppStorage("karakuri2MenuScreenBadge") var karakuri2MenuScreenBadge: String = "none"
     @AppStorage("karakuri2MenuHistoryBadge") var karakuri2MenuHistoryBadge: String = "none"
     @AppStorage("karakuri2MenuDuringAtBadge") var karakuri2MenuDuringAtBadge: String = "none"
+    @AppStorage("karakuri2MenuEndingBadge") var karakuri2MenuEndingBadge: String = "none"
 
     // ---- ケロット5 BT
     @AppStorage("kerottoMenuNormalBadge") var kerottoMenuNormalBadge: String = "none"
@@ -386,6 +390,31 @@ class commonVar: ObservableObject {
     @AppStorage("index2MenuBayesBadge") var index2MenuBayesBadge: String = "none"
     @AppStorage("index2MenuScreenBadge") var index2MenuScreenBadge: String = "none"
     @AppStorage("index2MenuEndingBadge") var index2MenuEndingBadge: String = "none"
+
+    // ---- 喰霊-零-Re
+    @AppStorage("gareiMenuNormalBadge") var gareiMenuNormalBadge: String = "none"
+    @AppStorage("gareiMenuFirstHitBadge") var gareiMenuFirstHitBadge: String = "none"
+    @AppStorage("gareiMenuBayesBadge") var gareiMenuBayesBadge: String = "none"
+    @AppStorage("gareiMenuScreenBadge") var gareiMenuScreenBadge: String = "none"
+    @AppStorage("gareiMenuArtScreenBadge") var gareiMenuArtScreenBadge: String = "none"
+    @AppStorage("gareiMenuCzBadge") var gareiMenuCzBadge: String = "none"
+    @AppStorage("gareiMenuDuringRbBadge") var gareiMenuDuringRbBadge: String = "none"
+
+    // ---- とんでもスキルで異世界放浪メシ
+    @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
+    @AppStorage("tonskillMenuFirstHitBadge") var tonskillMenuFirstHitBadge: String = "none"
+    @AppStorage("tonskillMenuBayesBadge") var tonskillMenuBayesBadge: String = "none"
+    @AppStorage("tonskillMenuScreenBadge") var tonskillMenuScreenBadge: String = "none"
+    @AppStorage("tonskillMenuEndingBadge") var tonskillMenuEndingBadge: String = "none"
+    @AppStorage("tonskillMenuCzBadge") var tonskillMenuCzBadge: String = "none"
+
+    // ---- やじきた道中記参る！
+    @AppStorage("yajikitaMenuNormalBadge") var yajikitaMenuNormalBadge: String = "none"
+    @AppStorage("yajikitaMenuFirstHitBadge") var yajikitaMenuFirstHitBadge: String = "none"
+    @AppStorage("yajikitaMenuBayesBadge") var yajikitaMenuBayesBadge: String = "none"
+    @AppStorage("yajikitaMenuScreenBadge") var yajikitaMenuScreenBadge: String = "none"
+    @AppStorage("yajikitaMenuEndingBadge") var yajikitaMenuEndingBadge: String = "none"
+    @AppStorage("yajikitaMenuDuringAtBadge") var yajikitaMenuDuringAtBadge: String = "none"
 
     // ---- ストリートファイター6
     @AppStorage("streetFighter6MenuNormalBadge") var streetFighter6MenuNormalBadge: String = "none"
@@ -409,6 +438,7 @@ class commonVar: ObservableObject {
     @AppStorage("worldDaiStarMenuBayesBadge") var worldDaiStarMenuBayesBadge: String = "none"
     @AppStorage("worldDaiStarMenuScreenBadge") var worldDaiStarMenuScreenBadge: String = "none"
     @AppStorage("worldDaiStarMenuEndingBadge") var worldDaiStarMenuEndingBadge: String = "none"
+    @AppStorage("worldDaiStarMenuComeBackBadge") var worldDaiStarMenuComeBackBadge: String = "none"
 
     // ---- 戦国乙女5
     @AppStorage("otome5isUnlocked") var otome5isUnlocked: Bool = true
@@ -760,6 +790,42 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver450FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.5.0"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5027", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5027", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5030", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5030", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5028", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5028", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5068", newStatus: "update")
+                streetFighter6MenuFirstHitBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5053", newStatus: "update")
+                index2MenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
+                sao2MenuFirstHitBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5055", newStatus: "update")
+                worldDaiStarMenuComeBackBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
+                karakuri2MenuDuringAtBadge = "update"
+                karakuri2MenuEndingBadge = "new"
+                worldDaiStarMenuEndingBadge = "update"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver440FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.4.0"

@@ -49,6 +49,24 @@ struct worldDaiStarView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 引き戻しゾーン移行率
+            unitListSection95Ci(
+                grafTitle: "引き戻しゾーン移行率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $worldDaiStar.comeBackCountHit,
+                        bigNumber: $worldDaiStar.comeBackCountSum,
+                        setting1Percent: worldDaiStar.ratioComeBack[0],
+                        setting2Percent: worldDaiStar.ratioComeBack[1],
+                        setting3Percent: worldDaiStar.ratioComeBack[2],
+                        setting4Percent: worldDaiStar.ratioComeBack[3],
+                        setting5Percent: worldDaiStar.ratioComeBack[4],
+                        setting6Percent: worldDaiStar.ratioComeBack[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
