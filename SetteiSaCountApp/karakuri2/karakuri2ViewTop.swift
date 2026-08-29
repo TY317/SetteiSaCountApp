@@ -227,6 +227,19 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory1.charaCount3 = karakuri2.charaCount3
         karakuri2Memory1.charaCount4 = karakuri2.charaCount4
         karakuri2Memory1.charaCountSum = karakuri2.charaCountSum
+        karakuri2Memory1.charaCountKisuSum = karakuri2.charaCountKisuSum
+        karakuri2Memory1.charaCountGusuSum = karakuri2.charaCountGusuSum
+        karakuri2Memory1.lampColorCount1 = karakuri2.lampColorCount1
+        karakuri2Memory1.lampColorCount2 = karakuri2.lampColorCount2
+        karakuri2Memory1.lampColorCount3 = karakuri2.lampColorCount3
+        karakuri2Memory1.lampColorCount4 = karakuri2.lampColorCount4
+        karakuri2Memory1.lampColorCount5 = karakuri2.lampColorCount5
+        karakuri2Memory1.lampColorCount6 = karakuri2.lampColorCount6
+        karakuri2Memory1.lampColorCount7 = karakuri2.lampColorCount7
+        karakuri2Memory1.lampColorCountSum = karakuri2.lampColorCountSum
+        karakuri2Memory1.startStageCountMiss = karakuri2.startStageCountMiss
+        karakuri2Memory1.startStageCountHit = karakuri2.startStageCountHit
+        karakuri2Memory1.startStageCountSum = karakuri2.startStageCountSum
     }
     func saveMemory2() {
         karakuri2Memory2.normalGame = karakuri2.normalGame
@@ -249,6 +262,19 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory2.charaCount3 = karakuri2.charaCount3
         karakuri2Memory2.charaCount4 = karakuri2.charaCount4
         karakuri2Memory2.charaCountSum = karakuri2.charaCountSum
+        karakuri2Memory2.charaCountKisuSum = karakuri2.charaCountKisuSum
+        karakuri2Memory2.charaCountGusuSum = karakuri2.charaCountGusuSum
+        karakuri2Memory2.lampColorCount1 = karakuri2.lampColorCount1
+        karakuri2Memory2.lampColorCount2 = karakuri2.lampColorCount2
+        karakuri2Memory2.lampColorCount3 = karakuri2.lampColorCount3
+        karakuri2Memory2.lampColorCount4 = karakuri2.lampColorCount4
+        karakuri2Memory2.lampColorCount5 = karakuri2.lampColorCount5
+        karakuri2Memory2.lampColorCount6 = karakuri2.lampColorCount6
+        karakuri2Memory2.lampColorCount7 = karakuri2.lampColorCount7
+        karakuri2Memory2.lampColorCountSum = karakuri2.lampColorCountSum
+        karakuri2Memory2.startStageCountMiss = karakuri2.startStageCountMiss
+        karakuri2Memory2.startStageCountHit = karakuri2.startStageCountHit
+        karakuri2Memory2.startStageCountSum = karakuri2.startStageCountSum
     }
     func saveMemory3() {
         karakuri2Memory3.normalGame = karakuri2.normalGame
@@ -271,6 +297,19 @@ struct karakuri2SubViewSaveMemory: View {
         karakuri2Memory3.charaCount3 = karakuri2.charaCount3
         karakuri2Memory3.charaCount4 = karakuri2.charaCount4
         karakuri2Memory3.charaCountSum = karakuri2.charaCountSum
+        karakuri2Memory3.charaCountKisuSum = karakuri2.charaCountKisuSum
+        karakuri2Memory3.charaCountGusuSum = karakuri2.charaCountGusuSum
+        karakuri2Memory3.lampColorCount1 = karakuri2.lampColorCount1
+        karakuri2Memory3.lampColorCount2 = karakuri2.lampColorCount2
+        karakuri2Memory3.lampColorCount3 = karakuri2.lampColorCount3
+        karakuri2Memory3.lampColorCount4 = karakuri2.lampColorCount4
+        karakuri2Memory3.lampColorCount5 = karakuri2.lampColorCount5
+        karakuri2Memory3.lampColorCount6 = karakuri2.lampColorCount6
+        karakuri2Memory3.lampColorCount7 = karakuri2.lampColorCount7
+        karakuri2Memory3.lampColorCountSum = karakuri2.lampColorCountSum
+        karakuri2Memory3.startStageCountMiss = karakuri2.startStageCountMiss
+        karakuri2Memory3.startStageCountHit = karakuri2.startStageCountHit
+        karakuri2Memory3.startStageCountSum = karakuri2.startStageCountSum
     }
 }
 
@@ -325,6 +364,19 @@ struct karakuri2SubViewLoadMemory: View {
         karakuri2.charaCount3 = karakuri2Memory1.charaCount3
         karakuri2.charaCount4 = karakuri2Memory1.charaCount4
         karakuri2.charaCountSum = karakuri2Memory1.charaCountSum
+        karakuri2.charaCountKisuSum = karakuri2Memory1.charaCountKisuSum
+        karakuri2.charaCountGusuSum = karakuri2Memory1.charaCountGusuSum
+        karakuri2.lampColorCount1 = karakuri2Memory1.lampColorCount1
+        karakuri2.lampColorCount2 = karakuri2Memory1.lampColorCount2
+        karakuri2.lampColorCount3 = karakuri2Memory1.lampColorCount3
+        karakuri2.lampColorCount4 = karakuri2Memory1.lampColorCount4
+        karakuri2.lampColorCount5 = karakuri2Memory1.lampColorCount5
+        karakuri2.lampColorCount6 = karakuri2Memory1.lampColorCount6
+        karakuri2.lampColorCount7 = karakuri2Memory1.lampColorCount7
+        karakuri2.lampColorCountSum = karakuri2Memory1.lampColorCountSum
+        karakuri2.startStageCountMiss = karakuri2Memory1.startStageCountMiss
+        karakuri2.startStageCountHit = karakuri2Memory1.startStageCountHit
+        karakuri2.startStageCountSum = karakuri2Memory1.startStageCountSum
     }
     func loadMemory2() {
         karakuri2.normalGame = karakuri2Memory2.normalGame
@@ -350,6 +402,19 @@ struct karakuri2SubViewLoadMemory: View {
         karakuri2.charaCount3 = karakuri2Memory2.charaCount3
         karakuri2.charaCount4 = karakuri2Memory2.charaCount4
         karakuri2.charaCountSum = karakuri2Memory2.charaCountSum
+        karakuri2.charaCountKisuSum = karakuri2Memory2.charaCountKisuSum
+        karakuri2.charaCountGusuSum = karakuri2Memory2.charaCountGusuSum
+        karakuri2.lampColorCount1 = karakuri2Memory2.lampColorCount1
+        karakuri2.lampColorCount2 = karakuri2Memory2.lampColorCount2
+        karakuri2.lampColorCount3 = karakuri2Memory2.lampColorCount3
+        karakuri2.lampColorCount4 = karakuri2Memory2.lampColorCount4
+        karakuri2.lampColorCount5 = karakuri2Memory2.lampColorCount5
+        karakuri2.lampColorCount6 = karakuri2Memory2.lampColorCount6
+        karakuri2.lampColorCount7 = karakuri2Memory2.lampColorCount7
+        karakuri2.lampColorCountSum = karakuri2Memory2.lampColorCountSum
+        karakuri2.startStageCountMiss = karakuri2Memory2.startStageCountMiss
+        karakuri2.startStageCountHit = karakuri2Memory2.startStageCountHit
+        karakuri2.startStageCountSum = karakuri2Memory2.startStageCountSum
     }
     func loadMemory3() {
         karakuri2.normalGame = karakuri2Memory3.normalGame
@@ -375,6 +440,19 @@ struct karakuri2SubViewLoadMemory: View {
         karakuri2.charaCount3 = karakuri2Memory3.charaCount3
         karakuri2.charaCount4 = karakuri2Memory3.charaCount4
         karakuri2.charaCountSum = karakuri2Memory3.charaCountSum
+        karakuri2.charaCountKisuSum = karakuri2Memory3.charaCountKisuSum
+        karakuri2.charaCountGusuSum = karakuri2Memory3.charaCountGusuSum
+        karakuri2.lampColorCount1 = karakuri2Memory3.lampColorCount1
+        karakuri2.lampColorCount2 = karakuri2Memory3.lampColorCount2
+        karakuri2.lampColorCount3 = karakuri2Memory3.lampColorCount3
+        karakuri2.lampColorCount4 = karakuri2Memory3.lampColorCount4
+        karakuri2.lampColorCount5 = karakuri2Memory3.lampColorCount5
+        karakuri2.lampColorCount6 = karakuri2Memory3.lampColorCount6
+        karakuri2.lampColorCount7 = karakuri2Memory3.lampColorCount7
+        karakuri2.lampColorCountSum = karakuri2Memory3.lampColorCountSum
+        karakuri2.startStageCountMiss = karakuri2Memory3.startStageCountMiss
+        karakuri2.startStageCountHit = karakuri2Memory3.startStageCountHit
+        karakuri2.startStageCountSum = karakuri2Memory3.startStageCountSum
     }
 }
 

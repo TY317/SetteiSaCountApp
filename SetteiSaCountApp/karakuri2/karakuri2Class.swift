@@ -280,6 +280,19 @@ class Karakuri2Memory1: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory1") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory1") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory1") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory1") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory1") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory1") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory1") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory1") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory1") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory1") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory1") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory1") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory1") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory1") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory1") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory1") var memo = ""
     @AppStorage("karakuri2DateMemory1") var dateDouble = 0.0
 }
@@ -306,6 +319,19 @@ class Karakuri2Memory2: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory2") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory2") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory2") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory2") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory2") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory2") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory2") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory2") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory2") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory2") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory2") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory2") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory2") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory2") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory2") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory2") var memo = ""
     @AppStorage("karakuri2DateMemory2") var dateDouble = 0.0
 }
@@ -332,6 +358,19 @@ class Karakuri2Memory3: ObservableObject {
     @AppStorage("karakuri2CharaCount3Memory3") var charaCount3: Int = 0
     @AppStorage("karakuri2CharaCount4Memory3") var charaCount4: Int = 0
     @AppStorage("karakuri2CharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("karakuri2CharaCountKisuSumMemory3") var charaCountKisuSum: Int = 0
+    @AppStorage("karakuri2CharaCountGusuSumMemory3") var charaCountGusuSum: Int = 0
+    @AppStorage("karakuri2LampColorCount1Memory3") var lampColorCount1: Int = 0
+    @AppStorage("karakuri2LampColorCount2Memory3") var lampColorCount2: Int = 0
+    @AppStorage("karakuri2LampColorCount3Memory3") var lampColorCount3: Int = 0
+    @AppStorage("karakuri2LampColorCount4Memory3") var lampColorCount4: Int = 0
+    @AppStorage("karakuri2LampColorCount5Memory3") var lampColorCount5: Int = 0
+    @AppStorage("karakuri2LampColorCount6Memory3") var lampColorCount6: Int = 0
+    @AppStorage("karakuri2LampColorCount7Memory3") var lampColorCount7: Int = 0
+    @AppStorage("karakuri2LampColorCountSumMemory3") var lampColorCountSum: Int = 0
+    @AppStorage("karakuri2StartStageCountMissMemory3") var startStageCountMiss: Int = 0
+    @AppStorage("karakuri2StartStageCountHitMemory3") var startStageCountHit: Int = 0
+    @AppStorage("karakuri2StartStageCountSumMemory3") var startStageCountSum: Int = 0
     @AppStorage("karakuri2MemoMemory3") var memo = ""
     @AppStorage("karakuri2DateMemory3") var dateDouble = 0.0
 }
