@@ -133,19 +133,3 @@ struct tipVer450Karakuri2CharaSenario: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
-
-
-//////////////////
-// Tip：からくり2 エンディング ランプ色
-//////////////////
-struct tipVer450Karakuri2LampColor: Tip {
-    var title: Text {
-        Text("機能更新")
-    }
-    var message: Text? {
-        Text("エンディングページを追加し、ランプ色のカウント機能を追加しました")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
