@@ -24,22 +24,6 @@ struct tipVer450UpdateInfo: Tip {
 
 
 //////////////////
-// Tip：
-//////////////////
-struct tipVer450: Tip {
-    var title: Text {
-        Text("機能更新")
-    }
-    var message: Text? {
-        Text("")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
-
-
-//////////////////
 // Tip：スト6 通常時スマホ演出の示唆
 //////////////////
 struct tipVer450StreetFighter6SmartPhone: Tip {
