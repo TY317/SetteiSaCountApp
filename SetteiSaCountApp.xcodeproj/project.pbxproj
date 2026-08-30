@@ -432,6 +432,7 @@
 		0F5D71A23032D7BD0023B7CC /* tonskillTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D71A13032D7BD0023B7CC /* tonskillTableMode.swift */; };
 		0F5D71A33032D7C30023B7CC /* tonskillTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D71A13032D7BD0023B7CC /* tonskillTableMode.swift */; };
 		0F5FBBC82E4823E8004124A2 /* bayesTestCustomGuessSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FBBC72E4823E8004124A2 /* bayesTestCustomGuessSheet.swift */; };
+		0F62B8153044128A00B1B6D3 /* ver460.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F62B8143044128A00B1B6D3 /* ver460.swift */; };
 		0F64DD332DC0657C0027315D /* acceleratorTableShutterOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DD322DC0657B0027315D /* acceleratorTableShutterOpen.swift */; };
 		0F64DD352DC066C30027315D /* acceleratorTableShutterOpenGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DD342DC066C30027315D /* acceleratorTableShutterOpenGame.swift */; };
 		0F64DD372DC068EF0027315D /* acceleratorTableTaioChance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64DD362DC068EF0027315D /* acceleratorTableTaioChance.swift */; };
@@ -2145,6 +2146,7 @@
 		0F5D719E3032D4EF0023B7CC /* tonskillTableCzPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillTableCzPoint.swift; sourceTree = "<group>"; };
 		0F5D71A13032D7BD0023B7CC /* tonskillTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillTableMode.swift; sourceTree = "<group>"; };
 		0F5FBBC72E4823E8004124A2 /* bayesTestCustomGuessSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bayesTestCustomGuessSheet.swift; sourceTree = "<group>"; };
+		0F62B8143044128A00B1B6D3 /* ver460.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver460.swift; sourceTree = "<group>"; };
 		0F64DD322DC0657B0027315D /* acceleratorTableShutterOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorTableShutterOpen.swift; sourceTree = "<group>"; };
 		0F64DD342DC066C30027315D /* acceleratorTableShutterOpenGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorTableShutterOpenGame.swift; sourceTree = "<group>"; };
 		0F64DD362DC068EF0027315D /* acceleratorTableTaioChance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceleratorTableTaioChance.swift; sourceTree = "<group>"; };
@@ -4997,6 +4999,7 @@
 				0F6F0817301EC5210088F00C /* ver430.swift */,
 				0F6F08FF302AA8730088F00C /* ver440.swift */,
 				0F5D71263031E0040023B7CC /* ver450.swift */,
+				0F62B8143044128A00B1B6D3 /* ver460.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -7641,6 +7644,7 @@
 				0FD357C12DB28E070069BD1A /* mahjongViewBonusScreen.swift in Sources */,
 				0F8872822C6B5F0D00AADD2B /* VVVharakiriDriveView.swift in Sources */,
 				0FB9CAB42DE1B620009FC6AF /* logEventFirebaseScreen.swift in Sources */,
+				0F62B8153044128A00B1B6D3 /* ver460.swift in Sources */,
 				0F868A802D54EC2500D952D9 /* sbjViewNormal.swift in Sources */,
 				0F6B59B82DFD2A1A00DB1A2B /* unitIconBtBadgeTriangleShape.swift in Sources */,
 				0F03BD382F0B961200222339 /* shakeTableKoyakuRatio.swift in Sources */,
