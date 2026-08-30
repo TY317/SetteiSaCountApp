@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5033", name: "リコリコ", fullName: "リコリス・リコイル", iconName: "ricoricoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5028", name: "喰霊", fullName: "喰霊-零-Re", iconName: "gareiMachineIcon", btBadge: false, maker: "オーイズミ"),
         Machine(id: "5030", name: "とんスキ", fullName: "とんでもスキルで異世界放浪メシ", iconName: "tonskillMachineIcon", btBadge: false, maker: "コナミ"),
         Machine(id: "5027", name: "やじきた", fullName: "やじきた道中記参る！", iconName: "yajikitaMachineIcon", btBadge: false, maker: "UNIVERSAL"),
@@ -365,6 +366,12 @@ class commonVar: ObservableObject {
     @AppStorage("sencole6MenuBayesBadge") var sencole6MenuBayesBadge: String = "none"
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
     @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
+
+    // ---- リコリス・リコイル
+    @AppStorage("ricoricoMenuNormalBadge") var ricoricoMenuNormalBadge: String = "none"
+    @AppStorage("ricoricoMenuFirstHitBadge") var ricoricoMenuFirstHitBadge: String = "none"
+    @AppStorage("ricoricoMenuBayesBadge") var ricoricoMenuBayesBadge: String = "none"
+    @AppStorage("ricoricoMenuScreenBadge") var ricoricoMenuScreenBadge: String = "none"
 
     // ---- からくりサーカス2
     @AppStorage("karakuri2MenuNormalBadge") var karakuri2MenuNormalBadge: String = "none"
@@ -799,6 +806,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5033", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5033", isUnlocked: false)
             }
             else {
                 print("\(targetVersion)以上です")
