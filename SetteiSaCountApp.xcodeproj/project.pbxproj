@@ -1787,6 +1787,7 @@
 		BF379BB86EEA4E769E499904 /* sencole6ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B5A3B121D4B3DB9365DA0 /* sencole6ViewNormal.swift */; };
 		BFB8AA93FA1445FFBB8C3AFA /* ricoricoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E412D0A0004EF992886D5D /* ricoricoAssets.xcassets */; };
 		C01663B41A40438C9FE5BC9E /* ricoricoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466691D59354A62B7D56980 /* ricoricoViewNormal.swift */; };
+		8CC5C5A9E0D846A1ACA1B369 /* ricoricoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579FB8D733044BAA48BFFAA /* ricoricoViewBayes.swift */; };
 		CBF3D71F81CA494497BE05FC /* worldDaiStarViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F65BF2F457A42DAA6F70F9A /* worldDaiStarViewScreen.swift */; };
 		D0F2547A32FA4B6090ABCD18 /* index2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0F45DF7174A9497281784 /* index2ViewScreen.swift */; };
 		D25E217B3F744E64934B275F /* streetFighter6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55795DD6C0EF4F8FB30A0F5A /* streetFighter6Class.swift */; };
@@ -1838,6 +1839,7 @@
 /* Begin PBXFileReference section */
 		01B69FE471144EBEA02F47A0 /* gareiViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiViewCz.swift; sourceTree = "<group>"; };
 		0466691D59354A62B7D56980 /* ricoricoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ricoricoViewNormal.swift; sourceTree = "<group>"; };
+		7579FB8D733044BAA48BFFAA /* ricoricoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ricoricoViewBayes.swift; sourceTree = "<group>"; };
 		04A3FE16202C49DDAEDC3983 /* kerottoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewBayes.swift; sourceTree = "<group>"; };
 		05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewFirstHit.swift; sourceTree = "<group>"; };
 		0BA01361766B404EB2925B1B /* kerottoViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewReg.swift; sourceTree = "<group>"; };
@@ -6094,6 +6096,7 @@
 				CE2DD832512D49D89882D706 /* ricoricoViewTop.swift */,
 				17252422CEB3472BAB9A7FB3 /* ricoricoClass.swift */,
 				0466691D59354A62B7D56980 /* ricoricoViewNormal.swift */,
+				7579FB8D733044BAA48BFFAA /* ricoricoViewBayes.swift */,
 				A2FDB5F401C54901ACD4BEF0 /* ricoricoViewFirstHit.swift */,
 				63C20EB182494F2E925420D5 /* ricoricoView95Ci.swift */,
 				C4E412D0A0004EF992886D5D /* ricoricoAssets.xcassets */,
@@ -7903,6 +7906,7 @@
 				846367DB57A04ADCA6B29239 /* ricoricoViewTop.swift in Sources */,
 				7E88AB46530449468E035F20 /* ricoricoClass.swift in Sources */,
 				C01663B41A40438C9FE5BC9E /* ricoricoViewNormal.swift in Sources */,
+				8CC5C5A9E0D846A1ACA1B369 /* ricoricoViewBayes.swift in Sources */,
 				53B7D78AF4214C62A6D24CCF /* ricoricoViewFirstHit.swift in Sources */,
 				04F78CF6E2EE417B8D975266 /* ricoricoView95Ci.swift in Sources */,
 				FF5BE591DC8D4AA8924FD957 /* gareiViewTop.swift in Sources */,

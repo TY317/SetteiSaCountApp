@@ -79,15 +79,15 @@ struct ricoricoViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: ricoricoViewBayes(
-//                    ricorico: ricorico,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.ricoricoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: ricoricoViewBayes(
+                    ricorico: ricorico,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.ricoricoMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5033")
