@@ -21,9 +21,22 @@ description: 特定バージョンの初回起動移行コードを撤去する�
      - 各機種Viewの `.popoverTip(tipVerNNNN...())`（コメントアウト済み含む）
 
 2. **isUnlocked ロックの引き継ぎ（関数削除より先に必ず実施）**
-   - `func verNNNNFirstLaunch()` の本文を読む。`XXXisUnlocked = false` があれば、その各 `XXX` について `commonVar` の `func forcedUnlockReward()` に `XXXisUnlocked = true` を追加する（既に在れば不要）。
-   - 理由：移行関数を消すと、過去にロックされたユーザーが解放されないまま固定されるため、`forcedUnlockReward()`（毎起動で true 強制）に移す。
-   - ※badge 代入（`= "update"`/`"new"`）だけなら引き継ぎ不要。
+   `func verNNNNFirstLaunch()` の本文を読み、**ロック処理があれば必ず `forcedUnlockReward()` へ移す**。ロックのパターンは2種類あり、**新しい方（B）が現行**：
+
+   | | パターン | 引き継ぎ先に追加する行 |
+   |---|---|---|
+   | **A（旧）** | `XXXisUnlocked = false` | `XXXisUnlocked = true` |
+   | **B（現行）** | `machines.updateMachineIsUnlocked(id: "<id>", isUnlocked: false)` | `machines.updateMachineIsUnlocked(id: "<id>", isUnlocked: true)` |
+
+   - **A は 4.0.0 以前の書き方で、現在 `commonVar` には1件も残っていない。** ver410 以降はすべて B。**A だけを探して「該当なし」と判断しないこと。**
+   - 追加先はどちらも `commonVar` の `func forcedUnlockReward()`（splash から毎起動呼ばれる）。既に同じ行があれば不要。
+   - 理由：移行関数を消すと、リワード未視聴のままロックされているユーザーが永久に解放されなくなる。B のロックを解除する `updateMachineIsUnlocked(..., isUnlocked: true)` はコード中に他に存在せず、解放は UI のリワード視聴のみ。
+   - ※badge 代入（`= "update"`/`"new"` / `updateMachineBadgeStatus`）だけなら引き継ぎ不要。
+
+   確認コマンド：
+   ```bash
+   sed -n '/func verNNNNFirstLaunch/,/^    }/p' SetteiSaCountApp/Common/class/commonVar.swift | grep -n "isUnlocked"
+   ```
 
 3. **削除**
    - `commonVar.swift`：`func verNNNNFirstLaunch() { ... }` をブロックごと削除（前後の余分な空行も整理）。`isVersionCompare` や各 `@AppStorage` バッジ/ロック変数、他の `verXXXXFirstLaunch` は**残す**。
@@ -39,7 +52,7 @@ description: 特定バージョンの初回起動移行コードを撤去する�
    - **フルビルドは行わない**（`xcodebuild` はおよそ10分かかるため add-machine のみ。方針：`skill-build-verify-policy`）。削除対象の `verNNNN` が全ファイルから消えているか grep で確認し（残骸ゼロ）、pbxproj を編集した場合は `plutil -lint` を通す。報告時に「フルビルド検証は省略（コミット前ビルドに委ねる）」と一言添える。
 
 5. **報告**（コミットはしない）
-   - 削除した対象一覧、isUnlocked 引き継ぎの有無を報告。
+   - 削除した対象一覧、isUnlocked 引き継ぎの有無（A/B どちらのパターンだったか、`forcedUnlockReward()` に追加した機種ID）を報告。
    - 提案コミットメッセージ：`[整理]verNNNN関連(移行コード/Tip)を削除`（末尾に `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`）。
    - **コミットはユーザーが差分を確認して指示してから**行う（多ファイル削除＋pbxproj編集のため）。
 
