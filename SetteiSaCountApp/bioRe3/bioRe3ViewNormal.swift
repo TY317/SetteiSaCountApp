@@ -257,7 +257,6 @@ struct bioRe3ViewNormal: View {
                     bigNumber: $bioRe3.shinonCountSum,
                     numberofDicimal: 0
                 )
-//                .popoverTip(tipVer400BioRe3Shinon())
                 
                 // 参考情報）心音レベル転落率
                 unitLinkButtonViewBuilder(sheetTitle: "心音レベル転落率") {
