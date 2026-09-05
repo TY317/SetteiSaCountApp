@@ -44,6 +44,42 @@ class Ricorico: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // 終了画面
+    // --------
+    @AppStorage("ricoricoScreenCount1") var screenCount1: Int = 0
+    @AppStorage("ricoricoScreenCount2") var screenCount2: Int = 0
+    @AppStorage("ricoricoScreenCount3") var screenCount3: Int = 0
+    @AppStorage("ricoricoScreenCount4") var screenCount4: Int = 0
+    @AppStorage("ricoricoScreenCount5") var screenCount5: Int = 0
+    @AppStorage("ricoricoScreenCount6") var screenCount6: Int = 0
+    @AppStorage("ricoricoScreenCount7") var screenCount7: Int = 0
+    @AppStorage("ricoricoScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+            screenCount6,
+            screenCount7,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCount6 = 0
+        screenCount7 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -54,6 +90,7 @@ class Ricorico: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 

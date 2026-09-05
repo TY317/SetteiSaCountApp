@@ -53,6 +53,17 @@ struct ricoricoViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: ricoricoViewScreen(
+                        ricorico: ricorico,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.ricoricoMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewSammyTrophy()) {
                         unitLabelMenu(
