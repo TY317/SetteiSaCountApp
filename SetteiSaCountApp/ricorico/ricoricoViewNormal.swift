@@ -37,6 +37,16 @@ struct ricoricoViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // 規定ゲーム数
+            Section {
+                // 規定ゲーム数
+                unitLinkButtonViewBuilder(sheetTitle: "ゲーム数 期待度テーブル") {
+                    ricoricoTableGameTable()
+                }
+            } header: {
+                Text("規定ゲーム数")
+            }
 
         }
         // //// バッジのリセット

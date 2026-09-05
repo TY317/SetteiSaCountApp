@@ -117,6 +117,7 @@ struct unitTableZoneKitai: View {
         case 3: return "◎"
         case 4: return "×"
         case 10: return "天井"
+        case 20: return "濃厚"
         default: return ""
         }
     }
