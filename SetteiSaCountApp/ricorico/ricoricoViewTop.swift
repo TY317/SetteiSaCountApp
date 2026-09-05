@@ -192,13 +192,85 @@ struct ricoricoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        ricoricoMemory1.normalGame = ricorico.normalGame
+        ricoricoMemory1.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
+        ricoricoMemory1.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
+        ricoricoMemory1.firstHitCountCz = ricorico.firstHitCountCz
+        ricoricoMemory1.firstHitCountAt = ricorico.firstHitCountAt
+        ricoricoMemory1.screenCount1 = ricorico.screenCount1
+        ricoricoMemory1.screenCount2 = ricorico.screenCount2
+        ricoricoMemory1.screenCount3 = ricorico.screenCount3
+        ricoricoMemory1.screenCount4 = ricorico.screenCount4
+        ricoricoMemory1.screenCount5 = ricorico.screenCount5
+        ricoricoMemory1.screenCount6 = ricorico.screenCount6
+        ricoricoMemory1.screenCount7 = ricorico.screenCount7
+        ricoricoMemory1.screenCountSum = ricorico.screenCountSum
+        ricoricoMemory1.prologueCount1 = ricorico.prologueCount1
+        ricoricoMemory1.prologueCount2 = ricorico.prologueCount2
+        ricoricoMemory1.prologueCount3 = ricorico.prologueCount3
+        ricoricoMemory1.prologueCountSum = ricorico.prologueCountSum
+        ricoricoMemory1.rushEpiboCount1 = ricorico.rushEpiboCount1
+        ricoricoMemory1.rushEpiboCount2 = ricorico.rushEpiboCount2
+        ricoricoMemory1.rushEpiboCount3 = ricorico.rushEpiboCount3
+        ricoricoMemory1.rushEpiboCountSum = ricorico.rushEpiboCountSum
+        ricoricoMemory1.wRushEpiboCount1 = ricorico.wRushEpiboCount1
+        ricoricoMemory1.wRushEpiboCount2 = ricorico.wRushEpiboCount2
+        ricoricoMemory1.wRushEpiboCount3 = ricorico.wRushEpiboCount3
+        ricoricoMemory1.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory2() {
-
+        ricoricoMemory2.normalGame = ricorico.normalGame
+        ricoricoMemory2.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
+        ricoricoMemory2.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
+        ricoricoMemory2.firstHitCountCz = ricorico.firstHitCountCz
+        ricoricoMemory2.firstHitCountAt = ricorico.firstHitCountAt
+        ricoricoMemory2.screenCount1 = ricorico.screenCount1
+        ricoricoMemory2.screenCount2 = ricorico.screenCount2
+        ricoricoMemory2.screenCount3 = ricorico.screenCount3
+        ricoricoMemory2.screenCount4 = ricorico.screenCount4
+        ricoricoMemory2.screenCount5 = ricorico.screenCount5
+        ricoricoMemory2.screenCount6 = ricorico.screenCount6
+        ricoricoMemory2.screenCount7 = ricorico.screenCount7
+        ricoricoMemory2.screenCountSum = ricorico.screenCountSum
+        ricoricoMemory2.prologueCount1 = ricorico.prologueCount1
+        ricoricoMemory2.prologueCount2 = ricorico.prologueCount2
+        ricoricoMemory2.prologueCount3 = ricorico.prologueCount3
+        ricoricoMemory2.prologueCountSum = ricorico.prologueCountSum
+        ricoricoMemory2.rushEpiboCount1 = ricorico.rushEpiboCount1
+        ricoricoMemory2.rushEpiboCount2 = ricorico.rushEpiboCount2
+        ricoricoMemory2.rushEpiboCount3 = ricorico.rushEpiboCount3
+        ricoricoMemory2.rushEpiboCountSum = ricorico.rushEpiboCountSum
+        ricoricoMemory2.wRushEpiboCount1 = ricorico.wRushEpiboCount1
+        ricoricoMemory2.wRushEpiboCount2 = ricorico.wRushEpiboCount2
+        ricoricoMemory2.wRushEpiboCount3 = ricorico.wRushEpiboCount3
+        ricoricoMemory2.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory3() {
-
+        ricoricoMemory3.normalGame = ricorico.normalGame
+        ricoricoMemory3.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
+        ricoricoMemory3.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
+        ricoricoMemory3.firstHitCountCz = ricorico.firstHitCountCz
+        ricoricoMemory3.firstHitCountAt = ricorico.firstHitCountAt
+        ricoricoMemory3.screenCount1 = ricorico.screenCount1
+        ricoricoMemory3.screenCount2 = ricorico.screenCount2
+        ricoricoMemory3.screenCount3 = ricorico.screenCount3
+        ricoricoMemory3.screenCount4 = ricorico.screenCount4
+        ricoricoMemory3.screenCount5 = ricorico.screenCount5
+        ricoricoMemory3.screenCount6 = ricorico.screenCount6
+        ricoricoMemory3.screenCount7 = ricorico.screenCount7
+        ricoricoMemory3.screenCountSum = ricorico.screenCountSum
+        ricoricoMemory3.prologueCount1 = ricorico.prologueCount1
+        ricoricoMemory3.prologueCount2 = ricorico.prologueCount2
+        ricoricoMemory3.prologueCount3 = ricorico.prologueCount3
+        ricoricoMemory3.prologueCountSum = ricorico.prologueCountSum
+        ricoricoMemory3.rushEpiboCount1 = ricorico.rushEpiboCount1
+        ricoricoMemory3.rushEpiboCount2 = ricorico.rushEpiboCount2
+        ricoricoMemory3.rushEpiboCount3 = ricorico.rushEpiboCount3
+        ricoricoMemory3.rushEpiboCountSum = ricorico.rushEpiboCountSum
+        ricoricoMemory3.wRushEpiboCount1 = ricorico.wRushEpiboCount1
+        ricoricoMemory3.wRushEpiboCount2 = ricorico.wRushEpiboCount2
+        ricoricoMemory3.wRushEpiboCount3 = ricorico.wRushEpiboCount3
+        ricoricoMemory3.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
 }
 
@@ -230,13 +302,85 @@ struct ricoricoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        ricorico.normalGame = ricoricoMemory1.normalGame
+        ricorico.firstHitCountBattleCz = ricoricoMemory1.firstHitCountBattleCz
+        ricorico.firstHitCountYoshokiCz = ricoricoMemory1.firstHitCountYoshokiCz
+        ricorico.firstHitCountCz = ricoricoMemory1.firstHitCountCz
+        ricorico.firstHitCountAt = ricoricoMemory1.firstHitCountAt
+        ricorico.screenCount1 = ricoricoMemory1.screenCount1
+        ricorico.screenCount2 = ricoricoMemory1.screenCount2
+        ricorico.screenCount3 = ricoricoMemory1.screenCount3
+        ricorico.screenCount4 = ricoricoMemory1.screenCount4
+        ricorico.screenCount5 = ricoricoMemory1.screenCount5
+        ricorico.screenCount6 = ricoricoMemory1.screenCount6
+        ricorico.screenCount7 = ricoricoMemory1.screenCount7
+        ricorico.screenCountSum = ricoricoMemory1.screenCountSum
+        ricorico.prologueCount1 = ricoricoMemory1.prologueCount1
+        ricorico.prologueCount2 = ricoricoMemory1.prologueCount2
+        ricorico.prologueCount3 = ricoricoMemory1.prologueCount3
+        ricorico.prologueCountSum = ricoricoMemory1.prologueCountSum
+        ricorico.rushEpiboCount1 = ricoricoMemory1.rushEpiboCount1
+        ricorico.rushEpiboCount2 = ricoricoMemory1.rushEpiboCount2
+        ricorico.rushEpiboCount3 = ricoricoMemory1.rushEpiboCount3
+        ricorico.rushEpiboCountSum = ricoricoMemory1.rushEpiboCountSum
+        ricorico.wRushEpiboCount1 = ricoricoMemory1.wRushEpiboCount1
+        ricorico.wRushEpiboCount2 = ricoricoMemory1.wRushEpiboCount2
+        ricorico.wRushEpiboCount3 = ricoricoMemory1.wRushEpiboCount3
+        ricorico.wRushEpiboCountSum = ricoricoMemory1.wRushEpiboCountSum
     }
     func loadMemory2() {
-
+        ricorico.normalGame = ricoricoMemory2.normalGame
+        ricorico.firstHitCountBattleCz = ricoricoMemory2.firstHitCountBattleCz
+        ricorico.firstHitCountYoshokiCz = ricoricoMemory2.firstHitCountYoshokiCz
+        ricorico.firstHitCountCz = ricoricoMemory2.firstHitCountCz
+        ricorico.firstHitCountAt = ricoricoMemory2.firstHitCountAt
+        ricorico.screenCount1 = ricoricoMemory2.screenCount1
+        ricorico.screenCount2 = ricoricoMemory2.screenCount2
+        ricorico.screenCount3 = ricoricoMemory2.screenCount3
+        ricorico.screenCount4 = ricoricoMemory2.screenCount4
+        ricorico.screenCount5 = ricoricoMemory2.screenCount5
+        ricorico.screenCount6 = ricoricoMemory2.screenCount6
+        ricorico.screenCount7 = ricoricoMemory2.screenCount7
+        ricorico.screenCountSum = ricoricoMemory2.screenCountSum
+        ricorico.prologueCount1 = ricoricoMemory2.prologueCount1
+        ricorico.prologueCount2 = ricoricoMemory2.prologueCount2
+        ricorico.prologueCount3 = ricoricoMemory2.prologueCount3
+        ricorico.prologueCountSum = ricoricoMemory2.prologueCountSum
+        ricorico.rushEpiboCount1 = ricoricoMemory2.rushEpiboCount1
+        ricorico.rushEpiboCount2 = ricoricoMemory2.rushEpiboCount2
+        ricorico.rushEpiboCount3 = ricoricoMemory2.rushEpiboCount3
+        ricorico.rushEpiboCountSum = ricoricoMemory2.rushEpiboCountSum
+        ricorico.wRushEpiboCount1 = ricoricoMemory2.wRushEpiboCount1
+        ricorico.wRushEpiboCount2 = ricoricoMemory2.wRushEpiboCount2
+        ricorico.wRushEpiboCount3 = ricoricoMemory2.wRushEpiboCount3
+        ricorico.wRushEpiboCountSum = ricoricoMemory2.wRushEpiboCountSum
     }
     func loadMemory3() {
-
+        ricorico.normalGame = ricoricoMemory3.normalGame
+        ricorico.firstHitCountBattleCz = ricoricoMemory3.firstHitCountBattleCz
+        ricorico.firstHitCountYoshokiCz = ricoricoMemory3.firstHitCountYoshokiCz
+        ricorico.firstHitCountCz = ricoricoMemory3.firstHitCountCz
+        ricorico.firstHitCountAt = ricoricoMemory3.firstHitCountAt
+        ricorico.screenCount1 = ricoricoMemory3.screenCount1
+        ricorico.screenCount2 = ricoricoMemory3.screenCount2
+        ricorico.screenCount3 = ricoricoMemory3.screenCount3
+        ricorico.screenCount4 = ricoricoMemory3.screenCount4
+        ricorico.screenCount5 = ricoricoMemory3.screenCount5
+        ricorico.screenCount6 = ricoricoMemory3.screenCount6
+        ricorico.screenCount7 = ricoricoMemory3.screenCount7
+        ricorico.screenCountSum = ricoricoMemory3.screenCountSum
+        ricorico.prologueCount1 = ricoricoMemory3.prologueCount1
+        ricorico.prologueCount2 = ricoricoMemory3.prologueCount2
+        ricorico.prologueCount3 = ricoricoMemory3.prologueCount3
+        ricorico.prologueCountSum = ricoricoMemory3.prologueCountSum
+        ricorico.rushEpiboCount1 = ricoricoMemory3.rushEpiboCount1
+        ricorico.rushEpiboCount2 = ricoricoMemory3.rushEpiboCount2
+        ricorico.rushEpiboCount3 = ricoricoMemory3.rushEpiboCount3
+        ricorico.rushEpiboCountSum = ricoricoMemory3.rushEpiboCountSum
+        ricorico.wRushEpiboCount1 = ricoricoMemory3.wRushEpiboCount1
+        ricorico.wRushEpiboCount2 = ricoricoMemory3.wRushEpiboCount2
+        ricorico.wRushEpiboCount3 = ricoricoMemory3.wRushEpiboCount3
+        ricorico.wRushEpiboCountSum = ricoricoMemory3.wRushEpiboCountSum
     }
 }
 

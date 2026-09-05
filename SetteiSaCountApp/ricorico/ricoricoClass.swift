@@ -153,18 +153,93 @@ class Ricorico: ObservableObject {
 
 
 class RicoricoMemory1: ObservableObject {
+    @AppStorage("ricoricoNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("ricoricoFirstHitCountBattleCzMemory1") var firstHitCountBattleCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountYoshokiCzMemory1") var firstHitCountYoshokiCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("ricoricoScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("ricoricoScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("ricoricoScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("ricoricoScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("ricoricoScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("ricoricoScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("ricoricoScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("ricoricoScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("ricoricoPrologueCount1Memory1") var prologueCount1: Int = 0
+    @AppStorage("ricoricoPrologueCount2Memory1") var prologueCount2: Int = 0
+    @AppStorage("ricoricoPrologueCount3Memory1") var prologueCount3: Int = 0
+    @AppStorage("ricoricoPrologueCountSumMemory1") var prologueCountSum: Int = 0
+    @AppStorage("ricoricoRushEpiboCount1Memory1") var rushEpiboCount1: Int = 0
+    @AppStorage("ricoricoRushEpiboCount2Memory1") var rushEpiboCount2: Int = 0
+    @AppStorage("ricoricoRushEpiboCount3Memory1") var rushEpiboCount3: Int = 0
+    @AppStorage("ricoricoRushEpiboCountSumMemory1") var rushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount1Memory1") var wRushEpiboCount1: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount2Memory1") var wRushEpiboCount2: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount3Memory1") var wRushEpiboCount3: Int = 0
+    @AppStorage("ricoricoWRushEpiboCountSumMemory1") var wRushEpiboCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
 
 
 class RicoricoMemory2: ObservableObject {
+    @AppStorage("ricoricoNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("ricoricoFirstHitCountBattleCzMemory2") var firstHitCountBattleCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountYoshokiCzMemory2") var firstHitCountYoshokiCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("ricoricoScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("ricoricoScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("ricoricoScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("ricoricoScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("ricoricoScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("ricoricoScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("ricoricoScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("ricoricoScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("ricoricoPrologueCount1Memory2") var prologueCount1: Int = 0
+    @AppStorage("ricoricoPrologueCount2Memory2") var prologueCount2: Int = 0
+    @AppStorage("ricoricoPrologueCount3Memory2") var prologueCount3: Int = 0
+    @AppStorage("ricoricoPrologueCountSumMemory2") var prologueCountSum: Int = 0
+    @AppStorage("ricoricoRushEpiboCount1Memory2") var rushEpiboCount1: Int = 0
+    @AppStorage("ricoricoRushEpiboCount2Memory2") var rushEpiboCount2: Int = 0
+    @AppStorage("ricoricoRushEpiboCount3Memory2") var rushEpiboCount3: Int = 0
+    @AppStorage("ricoricoRushEpiboCountSumMemory2") var rushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount1Memory2") var wRushEpiboCount1: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount2Memory2") var wRushEpiboCount2: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount3Memory2") var wRushEpiboCount3: Int = 0
+    @AppStorage("ricoricoWRushEpiboCountSumMemory2") var wRushEpiboCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
 
 
 class RicoricoMemory3: ObservableObject {
+    @AppStorage("ricoricoNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("ricoricoFirstHitCountBattleCzMemory3") var firstHitCountBattleCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountYoshokiCzMemory3") var firstHitCountYoshokiCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("ricoricoScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("ricoricoScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("ricoricoScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("ricoricoScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("ricoricoScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("ricoricoScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("ricoricoScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("ricoricoScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("ricoricoPrologueCount1Memory3") var prologueCount1: Int = 0
+    @AppStorage("ricoricoPrologueCount2Memory3") var prologueCount2: Int = 0
+    @AppStorage("ricoricoPrologueCount3Memory3") var prologueCount3: Int = 0
+    @AppStorage("ricoricoPrologueCountSumMemory3") var prologueCountSum: Int = 0
+    @AppStorage("ricoricoRushEpiboCount1Memory3") var rushEpiboCount1: Int = 0
+    @AppStorage("ricoricoRushEpiboCount2Memory3") var rushEpiboCount2: Int = 0
+    @AppStorage("ricoricoRushEpiboCount3Memory3") var rushEpiboCount3: Int = 0
+    @AppStorage("ricoricoRushEpiboCountSumMemory3") var rushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount1Memory3") var wRushEpiboCount1: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount2Memory3") var wRushEpiboCount2: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount3Memory3") var wRushEpiboCount3: Int = 0
+    @AppStorage("ricoricoWRushEpiboCountSumMemory3") var wRushEpiboCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }
