@@ -439,6 +439,7 @@ class commonVar: ObservableObject {
     @AppStorage("dropkickMenuKoakumaBadge") var dropkickMenuKoakumaBadge: String = "none"
     @AppStorage("dropkickMenuTucBadge") var dropkickMenuTucBadge: String = "none"
     @AppStorage("dropkickMenuBackBadge") var dropkickMenuBackBadge: String = "none"
+    @AppStorage("dropkickMenuCzBadge") var dropkickMenuCzBadge: String = "none"
 
     // ---- ワールドダイスター
     @AppStorage("worldDaiStarMenuNormalBadge") var worldDaiStarMenuNormalBadge: String = "none"
@@ -809,6 +810,8 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5033", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5033", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5020", newStatus: "update")
+                dropkickMenuCzBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

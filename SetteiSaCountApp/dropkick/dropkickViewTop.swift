@@ -42,6 +42,17 @@ struct dropkickViewTop: View {
                         )
                     }
 
+                    // CZ
+                    NavigationLink(destination: dropkickViewCz(
+                        dropkick: dropkick,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.dropkickMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: dropkickViewFirstHit(
                         dropkick: dropkick,
