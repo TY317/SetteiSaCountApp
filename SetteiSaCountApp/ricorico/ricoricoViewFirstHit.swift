@@ -28,7 +28,98 @@ struct ricoricoViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $ricorico.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // バトルCZ
+                unitCountButtonDenominateWithFunc(
+                    title: "バトルCZ",
+                    count: $ricorico.firstHitCountBattleCz,
+                    color: .personalSummerLightRed,
+                    bigNumber: $ricorico.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $ricorico.minusCheck,
+                    action: ricorico.firstHitCzSumFunc
+                )
+                // 幼少期CZ
+                unitCountButtonDenominateWithFunc(
+                    title: "幼少期CZ",
+                    count: $ricorico.firstHitCountYoshokiCz,
+                    color: .personalSummerLightPurple,
+                    bigNumber: $ricorico.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $ricorico.minusCheck,
+                    action: ricorico.firstHitCzSumFunc
+                )
+                // AT
+                unitCountButtonDenominateWithFunc(
+                    title: "AT",
+                    count: $ricorico.firstHitCountAt,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $ricorico.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $ricorico.minusCheck) {
+
+                    }
+            }
+
+            // CZ合算
+            unitResultRatioDenomination2Line(
+                title: "CZ合算",
+                count: $ricorico.firstHitCountCz,
+                bigNumber: $ricorico.normalGame,
+                numberofDicimal: 0
+            )
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "バトルCZ",
+                        denominateList: ricorico.ratioFirstHitBattleCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "幼少期CZ",
+                        denominateList: ricorico.ratioFirstHitYoshokiCz
+                    )
+                }
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ合算",
+                        denominateList: ricorico.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: ricorico.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    ricoricoView95Ci(
+                        ricorico: ricorico,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                ricoricoViewBayes(
+                    ricorico: ricorico,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.ricoricoMenuFirstHitBadge)
@@ -64,6 +155,17 @@ struct ricoricoViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: ricorico.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

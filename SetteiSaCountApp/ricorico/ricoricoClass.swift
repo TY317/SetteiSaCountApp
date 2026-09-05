@@ -21,8 +21,26 @@ class Ricorico: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [198.7,196.9,191.3,183.3,175.9,169.4]
+    let ratioFirstHitBattleCz: [Double] = [209.2,-1,-1,-1,-1,184.4]
+    let ratioFirstHitYoshokiCz: [Double] = [3965,-1,-1,-1,-1,2084.8]
+    let ratioFirstHitAt: [Double] = [328.8,323.4,312.1,288.3,271.6,256.7]
+    @AppStorage("ricoricoNormalGame") var normalGame: Int = 0
+    @AppStorage("ricoricoFirstHitCountBattleCz") var firstHitCountBattleCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountYoshokiCz") var firstHitCountYoshokiCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("ricoricoFirstHitCountAt") var firstHitCountAt: Int = 0
+
+    func firstHitCzSumFunc() {
+        firstHitCountCz = firstHitCountBattleCz + firstHitCountYoshokiCz
+    }
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBattleCz = 0
+        firstHitCountYoshokiCz = 0
+        firstHitCountCz = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

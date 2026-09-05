@@ -23,6 +23,8 @@ struct ricoricoViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     @State var over2Check: Bool = false
     @State var over3Check: Bool = false
     @State var over4Check: Bool = false
@@ -43,7 +45,18 @@ struct ricoricoViewBayes: View {
 
             // //// STEP2
             bayesSubStep2Section {
-                // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
+                    unitExView5body2image(
+                        title: "CZ初当り確率",
+                        textBody1: "・バトルCZと幼少期CZの合算回数を計算要素に加えます",
+//                        textBody2: "・個別の振分けは設定1と6しか判明していないため、合算で計算します",
+                    )
+                }
+
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
 
                 // トロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -114,7 +127,25 @@ struct ricoricoViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // CZ初当り確率（バトル＋幼少期の合算）
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: ricorico.ratioFirstHitCz,
+                Count: ricorico.firstHitCountCz,
+                bigNumber: ricorico.normalGame
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: ricorico.ratioFirstHitAt,
+                Count: ricorico.firstHitCountAt,
+                bigNumber: ricorico.normalGame
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -153,6 +184,8 @@ struct ricoricoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

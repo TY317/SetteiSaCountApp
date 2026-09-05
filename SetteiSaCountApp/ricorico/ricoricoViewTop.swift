@@ -70,7 +70,7 @@ struct ricoricoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: ricoricoView95Ci(
                     ricorico: ricorico,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
