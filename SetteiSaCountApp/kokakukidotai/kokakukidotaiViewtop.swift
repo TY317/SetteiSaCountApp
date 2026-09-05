@@ -245,6 +245,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory1.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory1.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory1.rebootCountSum = kokakukidotai.rebootCountSum
+        kokakukidotaiMemory1.highAtCountMiss = kokakukidotai.highAtCountMiss
+        kokakukidotaiMemory1.highAtCountHit = kokakukidotai.highAtCountHit
+        kokakukidotaiMemory1.highAtCountSum = kokakukidotai.highAtCountSum
         
         // ---------
         // ver3.21.1
@@ -307,6 +310,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory2.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory2.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory2.rebootCountSum = kokakukidotai.rebootCountSum
+        kokakukidotaiMemory2.highAtCountMiss = kokakukidotai.highAtCountMiss
+        kokakukidotaiMemory2.highAtCountHit = kokakukidotai.highAtCountHit
+        kokakukidotaiMemory2.highAtCountSum = kokakukidotai.highAtCountSum
         
         // ---------
         // ver3.21.1
@@ -369,6 +375,9 @@ struct kokakukidotaiSubViewSaveMemory: View {
         kokakukidotaiMemory3.rebootCountMiss = kokakukidotai.rebootCountMiss
         kokakukidotaiMemory3.rebootCountSuccess = kokakukidotai.rebootCountSuccess
         kokakukidotaiMemory3.rebootCountSum = kokakukidotai.rebootCountSum
+        kokakukidotaiMemory3.highAtCountMiss = kokakukidotai.highAtCountMiss
+        kokakukidotaiMemory3.highAtCountHit = kokakukidotai.highAtCountHit
+        kokakukidotaiMemory3.highAtCountSum = kokakukidotai.highAtCountSum
         
         // ---------
         // ver3.21.1
@@ -460,6 +469,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory1.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory1.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory1.rebootCountSum
+        kokakukidotai.highAtCountMiss = kokakukidotaiMemory1.highAtCountMiss
+        kokakukidotai.highAtCountHit = kokakukidotaiMemory1.highAtCountHit
+        kokakukidotai.highAtCountSum = kokakukidotaiMemory1.highAtCountSum
         
         // ---------
         // ver3.21.1
@@ -522,6 +534,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory2.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory2.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory2.rebootCountSum
+        kokakukidotai.highAtCountMiss = kokakukidotaiMemory2.highAtCountMiss
+        kokakukidotai.highAtCountHit = kokakukidotaiMemory2.highAtCountHit
+        kokakukidotai.highAtCountSum = kokakukidotaiMemory2.highAtCountSum
         
         // ---------
         // ver3.21.1
@@ -584,6 +599,9 @@ struct kokakukidotaiSubViewLoadMemory: View {
         kokakukidotai.rebootCountMiss = kokakukidotaiMemory3.rebootCountMiss
         kokakukidotai.rebootCountSuccess = kokakukidotaiMemory3.rebootCountSuccess
         kokakukidotai.rebootCountSum = kokakukidotaiMemory3.rebootCountSum
+        kokakukidotai.highAtCountMiss = kokakukidotaiMemory3.highAtCountMiss
+        kokakukidotai.highAtCountHit = kokakukidotaiMemory3.highAtCountHit
+        kokakukidotai.highAtCountSum = kokakukidotaiMemory3.highAtCountSum
         
         // ---------
         // ver3.21.1
