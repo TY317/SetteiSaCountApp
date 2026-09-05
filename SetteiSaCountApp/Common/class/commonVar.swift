@@ -372,6 +372,7 @@ class commonVar: ObservableObject {
     @AppStorage("ricoricoMenuFirstHitBadge") var ricoricoMenuFirstHitBadge: String = "none"
     @AppStorage("ricoricoMenuBayesBadge") var ricoricoMenuBayesBadge: String = "none"
     @AppStorage("ricoricoMenuScreenBadge") var ricoricoMenuScreenBadge: String = "none"
+    @AppStorage("ricoricoMenuDuringAtBadge") var ricoricoMenuDuringAtBadge: String = "none"
 
     // ---- からくりサーカス2
     @AppStorage("karakuri2MenuNormalBadge") var karakuri2MenuNormalBadge: String = "none"

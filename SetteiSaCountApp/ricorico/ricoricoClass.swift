@@ -80,6 +80,62 @@ class Ricorico: ObservableObject {
         minusCheck = false
     }
 
+    // --------
+    // AT中 エピソードボーナス画面
+    // --------
+    @AppStorage("ricoricoPrologueCount1") var prologueCount1: Int = 0
+    @AppStorage("ricoricoPrologueCount2") var prologueCount2: Int = 0
+    @AppStorage("ricoricoPrologueCount3") var prologueCount3: Int = 0
+    @AppStorage("ricoricoPrologueCountSum") var prologueCountSum: Int = 0
+    @AppStorage("ricoricoRushEpiboCount1") var rushEpiboCount1: Int = 0
+    @AppStorage("ricoricoRushEpiboCount2") var rushEpiboCount2: Int = 0
+    @AppStorage("ricoricoRushEpiboCount3") var rushEpiboCount3: Int = 0
+    @AppStorage("ricoricoRushEpiboCountSum") var rushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount1") var wRushEpiboCount1: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount2") var wRushEpiboCount2: Int = 0
+    @AppStorage("ricoricoWRushEpiboCount3") var wRushEpiboCount3: Int = 0
+    @AppStorage("ricoricoWRushEpiboCountSum") var wRushEpiboCountSum: Int = 0
+
+    func prologueSumFunc() {
+        prologueCountSum = countSum(
+            prologueCount1,
+            prologueCount2,
+            prologueCount3,
+        )
+    }
+
+    func rushEpiboSumFunc() {
+        rushEpiboCountSum = countSum(
+            rushEpiboCount1,
+            rushEpiboCount2,
+            rushEpiboCount3,
+        )
+    }
+
+    func wRushEpiboSumFunc() {
+        wRushEpiboCountSum = countSum(
+            wRushEpiboCount1,
+            wRushEpiboCount2,
+            wRushEpiboCount3,
+        )
+    }
+
+    func resetDuringAt() {
+        prologueCount1 = 0
+        prologueCount2 = 0
+        prologueCount3 = 0
+        prologueCountSum = 0
+        rushEpiboCount1 = 0
+        rushEpiboCount2 = 0
+        rushEpiboCount3 = 0
+        rushEpiboCountSum = 0
+        wRushEpiboCount1 = 0
+        wRushEpiboCount2 = 0
+        wRushEpiboCount3 = 0
+        wRushEpiboCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -91,6 +147,7 @@ class Ricorico: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetDuringAt()
     }
 }
 

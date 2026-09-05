@@ -53,6 +53,17 @@ struct ricoricoViewTop: View {
                         )
                     }
 
+                    // AT中
+                    NavigationLink(destination: ricoricoViewDuringAt(
+                        ricorico: ricorico,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "film",
+                            textBody: "AT中",
+                            badgeStatus: common.ricoricoMenuDuringAtBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: ricoricoViewScreen(
                         ricorico: ricorico,
