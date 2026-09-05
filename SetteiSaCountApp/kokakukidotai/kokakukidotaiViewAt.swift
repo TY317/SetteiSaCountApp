@@ -13,6 +13,18 @@ struct kokakukidotaiViewAt: View {
     @ObservedObject var viewModel: InterstitialViewModel
     @EnvironmentObject var common: commonVar
     @State var isShowAlert: Bool = false
+    @FocusState var isFocused: Bool
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State private var lastOrientation: UIDeviceOrientation = .portrait // 直前の向き
+    let scrollViewHeightPortrait = 250.0
+    let scrollViewHeightLandscape = 150.0
+    @State var scrollViewHeight = 250.0
+    let spaceHeightPortrait = 300.0
+    let spaceHeightLandscape = 0.0
+    @State var spaceHeight = 300.0
+    let lazyVGridCountPortrait: Int = 3
+    let lazyVGridCountLandscape: Int = 5
+    @State var lazyVGridCount: Int = 3
     
     var body: some View {
         List {
@@ -113,6 +125,83 @@ struct kokakukidotaiViewAt: View {
             } header: {
                 Text("REBOOTCHANCE成功ストック")
             }
+
+            // ---- 上位裏AT突入率
+            Section {
+                // 突入率
+                unitResultRatioPercent2Line(
+                    title: "突入率",
+                    count: $kokakukidotai.highAtCountHit,
+                    bigNumber: $kokakukidotai.highAtCountSum,
+                    numberofDicimal: 1
+                )
+
+                // 参考情報）上位裏AT突入率
+                unitLinkButtonViewBuilder(sheetTitle: "上位裏AT突入率") {
+                    VStack(alignment: .leading) {
+                        Text("・上位AT突入時の上位裏AT突入に設定差")
+                        Text("・突入時に画面がビリビリ、消化中に下パネ点滅が上位裏の特徴")
+                        Text("・上位裏では全レア役で9th Personが発生")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "上位裏AT突入率",
+                            percentList: kokakukidotai.ratioHighAt,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+                .popoverTip(tipVer460KokakukidotaiHighAt())
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 突入なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入なし",
+                            count: $kokakukidotai.highAtCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.highAtSumFunc()
+                            }
+                        // 突入
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "突入",
+                            count: $kokakukidotai.highAtCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $kokakukidotai.minusCheck) {
+                                kokakukidotai.highAtSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            kokakukidotaiView95Ci(
+                                kokakukidotai: kokakukidotai,
+                                selection: 14,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        kokakukidotaiViewBayes(
+                            kokakukidotai: kokakukidotai,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("上位裏AT突入率")
+            }
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kokakukidotaiMenuAtBadge)
@@ -126,6 +215,20 @@ struct kokakukidotaiViewAt: View {
         }
         .navigationTitle("AT中")
         .navigationBarTitleDisplayMode(.inline)
+        // //// 画面の向き情報の取得部分
+        .applyOrientationHandling(
+            orientation: self.$orientation,
+            lastOrientation: self.$lastOrientation,
+            scrollViewHeight: self.$scrollViewHeight,
+            spaceHeight: self.$spaceHeight,
+            lazyVGridCount: self.$lazyVGridCount,
+            scrollViewHeightPortrait: self.scrollViewHeightPortrait,
+            scrollViewHeightLandscape: self.scrollViewHeightLandscape,
+            spaceHeightPortrait: self.spaceHeightPortrait,
+            spaceHeightLandscape: self.spaceHeightLandscape,
+            lazyVGridCountPortrait: self.lazyVGridCountPortrait,
+            lazyVGridCountLandscape: self.lazyVGridCountLandscape
+        )
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック

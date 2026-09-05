@@ -37,3 +37,19 @@ struct tipVer460: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：攻殻機動隊 上位裏AT突入率
+//////////////////
+struct tipVer460KokakukidotaiHighAt: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("上位裏AT突入率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -119,10 +119,22 @@ class Kokakukidotai: ObservableObject {
         rebootCountSum = rebootCountMiss + rebootCountSuccess
     }
     
+    let ratioHighAt: [Double] = [12.5,13.3,14.2,15.0,30,40]
+    @AppStorage("kokakukidotaiHighAtCountMiss") var highAtCountMiss: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountHit") var highAtCountHit: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountSum") var highAtCountSum: Int = 0
+
+    func highAtSumFunc() {
+        highAtCountSum = highAtCountHit + highAtCountMiss
+    }
+
     func resetAt() {
         rebootCountMiss = 0
         rebootCountSuccess = 0
         rebootCountSum = 0
+        highAtCountMiss = 0
+        highAtCountHit = 0
+        highAtCountSum = 0
         minusCheck = false
     }
     
