@@ -103,6 +103,17 @@ struct ricoricoViewFirstHit: View {
                     )
                 }
             }
+            
+            // 参考情報）AT直撃確率
+            unitLinkButtonViewBuilder(sheetTitle: "AT直撃確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT直撃",
+                        denominateList: [22429.5,-1,-1,-1,-1,6263.7]
+                    )
+                }
+            }
 
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
