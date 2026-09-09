@@ -85,3 +85,19 @@ struct tipVer460Sao2StartStage: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：カバネリ海門 復讐の焔
+//////////////////
+struct tipVer460KabaneriUnatoHighAt: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT成功時の裏（復讐の焔）突入率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

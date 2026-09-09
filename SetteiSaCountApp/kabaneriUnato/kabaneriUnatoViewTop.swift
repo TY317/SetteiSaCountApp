@@ -97,6 +97,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuScreenBadge,
                         )
                     }
+
+                    // 復讐の焔
+                    NavigationLink(destination: kabaneriUnatoViewHighAt(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flame.fill",
+                            textBody: "復讐の焔",
+                            badgeStatus: common.kabaneriUnatoMenuHighAtBadge,
+                        )
+                    }
                     
                     // おみくじ
                     NavigationLink(destination: kabaneriUnatoViewOmikuji(

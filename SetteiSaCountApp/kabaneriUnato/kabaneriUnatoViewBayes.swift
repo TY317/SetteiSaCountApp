@@ -19,6 +19,7 @@ struct kabaneriUnatoViewBayes: View {
     @State var charaEnable: Bool = true
     @State var cycle3Enable: Bool = true
     @State var cycle4Enable: Bool = true
+    @State var highAtEnable: Bool = true
     
     
     // 全機種共通
@@ -74,6 +75,9 @@ struct kabaneriUnatoViewBayes: View {
                         textBody1: "・0〜5000Gでの振分けを前提に計算します"
                     )
                 }
+                
+                // 成功時の裏突入率
+                unitToggleWithQuestion(enable: self.$highAtEnable, title: "復讐の焔からの裏突入率")
                 
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -217,6 +221,16 @@ struct kabaneriUnatoViewBayes: View {
             )
         }
         
+        // 成功時の裏突入率
+        var logPostHighAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.highAtEnable {
+            logPostHighAt = logPostPercentBino(
+                ratio: kabaneriUnato.ratioHighAt,
+                Count: kabaneriUnato.highAtCountHit,
+                bigNumber: kabaneriUnato.highAtCountSum
+            )
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -260,6 +274,7 @@ struct kabaneriUnatoViewBayes: View {
             logPostCharacter,
             logPostCycle3,
             logPostCycle4,
+            logPostHighAt,
             
             logPostTrophy,
             logPostBefore,

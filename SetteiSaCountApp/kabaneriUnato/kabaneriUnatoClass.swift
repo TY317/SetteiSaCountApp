@@ -195,6 +195,7 @@ class KabaneriUnato: ObservableObject {
         resetFirstHit()
         resetOmikuji()
         resetHayajiro()
+        resetHighAt()
     }
     
     // ---------
@@ -219,6 +220,26 @@ class KabaneriUnato: ObservableObject {
         hayajiroCountMiss = 0
         hayajiroCountHit = 0
         hayajiroCountSum = 0
+        minusCheck = false
+    }
+    
+    // -------
+    // 復讐の焔
+    // -------
+    // 成功時の裏突入率（裏＝ratioHighAt。真は 100 − 裏）
+    let ratioHighAt: [Double] = [6.2,6.2,6.6,10.9,25,33.2]
+    @AppStorage("kabaneriUnatoHighAtCountMiss") var highAtCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountHit") var highAtCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountSum") var highAtCountSum: Int = 0
+
+    func highAtSumFunc() {
+        highAtCountSum = highAtCountHit + highAtCountMiss
+    }
+
+    func resetHighAt() {
+        highAtCountMiss = 0
+        highAtCountHit = 0
+        highAtCountSum = 0
         minusCheck = false
     }
     
