@@ -143,6 +143,24 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(7)
+
+            // AT開始時のステージ
+            unitListSection95Ci(
+                grafTitle: "AT開始時\n荒野ステージの回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.startStageCountHit,
+                        bigNumber: $sao2.startStageCountSum,
+                        setting1Percent: sao2.ratioStartStageKouya[0],
+                        setting2Percent: sao2.ratioStartStageKouya[1],
+                        setting3Percent: sao2.ratioStartStageKouya[2],
+                        setting4Percent: sao2.ratioStartStageKouya[3],
+                        setting5Percent: sao2.ratioStartStageKouya[4],
+                        setting6Percent: sao2.ratioStartStageKouya[5]
+                    )
+                )
+            )
+            .tag(8)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(

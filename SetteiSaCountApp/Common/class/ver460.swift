@@ -69,3 +69,19 @@ struct tipVer460ShinYoshiScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：SAO2 AT開始時のステージ
+//////////////////
+struct tipVer460Sao2StartStage: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT開始時のステージのカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

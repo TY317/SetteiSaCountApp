@@ -23,6 +23,7 @@ struct sao2ViewBayes: View {
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
     @State var mothersEnable: Bool = true
+    @State var startStageEnable: Bool = true
 
     
     // 全機種共通
@@ -64,6 +65,9 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // AT開始時のステージ
+                unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ")
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -266,6 +270,16 @@ struct sao2ViewBayes: View {
 //                bigNumber: sao2.motherMiniCharaCountSum
 //            )
 //        }
+        // AT開始時のステージ
+        var logPostStartStage: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.startStageEnable {
+            logPostStartStage = logPostPercentBino(
+                ratio: sao2.ratioStartStageKouya,
+                Count: sao2.startStageCountHit,
+                bigNumber: sao2.startStageCountSum
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -315,6 +329,7 @@ struct sao2ViewBayes: View {
             logPostEnding,
             logPostMothers,
 
+            logPostStartStage,
             logPostTrophy,
             logPostBefore,
         ])

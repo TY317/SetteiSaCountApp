@@ -155,12 +155,33 @@ class Sao2: ObservableObject {
     @AppStorage("sao2MinusCheck") var minusCheck: Bool = false
     @AppStorage("sao2SelectedMemory") var selectedMemory = "メモリー1"
     
+    // ---------
+    // AT中
+    // ---------
+    let ratioStartStageKouya: [Double] = [60,40,60,40,60,40]
+    let ratioStartStageBuggy: [Double] = [40,60,40,60,40,60]
+    @AppStorage("sao2StartStageCountHit") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMiss") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSum") var startStageCountSum: Int = 0
+
+    func startStageSumFunc() {
+        startStageCountSum = startStageCountHit + startStageCountMiss
+    }
+
+    func resetDuringAt() {
+        startStageCountHit = 0
+        startStageCountMiss = 0
+        startStageCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetCz()
         resetFirstHit()
         resetScreen()
         resetComeBack()
+        resetDuringAt()
         resetMiniChara()
         resetMotherMiniChara()
     }
