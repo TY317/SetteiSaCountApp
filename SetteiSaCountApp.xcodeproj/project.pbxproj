@@ -213,6 +213,8 @@
 		0F3759F52F808F4600982F7A /* shinYoshiViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759F42F808F4600982F7A /* shinYoshiViewScreen.swift */; };
 		0F3759F72F8090FD00982F7A /* shinYoshiTableScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759F62F8090FD00982F7A /* shinYoshiTableScreen.swift */; };
 		0F3759F82F80910700982F7A /* shinYoshiTableScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759F62F8090FD00982F7A /* shinYoshiTableScreen.swift */; };
+		6ABCB7A776FE404295A8E5C3 /* shinYoshiTableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8E36187C24133BC8D849E /* shinYoshiTableScreenRatio.swift */; };
+		D80F600F634B48ECB1BB3663 /* shinYoshiTableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC8E36187C24133BC8D849E /* shinYoshiTableScreenRatio.swift */; };
 		0F3759FB2F809A7600982F7A /* jormungandViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759FA2F809A7600982F7A /* jormungandViewTop.swift */; };
 		0F3759FD2F809A7F00982F7A /* jormungandClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3759FC2F809A7F00982F7A /* jormungandClass.swift */; };
 		0F3759FF2F809A8B00982F7A /* jormungandAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3759FE2F809A8B00982F7A /* jormungandAssets.xcassets */; };
@@ -2005,6 +2007,7 @@
 		0F3759F22F80801500982F7A /* shinYoshiViewOshirasu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiViewOshirasu.swift; sourceTree = "<group>"; };
 		0F3759F42F808F4600982F7A /* shinYoshiViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiViewScreen.swift; sourceTree = "<group>"; };
 		0F3759F62F8090FD00982F7A /* shinYoshiTableScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiTableScreen.swift; sourceTree = "<group>"; };
+		3FC8E36187C24133BC8D849E /* shinYoshiTableScreenRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiTableScreenRatio.swift; sourceTree = "<group>"; };
 		0F3759FA2F809A7600982F7A /* jormungandViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandViewTop.swift; sourceTree = "<group>"; };
 		0F3759FC2F809A7F00982F7A /* jormungandClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandClass.swift; sourceTree = "<group>"; };
 		0F3759FE2F809A8B00982F7A /* jormungandAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = jormungandAssets.xcassets; sourceTree = "<group>"; };
@@ -3786,6 +3789,7 @@
 				0F3759F22F80801500982F7A /* shinYoshiViewOshirasu.swift */,
 				0F3759F42F808F4600982F7A /* shinYoshiViewScreen.swift */,
 				0F3759F62F8090FD00982F7A /* shinYoshiTableScreen.swift */,
+				3FC8E36187C24133BC8D849E /* shinYoshiTableScreenRatio.swift */,
 			);
 			path = shinuchiYoshimune;
 			sourceTree = "<group>";
@@ -6950,6 +6954,7 @@
 				0FCF78B42E476C050000748B /* kabaneriTableMumei3Rengeki.swift in Sources */,
 				0FFAEBC42EC96FF4006C0371 /* neoplaViewNormal.swift in Sources */,
 				0F3759F72F8090FD00982F7A /* shinYoshiTableScreen.swift in Sources */,
+				6ABCB7A776FE404295A8E5C3 /* shinYoshiTableScreenRatio.swift in Sources */,
 				0F1E11FC2DD01AB500F69AFF /* gundamSeedViewFirstHit.swift in Sources */,
 				0F9A4F772DEC1573003B6337 /* dmc5ViewNormal.swift in Sources */,
 				0F0FAF762F585D8700118DC1 /* gobsla2ViewEnding.swift in Sources */,
@@ -8223,6 +8228,7 @@
 				0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */,
 				0FA662E12F1516A800F3259F /* hihodenTableRegSisa.swift in Sources */,
 				0F3759F82F80910700982F7A /* shinYoshiTableScreen.swift in Sources */,
+				D80F600F634B48ECB1BB3663 /* shinYoshiTableScreenRatio.swift in Sources */,
 				0F0734A72FE67F7900CA7A5A /* kokakukidotaiTableModeMoveRatio.swift in Sources */,
 				0F4471F52F700E790048E9CE /* dmc5TablePremiumStMode.swift in Sources */,
 				0F0FAF7E2F5BDE2600118DC1 /* hihodenTableLengedMoveBonus.swift in Sources */,

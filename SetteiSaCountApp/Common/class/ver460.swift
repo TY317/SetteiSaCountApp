@@ -53,3 +53,19 @@ struct tipVer460KokakukidotaiHighAt: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：真打吉宗 AT終了画面
+//////////////////
+struct tipVer460ShinYoshiScreen: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT終了画面のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
