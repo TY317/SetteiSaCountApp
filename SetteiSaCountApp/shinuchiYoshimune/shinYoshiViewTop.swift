@@ -244,6 +244,14 @@ struct shinYoshiSubViewSaveMemory: View {
         shinYoshiMemory1.czCharaCountOther = shinYoshi.czCharaCountOther
         shinYoshiMemory1.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
         shinYoshiMemory1.czCharaCountSum = shinYoshi.czCharaCountSum
+        shinYoshiMemory1.screenCount1 = shinYoshi.screenCount1
+        shinYoshiMemory1.screenCount2 = shinYoshi.screenCount2
+        shinYoshiMemory1.screenCount3 = shinYoshi.screenCount3
+        shinYoshiMemory1.screenCount4 = shinYoshi.screenCount4
+        shinYoshiMemory1.screenCount5 = shinYoshi.screenCount5
+        shinYoshiMemory1.screenCount6 = shinYoshi.screenCount6
+        shinYoshiMemory1.screenCount7 = shinYoshi.screenCount7
+        shinYoshiMemory1.screenCountSum = shinYoshi.screenCountSum
     }
     func saveMemory2() {
         shinYoshiMemory2.normalGame = shinYoshi.normalGame
@@ -254,6 +262,14 @@ struct shinYoshiSubViewSaveMemory: View {
         shinYoshiMemory2.czCharaCountOther = shinYoshi.czCharaCountOther
         shinYoshiMemory2.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
         shinYoshiMemory2.czCharaCountSum = shinYoshi.czCharaCountSum
+        shinYoshiMemory2.screenCount1 = shinYoshi.screenCount1
+        shinYoshiMemory2.screenCount2 = shinYoshi.screenCount2
+        shinYoshiMemory2.screenCount3 = shinYoshi.screenCount3
+        shinYoshiMemory2.screenCount4 = shinYoshi.screenCount4
+        shinYoshiMemory2.screenCount5 = shinYoshi.screenCount5
+        shinYoshiMemory2.screenCount6 = shinYoshi.screenCount6
+        shinYoshiMemory2.screenCount7 = shinYoshi.screenCount7
+        shinYoshiMemory2.screenCountSum = shinYoshi.screenCountSum
     }
     func saveMemory3() {
         shinYoshiMemory3.normalGame = shinYoshi.normalGame
@@ -264,6 +280,14 @@ struct shinYoshiSubViewSaveMemory: View {
         shinYoshiMemory3.czCharaCountOther = shinYoshi.czCharaCountOther
         shinYoshiMemory3.czCharaCountYagyu = shinYoshi.czCharaCountYagyu
         shinYoshiMemory3.czCharaCountSum = shinYoshi.czCharaCountSum
+        shinYoshiMemory3.screenCount1 = shinYoshi.screenCount1
+        shinYoshiMemory3.screenCount2 = shinYoshi.screenCount2
+        shinYoshiMemory3.screenCount3 = shinYoshi.screenCount3
+        shinYoshiMemory3.screenCount4 = shinYoshi.screenCount4
+        shinYoshiMemory3.screenCount5 = shinYoshi.screenCount5
+        shinYoshiMemory3.screenCount6 = shinYoshi.screenCount6
+        shinYoshiMemory3.screenCount7 = shinYoshi.screenCount7
+        shinYoshiMemory3.screenCountSum = shinYoshi.screenCountSum
     }
 }
 
@@ -303,6 +327,14 @@ struct shinYoshiSubViewLoadMemory: View {
         shinYoshi.czCharaCountOther = shinYoshiMemory1.czCharaCountOther
         shinYoshi.czCharaCountYagyu = shinYoshiMemory1.czCharaCountYagyu
         shinYoshi.czCharaCountSum = shinYoshiMemory1.czCharaCountSum
+        shinYoshi.screenCount1 = shinYoshiMemory1.screenCount1
+        shinYoshi.screenCount2 = shinYoshiMemory1.screenCount2
+        shinYoshi.screenCount3 = shinYoshiMemory1.screenCount3
+        shinYoshi.screenCount4 = shinYoshiMemory1.screenCount4
+        shinYoshi.screenCount5 = shinYoshiMemory1.screenCount5
+        shinYoshi.screenCount6 = shinYoshiMemory1.screenCount6
+        shinYoshi.screenCount7 = shinYoshiMemory1.screenCount7
+        shinYoshi.screenCountSum = shinYoshiMemory1.screenCountSum
     }
     func loadMemory2() {
         shinYoshi.normalGame = shinYoshiMemory2.normalGame
@@ -313,6 +345,14 @@ struct shinYoshiSubViewLoadMemory: View {
         shinYoshi.czCharaCountOther = shinYoshiMemory2.czCharaCountOther
         shinYoshi.czCharaCountYagyu = shinYoshiMemory2.czCharaCountYagyu
         shinYoshi.czCharaCountSum = shinYoshiMemory2.czCharaCountSum
+        shinYoshi.screenCount1 = shinYoshiMemory2.screenCount1
+        shinYoshi.screenCount2 = shinYoshiMemory2.screenCount2
+        shinYoshi.screenCount3 = shinYoshiMemory2.screenCount3
+        shinYoshi.screenCount4 = shinYoshiMemory2.screenCount4
+        shinYoshi.screenCount5 = shinYoshiMemory2.screenCount5
+        shinYoshi.screenCount6 = shinYoshiMemory2.screenCount6
+        shinYoshi.screenCount7 = shinYoshiMemory2.screenCount7
+        shinYoshi.screenCountSum = shinYoshiMemory2.screenCountSum
     }
     func loadMemory3() {
         shinYoshi.normalGame = shinYoshiMemory3.normalGame
@@ -323,6 +363,14 @@ struct shinYoshiSubViewLoadMemory: View {
         shinYoshi.czCharaCountOther = shinYoshiMemory3.czCharaCountOther
         shinYoshi.czCharaCountYagyu = shinYoshiMemory3.czCharaCountYagyu
         shinYoshi.czCharaCountSum = shinYoshiMemory3.czCharaCountSum
+        shinYoshi.screenCount1 = shinYoshiMemory3.screenCount1
+        shinYoshi.screenCount2 = shinYoshiMemory3.screenCount2
+        shinYoshi.screenCount3 = shinYoshiMemory3.screenCount3
+        shinYoshi.screenCount4 = shinYoshiMemory3.screenCount4
+        shinYoshi.screenCount5 = shinYoshiMemory3.screenCount5
+        shinYoshi.screenCount6 = shinYoshiMemory3.screenCount6
+        shinYoshi.screenCount7 = shinYoshiMemory3.screenCount7
+        shinYoshi.screenCountSum = shinYoshiMemory3.screenCountSum
     }
 }
 
