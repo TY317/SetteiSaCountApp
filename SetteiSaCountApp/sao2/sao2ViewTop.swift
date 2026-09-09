@@ -323,6 +323,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory1.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory1.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory1.startStageCountHit = sao2.startStageCountHit
+        sao2Memory1.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory1.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory2() {
         sao2Memory2.lowSuikaCount = sao2.lowSuikaCount
@@ -372,6 +375,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory2.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory2.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory2.startStageCountHit = sao2.startStageCountHit
+        sao2Memory2.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory2.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory3() {
         sao2Memory3.lowSuikaCount = sao2.lowSuikaCount
@@ -421,6 +427,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory3.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory3.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory3.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory3.startStageCountHit = sao2.startStageCountHit
+        sao2Memory3.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory3.startStageCountSum = sao2.startStageCountSum
     }
 }
 
@@ -499,6 +508,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory1.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory1.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory1.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory1.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory1.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory1.startStageCountSum
     }
     func loadMemory2() {
         sao2.lowSuikaCount = sao2Memory2.lowSuikaCount
@@ -548,6 +560,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory2.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory2.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory2.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory2.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory2.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory2.startStageCountSum
     }
     func loadMemory3() {
         sao2.lowSuikaCount = sao2Memory3.lowSuikaCount
@@ -597,6 +612,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory3.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory3.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory3.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory3.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory3.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory3.startStageCountSum
     }
 }
 

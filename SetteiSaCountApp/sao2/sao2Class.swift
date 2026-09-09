@@ -318,6 +318,9 @@ class Sao2Memory1: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory1") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory1") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory1") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory1") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory1") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory1") var startStageCountSum: Int = 0
     @AppStorage("sao2MemoMemory1") var memo = ""
     @AppStorage("sao2DateMemory1") var dateDouble = 0.0
 }
@@ -371,6 +374,9 @@ class Sao2Memory2: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory2") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory2") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory2") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory2") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory2") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory2") var startStageCountSum: Int = 0
     @AppStorage("sao2MemoMemory2") var memo = ""
     @AppStorage("sao2DateMemory2") var dateDouble = 0.0
 }
@@ -424,6 +430,9 @@ class Sao2Memory3: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory3") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory3") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory3") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory3") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory3") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory3") var startStageCountSum: Int = 0
     @AppStorage("sao2MemoMemory3") var memo = ""
     @AppStorage("sao2DateMemory3") var dateDouble = 0.0
 }
