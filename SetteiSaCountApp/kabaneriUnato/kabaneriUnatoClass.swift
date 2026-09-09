@@ -311,6 +311,9 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountOver4Memory1") var omikujiCountOver4: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountOver6Memory1") var omikujiCountOver6: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory1") var omikujiCountSum: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountMissMemory1") var highAtCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountHitMemory1") var highAtCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountSumMemory1") var highAtCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory1") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory1") var dateDouble = 0.0
     
@@ -371,6 +374,9 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountOver4Memory2") var omikujiCountOver4: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountOver6Memory2") var omikujiCountOver6: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory2") var omikujiCountSum: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountMissMemory2") var highAtCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountHitMemory2") var highAtCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountSumMemory2") var highAtCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory2") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory2") var dateDouble = 0.0
     
@@ -431,6 +437,9 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoOmikujiCountOver4Memory3") var omikujiCountOver4: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountOver6Memory3") var omikujiCountOver6: Int = 0
     @AppStorage("kabaneriUnatoOmikujiCountSumMemory3") var omikujiCountSum: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountMissMemory3") var highAtCountMiss: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountHitMemory3") var highAtCountHit: Int = 0
+    @AppStorage("kabaneriUnatoHighAtCountSumMemory3") var highAtCountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory3") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory3") var dateDouble = 0.0
     
