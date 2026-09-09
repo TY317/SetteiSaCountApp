@@ -199,18 +199,16 @@ struct karakuri2ViewBayes: View {
         }
 
         // 激情ジャッジ キャラシナリオ
-        // 4キャラの振分けは各設定で合計100%ちょうどのため、全カテゴリを渡してよい
+        // ミンシア（奇数示唆・先頭）は残余バケットに吸収させるため除外
         var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.charaEnable {
             logPostChara = logPostPercentMulti(
                 countList: [
-                    karakuri2.charaCount1,
                     karakuri2.charaCount2,
                     karakuri2.charaCount3,
                     karakuri2.charaCount4,
                 ],
                 ratioList: [
-                    karakuri2.ratioChara1,
                     karakuri2.ratioChara2,
                     karakuri2.ratioChara3,
                     karakuri2.ratioChara4,
@@ -230,12 +228,11 @@ struct karakuri2ViewBayes: View {
         }
 
         // エンディング ランプ色
-        // 7色の振分けは各設定で合計100%ちょうどのため、全カテゴリを渡してよい
+        // 白（デフォルト）は残余バケットに吸収させるため除外
         var logPostLampColor: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.lampColorEnable {
             logPostLampColor = logPostPercentMulti(
                 countList: [
-                    karakuri2.lampColorCount1,
                     karakuri2.lampColorCount2,
                     karakuri2.lampColorCount3,
                     karakuri2.lampColorCount4,
@@ -244,7 +241,6 @@ struct karakuri2ViewBayes: View {
                     karakuri2.lampColorCount7,
                 ],
                 ratioList: [
-                    karakuri2.ratioLampColorWhite,
                     karakuri2.ratioLampColorBlue,
                     karakuri2.ratioLampColorYellow,
                     karakuri2.ratioLampColorGreen,
