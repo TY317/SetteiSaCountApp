@@ -25,6 +25,7 @@ struct ricoricoViewBayes: View {
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
     @State var over2Check: Bool = false
     @State var over3Check: Bool = false
     @State var over4Check: Bool = false
@@ -56,6 +57,14 @@ struct ricoricoViewBayes: View {
 
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
 
                 // トロフィー
@@ -147,6 +156,44 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 終了画面
+        // 確定系（設定2 以上濃厚／設定4 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルトと高設定示唆 弱・強は残余バケットに吸収させる
+        // ラッシュ後とWラッシュ後は別カウントなので、それぞれの尤度を足す
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            let logPostScreenRush = logPostPercentMulti(
+                countList: [
+                    ricorico.screenCount4,
+                    ricorico.screenCount5,
+                    ricorico.screenCount6,
+                ],
+                ratioList: [
+                    ricorico.ratioScreenOver2,
+                    ricorico.ratioScreenOver4,
+                    ricorico.ratioScreenOver6,
+                ],
+                bigNumber: ricorico.screenCountSum
+            )
+            let logPostScreenWRush = logPostPercentMulti(
+                countList: [
+                    ricorico.wScreenCount4,
+                    ricorico.wScreenCount5,
+                    ricorico.wScreenCount6,
+                ],
+                ratioList: [
+                    ricorico.ratioScreenOver2,
+                    ricorico.ratioScreenOver4,
+                    ricorico.ratioScreenOver6,
+                ],
+                bigNumber: ricorico.wScreenCountSum
+            )
+            logPostScreen = arraySumDouble([
+                logPostScreenRush,
+                logPostScreenWRush,
+            ])
+        }
+        
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -186,6 +233,7 @@ struct ricoricoViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

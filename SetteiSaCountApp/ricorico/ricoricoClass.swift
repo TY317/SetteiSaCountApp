@@ -47,14 +47,28 @@ class Ricorico: ObservableObject {
     // --------
     // 終了画面
     // --------
+    // カウントは「示唆」単位（画面ではなく示唆で1変数）
+    // 1:デフォルト 2:高設定示唆 弱 3:高設定示唆 強 4:設定2以上濃厚 5:設定4以上濃厚 6:設定6濃厚
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1,]
+    // ラッシュ後（たきな・千束 共用）
     @AppStorage("ricoricoScreenCount1") var screenCount1: Int = 0
     @AppStorage("ricoricoScreenCount2") var screenCount2: Int = 0
     @AppStorage("ricoricoScreenCount3") var screenCount3: Int = 0
     @AppStorage("ricoricoScreenCount4") var screenCount4: Int = 0
     @AppStorage("ricoricoScreenCount5") var screenCount5: Int = 0
     @AppStorage("ricoricoScreenCount6") var screenCount6: Int = 0
-    @AppStorage("ricoricoScreenCount7") var screenCount7: Int = 0
     @AppStorage("ricoricoScreenCountSum") var screenCountSum: Int = 0
+    // Wラッシュ後
+    @AppStorage("ricoricoWScreenCount1") var wScreenCount1: Int = 0
+    @AppStorage("ricoricoWScreenCount2") var wScreenCount2: Int = 0
+    @AppStorage("ricoricoWScreenCount3") var wScreenCount3: Int = 0
+    @AppStorage("ricoricoWScreenCount4") var wScreenCount4: Int = 0
+    @AppStorage("ricoricoWScreenCount5") var wScreenCount5: Int = 0
+    @AppStorage("ricoricoWScreenCount6") var wScreenCount6: Int = 0
+    @AppStorage("ricoricoWScreenCountSum") var wScreenCountSum: Int = 0
 
     func screenSumFunc() {
         screenCountSum = countSum(
@@ -64,7 +78,17 @@ class Ricorico: ObservableObject {
             screenCount4,
             screenCount5,
             screenCount6,
-            screenCount7,
+        )
+    }
+
+    func wScreenSumFunc() {
+        wScreenCountSum = countSum(
+            wScreenCount1,
+            wScreenCount2,
+            wScreenCount3,
+            wScreenCount4,
+            wScreenCount5,
+            wScreenCount6,
         )
     }
 
@@ -75,8 +99,14 @@ class Ricorico: ObservableObject {
         screenCount4 = 0
         screenCount5 = 0
         screenCount6 = 0
-        screenCount7 = 0
         screenCountSum = 0
+        wScreenCount1 = 0
+        wScreenCount2 = 0
+        wScreenCount3 = 0
+        wScreenCount4 = 0
+        wScreenCount5 = 0
+        wScreenCount6 = 0
+        wScreenCountSum = 0
         minusCheck = false
     }
 
@@ -164,8 +194,14 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoScreenCount4Memory1") var screenCount4: Int = 0
     @AppStorage("ricoricoScreenCount5Memory1") var screenCount5: Int = 0
     @AppStorage("ricoricoScreenCount6Memory1") var screenCount6: Int = 0
-    @AppStorage("ricoricoScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("ricoricoScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("ricoricoWScreenCount1Memory1") var wScreenCount1: Int = 0
+    @AppStorage("ricoricoWScreenCount2Memory1") var wScreenCount2: Int = 0
+    @AppStorage("ricoricoWScreenCount3Memory1") var wScreenCount3: Int = 0
+    @AppStorage("ricoricoWScreenCount4Memory1") var wScreenCount4: Int = 0
+    @AppStorage("ricoricoWScreenCount5Memory1") var wScreenCount5: Int = 0
+    @AppStorage("ricoricoWScreenCount6Memory1") var wScreenCount6: Int = 0
+    @AppStorage("ricoricoWScreenCountSumMemory1") var wScreenCountSum: Int = 0
     @AppStorage("ricoricoPrologueCount1Memory1") var prologueCount1: Int = 0
     @AppStorage("ricoricoPrologueCount2Memory1") var prologueCount2: Int = 0
     @AppStorage("ricoricoPrologueCount3Memory1") var prologueCount3: Int = 0
@@ -195,8 +231,14 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoScreenCount4Memory2") var screenCount4: Int = 0
     @AppStorage("ricoricoScreenCount5Memory2") var screenCount5: Int = 0
     @AppStorage("ricoricoScreenCount6Memory2") var screenCount6: Int = 0
-    @AppStorage("ricoricoScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("ricoricoScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("ricoricoWScreenCount1Memory2") var wScreenCount1: Int = 0
+    @AppStorage("ricoricoWScreenCount2Memory2") var wScreenCount2: Int = 0
+    @AppStorage("ricoricoWScreenCount3Memory2") var wScreenCount3: Int = 0
+    @AppStorage("ricoricoWScreenCount4Memory2") var wScreenCount4: Int = 0
+    @AppStorage("ricoricoWScreenCount5Memory2") var wScreenCount5: Int = 0
+    @AppStorage("ricoricoWScreenCount6Memory2") var wScreenCount6: Int = 0
+    @AppStorage("ricoricoWScreenCountSumMemory2") var wScreenCountSum: Int = 0
     @AppStorage("ricoricoPrologueCount1Memory2") var prologueCount1: Int = 0
     @AppStorage("ricoricoPrologueCount2Memory2") var prologueCount2: Int = 0
     @AppStorage("ricoricoPrologueCount3Memory2") var prologueCount3: Int = 0
@@ -226,8 +268,14 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoScreenCount4Memory3") var screenCount4: Int = 0
     @AppStorage("ricoricoScreenCount5Memory3") var screenCount5: Int = 0
     @AppStorage("ricoricoScreenCount6Memory3") var screenCount6: Int = 0
-    @AppStorage("ricoricoScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("ricoricoScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("ricoricoWScreenCount1Memory3") var wScreenCount1: Int = 0
+    @AppStorage("ricoricoWScreenCount2Memory3") var wScreenCount2: Int = 0
+    @AppStorage("ricoricoWScreenCount3Memory3") var wScreenCount3: Int = 0
+    @AppStorage("ricoricoWScreenCount4Memory3") var wScreenCount4: Int = 0
+    @AppStorage("ricoricoWScreenCount5Memory3") var wScreenCount5: Int = 0
+    @AppStorage("ricoricoWScreenCount6Memory3") var wScreenCount6: Int = 0
+    @AppStorage("ricoricoWScreenCountSumMemory3") var wScreenCountSum: Int = 0
     @AppStorage("ricoricoPrologueCount1Memory3") var prologueCount1: Int = 0
     @AppStorage("ricoricoPrologueCount2Memory3") var prologueCount2: Int = 0
     @AppStorage("ricoricoPrologueCount3Memory3") var prologueCount3: Int = 0
