@@ -28,6 +28,96 @@ struct ricoricoViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 共通ベル
+            Section {
+                // 共通ベル確率
+                unitResultRatioDenomination2Line(
+                    title: "共通🔔確率",
+                    count: $ricorico.commonBellCount,
+                    bigNumber: $ricorico.gameNumberPlay,
+                    numberofDicimal: 1
+                )
+
+                // 参考情報）共通ベル
+                unitLinkButtonViewBuilder(sheetTitle: "共通ベル") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "共通🔔",
+                            denominateList: ricorico.ratioCommonBell,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン
+                    HStack {
+                        // 共通🔔
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "共通🔔",
+                            count: $ricorico.commonBellCount,
+                            color: .personalSpringLightYellow,
+                            minusBool: $ricorico.minusCheck,
+                            flushColor: .yellow,
+                        ) { }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ricoricoView95Ci(
+                                ricorico: ricorico,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ricoricoViewBayes(
+                            ricorico: ricorico,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("共通ベル")
+            }
+
+            // ---- ゲーム数入力
+            Section {
+                // 打ち始め
+                unitTextFieldNumberInputWithUnit(
+                    title: "打ち始め",
+                    inputValue: $ricorico.gameNumberStart,
+                    unitText: "Ｇ",
+                )
+                .focused(self.$isFocused)
+                .onChange(of: ricorico.gameNumberStart) {
+                    let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
+                    ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
+                }
+                // 現在
+                unitTextFieldNumberInputWithUnit(
+                    title: "現在",
+                    inputValue: $ricorico.gameNumberCurrent,
+                    unitText: "Ｇ",
+                )
+                .focused(self.$isFocused)
+                .onChange(of: ricorico.gameNumberCurrent) {
+                    let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
+                    ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
+                }
+                // プレイ数
+                unitTextGameNumberWithoutInput(gameNumber: ricorico.gameNumberPlay)
+            } header: {
+                Text("ゲーム数入力")
+            }
+            
             // レア役
             Section {
                 // レア役停止系
@@ -47,7 +137,6 @@ struct ricoricoViewNormal: View {
             } header: {
                 Text("規定ゲーム数")
             }
-
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.ricoricoMenuNormalBadge)
@@ -83,6 +172,17 @@ struct ricoricoViewNormal: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: ricorico.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

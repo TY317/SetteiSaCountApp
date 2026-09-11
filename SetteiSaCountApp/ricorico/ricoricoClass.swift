@@ -13,8 +13,19 @@ class Ricorico: ObservableObject {
     // -------
     // 通常時
     // -------
+    // 共通ベル
+    let ratioCommonBell: [Double] = [95.8,95.8,95.8,87.6,83.2,79.1]
+    @AppStorage("ricoricoCommonBellCount") var commonBellCount: Int = 0
+    // ゲーム数
+    @AppStorage("ricoricoGameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("ricoricoGameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("ricoricoGameNumberPlay") var gameNumberPlay: Int = 0
 
     func resetNormal() {
+        commonBellCount = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
 

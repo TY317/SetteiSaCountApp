@@ -49,6 +49,24 @@ struct ricoricoView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 共通ベル
+            unitListSection95Ci(
+                grafTitle: "共通ベル",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ricorico.commonBellCount,
+                        bigNumber: $ricorico.gameNumberPlay,
+                        setting1Denominate: ricorico.ratioCommonBell[0],
+                        setting2Denominate: ricorico.ratioCommonBell[1],
+                        setting3Denominate: ricorico.ratioCommonBell[2],
+                        setting4Denominate: ricorico.ratioCommonBell[3],
+                        setting5Denominate: ricorico.ratioCommonBell[4],
+                        setting6Denominate: ricorico.ratioCommonBell[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

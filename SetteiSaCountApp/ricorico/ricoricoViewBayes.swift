@@ -23,6 +23,7 @@ struct ricoricoViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var commonBellEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -46,6 +47,9 @@ struct ricoricoViewBayes: View {
 
             // //// STEP2
             bayesSubStep2Section {
+                // 共通ベル確率
+                unitToggleWithQuestion(enable: self.$commonBellEnable, title: "共通ベル確率")
+
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
                     unitExView5body2image(
@@ -146,6 +150,16 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 共通ベル確率
+        var logPostCommonBell: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.commonBellEnable {
+            logPostCommonBell = logPostDenoBino(
+                ratio: ricorico.ratioCommonBell,
+                Count: ricorico.commonBellCount,
+                bigNumber: ricorico.gameNumberPlay
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -231,6 +245,7 @@ struct ricoricoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostCommonBell,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
