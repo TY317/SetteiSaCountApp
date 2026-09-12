@@ -22,6 +22,13 @@ class Sao2: ObservableObject {
     @AppStorage("sao2KyoCherryCountCzHit") var kyoCherryCountCzHit: Int = 0
     @AppStorage("sao2HighKyoCherryCount") var highKyoCherryCount: Int = 0
     @AppStorage("sao2HighKyoCherryCountCzHit") var highKyoCherryCountCzHit: Int = 0
+    // 強チャンス目B
+    let ratioKyoChanceB: [Double] = [1057,993,936.2,885.6,840.2,799.2]
+    @AppStorage("sao2KyoChanceBCount") var kyoChanceBCount: Int = 0
+    // ゲーム数（通常時ページ専用。初当りページの normalGame とは別管理）
+    @AppStorage("sao2GameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("sao2GameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("sao2GameNumberPlay") var gameNumberPlay: Int = 0
     
     func resetNormal() {
         lowSuikaCount = 0
@@ -30,6 +37,10 @@ class Sao2: ObservableObject {
         kyoCherryCountCzHit = 0
         highKyoCherryCount = 0
         highKyoCherryCountCzHit = 0
+        kyoChanceBCount = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
     

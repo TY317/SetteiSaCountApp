@@ -184,6 +184,90 @@ struct sao2ViewNormal: View {
                 Text("小役からの当選")
             }
             
+            // ---- 強チャンス目B確率
+            Section {
+                // 強チャンス目B確率
+                unitResultRatioDenomination2Line(
+                    title: "強チャンス目B確率",
+                    count: $sao2.kyoChanceBCount,
+                    bigNumber: $sao2.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+                
+                // 参考情報）強チャンス目B確率
+                unitLinkButtonViewBuilder(sheetTitle: "強チャンス目B確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "強チャンス目B",
+                            denominateList: sao2.ratioKyoChanceB,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+                
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン
+                    HStack {
+                        // 強チャンス目B
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "強チャンス目B",
+                            count: $sao2.kyoChanceBCount,
+                            color: .personalSummerLightPurple,
+                            minusBool: $sao2.minusCheck) {
+                            }
+                    }
+                    
+                    // ゲーム数入力（初当りページの normalGame とは別管理）
+                    unitTextFieldNumberInputWithUnit(
+                        title: "打ち始め",
+                        inputValue: $sao2.gameNumberStart,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: sao2.gameNumberStart) {
+                        let playGame = sao2.gameNumberCurrent - sao2.gameNumberStart
+                        sao2.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    unitTextFieldNumberInputWithUnit(
+                        title: "現在",
+                        inputValue: $sao2.gameNumberCurrent,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: sao2.gameNumberCurrent) {
+                        let playGame = sao2.gameNumberCurrent - sao2.gameNumberStart
+                        sao2.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    unitTextGameNumberWithoutInput(gameNumber: sao2.gameNumberPlay)
+                    
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            sao2View95Ci(
+                                sao2: sao2,
+                                selection: 9,
+                            )
+                        )
+                    )
+                    
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        sao2ViewBayes(
+                            sao2: sao2,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("強チャンス目B確率")
+            }
+            
             // ---- 通常モード
             Section {
                 // 規定G数モード
@@ -248,6 +332,17 @@ struct sao2ViewNormal: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: sao2.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

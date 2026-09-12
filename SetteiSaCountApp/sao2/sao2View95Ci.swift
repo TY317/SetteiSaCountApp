@@ -162,6 +162,24 @@ struct sao2View95Ci: View {
             )
             .tag(8)
             
+            // 強チャンス目B確率
+            unitListSection95Ci(
+                grafTitle: "強チャンス目B確率",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $sao2.kyoChanceBCount,
+                        bigNumber: $sao2.gameNumberPlay,
+                        setting1Denominate: sao2.ratioKyoChanceB[0],
+                        setting2Denominate: sao2.ratioKyoChanceB[1],
+                        setting3Denominate: sao2.ratioKyoChanceB[2],
+                        setting4Denominate: sao2.ratioKyoChanceB[3],
+                        setting5Denominate: sao2.ratioKyoChanceB[4],
+                        setting6Denominate: sao2.ratioKyoChanceB[5]
+                    )
+                )
+            )
+            .tag(9)
+            
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(
 //                grafTitle: "炎炎ループ初当り回数",
