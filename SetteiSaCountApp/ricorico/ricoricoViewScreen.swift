@@ -164,7 +164,7 @@ struct ricoricoViewScreen: View {
                     }
                 }
             } header: {
-                unitLabelHeaderScreenCount(title: "エピソード カウント")
+                unitLabelHeaderScreenCount()
             }
         }
         // //// バッジのリセット

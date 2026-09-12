@@ -136,7 +136,7 @@ struct ricoricoViewDuringAt: View {
                     }
                 }
             } header: {
-                unitLabelHeaderScreenCount()
+                unitLabelHeaderScreenCount(title: "エピソード カウント")
             }
 
         }
