@@ -225,6 +225,10 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoWRushEpiboCount2Memory1") var wRushEpiboCount2: Int = 0
     @AppStorage("ricoricoWRushEpiboCount3Memory1") var wRushEpiboCount3: Int = 0
     @AppStorage("ricoricoWRushEpiboCountSumMemory1") var wRushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoCommonBellCountMemory1") var commonBellCount: Int = 0
+    @AppStorage("ricoricoGameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("ricoricoGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("ricoricoGameNumberPlayMemory1") var gameNumberPlay: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
@@ -262,6 +266,10 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoWRushEpiboCount2Memory2") var wRushEpiboCount2: Int = 0
     @AppStorage("ricoricoWRushEpiboCount3Memory2") var wRushEpiboCount3: Int = 0
     @AppStorage("ricoricoWRushEpiboCountSumMemory2") var wRushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoCommonBellCountMemory2") var commonBellCount: Int = 0
+    @AppStorage("ricoricoGameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("ricoricoGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("ricoricoGameNumberPlayMemory2") var gameNumberPlay: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
@@ -299,6 +307,10 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoWRushEpiboCount2Memory3") var wRushEpiboCount2: Int = 0
     @AppStorage("ricoricoWRushEpiboCount3Memory3") var wRushEpiboCount3: Int = 0
     @AppStorage("ricoricoWRushEpiboCountSumMemory3") var wRushEpiboCountSum: Int = 0
+    @AppStorage("ricoricoCommonBellCountMemory3") var commonBellCount: Int = 0
+    @AppStorage("ricoricoGameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("ricoricoGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("ricoricoGameNumberPlayMemory3") var gameNumberPlay: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }

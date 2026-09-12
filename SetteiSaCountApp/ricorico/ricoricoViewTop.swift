@@ -211,6 +211,10 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory1.wScreenCount5 = ricorico.wScreenCount5
         ricoricoMemory1.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory1.wScreenCountSum = ricorico.wScreenCountSum
+        ricoricoMemory1.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory1.gameNumberStart = ricorico.gameNumberStart
+        ricoricoMemory1.gameNumberCurrent = ricorico.gameNumberCurrent
+        ricoricoMemory1.gameNumberPlay = ricorico.gameNumberPlay
         ricoricoMemory1.prologueCount1 = ricorico.prologueCount1
         ricoricoMemory1.prologueCount2 = ricorico.prologueCount2
         ricoricoMemory1.prologueCount3 = ricorico.prologueCount3
@@ -244,6 +248,10 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory2.wScreenCount5 = ricorico.wScreenCount5
         ricoricoMemory2.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory2.wScreenCountSum = ricorico.wScreenCountSum
+        ricoricoMemory2.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory2.gameNumberStart = ricorico.gameNumberStart
+        ricoricoMemory2.gameNumberCurrent = ricorico.gameNumberCurrent
+        ricoricoMemory2.gameNumberPlay = ricorico.gameNumberPlay
         ricoricoMemory2.prologueCount1 = ricorico.prologueCount1
         ricoricoMemory2.prologueCount2 = ricorico.prologueCount2
         ricoricoMemory2.prologueCount3 = ricorico.prologueCount3
@@ -277,6 +285,10 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory3.wScreenCount5 = ricorico.wScreenCount5
         ricoricoMemory3.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory3.wScreenCountSum = ricorico.wScreenCountSum
+        ricoricoMemory3.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory3.gameNumberStart = ricorico.gameNumberStart
+        ricoricoMemory3.gameNumberCurrent = ricorico.gameNumberCurrent
+        ricoricoMemory3.gameNumberPlay = ricorico.gameNumberPlay
         ricoricoMemory3.prologueCount1 = ricorico.prologueCount1
         ricoricoMemory3.prologueCount2 = ricorico.prologueCount2
         ricoricoMemory3.prologueCount3 = ricorico.prologueCount3
@@ -339,6 +351,10 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount5 = ricoricoMemory1.wScreenCount5
         ricorico.wScreenCount6 = ricoricoMemory1.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory1.wScreenCountSum
+        ricorico.commonBellCount = ricoricoMemory1.commonBellCount
+        ricorico.gameNumberStart = ricoricoMemory1.gameNumberStart
+        ricorico.gameNumberCurrent = ricoricoMemory1.gameNumberCurrent
+        ricorico.gameNumberPlay = ricoricoMemory1.gameNumberPlay
         ricorico.prologueCount1 = ricoricoMemory1.prologueCount1
         ricorico.prologueCount2 = ricoricoMemory1.prologueCount2
         ricorico.prologueCount3 = ricoricoMemory1.prologueCount3
@@ -372,6 +388,10 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount5 = ricoricoMemory2.wScreenCount5
         ricorico.wScreenCount6 = ricoricoMemory2.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory2.wScreenCountSum
+        ricorico.commonBellCount = ricoricoMemory2.commonBellCount
+        ricorico.gameNumberStart = ricoricoMemory2.gameNumberStart
+        ricorico.gameNumberCurrent = ricoricoMemory2.gameNumberCurrent
+        ricorico.gameNumberPlay = ricoricoMemory2.gameNumberPlay
         ricorico.prologueCount1 = ricoricoMemory2.prologueCount1
         ricorico.prologueCount2 = ricoricoMemory2.prologueCount2
         ricorico.prologueCount3 = ricoricoMemory2.prologueCount3
@@ -405,6 +425,10 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount5 = ricoricoMemory3.wScreenCount5
         ricorico.wScreenCount6 = ricoricoMemory3.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory3.wScreenCountSum
+        ricorico.commonBellCount = ricoricoMemory3.commonBellCount
+        ricorico.gameNumberStart = ricoricoMemory3.gameNumberStart
+        ricorico.gameNumberCurrent = ricoricoMemory3.gameNumberCurrent
+        ricorico.gameNumberPlay = ricoricoMemory3.gameNumberPlay
         ricorico.prologueCount1 = ricoricoMemory3.prologueCount1
         ricorico.prologueCount2 = ricoricoMemory3.prologueCount2
         ricorico.prologueCount3 = ricoricoMemory3.prologueCount3
