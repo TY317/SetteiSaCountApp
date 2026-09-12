@@ -10,6 +10,9 @@ import SwiftUI
 struct ricoricoTableKoyakuPattern: View {
     var body: some View {
         VStack(spacing: 20) {
+            Text("★：ボーナス図柄、ブランク図柄")
+                .foregroundStyle(Color.secondary)
+                .font(.caption)
             // //// 1段目
             VStack {
                 HStack(spacing: 15) {
