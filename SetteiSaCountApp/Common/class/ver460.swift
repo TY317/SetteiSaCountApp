@@ -101,3 +101,19 @@ struct tipVer460KabaneriUnatoHighAt: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：SAO2 強チャンス目B確率
+//////////////////
+struct tipVer460Sao2KyoChanceB: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("強チャンス目B確率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

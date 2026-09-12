@@ -205,6 +205,7 @@ struct sao2ViewNormal: View {
                         )
                     }
                 }
+                .popoverTip(tipVer460Sao2KyoChanceB())
                 
                 // カウント
                 DisclosureGroup {
