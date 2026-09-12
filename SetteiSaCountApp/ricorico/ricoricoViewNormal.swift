@@ -63,6 +63,31 @@ struct ricoricoViewNormal: View {
                             flushColor: .yellow,
                         ) { }
                     }
+                    
+                    // 打ち始め
+                    unitTextFieldNumberInputWithUnit(
+                        title: "打ち始め",
+                        inputValue: $ricorico.gameNumberStart,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: ricorico.gameNumberStart) {
+                        let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
+                        ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    // 現在
+                    unitTextFieldNumberInputWithUnit(
+                        title: "現在",
+                        inputValue: $ricorico.gameNumberCurrent,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: ricorico.gameNumberCurrent) {
+                        let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
+                        ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    // プレイ数
+                    unitTextGameNumberWithoutInput(gameNumber: ricorico.gameNumberPlay)
 
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(
@@ -86,36 +111,6 @@ struct ricoricoViewNormal: View {
                 }
             } header: {
                 Text("共通ベル")
-            }
-
-            // ---- ゲーム数入力
-            Section {
-                // 打ち始め
-                unitTextFieldNumberInputWithUnit(
-                    title: "打ち始め",
-                    inputValue: $ricorico.gameNumberStart,
-                    unitText: "Ｇ",
-                )
-                .focused(self.$isFocused)
-                .onChange(of: ricorico.gameNumberStart) {
-                    let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
-                    ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
-                }
-                // 現在
-                unitTextFieldNumberInputWithUnit(
-                    title: "現在",
-                    inputValue: $ricorico.gameNumberCurrent,
-                    unitText: "Ｇ",
-                )
-                .focused(self.$isFocused)
-                .onChange(of: ricorico.gameNumberCurrent) {
-                    let playGame = ricorico.gameNumberCurrent - ricorico.gameNumberStart
-                    ricorico.gameNumberPlay = playGame > 0 ? playGame : 0
-                }
-                // プレイ数
-                unitTextGameNumberWithoutInput(gameNumber: ricorico.gameNumberPlay)
-            } header: {
-                Text("ゲーム数入力")
             }
             
             // レア役
