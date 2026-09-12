@@ -15,6 +15,7 @@ struct kokakukidotaiViewBayes: View {
     let payoutList: [Double] = [97.9, 98.7, 100.8, 104.9, 109.3, 112.2]
     @State var firstHitEnable: Bool = true
     @State var rebootEnable: Bool = true
+    @State var highAtEnable: Bool = true
     @State var iedeEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var czScreenEnable: Bool = true
@@ -89,6 +90,9 @@ struct kokakukidotaiViewBayes: View {
                 }
                 // 引き戻り確率
                 unitToggleWithQuestion(enable: self.$rebootEnable, title: "REBOOTCHANCE成功ストック")
+
+                // 上位裏AT突入率
+                unitToggleWithQuestion(enable: self.$highAtEnable, title: "上位裏AT突入率")
                 
                 // サミートロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -276,6 +280,16 @@ struct kokakukidotaiViewBayes: View {
                 ], bigNumber: kokakukidotai.modeCountSum
             )
         }
+        // 上位裏AT突入率
+        var logPostHighAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.highAtEnable {
+            logPostHighAt = logPostPercentBino(
+                ratio: kokakukidotai.ratioHighAt,
+                Count: kokakukidotai.highAtCountHit,
+                bigNumber: kokakukidotai.highAtCountSum
+            )
+        }
+
         
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -326,6 +340,7 @@ struct kokakukidotaiViewBayes: View {
             logPostCzColorGreen,
             logPostMode,
             
+            logPostHighAt,
             logPostTrophy,
             logPostBefore,
         ])

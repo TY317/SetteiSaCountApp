@@ -119,10 +119,22 @@ class Kokakukidotai: ObservableObject {
         rebootCountSum = rebootCountMiss + rebootCountSuccess
     }
     
+    let ratioHighAt: [Double] = [12.5,13.3,14.2,15.0,30,40]
+    @AppStorage("kokakukidotaiHighAtCountMiss") var highAtCountMiss: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountHit") var highAtCountHit: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountSum") var highAtCountSum: Int = 0
+
+    func highAtSumFunc() {
+        highAtCountSum = highAtCountHit + highAtCountMiss
+    }
+
     func resetAt() {
         rebootCountMiss = 0
         rebootCountSuccess = 0
         rebootCountSum = 0
+        highAtCountMiss = 0
+        highAtCountHit = 0
+        highAtCountSum = 0
         minusCheck = false
     }
     
@@ -284,6 +296,9 @@ class KokakukidotaiMemory1: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountMissMemory1") var rebootCountMiss: Int = 0
     @AppStorage("kokakukidotaiRebootCountSuccessMemory1") var rebootCountSuccess: Int = 0
     @AppStorage("kokakukidotaiRebootCountSumMemory1") var rebootCountSum: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountMissMemory1") var highAtCountMiss: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountHitMemory1") var highAtCountHit: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountSumMemory1") var highAtCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory1") var memo = ""
     @AppStorage("kokakukidotaiDateMemory1") var dateDouble = 0.0
     
@@ -350,6 +365,9 @@ class KokakukidotaiMemory2: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountMissMemory2") var rebootCountMiss: Int = 0
     @AppStorage("kokakukidotaiRebootCountSuccessMemory2") var rebootCountSuccess: Int = 0
     @AppStorage("kokakukidotaiRebootCountSumMemory2") var rebootCountSum: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountMissMemory2") var highAtCountMiss: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountHitMemory2") var highAtCountHit: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountSumMemory2") var highAtCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory2") var memo = ""
     @AppStorage("kokakukidotaiDateMemory2") var dateDouble = 0.0
     
@@ -416,6 +434,9 @@ class KokakukidotaiMemory3: ObservableObject {
     @AppStorage("kokakukidotaiRebootCountMissMemory3") var rebootCountMiss: Int = 0
     @AppStorage("kokakukidotaiRebootCountSuccessMemory3") var rebootCountSuccess: Int = 0
     @AppStorage("kokakukidotaiRebootCountSumMemory3") var rebootCountSum: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountMissMemory3") var highAtCountMiss: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountHitMemory3") var highAtCountHit: Int = 0
+    @AppStorage("kokakukidotaiHighAtCountSumMemory3") var highAtCountSum: Int = 0
     @AppStorage("kokakukidotaiMemoMemory3") var memo = ""
     @AppStorage("kokakukidotaiDateMemory3") var dateDouble = 0.0
     

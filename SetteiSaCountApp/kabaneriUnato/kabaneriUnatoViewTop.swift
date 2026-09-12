@@ -97,6 +97,19 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuScreenBadge,
                         )
                     }
+
+                    // 復讐の焔
+                    NavigationLink(destination: kabaneriUnatoViewHighAt(
+                        kabaneriUnato: kabaneriUnato,
+                        bayes: bayes,
+                        viewModel: viewModel,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flame.fill",
+                            textBody: "復讐の焔",
+                            badgeStatus: common.kabaneriUnatoMenuHighAtBadge,
+                        )
+                    }
                     
                     // おみくじ
                     NavigationLink(destination: kabaneriUnatoViewOmikuji(
@@ -263,6 +276,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory1.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory1.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory1.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        kabaneriUnatoMemory1.highAtCountMiss = kabaneriUnato.highAtCountMiss
+        kabaneriUnatoMemory1.highAtCountHit = kabaneriUnato.highAtCountHit
+        kabaneriUnatoMemory1.highAtCountSum = kabaneriUnato.highAtCountSum
         
         // ----------
         // ver3.25.0
@@ -319,6 +335,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory2.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory2.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory2.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        kabaneriUnatoMemory2.highAtCountMiss = kabaneriUnato.highAtCountMiss
+        kabaneriUnatoMemory2.highAtCountHit = kabaneriUnato.highAtCountHit
+        kabaneriUnatoMemory2.highAtCountSum = kabaneriUnato.highAtCountSum
         
         // ----------
         // ver3.25.0
@@ -375,6 +394,9 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory3.hayajiroCountMiss = kabaneriUnato.hayajiroCountMiss
         kabaneriUnatoMemory3.hayajiroCountHit = kabaneriUnato.hayajiroCountHit
         kabaneriUnatoMemory3.hayajiroCountSum = kabaneriUnato.hayajiroCountSum
+        kabaneriUnatoMemory3.highAtCountMiss = kabaneriUnato.highAtCountMiss
+        kabaneriUnatoMemory3.highAtCountHit = kabaneriUnato.highAtCountHit
+        kabaneriUnatoMemory3.highAtCountSum = kabaneriUnato.highAtCountSum
         
         // ----------
         // ver3.25.0
@@ -460,6 +482,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory1.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory1.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory1.hayajiroCountSum
+        kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory1.highAtCountMiss
+        kabaneriUnato.highAtCountHit = kabaneriUnatoMemory1.highAtCountHit
+        kabaneriUnato.highAtCountSum = kabaneriUnatoMemory1.highAtCountSum
         
         // ----------
         // ver3.25.0
@@ -516,6 +541,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory2.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory2.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory2.hayajiroCountSum
+        kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory2.highAtCountMiss
+        kabaneriUnato.highAtCountHit = kabaneriUnatoMemory2.highAtCountHit
+        kabaneriUnato.highAtCountSum = kabaneriUnatoMemory2.highAtCountSum
         
         // ----------
         // ver3.25.0
@@ -572,6 +600,9 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.hayajiroCountMiss = kabaneriUnatoMemory3.hayajiroCountMiss
         kabaneriUnato.hayajiroCountHit = kabaneriUnatoMemory3.hayajiroCountHit
         kabaneriUnato.hayajiroCountSum = kabaneriUnatoMemory3.hayajiroCountSum
+        kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory3.highAtCountMiss
+        kabaneriUnato.highAtCountHit = kabaneriUnatoMemory3.highAtCountHit
+        kabaneriUnato.highAtCountSum = kabaneriUnatoMemory3.highAtCountSum
         
         // ----------
         // ver3.25.0

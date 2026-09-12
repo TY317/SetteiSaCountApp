@@ -16,6 +16,7 @@ struct shinYoshiViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var battoChanceEnable: Bool = true
     @State var yagyuEnable: Bool = true
+    @State var screenEnable: Bool = true
     
     
     // 全機種共通
@@ -53,6 +54,15 @@ struct shinYoshiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$yagyuEnable, title: "柳生選択率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
+
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・AT終了画面の出現率を計算要素に加えます",
+                        textBody2: "・7画面すべての振分けが判明しているため、全画面のカウントを計算に使います",
+                    )
+                }
                 
             }
             
@@ -144,6 +154,31 @@ struct shinYoshiViewBayes: View {
         }
 
 
+        // AT終了画面
+        // 新月（デフォルト）は残余バケットに吸収させるため除外
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    shinYoshi.screenCount2,
+                    shinYoshi.screenCount3,
+                    shinYoshi.screenCount4,
+                    shinYoshi.screenCount5,
+                    shinYoshi.screenCount6,
+                    shinYoshi.screenCount7,
+                ],
+                ratioList: [
+                    shinYoshi.ratioScreenMikazuki,
+                    shinYoshi.ratioScreenMangetsu,
+                    shinYoshi.ratioScreenOoka,
+                    shinYoshi.ratioScreenYagyu,
+                    shinYoshi.ratioScreenOoku,
+                    shinYoshi.ratioScreenYoshimune,
+                ],
+                bigNumber: shinYoshi.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -186,6 +221,7 @@ struct shinYoshiViewBayes: View {
             logPostYagyu,
 
 
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

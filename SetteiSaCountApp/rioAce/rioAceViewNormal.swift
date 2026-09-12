@@ -202,7 +202,6 @@ struct rioAceViewNormal: View {
                     bigNumber: $rioAce.suikaCount,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer400RioAceNormalSuika())
                 
                 // 参考情報）スイカでの次回成功抽選
                 unitLinkButtonViewBuilder(sheetTitle: "スイカでの次回成功抽選") {

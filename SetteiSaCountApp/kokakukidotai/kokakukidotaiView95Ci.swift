@@ -255,6 +255,24 @@ struct kokakukidotaiView95Ci: View {
                 )
             )
             .tag(5)
+
+            // 上位裏AT突入率
+            unitListSection95Ci(
+                grafTitle: "上位裏AT突入率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kokakukidotai.highAtCountHit,
+                        bigNumber: $kokakukidotai.highAtCountSum,
+                        setting1Percent: kokakukidotai.ratioHighAt[0],
+                        setting2Percent: kokakukidotai.ratioHighAt[1],
+                        setting3Percent: kokakukidotai.ratioHighAt[2],
+                        setting4Percent: kokakukidotai.ratioHighAt[3],
+                        setting5Percent: kokakukidotai.ratioHighAt[4],
+                        setting6Percent: kokakukidotai.ratioHighAt[5]
+                    )
+                )
+            )
+            .tag(14)
         }
         // //// firebaseログ
         .onAppear {

@@ -282,6 +282,10 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.kyoCherryCountCzHit = sao2.kyoCherryCountCzHit
         sao2Memory1.highKyoCherryCount = sao2.highKyoCherryCount
         sao2Memory1.highKyoCherryCountCzHit = sao2.highKyoCherryCountCzHit
+        sao2Memory1.kyoChanceBCount = sao2.kyoChanceBCount
+        sao2Memory1.gameNumberStart = sao2.gameNumberStart
+        sao2Memory1.gameNumberCurrent = sao2.gameNumberCurrent
+        sao2Memory1.gameNumberPlay = sao2.gameNumberPlay
         sao2Memory1.czItemCountMiss = sao2.czItemCountMiss
         sao2Memory1.czItemCountHit = sao2.czItemCountHit
         sao2Memory1.czItemCountSum = sao2.czItemCountSum
@@ -323,6 +327,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory1.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory1.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory1.startStageCountHit = sao2.startStageCountHit
+        sao2Memory1.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory1.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory2() {
         sao2Memory2.lowSuikaCount = sao2.lowSuikaCount
@@ -331,6 +338,10 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.kyoCherryCountCzHit = sao2.kyoCherryCountCzHit
         sao2Memory2.highKyoCherryCount = sao2.highKyoCherryCount
         sao2Memory2.highKyoCherryCountCzHit = sao2.highKyoCherryCountCzHit
+        sao2Memory2.kyoChanceBCount = sao2.kyoChanceBCount
+        sao2Memory2.gameNumberStart = sao2.gameNumberStart
+        sao2Memory2.gameNumberCurrent = sao2.gameNumberCurrent
+        sao2Memory2.gameNumberPlay = sao2.gameNumberPlay
         sao2Memory2.czItemCountMiss = sao2.czItemCountMiss
         sao2Memory2.czItemCountHit = sao2.czItemCountHit
         sao2Memory2.czItemCountSum = sao2.czItemCountSum
@@ -372,6 +383,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory2.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory2.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory2.startStageCountHit = sao2.startStageCountHit
+        sao2Memory2.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory2.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory3() {
         sao2Memory3.lowSuikaCount = sao2.lowSuikaCount
@@ -380,6 +394,10 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory3.kyoCherryCountCzHit = sao2.kyoCherryCountCzHit
         sao2Memory3.highKyoCherryCount = sao2.highKyoCherryCount
         sao2Memory3.highKyoCherryCountCzHit = sao2.highKyoCherryCountCzHit
+        sao2Memory3.kyoChanceBCount = sao2.kyoChanceBCount
+        sao2Memory3.gameNumberStart = sao2.gameNumberStart
+        sao2Memory3.gameNumberCurrent = sao2.gameNumberCurrent
+        sao2Memory3.gameNumberPlay = sao2.gameNumberPlay
         sao2Memory3.czItemCountMiss = sao2.czItemCountMiss
         sao2Memory3.czItemCountHit = sao2.czItemCountHit
         sao2Memory3.czItemCountSum = sao2.czItemCountSum
@@ -421,6 +439,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory3.motherMiniCharaCount7 = sao2.motherMiniCharaCount7
         sao2Memory3.motherMiniCharaCount8 = sao2.motherMiniCharaCount8
         sao2Memory3.motherMiniCharaCountSum = sao2.motherMiniCharaCountSum
+        sao2Memory3.startStageCountHit = sao2.startStageCountHit
+        sao2Memory3.startStageCountMiss = sao2.startStageCountMiss
+        sao2Memory3.startStageCountSum = sao2.startStageCountSum
     }
 }
 
@@ -458,6 +479,10 @@ struct sao2SubViewLoadMemory: View {
         sao2.kyoCherryCountCzHit = sao2Memory1.kyoCherryCountCzHit
         sao2.highKyoCherryCount = sao2Memory1.highKyoCherryCount
         sao2.highKyoCherryCountCzHit = sao2Memory1.highKyoCherryCountCzHit
+        sao2.kyoChanceBCount = sao2Memory1.kyoChanceBCount
+        sao2.gameNumberStart = sao2Memory1.gameNumberStart
+        sao2.gameNumberCurrent = sao2Memory1.gameNumberCurrent
+        sao2.gameNumberPlay = sao2Memory1.gameNumberPlay
         sao2.czItemCountMiss = sao2Memory1.czItemCountMiss
         sao2.czItemCountHit = sao2Memory1.czItemCountHit
         sao2.czItemCountSum = sao2Memory1.czItemCountSum
@@ -499,6 +524,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory1.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory1.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory1.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory1.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory1.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory1.startStageCountSum
     }
     func loadMemory2() {
         sao2.lowSuikaCount = sao2Memory2.lowSuikaCount
@@ -507,6 +535,10 @@ struct sao2SubViewLoadMemory: View {
         sao2.kyoCherryCountCzHit = sao2Memory2.kyoCherryCountCzHit
         sao2.highKyoCherryCount = sao2Memory2.highKyoCherryCount
         sao2.highKyoCherryCountCzHit = sao2Memory2.highKyoCherryCountCzHit
+        sao2.kyoChanceBCount = sao2Memory2.kyoChanceBCount
+        sao2.gameNumberStart = sao2Memory2.gameNumberStart
+        sao2.gameNumberCurrent = sao2Memory2.gameNumberCurrent
+        sao2.gameNumberPlay = sao2Memory2.gameNumberPlay
         sao2.czItemCountMiss = sao2Memory2.czItemCountMiss
         sao2.czItemCountHit = sao2Memory2.czItemCountHit
         sao2.czItemCountSum = sao2Memory2.czItemCountSum
@@ -548,6 +580,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory2.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory2.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory2.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory2.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory2.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory2.startStageCountSum
     }
     func loadMemory3() {
         sao2.lowSuikaCount = sao2Memory3.lowSuikaCount
@@ -556,6 +591,10 @@ struct sao2SubViewLoadMemory: View {
         sao2.kyoCherryCountCzHit = sao2Memory3.kyoCherryCountCzHit
         sao2.highKyoCherryCount = sao2Memory3.highKyoCherryCount
         sao2.highKyoCherryCountCzHit = sao2Memory3.highKyoCherryCountCzHit
+        sao2.kyoChanceBCount = sao2Memory3.kyoChanceBCount
+        sao2.gameNumberStart = sao2Memory3.gameNumberStart
+        sao2.gameNumberCurrent = sao2Memory3.gameNumberCurrent
+        sao2.gameNumberPlay = sao2Memory3.gameNumberPlay
         sao2.czItemCountMiss = sao2Memory3.czItemCountMiss
         sao2.czItemCountHit = sao2Memory3.czItemCountHit
         sao2.czItemCountSum = sao2Memory3.czItemCountSum
@@ -597,6 +636,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.motherMiniCharaCount7 = sao2Memory3.motherMiniCharaCount7
         sao2.motherMiniCharaCount8 = sao2Memory3.motherMiniCharaCount8
         sao2.motherMiniCharaCountSum = sao2Memory3.motherMiniCharaCountSum
+        sao2.startStageCountHit = sao2Memory3.startStageCountHit
+        sao2.startStageCountMiss = sao2Memory3.startStageCountMiss
+        sao2.startStageCountSum = sao2Memory3.startStageCountSum
     }
 }
 

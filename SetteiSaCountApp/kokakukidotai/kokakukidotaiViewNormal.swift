@@ -323,7 +323,6 @@ struct kokakukidotaiViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "CZ失敗後のモード移行率") {
                     kokakukidotaiTableModeMoveRatio(kokakukidotai: kokakukidotai)
                 }
-//                .popoverTip(tipVer400KokakukidotaiSenmetuMode())
                 DisclosureGroup {
                     // 注意
                     unitLabelCautionText {

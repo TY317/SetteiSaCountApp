@@ -123,6 +123,24 @@ struct kabaneriUnatoView95Ci: View {
             )
             .tag(3)
             
+            // 成功時の裏突入率
+            unitListSection95Ci(
+                grafTitle: "成功時の裏突入率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.highAtCountHit,
+                        bigNumber: $kabaneriUnato.highAtCountSum,
+                        setting1Percent: kabaneriUnato.ratioHighAt[0],
+                        setting2Percent: kabaneriUnato.ratioHighAt[1],
+                        setting3Percent: kabaneriUnato.ratioHighAt[2],
+                        setting4Percent: kabaneriUnato.ratioHighAt[3],
+                        setting5Percent: kabaneriUnato.ratioHighAt[4],
+                        setting6Percent: kabaneriUnato.ratioHighAt[5]
+                    )
+                )
+            )
+            .tag(6)
+            
         }
         // //// firebaseログ
         .onAppear {

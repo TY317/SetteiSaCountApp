@@ -16,6 +16,7 @@ struct sao2ViewBayes: View {
     @State var lowSuikaHitEnable: Bool = true
     @State var lowKyoCherryHitEnable: Bool = true
     @State var highKyoCherryHitEnable: Bool = true
+    @State var kyoChanceBEnable: Bool = true
     @State var czItemGetEnable: Bool = true
     @State var czKettouGetEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
@@ -23,6 +24,7 @@ struct sao2ViewBayes: View {
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
     @State var mothersEnable: Bool = true
+    @State var startStageEnable: Bool = true
 
     
     // 全機種共通
@@ -58,12 +60,16 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowSuikaHitEnable, title: "低確 🍉からのシューティングチャージ当選率")
                 unitToggleWithQuestion(enable: self.$lowKyoCherryHitEnable, title: "低確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$highKyoCherryHitEnable, title: "高確 強🍒からのCZ当選率")
+                unitToggleWithQuestion(enable: self.$kyoChanceBEnable, title: "強チャンス目B確率")
                 unitToggleWithQuestion(enable: self.$czItemGetEnable, title: "CZ失敗時のアイテム獲得率")
 //                unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // AT開始時のステージ
+                unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ")
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -197,6 +203,16 @@ struct sao2ViewBayes: View {
 //            )
 //        }
         
+        // 強チャンス目B確率
+        var logPostKyoChanceB: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.kyoChanceBEnable {
+            logPostKyoChanceB = logPostDenoBino(
+                ratio: sao2.ratioKyoChanceB,
+                Count: sao2.kyoChanceBCount,
+                bigNumber: sao2.gameNumberPlay
+            )
+        }
+        
         // CZ初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
@@ -266,6 +282,16 @@ struct sao2ViewBayes: View {
 //                bigNumber: sao2.motherMiniCharaCountSum
 //            )
 //        }
+        // AT開始時のステージ
+        var logPostStartStage: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.startStageEnable {
+            logPostStartStage = logPostPercentBino(
+                ratio: sao2.ratioStartStageKouya,
+                Count: sao2.startStageCountHit,
+                bigNumber: sao2.startStageCountSum
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -307,6 +333,7 @@ struct sao2ViewBayes: View {
             logPostLowSuikaHit,
             logPostLowStrongCherryHit,
             logPostHighStrongCherryHit,
+            logPostKyoChanceB,
             logPostCzFailItem,
 //            logPostCzFailKettou,
             logPostFirstHitCz,
@@ -315,6 +342,7 @@ struct sao2ViewBayes: View {
             logPostEnding,
             logPostMothers,
 
+            logPostStartStage,
             logPostTrophy,
             logPostBefore,
         ])

@@ -22,6 +22,13 @@ class Sao2: ObservableObject {
     @AppStorage("sao2KyoCherryCountCzHit") var kyoCherryCountCzHit: Int = 0
     @AppStorage("sao2HighKyoCherryCount") var highKyoCherryCount: Int = 0
     @AppStorage("sao2HighKyoCherryCountCzHit") var highKyoCherryCountCzHit: Int = 0
+    // 強チャンス目B
+    let ratioKyoChanceB: [Double] = [1057,993,936.2,885.6,840.2,799.2]
+    @AppStorage("sao2KyoChanceBCount") var kyoChanceBCount: Int = 0
+    // ゲーム数（通常時ページ専用。初当りページの normalGame とは別管理）
+    @AppStorage("sao2GameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("sao2GameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("sao2GameNumberPlay") var gameNumberPlay: Int = 0
     
     func resetNormal() {
         lowSuikaCount = 0
@@ -30,6 +37,10 @@ class Sao2: ObservableObject {
         kyoCherryCountCzHit = 0
         highKyoCherryCount = 0
         highKyoCherryCountCzHit = 0
+        kyoChanceBCount = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
     
@@ -155,12 +166,33 @@ class Sao2: ObservableObject {
     @AppStorage("sao2MinusCheck") var minusCheck: Bool = false
     @AppStorage("sao2SelectedMemory") var selectedMemory = "メモリー1"
     
+    // ---------
+    // AT中
+    // ---------
+    let ratioStartStageKouya: [Double] = [60,40,60,40,60,40]
+    let ratioStartStageBuggy: [Double] = [40,60,40,60,40,60]
+    @AppStorage("sao2StartStageCountHit") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMiss") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSum") var startStageCountSum: Int = 0
+
+    func startStageSumFunc() {
+        startStageCountSum = startStageCountHit + startStageCountMiss
+    }
+
+    func resetDuringAt() {
+        startStageCountHit = 0
+        startStageCountMiss = 0
+        startStageCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetCz()
         resetFirstHit()
         resetScreen()
         resetComeBack()
+        resetDuringAt()
         resetMiniChara()
         resetMotherMiniChara()
     }
@@ -297,6 +329,13 @@ class Sao2Memory1: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory1") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory1") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory1") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory1") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory1") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory1") var startStageCountSum: Int = 0
+    @AppStorage("sao2KyoChanceBCountMemory1") var kyoChanceBCount: Int = 0
+    @AppStorage("sao2GameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("sao2GameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("sao2GameNumberPlayMemory1") var gameNumberPlay: Int = 0
     @AppStorage("sao2MemoMemory1") var memo = ""
     @AppStorage("sao2DateMemory1") var dateDouble = 0.0
 }
@@ -350,6 +389,13 @@ class Sao2Memory2: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory2") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory2") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory2") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory2") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory2") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory2") var startStageCountSum: Int = 0
+    @AppStorage("sao2KyoChanceBCountMemory2") var kyoChanceBCount: Int = 0
+    @AppStorage("sao2GameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("sao2GameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("sao2GameNumberPlayMemory2") var gameNumberPlay: Int = 0
     @AppStorage("sao2MemoMemory2") var memo = ""
     @AppStorage("sao2DateMemory2") var dateDouble = 0.0
 }
@@ -403,6 +449,13 @@ class Sao2Memory3: ObservableObject {
     @AppStorage("sao2MotherMiniCharaCount7Memory3") var motherMiniCharaCount7: Int = 0
     @AppStorage("sao2MotherMiniCharaCount8Memory3") var motherMiniCharaCount8: Int = 0
     @AppStorage("sao2MotherMiniCharaCountSumMemory3") var motherMiniCharaCountSum: Int = 0
+    @AppStorage("sao2StartStageCountHitMemory3") var startStageCountHit: Int = 0
+    @AppStorage("sao2StartStageCountMissMemory3") var startStageCountMiss: Int = 0
+    @AppStorage("sao2StartStageCountSumMemory3") var startStageCountSum: Int = 0
+    @AppStorage("sao2KyoChanceBCountMemory3") var kyoChanceBCount: Int = 0
+    @AppStorage("sao2GameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("sao2GameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("sao2GameNumberPlayMemory3") var gameNumberPlay: Int = 0
     @AppStorage("sao2MemoMemory3") var memo = ""
     @AppStorage("sao2DateMemory3") var dateDouble = 0.0
 }

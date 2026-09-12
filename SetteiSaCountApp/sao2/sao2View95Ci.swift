@@ -143,6 +143,42 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(7)
+
+            // AT開始時のステージ
+            unitListSection95Ci(
+                grafTitle: "AT開始時\n荒野ステージの回数",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.startStageCountHit,
+                        bigNumber: $sao2.startStageCountSum,
+                        setting1Percent: sao2.ratioStartStageKouya[0],
+                        setting2Percent: sao2.ratioStartStageKouya[1],
+                        setting3Percent: sao2.ratioStartStageKouya[2],
+                        setting4Percent: sao2.ratioStartStageKouya[3],
+                        setting5Percent: sao2.ratioStartStageKouya[4],
+                        setting6Percent: sao2.ratioStartStageKouya[5]
+                    )
+                )
+            )
+            .tag(8)
+            
+            // 強チャンス目B確率
+            unitListSection95Ci(
+                grafTitle: "強チャンス目B確率",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $sao2.kyoChanceBCount,
+                        bigNumber: $sao2.gameNumberPlay,
+                        setting1Denominate: sao2.ratioKyoChanceB[0],
+                        setting2Denominate: sao2.ratioKyoChanceB[1],
+                        setting3Denominate: sao2.ratioKyoChanceB[2],
+                        setting4Denominate: sao2.ratioKyoChanceB[3],
+                        setting5Denominate: sao2.ratioKyoChanceB[4],
+                        setting6Denominate: sao2.ratioKyoChanceB[5]
+                    )
+                )
+            )
+            .tag(9)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(

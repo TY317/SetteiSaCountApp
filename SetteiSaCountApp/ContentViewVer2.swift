@@ -68,7 +68,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer450UpdateInfo())
+                TipView(tipVer460UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {
@@ -499,6 +499,7 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5033": return AnyView(ricoricoViewTop())
         case "5028": return AnyView(gareiViewTop())
         case "5030": return AnyView(tonskillViewTop())
         case "5027": return AnyView(yajikitaViewTop())

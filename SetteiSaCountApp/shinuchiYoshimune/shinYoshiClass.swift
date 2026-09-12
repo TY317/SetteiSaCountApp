@@ -34,6 +34,7 @@ class ShinYoshi: ObservableObject {
         resetFirstHit()
         resetNormal()
         resetCz()
+        resetScreen()
     }
     
     // ---------
@@ -72,6 +73,50 @@ class ShinYoshi: ObservableObject {
         czCharaCountSum = 0
         minusCheck = false
     }
+
+    // -------
+    // 終了画面選択
+    // -------
+    let ratioScreenShingetsu: [Double] = [93.0,87.5,86.5,81.0,78.0,75.0]
+    let ratioScreenMikazuki: [Double] = [5.0,7.5,7.5,10.0,10.0,10.0]
+    let ratioScreenMangetsu: [Double] = [2.0,3.0,4.0,6.0,8.0,10.0]
+    let ratioScreenOoka: [Double] = [0,2.0,2.0,2.0,2.0,2.0]
+    let ratioScreenYagyu: [Double] = [0,0,0,1.0,1.0,1.0]
+    let ratioScreenOoku: [Double] = [0,0,0,0,1.0,1.0]
+    let ratioScreenYoshimune: [Double] = [0,0,0,0,0,1.0]
+    @AppStorage("shinYoshiScreenCount1") var screenCount1: Int = 0
+    @AppStorage("shinYoshiScreenCount2") var screenCount2: Int = 0
+    @AppStorage("shinYoshiScreenCount3") var screenCount3: Int = 0
+    @AppStorage("shinYoshiScreenCount4") var screenCount4: Int = 0
+    @AppStorage("shinYoshiScreenCount5") var screenCount5: Int = 0
+    @AppStorage("shinYoshiScreenCount6") var screenCount6: Int = 0
+    @AppStorage("shinYoshiScreenCount7") var screenCount7: Int = 0
+    @AppStorage("shinYoshiScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+            screenCount6,
+            screenCount7,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCount6 = 0
+        screenCount7 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
 }
 
 
@@ -84,6 +129,14 @@ class ShinYoshiMemory1: ObservableObject {
     @AppStorage("shinYoshiCzCharaCountOtherMemory1") var czCharaCountOther: Int = 0
     @AppStorage("shinYoshiCzCharaCountYagyuMemory1") var czCharaCountYagyu: Int = 0
     @AppStorage("shinYoshiCzCharaCountSumMemory1") var czCharaCountSum: Int = 0
+    @AppStorage("shinYoshiScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("shinYoshiScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("shinYoshiScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("shinYoshiScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("shinYoshiScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("shinYoshiScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("shinYoshiScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("shinYoshiScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory1") var memo = ""
     @AppStorage("shinYoshiDateMemory1") var dateDouble = 0.0
 }
@@ -98,6 +151,14 @@ class ShinYoshiMemory2: ObservableObject {
     @AppStorage("shinYoshiCzCharaCountOtherMemory2") var czCharaCountOther: Int = 0
     @AppStorage("shinYoshiCzCharaCountYagyuMemory2") var czCharaCountYagyu: Int = 0
     @AppStorage("shinYoshiCzCharaCountSumMemory2") var czCharaCountSum: Int = 0
+    @AppStorage("shinYoshiScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("shinYoshiScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("shinYoshiScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("shinYoshiScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("shinYoshiScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("shinYoshiScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("shinYoshiScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("shinYoshiScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory2") var memo = ""
     @AppStorage("shinYoshiDateMemory2") var dateDouble = 0.0
 }
@@ -112,6 +173,14 @@ class ShinYoshiMemory3: ObservableObject {
     @AppStorage("shinYoshiCzCharaCountOtherMemory3") var czCharaCountOther: Int = 0
     @AppStorage("shinYoshiCzCharaCountYagyuMemory3") var czCharaCountYagyu: Int = 0
     @AppStorage("shinYoshiCzCharaCountSumMemory3") var czCharaCountSum: Int = 0
+    @AppStorage("shinYoshiScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("shinYoshiScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("shinYoshiScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("shinYoshiScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("shinYoshiScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("shinYoshiScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("shinYoshiScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("shinYoshiScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("shinYoshiMemoMemory3") var memo = ""
     @AppStorage("shinYoshiDateMemory3") var dateDouble = 0.0
 }
