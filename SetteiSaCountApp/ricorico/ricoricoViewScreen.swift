@@ -90,9 +90,12 @@ struct ricoricoViewScreen: View {
     var modeIndex: Int {
         self.segmentList.firstIndex(of: self.selectedSegment) ?? 0
     }
-    // カウント変数のセット（0=ラッシュ後（たきな・千束 共用） / 1=Wラッシュ後）
+    // カウント変数のセット（0=screenCount系 / 1=wScreenCount系）
+    // 現状はラッシュ後・Wラッシュ後で振分けが同じ前提のため、全モードを 0 に統一している。
+    // 解析が出てWラッシュ後の振分けが別と判明したら `self.modeIndex == 2 ? 1 : 0` に戻す
+    // （wScreenCount系の変数・bindingForResultCount の case・sumAction は残してある）
     var countSetIndex: Int {
-        self.modeIndex == 2 ? 1 : 0
+        0
     }
 
     var body: some View {

@@ -173,10 +173,11 @@ struct ricoricoViewBayes: View {
         // 終了画面
         // 確定系（設定2 以上濃厚／設定4 以上濃厚／設定6 濃厚）のみ渡し、
         // デフォルトと高設定示唆 弱・強は残余バケットに吸収させる
-        // ラッシュ後とWラッシュ後は別カウントなので、それぞれの尤度を足す
+        // ラッシュ後とWラッシュ後は振分けが同じ前提で同一カウントに統一している
+        // （別振分けと判明したら wScreenCount 系で2本立てに戻す）
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
-            let logPostScreenRush = logPostPercentMulti(
+            logPostScreen = logPostPercentMulti(
                 countList: [
                     ricorico.screenCount4,
                     ricorico.screenCount5,
@@ -189,23 +190,6 @@ struct ricoricoViewBayes: View {
                 ],
                 bigNumber: ricorico.screenCountSum
             )
-            let logPostScreenWRush = logPostPercentMulti(
-                countList: [
-                    ricorico.wScreenCount4,
-                    ricorico.wScreenCount5,
-                    ricorico.wScreenCount6,
-                ],
-                ratioList: [
-                    ricorico.ratioScreenOver2,
-                    ricorico.ratioScreenOver4,
-                    ricorico.ratioScreenOver6,
-                ],
-                bigNumber: ricorico.wScreenCountSum
-            )
-            logPostScreen = arraySumDouble([
-                logPostScreenRush,
-                logPostScreenWRush,
-            ])
         }
         
         // トロフィー
