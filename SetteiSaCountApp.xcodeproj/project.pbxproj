@@ -1768,6 +1768,7 @@
 		856A4E66670B4DC19B60D004 /* yajikitaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCF124E364C89840884AD /* yajikitaViewFirstHit.swift */; };
 		85D3D192D14942C6BDC09308 /* yajikitaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA8D8CEC354470888944DF /* yajikitaViewBayes.swift */; };
 		860E0F03F38BD4C64BE9FE70 /* aobutaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0695D9CE3A4432366C7162E /* aobutaViewNormal.swift */; };
+		5D83082892B7F3B5611089C4 /* aobutaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282D208C968CC16CEC3B557 /* aobutaViewScreen.swift */; };
 		40387CB75A769021DCC65CC7 /* aobutaViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DAB13A9FFC6458A670A415 /* aobutaViewCz.swift */; };
 		A7929BE66E57C43676F74A18 /* aobutaViewDuringSt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */; };
 		8615F9EA861E4922ACDABAC5 /* shinYoshiViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F4F386914656B9AB8D37 /* shinYoshiViewCz.swift */; };
@@ -3437,6 +3438,7 @@
 		BECCCF124E364C89840884AD /* yajikitaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewFirstHit.swift; sourceTree = "<group>"; };
 		C051FE2E074B48E0BDCAA466 /* worldDaiStarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = worldDaiStarAssets.xcassets; sourceTree = "<group>"; };
 		C0695D9CE3A4432366C7162E /* aobutaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewNormal.swift; sourceTree = "<group>"; };
+		D282D208C968CC16CEC3B557 /* aobutaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewScreen.swift; sourceTree = "<group>"; };
 		10DAB13A9FFC6458A670A415 /* aobutaViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewCz.swift; sourceTree = "<group>"; };
 		5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewDuringSt.swift; sourceTree = "<group>"; };
 		C412F4AE096541F888C2CB9F /* sencole6ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6ViewTop.swift; sourceTree = "<group>"; };
@@ -6225,6 +6227,7 @@
 				05F4D812E251AD545E16F7F7 /* aobutaViewTop.swift */,
 				954F1DD657B870D4F8900D8C /* aobutaClass.swift */,
 				C0695D9CE3A4432366C7162E /* aobutaViewNormal.swift */,
+				D282D208C968CC16CEC3B557 /* aobutaViewScreen.swift */,
 				10DAB13A9FFC6458A670A415 /* aobutaViewCz.swift */,
 				5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */,
 				C457439FE1D10D735CD0D549 /* aobutaTableKoyakuPattern.swift */,
@@ -7993,6 +7996,7 @@
 				7E59082364A8FF479F4CE753 /* aobutaViewTop.swift in Sources */,
 				12DF32586E5D4EB3BF20B46C /* aobutaClass.swift in Sources */,
 				860E0F03F38BD4C64BE9FE70 /* aobutaViewNormal.swift in Sources */,
+				5D83082892B7F3B5611089C4 /* aobutaViewScreen.swift in Sources */,
 				40387CB75A769021DCC65CC7 /* aobutaViewCz.swift in Sources */,
 				A7929BE66E57C43676F74A18 /* aobutaViewDuringSt.swift in Sources */,
 				B909EF3B8986B5F69B9E6E85 /* aobutaViewBayes.swift in Sources */,

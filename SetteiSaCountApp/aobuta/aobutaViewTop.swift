@@ -75,6 +75,17 @@ struct aobutaViewTop: View {
                         )
                     }
 
+                    // ST終了画面
+                    NavigationLink(destination: aobutaViewScreen(
+                        aobuta: aobuta,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "ST終了画面",
+                            badgeStatus: common.aobutaMenuScreenBadge,
+                        )
+                    }
+
                     // 隠れ凪
                     NavigationLink(destination: commonViewKakureNagi()) {
                         unitLabelMenu(
