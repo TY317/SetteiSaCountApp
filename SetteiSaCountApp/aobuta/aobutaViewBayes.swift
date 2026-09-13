@@ -23,6 +23,7 @@ struct aobutaViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var firstHitEnable: Bool = true
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
     @State var over5Check: Bool = false   // 5以上濃厚
@@ -42,7 +43,8 @@ struct aobutaViewBayes: View {
 
             // //// STEP2
             bayesSubStep2Section {
-                // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
 
                 // トロフィー
                 DisclosureGroup("隠れ凪") {
@@ -112,7 +114,15 @@ struct aobutaViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // 初当り確率
+        var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHit = logPostDenoBino(
+                ratio: aobuta.ratioFirstHitSt,
+                Count: aobuta.firstHitCountSt,
+                bigNumber: aobuta.normalGame
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -144,6 +154,7 @@ struct aobutaViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHit,
             logPostTrophy,
             logPostBefore,
         ])

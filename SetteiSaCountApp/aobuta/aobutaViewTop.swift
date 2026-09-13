@@ -81,7 +81,7 @@ struct aobutaViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: aobutaView95Ci(
                     aobuta: aobuta,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

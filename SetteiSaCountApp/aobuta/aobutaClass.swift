@@ -21,8 +21,13 @@ class Aobuta: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitSt: [Double] = [350.8,336.5,295.1,274.6,207.8]
+    @AppStorage("aobutaNormalGame") var normalGame: Int = 0
+    @AppStorage("aobutaFirstHitCountSt") var firstHitCountSt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountSt = 0
         minusCheck = false
     }
 

@@ -28,7 +28,55 @@ struct aobutaViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $aobuta.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // 初当り
+                unitCountButtonVerticalDenominate(
+                    title: "初当り",
+                    count: $aobuta.firstHitCountSt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $aobuta.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $aobuta.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex(settingList: [2,3,4,5,6])
+                    unitTableDenominate(
+                        columTitle: "初当り",
+                        denominateList: aobuta.ratioFirstHitSt,
+                        numberofDicimal: 1,
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    aobutaView95Ci(
+                        aobuta: aobuta,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                aobutaViewBayes(
+                    aobuta: aobuta,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.aobutaMenuFirstHitBadge)
@@ -64,6 +112,17 @@ struct aobutaViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: aobuta.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }
