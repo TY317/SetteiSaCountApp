@@ -26,6 +26,7 @@ struct aobutaViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var aoharuEnable: Bool = true
     @State var aoharuRatioEnable: Bool = true
+    @State var screenEnable: Bool = true
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
     @State var over5Check: Bool = false   // 5以上濃厚
@@ -63,6 +64,14 @@ struct aobutaViewBayes: View {
                         title: "アオハルチャンス当選率",
                         textBody1: "・通常滞在時の🍒とﾁｬﾝｽ目からの当選率を計算要素に加えます",
                         textBody2: "・高確・リラックス滞在時は当選率が異なるため、通常滞在時のみカウントしてください",
+                    )
+                }
+
+                // ST終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "ST終了画面") {
+                    unitExView5body2image(
+                        title: "ST終了画面",
+                        textBody1: "・確定系のみ反映させます"
                     )
                 }
 
@@ -174,6 +183,28 @@ struct aobutaViewBayes: View {
             ])
         }
 
+        // ST終了画面
+        // 確定系（設定3 以上濃厚／設定4 以上濃厚／設定5 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルトは残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    aobuta.screenCount2,
+                    aobuta.screenCount3,
+                    aobuta.screenCount4,
+                    aobuta.screenCount5,
+                ],
+                ratioList: [
+                    aobuta.ratioScreenOver3,
+                    aobuta.ratioScreenOver4,
+                    aobuta.ratioScreenOver5,
+                    aobuta.ratioScreenOver6,
+                ],
+                bigNumber: aobuta.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over3Check {
@@ -207,6 +238,7 @@ struct aobutaViewBayes: View {
             logPostFirstHit,
             logPostAoharuRatio,
             logPostAoharu,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

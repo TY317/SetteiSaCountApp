@@ -237,6 +237,42 @@ class Aobuta: ObservableObject {
         minusCheck = false
     }
     // -------
+    // ST終了画面
+    // -------
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    // 設定1が無い機種なので「設定2 以上濃厚」は存在しない
+    let ratioScreenOver3: [Double] = [0,0.1,0.1,0.1,0.1,]
+    let ratioScreenOver4: [Double] = [0,0,0.1,0.1,0.1,]
+    let ratioScreenOver5: [Double] = [0,0,0,0.1,0.1,]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0.1,]
+    @AppStorage("aobutaScreenCount1") var screenCount1: Int = 0
+    @AppStorage("aobutaScreenCount2") var screenCount2: Int = 0
+    @AppStorage("aobutaScreenCount3") var screenCount3: Int = 0
+    @AppStorage("aobutaScreenCount4") var screenCount4: Int = 0
+    @AppStorage("aobutaScreenCount5") var screenCount5: Int = 0
+    @AppStorage("aobutaScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+            screenCount3,
+            screenCount4,
+            screenCount5,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCount3 = 0
+        screenCount4 = 0
+        screenCount5 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
+    // -------
     // ST中
     // -------
     let ratioSyndrome: [Double] = [20.4,-1,-1,-1,-1]
@@ -266,6 +302,7 @@ class Aobuta: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetCz()
+        resetScreen()
         resetDuringSt()
     }
 }
