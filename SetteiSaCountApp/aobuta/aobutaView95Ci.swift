@@ -33,6 +33,25 @@ struct aobutaView95Ci: View {
             )
             .tag(2)
 
+            // 開始時の思春期症候群
+            unitListSection95Ci(
+                grafTitle: "開始時の思春期症候群 回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $aobuta.syndromeCountHit,
+                        bigNumber: $aobuta.syndromeCountSum,
+                        setting1Enable: false,
+                        setting1Percent: -1,
+                        setting2Percent: aobuta.ratioSyndrome[0],
+                        setting3Percent: aobuta.ratioSyndrome[1],
+                        setting4Percent: aobuta.ratioSyndrome[2],
+                        setting5Percent: aobuta.ratioSyndrome[3],
+                        setting6Percent: aobuta.ratioSyndrome[4]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {

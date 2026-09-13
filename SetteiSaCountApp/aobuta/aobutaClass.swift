@@ -31,6 +31,25 @@ class Aobuta: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // ST中
+    // -------
+    let ratioSyndrome: [Double] = [20.4,-1,-1,-1,-1]
+    @AppStorage("aobutaSyndromeCountMiss") var syndromeCountMiss: Int = 0
+    @AppStorage("aobutaSyndromeCountHit") var syndromeCountHit: Int = 0
+    @AppStorage("aobutaSyndromeCountSum") var syndromeCountSum: Int = 0
+
+    func syndromeSumFunc() {
+        syndromeCountSum = syndromeCountHit + syndromeCountMiss
+    }
+
+    func resetDuringSt() {
+        syndromeCountMiss = 0
+        syndromeCountHit = 0
+        syndromeCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -41,6 +60,7 @@ class Aobuta: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetDuringSt()
     }
 }
 
