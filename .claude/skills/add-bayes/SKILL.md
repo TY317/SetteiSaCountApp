@@ -23,10 +23,11 @@ description: 機種に設定期待値(ベイズ設定判別)ページを追加�
 - 以下4ブロックは **settingList から一般則で生成**（references と一致する規則）：
 
 ### __TROPHY_STATE__（@State トグル：settingList[1...] の各値 v）
-各 `v` に1行（インデント4スペース×2＝8）：
+各 `v` に1行（**インデント4スペース**＝struct直下のプロパティと同じ深さ。既存の ViewBayes は全機種この深さ）：
 ```
-        @State var over<v>Check: Bool = false
+    @State var over<v>Check: Bool = false   // <v>以上濃厚
 ```
+末尾の `// <v>以上濃厚` コメントも既存（sao2 等）に合わせて付ける。
 
 ### __TROPHY_TITLE__（DisclosureGroup のタイトル）
 step1 の `maker` を「2.5 トロフィー段名（メーカー別）」表で引き、その**トロフィー名**（例 山佐→`ケロットトロフィー`）に置換。
