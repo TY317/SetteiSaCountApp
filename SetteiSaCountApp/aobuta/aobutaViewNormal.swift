@@ -37,6 +37,14 @@ struct aobutaViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // 不可思議モード
+            Section {
+                // 参考情報）不可思議モード
+                unitLinkButtonViewBuilder(sheetTitle: "不可思議モードについて") {
+                    aobutaTableFukashigiMode()
+                }
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.aobutaMenuNormalBadge)
