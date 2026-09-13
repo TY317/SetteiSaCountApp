@@ -9,11 +9,11 @@ import SwiftUI
 
 struct aobutaTableFukashigiMode: View {
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("・6種類の特殊なモードに滞在の可能性あり")
-            Text("・リール左のクリスタルにヒロインが登場すると、そのヒロインの不可思議モードに滞在！？")
-        }
         VStack(spacing: 20) {
+            VStack(alignment: .leading) {
+                Text("・6種類の特殊なモードに滞在の可能性あり")
+                Text("・リール左のクリスタルにヒロインが登場すると、そのヒロインの不可思議モードに滞在！？")
+            }
             HStack(spacing: 0) {
                 unitTableString(
                     columTitle: "",
