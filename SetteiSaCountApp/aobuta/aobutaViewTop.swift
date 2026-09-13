@@ -79,15 +79,15 @@ struct aobutaViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: aobutaViewBayes(
-//                    aobuta: aobuta,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.aobutaMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: aobutaViewBayes(
+                    aobuta: aobuta,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.aobutaMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5064")
