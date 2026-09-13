@@ -53,6 +53,17 @@ struct aobutaViewTop: View {
                         )
                     }
 
+                    // ST中
+                    NavigationLink(destination: aobutaViewDuringSt(
+                        aobuta: aobuta,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "hare.fill",
+                            textBody: "ST中",
+                            badgeStatus: common.aobutaMenuDuringStBadge,
+                        )
+                    }
+
                     // 隠れ凪
                     NavigationLink(destination: commonViewKakureNagi()) {
                         unitLabelMenu(

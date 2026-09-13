@@ -1,5 +1,5 @@
 //
-//  aobutaViewNormal.swift
+//  aobutaViewDuringSt.swift
 //  SetteiSaCountApp
 //
 //  Created by 横田徹.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct aobutaViewNormal: View {
+struct aobutaViewDuringSt: View {
     @EnvironmentObject var common: commonVar
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
@@ -26,30 +26,13 @@ struct aobutaViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+
     var body: some View {
         List {
-            // レア役
-            Section {
-                // レア役停止系
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
-                    aobutaTableKoyakuPattern()
-                }
-            } header: {
-                Text("小役")
-            }
-            
-            // 不可思議モード
-            Section {
-                // 参考情報）不可思議モード
-                unitLinkButtonViewBuilder(sheetTitle: "不可思議モードについて") {
-                    aobutaTableFukashigiMode()
-                }
-            } header: {
-                Text("モード")
-            }
+
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.aobutaMenuNormalBadge)
+        .resetBadgeOnAppear($common.aobutaMenuDuringStBadge)
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
@@ -58,7 +41,7 @@ struct aobutaViewNormal: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("通常時")
+        .navigationTitle("ST中")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -74,21 +57,11 @@ struct aobutaViewNormal: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
-                // //// マイナスチェック
-                unitButtonMinusCheck(minusCheck: $aobuta.minusCheck)
-            }
-            ToolbarItem(placement: .automatic) {
-                // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: aobuta.resetNormal)
-            }
-        }
     }
 }
 
 #Preview {
-    aobutaViewNormal(
+    aobutaViewDuringSt(
         aobuta: Aobuta(),
     )
     .environmentObject(commonVar())
