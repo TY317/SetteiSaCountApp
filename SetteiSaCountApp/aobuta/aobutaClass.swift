@@ -64,6 +64,8 @@ class Aobuta: ObservableObject {
     // 牧之原翔子
     let ratioCzShokoReplay: [Double] = [41,42,-1,-1,-1]
     let ratioCzShokoBell: [Double] = [8,10,-1,-1,-1]
+    // 咲太ポイント解放確率（規定ポイント到達確率）
+    let ratioCzSakutaPoint: [Double] = [12387.9,12163.0,12210.3,11518.1,8348.9]
 
     @AppStorage("aobutaCzKogaReplayCountMiss") var czKogaReplayCountMiss: Int = 0
     @AppStorage("aobutaCzKogaReplayCountHit") var czKogaReplayCountHit: Int = 0

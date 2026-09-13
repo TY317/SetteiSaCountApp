@@ -179,6 +179,32 @@ struct aobutaViewCz: View {
             } header: {
                 Text("後半最終ゲーム 小役別当選率")
             }
+
+            // ---- 咲太ポイント
+            Section {
+                // 参考情報）咲太ポイント解放確率
+                unitLinkButtonViewBuilder(sheetTitle: "咲太ポイント解放確率") {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・規定ポイント到達（咲太ポイントMAX）の実質出現確率")
+                            Text("・高設定ほど咲太ポイントがMAXになりやすい")
+                            Text("・解放されるのはCZ開始時なので注目")
+                        }
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex(settingList: [2,3,4,5,6])
+                            unitTableDenominate(
+                                columTitle: "解放確率",
+                                denominateList: aobuta.ratioCzSakutaPoint,
+                                numberofDicimal: 1,
+                            )
+                        }
+                    }
+                }
+            } header: {
+                Text("咲太ポイント(穢れ)")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.aobutaMenuCzBadge)
