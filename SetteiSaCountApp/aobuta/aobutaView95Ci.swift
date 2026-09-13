@@ -52,6 +52,46 @@ struct aobutaView95Ci: View {
                 )
             )
             .tag(3)
+
+            // アオハルチャンス当選率 🍒
+            unitListSection95Ci(
+                grafTitle: "アオハル当選率\n通常滞在時 🍒",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $aobuta.aoharuCherryCountHit,
+                        bigNumber: $aobuta.aoharuCherryCount,
+                        setting1Enable: false,
+                        setting1Percent: -1,
+                        setting2Percent: aobuta.ratioAoharuCherry[0],
+                        setting3Percent: aobuta.ratioAoharuCherry[1],
+                        setting4Percent: aobuta.ratioAoharuCherry[2],
+                        setting5Percent: aobuta.ratioAoharuCherry[3],
+                        setting6Percent: aobuta.ratioAoharuCherry[4]
+                    )
+                )
+            )
+            .tag(4)
+
+            // アオハルチャンス当選率 ﾁｬﾝｽ目
+            unitListSection95Ci(
+                grafTitle: "アオハル当選率\n通常滞在時 ﾁｬﾝｽ目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $aobuta.aoharuChanceCountHit,
+                        bigNumber: $aobuta.aoharuChanceCount,
+                        setting1Enable: false,
+                        setting1Percent: -1,
+                        setting2Percent: aobuta.ratioAoharuChance[0],
+                        setting3Percent: aobuta.ratioAoharuChance[1],
+                        setting4Percent: aobuta.ratioAoharuChance[2],
+                        setting5Percent: aobuta.ratioAoharuChance[3],
+                        setting6Percent: aobuta.ratioAoharuChance[4]
+                    )
+                )
+            )
+            .tag(5)
         }
         // //// firebaseログ
         .onAppear {

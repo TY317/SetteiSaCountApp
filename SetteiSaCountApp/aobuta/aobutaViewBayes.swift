@@ -24,6 +24,7 @@ struct aobutaViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var firstHitEnable: Bool = true
+    @State var aoharuEnable: Bool = true
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
     @State var over5Check: Bool = false   // 5以上濃厚
@@ -45,6 +46,15 @@ struct aobutaViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
+
+                // アオハルチャンス当選率
+                unitToggleWithQuestion(enable: self.$aoharuEnable, title: "アオハルチャンス当選率") {
+                    unitExView5body2image(
+                        title: "アオハルチャンス当選率",
+                        textBody1: "・通常滞在時の🍒とﾁｬﾝｽ目からの当選率を計算要素に加えます",
+                        textBody2: "・高確・リラックス滞在時は当選率が異なるため、通常滞在時のみカウントしてください",
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("隠れ凪") {
@@ -124,6 +134,26 @@ struct aobutaViewBayes: View {
             )
         }
 
+        // アオハルチャンス当選率
+        // 通常滞在時の🍒・ﾁｬﾝｽ目からの当選率（役ごとの二項尤度を足す）
+        var logPostAoharu: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.aoharuEnable {
+            let logPostAoharuCherry = logPostPercentBino(
+                ratio: aobuta.ratioAoharuCherry,
+                Count: aobuta.aoharuCherryCountHit,
+                bigNumber: aobuta.aoharuCherryCount
+            )
+            let logPostAoharuChance = logPostPercentBino(
+                ratio: aobuta.ratioAoharuChance,
+                Count: aobuta.aoharuChanceCountHit,
+                bigNumber: aobuta.aoharuChanceCount
+            )
+            logPostAoharu = arraySumDouble([
+                logPostAoharuCherry,
+                logPostAoharuChance,
+            ])
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over3Check {
@@ -155,6 +185,7 @@ struct aobutaViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
+            logPostAoharu,
             logPostTrophy,
             logPostBefore,
         ])

@@ -13,8 +13,24 @@ class Aobuta: ObservableObject {
     // -------
     // 通常時
     // -------
+    // アオハルチャンス当選率（通常滞在時）
+    let ratioAoharuSuika: [Double] = [0.4,0.4,0.4,0.4,0.4]
+    let ratioAoharuCherry: [Double] = [30.1,30.9,36.3,37.5,40.2]
+    let ratioAoharuChance: [Double] = [50,53.5,57.8,59,60.2]
+    // アオハルチャンス当選率（高確・リラックス滞在時。全設定共通）
+    let ratioAoharuHighSuika: [Double] = [30.1]
+    let ratioAoharuHighCherry: [Double] = [50]
+    let ratioAoharuHighChance: [Double] = [85.2]
+    @AppStorage("aobutaAoharuCherryCount") var aoharuCherryCount: Int = 0
+    @AppStorage("aobutaAoharuCherryCountHit") var aoharuCherryCountHit: Int = 0
+    @AppStorage("aobutaAoharuChanceCount") var aoharuChanceCount: Int = 0
+    @AppStorage("aobutaAoharuChanceCountHit") var aoharuChanceCountHit: Int = 0
 
     func resetNormal() {
+        aoharuCherryCount = 0
+        aoharuCherryCountHit = 0
+        aoharuChanceCount = 0
+        aoharuChanceCountHit = 0
         minusCheck = false
     }
 
