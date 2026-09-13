@@ -42,6 +42,17 @@ struct aobutaViewTop: View {
                         )
                     }
 
+                    // CZ
+                    NavigationLink(destination: aobutaViewCz(
+                        aobuta: aobuta,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "CZ",
+                            badgeStatus: common.aobutaMenuCzBadge,
+                        )
+                    }
+
                     // 初当り
                     NavigationLink(destination: aobutaViewFirstHit(
                         aobuta: aobuta,

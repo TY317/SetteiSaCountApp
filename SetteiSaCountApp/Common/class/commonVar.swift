@@ -373,6 +373,7 @@ class commonVar: ObservableObject {
     @AppStorage("aobutaMenuBayesBadge") var aobutaMenuBayesBadge: String = "none"
     @AppStorage("aobutaMenuScreenBadge") var aobutaMenuScreenBadge: String = "none"
     @AppStorage("aobutaMenuDuringStBadge") var aobutaMenuDuringStBadge: String = "none"
+    @AppStorage("aobutaMenuCzBadge") var aobutaMenuCzBadge: String = "none"
 
     // ---- リコリス・リコイル
     @AppStorage("ricoricoMenuNormalBadge") var ricoricoMenuNormalBadge: String = "none"
