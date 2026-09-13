@@ -170,6 +170,72 @@ struct aobutaViewNormal: View {
             } header: {
                 Text("アオハルチャンス当選率")
             }
+            
+            // ---- アオハルチャンス確率
+            Section {
+                // アオハルチャンス確率
+                unitResultRatioDenomination2Line(
+                    title: "アオハルチャンス確率",
+                    count: $aobuta.aoharuCount,
+                    bigNumber: $aobuta.aoharuGame,
+                    numberofDicimal: 1
+                )
+
+                // 参考情報）アオハルチャンス確率
+                unitLinkButtonViewBuilder(sheetTitle: "アオハルチャンス確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [2,3,4,5,6])
+                        unitTableDenominate(
+                            columTitle: "アオハル",
+                            denominateList: aobuta.ratioAoharu,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン
+                    HStack {
+                        // アオハルチャンス
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "アオハルチャンス",
+                            count: $aobuta.aoharuCount,
+                            color: .personalSummerLightBlue,
+                            minusBool: $aobuta.minusCheck) { }
+                    }
+
+                    // ゲーム数（初当りの通常ゲーム数とは別管理）
+                    unitTextFieldNumberInputWithUnit(
+                        title: "ゲーム数",
+                        inputValue: $aobuta.aoharuGame,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            aobutaView95Ci(
+                                aobuta: aobuta,
+                                selection: 6,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        aobutaViewBayes(
+                            aobuta: aobuta,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("アオハルチャンス確率")
+            }
 
             // レア役
             Section {
@@ -225,6 +291,17 @@ struct aobutaViewNormal: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: aobuta.resetNormal)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

@@ -25,6 +25,7 @@ struct aobutaViewBayes: View {
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var firstHitEnable: Bool = true
     @State var aoharuEnable: Bool = true
+    @State var aoharuRatioEnable: Bool = true
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
     @State var over5Check: Bool = false   // 5以上濃厚
@@ -46,6 +47,15 @@ struct aobutaViewBayes: View {
             bayesSubStep2Section {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
+
+                // アオハルチャンス確率
+                unitToggleWithQuestion(enable: self.$aoharuRatioEnable, title: "アオハルチャンス確率") {
+                    unitExView5body2image(
+                        title: "アオハルチャンス確率",
+                        textBody1: "・通常時ページでカウントしたアオハルチャンスの確率を計算要素に加えます",
+                        textBody2: "・下の「アオハルチャンス当選率」と同じ当選を二重に数えることになるため、どちらか一方だけを有効にしてください",
+                    )
+                }
 
                 // アオハルチャンス当選率
                 unitToggleWithQuestion(enable: self.$aoharuEnable, title: "アオハルチャンス当選率") {
@@ -134,6 +144,16 @@ struct aobutaViewBayes: View {
             )
         }
 
+        // アオハルチャンス確率
+        var logPostAoharuRatio: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.aoharuRatioEnable {
+            logPostAoharuRatio = logPostDenoBino(
+                ratio: aobuta.ratioAoharu,
+                Count: aobuta.aoharuCount,
+                bigNumber: aobuta.aoharuGame
+            )
+        }
+
         // アオハルチャンス当選率
         // 通常滞在時の🍒・ﾁｬﾝｽ目からの当選率（役ごとの二項尤度を足す）
         var logPostAoharu: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -185,6 +205,7 @@ struct aobutaViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHit,
+            logPostAoharuRatio,
             logPostAoharu,
             logPostTrophy,
             logPostBefore,

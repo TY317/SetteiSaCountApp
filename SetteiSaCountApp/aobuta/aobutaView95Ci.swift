@@ -92,6 +92,25 @@ struct aobutaView95Ci: View {
                 )
             )
             .tag(5)
+
+            // アオハルチャンス確率
+            unitListSection95Ci(
+                grafTitle: "アオハルチャンス確率",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $aobuta.aoharuCount,
+                        bigNumber: $aobuta.aoharuGame,
+                        setting1Enable: false,
+                        setting1Denominate: -1,
+                        setting2Denominate: aobuta.ratioAoharu[0],
+                        setting3Denominate: aobuta.ratioAoharu[1],
+                        setting4Denominate: aobuta.ratioAoharu[2],
+                        setting5Denominate: aobuta.ratioAoharu[3],
+                        setting6Denominate: aobuta.ratioAoharu[4]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

@@ -13,6 +13,10 @@ class Aobuta: ObservableObject {
     // -------
     // 通常時
     // -------
+    // アオハルチャンス確率（分母は専用のゲーム数。初当りの normalGame とは別管理）
+    let ratioAoharu: [Double] = [63.7,62.4,59.4,58.6,57.2]
+    @AppStorage("aobutaAoharuCount") var aoharuCount: Int = 0
+    @AppStorage("aobutaAoharuGame") var aoharuGame: Int = 0
     // アオハルチャンス当選率（通常滞在時）
     let ratioAoharuSuika: [Double] = [0.4,0.4,0.4,0.4,0.4]
     let ratioAoharuCherry: [Double] = [30.1,30.9,36.3,37.5,40.2]
@@ -27,6 +31,8 @@ class Aobuta: ObservableObject {
     @AppStorage("aobutaAoharuChanceCountHit") var aoharuChanceCountHit: Int = 0
 
     func resetNormal() {
+        aoharuCount = 0
+        aoharuGame = 0
         aoharuCherryCount = 0
         aoharuCherryCountHit = 0
         aoharuChanceCount = 0
