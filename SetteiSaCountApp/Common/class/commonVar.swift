@@ -359,7 +359,6 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
-    
     // ---- 戦国コレクション6
     @AppStorage("sencole6MenuNormalBadge") var sencole6MenuNormalBadge: String = "none"
     @AppStorage("sencole6MenuFirstHitBadge") var sencole6MenuFirstHitBadge: String = "none"
@@ -776,6 +775,9 @@ class commonVar: ObservableObject {
     // リワード広告の強制アンロック
     // -------
     func forcedUnlockReward() {
+        // ver4.1.0 の移行処理から引き継ぎ（リワード未視聴のまま残ったロックを解放）
+        machines.updateMachineIsUnlocked(id: "5019", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5010", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -1028,32 +1030,5 @@ class commonVar: ObservableObject {
         }
     }
 
-    func ver410FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.1.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5019", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5010", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
-                rioAceMenuEndingBadge = "new"
-                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
-                bioRe3MenuFirstHitBadge = "update"
-                bioRe3MenuDuringAtBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
-                otome5MenuNormalBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
 }
 

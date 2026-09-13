@@ -74,7 +74,6 @@ struct bioRe3ViewFirstHit: View {
                         )
                     }
                 }
-                .popoverTip(tipVer410BioRe3Cz())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(
