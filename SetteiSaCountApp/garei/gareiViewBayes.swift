@@ -29,6 +29,7 @@ struct gareiViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
+    @State var charaEnable: Bool = true
     var body: some View {
         List {
             // //// STEP1
@@ -82,6 +83,14 @@ struct gareiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$artScreenEnable, title: "ART終了画面") {
                     unitExView5body2image(
                         title: "ART終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // キャラ紹介
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "キャラ紹介") {
+                    unitExView5body2image(
+                        title: "キャラ紹介",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -252,6 +261,24 @@ struct gareiViewBayes: View {
             )
         }
 
+        // キャラ紹介
+        // 確定系（設定5 以上濃厚／設定6 濃厚）のみ渡し、
+        // 奇数示唆・偶数示唆・高設定示唆 弱/強は残余バケットに吸収させる
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    garei.charaCount5,
+                    garei.charaCount6,
+                ],
+                ratioList: [
+                    garei.ratioCharaOver5,
+                    garei.ratioCharaOver6,
+                ],
+                bigNumber: garei.charaCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -269,6 +296,7 @@ struct gareiViewBayes: View {
             logPostFirstHit,
             logPostBonusScreen,
             logPostArtScreen,
+            logPostChara,
             logPostTrophy,
             logPostBefore,
         ])

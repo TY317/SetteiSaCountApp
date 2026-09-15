@@ -158,6 +158,9 @@ class Garei: ObservableObject {
     // -------
     // キャラ選択
     // -------
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    let ratioCharaOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioCharaOver6: [Double] = [0,0,0,0,0,0.1,]
     @AppStorage("gareiCharaCount1") var charaCount1: Int = 0
     @AppStorage("gareiCharaCount2") var charaCount2: Int = 0
     @AppStorage("gareiCharaCount3") var charaCount3: Int = 0

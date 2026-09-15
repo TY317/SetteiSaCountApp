@@ -67,6 +67,7 @@ struct gareiViewDuringRb: View {
                     minusCheck: $garei.minusCheck) {
                         garei.charaSumFunc()
                     }
+                    .popoverTip(tipVer470GareiChara())
             } header: {
                 Text("キャラ選択")
             }

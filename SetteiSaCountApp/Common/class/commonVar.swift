@@ -822,6 +822,8 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5064", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5064", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5028", newStatus: "update")
+                gareiMenuDuringRbBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

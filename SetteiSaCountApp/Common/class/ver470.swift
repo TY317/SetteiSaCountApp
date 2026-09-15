@@ -40,3 +40,19 @@ struct tipVer470: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：喰霊 RB中のキャラ紹介
+//////////////////
+struct tipVer470GareiChara: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("RB中のキャラ紹介のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
