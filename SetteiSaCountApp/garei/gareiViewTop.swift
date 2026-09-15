@@ -85,6 +85,17 @@ struct gareiViewTop: View {
                             badgeStatus: common.gareiMenuArtScreenBadge,
                         )
                     }
+
+                    // ART終了後
+                    NavigationLink(destination: gareiViewAfterArt(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left.fill",
+                            textBody: "ART終了後",
+                            badgeStatus: common.gareiMenuAfterArtBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: garei.machineName,

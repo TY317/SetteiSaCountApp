@@ -30,6 +30,7 @@ struct gareiViewBayes: View {
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var startStatusEnable: Bool = true
     var body: some View {
         List {
             // //// STEP1
@@ -84,6 +85,15 @@ struct gareiViewBayes: View {
                     unitExView5body2image(
                         title: "ART終了画面",
                         textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // 高確スタート
+                unitToggleWithQuestion(enable: self.$startStatusEnable, title: "高確スタート") {
+                    unitExView5body2image(
+                        title: "高確スタート",
+                        textBody1: "・ART終了後の状態（高確／超高確）の振分けを計算要素に加えます",
+                        textBody2: "・通常スタートは残余として自動で扱います",
                     )
                 }
 
@@ -261,6 +271,23 @@ struct gareiViewBayes: View {
             )
         }
 
+        // 高確スタート
+        // 高確・超高確のみ渡し、通常スタートは残余バケットに吸収させる
+        var logPostStartStatus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.startStatusEnable {
+            logPostStartStatus = logPostPercentMulti(
+                countList: [
+                    garei.startStatusCountHigh,
+                    garei.startStatusCountSuperHigh,
+                ],
+                ratioList: [
+                    garei.ratioStartStatusHigh,
+                    garei.ratioStartStatusSuperHigh,
+                ],
+                bigNumber: garei.startStatusCountSum
+            )
+        }
+
         // キャラ紹介
         // 確定系（設定5 以上濃厚／設定6 濃厚）のみ渡し、
         // 奇数示唆・偶数示唆・高設定示唆 弱/強は残余バケットに吸収させる
@@ -296,6 +323,7 @@ struct gareiViewBayes: View {
             logPostFirstHit,
             logPostBonusScreen,
             logPostArtScreen,
+            logPostStartStatus,
             logPostChara,
             logPostTrophy,
             logPostBefore,

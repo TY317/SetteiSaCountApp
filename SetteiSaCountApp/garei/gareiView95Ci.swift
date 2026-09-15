@@ -247,6 +247,44 @@ struct gareiView95Ci: View {
                 )
             )
             .tag(13)
+
+            // 高確スタート
+            unitListSection95Ci(
+                grafTitle: "ART終了後\n高確スタート",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $garei.startStatusCountHigh,
+                        bigNumber: $garei.startStatusCountSum,
+                        setting1Percent: garei.ratioStartStatusHigh[0],
+                        setting2Percent: garei.ratioStartStatusHigh[1],
+                        setting3Percent: garei.ratioStartStatusHigh[2],
+                        setting4Percent: garei.ratioStartStatusHigh[3],
+                        setting5Percent: garei.ratioStartStatusHigh[4],
+                        setting6Percent: garei.ratioStartStatusHigh[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // 超高確スタート
+            unitListSection95Ci(
+                grafTitle: "ART終了後\n超高確スタート",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $garei.startStatusCountSuperHigh,
+                        bigNumber: $garei.startStatusCountSum,
+                        setting1Percent: garei.ratioStartStatusSuperHigh[0],
+                        setting2Percent: garei.ratioStartStatusSuperHigh[1],
+                        setting3Percent: garei.ratioStartStatusSuperHigh[2],
+                        setting4Percent: garei.ratioStartStatusSuperHigh[3],
+                        setting5Percent: garei.ratioStartStatusSuperHigh[4],
+                        setting6Percent: garei.ratioStartStatusSuperHigh[5]
+                    )
+                )
+            )
+            .tag(15)
         }
         // //// firebaseログ
         .onAppear {

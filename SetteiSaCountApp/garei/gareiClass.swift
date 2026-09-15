@@ -194,6 +194,33 @@ class Garei: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // ART終了後
+    // -------
+    // 高確スタート（通常／高確／超高確の3択。通常は残余）
+    let ratioStartStatusHigh: [Double] = [13,13.2,13.4,13.7,14,14.4]
+    let ratioStartStatusSuperHigh: [Double] = [24,25.4,26.6,27.7,28.9,29.9]
+    @AppStorage("gareiStartStatusCountNormal") var startStatusCountNormal: Int = 0
+    @AppStorage("gareiStartStatusCountHigh") var startStatusCountHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSuperHigh") var startStatusCountSuperHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSum") var startStatusCountSum: Int = 0
+
+    func startStatusSumFunc() {
+        startStatusCountSum = countSum(
+            startStatusCountNormal,
+            startStatusCountHigh,
+            startStatusCountSuperHigh,
+        )
+    }
+
+    func resetAfterArt() {
+        startStatusCountNormal = 0
+        startStatusCountHigh = 0
+        startStatusCountSuperHigh = 0
+        startStatusCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
@@ -201,6 +228,7 @@ class Garei: ObservableObject {
         resetArtScreen()
         resetCz()
         resetChara()
+        resetAfterArt()
     }
 }
 

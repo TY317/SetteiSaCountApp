@@ -1802,6 +1802,7 @@
 		BAFD808390074E719AEFE954 /* dropkickViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35ED0640A44352861C1BEA /* dropkickViewFirstHit.swift */; };
 		BB137CF3CD3E4EF19A7BE824 /* karakuri2ViewHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF259627DC414784A55426DE /* karakuri2ViewHistory.swift */; };
 		BBC13B688C514ABEB871143A /* gareiViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FF61101574036B30A1683 /* gareiViewNormal.swift */; };
+		737F6743453D35086585C728 /* gareiViewAfterArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBE27BE73047DD943FD84C4 /* gareiViewAfterArt.swift */; };
 		BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1CF3253B774565BE5966B1 /* yajikitaAssets.xcassets */; };
 		BC065A9D73E1CF87E7957721 /* kabaneriUnatoViewHighAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD873B15FD79D44CB73D30DC /* kabaneriUnatoViewHighAt.swift */; };
 		BC88F0B93F0B4698B032BE6A /* worldDaiStarViewComeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7920256516E405E9F9AA7EB /* worldDaiStarViewComeBack.swift */; };
@@ -3414,6 +3415,7 @@
 		8DF8B02C706D406FADDAB5D2 /* sencole6TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sencole6TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		9305869D87A145BBAE8040D8 /* ricoricoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ricoricoViewScreen.swift; sourceTree = "<group>"; };
 		933FF61101574036B30A1683 /* gareiViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiViewNormal.swift; sourceTree = "<group>"; };
+		FEBE27BE73047DD943FD84C4 /* gareiViewAfterArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiViewAfterArt.swift; sourceTree = "<group>"; };
 		93E6CF3759A44936BB40D8F3 /* streetFighter6ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6ViewBayes.swift; sourceTree = "<group>"; };
 		954F1DD657B870D4F8900D8C /* aobutaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaClass.swift; sourceTree = "<group>"; };
 		9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewNormal.swift; sourceTree = "<group>"; };
@@ -6207,6 +6209,7 @@
 				FCDDD9A1AACD4A0083082750 /* gareiViewTop.swift */,
 				AFB9AA080A514E1BAFB4933B /* gareiClass.swift */,
 				933FF61101574036B30A1683 /* gareiViewNormal.swift */,
+				FEBE27BE73047DD943FD84C4 /* gareiViewAfterArt.swift */,
 				FD399C9ACE66463CB0DAAB8F /* gareiViewDuringRb.swift */,
 				01B69FE471144EBEA02F47A0 /* gareiViewCz.swift */,
 				2162150166BF401CB9983A0B /* gareiViewArtScreen.swift */,
@@ -7592,6 +7595,7 @@
 				0FD586AF2FEFC18E005689C6 /* karakuri2ViewNormal.swift in Sources */,
 				0188EFAFEEBA4A979F7E1743 /* karakuri2ViewEnding.swift in Sources */,
 				BBC13B688C514ABEB871143A /* gareiViewNormal.swift in Sources */,
+				737F6743453D35086585C728 /* gareiViewAfterArt.swift in Sources */,
 				AF2326CBA3FC4BDDB9359E69 /* gareiViewDuringRb.swift in Sources */,
 				F2126A0B13E04DBCB668AA38 /* gareiViewCz.swift in Sources */,
 				3B2BC6A0F96C4E52932C2F64 /* gareiViewArtScreen.swift in Sources */,

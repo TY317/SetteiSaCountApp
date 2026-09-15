@@ -415,6 +415,7 @@ class commonVar: ObservableObject {
     @AppStorage("gareiMenuArtScreenBadge") var gareiMenuArtScreenBadge: String = "none"
     @AppStorage("gareiMenuCzBadge") var gareiMenuCzBadge: String = "none"
     @AppStorage("gareiMenuDuringRbBadge") var gareiMenuDuringRbBadge: String = "none"
+    @AppStorage("gareiMenuAfterArtBadge") var gareiMenuAfterArtBadge: String = "none"
 
     // ---- とんでもスキルで異世界放浪メシ
     @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
@@ -824,6 +825,7 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5064", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5028", newStatus: "update")
                 gareiMenuDuringRbBadge = "update"
+                gareiMenuAfterArtBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
