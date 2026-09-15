@@ -205,6 +205,7 @@ struct gareiViewNormal: View {
                         )
                     }
                 }
+                .popoverTip(tipVer470GareiKoyaku())
 
                 // 重複当選率
                 unitLinkButtonViewBuilder(sheetTitle: "重複期待度") {

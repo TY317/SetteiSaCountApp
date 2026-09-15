@@ -56,3 +56,19 @@ struct tipVer470GareiChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：喰霊 通常時の小役
+//////////////////
+struct tipVer470GareiKoyaku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("・共通🔔のカウント機能を追加\n・強🍒と弱チャンス目の確率が判明したので設定期待値に反映しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

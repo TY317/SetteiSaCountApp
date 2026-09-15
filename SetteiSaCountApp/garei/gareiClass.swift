@@ -17,8 +17,8 @@ class Garei: ObservableObject {
     let ratioCommonBell: [Double] = [26.9,-1,-1,-1,-1,-1]
     let ratioSuika: [Double] = [81.9,79.9,77.8,75.6,73.8,72.1]
     let ratioJakuCherry: [Double] = [99,95.3,91,85.1,80.5,78.2]
-    let ratioKyoCherry: [Double] = [481.9,-1,-1,-1,-1,-1]
-    let ratioJakuChance: [Double] = [136.5,-1,-1,-1,-1,-1]
+    let ratioKyoCherry: [Double] = [481.9,481.9,481.9,468.1,468.1,455.1]
+    let ratioJakuChance: [Double] = [136.5,136.5,136,136,135.4,134.8]
     let ratioKyoChance: [Double] = [546.1,-1,-1,-1,-1,-1]
     @AppStorage("gareiKoyakuCountCommonBell") var koyakuCountCommonBell: Int = 0
     @AppStorage("gareiKoyakuCountSuika") var koyakuCountSuika: Int = 0
