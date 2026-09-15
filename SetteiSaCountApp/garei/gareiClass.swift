@@ -155,12 +155,46 @@ class Garei: ObservableObject {
     @AppStorage("gareiMinusCheck") var minusCheck: Bool = false
     @AppStorage("gareiSelectedMemory") var selectedMemory = "メモリー1"
 
+    // -------
+    // キャラ選択
+    // -------
+    @AppStorage("gareiCharaCount1") var charaCount1: Int = 0
+    @AppStorage("gareiCharaCount2") var charaCount2: Int = 0
+    @AppStorage("gareiCharaCount3") var charaCount3: Int = 0
+    @AppStorage("gareiCharaCount4") var charaCount4: Int = 0
+    @AppStorage("gareiCharaCount5") var charaCount5: Int = 0
+    @AppStorage("gareiCharaCount6") var charaCount6: Int = 0
+    @AppStorage("gareiCharaCountSum") var charaCountSum: Int = 0
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+            charaCount4,
+            charaCount5,
+            charaCount6,
+        )
+    }
+
+    func resetChara() {
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCount4 = 0
+        charaCount5 = 0
+        charaCount6 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
         resetBonusScreen()
         resetArtScreen()
         resetCz()
+        resetChara()
     }
 }
 
