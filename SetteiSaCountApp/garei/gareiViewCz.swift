@@ -79,7 +79,7 @@ struct gareiViewCz: View {
                         Ci95view: AnyView(
                             gareiView95Ci(
                                 garei: garei,
-                                selection: 12,
+                                selection: 13,
                             )
                         )
                     )
