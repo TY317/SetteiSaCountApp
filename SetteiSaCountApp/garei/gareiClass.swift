@@ -200,6 +200,9 @@ class Garei: ObservableObject {
     // 高確スタート（通常／高確／超高確の3択。通常は残余）
     let ratioStartStatusHigh: [Double] = [13,13.2,13.4,13.7,14,14.4]
     let ratioStartStatusSuperHigh: [Double] = [24,25.4,26.6,27.7,28.9,29.9]
+    // 有利区間開始時（朝一）の移行率（参考情報のみ。カウントは無し）
+    let ratioMorningHigh: [Double] = [25,26.6,28.1,29.7,31.3,32.8]
+    let ratioMorningSuperHigh: [Double] = [0.4,0.4,0.8,0.8,1.2,1.6]
     @AppStorage("gareiStartStatusCountNormal") var startStatusCountNormal: Int = 0
     @AppStorage("gareiStartStatusCountHigh") var startStatusCountHigh: Int = 0
     @AppStorage("gareiStartStatusCountSuperHigh") var startStatusCountSuperHigh: Int = 0

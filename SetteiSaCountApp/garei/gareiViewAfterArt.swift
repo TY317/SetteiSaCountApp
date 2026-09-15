@@ -59,12 +59,12 @@ struct gareiViewAfterArt: View {
                         unitTablePercent(
                             columTitle: "高確",
                             percentList: garei.ratioStartStatusHigh,
-                            numberofDicimal: 1,
+                            numberofDicimal: 0,
                         )
                         unitTablePercent(
                             columTitle: "超高確",
                             percentList: garei.ratioStartStatusSuperHigh,
-                            numberofDicimal: 1,
+                            numberofDicimal: 0,
                         )
                     }
                 }
@@ -121,6 +121,33 @@ struct gareiViewAfterArt: View {
                 }
             } header: {
                 Text("高確スタート")
+            }
+
+            // ---- 有利区間開始時(朝一)
+            Section {
+                // 参考情報）有利区間開始時(朝一)
+                unitLinkButtonViewBuilder(sheetTitle: "リセット後の高確スタート確率") {
+                    VStack(spacing: 20) {
+                        Text("・有利区間開始時（朝一）の高確・超高確への移行率")
+                            .foregroundStyle(Color.secondary)
+                            .font(.caption)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "高確",
+                                percentList: garei.ratioMorningHigh,
+                                numberofDicimal: 0,
+                            )
+                            unitTablePercent(
+                                columTitle: "超高確",
+                                percentList: garei.ratioMorningSuperHigh,
+                                numberofDicimal: 1,
+                            )
+                        }
+                    }
+                }
+            } header: {
+                Text("リセット後の高確スタート")
             }
         }
         // //// バッジのリセット
