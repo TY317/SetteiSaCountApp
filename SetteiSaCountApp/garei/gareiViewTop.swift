@@ -96,6 +96,17 @@ struct gareiViewTop: View {
                             badgeStatus: common.gareiMenuAfterArtBadge,
                         )
                     }
+
+                    // エンディング
+                    NavigationLink(destination: gareiViewEnding(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.gareiMenuEndingBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: garei.machineName,

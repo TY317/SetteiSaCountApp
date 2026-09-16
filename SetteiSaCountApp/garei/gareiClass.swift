@@ -224,6 +224,49 @@ class Garei: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // 殺生石ランプ
+    // -------
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    let ratioLampOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioLampOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioLampOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("gareiLampCount1") var lampCount1: Int = 0
+    @AppStorage("gareiLampCount2") var lampCount2: Int = 0
+    @AppStorage("gareiLampCount3") var lampCount3: Int = 0
+    @AppStorage("gareiLampCount4") var lampCount4: Int = 0
+    @AppStorage("gareiLampCount5") var lampCount5: Int = 0
+    @AppStorage("gareiLampCount6") var lampCount6: Int = 0
+    @AppStorage("gareiLampCount7") var lampCount7: Int = 0
+    @AppStorage("gareiLampCount8") var lampCount8: Int = 0
+    @AppStorage("gareiLampCountSum") var lampCountSum: Int = 0
+
+    func lampSumFunc() {
+        lampCountSum = countSum(
+            lampCount1,
+            lampCount2,
+            lampCount3,
+            lampCount4,
+            lampCount5,
+            lampCount6,
+            lampCount7,
+            lampCount8,
+        )
+    }
+
+    func resetLamp() {
+        lampCount1 = 0
+        lampCount2 = 0
+        lampCount3 = 0
+        lampCount4 = 0
+        lampCount5 = 0
+        lampCount6 = 0
+        lampCount7 = 0
+        lampCount8 = 0
+        lampCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
@@ -232,6 +275,7 @@ class Garei: ObservableObject {
         resetCz()
         resetChara()
         resetAfterArt()
+        resetLamp()
     }
 }
 

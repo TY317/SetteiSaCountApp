@@ -30,6 +30,7 @@ struct gareiViewBayes: View {
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
     @State var charaEnable: Bool = true
+    @State var lampEnable: Bool = true
     @State var startStatusEnable: Bool = true
     var body: some View {
         List {
@@ -101,6 +102,14 @@ struct gareiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$charaEnable, title: "キャラ紹介") {
                     unitExView5body2image(
                         title: "キャラ紹介",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // 殺生石ランプ
+                unitToggleWithQuestion(enable: self.$lampEnable, title: "殺生石ランプ") {
+                    unitExView5body2image(
+                        title: "殺生石ランプ",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -310,6 +319,26 @@ struct gareiViewBayes: View {
             )
         }
 
+        // 殺生石ランプ
+        // 確定系（設定4 以上濃厚／設定5 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルト・奇数示唆・偶数示唆・高設定期待度アップ系は残余バケットに吸収させる
+        var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.lampEnable {
+            logPostLamp = logPostPercentMulti(
+                countList: [
+                    garei.lampCount6,
+                    garei.lampCount7,
+                    garei.lampCount8,
+                ],
+                ratioList: [
+                    garei.ratioLampOver4,
+                    garei.ratioLampOver5,
+                    garei.ratioLampOver6,
+                ],
+                bigNumber: garei.lampCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -329,6 +358,7 @@ struct gareiViewBayes: View {
             logPostArtScreen,
             logPostStartStatus,
             logPostChara,
+            logPostLamp,
             logPostTrophy,
             logPostBefore,
         ])

@@ -416,6 +416,7 @@ class commonVar: ObservableObject {
     @AppStorage("gareiMenuCzBadge") var gareiMenuCzBadge: String = "none"
     @AppStorage("gareiMenuDuringRbBadge") var gareiMenuDuringRbBadge: String = "none"
     @AppStorage("gareiMenuAfterArtBadge") var gareiMenuAfterArtBadge: String = "none"
+    @AppStorage("gareiMenuEndingBadge") var gareiMenuEndingBadge: String = "none"
 
     // ---- とんでもスキルで異世界放浪メシ
     @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
@@ -827,6 +828,7 @@ class commonVar: ObservableObject {
                 gareiMenuDuringRbBadge = "update"
                 gareiMenuAfterArtBadge = "new"
                 gareiMenuNormalBadge = "update"
+                gareiMenuEndingBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")
