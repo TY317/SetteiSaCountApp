@@ -111,6 +111,7 @@ struct gareiViewCz: View {
                         }
                     }
                 }
+                .popoverTip(tipVer470GareiCzBackColor())
             } header: {
                 Text("背景色ごとの期待度")
             }

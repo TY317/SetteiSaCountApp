@@ -72,3 +72,19 @@ struct tipVer470GareiKoyaku: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：喰霊 CZの背景色
+//////////////////
+struct tipVer470GareiCzBackColor: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("CZの背景色ごとの期待度を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
