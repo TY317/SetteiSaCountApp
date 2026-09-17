@@ -104,3 +104,19 @@ struct tipVer470Index2Cz: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ワールドダイスター ST終了時のラッキーモード移行率
+//////////////////
+struct tipVer470WorldDaiStarLuckyMode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("ST終了時のラッキーモード移行率を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
