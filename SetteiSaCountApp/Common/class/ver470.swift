@@ -88,3 +88,19 @@ struct tipVer470GareiCzBackColor: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：禁書目録2 CZの種類別カウント
+//////////////////
+struct tipVer470Index2Cz: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("CZを超電磁砲CZと一方通行CZに分けてカウントできるようにしました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

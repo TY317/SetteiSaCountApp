@@ -52,23 +52,43 @@ struct index2View95Ci: View {
             )
             .tag(2)
 
-            // CZ初当り回数
+            // 超電磁砲CZ初当り回数
             unitListSection95Ci(
-                grafTitle: "CZ初当り回数",
+                grafTitle: "超電磁砲CZ\n初当り回数",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $index2.firstHitCountCz,
+                        currentCount: $index2.firstHitCountRailgunCz,
                         bigNumber: $index2.normalGame,
-                        setting1Denominate: index2.ratioFirstHitCz[0],
-                        setting2Denominate: index2.ratioFirstHitCz[1],
-                        setting3Denominate: index2.ratioFirstHitCz[2],
-                        setting4Denominate: index2.ratioFirstHitCz[3],
-                        setting5Denominate: index2.ratioFirstHitCz[4],
-                        setting6Denominate: index2.ratioFirstHitCz[5]
+                        setting1Denominate: index2.ratioFirstHitRailgunCz[0],
+                        setting2Denominate: index2.ratioFirstHitRailgunCz[1],
+                        setting3Denominate: index2.ratioFirstHitRailgunCz[2],
+                        setting4Denominate: index2.ratioFirstHitRailgunCz[3],
+                        setting5Denominate: index2.ratioFirstHitRailgunCz[4],
+                        setting6Denominate: index2.ratioFirstHitRailgunCz[5]
                     )
                 )
             )
             .tag(3)
+
+            // 一方通行CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "一方通行CZ\n初当り回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $index2.firstHitCountAcceleratorCz,
+                        bigNumber: $index2.normalGame,
+                        setting1Denominate: index2.ratioFirstHitAcceleratorCz[0],
+                        setting2Denominate: index2.ratioFirstHitAcceleratorCz[1],
+                        setting3Denominate: index2.ratioFirstHitAcceleratorCz[2],
+                        setting4Denominate: index2.ratioFirstHitAcceleratorCz[3],
+                        setting5Denominate: index2.ratioFirstHitAcceleratorCz[4],
+                        setting6Denominate: index2.ratioFirstHitAcceleratorCz[5]
+                    )
+                )
+            )
+            .tag(4)
 
             // AT初当り回数
             unitListSection95Ci(
@@ -86,7 +106,7 @@ struct index2View95Ci: View {
                     )
                 )
             )
-            .tag(4)
+            .tag(5)
         }
         // //// firebaseログ
         .onAppear {

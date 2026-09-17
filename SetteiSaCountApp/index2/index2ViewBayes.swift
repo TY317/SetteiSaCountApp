@@ -146,11 +146,20 @@ struct index2ViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
         // CZ初当り確率
+        // 超電磁砲CZと一方通行CZを多項で処理する（CZ非当選は残余バケット）。
+        // 合算の二項と併用すると同じ当選を二重計上するため、合算は使わない。
+        // AT初当りはCZ経由の当選を含みCZと排他ではないので、別の二項のまま残す。
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
-            logPostFirstHitCz = logPostDenoBino(
-                ratio: index2.ratioFirstHitCz,
-                Count: index2.firstHitCountCz,
+            logPostFirstHitCz = logPostDenoMulti(
+                countList: [
+                    index2.firstHitCountRailgunCz,
+                    index2.firstHitCountAcceleratorCz,
+                ],
+                denoList: [
+                    index2.ratioFirstHitRailgunCz,
+                    index2.ratioFirstHitAcceleratorCz,
+                ],
                 bigNumber: index2.normalGame
             )
         }

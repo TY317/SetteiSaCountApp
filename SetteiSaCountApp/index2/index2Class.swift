@@ -29,15 +29,27 @@ class Index2: ObservableObject {
     // --------
     // 初当り
     // --------
+    // CZは超電磁砲CZと一方通行CZの2種。ratioFirstHitCz はその合算
     let ratioFirstHitCz: [Double] = [235.6,233.4,230.8,222.3,215.8,207.2]
+    let ratioFirstHitRailgunCz: [Double] = [258.5,256,253.3,244.1,237.4,227.9]
+    let ratioFirstHitAcceleratorCz: [Double] = [2668.5,2639,2600.3,2493,2378.3,2273]
     let ratioFirstHitAt: [Double] = [398.8,394.5,389.6,369.5,358,338.4]
     let ratioDirectAt: [Double] = [8000,-1,-1,-1,-1,4000]
     @AppStorage("index2NormalGame") var normalGame: Int = 0
+    @AppStorage("index2FirstHitCountRailgunCz") var firstHitCountRailgunCz: Int = 0
+    @AppStorage("index2FirstHitCountAcceleratorCz") var firstHitCountAcceleratorCz: Int = 0
+    // CZ合算（2種の合計を firstHitCzSumFunc で自動計算）
     @AppStorage("index2FirstHitCountCz") var firstHitCountCz: Int = 0
     @AppStorage("index2FirstHitCountAt") var firstHitCountAt: Int = 0
 
+    func firstHitCzSumFunc() {
+        firstHitCountCz = firstHitCountRailgunCz + firstHitCountAcceleratorCz
+    }
+
     func resetFirstHit() {
         normalGame = 0
+        firstHitCountRailgunCz = 0
+        firstHitCountAcceleratorCz = 0
         firstHitCountCz = 0
         firstHitCountAt = 0
         minusCheck = false
