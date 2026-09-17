@@ -440,6 +440,7 @@ class commonVar: ObservableObject {
     @AppStorage("streetFighter6MenuBayesBadge") var streetFighter6MenuBayesBadge: String = "none"
     @AppStorage("streetFighter6MenuScreenBadge") var streetFighter6MenuScreenBadge: String = "none"
     @AppStorage("streetFighter6MenuEndingBadge") var streetFighter6MenuEndingBadge: String = "none"
+    @AppStorage("streetFighter6MenuContinueBadge") var streetFighter6MenuContinueBadge: String = "none"
 
     // ---- 邪神ちゃんドロップキック
     @AppStorage("dropkickMenuNormalBadge") var dropkickMenuNormalBadge: String = "none"
@@ -834,6 +835,8 @@ class commonVar: ObservableObject {
                 index2MenuFirstHitBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5055", newStatus: "update")
                 worldDaiStarMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5068", newStatus: "update")
+                streetFighter6MenuContinueBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

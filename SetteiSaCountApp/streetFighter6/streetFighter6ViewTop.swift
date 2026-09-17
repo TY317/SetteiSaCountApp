@@ -53,6 +53,17 @@ struct streetFighter6ViewTop: View {
                         )
                     }
 
+                    // コンティニューチャンス
+                    NavigationLink(destination: streetFighter6ViewContinue(
+                        streetFighter6: streetFighter6,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "コンティニューチャンス",
+                            badgeStatus: common.streetFighter6MenuContinueBadge,
+                        )
+                    }
+
                     // エンディング
                     NavigationLink(destination: streetFighter6ViewEnding(
                         streetFighter6: streetFighter6,
@@ -214,6 +225,10 @@ struct streetFighter6SubViewSaveMemory: View {
         streetFighter6Memory1.endingCount4 = streetFighter6.endingCount4
         streetFighter6Memory1.endingCount5 = streetFighter6.endingCount5
         streetFighter6Memory1.endingCountSum = streetFighter6.endingCountSum
+        streetFighter6Memory1.continueBellReplayCountBell = streetFighter6.continueBellReplayCountBell
+        streetFighter6Memory1.continueBellReplayCountReplay = streetFighter6.continueBellReplayCountReplay
+        streetFighter6Memory1.continueBellReplayCountHit = streetFighter6.continueBellReplayCountHit
+        streetFighter6Memory1.continueBellReplayCountSum = streetFighter6.continueBellReplayCountSum
     }
     func saveMemory2() {
         streetFighter6Memory2.normalGame = streetFighter6.normalGame
@@ -250,6 +265,10 @@ struct streetFighter6SubViewSaveMemory: View {
         streetFighter6Memory2.endingCount4 = streetFighter6.endingCount4
         streetFighter6Memory2.endingCount5 = streetFighter6.endingCount5
         streetFighter6Memory2.endingCountSum = streetFighter6.endingCountSum
+        streetFighter6Memory2.continueBellReplayCountBell = streetFighter6.continueBellReplayCountBell
+        streetFighter6Memory2.continueBellReplayCountReplay = streetFighter6.continueBellReplayCountReplay
+        streetFighter6Memory2.continueBellReplayCountHit = streetFighter6.continueBellReplayCountHit
+        streetFighter6Memory2.continueBellReplayCountSum = streetFighter6.continueBellReplayCountSum
     }
     func saveMemory3() {
         streetFighter6Memory3.normalGame = streetFighter6.normalGame
@@ -286,6 +305,10 @@ struct streetFighter6SubViewSaveMemory: View {
         streetFighter6Memory3.endingCount4 = streetFighter6.endingCount4
         streetFighter6Memory3.endingCount5 = streetFighter6.endingCount5
         streetFighter6Memory3.endingCountSum = streetFighter6.endingCountSum
+        streetFighter6Memory3.continueBellReplayCountBell = streetFighter6.continueBellReplayCountBell
+        streetFighter6Memory3.continueBellReplayCountReplay = streetFighter6.continueBellReplayCountReplay
+        streetFighter6Memory3.continueBellReplayCountHit = streetFighter6.continueBellReplayCountHit
+        streetFighter6Memory3.continueBellReplayCountSum = streetFighter6.continueBellReplayCountSum
     }
 }
 
@@ -351,6 +374,10 @@ struct streetFighter6SubViewLoadMemory: View {
         streetFighter6.endingCount4 = streetFighter6Memory1.endingCount4
         streetFighter6.endingCount5 = streetFighter6Memory1.endingCount5
         streetFighter6.endingCountSum = streetFighter6Memory1.endingCountSum
+        streetFighter6.continueBellReplayCountBell = streetFighter6Memory1.continueBellReplayCountBell
+        streetFighter6.continueBellReplayCountReplay = streetFighter6Memory1.continueBellReplayCountReplay
+        streetFighter6.continueBellReplayCountHit = streetFighter6Memory1.continueBellReplayCountHit
+        streetFighter6.continueBellReplayCountSum = streetFighter6Memory1.continueBellReplayCountSum
     }
     func loadMemory2() {
         streetFighter6.normalGame = streetFighter6Memory2.normalGame
@@ -387,6 +414,10 @@ struct streetFighter6SubViewLoadMemory: View {
         streetFighter6.endingCount4 = streetFighter6Memory2.endingCount4
         streetFighter6.endingCount5 = streetFighter6Memory2.endingCount5
         streetFighter6.endingCountSum = streetFighter6Memory2.endingCountSum
+        streetFighter6.continueBellReplayCountBell = streetFighter6Memory2.continueBellReplayCountBell
+        streetFighter6.continueBellReplayCountReplay = streetFighter6Memory2.continueBellReplayCountReplay
+        streetFighter6.continueBellReplayCountHit = streetFighter6Memory2.continueBellReplayCountHit
+        streetFighter6.continueBellReplayCountSum = streetFighter6Memory2.continueBellReplayCountSum
     }
     func loadMemory3() {
         streetFighter6.normalGame = streetFighter6Memory3.normalGame
@@ -423,6 +454,10 @@ struct streetFighter6SubViewLoadMemory: View {
         streetFighter6.endingCount4 = streetFighter6Memory3.endingCount4
         streetFighter6.endingCount5 = streetFighter6Memory3.endingCount5
         streetFighter6.endingCountSum = streetFighter6Memory3.endingCountSum
+        streetFighter6.continueBellReplayCountBell = streetFighter6Memory3.continueBellReplayCountBell
+        streetFighter6.continueBellReplayCountReplay = streetFighter6Memory3.continueBellReplayCountReplay
+        streetFighter6.continueBellReplayCountHit = streetFighter6Memory3.continueBellReplayCountHit
+        streetFighter6.continueBellReplayCountSum = streetFighter6Memory3.continueBellReplayCountSum
     }
 }
 

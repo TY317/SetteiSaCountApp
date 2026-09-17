@@ -120,3 +120,19 @@ struct tipVer470WorldDaiStarLuckyMode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ストリートファイター6 コンティニューチャンス
+//////////////////
+struct tipVer470StreetFighter6Continue: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("コンティニューチャンス中のベル・リプレイでの成功率をカウントできるようにしました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
