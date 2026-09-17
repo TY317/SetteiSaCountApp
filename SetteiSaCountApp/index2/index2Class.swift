@@ -198,6 +198,8 @@ class Index2Memory1: ObservableObject {
     @AppStorage("index2CommentCount8Memory1") var commentCount8: Int = 0
     @AppStorage("index2CommentCount9Memory1") var commentCount9: Int = 0
     @AppStorage("index2CommentCountSumMemory1") var commentCountSum: Int = 0
+    @AppStorage("index2FirstHitCountRailgunCzMemory1") var firstHitCountRailgunCz: Int = 0
+    @AppStorage("index2FirstHitCountAcceleratorCzMemory1") var firstHitCountAcceleratorCz: Int = 0
     @AppStorage("index2MemoMemory1") var memo = ""
     @AppStorage("index2DateMemory1") var dateDouble = 0.0
 }
@@ -232,6 +234,8 @@ class Index2Memory2: ObservableObject {
     @AppStorage("index2CommentCount8Memory2") var commentCount8: Int = 0
     @AppStorage("index2CommentCount9Memory2") var commentCount9: Int = 0
     @AppStorage("index2CommentCountSumMemory2") var commentCountSum: Int = 0
+    @AppStorage("index2FirstHitCountRailgunCzMemory2") var firstHitCountRailgunCz: Int = 0
+    @AppStorage("index2FirstHitCountAcceleratorCzMemory2") var firstHitCountAcceleratorCz: Int = 0
     @AppStorage("index2MemoMemory2") var memo = ""
     @AppStorage("index2DateMemory2") var dateDouble = 0.0
 }
@@ -266,6 +270,8 @@ class Index2Memory3: ObservableObject {
     @AppStorage("index2CommentCount8Memory3") var commentCount8: Int = 0
     @AppStorage("index2CommentCount9Memory3") var commentCount9: Int = 0
     @AppStorage("index2CommentCountSumMemory3") var commentCountSum: Int = 0
+    @AppStorage("index2FirstHitCountRailgunCzMemory3") var firstHitCountRailgunCz: Int = 0
+    @AppStorage("index2FirstHitCountAcceleratorCzMemory3") var firstHitCountAcceleratorCz: Int = 0
     @AppStorage("index2MemoMemory3") var memo = ""
     @AppStorage("index2DateMemory3") var dateDouble = 0.0
 }

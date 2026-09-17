@@ -209,6 +209,8 @@ struct index2SubViewSaveMemory: View {
         index2Memory1.commentCount8 = index2.commentCount8
         index2Memory1.commentCount9 = index2.commentCount9
         index2Memory1.commentCountSum = index2.commentCountSum
+        index2Memory1.firstHitCountRailgunCz = index2.firstHitCountRailgunCz
+        index2Memory1.firstHitCountAcceleratorCz = index2.firstHitCountAcceleratorCz
     }
     func saveMemory2() {
         index2Memory2.suikaCountKoyaku = index2.suikaCountKoyaku
@@ -239,6 +241,8 @@ struct index2SubViewSaveMemory: View {
         index2Memory2.commentCount8 = index2.commentCount8
         index2Memory2.commentCount9 = index2.commentCount9
         index2Memory2.commentCountSum = index2.commentCountSum
+        index2Memory2.firstHitCountRailgunCz = index2.firstHitCountRailgunCz
+        index2Memory2.firstHitCountAcceleratorCz = index2.firstHitCountAcceleratorCz
     }
     func saveMemory3() {
         index2Memory3.suikaCountKoyaku = index2.suikaCountKoyaku
@@ -269,6 +273,8 @@ struct index2SubViewSaveMemory: View {
         index2Memory3.commentCount8 = index2.commentCount8
         index2Memory3.commentCount9 = index2.commentCount9
         index2Memory3.commentCountSum = index2.commentCountSum
+        index2Memory3.firstHitCountRailgunCz = index2.firstHitCountRailgunCz
+        index2Memory3.firstHitCountAcceleratorCz = index2.firstHitCountAcceleratorCz
     }
 }
 
@@ -328,6 +334,8 @@ struct index2SubViewLoadMemory: View {
         index2.commentCount8 = index2Memory1.commentCount8
         index2.commentCount9 = index2Memory1.commentCount9
         index2.commentCountSum = index2Memory1.commentCountSum
+        index2.firstHitCountRailgunCz = index2Memory1.firstHitCountRailgunCz
+        index2.firstHitCountAcceleratorCz = index2Memory1.firstHitCountAcceleratorCz
     }
     func loadMemory2() {
         index2.suikaCountKoyaku = index2Memory2.suikaCountKoyaku
@@ -358,6 +366,8 @@ struct index2SubViewLoadMemory: View {
         index2.commentCount8 = index2Memory2.commentCount8
         index2.commentCount9 = index2Memory2.commentCount9
         index2.commentCountSum = index2Memory2.commentCountSum
+        index2.firstHitCountRailgunCz = index2Memory2.firstHitCountRailgunCz
+        index2.firstHitCountAcceleratorCz = index2Memory2.firstHitCountAcceleratorCz
     }
     func loadMemory3() {
         index2.suikaCountKoyaku = index2Memory3.suikaCountKoyaku
@@ -388,6 +398,8 @@ struct index2SubViewLoadMemory: View {
         index2.commentCount8 = index2Memory3.commentCount8
         index2.commentCount9 = index2Memory3.commentCount9
         index2.commentCountSum = index2Memory3.commentCountSum
+        index2.firstHitCountRailgunCz = index2Memory3.firstHitCountRailgunCz
+        index2.firstHitCountAcceleratorCz = index2Memory3.firstHitCountAcceleratorCz
     }
 }
 
