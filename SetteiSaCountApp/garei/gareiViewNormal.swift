@@ -106,29 +106,29 @@ struct gareiViewNormal: View {
                         count: $garei.koyakuCountKyoCherry,
                         color: .red,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }
                         .padding(.bottom)
                     // 弱チャンス目
                     unitCountButtonDenominateWithFunc(
-                        title: "弱チャンス目",
+                        title: "弱ﾁｬﾝｽ目",
                         count: $garei.koyakuCountJakuChance,
                         color: .personalSummerLightBlue,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }
                         .padding(.bottom)
                     // 強チャンス目
                     unitCountButtonDenominateWithFunc(
-                        title: "強チャンス目",
+                        title: "強ﾁｬﾝｽ目",
                         count: $garei.koyakuCountKyoChance,
                         color: .personalSummerLightPurple,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }

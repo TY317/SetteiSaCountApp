@@ -57,7 +57,12 @@ struct index2ViewBayes: View {
                     )
                 }
                 // CZ初当り確率
-                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
+                    unitExView5body2image(
+                        title: "CZ初当り確率",
+                        textBody1: "・超電磁砲、一方通行それぞれの確率を計算要素に加えます",
+                    )
+                }
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // AT終了画面

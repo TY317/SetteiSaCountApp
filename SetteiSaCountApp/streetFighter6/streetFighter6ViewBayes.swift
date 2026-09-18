@@ -65,7 +65,6 @@ struct streetFighter6ViewBayes: View {
                     unitExView5body2image(
                         title: "コンティニューチャンス",
                         textBody1: "・ベル、リプレイ成立時の成功率を計算要素に加えます",
-                        textBody2: "・レア役（狙え）は全設定100%のため計算には使いません",
                     )
                 }
                 // エンディング ボイス

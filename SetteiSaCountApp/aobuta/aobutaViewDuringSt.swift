@@ -36,7 +36,7 @@ struct aobutaViewDuringSt: View {
                     title: "思春期症候群 発生率",
                     count: $aobuta.syndromeCountHit,
                     bigNumber: $aobuta.syndromeCountSum,
-                    numberofDicimal: 1
+                    numberofDicimal: 0
                 )
 
                 // 参考情報）開始時の思春期症候群

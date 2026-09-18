@@ -186,9 +186,8 @@ struct aobutaViewCz: View {
                 unitLinkButtonViewBuilder(sheetTitle: "咲太ポイント解放確率") {
                     VStack(spacing: 20) {
                         VStack(alignment: .leading) {
-                            Text("・規定ポイント到達（咲太ポイントMAX）の実質出現確率")
-                            Text("・高設定ほど咲太ポイントがMAXになりやすい")
-                            Text("・解放されるのはCZ開始時なので注目")
+                            Text("・解放されるのはCZ開始時")
+                            Text("・咲太ポイントMAXの実質出現確率に設定差")
                         }
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
@@ -197,7 +196,7 @@ struct aobutaViewCz: View {
                             unitTableDenominate(
                                 columTitle: "解放確率",
                                 denominateList: aobuta.ratioCzSakutaPoint,
-                                numberofDicimal: 1,
+                                numberofDicimal: 0,
                             )
                         }
                     }

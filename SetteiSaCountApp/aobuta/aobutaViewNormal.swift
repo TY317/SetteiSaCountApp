@@ -42,7 +42,7 @@ struct aobutaViewNormal: View {
                         title: "🍒",
                         count: $aobuta.aoharuCherryCountHit,
                         bigNumber: $aobuta.aoharuCherryCount,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         spacerBool: false,
                     )
                     // ﾁｬﾝｽ目
@@ -50,7 +50,7 @@ struct aobutaViewNormal: View {
                         title: "ﾁｬﾝｽ目",
                         count: $aobuta.aoharuChanceCountHit,
                         bigNumber: $aobuta.aoharuChanceCount,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         spacerBool: false,
                     )
                 }
@@ -73,12 +73,12 @@ struct aobutaViewNormal: View {
                                 unitTablePercent(
                                     columTitle: "🍒",
                                     percentList: aobuta.ratioAoharuCherry,
-                                    numberofDicimal: 1,
+                                    numberofDicimal: 0,
                                 )
                                 unitTablePercent(
                                     columTitle: "ﾁｬﾝｽ目",
                                     percentList: aobuta.ratioAoharuChance,
-                                    numberofDicimal: 1,
+                                    numberofDicimal: 0,
                                 )
                             }
                         }
@@ -118,6 +118,10 @@ struct aobutaViewNormal: View {
 
                 // カウント
                 DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・高確、リラックス状態はカウント除外")
+                    }
                     // 小役セグメントピッカー
                     Picker("", selection: self.$selectedKoyakuIndex) {
                         ForEach(self.koyakuList.indices, id: \.self) { index in
@@ -175,14 +179,14 @@ struct aobutaViewNormal: View {
             Section {
                 // アオハルチャンス確率
                 unitResultRatioDenomination2Line(
-                    title: "アオハルチャンス確率",
+                    title: "アオハルチャンス出現率",
                     count: $aobuta.aoharuCount,
                     bigNumber: $aobuta.aoharuGame,
                     numberofDicimal: 1
                 )
 
                 // 参考情報）アオハルチャンス確率
-                unitLinkButtonViewBuilder(sheetTitle: "アオハルチャンス確率") {
+                unitLinkButtonViewBuilder(sheetTitle: "アオハルチャンス出現率") {
                     HStack(spacing: 0) {
                         unitTableSettingIndex(settingList: [2,3,4,5,6])
                         unitTableDenominate(
@@ -195,6 +199,14 @@ struct aobutaViewNormal: View {
 
                 // カウント
                 DisclosureGroup {
+                    // ゲーム数（初当りの通常ゲーム数とは別管理）
+                    unitTextFieldNumberInputWithUnit(
+                        title: "ゲーム数",
+                        inputValue: $aobuta.aoharuGame,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    
                     // カウントボタン
                     HStack {
                         // アオハルチャンス
@@ -204,14 +216,6 @@ struct aobutaViewNormal: View {
                             color: .personalSummerLightBlue,
                             minusBool: $aobuta.minusCheck) { }
                     }
-
-                    // ゲーム数（初当りの通常ゲーム数とは別管理）
-                    unitTextFieldNumberInputWithUnit(
-                        title: "ゲーム数",
-                        inputValue: $aobuta.aoharuGame,
-                        unitText: "Ｇ",
-                    )
-                    .focused(self.$isFocused)
 
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(
@@ -234,7 +238,7 @@ struct aobutaViewNormal: View {
                         .foregroundStyle(Color.blue)
                 }
             } header: {
-                Text("アオハルチャンス確率")
+                Text("アオハルチャンス出現率")
             }
 
             // レア役

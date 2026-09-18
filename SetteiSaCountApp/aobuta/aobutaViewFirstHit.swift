@@ -56,7 +56,7 @@ struct aobutaViewFirstHit: View {
                     unitTableDenominate(
                         columTitle: "初当り",
                         denominateList: aobuta.ratioFirstHitSt,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                     )
                 }
             }

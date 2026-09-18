@@ -46,26 +46,24 @@ struct aobutaViewBayes: View {
 
             // //// STEP2
             bayesSubStep2Section {
-                // 初当り確率
-                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
-
-                // アオハルチャンス確率
-                unitToggleWithQuestion(enable: self.$aoharuRatioEnable, title: "アオハルチャンス確率") {
-                    unitExView5body2image(
-                        title: "アオハルチャンス確率",
-                        textBody1: "・通常時ページでカウントしたアオハルチャンスの確率を計算要素に加えます",
-                        textBody2: "・下の「アオハルチャンス当選率」と同じ当選を二重に数えることになるため、どちらか一方だけを有効にしてください",
-                    )
-                }
-
                 // アオハルチャンス当選率
                 unitToggleWithQuestion(enable: self.$aoharuEnable, title: "アオハルチャンス当選率") {
                     unitExView5body2image(
-                        title: "アオハルチャンス当選率",
+                        title: "レア役からのアオハルチャンス当選率",
                         textBody1: "・通常滞在時の🍒とﾁｬﾝｽ目からの当選率を計算要素に加えます",
-                        textBody2: "・高確・リラックス滞在時は当選率が異なるため、通常滞在時のみカウントしてください",
                     )
                 }
+                
+                // アオハルチャンス出現率
+                unitToggleWithQuestion(enable: self.$aoharuRatioEnable, title: "アオハルチャンス出現率") {
+                    unitExView5body2image(
+                        title: "アオハルチャンス出現率",
+                        textBody1: "・通常時ページでカウントしたアオハルチャンス出現率を計算要素に加えます",
+                    )
+                }
+                
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
 
                 // ST終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "ST終了画面") {
