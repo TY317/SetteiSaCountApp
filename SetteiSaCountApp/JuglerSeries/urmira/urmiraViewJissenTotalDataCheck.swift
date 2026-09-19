@@ -38,10 +38,11 @@ struct urmiraViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $urmira.personalCherryCount,
                                     bigNumber: $urmira.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
 //                            HStack {
@@ -63,10 +64,11 @@ struct urmiraViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $urmira.personalCherryCount,
                                     bigNumber: $urmira.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
 //                            HStack {

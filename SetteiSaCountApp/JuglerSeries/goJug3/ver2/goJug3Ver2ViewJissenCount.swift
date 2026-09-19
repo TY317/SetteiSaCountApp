@@ -36,6 +36,18 @@ struct goJug3Ver2ViewJissenCount: View {
                         numberofDicimal: 2,
                         minusBool: $goJug3.minusCheck
                     )
+                    // チェリー
+                    unitCountButtonVerticalDenominate(
+                        title: "🍒",
+                        count: $goJug3.personalCherryCount,
+                        color: .personalSummerLightRed,
+                        bigNumber: $goJug3.playGame,
+                        numberofDicimal: 1,
+                        minusBool: $goJug3.minusCheck
+                    )
+                }
+                // 2段目
+                HStack {
                     // BIG
                     unitCountButtonVerticalDenominate(
                         title: "BIG",

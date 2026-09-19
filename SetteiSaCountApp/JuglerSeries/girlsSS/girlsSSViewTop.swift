@@ -88,6 +88,7 @@ struct girlsSSViewTop: View {
                             textBody: "実戦カウント"
                         )
                     }
+                    .popoverTip(tipVer470JuglerCherry())
                     // トータル結果確認
                     NavigationLink(destination: girlsSSVer2ViewJissenTotalDataCheck(
 //                        ver391: ver391,
@@ -238,6 +239,7 @@ struct girlsSSSubViewSaveMemory: View {
         girlsSSMemory1.personalRegCountSum = girlsSS.personalRegCountSum
         girlsSSMemory1.personalBonusCountSum = girlsSS.personalBonusCountSum
         girlsSSMemory1.playGame = girlsSS.playGame
+        girlsSSMemory1.personalCherryCount = girlsSS.personalCherryCount
         girlsSSMemory1.totalBigCount = girlsSS.totalBigCount
         girlsSSMemory1.totalRegCount = girlsSS.totalRegCount
         girlsSSMemory1.totalBellCount = girlsSS.totalBellCount
@@ -268,6 +270,7 @@ struct girlsSSSubViewSaveMemory: View {
         girlsSSMemory2.personalRegCountSum = girlsSS.personalRegCountSum
         girlsSSMemory2.personalBonusCountSum = girlsSS.personalBonusCountSum
         girlsSSMemory2.playGame = girlsSS.playGame
+        girlsSSMemory2.personalCherryCount = girlsSS.personalCherryCount
         girlsSSMemory2.totalBigCount = girlsSS.totalBigCount
         girlsSSMemory2.totalRegCount = girlsSS.totalRegCount
         girlsSSMemory2.totalBellCount = girlsSS.totalBellCount
@@ -298,6 +301,7 @@ struct girlsSSSubViewSaveMemory: View {
         girlsSSMemory3.personalRegCountSum = girlsSS.personalRegCountSum
         girlsSSMemory3.personalBonusCountSum = girlsSS.personalBonusCountSum
         girlsSSMemory3.playGame = girlsSS.playGame
+        girlsSSMemory3.personalCherryCount = girlsSS.personalCherryCount
         girlsSSMemory3.totalBigCount = girlsSS.totalBigCount
         girlsSSMemory3.totalRegCount = girlsSS.totalRegCount
         girlsSSMemory3.totalBellCount = girlsSS.totalBellCount
@@ -357,6 +361,7 @@ struct girlsSSSubViewLoadMemory: View {
         girlsSS.personalRegCountSum = girlsSSMemory1.personalRegCountSum
         girlsSS.personalBonusCountSum = girlsSSMemory1.personalBonusCountSum
         girlsSS.playGame = girlsSSMemory1.playGame
+        girlsSS.personalCherryCount = girlsSSMemory1.personalCherryCount
         girlsSS.totalBigCount = girlsSSMemory1.totalBigCount
         girlsSS.totalRegCount = girlsSSMemory1.totalRegCount
         girlsSS.totalBellCount = girlsSSMemory1.totalBellCount
@@ -387,6 +392,7 @@ struct girlsSSSubViewLoadMemory: View {
         girlsSS.personalRegCountSum = girlsSSMemory2.personalRegCountSum
         girlsSS.personalBonusCountSum = girlsSSMemory2.personalBonusCountSum
         girlsSS.playGame = girlsSSMemory2.playGame
+        girlsSS.personalCherryCount = girlsSSMemory2.personalCherryCount
         girlsSS.totalBigCount = girlsSSMemory2.totalBigCount
         girlsSS.totalRegCount = girlsSSMemory2.totalRegCount
         girlsSS.totalBellCount = girlsSSMemory2.totalBellCount
@@ -417,6 +423,7 @@ struct girlsSSSubViewLoadMemory: View {
         girlsSS.personalRegCountSum = girlsSSMemory3.personalRegCountSum
         girlsSS.personalBonusCountSum = girlsSSMemory3.personalBonusCountSum
         girlsSS.playGame = girlsSSMemory3.playGame
+        girlsSS.personalCherryCount = girlsSSMemory3.personalCherryCount
         girlsSS.totalBigCount = girlsSSMemory3.totalBigCount
         girlsSS.totalRegCount = girlsSSMemory3.totalRegCount
         girlsSS.totalBellCount = girlsSSMemory3.totalBellCount

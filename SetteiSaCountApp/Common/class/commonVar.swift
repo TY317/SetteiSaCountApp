@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5064", name: "青ブタ", fullName: "青春ブタ野郎はバニーガール先輩の夢を見ない", iconName: "aobutaMachineIcon", btBadge: false, maker: "平和"),
         Machine(id: "5033", name: "リコリコ", fullName: "リコリス・リコイル", iconName: "ricoricoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5028", name: "喰霊", fullName: "喰霊-零-Re", iconName: "gareiMachineIcon", btBadge: false, maker: "オーイズミ"),
         Machine(id: "5030", name: "とんスキ", fullName: "とんでもスキルで異世界放浪メシ", iconName: "tonskillMachineIcon", btBadge: false, maker: "コナミ"),
@@ -359,13 +360,20 @@ class commonVar: ObservableObject {
     @AppStorage("hanaTenshoMachineIconBadge") var hanaTenshoMachineIconBadge: String = "none"
     @AppStorage("hanaTenshoMenuShimaBadge") var hanaTenshoMenuShimaBadge: String = "none"
     
-    
     // ---- 戦国コレクション6
     @AppStorage("sencole6MenuNormalBadge") var sencole6MenuNormalBadge: String = "none"
     @AppStorage("sencole6MenuFirstHitBadge") var sencole6MenuFirstHitBadge: String = "none"
     @AppStorage("sencole6MenuBayesBadge") var sencole6MenuBayesBadge: String = "none"
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
     @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
+
+    // ---- 青春ブタ野郎はバニーガール先輩の夢を見ない
+    @AppStorage("aobutaMenuNormalBadge") var aobutaMenuNormalBadge: String = "none"
+    @AppStorage("aobutaMenuFirstHitBadge") var aobutaMenuFirstHitBadge: String = "none"
+    @AppStorage("aobutaMenuBayesBadge") var aobutaMenuBayesBadge: String = "none"
+    @AppStorage("aobutaMenuScreenBadge") var aobutaMenuScreenBadge: String = "none"
+    @AppStorage("aobutaMenuDuringStBadge") var aobutaMenuDuringStBadge: String = "none"
+    @AppStorage("aobutaMenuCzBadge") var aobutaMenuCzBadge: String = "none"
 
     // ---- リコリス・リコイル
     @AppStorage("ricoricoMenuNormalBadge") var ricoricoMenuNormalBadge: String = "none"
@@ -407,6 +415,8 @@ class commonVar: ObservableObject {
     @AppStorage("gareiMenuArtScreenBadge") var gareiMenuArtScreenBadge: String = "none"
     @AppStorage("gareiMenuCzBadge") var gareiMenuCzBadge: String = "none"
     @AppStorage("gareiMenuDuringRbBadge") var gareiMenuDuringRbBadge: String = "none"
+    @AppStorage("gareiMenuAfterArtBadge") var gareiMenuAfterArtBadge: String = "none"
+    @AppStorage("gareiMenuEndingBadge") var gareiMenuEndingBadge: String = "none"
 
     // ---- とんでもスキルで異世界放浪メシ
     @AppStorage("tonskillMenuNormalBadge") var tonskillMenuNormalBadge: String = "none"
@@ -430,6 +440,7 @@ class commonVar: ObservableObject {
     @AppStorage("streetFighter6MenuBayesBadge") var streetFighter6MenuBayesBadge: String = "none"
     @AppStorage("streetFighter6MenuScreenBadge") var streetFighter6MenuScreenBadge: String = "none"
     @AppStorage("streetFighter6MenuEndingBadge") var streetFighter6MenuEndingBadge: String = "none"
+    @AppStorage("streetFighter6MenuContinueBadge") var streetFighter6MenuContinueBadge: String = "none"
 
     // ---- 邪神ちゃんドロップキック
     @AppStorage("dropkickMenuNormalBadge") var dropkickMenuNormalBadge: String = "none"
@@ -776,6 +787,9 @@ class commonVar: ObservableObject {
     // リワード広告の強制アンロック
     // -------
     func forcedUnlockReward() {
+        // ver4.1.0 の移行処理から引き継ぎ（リワード未視聴のまま残ったロックを解放）
+        machines.updateMachineIsUnlocked(id: "5019", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5010", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -800,6 +814,38 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver470FirstLaunch() {
+        // 比較対象となるバージョンを設定
+        let targetVersion: String = "4.7.0"
+
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5064", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5064", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5028", newStatus: "update")
+                gareiMenuDuringRbBadge = "update"
+                gareiMenuAfterArtBadge = "new"
+                gareiMenuNormalBadge = "update"
+                gareiMenuEndingBadge = "new"
+                gareiMenuCzBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5053", newStatus: "update")
+                index2MenuFirstHitBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5055", newStatus: "update")
+                worldDaiStarMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5068", newStatus: "update")
+                streetFighter6MenuContinueBadge = "new"
+            }
+            else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver460FirstLaunch() {
         // 比較対象となるバージョンを設定
         let targetVersion: String = "4.6.0"
@@ -1028,32 +1074,5 @@ class commonVar: ObservableObject {
         }
     }
 
-    func ver410FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.1.0"
-        
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5019", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5010", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5010", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "4984", newStatus: "update")
-                rioAceMenuEndingBadge = "new"
-                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
-                bioRe3MenuFirstHitBadge = "update"
-                bioRe3MenuDuringAtBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
-                otome5MenuNormalBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
 }
 

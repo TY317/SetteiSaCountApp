@@ -13,6 +13,10 @@ class WorldDaiStar: ObservableObject {
     // -------
     // 通常時
     // -------
+    // ST終了時のラッキーモード移行率（参考情報）
+    let ratioLuckyModeOther: [Double] = [20.3,20.7,21.1,21.5,21.9,22.3]        // 右記以外
+    let ratioLuckyModeStThrough: [Double] = [33.2,34,34.8,36.3,37.1,37.9]      // ST駆け抜け時
+    let ratioLuckyModeAfterHighSt: [Double] = [50,50.8,53.1,58.2,59.4,62.1]    // 上位ST後
 
     func resetNormal() {
         minusCheck = false

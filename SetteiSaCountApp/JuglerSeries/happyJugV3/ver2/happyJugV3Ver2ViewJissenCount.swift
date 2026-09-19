@@ -46,6 +46,18 @@ struct happyJugV3Ver2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $happyJugV3.minusCheck
                         )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $happyJugV3.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $happyJugV3.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $happyJugV3.minusCheck
+                        )
+                    }
+                    // 2段目
+                    HStack {
                         // 単独BIG
                         unitCountButtonVerticalDenominate(
                             title: "単独BIG",
@@ -116,15 +128,26 @@ struct happyJugV3Ver2ViewJissenCount: View {
                 else {
                     // //// カウントボタン
                     // 1段目
-                    // ぶどう
-                    unitCountButtonVerticalDenominate(
-                        title: "ぶどう",
-                        count: $happyJugV3.personalBellCount,
-                        color: .personalSummerLightGreen,
-                        bigNumber: $happyJugV3.playGame,
-                        numberofDicimal: 2,
-                        minusBool: $happyJugV3.minusCheck
-                    )
+                    HStack {
+                        // ぶどう
+                        unitCountButtonVerticalDenominate(
+                            title: "ぶどう",
+                            count: $happyJugV3.personalBellCount,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $happyJugV3.playGame,
+                            numberofDicimal: 2,
+                            minusBool: $happyJugV3.minusCheck
+                        )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $happyJugV3.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $happyJugV3.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $happyJugV3.minusCheck
+                        )
+                    }
                     // 2段目
                     HStack {
                         // 単独BIG

@@ -29,27 +29,51 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if goJug3.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $goJug3.totalBellCount,
-                                bigNumber: $goJug3.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $goJug3.totalBellCount,
+                                    bigNumber: $goJug3.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $goJug3.personalCherryCount,
+                                    bigNumber: $goJug3.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: goJug3.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: goJug3.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $goJug3.personalBellCount,
-                                bigNumber: $goJug3.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $goJug3.personalBellCount,
+                                    bigNumber: $goJug3.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $goJug3.personalCherryCount,
+                                    bigNumber: $goJug3.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: goJug3.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: goJug3.startBackCalculationEnable)
                         }
                     }
                 }
@@ -120,6 +144,8 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $goJug3.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $goJug3.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $goJug3.totalBigCount)
                 // REG

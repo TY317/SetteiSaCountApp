@@ -49,6 +49,25 @@ struct streetFighter6View95Ci: View {
                 )
             )
             .tag(3)
+
+            // ベル・リプレイでの成功率
+            unitListSection95Ci(
+                grafTitle: "コンティニュー\nベル・リプレイ成功率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $streetFighter6.continueBellReplayCountHit,
+                        bigNumber: $streetFighter6.continueBellReplayCountSum,
+                        setting1Percent: streetFighter6.ratioContinueBellReplay[0],
+                        setting2Percent: streetFighter6.ratioContinueBellReplay[1],
+                        setting3Percent: streetFighter6.ratioContinueBellReplay[2],
+                        setting4Percent: streetFighter6.ratioContinueBellReplay[3],
+                        setting5Percent: streetFighter6.ratioContinueBellReplay[4],
+                        setting6Percent: streetFighter6.ratioContinueBellReplay[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

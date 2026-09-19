@@ -51,6 +51,32 @@ struct worldDaiStarViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "ラッキーモード") {
                     worldDaiStarTableLuckyMode()
                 }
+
+                // 参考情報）ST終了時のラッキーモード移行率
+                unitLinkButtonViewBuilder(sheetTitle: "ST終了時のラッキーモード移行率") {
+                    VStack(spacing: 20) {
+                        Text("・高設定ほどラッキーモード移行率が優遇")
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "基本",
+                                percentList: worldDaiStar.ratioLuckyModeOther,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "ST駆け抜け時",
+                                percentList: worldDaiStar.ratioLuckyModeStThrough,
+                                numberofDicimal: 0,
+                            )
+                            unitTablePercent(
+                                columTitle: "上位ST後",
+                                percentList: worldDaiStar.ratioLuckyModeAfterHighSt,
+                                numberofDicimal: 0,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer470WorldDaiStarLuckyMode())
             } header: {
                 Text("規定G数、モード")
             }

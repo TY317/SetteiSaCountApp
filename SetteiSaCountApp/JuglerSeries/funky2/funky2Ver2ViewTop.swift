@@ -86,6 +86,7 @@ struct funky2Ver2ViewTop: View {
                             textBody: "実戦カウント"
                         )
                     }
+                    .popoverTip(tipVer470JuglerCherry())
                     // トータル結果確認
                     NavigationLink(destination: funky2Ver2ViewJissenTotalDataCheck(
                         funky2: funky2,
@@ -215,6 +216,7 @@ struct funky2SubViewSaveMemory: View {
         funky2Memory1.personalRegCountSum = funky2.personalRegCountSum
         funky2Memory1.personalBonusCountSum = funky2.personalBonusCountSum
         funky2Memory1.playGame = funky2.playGame
+        funky2Memory1.personalCherryCount = funky2.personalCherryCount
         funky2Memory1.totalBigCount = funky2.totalBigCount
         funky2Memory1.totalRegCount = funky2.totalRegCount
         funky2Memory1.totalBellCount = funky2.totalBellCount
@@ -245,6 +247,7 @@ struct funky2SubViewSaveMemory: View {
         funky2Memory2.personalRegCountSum = funky2.personalRegCountSum
         funky2Memory2.personalBonusCountSum = funky2.personalBonusCountSum
         funky2Memory2.playGame = funky2.playGame
+        funky2Memory2.personalCherryCount = funky2.personalCherryCount
         funky2Memory2.totalBigCount = funky2.totalBigCount
         funky2Memory2.totalRegCount = funky2.totalRegCount
         funky2Memory2.totalBellCount = funky2.totalBellCount
@@ -275,6 +278,7 @@ struct funky2SubViewSaveMemory: View {
         funky2Memory3.personalRegCountSum = funky2.personalRegCountSum
         funky2Memory3.personalBonusCountSum = funky2.personalBonusCountSum
         funky2Memory3.playGame = funky2.playGame
+        funky2Memory3.personalCherryCount = funky2.personalCherryCount
         funky2Memory3.totalBigCount = funky2.totalBigCount
         funky2Memory3.totalRegCount = funky2.totalRegCount
         funky2Memory3.totalBellCount = funky2.totalBellCount
@@ -334,6 +338,7 @@ struct funky2SubViewLoadMemory: View {
         funky2.personalRegCountSum = funky2Memory1.personalRegCountSum
         funky2.personalBonusCountSum = funky2Memory1.personalBonusCountSum
         funky2.playGame = funky2Memory1.playGame
+        funky2.personalCherryCount = funky2Memory1.personalCherryCount
         funky2.totalBigCount = funky2Memory1.totalBigCount
         funky2.totalRegCount = funky2Memory1.totalRegCount
         funky2.totalBellCount = funky2Memory1.totalBellCount
@@ -364,6 +369,7 @@ struct funky2SubViewLoadMemory: View {
         funky2.personalRegCountSum = funky2Memory2.personalRegCountSum
         funky2.personalBonusCountSum = funky2Memory2.personalBonusCountSum
         funky2.playGame = funky2Memory2.playGame
+        funky2.personalCherryCount = funky2Memory2.personalCherryCount
         funky2.totalBigCount = funky2Memory2.totalBigCount
         funky2.totalRegCount = funky2Memory2.totalRegCount
         funky2.totalBellCount = funky2Memory2.totalBellCount
@@ -394,6 +400,7 @@ struct funky2SubViewLoadMemory: View {
         funky2.personalRegCountSum = funky2Memory3.personalRegCountSum
         funky2.personalBonusCountSum = funky2Memory3.personalBonusCountSum
         funky2.playGame = funky2Memory3.playGame
+        funky2.personalCherryCount = funky2Memory3.personalCherryCount
         funky2.totalBigCount = funky2Memory3.totalBigCount
         funky2.totalRegCount = funky2Memory3.totalRegCount
         funky2.totalBellCount = funky2Memory3.totalBellCount

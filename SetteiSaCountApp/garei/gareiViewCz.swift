@@ -79,7 +79,7 @@ struct gareiViewCz: View {
                         Ci95view: AnyView(
                             gareiView95Ci(
                                 garei: garei,
-                                selection: 12,
+                                selection: 13,
                             )
                         )
                     )
@@ -89,6 +89,31 @@ struct gareiViewCz: View {
                 }
             } header: {
                 Text("乱撃突入率")
+            }
+
+            // ---- 背景色の期待度
+            Section {
+                // 参考情報）背景色の期待度
+                unitLinkButtonViewBuilder(sheetTitle: "背景色ごとの期待度") {
+                    VStack(spacing: 20) {
+                        Text("・白、青、黄でのART当選は高設定ほど優遇")
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "",
+                                stringList: ["白","青","黄","緑","赤","虹"],
+                                maxWidth: 90,
+                            )
+                            unitTableString(
+                                columTitle: "期待度",
+                                stringList: ["約0.8%","約5%","約12%","約40%","約80%","100%"],
+                                maxWidth: 120,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer470GareiCzBackColor())
+            } header: {
+                Text("背景色ごとの期待度")
             }
 
         }

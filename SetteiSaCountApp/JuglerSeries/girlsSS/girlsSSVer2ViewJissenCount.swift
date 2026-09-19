@@ -46,6 +46,18 @@ struct girlsSSVer2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $girlsSS.minusCheck
                         )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $girlsSS.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $girlsSS.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $girlsSS.minusCheck
+                        )
+                    }
+                    // 2段目
+                    HStack {
                         // BIG
                         unitCountButtonVerticalDenominate(
                             title: "BIG",
@@ -125,15 +137,26 @@ struct girlsSSVer2ViewJissenCount: View {
                 else {
                     // //// カウントボタン
                     // 1段目
-                    // ぶどう
-                    unitCountButtonVerticalDenominate(
-                        title: "ぶどう",
-                        count: $girlsSS.personalBellCount,
-                        color: .personalSummerLightGreen,
-                        bigNumber: $girlsSS.playGame,
-                        numberofDicimal: 2,
-                        minusBool: $girlsSS.minusCheck
-                    )
+                    HStack {
+                        // ぶどう
+                        unitCountButtonVerticalDenominate(
+                            title: "ぶどう",
+                            count: $girlsSS.personalBellCount,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $girlsSS.playGame,
+                            numberofDicimal: 2,
+                            minusBool: $girlsSS.minusCheck
+                        )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $girlsSS.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $girlsSS.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $girlsSS.minusCheck
+                        )
+                    }
                     // 2段目
                     HStack {
                         // BIG

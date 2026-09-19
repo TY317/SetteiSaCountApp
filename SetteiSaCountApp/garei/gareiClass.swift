@@ -14,11 +14,13 @@ class Garei: ObservableObject {
     // 通常時
     // -------
     // 小役（-1 は全設定の確率が非公開）
+    let ratioCommonBell: [Double] = [26.9,-1,-1,-1,-1,-1]
     let ratioSuika: [Double] = [81.9,79.9,77.8,75.6,73.8,72.1]
     let ratioJakuCherry: [Double] = [99,95.3,91,85.1,80.5,78.2]
-    let ratioKyoCherry: [Double] = [481.9,-1,-1,-1,-1,-1]
-    let ratioJakuChance: [Double] = [136.5,-1,-1,-1,-1,-1]
+    let ratioKyoCherry: [Double] = [481.9,481.9,481.9,468.1,468.1,455.1]
+    let ratioJakuChance: [Double] = [136.5,136.5,136,136,135.4,134.8]
     let ratioKyoChance: [Double] = [546.1,-1,-1,-1,-1,-1]
+    @AppStorage("gareiKoyakuCountCommonBell") var koyakuCountCommonBell: Int = 0
     @AppStorage("gareiKoyakuCountSuika") var koyakuCountSuika: Int = 0
     @AppStorage("gareiKoyakuCountJakuCherry") var koyakuCountJakuCherry: Int = 0
     @AppStorage("gareiKoyakuCountKyoCherry") var koyakuCountKyoCherry: Int = 0
@@ -35,6 +37,7 @@ class Garei: ObservableObject {
     @AppStorage("gareiGameNumberPlay") var gameNumberPlay: Int = 0
 
     func resetNormal() {
+        koyakuCountCommonBell = 0
         koyakuCountSuika = 0
         koyakuCountJakuCherry = 0
         koyakuCountKyoCherry = 0
@@ -155,12 +158,124 @@ class Garei: ObservableObject {
     @AppStorage("gareiMinusCheck") var minusCheck: Bool = false
     @AppStorage("gareiSelectedMemory") var selectedMemory = "メモリー1"
 
+    // -------
+    // キャラ選択
+    // -------
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    let ratioCharaOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioCharaOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("gareiCharaCount1") var charaCount1: Int = 0
+    @AppStorage("gareiCharaCount2") var charaCount2: Int = 0
+    @AppStorage("gareiCharaCount3") var charaCount3: Int = 0
+    @AppStorage("gareiCharaCount4") var charaCount4: Int = 0
+    @AppStorage("gareiCharaCount5") var charaCount5: Int = 0
+    @AppStorage("gareiCharaCount6") var charaCount6: Int = 0
+    @AppStorage("gareiCharaCountSum") var charaCountSum: Int = 0
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+            charaCount4,
+            charaCount5,
+            charaCount6,
+        )
+    }
+
+    func resetChara() {
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCount4 = 0
+        charaCount5 = 0
+        charaCount6 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+
+    // -------
+    // ART終了後
+    // -------
+    // 高確スタート（通常／高確／超高確の3択。通常は残余）
+    let ratioStartStatusHigh: [Double] = [13,13.2,13.4,13.7,14,14.4]
+    let ratioStartStatusSuperHigh: [Double] = [24,25.4,26.6,27.7,28.9,29.9]
+    // 有利区間開始時（朝一）の移行率（参考情報のみ。カウントは無し）
+    let ratioMorningHigh: [Double] = [25,26.6,28.1,29.7,31.3,32.8]
+    let ratioMorningSuperHigh: [Double] = [0.4,0.4,0.8,0.8,1.2,1.6]
+    @AppStorage("gareiStartStatusCountNormal") var startStatusCountNormal: Int = 0
+    @AppStorage("gareiStartStatusCountHigh") var startStatusCountHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSuperHigh") var startStatusCountSuperHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSum") var startStatusCountSum: Int = 0
+
+    func startStatusSumFunc() {
+        startStatusCountSum = countSum(
+            startStatusCountNormal,
+            startStatusCountHigh,
+            startStatusCountSuperHigh,
+        )
+    }
+
+    func resetAfterArt() {
+        startStatusCountNormal = 0
+        startStatusCountHigh = 0
+        startStatusCountSuperHigh = 0
+        startStatusCountSum = 0
+        minusCheck = false
+    }
+
+    // -------
+    // 殺生石ランプ
+    // -------
+    // 確定系の振分け（実際の振分け率が非公開のため埋め値 0.1）
+    let ratioLampOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioLampOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioLampOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("gareiLampCount1") var lampCount1: Int = 0
+    @AppStorage("gareiLampCount2") var lampCount2: Int = 0
+    @AppStorage("gareiLampCount3") var lampCount3: Int = 0
+    @AppStorage("gareiLampCount4") var lampCount4: Int = 0
+    @AppStorage("gareiLampCount5") var lampCount5: Int = 0
+    @AppStorage("gareiLampCount6") var lampCount6: Int = 0
+    @AppStorage("gareiLampCount7") var lampCount7: Int = 0
+    @AppStorage("gareiLampCount8") var lampCount8: Int = 0
+    @AppStorage("gareiLampCountSum") var lampCountSum: Int = 0
+
+    func lampSumFunc() {
+        lampCountSum = countSum(
+            lampCount1,
+            lampCount2,
+            lampCount3,
+            lampCount4,
+            lampCount5,
+            lampCount6,
+            lampCount7,
+            lampCount8,
+        )
+    }
+
+    func resetLamp() {
+        lampCount1 = 0
+        lampCount2 = 0
+        lampCount3 = 0
+        lampCount4 = 0
+        lampCount5 = 0
+        lampCount6 = 0
+        lampCount7 = 0
+        lampCount8 = 0
+        lampCountSum = 0
+        minusCheck = false
+    }
+
     func resetAll() {
         resetNormal()
         resetFirstHit()
         resetBonusScreen()
         resetArtScreen()
         resetCz()
+        resetChara()
+        resetAfterArt()
+        resetLamp()
     }
 }
 
@@ -194,6 +309,27 @@ class GareiMemory1: ObservableObject {
     @AppStorage("gareiArtScreenCount3Memory1") var artScreenCount3: Int = 0
     @AppStorage("gareiArtScreenCount4Memory1") var artScreenCount4: Int = 0
     @AppStorage("gareiArtScreenCountSumMemory1") var artScreenCountSum: Int = 0
+    @AppStorage("gareiKoyakuCountCommonBellMemory1") var koyakuCountCommonBell: Int = 0
+    @AppStorage("gareiCharaCount1Memory1") var charaCount1: Int = 0
+    @AppStorage("gareiCharaCount2Memory1") var charaCount2: Int = 0
+    @AppStorage("gareiCharaCount3Memory1") var charaCount3: Int = 0
+    @AppStorage("gareiCharaCount4Memory1") var charaCount4: Int = 0
+    @AppStorage("gareiCharaCount5Memory1") var charaCount5: Int = 0
+    @AppStorage("gareiCharaCount6Memory1") var charaCount6: Int = 0
+    @AppStorage("gareiCharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("gareiStartStatusCountNormalMemory1") var startStatusCountNormal: Int = 0
+    @AppStorage("gareiStartStatusCountHighMemory1") var startStatusCountHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSuperHighMemory1") var startStatusCountSuperHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSumMemory1") var startStatusCountSum: Int = 0
+    @AppStorage("gareiLampCount1Memory1") var lampCount1: Int = 0
+    @AppStorage("gareiLampCount2Memory1") var lampCount2: Int = 0
+    @AppStorage("gareiLampCount3Memory1") var lampCount3: Int = 0
+    @AppStorage("gareiLampCount4Memory1") var lampCount4: Int = 0
+    @AppStorage("gareiLampCount5Memory1") var lampCount5: Int = 0
+    @AppStorage("gareiLampCount6Memory1") var lampCount6: Int = 0
+    @AppStorage("gareiLampCount7Memory1") var lampCount7: Int = 0
+    @AppStorage("gareiLampCount8Memory1") var lampCount8: Int = 0
+    @AppStorage("gareiLampCountSumMemory1") var lampCountSum: Int = 0
     @AppStorage("gareiMemoMemory1") var memo = ""
     @AppStorage("gareiDateMemory1") var dateDouble = 0.0
 }
@@ -228,6 +364,27 @@ class GareiMemory2: ObservableObject {
     @AppStorage("gareiArtScreenCount3Memory2") var artScreenCount3: Int = 0
     @AppStorage("gareiArtScreenCount4Memory2") var artScreenCount4: Int = 0
     @AppStorage("gareiArtScreenCountSumMemory2") var artScreenCountSum: Int = 0
+    @AppStorage("gareiKoyakuCountCommonBellMemory2") var koyakuCountCommonBell: Int = 0
+    @AppStorage("gareiCharaCount1Memory2") var charaCount1: Int = 0
+    @AppStorage("gareiCharaCount2Memory2") var charaCount2: Int = 0
+    @AppStorage("gareiCharaCount3Memory2") var charaCount3: Int = 0
+    @AppStorage("gareiCharaCount4Memory2") var charaCount4: Int = 0
+    @AppStorage("gareiCharaCount5Memory2") var charaCount5: Int = 0
+    @AppStorage("gareiCharaCount6Memory2") var charaCount6: Int = 0
+    @AppStorage("gareiCharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("gareiStartStatusCountNormalMemory2") var startStatusCountNormal: Int = 0
+    @AppStorage("gareiStartStatusCountHighMemory2") var startStatusCountHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSuperHighMemory2") var startStatusCountSuperHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSumMemory2") var startStatusCountSum: Int = 0
+    @AppStorage("gareiLampCount1Memory2") var lampCount1: Int = 0
+    @AppStorage("gareiLampCount2Memory2") var lampCount2: Int = 0
+    @AppStorage("gareiLampCount3Memory2") var lampCount3: Int = 0
+    @AppStorage("gareiLampCount4Memory2") var lampCount4: Int = 0
+    @AppStorage("gareiLampCount5Memory2") var lampCount5: Int = 0
+    @AppStorage("gareiLampCount6Memory2") var lampCount6: Int = 0
+    @AppStorage("gareiLampCount7Memory2") var lampCount7: Int = 0
+    @AppStorage("gareiLampCount8Memory2") var lampCount8: Int = 0
+    @AppStorage("gareiLampCountSumMemory2") var lampCountSum: Int = 0
     @AppStorage("gareiMemoMemory2") var memo = ""
     @AppStorage("gareiDateMemory2") var dateDouble = 0.0
 }
@@ -262,6 +419,27 @@ class GareiMemory3: ObservableObject {
     @AppStorage("gareiArtScreenCount3Memory3") var artScreenCount3: Int = 0
     @AppStorage("gareiArtScreenCount4Memory3") var artScreenCount4: Int = 0
     @AppStorage("gareiArtScreenCountSumMemory3") var artScreenCountSum: Int = 0
+    @AppStorage("gareiKoyakuCountCommonBellMemory3") var koyakuCountCommonBell: Int = 0
+    @AppStorage("gareiCharaCount1Memory3") var charaCount1: Int = 0
+    @AppStorage("gareiCharaCount2Memory3") var charaCount2: Int = 0
+    @AppStorage("gareiCharaCount3Memory3") var charaCount3: Int = 0
+    @AppStorage("gareiCharaCount4Memory3") var charaCount4: Int = 0
+    @AppStorage("gareiCharaCount5Memory3") var charaCount5: Int = 0
+    @AppStorage("gareiCharaCount6Memory3") var charaCount6: Int = 0
+    @AppStorage("gareiCharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("gareiStartStatusCountNormalMemory3") var startStatusCountNormal: Int = 0
+    @AppStorage("gareiStartStatusCountHighMemory3") var startStatusCountHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSuperHighMemory3") var startStatusCountSuperHigh: Int = 0
+    @AppStorage("gareiStartStatusCountSumMemory3") var startStatusCountSum: Int = 0
+    @AppStorage("gareiLampCount1Memory3") var lampCount1: Int = 0
+    @AppStorage("gareiLampCount2Memory3") var lampCount2: Int = 0
+    @AppStorage("gareiLampCount3Memory3") var lampCount3: Int = 0
+    @AppStorage("gareiLampCount4Memory3") var lampCount4: Int = 0
+    @AppStorage("gareiLampCount5Memory3") var lampCount5: Int = 0
+    @AppStorage("gareiLampCount6Memory3") var lampCount6: Int = 0
+    @AppStorage("gareiLampCount7Memory3") var lampCount7: Int = 0
+    @AppStorage("gareiLampCount8Memory3") var lampCount8: Int = 0
+    @AppStorage("gareiLampCountSumMemory3") var lampCountSum: Int = 0
     @AppStorage("gareiMemoMemory3") var memo = ""
     @AppStorage("gareiDateMemory3") var dateDouble = 0.0
 }

@@ -46,6 +46,18 @@ struct funky2Ver2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $funky2.minusCheck
                         )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $funky2.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $funky2.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $funky2.minusCheck
+                        )
+                    }
+                    // 2段目
+                    HStack {
                         // 単独BIG
                         unitCountButtonVerticalDenominate(
                             title: "単独BIG",
@@ -116,15 +128,26 @@ struct funky2Ver2ViewJissenCount: View {
                 else {
                     // //// カウントボタン
                     // 1段目
-                    // ぶどう
-                    unitCountButtonVerticalDenominate(
-                        title: "ぶどう",
-                        count: $funky2.personalBellCount,
-                        color: .personalSummerLightGreen,
-                        bigNumber: $funky2.playGame,
-                        numberofDicimal: 2,
-                        minusBool: $funky2.minusCheck
-                    )
+                    HStack {
+                        // ぶどう
+                        unitCountButtonVerticalDenominate(
+                            title: "ぶどう",
+                            count: $funky2.personalBellCount,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $funky2.playGame,
+                            numberofDicimal: 2,
+                            minusBool: $funky2.minusCheck
+                        )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $funky2.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $funky2.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $funky2.minusCheck
+                        )
+                    }
                     // 2段目
                     HStack {
                         // 単独BIG

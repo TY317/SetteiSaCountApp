@@ -28,27 +28,51 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if funky2.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $funky2.totalBellCount,
-                                bigNumber: $funky2.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $funky2.totalBellCount,
+                                    bigNumber: $funky2.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $funky2.personalCherryCount,
+                                    bigNumber: $funky2.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: funky2.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: funky2.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $funky2.personalBellCount,
-                                bigNumber: $funky2.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $funky2.personalBellCount,
+                                    bigNumber: $funky2.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $funky2.personalCherryCount,
+                                    bigNumber: $funky2.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: funky2.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: funky2.startBackCalculationEnable)
                         }
                     }
                 }
@@ -156,6 +180,8 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $funky2.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $funky2.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $funky2.totalBigCount)
                 // 内 単独BIG

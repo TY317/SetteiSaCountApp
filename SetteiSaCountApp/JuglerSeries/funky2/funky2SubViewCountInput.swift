@@ -36,6 +36,13 @@ struct funky2SubViewCountInput: View {
                             }
                         }
                     }
+                    // チェリー
+                    unitTextFieldNumberInputWithUnit(
+                        title: "🍒",
+                        inputValue: $funky2.personalCherryCount,
+                        unitText: "回"
+                    )
+                    .focused(self.$isFocused)
                     // BIG
                     unitTextFieldNumberInputWithUnit(
                         title: "単独BIG",

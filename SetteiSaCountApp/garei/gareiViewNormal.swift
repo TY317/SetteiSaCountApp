@@ -24,7 +24,9 @@ struct gareiViewNormal: View {
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
     let lazyVGridCountPortrait: Int = 3
-    let lazyVGridCountLandscape: Int = 5
+    // 小役カウントは6個。横向きで2段に折り返すと List のセル自己サイズが
+    // 再帰ループ（UpdateCoalescingCollectionView）を起こすため、6列＝1段に収める
+    let lazyVGridCountLandscape: Int = 6
     @State var lazyVGridCount: Int = 3
 
     @State private var isAutoCountOn: Bool = false
@@ -37,7 +39,7 @@ struct gareiViewNormal: View {
     }
     @FocusState var focusedField: GareiField?
     // ダイレクト入力の並び（bindingCount の case と対応）
-    let kindList: [String] = ["🍉","弱🍒","強🍒","弱チャンス目","強チャンス目","弱🍒重複","強🍒重複"]
+    let kindList: [String] = ["共通🔔","🍉","弱🍒","強🍒","弱チャンス目","強チャンス目","弱🍒重複","強🍒重複"]
     @State var selectedSegment: String = "小役カウント"
     let segmentList: [String] = ["小役カウント", "CZ重複当選"]
 
@@ -65,6 +67,17 @@ struct gareiViewNormal: View {
                 LazyVGrid(columns: gridItem) {
                     // ---- 小役カウント
                     if self.selectedSegment == self.segmentList[0] {
+                    // 共通ベル
+                    unitCountButtonDenominateWithFunc(
+                        title: "共通🔔",
+                        count: $garei.koyakuCountCommonBell,
+                        color: .personalSpringLightYellow,
+                        bigNumber: $garei.gameNumberPlay,
+                        numberofDicimal: 1,
+                        minusBool: $garei.minusCheck) {
+
+                        }
+                        .padding(.bottom)
                     // スイカ
                     unitCountButtonDenominateWithFunc(
                         title: "🍉",
@@ -93,29 +106,29 @@ struct gareiViewNormal: View {
                         count: $garei.koyakuCountKyoCherry,
                         color: .red,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }
                         .padding(.bottom)
                     // 弱チャンス目
                     unitCountButtonDenominateWithFunc(
-                        title: "弱チャンス目",
+                        title: "弱ﾁｬﾝｽ目",
                         count: $garei.koyakuCountJakuChance,
                         color: .personalSummerLightBlue,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }
                         .padding(.bottom)
                     // 強チャンス目
                     unitCountButtonDenominateWithFunc(
-                        title: "強チャンス目",
+                        title: "強ﾁｬﾝｽ目",
                         count: $garei.koyakuCountKyoChance,
                         color: .personalSummerLightPurple,
                         bigNumber: $garei.gameNumberPlay,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         minusBool: $garei.minusCheck) {
 
                         }
@@ -158,6 +171,11 @@ struct gareiViewNormal: View {
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTableDenominate(
+                            columTitle: "共通🔔",
+                            denominateList: garei.ratioCommonBell,
+                            numberofDicimal: 1,
+                        )
+                        unitTableDenominate(
                             columTitle: "🍉",
                             denominateList: garei.ratioSuika,
                             numberofDicimal: 1,
@@ -167,14 +185,14 @@ struct gareiViewNormal: View {
                             denominateList: garei.ratioJakuCherry,
                             numberofDicimal: 1,
                         )
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
                         unitTableDenominate(
                             columTitle: "強🍒",
                             denominateList: garei.ratioKyoCherry,
                             numberofDicimal: 1,
                         )
-                    }
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
                         unitTableDenominate(
                             columTitle: "弱チャンス目",
                             denominateList: garei.ratioJakuChance,
@@ -187,6 +205,7 @@ struct gareiViewNormal: View {
                         )
                     }
                 }
+                .popoverTip(tipVer470GareiKoyaku())
 
                 // 重複当選率
                 unitLinkButtonViewBuilder(sheetTitle: "重複期待度") {
@@ -362,13 +381,14 @@ struct gareiViewNormal: View {
     // kindList の並びと対応させる
     private func bindingCount(_ index: Int) -> Binding<Int> {
         switch index {
-        case 0: return $garei.koyakuCountSuika
-        case 1: return $garei.koyakuCountJakuCherry
-        case 2: return $garei.koyakuCountKyoCherry
-        case 3: return $garei.koyakuCountJakuChance
-        case 4: return $garei.koyakuCountKyoChance
-        case 5: return $garei.chofukuCountJakuCherry
-        case 6: return $garei.chofukuCountKyoCherry
+        case 0: return $garei.koyakuCountCommonBell
+        case 1: return $garei.koyakuCountSuika
+        case 2: return $garei.koyakuCountJakuCherry
+        case 3: return $garei.koyakuCountKyoCherry
+        case 4: return $garei.koyakuCountJakuChance
+        case 5: return $garei.koyakuCountKyoChance
+        case 6: return $garei.chofukuCountJakuCherry
+        case 7: return $garei.chofukuCountKyoCherry
         default: return .constant(0)
         }
     }

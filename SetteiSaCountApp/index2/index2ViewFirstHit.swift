@@ -38,37 +38,73 @@ struct index2ViewFirstHit: View {
 
             // カウントボタン横並び
             HStack {
-                // CZ
-                unitCountButtonVerticalDenominate(
-                    title: "CZ",
-                    count: $index2.firstHitCountCz,
+                // 超電磁砲CZ
+                unitCountButtonDenominateWithFunc(
+                    title: "超電磁砲CZ",
+                    count: $index2.firstHitCountRailgunCz,
+                    color: .personalSpringLightYellow,
+                    bigNumber: $index2.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $index2.minusCheck,
+                    action: index2.firstHitCzSumFunc
+                )
+                // 一方通行CZ
+                unitCountButtonDenominateWithFunc(
+                    title: "一方通行CZ",
+                    count: $index2.firstHitCountAcceleratorCz,
                     color: .personalSummerLightPurple,
                     bigNumber: $index2.normalGame,
                     numberofDicimal: 0,
-                    minusBool: $index2.minusCheck
+                    minusBool: $index2.minusCheck,
+                    action: index2.firstHitCzSumFunc
                 )
                 // AT
-                unitCountButtonVerticalDenominate(
+                unitCountButtonDenominateWithFunc(
                     title: "AT",
                     count: $index2.firstHitCountAt,
                     color: .personalSummerLightRed,
                     bigNumber: $index2.normalGame,
                     numberofDicimal: 0,
-                    minusBool: $index2.minusCheck
-                )
+                    minusBool: $index2.minusCheck) {
+
+                    }
             }
+
+            // CZ合算
+            unitResultRatioDenomination2Line(
+                title: "CZ合算",
+                count: $index2.firstHitCountCz,
+                bigNumber: $index2.normalGame,
+                numberofDicimal: 0
+            )
+            .popoverTip(tipVer470Index2Cz())
 
             // 参考情報）初当り確率
             unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                 HStack(spacing: 0) {
                     unitTableSettingIndex()
                     unitTableDenominate(
-                        columTitle: "CZ",
-                        denominateList: index2.ratioFirstHitCz
+                        columTitle: "超電磁砲CZ",
+                        denominateList: index2.ratioFirstHitRailgunCz,
+                        numberofDicimal: 0,
+                    )
+                    unitTableDenominate(
+                        columTitle: "一方通行CZ",
+                        denominateList: index2.ratioFirstHitAcceleratorCz,
+                        numberofDicimal: 0,
                     )
                     unitTableDenominate(
                         columTitle: "AT",
-                        denominateList: index2.ratioFirstHitAt
+                        denominateList: index2.ratioFirstHitAt,
+                        numberofDicimal: 0,
+                    )
+                }
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ合算",
+                        denominateList: index2.ratioFirstHitCz,
+                        numberofDicimal: 0,
                     )
                 }
             }

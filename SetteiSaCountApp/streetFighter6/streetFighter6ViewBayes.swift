@@ -16,6 +16,7 @@ struct streetFighter6ViewBayes: View {
     @State var firstHitFbEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var continueEnable: Bool = true
     @State var endingEnable: Bool = true
 
     // 全機種共通
@@ -57,6 +58,13 @@ struct streetFighter6ViewBayes: View {
                     unitExView5body2image(
                         title: "終了画面",
                         textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // コンティニューチャンス
+                unitToggleWithQuestion(enable: self.$continueEnable, title: "コンティニューチャンス") {
+                    unitExView5body2image(
+                        title: "コンティニューチャンス",
+                        textBody1: "・ベル、リプレイ成立時の成功率を計算要素に加えます",
                     )
                 }
                 // エンディング ボイス
@@ -188,6 +196,17 @@ struct streetFighter6ViewBayes: View {
             )
         }
 
+        // コンティニューチャンス
+        // ベル・リプレイ成立を試行回数、成功を当選回数とした二項尤度
+        var logPostContinue: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.continueEnable {
+            logPostContinue = logPostPercentBino(
+                ratio: streetFighter6.ratioContinueBellReplay,
+                Count: streetFighter6.continueBellReplayCountHit,
+                bigNumber: streetFighter6.continueBellReplayCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -229,6 +248,7 @@ struct streetFighter6ViewBayes: View {
             logPostFirstHitBonus,
             logPostScreen,
             logPostEnding,
+            logPostContinue,
             logPostTrophy,
             logPostBefore,
         ])

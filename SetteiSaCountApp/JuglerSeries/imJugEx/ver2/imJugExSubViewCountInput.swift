@@ -36,6 +36,13 @@ struct imJugExSubViewCountInput: View {
                             }
                         }
                     }
+                    // チェリー
+                    unitTextFieldNumberInputWithUnit(
+                        title: "🍒",
+                        inputValue: $imJugEx.personalCherryCount,
+                        unitText: "回"
+                    )
+                    .focused(self.$isFocused)
                     // BIG
                     unitTextFieldNumberInputWithUnit(
                         title: "BIG",

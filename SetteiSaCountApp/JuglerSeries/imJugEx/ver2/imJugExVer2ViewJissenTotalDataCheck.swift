@@ -28,27 +28,51 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if imJugEx.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $imJugEx.totalBellCount,
-                                bigNumber: $imJugEx.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $imJugEx.totalBellCount,
+                                    bigNumber: $imJugEx.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $imJugEx.personalCherryCount,
+                                    bigNumber: $imJugEx.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: imJugEx.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: imJugEx.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $imJugEx.personalBellCount,
-                                bigNumber: $imJugEx.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $imJugEx.personalBellCount,
+                                    bigNumber: $imJugEx.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $imJugEx.personalCherryCount,
+                                    bigNumber: $imJugEx.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: imJugEx.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: imJugEx.startBackCalculationEnable)
                         }
                     }
                 }
@@ -136,6 +160,8 @@ struct imJugExVer2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $imJugEx.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $imJugEx.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $imJugEx.totalBigCount)
                 // REG

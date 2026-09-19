@@ -58,6 +58,9 @@ struct ContentViewVer2: View {
     }
     
     @State private var isKeyboardVisible = false  // キーボード表示状態を追跡
+    // バナー枠の高さ計算に使う画面幅。UIScreen.main.bounds は変化を検知できず、
+    // 画面ロック時のバックグラウンドのスナップショット撮影（横向き）で古い幅が残るため、実際のレイアウト幅を追跡する
+    @State private var bannerWidth: CGFloat = UIScreen.main.bounds.width
     
     let columns = [
         GridItem(.adaptive(minimum: 80))
@@ -68,7 +71,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer460UpdateInfo())
+                TipView(tipVer470UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {
@@ -249,10 +252,16 @@ struct ContentViewVer2: View {
                     }
                     .frame(height: adSize.size.height)
                 }
-                .frame(height: bannerAdSize(width: UIScreen.main.bounds.width).size.height)
+                .frame(height: bannerAdSize(width: self.bannerWidth).size.height)
             }
         }
         .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        // バナー枠の高さ用に、実際のレイアウト幅を追跡
+        .onGeometryChange(for: CGFloat.self) { proxy in
+            proxy.size.width
+        } action: { newWidth in
+            self.bannerWidth = newWidth
+        }
         // ver4.0.0 新ホーム画面の使い方オンボーディング（初回起動で一度だけ）
         .overlay {
             if !common.homeOnboardingDone {
@@ -499,6 +508,7 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5064": return AnyView(aobutaViewTop())
         case "5033": return AnyView(ricoricoViewTop())
         case "5028": return AnyView(gareiViewTop())
         case "5030": return AnyView(tonskillViewTop())

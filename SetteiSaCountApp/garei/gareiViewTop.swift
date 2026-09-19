@@ -85,6 +85,28 @@ struct gareiViewTop: View {
                             badgeStatus: common.gareiMenuArtScreenBadge,
                         )
                     }
+
+                    // ART終了後
+                    NavigationLink(destination: gareiViewAfterArt(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "signpost.right.and.left.fill",
+                            textBody: "ART終了後",
+                            badgeStatus: common.gareiMenuAfterArtBadge,
+                        )
+                    }
+
+                    // エンディング
+                    NavigationLink(destination: gareiViewEnding(
+                        garei: garei,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.gareiMenuEndingBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: garei.machineName,
@@ -223,6 +245,27 @@ struct gareiSubViewSaveMemory: View {
         gareiMemory1.artScreenCount3 = garei.artScreenCount3
         gareiMemory1.artScreenCount4 = garei.artScreenCount4
         gareiMemory1.artScreenCountSum = garei.artScreenCountSum
+        gareiMemory1.koyakuCountCommonBell = garei.koyakuCountCommonBell
+        gareiMemory1.charaCount1 = garei.charaCount1
+        gareiMemory1.charaCount2 = garei.charaCount2
+        gareiMemory1.charaCount3 = garei.charaCount3
+        gareiMemory1.charaCount4 = garei.charaCount4
+        gareiMemory1.charaCount5 = garei.charaCount5
+        gareiMemory1.charaCount6 = garei.charaCount6
+        gareiMemory1.charaCountSum = garei.charaCountSum
+        gareiMemory1.startStatusCountNormal = garei.startStatusCountNormal
+        gareiMemory1.startStatusCountHigh = garei.startStatusCountHigh
+        gareiMemory1.startStatusCountSuperHigh = garei.startStatusCountSuperHigh
+        gareiMemory1.startStatusCountSum = garei.startStatusCountSum
+        gareiMemory1.lampCount1 = garei.lampCount1
+        gareiMemory1.lampCount2 = garei.lampCount2
+        gareiMemory1.lampCount3 = garei.lampCount3
+        gareiMemory1.lampCount4 = garei.lampCount4
+        gareiMemory1.lampCount5 = garei.lampCount5
+        gareiMemory1.lampCount6 = garei.lampCount6
+        gareiMemory1.lampCount7 = garei.lampCount7
+        gareiMemory1.lampCount8 = garei.lampCount8
+        gareiMemory1.lampCountSum = garei.lampCountSum
     }
     func saveMemory2() {
         gareiMemory2.koyakuCountSuika = garei.koyakuCountSuika
@@ -253,6 +296,27 @@ struct gareiSubViewSaveMemory: View {
         gareiMemory2.artScreenCount3 = garei.artScreenCount3
         gareiMemory2.artScreenCount4 = garei.artScreenCount4
         gareiMemory2.artScreenCountSum = garei.artScreenCountSum
+        gareiMemory2.koyakuCountCommonBell = garei.koyakuCountCommonBell
+        gareiMemory2.charaCount1 = garei.charaCount1
+        gareiMemory2.charaCount2 = garei.charaCount2
+        gareiMemory2.charaCount3 = garei.charaCount3
+        gareiMemory2.charaCount4 = garei.charaCount4
+        gareiMemory2.charaCount5 = garei.charaCount5
+        gareiMemory2.charaCount6 = garei.charaCount6
+        gareiMemory2.charaCountSum = garei.charaCountSum
+        gareiMemory2.startStatusCountNormal = garei.startStatusCountNormal
+        gareiMemory2.startStatusCountHigh = garei.startStatusCountHigh
+        gareiMemory2.startStatusCountSuperHigh = garei.startStatusCountSuperHigh
+        gareiMemory2.startStatusCountSum = garei.startStatusCountSum
+        gareiMemory2.lampCount1 = garei.lampCount1
+        gareiMemory2.lampCount2 = garei.lampCount2
+        gareiMemory2.lampCount3 = garei.lampCount3
+        gareiMemory2.lampCount4 = garei.lampCount4
+        gareiMemory2.lampCount5 = garei.lampCount5
+        gareiMemory2.lampCount6 = garei.lampCount6
+        gareiMemory2.lampCount7 = garei.lampCount7
+        gareiMemory2.lampCount8 = garei.lampCount8
+        gareiMemory2.lampCountSum = garei.lampCountSum
     }
     func saveMemory3() {
         gareiMemory3.koyakuCountSuika = garei.koyakuCountSuika
@@ -283,6 +347,27 @@ struct gareiSubViewSaveMemory: View {
         gareiMemory3.artScreenCount3 = garei.artScreenCount3
         gareiMemory3.artScreenCount4 = garei.artScreenCount4
         gareiMemory3.artScreenCountSum = garei.artScreenCountSum
+        gareiMemory3.koyakuCountCommonBell = garei.koyakuCountCommonBell
+        gareiMemory3.charaCount1 = garei.charaCount1
+        gareiMemory3.charaCount2 = garei.charaCount2
+        gareiMemory3.charaCount3 = garei.charaCount3
+        gareiMemory3.charaCount4 = garei.charaCount4
+        gareiMemory3.charaCount5 = garei.charaCount5
+        gareiMemory3.charaCount6 = garei.charaCount6
+        gareiMemory3.charaCountSum = garei.charaCountSum
+        gareiMemory3.startStatusCountNormal = garei.startStatusCountNormal
+        gareiMemory3.startStatusCountHigh = garei.startStatusCountHigh
+        gareiMemory3.startStatusCountSuperHigh = garei.startStatusCountSuperHigh
+        gareiMemory3.startStatusCountSum = garei.startStatusCountSum
+        gareiMemory3.lampCount1 = garei.lampCount1
+        gareiMemory3.lampCount2 = garei.lampCount2
+        gareiMemory3.lampCount3 = garei.lampCount3
+        gareiMemory3.lampCount4 = garei.lampCount4
+        gareiMemory3.lampCount5 = garei.lampCount5
+        gareiMemory3.lampCount6 = garei.lampCount6
+        gareiMemory3.lampCount7 = garei.lampCount7
+        gareiMemory3.lampCount8 = garei.lampCount8
+        gareiMemory3.lampCountSum = garei.lampCountSum
     }
 }
 
@@ -342,6 +427,27 @@ struct gareiSubViewLoadMemory: View {
         garei.artScreenCount3 = gareiMemory1.artScreenCount3
         garei.artScreenCount4 = gareiMemory1.artScreenCount4
         garei.artScreenCountSum = gareiMemory1.artScreenCountSum
+        garei.koyakuCountCommonBell = gareiMemory1.koyakuCountCommonBell
+        garei.charaCount1 = gareiMemory1.charaCount1
+        garei.charaCount2 = gareiMemory1.charaCount2
+        garei.charaCount3 = gareiMemory1.charaCount3
+        garei.charaCount4 = gareiMemory1.charaCount4
+        garei.charaCount5 = gareiMemory1.charaCount5
+        garei.charaCount6 = gareiMemory1.charaCount6
+        garei.charaCountSum = gareiMemory1.charaCountSum
+        garei.startStatusCountNormal = gareiMemory1.startStatusCountNormal
+        garei.startStatusCountHigh = gareiMemory1.startStatusCountHigh
+        garei.startStatusCountSuperHigh = gareiMemory1.startStatusCountSuperHigh
+        garei.startStatusCountSum = gareiMemory1.startStatusCountSum
+        garei.lampCount1 = gareiMemory1.lampCount1
+        garei.lampCount2 = gareiMemory1.lampCount2
+        garei.lampCount3 = gareiMemory1.lampCount3
+        garei.lampCount4 = gareiMemory1.lampCount4
+        garei.lampCount5 = gareiMemory1.lampCount5
+        garei.lampCount6 = gareiMemory1.lampCount6
+        garei.lampCount7 = gareiMemory1.lampCount7
+        garei.lampCount8 = gareiMemory1.lampCount8
+        garei.lampCountSum = gareiMemory1.lampCountSum
     }
     func loadMemory2() {
         garei.koyakuCountSuika = gareiMemory2.koyakuCountSuika
@@ -372,6 +478,27 @@ struct gareiSubViewLoadMemory: View {
         garei.artScreenCount3 = gareiMemory2.artScreenCount3
         garei.artScreenCount4 = gareiMemory2.artScreenCount4
         garei.artScreenCountSum = gareiMemory2.artScreenCountSum
+        garei.koyakuCountCommonBell = gareiMemory2.koyakuCountCommonBell
+        garei.charaCount1 = gareiMemory2.charaCount1
+        garei.charaCount2 = gareiMemory2.charaCount2
+        garei.charaCount3 = gareiMemory2.charaCount3
+        garei.charaCount4 = gareiMemory2.charaCount4
+        garei.charaCount5 = gareiMemory2.charaCount5
+        garei.charaCount6 = gareiMemory2.charaCount6
+        garei.charaCountSum = gareiMemory2.charaCountSum
+        garei.startStatusCountNormal = gareiMemory2.startStatusCountNormal
+        garei.startStatusCountHigh = gareiMemory2.startStatusCountHigh
+        garei.startStatusCountSuperHigh = gareiMemory2.startStatusCountSuperHigh
+        garei.startStatusCountSum = gareiMemory2.startStatusCountSum
+        garei.lampCount1 = gareiMemory2.lampCount1
+        garei.lampCount2 = gareiMemory2.lampCount2
+        garei.lampCount3 = gareiMemory2.lampCount3
+        garei.lampCount4 = gareiMemory2.lampCount4
+        garei.lampCount5 = gareiMemory2.lampCount5
+        garei.lampCount6 = gareiMemory2.lampCount6
+        garei.lampCount7 = gareiMemory2.lampCount7
+        garei.lampCount8 = gareiMemory2.lampCount8
+        garei.lampCountSum = gareiMemory2.lampCountSum
     }
     func loadMemory3() {
         garei.koyakuCountSuika = gareiMemory3.koyakuCountSuika
@@ -402,6 +529,27 @@ struct gareiSubViewLoadMemory: View {
         garei.artScreenCount3 = gareiMemory3.artScreenCount3
         garei.artScreenCount4 = gareiMemory3.artScreenCount4
         garei.artScreenCountSum = gareiMemory3.artScreenCountSum
+        garei.koyakuCountCommonBell = gareiMemory3.koyakuCountCommonBell
+        garei.charaCount1 = gareiMemory3.charaCount1
+        garei.charaCount2 = gareiMemory3.charaCount2
+        garei.charaCount3 = gareiMemory3.charaCount3
+        garei.charaCount4 = gareiMemory3.charaCount4
+        garei.charaCount5 = gareiMemory3.charaCount5
+        garei.charaCount6 = gareiMemory3.charaCount6
+        garei.charaCountSum = gareiMemory3.charaCountSum
+        garei.startStatusCountNormal = gareiMemory3.startStatusCountNormal
+        garei.startStatusCountHigh = gareiMemory3.startStatusCountHigh
+        garei.startStatusCountSuperHigh = gareiMemory3.startStatusCountSuperHigh
+        garei.startStatusCountSum = gareiMemory3.startStatusCountSum
+        garei.lampCount1 = gareiMemory3.lampCount1
+        garei.lampCount2 = gareiMemory3.lampCount2
+        garei.lampCount3 = gareiMemory3.lampCount3
+        garei.lampCount4 = gareiMemory3.lampCount4
+        garei.lampCount5 = gareiMemory3.lampCount5
+        garei.lampCount6 = gareiMemory3.lampCount6
+        garei.lampCount7 = gareiMemory3.lampCount7
+        garei.lampCount8 = gareiMemory3.lampCount8
+        garei.lampCountSum = gareiMemory3.lampCountSum
     }
 }
 

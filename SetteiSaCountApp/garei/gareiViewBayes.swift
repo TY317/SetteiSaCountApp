@@ -29,6 +29,9 @@ struct gareiViewBayes: View {
     @State var firstHitEnable: Bool = true
     @State var bonusScreenEnable: Bool = true
     @State var artScreenEnable: Bool = true
+    @State var charaEnable: Bool = true
+    @State var lampEnable: Bool = true
+    @State var startStatusEnable: Bool = true
     var body: some View {
         List {
             // //// STEP1
@@ -47,8 +50,8 @@ struct gareiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役確率") {
                     unitExView5body2image(
                         title: "小役確率",
-                        textBody1: "・通常時ページでカウントした🍉と弱🍒の確率を計算要素に加えます",
-                        textBody2: "・強🍒、弱チャンス目、強チャンス目は設定1以外の確率が非公開のため計算には使えません",
+                        textBody1: "・通常時ページでカウントした🍉・弱🍒・強🍒・弱チャンス目の確率を計算要素に加えます",
+                        textBody2: "・共通🔔と強チャンス目は設定1以外の確率が非公開のため計算には使えません",
                     )
                 }
 
@@ -82,6 +85,31 @@ struct gareiViewBayes: View {
                 unitToggleWithQuestion(enable: self.$artScreenEnable, title: "ART終了画面") {
                     unitExView5body2image(
                         title: "ART終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // 高確スタート
+                unitToggleWithQuestion(enable: self.$startStatusEnable, title: "高確スタート") {
+                    unitExView5body2image(
+                        title: "高確スタート",
+                        textBody1: "・ART終了後の状態（高確／超高確）の振分けを計算要素に加えます",
+                        textBody2: "・通常スタートは残余として自動で扱います",
+                    )
+                }
+
+                // キャラ紹介
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "キャラ紹介") {
+                    unitExView5body2image(
+                        title: "キャラ紹介",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // 殺生石ランプ
+                unitToggleWithQuestion(enable: self.$lampEnable, title: "殺生石ランプ") {
+                    unitExView5body2image(
+                        title: "殺生石ランプ",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -156,23 +184,27 @@ struct gareiViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // 小役確率
-        // （全設定の確率が判明している🍉と弱🍒のみ。役ごとの二項尤度を足す）
+        // 全設定の確率が判明している🍉・弱🍒・強🍒・弱チャンス目を多項で処理する。
+        // 小役は1ゲームに1つしか成立しない排他事象なので、役ごとの二項尤度を足すと
+        // 「引かなかったゲーム」を役の数だけ重複計上してしまう。
+        // ベル・リプレイ・ハズレ・共通🔔・強チャンス目は残余バケットに吸収させる。
         var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.koyakuEnable {
-            let logPostSuika = logPostDenoBino(
-                ratio: garei.ratioSuika,
-                Count: garei.koyakuCountSuika,
+            logPostKoyaku = logPostDenoMulti(
+                countList: [
+                    garei.koyakuCountSuika,
+                    garei.koyakuCountJakuCherry,
+                    garei.koyakuCountKyoCherry,
+                    garei.koyakuCountJakuChance,
+                ],
+                denoList: [
+                    garei.ratioSuika,
+                    garei.ratioJakuCherry,
+                    garei.ratioKyoCherry,
+                    garei.ratioJakuChance,
+                ],
                 bigNumber: garei.gameNumberPlay
             )
-            let logPostJakuCherry = logPostDenoBino(
-                ratio: garei.ratioJakuCherry,
-                Count: garei.koyakuCountJakuCherry,
-                bigNumber: garei.gameNumberPlay
-            )
-            logPostKoyaku = arraySumDouble([
-                logPostSuika,
-                logPostJakuCherry,
-            ])
         }
 
         // CZ重複当選率
@@ -252,6 +284,61 @@ struct gareiViewBayes: View {
             )
         }
 
+        // 高確スタート
+        // 高確・超高確のみ渡し、通常スタートは残余バケットに吸収させる
+        var logPostStartStatus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.startStatusEnable {
+            logPostStartStatus = logPostPercentMulti(
+                countList: [
+                    garei.startStatusCountHigh,
+                    garei.startStatusCountSuperHigh,
+                ],
+                ratioList: [
+                    garei.ratioStartStatusHigh,
+                    garei.ratioStartStatusSuperHigh,
+                ],
+                bigNumber: garei.startStatusCountSum
+            )
+        }
+
+        // キャラ紹介
+        // 確定系（設定5 以上濃厚／設定6 濃厚）のみ渡し、
+        // 奇数示唆・偶数示唆・高設定示唆 弱/強は残余バケットに吸収させる
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    garei.charaCount5,
+                    garei.charaCount6,
+                ],
+                ratioList: [
+                    garei.ratioCharaOver5,
+                    garei.ratioCharaOver6,
+                ],
+                bigNumber: garei.charaCountSum
+            )
+        }
+
+        // 殺生石ランプ
+        // 確定系（設定4 以上濃厚／設定5 以上濃厚／設定6 濃厚）のみ渡し、
+        // デフォルト・奇数示唆・偶数示唆・高設定期待度アップ系は残余バケットに吸収させる
+        var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.lampEnable {
+            logPostLamp = logPostPercentMulti(
+                countList: [
+                    garei.lampCount6,
+                    garei.lampCount7,
+                    garei.lampCount8,
+                ],
+                ratioList: [
+                    garei.ratioLampOver4,
+                    garei.ratioLampOver5,
+                    garei.ratioLampOver6,
+                ],
+                bigNumber: garei.lampCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -269,6 +356,9 @@ struct gareiViewBayes: View {
             logPostFirstHit,
             logPostBonusScreen,
             logPostArtScreen,
+            logPostStartStatus,
+            logPostChara,
+            logPostLamp,
             logPostTrophy,
             logPostBefore,
         ])

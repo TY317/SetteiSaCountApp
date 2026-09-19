@@ -280,9 +280,11 @@ class GirlsSS: ObservableObject {
     }
     @AppStorage("girlsSSBonusCountSum") var personalBonusCountSum = 0
     @AppStorage("girlsSSPlayGame") var playGame = 0
+    @AppStorage("girlsSSPersonalCherryCount") var personalCherryCount: Int = 0
     
     func resetCountData() {
         personalBellCount = 0
+        personalCherryCount = 0
         personalAloneBigCount = 0
         personalCherryBigCount = 0
         personalAloneRegCount = 0
@@ -360,6 +362,7 @@ class GirlsSSMemory1: ObservableObject {
     @AppStorage("girlsSSTotalRegCountMemory1") var totalRegCount = 0
     @AppStorage("girlsSSTotalBellCountMemory1") var totalBellCount = 0
     @AppStorage("girlsSSTotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("girlsSSPersonalCherryCountMemory1") var personalCherryCount: Int = 0
     @AppStorage("girlsSSMemoMemory1") var memo = ""
     @AppStorage("girlsSSDateMemory1") var dateDouble = 0.0
 }
@@ -394,6 +397,7 @@ class GirlsSSMemory2: ObservableObject {
     @AppStorage("girlsSSTotalRegCountMemory2") var totalRegCount = 0
     @AppStorage("girlsSSTotalBellCountMemory2") var totalBellCount = 0
     @AppStorage("girlsSSTotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("girlsSSPersonalCherryCountMemory2") var personalCherryCount: Int = 0
     @AppStorage("girlsSSMemoMemory2") var memo = ""
     @AppStorage("girlsSSDateMemory2") var dateDouble = 0.0
 }
@@ -428,6 +432,7 @@ class GirlsSSMemory3: ObservableObject {
     @AppStorage("girlsSSTotalRegCountMemory3") var totalRegCount = 0
     @AppStorage("girlsSSTotalBellCountMemory3") var totalBellCount = 0
     @AppStorage("girlsSSTotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("girlsSSPersonalCherryCountMemory3") var personalCherryCount: Int = 0
     @AppStorage("girlsSSMemoMemory3") var memo = ""
     @AppStorage("girlsSSDateMemory3") var dateDouble = 0.0
 }

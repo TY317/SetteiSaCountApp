@@ -128,6 +128,30 @@ class StreetFighter6: ObservableObject {
 
 
     // --------
+    // コンティニューチャンス
+    // --------
+    // ベル・リプレイでの成功率（分母＝ベル成立＋リプレイ成立。成功は成立の内数）
+    let ratioContinueBellReplay: [Double] = [3.1,3.1,9.4,9.4,12.5,12.5]
+    // レア役（狙え）は全設定100%成功（参考情報のみ）
+    let ratioContinueRare: [Double] = [100,100,100,100,100,100]
+    @AppStorage("streetFighter6ContinueBellReplayCountBell") var continueBellReplayCountBell: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountReplay") var continueBellReplayCountReplay: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountHit") var continueBellReplayCountHit: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountSum") var continueBellReplayCountSum: Int = 0
+
+    func continueBellReplaySumFunc() {
+        continueBellReplayCountSum = continueBellReplayCountBell + continueBellReplayCountReplay
+    }
+
+    func resetContinue() {
+        continueBellReplayCountBell = 0
+        continueBellReplayCountReplay = 0
+        continueBellReplayCountHit = 0
+        continueBellReplayCountSum = 0
+        minusCheck = false
+    }
+
+    // --------
     // エンディング
     // --------
     let ratioEndingOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
@@ -169,6 +193,7 @@ class StreetFighter6: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetContinue()
         resetEnding()
     }
 }
@@ -213,6 +238,10 @@ class StreetFighter6Memory1: ObservableObject {
     @AppStorage("streetFighter6EndingCount4Memory1") var endingCount4: Int = 0
     @AppStorage("streetFighter6EndingCount5Memory1") var endingCount5: Int = 0
     @AppStorage("streetFighter6EndingCountSumMemory1") var endingCountSum: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountBellMemory1") var continueBellReplayCountBell: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountReplayMemory1") var continueBellReplayCountReplay: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountHitMemory1") var continueBellReplayCountHit: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountSumMemory1") var continueBellReplayCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory1") var memo = ""
     @AppStorage("streetFighter6DateMemory1") var dateDouble = 0.0
 }
@@ -257,6 +286,10 @@ class StreetFighter6Memory2: ObservableObject {
     @AppStorage("streetFighter6EndingCount4Memory2") var endingCount4: Int = 0
     @AppStorage("streetFighter6EndingCount5Memory2") var endingCount5: Int = 0
     @AppStorage("streetFighter6EndingCountSumMemory2") var endingCountSum: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountBellMemory2") var continueBellReplayCountBell: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountReplayMemory2") var continueBellReplayCountReplay: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountHitMemory2") var continueBellReplayCountHit: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountSumMemory2") var continueBellReplayCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory2") var memo = ""
     @AppStorage("streetFighter6DateMemory2") var dateDouble = 0.0
 }
@@ -301,6 +334,10 @@ class StreetFighter6Memory3: ObservableObject {
     @AppStorage("streetFighter6EndingCount4Memory3") var endingCount4: Int = 0
     @AppStorage("streetFighter6EndingCount5Memory3") var endingCount5: Int = 0
     @AppStorage("streetFighter6EndingCountSumMemory3") var endingCountSum: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountBellMemory3") var continueBellReplayCountBell: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountReplayMemory3") var continueBellReplayCountReplay: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountHitMemory3") var continueBellReplayCountHit: Int = 0
+    @AppStorage("streetFighter6ContinueBellReplayCountSumMemory3") var continueBellReplayCountSum: Int = 0
     @AppStorage("streetFighter6MemoMemory3") var memo = ""
     @AppStorage("streetFighter6DateMemory3") var dateDouble = 0.0
 }

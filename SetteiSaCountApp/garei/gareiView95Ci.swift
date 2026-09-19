@@ -14,6 +14,24 @@ struct gareiView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // 共通🔔
+            unitListSection95Ci(
+                grafTitle: "共通🔔",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $garei.koyakuCountCommonBell,
+                        bigNumber: $garei.gameNumberPlay,
+                        setting1Denominate: garei.ratioCommonBell[0],
+                        setting2Denominate: garei.ratioCommonBell[1],
+                        setting3Denominate: garei.ratioCommonBell[2],
+                        setting4Denominate: garei.ratioCommonBell[3],
+                        setting5Denominate: garei.ratioCommonBell[4],
+                        setting6Denominate: garei.ratioCommonBell[5]
+                    )
+                )
+            )
+            .tag(1)
+
             // 🍉
             unitListSection95Ci(
                 grafTitle: "🍉",
@@ -30,7 +48,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(1)
+            .tag(2)
 
             // 弱🍒
             unitListSection95Ci(
@@ -48,7 +66,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(2)
+            .tag(3)
 
             // 強🍒
             unitListSection95Ci(
@@ -66,7 +84,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(3)
+            .tag(4)
 
             // 弱チャンス目
             unitListSection95Ci(
@@ -84,7 +102,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(4)
+            .tag(5)
 
             // 強チャンス目
             unitListSection95Ci(
@@ -102,7 +120,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(5)
+            .tag(6)
 
             // 弱🍒重複当選率
             unitListSection95Ci(
@@ -120,7 +138,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(6)
+            .tag(7)
 
             // 強🍒重複当選率
             unitListSection95Ci(
@@ -138,7 +156,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(7)
+            .tag(8)
 
             // CZ初当り回数
             unitListSection95Ci(
@@ -156,7 +174,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(8)
+            .tag(9)
 
             // BIG初当り回数
             unitListSection95Ci(
@@ -174,7 +192,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(9)
+            .tag(10)
 
             // REG初当り回数
             unitListSection95Ci(
@@ -192,7 +210,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(10)
+            .tag(11)
 
             // ART初当り回数
             unitListSection95Ci(
@@ -210,7 +228,7 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(11)
+            .tag(12)
 
             // 乱撃突入率
             unitListSection95Ci(
@@ -228,7 +246,45 @@ struct gareiView95Ci: View {
                     )
                 )
             )
-            .tag(12)
+            .tag(13)
+
+            // 高確スタート
+            unitListSection95Ci(
+                grafTitle: "ART終了後\n高確スタート",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $garei.startStatusCountHigh,
+                        bigNumber: $garei.startStatusCountSum,
+                        setting1Percent: garei.ratioStartStatusHigh[0],
+                        setting2Percent: garei.ratioStartStatusHigh[1],
+                        setting3Percent: garei.ratioStartStatusHigh[2],
+                        setting4Percent: garei.ratioStartStatusHigh[3],
+                        setting5Percent: garei.ratioStartStatusHigh[4],
+                        setting6Percent: garei.ratioStartStatusHigh[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // 超高確スタート
+            unitListSection95Ci(
+                grafTitle: "ART終了後\n超高確スタート",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $garei.startStatusCountSuperHigh,
+                        bigNumber: $garei.startStatusCountSum,
+                        setting1Percent: garei.ratioStartStatusSuperHigh[0],
+                        setting2Percent: garei.ratioStartStatusSuperHigh[1],
+                        setting3Percent: garei.ratioStartStatusSuperHigh[2],
+                        setting4Percent: garei.ratioStartStatusSuperHigh[3],
+                        setting5Percent: garei.ratioStartStatusSuperHigh[4],
+                        setting6Percent: garei.ratioStartStatusSuperHigh[5]
+                    )
+                )
+            )
+            .tag(15)
         }
         // //// firebaseログ
         .onAppear {

@@ -29,27 +29,51 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if myJug5.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $myJug5.totalBellCount,
-                                bigNumber: $myJug5.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $myJug5.totalBellCount,
+                                    bigNumber: $myJug5.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $myJug5.personalCherryCount,
+                                    bigNumber: $myJug5.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: myJug5.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: myJug5.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $myJug5.personalBellCount,
-                                bigNumber: $myJug5.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $myJug5.personalBellCount,
+                                    bigNumber: $myJug5.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $myJug5.personalCherryCount,
+                                    bigNumber: $myJug5.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: myJug5.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: myJug5.startBackCalculationEnable)
                         }
                     }
                 }
@@ -138,6 +162,8 @@ struct myJug5Ver2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $myJug5.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $myJug5.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $myJug5.totalBigCount)
                 // REG

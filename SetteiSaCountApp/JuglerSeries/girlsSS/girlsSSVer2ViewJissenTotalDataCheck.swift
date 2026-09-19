@@ -28,27 +28,51 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if girlsSS.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $girlsSS.totalBellCount,
-                                bigNumber: $girlsSS.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $girlsSS.totalBellCount,
+                                    bigNumber: $girlsSS.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $girlsSS.personalCherryCount,
+                                    bigNumber: $girlsSS.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: girlsSS.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: girlsSS.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $girlsSS.personalBellCount,
-                                bigNumber: $girlsSS.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $girlsSS.personalBellCount,
+                                    bigNumber: $girlsSS.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒確率",
+                                    count: $girlsSS.personalCherryCount,
+                                    bigNumber: $girlsSS.playGame,
+                                    numberofDicimal: 1,
+                                    spacerBool: false
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: girlsSS.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: girlsSS.startBackCalculationEnable)
                         }
                     }
                 }
@@ -158,6 +182,8 @@ struct girlsSSVer2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $girlsSS.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $girlsSS.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $girlsSS.totalBigCount)
 //                // 内 単独BIG

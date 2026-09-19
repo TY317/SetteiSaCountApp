@@ -145,7 +145,6 @@ struct otome5ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "示唆演出") {
                     otome5TableStrapSisa()
                 }
-                .popoverTip(tipVer410Otome5Strap())
             } header: {
                 Text("乙女ストラップモード")
             }
