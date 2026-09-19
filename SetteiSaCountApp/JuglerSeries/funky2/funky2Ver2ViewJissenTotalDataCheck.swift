@@ -39,10 +39,11 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $funky2.personalCherryCount,
                                     bigNumber: $funky2.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
                             unitTextBackCaluculateStatus(
@@ -61,10 +62,11 @@ struct funky2Ver2ViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $funky2.personalCherryCount,
                                     bigNumber: $funky2.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
                             unitTextBackCaluculateStatus(

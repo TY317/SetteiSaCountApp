@@ -40,10 +40,11 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $goJug3.personalCherryCount,
                                     bigNumber: $goJug3.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
                             unitTextBackCaluculateStatus(
@@ -62,10 +63,11 @@ struct goJug3Ver2ViewJissenTotalDataCheck: View {
                                     spacerBool: false
                                 )
                                 unitResultRatioDenomination2Line(
-                                    title: "🍒",
+                                    title: "🍒確率",
                                     count: $goJug3.personalCherryCount,
                                     bigNumber: $goJug3.playGame,
-                                    numberofDicimal: 1
+                                    numberofDicimal: 1,
+                                    spacerBool: false
                                 )
                             }
                             unitTextBackCaluculateStatus(
