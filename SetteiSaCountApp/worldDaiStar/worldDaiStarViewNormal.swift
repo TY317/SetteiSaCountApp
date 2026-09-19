@@ -61,7 +61,7 @@ struct worldDaiStarViewNormal: View {
                             unitTablePercent(
                                 columTitle: "基本",
                                 percentList: worldDaiStar.ratioLuckyModeOther,
-                                numberofDicimal: 0,
+                                numberofDicimal: 1,
                             )
                             unitTablePercent(
                                 columTitle: "ST駆け抜け時",
