@@ -36,6 +36,13 @@ struct mrJugSubViewCountInput: View {
                             }
                         }
                     }
+                    // チェリー
+                    unitTextFieldNumberInputWithUnit(
+                        title: "🍒",
+                        inputValue: $mrJug.personalCherryCount,
+                        unitText: "回"
+                    )
+                    .focused(self.$isFocused)
                     // BIG
                     unitTextFieldNumberInputWithUnit(
                         title: "単独BIG",

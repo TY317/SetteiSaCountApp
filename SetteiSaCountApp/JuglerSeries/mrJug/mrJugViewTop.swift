@@ -88,6 +88,7 @@ struct mrJugViewTop: View {
                             textBody: "実戦カウント"
                         )
                     }
+                    .popoverTip(tipVer470JuglerCherry())
                     // トータル結果確認
                     NavigationLink(destination: mrJugVer2ViewJissenTotalDataCheck(
 //                        ver391: ver391,
@@ -235,6 +236,7 @@ struct mrJugSubViewSaveMemory: View {
         mrJugMemory1.personalRegCountSum = mrJug.personalRegCountSum
         mrJugMemory1.personalBonusCountSum = mrJug.personalBonusCountSum
         mrJugMemory1.playGame = mrJug.playGame
+        mrJugMemory1.personalCherryCount = mrJug.personalCherryCount
         mrJugMemory1.totalBigCount = mrJug.totalBigCount
         mrJugMemory1.totalRegCount = mrJug.totalRegCount
         mrJugMemory1.totalBellCount = mrJug.totalBellCount
@@ -265,6 +267,7 @@ struct mrJugSubViewSaveMemory: View {
         mrJugMemory2.personalRegCountSum = mrJug.personalRegCountSum
         mrJugMemory2.personalBonusCountSum = mrJug.personalBonusCountSum
         mrJugMemory2.playGame = mrJug.playGame
+        mrJugMemory2.personalCherryCount = mrJug.personalCherryCount
         mrJugMemory2.totalBigCount = mrJug.totalBigCount
         mrJugMemory2.totalRegCount = mrJug.totalRegCount
         mrJugMemory2.totalBellCount = mrJug.totalBellCount
@@ -295,6 +298,7 @@ struct mrJugSubViewSaveMemory: View {
         mrJugMemory3.personalRegCountSum = mrJug.personalRegCountSum
         mrJugMemory3.personalBonusCountSum = mrJug.personalBonusCountSum
         mrJugMemory3.playGame = mrJug.playGame
+        mrJugMemory3.personalCherryCount = mrJug.personalCherryCount
         mrJugMemory3.totalBigCount = mrJug.totalBigCount
         mrJugMemory3.totalRegCount = mrJug.totalRegCount
         mrJugMemory3.totalBellCount = mrJug.totalBellCount
@@ -354,6 +358,7 @@ struct mrJugSubViewLoadMemory: View {
         mrJug.personalRegCountSum = mrJugMemory1.personalRegCountSum
         mrJug.personalBonusCountSum = mrJugMemory1.personalBonusCountSum
         mrJug.playGame = mrJugMemory1.playGame
+        mrJug.personalCherryCount = mrJugMemory1.personalCherryCount
         mrJug.totalBigCount = mrJugMemory1.totalBigCount
         mrJug.totalRegCount = mrJugMemory1.totalRegCount
         mrJug.totalBellCount = mrJugMemory1.totalBellCount
@@ -384,6 +389,7 @@ struct mrJugSubViewLoadMemory: View {
         mrJug.personalRegCountSum = mrJugMemory2.personalRegCountSum
         mrJug.personalBonusCountSum = mrJugMemory2.personalBonusCountSum
         mrJug.playGame = mrJugMemory2.playGame
+        mrJug.personalCherryCount = mrJugMemory2.personalCherryCount
         mrJug.totalBigCount = mrJugMemory2.totalBigCount
         mrJug.totalRegCount = mrJugMemory2.totalRegCount
         mrJug.totalBellCount = mrJugMemory2.totalBellCount
@@ -414,6 +420,7 @@ struct mrJugSubViewLoadMemory: View {
         mrJug.personalRegCountSum = mrJugMemory3.personalRegCountSum
         mrJug.personalBonusCountSum = mrJugMemory3.personalBonusCountSum
         mrJug.playGame = mrJugMemory3.playGame
+        mrJug.personalCherryCount = mrJugMemory3.personalCherryCount
         mrJug.totalBigCount = mrJugMemory3.totalBigCount
         mrJug.totalRegCount = mrJugMemory3.totalRegCount
         mrJug.totalBellCount = mrJugMemory3.totalBellCount

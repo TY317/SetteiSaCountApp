@@ -28,27 +28,49 @@ struct happyJugV3Ver2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if happyJugV3.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $happyJugV3.totalBellCount,
-                                bigNumber: $happyJugV3.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $happyJugV3.totalBellCount,
+                                    bigNumber: $happyJugV3.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒",
+                                    count: $happyJugV3.personalCherryCount,
+                                    bigNumber: $happyJugV3.playGame,
+                                    numberofDicimal: 1
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: happyJugV3.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: happyJugV3.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $happyJugV3.personalBellCount,
-                                bigNumber: $happyJugV3.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $happyJugV3.personalBellCount,
+                                    bigNumber: $happyJugV3.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒",
+                                    count: $happyJugV3.personalCherryCount,
+                                    bigNumber: $happyJugV3.playGame,
+                                    numberofDicimal: 1
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: happyJugV3.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: happyJugV3.startBackCalculationEnable)
                         }
                     }
                 }
@@ -155,6 +177,8 @@ struct happyJugV3Ver2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $happyJugV3.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $happyJugV3.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $happyJugV3.totalBigCount)
                 // 内 単独BIG

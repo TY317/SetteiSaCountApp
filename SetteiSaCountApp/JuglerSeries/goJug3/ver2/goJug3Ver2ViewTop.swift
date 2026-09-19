@@ -228,9 +228,11 @@ class GoJug3: ObservableObject {
     }
     @AppStorage("goJug3BonusCountSum") var personalBonusCountSum = 0
     @AppStorage("goJug3PlayGame") var playGame = 0
+    @AppStorage("goJug3PersonalCherryCount") var personalCherryCount: Int = 0
     
     func resetCountData() {
         personalBellCount = 0
+        personalCherryCount = 0
         personalBigCount = 0
         personalRegCountSum = 0
         currentGames = 0
@@ -302,6 +304,7 @@ class GoJug3Memory1: ObservableObject {
     @AppStorage("goJug3TotalRegCountMemory1") var totalRegCount = 0
     @AppStorage("goJug3TotalBellCountMemory1") var totalBellCount = 0
     @AppStorage("goJug3TotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("goJug3PersonalCherryCountMemory1") var personalCherryCount: Int = 0
     @AppStorage("goJug3MemoMemory1") var memo = ""
     @AppStorage("goJug3DateMemory1") var dateDouble = 0.0
 }
@@ -332,6 +335,7 @@ class GoJug3Memory2: ObservableObject {
     @AppStorage("goJug3TotalRegCountMemory2") var totalRegCount = 0
     @AppStorage("goJug3TotalBellCountMemory2") var totalBellCount = 0
     @AppStorage("goJug3TotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("goJug3PersonalCherryCountMemory2") var personalCherryCount: Int = 0
     @AppStorage("goJug3MemoMemory2") var memo = ""
     @AppStorage("goJug3DateMemory2") var dateDouble = 0.0
 }
@@ -362,6 +366,7 @@ class GoJug3Memory3: ObservableObject {
     @AppStorage("goJug3TotalRegCountMemory3") var totalRegCount = 0
     @AppStorage("goJug3TotalBellCountMemory3") var totalBellCount = 0
     @AppStorage("goJug3TotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("goJug3PersonalCherryCountMemory3") var personalCherryCount: Int = 0
     @AppStorage("goJug3MemoMemory3") var memo = ""
     @AppStorage("goJug3DateMemory3") var dateDouble = 0.0
 }
@@ -447,6 +452,7 @@ struct goJug3Ver2ViewTop: View {
                             textBody: "実戦カウント"
                         )
                     }
+                    .popoverTip(tipVer470JuglerCherry())
                     // トータル結果確認
                     NavigationLink(destination: goJug3Ver2ViewJissenTotalDataCheck(
 //                        ver391: ver391,
@@ -578,6 +584,7 @@ struct goJug3SubViewSaveMemory: View {
         goJug3Memory1.personalRegCountSum = goJug3.personalRegCountSum
         goJug3Memory1.personalBonusCountSum = goJug3.personalBonusCountSum
         goJug3Memory1.playGame = goJug3.playGame
+        goJug3Memory1.personalCherryCount = goJug3.personalCherryCount
         goJug3Memory1.totalBigCount = goJug3.totalBigCount
         goJug3Memory1.totalRegCount = goJug3.totalRegCount
         goJug3Memory1.totalBellCount = goJug3.totalBellCount
@@ -604,6 +611,7 @@ struct goJug3SubViewSaveMemory: View {
         goJug3Memory2.personalRegCountSum = goJug3.personalRegCountSum
         goJug3Memory2.personalBonusCountSum = goJug3.personalBonusCountSum
         goJug3Memory2.playGame = goJug3.playGame
+        goJug3Memory2.personalCherryCount = goJug3.personalCherryCount
         goJug3Memory2.totalBigCount = goJug3.totalBigCount
         goJug3Memory2.totalRegCount = goJug3.totalRegCount
         goJug3Memory2.totalBellCount = goJug3.totalBellCount
@@ -630,6 +638,7 @@ struct goJug3SubViewSaveMemory: View {
         goJug3Memory3.personalRegCountSum = goJug3.personalRegCountSum
         goJug3Memory3.personalBonusCountSum = goJug3.personalBonusCountSum
         goJug3Memory3.playGame = goJug3.playGame
+        goJug3Memory3.personalCherryCount = goJug3.personalCherryCount
         goJug3Memory3.totalBigCount = goJug3.totalBigCount
         goJug3Memory3.totalRegCount = goJug3.totalRegCount
         goJug3Memory3.totalBellCount = goJug3.totalBellCount
@@ -685,6 +694,7 @@ struct goJug3SubViewLoadMemory: View {
         goJug3.personalRegCountSum = goJug3Memory1.personalRegCountSum
         goJug3.personalBonusCountSum = goJug3Memory1.personalBonusCountSum
         goJug3.playGame = goJug3Memory1.playGame
+        goJug3.personalCherryCount = goJug3Memory1.personalCherryCount
         goJug3.totalBigCount = goJug3Memory1.totalBigCount
         goJug3.totalRegCount = goJug3Memory1.totalRegCount
         goJug3.totalBellCount = goJug3Memory1.totalBellCount
@@ -711,6 +721,7 @@ struct goJug3SubViewLoadMemory: View {
         goJug3.personalRegCountSum = goJug3Memory2.personalRegCountSum
         goJug3.personalBonusCountSum = goJug3Memory2.personalBonusCountSum
         goJug3.playGame = goJug3Memory2.playGame
+        goJug3.personalCherryCount = goJug3Memory2.personalCherryCount
         goJug3.totalBigCount = goJug3Memory2.totalBigCount
         goJug3.totalRegCount = goJug3Memory2.totalRegCount
         goJug3.totalBellCount = goJug3Memory2.totalBellCount
@@ -737,6 +748,7 @@ struct goJug3SubViewLoadMemory: View {
         goJug3.personalRegCountSum = goJug3Memory3.personalRegCountSum
         goJug3.personalBonusCountSum = goJug3Memory3.personalBonusCountSum
         goJug3.playGame = goJug3Memory3.playGame
+        goJug3.personalCherryCount = goJug3Memory3.personalCherryCount
         goJug3.totalBigCount = goJug3Memory3.totalBigCount
         goJug3.totalRegCount = goJug3Memory3.totalRegCount
         goJug3.totalBellCount = goJug3Memory3.totalBellCount

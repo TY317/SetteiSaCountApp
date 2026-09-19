@@ -36,6 +36,18 @@ struct imJugExVer2ViewJissenCount: View {
                         numberofDicimal: 2,
                         minusBool: $imJugEx.minusCheck
                     )
+                    // チェリー
+                    unitCountButtonVerticalDenominate(
+                        title: "🍒",
+                        count: $imJugEx.personalCherryCount,
+                        color: .personalSummerLightRed,
+                        bigNumber: $imJugEx.playGame,
+                        numberofDicimal: 1,
+                        minusBool: $imJugEx.minusCheck
+                    )
+                }
+                // 2段目
+                HStack {
                     // BIG
                     unitCountButtonVerticalDenominate(
                         title: "BIG",

@@ -28,27 +28,49 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                 HStack {
                     // ぶどう
                     if mrJug.startBackCalculationEnable {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                color: .personalSummerLightBlue,
-                                count: $mrJug.totalBellCount,
-                                bigNumber: $mrJug.currentGames,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    color: .personalSummerLightBlue,
+                                    count: $mrJug.totalBellCount,
+                                    bigNumber: $mrJug.currentGames,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒",
+                                    count: $mrJug.personalCherryCount,
+                                    bigNumber: $mrJug.playGame,
+                                    numberofDicimal: 1
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: mrJug.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: mrJug.startBackCalculationEnable)
                         }
                     } else {
-                        HStack {
-                            unitResultRatioDenomination2Line(
-                                title: "ぶどう確率",
-                                count: $mrJug.personalBellCount,
-                                bigNumber: $mrJug.playGame,
-                                numberofDicimal: 2,
-                                spacerBool: false
+                        VStack {
+                            HStack {
+                                unitResultRatioDenomination2Line(
+                                    title: "ぶどう確率",
+                                    count: $mrJug.personalBellCount,
+                                    bigNumber: $mrJug.playGame,
+                                    numberofDicimal: 2,
+                                    spacerBool: false
+                                )
+                                unitResultRatioDenomination2Line(
+                                    title: "🍒",
+                                    count: $mrJug.personalCherryCount,
+                                    bigNumber: $mrJug.playGame,
+                                    numberofDicimal: 1
+                                )
+                            }
+                            unitTextBackCaluculateStatus(
+                                enableStatus: mrJug.startBackCalculationEnable,
+                                textAlignment: .leading,
                             )
-                            unitTextBackCaluculateStatus(enableStatus: mrJug.startBackCalculationEnable)
                         }
                     }
                 }
@@ -155,6 +177,8 @@ struct mrJugVer2ViewJissenTotalDataCheck: View {
                     // ぶどう総数
                     unitResultCountListWithoutRatio(title: "ぶどう回数", count: $mrJug.personalBellCount)
                 }
+                // チェリー回数
+                unitResultCountListWithoutRatio(title: "🍒回数", count: $mrJug.personalCherryCount)
                 // BIG
                 unitResultCountListWithoutRatio(title: "BIG回数", count: $mrJug.totalBigCount)
                 // 内 単独BIG

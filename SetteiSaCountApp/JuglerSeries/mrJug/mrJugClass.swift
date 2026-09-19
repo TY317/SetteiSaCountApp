@@ -280,9 +280,11 @@ class MrJug: ObservableObject {
     }
     @AppStorage("mrJugBonusCountSum") var personalBonusCountSum = 0
     @AppStorage("mrJugPlayGame") var playGame = 0
+    @AppStorage("mrJugPersonalCherryCount") var personalCherryCount: Int = 0
     
     func resetCountData() {
         personalBellCount = 0
+        personalCherryCount = 0
         personalAloneBigCount = 0
         personalCherryBigCount = 0
         personalAloneRegCount = 0
@@ -360,6 +362,7 @@ class MrJugMemory1: ObservableObject {
     @AppStorage("mrJugTotalRegCountMemory1") var totalRegCount = 0
     @AppStorage("mrJugTotalBellCountMemory1") var totalBellCount = 0
     @AppStorage("mrJugTotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("mrJugPersonalCherryCountMemory1") var personalCherryCount: Int = 0
     @AppStorage("mrJugMemoMemory1") var memo = ""
     @AppStorage("mrJugDateMemory1") var dateDouble = 0.0
 }
@@ -394,6 +397,7 @@ class MrJugMemory2: ObservableObject {
     @AppStorage("mrJugTotalRegCountMemory2") var totalRegCount = 0
     @AppStorage("mrJugTotalBellCountMemory2") var totalBellCount = 0
     @AppStorage("mrJugTotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("mrJugPersonalCherryCountMemory2") var personalCherryCount: Int = 0
     @AppStorage("mrJugMemoMemory2") var memo = ""
     @AppStorage("mrJugDateMemory2") var dateDouble = 0.0
 }
@@ -428,6 +432,7 @@ class MrJugMemory3: ObservableObject {
     @AppStorage("mrJugTotalRegCountMemory3") var totalRegCount = 0
     @AppStorage("mrJugTotalBellCountMemory3") var totalBellCount = 0
     @AppStorage("mrJugTotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("mrJugPersonalCherryCountMemory3") var personalCherryCount: Int = 0
     @AppStorage("mrJugMemoMemory3") var memo = ""
     @AppStorage("mrJugDateMemory3") var dateDouble = 0.0
 }

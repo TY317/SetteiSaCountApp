@@ -46,6 +46,18 @@ struct mrJugVer2ViewJissenCount: View {
                             numberofDicimal: 2,
                             minusBool: $mrJug.minusCheck
                         )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $mrJug.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 1,
+                            minusBool: $mrJug.minusCheck
+                        )
+                    }
+                    // 2段目
+                    HStack {
 //                        // BIG
 //                        unitCountButtonVerticalDenominate(
 //                            title: "BIG",
@@ -144,6 +156,15 @@ struct mrJugVer2ViewJissenCount: View {
                             color: .personalSummerLightGreen,
                             bigNumber: $mrJug.playGame,
                             numberofDicimal: 2,
+                            minusBool: $mrJug.minusCheck
+                        )
+                        // チェリー
+                        unitCountButtonVerticalDenominate(
+                            title: "🍒",
+                            count: $mrJug.personalCherryCount,
+                            color: .personalSummerLightRed,
+                            bigNumber: $mrJug.playGame,
+                            numberofDicimal: 1,
                             minusBool: $mrJug.minusCheck
                         )
 //                        // BIG

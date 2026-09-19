@@ -280,9 +280,11 @@ class HappyJugV3: ObservableObject {
     }
     @AppStorage("happyJugV3BonusCountSum") var personalBonusCountSum = 0
     @AppStorage("happyJugV3PlayGame") var playGame = 0
+    @AppStorage("happyJugV3PersonalCherryCount") var personalCherryCount: Int = 0
     
     func resetCountData() {
         personalBellCount = 0
+        personalCherryCount = 0
         personalAloneBigCount = 0
         personalCherryBigCount = 0
         personalAloneRegCount = 0
@@ -360,6 +362,7 @@ class HappyJugV3Memory1: ObservableObject {
     @AppStorage("happyJugV3TotalRegCountMemory1") var totalRegCount = 0
     @AppStorage("happyJugV3TotalBellCountMemory1") var totalBellCount = 0
     @AppStorage("happyJugV3TotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("happyJugV3PersonalCherryCountMemory1") var personalCherryCount: Int = 0
     @AppStorage("happyJugV3MemoMemory1") var memo = ""
     @AppStorage("happyJugV3DateMemory1") var dateDouble = 0.0
 }
@@ -394,6 +397,7 @@ class HappyJugV3Memory2: ObservableObject {
     @AppStorage("happyJugV3TotalRegCountMemory2") var totalRegCount = 0
     @AppStorage("happyJugV3TotalBellCountMemory2") var totalBellCount = 0
     @AppStorage("happyJugV3TotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("happyJugV3PersonalCherryCountMemory2") var personalCherryCount: Int = 0
     @AppStorage("happyJugV3MemoMemory2") var memo = ""
     @AppStorage("happyJugV3DateMemory2") var dateDouble = 0.0
 }
@@ -428,6 +432,7 @@ class HappyJugV3Memory3: ObservableObject {
     @AppStorage("happyJugV3TotalRegCountMemory3") var totalRegCount = 0
     @AppStorage("happyJugV3TotalBellCountMemory3") var totalBellCount = 0
     @AppStorage("happyJugV3TotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("happyJugV3PersonalCherryCountMemory3") var personalCherryCount: Int = 0
     @AppStorage("happyJugV3MemoMemory3") var memo = ""
     @AppStorage("happyJugV3DateMemory3") var dateDouble = 0.0
 }
@@ -513,6 +518,7 @@ struct happyJugV3Ver2ViewTop: View {
                             textBody: "実戦カウント"
                         )
                     }
+                    .popoverTip(tipVer470JuglerCherry())
                     // トータル結果確認
                     NavigationLink(destination: happyJugV3Ver2ViewJissenTotalDataCheck(
 //                        ver391: ver391,
@@ -649,6 +655,7 @@ struct happyJugV3SubViewSaveMemory: View {
         happyJugV3Memory1.personalRegCountSum = happyJugV3.personalRegCountSum
         happyJugV3Memory1.personalBonusCountSum = happyJugV3.personalBonusCountSum
         happyJugV3Memory1.playGame = happyJugV3.playGame
+        happyJugV3Memory1.personalCherryCount = happyJugV3.personalCherryCount
         happyJugV3Memory1.totalBigCount = happyJugV3.totalBigCount
         happyJugV3Memory1.totalRegCount = happyJugV3.totalRegCount
         happyJugV3Memory1.totalBellCount = happyJugV3.totalBellCount
@@ -679,6 +686,7 @@ struct happyJugV3SubViewSaveMemory: View {
         happyJugV3Memory2.personalRegCountSum = happyJugV3.personalRegCountSum
         happyJugV3Memory2.personalBonusCountSum = happyJugV3.personalBonusCountSum
         happyJugV3Memory2.playGame = happyJugV3.playGame
+        happyJugV3Memory2.personalCherryCount = happyJugV3.personalCherryCount
         happyJugV3Memory2.totalBigCount = happyJugV3.totalBigCount
         happyJugV3Memory2.totalRegCount = happyJugV3.totalRegCount
         happyJugV3Memory2.totalBellCount = happyJugV3.totalBellCount
@@ -709,6 +717,7 @@ struct happyJugV3SubViewSaveMemory: View {
         happyJugV3Memory3.personalRegCountSum = happyJugV3.personalRegCountSum
         happyJugV3Memory3.personalBonusCountSum = happyJugV3.personalBonusCountSum
         happyJugV3Memory3.playGame = happyJugV3.playGame
+        happyJugV3Memory3.personalCherryCount = happyJugV3.personalCherryCount
         happyJugV3Memory3.totalBigCount = happyJugV3.totalBigCount
         happyJugV3Memory3.totalRegCount = happyJugV3.totalRegCount
         happyJugV3Memory3.totalBellCount = happyJugV3.totalBellCount
@@ -768,6 +777,7 @@ struct happyJugV3SubViewLoadMemory: View {
         happyJugV3.personalRegCountSum = happyJugV3Memory1.personalRegCountSum
         happyJugV3.personalBonusCountSum = happyJugV3Memory1.personalBonusCountSum
         happyJugV3.playGame = happyJugV3Memory1.playGame
+        happyJugV3.personalCherryCount = happyJugV3Memory1.personalCherryCount
         happyJugV3.totalBigCount = happyJugV3Memory1.totalBigCount
         happyJugV3.totalRegCount = happyJugV3Memory1.totalRegCount
         happyJugV3.totalBellCount = happyJugV3Memory1.totalBellCount
@@ -798,6 +808,7 @@ struct happyJugV3SubViewLoadMemory: View {
         happyJugV3.personalRegCountSum = happyJugV3Memory2.personalRegCountSum
         happyJugV3.personalBonusCountSum = happyJugV3Memory2.personalBonusCountSum
         happyJugV3.playGame = happyJugV3Memory2.playGame
+        happyJugV3.personalCherryCount = happyJugV3Memory2.personalCherryCount
         happyJugV3.totalBigCount = happyJugV3Memory2.totalBigCount
         happyJugV3.totalRegCount = happyJugV3Memory2.totalRegCount
         happyJugV3.totalBellCount = happyJugV3Memory2.totalBellCount
@@ -828,6 +839,7 @@ struct happyJugV3SubViewLoadMemory: View {
         happyJugV3.personalRegCountSum = happyJugV3Memory3.personalRegCountSum
         happyJugV3.personalBonusCountSum = happyJugV3Memory3.personalBonusCountSum
         happyJugV3.playGame = happyJugV3Memory3.playGame
+        happyJugV3.personalCherryCount = happyJugV3Memory3.personalCherryCount
         happyJugV3.totalBigCount = happyJugV3Memory3.totalBigCount
         happyJugV3.totalRegCount = happyJugV3Memory3.totalRegCount
         happyJugV3.totalBellCount = happyJugV3Memory3.totalBellCount

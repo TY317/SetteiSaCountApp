@@ -136,3 +136,19 @@ struct tipVer470StreetFighter6Continue: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ジャグラーシリーズ チェリーカウント（全機種共通）
+//////////////////
+struct tipVer470JuglerCherry: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("ジャグラー全機種にチェリーのカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

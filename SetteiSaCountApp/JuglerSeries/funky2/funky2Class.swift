@@ -280,9 +280,11 @@ class Funky2: ObservableObject {
     }
     @AppStorage("funky2BonusCountSum") var personalBonusCountSum = 0
     @AppStorage("funky2PlayGame") var playGame = 0
+    @AppStorage("funky2PersonalCherryCount") var personalCherryCount: Int = 0
     
     func resetCountData() {
         personalBellCount = 0
+        personalCherryCount = 0
         personalAloneBigCount = 0
         personalCherryBigCount = 0
         personalAloneRegCount = 0
@@ -360,6 +362,7 @@ class Funky2Memory1: ObservableObject {
     @AppStorage("funky2TotalRegCountMemory1") var totalRegCount = 0
     @AppStorage("funky2TotalBellCountMemory1") var totalBellCount = 0
     @AppStorage("funky2TotalBonusCountSumMemory1") var totalBonusCountSum = 0
+    @AppStorage("funky2PersonalCherryCountMemory1") var personalCherryCount: Int = 0
     @AppStorage("funky2MemoMemory1") var memo = ""
     @AppStorage("funky2DateMemory1") var dateDouble = 0.0
 }
@@ -394,6 +397,7 @@ class Funky2Memory2: ObservableObject {
     @AppStorage("funky2TotalRegCountMemory2") var totalRegCount = 0
     @AppStorage("funky2TotalBellCountMemory2") var totalBellCount = 0
     @AppStorage("funky2TotalBonusCountSumMemory2") var totalBonusCountSum = 0
+    @AppStorage("funky2PersonalCherryCountMemory2") var personalCherryCount: Int = 0
     @AppStorage("funky2MemoMemory2") var memo = ""
     @AppStorage("funky2DateMemory2") var dateDouble = 0.0
 }
@@ -428,6 +432,7 @@ class Funky2Memory3: ObservableObject {
     @AppStorage("funky2TotalRegCountMemory3") var totalRegCount = 0
     @AppStorage("funky2TotalBellCountMemory3") var totalBellCount = 0
     @AppStorage("funky2TotalBonusCountSumMemory3") var totalBonusCountSum = 0
+    @AppStorage("funky2PersonalCherryCountMemory3") var personalCherryCount: Int = 0
     @AppStorage("funky2MemoMemory3") var memo = ""
     @AppStorage("funky2DateMemory3") var dateDouble = 0.0
 }
