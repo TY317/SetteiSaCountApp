@@ -77,6 +77,13 @@ struct aobutaViewCz: View {
     var charaIndex: Int {
         self.aobuta.selectListCzChara.firstIndex(of: self.aobuta.selectedCzChara) ?? 0
     }
+    // 表示に使う小役の添字（範囲内に丸める）
+    // キャラ切替時は「新しいキャラ・古い添字」で一度描画され、onChange で 0 に戻るのはその後。
+    // 小役が4種のキャラで添字2〜3を選んだまま2種のキャラ（梓川かえで／牧之原翔子）へ切り替えると
+    // 範囲外になりクラッシュするため、描画側では必ずこの値を使う。
+    var koyakuIndex: Int {
+        min(self.selectedKoyakuIndex, self.koyakuList[self.charaIndex].count - 1)
+    }
 
     var body: some View {
         List {
@@ -154,16 +161,16 @@ struct aobutaViewCz: View {
                         // 失敗
                         unitCountButtonWithoutRatioWithFunc(
                             title: "失敗",
-                            count: bindingMiss(self.charaIndex, self.selectedKoyakuIndex),
-                            color: missColor(self.charaIndex, self.selectedKoyakuIndex),
+                            count: bindingMiss(self.charaIndex, self.koyakuIndex),
+                            color: missColor(self.charaIndex, self.koyakuIndex),
                             minusBool: $aobuta.minusCheck) {
                                 aobuta.czSumFunc()
                             }
                         // 成功
                         unitCountButtonWithoutRatioWithFunc(
                             title: "成功",
-                            count: bindingHit(self.charaIndex, self.selectedKoyakuIndex),
-                            color: hitColor(self.charaIndex, self.selectedKoyakuIndex),
+                            count: bindingHit(self.charaIndex, self.koyakuIndex),
+                            color: hitColor(self.charaIndex, self.koyakuIndex),
                             minusBool: $aobuta.minusCheck) {
                                 aobuta.czSumFunc()
                             }
@@ -171,7 +178,7 @@ struct aobutaViewCz: View {
                     // 小役ごとにボタンのidentityを分ける
                     // （unitCountButtonWithoutRatioWithFunc の title/color は @State のため、
                     //   identityを変えないと切替時に色やラベルが更新されない）
-                    .id("\(self.aobuta.selectedCzChara)-\(self.selectedKoyakuIndex)")
+                    .id("\(self.aobuta.selectedCzChara)-\(self.koyakuIndex)")
                 } label: {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
@@ -324,6 +331,8 @@ struct aobutaViewCz: View {
 
     // 小役ごとのボタン色（失敗＝personal系／成功＝通常色）
     func missColor(_ chara: Int, _ koyaku: Int) -> Color {
+        guard self.koyakuList.indices.contains(chara),
+              self.koyakuList[chara].indices.contains(koyaku) else { return .gray }
         let name = self.koyakuList[chara][koyaku]
         if name.contains("リプレイ") { return .personalSummerLightBlue }
         if name.contains("🔔") { return .personalSpringLightYellow }
@@ -334,6 +343,8 @@ struct aobutaViewCz: View {
     }
 
     func hitColor(_ chara: Int, _ koyaku: Int) -> Color {
+        guard self.koyakuList.indices.contains(chara),
+              self.koyakuList[chara].indices.contains(koyaku) else { return .gray }
         let name = self.koyakuList[chara][koyaku]
         if name.contains("リプレイ") { return .blue }
         if name.contains("🔔") { return .yellow }
