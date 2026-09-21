@@ -47,7 +47,6 @@ struct izaBanchoViewNormal: View {
                         )
                     )
                 )
-                .popoverTip(tipVer411IzabanchoKoyaku())
             } header: {
                 Text("小役確率")
             }

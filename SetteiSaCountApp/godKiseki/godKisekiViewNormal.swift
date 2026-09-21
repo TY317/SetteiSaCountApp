@@ -51,7 +51,6 @@ struct godKisekiViewNormal: View {
                         numberofDicimal: 0
                     )
                 }
-                .popoverTip(tipVer412GodKisekiBell())
                 
                 // カウント
                 DisclosureGroup {

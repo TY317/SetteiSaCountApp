@@ -99,7 +99,6 @@ struct karakuri2ViewScreen: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-//                    .popoverTip(tipVer412KarakuriScreen())
                 }
 
                 // //// カウント結果

@@ -136,7 +136,6 @@ struct karakuri2ViewHistory: View {
                         }
                     }
                     .frame(height: common.screenScrollHeight)
-                    .popoverTip(tipVer412KarakuriCzScreen())
                 }
                 // //// 登録ボタン
                 Button {

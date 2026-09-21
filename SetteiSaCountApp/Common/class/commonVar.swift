@@ -1038,56 +1038,5 @@ class commonVar: ObservableObject {
         }
     }
 
-    func ver412FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.1.2"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
-                karakuri2MenuScreenBadge = "update"
-                karakuri2MenuHistoryBadge = "update"
-                karakuri2MenuNormalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4961", newStatus: "update")
-                godKisekiMenuNormalBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver411FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.1.1"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
-                karakuri2MenuNormalBadge = "update"
-                karakuri2MenuHistoryBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4805", newStatus: "update")
-                izaBanchoMenuNormalBadge = "update"
-                izaBanchoMenuZecchoBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
-                sao2MenuEndingBadge = "new"
-                sao2MenuMothersBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
 }
 
