@@ -1766,6 +1766,7 @@
 		E521827506E04B6B8F39D02C /* takosloViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45DDC81A0445829E33375A /* takosloViewTop.swift */; };
 		E4207CB65B0E4C61BD1705E8 /* takosloClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBFFBB80A44F3882A5200C /* takosloClass.swift */; };
 		2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */; };
+		12690F4752EF448D9E7CADB8 /* takosloViewDuringBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D0AAA2A74A8885D2C2E8 /* takosloViewDuringBt.swift */; };
 		0C171859D82C4710BB58D239 /* takosloViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D936D83C449D5A71A304C /* takosloViewScreen.swift */; };
 		CCBC3AAB974A4BAE917C8047 /* takosloViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946EBE4BE5D34C65A3279382 /* takosloViewBayes.swift */; };
 		8C5CBB4ABA0D48A6A2289108 /* takosloViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */; };
@@ -1880,6 +1881,7 @@
 		FE45DDC81A0445829E33375A /* takosloViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewTop.swift; sourceTree = "<group>"; };
 		2CBBFFBB80A44F3882A5200C /* takosloClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloClass.swift; sourceTree = "<group>"; };
 		6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewNormal.swift; sourceTree = "<group>"; };
+		3F50D0AAA2A74A8885D2C2E8 /* takosloViewDuringBt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewDuringBt.swift; sourceTree = "<group>"; };
 		018D936D83C449D5A71A304C /* takosloViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewScreen.swift; sourceTree = "<group>"; };
 		946EBE4BE5D34C65A3279382 /* takosloViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewBayes.swift; sourceTree = "<group>"; };
 		F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewFirstHit.swift; sourceTree = "<group>"; };
@@ -6249,6 +6251,7 @@
 				FE45DDC81A0445829E33375A /* takosloViewTop.swift */,
 				2CBBFFBB80A44F3882A5200C /* takosloClass.swift */,
 				6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */,
+				3F50D0AAA2A74A8885D2C2E8 /* takosloViewDuringBt.swift */,
 				018D936D83C449D5A71A304C /* takosloViewScreen.swift */,
 				946EBE4BE5D34C65A3279382 /* takosloViewBayes.swift */,
 				F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */,
@@ -8038,6 +8041,7 @@
 				E521827506E04B6B8F39D02C /* takosloViewTop.swift in Sources */,
 				E4207CB65B0E4C61BD1705E8 /* takosloClass.swift in Sources */,
 				2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */,
+				12690F4752EF448D9E7CADB8 /* takosloViewDuringBt.swift in Sources */,
 				0C171859D82C4710BB58D239 /* takosloViewScreen.swift in Sources */,
 				CCBC3AAB974A4BAE917C8047 /* takosloViewBayes.swift in Sources */,
 				8C5CBB4ABA0D48A6A2289108 /* takosloViewFirstHit.swift in Sources */,

@@ -53,6 +53,17 @@ struct takosloViewTop: View {
                         )
                     }
 
+                    // BT中
+                    NavigationLink(destination: takosloViewDuringBt(
+                        takoslo: takoslo,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "b.circle.fill",
+                            textBody: "BT中",
+                            badgeStatus: common.takosloMenuDuringBtBadge,
+                        )
+                    }
+
                     // BIG終了画面
                     NavigationLink(destination: takosloViewScreen(
                         takoslo: takoslo,

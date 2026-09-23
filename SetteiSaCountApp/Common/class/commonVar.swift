@@ -373,6 +373,7 @@ class commonVar: ObservableObject {
     @AppStorage("takosloMenuFirstHitBadge") var takosloMenuFirstHitBadge: String = "none"
     @AppStorage("takosloMenuBayesBadge") var takosloMenuBayesBadge: String = "none"
     @AppStorage("takosloMenuScreenBadge") var takosloMenuScreenBadge: String = "none"
+    @AppStorage("takosloMenuDuringBtBadge") var takosloMenuDuringBtBadge: String = "none"
     
     // ---- 青春ブタ野郎はバニーガール先輩の夢を見ない
     @AppStorage("aobutaMenuNormalBadge") var aobutaMenuNormalBadge: String = "none"

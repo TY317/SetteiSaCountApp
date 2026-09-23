@@ -63,6 +63,11 @@ class Takoslo: ObservableObject {
     }
 
     // -------
+    // BT中
+    // -------
+    let ratioReplayTacoGame: [Double] = [728.2,728.2,366.1,242.7]
+
+    // -------
     // 画面選択
     // -------
     @AppStorage("takosloScreenCount1") var screenCount1: Int = 0
