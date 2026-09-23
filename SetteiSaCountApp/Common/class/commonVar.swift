@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5049", name: "タコスロ", fullName: "タコスロ", iconName: "takosloMachineIcon", btBadge: true, maker: "UNIVERSAL"),
         Machine(id: "5064", name: "青ブタ", fullName: "青春ブタ野郎はバニーガール先輩の夢を見ない", iconName: "aobutaMachineIcon", btBadge: false, maker: "平和"),
         Machine(id: "5033", name: "リコリコ", fullName: "リコリス・リコイル", iconName: "ricoricoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5028", name: "喰霊", fullName: "喰霊-零-Re", iconName: "gareiMachineIcon", btBadge: false, maker: "オーイズミ"),
@@ -367,6 +368,12 @@ class commonVar: ObservableObject {
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
     @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
 
+    // ---- タコスロ
+    @AppStorage("takosloMenuNormalBadge") var takosloMenuNormalBadge: String = "none"
+    @AppStorage("takosloMenuFirstHitBadge") var takosloMenuFirstHitBadge: String = "none"
+    @AppStorage("takosloMenuBayesBadge") var takosloMenuBayesBadge: String = "none"
+    @AppStorage("takosloMenuScreenBadge") var takosloMenuScreenBadge: String = "none"
+    
     // ---- 青春ブタ野郎はバニーガール先輩の夢を見ない
     @AppStorage("aobutaMenuNormalBadge") var aobutaMenuNormalBadge: String = "none"
     @AppStorage("aobutaMenuFirstHitBadge") var aobutaMenuFirstHitBadge: String = "none"
@@ -821,6 +828,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5049", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5049", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }

@@ -1763,6 +1763,12 @@
 		7C0F7A6071544E0DA87FF891 /* ricoricoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305869D87A145BBAE8040D8 /* ricoricoViewScreen.swift */; };
 		7C5C0152D0D14823BD52BEAC /* index2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E2C426FBE4F20B5BE1112 /* index2ViewEnding.swift */; };
 		7E59082364A8FF479F4CE753 /* aobutaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4D812E251AD545E16F7F7 /* aobutaViewTop.swift */; };
+		E521827506E04B6B8F39D02C /* takosloViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45DDC81A0445829E33375A /* takosloViewTop.swift */; };
+		E4207CB65B0E4C61BD1705E8 /* takosloClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBBFFBB80A44F3882A5200C /* takosloClass.swift */; };
+		2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */; };
+		8C5CBB4ABA0D48A6A2289108 /* takosloViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */; };
+		C0EC19C23E154AB599112190 /* takosloView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79C657628B54590B9717FFB /* takosloView95Ci.swift */; };
+		650DCD1205934A5585F7B33A /* takosloAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2571612CAB8D464882931C87 /* takosloAssets.xcassets */; };
 		7E88AB46530449468E035F20 /* ricoricoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17252422CEB3472BAB9A7FB3 /* ricoricoClass.swift */; };
 		80FBF76392B7478CA54358FB /* tonskillViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8126E7CDD64843BC6486CA /* tonskillViewCz.swift */; };
 		819787A1149745F482FF0612 /* worldDaiStarViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60BD585E74493E9AC277EE /* worldDaiStarViewEnding.swift */; };
@@ -1869,6 +1875,12 @@
 		04A3FE16202C49DDAEDC3983 /* kerottoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewBayes.swift; sourceTree = "<group>"; };
 		05826327C84342B2BA856A94 /* worldDaiStarViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewFirstHit.swift; sourceTree = "<group>"; };
 		05F4D812E251AD545E16F7F7 /* aobutaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewTop.swift; sourceTree = "<group>"; };
+		FE45DDC81A0445829E33375A /* takosloViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewTop.swift; sourceTree = "<group>"; };
+		2CBBFFBB80A44F3882A5200C /* takosloClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloClass.swift; sourceTree = "<group>"; };
+		6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewNormal.swift; sourceTree = "<group>"; };
+		F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewFirstHit.swift; sourceTree = "<group>"; };
+		A79C657628B54590B9717FFB /* takosloView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloView95Ci.swift; sourceTree = "<group>"; };
+		2571612CAB8D464882931C87 /* takosloAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = takosloAssets.xcassets; sourceTree = "<group>"; };
 		0BA01361766B404EB2925B1B /* kerottoViewReg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewReg.swift; sourceTree = "<group>"; };
 		0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickViewTuc.swift; sourceTree = "<group>"; };
 		0F00FAA42FACB87E0076283F /* commonViewInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonViewInfoSheet.swift; sourceTree = "<group>"; };
@@ -4481,6 +4493,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				9BF2337AB1264D62B9878AC4 /* takoslo */,
 				91127355CBF8008A1ECE539E /* aobuta */,
 				207E6964951D4AB788C1CD61 /* ricorico */,
 				83DBACA1C8E246E6B3AF3A37 /* garei */,
@@ -6226,6 +6239,19 @@
 			path = garei;
 			sourceTree = "<group>";
 		};
+		9BF2337AB1264D62B9878AC4 /* takoslo */ = {
+			isa = PBXGroup;
+			children = (
+				FE45DDC81A0445829E33375A /* takosloViewTop.swift */,
+				2CBBFFBB80A44F3882A5200C /* takosloClass.swift */,
+				6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */,
+				F54F1EC835C8470693C03255 /* takosloViewFirstHit.swift */,
+				A79C657628B54590B9717FFB /* takosloView95Ci.swift */,
+				2571612CAB8D464882931C87 /* takosloAssets.xcassets */,
+			);
+			path = takoslo;
+			sourceTree = "<group>";
+		};
 		91127355CBF8008A1ECE539E /* aobuta */ = {
 			isa = PBXGroup;
 			children = (
@@ -6496,6 +6522,7 @@
 				0FD586B52FEFDE8C005689C6 /* karakuri2Assets.xcassets in Resources */,
 				BFB8AA93FA1445FFBB8C3AFA /* ricoricoAssets.xcassets in Resources */,
 				7B8317755DD06E477AA1929E /* aobutaAssets.xcassets in Resources */,
+				650DCD1205934A5585F7B33A /* takosloAssets.xcassets in Resources */,
 				B68F961B0AFE46BEA2845E86 /* gareiAssets.xcassets in Resources */,
 				A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */,
 				BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */,
@@ -8002,6 +8029,11 @@
 				53B7D78AF4214C62A6D24CCF /* ricoricoViewFirstHit.swift in Sources */,
 				04F78CF6E2EE417B8D975266 /* ricoricoView95Ci.swift in Sources */,
 				7E59082364A8FF479F4CE753 /* aobutaViewTop.swift in Sources */,
+				E521827506E04B6B8F39D02C /* takosloViewTop.swift in Sources */,
+				E4207CB65B0E4C61BD1705E8 /* takosloClass.swift in Sources */,
+				2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */,
+				8C5CBB4ABA0D48A6A2289108 /* takosloViewFirstHit.swift in Sources */,
+				C0EC19C23E154AB599112190 /* takosloView95Ci.swift in Sources */,
 				12DF32586E5D4EB3BF20B46C /* aobutaClass.swift in Sources */,
 				860E0F03F38BD4C64BE9FE70 /* aobutaViewNormal.swift in Sources */,
 				5D83082892B7F3B5611089C4 /* aobutaViewScreen.swift in Sources */,

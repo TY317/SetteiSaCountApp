@@ -18,7 +18,7 @@ struct tipVer480UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("")
+        Text("・タコスロ")
     }
     var image: Image? {
         Image(systemName: "star")
