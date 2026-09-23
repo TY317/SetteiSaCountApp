@@ -49,8 +49,16 @@ class Takoslo: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitBig: [Double] = [324.4,318.1,309.1,297.9]
+    let ratioFirstHitReg: [Double] = [352.3,336.1,312.1,300.6]
+    @AppStorage("takosloNormalGame") var normalGame: Int = 0
+    @AppStorage("takosloFirstHitCountBig") var firstHitCountBig: Int = 0
+    @AppStorage("takosloFirstHitCountReg") var firstHitCountReg: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountBig = 0
+        firstHitCountReg = 0
         minusCheck = false
     }
 

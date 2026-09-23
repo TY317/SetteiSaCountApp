@@ -28,7 +28,67 @@ struct takosloViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $takoslo.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // BIG
+                unitCountButtonVerticalDenominate(
+                    title: "BIG",
+                    count: $takoslo.firstHitCountBig,
+                    color: .personalSummerLightRed,
+                    bigNumber: $takoslo.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $takoslo.minusCheck
+                )
+                // REG
+                unitCountButtonVerticalDenominate(
+                    title: "REG",
+                    count: $takoslo.firstHitCountReg,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $takoslo.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $takoslo.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex(settingList: [1,2,5,6])
+                    unitTableDenominate(
+                        columTitle: "BIG",
+                        denominateList: takoslo.ratioFirstHitBig
+                    )
+                    unitTableDenominate(
+                        columTitle: "REG",
+                        denominateList: takoslo.ratioFirstHitReg
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    takosloView95Ci(
+                        takoslo: takoslo,
+                        selection: 8,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                takosloViewBayes(
+                    takoslo: takoslo,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.takosloMenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct takosloViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: takoslo.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

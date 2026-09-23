@@ -15,6 +15,7 @@ struct takosloViewBayes: View {
     let payoutList: [Double] = [98.7, 100.5, 103.3, 106.2]
     @State var koyakuEnable: Bool = true
     @State var koyakuDetailEnable: Bool = false
+    @State var firstHitEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -42,6 +43,9 @@ struct takosloViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitEnable, title: "初当り確率")
 
                 // 小役合算確率（小役詳細確率とはどちらか一方のみ）
                 unitToggleWithQuestion(enable: self.$koyakuEnable, title: "小役合算確率")
@@ -126,6 +130,22 @@ struct takosloViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // 初当り確率（BIG／REG）
+        var logPostFirstHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitEnable {
+            logPostFirstHit = logPostDenoMulti(
+                countList: [
+                    takoslo.firstHitCountBig,
+                    takoslo.firstHitCountReg,
+                ],
+                denoList: [
+                    takoslo.ratioFirstHitBig,
+                    takoslo.ratioFirstHitReg,
+                ],
+                bigNumber: takoslo.normalGame
+            )
+        }
+
         // 小役合算確率
         var logPostKoyaku: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.koyakuEnable {
@@ -179,6 +199,7 @@ struct takosloViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHit,
             logPostKoyaku,
             logPostKoyakuDetail,
             logPostTrophy,
