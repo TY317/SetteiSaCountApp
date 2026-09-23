@@ -28,7 +28,120 @@ struct takosloViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 小役
+            Section {
+                // プラム確率
+                unitResultRatioDenomination2Line(
+                    title: "プラム確率",
+                    count: $takoslo.koyakuCountPlum,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 1
+                )
 
+                // スイカ確率
+                unitResultRatioDenomination2Line(
+                    title: "スイカ確率",
+                    count: $takoslo.koyakuCountSuika,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // チェリー確率
+                unitResultRatioDenomination2Line(
+                    title: "チェリー確率",
+                    count: $takoslo.koyakuCountCherry,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）小役確率
+                unitLinkButtonViewBuilder(sheetTitle: "小役確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,5,6])
+                        unitTableDenominate(
+                            columTitle: "プラム",
+                            denominateList: takoslo.ratioKoyakuPlum,
+                            numberofDicimal: 1,
+                        )
+                        unitTableDenominate(
+                            columTitle: "スイカ",
+                            denominateList: takoslo.ratioKoyakuSuika,
+                            numberofDicimal: 0,
+                        )
+                        unitTableDenominate(
+                            columTitle: "チェリー",
+                            denominateList: takoslo.ratioKoyakuCherry,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // プラム
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "プラム",
+                            count: $takoslo.koyakuCountPlum,
+                            color: .personalSummerLightBlue,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                        // スイカ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "スイカ",
+                            count: $takoslo.koyakuCountSuika,
+                            color: .personalSummerLightGreen,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                        // チェリー
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "チェリー",
+                            count: $takoslo.koyakuCountCherry,
+                            color: .personalSummerLightRed,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                    }
+
+                    // ゲーム数入力
+                    unitTextFieldNumberInputWithUnit(
+                        title: "打ち始め",
+                        inputValue: $takoslo.gameNumberStart,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: takoslo.gameNumberStart) {
+                        let playGame = takoslo.gameNumberCurrent - takoslo.gameNumberStart
+                        takoslo.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    unitTextFieldNumberInputWithUnit(
+                        title: "現在",
+                        inputValue: $takoslo.gameNumberCurrent,
+                        unitText: "Ｇ",
+                    )
+                    .focused(self.$isFocused)
+                    .onChange(of: takoslo.gameNumberCurrent) {
+                        let playGame = takoslo.gameNumberCurrent - takoslo.gameNumberStart
+                        takoslo.gameNumberPlay = playGame > 0 ? playGame : 0
+                    }
+                    unitTextGameNumberWithoutInput(gameNumber: takoslo.gameNumberPlay)
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            takosloView95Ci(
+                                takoslo: takoslo,
+                                selection: 1,
+                            )
+                        )
+                    )
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("小役")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.takosloMenuNormalBadge)

@@ -13,8 +13,24 @@ class Takoslo: ObservableObject {
     // -------
     // 通常時
     // -------
+    // 設定1,2,5,6 の4段階設定
+    let ratioKoyakuPlum: [Double] = [9.8,9.7,9.4,9.0]
+    let ratioKoyakuSuika: [Double] = [60.0,56.2,53.0,50.0]
+    let ratioKoyakuCherry: [Double] = [22.9,21.9,21.0,20.1]
+    @AppStorage("takosloKoyakuCountPlum") var koyakuCountPlum: Int = 0
+    @AppStorage("takosloKoyakuCountSuika") var koyakuCountSuika: Int = 0
+    @AppStorage("takosloKoyakuCountCherry") var koyakuCountCherry: Int = 0
+    @AppStorage("takosloGameNumberStart") var gameNumberStart: Int = 0
+    @AppStorage("takosloGameNumberCurrent") var gameNumberCurrent: Int = 0
+    @AppStorage("takosloGameNumberPlay") var gameNumberPlay: Int = 0
 
     func resetNormal() {
+        koyakuCountPlum = 0
+        koyakuCountSuika = 0
+        koyakuCountCherry = 0
+        gameNumberStart = 0
+        gameNumberCurrent = 0
+        gameNumberPlay = 0
         minusCheck = false
     }
 

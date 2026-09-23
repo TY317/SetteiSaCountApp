@@ -14,6 +14,66 @@ struct takosloView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // プラム回数
+            unitListSection95Ci(
+                grafTitle: "プラム回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuCountPlum,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuPlum[0],
+                        setting2Denominate: takoslo.ratioKoyakuPlum[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuPlum[2],
+                        setting6Denominate: takoslo.ratioKoyakuPlum[3]
+                    )
+                )
+            )
+            .tag(1)
+
+            // スイカ回数
+            unitListSection95Ci(
+                grafTitle: "スイカ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuCountSuika,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuSuika[0],
+                        setting2Denominate: takoslo.ratioKoyakuSuika[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuSuika[2],
+                        setting6Denominate: takoslo.ratioKoyakuSuika[3]
+                    )
+                )
+            )
+            .tag(2)
+
+            // チェリー回数
+            unitListSection95Ci(
+                grafTitle: "チェリー回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuCountCherry,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuCherry[0],
+                        setting2Denominate: takoslo.ratioKoyakuCherry[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuCherry[2],
+                        setting6Denominate: takoslo.ratioKoyakuCherry[3]
+                    )
+                )
+            )
+            .tag(3)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",
