@@ -53,11 +53,14 @@ struct takosloViewTop: View {
                         )
                     }
 
-                    // トロフィー
-                    NavigationLink(destination: commonViewUniversalPlate()) {
+                    // BIG終了画面
+                    NavigationLink(destination: takosloViewScreen(
+                        takoslo: takoslo,
+                    )) {
                         unitLabelMenu(
-                            imageSystemName: "trophy.fill",
-                            textBody: "ユニバプレート"
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "BIG終了画面",
+                            badgeStatus: common.takosloMenuScreenBadge,
                         )
                     }
 //                } header: {

@@ -62,6 +62,27 @@ class Takoslo: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // 画面選択
+    // -------
+    @AppStorage("takosloScreenCount1") var screenCount1: Int = 0
+    @AppStorage("takosloScreenCount2") var screenCount2: Int = 0
+    @AppStorage("takosloScreenCountSum") var screenCountSum: Int = 0
+
+    func screenSumFunc() {
+        screenCountSum = countSum(
+            screenCount1,
+            screenCount2,
+        )
+    }
+
+    func resetScreen() {
+        screenCount1 = 0
+        screenCount2 = 0
+        screenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -72,6 +93,7 @@ class Takoslo: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetScreen()
     }
 }
 
