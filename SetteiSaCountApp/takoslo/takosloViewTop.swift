@@ -183,13 +183,58 @@ struct takosloSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        takosloMemory1.koyakuCountPlum = takoslo.koyakuCountPlum
+        takosloMemory1.koyakuCountSuika = takoslo.koyakuCountSuika
+        takosloMemory1.koyakuCountCherry = takoslo.koyakuCountCherry
+        takosloMemory1.koyakuDetailCountSuikaA = takoslo.koyakuDetailCountSuikaA
+        takosloMemory1.koyakuDetailCountSuikaB = takoslo.koyakuDetailCountSuikaB
+        takosloMemory1.koyakuDetailCountCherryB = takoslo.koyakuDetailCountCherryB
+        takosloMemory1.koyakuDetailCountCherryC = takoslo.koyakuDetailCountCherryC
+        takosloMemory1.gameNumberStart = takoslo.gameNumberStart
+        takosloMemory1.gameNumberCurrent = takoslo.gameNumberCurrent
+        takosloMemory1.gameNumberPlay = takoslo.gameNumberPlay
+        takosloMemory1.normalGame = takoslo.normalGame
+        takosloMemory1.firstHitCountBig = takoslo.firstHitCountBig
+        takosloMemory1.firstHitCountReg = takoslo.firstHitCountReg
+        takosloMemory1.screenCount1 = takoslo.screenCount1
+        takosloMemory1.screenCount2 = takoslo.screenCount2
+        takosloMemory1.screenCountSum = takoslo.screenCountSum
     }
     func saveMemory2() {
-
+        takosloMemory2.koyakuCountPlum = takoslo.koyakuCountPlum
+        takosloMemory2.koyakuCountSuika = takoslo.koyakuCountSuika
+        takosloMemory2.koyakuCountCherry = takoslo.koyakuCountCherry
+        takosloMemory2.koyakuDetailCountSuikaA = takoslo.koyakuDetailCountSuikaA
+        takosloMemory2.koyakuDetailCountSuikaB = takoslo.koyakuDetailCountSuikaB
+        takosloMemory2.koyakuDetailCountCherryB = takoslo.koyakuDetailCountCherryB
+        takosloMemory2.koyakuDetailCountCherryC = takoslo.koyakuDetailCountCherryC
+        takosloMemory2.gameNumberStart = takoslo.gameNumberStart
+        takosloMemory2.gameNumberCurrent = takoslo.gameNumberCurrent
+        takosloMemory2.gameNumberPlay = takoslo.gameNumberPlay
+        takosloMemory2.normalGame = takoslo.normalGame
+        takosloMemory2.firstHitCountBig = takoslo.firstHitCountBig
+        takosloMemory2.firstHitCountReg = takoslo.firstHitCountReg
+        takosloMemory2.screenCount1 = takoslo.screenCount1
+        takosloMemory2.screenCount2 = takoslo.screenCount2
+        takosloMemory2.screenCountSum = takoslo.screenCountSum
     }
     func saveMemory3() {
-
+        takosloMemory3.koyakuCountPlum = takoslo.koyakuCountPlum
+        takosloMemory3.koyakuCountSuika = takoslo.koyakuCountSuika
+        takosloMemory3.koyakuCountCherry = takoslo.koyakuCountCherry
+        takosloMemory3.koyakuDetailCountSuikaA = takoslo.koyakuDetailCountSuikaA
+        takosloMemory3.koyakuDetailCountSuikaB = takoslo.koyakuDetailCountSuikaB
+        takosloMemory3.koyakuDetailCountCherryB = takoslo.koyakuDetailCountCherryB
+        takosloMemory3.koyakuDetailCountCherryC = takoslo.koyakuDetailCountCherryC
+        takosloMemory3.gameNumberStart = takoslo.gameNumberStart
+        takosloMemory3.gameNumberCurrent = takoslo.gameNumberCurrent
+        takosloMemory3.gameNumberPlay = takoslo.gameNumberPlay
+        takosloMemory3.normalGame = takoslo.normalGame
+        takosloMemory3.firstHitCountBig = takoslo.firstHitCountBig
+        takosloMemory3.firstHitCountReg = takoslo.firstHitCountReg
+        takosloMemory3.screenCount1 = takoslo.screenCount1
+        takosloMemory3.screenCount2 = takoslo.screenCount2
+        takosloMemory3.screenCountSum = takoslo.screenCountSum
     }
 }
 
@@ -221,13 +266,58 @@ struct takosloSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        takoslo.koyakuCountPlum = takosloMemory1.koyakuCountPlum
+        takoslo.koyakuCountSuika = takosloMemory1.koyakuCountSuika
+        takoslo.koyakuCountCherry = takosloMemory1.koyakuCountCherry
+        takoslo.koyakuDetailCountSuikaA = takosloMemory1.koyakuDetailCountSuikaA
+        takoslo.koyakuDetailCountSuikaB = takosloMemory1.koyakuDetailCountSuikaB
+        takoslo.koyakuDetailCountCherryB = takosloMemory1.koyakuDetailCountCherryB
+        takoslo.koyakuDetailCountCherryC = takosloMemory1.koyakuDetailCountCherryC
+        takoslo.gameNumberStart = takosloMemory1.gameNumberStart
+        takoslo.gameNumberCurrent = takosloMemory1.gameNumberCurrent
+        takoslo.gameNumberPlay = takosloMemory1.gameNumberPlay
+        takoslo.normalGame = takosloMemory1.normalGame
+        takoslo.firstHitCountBig = takosloMemory1.firstHitCountBig
+        takoslo.firstHitCountReg = takosloMemory1.firstHitCountReg
+        takoslo.screenCount1 = takosloMemory1.screenCount1
+        takoslo.screenCount2 = takosloMemory1.screenCount2
+        takoslo.screenCountSum = takosloMemory1.screenCountSum
     }
     func loadMemory2() {
-
+        takoslo.koyakuCountPlum = takosloMemory2.koyakuCountPlum
+        takoslo.koyakuCountSuika = takosloMemory2.koyakuCountSuika
+        takoslo.koyakuCountCherry = takosloMemory2.koyakuCountCherry
+        takoslo.koyakuDetailCountSuikaA = takosloMemory2.koyakuDetailCountSuikaA
+        takoslo.koyakuDetailCountSuikaB = takosloMemory2.koyakuDetailCountSuikaB
+        takoslo.koyakuDetailCountCherryB = takosloMemory2.koyakuDetailCountCherryB
+        takoslo.koyakuDetailCountCherryC = takosloMemory2.koyakuDetailCountCherryC
+        takoslo.gameNumberStart = takosloMemory2.gameNumberStart
+        takoslo.gameNumberCurrent = takosloMemory2.gameNumberCurrent
+        takoslo.gameNumberPlay = takosloMemory2.gameNumberPlay
+        takoslo.normalGame = takosloMemory2.normalGame
+        takoslo.firstHitCountBig = takosloMemory2.firstHitCountBig
+        takoslo.firstHitCountReg = takosloMemory2.firstHitCountReg
+        takoslo.screenCount1 = takosloMemory2.screenCount1
+        takoslo.screenCount2 = takosloMemory2.screenCount2
+        takoslo.screenCountSum = takosloMemory2.screenCountSum
     }
     func loadMemory3() {
-
+        takoslo.koyakuCountPlum = takosloMemory3.koyakuCountPlum
+        takoslo.koyakuCountSuika = takosloMemory3.koyakuCountSuika
+        takoslo.koyakuCountCherry = takosloMemory3.koyakuCountCherry
+        takoslo.koyakuDetailCountSuikaA = takosloMemory3.koyakuDetailCountSuikaA
+        takoslo.koyakuDetailCountSuikaB = takosloMemory3.koyakuDetailCountSuikaB
+        takoslo.koyakuDetailCountCherryB = takosloMemory3.koyakuDetailCountCherryB
+        takoslo.koyakuDetailCountCherryC = takosloMemory3.koyakuDetailCountCherryC
+        takoslo.gameNumberStart = takosloMemory3.gameNumberStart
+        takoslo.gameNumberCurrent = takosloMemory3.gameNumberCurrent
+        takoslo.gameNumberPlay = takosloMemory3.gameNumberPlay
+        takoslo.normalGame = takosloMemory3.normalGame
+        takoslo.firstHitCountBig = takosloMemory3.firstHitCountBig
+        takoslo.firstHitCountReg = takosloMemory3.firstHitCountReg
+        takoslo.screenCount1 = takosloMemory3.screenCount1
+        takoslo.screenCount2 = takosloMemory3.screenCount2
+        takoslo.screenCountSum = takosloMemory3.screenCountSum
     }
 }
 

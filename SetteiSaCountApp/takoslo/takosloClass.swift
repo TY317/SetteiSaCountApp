@@ -104,18 +104,66 @@ class Takoslo: ObservableObject {
 
 
 class TakosloMemory1: ObservableObject {
+    @AppStorage("takosloKoyakuCountPlumMemory1") var koyakuCountPlum: Int = 0
+    @AppStorage("takosloKoyakuCountSuikaMemory1") var koyakuCountSuika: Int = 0
+    @AppStorage("takosloKoyakuCountCherryMemory1") var koyakuCountCherry: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaAMemory1") var koyakuDetailCountSuikaA: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaBMemory1") var koyakuDetailCountSuikaB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryBMemory1") var koyakuDetailCountCherryB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryCMemory1") var koyakuDetailCountCherryC: Int = 0
+    @AppStorage("takosloGameNumberStartMemory1") var gameNumberStart: Int = 0
+    @AppStorage("takosloGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
+    @AppStorage("takosloGameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("takosloNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("takosloFirstHitCountBigMemory1") var firstHitCountBig: Int = 0
+    @AppStorage("takosloFirstHitCountRegMemory1") var firstHitCountReg: Int = 0
+    @AppStorage("takosloScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("takosloScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("takosloScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("takosloMemoMemory1") var memo = ""
     @AppStorage("takosloDateMemory1") var dateDouble = 0.0
 }
 
 
 class TakosloMemory2: ObservableObject {
+    @AppStorage("takosloKoyakuCountPlumMemory2") var koyakuCountPlum: Int = 0
+    @AppStorage("takosloKoyakuCountSuikaMemory2") var koyakuCountSuika: Int = 0
+    @AppStorage("takosloKoyakuCountCherryMemory2") var koyakuCountCherry: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaAMemory2") var koyakuDetailCountSuikaA: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaBMemory2") var koyakuDetailCountSuikaB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryBMemory2") var koyakuDetailCountCherryB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryCMemory2") var koyakuDetailCountCherryC: Int = 0
+    @AppStorage("takosloGameNumberStartMemory2") var gameNumberStart: Int = 0
+    @AppStorage("takosloGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
+    @AppStorage("takosloGameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("takosloNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("takosloFirstHitCountBigMemory2") var firstHitCountBig: Int = 0
+    @AppStorage("takosloFirstHitCountRegMemory2") var firstHitCountReg: Int = 0
+    @AppStorage("takosloScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("takosloScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("takosloScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("takosloMemoMemory2") var memo = ""
     @AppStorage("takosloDateMemory2") var dateDouble = 0.0
 }
 
 
 class TakosloMemory3: ObservableObject {
+    @AppStorage("takosloKoyakuCountPlumMemory3") var koyakuCountPlum: Int = 0
+    @AppStorage("takosloKoyakuCountSuikaMemory3") var koyakuCountSuika: Int = 0
+    @AppStorage("takosloKoyakuCountCherryMemory3") var koyakuCountCherry: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaAMemory3") var koyakuDetailCountSuikaA: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaBMemory3") var koyakuDetailCountSuikaB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryBMemory3") var koyakuDetailCountCherryB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryCMemory3") var koyakuDetailCountCherryC: Int = 0
+    @AppStorage("takosloGameNumberStartMemory3") var gameNumberStart: Int = 0
+    @AppStorage("takosloGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
+    @AppStorage("takosloGameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("takosloNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("takosloFirstHitCountBigMemory3") var firstHitCountBig: Int = 0
+    @AppStorage("takosloFirstHitCountRegMemory3") var firstHitCountReg: Int = 0
+    @AppStorage("takosloScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("takosloScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("takosloScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("takosloMemoMemory3") var memo = ""
     @AppStorage("takosloDateMemory3") var dateDouble = 0.0
 }
