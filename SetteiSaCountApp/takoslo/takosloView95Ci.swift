@@ -74,6 +74,86 @@ struct takosloView95Ci: View {
             )
             .tag(3)
 
+            // スイカA回数
+            unitListSection95Ci(
+                grafTitle: "スイカA回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuDetailCountSuikaA,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuDetailSuikaA[0],
+                        setting2Denominate: takoslo.ratioKoyakuDetailSuikaA[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuDetailSuikaA[2],
+                        setting6Denominate: takoslo.ratioKoyakuDetailSuikaA[3]
+                    )
+                )
+            )
+            .tag(4)
+
+            // スイカB回数
+            unitListSection95Ci(
+                grafTitle: "スイカB回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuDetailCountSuikaB,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuDetailSuikaB[0],
+                        setting2Denominate: takoslo.ratioKoyakuDetailSuikaB[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuDetailSuikaB[2],
+                        setting6Denominate: takoslo.ratioKoyakuDetailSuikaB[3]
+                    )
+                )
+            )
+            .tag(5)
+
+            // チェリーB回数
+            unitListSection95Ci(
+                grafTitle: "チェリーB回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuDetailCountCherryB,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuDetailCherryB[0],
+                        setting2Denominate: takoslo.ratioKoyakuDetailCherryB[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuDetailCherryB[2],
+                        setting6Denominate: takoslo.ratioKoyakuDetailCherryB[3]
+                    )
+                )
+            )
+            .tag(6)
+
+            // チェリーC回数
+            unitListSection95Ci(
+                grafTitle: "チェリーC回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $takoslo.koyakuDetailCountCherryC,
+                        bigNumber: $takoslo.gameNumberPlay,
+                        setting1Denominate: takoslo.ratioKoyakuDetailCherryC[0],
+                        setting2Denominate: takoslo.ratioKoyakuDetailCherryC[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Enable: false,
+                        setting4Denominate: -1,
+                        setting5Denominate: takoslo.ratioKoyakuDetailCherryC[2],
+                        setting6Denominate: takoslo.ratioKoyakuDetailCherryC[3]
+                    )
+                )
+            )
+            .tag(7)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

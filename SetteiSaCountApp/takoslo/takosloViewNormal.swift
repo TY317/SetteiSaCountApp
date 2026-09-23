@@ -135,12 +135,138 @@ struct takosloViewNormal: View {
                             )
                         )
                     )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        takosloViewBayes(
+                            takoslo: takoslo,
+                        )
+                    }
                 } label: {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
                 }
             } header: {
                 Text("小役")
+            }
+
+            // ---- 小役詳細
+            Section {
+                // スイカA確率
+                unitResultRatioDenomination2Line(
+                    title: "スイカA確率",
+                    count: $takoslo.koyakuDetailCountSuikaA,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // スイカB確率
+                unitResultRatioDenomination2Line(
+                    title: "スイカB確率",
+                    count: $takoslo.koyakuDetailCountSuikaB,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // チェリーB確率
+                unitResultRatioDenomination2Line(
+                    title: "チェリーB確率",
+                    count: $takoslo.koyakuDetailCountCherryB,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // チェリーC確率
+                unitResultRatioDenomination2Line(
+                    title: "チェリーC確率",
+                    count: $takoslo.koyakuDetailCountCherryC,
+                    bigNumber: $takoslo.gameNumberPlay,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）小役詳細
+                unitLinkButtonViewBuilder(sheetTitle: "小役詳細") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,5,6])
+                        unitTableDenominate(
+                            columTitle: "スイカA",
+                            denominateList: takoslo.ratioKoyakuDetailSuikaA,
+                            numberofDicimal: 0,
+                        )
+                        unitTableDenominate(
+                            columTitle: "スイカB",
+                            denominateList: takoslo.ratioKoyakuDetailSuikaB,
+                            numberofDicimal: 0,
+                        )
+                        unitTableDenominate(
+                            columTitle: "チェリーB",
+                            denominateList: takoslo.ratioKoyakuDetailCherryB,
+                            numberofDicimal: 0,
+                        )
+                        unitTableDenominate(
+                            columTitle: "チェリーC",
+                            denominateList: takoslo.ratioKoyakuDetailCherryC,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // スイカA
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "スイカA",
+                            count: $takoslo.koyakuDetailCountSuikaA,
+                            color: .personalSummerLightGreen,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                        // スイカB
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "スイカB",
+                            count: $takoslo.koyakuDetailCountSuikaB,
+                            color: .green,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                        // チェリーB
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "チェリーB",
+                            count: $takoslo.koyakuDetailCountCherryB,
+                            color: .personalSummerLightRed,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                        // チェリーC
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "チェリーC",
+                            count: $takoslo.koyakuDetailCountCherryC,
+                            color: .red,
+                            minusBool: $takoslo.minusCheck) {
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            takosloView95Ci(
+                                takoslo: takoslo,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        takosloViewBayes(
+                            takoslo: takoslo,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("小役詳細")
             }
         }
         // //// バッジのリセット

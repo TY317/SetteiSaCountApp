@@ -20,6 +20,14 @@ class Takoslo: ObservableObject {
     @AppStorage("takosloKoyakuCountPlum") var koyakuCountPlum: Int = 0
     @AppStorage("takosloKoyakuCountSuika") var koyakuCountSuika: Int = 0
     @AppStorage("takosloKoyakuCountCherry") var koyakuCountCherry: Int = 0
+    let ratioKoyakuDetailSuikaA: [Double] = [66.6,62.4,58.8,55.5]
+    let ratioKoyakuDetailSuikaB: [Double] = [601.2,565.0,541.6,504.1]
+    let ratioKoyakuDetailCherryB: [Double] = [136.5,126.0,117.0,109.2]
+    let ratioKoyakuDetailCherryC: [Double] = [32.3,30.9,29.7,28.5]
+    @AppStorage("takosloKoyakuDetailCountSuikaA") var koyakuDetailCountSuikaA: Int = 0
+    @AppStorage("takosloKoyakuDetailCountSuikaB") var koyakuDetailCountSuikaB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryB") var koyakuDetailCountCherryB: Int = 0
+    @AppStorage("takosloKoyakuDetailCountCherryC") var koyakuDetailCountCherryC: Int = 0
     @AppStorage("takosloGameNumberStart") var gameNumberStart: Int = 0
     @AppStorage("takosloGameNumberCurrent") var gameNumberCurrent: Int = 0
     @AppStorage("takosloGameNumberPlay") var gameNumberPlay: Int = 0
@@ -28,6 +36,10 @@ class Takoslo: ObservableObject {
         koyakuCountPlum = 0
         koyakuCountSuika = 0
         koyakuCountCherry = 0
+        koyakuDetailCountSuikaA = 0
+        koyakuDetailCountSuikaB = 0
+        koyakuDetailCountCherryB = 0
+        koyakuDetailCountCherryC = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
