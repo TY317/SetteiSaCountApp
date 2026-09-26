@@ -508,6 +508,7 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5065": return AnyView(kanokariViewTop())
         case "5049": return AnyView(takosloViewTop())
         case "5064": return AnyView(aobutaViewTop())
         case "5033": return AnyView(ricoricoViewTop())

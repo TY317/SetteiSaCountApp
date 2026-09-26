@@ -18,7 +18,7 @@ struct tipVer480UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・タコスロ")
+        Text("・タコスロ\n・彼女、お借りします")
     }
     var image: Image? {
         Image(systemName: "star")

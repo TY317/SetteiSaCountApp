@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5065", name: "かのかり", fullName: "彼女、お借りします", iconName: "kanokariMachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5049", name: "タコスロ", fullName: "タコスロ", iconName: "takosloMachineIcon", btBadge: true, maker: "UNIVERSAL"),
         Machine(id: "5064", name: "青ブタ", fullName: "青春ブタ野郎はバニーガール先輩の夢を見ない", iconName: "aobutaMachineIcon", btBadge: false, maker: "平和"),
         Machine(id: "5033", name: "リコリコ", fullName: "リコリス・リコイル", iconName: "ricoricoMachineIcon", btBadge: false, maker: "サミー"),
@@ -368,6 +369,12 @@ class commonVar: ObservableObject {
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
     @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
 
+    // ---- 彼女、お借りします
+    @AppStorage("kanokariMenuNormalBadge") var kanokariMenuNormalBadge: String = "none"
+    @AppStorage("kanokariMenuFirstHitBadge") var kanokariMenuFirstHitBadge: String = "none"
+    @AppStorage("kanokariMenuBayesBadge") var kanokariMenuBayesBadge: String = "none"
+    @AppStorage("kanokariMenuScreenBadge") var kanokariMenuScreenBadge: String = "none"
+    
     // ---- タコスロ
     @AppStorage("takosloMenuNormalBadge") var takosloMenuNormalBadge: String = "none"
     @AppStorage("takosloMenuFirstHitBadge") var takosloMenuFirstHitBadge: String = "none"
@@ -830,6 +837,8 @@ class commonVar: ObservableObject {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5049", newStatus: "new")
+                machines.updateMachineBadgeStatus(id: "5065", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5065", isUnlocked: false)
                 machines.updateMachineIsUnlocked(id: "5049", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
