@@ -37,6 +37,21 @@ struct kanokariViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- モード
+            Section {
+                // 参考情報）抽選タイミングごとのモード分布
+                unitLinkButtonViewBuilder(sheetTitle: "モード移行期待度") {
+                    kanokariTableModeMove()
+                }
+
+                // 参考情報）モードごとのCZ当選率
+                unitLinkButtonViewBuilder(sheetTitle: "ゲーム数 CZ当選率テーブル") {
+                    kanokariTableModeTable()
+                }
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kanokariMenuNormalBadge)
