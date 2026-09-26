@@ -43,6 +43,17 @@ struct kanokariViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: kanokariViewScreen(
+                        kanokari: kanokari,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.kanokariMenuScreenBadge,
+                        )
+                    }
+
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: kanokari.machineName,
@@ -62,15 +73,15 @@ struct kanokariViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: kanokariViewBayes(
-//                    kanokari: kanokari,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.kanokariMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: kanokariViewBayes(
+                    kanokari: kanokari,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.kanokariMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5065")
