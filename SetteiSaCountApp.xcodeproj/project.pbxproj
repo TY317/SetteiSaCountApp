@@ -582,6 +582,7 @@
 		0F6BD7BC2D79D424003F5563 /* arifureViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7BB2D79D424003F5563 /* arifureViewEnding.swift */; };
 		0F6BD7BE2D7BC1F9003F5563 /* sbjViewGameStageChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7BD2D7BC1F9003F5563 /* sbjViewGameStageChange.swift */; };
 		0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7BF2D7C27EA003F5563 /* unitTablePercent.swift */; };
+		ABCF8757B4BC435AAB403941 /* unitTablePercentVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADB1B8EA0D4D3CA6057B92 /* unitTablePercentVer2.swift */; };
 		0F6BD7C22D7C350B003F5563 /* unitTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C12D7C350B003F5563 /* unitTableString.swift */; };
 		0F6BD7C42D7C37C0003F5563 /* unitTableSettingIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C32D7C37C0003F5563 /* unitTableSettingIndex.swift */; };
 		0F6BD7C62D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C52D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift */; };
@@ -1098,6 +1099,7 @@
 		0FA0A7E32EF96BD3003EF8BD /* vvv2TableScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E12EF96BCA003EF8BD /* vvv2TableScreenRatio.swift */; };
 		0FA0A7E42EF96C34003EF8BD /* unitTableSettingIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C32D7C37C0003F5563 /* unitTableSettingIndex.swift */; };
 		0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7BF2D7C27EA003F5563 /* unitTablePercent.swift */; };
+		CE0D22BC7AA446C68FB0E433 /* unitTablePercentVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ADB1B8EA0D4D3CA6057B92 /* unitTablePercentVer2.swift */; };
 		0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BD7C12D7C350B003F5563 /* unitTableString.swift */; };
 		0FA0A7E82EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
 		0FA0A7E92EF973F5003EF8BD /* vvv2TableRushScreenRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0A7E72EF973EE003EF8BD /* vvv2TableRushScreenRatio.swift */; };
@@ -2350,6 +2352,7 @@
 		0F6BD7BB2D79D424003F5563 /* arifureViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arifureViewEnding.swift; sourceTree = "<group>"; };
 		0F6BD7BD2D7BC1F9003F5563 /* sbjViewGameStageChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjViewGameStageChange.swift; sourceTree = "<group>"; };
 		0F6BD7BF2D7C27EA003F5563 /* unitTablePercent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTablePercent.swift; sourceTree = "<group>"; };
+		76ADB1B8EA0D4D3CA6057B92 /* unitTablePercentVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTablePercentVer2.swift; sourceTree = "<group>"; };
 		0F6BD7C12D7C350B003F5563 /* unitTableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTableString.swift; sourceTree = "<group>"; };
 		0F6BD7C32D7C37C0003F5563 /* unitTableSettingIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTableSettingIndex.swift; sourceTree = "<group>"; };
 		0F6BD7C52D7C5CA7003F5563 /* sbjSubViewTableGameChangeRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjSubViewTableGameChangeRatio.swift; sourceTree = "<group>"; };
@@ -5031,6 +5034,7 @@
 				0FF156132D60BF9000B17F83 /* unitLinkSectionDMM.swift */,
 				0FF156202D69618E00B17F83 /* unitPickerMenuString.swift */,
 				0F6BD7BF2D7C27EA003F5563 /* unitTablePercent.swift */,
+				76ADB1B8EA0D4D3CA6057B92 /* unitTablePercentVer2.swift */,
 				0F6BD7C12D7C350B003F5563 /* unitTableString.swift */,
 				0F6BD7C32D7C37C0003F5563 /* unitTableSettingIndex.swift */,
 				0F6BD7E12D831C05003F5563 /* unitTableDenominate.swift */,
@@ -8000,6 +8004,7 @@
 				0FDE0F2E2F307E5300B1DA18 /* enen2ViewScreen.swift in Sources */,
 				0FDF238D2E58992D00249CAC /* unitNaviLinkBayes.swift in Sources */,
 				0F6BD7C02D7C27EA003F5563 /* unitTablePercent.swift in Sources */,
+				ABCF8757B4BC435AAB403941 /* unitTablePercentVer2.swift in Sources */,
 				0F19D4422F2D77D3004A6D9F /* unitLabelCautionText.swift in Sources */,
 				0FB683F52EEE820200B92C3F /* hihodenTableKoyakuPattern.swift in Sources */,
 				0F20204E2F4DD92200FDA263 /* gobsla2ViewKabuto.swift in Sources */,
@@ -8297,6 +8302,7 @@
 				0FA0A7E62EF96CFC003EF8BD /* unitTableString.swift in Sources */,
 				0F19D44D2F2D9594004A6D9F /* tekken6Class.swift in Sources */,
 				0FA0A7E52EF96C43003EF8BD /* unitTablePercent.swift in Sources */,
+				CE0D22BC7AA446C68FB0E433 /* unitTablePercentVer2.swift in Sources */,
 				0F447C752F4AC7EE006DAF11 /* kokakukidotaiTableAfterAt.swift in Sources */,
 				0F2020592F4F2F2E00FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */,
 				0FD974DF2F41588D0067CED7 /* kokakukidotaiSubViewCzScreen.swift in Sources */,

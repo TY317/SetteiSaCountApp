@@ -20,35 +20,17 @@ struct kanokariTableModeTable: View {
                     "900G",
                 ]
             )
-            unitTableString(
+            unitTablePercentVer2(
                 columTitle: "モード1",
-                stringList: [
-                    "10.2%",
-                    "10.2%",
-                    "濃厚",
-                    "10.2%",
-                    "10.2%",
-                ]
+                percentList: [10.2,10.2,1000,10.2,10.2],
             )
-            unitTableString(
+            unitTablePercentVer2(
                 columTitle: "モード2",
-                stringList: [
-                    "30.1%",
-                    "40.2%",
-                    "濃厚",
-                    "30.1%",
-                    "30.1%",
-                ]
+                percentList: [30.1,40.2,1000,30.1,30.1],
             )
-            unitTableString(
+            unitTablePercentVer2(
                 columTitle: "モード3",
-                stringList: [
-                    "濃厚",
-                    "30.1%",
-                    "30.1%",
-                    "濃厚",
-                    "30.1%",
-                ]
+                percentList: [1000,30.1,30.1,1000,30.1],
             )
         }
     }
