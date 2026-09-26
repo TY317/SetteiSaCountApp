@@ -325,6 +325,8 @@
 		0F45A6142F0944140022E355 /* mushotenSectionEndingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */; };
 		0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
 		0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */; };
+		43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */; };
+		E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */; };
 		0F461F852F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F862F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */; };
 		0F461F8B2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F461F8A2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift */; };
@@ -2141,6 +2143,7 @@
 		0F45A6102F0943890022E355 /* mushotenViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenViewEnding.swift; sourceTree = "<group>"; };
 		0F45A6122F09440A0022E355 /* mushotenSectionEndingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushotenSectionEndingTable.swift; sourceTree = "<group>"; };
 		0F461F812F93273800F6B6A1 /* godKisekiKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiKoyakuPattern.swift; sourceTree = "<group>"; };
+		DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kanokariTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		0F461F842F932EBD00F6B6A1 /* godKisekiTableModeGaiyo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableModeGaiyo.swift; sourceTree = "<group>"; };
 		0F461F8A2F9332C500F6B6A1 /* godKisekiNaviModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiNaviModeSisa.swift; sourceTree = "<group>"; };
 		0F461F8D2F93336A00F6B6A1 /* godKisekiTableDeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = godKisekiTableDeme.swift; sourceTree = "<group>"; };
@@ -6268,6 +6271,7 @@
 				33436C80F81D42E79C8C0A2A /* kanokariViewTop.swift */,
 				3CF55229ACE24DE2B89866F1 /* kanokariClass.swift */,
 				0C815708D6974370BBBD770D /* kanokariViewNormal.swift */,
+				DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */,
 				8729259D3E60456CAA6DABB5 /* kanokariViewBayes.swift */,
 				EED05ED679664A6A8F764E93 /* kanokariViewScreen.swift */,
 				B096B2CFEE8A4293BDF4F8B5 /* kanokariViewFirstHit.swift */,
@@ -7239,6 +7243,7 @@
 				0FD357262DA0F0630069BD1A /* shamanKingViewCzFuriwake.swift in Sources */,
 				0F6FB8FE2DE8909D00207855 /* rezero2TableKiteiPtRatio.swift in Sources */,
 				0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */,
 				ED72F5F313BB43D5864C9711 /* gareiTableKoyakuPattern.swift in Sources */,
 				DDAC4C76D0C84F198B325AB1 /* tonskillTableKoyakuPattern.swift in Sources */,
 				352BF2F6BE5D4C659D7CF478 /* yajikitaTableKoyakuPattern.swift in Sources */,
@@ -8354,6 +8359,7 @@
 				0F3759EC2F7C0A3600982F7A /* shinYoshiTableMode.swift in Sources */,
 				0F00FBF02FB04C210076283F /* rioAceTableVBellSystem.swift in Sources */,
 				0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
+				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
 				0A90FE0685C54E79B51946E6 /* tonskillTableKoyakuPattern.swift in Sources */,
 				FCA2BC42D8534E9D8DBA7858 /* yajikitaTableKoyakuPattern.swift in Sources */,
