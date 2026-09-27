@@ -43,6 +43,17 @@ struct kanokariViewTop: View {
                         )
                     }
 
+                    // RB中
+                    NavigationLink(destination: kanokariViewDuringRb(
+                        kanokari: kanokari,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "person.2.fill",
+                            textBody: "RB中",
+                            badgeStatus: common.kanokariMenuDuringRbBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: kanokariViewScreen(
                         kanokari: kanokari,
@@ -64,7 +75,7 @@ struct kanokariViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: kanokariView95Ci(
                     kanokari: kanokari,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

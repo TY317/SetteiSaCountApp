@@ -13,6 +13,8 @@ struct kanokariViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.7, 98.7, 101.0, 105.5, 110.4, 114.9]
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
 
     // 全機種共通
@@ -41,6 +43,12 @@ struct kanokariViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+
+                // CZ確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ確率")
+
+                // 初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "初当り確率")
 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -117,6 +125,26 @@ struct kanokariViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // CZ確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: kanokari.ratioFirstHitCz,
+                Count: kanokari.firstHitCountCz,
+                bigNumber: kanokari.normalGame
+            )
+        }
+
+        // 初当り確率
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitBonusEnable {
+            logPostFirstHitBonus = logPostDenoBino(
+                ratio: kanokari.ratioFirstHitBonus,
+                Count: kanokari.firstHitCountBonus,
+                bigNumber: kanokari.normalGame
+            )
+        }
+
         // 終了画面
         // 確定系（赤枠／紫枠／銀枠／金枠）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -151,6 +179,8 @@ struct kanokariViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
+            logPostFirstHitBonus,
             logPostScreen,
             logPostTrophy,
             logPostBefore,

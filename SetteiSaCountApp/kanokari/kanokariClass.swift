@@ -21,8 +21,16 @@ class Kanokari: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [172,169,164,154,151,149]
+    let ratioFirstHitBonus: [Double] = [269,263,254,235,231,226]
+    @AppStorage("kanokariNormalGame") var normalGame: Int = 0
+    @AppStorage("kanokariFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("kanokariFirstHitCountBonus") var firstHitCountBonus: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountCz = 0
+        firstHitCountBonus = 0
         minusCheck = false
     }
 
@@ -66,6 +74,45 @@ class Kanokari: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // シナリオ選択
+    // -------
+    @AppStorage("kanokariCharaSenarioCount1") var charaSenarioCount1: Int = 0
+    @AppStorage("kanokariCharaSenarioCount2") var charaSenarioCount2: Int = 0
+    @AppStorage("kanokariCharaSenarioCount3") var charaSenarioCount3: Int = 0
+    @AppStorage("kanokariCharaSenarioCount4") var charaSenarioCount4: Int = 0
+    @AppStorage("kanokariCharaSenarioCount5") var charaSenarioCount5: Int = 0
+    @AppStorage("kanokariCharaSenarioCount6") var charaSenarioCount6: Int = 0
+    @AppStorage("kanokariCharaSenarioCount7") var charaSenarioCount7: Int = 0
+    @AppStorage("kanokariCharaSenarioCount8") var charaSenarioCount8: Int = 0
+    @AppStorage("kanokariCharaSenarioCountSum") var charaSenarioCountSum: Int = 0
+
+    func charaSenarioSumFunc() {
+        charaSenarioCountSum = countSum(
+            charaSenarioCount1,
+            charaSenarioCount2,
+            charaSenarioCount3,
+            charaSenarioCount4,
+            charaSenarioCount5,
+            charaSenarioCount6,
+            charaSenarioCount7,
+            charaSenarioCount8,
+        )
+    }
+
+    func resetCharaSenario() {
+        charaSenarioCount1 = 0
+        charaSenarioCount2 = 0
+        charaSenarioCount3 = 0
+        charaSenarioCount4 = 0
+        charaSenarioCount5 = 0
+        charaSenarioCount6 = 0
+        charaSenarioCount7 = 0
+        charaSenarioCount8 = 0
+        charaSenarioCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -77,6 +124,7 @@ class Kanokari: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetCharaSenario()
     }
 }
 

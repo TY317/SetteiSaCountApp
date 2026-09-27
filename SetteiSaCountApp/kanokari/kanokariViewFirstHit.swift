@@ -28,7 +28,67 @@ struct kanokariViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $kanokari.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // CZ
+                unitCountButtonVerticalDenominate(
+                    title: "CZ",
+                    count: $kanokari.firstHitCountCz,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $kanokari.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $kanokari.minusCheck
+                )
+                // 初当り
+                unitCountButtonVerticalDenominate(
+                    title: "初当り",
+                    count: $kanokari.firstHitCountBonus,
+                    color: .personalSummerLightRed,
+                    bigNumber: $kanokari.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $kanokari.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "CZ",
+                        denominateList: kanokari.ratioFirstHitCz
+                    )
+                    unitTableDenominate(
+                        columTitle: "初当り",
+                        denominateList: kanokari.ratioFirstHitBonus
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    kanokariView95Ci(
+                        kanokari: kanokari,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                kanokariViewBayes(
+                    kanokari: kanokari,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kanokariMenuFirstHitBadge)
@@ -64,6 +124,17 @@ struct kanokariViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: kanokari.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

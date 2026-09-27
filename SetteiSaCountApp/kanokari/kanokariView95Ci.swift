@@ -14,60 +14,41 @@ struct kanokariView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $kanokari.otomeAttackHit,
-//                        bigNumber: $kanokari.otomeAttackSum,
-//                        setting1Percent: kanokari.ratioOtomeAttack[0],
-//                        setting2Percent: kanokari.ratioOtomeAttack[1],
-//                        setting3Percent: kanokari.ratioOtomeAttack[2],
-//                        setting4Percent: kanokari.ratioOtomeAttack[3],
-//                        setting5Percent: kanokari.ratioOtomeAttack[4],
-//                        setting6Percent: kanokari.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kanokari.firstHitCountCz,
-//                        bigNumber: $kanokari.normalGame,
-//                        setting1Denominate: kanokari.ratioFirstHitCz[0],
-//                        setting2Denominate: kanokari.ratioFirstHitCz[1],
-//                        setting3Denominate: kanokari.ratioFirstHitCz[2],
-//                        setting4Denominate: kanokari.ratioFirstHitCz[3],
-//                        setting5Denominate: kanokari.ratioFirstHitCz[4],
-//                        setting6Denominate: kanokari.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $kanokari.firstHitCountAt,
-//                        bigNumber: $kanokari.normalGame,
-//                        setting1Denominate: kanokari.ratioFirstHitAt[0],
-//                        setting2Denominate: kanokari.ratioFirstHitAt[1],
-//                        setting3Denominate: kanokari.ratioFirstHitAt[2],
-//                        setting4Denominate: kanokari.ratioFirstHitAt[3],
-//                        setting5Denominate: kanokari.ratioFirstHitAt[4],
-//                        setting6Denominate: kanokari.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // CZ回数
+            unitListSection95Ci(
+                grafTitle: "CZ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kanokari.firstHitCountCz,
+                        bigNumber: $kanokari.normalGame,
+                        setting1Denominate: kanokari.ratioFirstHitCz[0],
+                        setting2Denominate: kanokari.ratioFirstHitCz[1],
+                        setting3Denominate: kanokari.ratioFirstHitCz[2],
+                        setting4Denominate: kanokari.ratioFirstHitCz[3],
+                        setting5Denominate: kanokari.ratioFirstHitCz[4],
+                        setting6Denominate: kanokari.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // 初当り回数
+            unitListSection95Ci(
+                grafTitle: "初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $kanokari.firstHitCountBonus,
+                        bigNumber: $kanokari.normalGame,
+                        setting1Denominate: kanokari.ratioFirstHitBonus[0],
+                        setting2Denominate: kanokari.ratioFirstHitBonus[1],
+                        setting3Denominate: kanokari.ratioFirstHitBonus[2],
+                        setting4Denominate: kanokari.ratioFirstHitBonus[3],
+                        setting5Denominate: kanokari.ratioFirstHitBonus[4],
+                        setting6Denominate: kanokari.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {
