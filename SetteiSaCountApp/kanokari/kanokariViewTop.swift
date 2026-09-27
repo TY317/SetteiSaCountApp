@@ -76,6 +76,17 @@ struct kanokariViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: kanokariViewEnding(
+                        kanokari: kanokari,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.kanokariMenuEndingBadge,
+                        )
+                    }
+
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: kanokari.machineName,

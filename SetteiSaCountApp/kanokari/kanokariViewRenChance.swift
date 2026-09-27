@@ -67,7 +67,7 @@ struct kanokariViewRenChance: View {
                         kanokari.koryakuCharaSumFunc()
                     }
             } header: {
-                Text("キャラ選択")
+                Text("キャラ順選択")
             }
 
             // カウント結果
