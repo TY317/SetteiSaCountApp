@@ -49,6 +49,130 @@ struct sencole6ViewDuringAt: View {
     
     var body: some View {
         List {
+            // ---- 天魔一閃 上乗せ枚数
+            Section {
+                // 300枚
+                unitResultRatioPercent2Line(
+                    title: "300枚",
+                    count: $sencole6.tenmaIssenCount300,
+                    bigNumber: $sencole6.tenmaIssenCountSum,
+                    numberofDicimal: 1
+                )
+                .popoverTip(tipVer480Sencole6TenmaIssen())
+
+                // 550枚
+                unitResultRatioPercent2Line(
+                    title: "550枚",
+                    count: $sencole6.tenmaIssenCount550,
+                    bigNumber: $sencole6.tenmaIssenCountSum,
+                    numberofDicimal: 1
+                )
+
+                // 800枚
+                unitResultRatioPercent2Line(
+                    title: "800枚",
+                    count: $sencole6.tenmaIssenCount800,
+                    bigNumber: $sencole6.tenmaIssenCountSum,
+                    numberofDicimal: 1
+                )
+
+                // 1050枚
+                unitResultRatioPercent2Line(
+                    title: "1050枚",
+                    count: $sencole6.tenmaIssenCount1050,
+                    bigNumber: $sencole6.tenmaIssenCountSum,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）天魔一閃 上乗せ枚数
+                unitLinkButtonViewBuilder(sheetTitle: "天魔一閃 上乗せ枚数") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "300枚",
+                            percentList: sencole6.ratioTenmaIssen300,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "550枚",
+                            percentList: sencole6.ratioTenmaIssen550,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "800枚",
+                            percentList: sencole6.ratioTenmaIssen800,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "1050枚",
+                            percentList: sencole6.ratioTenmaIssen1050,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 300枚
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "300枚",
+                            count: $sencole6.tenmaIssenCount300,
+                            color: .personalSummerLightBlue,
+                            minusBool: $sencole6.minusCheck) {
+                                sencole6.tenmaIssenSumFunc()
+                            }
+                        // 550枚
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "550枚",
+                            count: $sencole6.tenmaIssenCount550,
+                            color: .personalSpringLightYellow,
+                            minusBool: $sencole6.minusCheck) {
+                                sencole6.tenmaIssenSumFunc()
+                            }
+                        // 800枚
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "800枚",
+                            count: $sencole6.tenmaIssenCount800,
+                            color: .personalSummerLightGreen,
+                            minusBool: $sencole6.minusCheck) {
+                                sencole6.tenmaIssenSumFunc()
+                            }
+                        // 1050枚
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "1050枚",
+                            count: $sencole6.tenmaIssenCount1050,
+                            color: .personalSummerLightRed,
+                            minusBool: $sencole6.minusCheck) {
+                                sencole6.tenmaIssenSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            sencole6View95Ci(
+                                sencole6: sencole6,
+                                selection: 3,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        sencole6ViewBayes(
+                            sencole6: sencole6,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("天魔一閃 上乗せ枚数")
+            }
+
             // セット開始画面
             Section {
                 Text("下記画面はいずれもシナリオ12かつ特定設定以上濃厚")
@@ -109,6 +233,16 @@ struct sencole6ViewDuringAt: View {
             lazyVGridCountPortrait: self.lazyVGridCountPortrait,
             lazyVGridCountLandscape: self.lazyVGridCountLandscape
         )
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                // //// マイナスチェック
+                unitButtonMinusCheck(minusCheck: $sencole6.minusCheck)
+            }
+            ToolbarItem(placement: .automatic) {
+                // /// リセット
+                unitButtonReset(isShowAlert: $isShowAlert, action: sencole6.resetDuringAt)
+            }
+        }
     }
 }
 

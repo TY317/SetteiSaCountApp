@@ -845,6 +845,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5049", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5053", newStatus: "update")
                 index2MenuScreenBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5010", newStatus: "update")
+                sencole6MenuDuringAtBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

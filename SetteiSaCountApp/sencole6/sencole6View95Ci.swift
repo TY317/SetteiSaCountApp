@@ -68,6 +68,78 @@ struct sencole6View95Ci: View {
                 )
             )
             .tag(2)
+
+            // 天魔一閃 300枚
+            unitListSection95Ci(
+                grafTitle: "天魔一閃\n300枚",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sencole6.tenmaIssenCount300,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        setting1Percent: sencole6.ratioTenmaIssen300[0],
+                        setting2Percent: sencole6.ratioTenmaIssen300[1],
+                        setting3Percent: sencole6.ratioTenmaIssen300[2],
+                        setting4Percent: sencole6.ratioTenmaIssen300[3],
+                        setting5Percent: sencole6.ratioTenmaIssen300[4],
+                        setting6Percent: sencole6.ratioTenmaIssen300[5]
+                    )
+                )
+            )
+            .tag(3)
+
+            // 天魔一閃 550枚
+            unitListSection95Ci(
+                grafTitle: "天魔一閃\n550枚",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sencole6.tenmaIssenCount550,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        setting1Percent: sencole6.ratioTenmaIssen550[0],
+                        setting2Percent: sencole6.ratioTenmaIssen550[1],
+                        setting3Percent: sencole6.ratioTenmaIssen550[2],
+                        setting4Percent: sencole6.ratioTenmaIssen550[3],
+                        setting5Percent: sencole6.ratioTenmaIssen550[4],
+                        setting6Percent: sencole6.ratioTenmaIssen550[5]
+                    )
+                )
+            )
+            .tag(4)
+
+            // 天魔一閃 800枚
+            unitListSection95Ci(
+                grafTitle: "天魔一閃\n800枚",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sencole6.tenmaIssenCount800,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        setting1Percent: sencole6.ratioTenmaIssen800[0],
+                        setting2Percent: sencole6.ratioTenmaIssen800[1],
+                        setting3Percent: sencole6.ratioTenmaIssen800[2],
+                        setting4Percent: sencole6.ratioTenmaIssen800[3],
+                        setting5Percent: sencole6.ratioTenmaIssen800[4],
+                        setting6Percent: sencole6.ratioTenmaIssen800[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // 天魔一閃 1050枚
+            unitListSection95Ci(
+                grafTitle: "天魔一閃\n1050枚",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sencole6.tenmaIssenCount1050,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        setting1Percent: sencole6.ratioTenmaIssen1050[0],
+                        setting2Percent: sencole6.ratioTenmaIssen1050[1],
+                        setting3Percent: sencole6.ratioTenmaIssen1050[2],
+                        setting4Percent: sencole6.ratioTenmaIssen1050[3],
+                        setting5Percent: sencole6.ratioTenmaIssen1050[4],
+                        setting6Percent: sencole6.ratioTenmaIssen1050[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

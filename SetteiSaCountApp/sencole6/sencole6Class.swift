@@ -67,6 +67,37 @@ class Sencole6: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // AT中
+    // -------
+    let ratioTenmaIssen300: [Double] = [40.2,39.5,37.8,29.5,24.7,20.2]
+    let ratioTenmaIssen550: [Double] = [14.8,13.7,12.8,9.5,7.9,6.5]
+    let ratioTenmaIssen800: [Double] = [9.8,9.9,9.2,7.3,6.2,5.1]
+    let ratioTenmaIssen1050: [Double] = [35.2,36.9,40.2,53.7,61.2,68.2]
+    @AppStorage("sencole6TenmaIssenCount300") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSum") var tenmaIssenCountSum: Int = 0
+
+    func tenmaIssenSumFunc() {
+        tenmaIssenCountSum = countSum(
+            tenmaIssenCount300,
+            tenmaIssenCount550,
+            tenmaIssenCount800,
+            tenmaIssenCount1050,
+        )
+    }
+
+    func resetDuringAt() {
+        tenmaIssenCount300 = 0
+        tenmaIssenCount550 = 0
+        tenmaIssenCount800 = 0
+        tenmaIssenCount1050 = 0
+        tenmaIssenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -78,6 +109,7 @@ class Sencole6: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetDuringAt()
     }
 }
 

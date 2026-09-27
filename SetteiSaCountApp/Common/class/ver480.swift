@@ -56,3 +56,19 @@ struct tipVer480Index2Screen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：戦国コレクション6 天魔一閃 上乗せ枚数
+//////////////////
+struct tipVer480Sencole6TenmaIssen: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("天魔一閃の上乗せ枚数のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
