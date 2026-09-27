@@ -168,7 +168,8 @@ struct kabaneriUnatoViewTop: View {
             }
         }
         // //// バッジのリセット
-        .resetBadgeOnAppear($common.kabaneriUnatoMachineIconBadge)
+//        .resetBadgeOnAppear($common.kabaneriUnatoMachineIconBadge)
+        .resetMachineBadgeOnAppear(machines: $common.machines, targetId: "4930")
         // //// firebaseログ
         .onAppear {
             let screenClass = String(describing: Self.self)
