@@ -141,6 +141,46 @@ description: 既存ページに判別要素のカウントセクションを1つ
 - **方式B・C**：`HStack` 内のボタンは1個、クロージャは空 `{ }`（`SumFunc` が無いので呼ばない）。
 - **ボタンのクロージャで `SumFunc()` を呼ぶのは方式Aだけ。** ここを忘れると `CountSum` が更新されず、結果表示も 95Ci も常に 0 のままになる。
 
+### 3b. 超高頻度で成立する要素は DisclosureGroup を使わない（例外レイアウト）
+
+**方式C（分母がゲーム数）で、確率の分母が 1/10 前後以下の超高頻度の小役**（例：ベル・プラム・ぶどう等。同じセクションに並べる他の小役も含めてまとめて）は、1ゲームごとに押すことになるので、毎回 DisclosureGroup を開く手間が大きい。この場合は次の形にする。参考実装：`takosloViewNormal`（小役・小役詳細）。
+
+- **DisclosureGroup を使わない**。カウントボタンをセクション内に常時表示する。
+- ボタンは `unitCountButtonDenominateWithFunc`（ボタン上に確率を表示する版。`bigNumber:` にゲーム数、`numberofDicimal:` を渡す）。確率はボタン上に出るので、**`unitResultRatioDenomination2Line` の結果行は置かない**。
+- 並び順：カウントボタン（HStack）→ 参考情報（`unitLinkButtonViewBuilder`）→ 95Ci リンク → 設定期待値リンク。
+- **ゲーム数入力（打ち始め／現在／プレイ数）はカウントセクションから外し、独立した「ゲーム数入力」セクションにする**（複数のカウントセクションで共有するため）。このときキーボードを閉じる `ToolbarItem(placement: .keyboard)` の「完了」ボタンをツールバーに入れる（add-firsthit の手順3b と同じ）。
+
+```swift
+            // ---- <セクション名>
+            Section {
+                // カウントボタン横並び（常時表示）
+                HStack {
+                    // <ラベル>
+                    unitCountButtonDenominateWithFunc(
+                        title: "<ラベル>",
+                        count: $<prefix>.<element>Count,
+                        color: <色>,
+                        bigNumber: $<prefix>.gameNumberPlay,
+                        numberofDicimal: <桁数>,
+                        minusBool: $<prefix>.minusCheck) {
+                        }
+                }
+
+                // 参考情報）<セクション名>
+                unitLinkButtonViewBuilder(sheetTitle: "<セクション名>") { … }
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci( … )
+
+                // //// 設定期待値へのリンク（全設定判明時のみ）
+                unitNaviLinkBayes { … }
+            } header: {
+                Text("<セクション名>")
+            }
+```
+
+判断に迷う頻度（1/10〜1/20 程度）の場合はユーザーに確認する。それより低頻度の要素（レア役・CZ・初当り等）は通常どおり手順3の DisclosureGroup レイアウト。
+
 **ページのツールバー**：そのページに `unitButtonMinusCheck` / `unitButtonReset` がまだ無ければ追加する（`add-page` のスケルトンはツールバー無しで生成される）：
 
 ```swift
@@ -202,6 +242,7 @@ description: 既存ページに判別要素のカウントセクションを1つ
 ## 注意
 
 - **結果表示と参考情報は常時表示、カウントボタン・リンク類は DisclosureGroup に隠す。** これが現行の既定レイアウト。古い機種には全部展開しているものもあるが真似しない。
+  - **例外：分母が 1/10 前後以下の超高頻度の小役は DisclosureGroup を使わない**（手順3b）。毎ゲーム押すボタンを畳むと操作が煩わしいため。
 - **`-1` は「非公開」の意味**で、テーブルでは「?」と表示される（`unitTableDenominate` / `unitTablePercent` が対応済み）。0 は「-」表示なので混同しない。
 - 変数名は `ratio<Element>` / `<element>Count*` / `<element>SumFunc()` で統一する。同一機種内で `<Element>` が衝突しないよう、ページ名を含めた名前にする（例 `CzRangeki`）。
 - メモリー同期（Memory1/2/3 への反映）は本スキルのスコープ外＝別途 `sync-memory`。
