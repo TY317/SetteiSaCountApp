@@ -24,6 +24,7 @@ struct ricoricoViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var commonBellEnable: Bool = true
+    @State var henkan150GEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -49,6 +50,9 @@ struct ricoricoViewBayes: View {
             bayesSubStep2Section {
                 // 共通ベル確率
                 unitToggleWithQuestion(enable: self.$commonBellEnable, title: "共通ベル確率")
+
+                // 150G 変換高確移行
+                unitToggleWithQuestion(enable: self.$henkan150GEnable, title: "150G 変換高確移行")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
@@ -160,6 +164,16 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 150G 変換高確移行
+        var logPostHenkan150G: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.henkan150GEnable {
+            logPostHenkan150G = logPostPercentBino(
+                ratio: ricorico.ratioHenkan150G,
+                Count: ricorico.henkan150GCountHit,
+                bigNumber: ricorico.henkan150GCountSum
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -230,6 +244,7 @@ struct ricoricoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostCommonBell,
+            logPostHenkan150G,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,

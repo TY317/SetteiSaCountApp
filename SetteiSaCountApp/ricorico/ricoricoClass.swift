@@ -21,8 +21,20 @@ class Ricorico: ObservableObject {
     @AppStorage("ricoricoGameNumberCurrent") var gameNumberCurrent: Int = 0
     @AppStorage("ricoricoGameNumberPlay") var gameNumberPlay: Int = 0
 
+    let ratioHenkan150G: [Double] = [50.0,50.0,50.0,54.7,58.6,62.5]
+    @AppStorage("ricoricoHenkan150GCountMiss") var henkan150GCountMiss: Int = 0
+    @AppStorage("ricoricoHenkan150GCountHit") var henkan150GCountHit: Int = 0
+    @AppStorage("ricoricoHenkan150GCountSum") var henkan150GCountSum: Int = 0
+
+    func henkan150GSumFunc() {
+        henkan150GCountSum = henkan150GCountHit + henkan150GCountMiss
+    }
+
     func resetNormal() {
         commonBellCount = 0
+        henkan150GCountMiss = 0
+        henkan150GCountHit = 0
+        henkan150GCountSum = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0

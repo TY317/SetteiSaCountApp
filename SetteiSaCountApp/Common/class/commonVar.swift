@@ -847,6 +847,8 @@ class commonVar: ObservableObject {
                 index2MenuScreenBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5010", newStatus: "update")
                 sencole6MenuDuringAtBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5033", newStatus: "update")
+                ricoricoMenuNormalBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

@@ -112,6 +112,75 @@ struct ricoricoViewNormal: View {
             } header: {
                 Text("共通ベル")
             }
+
+            // ---- 150G 変換高確移行
+            Section {
+                // 移行率
+                unitResultRatioPercent2Line(
+                    title: "移行率",
+                    count: $ricorico.henkan150GCountHit,
+                    bigNumber: $ricorico.henkan150GCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer480RicoricoHenkan150G())
+
+                // 参考情報）150G 変換高確移行
+                unitLinkButtonViewBuilder(sheetTitle: "150G 変換高確移行") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "移行率",
+                            percentList: ricorico.ratioHenkan150G,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 移行なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行なし",
+                            count: $ricorico.henkan150GCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $ricorico.minusCheck) {
+                                ricorico.henkan150GSumFunc()
+                            }
+                        // 移行あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行あり",
+                            count: $ricorico.henkan150GCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $ricorico.minusCheck) {
+                                ricorico.henkan150GSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ricoricoView95Ci(
+                                ricorico: ricorico,
+                                selection: 5,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ricoricoViewBayes(
+                            ricorico: ricorico,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("150G 変換高確移行")
+            }
             
             // レア役
             Section {

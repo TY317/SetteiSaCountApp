@@ -67,6 +67,24 @@ struct ricoricoView95Ci: View {
                 )
             )
             .tag(4)
+
+            // 150G 変換高確移行
+            unitListSection95Ci(
+                grafTitle: "150G 変換高確移行",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.henkan150GCountHit,
+                        bigNumber: $ricorico.henkan150GCountSum,
+                        setting1Percent: ricorico.ratioHenkan150G[0],
+                        setting2Percent: ricorico.ratioHenkan150G[1],
+                        setting3Percent: ricorico.ratioHenkan150G[2],
+                        setting4Percent: ricorico.ratioHenkan150G[3],
+                        setting5Percent: ricorico.ratioHenkan150G[4],
+                        setting6Percent: ricorico.ratioHenkan150G[5]
+                    )
+                )
+            )
+            .tag(5)
         }
         // //// firebaseログ
         .onAppear {

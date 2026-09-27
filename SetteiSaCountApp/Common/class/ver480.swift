@@ -72,3 +72,19 @@ struct tipVer480Sencole6TenmaIssen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リコリス・リコイル 150G 変換高確移行
+//////////////////
+struct tipVer480RicoricoHenkan150G: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("150Gでの変換高確移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
