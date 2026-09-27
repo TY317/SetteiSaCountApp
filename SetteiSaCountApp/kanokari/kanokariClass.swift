@@ -113,6 +113,27 @@ class Kanokari: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // キャラ選択（1Gレンチャンス）
+    // -------
+    @AppStorage("kanokariKoryakuCharaCount1") var koryakuCharaCount1: Int = 0   // 偶数設定示唆
+    @AppStorage("kanokariKoryakuCharaCount2") var koryakuCharaCount2: Int = 0   // 奇数設定示唆
+    @AppStorage("kanokariKoryakuCharaCountSum") var koryakuCharaCountSum: Int = 0
+
+    func koryakuCharaSumFunc() {
+        koryakuCharaCountSum = countSum(
+            koryakuCharaCount1,
+            koryakuCharaCount2,
+        )
+    }
+
+    func resetKoryakuChara() {
+        koryakuCharaCount1 = 0
+        koryakuCharaCount2 = 0
+        koryakuCharaCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -125,6 +146,7 @@ class Kanokari: ObservableObject {
         resetFirstHit()
         resetScreen()
         resetCharaSenario()
+        resetKoryakuChara()
     }
 }
 

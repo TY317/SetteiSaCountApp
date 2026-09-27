@@ -375,6 +375,7 @@ class commonVar: ObservableObject {
     @AppStorage("kanokariMenuBayesBadge") var kanokariMenuBayesBadge: String = "none"
     @AppStorage("kanokariMenuScreenBadge") var kanokariMenuScreenBadge: String = "none"
     @AppStorage("kanokariMenuDuringRbBadge") var kanokariMenuDuringRbBadge: String = "none"
+    @AppStorage("kanokariMenuRenChanceBadge") var kanokariMenuRenChanceBadge: String = "none"
     
     // ---- タコスロ
     @AppStorage("takosloMenuNormalBadge") var takosloMenuNormalBadge: String = "none"

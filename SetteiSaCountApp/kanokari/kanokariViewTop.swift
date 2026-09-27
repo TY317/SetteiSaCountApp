@@ -65,6 +65,17 @@ struct kanokariViewTop: View {
                         )
                     }
 
+                    // 1Gレンチャンス
+                    NavigationLink(destination: kanokariViewRenChance(
+                        kanokari: kanokari,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "1.circle.fill",
+                            textBody: "1Gレンチャンス",
+                            badgeStatus: common.kanokariMenuRenChanceBadge,
+                        )
+                    }
+
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: kanokari.machineName,
