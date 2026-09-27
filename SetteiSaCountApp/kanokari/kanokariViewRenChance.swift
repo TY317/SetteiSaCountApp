@@ -48,6 +48,11 @@ struct kanokariViewRenChance: View {
         List {
             // キャラ選択
             Section {
+                // 注意書き
+                unitLabelCautionText {
+                    Text("・4人攻略後は基本的に次のシナリオが選ばれるため、初回シナリオのみカウント対象")
+                    Text("・攻略後に同じシナリオが連続で選ばれたら設定5以上濃厚")
+                }
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in

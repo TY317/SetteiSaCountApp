@@ -152,18 +152,87 @@ class Kanokari: ObservableObject {
 
 
 class KanokariMemory1: ObservableObject {
+    @AppStorage("kanokariNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("kanokariFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("kanokariFirstHitCountBonusMemory1") var firstHitCountBonus: Int = 0
+    @AppStorage("kanokariScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("kanokariScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("kanokariScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("kanokariScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("kanokariScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("kanokariScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("kanokariScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("kanokariScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("kanokariCharaSenarioCount1Memory1") var charaSenarioCount1: Int = 0
+    @AppStorage("kanokariCharaSenarioCount2Memory1") var charaSenarioCount2: Int = 0
+    @AppStorage("kanokariCharaSenarioCount3Memory1") var charaSenarioCount3: Int = 0
+    @AppStorage("kanokariCharaSenarioCount4Memory1") var charaSenarioCount4: Int = 0
+    @AppStorage("kanokariCharaSenarioCount5Memory1") var charaSenarioCount5: Int = 0
+    @AppStorage("kanokariCharaSenarioCount6Memory1") var charaSenarioCount6: Int = 0
+    @AppStorage("kanokariCharaSenarioCount7Memory1") var charaSenarioCount7: Int = 0
+    @AppStorage("kanokariCharaSenarioCount8Memory1") var charaSenarioCount8: Int = 0
+    @AppStorage("kanokariCharaSenarioCountSumMemory1") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount1Memory1") var koryakuCharaCount1: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount2Memory1") var koryakuCharaCount2: Int = 0
+    @AppStorage("kanokariKoryakuCharaCountSumMemory1") var koryakuCharaCountSum: Int = 0
     @AppStorage("kanokariMemoMemory1") var memo = ""
     @AppStorage("kanokariDateMemory1") var dateDouble = 0.0
 }
 
 
 class KanokariMemory2: ObservableObject {
+    @AppStorage("kanokariNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("kanokariFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("kanokariFirstHitCountBonusMemory2") var firstHitCountBonus: Int = 0
+    @AppStorage("kanokariScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("kanokariScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("kanokariScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("kanokariScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("kanokariScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("kanokariScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("kanokariScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("kanokariScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("kanokariCharaSenarioCount1Memory2") var charaSenarioCount1: Int = 0
+    @AppStorage("kanokariCharaSenarioCount2Memory2") var charaSenarioCount2: Int = 0
+    @AppStorage("kanokariCharaSenarioCount3Memory2") var charaSenarioCount3: Int = 0
+    @AppStorage("kanokariCharaSenarioCount4Memory2") var charaSenarioCount4: Int = 0
+    @AppStorage("kanokariCharaSenarioCount5Memory2") var charaSenarioCount5: Int = 0
+    @AppStorage("kanokariCharaSenarioCount6Memory2") var charaSenarioCount6: Int = 0
+    @AppStorage("kanokariCharaSenarioCount7Memory2") var charaSenarioCount7: Int = 0
+    @AppStorage("kanokariCharaSenarioCount8Memory2") var charaSenarioCount8: Int = 0
+    @AppStorage("kanokariCharaSenarioCountSumMemory2") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount1Memory2") var koryakuCharaCount1: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount2Memory2") var koryakuCharaCount2: Int = 0
+    @AppStorage("kanokariKoryakuCharaCountSumMemory2") var koryakuCharaCountSum: Int = 0
     @AppStorage("kanokariMemoMemory2") var memo = ""
     @AppStorage("kanokariDateMemory2") var dateDouble = 0.0
 }
 
 
 class KanokariMemory3: ObservableObject {
+    @AppStorage("kanokariNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("kanokariFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("kanokariFirstHitCountBonusMemory3") var firstHitCountBonus: Int = 0
+    @AppStorage("kanokariScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("kanokariScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("kanokariScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("kanokariScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("kanokariScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("kanokariScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("kanokariScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("kanokariScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("kanokariCharaSenarioCount1Memory3") var charaSenarioCount1: Int = 0
+    @AppStorage("kanokariCharaSenarioCount2Memory3") var charaSenarioCount2: Int = 0
+    @AppStorage("kanokariCharaSenarioCount3Memory3") var charaSenarioCount3: Int = 0
+    @AppStorage("kanokariCharaSenarioCount4Memory3") var charaSenarioCount4: Int = 0
+    @AppStorage("kanokariCharaSenarioCount5Memory3") var charaSenarioCount5: Int = 0
+    @AppStorage("kanokariCharaSenarioCount6Memory3") var charaSenarioCount6: Int = 0
+    @AppStorage("kanokariCharaSenarioCount7Memory3") var charaSenarioCount7: Int = 0
+    @AppStorage("kanokariCharaSenarioCount8Memory3") var charaSenarioCount8: Int = 0
+    @AppStorage("kanokariCharaSenarioCountSumMemory3") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount1Memory3") var koryakuCharaCount1: Int = 0
+    @AppStorage("kanokariKoryakuCharaCount2Memory3") var koryakuCharaCount2: Int = 0
+    @AppStorage("kanokariKoryakuCharaCountSumMemory3") var koryakuCharaCountSum: Int = 0
     @AppStorage("kanokariMemoMemory3") var memo = ""
     @AppStorage("kanokariDateMemory3") var dateDouble = 0.0
 }

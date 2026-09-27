@@ -198,13 +198,79 @@ struct kanokariSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        kanokariMemory1.normalGame = kanokari.normalGame
+        kanokariMemory1.firstHitCountCz = kanokari.firstHitCountCz
+        kanokariMemory1.firstHitCountBonus = kanokari.firstHitCountBonus
+        kanokariMemory1.screenCount1 = kanokari.screenCount1
+        kanokariMemory1.screenCount2 = kanokari.screenCount2
+        kanokariMemory1.screenCount3 = kanokari.screenCount3
+        kanokariMemory1.screenCount4 = kanokari.screenCount4
+        kanokariMemory1.screenCount5 = kanokari.screenCount5
+        kanokariMemory1.screenCount6 = kanokari.screenCount6
+        kanokariMemory1.screenCount7 = kanokari.screenCount7
+        kanokariMemory1.screenCountSum = kanokari.screenCountSum
+        kanokariMemory1.charaSenarioCount1 = kanokari.charaSenarioCount1
+        kanokariMemory1.charaSenarioCount2 = kanokari.charaSenarioCount2
+        kanokariMemory1.charaSenarioCount3 = kanokari.charaSenarioCount3
+        kanokariMemory1.charaSenarioCount4 = kanokari.charaSenarioCount4
+        kanokariMemory1.charaSenarioCount5 = kanokari.charaSenarioCount5
+        kanokariMemory1.charaSenarioCount6 = kanokari.charaSenarioCount6
+        kanokariMemory1.charaSenarioCount7 = kanokari.charaSenarioCount7
+        kanokariMemory1.charaSenarioCount8 = kanokari.charaSenarioCount8
+        kanokariMemory1.charaSenarioCountSum = kanokari.charaSenarioCountSum
+        kanokariMemory1.koryakuCharaCount1 = kanokari.koryakuCharaCount1
+        kanokariMemory1.koryakuCharaCount2 = kanokari.koryakuCharaCount2
+        kanokariMemory1.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
     }
     func saveMemory2() {
-
+        kanokariMemory2.normalGame = kanokari.normalGame
+        kanokariMemory2.firstHitCountCz = kanokari.firstHitCountCz
+        kanokariMemory2.firstHitCountBonus = kanokari.firstHitCountBonus
+        kanokariMemory2.screenCount1 = kanokari.screenCount1
+        kanokariMemory2.screenCount2 = kanokari.screenCount2
+        kanokariMemory2.screenCount3 = kanokari.screenCount3
+        kanokariMemory2.screenCount4 = kanokari.screenCount4
+        kanokariMemory2.screenCount5 = kanokari.screenCount5
+        kanokariMemory2.screenCount6 = kanokari.screenCount6
+        kanokariMemory2.screenCount7 = kanokari.screenCount7
+        kanokariMemory2.screenCountSum = kanokari.screenCountSum
+        kanokariMemory2.charaSenarioCount1 = kanokari.charaSenarioCount1
+        kanokariMemory2.charaSenarioCount2 = kanokari.charaSenarioCount2
+        kanokariMemory2.charaSenarioCount3 = kanokari.charaSenarioCount3
+        kanokariMemory2.charaSenarioCount4 = kanokari.charaSenarioCount4
+        kanokariMemory2.charaSenarioCount5 = kanokari.charaSenarioCount5
+        kanokariMemory2.charaSenarioCount6 = kanokari.charaSenarioCount6
+        kanokariMemory2.charaSenarioCount7 = kanokari.charaSenarioCount7
+        kanokariMemory2.charaSenarioCount8 = kanokari.charaSenarioCount8
+        kanokariMemory2.charaSenarioCountSum = kanokari.charaSenarioCountSum
+        kanokariMemory2.koryakuCharaCount1 = kanokari.koryakuCharaCount1
+        kanokariMemory2.koryakuCharaCount2 = kanokari.koryakuCharaCount2
+        kanokariMemory2.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
     }
     func saveMemory3() {
-
+        kanokariMemory3.normalGame = kanokari.normalGame
+        kanokariMemory3.firstHitCountCz = kanokari.firstHitCountCz
+        kanokariMemory3.firstHitCountBonus = kanokari.firstHitCountBonus
+        kanokariMemory3.screenCount1 = kanokari.screenCount1
+        kanokariMemory3.screenCount2 = kanokari.screenCount2
+        kanokariMemory3.screenCount3 = kanokari.screenCount3
+        kanokariMemory3.screenCount4 = kanokari.screenCount4
+        kanokariMemory3.screenCount5 = kanokari.screenCount5
+        kanokariMemory3.screenCount6 = kanokari.screenCount6
+        kanokariMemory3.screenCount7 = kanokari.screenCount7
+        kanokariMemory3.screenCountSum = kanokari.screenCountSum
+        kanokariMemory3.charaSenarioCount1 = kanokari.charaSenarioCount1
+        kanokariMemory3.charaSenarioCount2 = kanokari.charaSenarioCount2
+        kanokariMemory3.charaSenarioCount3 = kanokari.charaSenarioCount3
+        kanokariMemory3.charaSenarioCount4 = kanokari.charaSenarioCount4
+        kanokariMemory3.charaSenarioCount5 = kanokari.charaSenarioCount5
+        kanokariMemory3.charaSenarioCount6 = kanokari.charaSenarioCount6
+        kanokariMemory3.charaSenarioCount7 = kanokari.charaSenarioCount7
+        kanokariMemory3.charaSenarioCount8 = kanokari.charaSenarioCount8
+        kanokariMemory3.charaSenarioCountSum = kanokari.charaSenarioCountSum
+        kanokariMemory3.koryakuCharaCount1 = kanokari.koryakuCharaCount1
+        kanokariMemory3.koryakuCharaCount2 = kanokari.koryakuCharaCount2
+        kanokariMemory3.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
     }
 }
 
@@ -236,13 +302,79 @@ struct kanokariSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        kanokari.normalGame = kanokariMemory1.normalGame
+        kanokari.firstHitCountCz = kanokariMemory1.firstHitCountCz
+        kanokari.firstHitCountBonus = kanokariMemory1.firstHitCountBonus
+        kanokari.screenCount1 = kanokariMemory1.screenCount1
+        kanokari.screenCount2 = kanokariMemory1.screenCount2
+        kanokari.screenCount3 = kanokariMemory1.screenCount3
+        kanokari.screenCount4 = kanokariMemory1.screenCount4
+        kanokari.screenCount5 = kanokariMemory1.screenCount5
+        kanokari.screenCount6 = kanokariMemory1.screenCount6
+        kanokari.screenCount7 = kanokariMemory1.screenCount7
+        kanokari.screenCountSum = kanokariMemory1.screenCountSum
+        kanokari.charaSenarioCount1 = kanokariMemory1.charaSenarioCount1
+        kanokari.charaSenarioCount2 = kanokariMemory1.charaSenarioCount2
+        kanokari.charaSenarioCount3 = kanokariMemory1.charaSenarioCount3
+        kanokari.charaSenarioCount4 = kanokariMemory1.charaSenarioCount4
+        kanokari.charaSenarioCount5 = kanokariMemory1.charaSenarioCount5
+        kanokari.charaSenarioCount6 = kanokariMemory1.charaSenarioCount6
+        kanokari.charaSenarioCount7 = kanokariMemory1.charaSenarioCount7
+        kanokari.charaSenarioCount8 = kanokariMemory1.charaSenarioCount8
+        kanokari.charaSenarioCountSum = kanokariMemory1.charaSenarioCountSum
+        kanokari.koryakuCharaCount1 = kanokariMemory1.koryakuCharaCount1
+        kanokari.koryakuCharaCount2 = kanokariMemory1.koryakuCharaCount2
+        kanokari.koryakuCharaCountSum = kanokariMemory1.koryakuCharaCountSum
     }
     func loadMemory2() {
-
+        kanokari.normalGame = kanokariMemory2.normalGame
+        kanokari.firstHitCountCz = kanokariMemory2.firstHitCountCz
+        kanokari.firstHitCountBonus = kanokariMemory2.firstHitCountBonus
+        kanokari.screenCount1 = kanokariMemory2.screenCount1
+        kanokari.screenCount2 = kanokariMemory2.screenCount2
+        kanokari.screenCount3 = kanokariMemory2.screenCount3
+        kanokari.screenCount4 = kanokariMemory2.screenCount4
+        kanokari.screenCount5 = kanokariMemory2.screenCount5
+        kanokari.screenCount6 = kanokariMemory2.screenCount6
+        kanokari.screenCount7 = kanokariMemory2.screenCount7
+        kanokari.screenCountSum = kanokariMemory2.screenCountSum
+        kanokari.charaSenarioCount1 = kanokariMemory2.charaSenarioCount1
+        kanokari.charaSenarioCount2 = kanokariMemory2.charaSenarioCount2
+        kanokari.charaSenarioCount3 = kanokariMemory2.charaSenarioCount3
+        kanokari.charaSenarioCount4 = kanokariMemory2.charaSenarioCount4
+        kanokari.charaSenarioCount5 = kanokariMemory2.charaSenarioCount5
+        kanokari.charaSenarioCount6 = kanokariMemory2.charaSenarioCount6
+        kanokari.charaSenarioCount7 = kanokariMemory2.charaSenarioCount7
+        kanokari.charaSenarioCount8 = kanokariMemory2.charaSenarioCount8
+        kanokari.charaSenarioCountSum = kanokariMemory2.charaSenarioCountSum
+        kanokari.koryakuCharaCount1 = kanokariMemory2.koryakuCharaCount1
+        kanokari.koryakuCharaCount2 = kanokariMemory2.koryakuCharaCount2
+        kanokari.koryakuCharaCountSum = kanokariMemory2.koryakuCharaCountSum
     }
     func loadMemory3() {
-
+        kanokari.normalGame = kanokariMemory3.normalGame
+        kanokari.firstHitCountCz = kanokariMemory3.firstHitCountCz
+        kanokari.firstHitCountBonus = kanokariMemory3.firstHitCountBonus
+        kanokari.screenCount1 = kanokariMemory3.screenCount1
+        kanokari.screenCount2 = kanokariMemory3.screenCount2
+        kanokari.screenCount3 = kanokariMemory3.screenCount3
+        kanokari.screenCount4 = kanokariMemory3.screenCount4
+        kanokari.screenCount5 = kanokariMemory3.screenCount5
+        kanokari.screenCount6 = kanokariMemory3.screenCount6
+        kanokari.screenCount7 = kanokariMemory3.screenCount7
+        kanokari.screenCountSum = kanokariMemory3.screenCountSum
+        kanokari.charaSenarioCount1 = kanokariMemory3.charaSenarioCount1
+        kanokari.charaSenarioCount2 = kanokariMemory3.charaSenarioCount2
+        kanokari.charaSenarioCount3 = kanokariMemory3.charaSenarioCount3
+        kanokari.charaSenarioCount4 = kanokariMemory3.charaSenarioCount4
+        kanokari.charaSenarioCount5 = kanokariMemory3.charaSenarioCount5
+        kanokari.charaSenarioCount6 = kanokariMemory3.charaSenarioCount6
+        kanokari.charaSenarioCount7 = kanokariMemory3.charaSenarioCount7
+        kanokari.charaSenarioCount8 = kanokariMemory3.charaSenarioCount8
+        kanokari.charaSenarioCountSum = kanokariMemory3.charaSenarioCountSum
+        kanokari.koryakuCharaCount1 = kanokariMemory3.koryakuCharaCount1
+        kanokari.koryakuCharaCount2 = kanokariMemory3.koryakuCharaCount2
+        kanokari.koryakuCharaCountSum = kanokariMemory3.koryakuCharaCountSum
     }
 }
 
