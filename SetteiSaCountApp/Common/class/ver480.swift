@@ -88,3 +88,19 @@ struct tipVer480RicoricoHenkan150G: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リコリス・リコイル AT中エピソードの示唆
+//////////////////
+struct tipVer480RicoricoEpisode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("EP3・EP4の示唆内容を更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
