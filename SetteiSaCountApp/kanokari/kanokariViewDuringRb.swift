@@ -52,6 +52,13 @@ struct kanokariViewDuringRb: View {
         List {
             // シナリオ選択
             Section {
+                VStack(alignment: .leading) {
+                    Text("・下記以外のシナリオもあり（詳細調査中）")
+                    Text("・肺魚は登場順に注目!?炎炎のまもるくんに近いのかも")
+                }
+                .foregroundStyle(Color.secondary)
+                .font(.caption)
+                
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
                     ForEach(self.selectList, id: \.self) { item in
