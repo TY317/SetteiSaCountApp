@@ -125,6 +125,11 @@ class Sencole6Memory1: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory1") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory1") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory1") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory1") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory1") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory1") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory1") var memo = ""
     @AppStorage("sencole6DateMemory1") var dateDouble = 0.0
 }
@@ -141,6 +146,11 @@ class Sencole6Memory2: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory2") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory2") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory2") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory2") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory2") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory2") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory2") var memo = ""
     @AppStorage("sencole6DateMemory2") var dateDouble = 0.0
 }
@@ -157,6 +167,11 @@ class Sencole6Memory3: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory3") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory3") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory3") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory3") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory3") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory3") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory3") var memo = ""
     @AppStorage("sencole6DateMemory3") var dateDouble = 0.0
 }
