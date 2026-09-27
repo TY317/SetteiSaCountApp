@@ -212,6 +212,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory1.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory1.wScreenCountSum = ricorico.wScreenCountSum
         ricoricoMemory1.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory1.henkan150GCountMiss = ricorico.henkan150GCountMiss
+        ricoricoMemory1.henkan150GCountHit = ricorico.henkan150GCountHit
+        ricoricoMemory1.henkan150GCountSum = ricorico.henkan150GCountSum
         ricoricoMemory1.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory1.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory1.gameNumberPlay = ricorico.gameNumberPlay
@@ -249,6 +252,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory2.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory2.wScreenCountSum = ricorico.wScreenCountSum
         ricoricoMemory2.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory2.henkan150GCountMiss = ricorico.henkan150GCountMiss
+        ricoricoMemory2.henkan150GCountHit = ricorico.henkan150GCountHit
+        ricoricoMemory2.henkan150GCountSum = ricorico.henkan150GCountSum
         ricoricoMemory2.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory2.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory2.gameNumberPlay = ricorico.gameNumberPlay
@@ -286,6 +292,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory3.wScreenCount6 = ricorico.wScreenCount6
         ricoricoMemory3.wScreenCountSum = ricorico.wScreenCountSum
         ricoricoMemory3.commonBellCount = ricorico.commonBellCount
+        ricoricoMemory3.henkan150GCountMiss = ricorico.henkan150GCountMiss
+        ricoricoMemory3.henkan150GCountHit = ricorico.henkan150GCountHit
+        ricoricoMemory3.henkan150GCountSum = ricorico.henkan150GCountSum
         ricoricoMemory3.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory3.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory3.gameNumberPlay = ricorico.gameNumberPlay
@@ -352,6 +361,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount6 = ricoricoMemory1.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory1.wScreenCountSum
         ricorico.commonBellCount = ricoricoMemory1.commonBellCount
+        ricorico.henkan150GCountMiss = ricoricoMemory1.henkan150GCountMiss
+        ricorico.henkan150GCountHit = ricoricoMemory1.henkan150GCountHit
+        ricorico.henkan150GCountSum = ricoricoMemory1.henkan150GCountSum
         ricorico.gameNumberStart = ricoricoMemory1.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory1.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory1.gameNumberPlay
@@ -389,6 +401,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount6 = ricoricoMemory2.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory2.wScreenCountSum
         ricorico.commonBellCount = ricoricoMemory2.commonBellCount
+        ricorico.henkan150GCountMiss = ricoricoMemory2.henkan150GCountMiss
+        ricorico.henkan150GCountHit = ricoricoMemory2.henkan150GCountHit
+        ricorico.henkan150GCountSum = ricoricoMemory2.henkan150GCountSum
         ricorico.gameNumberStart = ricoricoMemory2.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory2.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory2.gameNumberPlay
@@ -426,6 +441,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wScreenCount6 = ricoricoMemory3.wScreenCount6
         ricorico.wScreenCountSum = ricoricoMemory3.wScreenCountSum
         ricorico.commonBellCount = ricoricoMemory3.commonBellCount
+        ricorico.henkan150GCountMiss = ricoricoMemory3.henkan150GCountMiss
+        ricorico.henkan150GCountHit = ricoricoMemory3.henkan150GCountHit
+        ricorico.henkan150GCountSum = ricoricoMemory3.henkan150GCountSum
         ricorico.gameNumberStart = ricoricoMemory3.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory3.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory3.gameNumberPlay
