@@ -323,6 +323,17 @@ struct takosloViewNormal: View {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: takoslo.resetNormal)
             }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
         }
     }
 }
