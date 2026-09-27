@@ -58,9 +58,14 @@ class Index2: ObservableObject {
     // --------
     // 終了画面
     // --------
-    let ratioScreenGusu: [Double] = [0,0.1,0,0.1,0,0.1]
-    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1]
-    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1]
+    // 振り分け（%）。画面1〜7が対象。画面8〜11（残りG示唆・AT復活）は振り分けに含まれない
+    let ratioScreenKisuSisa: [Double] = [45.8,32.1,43.6,26.7,37.1,23.8]     // 当麻＆インデックス
+    let ratioScreenGusuSisa: [Double] = [37.4,39.2,35.7,32.7,30.3,29.1]     // 美琴＆黒子
+    let ratioScreenHighJaku: [Double] = [15.4,16.4,17.4,20.2,21.2,22.2]     // 打ち止め＆一方通行
+    let ratioScreenHighKyo: [Double] = [1.3,2.3,3.4,8.0,9.0,10.0]           // 番外個体＆一方通行
+    let ratioScreenGusu: [Double] = [0,10.0,0,10.0,0,10.0]                  // アリサ＆シャットアウラ
+    let ratioScreenOver4: [Double] = [0,0,0,2.4,2.4,2.4]                    // 初春＆美琴（ステージ衣装）
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,2.4]                        // ハーレム
     @AppStorage("index2ScreenCount1") var screenCount1: Int = 0
     @AppStorage("index2ScreenCount2") var screenCount2: Int = 0
     @AppStorage("index2ScreenCount3") var screenCount3: Int = 0

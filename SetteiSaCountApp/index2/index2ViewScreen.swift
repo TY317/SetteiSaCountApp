@@ -142,6 +142,14 @@ struct index2ViewScreen: View {
                         )
                     }
                 }
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    index2ViewBayes(
+                        index2: index2,
+                    )
+                }
+                .popoverTip(tipVer480Index2Screen())
             } header: {
                 unitLabelHeaderScreenCount()
             }

@@ -40,3 +40,19 @@ struct tipVer480: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：禁書目録2 終了画面の振り分け
+//////////////////
+struct tipVer480Index2Screen: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("終了画面の振り分けを追加し、設定期待値の計算に反映しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

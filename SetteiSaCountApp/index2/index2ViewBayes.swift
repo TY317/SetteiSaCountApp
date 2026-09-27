@@ -69,7 +69,8 @@ struct index2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
                         title: "AT終了画面",
-                        textBody1: "・確定系のみ反映させます",
+                        textBody1: "・振り分けが判明している7種類の画面で計算します",
+                        textBody2: "・残りG数示唆、AT復活示唆の画面は計算に含みません",
                     )
                 }
                 // エンディング セリフ
@@ -180,10 +181,32 @@ struct index2ViewBayes: View {
         // AT終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
+            // 画面1（当麻＆インデックス）は残余バケットに吸収させるため除外
+            // 画面8〜11 は振り分けの対象外なので、分母は画面1〜7の合計にする
             logPostScreen = logPostPercentMulti(
-                countList: [index2.screenCount5, index2.screenCount6, index2.screenCount7],
-                ratioList: [index2.ratioScreenGusu, index2.ratioScreenOver4, index2.ratioScreenOver6],
-                bigNumber: index2.screenCountSum
+                countList: [
+                    index2.screenCount2,
+                    index2.screenCount3,
+                    index2.screenCount4,
+                    index2.screenCount5,
+                    index2.screenCount6,
+                    index2.screenCount7,
+                ],
+                ratioList: [
+                    index2.ratioScreenGusuSisa,
+                    index2.ratioScreenHighJaku,
+                    index2.ratioScreenHighKyo,
+                    index2.ratioScreenGusu,
+                    index2.ratioScreenOver4,
+                    index2.ratioScreenOver6,
+                ],
+                bigNumber: index2.screenCount1
+                    + index2.screenCount2
+                    + index2.screenCount3
+                    + index2.screenCount4
+                    + index2.screenCount5
+                    + index2.screenCount6
+                    + index2.screenCount7
             )
         }
         // エンディング セリフ
