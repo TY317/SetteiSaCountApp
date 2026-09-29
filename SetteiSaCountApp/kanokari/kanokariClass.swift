@@ -257,6 +257,15 @@ class KanokariMemory1: ObservableObject {
     @AppStorage("kanokariKoryakuCharaCount1Memory1") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory1") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory1") var koryakuCharaCountSum: Int = 0
+    @AppStorage("kanokariEndingVoiceCount1Memory1") var endingVoiceCount1: Int = 0
+    @AppStorage("kanokariEndingVoiceCount2Memory1") var endingVoiceCount2: Int = 0
+    @AppStorage("kanokariEndingVoiceCount3Memory1") var endingVoiceCount3: Int = 0
+    @AppStorage("kanokariEndingVoiceCount4Memory1") var endingVoiceCount4: Int = 0
+    @AppStorage("kanokariEndingVoiceCount5Memory1") var endingVoiceCount5: Int = 0
+    @AppStorage("kanokariEndingVoiceCount6Memory1") var endingVoiceCount6: Int = 0
+    @AppStorage("kanokariEndingVoiceCount7Memory1") var endingVoiceCount7: Int = 0
+    @AppStorage("kanokariEndingVoiceCount8Memory1") var endingVoiceCount8: Int = 0
+    @AppStorage("kanokariEndingVoiceCountSumMemory1") var endingVoiceCountSum: Int = 0
     @AppStorage("kanokariMemoMemory1") var memo = ""
     @AppStorage("kanokariDateMemory1") var dateDouble = 0.0
 }
@@ -293,6 +302,15 @@ class KanokariMemory2: ObservableObject {
     @AppStorage("kanokariKoryakuCharaCount1Memory2") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory2") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory2") var koryakuCharaCountSum: Int = 0
+    @AppStorage("kanokariEndingVoiceCount1Memory2") var endingVoiceCount1: Int = 0
+    @AppStorage("kanokariEndingVoiceCount2Memory2") var endingVoiceCount2: Int = 0
+    @AppStorage("kanokariEndingVoiceCount3Memory2") var endingVoiceCount3: Int = 0
+    @AppStorage("kanokariEndingVoiceCount4Memory2") var endingVoiceCount4: Int = 0
+    @AppStorage("kanokariEndingVoiceCount5Memory2") var endingVoiceCount5: Int = 0
+    @AppStorage("kanokariEndingVoiceCount6Memory2") var endingVoiceCount6: Int = 0
+    @AppStorage("kanokariEndingVoiceCount7Memory2") var endingVoiceCount7: Int = 0
+    @AppStorage("kanokariEndingVoiceCount8Memory2") var endingVoiceCount8: Int = 0
+    @AppStorage("kanokariEndingVoiceCountSumMemory2") var endingVoiceCountSum: Int = 0
     @AppStorage("kanokariMemoMemory2") var memo = ""
     @AppStorage("kanokariDateMemory2") var dateDouble = 0.0
 }
@@ -329,6 +347,15 @@ class KanokariMemory3: ObservableObject {
     @AppStorage("kanokariKoryakuCharaCount1Memory3") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory3") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory3") var koryakuCharaCountSum: Int = 0
+    @AppStorage("kanokariEndingVoiceCount1Memory3") var endingVoiceCount1: Int = 0
+    @AppStorage("kanokariEndingVoiceCount2Memory3") var endingVoiceCount2: Int = 0
+    @AppStorage("kanokariEndingVoiceCount3Memory3") var endingVoiceCount3: Int = 0
+    @AppStorage("kanokariEndingVoiceCount4Memory3") var endingVoiceCount4: Int = 0
+    @AppStorage("kanokariEndingVoiceCount5Memory3") var endingVoiceCount5: Int = 0
+    @AppStorage("kanokariEndingVoiceCount6Memory3") var endingVoiceCount6: Int = 0
+    @AppStorage("kanokariEndingVoiceCount7Memory3") var endingVoiceCount7: Int = 0
+    @AppStorage("kanokariEndingVoiceCount8Memory3") var endingVoiceCount8: Int = 0
+    @AppStorage("kanokariEndingVoiceCountSumMemory3") var endingVoiceCountSum: Int = 0
     @AppStorage("kanokariMemoMemory3") var memo = ""
     @AppStorage("kanokariDateMemory3") var dateDouble = 0.0
 }

@@ -228,6 +228,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory1.koryakuCharaCount1 = kanokari.koryakuCharaCount1
         kanokariMemory1.koryakuCharaCount2 = kanokari.koryakuCharaCount2
         kanokariMemory1.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
+        kanokariMemory1.endingVoiceCount1 = kanokari.endingVoiceCount1
+        kanokariMemory1.endingVoiceCount2 = kanokari.endingVoiceCount2
+        kanokariMemory1.endingVoiceCount3 = kanokari.endingVoiceCount3
+        kanokariMemory1.endingVoiceCount4 = kanokari.endingVoiceCount4
+        kanokariMemory1.endingVoiceCount5 = kanokari.endingVoiceCount5
+        kanokariMemory1.endingVoiceCount6 = kanokari.endingVoiceCount6
+        kanokariMemory1.endingVoiceCount7 = kanokari.endingVoiceCount7
+        kanokariMemory1.endingVoiceCount8 = kanokari.endingVoiceCount8
+        kanokariMemory1.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory2() {
         kanokariMemory2.normalGame = kanokari.normalGame
@@ -260,6 +269,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory2.koryakuCharaCount1 = kanokari.koryakuCharaCount1
         kanokariMemory2.koryakuCharaCount2 = kanokari.koryakuCharaCount2
         kanokariMemory2.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
+        kanokariMemory2.endingVoiceCount1 = kanokari.endingVoiceCount1
+        kanokariMemory2.endingVoiceCount2 = kanokari.endingVoiceCount2
+        kanokariMemory2.endingVoiceCount3 = kanokari.endingVoiceCount3
+        kanokariMemory2.endingVoiceCount4 = kanokari.endingVoiceCount4
+        kanokariMemory2.endingVoiceCount5 = kanokari.endingVoiceCount5
+        kanokariMemory2.endingVoiceCount6 = kanokari.endingVoiceCount6
+        kanokariMemory2.endingVoiceCount7 = kanokari.endingVoiceCount7
+        kanokariMemory2.endingVoiceCount8 = kanokari.endingVoiceCount8
+        kanokariMemory2.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory3() {
         kanokariMemory3.normalGame = kanokari.normalGame
@@ -292,6 +310,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory3.koryakuCharaCount1 = kanokari.koryakuCharaCount1
         kanokariMemory3.koryakuCharaCount2 = kanokari.koryakuCharaCount2
         kanokariMemory3.koryakuCharaCountSum = kanokari.koryakuCharaCountSum
+        kanokariMemory3.endingVoiceCount1 = kanokari.endingVoiceCount1
+        kanokariMemory3.endingVoiceCount2 = kanokari.endingVoiceCount2
+        kanokariMemory3.endingVoiceCount3 = kanokari.endingVoiceCount3
+        kanokariMemory3.endingVoiceCount4 = kanokari.endingVoiceCount4
+        kanokariMemory3.endingVoiceCount5 = kanokari.endingVoiceCount5
+        kanokariMemory3.endingVoiceCount6 = kanokari.endingVoiceCount6
+        kanokariMemory3.endingVoiceCount7 = kanokari.endingVoiceCount7
+        kanokariMemory3.endingVoiceCount8 = kanokari.endingVoiceCount8
+        kanokariMemory3.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
 }
 
@@ -353,6 +380,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.koryakuCharaCount1 = kanokariMemory1.koryakuCharaCount1
         kanokari.koryakuCharaCount2 = kanokariMemory1.koryakuCharaCount2
         kanokari.koryakuCharaCountSum = kanokariMemory1.koryakuCharaCountSum
+        kanokari.endingVoiceCount1 = kanokariMemory1.endingVoiceCount1
+        kanokari.endingVoiceCount2 = kanokariMemory1.endingVoiceCount2
+        kanokari.endingVoiceCount3 = kanokariMemory1.endingVoiceCount3
+        kanokari.endingVoiceCount4 = kanokariMemory1.endingVoiceCount4
+        kanokari.endingVoiceCount5 = kanokariMemory1.endingVoiceCount5
+        kanokari.endingVoiceCount6 = kanokariMemory1.endingVoiceCount6
+        kanokari.endingVoiceCount7 = kanokariMemory1.endingVoiceCount7
+        kanokari.endingVoiceCount8 = kanokariMemory1.endingVoiceCount8
+        kanokari.endingVoiceCountSum = kanokariMemory1.endingVoiceCountSum
     }
     func loadMemory2() {
         kanokari.normalGame = kanokariMemory2.normalGame
@@ -385,6 +421,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.koryakuCharaCount1 = kanokariMemory2.koryakuCharaCount1
         kanokari.koryakuCharaCount2 = kanokariMemory2.koryakuCharaCount2
         kanokari.koryakuCharaCountSum = kanokariMemory2.koryakuCharaCountSum
+        kanokari.endingVoiceCount1 = kanokariMemory2.endingVoiceCount1
+        kanokari.endingVoiceCount2 = kanokariMemory2.endingVoiceCount2
+        kanokari.endingVoiceCount3 = kanokariMemory2.endingVoiceCount3
+        kanokari.endingVoiceCount4 = kanokariMemory2.endingVoiceCount4
+        kanokari.endingVoiceCount5 = kanokariMemory2.endingVoiceCount5
+        kanokari.endingVoiceCount6 = kanokariMemory2.endingVoiceCount6
+        kanokari.endingVoiceCount7 = kanokariMemory2.endingVoiceCount7
+        kanokari.endingVoiceCount8 = kanokariMemory2.endingVoiceCount8
+        kanokari.endingVoiceCountSum = kanokariMemory2.endingVoiceCountSum
     }
     func loadMemory3() {
         kanokari.normalGame = kanokariMemory3.normalGame
@@ -417,6 +462,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.koryakuCharaCount1 = kanokariMemory3.koryakuCharaCount1
         kanokari.koryakuCharaCount2 = kanokariMemory3.koryakuCharaCount2
         kanokari.koryakuCharaCountSum = kanokariMemory3.koryakuCharaCountSum
+        kanokari.endingVoiceCount1 = kanokariMemory3.endingVoiceCount1
+        kanokari.endingVoiceCount2 = kanokariMemory3.endingVoiceCount2
+        kanokari.endingVoiceCount3 = kanokariMemory3.endingVoiceCount3
+        kanokari.endingVoiceCount4 = kanokariMemory3.endingVoiceCount4
+        kanokari.endingVoiceCount5 = kanokariMemory3.endingVoiceCount5
+        kanokari.endingVoiceCount6 = kanokariMemory3.endingVoiceCount6
+        kanokari.endingVoiceCount7 = kanokariMemory3.endingVoiceCount7
+        kanokari.endingVoiceCount8 = kanokariMemory3.endingVoiceCount8
+        kanokari.endingVoiceCountSum = kanokariMemory3.endingVoiceCountSum
     }
 }
 
