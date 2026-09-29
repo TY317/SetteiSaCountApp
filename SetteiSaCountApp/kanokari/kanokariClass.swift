@@ -165,6 +165,49 @@ class Kanokari: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // ボイス選択（エンディング）
+    // -------
+    let ratioEndingVoiceOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioEndingVoiceOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioEndingVoiceOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioEndingVoiceOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("kanokariEndingVoiceCount1") var endingVoiceCount1: Int = 0   // デフォルト
+    @AppStorage("kanokariEndingVoiceCount2") var endingVoiceCount2: Int = 0   // 高設定示唆 弱
+    @AppStorage("kanokariEndingVoiceCount3") var endingVoiceCount3: Int = 0   // 高設定示唆 中
+    @AppStorage("kanokariEndingVoiceCount4") var endingVoiceCount4: Int = 0   // 高設定示唆 強
+    @AppStorage("kanokariEndingVoiceCount5") var endingVoiceCount5: Int = 0   // 設定2 以上濃厚
+    @AppStorage("kanokariEndingVoiceCount6") var endingVoiceCount6: Int = 0   // 設定4 以上濃厚
+    @AppStorage("kanokariEndingVoiceCount7") var endingVoiceCount7: Int = 0   // 設定5 以上濃厚
+    @AppStorage("kanokariEndingVoiceCount8") var endingVoiceCount8: Int = 0   // 設定6 濃厚
+    @AppStorage("kanokariEndingVoiceCountSum") var endingVoiceCountSum: Int = 0
+
+    func endingVoiceSumFunc() {
+        endingVoiceCountSum = countSum(
+            endingVoiceCount1,
+            endingVoiceCount2,
+            endingVoiceCount3,
+            endingVoiceCount4,
+            endingVoiceCount5,
+            endingVoiceCount6,
+            endingVoiceCount7,
+            endingVoiceCount8,
+        )
+    }
+
+    func resetEndingVoice() {
+        endingVoiceCount1 = 0
+        endingVoiceCount2 = 0
+        endingVoiceCount3 = 0
+        endingVoiceCount4 = 0
+        endingVoiceCount5 = 0
+        endingVoiceCount6 = 0
+        endingVoiceCount7 = 0
+        endingVoiceCount8 = 0
+        endingVoiceCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -178,6 +221,7 @@ class Kanokari: ObservableObject {
         resetScreen()
         resetRbChara()
         resetKoryakuChara()
+        resetEndingVoice()
     }
 }
 

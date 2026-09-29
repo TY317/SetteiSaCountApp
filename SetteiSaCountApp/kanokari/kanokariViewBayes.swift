@@ -17,6 +17,7 @@ struct kanokariViewBayes: View {
     @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
+    @State var endingVoiceEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -63,6 +64,14 @@ struct kanokariViewBayes: View {
                 unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
                     unitExView5body2image(
                         title: "RB中 キャラ紹介シナリオ",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // エンディング ボイス
+                unitToggleWithQuestion(enable: self.$endingVoiceEnable, title: "エンディング ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング ボイス",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -208,6 +217,27 @@ struct kanokariViewBayes: View {
             )
         }
 
+        // エンディング ボイス
+        // 確定系（設定2・4・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostEndingVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingVoiceEnable {
+            logPostEndingVoice = logPostPercentMulti(
+                countList: [
+                    kanokari.endingVoiceCount5,
+                    kanokari.endingVoiceCount6,
+                    kanokari.endingVoiceCount7,
+                    kanokari.endingVoiceCount8,
+                ],
+                ratioList: [
+                    kanokari.ratioEndingVoiceOver2,
+                    kanokari.ratioEndingVoiceOver4,
+                    kanokari.ratioEndingVoiceOver5,
+                    kanokari.ratioEndingVoiceOver6,
+                ],
+                bigNumber: kanokari.endingVoiceCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -225,6 +255,7 @@ struct kanokariViewBayes: View {
             logPostFirstHitBonus,
             logPostScreen,
             logPostRbChara,
+            logPostEndingVoice,
             logPostTrophy,
             logPostBefore,
         ])
