@@ -16,6 +16,7 @@ struct kanokariViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var rbCharaEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -54,6 +55,14 @@ struct kanokariViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // RB中 キャラ紹介シナリオ
+                unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
+                    unitExView5body2image(
+                        title: "RB中 キャラ紹介シナリオ",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -166,6 +175,39 @@ struct kanokariViewBayes: View {
             )
         }
 
+        // RB中 キャラ紹介シナリオ
+        // 確定系（設定1〜5否定、設定2〜5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostRbChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rbCharaEnable {
+            logPostRbChara = logPostPercentMulti(
+                countList: [
+                    kanokari.rbCharaCountNegate1,
+                    kanokari.rbCharaCountNegate2,
+                    kanokari.rbCharaCountNegate3,
+                    kanokari.rbCharaCountNegate4,
+                    kanokari.rbCharaCountNegate5,
+                    kanokari.rbCharaCountOver2,
+                    kanokari.rbCharaCountOver3,
+                    kanokari.rbCharaCountOver4,
+                    kanokari.rbCharaCountOver5,
+                    kanokari.rbCharaCountOver6,
+                ],
+                ratioList: [
+                    kanokari.ratioRbCharaNegate1,
+                    kanokari.ratioRbCharaNegate2,
+                    kanokari.ratioRbCharaNegate3,
+                    kanokari.ratioRbCharaNegate4,
+                    kanokari.ratioRbCharaNegate5,
+                    kanokari.ratioRbCharaOver2,
+                    kanokari.ratioRbCharaOver3,
+                    kanokari.ratioRbCharaOver4,
+                    kanokari.ratioRbCharaOver5,
+                    kanokari.ratioRbCharaOver6,
+                ],
+                bigNumber: kanokari.rbCharaCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -182,6 +224,7 @@ struct kanokariViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostScreen,
+            logPostRbChara,
             logPostTrophy,
             logPostBefore,
         ])

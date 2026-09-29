@@ -26,74 +26,115 @@ struct kanokariViewDuringRb: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
-    @State var selectedItem: String = "コスプレ無し"
-    let selectList: [String] = [
-        "コスプレ無し",
-        "5人目千鶴がコスプレ",
-        "4人目墨からコスプレ",
-        "3人目瑠夏からコスプレ",
-        "2人目麻美からコスプレ",
-        "2人目麻美から水着",
-        "4人目墨のみ水着",
-        "5人目千鶴のみ水着",
+    // キャラ紹介シナリオ（1〜5人目）
+    let senarioList: [[String]] = [
+        ["和也", "麻美", "瑠夏", "墨", "千鶴"],
+        ["和也", "麻美", "瑠夏", "墨", "千鶴(コスプレ)"],
+        ["和也", "麻美", "瑠夏", "墨(コスプレ)", "千鶴(コスプレ)"],
+        ["和也", "麻美", "瑠夏(コスプレ)", "墨(コスプレ)", "千鶴(コスプレ)"],
+        ["和也", "麻美(コスプレ)", "瑠夏(コスプレ)", "墨(コスプレ)", "千鶴(コスプレ)"],
+        ["和也", "麻美(水着)", "瑠夏(水着)", "墨(水着)", "千鶴(水着)"],
+        ["肺魚", "麻美", "瑠夏", "墨", "千鶴"],
+        ["麻美", "肺魚", "瑠夏", "墨", "千鶴"],
+        ["麻美", "瑠夏", "肺魚", "墨", "千鶴"],
+        ["麻美", "瑠夏", "墨", "肺魚", "千鶴"],
+        ["麻美", "瑠夏", "墨", "千鶴", "肺魚"],
+        ["麻美", "麻美(水着)", "瑠夏", "墨", "千鶴"],
+        ["麻美", "瑠夏", "瑠夏(水着)", "墨", "千鶴"],
+        ["麻美", "瑠夏", "墨", "墨(水着)", "千鶴"],
+        ["麻美", "瑠夏", "墨", "千鶴", "千鶴(水着)"],
     ]
+    let senarioNumberList: [String] = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮"]
+    // 各シナリオの示唆（sisaList のインデックス）
+    let senarioSisaIndex: [Int] = [0, 1, 2, 3, 4, 14, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     let sisaList: [String] = [
         "デフォルト",
         "奇数示唆",
         "偶数示唆",
         "高設定示唆 弱",
         "高設定示唆 強",
-        "高設定濃厚(水着4人)",
-        "高設定濃厚(墨水着)",
-        "高設定濃厚(千鶴水着)",
+        "設定1 否定",
+        "設定2 否定",
+        "設定3 否定",
+        "設定4 否定",
+        "設定5 否定",
+        "設定2 以上濃厚",
+        "設定3 以上濃厚",
+        "設定4 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
     ]
+    let sisaColorList: [Color] = [
+        .gray, .blue, .yellow, .green, .red,
+        .cyan, .teal, .indigo, .pink, .mint,
+        .brown, .orange, .orange, .red, .purple,
+    ]
+    @State var selectedSenario: [String] = ["和也", "麻美", "瑠夏", "墨", "千鶴"]
 
     var body: some View {
         List {
-            // シナリオ選択
+            // ---- キャラ紹介シナリオ選択
             Section {
-                VStack(alignment: .leading) {
-                    Text("・下記以外のシナリオもあり（詳細調査中）")
-                    Text("・肺魚は登場順に注目!?炎炎のまもるくんに近いのかも")
-                }
-                .foregroundStyle(Color.secondary)
-                .font(.caption)
-                
-                // サークルピッカー
-                Picker("", selection: self.$selectedItem) {
-                    ForEach(self.selectList, id: \.self) { item in
-                        Text(item)
+                // 1人目から順に選ぶと、残りの候補が絞り込まれる
+                ForEach(0..<5, id: \.self) { position in
+                    let options = self.options(position: position)
+                    if options.count > 1 {
+                        unitPickerMenuString(
+                            title: "\(position + 1)人目",
+                            selected: self.bindingPosition(position),
+                            selectlist: options
+                        )
+                    } else {
+                        HStack {
+                            Text("\(position + 1)人目")
+                            Spacer()
+                            Text(self.selectedSenario[position])
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
-                .pickerStyle(.wheel)
-                .frame(height: 150)
 
                 // //// 示唆＆登録ボタン
+                let sisaIndex = self.selectedSisaIndex
                 unitCountSubmitWithResult(
-                    title: sisaText(item: self.selectedItem),
-                    count: bindingCharaSenario(item: self.selectedItem),
-                    bigNumber: $kanokari.charaSenarioCountSum,
-                    flushColor: flushColor(item: self.selectedItem),
+                    title: self.sisaList[sisaIndex],
+                    count: bindingCount(sisaIndex: sisaIndex),
+                    bigNumber: $kanokari.rbCharaCountSum,
+                    flushColor: self.sisaColorList[sisaIndex],
                     minusCheck: $kanokari.minusCheck) {
-                        kanokari.charaSenarioSumFunc()
+                        kanokari.rbCharaSumFunc()
                     }
             } header: {
-                Text("シナリオ選択")
+                Text("キャラ紹介シナリオ選択")
             }
 
-            // カウント結果
+            // ---- カウント結果
             Section {
-                ForEach(self.selectList, id: \.self) { item in
+                ForEach(self.sisaList.indices, id: \.self) { index in
                     unitResultCountListPercent(
-                        title: sisaText(item: item),
-                        count: bindingCharaSenario(item: item),
-                        flashColor: flushColor(item: item),
-                        bigNumber: $kanokari.charaSenarioCountSum
+                        title: self.sisaList[index],
+                        count: bindingCount(sisaIndex: index),
+                        flashColor: self.sisaColorList[index],
+                        bigNumber: $kanokari.rbCharaCountSum
+                    )
+                }
+
+                // 参考情報）シナリオごとの示唆
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオでの示唆", detent: .large) {
+                    senarioTable
+                }
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kanokariViewBayes(
+                        kanokari: kanokari,
                     )
                 }
             } header: {
                 Text("カウント結果")
             }
+
+            unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kanokariMenuDuringRbBadge)
@@ -128,50 +169,79 @@ struct kanokariViewDuringRb: View {
             }
             ToolbarItem(placement: .automatic) {
                 // /// リセット
-                unitButtonReset(isShowAlert: $isShowAlert, action: kanokari.resetCharaSenario)
+                unitButtonReset(isShowAlert: $isShowAlert, action: kanokari.resetRbChara)
             }
         }
     }
 
-    private func sisaText(item: String) -> String {
-        switch item {
-        case self.selectList[0]: return self.sisaList[0]
-        case self.selectList[1]: return self.sisaList[1]
-        case self.selectList[2]: return self.sisaList[2]
-        case self.selectList[3]: return self.sisaList[3]
-        case self.selectList[4]: return self.sisaList[4]
-        case self.selectList[5]: return self.sisaList[5]
-        case self.selectList[6]: return self.sisaList[6]
-        case self.selectList[7]: return self.sisaList[7]
-        default: return "???"
-        }
+    // //// 選択中のシナリオの示唆（sisaList のインデックス）
+    private var selectedSisaIndex: Int {
+        guard let index = self.senarioList.firstIndex(of: self.selectedSenario) else { return 0 }
+        return self.senarioSisaIndex[index]
     }
 
-    private func bindingCharaSenario(item: String) -> Binding<Int> {
-        switch item {
-        case self.selectList[0]: return $kanokari.charaSenarioCount1
-        case self.selectList[1]: return $kanokari.charaSenarioCount2
-        case self.selectList[2]: return $kanokari.charaSenarioCount3
-        case self.selectList[3]: return $kanokari.charaSenarioCount4
-        case self.selectList[4]: return $kanokari.charaSenarioCount5
-        case self.selectList[5]: return $kanokari.charaSenarioCount6
-        case self.selectList[6]: return $kanokari.charaSenarioCount7
-        case self.selectList[7]: return $kanokari.charaSenarioCount8
+    // //// position 人目の候補（それより前の人物が一致するシナリオから、重複なしで集める）
+    private func options(position: Int) -> [String] {
+        let prefix = Array(self.selectedSenario.prefix(position))
+        var result: [String] = []
+        for senario in self.senarioList where Array(senario.prefix(position)) == prefix {
+            if !result.contains(senario[position]) {
+                result.append(senario[position])
+            }
+        }
+        return result
+    }
+
+    // //// position 人目を選び直したら、そこまでが一致する最初のシナリオに合わせる
+    private func bindingPosition(_ position: Int) -> Binding<String> {
+        Binding(
+            get: { self.selectedSenario[position] },
+            set: { newValue in
+                let prefix = Array(self.selectedSenario.prefix(position)) + [newValue]
+                if let senario = self.senarioList.first(where: { Array($0.prefix(position + 1)) == prefix }) {
+                    self.selectedSenario = senario
+                }
+            }
+        )
+    }
+
+    private func bindingCount(sisaIndex: Int) -> Binding<Int> {
+        switch sisaIndex {
+        case 0: return $kanokari.rbCharaCountDefault
+        case 1: return $kanokari.rbCharaCountKisu
+        case 2: return $kanokari.rbCharaCountGusu
+        case 3: return $kanokari.rbCharaCountHighJaku
+        case 4: return $kanokari.rbCharaCountHighKyo
+        case 5: return $kanokari.rbCharaCountNegate1
+        case 6: return $kanokari.rbCharaCountNegate2
+        case 7: return $kanokari.rbCharaCountNegate3
+        case 8: return $kanokari.rbCharaCountNegate4
+        case 9: return $kanokari.rbCharaCountNegate5
+        case 10: return $kanokari.rbCharaCountOver2
+        case 11: return $kanokari.rbCharaCountOver3
+        case 12: return $kanokari.rbCharaCountOver4
+        case 13: return $kanokari.rbCharaCountOver5
+        case 14: return $kanokari.rbCharaCountOver6
         default: return .constant(0)
         }
     }
 
-    private func flushColor(item: String) -> Color {
-        switch item {
-        case self.selectList[0]: return .gray
-        case self.selectList[1]: return .blue
-        case self.selectList[2]: return .yellow
-        case self.selectList[3]: return .green
-        case self.selectList[4]: return .red
-        case self.selectList[5]: return .brown
-        case self.selectList[6]: return .orange
-        case self.selectList[7]: return .purple
-        default: return .gray
+    // //// 参考情報：シナリオ一覧
+    private var senarioTable: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            ForEach(self.senarioList.indices, id: \.self) { index in
+                HStack(alignment: .top) {
+                    Text(self.senarioNumberList[index])
+                        .frame(width: 30)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(self.senarioList[index].joined(separator: " → "))
+                            .font(.caption)
+                        Text(self.sisaList[self.senarioSisaIndex[index]])
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                    }
+                }
+            }
         }
     }
 }

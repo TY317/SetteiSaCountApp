@@ -75,41 +75,72 @@ class Kanokari: ObservableObject {
     }
 
     // -------
-    // シナリオ選択
+    // RB中 キャラ紹介シナリオ
     // -------
-    @AppStorage("kanokariCharaSenarioCount1") var charaSenarioCount1: Int = 0
-    @AppStorage("kanokariCharaSenarioCount2") var charaSenarioCount2: Int = 0
-    @AppStorage("kanokariCharaSenarioCount3") var charaSenarioCount3: Int = 0
-    @AppStorage("kanokariCharaSenarioCount4") var charaSenarioCount4: Int = 0
-    @AppStorage("kanokariCharaSenarioCount5") var charaSenarioCount5: Int = 0
-    @AppStorage("kanokariCharaSenarioCount6") var charaSenarioCount6: Int = 0
-    @AppStorage("kanokariCharaSenarioCount7") var charaSenarioCount7: Int = 0
-    @AppStorage("kanokariCharaSenarioCount8") var charaSenarioCount8: Int = 0
-    @AppStorage("kanokariCharaSenarioCountSum") var charaSenarioCountSum: Int = 0
+    let ratioRbCharaNegate1: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioRbCharaNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
+    let ratioRbCharaNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
+    let ratioRbCharaNegate4: [Double] = [0.1,0.1,0.1,0,0.1,0.1,]
+    let ratioRbCharaNegate5: [Double] = [0.1,0.1,0.1,0.1,0,0.1,]
+    let ratioRbCharaOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioRbCharaOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
+    let ratioRbCharaOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioRbCharaOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioRbCharaOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("kanokariRbCharaCountDefault") var rbCharaCountDefault: Int = 0
+    @AppStorage("kanokariRbCharaCountKisu") var rbCharaCountKisu: Int = 0
+    @AppStorage("kanokariRbCharaCountGusu") var rbCharaCountGusu: Int = 0
+    @AppStorage("kanokariRbCharaCountHighJaku") var rbCharaCountHighJaku: Int = 0
+    @AppStorage("kanokariRbCharaCountHighKyo") var rbCharaCountHighKyo: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate1") var rbCharaCountNegate1: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate2") var rbCharaCountNegate2: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate3") var rbCharaCountNegate3: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate4") var rbCharaCountNegate4: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate5") var rbCharaCountNegate5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver2") var rbCharaCountOver2: Int = 0
+    @AppStorage("kanokariRbCharaCountOver3") var rbCharaCountOver3: Int = 0
+    @AppStorage("kanokariRbCharaCountOver4") var rbCharaCountOver4: Int = 0
+    @AppStorage("kanokariRbCharaCountOver5") var rbCharaCountOver5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver6") var rbCharaCountOver6: Int = 0
+    @AppStorage("kanokariRbCharaCountSum") var rbCharaCountSum: Int = 0
 
-    func charaSenarioSumFunc() {
-        charaSenarioCountSum = countSum(
-            charaSenarioCount1,
-            charaSenarioCount2,
-            charaSenarioCount3,
-            charaSenarioCount4,
-            charaSenarioCount5,
-            charaSenarioCount6,
-            charaSenarioCount7,
-            charaSenarioCount8,
+    func rbCharaSumFunc() {
+        rbCharaCountSum = countSum(
+            rbCharaCountDefault,
+            rbCharaCountKisu,
+            rbCharaCountGusu,
+            rbCharaCountHighJaku,
+            rbCharaCountHighKyo,
+            rbCharaCountNegate1,
+            rbCharaCountNegate2,
+            rbCharaCountNegate3,
+            rbCharaCountNegate4,
+            rbCharaCountNegate5,
+            rbCharaCountOver2,
+            rbCharaCountOver3,
+            rbCharaCountOver4,
+            rbCharaCountOver5,
+            rbCharaCountOver6,
         )
     }
 
-    func resetCharaSenario() {
-        charaSenarioCount1 = 0
-        charaSenarioCount2 = 0
-        charaSenarioCount3 = 0
-        charaSenarioCount4 = 0
-        charaSenarioCount5 = 0
-        charaSenarioCount6 = 0
-        charaSenarioCount7 = 0
-        charaSenarioCount8 = 0
-        charaSenarioCountSum = 0
+    func resetRbChara() {
+        rbCharaCountDefault = 0
+        rbCharaCountKisu = 0
+        rbCharaCountGusu = 0
+        rbCharaCountHighJaku = 0
+        rbCharaCountHighKyo = 0
+        rbCharaCountNegate1 = 0
+        rbCharaCountNegate2 = 0
+        rbCharaCountNegate3 = 0
+        rbCharaCountNegate4 = 0
+        rbCharaCountNegate5 = 0
+        rbCharaCountOver2 = 0
+        rbCharaCountOver3 = 0
+        rbCharaCountOver4 = 0
+        rbCharaCountOver5 = 0
+        rbCharaCountOver6 = 0
+        rbCharaCountSum = 0
         minusCheck = false
     }
 
@@ -145,7 +176,7 @@ class Kanokari: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
-        resetCharaSenario()
+        resetRbChara()
         resetKoryakuChara()
     }
 }
@@ -163,15 +194,22 @@ class KanokariMemory1: ObservableObject {
     @AppStorage("kanokariScreenCount6Memory1") var screenCount6: Int = 0
     @AppStorage("kanokariScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("kanokariScreenCountSumMemory1") var screenCountSum: Int = 0
-    @AppStorage("kanokariCharaSenarioCount1Memory1") var charaSenarioCount1: Int = 0
-    @AppStorage("kanokariCharaSenarioCount2Memory1") var charaSenarioCount2: Int = 0
-    @AppStorage("kanokariCharaSenarioCount3Memory1") var charaSenarioCount3: Int = 0
-    @AppStorage("kanokariCharaSenarioCount4Memory1") var charaSenarioCount4: Int = 0
-    @AppStorage("kanokariCharaSenarioCount5Memory1") var charaSenarioCount5: Int = 0
-    @AppStorage("kanokariCharaSenarioCount6Memory1") var charaSenarioCount6: Int = 0
-    @AppStorage("kanokariCharaSenarioCount7Memory1") var charaSenarioCount7: Int = 0
-    @AppStorage("kanokariCharaSenarioCount8Memory1") var charaSenarioCount8: Int = 0
-    @AppStorage("kanokariCharaSenarioCountSumMemory1") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariRbCharaCountDefaultMemory1") var rbCharaCountDefault: Int = 0
+    @AppStorage("kanokariRbCharaCountKisuMemory1") var rbCharaCountKisu: Int = 0
+    @AppStorage("kanokariRbCharaCountGusuMemory1") var rbCharaCountGusu: Int = 0
+    @AppStorage("kanokariRbCharaCountHighJakuMemory1") var rbCharaCountHighJaku: Int = 0
+    @AppStorage("kanokariRbCharaCountHighKyoMemory1") var rbCharaCountHighKyo: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate1Memory1") var rbCharaCountNegate1: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate2Memory1") var rbCharaCountNegate2: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate3Memory1") var rbCharaCountNegate3: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate4Memory1") var rbCharaCountNegate4: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate5Memory1") var rbCharaCountNegate5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver2Memory1") var rbCharaCountOver2: Int = 0
+    @AppStorage("kanokariRbCharaCountOver3Memory1") var rbCharaCountOver3: Int = 0
+    @AppStorage("kanokariRbCharaCountOver4Memory1") var rbCharaCountOver4: Int = 0
+    @AppStorage("kanokariRbCharaCountOver5Memory1") var rbCharaCountOver5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver6Memory1") var rbCharaCountOver6: Int = 0
+    @AppStorage("kanokariRbCharaCountSumMemory1") var rbCharaCountSum: Int = 0
     @AppStorage("kanokariKoryakuCharaCount1Memory1") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory1") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory1") var koryakuCharaCountSum: Int = 0
@@ -192,15 +230,22 @@ class KanokariMemory2: ObservableObject {
     @AppStorage("kanokariScreenCount6Memory2") var screenCount6: Int = 0
     @AppStorage("kanokariScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("kanokariScreenCountSumMemory2") var screenCountSum: Int = 0
-    @AppStorage("kanokariCharaSenarioCount1Memory2") var charaSenarioCount1: Int = 0
-    @AppStorage("kanokariCharaSenarioCount2Memory2") var charaSenarioCount2: Int = 0
-    @AppStorage("kanokariCharaSenarioCount3Memory2") var charaSenarioCount3: Int = 0
-    @AppStorage("kanokariCharaSenarioCount4Memory2") var charaSenarioCount4: Int = 0
-    @AppStorage("kanokariCharaSenarioCount5Memory2") var charaSenarioCount5: Int = 0
-    @AppStorage("kanokariCharaSenarioCount6Memory2") var charaSenarioCount6: Int = 0
-    @AppStorage("kanokariCharaSenarioCount7Memory2") var charaSenarioCount7: Int = 0
-    @AppStorage("kanokariCharaSenarioCount8Memory2") var charaSenarioCount8: Int = 0
-    @AppStorage("kanokariCharaSenarioCountSumMemory2") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariRbCharaCountDefaultMemory2") var rbCharaCountDefault: Int = 0
+    @AppStorage("kanokariRbCharaCountKisuMemory2") var rbCharaCountKisu: Int = 0
+    @AppStorage("kanokariRbCharaCountGusuMemory2") var rbCharaCountGusu: Int = 0
+    @AppStorage("kanokariRbCharaCountHighJakuMemory2") var rbCharaCountHighJaku: Int = 0
+    @AppStorage("kanokariRbCharaCountHighKyoMemory2") var rbCharaCountHighKyo: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate1Memory2") var rbCharaCountNegate1: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate2Memory2") var rbCharaCountNegate2: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate3Memory2") var rbCharaCountNegate3: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate4Memory2") var rbCharaCountNegate4: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate5Memory2") var rbCharaCountNegate5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver2Memory2") var rbCharaCountOver2: Int = 0
+    @AppStorage("kanokariRbCharaCountOver3Memory2") var rbCharaCountOver3: Int = 0
+    @AppStorage("kanokariRbCharaCountOver4Memory2") var rbCharaCountOver4: Int = 0
+    @AppStorage("kanokariRbCharaCountOver5Memory2") var rbCharaCountOver5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver6Memory2") var rbCharaCountOver6: Int = 0
+    @AppStorage("kanokariRbCharaCountSumMemory2") var rbCharaCountSum: Int = 0
     @AppStorage("kanokariKoryakuCharaCount1Memory2") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory2") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory2") var koryakuCharaCountSum: Int = 0
@@ -221,15 +266,22 @@ class KanokariMemory3: ObservableObject {
     @AppStorage("kanokariScreenCount6Memory3") var screenCount6: Int = 0
     @AppStorage("kanokariScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("kanokariScreenCountSumMemory3") var screenCountSum: Int = 0
-    @AppStorage("kanokariCharaSenarioCount1Memory3") var charaSenarioCount1: Int = 0
-    @AppStorage("kanokariCharaSenarioCount2Memory3") var charaSenarioCount2: Int = 0
-    @AppStorage("kanokariCharaSenarioCount3Memory3") var charaSenarioCount3: Int = 0
-    @AppStorage("kanokariCharaSenarioCount4Memory3") var charaSenarioCount4: Int = 0
-    @AppStorage("kanokariCharaSenarioCount5Memory3") var charaSenarioCount5: Int = 0
-    @AppStorage("kanokariCharaSenarioCount6Memory3") var charaSenarioCount6: Int = 0
-    @AppStorage("kanokariCharaSenarioCount7Memory3") var charaSenarioCount7: Int = 0
-    @AppStorage("kanokariCharaSenarioCount8Memory3") var charaSenarioCount8: Int = 0
-    @AppStorage("kanokariCharaSenarioCountSumMemory3") var charaSenarioCountSum: Int = 0
+    @AppStorage("kanokariRbCharaCountDefaultMemory3") var rbCharaCountDefault: Int = 0
+    @AppStorage("kanokariRbCharaCountKisuMemory3") var rbCharaCountKisu: Int = 0
+    @AppStorage("kanokariRbCharaCountGusuMemory3") var rbCharaCountGusu: Int = 0
+    @AppStorage("kanokariRbCharaCountHighJakuMemory3") var rbCharaCountHighJaku: Int = 0
+    @AppStorage("kanokariRbCharaCountHighKyoMemory3") var rbCharaCountHighKyo: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate1Memory3") var rbCharaCountNegate1: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate2Memory3") var rbCharaCountNegate2: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate3Memory3") var rbCharaCountNegate3: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate4Memory3") var rbCharaCountNegate4: Int = 0
+    @AppStorage("kanokariRbCharaCountNegate5Memory3") var rbCharaCountNegate5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver2Memory3") var rbCharaCountOver2: Int = 0
+    @AppStorage("kanokariRbCharaCountOver3Memory3") var rbCharaCountOver3: Int = 0
+    @AppStorage("kanokariRbCharaCountOver4Memory3") var rbCharaCountOver4: Int = 0
+    @AppStorage("kanokariRbCharaCountOver5Memory3") var rbCharaCountOver5: Int = 0
+    @AppStorage("kanokariRbCharaCountOver6Memory3") var rbCharaCountOver6: Int = 0
+    @AppStorage("kanokariRbCharaCountSumMemory3") var rbCharaCountSum: Int = 0
     @AppStorage("kanokariKoryakuCharaCount1Memory3") var koryakuCharaCount1: Int = 0
     @AppStorage("kanokariKoryakuCharaCount2Memory3") var koryakuCharaCount2: Int = 0
     @AppStorage("kanokariKoryakuCharaCountSumMemory3") var koryakuCharaCountSum: Int = 0
