@@ -143,13 +143,68 @@ struct index2ViewScreen: View {
                     }
                 }
 
+                // 参考情報）終了画面振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面振り分け") {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("・残りG数示唆、AT復活示唆の画面は振り分けに含まれません")
+                            .foregroundStyle(Color.secondary)
+                            .font(.caption)
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex(titleLine: 2)
+                            unitTablePercent(
+                                columTitle: "当麻＆\nインデックス",
+                                percentList: index2.ratioScreenKisuSisa,
+                                titleLine: 2
+                            )
+                            unitTablePercent(
+                                columTitle: "美琴＆\n黒子",
+                                percentList: index2.ratioScreenGusuSisa,
+                                titleLine: 2
+                            )
+                            unitTablePercent(
+                                columTitle: "打ち止め＆\n一方通行",
+                                percentList: index2.ratioScreenHighJaku,
+                                titleLine: 2
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex(titleLine: 2)
+                            unitTablePercent(
+                                columTitle: "番外個体＆\n一方通行",
+                                percentList: index2.ratioScreenHighKyo,
+                                numberofDicimal: 1,
+                                titleLine: 2
+                            )
+                            unitTablePercent(
+                                columTitle: "アリサ＆\nシャットアウラ",
+                                percentList: index2.ratioScreenGusu,
+                                numberofDicimal: 1,
+                                titleLine: 2
+                            )
+                            unitTablePercent(
+                                columTitle: "初春＆\n美琴",
+                                percentList: index2.ratioScreenOver4,
+                                numberofDicimal: 1,
+                                titleLine: 2
+                            )
+                            unitTablePercent(
+                                columTitle: "ハーレム",
+                                percentList: index2.ratioScreenOver6,
+                                numberofDicimal: 1,
+                                titleLine: 2
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer480Index2Screen())
+                
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     index2ViewBayes(
                         index2: index2,
                     )
                 }
-                .popoverTip(tipVer480Index2Screen())
+                
             } header: {
                 unitLabelHeaderScreenCount()
             }
