@@ -51,7 +51,7 @@ struct sencole6ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // 天魔一閃 上乗せ
-                unitToggleWithQuestion(enable: self.$tenmaIssenEnable, title: "天魔一閃 上乗せ")
+                unitToggleWithQuestion(enable: self.$tenmaIssenEnable, title: "天魔一閃 上乗せ振分け")
                 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {

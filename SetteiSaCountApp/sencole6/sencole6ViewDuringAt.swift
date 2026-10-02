@@ -51,38 +51,45 @@ struct sencole6ViewDuringAt: View {
         List {
             // ---- 天魔一閃 上乗せ枚数
             Section {
-                // 300枚
-                unitResultRatioPercent2Line(
-                    title: "300枚",
-                    count: $sencole6.tenmaIssenCount300,
-                    bigNumber: $sencole6.tenmaIssenCountSum,
-                    numberofDicimal: 1
-                )
-                .popoverTip(tipVer480Sencole6TenmaIssen())
+                HStack {
+                    // 300枚
+                    unitResultRatioPercent2Line(
+                        title: "300枚",
+                        count: $sencole6.tenmaIssenCount300,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    .popoverTip(tipVer480Sencole6TenmaIssen())
 
-                // 550枚
-                unitResultRatioPercent2Line(
-                    title: "550枚",
-                    count: $sencole6.tenmaIssenCount550,
-                    bigNumber: $sencole6.tenmaIssenCountSum,
-                    numberofDicimal: 1
-                )
+                    // 550枚
+                    unitResultRatioPercent2Line(
+                        title: "550枚",
+                        count: $sencole6.tenmaIssenCount550,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
 
-                // 800枚
-                unitResultRatioPercent2Line(
-                    title: "800枚",
-                    count: $sencole6.tenmaIssenCount800,
-                    bigNumber: $sencole6.tenmaIssenCountSum,
-                    numberofDicimal: 1
-                )
+                    // 800枚
+                    unitResultRatioPercent2Line(
+                        title: "800枚",
+                        count: $sencole6.tenmaIssenCount800,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
 
-                // 1050枚
-                unitResultRatioPercent2Line(
-                    title: "1050枚",
-                    count: $sencole6.tenmaIssenCount1050,
-                    bigNumber: $sencole6.tenmaIssenCountSum,
-                    numberofDicimal: 0
-                )
+                    // 1050枚
+                    unitResultRatioPercent2Line(
+                        title: "1050枚",
+                        count: $sencole6.tenmaIssenCount1050,
+                        bigNumber: $sencole6.tenmaIssenCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
 
                 // 参考情報）天魔一閃 上乗せ枚数
                 unitLinkButtonViewBuilder(sheetTitle: "天魔一閃 上乗せ枚数") {
