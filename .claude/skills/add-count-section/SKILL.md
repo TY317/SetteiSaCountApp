@@ -141,6 +141,31 @@ description: 既存ページに判別要素のカウントセクションを1つ
 - **方式B・C**：`HStack` 内のボタンは1個、クロージャは空 `{ }`（`SumFunc` が無いので呼ばない）。
 - **ボタンのクロージャで `SumFunc()` を呼ぶのは方式Aだけ。** ここを忘れると `CountSum` が更新されず、結果表示も 95Ci も常に 0 のままになる。
 
+**確率結果を複数並べるとき**：`unitResultRatioPercent2Line` / `unitResultRatioDenomination2Line` を2つ以上出す場合は、縦に積まず **`HStack` で囲んで横に並べ、各ユニットに `spacerBool: false` を付ける**のが基本。HStack には `.frame(maxWidth: .infinity, alignment: .center)` を付けて中央に寄せる。参考実装：`sencole6ViewDuringAt`（天魔一閃 上乗せ枚数）。
+
+```swift
+                HStack {
+                    // <結果1>
+                    unitResultRatioPercent2Line(
+                        title: "<結果1>",
+                        count: $<prefix>.<element>Count1,
+                        bigNumber: $<prefix>.<element>CountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // <結果2>
+                    unitResultRatioPercent2Line(
+                        title: "<結果2>",
+                        count: $<prefix>.<element>Count2,
+                        bigNumber: $<prefix>.<element>CountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+```
+結果が1つだけのときは従来どおり HStack なし（`spacerBool` も既定のまま）。
+
 ### 3b. 超高頻度で成立する要素は DisclosureGroup を使わない（例外レイアウト）
 
 **方式C（分母がゲーム数）で、確率の分母が 1/10 前後以下の超高頻度の小役**（例：ベル・プラム・ぶどう等。同じセクションに並べる他の小役も含めてまとめて）は、1ゲームごとに押すことになるので、毎回 DisclosureGroup を開く手間が大きい。この場合は次の形にする。参考実装：`takosloViewNormal`（小役・小役詳細）。
