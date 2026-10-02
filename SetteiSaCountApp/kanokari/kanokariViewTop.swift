@@ -76,6 +76,17 @@ struct kanokariViewTop: View {
                         )
                     }
 
+                    // 引き戻し
+                    NavigationLink(destination: kanokariViewComeback(
+                        kanokari: kanokari,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "arrow.trianglehead.2.counterclockwise",
+                            textBody: "引き戻し",
+                            badgeStatus: common.kanokariMenuComebackBadge,
+                        )
+                    }
+
                     // エンディング
                     NavigationLink(destination: kanokariViewEnding(
                         kanokari: kanokari,
