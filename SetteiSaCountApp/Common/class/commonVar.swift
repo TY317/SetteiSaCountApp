@@ -851,6 +851,7 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "5033", newStatus: "update")
                 ricoricoMenuNormalBadge = "update"
                 ricoricoMenuDuringAtBadge = "update"
+                ricoricoMenuFirstHitBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5030", newStatus: "update")
                 tonskillMenuNormalBadge = "update"
             } else {

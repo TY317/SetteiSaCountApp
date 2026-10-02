@@ -103,6 +103,7 @@ struct ricoricoViewFirstHit: View {
                     )
                 }
             }
+            .popoverTip(tipVer480RicoricoFirstHit())
             
             // 参考情報）AT直撃確率
             unitLinkButtonViewBuilder(sheetTitle: "AT直撃確率") {
@@ -110,7 +111,7 @@ struct ricoricoViewFirstHit: View {
                     unitTableSettingIndex()
                     unitTableDenominate(
                         columTitle: "AT直撃",
-                        denominateList: [22429.5,-1,-1,-1,-1,6263.7]
+                        denominateList: ricorico.ratioFirstHitAtDirect
                     )
                 }
             }

@@ -58,8 +58,7 @@ struct ricoricoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
                     unitExView5body2image(
                         title: "CZ初当り確率",
-                        textBody1: "・バトルCZと幼少期CZの合算回数を計算要素に加えます",
-//                        textBody2: "・個別の振分けは設定1と6しか判明していないため、合算で計算します",
+                        textBody1: "・バトルCZと幼少期CZをそれぞれの確率で計算要素に加えます",
                     )
                 }
 
@@ -144,12 +143,18 @@ struct ricoricoViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // CZ初当り確率（バトル＋幼少期の合算）
+        // CZ初当り確率（バトルCZ／幼少期CZ。同時には当選しないので多項で計算）
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
-            logPostFirstHitCz = logPostDenoBino(
-                ratio: ricorico.ratioFirstHitCz,
-                Count: ricorico.firstHitCountCz,
+            logPostFirstHitCz = logPostDenoMulti(
+                countList: [
+                    ricorico.firstHitCountBattleCz,
+                    ricorico.firstHitCountYoshokiCz,
+                ],
+                denoList: [
+                    ricorico.ratioFirstHitBattleCz,
+                    ricorico.ratioFirstHitYoshokiCz,
+                ],
                 bigNumber: ricorico.normalGame
             )
         }

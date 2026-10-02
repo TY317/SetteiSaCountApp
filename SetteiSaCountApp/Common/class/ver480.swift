@@ -120,3 +120,19 @@ struct tipVer480TonskillMegami333G: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リコリス・リコイル 初当り確率
+//////////////////
+struct tipVer480RicoricoFirstHit: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("幼少期CZ・バトルCZ・AT直撃の全設定の確率を反映し、設定期待値の計算を更新しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

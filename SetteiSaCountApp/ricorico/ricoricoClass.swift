@@ -45,8 +45,10 @@ class Ricorico: ObservableObject {
     // 初当り
     // --------
     let ratioFirstHitCz: [Double] = [198.7,196.9,191.3,183.3,175.9,169.4]
-    let ratioFirstHitBattleCz: [Double] = [209.2,-1,-1,-1,-1,184.4]
-    let ratioFirstHitYoshokiCz: [Double] = [3965,-1,-1,-1,-1,2084.8]
+    // バトルCZ は CZ合算と幼少期CZから逆算（1 / (1/合算 − 1/幼少期)）
+    let ratioFirstHitBattleCz: [Double] = [209.2,207.9,203.8,195.6,189.7,184.4]
+    let ratioFirstHitYoshokiCz: [Double] = [3965.0,3706.6,3107.3,2925.9,2425.8,2084.8]
+    let ratioFirstHitAtDirect: [Double] = [22429.5,19006.5,15454.1,10809.3,7809.6,6263.7]
     let ratioFirstHitAt: [Double] = [328.8,323.4,312.1,288.3,271.6,256.7]
     @AppStorage("ricoricoNormalGame") var normalGame: Int = 0
     @AppStorage("ricoricoFirstHitCountBattleCz") var firstHitCountBattleCz: Int = 0
