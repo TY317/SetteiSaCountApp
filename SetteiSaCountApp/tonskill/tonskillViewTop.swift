@@ -226,6 +226,9 @@ struct tonskillSubViewSaveMemory: View {
         tonskillMemory1.screenCount7 = tonskill.screenCount7
         tonskillMemory1.screenCount8 = tonskill.screenCount8
         tonskillMemory1.screenCountSum = tonskill.screenCountSum
+        tonskillMemory1.megami333GCountMiss = tonskill.megami333GCountMiss
+        tonskillMemory1.megami333GCountHit = tonskill.megami333GCountHit
+        tonskillMemory1.megami333GCountSum = tonskill.megami333GCountSum
     }
     func saveMemory2() {
         tonskillMemory2.ptSui = tonskill.ptSui
@@ -250,6 +253,9 @@ struct tonskillSubViewSaveMemory: View {
         tonskillMemory2.screenCount7 = tonskill.screenCount7
         tonskillMemory2.screenCount8 = tonskill.screenCount8
         tonskillMemory2.screenCountSum = tonskill.screenCountSum
+        tonskillMemory2.megami333GCountMiss = tonskill.megami333GCountMiss
+        tonskillMemory2.megami333GCountHit = tonskill.megami333GCountHit
+        tonskillMemory2.megami333GCountSum = tonskill.megami333GCountSum
     }
     func saveMemory3() {
         tonskillMemory3.ptSui = tonskill.ptSui
@@ -274,6 +280,9 @@ struct tonskillSubViewSaveMemory: View {
         tonskillMemory3.screenCount7 = tonskill.screenCount7
         tonskillMemory3.screenCount8 = tonskill.screenCount8
         tonskillMemory3.screenCountSum = tonskill.screenCountSum
+        tonskillMemory3.megami333GCountMiss = tonskill.megami333GCountMiss
+        tonskillMemory3.megami333GCountHit = tonskill.megami333GCountHit
+        tonskillMemory3.megami333GCountSum = tonskill.megami333GCountSum
     }
 }
 
@@ -327,6 +336,9 @@ struct tonskillSubViewLoadMemory: View {
         tonskill.screenCount7 = tonskillMemory1.screenCount7
         tonskill.screenCount8 = tonskillMemory1.screenCount8
         tonskill.screenCountSum = tonskillMemory1.screenCountSum
+        tonskill.megami333GCountMiss = tonskillMemory1.megami333GCountMiss
+        tonskill.megami333GCountHit = tonskillMemory1.megami333GCountHit
+        tonskill.megami333GCountSum = tonskillMemory1.megami333GCountSum
     }
     func loadMemory2() {
         tonskill.ptSui = tonskillMemory2.ptSui
@@ -351,6 +363,9 @@ struct tonskillSubViewLoadMemory: View {
         tonskill.screenCount7 = tonskillMemory2.screenCount7
         tonskill.screenCount8 = tonskillMemory2.screenCount8
         tonskill.screenCountSum = tonskillMemory2.screenCountSum
+        tonskill.megami333GCountMiss = tonskillMemory2.megami333GCountMiss
+        tonskill.megami333GCountHit = tonskillMemory2.megami333GCountHit
+        tonskill.megami333GCountSum = tonskillMemory2.megami333GCountSum
     }
     func loadMemory3() {
         tonskill.ptSui = tonskillMemory3.ptSui
@@ -375,6 +390,9 @@ struct tonskillSubViewLoadMemory: View {
         tonskill.screenCount7 = tonskillMemory3.screenCount7
         tonskill.screenCount8 = tonskillMemory3.screenCount8
         tonskill.screenCountSum = tonskillMemory3.screenCountSum
+        tonskill.megami333GCountMiss = tonskillMemory3.megami333GCountMiss
+        tonskill.megami333GCountHit = tonskillMemory3.megami333GCountHit
+        tonskill.megami333GCountSum = tonskillMemory3.megami333GCountSum
     }
 }
 

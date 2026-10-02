@@ -15,6 +15,7 @@ struct tonskillViewBayes: View {
     let payoutList: [Double] = [97.9, 99.1, 101, 105.3, 109.1, 112.1]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var megami333GEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
 
@@ -52,6 +53,9 @@ struct tonskillViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // ボーナス初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+
+                // 333G 女神の舞移行率
+                unitToggleWithQuestion(enable: self.$megami333GEnable, title: "333G 女神の舞移行率")
                 // エンディング枠
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -138,6 +142,16 @@ struct tonskillViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // 333G 女神の舞移行率
+        var logPostMegami333G: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.megami333GEnable {
+            logPostMegami333G = logPostPercentBino(
+                ratio: tonskill.ratioMegami333G,
+                Count: tonskill.megami333GCountHit,
+                bigNumber: tonskill.megami333GCountSum
+            )
+        }
 
         // CZ初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -233,6 +247,7 @@ struct tonskillViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostMegami333G,
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostScreen,

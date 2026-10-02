@@ -104,3 +104,19 @@ struct tipVer480RicoricoEpisode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：とんでもスキル 333G 女神の舞移行率
+//////////////////
+struct tipVer480TonskillMegami333G: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("333G到達時の女神の舞移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

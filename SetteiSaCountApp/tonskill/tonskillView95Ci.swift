@@ -49,6 +49,24 @@ struct tonskillView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 333G 女神の舞移行率
+            unitListSection95Ci(
+                grafTitle: "333G 女神の舞移行率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $tonskill.megami333GCountHit,
+                        bigNumber: $tonskill.megami333GCountSum,
+                        setting1Percent: tonskill.ratioMegami333G[0],
+                        setting2Percent: tonskill.ratioMegami333G[1],
+                        setting3Percent: tonskill.ratioMegami333G[2],
+                        setting4Percent: tonskill.ratioMegami333G[3],
+                        setting5Percent: tonskill.ratioMegami333G[4],
+                        setting6Percent: tonskill.ratioMegami333G[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
