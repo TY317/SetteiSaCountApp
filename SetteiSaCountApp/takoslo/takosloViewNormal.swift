@@ -316,6 +316,16 @@ struct takosloViewNormal: View {
         )
         .toolbar {
             ToolbarItem(placement: .automatic) {
+                // カウント入力
+                unitButtonCountNumberInput(
+                    inputView: AnyView(
+                        takosloSubViewCountInput(
+                            takoslo: takoslo
+                        )
+                    )
+                )
+            }
+            ToolbarItem(placement: .automatic) {
                 // //// マイナスチェック
                 unitButtonMinusCheck(minusCheck: $takoslo.minusCheck)
             }
