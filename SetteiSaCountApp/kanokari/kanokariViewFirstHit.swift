@@ -89,6 +89,19 @@ struct kanokariViewFirstHit: View {
                     kanokari: kanokari,
                 )
             }
+            
+            // REG連続天井
+            Section {
+                unitLinkButtonViewBuilder(sheetTitle: "REG連続天井について") {
+                    VStack(alignment: .leading) {
+                        Text("・REG連続天井の振分けは3〜6回")
+                        Text("・高設定ほど少ない回数の振り分けが優遇")
+                        Text("・天井到達時はボーナスが裏かのかりボーナスに昇格する")
+                    }
+                }
+            } header: {
+                Text("REG連続天井")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.kanokariMenuFirstHitBadge)
