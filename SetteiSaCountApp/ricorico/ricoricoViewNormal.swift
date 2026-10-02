@@ -126,6 +126,7 @@ struct ricoricoViewNormal: View {
 
                 // 参考情報）150G 変換高確移行
                 unitLinkButtonViewBuilder(sheetTitle: "150G 変換高確移行") {
+                    Text("・150Gでの移行のみ設定差あり")
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTablePercent(
