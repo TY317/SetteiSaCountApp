@@ -136,3 +136,19 @@ struct tipVer480RicoricoFirstHit: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リコリス・リコイル 400G到達時のCZ当選率
+//////////////////
+struct tipVer480RicoricoCz400G: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("400G到達時のCZ当選率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

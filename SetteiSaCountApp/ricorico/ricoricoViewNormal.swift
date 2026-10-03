@@ -182,6 +182,76 @@ struct ricoricoViewNormal: View {
             } header: {
                 Text("150G 変換高確移行")
             }
+
+            // ---- 400G到達時のCZ当選率
+            Section {
+                // 当選率
+                unitResultRatioPercent2Line(
+                    title: "当選率",
+                    count: $ricorico.cz400GCountHit,
+                    bigNumber: $ricorico.cz400GCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer480RicoricoCz400G())
+
+                // 参考情報）400G到達時のCZ当選率
+                unitLinkButtonViewBuilder(sheetTitle: "400G到達時のCZ当選率") {
+                    Text("・400G到達時のCZ当選率に設定差あり")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "当選率",
+                            percentList: ricorico.ratioCz400G,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 非当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "非当選",
+                            count: $ricorico.cz400GCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $ricorico.minusCheck) {
+                                ricorico.cz400GSumFunc()
+                            }
+                        // 当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: $ricorico.cz400GCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $ricorico.minusCheck) {
+                                ricorico.cz400GSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ricoricoView95Ci(
+                                ricorico: ricorico,
+                                selection: 6,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ricoricoViewBayes(
+                            ricorico: ricorico,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("400G到達時のCZ当選率")
+            }
             
             // レア役
             Section {

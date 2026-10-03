@@ -30,11 +30,23 @@ class Ricorico: ObservableObject {
         henkan150GCountSum = henkan150GCountHit + henkan150GCountMiss
     }
 
+    let ratioCz400G: [Double] = [10.9,11.7,14.5,16.8,19.5,25.4]
+    @AppStorage("ricoricoCz400GCountMiss") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHit") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSum") var cz400GCountSum: Int = 0
+
+    func cz400GSumFunc() {
+        cz400GCountSum = cz400GCountHit + cz400GCountMiss
+    }
+
     func resetNormal() {
         commonBellCount = 0
         henkan150GCountMiss = 0
         henkan150GCountHit = 0
         henkan150GCountSum = 0
+        cz400GCountMiss = 0
+        cz400GCountHit = 0
+        cz400GCountSum = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
@@ -246,6 +258,9 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoHenkan150GCountMissMemory1") var henkan150GCountMiss: Int = 0
     @AppStorage("ricoricoHenkan150GCountHitMemory1") var henkan150GCountHit: Int = 0
     @AppStorage("ricoricoHenkan150GCountSumMemory1") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory1") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory1") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory1") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
@@ -290,6 +305,9 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoHenkan150GCountMissMemory2") var henkan150GCountMiss: Int = 0
     @AppStorage("ricoricoHenkan150GCountHitMemory2") var henkan150GCountHit: Int = 0
     @AppStorage("ricoricoHenkan150GCountSumMemory2") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory2") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory2") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory2") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
@@ -334,6 +352,9 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoHenkan150GCountMissMemory3") var henkan150GCountMiss: Int = 0
     @AppStorage("ricoricoHenkan150GCountHitMemory3") var henkan150GCountHit: Int = 0
     @AppStorage("ricoricoHenkan150GCountSumMemory3") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory3") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory3") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory3") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }

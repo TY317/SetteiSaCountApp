@@ -215,6 +215,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory1.henkan150GCountMiss = ricorico.henkan150GCountMiss
         ricoricoMemory1.henkan150GCountHit = ricorico.henkan150GCountHit
         ricoricoMemory1.henkan150GCountSum = ricorico.henkan150GCountSum
+        ricoricoMemory1.cz400GCountMiss = ricorico.cz400GCountMiss
+        ricoricoMemory1.cz400GCountHit = ricorico.cz400GCountHit
+        ricoricoMemory1.cz400GCountSum = ricorico.cz400GCountSum
         ricoricoMemory1.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory1.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory1.gameNumberPlay = ricorico.gameNumberPlay
@@ -255,6 +258,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory2.henkan150GCountMiss = ricorico.henkan150GCountMiss
         ricoricoMemory2.henkan150GCountHit = ricorico.henkan150GCountHit
         ricoricoMemory2.henkan150GCountSum = ricorico.henkan150GCountSum
+        ricoricoMemory2.cz400GCountMiss = ricorico.cz400GCountMiss
+        ricoricoMemory2.cz400GCountHit = ricorico.cz400GCountHit
+        ricoricoMemory2.cz400GCountSum = ricorico.cz400GCountSum
         ricoricoMemory2.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory2.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory2.gameNumberPlay = ricorico.gameNumberPlay
@@ -295,6 +301,9 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory3.henkan150GCountMiss = ricorico.henkan150GCountMiss
         ricoricoMemory3.henkan150GCountHit = ricorico.henkan150GCountHit
         ricoricoMemory3.henkan150GCountSum = ricorico.henkan150GCountSum
+        ricoricoMemory3.cz400GCountMiss = ricorico.cz400GCountMiss
+        ricoricoMemory3.cz400GCountHit = ricorico.cz400GCountHit
+        ricoricoMemory3.cz400GCountSum = ricorico.cz400GCountSum
         ricoricoMemory3.gameNumberStart = ricorico.gameNumberStart
         ricoricoMemory3.gameNumberCurrent = ricorico.gameNumberCurrent
         ricoricoMemory3.gameNumberPlay = ricorico.gameNumberPlay
@@ -364,6 +373,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.henkan150GCountMiss = ricoricoMemory1.henkan150GCountMiss
         ricorico.henkan150GCountHit = ricoricoMemory1.henkan150GCountHit
         ricorico.henkan150GCountSum = ricoricoMemory1.henkan150GCountSum
+        ricorico.cz400GCountMiss = ricoricoMemory1.cz400GCountMiss
+        ricorico.cz400GCountHit = ricoricoMemory1.cz400GCountHit
+        ricorico.cz400GCountSum = ricoricoMemory1.cz400GCountSum
         ricorico.gameNumberStart = ricoricoMemory1.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory1.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory1.gameNumberPlay
@@ -404,6 +416,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.henkan150GCountMiss = ricoricoMemory2.henkan150GCountMiss
         ricorico.henkan150GCountHit = ricoricoMemory2.henkan150GCountHit
         ricorico.henkan150GCountSum = ricoricoMemory2.henkan150GCountSum
+        ricorico.cz400GCountMiss = ricoricoMemory2.cz400GCountMiss
+        ricorico.cz400GCountHit = ricoricoMemory2.cz400GCountHit
+        ricorico.cz400GCountSum = ricoricoMemory2.cz400GCountSum
         ricorico.gameNumberStart = ricoricoMemory2.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory2.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory2.gameNumberPlay
@@ -444,6 +459,9 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.henkan150GCountMiss = ricoricoMemory3.henkan150GCountMiss
         ricorico.henkan150GCountHit = ricoricoMemory3.henkan150GCountHit
         ricorico.henkan150GCountSum = ricoricoMemory3.henkan150GCountSum
+        ricorico.cz400GCountMiss = ricoricoMemory3.cz400GCountMiss
+        ricorico.cz400GCountHit = ricoricoMemory3.cz400GCountHit
+        ricorico.cz400GCountSum = ricoricoMemory3.cz400GCountSum
         ricorico.gameNumberStart = ricoricoMemory3.gameNumberStart
         ricorico.gameNumberCurrent = ricoricoMemory3.gameNumberCurrent
         ricorico.gameNumberPlay = ricoricoMemory3.gameNumberPlay

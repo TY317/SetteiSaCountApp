@@ -85,6 +85,24 @@ struct ricoricoView95Ci: View {
                 )
             )
             .tag(5)
+
+            // 400G到達時のCZ当選率
+            unitListSection95Ci(
+                grafTitle: "400G到達時のCZ当選率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.cz400GCountHit,
+                        bigNumber: $ricorico.cz400GCountSum,
+                        setting1Percent: ricorico.ratioCz400G[0],
+                        setting2Percent: ricorico.ratioCz400G[1],
+                        setting3Percent: ricorico.ratioCz400G[2],
+                        setting4Percent: ricorico.ratioCz400G[3],
+                        setting5Percent: ricorico.ratioCz400G[4],
+                        setting6Percent: ricorico.ratioCz400G[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

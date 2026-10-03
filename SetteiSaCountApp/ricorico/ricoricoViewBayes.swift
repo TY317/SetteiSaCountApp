@@ -25,6 +25,7 @@ struct ricoricoViewBayes: View {
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var commonBellEnable: Bool = true
     @State var henkan150GEnable: Bool = true
+    @State var cz400GEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -53,6 +54,9 @@ struct ricoricoViewBayes: View {
 
                 // 150G 変換高確移行
                 unitToggleWithQuestion(enable: self.$henkan150GEnable, title: "150G 変換高確移行")
+
+                // 400G到達時のCZ当選率
+                unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
@@ -179,6 +183,16 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 400G到達時のCZ当選率
+        var logPostCz400G: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cz400GEnable {
+            logPostCz400G = logPostPercentBino(
+                ratio: ricorico.ratioCz400G,
+                Count: ricorico.cz400GCountHit,
+                bigNumber: ricorico.cz400GCountSum
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -250,6 +264,7 @@ struct ricoricoViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostCommonBell,
             logPostHenkan150G,
+            logPostCz400G,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
