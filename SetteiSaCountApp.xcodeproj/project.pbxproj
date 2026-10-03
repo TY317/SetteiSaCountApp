@@ -1734,7 +1734,6 @@
 		2DA6BE6405DD49D19ADC952B /* index2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E705DB1AFC3495285B5FAE8 /* index2ViewNormal.swift */; };
 		2EBE1CCF5D63496A86040F4F /* index2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4C919C7B64CFF975CF67F /* index2TableKoyakuPattern.swift */; };
 		2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */; };
-		6D4F6AFB7AB14F1DB4F9BD3D /* takosloSubViewCountInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295ACC16E734C5C87F62EFE /* takosloSubViewCountInput.swift */; };
 		34ED2A89F21340BE89AC8DB8 /* kerottoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE82618305844A5BBF533CE /* kerottoViewTop.swift */; };
 		352BF2F6BE5D4C659D7CF478 /* yajikitaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */; };
 		367836D941B740E884D8A897 /* dropkickAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B6056CC6F564CAA8469DDFB /* dropkickAssets.xcassets */; };
@@ -3448,7 +3447,6 @@
 		6B9E8090B0594E649360C8DF /* kanokariAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = kanokariAssets.xcassets; sourceTree = "<group>"; };
 		6D514E60BE1F48879D28F014 /* karakuri2ViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewDuringAt.swift; sourceTree = "<group>"; };
 		6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloViewNormal.swift; sourceTree = "<group>"; };
-		E295ACC16E734C5C87F62EFE /* takosloSubViewCountInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takosloSubViewCountInput.swift; sourceTree = "<group>"; };
 		72E560C1A112F6CEFEAF7AF8 /* aobutaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewBayes.swift; sourceTree = "<group>"; };
 		745D8A25D55D491BA23F25BC /* kerottoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoClass.swift; sourceTree = "<group>"; };
 		74FEEDADC4012AC191F002FA /* aobutaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = aobutaAssets.xcassets; sourceTree = "<group>"; };
@@ -6332,7 +6330,6 @@
 				FE45DDC81A0445829E33375A /* takosloViewTop.swift */,
 				2CBBFFBB80A44F3882A5200C /* takosloClass.swift */,
 				6ED87AC6511F4B97A6641F01 /* takosloViewNormal.swift */,
-				E295ACC16E734C5C87F62EFE /* takosloSubViewCountInput.swift */,
 				3F50D0AAA2A74A8885D2C2E8 /* takosloViewDuringBt.swift */,
 				018D936D83C449D5A71A304C /* takosloViewScreen.swift */,
 				946EBE4BE5D34C65A3279382 /* takosloViewBayes.swift */,
@@ -8120,7 +8117,6 @@
 				71B24663600B44D6B59D93C6 /* kanokariView95Ci.swift in Sources */,
 				E4207CB65B0E4C61BD1705E8 /* takosloClass.swift in Sources */,
 				2F9AA808A89F41A5B1437DBC /* takosloViewNormal.swift in Sources */,
-				6D4F6AFB7AB14F1DB4F9BD3D /* takosloSubViewCountInput.swift in Sources */,
 				12690F4752EF448D9E7CADB8 /* takosloViewDuringBt.swift in Sources */,
 				0C171859D82C4710BB58D239 /* takosloViewScreen.swift in Sources */,
 				CCBC3AAB974A4BAE917C8047 /* takosloViewBayes.swift in Sources */,

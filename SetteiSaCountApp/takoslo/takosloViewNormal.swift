@@ -26,6 +26,15 @@ struct takosloViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+
+    enum TakosloField: Hashable {
+        case gameStart
+        case gameCurrent
+        case count(Int)
+    }
+    @FocusState var focusedField: TakosloField?
+    // ダイレクト入力の並び（bindingCount の case と対応）
+    let kindList: [String] = ["プラム", "🍉", "🍒", "🍉A", "🍉B", "🍒B", "🍒C"]
     var body: some View {
         List {
             // ---- 小役
@@ -268,7 +277,7 @@ struct takosloViewNormal: View {
                     inputValue: $takoslo.gameNumberStart,
                     unitText: "Ｇ",
                 )
-                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameStart)
                 .onChange(of: takoslo.gameNumberStart) {
                     let playGame = takoslo.gameNumberCurrent - takoslo.gameNumberStart
                     takoslo.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -278,7 +287,7 @@ struct takosloViewNormal: View {
                     inputValue: $takoslo.gameNumberCurrent,
                     unitText: "Ｇ",
                 )
-                .focused(self.$isFocused)
+                .focused($focusedField, equals: .gameCurrent)
                 .onChange(of: takoslo.gameNumberCurrent) {
                     let playGame = takoslo.gameNumberCurrent - takoslo.gameNumberStart
                     takoslo.gameNumberPlay = playGame > 0 ? playGame : 0
@@ -317,12 +326,20 @@ struct takosloViewNormal: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 // カウント入力
-                unitButtonCountNumberInput(
-                    inputView: AnyView(
-                        takosloSubViewCountInput(
-                            takoslo: takoslo
+                UnitToolbarButtonCountDirectInputEnumFocus<TakosloField, AnyView>(
+                    focus: $focusedField,
+                    inputView: {
+                        AnyView(
+                            ForEach(self.kindList.indices, id: \.self) { index in
+                                UnitTextFieldNumberInputWithUnitEnumFocus<TakosloField>(
+                                    title: self.kindList[index],
+                                    inputValue: bindingCount(index),
+                                    focusedField: $focusedField,
+                                    thisField: .count(index)
+                                )
+                            }
                         )
-                    )
+                    }
                 )
             }
             ToolbarItem(placement: .automatic) {
@@ -337,13 +354,28 @@ struct takosloViewNormal: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isFocused = false
+                        focusedField = nil
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }, label: {
                         Text("完了")
                             .fontWeight(.bold)
                     })
                 }
             }
+        }
+    }
+
+    // kindList の並びと対応させる
+    private func bindingCount(_ index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $takoslo.koyakuCountPlum
+        case 1: return $takoslo.koyakuCountSuika
+        case 2: return $takoslo.koyakuCountCherry
+        case 3: return $takoslo.koyakuDetailCountSuikaA
+        case 4: return $takoslo.koyakuDetailCountSuikaB
+        case 5: return $takoslo.koyakuDetailCountCherryB
+        case 6: return $takoslo.koyakuDetailCountCherryC
+        default: return .constant(0)
         }
     }
 }
