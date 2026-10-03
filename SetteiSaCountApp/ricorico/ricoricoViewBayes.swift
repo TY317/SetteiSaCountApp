@@ -24,6 +24,8 @@ struct ricoricoViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var commonBellEnable: Bool = true
+    @State var henkan150GEnable: Bool = true
+    @State var cz400GEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -50,12 +52,17 @@ struct ricoricoViewBayes: View {
                 // 共通ベル確率
                 unitToggleWithQuestion(enable: self.$commonBellEnable, title: "共通ベル確率")
 
+                // 150G 変換高確移行
+                unitToggleWithQuestion(enable: self.$henkan150GEnable, title: "150G 変換高確移行")
+
+                // 400G到達時のCZ当選率
+                unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
+
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
                     unitExView5body2image(
                         title: "CZ初当り確率",
-                        textBody1: "・バトルCZと幼少期CZの合算回数を計算要素に加えます",
-//                        textBody2: "・個別の振分けは設定1と6しか判明していないため、合算で計算します",
+                        textBody1: "・バトルCZと幼少期CZをそれぞれの確率で計算要素に加えます",
                     )
                 }
 
@@ -140,12 +147,18 @@ struct ricoricoViewBayes: View {
     }
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
-        // CZ初当り確率（バトル＋幼少期の合算）
+        // CZ初当り確率（バトルCZ／幼少期CZ。同時には当選しないので多項で計算）
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
-            logPostFirstHitCz = logPostDenoBino(
-                ratio: ricorico.ratioFirstHitCz,
-                Count: ricorico.firstHitCountCz,
+            logPostFirstHitCz = logPostDenoMulti(
+                countList: [
+                    ricorico.firstHitCountBattleCz,
+                    ricorico.firstHitCountYoshokiCz,
+                ],
+                denoList: [
+                    ricorico.ratioFirstHitBattleCz,
+                    ricorico.ratioFirstHitYoshokiCz,
+                ],
                 bigNumber: ricorico.normalGame
             )
         }
@@ -157,6 +170,26 @@ struct ricoricoViewBayes: View {
                 ratio: ricorico.ratioCommonBell,
                 Count: ricorico.commonBellCount,
                 bigNumber: ricorico.gameNumberPlay
+            )
+        }
+
+        // 150G 変換高確移行
+        var logPostHenkan150G: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.henkan150GEnable {
+            logPostHenkan150G = logPostPercentBino(
+                ratio: ricorico.ratioHenkan150G,
+                Count: ricorico.henkan150GCountHit,
+                bigNumber: ricorico.henkan150GCountSum
+            )
+        }
+
+        // 400G到達時のCZ当選率
+        var logPostCz400G: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cz400GEnable {
+            logPostCz400G = logPostPercentBino(
+                ratio: ricorico.ratioCz400G,
+                Count: ricorico.cz400GCountHit,
+                bigNumber: ricorico.cz400GCountSum
             )
         }
 
@@ -230,6 +263,8 @@ struct ricoricoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostCommonBell,
+            logPostHenkan150G,
+            logPostCz400G,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,

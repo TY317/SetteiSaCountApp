@@ -67,6 +67,37 @@ class Sencole6: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // AT中
+    // -------
+    let ratioTenmaIssen300: [Double] = [40.2,39.5,37.8,29.5,24.7,20.2]
+    let ratioTenmaIssen550: [Double] = [14.8,13.7,12.8,9.5,7.9,6.5]
+    let ratioTenmaIssen800: [Double] = [9.8,9.9,9.2,7.3,6.2,5.1]
+    let ratioTenmaIssen1050: [Double] = [35.2,36.9,40.2,53.7,61.2,68.2]
+    @AppStorage("sencole6TenmaIssenCount300") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSum") var tenmaIssenCountSum: Int = 0
+
+    func tenmaIssenSumFunc() {
+        tenmaIssenCountSum = countSum(
+            tenmaIssenCount300,
+            tenmaIssenCount550,
+            tenmaIssenCount800,
+            tenmaIssenCount1050,
+        )
+    }
+
+    func resetDuringAt() {
+        tenmaIssenCount300 = 0
+        tenmaIssenCount550 = 0
+        tenmaIssenCount800 = 0
+        tenmaIssenCount1050 = 0
+        tenmaIssenCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -78,6 +109,7 @@ class Sencole6: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetDuringAt()
     }
 }
 
@@ -93,6 +125,11 @@ class Sencole6Memory1: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory1") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory1") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory1") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory1") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory1") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory1") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory1") var memo = ""
     @AppStorage("sencole6DateMemory1") var dateDouble = 0.0
 }
@@ -109,6 +146,11 @@ class Sencole6Memory2: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory2") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory2") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory2") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory2") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory2") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory2") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory2") var memo = ""
     @AppStorage("sencole6DateMemory2") var dateDouble = 0.0
 }
@@ -125,6 +167,11 @@ class Sencole6Memory3: ObservableObject {
     @AppStorage("sencole6ScreenCount6Memory3") var screenCount6: Int = 0
     @AppStorage("sencole6ScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("sencole6ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("sencole6TenmaIssenCount300Memory3") var tenmaIssenCount300: Int = 0
+    @AppStorage("sencole6TenmaIssenCount550Memory3") var tenmaIssenCount550: Int = 0
+    @AppStorage("sencole6TenmaIssenCount800Memory3") var tenmaIssenCount800: Int = 0
+    @AppStorage("sencole6TenmaIssenCount1050Memory3") var tenmaIssenCount1050: Int = 0
+    @AppStorage("sencole6TenmaIssenCountSumMemory3") var tenmaIssenCountSum: Int = 0
     @AppStorage("sencole6MemoMemory3") var memo = ""
     @AppStorage("sencole6DateMemory3") var dateDouble = 0.0
 }

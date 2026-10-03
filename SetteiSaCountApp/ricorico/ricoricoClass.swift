@@ -21,8 +21,32 @@ class Ricorico: ObservableObject {
     @AppStorage("ricoricoGameNumberCurrent") var gameNumberCurrent: Int = 0
     @AppStorage("ricoricoGameNumberPlay") var gameNumberPlay: Int = 0
 
+    let ratioHenkan150G: [Double] = [50.0,50.0,50.0,54.7,58.6,62.5]
+    @AppStorage("ricoricoHenkan150GCountMiss") var henkan150GCountMiss: Int = 0
+    @AppStorage("ricoricoHenkan150GCountHit") var henkan150GCountHit: Int = 0
+    @AppStorage("ricoricoHenkan150GCountSum") var henkan150GCountSum: Int = 0
+
+    func henkan150GSumFunc() {
+        henkan150GCountSum = henkan150GCountHit + henkan150GCountMiss
+    }
+
+    let ratioCz400G: [Double] = [10.9,11.7,14.5,16.8,19.5,25.4]
+    @AppStorage("ricoricoCz400GCountMiss") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHit") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSum") var cz400GCountSum: Int = 0
+
+    func cz400GSumFunc() {
+        cz400GCountSum = cz400GCountHit + cz400GCountMiss
+    }
+
     func resetNormal() {
         commonBellCount = 0
+        henkan150GCountMiss = 0
+        henkan150GCountHit = 0
+        henkan150GCountSum = 0
+        cz400GCountMiss = 0
+        cz400GCountHit = 0
+        cz400GCountSum = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
@@ -33,8 +57,10 @@ class Ricorico: ObservableObject {
     // 初当り
     // --------
     let ratioFirstHitCz: [Double] = [198.7,196.9,191.3,183.3,175.9,169.4]
-    let ratioFirstHitBattleCz: [Double] = [209.2,-1,-1,-1,-1,184.4]
-    let ratioFirstHitYoshokiCz: [Double] = [3965,-1,-1,-1,-1,2084.8]
+    // バトルCZ は CZ合算と幼少期CZから逆算（1 / (1/合算 − 1/幼少期)）
+    let ratioFirstHitBattleCz: [Double] = [209.2,207.9,203.8,195.6,189.7,184.4]
+    let ratioFirstHitYoshokiCz: [Double] = [3965.0,3706.6,3107.3,2925.9,2425.8,2084.8]
+    let ratioFirstHitAtDirect: [Double] = [22429.5,19006.5,15454.1,10809.3,7809.6,6263.7]
     let ratioFirstHitAt: [Double] = [328.8,323.4,312.1,288.3,271.6,256.7]
     @AppStorage("ricoricoNormalGame") var normalGame: Int = 0
     @AppStorage("ricoricoFirstHitCountBattleCz") var firstHitCountBattleCz: Int = 0
@@ -229,6 +255,12 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoGameNumberStartMemory1") var gameNumberStart: Int = 0
     @AppStorage("ricoricoGameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
     @AppStorage("ricoricoGameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("ricoricoHenkan150GCountMissMemory1") var henkan150GCountMiss: Int = 0
+    @AppStorage("ricoricoHenkan150GCountHitMemory1") var henkan150GCountHit: Int = 0
+    @AppStorage("ricoricoHenkan150GCountSumMemory1") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory1") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory1") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory1") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
@@ -270,6 +302,12 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoGameNumberStartMemory2") var gameNumberStart: Int = 0
     @AppStorage("ricoricoGameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
     @AppStorage("ricoricoGameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("ricoricoHenkan150GCountMissMemory2") var henkan150GCountMiss: Int = 0
+    @AppStorage("ricoricoHenkan150GCountHitMemory2") var henkan150GCountHit: Int = 0
+    @AppStorage("ricoricoHenkan150GCountSumMemory2") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory2") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory2") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory2") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
@@ -311,6 +349,12 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoGameNumberStartMemory3") var gameNumberStart: Int = 0
     @AppStorage("ricoricoGameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
     @AppStorage("ricoricoGameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("ricoricoHenkan150GCountMissMemory3") var henkan150GCountMiss: Int = 0
+    @AppStorage("ricoricoHenkan150GCountHitMemory3") var henkan150GCountHit: Int = 0
+    @AppStorage("ricoricoHenkan150GCountSumMemory3") var henkan150GCountSum: Int = 0
+    @AppStorage("ricoricoCz400GCountMissMemory3") var cz400GCountMiss: Int = 0
+    @AppStorage("ricoricoCz400GCountHitMemory3") var cz400GCountHit: Int = 0
+    @AppStorage("ricoricoCz400GCountSumMemory3") var cz400GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }

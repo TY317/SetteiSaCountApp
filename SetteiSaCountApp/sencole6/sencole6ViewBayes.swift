@@ -14,6 +14,7 @@ struct sencole6ViewBayes: View {
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.1, 99.1, 100.9, 106.0, 110.1, 114.9]
     @State var firstHitAtEnable: Bool = true
+    @State var tenmaIssenEnable: Bool = true
     @State var screenEnable: Bool = true
 
     // 全機種共通
@@ -48,6 +49,9 @@ struct sencole6ViewBayes: View {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // 天魔一閃 上乗せ
+                unitToggleWithQuestion(enable: self.$tenmaIssenEnable, title: "天魔一閃 上乗せ振分け")
                 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
@@ -136,6 +140,25 @@ struct sencole6ViewBayes: View {
                 bigNumber: sencole6.normalGame
             )
         }
+
+        // 天魔一閃 上乗せ
+        // 300枚は残余バケットに吸収させるため除外（分母は全体の合計）
+        var logPostTenmaIssen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tenmaIssenEnable {
+            logPostTenmaIssen = logPostPercentMulti(
+                countList: [
+                    sencole6.tenmaIssenCount550,
+                    sencole6.tenmaIssenCount800,
+                    sencole6.tenmaIssenCount1050,
+                ],
+                ratioList: [
+                    sencole6.ratioTenmaIssen550,
+                    sencole6.ratioTenmaIssen800,
+                    sencole6.ratioTenmaIssen1050,
+                ],
+                bigNumber: sencole6.tenmaIssenCountSum
+            )
+        }
         
         // 終了画面
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -194,6 +217,7 @@ struct sencole6ViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostTenmaIssen,
             logPostFirstHitAt,
             logPostScreen,
             

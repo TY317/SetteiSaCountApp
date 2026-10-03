@@ -36,8 +36,20 @@ class Tonskill: ObservableObject {
         ptFeru = 0
     }
 
+    let ratioMegami333G: [Double] = [30.1,31.6,33.2,34.8,39.1,44.9]
+    @AppStorage("tonskillMegami333GCountMiss") var megami333GCountMiss: Int = 0
+    @AppStorage("tonskillMegami333GCountHit") var megami333GCountHit: Int = 0
+    @AppStorage("tonskillMegami333GCountSum") var megami333GCountSum: Int = 0
+
+    func megami333GSumFunc() {
+        megami333GCountSum = megami333GCountHit + megami333GCountMiss
+    }
+
     func resetNormal() {
         resetPt()
+        megami333GCountMiss = 0
+        megami333GCountHit = 0
+        megami333GCountSum = 0
         minusCheck = false
     }
 
@@ -177,6 +189,9 @@ class TonskillMemory1: ObservableObject {
     @AppStorage("tonskillScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("tonskillScreenCount8Memory1") var screenCount8: Int = 0
     @AppStorage("tonskillScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("tonskillMegami333GCountMissMemory1") var megami333GCountMiss: Int = 0
+    @AppStorage("tonskillMegami333GCountHitMemory1") var megami333GCountHit: Int = 0
+    @AppStorage("tonskillMegami333GCountSumMemory1") var megami333GCountSum: Int = 0
     @AppStorage("tonskillMemoMemory1") var memo = ""
     @AppStorage("tonskillDateMemory1") var dateDouble = 0.0
 }
@@ -208,6 +223,9 @@ class TonskillMemory2: ObservableObject {
     @AppStorage("tonskillScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("tonskillScreenCount8Memory2") var screenCount8: Int = 0
     @AppStorage("tonskillScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("tonskillMegami333GCountMissMemory2") var megami333GCountMiss: Int = 0
+    @AppStorage("tonskillMegami333GCountHitMemory2") var megami333GCountHit: Int = 0
+    @AppStorage("tonskillMegami333GCountSumMemory2") var megami333GCountSum: Int = 0
     @AppStorage("tonskillMemoMemory2") var memo = ""
     @AppStorage("tonskillDateMemory2") var dateDouble = 0.0
 }
@@ -239,6 +257,9 @@ class TonskillMemory3: ObservableObject {
     @AppStorage("tonskillScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("tonskillScreenCount8Memory3") var screenCount8: Int = 0
     @AppStorage("tonskillScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("tonskillMegami333GCountMissMemory3") var megami333GCountMiss: Int = 0
+    @AppStorage("tonskillMegami333GCountHitMemory3") var megami333GCountHit: Int = 0
+    @AppStorage("tonskillMegami333GCountSumMemory3") var megami333GCountSum: Int = 0
     @AppStorage("tonskillMemoMemory3") var memo = ""
     @AppStorage("tonskillDateMemory3") var dateDouble = 0.0
 }

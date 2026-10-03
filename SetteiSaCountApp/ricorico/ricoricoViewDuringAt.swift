@@ -42,9 +42,9 @@ struct ricoricoViewDuringAt: View {
         ["【EP1】More haste, less speed", "【EP2】So far, so good", "【EP3】Recoil of Lycoris\n−sideリコリコ−", "【EP4】Recoil of Lycoris\n−sideハワイ−"],
     ]
     let lowerBeltTextList: [[String]] = [
-        ["デフォルト", "デフォルト", "???", "???"],
-        ["デフォルト", "デフォルト", "???", "???"],
-        ["デフォルト", "デフォルト", "???", "???"],
+        ["デフォルト", "デフォルト", "高設定示唆 弱", "高設定示唆 強"],
+        ["デフォルト", "デフォルト", "高設定示唆 弱", "高設定示唆 強"],
+        ["デフォルト", "デフォルト", "高設定示唆 弱", "高設定示唆 強"],
     ]
     let flashColorList: [[Color]] = [
         [.gray, .gray, .green, .red],
@@ -55,9 +55,9 @@ struct ricoricoViewDuringAt: View {
     // 結果表示用（EP1・EP2 は同じカウントなので3行）
     let resultIndexList: [Int] = [0,1,2]
     let resultTitleList: [[String]] = [
-        ["デフォルト", "???(EP3)", "???(EP4)"],
-        ["デフォルト", "???(EP3)", "???(EP4)"],
-        ["デフォルト", "???(EP3)", "???(EP4)"],
+        ["デフォルト", "高設定示唆 弱", "高設定示唆 強"],
+        ["デフォルト", "高設定示唆 弱", "高設定示唆 強"],
+        ["デフォルト", "高設定示唆 弱", "高設定示唆 強"],
     ]
     let resultColorList: [[Color]] = [
         [.gray, .green, .red],
@@ -84,6 +84,7 @@ struct ricoricoViewDuringAt: View {
                     // モードを切り替えたら画面の選択状態を解除する
                     self.selectedImageName = ""
                 }
+                .popoverTip(tipVer480RicoricoEpisode())
 
                 VStack {
                     // カウントボタン

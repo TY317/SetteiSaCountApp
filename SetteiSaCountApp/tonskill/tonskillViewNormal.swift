@@ -146,6 +146,79 @@ struct tonskillViewNormal: View {
                 Text("ポイント推定カウント")
             }
 
+            // ---- 333G 女神の舞移行率
+            Section {
+                // 移行率
+                unitResultRatioPercent2Line(
+                    title: "移行率",
+                    count: $tonskill.megami333GCountHit,
+                    bigNumber: $tonskill.megami333GCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer480TonskillMegami333G())
+
+                // 参考情報）333G 女神の舞移行率
+                unitLinkButtonViewBuilder(sheetTitle: "333G 女神の舞移行率") {
+                    VStack(alignment: .leading) {
+                        Text("・333G到達時の女神の舞移行率に設定差あり（777Gは100%）")
+                        Text("・CZ前兆と重複した場合は女神の舞ステージへ移行しない場合あり")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "移行率",
+                            percentList: tonskill.ratioMegami333G,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 移行なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行なし",
+                            count: $tonskill.megami333GCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $tonskill.minusCheck) {
+                                tonskill.megami333GSumFunc()
+                            }
+                        // 移行あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "移行あり",
+                            count: $tonskill.megami333GCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $tonskill.minusCheck) {
+                                tonskill.megami333GSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            tonskillView95Ci(
+                                tonskill: tonskill,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        tonskillViewBayes(
+                            tonskill: tonskill,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("333G 女神の舞移行率")
+            }
+
             // レア役
             Section {
                 // レア役停止系

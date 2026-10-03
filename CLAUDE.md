@@ -29,6 +29,8 @@
 - `machines.updateMachineBadgeStatus(id: "<機種ID>", newStatus: "update")`
 - 更新したページの `<prefix>Menu<PageName>Badge = "update"`（新規ページは `"new"`）
 
+**機種バッジを付けるときは、その機種トップのバッジ消去方式も確認する**。`<prefix>ViewTop.swift` が旧方式の `.resetBadgeOnAppear($common.<prefix>MachineIconBadge)` のままだと、`machines` 側に付けた update バッジが機種トップを開いても消えない。旧方式なら `.resetMachineBadgeOnAppear(machines: $common.machines, targetId: "<機種ID>")` への置き換えを提案する（旧方式の行はコメントアウトして残す）。確認するのはバッジを付ける機種だけで、触らないレガシー機種まで一括で直すことはしない。
+
 **設定期待値ページのバッジ（`<prefix>MenuBayesBadge`）は基本的に対象外**。変数自体は従来どおり add-machine で生成するが、ほぼ運用していないため `verNNNNFirstLaunch()` への追加は不要（ベイズに判別要素を足しただけの更新では、バッジ確認の提案もしなくてよい）。ユーザーから明示指示があった場合のみ追加する。
 
 ## 確率値の表記ルール（小数点以下の桁数）

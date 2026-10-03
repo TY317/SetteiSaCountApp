@@ -203,6 +203,11 @@ struct sencole6SubViewSaveMemory: View {
         sencole6Memory1.screenCount6 = sencole6.screenCount6
         sencole6Memory1.screenCount7 = sencole6.screenCount7
         sencole6Memory1.screenCountSum = sencole6.screenCountSum
+        sencole6Memory1.tenmaIssenCount300 = sencole6.tenmaIssenCount300
+        sencole6Memory1.tenmaIssenCount550 = sencole6.tenmaIssenCount550
+        sencole6Memory1.tenmaIssenCount800 = sencole6.tenmaIssenCount800
+        sencole6Memory1.tenmaIssenCount1050 = sencole6.tenmaIssenCount1050
+        sencole6Memory1.tenmaIssenCountSum = sencole6.tenmaIssenCountSum
     }
     func saveMemory2() {
         sencole6Memory2.normalGame = sencole6.normalGame
@@ -215,6 +220,11 @@ struct sencole6SubViewSaveMemory: View {
         sencole6Memory2.screenCount6 = sencole6.screenCount6
         sencole6Memory2.screenCount7 = sencole6.screenCount7
         sencole6Memory2.screenCountSum = sencole6.screenCountSum
+        sencole6Memory2.tenmaIssenCount300 = sencole6.tenmaIssenCount300
+        sencole6Memory2.tenmaIssenCount550 = sencole6.tenmaIssenCount550
+        sencole6Memory2.tenmaIssenCount800 = sencole6.tenmaIssenCount800
+        sencole6Memory2.tenmaIssenCount1050 = sencole6.tenmaIssenCount1050
+        sencole6Memory2.tenmaIssenCountSum = sencole6.tenmaIssenCountSum
     }
     func saveMemory3() {
         sencole6Memory3.normalGame = sencole6.normalGame
@@ -227,6 +237,11 @@ struct sencole6SubViewSaveMemory: View {
         sencole6Memory3.screenCount6 = sencole6.screenCount6
         sencole6Memory3.screenCount7 = sencole6.screenCount7
         sencole6Memory3.screenCountSum = sencole6.screenCountSum
+        sencole6Memory3.tenmaIssenCount300 = sencole6.tenmaIssenCount300
+        sencole6Memory3.tenmaIssenCount550 = sencole6.tenmaIssenCount550
+        sencole6Memory3.tenmaIssenCount800 = sencole6.tenmaIssenCount800
+        sencole6Memory3.tenmaIssenCount1050 = sencole6.tenmaIssenCount1050
+        sencole6Memory3.tenmaIssenCountSum = sencole6.tenmaIssenCountSum
     }
 }
 
@@ -268,6 +283,11 @@ struct sencole6SubViewLoadMemory: View {
         sencole6.screenCount6 = sencole6Memory1.screenCount6
         sencole6.screenCount7 = sencole6Memory1.screenCount7
         sencole6.screenCountSum = sencole6Memory1.screenCountSum
+        sencole6.tenmaIssenCount300 = sencole6Memory1.tenmaIssenCount300
+        sencole6.tenmaIssenCount550 = sencole6Memory1.tenmaIssenCount550
+        sencole6.tenmaIssenCount800 = sencole6Memory1.tenmaIssenCount800
+        sencole6.tenmaIssenCount1050 = sencole6Memory1.tenmaIssenCount1050
+        sencole6.tenmaIssenCountSum = sencole6Memory1.tenmaIssenCountSum
     }
     func loadMemory2() {
         sencole6.normalGame = sencole6Memory2.normalGame
@@ -280,6 +300,11 @@ struct sencole6SubViewLoadMemory: View {
         sencole6.screenCount6 = sencole6Memory2.screenCount6
         sencole6.screenCount7 = sencole6Memory2.screenCount7
         sencole6.screenCountSum = sencole6Memory2.screenCountSum
+        sencole6.tenmaIssenCount300 = sencole6Memory2.tenmaIssenCount300
+        sencole6.tenmaIssenCount550 = sencole6Memory2.tenmaIssenCount550
+        sencole6.tenmaIssenCount800 = sencole6Memory2.tenmaIssenCount800
+        sencole6.tenmaIssenCount1050 = sencole6Memory2.tenmaIssenCount1050
+        sencole6.tenmaIssenCountSum = sencole6Memory2.tenmaIssenCountSum
     }
     func loadMemory3() {
         sencole6.normalGame = sencole6Memory3.normalGame
@@ -292,6 +317,11 @@ struct sencole6SubViewLoadMemory: View {
         sencole6.screenCount6 = sencole6Memory3.screenCount6
         sencole6.screenCount7 = sencole6Memory3.screenCount7
         sencole6.screenCountSum = sencole6Memory3.screenCountSum
+        sencole6.tenmaIssenCount300 = sencole6Memory3.tenmaIssenCount300
+        sencole6.tenmaIssenCount550 = sencole6Memory3.tenmaIssenCount550
+        sencole6.tenmaIssenCount800 = sencole6Memory3.tenmaIssenCount800
+        sencole6.tenmaIssenCount1050 = sencole6Memory3.tenmaIssenCount1050
+        sencole6.tenmaIssenCountSum = sencole6Memory3.tenmaIssenCountSum
     }
 }
 
