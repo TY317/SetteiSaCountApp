@@ -14,23 +14,41 @@ struct ricoricoView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // CZ初当り回数
+            // バトルCZ回数
             unitListSection95Ci(
-                grafTitle: "CZ初当り回数",
+                grafTitle: "バトルCZ回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $ricorico.firstHitCountCz,
+                        currentCount: $ricorico.firstHitCountBattleCz,
                         bigNumber: $ricorico.normalGame,
-                        setting1Denominate: ricorico.ratioFirstHitCz[0],
-                        setting2Denominate: ricorico.ratioFirstHitCz[1],
-                        setting3Denominate: ricorico.ratioFirstHitCz[2],
-                        setting4Denominate: ricorico.ratioFirstHitCz[3],
-                        setting5Denominate: ricorico.ratioFirstHitCz[4],
-                        setting6Denominate: ricorico.ratioFirstHitCz[5]
+                        setting1Denominate: ricorico.ratioFirstHitBattleCz[0],
+                        setting2Denominate: ricorico.ratioFirstHitBattleCz[1],
+                        setting3Denominate: ricorico.ratioFirstHitBattleCz[2],
+                        setting4Denominate: ricorico.ratioFirstHitBattleCz[3],
+                        setting5Denominate: ricorico.ratioFirstHitBattleCz[4],
+                        setting6Denominate: ricorico.ratioFirstHitBattleCz[5]
                     )
                 )
             )
             .tag(2)
+
+            // 幼少期CZ回数
+            unitListSection95Ci(
+                grafTitle: "幼少期CZ回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ricorico.firstHitCountYoshokiCz,
+                        bigNumber: $ricorico.normalGame,
+                        setting1Denominate: ricorico.ratioFirstHitYoshokiCz[0],
+                        setting2Denominate: ricorico.ratioFirstHitYoshokiCz[1],
+                        setting3Denominate: ricorico.ratioFirstHitYoshokiCz[2],
+                        setting4Denominate: ricorico.ratioFirstHitYoshokiCz[3],
+                        setting5Denominate: ricorico.ratioFirstHitYoshokiCz[4],
+                        setting6Denominate: ricorico.ratioFirstHitYoshokiCz[5]
+                    )
+                )
+            )
+            .tag(7)
 
             // AT初当り回数
             unitListSection95Ci(
