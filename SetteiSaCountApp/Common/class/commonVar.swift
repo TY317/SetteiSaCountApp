@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5061", name: "獣王", fullName: "獣王", iconName: "juoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5095", name: "モンハンSB", fullName: "モンスターハンターライズ：サンブレイク", iconName: "mhrsbMachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5065", name: "かのかり", fullName: "彼女、お借りします", iconName: "kanokariMachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5049", name: "タコスロ", fullName: "タコスロ", iconName: "takosloMachineIcon", btBadge: true, maker: "UNIVERSAL"),
@@ -376,6 +377,12 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuBayesBadge") var mhrsbMenuBayesBadge: String = "none"
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
+
+    // ---- 獣王
+    @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"
+    @AppStorage("juoMenuFirstHitBadge") var juoMenuFirstHitBadge: String = "none"
+    @AppStorage("juoMenuBayesBadge") var juoMenuBayesBadge: String = "none"
+    @AppStorage("juoMenuScreenBadge") var juoMenuScreenBadge: String = "none"
     
     // ---- 彼女、お借りします
     @AppStorage("kanokariMenuNormalBadge") var kanokariMenuNormalBadge: String = "none"
@@ -852,6 +859,8 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5095", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5095", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5061", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5061", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }

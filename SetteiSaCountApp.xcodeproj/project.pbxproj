@@ -1877,6 +1877,12 @@
 		7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */; };
 		16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */; };
 		9BDEB9E1808B4F5D892C8A74 /* mhrsbAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */; };
+		C06F0BA9031641BD8B3224D0 /* juoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C670294EB24652825ED67C /* juoViewTop.swift */; };
+		B0BB37BC1548482C99B622EC /* juoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8DCB280D34936B843F094 /* juoClass.swift */; };
+		44DBE7EB0AA74300A4238692 /* juoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */; };
+		D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */; };
+		E8E669077458451BB2258265 /* juoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */; };
+		DCFF353A26D843F2A98FA770 /* juoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */; };
 		F5314EF934C0414A95ED3977 /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 		F868AB71DF16408E89C39D6F /* dropkickClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653C0DCC6304E808F072554 /* dropkickClass.swift */; };
@@ -3433,6 +3439,12 @@
 		B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewFirstHit.swift; sourceTree = "<group>"; };
 		367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbView95Ci.swift; sourceTree = "<group>"; };
 		32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mhrsbAssets.xcassets; sourceTree = "<group>"; };
+		76C670294EB24652825ED67C /* juoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewTop.swift; sourceTree = "<group>"; };
+		29A8DCB280D34936B843F094 /* juoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoClass.swift; sourceTree = "<group>"; };
+		F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewNormal.swift; sourceTree = "<group>"; };
+		B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewFirstHit.swift; sourceTree = "<group>"; };
+		8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoView95Ci.swift; sourceTree = "<group>"; };
+		1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = juoAssets.xcassets; sourceTree = "<group>"; };
 		36899213D4964D0CB6375AB6 /* yajikitaViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewDuringAt.swift; sourceTree = "<group>"; };
 		392813DD26334FD595586F47 /* yajikitaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewScreen.swift; sourceTree = "<group>"; };
 		3C8577DECFA140D491DC7FD6 /* streetFighter6ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6ViewEnding.swift; sourceTree = "<group>"; };
@@ -4557,6 +4569,7 @@
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
 				B6C801147D1247F88836DCB8 /* mhrsb */,
+				6F2ADACEF77245E38FEF590E /* juo */,
 				3CB2F06F77FD4A388FE36EC1 /* kanokari */,
 				9BF2337AB1264D62B9878AC4 /* takoslo */,
 				91127355CBF8008A1ECE539E /* aobuta */,
@@ -6262,6 +6275,19 @@
 			path = dropkick;
 			sourceTree = "<group>";
 		};
+		6F2ADACEF77245E38FEF590E /* juo */ = {
+			isa = PBXGroup;
+			children = (
+				76C670294EB24652825ED67C /* juoViewTop.swift */,
+				29A8DCB280D34936B843F094 /* juoClass.swift */,
+				F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */,
+				B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */,
+				8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */,
+				1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */,
+			);
+			path = juo;
+			sourceTree = "<group>";
+		};
 		B6C801147D1247F88836DCB8 /* mhrsb */ = {
 			isa = PBXGroup;
 			children = (
@@ -6633,6 +6659,7 @@
 				650DCD1205934A5585F7B33A /* takosloAssets.xcassets in Resources */,
 				9AE672741AD248E993E5E224 /* kanokariAssets.xcassets in Resources */,
 				9BDEB9E1808B4F5D892C8A74 /* mhrsbAssets.xcassets in Resources */,
+				DCFF353A26D843F2A98FA770 /* juoAssets.xcassets in Resources */,
 				B68F961B0AFE46BEA2845E86 /* gareiAssets.xcassets in Resources */,
 				A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */,
 				BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */,
@@ -8154,6 +8181,11 @@
 				C6C5440395424711B6CD5E65 /* mhrsbViewBayes.swift in Sources */,
 				7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */,
 				16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */,
+				C06F0BA9031641BD8B3224D0 /* juoViewTop.swift in Sources */,
+				B0BB37BC1548482C99B622EC /* juoClass.swift in Sources */,
+				44DBE7EB0AA74300A4238692 /* juoViewNormal.swift in Sources */,
+				D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */,
+				E8E669077458451BB2258265 /* juoView95Ci.swift in Sources */,
 				27F72CA5052C41FD95411B04 /* kanokariClass.swift in Sources */,
 				86EF48D24B9A403BA24C916F /* kanokariViewNormal.swift in Sources */,
 				99937EECB68B4A2F9E377BC3 /* kanokariViewComeback.swift in Sources */,
