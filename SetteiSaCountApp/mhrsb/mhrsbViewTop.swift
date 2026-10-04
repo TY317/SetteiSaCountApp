@@ -181,13 +181,85 @@ struct mhrsbSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        mhrsbMemory1.normalGame = mhrsb.normalGame
+        mhrsbMemory1.firstHitCountAt = mhrsb.firstHitCountAt
+        mhrsbMemory1.screenCount1 = mhrsb.screenCount1
+        mhrsbMemory1.screenCount2 = mhrsb.screenCount2
+        mhrsbMemory1.screenCount3 = mhrsb.screenCount3
+        mhrsbMemory1.screenCount4 = mhrsb.screenCount4
+        mhrsbMemory1.screenCount5 = mhrsb.screenCount5
+        mhrsbMemory1.screenCount6 = mhrsb.screenCount6
+        mhrsbMemory1.screenCount7 = mhrsb.screenCount7
+        mhrsbMemory1.screenCount8 = mhrsb.screenCount8
+        mhrsbMemory1.screenCount9 = mhrsb.screenCount9
+        mhrsbMemory1.screenCount10 = mhrsb.screenCount10
+        mhrsbMemory1.screenCount11 = mhrsb.screenCount11
+        mhrsbMemory1.screenCount12 = mhrsb.screenCount12
+        mhrsbMemory1.screenCountSum = mhrsb.screenCountSum
+        mhrsbMemory1.endingCount1 = mhrsb.endingCount1
+        mhrsbMemory1.endingCount2 = mhrsb.endingCount2
+        mhrsbMemory1.endingCount3 = mhrsb.endingCount3
+        mhrsbMemory1.endingCount4 = mhrsb.endingCount4
+        mhrsbMemory1.endingCount5 = mhrsb.endingCount5
+        mhrsbMemory1.endingCount6 = mhrsb.endingCount6
+        mhrsbMemory1.endingCount7 = mhrsb.endingCount7
+        mhrsbMemory1.endingCount8 = mhrsb.endingCount8
+        mhrsbMemory1.endingCount9 = mhrsb.endingCount9
+        mhrsbMemory1.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory2() {
-
+        mhrsbMemory2.normalGame = mhrsb.normalGame
+        mhrsbMemory2.firstHitCountAt = mhrsb.firstHitCountAt
+        mhrsbMemory2.screenCount1 = mhrsb.screenCount1
+        mhrsbMemory2.screenCount2 = mhrsb.screenCount2
+        mhrsbMemory2.screenCount3 = mhrsb.screenCount3
+        mhrsbMemory2.screenCount4 = mhrsb.screenCount4
+        mhrsbMemory2.screenCount5 = mhrsb.screenCount5
+        mhrsbMemory2.screenCount6 = mhrsb.screenCount6
+        mhrsbMemory2.screenCount7 = mhrsb.screenCount7
+        mhrsbMemory2.screenCount8 = mhrsb.screenCount8
+        mhrsbMemory2.screenCount9 = mhrsb.screenCount9
+        mhrsbMemory2.screenCount10 = mhrsb.screenCount10
+        mhrsbMemory2.screenCount11 = mhrsb.screenCount11
+        mhrsbMemory2.screenCount12 = mhrsb.screenCount12
+        mhrsbMemory2.screenCountSum = mhrsb.screenCountSum
+        mhrsbMemory2.endingCount1 = mhrsb.endingCount1
+        mhrsbMemory2.endingCount2 = mhrsb.endingCount2
+        mhrsbMemory2.endingCount3 = mhrsb.endingCount3
+        mhrsbMemory2.endingCount4 = mhrsb.endingCount4
+        mhrsbMemory2.endingCount5 = mhrsb.endingCount5
+        mhrsbMemory2.endingCount6 = mhrsb.endingCount6
+        mhrsbMemory2.endingCount7 = mhrsb.endingCount7
+        mhrsbMemory2.endingCount8 = mhrsb.endingCount8
+        mhrsbMemory2.endingCount9 = mhrsb.endingCount9
+        mhrsbMemory2.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory3() {
-
+        mhrsbMemory3.normalGame = mhrsb.normalGame
+        mhrsbMemory3.firstHitCountAt = mhrsb.firstHitCountAt
+        mhrsbMemory3.screenCount1 = mhrsb.screenCount1
+        mhrsbMemory3.screenCount2 = mhrsb.screenCount2
+        mhrsbMemory3.screenCount3 = mhrsb.screenCount3
+        mhrsbMemory3.screenCount4 = mhrsb.screenCount4
+        mhrsbMemory3.screenCount5 = mhrsb.screenCount5
+        mhrsbMemory3.screenCount6 = mhrsb.screenCount6
+        mhrsbMemory3.screenCount7 = mhrsb.screenCount7
+        mhrsbMemory3.screenCount8 = mhrsb.screenCount8
+        mhrsbMemory3.screenCount9 = mhrsb.screenCount9
+        mhrsbMemory3.screenCount10 = mhrsb.screenCount10
+        mhrsbMemory3.screenCount11 = mhrsb.screenCount11
+        mhrsbMemory3.screenCount12 = mhrsb.screenCount12
+        mhrsbMemory3.screenCountSum = mhrsb.screenCountSum
+        mhrsbMemory3.endingCount1 = mhrsb.endingCount1
+        mhrsbMemory3.endingCount2 = mhrsb.endingCount2
+        mhrsbMemory3.endingCount3 = mhrsb.endingCount3
+        mhrsbMemory3.endingCount4 = mhrsb.endingCount4
+        mhrsbMemory3.endingCount5 = mhrsb.endingCount5
+        mhrsbMemory3.endingCount6 = mhrsb.endingCount6
+        mhrsbMemory3.endingCount7 = mhrsb.endingCount7
+        mhrsbMemory3.endingCount8 = mhrsb.endingCount8
+        mhrsbMemory3.endingCount9 = mhrsb.endingCount9
+        mhrsbMemory3.endingCountSum = mhrsb.endingCountSum
     }
 }
 
@@ -219,13 +291,85 @@ struct mhrsbSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        mhrsb.normalGame = mhrsbMemory1.normalGame
+        mhrsb.firstHitCountAt = mhrsbMemory1.firstHitCountAt
+        mhrsb.screenCount1 = mhrsbMemory1.screenCount1
+        mhrsb.screenCount2 = mhrsbMemory1.screenCount2
+        mhrsb.screenCount3 = mhrsbMemory1.screenCount3
+        mhrsb.screenCount4 = mhrsbMemory1.screenCount4
+        mhrsb.screenCount5 = mhrsbMemory1.screenCount5
+        mhrsb.screenCount6 = mhrsbMemory1.screenCount6
+        mhrsb.screenCount7 = mhrsbMemory1.screenCount7
+        mhrsb.screenCount8 = mhrsbMemory1.screenCount8
+        mhrsb.screenCount9 = mhrsbMemory1.screenCount9
+        mhrsb.screenCount10 = mhrsbMemory1.screenCount10
+        mhrsb.screenCount11 = mhrsbMemory1.screenCount11
+        mhrsb.screenCount12 = mhrsbMemory1.screenCount12
+        mhrsb.screenCountSum = mhrsbMemory1.screenCountSum
+        mhrsb.endingCount1 = mhrsbMemory1.endingCount1
+        mhrsb.endingCount2 = mhrsbMemory1.endingCount2
+        mhrsb.endingCount3 = mhrsbMemory1.endingCount3
+        mhrsb.endingCount4 = mhrsbMemory1.endingCount4
+        mhrsb.endingCount5 = mhrsbMemory1.endingCount5
+        mhrsb.endingCount6 = mhrsbMemory1.endingCount6
+        mhrsb.endingCount7 = mhrsbMemory1.endingCount7
+        mhrsb.endingCount8 = mhrsbMemory1.endingCount8
+        mhrsb.endingCount9 = mhrsbMemory1.endingCount9
+        mhrsb.endingCountSum = mhrsbMemory1.endingCountSum
     }
     func loadMemory2() {
-
+        mhrsb.normalGame = mhrsbMemory2.normalGame
+        mhrsb.firstHitCountAt = mhrsbMemory2.firstHitCountAt
+        mhrsb.screenCount1 = mhrsbMemory2.screenCount1
+        mhrsb.screenCount2 = mhrsbMemory2.screenCount2
+        mhrsb.screenCount3 = mhrsbMemory2.screenCount3
+        mhrsb.screenCount4 = mhrsbMemory2.screenCount4
+        mhrsb.screenCount5 = mhrsbMemory2.screenCount5
+        mhrsb.screenCount6 = mhrsbMemory2.screenCount6
+        mhrsb.screenCount7 = mhrsbMemory2.screenCount7
+        mhrsb.screenCount8 = mhrsbMemory2.screenCount8
+        mhrsb.screenCount9 = mhrsbMemory2.screenCount9
+        mhrsb.screenCount10 = mhrsbMemory2.screenCount10
+        mhrsb.screenCount11 = mhrsbMemory2.screenCount11
+        mhrsb.screenCount12 = mhrsbMemory2.screenCount12
+        mhrsb.screenCountSum = mhrsbMemory2.screenCountSum
+        mhrsb.endingCount1 = mhrsbMemory2.endingCount1
+        mhrsb.endingCount2 = mhrsbMemory2.endingCount2
+        mhrsb.endingCount3 = mhrsbMemory2.endingCount3
+        mhrsb.endingCount4 = mhrsbMemory2.endingCount4
+        mhrsb.endingCount5 = mhrsbMemory2.endingCount5
+        mhrsb.endingCount6 = mhrsbMemory2.endingCount6
+        mhrsb.endingCount7 = mhrsbMemory2.endingCount7
+        mhrsb.endingCount8 = mhrsbMemory2.endingCount8
+        mhrsb.endingCount9 = mhrsbMemory2.endingCount9
+        mhrsb.endingCountSum = mhrsbMemory2.endingCountSum
     }
     func loadMemory3() {
-
+        mhrsb.normalGame = mhrsbMemory3.normalGame
+        mhrsb.firstHitCountAt = mhrsbMemory3.firstHitCountAt
+        mhrsb.screenCount1 = mhrsbMemory3.screenCount1
+        mhrsb.screenCount2 = mhrsbMemory3.screenCount2
+        mhrsb.screenCount3 = mhrsbMemory3.screenCount3
+        mhrsb.screenCount4 = mhrsbMemory3.screenCount4
+        mhrsb.screenCount5 = mhrsbMemory3.screenCount5
+        mhrsb.screenCount6 = mhrsbMemory3.screenCount6
+        mhrsb.screenCount7 = mhrsbMemory3.screenCount7
+        mhrsb.screenCount8 = mhrsbMemory3.screenCount8
+        mhrsb.screenCount9 = mhrsbMemory3.screenCount9
+        mhrsb.screenCount10 = mhrsbMemory3.screenCount10
+        mhrsb.screenCount11 = mhrsbMemory3.screenCount11
+        mhrsb.screenCount12 = mhrsbMemory3.screenCount12
+        mhrsb.screenCountSum = mhrsbMemory3.screenCountSum
+        mhrsb.endingCount1 = mhrsbMemory3.endingCount1
+        mhrsb.endingCount2 = mhrsbMemory3.endingCount2
+        mhrsb.endingCount3 = mhrsbMemory3.endingCount3
+        mhrsb.endingCount4 = mhrsbMemory3.endingCount4
+        mhrsb.endingCount5 = mhrsbMemory3.endingCount5
+        mhrsb.endingCount6 = mhrsbMemory3.endingCount6
+        mhrsb.endingCount7 = mhrsbMemory3.endingCount7
+        mhrsb.endingCount8 = mhrsbMemory3.endingCount8
+        mhrsb.endingCount9 = mhrsbMemory3.endingCount9
+        mhrsb.endingCountSum = mhrsbMemory3.endingCountSum
     }
 }
 

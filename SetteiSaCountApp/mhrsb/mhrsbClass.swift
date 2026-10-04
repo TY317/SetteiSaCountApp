@@ -151,18 +151,93 @@ class Mhrsb: ObservableObject {
 
 
 class MhrsbMemory1: ObservableObject {
+    @AppStorage("mhrsbNormalGameMemory1") var normalGame: Int = 0
+    @AppStorage("mhrsbFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("mhrsbScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("mhrsbScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("mhrsbScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("mhrsbScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("mhrsbScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("mhrsbScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("mhrsbScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("mhrsbScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("mhrsbScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("mhrsbScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("mhrsbScreenCount11Memory1") var screenCount11: Int = 0
+    @AppStorage("mhrsbScreenCount12Memory1") var screenCount12: Int = 0
+    @AppStorage("mhrsbScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("mhrsbEndingCount1Memory1") var endingCount1: Int = 0
+    @AppStorage("mhrsbEndingCount2Memory1") var endingCount2: Int = 0
+    @AppStorage("mhrsbEndingCount3Memory1") var endingCount3: Int = 0
+    @AppStorage("mhrsbEndingCount4Memory1") var endingCount4: Int = 0
+    @AppStorage("mhrsbEndingCount5Memory1") var endingCount5: Int = 0
+    @AppStorage("mhrsbEndingCount6Memory1") var endingCount6: Int = 0
+    @AppStorage("mhrsbEndingCount7Memory1") var endingCount7: Int = 0
+    @AppStorage("mhrsbEndingCount8Memory1") var endingCount8: Int = 0
+    @AppStorage("mhrsbEndingCount9Memory1") var endingCount9: Int = 0
+    @AppStorage("mhrsbEndingCountSumMemory1") var endingCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory1") var memo = ""
     @AppStorage("mhrsbDateMemory1") var dateDouble = 0.0
 }
 
 
 class MhrsbMemory2: ObservableObject {
+    @AppStorage("mhrsbNormalGameMemory2") var normalGame: Int = 0
+    @AppStorage("mhrsbFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("mhrsbScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("mhrsbScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("mhrsbScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("mhrsbScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("mhrsbScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("mhrsbScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("mhrsbScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("mhrsbScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("mhrsbScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("mhrsbScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("mhrsbScreenCount11Memory2") var screenCount11: Int = 0
+    @AppStorage("mhrsbScreenCount12Memory2") var screenCount12: Int = 0
+    @AppStorage("mhrsbScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("mhrsbEndingCount1Memory2") var endingCount1: Int = 0
+    @AppStorage("mhrsbEndingCount2Memory2") var endingCount2: Int = 0
+    @AppStorage("mhrsbEndingCount3Memory2") var endingCount3: Int = 0
+    @AppStorage("mhrsbEndingCount4Memory2") var endingCount4: Int = 0
+    @AppStorage("mhrsbEndingCount5Memory2") var endingCount5: Int = 0
+    @AppStorage("mhrsbEndingCount6Memory2") var endingCount6: Int = 0
+    @AppStorage("mhrsbEndingCount7Memory2") var endingCount7: Int = 0
+    @AppStorage("mhrsbEndingCount8Memory2") var endingCount8: Int = 0
+    @AppStorage("mhrsbEndingCount9Memory2") var endingCount9: Int = 0
+    @AppStorage("mhrsbEndingCountSumMemory2") var endingCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory2") var memo = ""
     @AppStorage("mhrsbDateMemory2") var dateDouble = 0.0
 }
 
 
 class MhrsbMemory3: ObservableObject {
+    @AppStorage("mhrsbNormalGameMemory3") var normalGame: Int = 0
+    @AppStorage("mhrsbFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("mhrsbScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("mhrsbScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("mhrsbScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("mhrsbScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("mhrsbScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("mhrsbScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("mhrsbScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("mhrsbScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("mhrsbScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("mhrsbScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("mhrsbScreenCount11Memory3") var screenCount11: Int = 0
+    @AppStorage("mhrsbScreenCount12Memory3") var screenCount12: Int = 0
+    @AppStorage("mhrsbScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("mhrsbEndingCount1Memory3") var endingCount1: Int = 0
+    @AppStorage("mhrsbEndingCount2Memory3") var endingCount2: Int = 0
+    @AppStorage("mhrsbEndingCount3Memory3") var endingCount3: Int = 0
+    @AppStorage("mhrsbEndingCount4Memory3") var endingCount4: Int = 0
+    @AppStorage("mhrsbEndingCount5Memory3") var endingCount5: Int = 0
+    @AppStorage("mhrsbEndingCount6Memory3") var endingCount6: Int = 0
+    @AppStorage("mhrsbEndingCount7Memory3") var endingCount7: Int = 0
+    @AppStorage("mhrsbEndingCount8Memory3") var endingCount8: Int = 0
+    @AppStorage("mhrsbEndingCount9Memory3") var endingCount9: Int = 0
+    @AppStorage("mhrsbEndingCountSumMemory3") var endingCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory3") var memo = ""
     @AppStorage("mhrsbDateMemory3") var dateDouble = 0.0
 }
