@@ -18,7 +18,7 @@ struct tipVer490UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("")
+        Text("・モンハンライズ サンブレイク")
     }
     var image: Image? {
         Image(systemName: "star")

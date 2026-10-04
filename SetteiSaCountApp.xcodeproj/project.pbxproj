@@ -1866,6 +1866,12 @@
 		EF8AEC55716A4376957DC659 /* index2ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E124166C3E947F5B056B163 /* index2ViewTop.swift */; };
 		F2126A0B13E04DBCB668AA38 /* gareiViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B69FE471144EBEA02F47A0 /* gareiViewCz.swift */; };
 		F395C814C9A2467D8D8B68A0 /* kanokariViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33436C80F81D42E79C8C0A2A /* kanokariViewTop.swift */; };
+		A77E66BABE6E491FB4AAD557 /* mhrsbViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */; };
+		7B19383B21D54479BAA17AC6 /* mhrsbClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60857EF78864870B73ABD86 /* mhrsbClass.swift */; };
+		9F4B9305AE134D2FBAD7CDF7 /* mhrsbViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */; };
+		7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */; };
+		16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */; };
+		9BDEB9E1808B4F5D892C8A74 /* mhrsbAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */; };
 		F5314EF934C0414A95ED3977 /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
 		F84A6277000F476D9B4FE5AB /* sencole6View95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7727F24B9B47AD92365D6C /* sencole6View95Ci.swift */; };
 		F868AB71DF16408E89C39D6F /* dropkickClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653C0DCC6304E808F072554 /* dropkickClass.swift */; };
@@ -3412,6 +3418,12 @@
 		2F1CF3253B774565BE5966B1 /* yajikitaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = yajikitaAssets.xcassets; sourceTree = "<group>"; };
 		32A7F4F386914656B9AB8D37 /* shinYoshiViewCz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shinYoshiViewCz.swift; sourceTree = "<group>"; };
 		33436C80F81D42E79C8C0A2A /* kanokariViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kanokariViewTop.swift; sourceTree = "<group>"; };
+		AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewTop.swift; sourceTree = "<group>"; };
+		C60857EF78864870B73ABD86 /* mhrsbClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbClass.swift; sourceTree = "<group>"; };
+		601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewNormal.swift; sourceTree = "<group>"; };
+		B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewFirstHit.swift; sourceTree = "<group>"; };
+		367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbView95Ci.swift; sourceTree = "<group>"; };
+		32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mhrsbAssets.xcassets; sourceTree = "<group>"; };
 		36899213D4964D0CB6375AB6 /* yajikitaViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewDuringAt.swift; sourceTree = "<group>"; };
 		392813DD26334FD595586F47 /* yajikitaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewScreen.swift; sourceTree = "<group>"; };
 		3C8577DECFA140D491DC7FD6 /* streetFighter6ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6ViewEnding.swift; sourceTree = "<group>"; };
@@ -4535,6 +4547,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				B6C801147D1247F88836DCB8 /* mhrsb */,
 				3CB2F06F77FD4A388FE36EC1 /* kanokari */,
 				9BF2337AB1264D62B9878AC4 /* takoslo */,
 				91127355CBF8008A1ECE539E /* aobuta */,
@@ -6240,6 +6253,19 @@
 			path = dropkick;
 			sourceTree = "<group>";
 		};
+		B6C801147D1247F88836DCB8 /* mhrsb */ = {
+			isa = PBXGroup;
+			children = (
+				AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */,
+				C60857EF78864870B73ABD86 /* mhrsbClass.swift */,
+				601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */,
+				B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */,
+				367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */,
+				32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */,
+			);
+			path = mhrsb;
+			sourceTree = "<group>";
+		};
 		3CB2F06F77FD4A388FE36EC1 /* kanokari */ = {
 			isa = PBXGroup;
 			children = (
@@ -6593,6 +6619,7 @@
 				7B8317755DD06E477AA1929E /* aobutaAssets.xcassets in Resources */,
 				650DCD1205934A5585F7B33A /* takosloAssets.xcassets in Resources */,
 				9AE672741AD248E993E5E224 /* kanokariAssets.xcassets in Resources */,
+				9BDEB9E1808B4F5D892C8A74 /* mhrsbAssets.xcassets in Resources */,
 				B68F961B0AFE46BEA2845E86 /* gareiAssets.xcassets in Resources */,
 				A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */,
 				BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */,
@@ -8105,6 +8132,11 @@
 				7E59082364A8FF479F4CE753 /* aobutaViewTop.swift in Sources */,
 				E521827506E04B6B8F39D02C /* takosloViewTop.swift in Sources */,
 				F395C814C9A2467D8D8B68A0 /* kanokariViewTop.swift in Sources */,
+				A77E66BABE6E491FB4AAD557 /* mhrsbViewTop.swift in Sources */,
+				7B19383B21D54479BAA17AC6 /* mhrsbClass.swift in Sources */,
+				9F4B9305AE134D2FBAD7CDF7 /* mhrsbViewNormal.swift in Sources */,
+				7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */,
+				16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */,
 				27F72CA5052C41FD95411B04 /* kanokariClass.swift in Sources */,
 				86EF48D24B9A403BA24C916F /* kanokariViewNormal.swift in Sources */,
 				99937EECB68B4A2F9E377BC3 /* kanokariViewComeback.swift in Sources */,

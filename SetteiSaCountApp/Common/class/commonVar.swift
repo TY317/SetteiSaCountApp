@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5095", name: "モンハンSB", fullName: "モンスターハンターライズ：サンブレイク", iconName: "mhrsbMachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5065", name: "かのかり", fullName: "彼女、お借りします", iconName: "kanokariMachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5049", name: "タコスロ", fullName: "タコスロ", iconName: "takosloMachineIcon", btBadge: true, maker: "UNIVERSAL"),
         Machine(id: "5064", name: "青ブタ", fullName: "青春ブタ野郎はバニーガール先輩の夢を見ない", iconName: "aobutaMachineIcon", btBadge: false, maker: "平和"),
@@ -369,6 +370,12 @@ class commonVar: ObservableObject {
     @AppStorage("sencole6MenuScreenBadge") var sencole6MenuScreenBadge: String = "none"
     @AppStorage("sencole6MenuDuringAtBadge") var sencole6MenuDuringAtBadge: String = "none"
 
+    // ---- モンスターハンターライズ：サンブレイク
+    @AppStorage("mhrsbMenuNormalBadge") var mhrsbMenuNormalBadge: String = "none"
+    @AppStorage("mhrsbMenuFirstHitBadge") var mhrsbMenuFirstHitBadge: String = "none"
+    @AppStorage("mhrsbMenuBayesBadge") var mhrsbMenuBayesBadge: String = "none"
+    @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
+    
     // ---- 彼女、お借りします
     @AppStorage("kanokariMenuNormalBadge") var kanokariMenuNormalBadge: String = "none"
     @AppStorage("kanokariMenuFirstHitBadge") var kanokariMenuFirstHitBadge: String = "none"
@@ -842,6 +849,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5095", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5095", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }
