@@ -87,6 +87,48 @@ class Mhrsb: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // エンディング
+    // -------
+    @AppStorage("mhrsbEndingCount1") var endingCount1: Int = 0
+    @AppStorage("mhrsbEndingCount2") var endingCount2: Int = 0
+    @AppStorage("mhrsbEndingCount3") var endingCount3: Int = 0
+    @AppStorage("mhrsbEndingCount4") var endingCount4: Int = 0
+    @AppStorage("mhrsbEndingCount5") var endingCount5: Int = 0
+    @AppStorage("mhrsbEndingCount6") var endingCount6: Int = 0
+    @AppStorage("mhrsbEndingCount7") var endingCount7: Int = 0
+    @AppStorage("mhrsbEndingCount8") var endingCount8: Int = 0
+    @AppStorage("mhrsbEndingCount9") var endingCount9: Int = 0
+    @AppStorage("mhrsbEndingCountSum") var endingCountSum: Int = 0
+
+    func endingSumFunc() {
+        endingCountSum = countSum(
+            endingCount1,
+            endingCount2,
+            endingCount3,
+            endingCount4,
+            endingCount5,
+            endingCount6,
+            endingCount7,
+            endingCount8,
+            endingCount9,
+        )
+    }
+
+    func resetEnding() {
+        endingCount1 = 0
+        endingCount2 = 0
+        endingCount3 = 0
+        endingCount4 = 0
+        endingCount5 = 0
+        endingCount6 = 0
+        endingCount7 = 0
+        endingCount8 = 0
+        endingCount9 = 0
+        endingCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -98,6 +140,7 @@ class Mhrsb: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetEnding()
     }
 }
 

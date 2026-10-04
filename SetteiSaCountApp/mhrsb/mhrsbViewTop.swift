@@ -54,6 +54,17 @@ struct mhrsbViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: mhrsbViewEnding(
+                        mhrsb: mhrsb,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.mhrsbMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewEnteriseTrophy()) {
                         unitLabelMenu(
