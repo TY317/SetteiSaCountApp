@@ -174,7 +174,7 @@ struct mhrsbTableKoyakuPattern: View {
                         ),
                         rightReel: unitReelColumn(
                             upper: unitReelDefault(),
-                            middle: unitReelText(textBody: "🔔🔔", textFont: .title3),
+                            middle: unitReelText(textBody: "🔔"),
                             lower: unitReelDefault()
                         ),
                     )

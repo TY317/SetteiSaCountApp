@@ -75,7 +75,7 @@ struct mhrsbViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: mhrsb.machineName,
-                        titleFont: .title3,
+                        titleFont: .body,
                     )
                 }
 
