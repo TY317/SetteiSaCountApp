@@ -1869,6 +1869,7 @@
 		A77E66BABE6E491FB4AAD557 /* mhrsbViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */; };
 		7B19383B21D54479BAA17AC6 /* mhrsbClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60857EF78864870B73ABD86 /* mhrsbClass.swift */; };
 		9F4B9305AE134D2FBAD7CDF7 /* mhrsbViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */; };
+		C6C5440395424711B6CD5E65 /* mhrsbViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F867A2733E4C48BE6C2BED /* mhrsbViewBayes.swift */; };
 		7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */; };
 		16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */; };
 		9BDEB9E1808B4F5D892C8A74 /* mhrsbAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */; };
@@ -3421,6 +3422,7 @@
 		AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewTop.swift; sourceTree = "<group>"; };
 		C60857EF78864870B73ABD86 /* mhrsbClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbClass.swift; sourceTree = "<group>"; };
 		601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewNormal.swift; sourceTree = "<group>"; };
+		36F867A2733E4C48BE6C2BED /* mhrsbViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewBayes.swift; sourceTree = "<group>"; };
 		B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewFirstHit.swift; sourceTree = "<group>"; };
 		367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbView95Ci.swift; sourceTree = "<group>"; };
 		32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mhrsbAssets.xcassets; sourceTree = "<group>"; };
@@ -6259,6 +6261,7 @@
 				AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */,
 				C60857EF78864870B73ABD86 /* mhrsbClass.swift */,
 				601CE0F36DF0459795656033 /* mhrsbViewNormal.swift */,
+				36F867A2733E4C48BE6C2BED /* mhrsbViewBayes.swift */,
 				B03E7799981B429CA2C64486 /* mhrsbViewFirstHit.swift */,
 				367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */,
 				32B87DCDA57B4B4582707042 /* mhrsbAssets.xcassets */,
@@ -8135,6 +8138,7 @@
 				A77E66BABE6E491FB4AAD557 /* mhrsbViewTop.swift in Sources */,
 				7B19383B21D54479BAA17AC6 /* mhrsbClass.swift in Sources */,
 				9F4B9305AE134D2FBAD7CDF7 /* mhrsbViewNormal.swift in Sources */,
+				C6C5440395424711B6CD5E65 /* mhrsbViewBayes.swift in Sources */,
 				7B55AD2FAB9D44F08E47AC3B /* mhrsbViewFirstHit.swift in Sources */,
 				16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */,
 				27F72CA5052C41FD95411B04 /* kanokariClass.swift in Sources */,
