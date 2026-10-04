@@ -809,6 +809,8 @@ class commonVar: ObservableObject {
         // ver4.1.0 の移行処理から引き継ぎ（リワード未視聴のまま残ったロックを解放）
         machines.updateMachineIsUnlocked(id: "5019", isUnlocked: true)
         machines.updateMachineIsUnlocked(id: "5010", isUnlocked: true)
+        // ver4.2.0 の移行処理から引き継ぎ
+        machines.updateMachineIsUnlocked(id: "5015", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -1039,29 +1041,6 @@ class commonVar: ObservableObject {
                 machines.updateMachineBadgeStatus(id: "4983", newStatus: "update")
                 shinYoshiMenuNormalBadge = "update"
                 shinYoshiMenuCzBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver420FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.2.0"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5015", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5015", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "4974", newStatus: "update")
-                bioRe3MenuNormalBadge = "update"
-                bioRe3MenuCzBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

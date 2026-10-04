@@ -51,7 +51,6 @@ struct bioRe3ViewCz: View {
                         )
                     }
                 }
-                .popoverTip(tipVer420BioRe3Cz())
             } header: {
                 Text("スルー天井")
             }

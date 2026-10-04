@@ -241,7 +241,6 @@
 		0F3B70582CA9264C002C7F44 /* karakuriViewCzHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */; };
 		0F431EED300AF81B008560DE /* karakuri2TableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F431EEC300AF81B008560DE /* karakuri2TableModeSisa.swift */; };
 		0F431EEE300AF822008560DE /* karakuri2TableModeSisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F431EEC300AF81B008560DE /* karakuri2TableModeSisa.swift */; };
-		0F431F36300C4E22008560DE /* ver420.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F431F35300C4E22008560DE /* ver420.swift */; };
 		0F4471D22F6C23780048E9CE /* JuglerSeriesAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F654BB72C6DD2FC00F37849 /* JuglerSeriesAssets.xcassets */; };
 		0F4471D32F6C23AB0048E9CE /* hokutoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F80903F2C83DC410061480F /* hokutoAssets.xcassets */; };
 		0F4471D42F6C23D60048E9CE /* kabaneriUnatoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2020682F52E31200FDA263 /* kabaneriUnatoAssets.xcassets */; };
@@ -2081,7 +2080,6 @@
 		0F3B70552CA90B43002C7F44 /* karakuriViewMakuai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewMakuai.swift; sourceTree = "<group>"; };
 		0F3B70572CA9264C002C7F44 /* karakuriViewCzHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuriViewCzHistory.swift; sourceTree = "<group>"; };
 		0F431EEC300AF81B008560DE /* karakuri2TableModeSisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableModeSisa.swift; sourceTree = "<group>"; };
-		0F431F35300C4E22008560DE /* ver420.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver420.swift; sourceTree = "<group>"; };
 		0F4471CE2F69891F0048E9CE /* ContentViewVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVer2.swift; sourceTree = "<group>"; };
 		0F4471E92F6E72960048E9CE /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		0F4471EB2F6E73F10048E9CE /* JitterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitterModifier.swift; sourceTree = "<group>"; };
@@ -5115,7 +5113,6 @@
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
-				0F431F35300C4E22008560DE /* ver420.swift */,
 				0FD77CE3301782BE00F792DC /* ver421.swift */,
 				0F6F0817301EC5210088F00C /* ver430.swift */,
 				0F6F08FF302AA8730088F00C /* ver440.swift */,
@@ -8052,7 +8049,6 @@
 				0F97D8CF2E3261230088B652 /* magiaViewEpisode.swift in Sources */,
 				0F6FB8FC2DE88FD300207855 /* rezero2TableFirstHit.swift in Sources */,
 				0FF3E4792EE40195002704FD /* bakemonoViewAt.swift in Sources */,
-				0F431F36300C4E22008560DE /* ver420.swift in Sources */,
 				0FF369102E5AF271002BE0CE /* azurLaneViewTop.swift in Sources */,
 				0F868AB82D583D7A00D952D9 /* funky2Ver2View95CiStart.swift in Sources */,
 				0FF3692F2E6290CF002BE0CE /* unitSectionCopyright.swift in Sources */,
