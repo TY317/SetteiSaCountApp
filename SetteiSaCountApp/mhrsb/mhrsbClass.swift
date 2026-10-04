@@ -90,6 +90,11 @@ class Mhrsb: ObservableObject {
     // -------
     // エンディング
     // -------
+    let ratioEndingOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioEndingOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
+    let ratioEndingOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioEndingOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioEndingOver6: [Double] = [0,0,0,0,0,0.1,]
     @AppStorage("mhrsbEndingCount1") var endingCount1: Int = 0
     @AppStorage("mhrsbEndingCount2") var endingCount2: Int = 0
     @AppStorage("mhrsbEndingCount3") var endingCount3: Int = 0

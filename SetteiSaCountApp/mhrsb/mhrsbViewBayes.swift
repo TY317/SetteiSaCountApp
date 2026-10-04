@@ -15,6 +15,7 @@ struct mhrsbViewBayes: View {
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var endingEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -53,6 +54,14 @@ struct mhrsbViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
                         title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // エンディング
+                unitToggleWithQuestion(enable: self.$endingEnable, title: "エンディング") {
+                    unitExView5body2image(
+                        title: "エンディング",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -162,6 +171,29 @@ struct mhrsbViewBayes: View {
             )
         }
 
+        // エンディング
+        // 確定系（設定2・3・4・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostEnding: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.endingEnable {
+            logPostEnding = logPostPercentMulti(
+                countList: [
+                    mhrsb.endingCount5,
+                    mhrsb.endingCount6,
+                    mhrsb.endingCount7,
+                    mhrsb.endingCount8,
+                    mhrsb.endingCount9,
+                ],
+                ratioList: [
+                    mhrsb.ratioEndingOver2,
+                    mhrsb.ratioEndingOver3,
+                    mhrsb.ratioEndingOver4,
+                    mhrsb.ratioEndingOver5,
+                    mhrsb.ratioEndingOver6,
+                ],
+                bigNumber: mhrsb.endingCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -201,6 +233,7 @@ struct mhrsbViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
             logPostScreen,
+            logPostEnding,
             logPostTrophy,
             logPostBefore,
         ])
