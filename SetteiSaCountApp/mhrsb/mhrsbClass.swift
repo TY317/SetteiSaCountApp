@@ -21,8 +21,13 @@ class Mhrsb: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitAt: [Double] = [349.9,337.0,319.8,283.6,264.0,242.3]
+    @AppStorage("mhrsbNormalGame") var normalGame: Int = 0
+    @AppStorage("mhrsbFirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
+        normalGame = 0
+        firstHitCountAt = 0
         minusCheck = false
     }
 

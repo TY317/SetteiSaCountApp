@@ -60,7 +60,7 @@ struct mhrsbViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: mhrsbView95Ci(
                     mhrsb: mhrsb,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

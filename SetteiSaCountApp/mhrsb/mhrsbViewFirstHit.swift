@@ -28,7 +28,54 @@ struct mhrsbViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $mhrsb.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // AT
+                unitCountButtonVerticalDenominate(
+                    title: "AT",
+                    count: $mhrsb.firstHitCountAt,
+                    color: .personalSummerLightRed,
+                    bigNumber: $mhrsb.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $mhrsb.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "AT",
+                        denominateList: mhrsb.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    mhrsbView95Ci(
+                        mhrsb: mhrsb,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                mhrsbViewBayes(
+                    mhrsb: mhrsb,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.mhrsbMenuFirstHitBadge)
@@ -64,6 +111,17 @@ struct mhrsbViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mhrsb.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

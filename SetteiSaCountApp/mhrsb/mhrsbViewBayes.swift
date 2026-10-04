@@ -13,6 +13,7 @@ struct mhrsbViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
+    @State var firstHitAtEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -44,6 +45,9 @@ struct mhrsbViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
 
                 // トロフィー
                 DisclosureGroup("エンタトロフィー") {
@@ -116,6 +120,16 @@ struct mhrsbViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: mhrsb.ratioFirstHitAt,
+                Count: mhrsb.firstHitCountAt,
+                bigNumber: mhrsb.normalGame
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -153,6 +167,7 @@ struct mhrsbViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])
