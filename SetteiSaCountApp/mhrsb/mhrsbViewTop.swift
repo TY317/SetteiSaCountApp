@@ -43,6 +43,17 @@ struct mhrsbViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: mhrsbViewScreen(
+                        mhrsb: mhrsb,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.mhrsbMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewEnteriseTrophy()) {
                         unitLabelMenu(

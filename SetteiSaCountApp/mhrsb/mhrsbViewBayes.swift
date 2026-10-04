@@ -14,6 +14,7 @@ struct mhrsbViewBayes: View {
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -47,6 +48,14 @@ struct mhrsbViewBayes: View {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
 
                 // トロフィー
@@ -130,6 +139,29 @@ struct mhrsbViewBayes: View {
             )
         }
 
+        // AT終了画面
+        // 確定系（設定2・3否定、設定2・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    mhrsb.screenCount8,
+                    mhrsb.screenCount9,
+                    mhrsb.screenCount10,
+                    mhrsb.screenCount11,
+                    mhrsb.screenCount12,
+                ],
+                ratioList: [
+                    mhrsb.ratioScreenNegate2,
+                    mhrsb.ratioScreenNegate3,
+                    mhrsb.ratioScreenOver2,
+                    mhrsb.ratioScreenOver5,
+                    mhrsb.ratioScreenOver6,
+                ],
+                bigNumber: mhrsb.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -168,6 +200,7 @@ struct mhrsbViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])
