@@ -1880,6 +1880,7 @@
 		C06F0BA9031641BD8B3224D0 /* juoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C670294EB24652825ED67C /* juoViewTop.swift */; };
 		B0BB37BC1548482C99B622EC /* juoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8DCB280D34936B843F094 /* juoClass.swift */; };
 		44DBE7EB0AA74300A4238692 /* juoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */; };
+		36B4B5C379CC4D17A4942804 /* juoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3E86DC2864B8F812BCA43 /* juoViewBayes.swift */; };
 		D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */; };
 		E8E669077458451BB2258265 /* juoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */; };
 		DCFF353A26D843F2A98FA770 /* juoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */; };
@@ -3442,6 +3443,7 @@
 		76C670294EB24652825ED67C /* juoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewTop.swift; sourceTree = "<group>"; };
 		29A8DCB280D34936B843F094 /* juoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoClass.swift; sourceTree = "<group>"; };
 		F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewNormal.swift; sourceTree = "<group>"; };
+		60F3E86DC2864B8F812BCA43 /* juoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewBayes.swift; sourceTree = "<group>"; };
 		B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewFirstHit.swift; sourceTree = "<group>"; };
 		8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoView95Ci.swift; sourceTree = "<group>"; };
 		1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = juoAssets.xcassets; sourceTree = "<group>"; };
@@ -6281,6 +6283,7 @@
 				76C670294EB24652825ED67C /* juoViewTop.swift */,
 				29A8DCB280D34936B843F094 /* juoClass.swift */,
 				F4906EFA6AC14027BE8AF27D /* juoViewNormal.swift */,
+				60F3E86DC2864B8F812BCA43 /* juoViewBayes.swift */,
 				B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */,
 				8451F82AB3E64D5284EF20AD /* juoView95Ci.swift */,
 				1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */,
@@ -8184,6 +8187,7 @@
 				C06F0BA9031641BD8B3224D0 /* juoViewTop.swift in Sources */,
 				B0BB37BC1548482C99B622EC /* juoClass.swift in Sources */,
 				44DBE7EB0AA74300A4238692 /* juoViewNormal.swift in Sources */,
+				36B4B5C379CC4D17A4942804 /* juoViewBayes.swift in Sources */,
 				D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */,
 				E8E669077458451BB2258265 /* juoView95Ci.swift in Sources */,
 				27F72CA5052C41FD95411B04 /* kanokariClass.swift in Sources */,

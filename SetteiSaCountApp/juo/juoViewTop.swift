@@ -79,15 +79,15 @@ struct juoViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: juoViewBayes(
-//                    juo: juo,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.juoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: juoViewBayes(
+                    juo: juo,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.juoMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5061")
