@@ -85,6 +85,30 @@ struct mhrsbViewScreen: View {
         .purple,
     ]
     let indexList: [Int] = [0,1,2,3,4,5,6,7,8,9,10,11]
+    // 結果表示用（同じ示唆の画面は1つのカウントにまとめる）
+    let resultIndexList: [Int] = [0,1,2,3,4,5,6,7,8]
+    let resultTitleList: [String] = [
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 否定",
+        "設定3 否定",
+        "設定2 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
+    ]
+    let resultColorList: [Color] = [
+        .blue,
+        .yellow,
+        .green,
+        .red,
+        .cyan,
+        .indigo,
+        .brown,
+        .red,
+        .purple,
+    ]
     var body: some View {
         List {
             // 画面カウント
@@ -105,7 +129,7 @@ struct mhrsbViewScreen: View {
                                         ),
                                         screenName: self.imageNameList[index],
                                         selectedScreen: self.$selectedImageName,
-                                        count: bindingForScreenCount(index: index),
+                                        count: bindingForScreenCount(index: resultIndex(screenIndex: index)),
                                         minusCheck: $mhrsb.minusCheck,
                                         action: mhrsb.screenSumFunc,
                                     )
@@ -117,13 +141,13 @@ struct mhrsbViewScreen: View {
                 }
 
                 // //// カウント結果
-                ForEach(self.indexList, id: \.self) { index in
-                    if self.lowerBeltTextList.indices.contains(index) &&
-                        self.flashColorList.indices.contains(index) {
+                ForEach(self.resultIndexList, id: \.self) { index in
+                    if self.resultTitleList.indices.contains(index) &&
+                        self.resultColorList.indices.contains(index) {
                         unitResultCountListPercent(
-                            title: self.lowerBeltTextList[index],
+                            title: self.resultTitleList[index],
                             count: bindingForScreenCount(index: index),
-                            flashColor: self.flashColorList[index],
+                            flashColor: self.resultColorList[index],
                             bigNumber: $mhrsb.screenCountSum,
                             numberofDigit: 0,
                             titleFont: .body,
@@ -177,6 +201,21 @@ struct mhrsbViewScreen: View {
             }
         }
     }
+    // 画面のインデックス → 結果（カウント変数）のインデックス
+    func resultIndex(screenIndex: Int) -> Int {
+        switch screenIndex {
+        case 0, 1, 2: return 0      // 奇数示唆
+        case 3, 4: return 1         // 偶数示唆
+        case 5: return 2            // 高設定示唆 弱
+        case 6: return 3            // 高設定示唆 強
+        case 7: return 4            // 設定2 否定
+        case 8: return 5            // 設定3 否定
+        case 9: return 6            // 設定2 以上濃厚
+        case 10: return 7           // 設定5 以上濃厚
+        case 11: return 8           // 設定6 濃厚
+        default: return -1
+        }
+    }
     func bindingForScreenCount(index: Int) -> Binding<Int> {
         switch index {
         case 0: return $mhrsb.screenCount1
@@ -188,9 +227,6 @@ struct mhrsbViewScreen: View {
         case 6: return $mhrsb.screenCount7
         case 7: return $mhrsb.screenCount8
         case 8: return $mhrsb.screenCount9
-        case 9: return $mhrsb.screenCount10
-        case 10: return $mhrsb.screenCount11
-        case 11: return $mhrsb.screenCount12
         default: return .constant(0)
         }
     }

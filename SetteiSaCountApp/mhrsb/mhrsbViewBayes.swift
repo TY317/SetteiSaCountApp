@@ -154,11 +154,11 @@ struct mhrsbViewBayes: View {
         if self.screenEnable {
             logPostScreen = logPostPercentMulti(
                 countList: [
+                    mhrsb.screenCount5,
+                    mhrsb.screenCount6,
+                    mhrsb.screenCount7,
                     mhrsb.screenCount8,
                     mhrsb.screenCount9,
-                    mhrsb.screenCount10,
-                    mhrsb.screenCount11,
-                    mhrsb.screenCount12,
                 ],
                 ratioList: [
                     mhrsb.ratioScreenNegate2,

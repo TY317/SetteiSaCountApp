@@ -192,9 +192,6 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory1.screenCount7 = mhrsb.screenCount7
         mhrsbMemory1.screenCount8 = mhrsb.screenCount8
         mhrsbMemory1.screenCount9 = mhrsb.screenCount9
-        mhrsbMemory1.screenCount10 = mhrsb.screenCount10
-        mhrsbMemory1.screenCount11 = mhrsb.screenCount11
-        mhrsbMemory1.screenCount12 = mhrsb.screenCount12
         mhrsbMemory1.screenCountSum = mhrsb.screenCountSum
         mhrsbMemory1.endingCount1 = mhrsb.endingCount1
         mhrsbMemory1.endingCount2 = mhrsb.endingCount2
@@ -219,9 +216,6 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory2.screenCount7 = mhrsb.screenCount7
         mhrsbMemory2.screenCount8 = mhrsb.screenCount8
         mhrsbMemory2.screenCount9 = mhrsb.screenCount9
-        mhrsbMemory2.screenCount10 = mhrsb.screenCount10
-        mhrsbMemory2.screenCount11 = mhrsb.screenCount11
-        mhrsbMemory2.screenCount12 = mhrsb.screenCount12
         mhrsbMemory2.screenCountSum = mhrsb.screenCountSum
         mhrsbMemory2.endingCount1 = mhrsb.endingCount1
         mhrsbMemory2.endingCount2 = mhrsb.endingCount2
@@ -246,9 +240,6 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory3.screenCount7 = mhrsb.screenCount7
         mhrsbMemory3.screenCount8 = mhrsb.screenCount8
         mhrsbMemory3.screenCount9 = mhrsb.screenCount9
-        mhrsbMemory3.screenCount10 = mhrsb.screenCount10
-        mhrsbMemory3.screenCount11 = mhrsb.screenCount11
-        mhrsbMemory3.screenCount12 = mhrsb.screenCount12
         mhrsbMemory3.screenCountSum = mhrsb.screenCountSum
         mhrsbMemory3.endingCount1 = mhrsb.endingCount1
         mhrsbMemory3.endingCount2 = mhrsb.endingCount2
@@ -302,9 +293,6 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.screenCount7 = mhrsbMemory1.screenCount7
         mhrsb.screenCount8 = mhrsbMemory1.screenCount8
         mhrsb.screenCount9 = mhrsbMemory1.screenCount9
-        mhrsb.screenCount10 = mhrsbMemory1.screenCount10
-        mhrsb.screenCount11 = mhrsbMemory1.screenCount11
-        mhrsb.screenCount12 = mhrsbMemory1.screenCount12
         mhrsb.screenCountSum = mhrsbMemory1.screenCountSum
         mhrsb.endingCount1 = mhrsbMemory1.endingCount1
         mhrsb.endingCount2 = mhrsbMemory1.endingCount2
@@ -329,9 +317,6 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.screenCount7 = mhrsbMemory2.screenCount7
         mhrsb.screenCount8 = mhrsbMemory2.screenCount8
         mhrsb.screenCount9 = mhrsbMemory2.screenCount9
-        mhrsb.screenCount10 = mhrsbMemory2.screenCount10
-        mhrsb.screenCount11 = mhrsbMemory2.screenCount11
-        mhrsb.screenCount12 = mhrsbMemory2.screenCount12
         mhrsb.screenCountSum = mhrsbMemory2.screenCountSum
         mhrsb.endingCount1 = mhrsbMemory2.endingCount1
         mhrsb.endingCount2 = mhrsbMemory2.endingCount2
@@ -356,9 +341,6 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.screenCount7 = mhrsbMemory3.screenCount7
         mhrsb.screenCount8 = mhrsbMemory3.screenCount8
         mhrsb.screenCount9 = mhrsbMemory3.screenCount9
-        mhrsb.screenCount10 = mhrsbMemory3.screenCount10
-        mhrsb.screenCount11 = mhrsbMemory3.screenCount11
-        mhrsb.screenCount12 = mhrsbMemory3.screenCount12
         mhrsb.screenCountSum = mhrsbMemory3.screenCountSum
         mhrsb.endingCount1 = mhrsbMemory3.endingCount1
         mhrsb.endingCount2 = mhrsbMemory3.endingCount2

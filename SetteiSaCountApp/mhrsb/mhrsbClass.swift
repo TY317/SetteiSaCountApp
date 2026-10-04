@@ -48,9 +48,6 @@ class Mhrsb: ObservableObject {
     @AppStorage("mhrsbScreenCount7") var screenCount7: Int = 0
     @AppStorage("mhrsbScreenCount8") var screenCount8: Int = 0
     @AppStorage("mhrsbScreenCount9") var screenCount9: Int = 0
-    @AppStorage("mhrsbScreenCount10") var screenCount10: Int = 0
-    @AppStorage("mhrsbScreenCount11") var screenCount11: Int = 0
-    @AppStorage("mhrsbScreenCount12") var screenCount12: Int = 0
     @AppStorage("mhrsbScreenCountSum") var screenCountSum: Int = 0
 
     func screenSumFunc() {
@@ -64,9 +61,6 @@ class Mhrsb: ObservableObject {
             screenCount7,
             screenCount8,
             screenCount9,
-            screenCount10,
-            screenCount11,
-            screenCount12,
         )
     }
 
@@ -80,9 +74,6 @@ class Mhrsb: ObservableObject {
         screenCount7 = 0
         screenCount8 = 0
         screenCount9 = 0
-        screenCount10 = 0
-        screenCount11 = 0
-        screenCount12 = 0
         screenCountSum = 0
         minusCheck = false
     }
@@ -162,9 +153,6 @@ class MhrsbMemory1: ObservableObject {
     @AppStorage("mhrsbScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("mhrsbScreenCount8Memory1") var screenCount8: Int = 0
     @AppStorage("mhrsbScreenCount9Memory1") var screenCount9: Int = 0
-    @AppStorage("mhrsbScreenCount10Memory1") var screenCount10: Int = 0
-    @AppStorage("mhrsbScreenCount11Memory1") var screenCount11: Int = 0
-    @AppStorage("mhrsbScreenCount12Memory1") var screenCount12: Int = 0
     @AppStorage("mhrsbScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("mhrsbEndingCount1Memory1") var endingCount1: Int = 0
     @AppStorage("mhrsbEndingCount2Memory1") var endingCount2: Int = 0
@@ -193,9 +181,6 @@ class MhrsbMemory2: ObservableObject {
     @AppStorage("mhrsbScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("mhrsbScreenCount8Memory2") var screenCount8: Int = 0
     @AppStorage("mhrsbScreenCount9Memory2") var screenCount9: Int = 0
-    @AppStorage("mhrsbScreenCount10Memory2") var screenCount10: Int = 0
-    @AppStorage("mhrsbScreenCount11Memory2") var screenCount11: Int = 0
-    @AppStorage("mhrsbScreenCount12Memory2") var screenCount12: Int = 0
     @AppStorage("mhrsbScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("mhrsbEndingCount1Memory2") var endingCount1: Int = 0
     @AppStorage("mhrsbEndingCount2Memory2") var endingCount2: Int = 0
@@ -224,9 +209,6 @@ class MhrsbMemory3: ObservableObject {
     @AppStorage("mhrsbScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("mhrsbScreenCount8Memory3") var screenCount8: Int = 0
     @AppStorage("mhrsbScreenCount9Memory3") var screenCount9: Int = 0
-    @AppStorage("mhrsbScreenCount10Memory3") var screenCount10: Int = 0
-    @AppStorage("mhrsbScreenCount11Memory3") var screenCount11: Int = 0
-    @AppStorage("mhrsbScreenCount12Memory3") var screenCount12: Int = 0
     @AppStorage("mhrsbScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("mhrsbEndingCount1Memory3") var endingCount1: Int = 0
     @AppStorage("mhrsbEndingCount2Memory3") var endingCount2: Int = 0
