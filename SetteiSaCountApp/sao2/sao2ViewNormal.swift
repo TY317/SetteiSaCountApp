@@ -205,7 +205,7 @@ struct sao2ViewNormal: View {
                         )
                     }
                 }
-                .popoverTip(tipVer460Sao2KyoChanceB())
+//                .popoverTip(tipVer460Sao2KyoChanceB())
                 
                 // カウント
                 DisclosureGroup {
@@ -281,6 +281,28 @@ struct sao2ViewNormal: View {
             
             // ---- GGOモード
             Section {
+                // キリトモード移行率
+                unitResultRatioPercent2Line(
+                    title: "キリトモード移行率",
+                    count: $sao2.ggoKiritoCountHit,
+                    bigNumber: $sao2.ggoKiritoCountSum,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer490Sao2GgoKirito())
+
+                // 参考情報）キリトモード移行率
+                unitLinkButtonViewBuilder(sheetTitle: "キリトモード移行率") {
+                    Text("・設定変更時、AT終了時の数値")
+                    Text("・CZ失敗後は全設定共通（数値不明）")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "キリト移行率",
+                            percentList: sao2.ratioGgoKirito,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
                 // GGOモード
                 unitLinkButtonViewBuilder(sheetTitle: "GGOモード") {
                     sao2TableGGOMode()
@@ -294,6 +316,51 @@ struct sao2ViewNormal: View {
                             percentList: sao2.ratioGgoMode
                         )
                     }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // キリト以外
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "キリト移行なし",
+                            count: $sao2.ggoKiritoCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $sao2.minusCheck) {
+                                sao2.ggoKiritoSumFunc()
+                            }
+                        // キリトモード
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "キリト移行",
+                            count: $sao2.ggoKiritoCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $sao2.minusCheck) {
+                                sao2.ggoKiritoSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            sao2View95Ci(
+                                sao2: sao2,
+                                selection: 10,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        sao2ViewBayes(
+                            sao2: sao2,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
                 }
             } header: {
                 Text("GGOモード")

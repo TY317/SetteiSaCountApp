@@ -41,11 +41,23 @@ class Sao2: ObservableObject {
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
+        ggoKiritoCountMiss = 0
+        ggoKiritoCountHit = 0
+        ggoKiritoCountSum = 0
         minusCheck = false
     }
     
     // GGOモード
     let ratioGgoMode: [Double] = [20,-1,-1,-1,-1,-1,]
+    // GGOモード キリト移行率（設定変更時・AT終了時）
+    let ratioGgoKirito: [Double] = [10.2,10.5,10.9,11.7,12.5,25.0]
+    @AppStorage("sao2GgoKiritoCountMiss") var ggoKiritoCountMiss: Int = 0
+    @AppStorage("sao2GgoKiritoCountHit") var ggoKiritoCountHit: Int = 0
+    @AppStorage("sao2GgoKiritoCountSum") var ggoKiritoCountSum: Int = 0
+
+    func ggoKiritoSumFunc() {
+        ggoKiritoCountSum = ggoKiritoCountHit + ggoKiritoCountMiss
+    }
     
     // ---------
     // CZ
@@ -336,6 +348,9 @@ class Sao2Memory1: ObservableObject {
     @AppStorage("sao2GameNumberStartMemory1") var gameNumberStart: Int = 0
     @AppStorage("sao2GameNumberCurrentMemory1") var gameNumberCurrent: Int = 0
     @AppStorage("sao2GameNumberPlayMemory1") var gameNumberPlay: Int = 0
+    @AppStorage("sao2GgoKiritoCountMissMemory1") var ggoKiritoCountMiss: Int = 0
+    @AppStorage("sao2GgoKiritoCountHitMemory1") var ggoKiritoCountHit: Int = 0
+    @AppStorage("sao2GgoKiritoCountSumMemory1") var ggoKiritoCountSum: Int = 0
     @AppStorage("sao2MemoMemory1") var memo = ""
     @AppStorage("sao2DateMemory1") var dateDouble = 0.0
 }
@@ -396,6 +411,9 @@ class Sao2Memory2: ObservableObject {
     @AppStorage("sao2GameNumberStartMemory2") var gameNumberStart: Int = 0
     @AppStorage("sao2GameNumberCurrentMemory2") var gameNumberCurrent: Int = 0
     @AppStorage("sao2GameNumberPlayMemory2") var gameNumberPlay: Int = 0
+    @AppStorage("sao2GgoKiritoCountMissMemory2") var ggoKiritoCountMiss: Int = 0
+    @AppStorage("sao2GgoKiritoCountHitMemory2") var ggoKiritoCountHit: Int = 0
+    @AppStorage("sao2GgoKiritoCountSumMemory2") var ggoKiritoCountSum: Int = 0
     @AppStorage("sao2MemoMemory2") var memo = ""
     @AppStorage("sao2DateMemory2") var dateDouble = 0.0
 }
@@ -456,6 +474,9 @@ class Sao2Memory3: ObservableObject {
     @AppStorage("sao2GameNumberStartMemory3") var gameNumberStart: Int = 0
     @AppStorage("sao2GameNumberCurrentMemory3") var gameNumberCurrent: Int = 0
     @AppStorage("sao2GameNumberPlayMemory3") var gameNumberPlay: Int = 0
+    @AppStorage("sao2GgoKiritoCountMissMemory3") var ggoKiritoCountMiss: Int = 0
+    @AppStorage("sao2GgoKiritoCountHitMemory3") var ggoKiritoCountHit: Int = 0
+    @AppStorage("sao2GgoKiritoCountSumMemory3") var ggoKiritoCountSum: Int = 0
     @AppStorage("sao2MemoMemory3") var memo = ""
     @AppStorage("sao2DateMemory3") var dateDouble = 0.0
 }

@@ -40,3 +40,19 @@ struct tipVer490: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：SAO2 GGOモード キリトモード移行率
+//////////////////
+struct tipVer490Sao2GgoKirito: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("GGOモードのキリトモード移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
