@@ -56,3 +56,19 @@ struct tipVer490Sao2GgoKirito: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ストリートファイター6 モード
+//////////////////
+struct tipVer490Sf6Mode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("モードの情報を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -863,6 +863,8 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5061", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
                 sao2MenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5068", newStatus: "update")
+                streetFighter6MenuNormalBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

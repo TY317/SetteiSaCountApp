@@ -37,6 +37,17 @@ struct streetFighter6ViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- モード
+            Section {
+                // モード
+                unitLinkButtonViewBuilder(sheetTitle: "モード") {
+                    streetFighter6TableMode()
+                }
+                .popoverTip(tipVer490Sf6Mode())
+            } header: {
+                Text("モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.streetFighter6MenuNormalBadge)
