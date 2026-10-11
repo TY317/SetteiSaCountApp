@@ -292,8 +292,10 @@ struct sao2ViewNormal: View {
 
                 // 参考情報）キリトモード移行率
                 unitLinkButtonViewBuilder(sheetTitle: "キリトモード移行率") {
-                    Text("・設定変更時、AT終了時の数値")
-                    Text("・CZ失敗後は全設定共通（数値不明）")
+                    VStack(alignment: .leading) {
+                        Text("・設定変更時、AT終了時の数値")
+                        Text("・CZ失敗後は全設定共通（数値不明）")
+                    }
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
                         unitTablePercent(
