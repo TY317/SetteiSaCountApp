@@ -39,6 +39,33 @@ class Ricorico: ObservableObject {
         cz400GCountSum = cz400GCountHit + cz400GCountMiss
     }
 
+    // ---- 短縮天井（ラッシュ50終了時の振分け。750Gは全設定共通）
+    let ratioTanshuku250G: [Double] = [0.8,0.8,1.2,2.0,2.7,3.5]
+    let ratioTanshuku400G: [Double] = [2.3,2.7,3.1,5.1,7.0,7.8]
+    let ratioTanshuku600G: [Double] = [1.2,1.2,1.6,2.3,3.1,4.7]
+    let ratioTanshuku750G: [Double] = [7.4,7.4,7.4,7.4,7.4,7.4]
+    @AppStorage("ricoricoTanshuku250GCountMiss") var tanshuku250GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountHit") var tanshuku250GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountSum") var tanshuku250GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountMiss") var tanshuku400GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountHit") var tanshuku400GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountSum") var tanshuku400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountMiss") var tanshuku600GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountHit") var tanshuku600GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountSum") var tanshuku600GCountSum: Int = 0
+
+    func tanshuku250GSumFunc() {
+        tanshuku250GCountSum = tanshuku250GCountHit + tanshuku250GCountMiss
+    }
+
+    func tanshuku400GSumFunc() {
+        tanshuku400GCountSum = tanshuku400GCountHit + tanshuku400GCountMiss
+    }
+
+    func tanshuku600GSumFunc() {
+        tanshuku600GCountSum = tanshuku600GCountHit + tanshuku600GCountMiss
+    }
+
     func resetNormal() {
         commonBellCount = 0
         henkan150GCountMiss = 0
@@ -47,6 +74,15 @@ class Ricorico: ObservableObject {
         cz400GCountMiss = 0
         cz400GCountHit = 0
         cz400GCountSum = 0
+        tanshuku250GCountMiss = 0
+        tanshuku250GCountHit = 0
+        tanshuku250GCountSum = 0
+        tanshuku400GCountMiss = 0
+        tanshuku400GCountHit = 0
+        tanshuku400GCountSum = 0
+        tanshuku600GCountMiss = 0
+        tanshuku600GCountHit = 0
+        tanshuku600GCountSum = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
@@ -261,6 +297,15 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoCz400GCountMissMemory1") var cz400GCountMiss: Int = 0
     @AppStorage("ricoricoCz400GCountHitMemory1") var cz400GCountHit: Int = 0
     @AppStorage("ricoricoCz400GCountSumMemory1") var cz400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountMissMemory1") var tanshuku250GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountHitMemory1") var tanshuku250GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountSumMemory1") var tanshuku250GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountMissMemory1") var tanshuku400GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountHitMemory1") var tanshuku400GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountSumMemory1") var tanshuku400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountMissMemory1") var tanshuku600GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountHitMemory1") var tanshuku600GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountSumMemory1") var tanshuku600GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
@@ -308,6 +353,15 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoCz400GCountMissMemory2") var cz400GCountMiss: Int = 0
     @AppStorage("ricoricoCz400GCountHitMemory2") var cz400GCountHit: Int = 0
     @AppStorage("ricoricoCz400GCountSumMemory2") var cz400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountMissMemory2") var tanshuku250GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountHitMemory2") var tanshuku250GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountSumMemory2") var tanshuku250GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountMissMemory2") var tanshuku400GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountHitMemory2") var tanshuku400GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountSumMemory2") var tanshuku400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountMissMemory2") var tanshuku600GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountHitMemory2") var tanshuku600GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountSumMemory2") var tanshuku600GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
@@ -355,6 +409,15 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoCz400GCountMissMemory3") var cz400GCountMiss: Int = 0
     @AppStorage("ricoricoCz400GCountHitMemory3") var cz400GCountHit: Int = 0
     @AppStorage("ricoricoCz400GCountSumMemory3") var cz400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountMissMemory3") var tanshuku250GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountHitMemory3") var tanshuku250GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku250GCountSumMemory3") var tanshuku250GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountMissMemory3") var tanshuku400GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountHitMemory3") var tanshuku400GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku400GCountSumMemory3") var tanshuku400GCountSum: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountMissMemory3") var tanshuku600GCountMiss: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountHitMemory3") var tanshuku600GCountHit: Int = 0
+    @AppStorage("ricoricoTanshuku600GCountSumMemory3") var tanshuku600GCountSum: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }

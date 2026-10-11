@@ -72,3 +72,19 @@ struct tipVer490Sf6Mode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：リコリス・リコイル 短縮天井
+//////////////////
+struct tipVer490RicoricoTanshuku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("短縮天井のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

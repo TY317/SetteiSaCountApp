@@ -192,6 +192,15 @@ struct ricoricoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        ricoricoMemory1.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
+        ricoricoMemory1.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
+        ricoricoMemory1.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
+        ricoricoMemory1.tanshuku400GCountMiss = ricorico.tanshuku400GCountMiss
+        ricoricoMemory1.tanshuku400GCountHit = ricorico.tanshuku400GCountHit
+        ricoricoMemory1.tanshuku400GCountSum = ricorico.tanshuku400GCountSum
+        ricoricoMemory1.tanshuku600GCountMiss = ricorico.tanshuku600GCountMiss
+        ricoricoMemory1.tanshuku600GCountHit = ricorico.tanshuku600GCountHit
+        ricoricoMemory1.tanshuku600GCountSum = ricorico.tanshuku600GCountSum
         ricoricoMemory1.normalGame = ricorico.normalGame
         ricoricoMemory1.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
         ricoricoMemory1.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
@@ -235,6 +244,15 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory1.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory2() {
+        ricoricoMemory2.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
+        ricoricoMemory2.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
+        ricoricoMemory2.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
+        ricoricoMemory2.tanshuku400GCountMiss = ricorico.tanshuku400GCountMiss
+        ricoricoMemory2.tanshuku400GCountHit = ricorico.tanshuku400GCountHit
+        ricoricoMemory2.tanshuku400GCountSum = ricorico.tanshuku400GCountSum
+        ricoricoMemory2.tanshuku600GCountMiss = ricorico.tanshuku600GCountMiss
+        ricoricoMemory2.tanshuku600GCountHit = ricorico.tanshuku600GCountHit
+        ricoricoMemory2.tanshuku600GCountSum = ricorico.tanshuku600GCountSum
         ricoricoMemory2.normalGame = ricorico.normalGame
         ricoricoMemory2.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
         ricoricoMemory2.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
@@ -278,6 +296,15 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory2.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory3() {
+        ricoricoMemory3.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
+        ricoricoMemory3.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
+        ricoricoMemory3.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
+        ricoricoMemory3.tanshuku400GCountMiss = ricorico.tanshuku400GCountMiss
+        ricoricoMemory3.tanshuku400GCountHit = ricorico.tanshuku400GCountHit
+        ricoricoMemory3.tanshuku400GCountSum = ricorico.tanshuku400GCountSum
+        ricoricoMemory3.tanshuku600GCountMiss = ricorico.tanshuku600GCountMiss
+        ricoricoMemory3.tanshuku600GCountHit = ricorico.tanshuku600GCountHit
+        ricoricoMemory3.tanshuku600GCountSum = ricorico.tanshuku600GCountSum
         ricoricoMemory3.normalGame = ricorico.normalGame
         ricoricoMemory3.firstHitCountBattleCz = ricorico.firstHitCountBattleCz
         ricoricoMemory3.firstHitCountYoshokiCz = ricorico.firstHitCountYoshokiCz
@@ -350,6 +377,15 @@ struct ricoricoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        ricorico.tanshuku250GCountMiss = ricoricoMemory1.tanshuku250GCountMiss
+        ricorico.tanshuku250GCountHit = ricoricoMemory1.tanshuku250GCountHit
+        ricorico.tanshuku250GCountSum = ricoricoMemory1.tanshuku250GCountSum
+        ricorico.tanshuku400GCountMiss = ricoricoMemory1.tanshuku400GCountMiss
+        ricorico.tanshuku400GCountHit = ricoricoMemory1.tanshuku400GCountHit
+        ricorico.tanshuku400GCountSum = ricoricoMemory1.tanshuku400GCountSum
+        ricorico.tanshuku600GCountMiss = ricoricoMemory1.tanshuku600GCountMiss
+        ricorico.tanshuku600GCountHit = ricoricoMemory1.tanshuku600GCountHit
+        ricorico.tanshuku600GCountSum = ricoricoMemory1.tanshuku600GCountSum
         ricorico.normalGame = ricoricoMemory1.normalGame
         ricorico.firstHitCountBattleCz = ricoricoMemory1.firstHitCountBattleCz
         ricorico.firstHitCountYoshokiCz = ricoricoMemory1.firstHitCountYoshokiCz
@@ -393,6 +429,15 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wRushEpiboCountSum = ricoricoMemory1.wRushEpiboCountSum
     }
     func loadMemory2() {
+        ricorico.tanshuku250GCountMiss = ricoricoMemory2.tanshuku250GCountMiss
+        ricorico.tanshuku250GCountHit = ricoricoMemory2.tanshuku250GCountHit
+        ricorico.tanshuku250GCountSum = ricoricoMemory2.tanshuku250GCountSum
+        ricorico.tanshuku400GCountMiss = ricoricoMemory2.tanshuku400GCountMiss
+        ricorico.tanshuku400GCountHit = ricoricoMemory2.tanshuku400GCountHit
+        ricorico.tanshuku400GCountSum = ricoricoMemory2.tanshuku400GCountSum
+        ricorico.tanshuku600GCountMiss = ricoricoMemory2.tanshuku600GCountMiss
+        ricorico.tanshuku600GCountHit = ricoricoMemory2.tanshuku600GCountHit
+        ricorico.tanshuku600GCountSum = ricoricoMemory2.tanshuku600GCountSum
         ricorico.normalGame = ricoricoMemory2.normalGame
         ricorico.firstHitCountBattleCz = ricoricoMemory2.firstHitCountBattleCz
         ricorico.firstHitCountYoshokiCz = ricoricoMemory2.firstHitCountYoshokiCz
@@ -436,6 +481,15 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wRushEpiboCountSum = ricoricoMemory2.wRushEpiboCountSum
     }
     func loadMemory3() {
+        ricorico.tanshuku250GCountMiss = ricoricoMemory3.tanshuku250GCountMiss
+        ricorico.tanshuku250GCountHit = ricoricoMemory3.tanshuku250GCountHit
+        ricorico.tanshuku250GCountSum = ricoricoMemory3.tanshuku250GCountSum
+        ricorico.tanshuku400GCountMiss = ricoricoMemory3.tanshuku400GCountMiss
+        ricorico.tanshuku400GCountHit = ricoricoMemory3.tanshuku400GCountHit
+        ricorico.tanshuku400GCountSum = ricoricoMemory3.tanshuku400GCountSum
+        ricorico.tanshuku600GCountMiss = ricoricoMemory3.tanshuku600GCountMiss
+        ricorico.tanshuku600GCountHit = ricoricoMemory3.tanshuku600GCountHit
+        ricorico.tanshuku600GCountSum = ricoricoMemory3.tanshuku600GCountSum
         ricorico.normalGame = ricoricoMemory3.normalGame
         ricorico.firstHitCountBattleCz = ricoricoMemory3.firstHitCountBattleCz
         ricorico.firstHitCountYoshokiCz = ricoricoMemory3.firstHitCountYoshokiCz

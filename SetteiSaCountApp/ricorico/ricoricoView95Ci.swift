@@ -121,6 +121,60 @@ struct ricoricoView95Ci: View {
                 )
             )
             .tag(6)
+
+            // 短縮天井 250G
+            unitListSection95Ci(
+                grafTitle: "短縮天井 250G",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.tanshuku250GCountHit,
+                        bigNumber: $ricorico.tanshuku250GCountSum,
+                        setting1Percent: ricorico.ratioTanshuku250G[0],
+                        setting2Percent: ricorico.ratioTanshuku250G[1],
+                        setting3Percent: ricorico.ratioTanshuku250G[2],
+                        setting4Percent: ricorico.ratioTanshuku250G[3],
+                        setting5Percent: ricorico.ratioTanshuku250G[4],
+                        setting6Percent: ricorico.ratioTanshuku250G[5]
+                    )
+                )
+            )
+            .tag(8)
+
+            // 短縮天井 400G
+            unitListSection95Ci(
+                grafTitle: "短縮天井 400G",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.tanshuku400GCountHit,
+                        bigNumber: $ricorico.tanshuku400GCountSum,
+                        setting1Percent: ricorico.ratioTanshuku400G[0],
+                        setting2Percent: ricorico.ratioTanshuku400G[1],
+                        setting3Percent: ricorico.ratioTanshuku400G[2],
+                        setting4Percent: ricorico.ratioTanshuku400G[3],
+                        setting5Percent: ricorico.ratioTanshuku400G[4],
+                        setting6Percent: ricorico.ratioTanshuku400G[5]
+                    )
+                )
+            )
+            .tag(9)
+
+            // 短縮天井 600G
+            unitListSection95Ci(
+                grafTitle: "短縮天井 600G",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.tanshuku600GCountHit,
+                        bigNumber: $ricorico.tanshuku600GCountSum,
+                        setting1Percent: ricorico.ratioTanshuku600G[0],
+                        setting2Percent: ricorico.ratioTanshuku600G[1],
+                        setting3Percent: ricorico.ratioTanshuku600G[2],
+                        setting4Percent: ricorico.ratioTanshuku600G[3],
+                        setting5Percent: ricorico.ratioTanshuku600G[4],
+                        setting6Percent: ricorico.ratioTanshuku600G[5]
+                    )
+                )
+            )
+            .tag(10)
         }
         // //// firebaseログ
         .onAppear {

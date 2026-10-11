@@ -26,6 +26,7 @@ struct ricoricoViewBayes: View {
     @State var commonBellEnable: Bool = true
     @State var henkan150GEnable: Bool = true
     @State var cz400GEnable: Bool = true
+    @State var tanshukuEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -57,6 +58,7 @@ struct ricoricoViewBayes: View {
 
                 // 400G到達時のCZ当選率
                 unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
+                unitToggleWithQuestion(enable: self.$tanshukuEnable, title: "短縮天井（250G・400G・600G）")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
@@ -193,6 +195,31 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 短縮天井（250G・400G・600G）
+        var logPostTanshuku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tanshukuEnable {
+            let logPost250G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku250G,
+                Count: ricorico.tanshuku250GCountHit,
+                bigNumber: ricorico.tanshuku250GCountSum
+            )
+            let logPost400G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku400G,
+                Count: ricorico.tanshuku400GCountHit,
+                bigNumber: ricorico.tanshuku400GCountSum
+            )
+            let logPost600G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku600G,
+                Count: ricorico.tanshuku600GCountHit,
+                bigNumber: ricorico.tanshuku600GCountSum
+            )
+            logPostTanshuku = arraySumDouble([
+                logPost250G,
+                logPost400G,
+                logPost600G,
+            ])
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -265,6 +292,7 @@ struct ricoricoViewBayes: View {
             logPostCommonBell,
             logPostHenkan150G,
             logPostCz400G,
+            logPostTanshuku,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,

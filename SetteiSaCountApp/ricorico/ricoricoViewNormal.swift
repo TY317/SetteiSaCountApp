@@ -26,6 +26,9 @@ struct ricoricoViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    // 短縮天井のゲーム数選択
+    let tanshukuSegmentList: [String] = ["250G", "400G", "600G"]
+    @State var tanshukuSelected: String = "250G"
     var body: some View {
         List {
             // ---- 共通ベル
@@ -122,7 +125,7 @@ struct ricoricoViewNormal: View {
                     bigNumber: $ricorico.henkan150GCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer480RicoricoHenkan150G())
+//                .popoverTip(tipVer480RicoricoHenkan150G())
 
                 // 参考情報）150G 変換高確移行
                 unitLinkButtonViewBuilder(sheetTitle: "150G 変換高確移行") {
@@ -192,7 +195,7 @@ struct ricoricoViewNormal: View {
                     bigNumber: $ricorico.cz400GCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer480RicoricoCz400G())
+//                .popoverTip(tipVer480RicoricoCz400G())
 
                 // 参考情報）400G到達時のCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "400G到達時のCZ当選率") {
@@ -251,6 +254,169 @@ struct ricoricoViewNormal: View {
                 }
             } header: {
                 Text("400G到達時のCZ当選率")
+            }
+
+            // ---- 短縮天井
+            Section {
+                // 確率横並び
+                HStack {
+                    // 250G
+                    unitResultRatioPercent2Line(
+                        title: "250G",
+                        count: $ricorico.tanshuku250GCountHit,
+                        bigNumber: $ricorico.tanshuku250GCountSum,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                    // 400G
+                    unitResultRatioPercent2Line(
+                        title: "400G",
+                        count: $ricorico.tanshuku400GCountHit,
+                        bigNumber: $ricorico.tanshuku400GCountSum,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                    // 600G
+                    unitResultRatioPercent2Line(
+                        title: "600G",
+                        count: $ricorico.tanshuku600GCountHit,
+                        bigNumber: $ricorico.tanshuku600GCountSum,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer490RicoricoTanshuku())
+
+                // 参考情報）短縮天井
+                unitLinkButtonViewBuilder(sheetTitle: "ラッシュ50終了時 短縮天井") {
+                    VStack(alignment: .leading) {
+                        Text("・高設定ほどラッシュ50終了時の短縮天井振分けが優遇")
+                        Text("・短縮天井時はCZ最終遊技での告知、または復活告知が発生")
+                        Text("・最終遊技より前に当選した場合は短縮かどうかの見分けは難しい")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "250G",
+                            percentList: ricorico.ratioTanshuku250G,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "400G",
+                            percentList: ricorico.ratioTanshuku400G,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "600G",
+                            percentList: ricorico.ratioTanshuku600G,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "750G",
+                            percentList: [ricorico.ratioTanshuku750G[0]],
+                            numberofDicimal: 1,
+                            lineList: [6],
+                            colorList: [.white]
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・短縮時はCZ最終ゲームでの告知or復活")
+                        Text("・最終ゲームより前に自力成功した場合は見抜けないためカウント除外")
+                    }
+                    // セグメントピッカー
+                    Picker("", selection: self.$tanshukuSelected) {
+                        ForEach(self.tanshukuSegmentList, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    // カウントボタン横並び
+                    HStack {
+                        if self.tanshukuSelected == self.tanshukuSegmentList[0] {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $ricorico.tanshuku250GCountMiss,
+                                color: .personalSummerLightBlue,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku250GSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $ricorico.tanshuku250GCountHit,
+                                color: .blue,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku250GSumFunc()
+                                }
+                        }
+                        else if self.tanshukuSelected == self.tanshukuSegmentList[1] {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $ricorico.tanshuku400GCountMiss,
+                                color: .personalSummerLightGreen,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku400GSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $ricorico.tanshuku400GCountHit,
+                                color: .green,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku400GSumFunc()
+                                }
+                        }
+                        else if self.tanshukuSelected == self.tanshukuSegmentList[2] {
+                            // 天井なし
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井なし",
+                                count: $ricorico.tanshuku600GCountMiss,
+                                color: .personalSummerLightRed,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku600GSumFunc()
+                                }
+                            // 天井あり
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "天井あり",
+                                count: $ricorico.tanshuku600GCountHit,
+                                color: .red,
+                                minusBool: $ricorico.minusCheck) {
+                                    ricorico.tanshuku600GSumFunc()
+                                }
+                        }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ricoricoView95Ci(
+                                ricorico: ricorico,
+                                selection: 8 + (self.tanshukuSegmentList.firstIndex(of: self.tanshukuSelected) ?? 0),
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ricoricoViewBayes(
+                            ricorico: ricorico,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("短縮天井")
             }
             
             // レア役
