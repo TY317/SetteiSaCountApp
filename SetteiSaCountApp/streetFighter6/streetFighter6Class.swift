@@ -13,6 +13,15 @@ class StreetFighter6: ObservableObject {
     // -------
     // 通常時
     // -------
+    // ---- 初期ランク振分け（設定変更後／レジェンド後）
+    let ratioFirstRankRookieReset: [Double] = [86.7,86.7,86.7,74.2,67.2,54.7]
+    let ratioFirstRankRookieLegend: [Double] = [75.0,75.0,75.0,74.2,67.2,54.7]
+    let ratioFirstRankBronze: [Double] = [6.3,6.3,6.3,6.3,6.3,6.3]
+    let ratioFirstRankSilver: [Double] = [6.3,6.3,6.3,6.3,6.3,6.3]
+    let ratioFirstRankGoldReset: [Double] = [0.4,0.4,0.4,12.5,18.8,28.1]
+    let ratioFirstRankGoldLegend: [Double] = [11.7,11.7,11.7,12.5,18.8,28.1]
+    let ratioFirstRankLegendReset: [Double] = [0.4,0.4,0.4,0.8,1.6,4.7]
+    let ratioFirstRankLegendLegend: [Double] = [0.8,0.8,0.8,0.8,1.6,4.7]
 
     func resetNormal() {
         minusCheck = false

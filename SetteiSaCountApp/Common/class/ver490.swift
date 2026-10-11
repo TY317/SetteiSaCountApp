@@ -59,14 +59,14 @@ struct tipVer490Sao2GgoKirito: Tip {
 
 
 //////////////////
-// Tip：ストリートファイター6 モード
+// Tip：ストリートファイター6 モード・初期ランク
 //////////////////
 struct tipVer490Sf6Mode: Tip {
     var title: Text {
         Text("情報更新")
     }
     var message: Text? {
-        Text("モードの情報を追加しました")
+        Text("モード・初期ランクの情報を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
