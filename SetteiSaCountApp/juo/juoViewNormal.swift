@@ -37,6 +37,34 @@ struct juoViewNormal: View {
             } header: {
                 Text("小役")
             }
+            
+            // SC高確
+            Section {
+                // 謎高確
+                unitLinkButtonViewBuilder(sheetTitle: "謎高確") {
+                    Text("・レア役やゲーム数のゾーン（100の倍数）以外からの高確移行（＝謎高確）に設定差あり")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,4,5,6])
+                        unitTableString(
+                            columTitle: "謎高確",
+                            stringList: [
+                                "約1/1000",
+                                "?",
+                                "?",
+                                "?",
+                                "設定1の倍以上"
+                            ],
+                        )
+                    }
+                }
+                
+                // ゲーム数での移行
+                unitLinkButtonViewBuilder(sheetTitle: "ゲーム数での移行") {
+                    Text("・百の位が偶数のゲーム数は高設定ほどSC高確への移行が優遇")
+                }
+            } header: {
+                Text("SC高確 移行")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.juoMenuNormalBadge)
