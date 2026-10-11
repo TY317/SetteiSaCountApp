@@ -31,13 +31,17 @@ struct streetFighter6TableFirstRank: View {
                 )
                 unitTablePercent(
                     columTitle: "ブロンズ",
-                    percentList: streetFighter6.ratioFirstRankBronze,
+                    percentList: [streetFighter6.ratioFirstRankBronze[0]],
                     numberofDicimal: 1,
+                    lineList: [6],
+                    colorList: [.white]
                 )
                 unitTablePercent(
                     columTitle: "シルバー",
-                    percentList: streetFighter6.ratioFirstRankSilver,
+                    percentList: [streetFighter6.ratioFirstRankSilver[0]],
                     numberofDicimal: 1,
+                    lineList: [6],
+                    colorList: [.white]
                 )
             }
 

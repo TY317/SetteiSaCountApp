@@ -41,7 +41,7 @@ struct streetFighter6ViewNormal: View {
             // ---- モード
             Section {
                 // モード
-                unitLinkButtonViewBuilder(sheetTitle: "モード") {
+                unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     streetFighter6TableMode()
                 }
                 .popoverTip(tipVer490Sf6Mode())
