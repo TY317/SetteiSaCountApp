@@ -13,6 +13,7 @@ struct juoViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.7, 105.6, 108.6, 114.3]
+    @State var firstHitScEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -43,6 +44,9 @@ struct juoViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // サバンナチャンス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitScEnable, title: "サバンナチャンス初当り確率")
+
 
                 // トロフィー
                 DisclosureGroup("サミートロフィー") {
@@ -113,6 +117,16 @@ struct juoViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // サバンナチャンス初当り確率
+        var logPostFirstHitSc: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitScEnable {
+            logPostFirstHitSc = logPostDenoBino(
+                ratio: juo.ratioFirstHitSc,
+                Count: juo.firstHitCountSc,
+                bigNumber: juo.normalGame
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -144,6 +158,7 @@ struct juoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitSc,
             logPostTrophy,
             logPostBefore,
         ])

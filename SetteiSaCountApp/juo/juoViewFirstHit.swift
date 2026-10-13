@@ -28,7 +28,54 @@ struct juoViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ゲーム数入力
+            unitTextFieldNumberInputWithUnit(
+                title: "通常ゲーム数",
+                inputValue: $juo.normalGame,
+                unitText: "Ｇ",
+            )
+            .focused(self.$isFocused)
 
+            // カウントボタン横並び
+            HStack {
+                // サバンナチャンス
+                unitCountButtonVerticalDenominate(
+                    title: "サバンナチャンス",
+                    count: $juo.firstHitCountSc,
+                    color: .personalSummerLightRed,
+                    bigNumber: $juo.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $juo.minusCheck
+                )
+            }
+
+            // 参考情報）初当り確率
+            unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                HStack(spacing: 0) {
+                    unitTableSettingIndex(settingList: [1,2,4,5,6])
+                    unitTableDenominate(
+                        columTitle: "サバンナチャンス",
+                        denominateList: juo.ratioFirstHitSc
+                    )
+                }
+            }
+
+            // //// 95%信頼区間グラフへのリンク
+            unitNaviLink95Ci(
+                Ci95view: AnyView(
+                    juoView95Ci(
+                        juo: juo,
+                        selection: 2,
+                    )
+                )
+            )
+
+            // //// 設定期待値へのリンク
+            unitNaviLinkBayes {
+                juoViewBayes(
+                    juo: juo,
+                )
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.juoMenuFirstHitBadge)
@@ -64,6 +111,17 @@ struct juoViewFirstHit: View {
             ToolbarItem(placement: .automatic) {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: juo.resetFirstHit)
+            }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
             }
         }
     }

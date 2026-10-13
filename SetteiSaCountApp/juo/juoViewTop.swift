@@ -70,7 +70,7 @@ struct juoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: juoView95Ci(
                     juo: juo,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",
@@ -169,13 +169,16 @@ struct juoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        juoMemory1.normalGame = juo.normalGame
+        juoMemory1.firstHitCountSc = juo.firstHitCountSc
     }
     func saveMemory2() {
-
+        juoMemory2.normalGame = juo.normalGame
+        juoMemory2.firstHitCountSc = juo.firstHitCountSc
     }
     func saveMemory3() {
-
+        juoMemory3.normalGame = juo.normalGame
+        juoMemory3.firstHitCountSc = juo.firstHitCountSc
     }
 }
 
@@ -207,13 +210,16 @@ struct juoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        juo.normalGame = juoMemory1.normalGame
+        juo.firstHitCountSc = juoMemory1.firstHitCountSc
     }
     func loadMemory2() {
-
+        juo.normalGame = juoMemory2.normalGame
+        juo.firstHitCountSc = juoMemory2.firstHitCountSc
     }
     func loadMemory3() {
-
+        juo.normalGame = juoMemory3.normalGame
+        juo.firstHitCountSc = juoMemory3.firstHitCountSc
     }
 }
 

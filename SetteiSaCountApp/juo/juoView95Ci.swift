@@ -14,60 +14,24 @@ struct juoView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $juo.otomeAttackHit,
-//                        bigNumber: $juo.otomeAttackSum,
-//                        setting1Percent: juo.ratioOtomeAttack[0],
-//                        setting2Percent: juo.ratioOtomeAttack[1],
-//                        setting3Percent: juo.ratioOtomeAttack[2],
-//                        setting4Percent: juo.ratioOtomeAttack[3],
-//                        setting5Percent: juo.ratioOtomeAttack[4],
-//                        setting6Percent: juo.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $juo.firstHitCountCz,
-//                        bigNumber: $juo.normalGame,
-//                        setting1Denominate: juo.ratioFirstHitCz[0],
-//                        setting2Denominate: juo.ratioFirstHitCz[1],
-//                        setting3Denominate: juo.ratioFirstHitCz[2],
-//                        setting4Denominate: juo.ratioFirstHitCz[3],
-//                        setting5Denominate: juo.ratioFirstHitCz[4],
-//                        setting6Denominate: juo.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $juo.firstHitCountAt,
-//                        bigNumber: $juo.normalGame,
-//                        setting1Denominate: juo.ratioFirstHitAt[0],
-//                        setting2Denominate: juo.ratioFirstHitAt[1],
-//                        setting3Denominate: juo.ratioFirstHitAt[2],
-//                        setting4Denominate: juo.ratioFirstHitAt[3],
-//                        setting5Denominate: juo.ratioFirstHitAt[4],
-//                        setting6Denominate: juo.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // サバンナチャンス初当り回数
+            unitListSection95Ci(
+                grafTitle: "サバンナチャンス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $juo.firstHitCountSc,
+                        bigNumber: $juo.normalGame,
+                        setting1Denominate: juo.ratioFirstHitSc[0],
+                        setting2Denominate: juo.ratioFirstHitSc[1],
+                        setting3Enable: false,
+                        setting3Denominate: -1,
+                        setting4Denominate: juo.ratioFirstHitSc[2],
+                        setting5Denominate: juo.ratioFirstHitSc[3],
+                        setting6Denominate: juo.ratioFirstHitSc[4]
+                    )
+                )
+            )
+            .tag(2)
         }
         // //// firebaseログ
         .onAppear {
