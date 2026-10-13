@@ -192,6 +192,8 @@ struct ricoricoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        ricoricoMemory1.jakuRicoCount = ricorico.jakuRicoCount
+        ricoricoMemory1.jakuRicoHenkanCount = ricorico.jakuRicoHenkanCount
         ricoricoMemory1.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
         ricoricoMemory1.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
         ricoricoMemory1.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
@@ -244,6 +246,8 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory1.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory2() {
+        ricoricoMemory2.jakuRicoCount = ricorico.jakuRicoCount
+        ricoricoMemory2.jakuRicoHenkanCount = ricorico.jakuRicoHenkanCount
         ricoricoMemory2.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
         ricoricoMemory2.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
         ricoricoMemory2.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
@@ -296,6 +300,8 @@ struct ricoricoSubViewSaveMemory: View {
         ricoricoMemory2.wRushEpiboCountSum = ricorico.wRushEpiboCountSum
     }
     func saveMemory3() {
+        ricoricoMemory3.jakuRicoCount = ricorico.jakuRicoCount
+        ricoricoMemory3.jakuRicoHenkanCount = ricorico.jakuRicoHenkanCount
         ricoricoMemory3.tanshuku250GCountMiss = ricorico.tanshuku250GCountMiss
         ricoricoMemory3.tanshuku250GCountHit = ricorico.tanshuku250GCountHit
         ricoricoMemory3.tanshuku250GCountSum = ricorico.tanshuku250GCountSum
@@ -377,6 +383,8 @@ struct ricoricoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        ricorico.jakuRicoCount = ricoricoMemory1.jakuRicoCount
+        ricorico.jakuRicoHenkanCount = ricoricoMemory1.jakuRicoHenkanCount
         ricorico.tanshuku250GCountMiss = ricoricoMemory1.tanshuku250GCountMiss
         ricorico.tanshuku250GCountHit = ricoricoMemory1.tanshuku250GCountHit
         ricorico.tanshuku250GCountSum = ricoricoMemory1.tanshuku250GCountSum
@@ -429,6 +437,8 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wRushEpiboCountSum = ricoricoMemory1.wRushEpiboCountSum
     }
     func loadMemory2() {
+        ricorico.jakuRicoCount = ricoricoMemory2.jakuRicoCount
+        ricorico.jakuRicoHenkanCount = ricoricoMemory2.jakuRicoHenkanCount
         ricorico.tanshuku250GCountMiss = ricoricoMemory2.tanshuku250GCountMiss
         ricorico.tanshuku250GCountHit = ricoricoMemory2.tanshuku250GCountHit
         ricorico.tanshuku250GCountSum = ricoricoMemory2.tanshuku250GCountSum
@@ -481,6 +491,8 @@ struct ricoricoSubViewLoadMemory: View {
         ricorico.wRushEpiboCountSum = ricoricoMemory2.wRushEpiboCountSum
     }
     func loadMemory3() {
+        ricorico.jakuRicoCount = ricoricoMemory3.jakuRicoCount
+        ricorico.jakuRicoHenkanCount = ricoricoMemory3.jakuRicoHenkanCount
         ricorico.tanshuku250GCountMiss = ricoricoMemory3.tanshuku250GCountMiss
         ricorico.tanshuku250GCountHit = ricoricoMemory3.tanshuku250GCountHit
         ricorico.tanshuku250GCountSum = ricoricoMemory3.tanshuku250GCountSum

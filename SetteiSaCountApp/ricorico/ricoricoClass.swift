@@ -66,6 +66,11 @@ class Ricorico: ObservableObject {
         tanshuku600GCountSum = tanshuku600GCountHit + tanshuku600GCountMiss
     }
 
+    // ---- 弱リコリス目の変換高確移行率
+    let ratioJakuRicoHenkan: [Double] = [38.3,38.3,39.1,41.0,43.0,44.9]
+    @AppStorage("ricoricoJakuRicoCount") var jakuRicoCount: Int = 0
+    @AppStorage("ricoricoJakuRicoHenkanCount") var jakuRicoHenkanCount: Int = 0
+
     func resetNormal() {
         commonBellCount = 0
         henkan150GCountMiss = 0
@@ -83,6 +88,8 @@ class Ricorico: ObservableObject {
         tanshuku600GCountMiss = 0
         tanshuku600GCountHit = 0
         tanshuku600GCountSum = 0
+        jakuRicoCount = 0
+        jakuRicoHenkanCount = 0
         gameNumberStart = 0
         gameNumberCurrent = 0
         gameNumberPlay = 0
@@ -306,6 +313,8 @@ class RicoricoMemory1: ObservableObject {
     @AppStorage("ricoricoTanshuku600GCountMissMemory1") var tanshuku600GCountMiss: Int = 0
     @AppStorage("ricoricoTanshuku600GCountHitMemory1") var tanshuku600GCountHit: Int = 0
     @AppStorage("ricoricoTanshuku600GCountSumMemory1") var tanshuku600GCountSum: Int = 0
+    @AppStorage("ricoricoJakuRicoCountMemory1") var jakuRicoCount: Int = 0
+    @AppStorage("ricoricoJakuRicoHenkanCountMemory1") var jakuRicoHenkanCount: Int = 0
     @AppStorage("ricoricoMemoMemory1") var memo = ""
     @AppStorage("ricoricoDateMemory1") var dateDouble = 0.0
 }
@@ -362,6 +371,8 @@ class RicoricoMemory2: ObservableObject {
     @AppStorage("ricoricoTanshuku600GCountMissMemory2") var tanshuku600GCountMiss: Int = 0
     @AppStorage("ricoricoTanshuku600GCountHitMemory2") var tanshuku600GCountHit: Int = 0
     @AppStorage("ricoricoTanshuku600GCountSumMemory2") var tanshuku600GCountSum: Int = 0
+    @AppStorage("ricoricoJakuRicoCountMemory2") var jakuRicoCount: Int = 0
+    @AppStorage("ricoricoJakuRicoHenkanCountMemory2") var jakuRicoHenkanCount: Int = 0
     @AppStorage("ricoricoMemoMemory2") var memo = ""
     @AppStorage("ricoricoDateMemory2") var dateDouble = 0.0
 }
@@ -418,6 +429,8 @@ class RicoricoMemory3: ObservableObject {
     @AppStorage("ricoricoTanshuku600GCountMissMemory3") var tanshuku600GCountMiss: Int = 0
     @AppStorage("ricoricoTanshuku600GCountHitMemory3") var tanshuku600GCountHit: Int = 0
     @AppStorage("ricoricoTanshuku600GCountSumMemory3") var tanshuku600GCountSum: Int = 0
+    @AppStorage("ricoricoJakuRicoCountMemory3") var jakuRicoCount: Int = 0
+    @AppStorage("ricoricoJakuRicoHenkanCountMemory3") var jakuRicoHenkanCount: Int = 0
     @AppStorage("ricoricoMemoMemory3") var memo = ""
     @AppStorage("ricoricoDateMemory3") var dateDouble = 0.0
 }

@@ -27,6 +27,7 @@ struct ricoricoViewBayes: View {
     @State var henkan150GEnable: Bool = true
     @State var cz400GEnable: Bool = true
     @State var tanshukuEnable: Bool = true
+    @State var jakuRicoHenkanEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -59,6 +60,7 @@ struct ricoricoViewBayes: View {
                 // 400G到達時のCZ当選率
                 unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
                 unitToggleWithQuestion(enable: self.$tanshukuEnable, title: "短縮天井（250G・400G・600G）")
+                unitToggleWithQuestion(enable: self.$jakuRicoHenkanEnable, title: "弱リコリス目の変換高確移行率")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
@@ -220,6 +222,16 @@ struct ricoricoViewBayes: View {
             ])
         }
 
+        // 弱リコリス目の変換高確移行率
+        var logPostJakuRicoHenkan: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.jakuRicoHenkanEnable {
+            logPostJakuRicoHenkan = logPostPercentBino(
+                ratio: ricorico.ratioJakuRicoHenkan,
+                Count: ricorico.jakuRicoHenkanCount,
+                bigNumber: ricorico.jakuRicoCount
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -293,6 +305,7 @@ struct ricoricoViewBayes: View {
             logPostHenkan150G,
             logPostCz400G,
             logPostTanshuku,
+            logPostJakuRicoHenkan,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,

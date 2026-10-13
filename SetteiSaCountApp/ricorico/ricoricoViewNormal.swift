@@ -418,6 +418,72 @@ struct ricoricoViewNormal: View {
             } header: {
                 Text("短縮天井")
             }
+
+            // ---- 弱リコリス目の変換高確移行率
+            Section {
+                // 移行率
+                unitResultRatioPercent2Line(
+                    title: "移行率",
+                    count: $ricorico.jakuRicoHenkanCount,
+                    bigNumber: $ricorico.jakuRicoCount,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）弱リコリス目の変換高確移行率
+                unitLinkButtonViewBuilder(sheetTitle: "弱リコリス目の変換高確移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "移行率",
+                            percentList: ricorico.ratioJakuRicoHenkan,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // 弱リコリス目
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "弱リコリス目",
+                            count: $ricorico.jakuRicoCount,
+                            color: .personalSummerLightBlue,
+                            minusBool: $ricorico.minusCheck) {
+                            }
+                        // 高確移行
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "高確移行",
+                            count: $ricorico.jakuRicoHenkanCount,
+                            color: .personalSummerLightRed,
+                            minusBool: $ricorico.minusCheck) {
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ricoricoView95Ci(
+                                ricorico: ricorico,
+                                selection: 11,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ricoricoViewBayes(
+                            ricorico: ricorico,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("弱リコリス目の変換高確移行率")
+            }
             
             // レア役
             Section {

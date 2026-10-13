@@ -175,6 +175,24 @@ struct ricoricoView95Ci: View {
                 )
             )
             .tag(10)
+
+            // 弱リコリス目の変換高確移行率
+            unitListSection95Ci(
+                grafTitle: "弱リコリス目の変換高確移行率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ricorico.jakuRicoHenkanCount,
+                        bigNumber: $ricorico.jakuRicoCount,
+                        setting1Percent: ricorico.ratioJakuRicoHenkan[0],
+                        setting2Percent: ricorico.ratioJakuRicoHenkan[1],
+                        setting3Percent: ricorico.ratioJakuRicoHenkan[2],
+                        setting4Percent: ricorico.ratioJakuRicoHenkan[3],
+                        setting5Percent: ricorico.ratioJakuRicoHenkan[4],
+                        setting6Percent: ricorico.ratioJakuRicoHenkan[5]
+                    )
+                )
+            )
+            .tag(11)
         }
         // //// firebaseログ
         .onAppear {
