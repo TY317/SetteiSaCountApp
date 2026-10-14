@@ -53,6 +53,9 @@ struct ricoricoViewBayes: View {
             bayesSubStep2Section {
                 // 共通ベル確率
                 unitToggleWithQuestion(enable: self.$commonBellEnable, title: "共通ベル確率")
+                
+                // 弱リコリス目からの変換高確
+                unitToggleWithQuestion(enable: self.$jakuRicoHenkanEnable, title: "弱リコリス目の変換高確移行率")
 
                 // 150G 変換高確移行
                 unitToggleWithQuestion(enable: self.$henkan150GEnable, title: "150G 変換高確移行")
@@ -60,7 +63,6 @@ struct ricoricoViewBayes: View {
                 // 400G到達時のCZ当選率
                 unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
                 unitToggleWithQuestion(enable: self.$tanshukuEnable, title: "短縮天井（250G・400G・600G）")
-                unitToggleWithQuestion(enable: self.$jakuRicoHenkanEnable, title: "弱リコリス目の変換高確移行率")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
