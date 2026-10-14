@@ -23,8 +23,8 @@ final class InterstitialViewModel: NSObject,ObservableObject,FullScreenContentDe
         do {
 //            interstitialAd = try await GADInterstitialAd.load(
             interstitialAd = try await InterstitialAd.load(
-                with: "ca-app-pub-3940256099942544/4411468910",     // テスト用
-//                with: "ca-app-pub-2339669527176370/6732998451",     // 本番用
+//                with: "ca-app-pub-3940256099942544/4411468910",     // テスト用
+                with: "ca-app-pub-2339669527176370/6732998451",     // 本番用
 //                request: GADRequest()
                 request: Request()
             )
