@@ -26,6 +26,8 @@ struct ricoricoViewBayes: View {
     @State var commonBellEnable: Bool = true
     @State var henkan150GEnable: Bool = true
     @State var cz400GEnable: Bool = true
+    @State var tanshukuEnable: Bool = true
+    @State var jakuRicoHenkanEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
@@ -51,12 +53,16 @@ struct ricoricoViewBayes: View {
             bayesSubStep2Section {
                 // 共通ベル確率
                 unitToggleWithQuestion(enable: self.$commonBellEnable, title: "共通ベル確率")
+                
+                // 弱リコリス目からの変換高確
+                unitToggleWithQuestion(enable: self.$jakuRicoHenkanEnable, title: "弱リコリス目の変換高確移行率")
 
                 // 150G 変換高確移行
                 unitToggleWithQuestion(enable: self.$henkan150GEnable, title: "150G 変換高確移行")
 
                 // 400G到達時のCZ当選率
                 unitToggleWithQuestion(enable: self.$cz400GEnable, title: "400G到達時のCZ当選率")
+                unitToggleWithQuestion(enable: self.$tanshukuEnable, title: "短縮天井（250G・400G・600G）")
 
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
@@ -193,6 +199,41 @@ struct ricoricoViewBayes: View {
             )
         }
 
+        // 短縮天井（250G・400G・600G）
+        var logPostTanshuku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.tanshukuEnable {
+            let logPost250G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku250G,
+                Count: ricorico.tanshuku250GCountHit,
+                bigNumber: ricorico.tanshuku250GCountSum
+            )
+            let logPost400G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku400G,
+                Count: ricorico.tanshuku400GCountHit,
+                bigNumber: ricorico.tanshuku400GCountSum
+            )
+            let logPost600G = logPostPercentBino(
+                ratio: ricorico.ratioTanshuku600G,
+                Count: ricorico.tanshuku600GCountHit,
+                bigNumber: ricorico.tanshuku600GCountSum
+            )
+            logPostTanshuku = arraySumDouble([
+                logPost250G,
+                logPost400G,
+                logPost600G,
+            ])
+        }
+
+        // 弱リコリス目の変換高確移行率
+        var logPostJakuRicoHenkan: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.jakuRicoHenkanEnable {
+            logPostJakuRicoHenkan = logPostPercentBino(
+                ratio: ricorico.ratioJakuRicoHenkan,
+                Count: ricorico.jakuRicoHenkanCount,
+                bigNumber: ricorico.jakuRicoCount
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -265,6 +306,8 @@ struct ricoricoViewBayes: View {
             logPostCommonBell,
             logPostHenkan150G,
             logPostCz400G,
+            logPostTanshuku,
+            logPostJakuRicoHenkan,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,

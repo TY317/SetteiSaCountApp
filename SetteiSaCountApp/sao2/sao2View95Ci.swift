@@ -179,6 +179,24 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(9)
+
+            // キリトモード移行率
+            unitListSection95Ci(
+                grafTitle: "キリトモード移行率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.ggoKiritoCountHit,
+                        bigNumber: $sao2.ggoKiritoCountSum,
+                        setting1Percent: sao2.ratioGgoKirito[0],
+                        setting2Percent: sao2.ratioGgoKirito[1],
+                        setting3Percent: sao2.ratioGgoKirito[2],
+                        setting4Percent: sao2.ratioGgoKirito[3],
+                        setting5Percent: sao2.ratioGgoKirito[4],
+                        setting6Percent: sao2.ratioGgoKirito[5]
+                    )
+                )
+            )
+            .tag(10)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(

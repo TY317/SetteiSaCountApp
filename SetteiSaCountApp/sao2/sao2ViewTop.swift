@@ -276,6 +276,9 @@ struct sao2SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        sao2Memory1.ggoKiritoCountMiss = sao2.ggoKiritoCountMiss
+        sao2Memory1.ggoKiritoCountHit = sao2.ggoKiritoCountHit
+        sao2Memory1.ggoKiritoCountSum = sao2.ggoKiritoCountSum
         sao2Memory1.lowSuikaCount = sao2.lowSuikaCount
         sao2Memory1.lowSuikaCountShootingHit = sao2.lowSuikaCountShootingHit
         sao2Memory1.kyoCherryCount = sao2.kyoCherryCount
@@ -332,6 +335,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory2() {
+        sao2Memory2.ggoKiritoCountMiss = sao2.ggoKiritoCountMiss
+        sao2Memory2.ggoKiritoCountHit = sao2.ggoKiritoCountHit
+        sao2Memory2.ggoKiritoCountSum = sao2.ggoKiritoCountSum
         sao2Memory2.lowSuikaCount = sao2.lowSuikaCount
         sao2Memory2.lowSuikaCountShootingHit = sao2.lowSuikaCountShootingHit
         sao2Memory2.kyoCherryCount = sao2.kyoCherryCount
@@ -388,6 +394,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.startStageCountSum = sao2.startStageCountSum
     }
     func saveMemory3() {
+        sao2Memory3.ggoKiritoCountMiss = sao2.ggoKiritoCountMiss
+        sao2Memory3.ggoKiritoCountHit = sao2.ggoKiritoCountHit
+        sao2Memory3.ggoKiritoCountSum = sao2.ggoKiritoCountSum
         sao2Memory3.lowSuikaCount = sao2.lowSuikaCount
         sao2Memory3.lowSuikaCountShootingHit = sao2.lowSuikaCountShootingHit
         sao2Memory3.kyoCherryCount = sao2.kyoCherryCount
@@ -473,6 +482,9 @@ struct sao2SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        sao2.ggoKiritoCountMiss = sao2Memory1.ggoKiritoCountMiss
+        sao2.ggoKiritoCountHit = sao2Memory1.ggoKiritoCountHit
+        sao2.ggoKiritoCountSum = sao2Memory1.ggoKiritoCountSum
         sao2.lowSuikaCount = sao2Memory1.lowSuikaCount
         sao2.lowSuikaCountShootingHit = sao2Memory1.lowSuikaCountShootingHit
         sao2.kyoCherryCount = sao2Memory1.kyoCherryCount
@@ -529,6 +541,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.startStageCountSum = sao2Memory1.startStageCountSum
     }
     func loadMemory2() {
+        sao2.ggoKiritoCountMiss = sao2Memory2.ggoKiritoCountMiss
+        sao2.ggoKiritoCountHit = sao2Memory2.ggoKiritoCountHit
+        sao2.ggoKiritoCountSum = sao2Memory2.ggoKiritoCountSum
         sao2.lowSuikaCount = sao2Memory2.lowSuikaCount
         sao2.lowSuikaCountShootingHit = sao2Memory2.lowSuikaCountShootingHit
         sao2.kyoCherryCount = sao2Memory2.kyoCherryCount
@@ -585,6 +600,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.startStageCountSum = sao2Memory2.startStageCountSum
     }
     func loadMemory3() {
+        sao2.ggoKiritoCountMiss = sao2Memory3.ggoKiritoCountMiss
+        sao2.ggoKiritoCountHit = sao2Memory3.ggoKiritoCountHit
+        sao2.ggoKiritoCountSum = sao2Memory3.ggoKiritoCountSum
         sao2.lowSuikaCount = sao2Memory3.lowSuikaCount
         sao2.lowSuikaCountShootingHit = sao2Memory3.lowSuikaCountShootingHit
         sao2.kyoCherryCount = sao2Memory3.kyoCherryCount

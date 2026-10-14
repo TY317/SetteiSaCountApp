@@ -17,6 +17,7 @@ struct sao2ViewBayes: View {
     @State var lowKyoCherryHitEnable: Bool = true
     @State var highKyoCherryHitEnable: Bool = true
     @State var kyoChanceBEnable: Bool = true
+    @State var ggoKiritoEnable: Bool = true
     @State var czItemGetEnable: Bool = true
     @State var czKettouGetEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
@@ -61,6 +62,7 @@ struct sao2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$lowKyoCherryHitEnable, title: "低確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$highKyoCherryHitEnable, title: "高確 強🍒からのCZ当選率")
                 unitToggleWithQuestion(enable: self.$kyoChanceBEnable, title: "強チャンス目B確率")
+                unitToggleWithQuestion(enable: self.$ggoKiritoEnable, title: "GGOモード キリトモード移行率")
                 unitToggleWithQuestion(enable: self.$czItemGetEnable, title: "CZ失敗時のアイテム獲得率")
 //                unitToggleWithQuestion(enable: self.$czKettouGetEnable, title: "CZ失敗時の曠野の決闘 突入率")
                 // 初当り確率
@@ -212,6 +214,16 @@ struct sao2ViewBayes: View {
                 bigNumber: sao2.gameNumberPlay
             )
         }
+
+        // GGOモード キリトモード移行率
+        var logPostGgoKirito: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.ggoKiritoEnable {
+            logPostGgoKirito = logPostPercentBino(
+                ratio: sao2.ratioGgoKirito,
+                Count: sao2.ggoKiritoCountHit,
+                bigNumber: sao2.ggoKiritoCountSum
+            )
+        }
         
         // CZ初当り確率
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -334,6 +346,7 @@ struct sao2ViewBayes: View {
             logPostLowStrongCherryHit,
             logPostHighStrongCherryHit,
             logPostKyoChanceB,
+            logPostGgoKirito,
             logPostCzFailItem,
 //            logPostCzFailKettou,
             logPostFirstHitCz,
