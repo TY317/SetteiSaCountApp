@@ -40,3 +40,19 @@ struct tipVer491: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：獣王 レア役成立時のSC高確移行率
+//////////////////
+struct tipVer491JuoScHigh: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("チェリー・レアリプレイ成立時のSC高確移行率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

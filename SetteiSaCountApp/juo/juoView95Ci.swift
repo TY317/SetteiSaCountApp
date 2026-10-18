@@ -32,6 +32,46 @@ struct juoView95Ci: View {
                 )
             )
             .tag(2)
+
+            // チェリー成立時のSC高確移行率
+            unitListSection95Ci(
+                grafTitle: "チェリー成立時\nSC高確移行率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $juo.cherryCountScHigh,
+                        bigNumber: $juo.cherryCount,
+                        setting1Percent: juo.ratioCherryScHigh[0],
+                        setting2Percent: juo.ratioCherryScHigh[1],
+                        setting3Enable: false,
+                        setting3Percent: -1,
+                        setting4Percent: juo.ratioCherryScHigh[2],
+                        setting5Percent: juo.ratioCherryScHigh[3],
+                        setting6Percent: juo.ratioCherryScHigh[4]
+                    )
+                )
+            )
+            .tag(3)
+
+            // レアリプレイ成立時のSC高確移行率
+            unitListSection95Ci(
+                grafTitle: "レアリプレイ成立時\nSC高確移行率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $juo.rareReplayCountScHigh,
+                        bigNumber: $juo.rareReplayCount,
+                        setting1Percent: juo.ratioRareReplayScHigh[0],
+                        setting2Percent: juo.ratioRareReplayScHigh[1],
+                        setting3Enable: false,
+                        setting3Percent: -1,
+                        setting4Percent: juo.ratioRareReplayScHigh[2],
+                        setting5Percent: juo.ratioRareReplayScHigh[3],
+                        setting6Percent: juo.ratioRareReplayScHigh[4]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

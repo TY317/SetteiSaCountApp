@@ -857,6 +857,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5061", newStatus: "update")
+                juoMenuNormalBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }
