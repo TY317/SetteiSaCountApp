@@ -15,6 +15,7 @@ struct kanokariViewBayes: View {
     let payoutList: [Double] = [97.7, 98.7, 101.0, 105.5, 110.4, 114.9]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var regTenjoEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
     @State var koryakuCharaEnable: Bool = true
@@ -54,6 +55,9 @@ struct kanokariViewBayes: View {
 
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "初当り確率")
+
+                // REG連続天井
+                unitToggleWithQuestion(enable: self.$regTenjoEnable, title: "REG連続天井（3〜5回目）")
 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -171,6 +175,31 @@ struct kanokariViewBayes: View {
                 Count: kanokari.firstHitCountBonus,
                 bigNumber: kanokari.normalGame
             )
+        }
+
+        // REG連続天井（段階ごとの天井率の積＝振分けの確率になる）
+        var logPostRegTenjo: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.regTenjoEnable {
+            let logPostRegTenjo3 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage3,
+                Count: kanokari.regTenjo3CountHit,
+                bigNumber: kanokari.regTenjo3CountSum
+            )
+            let logPostRegTenjo4 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage4,
+                Count: kanokari.regTenjo4CountHit,
+                bigNumber: kanokari.regTenjo4CountSum
+            )
+            let logPostRegTenjo5 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage5,
+                Count: kanokari.regTenjo5CountHit,
+                bigNumber: kanokari.regTenjo5CountSum
+            )
+            logPostRegTenjo = arraySumDouble([
+                logPostRegTenjo3,
+                logPostRegTenjo4,
+                logPostRegTenjo5,
+            ])
         }
 
         // 終了画面
@@ -314,6 +343,7 @@ struct kanokariViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitBonus,
+            logPostRegTenjo,
             logPostScreen,
             logPostRbChara,
             logPostKoryakuChara,

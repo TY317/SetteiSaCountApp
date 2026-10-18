@@ -26,11 +26,63 @@ class Kanokari: ObservableObject {
     @AppStorage("kanokariNormalGame") var normalGame: Int = 0
     @AppStorage("kanokariFirstHitCountCz") var firstHitCountCz: Int = 0
     @AppStorage("kanokariFirstHitCountBonus") var firstHitCountBonus: Int = 0
+    // ---- REG連続天井（振分け％：3〜6回）
+    let ratioRegTenjo3: [Double] = [1.6,2.0,2.3,2.7,3.1,3.5]
+    let ratioRegTenjo4: [Double] = [12.5,13.3,14.1,15.6,16.0,16.4]
+    let ratioRegTenjo5: [Double] = [35.9,37.1,38.3,40.2,41.0,41.8]
+    let ratioRegTenjo6: [Double] = [50.0,47.7,45.3,41.4,39.8,38.3]
+    // 段階ごとの天井率（その回数まで天井が来ずに到達したときに、その回数で天井となる割合）
+    // 振分けは1回の抽選だが、段階ごとの割合の積は振分けの確率と一致するため、段階ごとに数えても二重計上にならない
+    var ratioRegTenjoStage3: [Double] { regTenjoStageRatio(stage: 0) }
+    var ratioRegTenjoStage4: [Double] { regTenjoStageRatio(stage: 1) }
+    var ratioRegTenjoStage5: [Double] { regTenjoStageRatio(stage: 2) }
+    @AppStorage("kanokariRegTenjo3CountMiss") var regTenjo3CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo3CountHit") var regTenjo3CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo3CountSum") var regTenjo3CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo4CountMiss") var regTenjo4CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo4CountHit") var regTenjo4CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo4CountSum") var regTenjo4CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo5CountMiss") var regTenjo5CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo5CountHit") var regTenjo5CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo5CountSum") var regTenjo5CountSum: Int = 0
+
+    func regTenjo3SumFunc() {
+        regTenjo3CountSum = regTenjo3CountHit + regTenjo3CountMiss
+    }
+
+    func regTenjo4SumFunc() {
+        regTenjo4CountSum = regTenjo4CountHit + regTenjo4CountMiss
+    }
+
+    func regTenjo5SumFunc() {
+        regTenjo5CountSum = regTenjo5CountHit + regTenjo5CountMiss
+    }
+
+    // 振分けから段階ごとの天井率（％）を求める。stage は 0＝3回目、1＝4回目、2＝5回目
+    private func regTenjoStageRatio(stage: Int) -> [Double] {
+        let lists = [ratioRegTenjo3, ratioRegTenjo4, ratioRegTenjo5, ratioRegTenjo6]
+        return lists[0].indices.map { setting in
+            // 表の合計が丸めで100からずれるため、合計で割り戻す
+            let total = lists.reduce(0.0) { $0 + $1[setting] }
+            let passed = (0..<stage).reduce(0.0) { $0 + lists[$1][setting] }
+            let remain = total - passed
+            return remain > 0 ? lists[stage][setting] / remain * 100 : 0
+        }
+    }
 
     func resetFirstHit() {
         normalGame = 0
         firstHitCountCz = 0
         firstHitCountBonus = 0
+        regTenjo3CountMiss = 0
+        regTenjo3CountHit = 0
+        regTenjo3CountSum = 0
+        regTenjo4CountMiss = 0
+        regTenjo4CountHit = 0
+        regTenjo4CountSum = 0
+        regTenjo5CountMiss = 0
+        regTenjo5CountHit = 0
+        regTenjo5CountSum = 0
         minusCheck = false
     }
 
@@ -348,6 +400,15 @@ class KanokariMemory1: ObservableObject {
     @AppStorage("kanokariDreamYumekanoCountMissMemory1") var dreamYumekanoCountMiss: Int = 0
     @AppStorage("kanokariDreamYumekanoCountHitMemory1") var dreamYumekanoCountHit: Int = 0
     @AppStorage("kanokariDreamYumekanoCountSumMemory1") var dreamYumekanoCountSum: Int = 0
+    @AppStorage("kanokariRegTenjo3CountMissMemory1") var regTenjo3CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo3CountHitMemory1") var regTenjo3CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo3CountSumMemory1") var regTenjo3CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo4CountMissMemory1") var regTenjo4CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo4CountHitMemory1") var regTenjo4CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo4CountSumMemory1") var regTenjo4CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo5CountMissMemory1") var regTenjo5CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo5CountHitMemory1") var regTenjo5CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo5CountSumMemory1") var regTenjo5CountSum: Int = 0
     @AppStorage("kanokariMemoMemory1") var memo = ""
     @AppStorage("kanokariDateMemory1") var dateDouble = 0.0
 }
@@ -402,6 +463,15 @@ class KanokariMemory2: ObservableObject {
     @AppStorage("kanokariDreamYumekanoCountMissMemory2") var dreamYumekanoCountMiss: Int = 0
     @AppStorage("kanokariDreamYumekanoCountHitMemory2") var dreamYumekanoCountHit: Int = 0
     @AppStorage("kanokariDreamYumekanoCountSumMemory2") var dreamYumekanoCountSum: Int = 0
+    @AppStorage("kanokariRegTenjo3CountMissMemory2") var regTenjo3CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo3CountHitMemory2") var regTenjo3CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo3CountSumMemory2") var regTenjo3CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo4CountMissMemory2") var regTenjo4CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo4CountHitMemory2") var regTenjo4CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo4CountSumMemory2") var regTenjo4CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo5CountMissMemory2") var regTenjo5CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo5CountHitMemory2") var regTenjo5CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo5CountSumMemory2") var regTenjo5CountSum: Int = 0
     @AppStorage("kanokariMemoMemory2") var memo = ""
     @AppStorage("kanokariDateMemory2") var dateDouble = 0.0
 }
@@ -456,6 +526,15 @@ class KanokariMemory3: ObservableObject {
     @AppStorage("kanokariDreamYumekanoCountMissMemory3") var dreamYumekanoCountMiss: Int = 0
     @AppStorage("kanokariDreamYumekanoCountHitMemory3") var dreamYumekanoCountHit: Int = 0
     @AppStorage("kanokariDreamYumekanoCountSumMemory3") var dreamYumekanoCountSum: Int = 0
+    @AppStorage("kanokariRegTenjo3CountMissMemory3") var regTenjo3CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo3CountHitMemory3") var regTenjo3CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo3CountSumMemory3") var regTenjo3CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo4CountMissMemory3") var regTenjo4CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo4CountHitMemory3") var regTenjo4CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo4CountSumMemory3") var regTenjo4CountSum: Int = 0
+    @AppStorage("kanokariRegTenjo5CountMissMemory3") var regTenjo5CountMiss: Int = 0
+    @AppStorage("kanokariRegTenjo5CountHitMemory3") var regTenjo5CountHit: Int = 0
+    @AppStorage("kanokariRegTenjo5CountSumMemory3") var regTenjo5CountSum: Int = 0
     @AppStorage("kanokariMemoMemory3") var memo = ""
     @AppStorage("kanokariDateMemory3") var dateDouble = 0.0
 }

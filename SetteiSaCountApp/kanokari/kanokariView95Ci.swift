@@ -175,6 +175,60 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(10)
+
+            // REG連続天井 3回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 3回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo3CountHit,
+                        bigNumber: $kanokari.regTenjo3CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage3[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage3[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage3[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage3[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage3[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage3[5]
+                    )
+                )
+            )
+            .tag(11)
+
+            // REG連続天井 4回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 4回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo4CountHit,
+                        bigNumber: $kanokari.regTenjo4CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage4[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage4[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage4[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage4[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage4[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage4[5]
+                    )
+                )
+            )
+            .tag(12)
+
+            // REG連続天井 5回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 5回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo5CountHit,
+                        bigNumber: $kanokari.regTenjo5CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage5[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage5[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage5[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage5[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage5[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage5[5]
+                    )
+                )
+            )
+            .tag(13)
         }
         // //// firebaseログ
         .onAppear {

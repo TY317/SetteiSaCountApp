@@ -209,6 +209,15 @@ struct kanokariSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        kanokariMemory1.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
+        kanokariMemory1.regTenjo3CountHit = kanokari.regTenjo3CountHit
+        kanokariMemory1.regTenjo3CountSum = kanokari.regTenjo3CountSum
+        kanokariMemory1.regTenjo4CountMiss = kanokari.regTenjo4CountMiss
+        kanokariMemory1.regTenjo4CountHit = kanokari.regTenjo4CountHit
+        kanokariMemory1.regTenjo4CountSum = kanokari.regTenjo4CountSum
+        kanokariMemory1.regTenjo5CountMiss = kanokari.regTenjo5CountMiss
+        kanokariMemory1.regTenjo5CountHit = kanokari.regTenjo5CountHit
+        kanokariMemory1.regTenjo5CountSum = kanokari.regTenjo5CountSum
         kanokariMemory1.comebackYumekanoCountMiss = kanokari.comebackYumekanoCountMiss
         kanokariMemory1.comebackYumekanoCountHit = kanokari.comebackYumekanoCountHit
         kanokariMemory1.comebackYumekanoCountSum = kanokari.comebackYumekanoCountSum
@@ -259,6 +268,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory1.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory2() {
+        kanokariMemory2.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
+        kanokariMemory2.regTenjo3CountHit = kanokari.regTenjo3CountHit
+        kanokariMemory2.regTenjo3CountSum = kanokari.regTenjo3CountSum
+        kanokariMemory2.regTenjo4CountMiss = kanokari.regTenjo4CountMiss
+        kanokariMemory2.regTenjo4CountHit = kanokari.regTenjo4CountHit
+        kanokariMemory2.regTenjo4CountSum = kanokari.regTenjo4CountSum
+        kanokariMemory2.regTenjo5CountMiss = kanokari.regTenjo5CountMiss
+        kanokariMemory2.regTenjo5CountHit = kanokari.regTenjo5CountHit
+        kanokariMemory2.regTenjo5CountSum = kanokari.regTenjo5CountSum
         kanokariMemory2.comebackYumekanoCountMiss = kanokari.comebackYumekanoCountMiss
         kanokariMemory2.comebackYumekanoCountHit = kanokari.comebackYumekanoCountHit
         kanokariMemory2.comebackYumekanoCountSum = kanokari.comebackYumekanoCountSum
@@ -309,6 +327,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory2.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory3() {
+        kanokariMemory3.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
+        kanokariMemory3.regTenjo3CountHit = kanokari.regTenjo3CountHit
+        kanokariMemory3.regTenjo3CountSum = kanokari.regTenjo3CountSum
+        kanokariMemory3.regTenjo4CountMiss = kanokari.regTenjo4CountMiss
+        kanokariMemory3.regTenjo4CountHit = kanokari.regTenjo4CountHit
+        kanokariMemory3.regTenjo4CountSum = kanokari.regTenjo4CountSum
+        kanokariMemory3.regTenjo5CountMiss = kanokari.regTenjo5CountMiss
+        kanokariMemory3.regTenjo5CountHit = kanokari.regTenjo5CountHit
+        kanokariMemory3.regTenjo5CountSum = kanokari.regTenjo5CountSum
         kanokariMemory3.comebackYumekanoCountMiss = kanokari.comebackYumekanoCountMiss
         kanokariMemory3.comebackYumekanoCountHit = kanokari.comebackYumekanoCountHit
         kanokariMemory3.comebackYumekanoCountSum = kanokari.comebackYumekanoCountSum
@@ -388,6 +415,15 @@ struct kanokariSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        kanokari.regTenjo3CountMiss = kanokariMemory1.regTenjo3CountMiss
+        kanokari.regTenjo3CountHit = kanokariMemory1.regTenjo3CountHit
+        kanokari.regTenjo3CountSum = kanokariMemory1.regTenjo3CountSum
+        kanokari.regTenjo4CountMiss = kanokariMemory1.regTenjo4CountMiss
+        kanokari.regTenjo4CountHit = kanokariMemory1.regTenjo4CountHit
+        kanokari.regTenjo4CountSum = kanokariMemory1.regTenjo4CountSum
+        kanokari.regTenjo5CountMiss = kanokariMemory1.regTenjo5CountMiss
+        kanokari.regTenjo5CountHit = kanokariMemory1.regTenjo5CountHit
+        kanokari.regTenjo5CountSum = kanokariMemory1.regTenjo5CountSum
         kanokari.comebackYumekanoCountMiss = kanokariMemory1.comebackYumekanoCountMiss
         kanokari.comebackYumekanoCountHit = kanokariMemory1.comebackYumekanoCountHit
         kanokari.comebackYumekanoCountSum = kanokariMemory1.comebackYumekanoCountSum
@@ -438,6 +474,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.endingVoiceCountSum = kanokariMemory1.endingVoiceCountSum
     }
     func loadMemory2() {
+        kanokari.regTenjo3CountMiss = kanokariMemory2.regTenjo3CountMiss
+        kanokari.regTenjo3CountHit = kanokariMemory2.regTenjo3CountHit
+        kanokari.regTenjo3CountSum = kanokariMemory2.regTenjo3CountSum
+        kanokari.regTenjo4CountMiss = kanokariMemory2.regTenjo4CountMiss
+        kanokari.regTenjo4CountHit = kanokariMemory2.regTenjo4CountHit
+        kanokari.regTenjo4CountSum = kanokariMemory2.regTenjo4CountSum
+        kanokari.regTenjo5CountMiss = kanokariMemory2.regTenjo5CountMiss
+        kanokari.regTenjo5CountHit = kanokariMemory2.regTenjo5CountHit
+        kanokari.regTenjo5CountSum = kanokariMemory2.regTenjo5CountSum
         kanokari.comebackYumekanoCountMiss = kanokariMemory2.comebackYumekanoCountMiss
         kanokari.comebackYumekanoCountHit = kanokariMemory2.comebackYumekanoCountHit
         kanokari.comebackYumekanoCountSum = kanokariMemory2.comebackYumekanoCountSum
@@ -488,6 +533,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.endingVoiceCountSum = kanokariMemory2.endingVoiceCountSum
     }
     func loadMemory3() {
+        kanokari.regTenjo3CountMiss = kanokariMemory3.regTenjo3CountMiss
+        kanokari.regTenjo3CountHit = kanokariMemory3.regTenjo3CountHit
+        kanokari.regTenjo3CountSum = kanokariMemory3.regTenjo3CountSum
+        kanokari.regTenjo4CountMiss = kanokariMemory3.regTenjo4CountMiss
+        kanokari.regTenjo4CountHit = kanokariMemory3.regTenjo4CountHit
+        kanokari.regTenjo4CountSum = kanokariMemory3.regTenjo4CountSum
+        kanokari.regTenjo5CountMiss = kanokariMemory3.regTenjo5CountMiss
+        kanokari.regTenjo5CountHit = kanokariMemory3.regTenjo5CountHit
+        kanokari.regTenjo5CountSum = kanokariMemory3.regTenjo5CountSum
         kanokari.comebackYumekanoCountMiss = kanokariMemory3.comebackYumekanoCountMiss
         kanokari.comebackYumekanoCountHit = kanokariMemory3.comebackYumekanoCountHit
         kanokari.comebackYumekanoCountSum = kanokariMemory3.comebackYumekanoCountSum

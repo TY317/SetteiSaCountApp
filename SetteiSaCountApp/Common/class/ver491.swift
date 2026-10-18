@@ -136,3 +136,19 @@ struct tipVer491KanokariComeback: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします REG連続天井
+//////////////////
+struct tipVer491KanokariRegTenjo: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("REG連続天井のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
