@@ -96,8 +96,6 @@ struct kanokariViewEnding: View {
                 unitLinkButtonViewBuilder(sheetTitle: "強チャンス目時のボイス振分け") {
                     VStack(alignment: .leading) {
                         Text("・示唆ボイスは弱チャンス目＜チャンス目＜強チャンス目の順に出やすい")
-                        Text("・強チャンス目時は設定2以上で12.5%の「設定2以上濃厚」ボイスが選ばれる")
-                        Text("・エンディング中に強チャンス目を引いたら必ずPUSH")
                         Text("・判明しているのは強チャンス目時の数値のみ")
                     }
                     VStack(spacing: 20) {
