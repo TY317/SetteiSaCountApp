@@ -125,96 +125,56 @@ struct kanokariViewDuringRb: View {
                 }
 
                 // 参考情報）シナリオの振分け
-                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオの振分け", detent: .large) {
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオの振分け") {
                     VStack(spacing: 20) {
                         HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "①",
-                                percentList: kanokari.ratioRbCharaDefault,
-                                numberofDicimal: 0,
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
                             )
                             unitTablePercent(
-                                columTitle: "②",
-                                percentList: kanokari.ratioRbCharaKisu,
-                                numberofDicimal: 0,
+                                columTitle: "設定1",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 0),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
                             )
                             unitTablePercent(
-                                columTitle: "③",
-                                percentList: kanokari.ratioRbCharaGusu,
-                                numberofDicimal: 0,
+                                columTitle: "設定2",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 1),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定3",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 2),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
                             )
                         }
                         HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "④",
-                                percentList: kanokari.ratioRbCharaHighJaku,
-                                numberofDicimal: 1,
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
                             )
                             unitTablePercent(
-                                columTitle: "⑤",
-                                percentList: kanokari.ratioRbCharaHighKyo,
+                                columTitle: "設定4",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 3),
                                 numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
                             )
                             unitTablePercent(
-                                columTitle: "⑥",
-                                percentList: kanokari.ratioRbCharaOver6,
+                                columTitle: "設定5",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 4),
                                 numberofDicimal: 1,
-                            )
-                        }
-                        HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "⑦",
-                                percentList: kanokari.ratioRbCharaNegate1,
-                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
                             )
                             unitTablePercent(
-                                columTitle: "⑧",
-                                percentList: kanokari.ratioRbCharaNegate2,
+                                columTitle: "設定6",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 5),
                                 numberofDicimal: 1,
-                            )
-                            unitTablePercent(
-                                columTitle: "⑨",
-                                percentList: kanokari.ratioRbCharaNegate3,
-                                numberofDicimal: 1,
-                            )
-                        }
-                        HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "⑩",
-                                percentList: kanokari.ratioRbCharaNegate4,
-                                numberofDicimal: 1,
-                            )
-                            unitTablePercent(
-                                columTitle: "⑪",
-                                percentList: kanokari.ratioRbCharaNegate5,
-                                numberofDicimal: 1,
-                            )
-                            unitTablePercent(
-                                columTitle: "⑫",
-                                percentList: kanokari.ratioRbCharaOver2,
-                                numberofDicimal: 1,
-                            )
-                        }
-                        HStack(spacing: 0) {
-                            unitTableSettingIndex()
-                            unitTablePercent(
-                                columTitle: "⑬",
-                                percentList: kanokari.ratioRbCharaOver3,
-                                numberofDicimal: 1,
-                            )
-                            unitTablePercent(
-                                columTitle: "⑭",
-                                percentList: kanokari.ratioRbCharaOver4,
-                                numberofDicimal: 1,
-                            )
-                            unitTablePercent(
-                                columTitle: "⑮",
-                                percentList: kanokari.ratioRbCharaOver5,
-                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
                             )
                         }
                     }
@@ -350,6 +310,34 @@ struct kanokariViewDuringRb: View {
                 }
             }
         }
+    }
+
+    // 振分け表用：設定列の幅（azurLane／vvv2 の同型の表に合わせる）
+    let ratioMaxWidth: CGFloat = 70
+    // 振分け表用：示唆ごとの振分け（sisa の並び）
+    private var ratioLists: [[Double]] {
+        [
+            kanokari.ratioRbCharaDefault,
+            kanokari.ratioRbCharaKisu,
+            kanokari.ratioRbCharaGusu,
+            kanokari.ratioRbCharaHighJaku,
+            kanokari.ratioRbCharaHighKyo,
+            kanokari.ratioRbCharaNegate1,
+            kanokari.ratioRbCharaNegate2,
+            kanokari.ratioRbCharaNegate3,
+            kanokari.ratioRbCharaNegate4,
+            kanokari.ratioRbCharaNegate5,
+            kanokari.ratioRbCharaOver2,
+            kanokari.ratioRbCharaOver3,
+            kanokari.ratioRbCharaOver4,
+            kanokari.ratioRbCharaOver5,
+            kanokari.ratioRbCharaOver6,
+        ]
+    }
+
+    // 振分け表用：各示唆の振分けから、指定した設定の列を取り出す
+    private func ratioColumn(lists: [[Double]], setting: Int) -> [Double] {
+        lists.map { $0.indices.contains(setting) ? $0[setting] : 0 }
     }
 }
 

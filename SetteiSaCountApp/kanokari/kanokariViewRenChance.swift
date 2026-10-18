@@ -89,46 +89,60 @@ struct kanokariViewRenChance: View {
                 // 参考情報）攻略キャラ順の振分け
                 unitLinkButtonViewBuilder(sheetTitle: "攻略キャラ順の振分け") {
                     VStack(alignment: .leading) {
-                        Text("・①麻美→瑠夏→墨→千鶴（偶数示唆）")
-                        Text("・②瑠夏→墨→千鶴→麻美（奇数示唆）")
-                        Text("・③墨→千鶴→麻美→瑠夏（偶数示唆）")
-                        Text("・④千鶴→麻美→瑠夏→墨（奇数示唆）")
+                        Text("・偶数示唆：①麻美→瑠夏→墨→千鶴、③墨→千鶴→麻美→瑠夏")
+                        Text("・奇数示唆：②瑠夏→墨→千鶴→麻美、④千鶴→麻美→瑠夏→墨")
                     }
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
-                        unitTablePercent(
-                            columTitle: "①",
-                            percentList: kanokari.ratioKoryakuChara1,
-                            numberofDicimal: 1,
-                        )
-                        unitTablePercent(
-                            columTitle: "②",
-                            percentList: kanokari.ratioKoryakuChara2,
-                            numberofDicimal: 1,
-                        )
-                        unitTablePercent(
-                            columTitle: "③",
-                            percentList: kanokari.ratioKoryakuChara3,
-                            numberofDicimal: 1,
-                        )
-                        unitTablePercent(
-                            columTitle: "④",
-                            percentList: kanokari.ratioKoryakuChara4,
-                            numberofDicimal: 1,
-                        )
-                    }
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
-                        unitTablePercent(
-                            columTitle: "偶数示唆合算",
-                            percentList: kanokari.ratioKoryakuCharaGusu,
-                            numberofDicimal: 0,
-                        )
-                        unitTablePercent(
-                            columTitle: "奇数示唆合算",
-                            percentList: kanokari.ratioKoryakuCharaKisu,
-                            numberofDicimal: 0,
-                        )
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: ["偶数示唆", "奇数示唆"],
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定1",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 0),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定2",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 1),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定3",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 2),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: ["偶数示唆", "奇数示唆"],
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定4",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 3),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定5",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 4),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定6",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 5),
+                                numberofDicimal: 0,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
                     }
                 }
                 .popoverTip(tipVer491KanokariRenChance())
@@ -216,6 +230,21 @@ struct kanokariViewRenChance: View {
         case self.selectList[1], self.selectList[3]: return .blue
         default: return .gray
         }
+    }
+
+    // 振分け表用：設定列の幅（azurLane／vvv2 の同型の表に合わせる）
+    let ratioMaxWidth: CGFloat = 70
+    // 振分け表用：示唆ごとの振分け（sisa の並び）
+    private var ratioLists: [[Double]] {
+        [
+            kanokari.ratioKoryakuCharaGusu,
+            kanokari.ratioKoryakuCharaKisu,
+        ]
+    }
+
+    // 振分け表用：各示唆の振分けから、指定した設定の列を取り出す
+    private func ratioColumn(lists: [[Double]], setting: Int) -> [Double] {
+        lists.map { $0.indices.contains(setting) ? $0[setting] : 0 }
     }
 }
 
