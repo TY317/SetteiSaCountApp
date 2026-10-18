@@ -1457,7 +1457,6 @@
 		0FD77BD9300CE1D500F792DC /* kerottoTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77BD8300CE1D500F792DC /* kerottoTableFirstHit.swift */; };
 		0FD77BDA300CE1DB00F792DC /* kerottoTableFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77BD8300CE1D500F792DC /* kerottoTableFirstHit.swift */; };
 		0FD77BDB300CE21900F792DC /* kerottoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8A25D55D491BA23F25BC /* kerottoClass.swift */; };
-		0FD77CE4301782BE00F792DC /* ver421.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE3301782BE00F792DC /* ver421.swift */; };
 		0FD77CE63017863000F792DC /* karakuri2TableVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */; };
 		0FD77CE73017863900F792DC /* karakuri2TableVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */; };
 		0FD77D05301DCDA100F792DC /* karakuri2TableSenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD77D04301DCDA100F792DC /* karakuri2TableSenario.swift */; };
@@ -3174,7 +3173,6 @@
 		0FD6BAD82FD1B4B7003D3707 /* otome5ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otome5ViewEnding.swift; sourceTree = "<group>"; };
 		0FD6BC742FD39EFE003D3707 /* recommendLapTimerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = recommendLapTimerAssets.xcassets; sourceTree = "<group>"; };
 		0FD77BD8300CE1D500F792DC /* kerottoTableFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoTableFirstHit.swift; sourceTree = "<group>"; };
-		0FD77CE3301782BE00F792DC /* ver421.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver421.swift; sourceTree = "<group>"; };
 		0FD77CE53017863000F792DC /* karakuri2TableVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableVoice.swift; sourceTree = "<group>"; };
 		0FD77D04301DCDA100F792DC /* karakuri2TableSenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableSenario.swift; sourceTree = "<group>"; };
 		0FD974DD2F4158850067CED7 /* kokakukidotaiSubViewCzScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kokakukidotaiSubViewCzScreen.swift; sourceTree = "<group>"; };
@@ -5161,7 +5159,6 @@
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
-				0FD77CE3301782BE00F792DC /* ver421.swift */,
 				0F6F0817301EC5210088F00C /* ver430.swift */,
 				0F6F08FF302AA8730088F00C /* ver440.swift */,
 				0F5D71263031E0040023B7CC /* ver450.swift */,
@@ -8271,7 +8268,6 @@
 				0F59EBE82F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift in Sources */,
 				0FA0244B2CDF40D7004B3FD5 /* bangdreamViewScreen.swift in Sources */,
 				0FA0249B2D05D13C004B3FD5 /* lupinViewTop.swift in Sources */,
-				0FD77CE4301782BE00F792DC /* ver421.swift in Sources */,
 				0F1E11EE2DC853BD00F69AFF /* gundamSeedClass.swift in Sources */,
 				0FF6D2202EED8DC30045265B /* hihodenViewBayes.swift in Sources */,
 				0F64DD4F2DC081700027315D /* dumbbellTableKinnikuBonusScreen.swift in Sources */,

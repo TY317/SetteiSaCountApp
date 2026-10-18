@@ -130,7 +130,6 @@ struct karakuri2ViewScreen: View {
                 unitLinkButtonViewBuilder(sheetTitle: "ボイス示唆") {
                     karakuri2TableVoice()
                 }
-                .popoverTip(tipVer421Karakuri2Voice())
             } header: {
                 Text("ボイス")
             }

@@ -1063,32 +1063,5 @@ class commonVar: ObservableObject {
         }
     }
 
-    func ver421FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.2.1"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
-                karakuri2MenuScreenBadge = "update"
-                karakuri2MenuNormalBadge = "update"
-                karakuri2MenuDuringAtBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5015", newStatus: "update")
-                kerottoMenuNormalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4983", newStatus: "update")
-                shinYoshiMenuNormalBadge = "update"
-                shinYoshiMenuCzBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
 }
 
