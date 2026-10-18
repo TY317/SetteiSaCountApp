@@ -170,6 +170,20 @@ struct juoViewNormal: View {
                             ],
                         )
                     }
+                    .padding(.bottom)
+                    VStack(alignment: .leading) {
+                        Text("・レア役からの移行、ゲーム数ゾーンと異なり謎高確に対応する「フェイク」は存在しない")
+                        Text("・下記ポイントを満たせば謎高確と考えてOK")
+                    }
+                    unitTableString(
+                        columTitle: "謎高確の見極めポイント",
+                        stringList: [
+                            "①レア役を引いていない",
+                            "②ゲーム数のゾーンをまたいでいない",
+                            "③演出がざわついている",
+                        ],
+                        maxWidth: 300,
+                    )
                 }
                 
                 // ゲーム数での移行
