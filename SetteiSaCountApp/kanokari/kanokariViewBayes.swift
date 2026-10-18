@@ -56,7 +56,7 @@ struct kanokariViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
-                        textBody1: "・確定系のみ反映させます"
+                        textBody1: "・全種類の振分けを反映させます"
                     )
                 }
 
@@ -164,21 +164,25 @@ struct kanokariViewBayes: View {
         }
 
         // 終了画面
-        // 確定系（赤枠／紫枠／銀枠／金枠）のみ渡し、示唆系は残余バケットに吸収させる
+        // 枠なし（screenCount1）を残余バケットにし、それ以外の6種類を渡す
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
             logPostScreen = logPostPercentMulti(
                 countList: [
+                    kanokari.screenCount2,
+                    kanokari.screenCount3,
                     kanokari.screenCount4,
                     kanokari.screenCount5,
                     kanokari.screenCount6,
                     kanokari.screenCount7,
                 ],
                 ratioList: [
-                    kanokari.ratioScreenOver2,
-                    kanokari.ratioScreenOver4,
-                    kanokari.ratioScreenOver5,
-                    kanokari.ratioScreenOver6,
+                    kanokari.ratioScreen2,
+                    kanokari.ratioScreen3,
+                    kanokari.ratioScreen4,
+                    kanokari.ratioScreen5,
+                    kanokari.ratioScreen6,
+                    kanokari.ratioScreen7,
                 ],
                 bigNumber: kanokari.screenCountSum
             )

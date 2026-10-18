@@ -37,10 +37,14 @@ class Kanokari: ObservableObject {
     // -------
     // 画面選択
     // -------
-    let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
-    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
-    let ratioScreenOver5: [Double] = [0,0,0,0,0.1,0.1,]
-    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1,]
+    // 振分け（%）。screenCount1〜7 と同じ並び
+    let ratioScreen1: [Double] = [82.5,80.9,75.9,75.2,66.9,66.1]   // 枠なし
+    let ratioScreen2: [Double] = [15.0,15.0,17.5,17.5,20.0,20.0]   // 白枠 BBQ
+    let ratioScreen3: [Double] = [2.5,2.5,5.0,5.0,10.0,10.0]       // 白枠 浜辺
+    let ratioScreen4: [Double] = [0,1.6,1.6,1.6,1.6,1.6]           // 赤枠
+    let ratioScreen5: [Double] = [0,0,0,0.8,0.8,0.8]               // 紫枠
+    let ratioScreen6: [Double] = [0,0,0,0,0.8,0.8]                 // 銀枠
+    let ratioScreen7: [Double] = [0,0,0,0,0,0.8]                   // 金枠
     @AppStorage("kanokariScreenCount1") var screenCount1: Int = 0
     @AppStorage("kanokariScreenCount2") var screenCount2: Int = 0
     @AppStorage("kanokariScreenCount3") var screenCount3: Int = 0

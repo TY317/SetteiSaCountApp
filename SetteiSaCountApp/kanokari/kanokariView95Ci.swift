@@ -49,6 +49,24 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 終了画面 枠なし
+            unitListSection95Ci(
+                grafTitle: "終了画面 枠なし",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.screenCount1,
+                        bigNumber: $kanokari.screenCountSum,
+                        setting1Percent: kanokari.ratioScreen1[0],
+                        setting2Percent: kanokari.ratioScreen1[1],
+                        setting3Percent: kanokari.ratioScreen1[2],
+                        setting4Percent: kanokari.ratioScreen1[3],
+                        setting5Percent: kanokari.ratioScreen1[4],
+                        setting6Percent: kanokari.ratioScreen1[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

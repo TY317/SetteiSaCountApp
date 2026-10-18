@@ -82,6 +82,69 @@ struct kanokariViewScreen: View {
                         bigNumber: $kanokari.screenCountSum
                     )
                 }
+
+                // 参考情報）終了画面の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面の振分け") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "枠なし",
+                            percentList: kanokari.ratioScreen1,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "白枠BBQ",
+                            percentList: kanokari.ratioScreen2,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "白枠浜辺",
+                            percentList: kanokari.ratioScreen3,
+                            numberofDicimal: 1,
+                        )
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "赤枠",
+                            percentList: kanokari.ratioScreen4,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "紫枠",
+                            percentList: kanokari.ratioScreen5,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "銀枠",
+                            percentList: kanokari.ratioScreen6,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "金枠",
+                            percentList: kanokari.ratioScreen7,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                .popoverTip(tipVer491KanokariScreen())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kanokariView95Ci(
+                            kanokari: kanokari,
+                            selection: 4,
+                        )
+                    )
+                )
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kanokariViewBayes(
+                        kanokari: kanokari,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
