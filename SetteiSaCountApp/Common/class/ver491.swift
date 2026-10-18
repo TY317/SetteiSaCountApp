@@ -104,3 +104,19 @@ struct tipVer491KanokariRenChance: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします エンディング 強チャンス目時のボイス振分け
+//////////////////
+struct tipVer491KanokariEnding: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("強チャンス目時のボイス振分けを追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

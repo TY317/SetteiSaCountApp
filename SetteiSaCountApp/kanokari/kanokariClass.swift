@@ -186,6 +186,15 @@ class Kanokari: ObservableObject {
     // -------
     // ボイス選択（エンディング）
     // -------
+    // 強チャンス目時のボイス振分け（%）。参考情報のみ（設定期待値には未使用）
+    let ratioEndingVoiceKyoChanceDefault: [Double] = [16.4,12.6,11.2,9.1,7.3,5.6]
+    let ratioEndingVoiceKyoChanceHighJaku: [Double] = [25.0,25.4,26.2,27.0,27.7,28.5]
+    let ratioEndingVoiceKyoChanceHighChu: [Double] = [6.3,7.0,8.6,10.2,11.7,13.3]
+    let ratioEndingVoiceKyoChanceHighKyo: [Double] = [3.1,4.7,7.8,10.9,14.1,17.2]
+    let ratioEndingVoiceKyoChanceOver2: [Double] = [0,12.5,12.5,12.5,12.5,12.5]
+    let ratioEndingVoiceKyoChanceOver4: [Double] = [0,0,0,3.1,3.1,3.1]
+    let ratioEndingVoiceKyoChanceOver5: [Double] = [0,0,0,0,1.6,1.6]
+    let ratioEndingVoiceKyoChanceOver6: [Double] = [0,0,0,0,0,1.6]
     let ratioEndingVoiceOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
     let ratioEndingVoiceOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
     let ratioEndingVoiceOver5: [Double] = [0,0,0,0,0.1,0.1,]

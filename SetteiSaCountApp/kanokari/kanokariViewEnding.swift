@@ -91,6 +91,69 @@ struct kanokariViewEnding: View {
                         bigNumber: $kanokari.endingVoiceCountSum
                     )
                 }
+
+                // 参考情報）強チャンス目時のボイス振分け
+                unitLinkButtonViewBuilder(sheetTitle: "強チャンス目時のボイス振分け") {
+                    VStack(alignment: .leading) {
+                        Text("・示唆ボイスは弱チャンス目＜チャンス目＜強チャンス目の順に出やすい")
+                        Text("・強チャンス目時は設定2以上で12.5%の「設定2以上濃厚」ボイスが選ばれる")
+                        Text("・エンディング中に強チャンス目を引いたら必ずPUSH")
+                        Text("・判明しているのは強チャンス目時の数値のみ")
+                    }
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.ratioRowTitleList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定1",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 0),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定2",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 1),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定3",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 2),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.ratioRowTitleList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定4",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 3),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定5",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 4),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定6",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 5),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer491KanokariEnding())
             } header: {
                 Text("カウント結果")
             }
@@ -151,6 +214,38 @@ struct kanokariViewEnding: View {
         case 7: return $kanokari.endingVoiceCount8
         default: return .constant(0)
         }
+    }
+
+    // 振分け表用：設定列の幅（azurLane／vvv2 の同型の表に合わせる）
+    let ratioMaxWidth: CGFloat = 70
+    // 振分け表用：行の見出し（sisaList の並び。デフォルトは4ボイスそれぞれの値）
+    let ratioRowTitleList: [String] = [
+        "デフォルト（4ボイス各々）",
+        "高設定示唆 弱",
+        "高設定示唆 中",
+        "高設定示唆 強",
+        "設定2 以上濃厚",
+        "設定4 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
+    ]
+    // 振分け表用：強チャンス目時の示唆ごとの振分け
+    private var ratioLists: [[Double]] {
+        [
+            kanokari.ratioEndingVoiceKyoChanceDefault,
+            kanokari.ratioEndingVoiceKyoChanceHighJaku,
+            kanokari.ratioEndingVoiceKyoChanceHighChu,
+            kanokari.ratioEndingVoiceKyoChanceHighKyo,
+            kanokari.ratioEndingVoiceKyoChanceOver2,
+            kanokari.ratioEndingVoiceKyoChanceOver4,
+            kanokari.ratioEndingVoiceKyoChanceOver5,
+            kanokari.ratioEndingVoiceKyoChanceOver6,
+        ]
+    }
+
+    // 振分け表用：各示唆の振分けから、指定した設定の列を取り出す
+    private func ratioColumn(lists: [[Double]], setting: Int) -> [Double] {
+        lists.map { $0.indices.contains(setting) ? $0[setting] : 0 }
     }
 }
 
