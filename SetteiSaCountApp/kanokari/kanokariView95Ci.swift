@@ -67,6 +67,42 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(4)
+
+            // キャラ紹介シナリオ①
+            unitListSection95Ci(
+                grafTitle: "キャラ紹介シナリオ①",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.rbCharaCountDefault,
+                        bigNumber: $kanokari.rbCharaCountSum,
+                        setting1Percent: kanokari.ratioRbCharaDefault[0],
+                        setting2Percent: kanokari.ratioRbCharaDefault[1],
+                        setting3Percent: kanokari.ratioRbCharaDefault[2],
+                        setting4Percent: kanokari.ratioRbCharaDefault[3],
+                        setting5Percent: kanokari.ratioRbCharaDefault[4],
+                        setting6Percent: kanokari.ratioRbCharaDefault[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // キャラ紹介シナリオ⑤
+            unitListSection95Ci(
+                grafTitle: "キャラ紹介シナリオ⑤",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.rbCharaCountHighKyo,
+                        bigNumber: $kanokari.rbCharaCountSum,
+                        setting1Percent: kanokari.ratioRbCharaHighKyo[0],
+                        setting2Percent: kanokari.ratioRbCharaHighKyo[1],
+                        setting3Percent: kanokari.ratioRbCharaHighKyo[2],
+                        setting4Percent: kanokari.ratioRbCharaHighKyo[3],
+                        setting5Percent: kanokari.ratioRbCharaHighKyo[4],
+                        setting6Percent: kanokari.ratioRbCharaHighKyo[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

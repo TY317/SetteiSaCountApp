@@ -81,16 +81,22 @@ class Kanokari: ObservableObject {
     // -------
     // RB中 キャラ紹介シナリオ
     // -------
-    let ratioRbCharaNegate1: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
-    let ratioRbCharaNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
-    let ratioRbCharaNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
-    let ratioRbCharaNegate4: [Double] = [0.1,0.1,0.1,0,0.1,0.1,]
-    let ratioRbCharaNegate5: [Double] = [0.1,0.1,0.1,0.1,0,0.1,]
-    let ratioRbCharaOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
-    let ratioRbCharaOver3: [Double] = [0,0,0.1,0.1,0.1,0.1,]
-    let ratioRbCharaOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
-    let ratioRbCharaOver5: [Double] = [0,0,0,0,0.1,0.1,]
-    let ratioRbCharaOver6: [Double] = [0,0,0,0,0,0.1,]
+    // 振分け（%）。カウントと同じ並び（シナリオ番号は右のコメント）
+    let ratioRbCharaDefault: [Double] = [43.8,41.4,35.9,34.8,27.7,25.0]   // ①
+    let ratioRbCharaKisu: [Double] = [15.6,12.5,15.6,12.5,15.6,12.5]   // ②
+    let ratioRbCharaGusu: [Double] = [12.5,15.6,12.5,15.6,12.5,15.6]   // ③
+    let ratioRbCharaHighJaku: [Double] = [12.5,13.3,14.1,14.8,15.6,16.4]   // ④
+    let ratioRbCharaHighKyo: [Double] = [3.1,3.1,6.3,6.3,12.5,12.5]   // ⑤
+    let ratioRbCharaNegate1: [Double] = [0,6.3,1.6,1.6,1.6,1.6]   // ⑦
+    let ratioRbCharaNegate2: [Double] = [3.1,0,6.3,1.6,1.6,1.6]   // ⑧
+    let ratioRbCharaNegate3: [Double] = [3.1,1.6,0,6.3,1.6,1.6]   // ⑨
+    let ratioRbCharaNegate4: [Double] = [3.1,1.6,1.6,0,6.3,1.6]   // ⑩
+    let ratioRbCharaNegate5: [Double] = [3.1,1.6,1.6,1.6,0,6.3]   // ⑪
+    let ratioRbCharaOver2: [Double] = [0,3.1,3.1,3.1,3.1,3.1]   // ⑫
+    let ratioRbCharaOver3: [Double] = [0,0,1.6,1.6,1.6,1.6]   // ⑬
+    let ratioRbCharaOver4: [Double] = [0,0,0,0.4,0.2,0.2]   // ⑭
+    let ratioRbCharaOver5: [Double] = [0,0,0,0,0.2,0.2]   // ⑮
+    let ratioRbCharaOver6: [Double] = [0,0,0,0,0,0.4]   // ⑥
     @AppStorage("kanokariRbCharaCountDefault") var rbCharaCountDefault: Int = 0
     @AppStorage("kanokariRbCharaCountKisu") var rbCharaCountKisu: Int = 0
     @AppStorage("kanokariRbCharaCountGusu") var rbCharaCountGusu: Int = 0

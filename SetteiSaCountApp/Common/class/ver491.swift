@@ -72,3 +72,19 @@ struct tipVer491KanokariScreen: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします RB中 キャラ紹介シナリオの振分け
+//////////////////
+struct tipVer491KanokariRbChara: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("キャラ紹介シナリオの振分けを追加し、設定期待値に反映しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -861,6 +861,7 @@ class commonVar: ObservableObject {
                 juoMenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5065", newStatus: "update")
                 kanokariMenuScreenBadge = "update"
+                kanokariMenuDuringRbBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

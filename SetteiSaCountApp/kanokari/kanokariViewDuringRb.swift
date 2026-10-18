@@ -124,6 +124,113 @@ struct kanokariViewDuringRb: View {
                     senarioTable
                 }
 
+                // 参考情報）シナリオの振分け
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオの振分け", detent: .large) {
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "①",
+                                percentList: kanokari.ratioRbCharaDefault,
+                                numberofDicimal: 0,
+                            )
+                            unitTablePercent(
+                                columTitle: "②",
+                                percentList: kanokari.ratioRbCharaKisu,
+                                numberofDicimal: 0,
+                            )
+                            unitTablePercent(
+                                columTitle: "③",
+                                percentList: kanokari.ratioRbCharaGusu,
+                                numberofDicimal: 0,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "④",
+                                percentList: kanokari.ratioRbCharaHighJaku,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑤",
+                                percentList: kanokari.ratioRbCharaHighKyo,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑥",
+                                percentList: kanokari.ratioRbCharaOver6,
+                                numberofDicimal: 1,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "⑦",
+                                percentList: kanokari.ratioRbCharaNegate1,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑧",
+                                percentList: kanokari.ratioRbCharaNegate2,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑨",
+                                percentList: kanokari.ratioRbCharaNegate3,
+                                numberofDicimal: 1,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "⑩",
+                                percentList: kanokari.ratioRbCharaNegate4,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑪",
+                                percentList: kanokari.ratioRbCharaNegate5,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑫",
+                                percentList: kanokari.ratioRbCharaOver2,
+                                numberofDicimal: 1,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "⑬",
+                                percentList: kanokari.ratioRbCharaOver3,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑭",
+                                percentList: kanokari.ratioRbCharaOver4,
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "⑮",
+                                percentList: kanokari.ratioRbCharaOver5,
+                                numberofDicimal: 1,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer491KanokariRbChara())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kanokariView95Ci(
+                            kanokari: kanokari,
+                            selection: 5,
+                        )
+                    )
+                )
+
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     kanokariViewBayes(

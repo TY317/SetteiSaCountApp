@@ -64,7 +64,7 @@ struct kanokariViewBayes: View {
                 unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
                     unitExView5body2image(
                         title: "RB中 キャラ紹介シナリオ",
-                        textBody1: "・確定系のみ反映させます"
+                        textBody1: "・全シナリオの振分けを反映させます"
                     )
                 }
 
@@ -189,11 +189,15 @@ struct kanokariViewBayes: View {
         }
 
         // RB中 キャラ紹介シナリオ
-        // 確定系（設定1〜5否定、設定2〜5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        // デフォルト（①）を残余バケットにし、それ以外の14種類を渡す
         var logPostRbChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.rbCharaEnable {
             logPostRbChara = logPostPercentMulti(
                 countList: [
+                    kanokari.rbCharaCountKisu,
+                    kanokari.rbCharaCountGusu,
+                    kanokari.rbCharaCountHighJaku,
+                    kanokari.rbCharaCountHighKyo,
                     kanokari.rbCharaCountNegate1,
                     kanokari.rbCharaCountNegate2,
                     kanokari.rbCharaCountNegate3,
@@ -206,6 +210,10 @@ struct kanokariViewBayes: View {
                     kanokari.rbCharaCountOver6,
                 ],
                 ratioList: [
+                    kanokari.ratioRbCharaKisu,
+                    kanokari.ratioRbCharaGusu,
+                    kanokari.ratioRbCharaHighJaku,
+                    kanokari.ratioRbCharaHighKyo,
                     kanokari.ratioRbCharaNegate1,
                     kanokari.ratioRbCharaNegate2,
                     kanokari.ratioRbCharaNegate3,
