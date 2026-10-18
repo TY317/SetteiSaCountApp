@@ -18,6 +18,8 @@ struct kanokariViewBayes: View {
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
     @State var koryakuCharaEnable: Bool = true
+    @State var comebackYumekanoEnable: Bool = true
+    @State var dreamEnable: Bool = true
     @State var endingVoiceEnable: Bool = true
 
     // 全機種共通
@@ -71,6 +73,10 @@ struct kanokariViewBayes: View {
 
                 // 1Gレンチャンス 攻略キャラ順
                 unitToggleWithQuestion(enable: self.$koryakuCharaEnable, title: "1Gレンチャンス 攻略キャラ順")
+
+                // 引き戻し
+                unitToggleWithQuestion(enable: self.$comebackYumekanoEnable, title: "引き戻し期待度（ユメカノモード）")
+                unitToggleWithQuestion(enable: self.$dreamEnable, title: "引き戻し時のななかりDREAM当選率")
 
                 // エンディング ボイス
                 unitToggleWithQuestion(enable: self.$endingVoiceEnable, title: "エンディング ボイス") {
@@ -233,6 +239,35 @@ struct kanokariViewBayes: View {
             )
         }
 
+        // 引き戻し期待度（ユメカノモード）
+        var logPostComebackYumekano: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.comebackYumekanoEnable {
+            logPostComebackYumekano = logPostPercentBino(
+                ratio: kanokari.ratioComebackYumekano,
+                Count: kanokari.comebackYumekanoCountHit,
+                bigNumber: kanokari.comebackYumekanoCountSum
+            )
+        }
+
+        // 引き戻し時のななかりDREAM当選率（非ユメカノ／ユメカノの合計）
+        var logPostDream: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.dreamEnable {
+            let logPostDreamNormal = logPostPercentBino(
+                ratio: kanokari.ratioDreamNormal,
+                Count: kanokari.dreamNormalCountHit,
+                bigNumber: kanokari.dreamNormalCountSum
+            )
+            let logPostDreamYumekano = logPostPercentBino(
+                ratio: kanokari.ratioDreamYumekano,
+                Count: kanokari.dreamYumekanoCountHit,
+                bigNumber: kanokari.dreamYumekanoCountSum
+            )
+            logPostDream = arraySumDouble([
+                logPostDreamNormal,
+                logPostDreamYumekano,
+            ])
+        }
+
         // 1Gレンチャンス 攻略キャラ順（偶数示唆の合算で判別）
         var logPostKoryakuChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.koryakuCharaEnable {
@@ -282,6 +317,8 @@ struct kanokariViewBayes: View {
             logPostScreen,
             logPostRbChara,
             logPostKoryakuChara,
+            logPostComebackYumekano,
+            logPostDream,
             logPostEndingVoice,
             logPostTrophy,
             logPostBefore,

@@ -235,6 +235,51 @@ class Kanokari: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // 引き戻し
+    // -------
+    // 引き戻し期待度（非ユメカノモードは全設定共通、ユメカノモードに設定差）
+    let ratioComebackNormal: [Double] = [24.7,24.7,24.7,24.7,24.7,24.7]
+    let ratioComebackYumekano: [Double] = [58.0,58.2,58.3,58.7,60.0,63.8]
+    @AppStorage("kanokariComebackYumekanoCountMiss") var comebackYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountHit") var comebackYumekanoCountHit: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountSum") var comebackYumekanoCountSum: Int = 0
+
+    func comebackYumekanoSumFunc() {
+        comebackYumekanoCountSum = comebackYumekanoCountHit + comebackYumekanoCountMiss
+    }
+
+    // 引き戻し当選時のななかりDREAM当選率
+    let ratioDreamNormal: [Double] = [2.8,3.1,3.6,3.8,4.3,4.6]
+    let ratioDreamYumekano: [Double] = [19.2,20.5,23.6,28.3,31.5,36.4]
+    @AppStorage("kanokariDreamNormalCountMiss") var dreamNormalCountMiss: Int = 0
+    @AppStorage("kanokariDreamNormalCountHit") var dreamNormalCountHit: Int = 0
+    @AppStorage("kanokariDreamNormalCountSum") var dreamNormalCountSum: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountMiss") var dreamYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountHit") var dreamYumekanoCountHit: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountSum") var dreamYumekanoCountSum: Int = 0
+
+    func dreamNormalSumFunc() {
+        dreamNormalCountSum = dreamNormalCountHit + dreamNormalCountMiss
+    }
+
+    func dreamYumekanoSumFunc() {
+        dreamYumekanoCountSum = dreamYumekanoCountHit + dreamYumekanoCountMiss
+    }
+
+    func resetComeback() {
+        comebackYumekanoCountMiss = 0
+        comebackYumekanoCountHit = 0
+        comebackYumekanoCountSum = 0
+        dreamNormalCountMiss = 0
+        dreamNormalCountHit = 0
+        dreamNormalCountSum = 0
+        dreamYumekanoCountMiss = 0
+        dreamYumekanoCountHit = 0
+        dreamYumekanoCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -249,6 +294,7 @@ class Kanokari: ObservableObject {
         resetRbChara()
         resetKoryakuChara()
         resetEndingVoice()
+        resetComeback()
     }
 }
 
@@ -293,6 +339,15 @@ class KanokariMemory1: ObservableObject {
     @AppStorage("kanokariEndingVoiceCount7Memory1") var endingVoiceCount7: Int = 0
     @AppStorage("kanokariEndingVoiceCount8Memory1") var endingVoiceCount8: Int = 0
     @AppStorage("kanokariEndingVoiceCountSumMemory1") var endingVoiceCountSum: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountMissMemory1") var comebackYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountHitMemory1") var comebackYumekanoCountHit: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountSumMemory1") var comebackYumekanoCountSum: Int = 0
+    @AppStorage("kanokariDreamNormalCountMissMemory1") var dreamNormalCountMiss: Int = 0
+    @AppStorage("kanokariDreamNormalCountHitMemory1") var dreamNormalCountHit: Int = 0
+    @AppStorage("kanokariDreamNormalCountSumMemory1") var dreamNormalCountSum: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountMissMemory1") var dreamYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountHitMemory1") var dreamYumekanoCountHit: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountSumMemory1") var dreamYumekanoCountSum: Int = 0
     @AppStorage("kanokariMemoMemory1") var memo = ""
     @AppStorage("kanokariDateMemory1") var dateDouble = 0.0
 }
@@ -338,6 +393,15 @@ class KanokariMemory2: ObservableObject {
     @AppStorage("kanokariEndingVoiceCount7Memory2") var endingVoiceCount7: Int = 0
     @AppStorage("kanokariEndingVoiceCount8Memory2") var endingVoiceCount8: Int = 0
     @AppStorage("kanokariEndingVoiceCountSumMemory2") var endingVoiceCountSum: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountMissMemory2") var comebackYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountHitMemory2") var comebackYumekanoCountHit: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountSumMemory2") var comebackYumekanoCountSum: Int = 0
+    @AppStorage("kanokariDreamNormalCountMissMemory2") var dreamNormalCountMiss: Int = 0
+    @AppStorage("kanokariDreamNormalCountHitMemory2") var dreamNormalCountHit: Int = 0
+    @AppStorage("kanokariDreamNormalCountSumMemory2") var dreamNormalCountSum: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountMissMemory2") var dreamYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountHitMemory2") var dreamYumekanoCountHit: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountSumMemory2") var dreamYumekanoCountSum: Int = 0
     @AppStorage("kanokariMemoMemory2") var memo = ""
     @AppStorage("kanokariDateMemory2") var dateDouble = 0.0
 }
@@ -383,6 +447,15 @@ class KanokariMemory3: ObservableObject {
     @AppStorage("kanokariEndingVoiceCount7Memory3") var endingVoiceCount7: Int = 0
     @AppStorage("kanokariEndingVoiceCount8Memory3") var endingVoiceCount8: Int = 0
     @AppStorage("kanokariEndingVoiceCountSumMemory3") var endingVoiceCountSum: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountMissMemory3") var comebackYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountHitMemory3") var comebackYumekanoCountHit: Int = 0
+    @AppStorage("kanokariComebackYumekanoCountSumMemory3") var comebackYumekanoCountSum: Int = 0
+    @AppStorage("kanokariDreamNormalCountMissMemory3") var dreamNormalCountMiss: Int = 0
+    @AppStorage("kanokariDreamNormalCountHitMemory3") var dreamNormalCountHit: Int = 0
+    @AppStorage("kanokariDreamNormalCountSumMemory3") var dreamNormalCountSum: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountMissMemory3") var dreamYumekanoCountMiss: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountHitMemory3") var dreamYumekanoCountHit: Int = 0
+    @AppStorage("kanokariDreamYumekanoCountSumMemory3") var dreamYumekanoCountSum: Int = 0
     @AppStorage("kanokariMemoMemory3") var memo = ""
     @AppStorage("kanokariDateMemory3") var dateDouble = 0.0
 }

@@ -121,6 +121,60 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(7)
+
+            // 引き戻し期待度（ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "引き戻し期待度（ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.comebackYumekanoCountHit,
+                        bigNumber: $kanokari.comebackYumekanoCountSum,
+                        setting1Percent: kanokari.ratioComebackYumekano[0],
+                        setting2Percent: kanokari.ratioComebackYumekano[1],
+                        setting3Percent: kanokari.ratioComebackYumekano[2],
+                        setting4Percent: kanokari.ratioComebackYumekano[3],
+                        setting5Percent: kanokari.ratioComebackYumekano[4],
+                        setting6Percent: kanokari.ratioComebackYumekano[5]
+                    )
+                )
+            )
+            .tag(8)
+
+            // ななかりDREAM当選率（非ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "ななかりDREAM当選率（非ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.dreamNormalCountHit,
+                        bigNumber: $kanokari.dreamNormalCountSum,
+                        setting1Percent: kanokari.ratioDreamNormal[0],
+                        setting2Percent: kanokari.ratioDreamNormal[1],
+                        setting3Percent: kanokari.ratioDreamNormal[2],
+                        setting4Percent: kanokari.ratioDreamNormal[3],
+                        setting5Percent: kanokari.ratioDreamNormal[4],
+                        setting6Percent: kanokari.ratioDreamNormal[5]
+                    )
+                )
+            )
+            .tag(9)
+
+            // ななかりDREAM当選率（ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "ななかりDREAM当選率（ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.dreamYumekanoCountHit,
+                        bigNumber: $kanokari.dreamYumekanoCountSum,
+                        setting1Percent: kanokari.ratioDreamYumekano[0],
+                        setting2Percent: kanokari.ratioDreamYumekano[1],
+                        setting3Percent: kanokari.ratioDreamYumekano[2],
+                        setting4Percent: kanokari.ratioDreamYumekano[3],
+                        setting5Percent: kanokari.ratioDreamYumekano[4],
+                        setting6Percent: kanokari.ratioDreamYumekano[5]
+                    )
+                )
+            )
+            .tag(10)
         }
         // //// firebaseログ
         .onAppear {

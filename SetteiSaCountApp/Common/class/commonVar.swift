@@ -864,6 +864,7 @@ class commonVar: ObservableObject {
                 kanokariMenuDuringRbBadge = "update"
                 kanokariMenuRenChanceBadge = "update"
                 kanokariMenuEndingBadge = "update"
+                kanokariMenuComebackBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

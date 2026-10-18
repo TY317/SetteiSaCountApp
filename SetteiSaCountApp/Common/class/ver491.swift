@@ -120,3 +120,19 @@ struct tipVer491KanokariEnding: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします 引き戻し期待度・ななかりDREAM当選率
+//////////////////
+struct tipVer491KanokariComeback: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("引き戻し期待度・ななかりDREAM当選率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
