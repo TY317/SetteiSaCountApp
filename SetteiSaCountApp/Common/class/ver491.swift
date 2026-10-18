@@ -88,3 +88,19 @@ struct tipVer491KanokariRbChara: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします 1Gレンチャンス 攻略キャラ順の振分け
+//////////////////
+struct tipVer491KanokariRenChance: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("攻略キャラ順の振分けを追加し、設定期待値に反映しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -157,6 +157,14 @@ class Kanokari: ObservableObject {
     // -------
     // キャラ選択（1Gレンチャンス）
     // -------
+    // 振分け（%）。シナリオ①〜④（①③＝偶数示唆、②④＝奇数示唆）
+    let ratioKoryakuChara1: [Double] = [22.5,27.5,22.5,27.5,22.5,27.5]   // ① 麻美→瑠夏→墨→千鶴
+    let ratioKoryakuChara2: [Double] = [27.5,22.5,27.5,22.5,27.5,22.5]   // ② 瑠夏→墨→千鶴→麻美
+    let ratioKoryakuChara3: [Double] = [22.5,27.5,22.5,27.5,22.5,27.5]   // ③ 墨→千鶴→麻美→瑠夏
+    let ratioKoryakuChara4: [Double] = [27.5,22.5,27.5,22.5,27.5,22.5]   // ④ 千鶴→麻美→瑠夏→墨
+    // 示唆ごとの合算（koryakuCharaCount1／2 と対応）
+    let ratioKoryakuCharaGusu: [Double] = [45,55,45,55,45,55]   // 偶数示唆（①＋③）
+    let ratioKoryakuCharaKisu: [Double] = [55,45,55,45,55,45]   // 奇数示唆（②＋④）
     @AppStorage("kanokariKoryakuCharaCount1") var koryakuCharaCount1: Int = 0   // 偶数設定示唆
     @AppStorage("kanokariKoryakuCharaCount2") var koryakuCharaCount2: Int = 0   // 奇数設定示唆
     @AppStorage("kanokariKoryakuCharaCountSum") var koryakuCharaCountSum: Int = 0

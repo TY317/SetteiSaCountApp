@@ -85,6 +85,70 @@ struct kanokariViewRenChance: View {
                         bigNumber: $kanokari.koryakuCharaCountSum
                     )
                 }
+
+                // 参考情報）攻略キャラ順の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "攻略キャラ順の振分け") {
+                    VStack(alignment: .leading) {
+                        Text("・①麻美→瑠夏→墨→千鶴（偶数示唆）")
+                        Text("・②瑠夏→墨→千鶴→麻美（奇数示唆）")
+                        Text("・③墨→千鶴→麻美→瑠夏（偶数示唆）")
+                        Text("・④千鶴→麻美→瑠夏→墨（奇数示唆）")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "①",
+                            percentList: kanokari.ratioKoryakuChara1,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "②",
+                            percentList: kanokari.ratioKoryakuChara2,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "③",
+                            percentList: kanokari.ratioKoryakuChara3,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "④",
+                            percentList: kanokari.ratioKoryakuChara4,
+                            numberofDicimal: 1,
+                        )
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "偶数示唆合算",
+                            percentList: kanokari.ratioKoryakuCharaGusu,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "奇数示唆合算",
+                            percentList: kanokari.ratioKoryakuCharaKisu,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+                .popoverTip(tipVer491KanokariRenChance())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kanokariView95Ci(
+                            kanokari: kanokari,
+                            selection: 7,
+                        )
+                    )
+                )
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kanokariViewBayes(
+                        kanokari: kanokari,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }

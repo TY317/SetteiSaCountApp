@@ -103,6 +103,24 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(6)
+
+            // 1Gレンチャンス 偶数示唆
+            unitListSection95Ci(
+                grafTitle: "1Gレンチャンス 偶数示唆",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.koryakuCharaCount1,
+                        bigNumber: $kanokari.koryakuCharaCountSum,
+                        setting1Percent: kanokari.ratioKoryakuCharaGusu[0],
+                        setting2Percent: kanokari.ratioKoryakuCharaGusu[1],
+                        setting3Percent: kanokari.ratioKoryakuCharaGusu[2],
+                        setting4Percent: kanokari.ratioKoryakuCharaGusu[3],
+                        setting5Percent: kanokari.ratioKoryakuCharaGusu[4],
+                        setting6Percent: kanokari.ratioKoryakuCharaGusu[5]
+                    )
+                )
+            )
+            .tag(7)
         }
         // //// firebaseログ
         .onAppear {

@@ -17,6 +17,7 @@ struct kanokariViewBayes: View {
     @State var firstHitBonusEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
+    @State var koryakuCharaEnable: Bool = true
     @State var endingVoiceEnable: Bool = true
 
     // 全機種共通
@@ -67,6 +68,9 @@ struct kanokariViewBayes: View {
                         textBody1: "・全シナリオの振分けを反映させます"
                     )
                 }
+
+                // 1Gレンチャンス 攻略キャラ順
+                unitToggleWithQuestion(enable: self.$koryakuCharaEnable, title: "1Gレンチャンス 攻略キャラ順")
 
                 // エンディング ボイス
                 unitToggleWithQuestion(enable: self.$endingVoiceEnable, title: "エンディング ボイス") {
@@ -229,6 +233,16 @@ struct kanokariViewBayes: View {
             )
         }
 
+        // 1Gレンチャンス 攻略キャラ順（偶数示唆の合算で判別）
+        var logPostKoryakuChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koryakuCharaEnable {
+            logPostKoryakuChara = logPostPercentBino(
+                ratio: kanokari.ratioKoryakuCharaGusu,
+                Count: kanokari.koryakuCharaCount1,
+                bigNumber: kanokari.koryakuCharaCountSum
+            )
+        }
+
         // エンディング ボイス
         // 確定系（設定2・4・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostEndingVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -267,6 +281,7 @@ struct kanokariViewBayes: View {
             logPostFirstHitBonus,
             logPostScreen,
             logPostRbChara,
+            logPostKoryakuChara,
             logPostEndingVoice,
             logPostTrophy,
             logPostBefore,
