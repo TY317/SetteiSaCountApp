@@ -209,6 +209,15 @@ struct kanokariSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        kanokariMemory1.zone100CountMiss = kanokari.zone100CountMiss
+        kanokariMemory1.zone100CountHit = kanokari.zone100CountHit
+        kanokariMemory1.zone100CountSum = kanokari.zone100CountSum
+        kanokariMemory1.zone300AtariCountMiss = kanokari.zone300AtariCountMiss
+        kanokariMemory1.zone300AtariCountHit = kanokari.zone300AtariCountHit
+        kanokariMemory1.zone300AtariCountSum = kanokari.zone300AtariCountSum
+        kanokariMemory1.zone300ThroughCountMiss = kanokari.zone300ThroughCountMiss
+        kanokariMemory1.zone300ThroughCountHit = kanokari.zone300ThroughCountHit
+        kanokariMemory1.zone300ThroughCountSum = kanokari.zone300ThroughCountSum
         kanokariMemory1.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
         kanokariMemory1.regTenjo3CountHit = kanokari.regTenjo3CountHit
         kanokariMemory1.regTenjo3CountSum = kanokari.regTenjo3CountSum
@@ -268,6 +277,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory1.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory2() {
+        kanokariMemory2.zone100CountMiss = kanokari.zone100CountMiss
+        kanokariMemory2.zone100CountHit = kanokari.zone100CountHit
+        kanokariMemory2.zone100CountSum = kanokari.zone100CountSum
+        kanokariMemory2.zone300AtariCountMiss = kanokari.zone300AtariCountMiss
+        kanokariMemory2.zone300AtariCountHit = kanokari.zone300AtariCountHit
+        kanokariMemory2.zone300AtariCountSum = kanokari.zone300AtariCountSum
+        kanokariMemory2.zone300ThroughCountMiss = kanokari.zone300ThroughCountMiss
+        kanokariMemory2.zone300ThroughCountHit = kanokari.zone300ThroughCountHit
+        kanokariMemory2.zone300ThroughCountSum = kanokari.zone300ThroughCountSum
         kanokariMemory2.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
         kanokariMemory2.regTenjo3CountHit = kanokari.regTenjo3CountHit
         kanokariMemory2.regTenjo3CountSum = kanokari.regTenjo3CountSum
@@ -327,6 +345,15 @@ struct kanokariSubViewSaveMemory: View {
         kanokariMemory2.endingVoiceCountSum = kanokari.endingVoiceCountSum
     }
     func saveMemory3() {
+        kanokariMemory3.zone100CountMiss = kanokari.zone100CountMiss
+        kanokariMemory3.zone100CountHit = kanokari.zone100CountHit
+        kanokariMemory3.zone100CountSum = kanokari.zone100CountSum
+        kanokariMemory3.zone300AtariCountMiss = kanokari.zone300AtariCountMiss
+        kanokariMemory3.zone300AtariCountHit = kanokari.zone300AtariCountHit
+        kanokariMemory3.zone300AtariCountSum = kanokari.zone300AtariCountSum
+        kanokariMemory3.zone300ThroughCountMiss = kanokari.zone300ThroughCountMiss
+        kanokariMemory3.zone300ThroughCountHit = kanokari.zone300ThroughCountHit
+        kanokariMemory3.zone300ThroughCountSum = kanokari.zone300ThroughCountSum
         kanokariMemory3.regTenjo3CountMiss = kanokari.regTenjo3CountMiss
         kanokariMemory3.regTenjo3CountHit = kanokari.regTenjo3CountHit
         kanokariMemory3.regTenjo3CountSum = kanokari.regTenjo3CountSum
@@ -415,6 +442,15 @@ struct kanokariSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        kanokari.zone100CountMiss = kanokariMemory1.zone100CountMiss
+        kanokari.zone100CountHit = kanokariMemory1.zone100CountHit
+        kanokari.zone100CountSum = kanokariMemory1.zone100CountSum
+        kanokari.zone300AtariCountMiss = kanokariMemory1.zone300AtariCountMiss
+        kanokari.zone300AtariCountHit = kanokariMemory1.zone300AtariCountHit
+        kanokari.zone300AtariCountSum = kanokariMemory1.zone300AtariCountSum
+        kanokari.zone300ThroughCountMiss = kanokariMemory1.zone300ThroughCountMiss
+        kanokari.zone300ThroughCountHit = kanokariMemory1.zone300ThroughCountHit
+        kanokari.zone300ThroughCountSum = kanokariMemory1.zone300ThroughCountSum
         kanokari.regTenjo3CountMiss = kanokariMemory1.regTenjo3CountMiss
         kanokari.regTenjo3CountHit = kanokariMemory1.regTenjo3CountHit
         kanokari.regTenjo3CountSum = kanokariMemory1.regTenjo3CountSum
@@ -474,6 +510,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.endingVoiceCountSum = kanokariMemory1.endingVoiceCountSum
     }
     func loadMemory2() {
+        kanokari.zone100CountMiss = kanokariMemory2.zone100CountMiss
+        kanokari.zone100CountHit = kanokariMemory2.zone100CountHit
+        kanokari.zone100CountSum = kanokariMemory2.zone100CountSum
+        kanokari.zone300AtariCountMiss = kanokariMemory2.zone300AtariCountMiss
+        kanokari.zone300AtariCountHit = kanokariMemory2.zone300AtariCountHit
+        kanokari.zone300AtariCountSum = kanokariMemory2.zone300AtariCountSum
+        kanokari.zone300ThroughCountMiss = kanokariMemory2.zone300ThroughCountMiss
+        kanokari.zone300ThroughCountHit = kanokariMemory2.zone300ThroughCountHit
+        kanokari.zone300ThroughCountSum = kanokariMemory2.zone300ThroughCountSum
         kanokari.regTenjo3CountMiss = kanokariMemory2.regTenjo3CountMiss
         kanokari.regTenjo3CountHit = kanokariMemory2.regTenjo3CountHit
         kanokari.regTenjo3CountSum = kanokariMemory2.regTenjo3CountSum
@@ -533,6 +578,15 @@ struct kanokariSubViewLoadMemory: View {
         kanokari.endingVoiceCountSum = kanokariMemory2.endingVoiceCountSum
     }
     func loadMemory3() {
+        kanokari.zone100CountMiss = kanokariMemory3.zone100CountMiss
+        kanokari.zone100CountHit = kanokariMemory3.zone100CountHit
+        kanokari.zone100CountSum = kanokariMemory3.zone100CountSum
+        kanokari.zone300AtariCountMiss = kanokariMemory3.zone300AtariCountMiss
+        kanokari.zone300AtariCountHit = kanokariMemory3.zone300AtariCountHit
+        kanokari.zone300AtariCountSum = kanokariMemory3.zone300AtariCountSum
+        kanokari.zone300ThroughCountMiss = kanokariMemory3.zone300ThroughCountMiss
+        kanokari.zone300ThroughCountHit = kanokariMemory3.zone300ThroughCountHit
+        kanokari.zone300ThroughCountSum = kanokariMemory3.zone300ThroughCountSum
         kanokari.regTenjo3CountMiss = kanokariMemory3.regTenjo3CountMiss
         kanokari.regTenjo3CountHit = kanokariMemory3.regTenjo3CountHit
         kanokari.regTenjo3CountSum = kanokariMemory3.regTenjo3CountSum

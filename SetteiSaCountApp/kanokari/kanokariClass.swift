@@ -13,8 +13,73 @@ class Kanokari: ObservableObject {
     // -------
     // 通常時
     // -------
+    // ---- かのかりBONUS後（1Gレンチャンス終了後も同様）のモード振分け（％）
+    let ratioModeA: [Double] = [74.6,72.3,68.4,55.1,53.5,51.6]
+    let ratioModeB: [Double] = [21.5,23.0,26.2,35.5,36.3,37.5]
+    let ratioModeC: [Double] = [3.9,4.7,5.5,9.4,10.2,10.9]
+    // モードごとのゾーンでのCZ当選率（％）。並びはモードA・B・C
+    let ratioModeZone100: [Double] = [10.2,30.1,100]
+    let ratioModeZone300: [Double] = [10.2,40.2,30.1]
+    // ゾーン到達時のCZ当選率（独自算出）
+    // モード振分け × モードごとの当選率から算出。300Gは100Gの結果でモードの見込みを更新してから算出する
+    // 3つの割合の積は「1回のBONUS後の結果」の確率と一致するため、3つとも数えても二重計上にならない
+    var ratioZone100: [Double] { zoneRatio(after100: nil) }
+    var ratioZone300Atari: [Double] { zoneRatio(after100: true) }
+    var ratioZone300Through: [Double] { zoneRatio(after100: false) }
+    @AppStorage("kanokariZone100CountMiss") var zone100CountMiss: Int = 0
+    @AppStorage("kanokariZone100CountHit") var zone100CountHit: Int = 0
+    @AppStorage("kanokariZone100CountSum") var zone100CountSum: Int = 0
+    @AppStorage("kanokariZone300AtariCountMiss") var zone300AtariCountMiss: Int = 0
+    @AppStorage("kanokariZone300AtariCountHit") var zone300AtariCountHit: Int = 0
+    @AppStorage("kanokariZone300AtariCountSum") var zone300AtariCountSum: Int = 0
+    @AppStorage("kanokariZone300ThroughCountMiss") var zone300ThroughCountMiss: Int = 0
+    @AppStorage("kanokariZone300ThroughCountHit") var zone300ThroughCountHit: Int = 0
+    @AppStorage("kanokariZone300ThroughCountSum") var zone300ThroughCountSum: Int = 0
+
+    func zone100SumFunc() {
+        zone100CountSum = zone100CountHit + zone100CountMiss
+    }
+
+    func zone300AtariSumFunc() {
+        zone300AtariCountSum = zone300AtariCountHit + zone300AtariCountMiss
+    }
+
+    func zone300ThroughSumFunc() {
+        zone300ThroughCountSum = zone300ThroughCountHit + zone300ThroughCountMiss
+    }
+
+    // after100：nil＝100G到達時、true＝100G当選後の300G、false＝100Gスルー後の300G
+    private func zoneRatio(after100: Bool?) -> [Double] {
+        let modeLists = [ratioModeA, ratioModeB, ratioModeC]
+        return ratioModeA.indices.map { setting in
+            let total = modeLists.reduce(0.0) { $0 + $1[setting] }
+            // 各モードの重み（100Gの結果があればその結果になる確率を掛けて更新）
+            let weights: [Double] = modeLists.indices.map { mode in
+                let share = modeLists[mode][setting] / total
+                let hit100 = ratioModeZone100[mode] / 100
+                switch after100 {
+                case .none: return share
+                case .some(true): return share * hit100
+                case .some(false): return share * (1 - hit100)
+                }
+            }
+            let weightSum = weights.reduce(0, +)
+            guard weightSum > 0 else { return 0 }
+            let zoneList = after100 == nil ? ratioModeZone100 : ratioModeZone300
+            return zip(weights, zoneList).reduce(0.0) { $0 + $1.0 * $1.1 } / weightSum
+        }
+    }
 
     func resetNormal() {
+        zone100CountMiss = 0
+        zone100CountHit = 0
+        zone100CountSum = 0
+        zone300AtariCountMiss = 0
+        zone300AtariCountHit = 0
+        zone300AtariCountSum = 0
+        zone300ThroughCountMiss = 0
+        zone300ThroughCountHit = 0
+        zone300ThroughCountSum = 0
         minusCheck = false
     }
 
@@ -409,6 +474,15 @@ class KanokariMemory1: ObservableObject {
     @AppStorage("kanokariRegTenjo5CountMissMemory1") var regTenjo5CountMiss: Int = 0
     @AppStorage("kanokariRegTenjo5CountHitMemory1") var regTenjo5CountHit: Int = 0
     @AppStorage("kanokariRegTenjo5CountSumMemory1") var regTenjo5CountSum: Int = 0
+    @AppStorage("kanokariZone100CountMissMemory1") var zone100CountMiss: Int = 0
+    @AppStorage("kanokariZone100CountHitMemory1") var zone100CountHit: Int = 0
+    @AppStorage("kanokariZone100CountSumMemory1") var zone100CountSum: Int = 0
+    @AppStorage("kanokariZone300AtariCountMissMemory1") var zone300AtariCountMiss: Int = 0
+    @AppStorage("kanokariZone300AtariCountHitMemory1") var zone300AtariCountHit: Int = 0
+    @AppStorage("kanokariZone300AtariCountSumMemory1") var zone300AtariCountSum: Int = 0
+    @AppStorage("kanokariZone300ThroughCountMissMemory1") var zone300ThroughCountMiss: Int = 0
+    @AppStorage("kanokariZone300ThroughCountHitMemory1") var zone300ThroughCountHit: Int = 0
+    @AppStorage("kanokariZone300ThroughCountSumMemory1") var zone300ThroughCountSum: Int = 0
     @AppStorage("kanokariMemoMemory1") var memo = ""
     @AppStorage("kanokariDateMemory1") var dateDouble = 0.0
 }
@@ -472,6 +546,15 @@ class KanokariMemory2: ObservableObject {
     @AppStorage("kanokariRegTenjo5CountMissMemory2") var regTenjo5CountMiss: Int = 0
     @AppStorage("kanokariRegTenjo5CountHitMemory2") var regTenjo5CountHit: Int = 0
     @AppStorage("kanokariRegTenjo5CountSumMemory2") var regTenjo5CountSum: Int = 0
+    @AppStorage("kanokariZone100CountMissMemory2") var zone100CountMiss: Int = 0
+    @AppStorage("kanokariZone100CountHitMemory2") var zone100CountHit: Int = 0
+    @AppStorage("kanokariZone100CountSumMemory2") var zone100CountSum: Int = 0
+    @AppStorage("kanokariZone300AtariCountMissMemory2") var zone300AtariCountMiss: Int = 0
+    @AppStorage("kanokariZone300AtariCountHitMemory2") var zone300AtariCountHit: Int = 0
+    @AppStorage("kanokariZone300AtariCountSumMemory2") var zone300AtariCountSum: Int = 0
+    @AppStorage("kanokariZone300ThroughCountMissMemory2") var zone300ThroughCountMiss: Int = 0
+    @AppStorage("kanokariZone300ThroughCountHitMemory2") var zone300ThroughCountHit: Int = 0
+    @AppStorage("kanokariZone300ThroughCountSumMemory2") var zone300ThroughCountSum: Int = 0
     @AppStorage("kanokariMemoMemory2") var memo = ""
     @AppStorage("kanokariDateMemory2") var dateDouble = 0.0
 }
@@ -535,6 +618,15 @@ class KanokariMemory3: ObservableObject {
     @AppStorage("kanokariRegTenjo5CountMissMemory3") var regTenjo5CountMiss: Int = 0
     @AppStorage("kanokariRegTenjo5CountHitMemory3") var regTenjo5CountHit: Int = 0
     @AppStorage("kanokariRegTenjo5CountSumMemory3") var regTenjo5CountSum: Int = 0
+    @AppStorage("kanokariZone100CountMissMemory3") var zone100CountMiss: Int = 0
+    @AppStorage("kanokariZone100CountHitMemory3") var zone100CountHit: Int = 0
+    @AppStorage("kanokariZone100CountSumMemory3") var zone100CountSum: Int = 0
+    @AppStorage("kanokariZone300AtariCountMissMemory3") var zone300AtariCountMiss: Int = 0
+    @AppStorage("kanokariZone300AtariCountHitMemory3") var zone300AtariCountHit: Int = 0
+    @AppStorage("kanokariZone300AtariCountSumMemory3") var zone300AtariCountSum: Int = 0
+    @AppStorage("kanokariZone300ThroughCountMissMemory3") var zone300ThroughCountMiss: Int = 0
+    @AppStorage("kanokariZone300ThroughCountHitMemory3") var zone300ThroughCountHit: Int = 0
+    @AppStorage("kanokariZone300ThroughCountSumMemory3") var zone300ThroughCountSum: Int = 0
     @AppStorage("kanokariMemoMemory3") var memo = ""
     @AppStorage("kanokariDateMemory3") var dateDouble = 0.0
 }

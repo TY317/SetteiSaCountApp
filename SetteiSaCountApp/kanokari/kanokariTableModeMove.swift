@@ -18,9 +18,9 @@ struct kanokariTableModeMove: View {
             unitTableString(
                 columTitle: "",
                 stringList: [
-                    "モード1",
-                    "モード2",
-                    "モード3",
+                    "モードA",
+                    "モードB",
+                    "モードC",
                 ],
                 titleLine: 2
             )

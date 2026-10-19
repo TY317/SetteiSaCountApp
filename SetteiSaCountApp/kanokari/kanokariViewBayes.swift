@@ -16,6 +16,7 @@ struct kanokariViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var regTenjoEnable: Bool = true
+    @State var zoneEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
     @State var koryakuCharaEnable: Bool = true
@@ -58,6 +59,9 @@ struct kanokariViewBayes: View {
 
                 // REG連続天井
                 unitToggleWithQuestion(enable: self.$regTenjoEnable, title: "REG連続天井（3〜5回目）")
+
+                // ゾーンでのCZ当選率
+                unitToggleWithQuestion(enable: self.$zoneEnable, title: "ゾーンでのCZ当選率（独自算出）")
 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
@@ -175,6 +179,31 @@ struct kanokariViewBayes: View {
                 Count: kanokari.firstHitCountBonus,
                 bigNumber: kanokari.normalGame
             )
+        }
+
+        // ゾーンでのCZ当選率（独自算出。3つの割合の積＝1回のBONUS後の結果の確率）
+        var logPostZone: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.zoneEnable {
+            let logPostZone100 = logPostPercentBino(
+                ratio: kanokari.ratioZone100,
+                Count: kanokari.zone100CountHit,
+                bigNumber: kanokari.zone100CountSum
+            )
+            let logPostZone300Atari = logPostPercentBino(
+                ratio: kanokari.ratioZone300Atari,
+                Count: kanokari.zone300AtariCountHit,
+                bigNumber: kanokari.zone300AtariCountSum
+            )
+            let logPostZone300Through = logPostPercentBino(
+                ratio: kanokari.ratioZone300Through,
+                Count: kanokari.zone300ThroughCountHit,
+                bigNumber: kanokari.zone300ThroughCountSum
+            )
+            logPostZone = arraySumDouble([
+                logPostZone100,
+                logPostZone300Atari,
+                logPostZone300Through,
+            ])
         }
 
         // REG連続天井（段階ごとの天井率の積＝振分けの確率になる）
@@ -344,6 +373,7 @@ struct kanokariViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitBonus,
             logPostRegTenjo,
+            logPostZone,
             logPostScreen,
             logPostRbChara,
             logPostKoryakuChara,

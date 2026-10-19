@@ -229,6 +229,62 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(13)
+
+            // ゾーン 100G
+            unitListSection95Ci(
+                grafTitle: "ゾーン 100G",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone100CountHit,
+                        bigNumber: $kanokari.zone100CountSum,
+                        setting1Percent: kanokari.ratioZone100[0],
+                        setting2Percent: kanokari.ratioZone100[1],
+                        setting3Percent: kanokari.ratioZone100[2],
+                        setting4Percent: kanokari.ratioZone100[3],
+                        setting5Percent: kanokari.ratioZone100[4],
+                        setting6Percent: kanokari.ratioZone100[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // ゾーン 300G 当選後
+            unitListSection95Ci(
+                grafTitle: "ゾーン 300G\n100G当選後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone300AtariCountHit,
+                        bigNumber: $kanokari.zone300AtariCountSum,
+                        setting1Percent: kanokari.ratioZone300Atari[0],
+                        setting2Percent: kanokari.ratioZone300Atari[1],
+                        setting3Percent: kanokari.ratioZone300Atari[2],
+                        setting4Percent: kanokari.ratioZone300Atari[3],
+                        setting5Percent: kanokari.ratioZone300Atari[4],
+                        setting6Percent: kanokari.ratioZone300Atari[5]
+                    )
+                )
+            )
+            .tag(15)
+
+            // ゾーン 300G スルー後
+            unitListSection95Ci(
+                grafTitle: "ゾーン 300G\n100Gスルー後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone300ThroughCountHit,
+                        bigNumber: $kanokari.zone300ThroughCountSum,
+                        setting1Percent: kanokari.ratioZone300Through[0],
+                        setting2Percent: kanokari.ratioZone300Through[1],
+                        setting3Percent: kanokari.ratioZone300Through[2],
+                        setting4Percent: kanokari.ratioZone300Through[3],
+                        setting5Percent: kanokari.ratioZone300Through[4],
+                        setting6Percent: kanokari.ratioZone300Through[5]
+                    )
+                )
+            )
+            .tag(16)
         }
         // //// firebaseログ
         .onAppear {

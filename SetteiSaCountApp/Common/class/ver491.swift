@@ -152,3 +152,19 @@ struct tipVer491KanokariRegTenjo: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：彼女、お借りします ゾーンでのCZ当選率・モード振分け
+//////////////////
+struct tipVer491KanokariZone: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("ゾーンでのCZ当選率のカウント機能とモード振分けを追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
