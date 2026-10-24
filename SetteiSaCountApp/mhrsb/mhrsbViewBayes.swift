@@ -13,6 +13,7 @@ struct mhrsbViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
+    @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
@@ -47,6 +48,14 @@ struct mhrsbViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
+                    unitExView5body2image(
+                        title: "CZ初当り確率",
+                        textBody1: "・ブレイクゾーン（BZ）とアイルー福引の当選率を判別要素として反映させます"
+                    )
+                }
+
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
@@ -137,6 +146,22 @@ struct mhrsbViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // CZ初当り確率（BZ・アイルー福引。1ゲームごとに BZ／福引／それ以外 の多項として計算）
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoMulti(
+                countList: [
+                    mhrsb.firstHitCountBz,
+                    mhrsb.firstHitCountFukubiki,
+                ],
+                denoList: [
+                    mhrsb.ratioFirstHitBz,
+                    mhrsb.ratioFirstHitFukubiki,
+                ],
+                bigNumber: mhrsb.normalGame
+            )
+        }
 
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -231,6 +256,7 @@ struct mhrsbViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
             logPostEnding,

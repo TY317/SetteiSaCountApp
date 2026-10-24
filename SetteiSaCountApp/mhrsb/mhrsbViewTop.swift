@@ -181,6 +181,8 @@ struct mhrsbSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        mhrsbMemory1.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory1.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory1.normalGame = mhrsb.normalGame
         mhrsbMemory1.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory1.screenCount1 = mhrsb.screenCount1
@@ -205,6 +207,8 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory1.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory2() {
+        mhrsbMemory2.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory2.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory2.normalGame = mhrsb.normalGame
         mhrsbMemory2.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory2.screenCount1 = mhrsb.screenCount1
@@ -229,6 +233,8 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory2.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory3() {
+        mhrsbMemory3.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory3.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory3.normalGame = mhrsb.normalGame
         mhrsbMemory3.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory3.screenCount1 = mhrsb.screenCount1
@@ -282,6 +288,8 @@ struct mhrsbSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        mhrsb.firstHitCountBz = mhrsbMemory1.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory1.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory1.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory1.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory1.screenCount1
@@ -306,6 +314,8 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCountSum = mhrsbMemory1.endingCountSum
     }
     func loadMemory2() {
+        mhrsb.firstHitCountBz = mhrsbMemory2.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory2.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory2.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory2.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory2.screenCount1
@@ -330,6 +340,8 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCountSum = mhrsbMemory2.endingCountSum
     }
     func loadMemory3() {
+        mhrsb.firstHitCountBz = mhrsbMemory3.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory3.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory3.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory3.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory3.screenCount1

@@ -21,12 +21,18 @@ class Mhrsb: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitBz: [Double] = [111.4,108.8,105.6,99.3,97.2,95.8]
+    let ratioFirstHitFukubiki: [Double] = [2290.1,2090.4,1821.1,1472.5,1219.3,976.4]
     let ratioFirstHitAt: [Double] = [349.9,337.0,319.8,283.6,264.0,242.3]
     @AppStorage("mhrsbNormalGame") var normalGame: Int = 0
+    @AppStorage("mhrsbFirstHitCountBz") var firstHitCountBz: Int = 0
+    @AppStorage("mhrsbFirstHitCountFukubiki") var firstHitCountFukubiki: Int = 0
     @AppStorage("mhrsbFirstHitCountAt") var firstHitCountAt: Int = 0
 
     func resetFirstHit() {
         normalGame = 0
+        firstHitCountBz = 0
+        firstHitCountFukubiki = 0
         firstHitCountAt = 0
         minusCheck = false
     }
@@ -164,6 +170,8 @@ class MhrsbMemory1: ObservableObject {
     @AppStorage("mhrsbEndingCount8Memory1") var endingCount8: Int = 0
     @AppStorage("mhrsbEndingCount9Memory1") var endingCount9: Int = 0
     @AppStorage("mhrsbEndingCountSumMemory1") var endingCountSum: Int = 0
+    @AppStorage("mhrsbFirstHitCountBzMemory1") var firstHitCountBz: Int = 0
+    @AppStorage("mhrsbFirstHitCountFukubikiMemory1") var firstHitCountFukubiki: Int = 0
     @AppStorage("mhrsbMemoMemory1") var memo = ""
     @AppStorage("mhrsbDateMemory1") var dateDouble = 0.0
 }
@@ -192,6 +200,8 @@ class MhrsbMemory2: ObservableObject {
     @AppStorage("mhrsbEndingCount8Memory2") var endingCount8: Int = 0
     @AppStorage("mhrsbEndingCount9Memory2") var endingCount9: Int = 0
     @AppStorage("mhrsbEndingCountSumMemory2") var endingCountSum: Int = 0
+    @AppStorage("mhrsbFirstHitCountBzMemory2") var firstHitCountBz: Int = 0
+    @AppStorage("mhrsbFirstHitCountFukubikiMemory2") var firstHitCountFukubiki: Int = 0
     @AppStorage("mhrsbMemoMemory2") var memo = ""
     @AppStorage("mhrsbDateMemory2") var dateDouble = 0.0
 }
@@ -220,6 +230,8 @@ class MhrsbMemory3: ObservableObject {
     @AppStorage("mhrsbEndingCount8Memory3") var endingCount8: Int = 0
     @AppStorage("mhrsbEndingCount9Memory3") var endingCount9: Int = 0
     @AppStorage("mhrsbEndingCountSumMemory3") var endingCountSum: Int = 0
+    @AppStorage("mhrsbFirstHitCountBzMemory3") var firstHitCountBz: Int = 0
+    @AppStorage("mhrsbFirstHitCountFukubikiMemory3") var firstHitCountFukubiki: Int = 0
     @AppStorage("mhrsbMemoMemory3") var memo = ""
     @AppStorage("mhrsbDateMemory3") var dateDouble = 0.0
 }

@@ -184,3 +184,19 @@ struct tipVer491KabaneriUnatoMumeiCz: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：モンハンライズ サンブレイク BZ・アイルー福引
+//////////////////
+struct tipVer491MhrsbFirstHit: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("BZ・アイルー福引のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

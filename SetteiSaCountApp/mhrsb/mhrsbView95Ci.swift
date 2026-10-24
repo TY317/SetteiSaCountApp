@@ -14,6 +14,42 @@ struct mhrsbView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // BZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "BZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mhrsb.firstHitCountBz,
+                        bigNumber: $mhrsb.normalGame,
+                        setting1Denominate: mhrsb.ratioFirstHitBz[0],
+                        setting2Denominate: mhrsb.ratioFirstHitBz[1],
+                        setting3Denominate: mhrsb.ratioFirstHitBz[2],
+                        setting4Denominate: mhrsb.ratioFirstHitBz[3],
+                        setting5Denominate: mhrsb.ratioFirstHitBz[4],
+                        setting6Denominate: mhrsb.ratioFirstHitBz[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // アイルー福引初当り回数
+            unitListSection95Ci(
+                grafTitle: "アイルー福引初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $mhrsb.firstHitCountFukubiki,
+                        bigNumber: $mhrsb.normalGame,
+                        setting1Denominate: mhrsb.ratioFirstHitFukubiki[0],
+                        setting2Denominate: mhrsb.ratioFirstHitFukubiki[1],
+                        setting3Denominate: mhrsb.ratioFirstHitFukubiki[2],
+                        setting4Denominate: mhrsb.ratioFirstHitFukubiki[3],
+                        setting5Denominate: mhrsb.ratioFirstHitFukubiki[4],
+                        setting6Denominate: mhrsb.ratioFirstHitFukubiki[5]
+                    )
+                )
+            )
+            .tag(3)
+
             // AT初当り回数
             unitListSection95Ci(
                 grafTitle: "AT初当り回数",
@@ -30,7 +66,7 @@ struct mhrsbView95Ci: View {
                     )
                 )
             )
-            .tag(2)
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
