@@ -194,7 +194,7 @@ struct tipVer491MhrsbFirstHit: Tip {
         Text("機能更新")
     }
     var message: Text? {
-        Text("BZ・アイルー福引のカウント機能を追加しました")
+        Text("BZ・アイルー福引のカウント機能と、猛焔一閃直撃の情報を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")

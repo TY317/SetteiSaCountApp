@@ -24,6 +24,8 @@ class Mhrsb: ObservableObject {
     let ratioFirstHitBz: [Double] = [111.4,108.8,105.6,99.3,97.2,95.8]
     let ratioFirstHitFukubiki: [Double] = [2290.1,2090.4,1821.1,1472.5,1219.3,976.4]
     let ratioFirstHitAt: [Double] = [349.9,337.0,319.8,283.6,264.0,242.3]
+    // 猛焔一閃直撃の実質確率（すべての抽選を考慮した数値。参考情報のみ）
+    let ratioMouenIssenChokugeki: [Double] = [16281.7,14875.5,12788.0,8702.1,6351.2,4263.1]
     @AppStorage("mhrsbNormalGame") var normalGame: Int = 0
     @AppStorage("mhrsbFirstHitCountBz") var firstHitCountBz: Int = 0
     @AppStorage("mhrsbFirstHitCountFukubiki") var firstHitCountFukubiki: Int = 0

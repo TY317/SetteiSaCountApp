@@ -87,6 +87,21 @@ struct mhrsbViewFirstHit: View {
                 }
             }
 
+            // 参考情報）猛焔一閃直撃
+            unitLinkButtonViewBuilder(sheetTitle: "猛焔一閃直撃") {
+                VStack(alignment: .leading) {
+                    Text("・当選した場合はCZ突入時にいきなり猛焔一閃が発生する")
+                    Text("・下表はすべての抽選を考慮した実質的な直撃確率")
+                }
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "直撃出現確率",
+                        denominateList: mhrsb.ratioMouenIssenChokugeki
+                    )
+                }
+            }
+
             // //// 95%信頼区間グラフへのリンク
             unitNaviLink95Ci(
                 Ci95view: AnyView(
