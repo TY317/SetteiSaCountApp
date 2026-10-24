@@ -168,3 +168,19 @@ struct tipVer491KanokariZone: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：カバネリ海門決戦 無名CZ
+//////////////////
+struct tipVer491KabaneriUnatoMumeiCz: Tip {
+    var title: Text {
+        Text("機能追加")
+    }
+    var message: Text? {
+        Text("無名CZの撃破数別ボーナス期待度のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

@@ -608,6 +608,7 @@ class commonVar: ObservableObject {
     @AppStorage("kabaneriUnatoMenuOmikujiBadge") var kabaneriUnatoMenuOmikujiBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuHayajiroBadge") var kabaneriUnatoMenuHayajiroBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuHighAtBadge") var kabaneriUnatoMenuHighAtBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuMumeiCzBadge") var kabaneriUnatoMenuMumeiCzBadge: String = "none"
     
     // ---- ゴブリンスレイヤー２
     @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
@@ -867,6 +868,8 @@ class commonVar: ObservableObject {
                 kanokariMenuComebackBadge = "update"
                 kanokariMenuFirstHitBadge = "update"
                 kanokariMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4930", newStatus: "update")
+                kabaneriUnatoMenuMumeiCzBadge = "new"
             } else {
                 print("\(targetVersion)以上です")
             }

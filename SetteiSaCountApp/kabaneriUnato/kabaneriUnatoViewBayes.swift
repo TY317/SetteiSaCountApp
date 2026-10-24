@@ -20,6 +20,7 @@ struct kabaneriUnatoViewBayes: View {
     @State var cycle3Enable: Bool = true
     @State var cycle4Enable: Bool = true
     @State var highAtEnable: Bool = true
+    @State var mumeiCzEnable: Bool = true
     
     
     // 全機種共通
@@ -57,6 +58,10 @@ struct kabaneriUnatoViewBayes: View {
                 unitToggleWithQuestion(enable: self.$cycle3Enable, title: "3周期目 当選率")
                 // 4周期目 当選率
                 unitToggleWithQuestion(enable: self.$cycle4Enable, title: "4周期目 当選率")
+
+                // 無名CZ
+                unitToggleWithQuestion(enable: self.$mumeiCzEnable, title: "無名CZ 撃破数別ボーナス期待度")
+
                 //早じろボーナス単チャンス目３０００
                 unitToggleWithQuestion(enable: self.$hayajiro3000Enable, title: "駿城 単チャンス目3000pt")
                 
@@ -231,6 +236,31 @@ struct kabaneriUnatoViewBayes: View {
             )
         }
         
+        // 無名CZ 撃破数別ボーナス期待度
+        var logPostMumeiCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.mumeiCzEnable {
+            let logPostMumeiCz7 = logPostPercentBino(
+                ratio: kabaneriUnato.ratioMumeiCz7,
+                Count: kabaneriUnato.mumeiCz7CountHit,
+                bigNumber: kabaneriUnato.mumeiCz7CountSum
+            )
+            let logPostMumeiCz8 = logPostPercentBino(
+                ratio: kabaneriUnato.ratioMumeiCz8,
+                Count: kabaneriUnato.mumeiCz8CountHit,
+                bigNumber: kabaneriUnato.mumeiCz8CountSum
+            )
+            let logPostMumeiCz9 = logPostPercentBino(
+                ratio: kabaneriUnato.ratioMumeiCz9,
+                Count: kabaneriUnato.mumeiCz9CountHit,
+                bigNumber: kabaneriUnato.mumeiCz9CountSum
+            )
+            logPostMumeiCz = arraySumDouble([
+                logPostMumeiCz7,
+                logPostMumeiCz8,
+                logPostMumeiCz9,
+            ])
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -275,6 +305,7 @@ struct kabaneriUnatoViewBayes: View {
             logPostCycle3,
             logPostCycle4,
             logPostHighAt,
+            logPostMumeiCz,
             
             logPostTrophy,
             logPostBefore,
