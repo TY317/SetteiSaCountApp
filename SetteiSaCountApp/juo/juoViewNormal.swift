@@ -84,40 +84,47 @@ struct juoViewNormal: View {
                     .pickerStyle(.segmented)
 
                     // カウントボタン横並び
-                    HStack {
+//                    HStack {
                         if self.koyakuSelected == self.koyakuSegmentList[0] {
-                            // チェリー
-                            unitCountButtonWithoutRatioWithFunc(
-                                title: "小役成立",
-                                count: $juo.cherryCount,
-                                color: .personalSummerLightRed,
-                                minusBool: $juo.minusCheck) {
-                                }
-                            // SC高確移行
-                            unitCountButtonWithoutRatioWithFunc(
-                                title: "SC高確移行",
-                                count: $juo.cherryCountScHigh,
-                                color: .red,
-                                minusBool: $juo.minusCheck) {
-                                }
+                            HStack {
+                                // チェリー
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "小役成立",
+                                    count: $juo.cherryCount,
+                                    color: .personalSummerLightRed,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                                // SC高確移行
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "SC高確移行",
+                                    count: $juo.cherryCountScHigh,
+                                    color: .red,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                            }
                         }
                         else if self.koyakuSelected == self.koyakuSegmentList[1] {
-                            // レアリプレイ
-                            unitCountButtonWithoutRatioWithFunc(
-                                title: "小役成立",
-                                count: $juo.rareReplayCount,
-                                color: .personalSummerLightBlue,
-                                minusBool: $juo.minusCheck) {
-                                }
-                            // SC高確移行
-                            unitCountButtonWithoutRatioWithFunc(
-                                title: "SC高確移行",
-                                count: $juo.rareReplayCountScHigh,
-                                color: .blue,
-                                minusBool: $juo.minusCheck) {
-                                }
+                            Text("リプレイ揃い時にフラッシュ発生でレアリプレイ")
+                                .font(.caption)
+                                .foregroundStyle(Color.secondary)
+                            HStack {
+                                // レアリプレイ
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "小役成立",
+                                    count: $juo.rareReplayCount,
+                                    color: .personalSummerLightBlue,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                                // SC高確移行
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "SC高確移行",
+                                    count: $juo.rareReplayCountScHigh,
+                                    color: .blue,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                            }
                         }
-                    }
+//                    }
 
                     // //// 95%信頼区間グラフへのリンク
                     unitNaviLink95Ci(
@@ -173,6 +180,7 @@ struct juoViewNormal: View {
                     .padding(.bottom)
                     VStack(alignment: .leading) {
                         Text("・レア役からの移行、ゲーム数ゾーンと異なり謎高確に対応する「フェイク」は存在しない")
+                        Text("・謎高確移行時は液晶が夕方にならないため注意")
                         Text("・下記ポイントを満たせば謎高確と考えてOK")
                     }
                     unitTableString(

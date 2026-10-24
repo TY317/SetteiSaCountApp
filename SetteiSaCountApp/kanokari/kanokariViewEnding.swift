@@ -218,7 +218,7 @@ struct kanokariViewEnding: View {
     let ratioMaxWidth: CGFloat = 70
     // 振分け表用：行の見出し（sisaList の並び。デフォルトは4ボイスそれぞれの値）
     let ratioRowTitleList: [String] = [
-        "デフォルト（4ボイス各々）",
+        "デフォルト",
         "高設定示唆 弱",
         "高設定示唆 中",
         "高設定示唆 強",

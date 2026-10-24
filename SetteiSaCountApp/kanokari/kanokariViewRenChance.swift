@@ -88,10 +88,10 @@ struct kanokariViewRenChance: View {
 
                 // 参考情報）攻略キャラ順の振分け
                 unitLinkButtonViewBuilder(sheetTitle: "攻略キャラ順の振分け") {
-                    VStack(alignment: .leading) {
-                        Text("・偶数示唆：①麻美→瑠夏→墨→千鶴、③墨→千鶴→麻美→瑠夏")
-                        Text("・奇数示唆：②瑠夏→墨→千鶴→麻美、④千鶴→麻美→瑠夏→墨")
-                    }
+//                    VStack(alignment: .leading) {
+//                        Text("・偶数示唆：①麻美→瑠夏→墨→千鶴、③墨→千鶴→麻美→瑠夏")
+//                        Text("・奇数示唆：②瑠夏→墨→千鶴→麻美、④千鶴→麻美→瑠夏→墨")
+//                    }
                     VStack(spacing: 20) {
                         HStack(spacing: 0) {
                             unitTableString(

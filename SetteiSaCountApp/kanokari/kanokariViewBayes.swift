@@ -50,6 +50,9 @@ struct kanokariViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                
+                // ゾーンでのCZ当選率
+                unitToggleWithQuestion(enable: self.$zoneEnable, title: "ゾーンでのCZ当選率（独自算出）")
 
                 // CZ確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ確率")
@@ -59,23 +62,20 @@ struct kanokariViewBayes: View {
 
                 // REG連続天井
                 unitToggleWithQuestion(enable: self.$regTenjoEnable, title: "REG連続天井（3〜5回目）")
-
-                // ゾーンでのCZ当選率
-                unitToggleWithQuestion(enable: self.$zoneEnable, title: "ゾーンでのCZ当選率（独自算出）")
+                
+                // RB中 キャラ紹介シナリオ
+                unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
+                    unitExView5body2image(
+                        title: "RB中 キャラ紹介シナリオ",
+                        textBody1: "・全シナリオの振分けを反映させます"
+                    )
+                }
 
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
                         textBody1: "・全種類の振分けを反映させます"
-                    )
-                }
-
-                // RB中 キャラ紹介シナリオ
-                unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
-                    unitExView5body2image(
-                        title: "RB中 キャラ紹介シナリオ",
-                        textBody1: "・全シナリオの振分けを反映させます"
                     )
                 }
 
