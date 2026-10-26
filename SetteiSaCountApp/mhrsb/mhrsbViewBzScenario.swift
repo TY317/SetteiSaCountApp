@@ -28,6 +28,25 @@ struct mhrsbViewBzScenario: View {
     @State var lazyVGridCount: Int = 3
     // シナリオ推測で表示するAT区間（-1＝最新の区間）
     @State var selectedIntervalIndex: Int = -1
+    // クエスト成功期待度の獲得アイコン
+    @State var selectedQuestIcon: String = "QUEST(青)"
+    // カウントボタンの色（questIconList と同じ並び。ハズレは淡い色、当選は同系色の標準色）
+    let questMissColorList: [Color] = [
+        .personalSummerLightBlue,     // QUEST(青)
+        .personalSpringLightYellow,   // QUEST(黄)
+        .personalSummerLightGreen,    // ライゼクス
+        .personalAutumLightOrange,    // セルレギオス
+        .personalSummerLightPurple,   // オロミドロ亜種
+        .personalSummerLightRed,      // テオ・テスカトル
+    ]
+    let questHitColorList: [Color] = [
+        .blue,     // QUEST(青)
+        .yellow,   // QUEST(黄)
+        .green,    // ライゼクス
+        .orange,   // セルレギオス
+        .purple,   // オロミドロ亜種
+        .red,      // テオ・テスカトル
+    ]
 
     var body: some View {
         List {
@@ -260,6 +279,95 @@ struct mhrsbViewBzScenario: View {
                 Text("シナリオE以上選択率")
             }
 
+            // ---- クエスト成功期待度
+            Section {
+                let questIndex = mhrsb.questIconList.firstIndex(of: self.selectedQuestIcon) ?? 0
+                // 獲得アイコンの選択
+                unitPickerMenuString(
+                    title: "発展時のアイコン",
+                    selected: self.$selectedQuestIcon,
+                    selectlist: mhrsb.questIconList
+                )
+
+                // AT当選率
+                unitResultRatioPercent2Line(
+                    title: "\(mhrsb.questIconList[questIndex])での当選率",
+                    count: bindingQuestHit(index: questIndex),
+                    bigNumber: bindingQuestSum(index: questIndex),
+                    numberofDicimal: mhrsb.questDecimalList[questIndex]
+                )
+                .id(questIndex)
+
+                // 参考情報）クエスト成功期待度
+                unitLinkButtonViewBuilder(sheetTitle: "クエスト成功期待度") {
+                    VStack(alignment: .leading) {
+                        Text("・BZ終了時の獲得アイコン別のAT期待度")
+                        Text("・QUESTアイコンからのAT当選は設定1と設定6で約5〜8倍の差")
+                    }
+                    VStack(spacing: 20) {
+                        ForEach([[0, 1, 2], [3, 4, 5]], id: \.self) { iconGroup in
+                            HStack(spacing: 0) {
+                                unitTableSettingIndex(titleLine: 2)
+                                ForEach(iconGroup, id: \.self) { icon in
+                                    unitTablePercent(
+                                        columTitle: mhrsb.questIconList[icon],
+                                        percentList: mhrsb.ratioQuestList[icon],
+                                        numberofDicimal: mhrsb.questDecimalList[icon],
+                                        titleLine: 2,
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // ハズレ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "ハズレ",
+                            count: bindingQuestMiss(index: questIndex),
+                            color: self.questMissColorList[questIndex],
+                            minusBool: $mhrsb.minusCheck) {
+                                mhrsb.questSumFunc()
+                            }
+                        // 当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "当選",
+                            count: bindingQuestHit(index: questIndex),
+                            color: self.questHitColorList[questIndex],
+                            minusBool: $mhrsb.minusCheck) {
+                                mhrsb.questSumFunc()
+                            }
+                    }
+                    .id(questIndex)
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            mhrsbView95Ci(
+                                mhrsb: mhrsb,
+                                selection: 5 + questIndex,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        mhrsbViewBayes(
+                            mhrsb: mhrsb,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("クエスト成功期待度")
+            }
+
             // ---- 詳しい解析情報
             Section {
                 DisclosureGroup {
@@ -365,7 +473,7 @@ struct mhrsbViewBzScenario: View {
                 screenClass: screenClass
             )
         }
-        .navigationTitle("BZシナリオ")
+        .navigationTitle("CZ")
         .navigationBarTitleDisplayMode(.inline)
         // //// 画面の向き情報の取得部分
         .applyOrientationHandling(
@@ -390,6 +498,43 @@ struct mhrsbViewBzScenario: View {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: mhrsb.resetBzScenario)
             }
+        }
+    }
+
+    // クエスト成功期待度のカウントの Binding（index は questIconList の並び）
+    private func bindingQuestMiss(index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $mhrsb.quest1CountMiss
+        case 1: return $mhrsb.quest2CountMiss
+        case 2: return $mhrsb.quest3CountMiss
+        case 3: return $mhrsb.quest4CountMiss
+        case 4: return $mhrsb.quest5CountMiss
+        case 5: return $mhrsb.quest6CountMiss
+        default: return .constant(0)
+        }
+    }
+
+    private func bindingQuestHit(index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $mhrsb.quest1CountHit
+        case 1: return $mhrsb.quest2CountHit
+        case 2: return $mhrsb.quest3CountHit
+        case 3: return $mhrsb.quest4CountHit
+        case 4: return $mhrsb.quest5CountHit
+        case 5: return $mhrsb.quest6CountHit
+        default: return .constant(0)
+        }
+    }
+
+    private func bindingQuestSum(index: Int) -> Binding<Int> {
+        switch index {
+        case 0: return $mhrsb.quest1CountSum
+        case 1: return $mhrsb.quest2CountSum
+        case 2: return $mhrsb.quest3CountSum
+        case 3: return $mhrsb.quest4CountSum
+        case 4: return $mhrsb.quest5CountSum
+        case 5: return $mhrsb.quest6CountSum
+        default: return .constant(0)
         }
     }
 

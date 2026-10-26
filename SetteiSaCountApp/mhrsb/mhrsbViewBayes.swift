@@ -16,6 +16,7 @@ struct mhrsbViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var bzScenarioEnable: Bool = true
+    @State var questEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
 
@@ -68,6 +69,9 @@ struct mhrsbViewBayes: View {
                         textBody2: "・シナリオ選択率・BZレベル・テーブル振分けからの独自算出です"
                     )
                 }
+
+                // クエスト成功期待度
+                unitToggleWithQuestion(enable: self.$questEnable, title: "クエスト成功期待度")
 
                 // AT終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
@@ -194,6 +198,49 @@ struct mhrsbViewBayes: View {
             }
         }
 
+        // クエスト成功期待度（獲得アイコン別のAT当選率）
+        var logPostQuest: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.questEnable {
+            let logPostQuest1 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[0],
+                Count: mhrsb.quest1CountHit,
+                bigNumber: mhrsb.quest1CountSum
+            )
+            let logPostQuest2 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[1],
+                Count: mhrsb.quest2CountHit,
+                bigNumber: mhrsb.quest2CountSum
+            )
+            let logPostQuest3 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[2],
+                Count: mhrsb.quest3CountHit,
+                bigNumber: mhrsb.quest3CountSum
+            )
+            let logPostQuest4 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[3],
+                Count: mhrsb.quest4CountHit,
+                bigNumber: mhrsb.quest4CountSum
+            )
+            let logPostQuest5 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[4],
+                Count: mhrsb.quest5CountHit,
+                bigNumber: mhrsb.quest5CountSum
+            )
+            let logPostQuest6 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[5],
+                Count: mhrsb.quest6CountHit,
+                bigNumber: mhrsb.quest6CountSum
+            )
+            logPostQuest = arraySumDouble([
+                logPostQuest1,
+                logPostQuest2,
+                logPostQuest3,
+                logPostQuest4,
+                logPostQuest5,
+                logPostQuest6,
+            ])
+        }
+
         // AT終了画面
         // 確定系（設定2・3否定、設定2・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -280,6 +327,7 @@ struct mhrsbViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostBzScenario,
+            logPostQuest,
             logPostScreen,
             logPostEnding,
             logPostTrophy,

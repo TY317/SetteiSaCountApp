@@ -226,6 +226,7 @@ class Mhrsb: ObservableObject {
         arrayIntRemoveAll(arrayData: bzTableArrayData, key: bzTableArrayKey)
         arrayStringRemoveAll(arrayData: bzAtArrayData, key: bzAtArrayKey)
         bzAddRemoveCommon()
+        resetQuest()
         minusCheck = false
     }
     // 登録・削除後：次のAT間CZ回数をセットし、AT当落はハズレに戻す
@@ -278,6 +279,76 @@ class Mhrsb: ObservableObject {
         let atArray = decodeStringArray(from: bzAtArrayData)
         guard let last = atArray.last else { return false }
         return last != bzAtResultList[1]
+    }
+
+    // //// クエスト成功期待度（BZ終了時の獲得アイコン別のAT期待度）
+    let questIconList: [String] = [
+        "QUEST(青)",
+        "QUEST(黄)",
+        "ライゼクス",
+        "セルレギオス",
+        "オロミドロ亜種",
+        "テオ・テスカトル",
+    ]
+    // 獲得アイコン別のAT期待度（％）。questIconList と同じ並び
+    let ratioQuestList: [[Double]] = [
+        [0.4,0.4,0.8,1.6,2.3,3.1],   // QUEST(青)
+        [1.6,2.3,3.1,5.5,6.6,7.8],   // QUEST(黄)
+        [30.1,30.9,32.0,35.5,37.5,39.8],   // ライゼクス
+        [44.9,45.7,46.9,50.0,52.3,54.7],   // セルレギオス
+        [59.8,60.5,61.7,66.4,68.0,69.5],   // オロミドロ亜種
+        [75.0,75.8,76.6,78.1,78.9,79.7],   // テオ・テスカトル
+    ]
+    // 結果表示・参考表の小数点以下の桁数（questIconList と同じ並び）
+    let questDecimalList: [Int] = [1, 1, 0, 0, 1, 0]
+    @AppStorage("mhrsbQuest1CountMiss") var quest1CountMiss: Int = 0
+    @AppStorage("mhrsbQuest1CountHit") var quest1CountHit: Int = 0
+    @AppStorage("mhrsbQuest1CountSum") var quest1CountSum: Int = 0
+    @AppStorage("mhrsbQuest2CountMiss") var quest2CountMiss: Int = 0
+    @AppStorage("mhrsbQuest2CountHit") var quest2CountHit: Int = 0
+    @AppStorage("mhrsbQuest2CountSum") var quest2CountSum: Int = 0
+    @AppStorage("mhrsbQuest3CountMiss") var quest3CountMiss: Int = 0
+    @AppStorage("mhrsbQuest3CountHit") var quest3CountHit: Int = 0
+    @AppStorage("mhrsbQuest3CountSum") var quest3CountSum: Int = 0
+    @AppStorage("mhrsbQuest4CountMiss") var quest4CountMiss: Int = 0
+    @AppStorage("mhrsbQuest4CountHit") var quest4CountHit: Int = 0
+    @AppStorage("mhrsbQuest4CountSum") var quest4CountSum: Int = 0
+    @AppStorage("mhrsbQuest5CountMiss") var quest5CountMiss: Int = 0
+    @AppStorage("mhrsbQuest5CountHit") var quest5CountHit: Int = 0
+    @AppStorage("mhrsbQuest5CountSum") var quest5CountSum: Int = 0
+    @AppStorage("mhrsbQuest6CountMiss") var quest6CountMiss: Int = 0
+    @AppStorage("mhrsbQuest6CountHit") var quest6CountHit: Int = 0
+    @AppStorage("mhrsbQuest6CountSum") var quest6CountSum: Int = 0
+
+    func questSumFunc() {
+        quest1CountSum = quest1CountHit + quest1CountMiss
+        quest2CountSum = quest2CountHit + quest2CountMiss
+        quest3CountSum = quest3CountHit + quest3CountMiss
+        quest4CountSum = quest4CountHit + quest4CountMiss
+        quest5CountSum = quest5CountHit + quest5CountMiss
+        quest6CountSum = quest6CountHit + quest6CountMiss
+    }
+
+    func resetQuest() {
+        quest1CountMiss = 0
+        quest1CountHit = 0
+        quest1CountSum = 0
+        quest2CountMiss = 0
+        quest2CountHit = 0
+        quest2CountSum = 0
+        quest3CountMiss = 0
+        quest3CountHit = 0
+        quest3CountSum = 0
+        quest4CountMiss = 0
+        quest4CountHit = 0
+        quest4CountSum = 0
+        quest5CountMiss = 0
+        quest5CountHit = 0
+        quest5CountSum = 0
+        quest6CountMiss = 0
+        quest6CountHit = 0
+        quest6CountSum = 0
+        minusCheck = false
     }
 
     // //// 計算
@@ -429,6 +500,24 @@ class MhrsbMemory1: ObservableObject {
     @AppStorage("mhrsbBzCzKindArrayKeyMemory1") var bzCzKindArrayData: Data?
     @AppStorage("mhrsbBzTableArrayKeyMemory1") var bzTableArrayData: Data?
     @AppStorage("mhrsbBzAtArrayKeyMemory1") var bzAtArrayData: Data?
+    @AppStorage("mhrsbQuest1CountMissMemory1") var quest1CountMiss: Int = 0
+    @AppStorage("mhrsbQuest1CountHitMemory1") var quest1CountHit: Int = 0
+    @AppStorage("mhrsbQuest1CountSumMemory1") var quest1CountSum: Int = 0
+    @AppStorage("mhrsbQuest2CountMissMemory1") var quest2CountMiss: Int = 0
+    @AppStorage("mhrsbQuest2CountHitMemory1") var quest2CountHit: Int = 0
+    @AppStorage("mhrsbQuest2CountSumMemory1") var quest2CountSum: Int = 0
+    @AppStorage("mhrsbQuest3CountMissMemory1") var quest3CountMiss: Int = 0
+    @AppStorage("mhrsbQuest3CountHitMemory1") var quest3CountHit: Int = 0
+    @AppStorage("mhrsbQuest3CountSumMemory1") var quest3CountSum: Int = 0
+    @AppStorage("mhrsbQuest4CountMissMemory1") var quest4CountMiss: Int = 0
+    @AppStorage("mhrsbQuest4CountHitMemory1") var quest4CountHit: Int = 0
+    @AppStorage("mhrsbQuest4CountSumMemory1") var quest4CountSum: Int = 0
+    @AppStorage("mhrsbQuest5CountMissMemory1") var quest5CountMiss: Int = 0
+    @AppStorage("mhrsbQuest5CountHitMemory1") var quest5CountHit: Int = 0
+    @AppStorage("mhrsbQuest5CountSumMemory1") var quest5CountSum: Int = 0
+    @AppStorage("mhrsbQuest6CountMissMemory1") var quest6CountMiss: Int = 0
+    @AppStorage("mhrsbQuest6CountHitMemory1") var quest6CountHit: Int = 0
+    @AppStorage("mhrsbQuest6CountSumMemory1") var quest6CountSum: Int = 0
     @AppStorage("mhrsbMemoMemory1") var memo = ""
     @AppStorage("mhrsbDateMemory1") var dateDouble = 0.0
 }
@@ -463,6 +552,24 @@ class MhrsbMemory2: ObservableObject {
     @AppStorage("mhrsbBzCzKindArrayKeyMemory2") var bzCzKindArrayData: Data?
     @AppStorage("mhrsbBzTableArrayKeyMemory2") var bzTableArrayData: Data?
     @AppStorage("mhrsbBzAtArrayKeyMemory2") var bzAtArrayData: Data?
+    @AppStorage("mhrsbQuest1CountMissMemory2") var quest1CountMiss: Int = 0
+    @AppStorage("mhrsbQuest1CountHitMemory2") var quest1CountHit: Int = 0
+    @AppStorage("mhrsbQuest1CountSumMemory2") var quest1CountSum: Int = 0
+    @AppStorage("mhrsbQuest2CountMissMemory2") var quest2CountMiss: Int = 0
+    @AppStorage("mhrsbQuest2CountHitMemory2") var quest2CountHit: Int = 0
+    @AppStorage("mhrsbQuest2CountSumMemory2") var quest2CountSum: Int = 0
+    @AppStorage("mhrsbQuest3CountMissMemory2") var quest3CountMiss: Int = 0
+    @AppStorage("mhrsbQuest3CountHitMemory2") var quest3CountHit: Int = 0
+    @AppStorage("mhrsbQuest3CountSumMemory2") var quest3CountSum: Int = 0
+    @AppStorage("mhrsbQuest4CountMissMemory2") var quest4CountMiss: Int = 0
+    @AppStorage("mhrsbQuest4CountHitMemory2") var quest4CountHit: Int = 0
+    @AppStorage("mhrsbQuest4CountSumMemory2") var quest4CountSum: Int = 0
+    @AppStorage("mhrsbQuest5CountMissMemory2") var quest5CountMiss: Int = 0
+    @AppStorage("mhrsbQuest5CountHitMemory2") var quest5CountHit: Int = 0
+    @AppStorage("mhrsbQuest5CountSumMemory2") var quest5CountSum: Int = 0
+    @AppStorage("mhrsbQuest6CountMissMemory2") var quest6CountMiss: Int = 0
+    @AppStorage("mhrsbQuest6CountHitMemory2") var quest6CountHit: Int = 0
+    @AppStorage("mhrsbQuest6CountSumMemory2") var quest6CountSum: Int = 0
     @AppStorage("mhrsbMemoMemory2") var memo = ""
     @AppStorage("mhrsbDateMemory2") var dateDouble = 0.0
 }
@@ -497,6 +604,24 @@ class MhrsbMemory3: ObservableObject {
     @AppStorage("mhrsbBzCzKindArrayKeyMemory3") var bzCzKindArrayData: Data?
     @AppStorage("mhrsbBzTableArrayKeyMemory3") var bzTableArrayData: Data?
     @AppStorage("mhrsbBzAtArrayKeyMemory3") var bzAtArrayData: Data?
+    @AppStorage("mhrsbQuest1CountMissMemory3") var quest1CountMiss: Int = 0
+    @AppStorage("mhrsbQuest1CountHitMemory3") var quest1CountHit: Int = 0
+    @AppStorage("mhrsbQuest1CountSumMemory3") var quest1CountSum: Int = 0
+    @AppStorage("mhrsbQuest2CountMissMemory3") var quest2CountMiss: Int = 0
+    @AppStorage("mhrsbQuest2CountHitMemory3") var quest2CountHit: Int = 0
+    @AppStorage("mhrsbQuest2CountSumMemory3") var quest2CountSum: Int = 0
+    @AppStorage("mhrsbQuest3CountMissMemory3") var quest3CountMiss: Int = 0
+    @AppStorage("mhrsbQuest3CountHitMemory3") var quest3CountHit: Int = 0
+    @AppStorage("mhrsbQuest3CountSumMemory3") var quest3CountSum: Int = 0
+    @AppStorage("mhrsbQuest4CountMissMemory3") var quest4CountMiss: Int = 0
+    @AppStorage("mhrsbQuest4CountHitMemory3") var quest4CountHit: Int = 0
+    @AppStorage("mhrsbQuest4CountSumMemory3") var quest4CountSum: Int = 0
+    @AppStorage("mhrsbQuest5CountMissMemory3") var quest5CountMiss: Int = 0
+    @AppStorage("mhrsbQuest5CountHitMemory3") var quest5CountHit: Int = 0
+    @AppStorage("mhrsbQuest5CountSumMemory3") var quest5CountSum: Int = 0
+    @AppStorage("mhrsbQuest6CountMissMemory3") var quest6CountMiss: Int = 0
+    @AppStorage("mhrsbQuest6CountHitMemory3") var quest6CountHit: Int = 0
+    @AppStorage("mhrsbQuest6CountSumMemory3") var quest6CountSum: Int = 0
     @AppStorage("mhrsbMemoMemory3") var memo = ""
     @AppStorage("mhrsbDateMemory3") var dateDouble = 0.0
 }
