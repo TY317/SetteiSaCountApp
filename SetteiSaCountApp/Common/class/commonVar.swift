@@ -377,6 +377,7 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuBayesBadge") var mhrsbMenuBayesBadge: String = "none"
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
+    @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
 
     // ---- 獣王
     @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"
@@ -872,6 +873,7 @@ class commonVar: ObservableObject {
                 kabaneriUnatoMenuMumeiCzBadge = "new"
                 machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
                 mhrsbMenuFirstHitBadge = "update"
+                mhrsbMenuBzScenarioBadge = "new"
             } else {
                 print("\(targetVersion)以上です")
             }

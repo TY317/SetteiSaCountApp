@@ -15,6 +15,7 @@ struct mhrsbViewBayes: View {
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var bzScenarioEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
 
@@ -58,6 +59,15 @@ struct mhrsbViewBayes: View {
 
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // BZシナリオ（アイコンテーブル履歴）
+                unitToggleWithQuestion(enable: self.$bzScenarioEnable, title: "BZシナリオ（アイコンテーブル履歴）") {
+                    unitExView5body2image(
+                        title: "BZシナリオ（アイコンテーブル履歴）",
+                        textBody1: "・AT間の区間ごとに、記録したアイコンテーブルの並びがどの設定で起きやすいかを反映させます",
+                        textBody2: "・シナリオ選択率・BZレベル・テーブル振分けからの独自算出です"
+                    )
+                }
 
                 // AT終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
@@ -173,6 +183,17 @@ struct mhrsbViewBayes: View {
             )
         }
 
+        // BZシナリオ（区間ごとの並びの確率をシナリオで重みづけ。同じ区間は同じシナリオなので区間単位で計算）
+        var logPostBzScenario: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bzScenarioEnable {
+            for interval in mhrsb.bzValidIntervalList {
+                for setting in self.settingList.indices {
+                    let probability = mhrsb.bzIntervalProbability(interval: interval, setting: setting)
+                    logPostBzScenario[setting] += log(max(probability, 1e-300))
+                }
+            }
+        }
+
         // AT終了画面
         // 確定系（設定2・3否定、設定2・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -258,6 +279,7 @@ struct mhrsbViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostBzScenario,
             logPostScreen,
             logPostEnding,
             logPostTrophy,
