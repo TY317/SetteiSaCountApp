@@ -162,6 +162,11 @@ struct mhrsbViewBzScenario: View {
                     }
                 }
                 .frame(height: self.scrollViewHeight)
+                
+                // CZ回数別のアイコンテーブル実質出現率
+                unitLinkButtonViewBuilder(sheetTitle: "CZ回数別のテーブル実質出現率") {
+                    mhrsbSubViewBzTableRatio(mhrsb: mhrsb)
+                }
             } header: {
                 unitHeaderHistoryColumnsWithoutTimes(
                     column2: "AT間CZ",
