@@ -38,6 +38,24 @@ struct mhrsbViewFirstHit: View {
 
             // カウントボタン横並び
             HStack {
+                // BZ
+                unitCountButtonVerticalDenominate(
+                    title: "BZ",
+                    count: $mhrsb.firstHitCountBz,
+                    color: .personalSummerLightBlue,
+                    bigNumber: $mhrsb.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $mhrsb.minusCheck
+                )
+                // アイルー福引
+                unitCountButtonVerticalDenominate(
+                    title: "アイルー福引",
+                    count: $mhrsb.firstHitCountFukubiki,
+                    color: .personalSummerLightGreen,
+                    bigNumber: $mhrsb.normalGame,
+                    numberofDicimal: 0,
+                    minusBool: $mhrsb.minusCheck
+                )
                 // AT
                 unitCountButtonVerticalDenominate(
                     title: "AT",
@@ -48,14 +66,38 @@ struct mhrsbViewFirstHit: View {
                     minusBool: $mhrsb.minusCheck
                 )
             }
+            .popoverTip(tipVer491MhrsbFirstHit())
 
             // 参考情報）初当り確率
             unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
                 HStack(spacing: 0) {
                     unitTableSettingIndex()
                     unitTableDenominate(
+                        columTitle: "BZ",
+                        denominateList: mhrsb.ratioFirstHitBz
+                    )
+                    unitTableDenominate(
+                        columTitle: "アイルー福引",
+                        denominateList: mhrsb.ratioFirstHitFukubiki
+                    )
+                    unitTableDenominate(
                         columTitle: "AT",
                         denominateList: mhrsb.ratioFirstHitAt
+                    )
+                }
+            }
+
+            // 参考情報）猛焔一閃直撃
+            unitLinkButtonViewBuilder(sheetTitle: "猛焔一閃直撃") {
+                VStack(alignment: .leading) {
+                    Text("・当選した場合はCZ突入時にいきなり猛焔一閃が発生する")
+                    Text("・下表はすべての抽選を考慮した実質的な直撃確率")
+                }
+                HStack(spacing: 0) {
+                    unitTableSettingIndex()
+                    unitTableDenominate(
+                        columTitle: "直撃出現確率",
+                        denominateList: mhrsb.ratioMouenIssenChokugeki
                     )
                 }
             }

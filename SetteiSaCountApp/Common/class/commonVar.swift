@@ -377,6 +377,7 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuBayesBadge") var mhrsbMenuBayesBadge: String = "none"
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
+    @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
 
     // ---- 獣王
     @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"
@@ -608,6 +609,7 @@ class commonVar: ObservableObject {
     @AppStorage("kabaneriUnatoMenuOmikujiBadge") var kabaneriUnatoMenuOmikujiBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuHayajiroBadge") var kabaneriUnatoMenuHayajiroBadge: String = "none"
     @AppStorage("kabaneriUnatoMenuHighAtBadge") var kabaneriUnatoMenuHighAtBadge: String = "none"
+    @AppStorage("kabaneriUnatoMenuMumeiCzBadge") var kabaneriUnatoMenuMumeiCzBadge: String = "none"
     
     // ---- ゴブリンスレイヤー２
     @AppStorage("gobsla2isUnlocked") var gobsla2isUnlocked: Bool = true
@@ -850,6 +852,36 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver491FirstLaunch() {
+        let targetVersion: String = "4.9.1"
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5061", newStatus: "update")
+                juoMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "5065", newStatus: "update")
+                kanokariMenuScreenBadge = "update"
+                kanokariMenuDuringRbBadge = "update"
+                kanokariMenuRenChanceBadge = "update"
+                kanokariMenuEndingBadge = "update"
+                kanokariMenuComebackBadge = "update"
+                kanokariMenuFirstHitBadge = "update"
+                kanokariMenuNormalBadge = "update"
+                machines.updateMachineBadgeStatus(id: "4930", newStatus: "update")
+                kabaneriUnatoMenuMumeiCzBadge = "new"
+                machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
+                mhrsbMenuFirstHitBadge = "update"
+                mhrsbMenuBzScenarioBadge = "new"
+            } else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver490FirstLaunch() {
         let targetVersion: String = "4.9.0"
         if firstLaunchAppVersion != nil {
@@ -1054,33 +1086,6 @@ class commonVar: ObservableObject {
                 tekken6MenuScreenBadge = "update"
                 machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
                 otome5MenuEndingBadge = "update"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver421FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.2.1"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
-                karakuri2MenuScreenBadge = "update"
-                karakuri2MenuNormalBadge = "update"
-                karakuri2MenuDuringAtBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5015", newStatus: "update")
-                kerottoMenuNormalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4983", newStatus: "update")
-                shinYoshiMenuNormalBadge = "update"
-                shinYoshiMenuCzBadge = "new"
             }
             else {
                 print("\(targetVersion)以上です")

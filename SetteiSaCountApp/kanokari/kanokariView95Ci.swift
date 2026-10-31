@@ -49,6 +49,242 @@ struct kanokariView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 終了画面 枠なし
+            unitListSection95Ci(
+                grafTitle: "終了画面 枠なし",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.screenCount1,
+                        bigNumber: $kanokari.screenCountSum,
+                        setting1Percent: kanokari.ratioScreen1[0],
+                        setting2Percent: kanokari.ratioScreen1[1],
+                        setting3Percent: kanokari.ratioScreen1[2],
+                        setting4Percent: kanokari.ratioScreen1[3],
+                        setting5Percent: kanokari.ratioScreen1[4],
+                        setting6Percent: kanokari.ratioScreen1[5]
+                    )
+                )
+            )
+            .tag(4)
+
+            // キャラ紹介シナリオ①
+            unitListSection95Ci(
+                grafTitle: "キャラ紹介シナリオ①",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.rbCharaCountDefault,
+                        bigNumber: $kanokari.rbCharaCountSum,
+                        setting1Percent: kanokari.ratioRbCharaDefault[0],
+                        setting2Percent: kanokari.ratioRbCharaDefault[1],
+                        setting3Percent: kanokari.ratioRbCharaDefault[2],
+                        setting4Percent: kanokari.ratioRbCharaDefault[3],
+                        setting5Percent: kanokari.ratioRbCharaDefault[4],
+                        setting6Percent: kanokari.ratioRbCharaDefault[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // キャラ紹介シナリオ⑤
+            unitListSection95Ci(
+                grafTitle: "キャラ紹介シナリオ⑤",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.rbCharaCountHighKyo,
+                        bigNumber: $kanokari.rbCharaCountSum,
+                        setting1Percent: kanokari.ratioRbCharaHighKyo[0],
+                        setting2Percent: kanokari.ratioRbCharaHighKyo[1],
+                        setting3Percent: kanokari.ratioRbCharaHighKyo[2],
+                        setting4Percent: kanokari.ratioRbCharaHighKyo[3],
+                        setting5Percent: kanokari.ratioRbCharaHighKyo[4],
+                        setting6Percent: kanokari.ratioRbCharaHighKyo[5]
+                    )
+                )
+            )
+            .tag(6)
+
+            // 1Gレンチャンス 偶数示唆
+            unitListSection95Ci(
+                grafTitle: "1Gレンチャンス 偶数示唆",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.koryakuCharaCount1,
+                        bigNumber: $kanokari.koryakuCharaCountSum,
+                        setting1Percent: kanokari.ratioKoryakuCharaGusu[0],
+                        setting2Percent: kanokari.ratioKoryakuCharaGusu[1],
+                        setting3Percent: kanokari.ratioKoryakuCharaGusu[2],
+                        setting4Percent: kanokari.ratioKoryakuCharaGusu[3],
+                        setting5Percent: kanokari.ratioKoryakuCharaGusu[4],
+                        setting6Percent: kanokari.ratioKoryakuCharaGusu[5]
+                    )
+                )
+            )
+            .tag(7)
+
+            // 引き戻し期待度（ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "引き戻し期待度（ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.comebackYumekanoCountHit,
+                        bigNumber: $kanokari.comebackYumekanoCountSum,
+                        setting1Percent: kanokari.ratioComebackYumekano[0],
+                        setting2Percent: kanokari.ratioComebackYumekano[1],
+                        setting3Percent: kanokari.ratioComebackYumekano[2],
+                        setting4Percent: kanokari.ratioComebackYumekano[3],
+                        setting5Percent: kanokari.ratioComebackYumekano[4],
+                        setting6Percent: kanokari.ratioComebackYumekano[5]
+                    )
+                )
+            )
+            .tag(8)
+
+            // ななかりDREAM当選率（非ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "ななかりDREAM当選率（非ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.dreamNormalCountHit,
+                        bigNumber: $kanokari.dreamNormalCountSum,
+                        setting1Percent: kanokari.ratioDreamNormal[0],
+                        setting2Percent: kanokari.ratioDreamNormal[1],
+                        setting3Percent: kanokari.ratioDreamNormal[2],
+                        setting4Percent: kanokari.ratioDreamNormal[3],
+                        setting5Percent: kanokari.ratioDreamNormal[4],
+                        setting6Percent: kanokari.ratioDreamNormal[5]
+                    )
+                )
+            )
+            .tag(9)
+
+            // ななかりDREAM当選率（ユメカノ）
+            unitListSection95Ci(
+                grafTitle: "ななかりDREAM当選率（ユメカノ）",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.dreamYumekanoCountHit,
+                        bigNumber: $kanokari.dreamYumekanoCountSum,
+                        setting1Percent: kanokari.ratioDreamYumekano[0],
+                        setting2Percent: kanokari.ratioDreamYumekano[1],
+                        setting3Percent: kanokari.ratioDreamYumekano[2],
+                        setting4Percent: kanokari.ratioDreamYumekano[3],
+                        setting5Percent: kanokari.ratioDreamYumekano[4],
+                        setting6Percent: kanokari.ratioDreamYumekano[5]
+                    )
+                )
+            )
+            .tag(10)
+
+            // REG連続天井 3回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 3回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo3CountHit,
+                        bigNumber: $kanokari.regTenjo3CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage3[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage3[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage3[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage3[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage3[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage3[5]
+                    )
+                )
+            )
+            .tag(11)
+
+            // REG連続天井 4回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 4回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo4CountHit,
+                        bigNumber: $kanokari.regTenjo4CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage4[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage4[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage4[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage4[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage4[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage4[5]
+                    )
+                )
+            )
+            .tag(12)
+
+            // REG連続天井 5回目
+            unitListSection95Ci(
+                grafTitle: "REG連続天井 5回目",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.regTenjo5CountHit,
+                        bigNumber: $kanokari.regTenjo5CountSum,
+                        setting1Percent: kanokari.ratioRegTenjoStage5[0],
+                        setting2Percent: kanokari.ratioRegTenjoStage5[1],
+                        setting3Percent: kanokari.ratioRegTenjoStage5[2],
+                        setting4Percent: kanokari.ratioRegTenjoStage5[3],
+                        setting5Percent: kanokari.ratioRegTenjoStage5[4],
+                        setting6Percent: kanokari.ratioRegTenjoStage5[5]
+                    )
+                )
+            )
+            .tag(13)
+
+            // ゾーン 100G
+            unitListSection95Ci(
+                grafTitle: "ゾーン 100G",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone100CountHit,
+                        bigNumber: $kanokari.zone100CountSum,
+                        setting1Percent: kanokari.ratioZone100[0],
+                        setting2Percent: kanokari.ratioZone100[1],
+                        setting3Percent: kanokari.ratioZone100[2],
+                        setting4Percent: kanokari.ratioZone100[3],
+                        setting5Percent: kanokari.ratioZone100[4],
+                        setting6Percent: kanokari.ratioZone100[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // ゾーン 300G 当選後
+            unitListSection95Ci(
+                grafTitle: "ゾーン 300G\n100G当選後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone300AtariCountHit,
+                        bigNumber: $kanokari.zone300AtariCountSum,
+                        setting1Percent: kanokari.ratioZone300Atari[0],
+                        setting2Percent: kanokari.ratioZone300Atari[1],
+                        setting3Percent: kanokari.ratioZone300Atari[2],
+                        setting4Percent: kanokari.ratioZone300Atari[3],
+                        setting5Percent: kanokari.ratioZone300Atari[4],
+                        setting6Percent: kanokari.ratioZone300Atari[5]
+                    )
+                )
+            )
+            .tag(15)
+
+            // ゾーン 300G スルー後
+            unitListSection95Ci(
+                grafTitle: "ゾーン 300G\n100Gスルー後",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kanokari.zone300ThroughCountHit,
+                        bigNumber: $kanokari.zone300ThroughCountSum,
+                        setting1Percent: kanokari.ratioZone300Through[0],
+                        setting2Percent: kanokari.ratioZone300Through[1],
+                        setting3Percent: kanokari.ratioZone300Through[2],
+                        setting4Percent: kanokari.ratioZone300Through[3],
+                        setting5Percent: kanokari.ratioZone300Through[4],
+                        setting6Percent: kanokari.ratioZone300Through[5]
+                    )
+                )
+            )
+            .tag(16)
         }
         // //// firebaseログ
         .onAppear {

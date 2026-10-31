@@ -13,7 +13,10 @@ struct mhrsbViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
+    @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var bzScenarioEnable: Bool = true
+    @State var questEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var endingEnable: Bool = true
 
@@ -47,8 +50,28 @@ struct mhrsbViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
+                    unitExView5body2image(
+                        title: "CZ初当り確率",
+                        textBody1: "・ブレイクゾーン（BZ）とアイルー福引の当選率を判別要素として反映させます"
+                    )
+                }
+
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+
+                // BZシナリオ（アイコンテーブル履歴）
+                unitToggleWithQuestion(enable: self.$bzScenarioEnable, title: "BZシナリオ（アイコンテーブル履歴）") {
+                    unitExView5body2image(
+                        title: "BZシナリオ（アイコンテーブル履歴）",
+                        textBody1: "・AT間の区間ごとに、記録したアイコンテーブルの並びがどの設定で起きやすいかを反映させます",
+                        textBody2: "・シナリオ選択率・BZレベル・テーブル振分けからの独自算出です"
+                    )
+                }
+
+                // クエスト成功期待度
+                unitToggleWithQuestion(enable: self.$questEnable, title: "クエスト成功期待度")
 
                 // AT終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
@@ -138,6 +161,22 @@ struct mhrsbViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // CZ初当り確率（BZ・アイルー福引。1ゲームごとに BZ／福引／それ以外 の多項として計算）
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoMulti(
+                countList: [
+                    mhrsb.firstHitCountBz,
+                    mhrsb.firstHitCountFukubiki,
+                ],
+                denoList: [
+                    mhrsb.ratioFirstHitBz,
+                    mhrsb.ratioFirstHitFukubiki,
+                ],
+                bigNumber: mhrsb.normalGame
+            )
+        }
+
         // AT初当り確率
         var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitAtEnable {
@@ -146,6 +185,60 @@ struct mhrsbViewBayes: View {
                 Count: mhrsb.firstHitCountAt,
                 bigNumber: mhrsb.normalGame
             )
+        }
+
+        // BZシナリオ（区間ごとの並びの確率をシナリオで重みづけ。同じ区間は同じシナリオなので区間単位で計算）
+        var logPostBzScenario: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.bzScenarioEnable {
+            for interval in mhrsb.bzValidIntervalList {
+                for setting in self.settingList.indices {
+                    let probability = mhrsb.bzIntervalProbability(interval: interval, setting: setting)
+                    logPostBzScenario[setting] += log(max(probability, 1e-300))
+                }
+            }
+        }
+
+        // クエスト成功期待度（獲得アイコン別のAT当選率）
+        var logPostQuest: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.questEnable {
+            let logPostQuest1 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[0],
+                Count: mhrsb.quest1CountHit,
+                bigNumber: mhrsb.quest1CountSum
+            )
+            let logPostQuest2 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[1],
+                Count: mhrsb.quest2CountHit,
+                bigNumber: mhrsb.quest2CountSum
+            )
+            let logPostQuest3 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[2],
+                Count: mhrsb.quest3CountHit,
+                bigNumber: mhrsb.quest3CountSum
+            )
+            let logPostQuest4 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[3],
+                Count: mhrsb.quest4CountHit,
+                bigNumber: mhrsb.quest4CountSum
+            )
+            let logPostQuest5 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[4],
+                Count: mhrsb.quest5CountHit,
+                bigNumber: mhrsb.quest5CountSum
+            )
+            let logPostQuest6 = logPostPercentBino(
+                ratio: mhrsb.ratioQuestList[5],
+                Count: mhrsb.quest6CountHit,
+                bigNumber: mhrsb.quest6CountSum
+            )
+            logPostQuest = arraySumDouble([
+                logPostQuest1,
+                logPostQuest2,
+                logPostQuest3,
+                logPostQuest4,
+                logPostQuest5,
+                logPostQuest6,
+            ])
         }
 
         // AT終了画面
@@ -231,7 +324,10 @@ struct mhrsbViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostBzScenario,
+            logPostQuest,
             logPostScreen,
             logPostEnding,
             logPostTrophy,

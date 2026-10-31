@@ -82,6 +82,80 @@ struct kanokariViewScreen: View {
                         bigNumber: $kanokari.screenCountSum
                     )
                 }
+
+                // 参考情報）終了画面の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面の振分け") {
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定1",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 0),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定2",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 1),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定3",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 2),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定4",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 3),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定5",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 4),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定6",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 5),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer491KanokariScreen())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kanokariView95Ci(
+                            kanokari: kanokari,
+                            selection: 4,
+                        )
+                    )
+                )
+
+                // //// 設定期待値へのリンク
+                unitNaviLinkBayes {
+                    kanokariViewBayes(
+                        kanokari: kanokari,
+                    )
+                }
             } header: {
                 Text("カウント結果")
             }
@@ -161,6 +235,26 @@ struct kanokariViewScreen: View {
         case self.selectList[6]: return .orange
         default: return .gray
         }
+    }
+
+    // 振分け表用：設定列の幅（azurLane／vvv2 の同型の表に合わせる）
+    let ratioMaxWidth: CGFloat = 70
+    // 振分け表用：示唆ごとの振分け（sisa の並び）
+    private var ratioLists: [[Double]] {
+        [
+            kanokari.ratioScreen1,
+            kanokari.ratioScreen2,
+            kanokari.ratioScreen3,
+            kanokari.ratioScreen4,
+            kanokari.ratioScreen5,
+            kanokari.ratioScreen6,
+            kanokari.ratioScreen7,
+        ]
+    }
+
+    // 振分け表用：各示唆の振分けから、指定した設定の列を取り出す
+    private func ratioColumn(lists: [[Double]], setting: Int) -> [Double] {
+        lists.map { $0.indices.contains(setting) ? $0[setting] : 0 }
     }
 }
 

@@ -26,8 +26,129 @@ struct juoViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    // レア役の選択
+    let koyakuSegmentList: [String] = ["🍒", "レアリプレイ"]
+    @State var koyakuSelected: String = "🍒"
     var body: some View {
         List {
+            
+            // ---- レア役成立時のSC高確移行率
+            Section {
+                // 確率横並び
+                HStack {
+                    // チェリー
+                    unitResultRatioPercent2Line(
+                        title: "🍒",
+                        count: $juo.cherryCountScHigh,
+                        bigNumber: $juo.cherryCount,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                    // レアリプレイ
+                    unitResultRatioPercent2Line(
+                        title: "レアリプレイ",
+                        count: $juo.rareReplayCountScHigh,
+                        bigNumber: $juo.rareReplayCount,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer491JuoScHigh())
+
+                // 参考情報）レア役成立時のSC高確移行率
+                unitLinkButtonViewBuilder(sheetTitle: "レア役成立時のSC高確移行率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex(settingList: [1,2,4,5,6])
+                        unitTablePercent(
+                            columTitle: "🍒",
+                            percentList: juo.ratioCherryScHigh,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "レアリプレイ",
+                            percentList: juo.ratioRareReplayScHigh,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // セグメントピッカー
+                    Picker("", selection: self.$koyakuSelected) {
+                        ForEach(self.koyakuSegmentList, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    // カウントボタン横並び
+//                    HStack {
+                        if self.koyakuSelected == self.koyakuSegmentList[0] {
+                            HStack {
+                                // チェリー
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "小役成立",
+                                    count: $juo.cherryCount,
+                                    color: .personalSummerLightRed,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                                // SC高確移行
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "SC高確移行",
+                                    count: $juo.cherryCountScHigh,
+                                    color: .red,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                            }
+                        }
+                        else if self.koyakuSelected == self.koyakuSegmentList[1] {
+                            Text("リプレイ揃い時にフラッシュ発生でレアリプレイ")
+                                .font(.caption)
+                                .foregroundStyle(Color.secondary)
+                            HStack {
+                                // レアリプレイ
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "小役成立",
+                                    count: $juo.rareReplayCount,
+                                    color: .personalSummerLightBlue,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                                // SC高確移行
+                                unitCountButtonWithoutRatioWithFunc(
+                                    title: "SC高確移行",
+                                    count: $juo.rareReplayCountScHigh,
+                                    color: .blue,
+                                    minusBool: $juo.minusCheck) {
+                                    }
+                            }
+                        }
+//                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            juoView95Ci(
+                                juo: juo,
+                                selection: 3 + (self.koyakuSegmentList.firstIndex(of: self.koyakuSelected) ?? 0),
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        juoViewBayes(
+                            juo: juo,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("レア役からのSC高確移行率")
+            }
             // レア役
             Section {
                 // レア役停止系
@@ -56,6 +177,21 @@ struct juoViewNormal: View {
                             ],
                         )
                     }
+                    .padding(.bottom)
+                    VStack(alignment: .leading) {
+                        Text("・レア役からの移行、ゲーム数ゾーンと異なり謎高確に対応する「フェイク」は存在しない")
+                        Text("・謎高確移行時は液晶が夕方にならないため注意")
+                        Text("・下記ポイントを満たせば謎高確と考えてOK")
+                    }
+                    unitTableString(
+                        columTitle: "謎高確の見極めポイント",
+                        stringList: [
+                            "①レア役を引いていない",
+                            "②ゲーム数のゾーンをまたいでいない",
+                            "③演出がざわついている",
+                        ],
+                        maxWidth: 300,
+                    )
                 }
                 
                 // ゲーム数での移行

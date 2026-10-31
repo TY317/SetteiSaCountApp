@@ -21,15 +21,15 @@ struct kanokariTableModeTable: View {
                 ]
             )
             unitTablePercentVer2(
-                columTitle: "モード1",
+                columTitle: "モードA",
                 percentList: [10.2,10.2,1000,10.2,10.2],
             )
             unitTablePercentVer2(
-                columTitle: "モード2",
+                columTitle: "モードB",
                 percentList: [30.1,40.2,1000,30.1,30.1],
             )
             unitTablePercentVer2(
-                columTitle: "モード3",
+                columTitle: "モードC",
                 percentList: [1000,30.1,30.1,1000,30.1],
             )
         }

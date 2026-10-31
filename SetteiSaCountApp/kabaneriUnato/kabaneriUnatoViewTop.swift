@@ -45,6 +45,17 @@ struct kabaneriUnatoViewTop: View {
                             badgeStatus: common.kabaneriUnatoMenuNormalBadge,
                         )
                     }
+
+                    // 無名CZ
+                    NavigationLink(destination: kabaneriUnatoViewMumeiCz(
+                        kabaneriUnato: kabaneriUnato,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "figure.martial.arts",
+                            textBody: "無名CZ",
+                            badgeStatus: common.kabaneriUnatoMenuMumeiCzBadge,
+                        )
+                    }
                     
                     // 初あたり
                     NavigationLink(destination: kabaneriUnatoViewFirstHit(
@@ -280,6 +291,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory1.highAtCountMiss = kabaneriUnato.highAtCountMiss
         kabaneriUnatoMemory1.highAtCountHit = kabaneriUnato.highAtCountHit
         kabaneriUnatoMemory1.highAtCountSum = kabaneriUnato.highAtCountSum
+        kabaneriUnatoMemory1.mumeiCz7CountMiss = kabaneriUnato.mumeiCz7CountMiss
+        kabaneriUnatoMemory1.mumeiCz7CountHit = kabaneriUnato.mumeiCz7CountHit
+        kabaneriUnatoMemory1.mumeiCz7CountSum = kabaneriUnato.mumeiCz7CountSum
+        kabaneriUnatoMemory1.mumeiCz8CountMiss = kabaneriUnato.mumeiCz8CountMiss
+        kabaneriUnatoMemory1.mumeiCz8CountHit = kabaneriUnato.mumeiCz8CountHit
+        kabaneriUnatoMemory1.mumeiCz8CountSum = kabaneriUnato.mumeiCz8CountSum
+        kabaneriUnatoMemory1.mumeiCz9CountMiss = kabaneriUnato.mumeiCz9CountMiss
+        kabaneriUnatoMemory1.mumeiCz9CountHit = kabaneriUnato.mumeiCz9CountHit
+        kabaneriUnatoMemory1.mumeiCz9CountSum = kabaneriUnato.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0
@@ -339,6 +359,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory2.highAtCountMiss = kabaneriUnato.highAtCountMiss
         kabaneriUnatoMemory2.highAtCountHit = kabaneriUnato.highAtCountHit
         kabaneriUnatoMemory2.highAtCountSum = kabaneriUnato.highAtCountSum
+        kabaneriUnatoMemory2.mumeiCz7CountMiss = kabaneriUnato.mumeiCz7CountMiss
+        kabaneriUnatoMemory2.mumeiCz7CountHit = kabaneriUnato.mumeiCz7CountHit
+        kabaneriUnatoMemory2.mumeiCz7CountSum = kabaneriUnato.mumeiCz7CountSum
+        kabaneriUnatoMemory2.mumeiCz8CountMiss = kabaneriUnato.mumeiCz8CountMiss
+        kabaneriUnatoMemory2.mumeiCz8CountHit = kabaneriUnato.mumeiCz8CountHit
+        kabaneriUnatoMemory2.mumeiCz8CountSum = kabaneriUnato.mumeiCz8CountSum
+        kabaneriUnatoMemory2.mumeiCz9CountMiss = kabaneriUnato.mumeiCz9CountMiss
+        kabaneriUnatoMemory2.mumeiCz9CountHit = kabaneriUnato.mumeiCz9CountHit
+        kabaneriUnatoMemory2.mumeiCz9CountSum = kabaneriUnato.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0
@@ -398,6 +427,15 @@ struct kabaneriUnatoSubViewSaveMemory: View {
         kabaneriUnatoMemory3.highAtCountMiss = kabaneriUnato.highAtCountMiss
         kabaneriUnatoMemory3.highAtCountHit = kabaneriUnato.highAtCountHit
         kabaneriUnatoMemory3.highAtCountSum = kabaneriUnato.highAtCountSum
+        kabaneriUnatoMemory3.mumeiCz7CountMiss = kabaneriUnato.mumeiCz7CountMiss
+        kabaneriUnatoMemory3.mumeiCz7CountHit = kabaneriUnato.mumeiCz7CountHit
+        kabaneriUnatoMemory3.mumeiCz7CountSum = kabaneriUnato.mumeiCz7CountSum
+        kabaneriUnatoMemory3.mumeiCz8CountMiss = kabaneriUnato.mumeiCz8CountMiss
+        kabaneriUnatoMemory3.mumeiCz8CountHit = kabaneriUnato.mumeiCz8CountHit
+        kabaneriUnatoMemory3.mumeiCz8CountSum = kabaneriUnato.mumeiCz8CountSum
+        kabaneriUnatoMemory3.mumeiCz9CountMiss = kabaneriUnato.mumeiCz9CountMiss
+        kabaneriUnatoMemory3.mumeiCz9CountHit = kabaneriUnato.mumeiCz9CountHit
+        kabaneriUnatoMemory3.mumeiCz9CountSum = kabaneriUnato.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0
@@ -486,6 +524,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory1.highAtCountMiss
         kabaneriUnato.highAtCountHit = kabaneriUnatoMemory1.highAtCountHit
         kabaneriUnato.highAtCountSum = kabaneriUnatoMemory1.highAtCountSum
+        kabaneriUnato.mumeiCz7CountMiss = kabaneriUnatoMemory1.mumeiCz7CountMiss
+        kabaneriUnato.mumeiCz7CountHit = kabaneriUnatoMemory1.mumeiCz7CountHit
+        kabaneriUnato.mumeiCz7CountSum = kabaneriUnatoMemory1.mumeiCz7CountSum
+        kabaneriUnato.mumeiCz8CountMiss = kabaneriUnatoMemory1.mumeiCz8CountMiss
+        kabaneriUnato.mumeiCz8CountHit = kabaneriUnatoMemory1.mumeiCz8CountHit
+        kabaneriUnato.mumeiCz8CountSum = kabaneriUnatoMemory1.mumeiCz8CountSum
+        kabaneriUnato.mumeiCz9CountMiss = kabaneriUnatoMemory1.mumeiCz9CountMiss
+        kabaneriUnato.mumeiCz9CountHit = kabaneriUnatoMemory1.mumeiCz9CountHit
+        kabaneriUnato.mumeiCz9CountSum = kabaneriUnatoMemory1.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0
@@ -545,6 +592,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory2.highAtCountMiss
         kabaneriUnato.highAtCountHit = kabaneriUnatoMemory2.highAtCountHit
         kabaneriUnato.highAtCountSum = kabaneriUnatoMemory2.highAtCountSum
+        kabaneriUnato.mumeiCz7CountMiss = kabaneriUnatoMemory2.mumeiCz7CountMiss
+        kabaneriUnato.mumeiCz7CountHit = kabaneriUnatoMemory2.mumeiCz7CountHit
+        kabaneriUnato.mumeiCz7CountSum = kabaneriUnatoMemory2.mumeiCz7CountSum
+        kabaneriUnato.mumeiCz8CountMiss = kabaneriUnatoMemory2.mumeiCz8CountMiss
+        kabaneriUnato.mumeiCz8CountHit = kabaneriUnatoMemory2.mumeiCz8CountHit
+        kabaneriUnato.mumeiCz8CountSum = kabaneriUnatoMemory2.mumeiCz8CountSum
+        kabaneriUnato.mumeiCz9CountMiss = kabaneriUnatoMemory2.mumeiCz9CountMiss
+        kabaneriUnato.mumeiCz9CountHit = kabaneriUnatoMemory2.mumeiCz9CountHit
+        kabaneriUnato.mumeiCz9CountSum = kabaneriUnatoMemory2.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0
@@ -604,6 +660,15 @@ struct kabaneriUnatoSubViewLoadMemory: View {
         kabaneriUnato.highAtCountMiss = kabaneriUnatoMemory3.highAtCountMiss
         kabaneriUnato.highAtCountHit = kabaneriUnatoMemory3.highAtCountHit
         kabaneriUnato.highAtCountSum = kabaneriUnatoMemory3.highAtCountSum
+        kabaneriUnato.mumeiCz7CountMiss = kabaneriUnatoMemory3.mumeiCz7CountMiss
+        kabaneriUnato.mumeiCz7CountHit = kabaneriUnatoMemory3.mumeiCz7CountHit
+        kabaneriUnato.mumeiCz7CountSum = kabaneriUnatoMemory3.mumeiCz7CountSum
+        kabaneriUnato.mumeiCz8CountMiss = kabaneriUnatoMemory3.mumeiCz8CountMiss
+        kabaneriUnato.mumeiCz8CountHit = kabaneriUnatoMemory3.mumeiCz8CountHit
+        kabaneriUnato.mumeiCz8CountSum = kabaneriUnatoMemory3.mumeiCz8CountSum
+        kabaneriUnato.mumeiCz9CountMiss = kabaneriUnatoMemory3.mumeiCz9CountMiss
+        kabaneriUnato.mumeiCz9CountHit = kabaneriUnatoMemory3.mumeiCz9CountHit
+        kabaneriUnato.mumeiCz9CountSum = kabaneriUnatoMemory3.mumeiCz9CountSum
         
         // ----------
         // ver3.25.0

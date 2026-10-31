@@ -53,7 +53,6 @@ struct karakuri2ViewNormal: View {
                         )
                     }
                 }
-                .popoverTip(tipVer421Karakuri2Mode())
                 // レア役停止系
                 unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
                     karakuri2TableKoyakuPattern()
@@ -117,7 +116,6 @@ struct karakuri2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時のモード") {
                     karakuri2TableMode()
                 }
-//                .popoverTip(tipVer421Karakuri2Mode())
                 
                 // モード示唆演出
                 unitLinkButtonViewBuilder(sheetTitle: "モード示唆演出") {

@@ -124,6 +124,73 @@ struct kanokariViewDuringRb: View {
                     senarioTable
                 }
 
+                // 参考情報）シナリオの振分け
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ紹介シナリオの振分け") {
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定1",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 0),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定2",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 1),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定3",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 2),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: self.sisaList,
+                                maxWidth: 150,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定4",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 3),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定5",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 4),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                            unitTablePercent(
+                                columTitle: "設定6",
+                                percentList: ratioColumn(lists: self.ratioLists, setting: 5),
+                                numberofDicimal: 1,
+                                maxWidth: self.ratioMaxWidth,
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer491KanokariRbChara())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        kanokariView95Ci(
+                            kanokari: kanokari,
+                            selection: 5,
+                        )
+                    )
+                )
+
                 // //// 設定期待値へのリンク
                 unitNaviLinkBayes {
                     kanokariViewBayes(
@@ -243,6 +310,34 @@ struct kanokariViewDuringRb: View {
                 }
             }
         }
+    }
+
+    // 振分け表用：設定列の幅（azurLane／vvv2 の同型の表に合わせる）
+    let ratioMaxWidth: CGFloat = 70
+    // 振分け表用：示唆ごとの振分け（sisa の並び）
+    private var ratioLists: [[Double]] {
+        [
+            kanokari.ratioRbCharaDefault,
+            kanokari.ratioRbCharaKisu,
+            kanokari.ratioRbCharaGusu,
+            kanokari.ratioRbCharaHighJaku,
+            kanokari.ratioRbCharaHighKyo,
+            kanokari.ratioRbCharaNegate1,
+            kanokari.ratioRbCharaNegate2,
+            kanokari.ratioRbCharaNegate3,
+            kanokari.ratioRbCharaNegate4,
+            kanokari.ratioRbCharaNegate5,
+            kanokari.ratioRbCharaOver2,
+            kanokari.ratioRbCharaOver3,
+            kanokari.ratioRbCharaOver4,
+            kanokari.ratioRbCharaOver5,
+            kanokari.ratioRbCharaOver6,
+        ]
+    }
+
+    // 振分け表用：各示唆の振分けから、指定した設定の列を取り出す
+    private func ratioColumn(lists: [[Double]], setting: Int) -> [Double] {
+        lists.map { $0.indices.contains(setting) ? $0[setting] : 0 }
     }
 }
 

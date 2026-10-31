@@ -140,6 +140,60 @@ struct kabaneriUnatoView95Ci: View {
                 )
             )
             .tag(6)
+
+            // 無名CZ 7撃破
+            unitListSection95Ci(
+                grafTitle: "無名CZ 7撃破",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.mumeiCz7CountHit,
+                        bigNumber: $kabaneriUnato.mumeiCz7CountSum,
+                        setting1Percent: kabaneriUnato.ratioMumeiCz7[0],
+                        setting2Percent: kabaneriUnato.ratioMumeiCz7[1],
+                        setting3Percent: kabaneriUnato.ratioMumeiCz7[2],
+                        setting4Percent: kabaneriUnato.ratioMumeiCz7[3],
+                        setting5Percent: kabaneriUnato.ratioMumeiCz7[4],
+                        setting6Percent: kabaneriUnato.ratioMumeiCz7[5]
+                    )
+                )
+            )
+            .tag(7)
+
+            // 無名CZ 8撃破
+            unitListSection95Ci(
+                grafTitle: "無名CZ 8撃破",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.mumeiCz8CountHit,
+                        bigNumber: $kabaneriUnato.mumeiCz8CountSum,
+                        setting1Percent: kabaneriUnato.ratioMumeiCz8[0],
+                        setting2Percent: kabaneriUnato.ratioMumeiCz8[1],
+                        setting3Percent: kabaneriUnato.ratioMumeiCz8[2],
+                        setting4Percent: kabaneriUnato.ratioMumeiCz8[3],
+                        setting5Percent: kabaneriUnato.ratioMumeiCz8[4],
+                        setting6Percent: kabaneriUnato.ratioMumeiCz8[5]
+                    )
+                )
+            )
+            .tag(8)
+
+            // 無名CZ 9撃破
+            unitListSection95Ci(
+                grafTitle: "無名CZ 9撃破",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $kabaneriUnato.mumeiCz9CountHit,
+                        bigNumber: $kabaneriUnato.mumeiCz9CountSum,
+                        setting1Percent: kabaneriUnato.ratioMumeiCz9[0],
+                        setting2Percent: kabaneriUnato.ratioMumeiCz9[1],
+                        setting3Percent: kabaneriUnato.ratioMumeiCz9[2],
+                        setting4Percent: kabaneriUnato.ratioMumeiCz9[3],
+                        setting5Percent: kabaneriUnato.ratioMumeiCz9[4],
+                        setting6Percent: kabaneriUnato.ratioMumeiCz9[5]
+                    )
+                )
+            )
+            .tag(9)
             
         }
         // //// firebaseログ

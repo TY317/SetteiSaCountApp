@@ -196,6 +196,7 @@ class KabaneriUnato: ObservableObject {
         resetOmikuji()
         resetHayajiro()
         resetHighAt()
+        resetMumeiCz()
     }
     
     // ---------
@@ -240,6 +241,48 @@ class KabaneriUnato: ObservableObject {
         highAtCountMiss = 0
         highAtCountHit = 0
         highAtCountSum = 0
+        minusCheck = false
+    }
+
+    // -------
+    // 無名CZ
+    // -------
+    // 撃破数別のボーナス期待度（％）
+    let ratioMumeiCz7: [Double] = [50.0,50.0,50.4,53.9,54.7,55.5]
+    let ratioMumeiCz8: [Double] = [79.3,79.3,79.7,83.2,84.0,84.8]
+    let ratioMumeiCz9: [Double] = [89.1,89.1,89.5,93.0,93.8,94.5]
+    @AppStorage("kabaneriUnatoMumeiCz7CountMiss") var mumeiCz7CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountHit") var mumeiCz7CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountSum") var mumeiCz7CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountMiss") var mumeiCz8CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountHit") var mumeiCz8CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountSum") var mumeiCz8CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountMiss") var mumeiCz9CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountHit") var mumeiCz9CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountSum") var mumeiCz9CountSum: Int = 0
+
+    func mumeiCz7SumFunc() {
+        mumeiCz7CountSum = mumeiCz7CountHit + mumeiCz7CountMiss
+    }
+
+    func mumeiCz8SumFunc() {
+        mumeiCz8CountSum = mumeiCz8CountHit + mumeiCz8CountMiss
+    }
+
+    func mumeiCz9SumFunc() {
+        mumeiCz9CountSum = mumeiCz9CountHit + mumeiCz9CountMiss
+    }
+
+    func resetMumeiCz() {
+        mumeiCz7CountMiss = 0
+        mumeiCz7CountHit = 0
+        mumeiCz7CountSum = 0
+        mumeiCz8CountMiss = 0
+        mumeiCz8CountHit = 0
+        mumeiCz8CountSum = 0
+        mumeiCz9CountMiss = 0
+        mumeiCz9CountHit = 0
+        mumeiCz9CountSum = 0
         minusCheck = false
     }
     
@@ -314,6 +357,15 @@ class KabaneriUnatoMemory1: ObservableObject {
     @AppStorage("kabaneriUnatoHighAtCountMissMemory1") var highAtCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountHitMemory1") var highAtCountHit: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountSumMemory1") var highAtCountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountMissMemory1") var mumeiCz7CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountHitMemory1") var mumeiCz7CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountSumMemory1") var mumeiCz7CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountMissMemory1") var mumeiCz8CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountHitMemory1") var mumeiCz8CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountSumMemory1") var mumeiCz8CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountMissMemory1") var mumeiCz9CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountHitMemory1") var mumeiCz9CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountSumMemory1") var mumeiCz9CountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory1") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory1") var dateDouble = 0.0
     
@@ -377,6 +429,15 @@ class KabaneriUnatoMemory2: ObservableObject {
     @AppStorage("kabaneriUnatoHighAtCountMissMemory2") var highAtCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountHitMemory2") var highAtCountHit: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountSumMemory2") var highAtCountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountMissMemory2") var mumeiCz7CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountHitMemory2") var mumeiCz7CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountSumMemory2") var mumeiCz7CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountMissMemory2") var mumeiCz8CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountHitMemory2") var mumeiCz8CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountSumMemory2") var mumeiCz8CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountMissMemory2") var mumeiCz9CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountHitMemory2") var mumeiCz9CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountSumMemory2") var mumeiCz9CountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory2") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory2") var dateDouble = 0.0
     
@@ -440,6 +501,15 @@ class KabaneriUnatoMemory3: ObservableObject {
     @AppStorage("kabaneriUnatoHighAtCountMissMemory3") var highAtCountMiss: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountHitMemory3") var highAtCountHit: Int = 0
     @AppStorage("kabaneriUnatoHighAtCountSumMemory3") var highAtCountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountMissMemory3") var mumeiCz7CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountHitMemory3") var mumeiCz7CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz7CountSumMemory3") var mumeiCz7CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountMissMemory3") var mumeiCz8CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountHitMemory3") var mumeiCz8CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz8CountSumMemory3") var mumeiCz8CountSum: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountMissMemory3") var mumeiCz9CountMiss: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountHitMemory3") var mumeiCz9CountHit: Int = 0
+    @AppStorage("kabaneriUnatoMumeiCz9CountSumMemory3") var mumeiCz9CountSum: Int = 0
     @AppStorage("kabaneriUnatoMemoMemory3") var memo = ""
     @AppStorage("kabaneriUnatoDateMemory3") var dateDouble = 0.0
     

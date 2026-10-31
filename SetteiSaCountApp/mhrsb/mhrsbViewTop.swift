@@ -43,6 +43,17 @@ struct mhrsbViewTop: View {
                         )
                     }
 
+                    // BZシナリオ
+                    NavigationLink(destination: mhrsbViewBzScenario(
+                        mhrsb: mhrsb,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "list.number",
+                            textBody: "CZ",
+                            badgeStatus: common.mhrsbMenuBzScenarioBadge,
+                        )
+                    }
+
                     // 終了画面
                     NavigationLink(destination: mhrsbViewScreen(
                         mhrsb: mhrsb,
@@ -181,6 +192,30 @@ struct mhrsbSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        mhrsbMemory1.quest1CountMiss = mhrsb.quest1CountMiss
+        mhrsbMemory1.quest1CountHit = mhrsb.quest1CountHit
+        mhrsbMemory1.quest1CountSum = mhrsb.quest1CountSum
+        mhrsbMemory1.quest2CountMiss = mhrsb.quest2CountMiss
+        mhrsbMemory1.quest2CountHit = mhrsb.quest2CountHit
+        mhrsbMemory1.quest2CountSum = mhrsb.quest2CountSum
+        mhrsbMemory1.quest3CountMiss = mhrsb.quest3CountMiss
+        mhrsbMemory1.quest3CountHit = mhrsb.quest3CountHit
+        mhrsbMemory1.quest3CountSum = mhrsb.quest3CountSum
+        mhrsbMemory1.quest4CountMiss = mhrsb.quest4CountMiss
+        mhrsbMemory1.quest4CountHit = mhrsb.quest4CountHit
+        mhrsbMemory1.quest4CountSum = mhrsb.quest4CountSum
+        mhrsbMemory1.quest5CountMiss = mhrsb.quest5CountMiss
+        mhrsbMemory1.quest5CountHit = mhrsb.quest5CountHit
+        mhrsbMemory1.quest5CountSum = mhrsb.quest5CountSum
+        mhrsbMemory1.quest6CountMiss = mhrsb.quest6CountMiss
+        mhrsbMemory1.quest6CountHit = mhrsb.quest6CountHit
+        mhrsbMemory1.quest6CountSum = mhrsb.quest6CountSum
+        mhrsbMemory1.bzCzNumberArrayData = mhrsb.bzCzNumberArrayData
+        mhrsbMemory1.bzCzKindArrayData = mhrsb.bzCzKindArrayData
+        mhrsbMemory1.bzTableArrayData = mhrsb.bzTableArrayData
+        mhrsbMemory1.bzAtArrayData = mhrsb.bzAtArrayData
+        mhrsbMemory1.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory1.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory1.normalGame = mhrsb.normalGame
         mhrsbMemory1.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory1.screenCount1 = mhrsb.screenCount1
@@ -205,6 +240,30 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory1.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory2() {
+        mhrsbMemory2.quest1CountMiss = mhrsb.quest1CountMiss
+        mhrsbMemory2.quest1CountHit = mhrsb.quest1CountHit
+        mhrsbMemory2.quest1CountSum = mhrsb.quest1CountSum
+        mhrsbMemory2.quest2CountMiss = mhrsb.quest2CountMiss
+        mhrsbMemory2.quest2CountHit = mhrsb.quest2CountHit
+        mhrsbMemory2.quest2CountSum = mhrsb.quest2CountSum
+        mhrsbMemory2.quest3CountMiss = mhrsb.quest3CountMiss
+        mhrsbMemory2.quest3CountHit = mhrsb.quest3CountHit
+        mhrsbMemory2.quest3CountSum = mhrsb.quest3CountSum
+        mhrsbMemory2.quest4CountMiss = mhrsb.quest4CountMiss
+        mhrsbMemory2.quest4CountHit = mhrsb.quest4CountHit
+        mhrsbMemory2.quest4CountSum = mhrsb.quest4CountSum
+        mhrsbMemory2.quest5CountMiss = mhrsb.quest5CountMiss
+        mhrsbMemory2.quest5CountHit = mhrsb.quest5CountHit
+        mhrsbMemory2.quest5CountSum = mhrsb.quest5CountSum
+        mhrsbMemory2.quest6CountMiss = mhrsb.quest6CountMiss
+        mhrsbMemory2.quest6CountHit = mhrsb.quest6CountHit
+        mhrsbMemory2.quest6CountSum = mhrsb.quest6CountSum
+        mhrsbMemory2.bzCzNumberArrayData = mhrsb.bzCzNumberArrayData
+        mhrsbMemory2.bzCzKindArrayData = mhrsb.bzCzKindArrayData
+        mhrsbMemory2.bzTableArrayData = mhrsb.bzTableArrayData
+        mhrsbMemory2.bzAtArrayData = mhrsb.bzAtArrayData
+        mhrsbMemory2.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory2.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory2.normalGame = mhrsb.normalGame
         mhrsbMemory2.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory2.screenCount1 = mhrsb.screenCount1
@@ -229,6 +288,30 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory2.endingCountSum = mhrsb.endingCountSum
     }
     func saveMemory3() {
+        mhrsbMemory3.quest1CountMiss = mhrsb.quest1CountMiss
+        mhrsbMemory3.quest1CountHit = mhrsb.quest1CountHit
+        mhrsbMemory3.quest1CountSum = mhrsb.quest1CountSum
+        mhrsbMemory3.quest2CountMiss = mhrsb.quest2CountMiss
+        mhrsbMemory3.quest2CountHit = mhrsb.quest2CountHit
+        mhrsbMemory3.quest2CountSum = mhrsb.quest2CountSum
+        mhrsbMemory3.quest3CountMiss = mhrsb.quest3CountMiss
+        mhrsbMemory3.quest3CountHit = mhrsb.quest3CountHit
+        mhrsbMemory3.quest3CountSum = mhrsb.quest3CountSum
+        mhrsbMemory3.quest4CountMiss = mhrsb.quest4CountMiss
+        mhrsbMemory3.quest4CountHit = mhrsb.quest4CountHit
+        mhrsbMemory3.quest4CountSum = mhrsb.quest4CountSum
+        mhrsbMemory3.quest5CountMiss = mhrsb.quest5CountMiss
+        mhrsbMemory3.quest5CountHit = mhrsb.quest5CountHit
+        mhrsbMemory3.quest5CountSum = mhrsb.quest5CountSum
+        mhrsbMemory3.quest6CountMiss = mhrsb.quest6CountMiss
+        mhrsbMemory3.quest6CountHit = mhrsb.quest6CountHit
+        mhrsbMemory3.quest6CountSum = mhrsb.quest6CountSum
+        mhrsbMemory3.bzCzNumberArrayData = mhrsb.bzCzNumberArrayData
+        mhrsbMemory3.bzCzKindArrayData = mhrsb.bzCzKindArrayData
+        mhrsbMemory3.bzTableArrayData = mhrsb.bzTableArrayData
+        mhrsbMemory3.bzAtArrayData = mhrsb.bzAtArrayData
+        mhrsbMemory3.firstHitCountBz = mhrsb.firstHitCountBz
+        mhrsbMemory3.firstHitCountFukubiki = mhrsb.firstHitCountFukubiki
         mhrsbMemory3.normalGame = mhrsb.normalGame
         mhrsbMemory3.firstHitCountAt = mhrsb.firstHitCountAt
         mhrsbMemory3.screenCount1 = mhrsb.screenCount1
@@ -282,6 +365,34 @@ struct mhrsbSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        mhrsb.quest1CountMiss = mhrsbMemory1.quest1CountMiss
+        mhrsb.quest1CountHit = mhrsbMemory1.quest1CountHit
+        mhrsb.quest1CountSum = mhrsbMemory1.quest1CountSum
+        mhrsb.quest2CountMiss = mhrsbMemory1.quest2CountMiss
+        mhrsb.quest2CountHit = mhrsbMemory1.quest2CountHit
+        mhrsb.quest2CountSum = mhrsbMemory1.quest2CountSum
+        mhrsb.quest3CountMiss = mhrsbMemory1.quest3CountMiss
+        mhrsb.quest3CountHit = mhrsbMemory1.quest3CountHit
+        mhrsb.quest3CountSum = mhrsbMemory1.quest3CountSum
+        mhrsb.quest4CountMiss = mhrsbMemory1.quest4CountMiss
+        mhrsb.quest4CountHit = mhrsbMemory1.quest4CountHit
+        mhrsb.quest4CountSum = mhrsbMemory1.quest4CountSum
+        mhrsb.quest5CountMiss = mhrsbMemory1.quest5CountMiss
+        mhrsb.quest5CountHit = mhrsbMemory1.quest5CountHit
+        mhrsb.quest5CountSum = mhrsbMemory1.quest5CountSum
+        mhrsb.quest6CountMiss = mhrsbMemory1.quest6CountMiss
+        mhrsb.quest6CountHit = mhrsbMemory1.quest6CountHit
+        mhrsb.quest6CountSum = mhrsbMemory1.quest6CountSum
+        let bzCzNumberArrayDecoded = decodeIntArray(from: mhrsbMemory1.bzCzNumberArrayData)
+        saveArray(bzCzNumberArrayDecoded, forKey: mhrsb.bzCzNumberArrayKey)
+        let bzCzKindArrayDecoded = decodeStringArray(from: mhrsbMemory1.bzCzKindArrayData)
+        saveArray(bzCzKindArrayDecoded, forKey: mhrsb.bzCzKindArrayKey)
+        let bzTableArrayDecoded = decodeIntArray(from: mhrsbMemory1.bzTableArrayData)
+        saveArray(bzTableArrayDecoded, forKey: mhrsb.bzTableArrayKey)
+        let bzAtArrayDecoded = decodeStringArray(from: mhrsbMemory1.bzAtArrayData)
+        saveArray(bzAtArrayDecoded, forKey: mhrsb.bzAtArrayKey)
+        mhrsb.firstHitCountBz = mhrsbMemory1.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory1.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory1.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory1.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory1.screenCount1
@@ -306,6 +417,34 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCountSum = mhrsbMemory1.endingCountSum
     }
     func loadMemory2() {
+        mhrsb.quest1CountMiss = mhrsbMemory2.quest1CountMiss
+        mhrsb.quest1CountHit = mhrsbMemory2.quest1CountHit
+        mhrsb.quest1CountSum = mhrsbMemory2.quest1CountSum
+        mhrsb.quest2CountMiss = mhrsbMemory2.quest2CountMiss
+        mhrsb.quest2CountHit = mhrsbMemory2.quest2CountHit
+        mhrsb.quest2CountSum = mhrsbMemory2.quest2CountSum
+        mhrsb.quest3CountMiss = mhrsbMemory2.quest3CountMiss
+        mhrsb.quest3CountHit = mhrsbMemory2.quest3CountHit
+        mhrsb.quest3CountSum = mhrsbMemory2.quest3CountSum
+        mhrsb.quest4CountMiss = mhrsbMemory2.quest4CountMiss
+        mhrsb.quest4CountHit = mhrsbMemory2.quest4CountHit
+        mhrsb.quest4CountSum = mhrsbMemory2.quest4CountSum
+        mhrsb.quest5CountMiss = mhrsbMemory2.quest5CountMiss
+        mhrsb.quest5CountHit = mhrsbMemory2.quest5CountHit
+        mhrsb.quest5CountSum = mhrsbMemory2.quest5CountSum
+        mhrsb.quest6CountMiss = mhrsbMemory2.quest6CountMiss
+        mhrsb.quest6CountHit = mhrsbMemory2.quest6CountHit
+        mhrsb.quest6CountSum = mhrsbMemory2.quest6CountSum
+        let bzCzNumberArrayDecoded = decodeIntArray(from: mhrsbMemory2.bzCzNumberArrayData)
+        saveArray(bzCzNumberArrayDecoded, forKey: mhrsb.bzCzNumberArrayKey)
+        let bzCzKindArrayDecoded = decodeStringArray(from: mhrsbMemory2.bzCzKindArrayData)
+        saveArray(bzCzKindArrayDecoded, forKey: mhrsb.bzCzKindArrayKey)
+        let bzTableArrayDecoded = decodeIntArray(from: mhrsbMemory2.bzTableArrayData)
+        saveArray(bzTableArrayDecoded, forKey: mhrsb.bzTableArrayKey)
+        let bzAtArrayDecoded = decodeStringArray(from: mhrsbMemory2.bzAtArrayData)
+        saveArray(bzAtArrayDecoded, forKey: mhrsb.bzAtArrayKey)
+        mhrsb.firstHitCountBz = mhrsbMemory2.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory2.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory2.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory2.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory2.screenCount1
@@ -330,6 +469,34 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCountSum = mhrsbMemory2.endingCountSum
     }
     func loadMemory3() {
+        mhrsb.quest1CountMiss = mhrsbMemory3.quest1CountMiss
+        mhrsb.quest1CountHit = mhrsbMemory3.quest1CountHit
+        mhrsb.quest1CountSum = mhrsbMemory3.quest1CountSum
+        mhrsb.quest2CountMiss = mhrsbMemory3.quest2CountMiss
+        mhrsb.quest2CountHit = mhrsbMemory3.quest2CountHit
+        mhrsb.quest2CountSum = mhrsbMemory3.quest2CountSum
+        mhrsb.quest3CountMiss = mhrsbMemory3.quest3CountMiss
+        mhrsb.quest3CountHit = mhrsbMemory3.quest3CountHit
+        mhrsb.quest3CountSum = mhrsbMemory3.quest3CountSum
+        mhrsb.quest4CountMiss = mhrsbMemory3.quest4CountMiss
+        mhrsb.quest4CountHit = mhrsbMemory3.quest4CountHit
+        mhrsb.quest4CountSum = mhrsbMemory3.quest4CountSum
+        mhrsb.quest5CountMiss = mhrsbMemory3.quest5CountMiss
+        mhrsb.quest5CountHit = mhrsbMemory3.quest5CountHit
+        mhrsb.quest5CountSum = mhrsbMemory3.quest5CountSum
+        mhrsb.quest6CountMiss = mhrsbMemory3.quest6CountMiss
+        mhrsb.quest6CountHit = mhrsbMemory3.quest6CountHit
+        mhrsb.quest6CountSum = mhrsbMemory3.quest6CountSum
+        let bzCzNumberArrayDecoded = decodeIntArray(from: mhrsbMemory3.bzCzNumberArrayData)
+        saveArray(bzCzNumberArrayDecoded, forKey: mhrsb.bzCzNumberArrayKey)
+        let bzCzKindArrayDecoded = decodeStringArray(from: mhrsbMemory3.bzCzKindArrayData)
+        saveArray(bzCzKindArrayDecoded, forKey: mhrsb.bzCzKindArrayKey)
+        let bzTableArrayDecoded = decodeIntArray(from: mhrsbMemory3.bzTableArrayData)
+        saveArray(bzTableArrayDecoded, forKey: mhrsb.bzTableArrayKey)
+        let bzAtArrayDecoded = decodeStringArray(from: mhrsbMemory3.bzAtArrayData)
+        saveArray(bzAtArrayDecoded, forKey: mhrsb.bzAtArrayKey)
+        mhrsb.firstHitCountBz = mhrsbMemory3.firstHitCountBz
+        mhrsb.firstHitCountFukubiki = mhrsbMemory3.firstHitCountFukubiki
         mhrsb.normalGame = mhrsbMemory3.normalGame
         mhrsb.firstHitCountAt = mhrsbMemory3.firstHitCountAt
         mhrsb.screenCount1 = mhrsbMemory3.screenCount1

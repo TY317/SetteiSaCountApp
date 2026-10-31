@@ -15,8 +15,13 @@ struct kanokariViewBayes: View {
     let payoutList: [Double] = [97.7, 98.7, 101.0, 105.5, 110.4, 114.9]
     @State var firstHitCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
+    @State var regTenjoEnable: Bool = true
+    @State var zoneEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var rbCharaEnable: Bool = true
+    @State var koryakuCharaEnable: Bool = true
+    @State var comebackYumekanoEnable: Bool = true
+    @State var dreamEnable: Bool = true
     @State var endingVoiceEnable: Bool = true
 
     // 全機種共通
@@ -45,6 +50,9 @@ struct kanokariViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                
+                // ゾーンでのCZ当選率
+                unitToggleWithQuestion(enable: self.$zoneEnable, title: "ゾーンでのCZ当選率（独自算出）")
 
                 // CZ確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ確率")
@@ -52,21 +60,31 @@ struct kanokariViewBayes: View {
                 // 初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "初当り確率")
 
-                // 終了画面
-                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
-                    unitExView5body2image(
-                        title: "終了画面",
-                        textBody1: "・確定系のみ反映させます"
-                    )
-                }
-
+                // REG連続天井
+                unitToggleWithQuestion(enable: self.$regTenjoEnable, title: "REG連続天井（3〜5回目）")
+                
                 // RB中 キャラ紹介シナリオ
                 unitToggleWithQuestion(enable: self.$rbCharaEnable, title: "RB中 キャラ紹介シナリオ") {
                     unitExView5body2image(
                         title: "RB中 キャラ紹介シナリオ",
-                        textBody1: "・確定系のみ反映させます"
+                        textBody1: "・全シナリオの振分けを反映させます"
                     )
                 }
+
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・全種類の振分けを反映させます"
+                    )
+                }
+
+                // 1Gレンチャンス 攻略キャラ順
+                unitToggleWithQuestion(enable: self.$koryakuCharaEnable, title: "1Gレンチャンス 攻略キャラ順")
+
+                // 引き戻し
+                unitToggleWithQuestion(enable: self.$comebackYumekanoEnable, title: "引き戻し期待度（ユメカノモード）")
+                unitToggleWithQuestion(enable: self.$dreamEnable, title: "引き戻し時のななかりDREAM当選率")
 
                 // エンディング ボイス
                 unitToggleWithQuestion(enable: self.$endingVoiceEnable, title: "エンディング ボイス") {
@@ -163,33 +181,91 @@ struct kanokariViewBayes: View {
             )
         }
 
+        // ゾーンでのCZ当選率（独自算出。3つの割合の積＝1回のBONUS後の結果の確率）
+        var logPostZone: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.zoneEnable {
+            let logPostZone100 = logPostPercentBino(
+                ratio: kanokari.ratioZone100,
+                Count: kanokari.zone100CountHit,
+                bigNumber: kanokari.zone100CountSum
+            )
+            let logPostZone300Atari = logPostPercentBino(
+                ratio: kanokari.ratioZone300Atari,
+                Count: kanokari.zone300AtariCountHit,
+                bigNumber: kanokari.zone300AtariCountSum
+            )
+            let logPostZone300Through = logPostPercentBino(
+                ratio: kanokari.ratioZone300Through,
+                Count: kanokari.zone300ThroughCountHit,
+                bigNumber: kanokari.zone300ThroughCountSum
+            )
+            logPostZone = arraySumDouble([
+                logPostZone100,
+                logPostZone300Atari,
+                logPostZone300Through,
+            ])
+        }
+
+        // REG連続天井（段階ごとの天井率の積＝振分けの確率になる）
+        var logPostRegTenjo: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.regTenjoEnable {
+            let logPostRegTenjo3 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage3,
+                Count: kanokari.regTenjo3CountHit,
+                bigNumber: kanokari.regTenjo3CountSum
+            )
+            let logPostRegTenjo4 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage4,
+                Count: kanokari.regTenjo4CountHit,
+                bigNumber: kanokari.regTenjo4CountSum
+            )
+            let logPostRegTenjo5 = logPostPercentBino(
+                ratio: kanokari.ratioRegTenjoStage5,
+                Count: kanokari.regTenjo5CountHit,
+                bigNumber: kanokari.regTenjo5CountSum
+            )
+            logPostRegTenjo = arraySumDouble([
+                logPostRegTenjo3,
+                logPostRegTenjo4,
+                logPostRegTenjo5,
+            ])
+        }
+
         // 終了画面
-        // 確定系（赤枠／紫枠／銀枠／金枠）のみ渡し、示唆系は残余バケットに吸収させる
+        // 枠なし（screenCount1）を残余バケットにし、それ以外の6種類を渡す
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
             logPostScreen = logPostPercentMulti(
                 countList: [
+                    kanokari.screenCount2,
+                    kanokari.screenCount3,
                     kanokari.screenCount4,
                     kanokari.screenCount5,
                     kanokari.screenCount6,
                     kanokari.screenCount7,
                 ],
                 ratioList: [
-                    kanokari.ratioScreenOver2,
-                    kanokari.ratioScreenOver4,
-                    kanokari.ratioScreenOver5,
-                    kanokari.ratioScreenOver6,
+                    kanokari.ratioScreen2,
+                    kanokari.ratioScreen3,
+                    kanokari.ratioScreen4,
+                    kanokari.ratioScreen5,
+                    kanokari.ratioScreen6,
+                    kanokari.ratioScreen7,
                 ],
                 bigNumber: kanokari.screenCountSum
             )
         }
 
         // RB中 キャラ紹介シナリオ
-        // 確定系（設定1〜5否定、設定2〜5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        // デフォルト（①）を残余バケットにし、それ以外の14種類を渡す
         var logPostRbChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.rbCharaEnable {
             logPostRbChara = logPostPercentMulti(
                 countList: [
+                    kanokari.rbCharaCountKisu,
+                    kanokari.rbCharaCountGusu,
+                    kanokari.rbCharaCountHighJaku,
+                    kanokari.rbCharaCountHighKyo,
                     kanokari.rbCharaCountNegate1,
                     kanokari.rbCharaCountNegate2,
                     kanokari.rbCharaCountNegate3,
@@ -202,6 +278,10 @@ struct kanokariViewBayes: View {
                     kanokari.rbCharaCountOver6,
                 ],
                 ratioList: [
+                    kanokari.ratioRbCharaKisu,
+                    kanokari.ratioRbCharaGusu,
+                    kanokari.ratioRbCharaHighJaku,
+                    kanokari.ratioRbCharaHighKyo,
                     kanokari.ratioRbCharaNegate1,
                     kanokari.ratioRbCharaNegate2,
                     kanokari.ratioRbCharaNegate3,
@@ -214,6 +294,45 @@ struct kanokariViewBayes: View {
                     kanokari.ratioRbCharaOver6,
                 ],
                 bigNumber: kanokari.rbCharaCountSum
+            )
+        }
+
+        // 引き戻し期待度（ユメカノモード）
+        var logPostComebackYumekano: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.comebackYumekanoEnable {
+            logPostComebackYumekano = logPostPercentBino(
+                ratio: kanokari.ratioComebackYumekano,
+                Count: kanokari.comebackYumekanoCountHit,
+                bigNumber: kanokari.comebackYumekanoCountSum
+            )
+        }
+
+        // 引き戻し時のななかりDREAM当選率（非ユメカノ／ユメカノの合計）
+        var logPostDream: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.dreamEnable {
+            let logPostDreamNormal = logPostPercentBino(
+                ratio: kanokari.ratioDreamNormal,
+                Count: kanokari.dreamNormalCountHit,
+                bigNumber: kanokari.dreamNormalCountSum
+            )
+            let logPostDreamYumekano = logPostPercentBino(
+                ratio: kanokari.ratioDreamYumekano,
+                Count: kanokari.dreamYumekanoCountHit,
+                bigNumber: kanokari.dreamYumekanoCountSum
+            )
+            logPostDream = arraySumDouble([
+                logPostDreamNormal,
+                logPostDreamYumekano,
+            ])
+        }
+
+        // 1Gレンチャンス 攻略キャラ順（偶数示唆の合算で判別）
+        var logPostKoryakuChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.koryakuCharaEnable {
+            logPostKoryakuChara = logPostPercentBino(
+                ratio: kanokari.ratioKoryakuCharaGusu,
+                Count: kanokari.koryakuCharaCount1,
+                bigNumber: kanokari.koryakuCharaCountSum
             )
         }
 
@@ -253,8 +372,13 @@ struct kanokariViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitBonus,
+            logPostRegTenjo,
+            logPostZone,
             logPostScreen,
             logPostRbChara,
+            logPostKoryakuChara,
+            logPostComebackYumekano,
+            logPostDream,
             logPostEndingVoice,
             logPostTrophy,
             logPostBefore,

@@ -169,14 +169,26 @@ struct juoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        juoMemory1.cherryCount = juo.cherryCount
+        juoMemory1.cherryCountScHigh = juo.cherryCountScHigh
+        juoMemory1.rareReplayCount = juo.rareReplayCount
+        juoMemory1.rareReplayCountScHigh = juo.rareReplayCountScHigh
         juoMemory1.normalGame = juo.normalGame
         juoMemory1.firstHitCountSc = juo.firstHitCountSc
     }
     func saveMemory2() {
+        juoMemory2.cherryCount = juo.cherryCount
+        juoMemory2.cherryCountScHigh = juo.cherryCountScHigh
+        juoMemory2.rareReplayCount = juo.rareReplayCount
+        juoMemory2.rareReplayCountScHigh = juo.rareReplayCountScHigh
         juoMemory2.normalGame = juo.normalGame
         juoMemory2.firstHitCountSc = juo.firstHitCountSc
     }
     func saveMemory3() {
+        juoMemory3.cherryCount = juo.cherryCount
+        juoMemory3.cherryCountScHigh = juo.cherryCountScHigh
+        juoMemory3.rareReplayCount = juo.rareReplayCount
+        juoMemory3.rareReplayCountScHigh = juo.rareReplayCountScHigh
         juoMemory3.normalGame = juo.normalGame
         juoMemory3.firstHitCountSc = juo.firstHitCountSc
     }
@@ -210,14 +222,26 @@ struct juoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        juo.cherryCount = juoMemory1.cherryCount
+        juo.cherryCountScHigh = juoMemory1.cherryCountScHigh
+        juo.rareReplayCount = juoMemory1.rareReplayCount
+        juo.rareReplayCountScHigh = juoMemory1.rareReplayCountScHigh
         juo.normalGame = juoMemory1.normalGame
         juo.firstHitCountSc = juoMemory1.firstHitCountSc
     }
     func loadMemory2() {
+        juo.cherryCount = juoMemory2.cherryCount
+        juo.cherryCountScHigh = juoMemory2.cherryCountScHigh
+        juo.rareReplayCount = juoMemory2.rareReplayCount
+        juo.rareReplayCountScHigh = juoMemory2.rareReplayCountScHigh
         juo.normalGame = juoMemory2.normalGame
         juo.firstHitCountSc = juoMemory2.firstHitCountSc
     }
     func loadMemory3() {
+        juo.cherryCount = juoMemory3.cherryCount
+        juo.cherryCountScHigh = juoMemory3.cherryCountScHigh
+        juo.rareReplayCount = juoMemory3.rareReplayCount
+        juo.rareReplayCountScHigh = juoMemory3.rareReplayCountScHigh
         juo.normalGame = juoMemory3.normalGame
         juo.firstHitCountSc = juoMemory3.firstHitCountSc
     }

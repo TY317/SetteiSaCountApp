@@ -14,6 +14,8 @@ struct juoViewBayes: View {
     let settingList: [Int] = [1, 2, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.8, 98.7, 105.6, 108.6, 114.3]
     @State var firstHitScEnable: Bool = true
+    @State var cherryScHighEnable: Bool = true
+    @State var rareReplayScHighEnable: Bool = true
 
     // 全機種共通
     @EnvironmentObject var common: commonVar
@@ -45,6 +47,9 @@ struct juoViewBayes: View {
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // サバンナチャンス初当り確率
+                // レア役成立時のSC高確移行率
+                unitToggleWithQuestion(enable: self.$cherryScHighEnable, title: "🍒成立時のSC高確移行率")
+                unitToggleWithQuestion(enable: self.$rareReplayScHighEnable, title: "レアリプレイ成立時のSC高確移行率")
                 unitToggleWithQuestion(enable: self.$firstHitScEnable, title: "サバンナチャンス初当り確率")
 
 
@@ -117,6 +122,26 @@ struct juoViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // チェリー成立時のSC高確移行率
+        var logPostCherryScHigh: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cherryScHighEnable {
+            logPostCherryScHigh = logPostPercentBino(
+                ratio: juo.ratioCherryScHigh,
+                Count: juo.cherryCountScHigh,
+                bigNumber: juo.cherryCount
+            )
+        }
+
+        // レアリプレイ成立時のSC高確移行率
+        var logPostRareReplayScHigh: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareReplayScHighEnable {
+            logPostRareReplayScHigh = logPostPercentBino(
+                ratio: juo.ratioRareReplayScHigh,
+                Count: juo.rareReplayCountScHigh,
+                bigNumber: juo.rareReplayCount
+            )
+        }
+
         // サバンナチャンス初当り確率
         var logPostFirstHitSc: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitScEnable {
@@ -158,6 +183,8 @@ struct juoViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostCherryScHigh,
+            logPostRareReplayScHigh,
             logPostFirstHitSc,
             logPostTrophy,
             logPostBefore,
