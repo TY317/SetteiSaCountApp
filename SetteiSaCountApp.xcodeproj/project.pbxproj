@@ -1908,6 +1908,7 @@
 		5B399710050040B087038893 /* seiyaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */; };
 		5E7F7798FD514B8CAFBD039A /* seiyaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */; };
 		04728B950C43410FB95F4587 /* seiyaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */; };
+		99C5E3924D434BA6A87B8E2C /* seiyaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */; };
 		D0DC0383874945F89A54ADDA /* seiyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */; };
 		74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6985A04E9EA84FC0B7F4FAF4 /* goeva2ViewEnding.swift */; };
 		690FE88E5CC24FFC9861CAA2 /* goeva2ViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9641C946BE8478DB94A7866 /* goeva2ViewScreen.swift */; };
@@ -3588,6 +3589,7 @@
 		D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewNormal.swift; sourceTree = "<group>"; };
 		A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewFirstHit.swift; sourceTree = "<group>"; };
 		FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaView95Ci.swift; sourceTree = "<group>"; };
+		51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewBayes.swift; sourceTree = "<group>"; };
 		908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = seiyaAssets.xcassets; sourceTree = "<group>"; };
 		6985A04E9EA84FC0B7F4FAF4 /* goeva2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewEnding.swift; sourceTree = "<group>"; };
 		A9641C946BE8478DB94A7866 /* goeva2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewScreen.swift; sourceTree = "<group>"; };
@@ -3702,6 +3704,7 @@
 				D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */,
 				A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */,
 				FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */,
+				51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */,
 				908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */,
 			);
 			path = seiya;
@@ -8292,6 +8295,7 @@
 				5B399710050040B087038893 /* seiyaViewNormal.swift in Sources */,
 				5E7F7798FD514B8CAFBD039A /* seiyaViewFirstHit.swift in Sources */,
 				04728B950C43410FB95F4587 /* seiyaView95Ci.swift in Sources */,
+				99C5E3924D434BA6A87B8E2C /* seiyaViewBayes.swift in Sources */,
 				74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */,
 				690FE88E5CC24FFC9861CAA2 /* goeva2ViewScreen.swift in Sources */,
 				27F72CA5052C41FD95411B04 /* kanokariClass.swift in Sources */,
