@@ -60,15 +60,15 @@ struct goeva2ViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: goeva2ViewBayes(
-//                    goeva2: goeva2,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.goeva2MenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: goeva2ViewBayes(
+                    goeva2: goeva2,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.goeva2MenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5119")
