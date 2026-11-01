@@ -37,6 +37,72 @@ struct goeva2ViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- スイカ成立時のCZ当選率
+            Section {
+                // 当選率
+                unitResultRatioPercent2Line(
+                    title: "🍉→CZ",
+                    count: $goeva2.suikaCzCount,
+                    bigNumber: $goeva2.suikaCount,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）スイカ成立時のCZ当選率
+                unitLinkButtonViewBuilder(sheetTitle: "🍉からのCZ当選率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "CZ",
+                            percentList: goeva2.ratioSuikaCz,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // スイカ
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "🍉成立",
+                            count: $goeva2.suikaCount,
+                            color: .personalSummerLightGreen,
+                            minusBool: $goeva2.minusCheck) {
+                            }
+                        // CZ当選
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "CZ当選",
+                            count: $goeva2.suikaCzCount,
+                            color: .personalSummerLightPurple,
+                            minusBool: $goeva2.minusCheck) {
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            goeva2View95Ci(
+                                goeva2: goeva2,
+                                selection: 1,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        goeva2ViewBayes(
+                            goeva2: goeva2,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("🍉からのCZ当選率")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.goeva2MenuNormalBadge)

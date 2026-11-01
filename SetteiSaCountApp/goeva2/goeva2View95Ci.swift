@@ -14,6 +14,24 @@ struct goeva2View95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // スイカ成立時のCZ当選率
+            unitListSection95Ci(
+                grafTitle: "🍉からのCZ当選率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.suikaCzCount,
+                        bigNumber: $goeva2.suikaCount,
+                        setting1Percent: goeva2.ratioSuikaCz[0],
+                        setting2Percent: goeva2.ratioSuikaCz[1],
+                        setting3Percent: goeva2.ratioSuikaCz[2],
+                        setting4Percent: goeva2.ratioSuikaCz[3],
+                        setting5Percent: goeva2.ratioSuikaCz[4],
+                        setting6Percent: goeva2.ratioSuikaCz[5]
+                    )
+                )
+            )
+            .tag(1)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

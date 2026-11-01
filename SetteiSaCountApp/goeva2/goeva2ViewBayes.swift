@@ -23,6 +23,7 @@ struct goeva2ViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var suikaCzEnable: Bool = true
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     var body: some View {
         List {
@@ -39,6 +40,8 @@ struct goeva2ViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // スイカ成立時のCZ当選率
+                unitToggleWithQuestion(enable: self.$suikaCzEnable, title: "🍉からのCZ当選率")
 
 //                // トロフィー
 //                DisclosureGroup("トロフィー") {
@@ -105,6 +108,15 @@ struct goeva2ViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // スイカ成立時のCZ当選率
+        var logPostSuikaCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.suikaCzEnable {
+            logPostSuikaCz = logPostPercentBino(
+                ratio: goeva2.ratioSuikaCz,
+                Count: goeva2.suikaCzCount,
+                bigNumber: goeva2.suikaCount
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -118,6 +130,7 @@ struct goeva2ViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostSuikaCz,
             logPostTrophy,
             logPostBefore,
         ])

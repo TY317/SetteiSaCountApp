@@ -13,8 +13,14 @@ class Goeva2: ObservableObject {
     // -------
     // 通常時
     // -------
+    // スイカ成立時のCZ当選率
+    let ratioSuikaCz: [Double] = [21.9,23.4,25.0,28.1,29.7,31.3]
+    @AppStorage("goeva2SuikaCount") var suikaCount: Int = 0
+    @AppStorage("goeva2SuikaCzCount") var suikaCzCount: Int = 0
 
     func resetNormal() {
+        suikaCount = 0
+        suikaCzCount = 0
         minusCheck = false
     }
 
