@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5119", name: "ゴジエヴァ2", fullName: "ゴジラ対エヴァンゲリオン2", iconName: "goeva2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5061", name: "獣王", fullName: "獣王", iconName: "juoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5095", name: "モンハンSB", fullName: "モンスターハンターライズ：サンブレイク", iconName: "mhrsbMachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5065", name: "かのかり", fullName: "彼女、お借りします", iconName: "kanokariMachineIcon", btBadge: false, maker: "SANKYO"),
@@ -378,6 +379,12 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
     @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
+
+    // ---- ゴジラ対エヴァンゲリオン2
+    @AppStorage("goeva2MenuNormalBadge") var goeva2MenuNormalBadge: String = "none"
+    @AppStorage("goeva2MenuFirstHitBadge") var goeva2MenuFirstHitBadge: String = "none"
+    @AppStorage("goeva2MenuBayesBadge") var goeva2MenuBayesBadge: String = "none"
+    @AppStorage("goeva2MenuScreenBadge") var goeva2MenuScreenBadge: String = "none"
 
     // ---- 獣王
     @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"
@@ -862,6 +869,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5119", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5119", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }

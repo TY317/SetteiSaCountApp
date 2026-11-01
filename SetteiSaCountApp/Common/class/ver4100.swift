@@ -18,7 +18,7 @@ struct tipVer4100UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("")
+        Text("・ゴジラ対エヴァンゲリオン2")
     }
     var image: Image? {
         Image(systemName: "star")
