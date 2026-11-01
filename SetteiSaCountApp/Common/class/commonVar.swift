@@ -385,6 +385,7 @@ class commonVar: ObservableObject {
     @AppStorage("goeva2MenuFirstHitBadge") var goeva2MenuFirstHitBadge: String = "none"
     @AppStorage("goeva2MenuBayesBadge") var goeva2MenuBayesBadge: String = "none"
     @AppStorage("goeva2MenuScreenBadge") var goeva2MenuScreenBadge: String = "none"
+    @AppStorage("goeva2MenuEndingBadge") var goeva2MenuEndingBadge: String = "none"
 
     // ---- 獣王
     @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"

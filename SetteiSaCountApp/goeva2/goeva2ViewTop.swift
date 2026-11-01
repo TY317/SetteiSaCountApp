@@ -52,6 +52,17 @@ struct goeva2ViewTop: View {
                             badgeStatus: common.goeva2MenuScreenBadge,
                         )
                     }
+
+                    // エンディング
+                    NavigationLink(destination: goeva2ViewEnding(
+                        goeva2: goeva2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.goeva2MenuEndingBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: goeva2.machineName,
