@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5104", name: "聖闘士星矢", fullName: "聖闘士星矢 黄金十二宮", iconName: "seiyaMachineIcon", btBadge: false, maker: "SANYO"),
         Machine(id: "5119", name: "ゴジエヴァ2", fullName: "ゴジラ対エヴァンゲリオン2", iconName: "goeva2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5061", name: "獣王", fullName: "獣王", iconName: "juoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5095", name: "モンハンSB", fullName: "モンスターハンターライズ：サンブレイク", iconName: "mhrsbMachineIcon", btBadge: false, maker: "エンターライズ"),
@@ -379,6 +380,12 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
     @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
+
+    // ---- 聖闘士星矢 黄金十二宮
+    @AppStorage("seiyaMenuNormalBadge") var seiyaMenuNormalBadge: String = "none"
+    @AppStorage("seiyaMenuFirstHitBadge") var seiyaMenuFirstHitBadge: String = "none"
+    @AppStorage("seiyaMenuBayesBadge") var seiyaMenuBayesBadge: String = "none"
+    @AppStorage("seiyaMenuScreenBadge") var seiyaMenuScreenBadge: String = "none"
 
     // ---- ゴジラ対エヴァンゲリオン2
     @AppStorage("goeva2MenuNormalBadge") var goeva2MenuNormalBadge: String = "none"
@@ -872,6 +879,8 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5119", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5119", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5104", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5104", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }
