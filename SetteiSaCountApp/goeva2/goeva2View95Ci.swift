@@ -165,6 +165,42 @@ struct goeva2View95Ci: View {
             )
             .tag(8)
 
+            // ボーナス初当り確率
+            unitListSection95Ci(
+                grafTitle: "ボーナス初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $goeva2.firstHitCountBonus,
+                        bigNumber: $goeva2.playGameSum,
+                        setting1Denominate: goeva2.ratioFirstHitBonus[0],
+                        setting2Denominate: goeva2.ratioFirstHitBonus[1],
+                        setting3Denominate: goeva2.ratioFirstHitBonus[2],
+                        setting4Denominate: goeva2.ratioFirstHitBonus[3],
+                        setting5Denominate: goeva2.ratioFirstHitBonus[4],
+                        setting6Denominate: goeva2.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(9)
+
+            // AT初当り確率
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $goeva2.firstHitCountAt,
+                        bigNumber: $goeva2.playGameSum,
+                        setting1Denominate: goeva2.ratioFirstHitAt[0],
+                        setting2Denominate: goeva2.ratioFirstHitAt[1],
+                        setting3Denominate: goeva2.ratioFirstHitAt[2],
+                        setting4Denominate: goeva2.ratioFirstHitAt[3],
+                        setting5Denominate: goeva2.ratioFirstHitAt[4],
+                        setting6Denominate: goeva2.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(10)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

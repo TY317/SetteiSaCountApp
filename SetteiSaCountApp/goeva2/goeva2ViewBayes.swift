@@ -24,6 +24,8 @@ struct goeva2ViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var suikaCzEnable: Bool = true
+    @State var firstHitBonusEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     var body: some View {
         List {
@@ -42,6 +44,10 @@ struct goeva2ViewBayes: View {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // スイカ成立時のCZ当選率
                 unitToggleWithQuestion(enable: self.$suikaCzEnable, title: "🍉からのCZ当選率")
+                // ボーナス初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
 //                // トロフィー
 //                DisclosureGroup("トロフィー") {
@@ -118,6 +124,26 @@ struct goeva2ViewBayes: View {
             )
         }
 
+        // ボーナス初当り確率
+        var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitBonusEnable {
+            logPostFirstHitBonus = logPostDenoBino(
+                ratio: goeva2.ratioFirstHitBonus,
+                Count: goeva2.firstHitCountBonus,
+                bigNumber: goeva2.playGameSum
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: goeva2.ratioFirstHitAt,
+                Count: goeva2.firstHitCountAt,
+                bigNumber: goeva2.playGameSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -131,6 +157,8 @@ struct goeva2ViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostSuikaCz,
+            logPostFirstHitBonus,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

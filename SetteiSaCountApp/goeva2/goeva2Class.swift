@@ -64,9 +64,79 @@ class Goeva2: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitBonus: [Double] = [234.2,229.0,221.8,207.0,201.5,195.0]
+    let ratioFirstHitAt: [Double] = [460.5,446.5,425.5,390.4,374.2,355.5]
+    // 選択肢
+    let bonusKindList: [String] = ["エヴァンゲリオンボーナス", "ゴジラボーナス", "AT直撃"]
+    let bonusKindShortList: [String] = ["エヴァ", "ゴジラ", "AT直撃"]   // 履歴表示用
+    let atResultList: [String] = ["ハズレ", "当選"]
+    // 選択結果
+    @AppStorage("goeva2InputGame") var inputGame: Int = 0
+    @AppStorage("goeva2SelectedBonusKind") var selectedBonusKind: String = "エヴァンゲリオンボーナス"
+    @AppStorage("goeva2SelectedAtResult") var selectedAtResult: String = "ハズレ"
 
+    // ゲーム数配列
+    let gameArrayKey: String = "goeva2GameArrayKey"
+    @AppStorage("goeva2GameArrayKey") var gameArrayData: Data?
+    // ボーナス種類配列
+    let bonusKindArrayKey: String = "goeva2BonusKindArrayKey"
+    @AppStorage("goeva2BonusKindArrayKey") var bonusKindArrayData: Data?
+    // AT当否配列
+    let atResultArrayKey: String = "goeva2AtResultArrayKey"
+    @AppStorage("goeva2AtResultArrayKey") var atResultArrayData: Data?
+
+    // 履歴からの自動算出結果
+    @AppStorage("goeva2PlayGameSum") var playGameSum: Int = 0
+    @AppStorage("goeva2FirstHitCountBonus") var firstHitCountBonus: Int = 0
+    @AppStorage("goeva2FirstHitCountAt") var firstHitCountAt: Int = 0
+
+    // データ登録
+    func addHistory() {
+        // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
+        let atResult = selectedBonusKind == bonusKindList[2] ? atResultList[1] : selectedAtResult
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: bonusKindArrayData, addData: selectedBonusKind, key: bonusKindArrayKey)
+        arrayStringAddData(arrayData: atResultArrayData, addData: atResult, key: atResultArrayKey)
+        addRemoveCommon()
+    }
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: bonusKindArrayData, key: bonusKindArrayKey)
+        arrayStringRemoveLast(arrayData: atResultArrayData, key: atResultArrayKey)
+        addRemoveCommon()
+    }
     func resetFirstHit() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: bonusKindArrayData, key: bonusKindArrayKey)
+        arrayStringRemoveAll(arrayData: atResultArrayData, key: atResultArrayKey)
+        addRemoveCommon()
+        inputGame = 0
         minusCheck = false
+    }
+    func addRemoveCommon() {
+        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        // ボーナスはエヴァンゲリオンボーナスとゴジラボーナスの合算
+        firstHitCountBonus = countSum(
+            arrayStringDataCount(arrayData: bonusKindArrayData, countString: bonusKindList[0]),
+            arrayStringDataCount(arrayData: bonusKindArrayData, countString: bonusKindList[1]),
+        )
+        firstHitCountAt = arrayStringDataCount(arrayData: atResultArrayData, countString: atResultList[1])
+    }
+
+    // 履歴表示用のボーナス種類名
+    func bonusKindShortName(_ kind: String) -> String {
+        guard let index = bonusKindList.firstIndex(of: kind) else { return kind }
+        return bonusKindShortList[index]
+    }
+
+    // AT区間の先頭行かどうか（先頭行、または1つ前がAT当選）
+    var atIntervalStartFlagList: [Bool] {
+        let atArray = decodeStringArray(from: atResultArrayData)
+        return atArray.indices.map { index in
+            if index == 0 { return true }
+            return atArray[index - 1] == atResultList[1]
+        }
     }
 
     // -----------
