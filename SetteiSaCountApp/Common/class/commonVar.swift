@@ -828,6 +828,9 @@ class commonVar: ObservableObject {
         machines.updateMachineIsUnlocked(id: "5010", isUnlocked: true)
         // ver4.2.0 の移行処理から引き継ぎ
         machines.updateMachineIsUnlocked(id: "5015", isUnlocked: true)
+        // ver4.3.0 の移行処理から引き継ぎ
+        machines.updateMachineIsUnlocked(id: "5053", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5055", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -1054,38 +1057,6 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5020", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5068", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5068", isUnlocked: false)
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver430FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.3.0"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5053", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5053", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5055", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5055", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "4450", newStatus: "update")
-                mt5MenuMedalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4742", newStatus: "update")
-                tokyoGhoulMenuFirstHitBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4712", newStatus: "update")
-                sbjMenuNormalBadgeStatus = "update"
-                machines.updateMachineBadgeStatus(id: "4913", newStatus: "update")
-                tekken6MenuScreenBadge = "update"
-                machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
-                otome5MenuEndingBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

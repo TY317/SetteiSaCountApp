@@ -410,7 +410,6 @@ struct tokyoGhoulViewHistory: View {
                         )
                     )
                 )
-                .popoverTip(tipVer430TokyoGhoulUraAt())
                 // //// 参考情報）弱チェからのCZ
                 unitLinkButton(
                     title: "弱🍒からのCZ当選について",

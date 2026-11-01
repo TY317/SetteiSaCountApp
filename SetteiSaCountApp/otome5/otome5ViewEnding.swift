@@ -66,7 +66,6 @@ struct otome5ViewEnding: View {
                 }
                 .pickerStyle(.wheel)
                 .frame(height: 150)
-                .popoverTip(tipVer430Otome5Voice())
 
                 // //// 示唆＆登録ボタン
                 unitCountSubmitWithResult(
