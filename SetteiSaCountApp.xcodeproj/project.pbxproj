@@ -1908,6 +1908,8 @@
 		5B399710050040B087038893 /* seiyaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */; };
 		5E7F7798FD514B8CAFBD039A /* seiyaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */; };
 		04728B950C43410FB95F4587 /* seiyaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */; };
+		D1D399A5DBC048F48D97D3B3 /* seiyaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */; };
+		51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */; };
 		99C5E3924D434BA6A87B8E2C /* seiyaViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */; };
 		D0DC0383874945F89A54ADDA /* seiyaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */; };
 		74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6985A04E9EA84FC0B7F4FAF4 /* goeva2ViewEnding.swift */; };
@@ -3589,6 +3591,7 @@
 		D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewNormal.swift; sourceTree = "<group>"; };
 		A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewFirstHit.swift; sourceTree = "<group>"; };
 		FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaView95Ci.swift; sourceTree = "<group>"; };
+		4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewBayes.swift; sourceTree = "<group>"; };
 		908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = seiyaAssets.xcassets; sourceTree = "<group>"; };
 		6985A04E9EA84FC0B7F4FAF4 /* goeva2ViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewEnding.swift; sourceTree = "<group>"; };
@@ -3704,6 +3707,7 @@
 				D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */,
 				A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */,
 				FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */,
+				4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */,
 				51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */,
 				908835869AA344F3B8DEF04B /* seiyaAssets.xcassets */,
 			);
@@ -7429,6 +7433,7 @@
 				B16E3BCFE268426798E3F457 /* mhrsbTableKoyakuPattern.swift in Sources */,
 				8D1748C80D9F49039BDCC599 /* juoTableKoyakuPattern.swift in Sources */,
 				14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */,
+				D1D399A5DBC048F48D97D3B3 /* seiyaTableKoyakuPattern.swift in Sources */,
 				43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */,
 				ED72F5F313BB43D5864C9711 /* gareiTableKoyakuPattern.swift in Sources */,
 				DDAC4C76D0C84F198B325AB1 /* tonskillTableKoyakuPattern.swift in Sources */,
@@ -8587,6 +8592,7 @@
 				F82AFE2EBB2F4FE1B30FFEE0 /* mhrsbTableKoyakuPattern.swift in Sources */,
 				1D06CBB4F34640B89E14C5A7 /* juoTableKoyakuPattern.swift in Sources */,
 				C26102E52F4F4FA3BCC12CE2 /* goeva2TableKoyakuPattern.swift in Sources */,
+				51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */,
 				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
 				0A90FE0685C54E79B51946E6 /* tonskillTableKoyakuPattern.swift in Sources */,
