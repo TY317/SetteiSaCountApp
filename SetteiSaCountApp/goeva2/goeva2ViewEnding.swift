@@ -57,6 +57,7 @@ struct goeva2ViewEnding: View {
                         lineList: [7],
                     )
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
             } header: {
                 Text("キャラ別セリフ")
             }
