@@ -28,16 +28,6 @@ struct goeva2ViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
-            // レア役
-            Section {
-                // レア役停止系
-                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
-                    goeva2TableKoyakuPattern()
-                }
-            } header: {
-                Text("小役")
-            }
-
             // ---- スイカ成立時のCZ当選率
             Section {
                 // 当選率
@@ -102,6 +92,16 @@ struct goeva2ViewNormal: View {
                 }
             } header: {
                 Text("🍉からのCZ当選率")
+            }
+            
+            // レア役
+            Section {
+                // レア役停止系
+                unitLinkButtonViewBuilder(sheetTitle: "レア役停止系") {
+                    goeva2TableKoyakuPattern()
+                }
+            } header: {
+                Text("小役")
             }
         }
         // //// バッジのリセット

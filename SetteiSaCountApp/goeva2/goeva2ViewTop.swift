@@ -44,7 +44,7 @@ struct goeva2ViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: goeva2.machineName,
-                        titleFont: .title,
+                        titleFont: .title2,
                     )
                 }
 
