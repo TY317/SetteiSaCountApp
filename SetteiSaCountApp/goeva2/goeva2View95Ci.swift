@@ -32,6 +32,139 @@ struct goeva2View95Ci: View {
             )
             .tag(1)
 
+            // 通常 弱レア系からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "通常 弱レア系→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusNormalWeakCountHit,
+                        bigNumber: $goeva2.bonusNormalWeakCount,
+                        setting1Percent: goeva2.ratioBonusNormalWeak[0],
+                        setting2Percent: goeva2.ratioBonusNormalWeak[1],
+                        setting3Percent: goeva2.ratioBonusNormalWeak[2],
+                        setting4Percent: goeva2.ratioBonusNormalWeak[3],
+                        setting5Percent: goeva2.ratioBonusNormalWeak[4],
+                        setting6Percent: goeva2.ratioBonusNormalWeak[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // 通常 強レア系①からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "通常 強レア系①→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusNormalStrong1CountHit,
+                        bigNumber: $goeva2.bonusNormalStrong1Count,
+                        setting1Percent: goeva2.ratioBonusNormalStrong1[0],
+                        setting2Percent: goeva2.ratioBonusNormalStrong1[1],
+                        setting3Percent: goeva2.ratioBonusNormalStrong1[2],
+                        setting4Percent: goeva2.ratioBonusNormalStrong1[3],
+                        setting5Percent: goeva2.ratioBonusNormalStrong1[4],
+                        setting6Percent: goeva2.ratioBonusNormalStrong1[5]
+                    )
+                )
+            )
+            .tag(3)
+
+            // 通常 強レア系②からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "通常 強レア系②→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusNormalStrong2CountHit,
+                        bigNumber: $goeva2.bonusNormalStrong2Count,
+                        setting1Percent: goeva2.ratioBonusNormalStrong2[0],
+                        setting2Percent: goeva2.ratioBonusNormalStrong2[1],
+                        setting3Percent: goeva2.ratioBonusNormalStrong2[2],
+                        setting4Percent: goeva2.ratioBonusNormalStrong2[3],
+                        setting5Percent: goeva2.ratioBonusNormalStrong2[4],
+                        setting6Percent: goeva2.ratioBonusNormalStrong2[5]
+                    )
+                )
+            )
+            .tag(4)
+
+            // 高確 弱レア系からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "高確 弱レア系→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusHighWeakCountHit,
+                        bigNumber: $goeva2.bonusHighWeakCount,
+                        setting1Percent: goeva2.ratioBonusHighWeak[0],
+                        setting2Percent: goeva2.ratioBonusHighWeak[1],
+                        setting3Percent: goeva2.ratioBonusHighWeak[2],
+                        setting4Percent: goeva2.ratioBonusHighWeak[3],
+                        setting5Percent: goeva2.ratioBonusHighWeak[4],
+                        setting6Percent: goeva2.ratioBonusHighWeak[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // 高確 強レア系①からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "高確 強レア系①→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusHighStrong1CountHit,
+                        bigNumber: $goeva2.bonusHighStrong1Count,
+                        setting1Percent: goeva2.ratioBonusHighStrong1[0],
+                        setting2Percent: goeva2.ratioBonusHighStrong1[1],
+                        setting3Percent: goeva2.ratioBonusHighStrong1[2],
+                        setting4Percent: goeva2.ratioBonusHighStrong1[3],
+                        setting5Percent: goeva2.ratioBonusHighStrong1[4],
+                        setting6Percent: goeva2.ratioBonusHighStrong1[5]
+                    )
+                )
+            )
+            .tag(6)
+
+            // 高確 強レア系②からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "高確 強レア系②→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusHighStrong2CountHit,
+                        bigNumber: $goeva2.bonusHighStrong2Count,
+                        setting1Percent: goeva2.ratioBonusHighStrong2[0],
+                        setting2Percent: goeva2.ratioBonusHighStrong2[1],
+                        setting3Percent: goeva2.ratioBonusHighStrong2[2],
+                        setting4Percent: goeva2.ratioBonusHighStrong2[3],
+                        setting5Percent: goeva2.ratioBonusHighStrong2[4],
+                        setting6Percent: goeva2.ratioBonusHighStrong2[5]
+                    )
+                )
+            )
+            .tag(7)
+
+            // 超高確 弱レア系からのボーナス当選率
+            unitListSection95Ci(
+                grafTitle: "超高確 弱レア系→ボーナス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $goeva2.bonusSuperWeakCountHit,
+                        bigNumber: $goeva2.bonusSuperWeakCount,
+                        setting1Percent: goeva2.ratioBonusSuperWeak[0],
+                        setting2Percent: goeva2.ratioBonusSuperWeak[1],
+                        setting3Percent: goeva2.ratioBonusSuperWeak[2],
+                        setting4Percent: goeva2.ratioBonusSuperWeak[3],
+                        setting5Percent: goeva2.ratioBonusSuperWeak[4],
+                        setting6Percent: goeva2.ratioBonusSuperWeak[5]
+                    )
+                )
+            )
+            .tag(8)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",
