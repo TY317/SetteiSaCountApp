@@ -1900,6 +1900,8 @@
 		F868AB71DF16408E89C39D6F /* dropkickClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653C0DCC6304E808F072554 /* dropkickClass.swift */; };
 		FA124AE82DC44761B6540A10 /* tonskillClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990AEE25C2347CBA9561E48 /* tonskillClass.swift */; };
 		FC445D47B67C4647BAA10881 /* goeva2ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0F96B315034D4EAFF14C97 /* goeva2ViewNormal.swift */; };
+		14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A48ADEDB9A45F99DFE9833 /* goeva2TableKoyakuPattern.swift */; };
+		C26102E52F4F4FA3BCC12CE2 /* goeva2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A48ADEDB9A45F99DFE9833 /* goeva2TableKoyakuPattern.swift */; };
 		45F2AACD7E7D48CDA05DECC4 /* goeva2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D586992BB08F43319C31F12E /* goeva2ViewBayes.swift */; };
 		FCA2BC42D8534E9D8DBA7858 /* yajikitaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */; };
 		FF300BA9B6FA4B73B81295C0 /* streetFighter6TableFirstRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC125F76EA9406099372856 /* streetFighter6TableFirstRank.swift */; };
@@ -3571,6 +3573,7 @@
 		DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kanokariTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		DEB4C919C7B64CFF975CF67F /* index2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		DF0F96B315034D4EAFF14C97 /* goeva2ViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewNormal.swift; sourceTree = "<group>"; };
+		F2A48ADEDB9A45F99DFE9833 /* goeva2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2TableKoyakuPattern.swift; sourceTree = "<group>"; };
 		D586992BB08F43319C31F12E /* goeva2ViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewBayes.swift; sourceTree = "<group>"; };
 		DF259627DC414784A55426DE /* karakuri2ViewHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2ViewHistory.swift; sourceTree = "<group>"; };
 		DFB74A0916A44C038CD06BF0 /* yajikitaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaClass.swift; sourceTree = "<group>"; };
@@ -3681,6 +3684,7 @@
 				077260AA12FC4D76881B3AAC /* goeva2ViewTop.swift */,
 				191A43F919BC458CA72827B4 /* goeva2Class.swift */,
 				DF0F96B315034D4EAFF14C97 /* goeva2ViewNormal.swift */,
+				F2A48ADEDB9A45F99DFE9833 /* goeva2TableKoyakuPattern.swift */,
 				D586992BB08F43319C31F12E /* goeva2ViewBayes.swift */,
 				2D162C43869C4E959588DE72 /* goeva2ViewFirstHit.swift */,
 				98B7C2047FE548D79754C8CB /* goeva2View95Ci.swift */,
@@ -7388,6 +7392,7 @@
 				0F461F822F93273800F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
 				B16E3BCFE268426798E3F457 /* mhrsbTableKoyakuPattern.swift in Sources */,
 				8D1748C80D9F49039BDCC599 /* juoTableKoyakuPattern.swift in Sources */,
+				14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */,
 				43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */,
 				ED72F5F313BB43D5864C9711 /* gareiTableKoyakuPattern.swift in Sources */,
 				DDAC4C76D0C84F198B325AB1 /* tonskillTableKoyakuPattern.swift in Sources */,
@@ -8537,6 +8542,7 @@
 				0F461F832F93274B00F6B6A1 /* godKisekiKoyakuPattern.swift in Sources */,
 				F82AFE2EBB2F4FE1B30FFEE0 /* mhrsbTableKoyakuPattern.swift in Sources */,
 				1D06CBB4F34640B89E14C5A7 /* juoTableKoyakuPattern.swift in Sources */,
+				C26102E52F4F4FA3BCC12CE2 /* goeva2TableKoyakuPattern.swift in Sources */,
 				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
 				0A90FE0685C54E79B51946E6 /* tonskillTableKoyakuPattern.swift in Sources */,
