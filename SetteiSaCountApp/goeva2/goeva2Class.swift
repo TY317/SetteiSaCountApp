@@ -200,18 +200,117 @@ class Goeva2: ObservableObject {
 
 
 class Goeva2Memory1: ObservableObject {
+    @AppStorage("goeva2SuikaCountMemory1") var suikaCount: Int = 0
+    @AppStorage("goeva2SuikaCzCountMemory1") var suikaCzCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountMemory1") var bonusNormalWeakCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountHitMemory1") var bonusNormalWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountMemory1") var bonusNormalStrong1Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountHitMemory1") var bonusNormalStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountMemory1") var bonusNormalStrong2Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountHitMemory1") var bonusNormalStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountMemory1") var bonusHighWeakCount: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountHitMemory1") var bonusHighWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountMemory1") var bonusHighStrong1Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountHitMemory1") var bonusHighStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountMemory1") var bonusHighStrong2Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountHitMemory1") var bonusHighStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountMemory1") var bonusSuperWeakCount: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountHitMemory1") var bonusSuperWeakCountHit: Int = 0
+    @AppStorage("goeva2GameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("goeva2BonusKindArrayKeyMemory1") var bonusKindArrayData: Data?
+    @AppStorage("goeva2AtResultArrayKeyMemory1") var atResultArrayData: Data?
+    @AppStorage("goeva2PlayGameSumMemory1") var playGameSum: Int = 0
+    @AppStorage("goeva2FirstHitCountBonusMemory1") var firstHitCountBonus: Int = 0
+    @AppStorage("goeva2FirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("goeva2ScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("goeva2ScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("goeva2ScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("goeva2ScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("goeva2ScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("goeva2ScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("goeva2ScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("goeva2ScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("goeva2ScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("goeva2ScreenCount10Memory1") var screenCount10: Int = 0
+    @AppStorage("goeva2ScreenCountSumMemory1") var screenCountSum: Int = 0
     @AppStorage("goeva2MemoMemory1") var memo = ""
     @AppStorage("goeva2DateMemory1") var dateDouble = 0.0
 }
 
 
 class Goeva2Memory2: ObservableObject {
+    @AppStorage("goeva2SuikaCountMemory2") var suikaCount: Int = 0
+    @AppStorage("goeva2SuikaCzCountMemory2") var suikaCzCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountMemory2") var bonusNormalWeakCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountHitMemory2") var bonusNormalWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountMemory2") var bonusNormalStrong1Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountHitMemory2") var bonusNormalStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountMemory2") var bonusNormalStrong2Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountHitMemory2") var bonusNormalStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountMemory2") var bonusHighWeakCount: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountHitMemory2") var bonusHighWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountMemory2") var bonusHighStrong1Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountHitMemory2") var bonusHighStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountMemory2") var bonusHighStrong2Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountHitMemory2") var bonusHighStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountMemory2") var bonusSuperWeakCount: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountHitMemory2") var bonusSuperWeakCountHit: Int = 0
+    @AppStorage("goeva2GameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("goeva2BonusKindArrayKeyMemory2") var bonusKindArrayData: Data?
+    @AppStorage("goeva2AtResultArrayKeyMemory2") var atResultArrayData: Data?
+    @AppStorage("goeva2PlayGameSumMemory2") var playGameSum: Int = 0
+    @AppStorage("goeva2FirstHitCountBonusMemory2") var firstHitCountBonus: Int = 0
+    @AppStorage("goeva2FirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("goeva2ScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("goeva2ScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("goeva2ScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("goeva2ScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("goeva2ScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("goeva2ScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("goeva2ScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("goeva2ScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("goeva2ScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("goeva2ScreenCount10Memory2") var screenCount10: Int = 0
+    @AppStorage("goeva2ScreenCountSumMemory2") var screenCountSum: Int = 0
     @AppStorage("goeva2MemoMemory2") var memo = ""
     @AppStorage("goeva2DateMemory2") var dateDouble = 0.0
 }
 
 
 class Goeva2Memory3: ObservableObject {
+    @AppStorage("goeva2SuikaCountMemory3") var suikaCount: Int = 0
+    @AppStorage("goeva2SuikaCzCountMemory3") var suikaCzCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountMemory3") var bonusNormalWeakCount: Int = 0
+    @AppStorage("goeva2BonusNormalWeakCountHitMemory3") var bonusNormalWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountMemory3") var bonusNormalStrong1Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong1CountHitMemory3") var bonusNormalStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountMemory3") var bonusNormalStrong2Count: Int = 0
+    @AppStorage("goeva2BonusNormalStrong2CountHitMemory3") var bonusNormalStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountMemory3") var bonusHighWeakCount: Int = 0
+    @AppStorage("goeva2BonusHighWeakCountHitMemory3") var bonusHighWeakCountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountMemory3") var bonusHighStrong1Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong1CountHitMemory3") var bonusHighStrong1CountHit: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountMemory3") var bonusHighStrong2Count: Int = 0
+    @AppStorage("goeva2BonusHighStrong2CountHitMemory3") var bonusHighStrong2CountHit: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountMemory3") var bonusSuperWeakCount: Int = 0
+    @AppStorage("goeva2BonusSuperWeakCountHitMemory3") var bonusSuperWeakCountHit: Int = 0
+    @AppStorage("goeva2GameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("goeva2BonusKindArrayKeyMemory3") var bonusKindArrayData: Data?
+    @AppStorage("goeva2AtResultArrayKeyMemory3") var atResultArrayData: Data?
+    @AppStorage("goeva2PlayGameSumMemory3") var playGameSum: Int = 0
+    @AppStorage("goeva2FirstHitCountBonusMemory3") var firstHitCountBonus: Int = 0
+    @AppStorage("goeva2FirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("goeva2ScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("goeva2ScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("goeva2ScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("goeva2ScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("goeva2ScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("goeva2ScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("goeva2ScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("goeva2ScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("goeva2ScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("goeva2ScreenCount10Memory3") var screenCount10: Int = 0
+    @AppStorage("goeva2ScreenCountSumMemory3") var screenCountSum: Int = 0
     @AppStorage("goeva2MemoMemory3") var memo = ""
     @AppStorage("goeva2DateMemory3") var dateDouble = 0.0
 }

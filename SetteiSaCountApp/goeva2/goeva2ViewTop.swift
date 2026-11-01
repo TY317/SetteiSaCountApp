@@ -173,13 +173,109 @@ struct goeva2SubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        goeva2Memory1.suikaCount = goeva2.suikaCount
+        goeva2Memory1.suikaCzCount = goeva2.suikaCzCount
+        goeva2Memory1.bonusNormalWeakCount = goeva2.bonusNormalWeakCount
+        goeva2Memory1.bonusNormalWeakCountHit = goeva2.bonusNormalWeakCountHit
+        goeva2Memory1.bonusNormalStrong1Count = goeva2.bonusNormalStrong1Count
+        goeva2Memory1.bonusNormalStrong1CountHit = goeva2.bonusNormalStrong1CountHit
+        goeva2Memory1.bonusNormalStrong2Count = goeva2.bonusNormalStrong2Count
+        goeva2Memory1.bonusNormalStrong2CountHit = goeva2.bonusNormalStrong2CountHit
+        goeva2Memory1.bonusHighWeakCount = goeva2.bonusHighWeakCount
+        goeva2Memory1.bonusHighWeakCountHit = goeva2.bonusHighWeakCountHit
+        goeva2Memory1.bonusHighStrong1Count = goeva2.bonusHighStrong1Count
+        goeva2Memory1.bonusHighStrong1CountHit = goeva2.bonusHighStrong1CountHit
+        goeva2Memory1.bonusHighStrong2Count = goeva2.bonusHighStrong2Count
+        goeva2Memory1.bonusHighStrong2CountHit = goeva2.bonusHighStrong2CountHit
+        goeva2Memory1.bonusSuperWeakCount = goeva2.bonusSuperWeakCount
+        goeva2Memory1.bonusSuperWeakCountHit = goeva2.bonusSuperWeakCountHit
+        goeva2Memory1.gameArrayData = goeva2.gameArrayData
+        goeva2Memory1.bonusKindArrayData = goeva2.bonusKindArrayData
+        goeva2Memory1.atResultArrayData = goeva2.atResultArrayData
+        goeva2Memory1.playGameSum = goeva2.playGameSum
+        goeva2Memory1.firstHitCountBonus = goeva2.firstHitCountBonus
+        goeva2Memory1.firstHitCountAt = goeva2.firstHitCountAt
+        goeva2Memory1.screenCount1 = goeva2.screenCount1
+        goeva2Memory1.screenCount2 = goeva2.screenCount2
+        goeva2Memory1.screenCount3 = goeva2.screenCount3
+        goeva2Memory1.screenCount4 = goeva2.screenCount4
+        goeva2Memory1.screenCount5 = goeva2.screenCount5
+        goeva2Memory1.screenCount6 = goeva2.screenCount6
+        goeva2Memory1.screenCount7 = goeva2.screenCount7
+        goeva2Memory1.screenCount8 = goeva2.screenCount8
+        goeva2Memory1.screenCount9 = goeva2.screenCount9
+        goeva2Memory1.screenCount10 = goeva2.screenCount10
+        goeva2Memory1.screenCountSum = goeva2.screenCountSum
     }
     func saveMemory2() {
-
+        goeva2Memory2.suikaCount = goeva2.suikaCount
+        goeva2Memory2.suikaCzCount = goeva2.suikaCzCount
+        goeva2Memory2.bonusNormalWeakCount = goeva2.bonusNormalWeakCount
+        goeva2Memory2.bonusNormalWeakCountHit = goeva2.bonusNormalWeakCountHit
+        goeva2Memory2.bonusNormalStrong1Count = goeva2.bonusNormalStrong1Count
+        goeva2Memory2.bonusNormalStrong1CountHit = goeva2.bonusNormalStrong1CountHit
+        goeva2Memory2.bonusNormalStrong2Count = goeva2.bonusNormalStrong2Count
+        goeva2Memory2.bonusNormalStrong2CountHit = goeva2.bonusNormalStrong2CountHit
+        goeva2Memory2.bonusHighWeakCount = goeva2.bonusHighWeakCount
+        goeva2Memory2.bonusHighWeakCountHit = goeva2.bonusHighWeakCountHit
+        goeva2Memory2.bonusHighStrong1Count = goeva2.bonusHighStrong1Count
+        goeva2Memory2.bonusHighStrong1CountHit = goeva2.bonusHighStrong1CountHit
+        goeva2Memory2.bonusHighStrong2Count = goeva2.bonusHighStrong2Count
+        goeva2Memory2.bonusHighStrong2CountHit = goeva2.bonusHighStrong2CountHit
+        goeva2Memory2.bonusSuperWeakCount = goeva2.bonusSuperWeakCount
+        goeva2Memory2.bonusSuperWeakCountHit = goeva2.bonusSuperWeakCountHit
+        goeva2Memory2.gameArrayData = goeva2.gameArrayData
+        goeva2Memory2.bonusKindArrayData = goeva2.bonusKindArrayData
+        goeva2Memory2.atResultArrayData = goeva2.atResultArrayData
+        goeva2Memory2.playGameSum = goeva2.playGameSum
+        goeva2Memory2.firstHitCountBonus = goeva2.firstHitCountBonus
+        goeva2Memory2.firstHitCountAt = goeva2.firstHitCountAt
+        goeva2Memory2.screenCount1 = goeva2.screenCount1
+        goeva2Memory2.screenCount2 = goeva2.screenCount2
+        goeva2Memory2.screenCount3 = goeva2.screenCount3
+        goeva2Memory2.screenCount4 = goeva2.screenCount4
+        goeva2Memory2.screenCount5 = goeva2.screenCount5
+        goeva2Memory2.screenCount6 = goeva2.screenCount6
+        goeva2Memory2.screenCount7 = goeva2.screenCount7
+        goeva2Memory2.screenCount8 = goeva2.screenCount8
+        goeva2Memory2.screenCount9 = goeva2.screenCount9
+        goeva2Memory2.screenCount10 = goeva2.screenCount10
+        goeva2Memory2.screenCountSum = goeva2.screenCountSum
     }
     func saveMemory3() {
-
+        goeva2Memory3.suikaCount = goeva2.suikaCount
+        goeva2Memory3.suikaCzCount = goeva2.suikaCzCount
+        goeva2Memory3.bonusNormalWeakCount = goeva2.bonusNormalWeakCount
+        goeva2Memory3.bonusNormalWeakCountHit = goeva2.bonusNormalWeakCountHit
+        goeva2Memory3.bonusNormalStrong1Count = goeva2.bonusNormalStrong1Count
+        goeva2Memory3.bonusNormalStrong1CountHit = goeva2.bonusNormalStrong1CountHit
+        goeva2Memory3.bonusNormalStrong2Count = goeva2.bonusNormalStrong2Count
+        goeva2Memory3.bonusNormalStrong2CountHit = goeva2.bonusNormalStrong2CountHit
+        goeva2Memory3.bonusHighWeakCount = goeva2.bonusHighWeakCount
+        goeva2Memory3.bonusHighWeakCountHit = goeva2.bonusHighWeakCountHit
+        goeva2Memory3.bonusHighStrong1Count = goeva2.bonusHighStrong1Count
+        goeva2Memory3.bonusHighStrong1CountHit = goeva2.bonusHighStrong1CountHit
+        goeva2Memory3.bonusHighStrong2Count = goeva2.bonusHighStrong2Count
+        goeva2Memory3.bonusHighStrong2CountHit = goeva2.bonusHighStrong2CountHit
+        goeva2Memory3.bonusSuperWeakCount = goeva2.bonusSuperWeakCount
+        goeva2Memory3.bonusSuperWeakCountHit = goeva2.bonusSuperWeakCountHit
+        goeva2Memory3.gameArrayData = goeva2.gameArrayData
+        goeva2Memory3.bonusKindArrayData = goeva2.bonusKindArrayData
+        goeva2Memory3.atResultArrayData = goeva2.atResultArrayData
+        goeva2Memory3.playGameSum = goeva2.playGameSum
+        goeva2Memory3.firstHitCountBonus = goeva2.firstHitCountBonus
+        goeva2Memory3.firstHitCountAt = goeva2.firstHitCountAt
+        goeva2Memory3.screenCount1 = goeva2.screenCount1
+        goeva2Memory3.screenCount2 = goeva2.screenCount2
+        goeva2Memory3.screenCount3 = goeva2.screenCount3
+        goeva2Memory3.screenCount4 = goeva2.screenCount4
+        goeva2Memory3.screenCount5 = goeva2.screenCount5
+        goeva2Memory3.screenCount6 = goeva2.screenCount6
+        goeva2Memory3.screenCount7 = goeva2.screenCount7
+        goeva2Memory3.screenCount8 = goeva2.screenCount8
+        goeva2Memory3.screenCount9 = goeva2.screenCount9
+        goeva2Memory3.screenCount10 = goeva2.screenCount10
+        goeva2Memory3.screenCountSum = goeva2.screenCountSum
     }
 }
 
@@ -211,13 +307,118 @@ struct goeva2SubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        goeva2.suikaCount = goeva2Memory1.suikaCount
+        goeva2.suikaCzCount = goeva2Memory1.suikaCzCount
+        goeva2.bonusNormalWeakCount = goeva2Memory1.bonusNormalWeakCount
+        goeva2.bonusNormalWeakCountHit = goeva2Memory1.bonusNormalWeakCountHit
+        goeva2.bonusNormalStrong1Count = goeva2Memory1.bonusNormalStrong1Count
+        goeva2.bonusNormalStrong1CountHit = goeva2Memory1.bonusNormalStrong1CountHit
+        goeva2.bonusNormalStrong2Count = goeva2Memory1.bonusNormalStrong2Count
+        goeva2.bonusNormalStrong2CountHit = goeva2Memory1.bonusNormalStrong2CountHit
+        goeva2.bonusHighWeakCount = goeva2Memory1.bonusHighWeakCount
+        goeva2.bonusHighWeakCountHit = goeva2Memory1.bonusHighWeakCountHit
+        goeva2.bonusHighStrong1Count = goeva2Memory1.bonusHighStrong1Count
+        goeva2.bonusHighStrong1CountHit = goeva2Memory1.bonusHighStrong1CountHit
+        goeva2.bonusHighStrong2Count = goeva2Memory1.bonusHighStrong2Count
+        goeva2.bonusHighStrong2CountHit = goeva2Memory1.bonusHighStrong2CountHit
+        goeva2.bonusSuperWeakCount = goeva2Memory1.bonusSuperWeakCount
+        goeva2.bonusSuperWeakCountHit = goeva2Memory1.bonusSuperWeakCountHit
+        let gameArrayDecoded = decodeIntArray(from: goeva2Memory1.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: goeva2.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: goeva2Memory1.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: goeva2.bonusKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: goeva2Memory1.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: goeva2.atResultArrayKey)
+        goeva2.playGameSum = goeva2Memory1.playGameSum
+        goeva2.firstHitCountBonus = goeva2Memory1.firstHitCountBonus
+        goeva2.firstHitCountAt = goeva2Memory1.firstHitCountAt
+        goeva2.screenCount1 = goeva2Memory1.screenCount1
+        goeva2.screenCount2 = goeva2Memory1.screenCount2
+        goeva2.screenCount3 = goeva2Memory1.screenCount3
+        goeva2.screenCount4 = goeva2Memory1.screenCount4
+        goeva2.screenCount5 = goeva2Memory1.screenCount5
+        goeva2.screenCount6 = goeva2Memory1.screenCount6
+        goeva2.screenCount7 = goeva2Memory1.screenCount7
+        goeva2.screenCount8 = goeva2Memory1.screenCount8
+        goeva2.screenCount9 = goeva2Memory1.screenCount9
+        goeva2.screenCount10 = goeva2Memory1.screenCount10
+        goeva2.screenCountSum = goeva2Memory1.screenCountSum
     }
     func loadMemory2() {
-
+        goeva2.suikaCount = goeva2Memory2.suikaCount
+        goeva2.suikaCzCount = goeva2Memory2.suikaCzCount
+        goeva2.bonusNormalWeakCount = goeva2Memory2.bonusNormalWeakCount
+        goeva2.bonusNormalWeakCountHit = goeva2Memory2.bonusNormalWeakCountHit
+        goeva2.bonusNormalStrong1Count = goeva2Memory2.bonusNormalStrong1Count
+        goeva2.bonusNormalStrong1CountHit = goeva2Memory2.bonusNormalStrong1CountHit
+        goeva2.bonusNormalStrong2Count = goeva2Memory2.bonusNormalStrong2Count
+        goeva2.bonusNormalStrong2CountHit = goeva2Memory2.bonusNormalStrong2CountHit
+        goeva2.bonusHighWeakCount = goeva2Memory2.bonusHighWeakCount
+        goeva2.bonusHighWeakCountHit = goeva2Memory2.bonusHighWeakCountHit
+        goeva2.bonusHighStrong1Count = goeva2Memory2.bonusHighStrong1Count
+        goeva2.bonusHighStrong1CountHit = goeva2Memory2.bonusHighStrong1CountHit
+        goeva2.bonusHighStrong2Count = goeva2Memory2.bonusHighStrong2Count
+        goeva2.bonusHighStrong2CountHit = goeva2Memory2.bonusHighStrong2CountHit
+        goeva2.bonusSuperWeakCount = goeva2Memory2.bonusSuperWeakCount
+        goeva2.bonusSuperWeakCountHit = goeva2Memory2.bonusSuperWeakCountHit
+        let gameArrayDecoded = decodeIntArray(from: goeva2Memory2.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: goeva2.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: goeva2Memory2.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: goeva2.bonusKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: goeva2Memory2.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: goeva2.atResultArrayKey)
+        goeva2.playGameSum = goeva2Memory2.playGameSum
+        goeva2.firstHitCountBonus = goeva2Memory2.firstHitCountBonus
+        goeva2.firstHitCountAt = goeva2Memory2.firstHitCountAt
+        goeva2.screenCount1 = goeva2Memory2.screenCount1
+        goeva2.screenCount2 = goeva2Memory2.screenCount2
+        goeva2.screenCount3 = goeva2Memory2.screenCount3
+        goeva2.screenCount4 = goeva2Memory2.screenCount4
+        goeva2.screenCount5 = goeva2Memory2.screenCount5
+        goeva2.screenCount6 = goeva2Memory2.screenCount6
+        goeva2.screenCount7 = goeva2Memory2.screenCount7
+        goeva2.screenCount8 = goeva2Memory2.screenCount8
+        goeva2.screenCount9 = goeva2Memory2.screenCount9
+        goeva2.screenCount10 = goeva2Memory2.screenCount10
+        goeva2.screenCountSum = goeva2Memory2.screenCountSum
     }
     func loadMemory3() {
-
+        goeva2.suikaCount = goeva2Memory3.suikaCount
+        goeva2.suikaCzCount = goeva2Memory3.suikaCzCount
+        goeva2.bonusNormalWeakCount = goeva2Memory3.bonusNormalWeakCount
+        goeva2.bonusNormalWeakCountHit = goeva2Memory3.bonusNormalWeakCountHit
+        goeva2.bonusNormalStrong1Count = goeva2Memory3.bonusNormalStrong1Count
+        goeva2.bonusNormalStrong1CountHit = goeva2Memory3.bonusNormalStrong1CountHit
+        goeva2.bonusNormalStrong2Count = goeva2Memory3.bonusNormalStrong2Count
+        goeva2.bonusNormalStrong2CountHit = goeva2Memory3.bonusNormalStrong2CountHit
+        goeva2.bonusHighWeakCount = goeva2Memory3.bonusHighWeakCount
+        goeva2.bonusHighWeakCountHit = goeva2Memory3.bonusHighWeakCountHit
+        goeva2.bonusHighStrong1Count = goeva2Memory3.bonusHighStrong1Count
+        goeva2.bonusHighStrong1CountHit = goeva2Memory3.bonusHighStrong1CountHit
+        goeva2.bonusHighStrong2Count = goeva2Memory3.bonusHighStrong2Count
+        goeva2.bonusHighStrong2CountHit = goeva2Memory3.bonusHighStrong2CountHit
+        goeva2.bonusSuperWeakCount = goeva2Memory3.bonusSuperWeakCount
+        goeva2.bonusSuperWeakCountHit = goeva2Memory3.bonusSuperWeakCountHit
+        let gameArrayDecoded = decodeIntArray(from: goeva2Memory3.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: goeva2.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: goeva2Memory3.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: goeva2.bonusKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: goeva2Memory3.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: goeva2.atResultArrayKey)
+        goeva2.playGameSum = goeva2Memory3.playGameSum
+        goeva2.firstHitCountBonus = goeva2Memory3.firstHitCountBonus
+        goeva2.firstHitCountAt = goeva2Memory3.firstHitCountAt
+        goeva2.screenCount1 = goeva2Memory3.screenCount1
+        goeva2.screenCount2 = goeva2Memory3.screenCount2
+        goeva2.screenCount3 = goeva2Memory3.screenCount3
+        goeva2.screenCount4 = goeva2Memory3.screenCount4
+        goeva2.screenCount5 = goeva2Memory3.screenCount5
+        goeva2.screenCount6 = goeva2Memory3.screenCount6
+        goeva2.screenCount7 = goeva2Memory3.screenCount7
+        goeva2.screenCount8 = goeva2Memory3.screenCount8
+        goeva2.screenCount9 = goeva2Memory3.screenCount9
+        goeva2.screenCount10 = goeva2Memory3.screenCount10
+        goeva2.screenCountSum = goeva2Memory3.screenCountSum
     }
 }
 
