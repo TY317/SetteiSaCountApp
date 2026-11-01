@@ -37,6 +37,45 @@ struct seiyaViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- 守護星座
+            Section {
+                // 参考情報）守護星座の加護一覧
+                unitLinkButtonViewBuilder(sheetTitle: "守護星座の加護一覧") {
+                    VStack {
+                        VStack(alignment: .leading) {
+                            Text("・WHO ARE YOU？（CZ）当選まで維持される特殊なモード")
+                            Text("・守護星座の種類に応じて展開を有利に進められる")
+                            Text("・AT中にも存在し、Vゲットチャレンジまで継続する")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "守護星座",
+                                stringList: ["星矢", "氷河", "瞬", "紫龍", "一輝"],
+                                maxWidth: 70,
+                                lineList: [2,2,3,3,3],
+                                titleFont: .subheadline,
+                            )
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: [
+                                    "通常時・AT中共通\n周期到達ごとに規定周期短縮を抽選",
+                                    "通常時・AT中共通\n小宇宙目停止時の獲得ポイント優遇",
+                                    "通常時：弱🍒・小宇宙目からの\n高確移行率が優遇\nAT中：常に高確以上（夕方ステージ以上）濃厚",
+                                    "通常時：🍉時のヒロインチャージや\n強CZ抽選が優遇\nAT中：🍉時のVストックチャレンジ当選率が優遇",
+                                    "通常時：規定周期で当選するCZがATに変化\nAT中：規定周期で\n鳳凰Vゲットチャレンジを獲得",
+                                ],
+                                maxWidth: 300,
+                                lineList: [2,2,3,3,3],
+                                contentFont: .subheadline,
+                            )
+                        }
+                    }
+                }
+            } header: {
+                Text("守護星座")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.seiyaMenuNormalBadge)
