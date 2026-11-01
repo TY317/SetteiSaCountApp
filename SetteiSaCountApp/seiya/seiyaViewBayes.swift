@@ -23,6 +23,8 @@ struct seiyaViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -44,6 +46,10 @@ struct seiyaViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // CZ初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // トロフィー
                 DisclosureGroup("クジラッキートロフィー") {
@@ -115,6 +121,26 @@ struct seiyaViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+        // CZ初当り確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: seiya.ratioFirstHitCz,
+                Count: seiya.firstHitCountCz,
+                bigNumber: seiya.playGameSum
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: seiya.ratioFirstHitAt,
+                Count: seiya.firstHitCountAt,
+                bigNumber: seiya.playGameSum
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -153,6 +179,8 @@ struct seiyaViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostFirstHitCz,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

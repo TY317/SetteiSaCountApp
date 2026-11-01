@@ -59,7 +59,7 @@ struct seiyaViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: seiyaView95Ci(
                     seiya: seiya,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

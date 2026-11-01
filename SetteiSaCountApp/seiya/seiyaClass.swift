@@ -21,9 +21,84 @@ class Seiya: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [214.4,214.1,211.7,202.5,197.2,200.3]
+    let ratioFirstHitAt: [Double] = [364.2,356.1,345.6,322.3,313.7,310.5]
+    // 選択肢
+    let czKindList: [String] = ["WHO ARE YOU ?", "影ノ襲来", "AT直撃"]
+    let czKindShortList: [String] = ["WHO", "影ノ襲来", "AT直撃"]   // 履歴表示用
+    let atResultList: [String] = ["ハズレ", "当選"]
+    // 選択結果
+    @AppStorage("seiyaInputGame") var inputGame: Int = 0
+    @AppStorage("seiyaSelectedCzKind") var selectedCzKind: String = "WHO ARE YOU ?"
+    @AppStorage("seiyaSelectedAtResult") var selectedAtResult: String = "ハズレ"
 
+    // ゲーム数配列
+    let gameArrayKey: String = "seiyaGameArrayKey"
+    @AppStorage("seiyaGameArrayKey") var gameArrayData: Data?
+    // CZ種類配列
+    let czKindArrayKey: String = "seiyaCzKindArrayKey"
+    @AppStorage("seiyaCzKindArrayKey") var czKindArrayData: Data?
+    // AT当否配列
+    let atResultArrayKey: String = "seiyaAtResultArrayKey"
+    @AppStorage("seiyaAtResultArrayKey") var atResultArrayData: Data?
+
+    // 履歴からの自動算出結果
+    @AppStorage("seiyaPlayGameSum") var playGameSum: Int = 0
+    @AppStorage("seiyaFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("seiyaFirstHitCountAt") var firstHitCountAt: Int = 0
+
+    // データ登録
+    func addHistory() {
+        // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
+        let atResult = selectedCzKind == czKindList[2] ? atResultList[1] : selectedAtResult
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: czKindArrayData, addData: selectedCzKind, key: czKindArrayKey)
+        arrayStringAddData(arrayData: atResultArrayData, addData: atResult, key: atResultArrayKey)
+        addRemoveCommon()
+    }
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: czKindArrayData, key: czKindArrayKey)
+        arrayStringRemoveLast(arrayData: atResultArrayData, key: atResultArrayKey)
+        addRemoveCommon()
+    }
     func resetFirstHit() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: czKindArrayData, key: czKindArrayKey)
+        arrayStringRemoveAll(arrayData: atResultArrayData, key: atResultArrayKey)
+        addRemoveCommon()
+        inputGame = 0
         minusCheck = false
+    }
+    func addRemoveCommon() {
+        // ゲーム数はAT当選まで累積
+        playGameSum = arraySumPlayGameResetWordOne(
+            gameArrayData: gameArrayData,
+            bonusArrayData: atResultArrayData,
+            resetWord: atResultList[1]
+        )
+        // CZはWHO ARE YOU ?と影ノ襲来の合算
+        firstHitCountCz = countSum(
+            arrayStringDataCount(arrayData: czKindArrayData, countString: czKindList[0]),
+            arrayStringDataCount(arrayData: czKindArrayData, countString: czKindList[1]),
+        )
+        firstHitCountAt = arrayStringDataCount(arrayData: atResultArrayData, countString: atResultList[1])
+    }
+
+    // 履歴表示用のCZ種類名
+    func czKindShortName(_ kind: String) -> String {
+        guard let index = czKindList.firstIndex(of: kind) else { return kind }
+        return czKindShortList[index]
+    }
+
+    // AT区間の先頭行かどうか（先頭行、または1つ前がAT当選）
+    var atIntervalStartFlagList: [Bool] {
+        let atArray = decodeStringArray(from: atResultArrayData)
+        return atArray.indices.map { index in
+            if index == 0 { return true }
+            return atArray[index - 1] == atResultList[1]
+        }
     }
 
     // -----------

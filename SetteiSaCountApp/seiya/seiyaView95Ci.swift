@@ -14,60 +14,41 @@ struct seiyaView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $seiya.otomeAttackHit,
-//                        bigNumber: $seiya.otomeAttackSum,
-//                        setting1Percent: seiya.ratioOtomeAttack[0],
-//                        setting2Percent: seiya.ratioOtomeAttack[1],
-//                        setting3Percent: seiya.ratioOtomeAttack[2],
-//                        setting4Percent: seiya.ratioOtomeAttack[3],
-//                        setting5Percent: seiya.ratioOtomeAttack[4],
-//                        setting6Percent: seiya.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $seiya.firstHitCountCz,
-//                        bigNumber: $seiya.normalGame,
-//                        setting1Denominate: seiya.ratioFirstHitCz[0],
-//                        setting2Denominate: seiya.ratioFirstHitCz[1],
-//                        setting3Denominate: seiya.ratioFirstHitCz[2],
-//                        setting4Denominate: seiya.ratioFirstHitCz[3],
-//                        setting5Denominate: seiya.ratioFirstHitCz[4],
-//                        setting6Denominate: seiya.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $seiya.firstHitCountAt,
-//                        bigNumber: $seiya.normalGame,
-//                        setting1Denominate: seiya.ratioFirstHitAt[0],
-//                        setting2Denominate: seiya.ratioFirstHitAt[1],
-//                        setting3Denominate: seiya.ratioFirstHitAt[2],
-//                        setting4Denominate: seiya.ratioFirstHitAt[3],
-//                        setting5Denominate: seiya.ratioFirstHitAt[4],
-//                        setting6Denominate: seiya.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $seiya.firstHitCountCz,
+                        bigNumber: $seiya.playGameSum,
+                        setting1Denominate: seiya.ratioFirstHitCz[0],
+                        setting2Denominate: seiya.ratioFirstHitCz[1],
+                        setting3Denominate: seiya.ratioFirstHitCz[2],
+                        setting4Denominate: seiya.ratioFirstHitCz[3],
+                        setting5Denominate: seiya.ratioFirstHitCz[4],
+                        setting6Denominate: seiya.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $seiya.firstHitCountAt,
+                        bigNumber: $seiya.playGameSum,
+                        setting1Denominate: seiya.ratioFirstHitAt[0],
+                        setting2Denominate: seiya.ratioFirstHitAt[1],
+                        setting3Denominate: seiya.ratioFirstHitAt[2],
+                        setting4Denominate: seiya.ratioFirstHitAt[3],
+                        setting5Denominate: seiya.ratioFirstHitAt[4],
+                        setting6Denominate: seiya.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {
