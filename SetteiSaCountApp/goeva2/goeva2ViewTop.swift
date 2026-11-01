@@ -41,6 +41,17 @@ struct goeva2ViewTop: View {
                             badgeStatus: common.goeva2MenuFirstHitBadge,
                         )
                     }
+
+                    // 終了画面
+                    NavigationLink(destination: goeva2ViewScreen(
+                        goeva2: goeva2,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.goeva2MenuScreenBadge,
+                        )
+                    }
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: goeva2.machineName,
