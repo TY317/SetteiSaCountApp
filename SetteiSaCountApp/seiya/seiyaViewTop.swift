@@ -42,6 +42,17 @@ struct seiyaViewTop: View {
                         )
                     }
 
+                    // AT中
+                    NavigationLink(destination: seiyaViewDuringAt(
+                        seiya: seiya,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "sparkles",
+                            textBody: "AT中",
+                            badgeStatus: common.seiyaMenuDuringAtBadge,
+                        )
+                    }
+
                     // AT終了画面
                     NavigationLink(destination: seiyaViewScreen(
                         seiya: seiya,

@@ -102,6 +102,48 @@ class Seiya: ObservableObject {
     }
 
     // --------
+    // AT中
+    // --------
+    // エクストララウンド 対戦相手（1:シャカ、2:ジェミニ、3:その他）
+    @AppStorage("seiyaOpponentCount1") var opponentCount1: Int = 0
+    @AppStorage("seiyaOpponentCount2") var opponentCount2: Int = 0
+    @AppStorage("seiyaOpponentCount3") var opponentCount3: Int = 0
+    @AppStorage("seiyaOpponentCountSum") var opponentCountSum: Int = 0
+    // エクストララウンド キャラ紹介（1:ムウ、2:アイオロス、3:その他）
+    @AppStorage("seiyaCharaCount1") var charaCount1: Int = 0
+    @AppStorage("seiyaCharaCount2") var charaCount2: Int = 0
+    @AppStorage("seiyaCharaCount3") var charaCount3: Int = 0
+    @AppStorage("seiyaCharaCountSum") var charaCountSum: Int = 0
+
+    func opponentSumFunc() {
+        opponentCountSum = countSum(
+            opponentCount1,
+            opponentCount2,
+            opponentCount3,
+        )
+    }
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+        )
+    }
+
+    func resetDuringAt() {
+        opponentCount1 = 0
+        opponentCount2 = 0
+        opponentCount3 = 0
+        opponentCountSum = 0
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+
+    // --------
     // AT終了画面
     // --------
     let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
@@ -152,6 +194,7 @@ class Seiya: ObservableObject {
     func resetAll() {
         resetNormal()
         resetFirstHit()
+        resetDuringAt()
         resetScreen()
     }
 }

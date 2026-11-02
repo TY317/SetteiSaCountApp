@@ -1908,6 +1908,7 @@
 		5B399710050040B087038893 /* seiyaViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */; };
 		5E7F7798FD514B8CAFBD039A /* seiyaViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */; };
 		04728B950C43410FB95F4587 /* seiyaView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */; };
+		1525199CC4D74BB7A30EC7EC /* seiyaViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474E6681383403F8EAFFA2A /* seiyaViewDuringAt.swift */; };
 		00FD8D4387064F5C85D096B4 /* seiyaViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73F19E59D749CAB39B4BF3 /* seiyaViewScreen.swift */; };
 		D1D399A5DBC048F48D97D3B3 /* seiyaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */; };
 		51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */; };
@@ -3592,6 +3593,7 @@
 		D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewNormal.swift; sourceTree = "<group>"; };
 		A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewFirstHit.swift; sourceTree = "<group>"; };
 		FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaView95Ci.swift; sourceTree = "<group>"; };
+		4474E6681383403F8EAFFA2A /* seiyaViewDuringAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewDuringAt.swift; sourceTree = "<group>"; };
 		7B73F19E59D749CAB39B4BF3 /* seiyaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewScreen.swift; sourceTree = "<group>"; };
 		4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewBayes.swift; sourceTree = "<group>"; };
@@ -3709,6 +3711,7 @@
 				D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */,
 				A84498C2055E43FD95062BC8 /* seiyaViewFirstHit.swift */,
 				FAC2181BB0CC4CB18418F4AB /* seiyaView95Ci.swift */,
+				4474E6681383403F8EAFFA2A /* seiyaViewDuringAt.swift */,
 				7B73F19E59D749CAB39B4BF3 /* seiyaViewScreen.swift */,
 				4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */,
 				51D6D756F10C4EA3B44519A9 /* seiyaViewBayes.swift */,
@@ -8303,6 +8306,7 @@
 				5B399710050040B087038893 /* seiyaViewNormal.swift in Sources */,
 				5E7F7798FD514B8CAFBD039A /* seiyaViewFirstHit.swift in Sources */,
 				04728B950C43410FB95F4587 /* seiyaView95Ci.swift in Sources */,
+				1525199CC4D74BB7A30EC7EC /* seiyaViewDuringAt.swift in Sources */,
 				00FD8D4387064F5C85D096B4 /* seiyaViewScreen.swift in Sources */,
 				99C5E3924D434BA6A87B8E2C /* seiyaViewBayes.swift in Sources */,
 				74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */,

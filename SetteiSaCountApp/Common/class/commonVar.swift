@@ -386,6 +386,7 @@ class commonVar: ObservableObject {
     @AppStorage("seiyaMenuFirstHitBadge") var seiyaMenuFirstHitBadge: String = "none"
     @AppStorage("seiyaMenuBayesBadge") var seiyaMenuBayesBadge: String = "none"
     @AppStorage("seiyaMenuScreenBadge") var seiyaMenuScreenBadge: String = "none"
+    @AppStorage("seiyaMenuDuringAtBadge") var seiyaMenuDuringAtBadge: String = "none"
 
     // ---- ゴジラ対エヴァンゲリオン2
     @AppStorage("goeva2MenuNormalBadge") var goeva2MenuNormalBadge: String = "none"
