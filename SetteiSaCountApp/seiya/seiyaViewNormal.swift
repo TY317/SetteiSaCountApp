@@ -76,6 +76,79 @@ struct seiyaViewNormal: View {
             } header: {
                 Text("守護星座")
             }
+
+            // ---- カード演出
+            Section {
+                // 参考情報）設定示唆となる星座
+                unitLinkButtonViewBuilder(sheetTitle: "設定示唆となる星座") {
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "星座",
+                            stringList: ["ハリセンボン座", "サメ座", "エビ座", "アンコウ座"],
+                            maxWidth: 130,
+                        )
+                        unitTableString(
+                            columTitle: "示唆",
+                            stringList: ["設定2以上濃厚", "設定4以上濃厚", "設定5以上濃厚", "設定6濃厚"],
+//                            contentTextColorList: [.black, .blue, .red, .purple],
+                        )
+                    }
+                }
+
+                // 参考情報）その他の演出
+                unitLinkButtonViewBuilder(sheetTitle: "その他の演出") {
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "",
+                            stringList: [
+                                "ブランク",
+                                "星矢",
+                                "氷河",
+                                "紫龍",
+                                "瞬",
+                                "一輝",
+                                "魔鈴",
+                                "シャイナ",
+                                "CHANCE",
+                                "激熱",
+                                "シャカ",
+                                "ジェミニ",
+                                "サガ",
+                                "火時計［小］",
+                                "火時計［大］",
+                                "発展",
+                                "聖域",
+                                "HC",
+                            ],
+                            maxWidth: 100,
+                            lineList: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                        )
+                        unitTableString(
+                            columTitle: "示唆",
+                            stringList: [
+                                "ハズレ",
+                                "ハズレ時は星矢の加護中の期待度アップ",
+                                "ハズレ時は氷河の加護中の期待度アップ",
+                                "ハズレ時は紫龍の加護中の期待度アップ",
+                                "ハズレ時は瞬の加護中の期待度アップ",
+                                "ハズレ時は一輝の加護中の期待度アップ",
+                                "前兆示唆",
+                                "前兆かつチャンス",
+                                "AT本前兆濃厚",
+                                "小宇宙目成立",
+                                "小宇宙目成立かつチャンス",
+                                "連続演出発展",
+                                "聖域ステージ移行",
+                                "ヒロインチャージ告知",
+                            ],
+                            maxWidth: 250,
+                            lineList: [1,1,1,1,1,1,1,2,4,1,1,1,1,1],
+                        )
+                    }
+                }
+            } header: {
+                Text("カード演出")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.seiyaMenuNormalBadge)
