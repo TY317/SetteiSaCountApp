@@ -25,6 +25,7 @@ struct seiyaViewBayes: View {
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -50,6 +51,13 @@ struct seiyaViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // AT終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
+                    unitExView5body2image(
+                        title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("クジラッキートロフィー") {
@@ -141,6 +149,23 @@ struct seiyaViewBayes: View {
             )
         }
 
+        // AT終了画面
+        // 確定系（設定4以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    seiya.screenCount6,
+                    seiya.screenCount7,
+                ],
+                ratioList: [
+                    seiya.ratioScreenOver4,
+                    seiya.ratioScreenOver6,
+                ],
+                bigNumber: seiya.screenCountSum
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -181,6 +206,7 @@ struct seiyaViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostFirstHitCz,
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

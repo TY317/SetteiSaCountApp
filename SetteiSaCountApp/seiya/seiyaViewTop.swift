@@ -42,6 +42,17 @@ struct seiyaViewTop: View {
                         )
                     }
 
+                    // AT終了画面
+                    NavigationLink(destination: seiyaViewScreen(
+                        seiya: seiya,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "AT終了画面",
+                            badgeStatus: common.seiyaMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKujiluckyTrophy()) {
                         unitLabelMenu(
