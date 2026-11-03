@@ -19,8 +19,8 @@ struct seiyaView95Ci: View {
                 grafTitle: "CZ初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $seiya.firstHitCountCz,
-                        bigNumber: $seiya.playGameSum,
+                        currentCount: $seiya.activeFirstHitCountCz,
+                        bigNumber: $seiya.activeNormalGame,
                         setting1Denominate: seiya.ratioFirstHitCz[0],
                         setting2Denominate: seiya.ratioFirstHitCz[1],
                         setting3Denominate: seiya.ratioFirstHitCz[2],
@@ -37,8 +37,8 @@ struct seiyaView95Ci: View {
                 grafTitle: "AT初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $seiya.firstHitCountAt,
-                        bigNumber: $seiya.playGameSum,
+                        currentCount: $seiya.activeFirstHitCountAt,
+                        bigNumber: $seiya.activeNormalGame,
                         setting1Denominate: seiya.ratioFirstHitAt[0],
                         setting2Denominate: seiya.ratioFirstHitAt[1],
                         setting3Denominate: seiya.ratioFirstHitAt[2],

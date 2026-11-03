@@ -134,8 +134,8 @@ struct seiyaViewBayes: View {
         if self.firstHitCzEnable {
             logPostFirstHitCz = logPostDenoBino(
                 ratio: seiya.ratioFirstHitCz,
-                Count: seiya.firstHitCountCz,
-                bigNumber: seiya.playGameSum
+                Count: seiya.activeFirstHitCountCz,
+                bigNumber: seiya.activeNormalGame
             )
         }
 
@@ -144,8 +144,8 @@ struct seiyaViewBayes: View {
         if self.firstHitAtEnable {
             logPostFirstHitAt = logPostDenoBino(
                 ratio: seiya.ratioFirstHitAt,
-                Count: seiya.firstHitCountAt,
-                bigNumber: seiya.playGameSum
+                Count: seiya.activeFirstHitCountAt,
+                bigNumber: seiya.activeNormalGame
             )
         }
 

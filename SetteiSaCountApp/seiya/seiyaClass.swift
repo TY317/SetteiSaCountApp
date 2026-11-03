@@ -47,6 +47,30 @@ class Seiya: ObservableObject {
     @AppStorage("seiyaFirstHitCountCz") var firstHitCountCz: Int = 0
     @AppStorage("seiyaFirstHitCountAt") var firstHitCountAt: Int = 0
 
+    // 入力方式（履歴入力／カウント入力）
+    let firstHitInputModeList: [String] = ["履歴入力", "カウント入力"]
+    @AppStorage("seiyaFirstHitInputMode") var firstHitInputMode: String = "履歴入力"
+    // カウント入力用
+    @AppStorage("seiyaManualNormalGame") var manualNormalGame: Int = 0
+    @AppStorage("seiyaManualFirstHitCountCz") var manualFirstHitCountCz: Int = 0
+    @AppStorage("seiyaManualFirstHitCountAt") var manualFirstHitCountAt: Int = 0
+    // 確率算出・95Ci・設定期待値に使う値（選択中の入力方式の値を返す）
+    var isHistoryInputMode: Bool {
+        firstHitInputMode == firstHitInputModeList[0]
+    }
+    var activeNormalGame: Int {
+        get { isHistoryInputMode ? playGameSum : manualNormalGame }
+        set { }
+    }
+    var activeFirstHitCountCz: Int {
+        get { isHistoryInputMode ? firstHitCountCz : manualFirstHitCountCz }
+        set { }
+    }
+    var activeFirstHitCountAt: Int {
+        get { isHistoryInputMode ? firstHitCountAt : manualFirstHitCountAt }
+        set { }
+    }
+
     // データ登録
     func addHistory() {
         // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
@@ -69,6 +93,9 @@ class Seiya: ObservableObject {
         arrayStringRemoveAll(arrayData: atResultArrayData, key: atResultArrayKey)
         addRemoveCommon()
         inputGame = 0
+        manualNormalGame = 0
+        manualFirstHitCountCz = 0
+        manualFirstHitCountAt = 0
         minusCheck = false
     }
     func addRemoveCommon() {
