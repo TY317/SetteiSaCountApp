@@ -28,186 +28,284 @@ struct goeva2ViewFirstHit: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
-            // ---- 履歴登録
-            Section {
-                // ゲーム数入力
-                unitTextFieldNumberInputWithUnit(
-                    title: "ゲーム数",
-                    inputValue: $goeva2.inputGame,
-                    unitText: "Ｇ"
-                )
-                .focused($isFocused)
-                // ボーナス種類
-                unitPickerMenuString(
-                    title: "ボーナス種類",
-                    selected: $goeva2.selectedBonusKind,
-                    selectlist: goeva2.bonusKindList
-                )
-                // AT当否（AT直撃は当選1択なので表示のみ）
-                if goeva2.selectedBonusKind == goeva2.bonusKindList[2] {
-                    HStack {
-                        Text("AT当否")
-                        Spacer()
-                        Text(goeva2.atResultList[1])
-                            .foregroundStyle(Color.secondary)
-                    }
-                } else {
-                    unitPickerMenuString(
-                        title: "AT当否",
-                        selected: $goeva2.selectedAtResult,
-                        selectlist: goeva2.atResultList
-                    )
-                }
-                // //// 登録ボタン
-                Button {
-                    // マイナスチェック入っていれば1行削除
-                    if goeva2.minusCheck {
-                        goeva2.removeLastHistory()
-                        UINotificationFeedbackGenerator().notificationOccurred(.success)
-                    }
-                    // 入っていなければデータ登録
-                    else {
-                        goeva2.addHistory()
-                        UINotificationFeedbackGenerator().notificationOccurred(.success)
-                    }
-                } label: {
-                    unitButtonSubmitLabel(minusCheck: goeva2.minusCheck)
-                }
-            } header: {
-                HStack {
-                    Text("初当り登録")
-                    unitToolbarButtonQuestion {
-                        unitExView5body2image(
-                            title: "初当り登録",
-                            textBody1: "・ボーナス、AT直撃に当選するごとに登録してください",
-//                            textBody2: "・ゲーム数は前回の初当りから当選までのゲーム数を入力してください",
-                            textBody3: "・登録結果からボーナス、ATの初当り確率と通常ゲーム数を自動で算出します",
-                        )
-                    }
+            // ---- 入力方式（セクションに入れず背景を透明にして上部に置く）
+            Picker("", selection: $goeva2.firstHitInputMode) {
+                ForEach(goeva2.firstHitInputModeList, id: \.self) { mode in
+                    Text(mode)
                 }
             }
+            .pickerStyle(.segmented)
+            .listRowBackground(Color.clear)
 
-            // ---- 履歴表示
-            Section {
-                ScrollView {
-                    // //// 配列のデータ数が0以上なら履歴表示
-                    let gameArray = decodeIntArray(from: goeva2.gameArrayData)
-                    if gameArray.count > 0 {
-                        let bonusKindArray = decodeStringArray(from: goeva2.bonusKindArrayData)
-                        let atResultArray = decodeStringArray(from: goeva2.atResultArrayData)
-                        let startFlagList = goeva2.atIntervalStartFlagList
-                        ForEach(gameArray.indices, id: \.self) { index in
-                            let viewIndex = gameArray.count - index - 1
-                            HStack {
-                                // ゲーム数
-                                if gameArray.indices.contains(viewIndex) {
-                                    Text("\(gameArray[viewIndex])")
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity)
-                                }
-                                // ボーナス種類
-                                if bonusKindArray.indices.contains(viewIndex) {
-                                    Text(goeva2.bonusKindShortName(bonusKindArray[viewIndex]))
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity)
-                                }
-                                // AT当否
-                                if atResultArray.indices.contains(viewIndex) {
-                                    Text(atResultArray[viewIndex])
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity)
-                                }
-                            }
-                            // AT区間の区切りは赤線
-                            if startFlagList.indices.contains(viewIndex) && startFlagList[viewIndex] {
-                                Divider()
-                                    .overlay(Color.red)
-                            } else {
-                                Divider()
-                            }
+            // 履歴入力
+            if goeva2.isHistoryInputMode {
+                // ---- 履歴登録
+                Section {
+                    // ゲーム数入力
+                    unitTextFieldNumberInputWithUnit(
+                        title: "ゲーム数",
+                        inputValue: $goeva2.inputGame,
+                        unitText: "Ｇ"
+                    )
+                    .focused($isFocused)
+                    // ボーナス種類
+                    unitPickerMenuString(
+                        title: "ボーナス種類",
+                        selected: $goeva2.selectedBonusKind,
+                        selectlist: goeva2.bonusKindList
+                    )
+                    // AT当否（AT直撃は当選1択なので表示のみ）
+                    if goeva2.selectedBonusKind == goeva2.bonusKindList[2] {
+                        HStack {
+                            Text("AT当否")
+                            Spacer()
+                            Text(goeva2.atResultList[1])
+                                .foregroundStyle(Color.secondary)
+                        }
+                    } else {
+                        unitPickerMenuString(
+                            title: "AT当否",
+                            selected: $goeva2.selectedAtResult,
+                            selectlist: goeva2.atResultList
+                        )
+                    }
+                    // //// 登録ボタン
+                    Button {
+                        // マイナスチェック入っていれば1行削除
+                        if goeva2.minusCheck {
+                            goeva2.removeLastHistory()
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                        }
+                        // 入っていなければデータ登録
+                        else {
+                            goeva2.addHistory()
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                        }
+                    } label: {
+                        unitButtonSubmitLabel(minusCheck: goeva2.minusCheck)
+                    }
+                } header: {
+                    HStack {
+                        Text("初当り登録")
+                        unitToolbarButtonQuestion {
+                            unitExView5body2image(
+                                title: "初当り登録",
+                                textBody1: "・ボーナス、AT直撃に当選するごとに登録してください",
+    //                            textBody2: "・ゲーム数は前回の初当りから当選までのゲーム数を入力してください",
+                                textBody3: "・登録結果からボーナス、ATの初当り確率と通常ゲーム数を自動で算出します",
+                            )
                         }
                     }
-                    // //// 配列のデータ数が0なら履歴なしを表示
-                    else {
-                        unitLabelHistoryZero()
+                }
+
+                // ---- 履歴表示
+                Section {
+                    ScrollView {
+                        // //// 配列のデータ数が0以上なら履歴表示
+                        let gameArray = decodeIntArray(from: goeva2.gameArrayData)
+                        if gameArray.count > 0 {
+                            let bonusKindArray = decodeStringArray(from: goeva2.bonusKindArrayData)
+                            let atResultArray = decodeStringArray(from: goeva2.atResultArrayData)
+                            let startFlagList = goeva2.atIntervalStartFlagList
+                            ForEach(gameArray.indices, id: \.self) { index in
+                                let viewIndex = gameArray.count - index - 1
+                                HStack {
+                                    // ゲーム数
+                                    if gameArray.indices.contains(viewIndex) {
+                                        Text("\(gameArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // ボーナス種類
+                                    if bonusKindArray.indices.contains(viewIndex) {
+                                        Text(goeva2.bonusKindShortName(bonusKindArray[viewIndex]))
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    // AT当否
+                                    if atResultArray.indices.contains(viewIndex) {
+                                        Text(atResultArray[viewIndex])
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                }
+                                // AT区間の区切りは赤線
+                                if startFlagList.indices.contains(viewIndex) && startFlagList[viewIndex] {
+                                    Divider()
+                                        .overlay(Color.red)
+                                } else {
+                                    Divider()
+                                }
+                            }
+                        }
+                        // //// 配列のデータ数が0なら履歴なしを表示
+                        else {
+                            unitLabelHistoryZero()
+                        }
                     }
-                }
-                .frame(height: self.scrollViewHeight)
-            } header: {
-                unitHeaderHistoryColumns(
-                    column1Bool: false,
-                    column2: "ゲーム数",
-                    column3: "ボーナス種類",
-                    column4: "AT当否"
-                )
-            }
-
-            // ---- 集計結果
-            Section {
-                // 通常ゲーム数
-                HStack {
-                    Text("通常ゲーム数")
-                    Spacer()
-                    Text("\(goeva2.playGameSum)    G")
-                        .foregroundStyle(Color.secondary)
-                }
-
-                // 確率横並び
-                HStack {
-                    // ボーナス
-                    unitResultRatioDenomination2Line(
-                        title: "ボーナス",
-                        count: $goeva2.firstHitCountBonus,
-                        bigNumber: $goeva2.playGameSum,
-                        numberofDicimal: 0,
-                        spacerBool: false,
-                    )
-                    // AT
-                    unitResultRatioDenomination2Line(
-                        title: "AT",
-                        count: $goeva2.firstHitCountAt,
-                        bigNumber: $goeva2.playGameSum,
-                        numberofDicimal: 0,
-                        spacerBool: false,
+                    .frame(height: self.scrollViewHeight)
+                } header: {
+                    unitHeaderHistoryColumns(
+                        column1Bool: false,
+                        column2: "ゲーム数",
+                        column3: "ボーナス種類",
+                        column4: "AT当否"
                     )
                 }
-                .frame(maxWidth: .infinity, alignment: .center)
 
-                // 参考情報）初当り確率
-                unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
-                    HStack(spacing: 0) {
-                        unitTableSettingIndex()
-                        unitTableDenominate(
-                            columTitle: "ボーナス",
-                            denominateList: goeva2.ratioFirstHitBonus
+                // ---- 集計結果
+                Section {
+                    // 通常ゲーム数
+                    HStack {
+                        Text("通常ゲーム数")
+                        Spacer()
+                        Text("\(goeva2.playGameSum)    G")
+                            .foregroundStyle(Color.secondary)
+                    }
+
+                    // 確率横並び
+                    HStack {
+                        // ボーナス
+                        unitResultRatioDenomination2Line(
+                            title: "ボーナス",
+                            count: $goeva2.firstHitCountBonus,
+                            bigNumber: $goeva2.playGameSum,
+                            numberofDicimal: 0,
+                            spacerBool: false,
                         )
-                        unitTableDenominate(
-                            columTitle: "AT",
-                            denominateList: goeva2.ratioFirstHitAt
+                        // AT
+                        unitResultRatioDenomination2Line(
+                            title: "AT",
+                            count: $goeva2.firstHitCountAt,
+                            bigNumber: $goeva2.playGameSum,
+                            numberofDicimal: 0,
+                            spacerBool: false,
                         )
                     }
-                }
+                    .frame(maxWidth: .infinity, alignment: .center)
 
-                // //// 95%信頼区間グラフへのリンク
-                unitNaviLink95Ci(
-                    Ci95view: AnyView(
-                        goeva2View95Ci(
+                    // 参考情報）初当り確率
+                    unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "ボーナス",
+                                denominateList: goeva2.ratioFirstHitBonus
+                            )
+                            unitTableDenominate(
+                                columTitle: "AT",
+                                denominateList: goeva2.ratioFirstHitAt
+                            )
+                        }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            goeva2View95Ci(
+                                goeva2: goeva2,
+                                selection: 9,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        goeva2ViewBayes(
                             goeva2: goeva2,
-                            selection: 9,
+                        )
+                    }
+                } header: {
+                    Text("集計結果")
+                }
+            
+            }
+            // カウント入力
+            else {
+                Section {
+                    // ゲーム数入力
+                    unitTextFieldNumberInputWithUnit(
+                        title: "通常ゲーム数",
+                        inputValue: $goeva2.manualNormalGame,
+                        unitText: "Ｇ"
+                    )
+                    .focused($isFocused)
+
+                    // カウントボタン横並び
+                    HStack {
+                        // エヴァンゲリオンボーナス
+                        unitCountButtonVerticalDenominate(
+                            title: "エヴァ",
+                            count: $goeva2.manualFirstHitCountEva,
+                            color: .personalSummerLightPurple,
+                            bigNumber: $goeva2.manualNormalGame,
+                            numberofDicimal: 0,
+                            minusBool: $goeva2.minusCheck
+                        )
+                        // ゴジラボーナス
+                        unitCountButtonVerticalDenominate(
+                            title: "ゴジラ",
+                            count: $goeva2.manualFirstHitCountGodzilla,
+                            color: .personalSummerLightGreen,
+                            bigNumber: $goeva2.manualNormalGame,
+                            numberofDicimal: 0,
+                            minusBool: $goeva2.minusCheck
+                        )
+                        // AT
+                        unitCountButtonVerticalDenominate(
+                            title: "AT",
+                            count: $goeva2.manualFirstHitCountAt,
+                            color: .personalSummerLightRed,
+                            bigNumber: $goeva2.manualNormalGame,
+                            numberofDicimal: 0,
+                            minusBool: $goeva2.minusCheck
+                        )
+                    }
+
+                    // ボーナス合算
+                    unitResultRatioDenomination2Line(
+                        title: "ボーナス合算",
+                        count: $goeva2.manualFirstHitCountBonus,
+                        bigNumber: $goeva2.manualNormalGame,
+                        numberofDicimal: 0
+                    )
+
+                    // 参考情報）初当り確率
+                    unitLinkButtonViewBuilder(sheetTitle: "初当り確率") {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "ボーナス",
+                                denominateList: goeva2.ratioFirstHitBonus
+                            )
+                            unitTableDenominate(
+                                columTitle: "AT",
+                                denominateList: goeva2.ratioFirstHitAt
+                            )
+                        }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            goeva2View95Ci(
+                                goeva2: goeva2,
+                                selection: 9,
+                            )
                         )
                     )
-                )
 
-                // //// 設定期待値へのリンク
-                unitNaviLinkBayes {
-                    goeva2ViewBayes(
-                        goeva2: goeva2,
-                    )
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        goeva2ViewBayes(
+                            goeva2: goeva2,
+                        )
+                    }
+                } header: {
+                    Text("カウント")
                 }
-            } header: {
-                Text("集計結果")
             }
-            
+
             unitClearScrollSectionBinding(spaceHeight: self.$spaceHeight)
         }
         // //// バッジのリセット

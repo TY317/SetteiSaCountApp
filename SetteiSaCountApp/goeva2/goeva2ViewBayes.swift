@@ -129,8 +129,8 @@ struct goeva2ViewBayes: View {
         if self.firstHitBonusEnable {
             logPostFirstHitBonus = logPostDenoBino(
                 ratio: goeva2.ratioFirstHitBonus,
-                Count: goeva2.firstHitCountBonus,
-                bigNumber: goeva2.playGameSum
+                Count: goeva2.activeFirstHitCountBonus,
+                bigNumber: goeva2.activeNormalGame
             )
         }
 
@@ -139,8 +139,8 @@ struct goeva2ViewBayes: View {
         if self.firstHitAtEnable {
             logPostFirstHitAt = logPostDenoBino(
                 ratio: goeva2.ratioFirstHitAt,
-                Count: goeva2.firstHitCountAt,
-                bigNumber: goeva2.playGameSum
+                Count: goeva2.activeFirstHitCountAt,
+                bigNumber: goeva2.activeNormalGame
             )
         }
 

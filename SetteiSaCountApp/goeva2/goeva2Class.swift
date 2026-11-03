@@ -90,6 +90,36 @@ class Goeva2: ObservableObject {
     @AppStorage("goeva2FirstHitCountBonus") var firstHitCountBonus: Int = 0
     @AppStorage("goeva2FirstHitCountAt") var firstHitCountAt: Int = 0
 
+    // 入力方式（履歴入力／カウント入力）
+    let firstHitInputModeList: [String] = ["履歴入力", "カウント入力"]
+    @AppStorage("goeva2FirstHitInputMode") var firstHitInputMode: String = "履歴入力"
+    // カウント入力用
+    @AppStorage("goeva2ManualNormalGame") var manualNormalGame: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountEva") var manualFirstHitCountEva: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountGodzilla") var manualFirstHitCountGodzilla: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountAt") var manualFirstHitCountAt: Int = 0
+    // カウント入力のボーナス合算（エヴァンゲリオンボーナス＋ゴジラボーナス）
+    var manualFirstHitCountBonus: Int {
+        get { manualFirstHitCountEva + manualFirstHitCountGodzilla }
+        set { }
+    }
+    // 確率算出・95Ci・設定期待値に使う値（選択中の入力方式の値を返す）
+    var isHistoryInputMode: Bool {
+        firstHitInputMode == firstHitInputModeList[0]
+    }
+    var activeNormalGame: Int {
+        get { isHistoryInputMode ? playGameSum : manualNormalGame }
+        set { }
+    }
+    var activeFirstHitCountBonus: Int {
+        get { isHistoryInputMode ? firstHitCountBonus : manualFirstHitCountBonus }
+        set { }
+    }
+    var activeFirstHitCountAt: Int {
+        get { isHistoryInputMode ? firstHitCountAt : manualFirstHitCountAt }
+        set { }
+    }
+
     // データ登録
     func addHistory() {
         // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
@@ -112,6 +142,10 @@ class Goeva2: ObservableObject {
         arrayStringRemoveAll(arrayData: atResultArrayData, key: atResultArrayKey)
         addRemoveCommon()
         inputGame = 0
+        manualNormalGame = 0
+        manualFirstHitCountEva = 0
+        manualFirstHitCountGodzilla = 0
+        manualFirstHitCountAt = 0
         minusCheck = false
     }
     func addRemoveCommon() {
@@ -233,6 +267,11 @@ class Goeva2Memory1: ObservableObject {
     @AppStorage("goeva2ScreenCount9Memory1") var screenCount9: Int = 0
     @AppStorage("goeva2ScreenCount10Memory1") var screenCount10: Int = 0
     @AppStorage("goeva2ScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("goeva2FirstHitInputModeMemory1") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("goeva2ManualNormalGameMemory1") var manualNormalGame: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountEvaMemory1") var manualFirstHitCountEva: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountGodzillaMemory1") var manualFirstHitCountGodzilla: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountAtMemory1") var manualFirstHitCountAt: Int = 0
     @AppStorage("goeva2MemoMemory1") var memo = ""
     @AppStorage("goeva2DateMemory1") var dateDouble = 0.0
 }
@@ -272,6 +311,11 @@ class Goeva2Memory2: ObservableObject {
     @AppStorage("goeva2ScreenCount9Memory2") var screenCount9: Int = 0
     @AppStorage("goeva2ScreenCount10Memory2") var screenCount10: Int = 0
     @AppStorage("goeva2ScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("goeva2FirstHitInputModeMemory2") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("goeva2ManualNormalGameMemory2") var manualNormalGame: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountEvaMemory2") var manualFirstHitCountEva: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountGodzillaMemory2") var manualFirstHitCountGodzilla: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountAtMemory2") var manualFirstHitCountAt: Int = 0
     @AppStorage("goeva2MemoMemory2") var memo = ""
     @AppStorage("goeva2DateMemory2") var dateDouble = 0.0
 }
@@ -311,6 +355,11 @@ class Goeva2Memory3: ObservableObject {
     @AppStorage("goeva2ScreenCount9Memory3") var screenCount9: Int = 0
     @AppStorage("goeva2ScreenCount10Memory3") var screenCount10: Int = 0
     @AppStorage("goeva2ScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("goeva2FirstHitInputModeMemory3") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("goeva2ManualNormalGameMemory3") var manualNormalGame: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountEvaMemory3") var manualFirstHitCountEva: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountGodzillaMemory3") var manualFirstHitCountGodzilla: Int = 0
+    @AppStorage("goeva2ManualFirstHitCountAtMemory3") var manualFirstHitCountAt: Int = 0
     @AppStorage("goeva2MemoMemory3") var memo = ""
     @AppStorage("goeva2DateMemory3") var dateDouble = 0.0
 }

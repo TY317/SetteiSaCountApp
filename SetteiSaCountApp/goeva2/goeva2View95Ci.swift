@@ -170,8 +170,8 @@ struct goeva2View95Ci: View {
                 grafTitle: "ボーナス初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $goeva2.firstHitCountBonus,
-                        bigNumber: $goeva2.playGameSum,
+                        currentCount: $goeva2.activeFirstHitCountBonus,
+                        bigNumber: $goeva2.activeNormalGame,
                         setting1Denominate: goeva2.ratioFirstHitBonus[0],
                         setting2Denominate: goeva2.ratioFirstHitBonus[1],
                         setting3Denominate: goeva2.ratioFirstHitBonus[2],
@@ -188,8 +188,8 @@ struct goeva2View95Ci: View {
                 grafTitle: "AT初当り回数",
                 grafView: AnyView(
                     unitChart95CiDenominate(
-                        currentCount: $goeva2.firstHitCountAt,
-                        bigNumber: $goeva2.playGameSum,
+                        currentCount: $goeva2.activeFirstHitCountAt,
+                        bigNumber: $goeva2.activeNormalGame,
                         setting1Denominate: goeva2.ratioFirstHitAt[0],
                         setting2Denominate: goeva2.ratioFirstHitAt[1],
                         setting3Denominate: goeva2.ratioFirstHitAt[2],
