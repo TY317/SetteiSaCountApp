@@ -99,12 +99,8 @@ class Seiya: ObservableObject {
         minusCheck = false
     }
     func addRemoveCommon() {
-        // ゲーム数はAT当選まで累積
-        playGameSum = arraySumPlayGameResetWordOne(
-            gameArrayData: gameArrayData,
-            bonusArrayData: atResultArrayData,
-            resetWord: atResultList[1]
-        )
+        // ゲーム数は初当りごとにリセットされるので単純合計
+        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
         // CZはWHO ARE YOU ?と影ノ襲来の合算
         firstHitCountCz = countSum(
             arrayStringDataCount(arrayData: czKindArrayData, countString: czKindList[0]),

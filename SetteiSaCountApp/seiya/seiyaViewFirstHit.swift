@@ -91,7 +91,7 @@ struct seiyaViewFirstHit: View {
                             unitExView5body2image(
                                 title: "初当り登録",
                                 textBody1: "・CZ、AT直撃に当選するごとに登録してください",
-                                textBody2: "・ゲーム数はAT当選までの累積ゲーム数を入力してください",
+                                textBody2: "・ゲーム数は前回の初当りから当選までのゲーム数を入力してください",
                                 textBody3: "・登録結果からCZ、ATの初当り確率と通常ゲーム数を自動で算出します",
                             )
                         }
@@ -112,19 +112,9 @@ struct seiyaViewFirstHit: View {
                                 HStack {
                                     // ゲーム数
                                     if gameArray.indices.contains(viewIndex) {
-                                        // AT当選の場合は黒字で表示
-                                        if atResultArray.indices.contains(viewIndex) && atResultArray[viewIndex] == seiya.atResultList[1] {
-                                            Text("\(gameArray[viewIndex])")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                        }
-                                        // リセットされないゲーム数は()付きグレーで表示
-                                        else {
-                                            Text("(\(gameArray[viewIndex]))")
-                                                .lineLimit(1)
-                                                .frame(maxWidth: .infinity)
-                                                .foregroundStyle(Color.secondary)
-                                        }
+                                        Text("\(gameArray[viewIndex])")
+                                            .lineLimit(1)
+                                            .frame(maxWidth: .infinity)
                                     }
                                     // CZ種類
                                     if czKindArray.indices.contains(viewIndex) {
