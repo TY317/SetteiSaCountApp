@@ -182,13 +182,91 @@ struct seiyaSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        seiyaMemory1.gameArrayData = seiya.gameArrayData
+        seiyaMemory1.czKindArrayData = seiya.czKindArrayData
+        seiyaMemory1.atResultArrayData = seiya.atResultArrayData
+        seiyaMemory1.playGameSum = seiya.playGameSum
+        seiyaMemory1.firstHitCountCz = seiya.firstHitCountCz
+        seiyaMemory1.firstHitCountAt = seiya.firstHitCountAt
+        seiyaMemory1.firstHitInputMode = seiya.firstHitInputMode
+        seiyaMemory1.manualNormalGame = seiya.manualNormalGame
+        seiyaMemory1.manualFirstHitCountCz = seiya.manualFirstHitCountCz
+        seiyaMemory1.manualFirstHitCountAt = seiya.manualFirstHitCountAt
+        seiyaMemory1.opponentCount1 = seiya.opponentCount1
+        seiyaMemory1.opponentCount2 = seiya.opponentCount2
+        seiyaMemory1.opponentCount3 = seiya.opponentCount3
+        seiyaMemory1.opponentCountSum = seiya.opponentCountSum
+        seiyaMemory1.charaCount1 = seiya.charaCount1
+        seiyaMemory1.charaCount2 = seiya.charaCount2
+        seiyaMemory1.charaCount3 = seiya.charaCount3
+        seiyaMemory1.charaCountSum = seiya.charaCountSum
+        seiyaMemory1.screenCount1 = seiya.screenCount1
+        seiyaMemory1.screenCount2 = seiya.screenCount2
+        seiyaMemory1.screenCount3 = seiya.screenCount3
+        seiyaMemory1.screenCount4 = seiya.screenCount4
+        seiyaMemory1.screenCount5 = seiya.screenCount5
+        seiyaMemory1.screenCount6 = seiya.screenCount6
+        seiyaMemory1.screenCount7 = seiya.screenCount7
+        seiyaMemory1.screenCount8 = seiya.screenCount8
+        seiyaMemory1.screenCountSum = seiya.screenCountSum
     }
     func saveMemory2() {
-
+        seiyaMemory2.gameArrayData = seiya.gameArrayData
+        seiyaMemory2.czKindArrayData = seiya.czKindArrayData
+        seiyaMemory2.atResultArrayData = seiya.atResultArrayData
+        seiyaMemory2.playGameSum = seiya.playGameSum
+        seiyaMemory2.firstHitCountCz = seiya.firstHitCountCz
+        seiyaMemory2.firstHitCountAt = seiya.firstHitCountAt
+        seiyaMemory2.firstHitInputMode = seiya.firstHitInputMode
+        seiyaMemory2.manualNormalGame = seiya.manualNormalGame
+        seiyaMemory2.manualFirstHitCountCz = seiya.manualFirstHitCountCz
+        seiyaMemory2.manualFirstHitCountAt = seiya.manualFirstHitCountAt
+        seiyaMemory2.opponentCount1 = seiya.opponentCount1
+        seiyaMemory2.opponentCount2 = seiya.opponentCount2
+        seiyaMemory2.opponentCount3 = seiya.opponentCount3
+        seiyaMemory2.opponentCountSum = seiya.opponentCountSum
+        seiyaMemory2.charaCount1 = seiya.charaCount1
+        seiyaMemory2.charaCount2 = seiya.charaCount2
+        seiyaMemory2.charaCount3 = seiya.charaCount3
+        seiyaMemory2.charaCountSum = seiya.charaCountSum
+        seiyaMemory2.screenCount1 = seiya.screenCount1
+        seiyaMemory2.screenCount2 = seiya.screenCount2
+        seiyaMemory2.screenCount3 = seiya.screenCount3
+        seiyaMemory2.screenCount4 = seiya.screenCount4
+        seiyaMemory2.screenCount5 = seiya.screenCount5
+        seiyaMemory2.screenCount6 = seiya.screenCount6
+        seiyaMemory2.screenCount7 = seiya.screenCount7
+        seiyaMemory2.screenCount8 = seiya.screenCount8
+        seiyaMemory2.screenCountSum = seiya.screenCountSum
     }
     func saveMemory3() {
-
+        seiyaMemory3.gameArrayData = seiya.gameArrayData
+        seiyaMemory3.czKindArrayData = seiya.czKindArrayData
+        seiyaMemory3.atResultArrayData = seiya.atResultArrayData
+        seiyaMemory3.playGameSum = seiya.playGameSum
+        seiyaMemory3.firstHitCountCz = seiya.firstHitCountCz
+        seiyaMemory3.firstHitCountAt = seiya.firstHitCountAt
+        seiyaMemory3.firstHitInputMode = seiya.firstHitInputMode
+        seiyaMemory3.manualNormalGame = seiya.manualNormalGame
+        seiyaMemory3.manualFirstHitCountCz = seiya.manualFirstHitCountCz
+        seiyaMemory3.manualFirstHitCountAt = seiya.manualFirstHitCountAt
+        seiyaMemory3.opponentCount1 = seiya.opponentCount1
+        seiyaMemory3.opponentCount2 = seiya.opponentCount2
+        seiyaMemory3.opponentCount3 = seiya.opponentCount3
+        seiyaMemory3.opponentCountSum = seiya.opponentCountSum
+        seiyaMemory3.charaCount1 = seiya.charaCount1
+        seiyaMemory3.charaCount2 = seiya.charaCount2
+        seiyaMemory3.charaCount3 = seiya.charaCount3
+        seiyaMemory3.charaCountSum = seiya.charaCountSum
+        seiyaMemory3.screenCount1 = seiya.screenCount1
+        seiyaMemory3.screenCount2 = seiya.screenCount2
+        seiyaMemory3.screenCount3 = seiya.screenCount3
+        seiyaMemory3.screenCount4 = seiya.screenCount4
+        seiyaMemory3.screenCount5 = seiya.screenCount5
+        seiyaMemory3.screenCount6 = seiya.screenCount6
+        seiyaMemory3.screenCount7 = seiya.screenCount7
+        seiyaMemory3.screenCount8 = seiya.screenCount8
+        seiyaMemory3.screenCountSum = seiya.screenCountSum
     }
 }
 
@@ -220,13 +298,100 @@ struct seiyaSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        let gameArrayDecoded = decodeIntArray(from: seiyaMemory1.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
+        let czKindArrayDecoded = decodeStringArray(from: seiyaMemory1.czKindArrayData)
+        saveArray(czKindArrayDecoded, forKey: seiya.czKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: seiyaMemory1.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: seiya.atResultArrayKey)
+        seiya.playGameSum = seiyaMemory1.playGameSum
+        seiya.firstHitCountCz = seiyaMemory1.firstHitCountCz
+        seiya.firstHitCountAt = seiyaMemory1.firstHitCountAt
+        seiya.firstHitInputMode = seiyaMemory1.firstHitInputMode
+        seiya.manualNormalGame = seiyaMemory1.manualNormalGame
+        seiya.manualFirstHitCountCz = seiyaMemory1.manualFirstHitCountCz
+        seiya.manualFirstHitCountAt = seiyaMemory1.manualFirstHitCountAt
+        seiya.opponentCount1 = seiyaMemory1.opponentCount1
+        seiya.opponentCount2 = seiyaMemory1.opponentCount2
+        seiya.opponentCount3 = seiyaMemory1.opponentCount3
+        seiya.opponentCountSum = seiyaMemory1.opponentCountSum
+        seiya.charaCount1 = seiyaMemory1.charaCount1
+        seiya.charaCount2 = seiyaMemory1.charaCount2
+        seiya.charaCount3 = seiyaMemory1.charaCount3
+        seiya.charaCountSum = seiyaMemory1.charaCountSum
+        seiya.screenCount1 = seiyaMemory1.screenCount1
+        seiya.screenCount2 = seiyaMemory1.screenCount2
+        seiya.screenCount3 = seiyaMemory1.screenCount3
+        seiya.screenCount4 = seiyaMemory1.screenCount4
+        seiya.screenCount5 = seiyaMemory1.screenCount5
+        seiya.screenCount6 = seiyaMemory1.screenCount6
+        seiya.screenCount7 = seiyaMemory1.screenCount7
+        seiya.screenCount8 = seiyaMemory1.screenCount8
+        seiya.screenCountSum = seiyaMemory1.screenCountSum
     }
     func loadMemory2() {
-
+        let gameArrayDecoded = decodeIntArray(from: seiyaMemory2.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
+        let czKindArrayDecoded = decodeStringArray(from: seiyaMemory2.czKindArrayData)
+        saveArray(czKindArrayDecoded, forKey: seiya.czKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: seiyaMemory2.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: seiya.atResultArrayKey)
+        seiya.playGameSum = seiyaMemory2.playGameSum
+        seiya.firstHitCountCz = seiyaMemory2.firstHitCountCz
+        seiya.firstHitCountAt = seiyaMemory2.firstHitCountAt
+        seiya.firstHitInputMode = seiyaMemory2.firstHitInputMode
+        seiya.manualNormalGame = seiyaMemory2.manualNormalGame
+        seiya.manualFirstHitCountCz = seiyaMemory2.manualFirstHitCountCz
+        seiya.manualFirstHitCountAt = seiyaMemory2.manualFirstHitCountAt
+        seiya.opponentCount1 = seiyaMemory2.opponentCount1
+        seiya.opponentCount2 = seiyaMemory2.opponentCount2
+        seiya.opponentCount3 = seiyaMemory2.opponentCount3
+        seiya.opponentCountSum = seiyaMemory2.opponentCountSum
+        seiya.charaCount1 = seiyaMemory2.charaCount1
+        seiya.charaCount2 = seiyaMemory2.charaCount2
+        seiya.charaCount3 = seiyaMemory2.charaCount3
+        seiya.charaCountSum = seiyaMemory2.charaCountSum
+        seiya.screenCount1 = seiyaMemory2.screenCount1
+        seiya.screenCount2 = seiyaMemory2.screenCount2
+        seiya.screenCount3 = seiyaMemory2.screenCount3
+        seiya.screenCount4 = seiyaMemory2.screenCount4
+        seiya.screenCount5 = seiyaMemory2.screenCount5
+        seiya.screenCount6 = seiyaMemory2.screenCount6
+        seiya.screenCount7 = seiyaMemory2.screenCount7
+        seiya.screenCount8 = seiyaMemory2.screenCount8
+        seiya.screenCountSum = seiyaMemory2.screenCountSum
     }
     func loadMemory3() {
-
+        let gameArrayDecoded = decodeIntArray(from: seiyaMemory3.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
+        let czKindArrayDecoded = decodeStringArray(from: seiyaMemory3.czKindArrayData)
+        saveArray(czKindArrayDecoded, forKey: seiya.czKindArrayKey)
+        let atResultArrayDecoded = decodeStringArray(from: seiyaMemory3.atResultArrayData)
+        saveArray(atResultArrayDecoded, forKey: seiya.atResultArrayKey)
+        seiya.playGameSum = seiyaMemory3.playGameSum
+        seiya.firstHitCountCz = seiyaMemory3.firstHitCountCz
+        seiya.firstHitCountAt = seiyaMemory3.firstHitCountAt
+        seiya.firstHitInputMode = seiyaMemory3.firstHitInputMode
+        seiya.manualNormalGame = seiyaMemory3.manualNormalGame
+        seiya.manualFirstHitCountCz = seiyaMemory3.manualFirstHitCountCz
+        seiya.manualFirstHitCountAt = seiyaMemory3.manualFirstHitCountAt
+        seiya.opponentCount1 = seiyaMemory3.opponentCount1
+        seiya.opponentCount2 = seiyaMemory3.opponentCount2
+        seiya.opponentCount3 = seiyaMemory3.opponentCount3
+        seiya.opponentCountSum = seiyaMemory3.opponentCountSum
+        seiya.charaCount1 = seiyaMemory3.charaCount1
+        seiya.charaCount2 = seiyaMemory3.charaCount2
+        seiya.charaCount3 = seiyaMemory3.charaCount3
+        seiya.charaCountSum = seiyaMemory3.charaCountSum
+        seiya.screenCount1 = seiyaMemory3.screenCount1
+        seiya.screenCount2 = seiyaMemory3.screenCount2
+        seiya.screenCount3 = seiyaMemory3.screenCount3
+        seiya.screenCount4 = seiyaMemory3.screenCount4
+        seiya.screenCount5 = seiyaMemory3.screenCount5
+        seiya.screenCount6 = seiyaMemory3.screenCount6
+        seiya.screenCount7 = seiyaMemory3.screenCount7
+        seiya.screenCount8 = seiyaMemory3.screenCount8
+        seiya.screenCountSum = seiyaMemory3.screenCountSum
     }
 }
 
