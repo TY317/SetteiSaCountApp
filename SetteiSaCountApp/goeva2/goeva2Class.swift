@@ -67,8 +67,8 @@ class Goeva2: ObservableObject {
     let ratioFirstHitBonus: [Double] = [234.2,229.0,221.8,207.0,201.5,195.0]
     let ratioFirstHitAt: [Double] = [460.5,446.5,425.5,390.4,374.2,355.5]
     // 選択肢
-    let bonusKindList: [String] = ["エヴァンゲリオン", "ゴジラ", "AT直撃"]
-    let bonusKindShortList: [String] = ["エヴァ", "ゴジラ", "AT直撃"]   // 履歴表示用
+    let bonusKindList: [String] = ["エヴァンゲリオン", "ゴジラ", "AT直撃", "その他"]
+    let bonusKindShortList: [String] = ["エヴァ", "ゴジラ", "AT直撃", "その他"]   // 履歴表示用
     let atResultList: [String] = ["ハズレ", "当選"]
     // 選択結果
     @AppStorage("goeva2InputGame") var inputGame: Int = 0

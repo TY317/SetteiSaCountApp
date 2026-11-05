@@ -24,8 +24,8 @@ class Seiya: ObservableObject {
     let ratioFirstHitCz: [Double] = [214.4,214.1,211.7,202.5,197.2,200.3]
     let ratioFirstHitAt: [Double] = [364.2,356.1,345.6,322.3,313.7,310.5]
     // 選択肢
-    let czKindList: [String] = ["WHO ARE YOU ?", "影ノ襲来", "AT直撃"]
-    let czKindShortList: [String] = ["WHO", "影ノ襲来", "AT直撃"]   // 履歴表示用
+    let czKindList: [String] = ["WHO ARE YOU ?", "影ノ襲来", "AT直撃", "その他"]
+    let czKindShortList: [String] = ["WHO", "影ノ襲来", "AT直撃", "その他"]   // 履歴表示用
     let atResultList: [String] = ["ハズレ", "当選"]
     // 選択結果
     @AppStorage("seiyaInputGame") var inputGame: Int = 0
