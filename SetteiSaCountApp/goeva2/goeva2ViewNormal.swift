@@ -191,6 +191,8 @@ struct goeva2ViewNormal: View {
                     VStack {
 //                        Text("・設定1のみ判明")
 //                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("・確定役系は全設定・全状態で100%")
+//                            .frame(maxWidth: .infinity, alignment: .leading)
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
                             // 通常
@@ -282,8 +284,6 @@ struct goeva2ViewNormal: View {
                                 lineList: [2,4,2,4],
                             )
                         }
-                        Text("・確定役系は全設定・全状態で100%")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
 

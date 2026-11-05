@@ -31,6 +31,9 @@ struct goeva2ViewEnding: View {
         List {
             // ---- キャラ別セリフ
             Section {
+                Text("・レア役成立時にPUSHボタンでボイス発生")
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
                 HStack(spacing: 0) {
                     unitTableString(
                         columTitle: "キャラ",
@@ -59,7 +62,7 @@ struct goeva2ViewEnding: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             } header: {
-                Text("キャラ別セリフ")
+                Text("ボイス")
             }
         }
         // //// バッジのリセット
