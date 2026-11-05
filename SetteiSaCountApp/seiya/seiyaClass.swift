@@ -207,6 +207,42 @@ class Seiya: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // レア役時のPUSHランプ
+    // -------
+    let ratioLampOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioLampOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioLampOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("seiyaLampCount1") var lampCount1: Int = 0
+    @AppStorage("seiyaLampCount2") var lampCount2: Int = 0
+    @AppStorage("seiyaLampCount3") var lampCount3: Int = 0
+    @AppStorage("seiyaLampCount4") var lampCount4: Int = 0
+    @AppStorage("seiyaLampCount5") var lampCount5: Int = 0
+    @AppStorage("seiyaLampCount6") var lampCount6: Int = 0
+    @AppStorage("seiyaLampCountSum") var lampCountSum: Int = 0
+
+    func lampSumFunc() {
+        lampCountSum = countSum(
+            lampCount1,
+            lampCount2,
+            lampCount3,
+            lampCount4,
+            lampCount5,
+            lampCount6,
+        )
+    }
+
+    func resetLamp() {
+        lampCount1 = 0
+        lampCount2 = 0
+        lampCount3 = 0
+        lampCount4 = 0
+        lampCount5 = 0
+        lampCount6 = 0
+        lampCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -219,6 +255,7 @@ class Seiya: ObservableObject {
         resetFirstHit()
         resetDuringAt()
         resetScreen()
+        resetLamp()
     }
 }
 
@@ -251,6 +288,13 @@ class SeiyaMemory1: ObservableObject {
     @AppStorage("seiyaScreenCount7Memory1") var screenCount7: Int = 0
     @AppStorage("seiyaScreenCount8Memory1") var screenCount8: Int = 0
     @AppStorage("seiyaScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("seiyaLampCount1Memory1") var lampCount1: Int = 0
+    @AppStorage("seiyaLampCount2Memory1") var lampCount2: Int = 0
+    @AppStorage("seiyaLampCount3Memory1") var lampCount3: Int = 0
+    @AppStorage("seiyaLampCount4Memory1") var lampCount4: Int = 0
+    @AppStorage("seiyaLampCount5Memory1") var lampCount5: Int = 0
+    @AppStorage("seiyaLampCount6Memory1") var lampCount6: Int = 0
+    @AppStorage("seiyaLampCountSumMemory1") var lampCountSum: Int = 0
     @AppStorage("seiyaMemoMemory1") var memo = ""
     @AppStorage("seiyaDateMemory1") var dateDouble = 0.0
 }
@@ -284,6 +328,13 @@ class SeiyaMemory2: ObservableObject {
     @AppStorage("seiyaScreenCount7Memory2") var screenCount7: Int = 0
     @AppStorage("seiyaScreenCount8Memory2") var screenCount8: Int = 0
     @AppStorage("seiyaScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("seiyaLampCount1Memory2") var lampCount1: Int = 0
+    @AppStorage("seiyaLampCount2Memory2") var lampCount2: Int = 0
+    @AppStorage("seiyaLampCount3Memory2") var lampCount3: Int = 0
+    @AppStorage("seiyaLampCount4Memory2") var lampCount4: Int = 0
+    @AppStorage("seiyaLampCount5Memory2") var lampCount5: Int = 0
+    @AppStorage("seiyaLampCount6Memory2") var lampCount6: Int = 0
+    @AppStorage("seiyaLampCountSumMemory2") var lampCountSum: Int = 0
     @AppStorage("seiyaMemoMemory2") var memo = ""
     @AppStorage("seiyaDateMemory2") var dateDouble = 0.0
 }
@@ -317,6 +368,13 @@ class SeiyaMemory3: ObservableObject {
     @AppStorage("seiyaScreenCount7Memory3") var screenCount7: Int = 0
     @AppStorage("seiyaScreenCount8Memory3") var screenCount8: Int = 0
     @AppStorage("seiyaScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("seiyaLampCount1Memory3") var lampCount1: Int = 0
+    @AppStorage("seiyaLampCount2Memory3") var lampCount2: Int = 0
+    @AppStorage("seiyaLampCount3Memory3") var lampCount3: Int = 0
+    @AppStorage("seiyaLampCount4Memory3") var lampCount4: Int = 0
+    @AppStorage("seiyaLampCount5Memory3") var lampCount5: Int = 0
+    @AppStorage("seiyaLampCount6Memory3") var lampCount6: Int = 0
+    @AppStorage("seiyaLampCountSumMemory3") var lampCountSum: Int = 0
     @AppStorage("seiyaMemoMemory3") var memo = ""
     @AppStorage("seiyaDateMemory3") var dateDouble = 0.0
 }

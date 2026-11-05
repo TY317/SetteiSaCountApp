@@ -64,6 +64,17 @@ struct seiyaViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: seiyaViewEnding(
+                        seiya: seiya,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.seiyaMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKujiluckyTrophy()) {
                         unitLabelMenu(
@@ -209,6 +220,13 @@ struct seiyaSubViewSaveMemory: View {
         seiyaMemory1.screenCount7 = seiya.screenCount7
         seiyaMemory1.screenCount8 = seiya.screenCount8
         seiyaMemory1.screenCountSum = seiya.screenCountSum
+        seiyaMemory1.lampCount1 = seiya.lampCount1
+        seiyaMemory1.lampCount2 = seiya.lampCount2
+        seiyaMemory1.lampCount3 = seiya.lampCount3
+        seiyaMemory1.lampCount4 = seiya.lampCount4
+        seiyaMemory1.lampCount5 = seiya.lampCount5
+        seiyaMemory1.lampCount6 = seiya.lampCount6
+        seiyaMemory1.lampCountSum = seiya.lampCountSum
     }
     func saveMemory2() {
         seiyaMemory2.gameArrayData = seiya.gameArrayData
@@ -238,6 +256,13 @@ struct seiyaSubViewSaveMemory: View {
         seiyaMemory2.screenCount7 = seiya.screenCount7
         seiyaMemory2.screenCount8 = seiya.screenCount8
         seiyaMemory2.screenCountSum = seiya.screenCountSum
+        seiyaMemory2.lampCount1 = seiya.lampCount1
+        seiyaMemory2.lampCount2 = seiya.lampCount2
+        seiyaMemory2.lampCount3 = seiya.lampCount3
+        seiyaMemory2.lampCount4 = seiya.lampCount4
+        seiyaMemory2.lampCount5 = seiya.lampCount5
+        seiyaMemory2.lampCount6 = seiya.lampCount6
+        seiyaMemory2.lampCountSum = seiya.lampCountSum
     }
     func saveMemory3() {
         seiyaMemory3.gameArrayData = seiya.gameArrayData
@@ -267,6 +292,13 @@ struct seiyaSubViewSaveMemory: View {
         seiyaMemory3.screenCount7 = seiya.screenCount7
         seiyaMemory3.screenCount8 = seiya.screenCount8
         seiyaMemory3.screenCountSum = seiya.screenCountSum
+        seiyaMemory3.lampCount1 = seiya.lampCount1
+        seiyaMemory3.lampCount2 = seiya.lampCount2
+        seiyaMemory3.lampCount3 = seiya.lampCount3
+        seiyaMemory3.lampCount4 = seiya.lampCount4
+        seiyaMemory3.lampCount5 = seiya.lampCount5
+        seiyaMemory3.lampCount6 = seiya.lampCount6
+        seiyaMemory3.lampCountSum = seiya.lampCountSum
     }
 }
 
@@ -328,6 +360,13 @@ struct seiyaSubViewLoadMemory: View {
         seiya.screenCount7 = seiyaMemory1.screenCount7
         seiya.screenCount8 = seiyaMemory1.screenCount8
         seiya.screenCountSum = seiyaMemory1.screenCountSum
+        seiya.lampCount1 = seiyaMemory1.lampCount1
+        seiya.lampCount2 = seiyaMemory1.lampCount2
+        seiya.lampCount3 = seiyaMemory1.lampCount3
+        seiya.lampCount4 = seiyaMemory1.lampCount4
+        seiya.lampCount5 = seiyaMemory1.lampCount5
+        seiya.lampCount6 = seiyaMemory1.lampCount6
+        seiya.lampCountSum = seiyaMemory1.lampCountSum
     }
     func loadMemory2() {
         let gameArrayDecoded = decodeIntArray(from: seiyaMemory2.gameArrayData)
@@ -360,6 +399,13 @@ struct seiyaSubViewLoadMemory: View {
         seiya.screenCount7 = seiyaMemory2.screenCount7
         seiya.screenCount8 = seiyaMemory2.screenCount8
         seiya.screenCountSum = seiyaMemory2.screenCountSum
+        seiya.lampCount1 = seiyaMemory2.lampCount1
+        seiya.lampCount2 = seiyaMemory2.lampCount2
+        seiya.lampCount3 = seiyaMemory2.lampCount3
+        seiya.lampCount4 = seiyaMemory2.lampCount4
+        seiya.lampCount5 = seiyaMemory2.lampCount5
+        seiya.lampCount6 = seiyaMemory2.lampCount6
+        seiya.lampCountSum = seiyaMemory2.lampCountSum
     }
     func loadMemory3() {
         let gameArrayDecoded = decodeIntArray(from: seiyaMemory3.gameArrayData)
@@ -392,6 +438,13 @@ struct seiyaSubViewLoadMemory: View {
         seiya.screenCount7 = seiyaMemory3.screenCount7
         seiya.screenCount8 = seiyaMemory3.screenCount8
         seiya.screenCountSum = seiyaMemory3.screenCountSum
+        seiya.lampCount1 = seiyaMemory3.lampCount1
+        seiya.lampCount2 = seiyaMemory3.lampCount2
+        seiya.lampCount3 = seiyaMemory3.lampCount3
+        seiya.lampCount4 = seiyaMemory3.lampCount4
+        seiya.lampCount5 = seiyaMemory3.lampCount5
+        seiya.lampCount6 = seiyaMemory3.lampCount6
+        seiya.lampCountSum = seiyaMemory3.lampCountSum
     }
 }
 

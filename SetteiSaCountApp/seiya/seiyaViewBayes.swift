@@ -26,6 +26,7 @@ struct seiyaViewBayes: View {
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var lampEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -55,6 +56,13 @@ struct seiyaViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
                         title: "AT終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // エンディング PUSHランプ
+                unitToggleWithQuestion(enable: self.$lampEnable, title: "エンディング PUSHランプ") {
+                    unitExView5body2image(
+                        title: "エンディング PUSHランプ",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -166,6 +174,25 @@ struct seiyaViewBayes: View {
             )
         }
 
+        // エンディング PUSHランプ
+        // 確定系（設定2以上濃厚、設定4以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostLamp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.lampEnable {
+            logPostLamp = logPostPercentMulti(
+                countList: [
+                    seiya.lampCount4,
+                    seiya.lampCount5,
+                    seiya.lampCount6,
+                ],
+                ratioList: [
+                    seiya.ratioLampOver2,
+                    seiya.ratioLampOver4,
+                    seiya.ratioLampOver6,
+                ],
+                bigNumber: seiya.lampCountSum
+            )
+        }
+
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -207,6 +234,7 @@ struct seiyaViewBayes: View {
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostScreen,
+            logPostLamp,
             logPostTrophy,
             logPostBefore,
         ])
