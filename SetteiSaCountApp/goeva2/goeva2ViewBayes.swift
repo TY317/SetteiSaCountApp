@@ -26,6 +26,7 @@ struct goeva2ViewBayes: View {
     @State var suikaCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var screenEnable: Bool = true
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     var body: some View {
         List {
@@ -48,6 +49,13 @@ struct goeva2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // 終了画面
+                unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
+                    unitExView5body2image(
+                        title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
 //                // トロフィー
 //                DisclosureGroup("トロフィー") {
@@ -144,6 +152,31 @@ struct goeva2ViewBayes: View {
             )
         }
 
+        // 終了画面
+        // 確定系（設定1・3否定、設定2・4否定、設定2/4/5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.screenEnable {
+            logPostScreen = logPostPercentMulti(
+                countList: [
+                    goeva2.screenCount5,
+                    goeva2.screenCount6,
+                    goeva2.screenCount7,
+                    goeva2.screenCount8,
+                    goeva2.screenCount9,
+                    goeva2.screenCount10,
+                ],
+                ratioList: [
+                    goeva2.ratioScreenNegate13,
+                    goeva2.ratioScreenNegate24,
+                    goeva2.ratioScreenOver2,
+                    goeva2.ratioScreenOver4,
+                    goeva2.ratioScreenOver5,
+                    goeva2.ratioScreenOver6,
+                ],
+                bigNumber: goeva2.screenCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -159,6 +192,7 @@ struct goeva2ViewBayes: View {
             logPostSuikaCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostScreen,
             logPostTrophy,
             logPostBefore,
         ])

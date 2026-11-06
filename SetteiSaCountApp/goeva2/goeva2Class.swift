@@ -176,6 +176,12 @@ class Goeva2: ObservableObject {
     // --------
     // 終了画面
     // --------
+    let ratioScreenNegate13: [Double] = [0,0.1,0,0.1,0.1,0.1,]
+    let ratioScreenNegate24: [Double] = [0.1,0,0.1,0,0.1,0.1,]
+    let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioScreenOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioScreenOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioScreenOver6: [Double] = [0,0,0,0,0,0.1,]
     @AppStorage("goeva2ScreenCount1") var screenCount1: Int = 0
     @AppStorage("goeva2ScreenCount2") var screenCount2: Int = 0
     @AppStorage("goeva2ScreenCount3") var screenCount3: Int = 0
