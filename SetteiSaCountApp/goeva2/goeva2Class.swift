@@ -224,6 +224,49 @@ class Goeva2: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // ボイス
+    // -------
+    let ratioVoiceOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
+    let ratioVoiceOver4: [Double] = [0,0,0,0.1,0.1,0.1,]
+    let ratioVoiceOver5: [Double] = [0,0,0,0,0.1,0.1,]
+    let ratioVoiceOver6: [Double] = [0,0,0,0,0,0.1,]
+    @AppStorage("goeva2VoiceCount1") var voiceCount1: Int = 0
+    @AppStorage("goeva2VoiceCount2") var voiceCount2: Int = 0
+    @AppStorage("goeva2VoiceCount3") var voiceCount3: Int = 0
+    @AppStorage("goeva2VoiceCount4") var voiceCount4: Int = 0
+    @AppStorage("goeva2VoiceCount5") var voiceCount5: Int = 0
+    @AppStorage("goeva2VoiceCount6") var voiceCount6: Int = 0
+    @AppStorage("goeva2VoiceCount7") var voiceCount7: Int = 0
+    @AppStorage("goeva2VoiceCount8") var voiceCount8: Int = 0
+    @AppStorage("goeva2VoiceCountSum") var voiceCountSum: Int = 0
+
+    func voiceSumFunc() {
+        voiceCountSum = countSum(
+            voiceCount1,
+            voiceCount2,
+            voiceCount3,
+            voiceCount4,
+            voiceCount5,
+            voiceCount6,
+            voiceCount7,
+            voiceCount8,
+        )
+    }
+
+    func resetVoice() {
+        voiceCount1 = 0
+        voiceCount2 = 0
+        voiceCount3 = 0
+        voiceCount4 = 0
+        voiceCount5 = 0
+        voiceCount6 = 0
+        voiceCount7 = 0
+        voiceCount8 = 0
+        voiceCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -235,6 +278,7 @@ class Goeva2: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetVoice()
     }
 }
 
@@ -278,6 +322,15 @@ class Goeva2Memory1: ObservableObject {
     @AppStorage("goeva2ManualFirstHitCountEvaMemory1") var manualFirstHitCountEva: Int = 0
     @AppStorage("goeva2ManualFirstHitCountGodzillaMemory1") var manualFirstHitCountGodzilla: Int = 0
     @AppStorage("goeva2ManualFirstHitCountAtMemory1") var manualFirstHitCountAt: Int = 0
+    @AppStorage("goeva2VoiceCount1Memory1") var voiceCount1: Int = 0
+    @AppStorage("goeva2VoiceCount2Memory1") var voiceCount2: Int = 0
+    @AppStorage("goeva2VoiceCount3Memory1") var voiceCount3: Int = 0
+    @AppStorage("goeva2VoiceCount4Memory1") var voiceCount4: Int = 0
+    @AppStorage("goeva2VoiceCount5Memory1") var voiceCount5: Int = 0
+    @AppStorage("goeva2VoiceCount6Memory1") var voiceCount6: Int = 0
+    @AppStorage("goeva2VoiceCount7Memory1") var voiceCount7: Int = 0
+    @AppStorage("goeva2VoiceCount8Memory1") var voiceCount8: Int = 0
+    @AppStorage("goeva2VoiceCountSumMemory1") var voiceCountSum: Int = 0
     @AppStorage("goeva2MemoMemory1") var memo = ""
     @AppStorage("goeva2DateMemory1") var dateDouble = 0.0
 }
@@ -322,6 +375,15 @@ class Goeva2Memory2: ObservableObject {
     @AppStorage("goeva2ManualFirstHitCountEvaMemory2") var manualFirstHitCountEva: Int = 0
     @AppStorage("goeva2ManualFirstHitCountGodzillaMemory2") var manualFirstHitCountGodzilla: Int = 0
     @AppStorage("goeva2ManualFirstHitCountAtMemory2") var manualFirstHitCountAt: Int = 0
+    @AppStorage("goeva2VoiceCount1Memory2") var voiceCount1: Int = 0
+    @AppStorage("goeva2VoiceCount2Memory2") var voiceCount2: Int = 0
+    @AppStorage("goeva2VoiceCount3Memory2") var voiceCount3: Int = 0
+    @AppStorage("goeva2VoiceCount4Memory2") var voiceCount4: Int = 0
+    @AppStorage("goeva2VoiceCount5Memory2") var voiceCount5: Int = 0
+    @AppStorage("goeva2VoiceCount6Memory2") var voiceCount6: Int = 0
+    @AppStorage("goeva2VoiceCount7Memory2") var voiceCount7: Int = 0
+    @AppStorage("goeva2VoiceCount8Memory2") var voiceCount8: Int = 0
+    @AppStorage("goeva2VoiceCountSumMemory2") var voiceCountSum: Int = 0
     @AppStorage("goeva2MemoMemory2") var memo = ""
     @AppStorage("goeva2DateMemory2") var dateDouble = 0.0
 }
@@ -366,6 +428,15 @@ class Goeva2Memory3: ObservableObject {
     @AppStorage("goeva2ManualFirstHitCountEvaMemory3") var manualFirstHitCountEva: Int = 0
     @AppStorage("goeva2ManualFirstHitCountGodzillaMemory3") var manualFirstHitCountGodzilla: Int = 0
     @AppStorage("goeva2ManualFirstHitCountAtMemory3") var manualFirstHitCountAt: Int = 0
+    @AppStorage("goeva2VoiceCount1Memory3") var voiceCount1: Int = 0
+    @AppStorage("goeva2VoiceCount2Memory3") var voiceCount2: Int = 0
+    @AppStorage("goeva2VoiceCount3Memory3") var voiceCount3: Int = 0
+    @AppStorage("goeva2VoiceCount4Memory3") var voiceCount4: Int = 0
+    @AppStorage("goeva2VoiceCount5Memory3") var voiceCount5: Int = 0
+    @AppStorage("goeva2VoiceCount6Memory3") var voiceCount6: Int = 0
+    @AppStorage("goeva2VoiceCount7Memory3") var voiceCount7: Int = 0
+    @AppStorage("goeva2VoiceCount8Memory3") var voiceCount8: Int = 0
+    @AppStorage("goeva2VoiceCountSumMemory3") var voiceCountSum: Int = 0
     @AppStorage("goeva2MemoMemory3") var memo = ""
     @AppStorage("goeva2DateMemory3") var dateDouble = 0.0
 }

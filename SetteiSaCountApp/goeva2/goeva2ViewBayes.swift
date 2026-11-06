@@ -27,6 +27,7 @@ struct goeva2ViewBayes: View {
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var screenEnable: Bool = true
+    @State var voiceEnable: Bool = true
     @State var selectedBeforeGuessPattern: String = "デフォルト"
     var body: some View {
         List {
@@ -53,6 +54,13 @@ struct goeva2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
                         title: "終了画面",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+                // エンディング ボイス
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング ボイス",
                         textBody1: "・確定系のみ反映させます"
                     )
                 }
@@ -177,6 +185,27 @@ struct goeva2ViewBayes: View {
             )
         }
 
+        // エンディング ボイス
+        // 確定系（設定2/4/5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            logPostVoice = logPostPercentMulti(
+                countList: [
+                    goeva2.voiceCount5,
+                    goeva2.voiceCount6,
+                    goeva2.voiceCount7,
+                    goeva2.voiceCount8,
+                ],
+                ratioList: [
+                    goeva2.ratioVoiceOver2,
+                    goeva2.ratioVoiceOver4,
+                    goeva2.ratioVoiceOver5,
+                    goeva2.ratioVoiceOver6,
+                ],
+                bigNumber: goeva2.voiceCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
 
@@ -193,6 +222,7 @@ struct goeva2ViewBayes: View {
             logPostFirstHitBonus,
             logPostFirstHitAt,
             logPostScreen,
+            logPostVoice,
             logPostTrophy,
             logPostBefore,
         ])

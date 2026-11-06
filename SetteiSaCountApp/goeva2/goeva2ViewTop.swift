@@ -211,6 +211,15 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory1.screenCount9 = goeva2.screenCount9
         goeva2Memory1.screenCount10 = goeva2.screenCount10
         goeva2Memory1.screenCountSum = goeva2.screenCountSum
+        goeva2Memory1.voiceCount1 = goeva2.voiceCount1
+        goeva2Memory1.voiceCount2 = goeva2.voiceCount2
+        goeva2Memory1.voiceCount3 = goeva2.voiceCount3
+        goeva2Memory1.voiceCount4 = goeva2.voiceCount4
+        goeva2Memory1.voiceCount5 = goeva2.voiceCount5
+        goeva2Memory1.voiceCount6 = goeva2.voiceCount6
+        goeva2Memory1.voiceCount7 = goeva2.voiceCount7
+        goeva2Memory1.voiceCount8 = goeva2.voiceCount8
+        goeva2Memory1.voiceCountSum = goeva2.voiceCountSum
     }
     func saveMemory2() {
         goeva2Memory2.suikaCount = goeva2.suikaCount
@@ -251,6 +260,15 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory2.screenCount9 = goeva2.screenCount9
         goeva2Memory2.screenCount10 = goeva2.screenCount10
         goeva2Memory2.screenCountSum = goeva2.screenCountSum
+        goeva2Memory2.voiceCount1 = goeva2.voiceCount1
+        goeva2Memory2.voiceCount2 = goeva2.voiceCount2
+        goeva2Memory2.voiceCount3 = goeva2.voiceCount3
+        goeva2Memory2.voiceCount4 = goeva2.voiceCount4
+        goeva2Memory2.voiceCount5 = goeva2.voiceCount5
+        goeva2Memory2.voiceCount6 = goeva2.voiceCount6
+        goeva2Memory2.voiceCount7 = goeva2.voiceCount7
+        goeva2Memory2.voiceCount8 = goeva2.voiceCount8
+        goeva2Memory2.voiceCountSum = goeva2.voiceCountSum
     }
     func saveMemory3() {
         goeva2Memory3.suikaCount = goeva2.suikaCount
@@ -291,6 +309,15 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory3.screenCount9 = goeva2.screenCount9
         goeva2Memory3.screenCount10 = goeva2.screenCount10
         goeva2Memory3.screenCountSum = goeva2.screenCountSum
+        goeva2Memory3.voiceCount1 = goeva2.voiceCount1
+        goeva2Memory3.voiceCount2 = goeva2.voiceCount2
+        goeva2Memory3.voiceCount3 = goeva2.voiceCount3
+        goeva2Memory3.voiceCount4 = goeva2.voiceCount4
+        goeva2Memory3.voiceCount5 = goeva2.voiceCount5
+        goeva2Memory3.voiceCount6 = goeva2.voiceCount6
+        goeva2Memory3.voiceCount7 = goeva2.voiceCount7
+        goeva2Memory3.voiceCount8 = goeva2.voiceCount8
+        goeva2Memory3.voiceCountSum = goeva2.voiceCountSum
     }
 }
 
@@ -363,6 +390,15 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.screenCount9 = goeva2Memory1.screenCount9
         goeva2.screenCount10 = goeva2Memory1.screenCount10
         goeva2.screenCountSum = goeva2Memory1.screenCountSum
+        goeva2.voiceCount1 = goeva2Memory1.voiceCount1
+        goeva2.voiceCount2 = goeva2Memory1.voiceCount2
+        goeva2.voiceCount3 = goeva2Memory1.voiceCount3
+        goeva2.voiceCount4 = goeva2Memory1.voiceCount4
+        goeva2.voiceCount5 = goeva2Memory1.voiceCount5
+        goeva2.voiceCount6 = goeva2Memory1.voiceCount6
+        goeva2.voiceCount7 = goeva2Memory1.voiceCount7
+        goeva2.voiceCount8 = goeva2Memory1.voiceCount8
+        goeva2.voiceCountSum = goeva2Memory1.voiceCountSum
     }
     func loadMemory2() {
         goeva2.suikaCount = goeva2Memory2.suikaCount
@@ -406,6 +442,15 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.screenCount9 = goeva2Memory2.screenCount9
         goeva2.screenCount10 = goeva2Memory2.screenCount10
         goeva2.screenCountSum = goeva2Memory2.screenCountSum
+        goeva2.voiceCount1 = goeva2Memory2.voiceCount1
+        goeva2.voiceCount2 = goeva2Memory2.voiceCount2
+        goeva2.voiceCount3 = goeva2Memory2.voiceCount3
+        goeva2.voiceCount4 = goeva2Memory2.voiceCount4
+        goeva2.voiceCount5 = goeva2Memory2.voiceCount5
+        goeva2.voiceCount6 = goeva2Memory2.voiceCount6
+        goeva2.voiceCount7 = goeva2Memory2.voiceCount7
+        goeva2.voiceCount8 = goeva2Memory2.voiceCount8
+        goeva2.voiceCountSum = goeva2Memory2.voiceCountSum
     }
     func loadMemory3() {
         goeva2.suikaCount = goeva2Memory3.suikaCount
@@ -449,6 +494,15 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.screenCount9 = goeva2Memory3.screenCount9
         goeva2.screenCount10 = goeva2Memory3.screenCount10
         goeva2.screenCountSum = goeva2Memory3.screenCountSum
+        goeva2.voiceCount1 = goeva2Memory3.voiceCount1
+        goeva2.voiceCount2 = goeva2Memory3.voiceCount2
+        goeva2.voiceCount3 = goeva2Memory3.voiceCount3
+        goeva2.voiceCount4 = goeva2Memory3.voiceCount4
+        goeva2.voiceCount5 = goeva2Memory3.voiceCount5
+        goeva2.voiceCount6 = goeva2Memory3.voiceCount6
+        goeva2.voiceCount7 = goeva2Memory3.voiceCount7
+        goeva2.voiceCount8 = goeva2Memory3.voiceCount8
+        goeva2.voiceCountSum = goeva2Memory3.voiceCountSum
     }
 }
 
