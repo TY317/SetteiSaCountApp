@@ -238,6 +238,27 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory1.endingCount8 = mhrsb.endingCount8
         mhrsbMemory1.endingCount9 = mhrsb.endingCount9
         mhrsbMemory1.endingCountSum = mhrsb.endingCountSum
+        mhrsbMemory1.rareBzNormalWeakCount = mhrsb.rareBzNormalWeakCount
+        mhrsbMemory1.rareBzNormalWeakCountHit = mhrsb.rareBzNormalWeakCountHit
+        mhrsbMemory1.rareBzNormalStrongCount = mhrsb.rareBzNormalStrongCount
+        mhrsbMemory1.rareBzNormalStrongCountHit = mhrsb.rareBzNormalStrongCountHit
+        mhrsbMemory1.rareBzHighWeakCount = mhrsb.rareBzHighWeakCount
+        mhrsbMemory1.rareBzHighWeakCountHit = mhrsb.rareBzHighWeakCountHit
+        mhrsbMemory1.rareBzHighStrongCount = mhrsb.rareBzHighStrongCount
+        mhrsbMemory1.rareBzHighStrongCountHit = mhrsb.rareBzHighStrongCountHit
+        mhrsbMemory1.rareBzSuperWeakCount = mhrsb.rareBzSuperWeakCount
+        mhrsbMemory1.rareBzSuperWeakCountHit = mhrsb.rareBzSuperWeakCountHit
+        mhrsbMemory1.cycleReachCount1 = mhrsb.cycleReachCount1
+        mhrsbMemory1.cycleHitCount1 = mhrsb.cycleHitCount1
+        mhrsbMemory1.cycleReachCount2 = mhrsb.cycleReachCount2
+        mhrsbMemory1.cycleHitCount2 = mhrsb.cycleHitCount2
+        mhrsbMemory1.cycleReachCount3 = mhrsb.cycleReachCount3
+        mhrsbMemory1.cycleHitCount3 = mhrsb.cycleHitCount3
+        mhrsbMemory1.cycleReachCount4 = mhrsb.cycleReachCount4
+        mhrsbMemory1.cycleHitCount4 = mhrsb.cycleHitCount4
+        mhrsbMemory1.cycleCzKindCountBz = mhrsb.cycleCzKindCountBz
+        mhrsbMemory1.cycleCzKindCountFukubiki = mhrsb.cycleCzKindCountFukubiki
+        mhrsbMemory1.cycleCzKindCountSum = mhrsb.cycleCzKindCountSum
     }
     func saveMemory2() {
         mhrsbMemory2.quest1CountMiss = mhrsb.quest1CountMiss
@@ -286,6 +307,27 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory2.endingCount8 = mhrsb.endingCount8
         mhrsbMemory2.endingCount9 = mhrsb.endingCount9
         mhrsbMemory2.endingCountSum = mhrsb.endingCountSum
+        mhrsbMemory2.rareBzNormalWeakCount = mhrsb.rareBzNormalWeakCount
+        mhrsbMemory2.rareBzNormalWeakCountHit = mhrsb.rareBzNormalWeakCountHit
+        mhrsbMemory2.rareBzNormalStrongCount = mhrsb.rareBzNormalStrongCount
+        mhrsbMemory2.rareBzNormalStrongCountHit = mhrsb.rareBzNormalStrongCountHit
+        mhrsbMemory2.rareBzHighWeakCount = mhrsb.rareBzHighWeakCount
+        mhrsbMemory2.rareBzHighWeakCountHit = mhrsb.rareBzHighWeakCountHit
+        mhrsbMemory2.rareBzHighStrongCount = mhrsb.rareBzHighStrongCount
+        mhrsbMemory2.rareBzHighStrongCountHit = mhrsb.rareBzHighStrongCountHit
+        mhrsbMemory2.rareBzSuperWeakCount = mhrsb.rareBzSuperWeakCount
+        mhrsbMemory2.rareBzSuperWeakCountHit = mhrsb.rareBzSuperWeakCountHit
+        mhrsbMemory2.cycleReachCount1 = mhrsb.cycleReachCount1
+        mhrsbMemory2.cycleHitCount1 = mhrsb.cycleHitCount1
+        mhrsbMemory2.cycleReachCount2 = mhrsb.cycleReachCount2
+        mhrsbMemory2.cycleHitCount2 = mhrsb.cycleHitCount2
+        mhrsbMemory2.cycleReachCount3 = mhrsb.cycleReachCount3
+        mhrsbMemory2.cycleHitCount3 = mhrsb.cycleHitCount3
+        mhrsbMemory2.cycleReachCount4 = mhrsb.cycleReachCount4
+        mhrsbMemory2.cycleHitCount4 = mhrsb.cycleHitCount4
+        mhrsbMemory2.cycleCzKindCountBz = mhrsb.cycleCzKindCountBz
+        mhrsbMemory2.cycleCzKindCountFukubiki = mhrsb.cycleCzKindCountFukubiki
+        mhrsbMemory2.cycleCzKindCountSum = mhrsb.cycleCzKindCountSum
     }
     func saveMemory3() {
         mhrsbMemory3.quest1CountMiss = mhrsb.quest1CountMiss
@@ -334,6 +376,27 @@ struct mhrsbSubViewSaveMemory: View {
         mhrsbMemory3.endingCount8 = mhrsb.endingCount8
         mhrsbMemory3.endingCount9 = mhrsb.endingCount9
         mhrsbMemory3.endingCountSum = mhrsb.endingCountSum
+        mhrsbMemory3.rareBzNormalWeakCount = mhrsb.rareBzNormalWeakCount
+        mhrsbMemory3.rareBzNormalWeakCountHit = mhrsb.rareBzNormalWeakCountHit
+        mhrsbMemory3.rareBzNormalStrongCount = mhrsb.rareBzNormalStrongCount
+        mhrsbMemory3.rareBzNormalStrongCountHit = mhrsb.rareBzNormalStrongCountHit
+        mhrsbMemory3.rareBzHighWeakCount = mhrsb.rareBzHighWeakCount
+        mhrsbMemory3.rareBzHighWeakCountHit = mhrsb.rareBzHighWeakCountHit
+        mhrsbMemory3.rareBzHighStrongCount = mhrsb.rareBzHighStrongCount
+        mhrsbMemory3.rareBzHighStrongCountHit = mhrsb.rareBzHighStrongCountHit
+        mhrsbMemory3.rareBzSuperWeakCount = mhrsb.rareBzSuperWeakCount
+        mhrsbMemory3.rareBzSuperWeakCountHit = mhrsb.rareBzSuperWeakCountHit
+        mhrsbMemory3.cycleReachCount1 = mhrsb.cycleReachCount1
+        mhrsbMemory3.cycleHitCount1 = mhrsb.cycleHitCount1
+        mhrsbMemory3.cycleReachCount2 = mhrsb.cycleReachCount2
+        mhrsbMemory3.cycleHitCount2 = mhrsb.cycleHitCount2
+        mhrsbMemory3.cycleReachCount3 = mhrsb.cycleReachCount3
+        mhrsbMemory3.cycleHitCount3 = mhrsb.cycleHitCount3
+        mhrsbMemory3.cycleReachCount4 = mhrsb.cycleReachCount4
+        mhrsbMemory3.cycleHitCount4 = mhrsb.cycleHitCount4
+        mhrsbMemory3.cycleCzKindCountBz = mhrsb.cycleCzKindCountBz
+        mhrsbMemory3.cycleCzKindCountFukubiki = mhrsb.cycleCzKindCountFukubiki
+        mhrsbMemory3.cycleCzKindCountSum = mhrsb.cycleCzKindCountSum
     }
 }
 
@@ -415,6 +478,27 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCount8 = mhrsbMemory1.endingCount8
         mhrsb.endingCount9 = mhrsbMemory1.endingCount9
         mhrsb.endingCountSum = mhrsbMemory1.endingCountSum
+        mhrsb.rareBzNormalWeakCount = mhrsbMemory1.rareBzNormalWeakCount
+        mhrsb.rareBzNormalWeakCountHit = mhrsbMemory1.rareBzNormalWeakCountHit
+        mhrsb.rareBzNormalStrongCount = mhrsbMemory1.rareBzNormalStrongCount
+        mhrsb.rareBzNormalStrongCountHit = mhrsbMemory1.rareBzNormalStrongCountHit
+        mhrsb.rareBzHighWeakCount = mhrsbMemory1.rareBzHighWeakCount
+        mhrsb.rareBzHighWeakCountHit = mhrsbMemory1.rareBzHighWeakCountHit
+        mhrsb.rareBzHighStrongCount = mhrsbMemory1.rareBzHighStrongCount
+        mhrsb.rareBzHighStrongCountHit = mhrsbMemory1.rareBzHighStrongCountHit
+        mhrsb.rareBzSuperWeakCount = mhrsbMemory1.rareBzSuperWeakCount
+        mhrsb.rareBzSuperWeakCountHit = mhrsbMemory1.rareBzSuperWeakCountHit
+        mhrsb.cycleReachCount1 = mhrsbMemory1.cycleReachCount1
+        mhrsb.cycleHitCount1 = mhrsbMemory1.cycleHitCount1
+        mhrsb.cycleReachCount2 = mhrsbMemory1.cycleReachCount2
+        mhrsb.cycleHitCount2 = mhrsbMemory1.cycleHitCount2
+        mhrsb.cycleReachCount3 = mhrsbMemory1.cycleReachCount3
+        mhrsb.cycleHitCount3 = mhrsbMemory1.cycleHitCount3
+        mhrsb.cycleReachCount4 = mhrsbMemory1.cycleReachCount4
+        mhrsb.cycleHitCount4 = mhrsbMemory1.cycleHitCount4
+        mhrsb.cycleCzKindCountBz = mhrsbMemory1.cycleCzKindCountBz
+        mhrsb.cycleCzKindCountFukubiki = mhrsbMemory1.cycleCzKindCountFukubiki
+        mhrsb.cycleCzKindCountSum = mhrsbMemory1.cycleCzKindCountSum
     }
     func loadMemory2() {
         mhrsb.quest1CountMiss = mhrsbMemory2.quest1CountMiss
@@ -467,6 +551,27 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCount8 = mhrsbMemory2.endingCount8
         mhrsb.endingCount9 = mhrsbMemory2.endingCount9
         mhrsb.endingCountSum = mhrsbMemory2.endingCountSum
+        mhrsb.rareBzNormalWeakCount = mhrsbMemory2.rareBzNormalWeakCount
+        mhrsb.rareBzNormalWeakCountHit = mhrsbMemory2.rareBzNormalWeakCountHit
+        mhrsb.rareBzNormalStrongCount = mhrsbMemory2.rareBzNormalStrongCount
+        mhrsb.rareBzNormalStrongCountHit = mhrsbMemory2.rareBzNormalStrongCountHit
+        mhrsb.rareBzHighWeakCount = mhrsbMemory2.rareBzHighWeakCount
+        mhrsb.rareBzHighWeakCountHit = mhrsbMemory2.rareBzHighWeakCountHit
+        mhrsb.rareBzHighStrongCount = mhrsbMemory2.rareBzHighStrongCount
+        mhrsb.rareBzHighStrongCountHit = mhrsbMemory2.rareBzHighStrongCountHit
+        mhrsb.rareBzSuperWeakCount = mhrsbMemory2.rareBzSuperWeakCount
+        mhrsb.rareBzSuperWeakCountHit = mhrsbMemory2.rareBzSuperWeakCountHit
+        mhrsb.cycleReachCount1 = mhrsbMemory2.cycleReachCount1
+        mhrsb.cycleHitCount1 = mhrsbMemory2.cycleHitCount1
+        mhrsb.cycleReachCount2 = mhrsbMemory2.cycleReachCount2
+        mhrsb.cycleHitCount2 = mhrsbMemory2.cycleHitCount2
+        mhrsb.cycleReachCount3 = mhrsbMemory2.cycleReachCount3
+        mhrsb.cycleHitCount3 = mhrsbMemory2.cycleHitCount3
+        mhrsb.cycleReachCount4 = mhrsbMemory2.cycleReachCount4
+        mhrsb.cycleHitCount4 = mhrsbMemory2.cycleHitCount4
+        mhrsb.cycleCzKindCountBz = mhrsbMemory2.cycleCzKindCountBz
+        mhrsb.cycleCzKindCountFukubiki = mhrsbMemory2.cycleCzKindCountFukubiki
+        mhrsb.cycleCzKindCountSum = mhrsbMemory2.cycleCzKindCountSum
     }
     func loadMemory3() {
         mhrsb.quest1CountMiss = mhrsbMemory3.quest1CountMiss
@@ -519,6 +624,27 @@ struct mhrsbSubViewLoadMemory: View {
         mhrsb.endingCount8 = mhrsbMemory3.endingCount8
         mhrsb.endingCount9 = mhrsbMemory3.endingCount9
         mhrsb.endingCountSum = mhrsbMemory3.endingCountSum
+        mhrsb.rareBzNormalWeakCount = mhrsbMemory3.rareBzNormalWeakCount
+        mhrsb.rareBzNormalWeakCountHit = mhrsbMemory3.rareBzNormalWeakCountHit
+        mhrsb.rareBzNormalStrongCount = mhrsbMemory3.rareBzNormalStrongCount
+        mhrsb.rareBzNormalStrongCountHit = mhrsbMemory3.rareBzNormalStrongCountHit
+        mhrsb.rareBzHighWeakCount = mhrsbMemory3.rareBzHighWeakCount
+        mhrsb.rareBzHighWeakCountHit = mhrsbMemory3.rareBzHighWeakCountHit
+        mhrsb.rareBzHighStrongCount = mhrsbMemory3.rareBzHighStrongCount
+        mhrsb.rareBzHighStrongCountHit = mhrsbMemory3.rareBzHighStrongCountHit
+        mhrsb.rareBzSuperWeakCount = mhrsbMemory3.rareBzSuperWeakCount
+        mhrsb.rareBzSuperWeakCountHit = mhrsbMemory3.rareBzSuperWeakCountHit
+        mhrsb.cycleReachCount1 = mhrsbMemory3.cycleReachCount1
+        mhrsb.cycleHitCount1 = mhrsbMemory3.cycleHitCount1
+        mhrsb.cycleReachCount2 = mhrsbMemory3.cycleReachCount2
+        mhrsb.cycleHitCount2 = mhrsbMemory3.cycleHitCount2
+        mhrsb.cycleReachCount3 = mhrsbMemory3.cycleReachCount3
+        mhrsb.cycleHitCount3 = mhrsbMemory3.cycleHitCount3
+        mhrsb.cycleReachCount4 = mhrsbMemory3.cycleReachCount4
+        mhrsb.cycleHitCount4 = mhrsbMemory3.cycleHitCount4
+        mhrsb.cycleCzKindCountBz = mhrsbMemory3.cycleCzKindCountBz
+        mhrsb.cycleCzKindCountFukubiki = mhrsbMemory3.cycleCzKindCountFukubiki
+        mhrsb.cycleCzKindCountSum = mhrsbMemory3.cycleCzKindCountSum
     }
 }
 

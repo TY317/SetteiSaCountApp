@@ -70,7 +70,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 QUEST(青)
             unitListSection95Ci(
-                grafTitle: "クエスト QUEST(青)",
+                grafTitle: "クエスト成功\nQUEST(青)",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest1CountHit,
@@ -88,7 +89,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 QUEST(黄)
             unitListSection95Ci(
-                grafTitle: "クエスト QUEST(黄)",
+                grafTitle: "クエスト成功\nQUEST(黄)",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest2CountHit,
@@ -106,7 +108,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 ライゼクス
             unitListSection95Ci(
-                grafTitle: "クエスト ライゼクス",
+                grafTitle: "クエスト成功\nライゼクス",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest3CountHit,
@@ -124,7 +127,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 セルレギオス
             unitListSection95Ci(
-                grafTitle: "クエスト セルレギオス",
+                grafTitle: "クエスト成功\nセルレギオス",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest4CountHit,
@@ -142,7 +146,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 オロミドロ亜種
             unitListSection95Ci(
-                grafTitle: "クエスト オロミドロ亜種",
+                grafTitle: "クエスト成功\nオロミドロ亜種",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest5CountHit,
@@ -160,7 +165,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 テオ・テスカトル
             unitListSection95Ci(
-                grafTitle: "クエスト テオ・テスカトル",
+                grafTitle: "クエスト成功\nテオ・テスカトル",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest6CountHit,
@@ -175,6 +181,196 @@ struct mhrsbView95Ci: View {
                 )
             )
             .tag(10)
+
+            // 通常 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "通常 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzNormalWeakCountHit,
+                        bigNumber: $mhrsb.rareBzNormalWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzNormalWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzNormalWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzNormalWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzNormalWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzNormalWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzNormalWeak[5]
+                    )
+                )
+            )
+            .tag(11)
+
+            // 通常 強レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "通常 強レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzNormalStrongCountHit,
+                        bigNumber: $mhrsb.rareBzNormalStrongCount,
+                        setting1Percent: mhrsb.ratioRareBzNormalStrong[0],
+                        setting2Percent: mhrsb.ratioRareBzNormalStrong[1],
+                        setting3Percent: mhrsb.ratioRareBzNormalStrong[2],
+                        setting4Percent: mhrsb.ratioRareBzNormalStrong[3],
+                        setting5Percent: mhrsb.ratioRareBzNormalStrong[4],
+                        setting6Percent: mhrsb.ratioRareBzNormalStrong[5]
+                    )
+                )
+            )
+            .tag(12)
+
+            // 高確 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "高確 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzHighWeakCountHit,
+                        bigNumber: $mhrsb.rareBzHighWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzHighWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzHighWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzHighWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzHighWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzHighWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzHighWeak[5]
+                    )
+                )
+            )
+            .tag(13)
+
+            // 高確 強レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "高確 強レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzHighStrongCountHit,
+                        bigNumber: $mhrsb.rareBzHighStrongCount,
+                        setting1Percent: mhrsb.ratioRareBzHighStrong[0],
+                        setting2Percent: mhrsb.ratioRareBzHighStrong[1],
+                        setting3Percent: mhrsb.ratioRareBzHighStrong[2],
+                        setting4Percent: mhrsb.ratioRareBzHighStrong[3],
+                        setting5Percent: mhrsb.ratioRareBzHighStrong[4],
+                        setting6Percent: mhrsb.ratioRareBzHighStrong[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // 超高確 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "超高確 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzSuperWeakCountHit,
+                        bigNumber: $mhrsb.rareBzSuperWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzSuperWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzSuperWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzSuperWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzSuperWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzSuperWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzSuperWeak[5]
+                    )
+                )
+            )
+            .tag(15)
+
+            // オトモ潜水艇 1周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n1周期到達時の当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount1,
+                        bigNumber: $mhrsb.cycleReachCount1,
+                        setting1Percent: mhrsb.ratioCycleHit[0][0],
+                        setting2Percent: mhrsb.ratioCycleHit[0][1],
+                        setting3Percent: mhrsb.ratioCycleHit[0][2],
+                        setting4Percent: mhrsb.ratioCycleHit[0][3],
+                        setting5Percent: mhrsb.ratioCycleHit[0][4],
+                        setting6Percent: mhrsb.ratioCycleHit[0][5]
+                    )
+                )
+            )
+            .tag(16)
+
+            // オトモ潜水艇 2周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n2周期到達時の当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount2,
+                        bigNumber: $mhrsb.cycleReachCount2,
+                        setting1Percent: mhrsb.ratioCycleHit[1][0],
+                        setting2Percent: mhrsb.ratioCycleHit[1][1],
+                        setting3Percent: mhrsb.ratioCycleHit[1][2],
+                        setting4Percent: mhrsb.ratioCycleHit[1][3],
+                        setting5Percent: mhrsb.ratioCycleHit[1][4],
+                        setting6Percent: mhrsb.ratioCycleHit[1][5]
+                    )
+                )
+            )
+            .tag(17)
+
+            // オトモ潜水艇 3周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n3周期到達時の当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount3,
+                        bigNumber: $mhrsb.cycleReachCount3,
+                        setting1Percent: mhrsb.ratioCycleHit[2][0],
+                        setting2Percent: mhrsb.ratioCycleHit[2][1],
+                        setting3Percent: mhrsb.ratioCycleHit[2][2],
+                        setting4Percent: mhrsb.ratioCycleHit[2][3],
+                        setting5Percent: mhrsb.ratioCycleHit[2][4],
+                        setting6Percent: mhrsb.ratioCycleHit[2][5]
+                    )
+                )
+            )
+            .tag(18)
+
+            // オトモ潜水艇 4周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n4周期到達時の当選回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount4,
+                        bigNumber: $mhrsb.cycleReachCount4,
+                        setting1Percent: mhrsb.ratioCycleHit[3][0],
+                        setting2Percent: mhrsb.ratioCycleHit[3][1],
+                        setting3Percent: mhrsb.ratioCycleHit[3][2],
+                        setting4Percent: mhrsb.ratioCycleHit[3][3],
+                        setting5Percent: mhrsb.ratioCycleHit[3][4],
+                        setting6Percent: mhrsb.ratioCycleHit[3][5]
+                    )
+                )
+            )
+            .tag(19)
+
+            // 規定周期到達時のCZ種別（アイルー福引の選択率）
+            unitListSection95Ci(
+                grafTitle: "規定周期到達時\nアイルー福引選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleCzKindCountFukubiki,
+                        bigNumber: $mhrsb.cycleCzKindCountSum,
+                        setting1Percent: mhrsb.ratioCycleCzKindFukubiki[0],
+                        setting2Percent: mhrsb.ratioCycleCzKindFukubiki[1],
+                        setting3Percent: mhrsb.ratioCycleCzKindFukubiki[2],
+                        setting4Percent: mhrsb.ratioCycleCzKindFukubiki[3],
+                        setting5Percent: mhrsb.ratioCycleCzKindFukubiki[4],
+                        setting6Percent: mhrsb.ratioCycleCzKindFukubiki[5]
+                    )
+                )
+            )
+            .tag(20)
         }
         // //// firebaseログ
         .onAppear {

@@ -40,6 +40,7 @@ struct ContentViewVer2: View {
     @State private var showingDeleteAlert = false // アラート表示フラグ
     @State private var machineToDelete: Machine? // 削除対象を一時保存
     @State private var isShowingFavoriteSheet = false // シート表示用フラグ
+    @State private var isShowInfoSheet = false // インフォメーション（バージョン情報・おすすめアプリ）シート表示用フラグ
     @State private var homeTab = 0   // 0:ホーム 1:アプリライブラリ
     
     // ライト・ダークモードの切り替え用
@@ -71,7 +72,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer490UpdateInfo())
+                TipView(tipVer4100UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {
@@ -151,6 +152,17 @@ struct ContentViewVer2: View {
                         lazyVGridCountLandscape: common.lazyVGridColumnsLandscape,
                     )
                     .toolbar {
+                        // インフォメーション（バージョン情報・おすすめアプリ）
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button {
+                                isShowInfoSheet = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                            }
+                            .sheet(isPresented: $isShowInfoSheet) {
+                                commonViewInfoSheet()
+                            }
+                        }
                         // 外観切り替えボタン（システム/ライト/ダーク）
                         ToolbarItem(placement: .automatic) {
                             Menu {
@@ -508,6 +520,8 @@ struct ContentViewVer2: View {
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5104": return AnyView(seiyaViewTop())
+        case "5119": return AnyView(goeva2ViewTop())
         case "5061": return AnyView(juoViewTop())
         case "5095": return AnyView(mhrsbViewTop())
         case "5065": return AnyView(kanokariViewTop())

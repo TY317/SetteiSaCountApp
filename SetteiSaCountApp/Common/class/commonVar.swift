@@ -97,6 +97,8 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5104", name: "聖闘士星矢", fullName: "聖闘士星矢 黄金十二宮", iconName: "seiyaMachineIcon", btBadge: false, maker: "SANYO"),
+        Machine(id: "5119", name: "ゴジエヴァ2", fullName: "ゴジラ対エヴァンゲリオン2", iconName: "goeva2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5061", name: "獣王", fullName: "獣王", iconName: "juoMachineIcon", btBadge: false, maker: "サミー"),
         Machine(id: "5095", name: "モンハンSB", fullName: "モンスターハンターライズ：サンブレイク", iconName: "mhrsbMachineIcon", btBadge: false, maker: "エンターライズ"),
         Machine(id: "5065", name: "かのかり", fullName: "彼女、お借りします", iconName: "kanokariMachineIcon", btBadge: false, maker: "SANKYO"),
@@ -378,6 +380,21 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
     @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
+
+    // ---- 聖闘士星矢 黄金十二宮
+    @AppStorage("seiyaMenuNormalBadge") var seiyaMenuNormalBadge: String = "none"
+    @AppStorage("seiyaMenuFirstHitBadge") var seiyaMenuFirstHitBadge: String = "none"
+    @AppStorage("seiyaMenuBayesBadge") var seiyaMenuBayesBadge: String = "none"
+    @AppStorage("seiyaMenuScreenBadge") var seiyaMenuScreenBadge: String = "none"
+    @AppStorage("seiyaMenuDuringAtBadge") var seiyaMenuDuringAtBadge: String = "none"
+    @AppStorage("seiyaMenuEndingBadge") var seiyaMenuEndingBadge: String = "none"
+
+    // ---- ゴジラ対エヴァンゲリオン2
+    @AppStorage("goeva2MenuNormalBadge") var goeva2MenuNormalBadge: String = "none"
+    @AppStorage("goeva2MenuFirstHitBadge") var goeva2MenuFirstHitBadge: String = "none"
+    @AppStorage("goeva2MenuBayesBadge") var goeva2MenuBayesBadge: String = "none"
+    @AppStorage("goeva2MenuScreenBadge") var goeva2MenuScreenBadge: String = "none"
+    @AppStorage("goeva2MenuEndingBadge") var goeva2MenuEndingBadge: String = "none"
 
     // ---- 獣王
     @AppStorage("juoMenuNormalBadge") var juoMenuNormalBadge: String = "none"
@@ -828,6 +845,9 @@ class commonVar: ObservableObject {
         machines.updateMachineIsUnlocked(id: "5010", isUnlocked: true)
         // ver4.2.0 の移行処理から引き継ぎ
         machines.updateMachineIsUnlocked(id: "5015", isUnlocked: true)
+        // ver4.3.0 の移行処理から引き継ぎ
+        machines.updateMachineIsUnlocked(id: "5053", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5055", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -852,6 +872,28 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver4100FirstLaunch() {
+        let targetVersion: String = "4.10.0"
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5119", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5119", isUnlocked: false)
+                machines.updateMachineBadgeStatus(id: "5104", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5104", isUnlocked: false)
+                // モンハンSB 通常時にレア役からのBZ当選率を追加
+                machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
+                mhrsbMenuNormalBadge = "update"
+            } else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver491FirstLaunch() {
         let targetVersion: String = "4.9.1"
         if firstLaunchAppVersion != nil {
@@ -1054,38 +1096,6 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5020", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5068", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5068", isUnlocked: false)
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver430FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.3.0"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5053", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5053", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5055", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5055", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "4450", newStatus: "update")
-                mt5MenuMedalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4742", newStatus: "update")
-                tokyoGhoulMenuFirstHitBadge = "update"
-                machines.updateMachineBadgeStatus(id: "4712", newStatus: "update")
-                sbjMenuNormalBadgeStatus = "update"
-                machines.updateMachineBadgeStatus(id: "4913", newStatus: "update")
-                tekken6MenuScreenBadge = "update"
-                machines.updateMachineBadgeStatus(id: "5009", newStatus: "update")
-                otome5MenuEndingBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

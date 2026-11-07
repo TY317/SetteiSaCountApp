@@ -36,7 +36,6 @@ struct tekken6ViewScreen: View {
                     bigNumber: $tekken6.chanceColorCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer430Tekken6ChanceColor())
                 
                 // 参考情報）鉄拳チャンス赤振分け
                 unitLinkButtonViewBuilder(sheetTitle: "鉄拳チャンス赤 振分け") {

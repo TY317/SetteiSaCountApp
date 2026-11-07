@@ -50,14 +50,16 @@ struct FavoriteManageView: View {
                 
                 List {
                     ForEach(filteredMachines) { $machine in
-                        HStack {
-                            // アイコンと名前を表示（分かりやすさのため）
-                            Image(machine.iconName)
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .cornerRadius(8)
-                            
-                            Toggle(machine.fullName, isOn: $machine.onHome)
+                        // アイコンと名前を表示（分かりやすさのため）
+                        // 間隔はOS既定に任せず明示する（既定値はOSのバージョンで変わるため）
+                        Toggle(isOn: $machine.onHome) {
+                            HStack(spacing: 12) {
+                                Image(machine.iconName)
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .cornerRadius(8)
+                                Text(machine.fullName)
+                            }
                         }
                     }
                 }

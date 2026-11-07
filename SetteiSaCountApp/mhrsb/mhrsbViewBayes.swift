@@ -13,6 +13,9 @@ struct mhrsbViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
+    @State var rareBzEnable: Bool = true
+    @State var cycleEnable: Bool = true
+    @State var cycleCzKindEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var bzScenarioEnable: Bool = true
@@ -50,6 +53,22 @@ struct mhrsbViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // レア役からのBZ当選率
+                unitToggleWithQuestion(enable: self.$rareBzEnable, title: "レア役からのBZ当選率")
+                // オトモ潜水艇の規定周期
+                unitToggleWithQuestion(enable: self.$cycleEnable, title: "リプメーター 周期到達時の当選率") {
+                    unitExView5body2image(
+                        title: "リプメーター 周期到達時の当選率",
+                        textBody1: "・1〜4周期の到達時の当選率（規定周期の振り分けから独自算出）を判別要素として反映させます"
+                    )
+                }
+                // 規定周期到達時のCZ種別
+                unitToggleWithQuestion(enable: self.$cycleCzKindEnable, title: "規定周期当選時のCZ種別振分け") {
+                    unitExView5body2image(
+                        title: "規定周期当選時のCZ種別振分け",
+                        textBody1: "・CZ種別の振分けを判別要素として反映させます"
+                    )
+                }
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
                     unitExView5body2image(
@@ -160,6 +179,76 @@ struct mhrsbViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // レア役からのBZ当選率（状態×レア役の5種類を合算）
+        var logPostRareBz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareBzEnable {
+            logPostRareBz = arraySumDouble([
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzNormalWeak,
+                    Count: mhrsb.rareBzNormalWeakCountHit,
+                    bigNumber: mhrsb.rareBzNormalWeakCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzNormalStrong,
+                    Count: mhrsb.rareBzNormalStrongCountHit,
+                    bigNumber: mhrsb.rareBzNormalStrongCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzHighWeak,
+                    Count: mhrsb.rareBzHighWeakCountHit,
+                    bigNumber: mhrsb.rareBzHighWeakCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzHighStrong,
+                    Count: mhrsb.rareBzHighStrongCountHit,
+                    bigNumber: mhrsb.rareBzHighStrongCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzSuperWeak,
+                    Count: mhrsb.rareBzSuperWeakCountHit,
+                    bigNumber: mhrsb.rareBzSuperWeakCount
+                ),
+            ])
+        }
+
+        // オトモ潜水艇の規定周期（1〜4周期の到達時の当選率を合算）
+        var logPostCycle: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cycleEnable {
+            let ratioCycleHit = mhrsb.ratioCycleHit
+            logPostCycle = arraySumDouble([
+                logPostPercentBino(
+                    ratio: ratioCycleHit[0],
+                    Count: mhrsb.cycleHitCount1,
+                    bigNumber: mhrsb.cycleReachCount1
+                ),
+                logPostPercentBino(
+                    ratio: ratioCycleHit[1],
+                    Count: mhrsb.cycleHitCount2,
+                    bigNumber: mhrsb.cycleReachCount2
+                ),
+                logPostPercentBino(
+                    ratio: ratioCycleHit[2],
+                    Count: mhrsb.cycleHitCount3,
+                    bigNumber: mhrsb.cycleReachCount3
+                ),
+                logPostPercentBino(
+                    ratio: ratioCycleHit[3],
+                    Count: mhrsb.cycleHitCount4,
+                    bigNumber: mhrsb.cycleReachCount4
+                ),
+            ])
+        }
+
+        // 規定周期到達時のCZ種別（BZ／福引の二択なので福引の選択率だけを使う）
+        var logPostCycleCzKind: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cycleCzKindEnable {
+            logPostCycleCzKind = logPostPercentBino(
+                ratio: mhrsb.ratioCycleCzKindFukubiki,
+                Count: mhrsb.cycleCzKindCountFukubiki,
+                bigNumber: mhrsb.cycleCzKindCountSum
+            )
+        }
 
         // CZ初当り確率（BZ・アイルー福引。1ゲームごとに BZ／福引／それ以外 の多項として計算）
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -324,6 +413,9 @@ struct mhrsbViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostRareBz,
+            logPostCycle,
+            logPostCycleCzKind,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostBzScenario,

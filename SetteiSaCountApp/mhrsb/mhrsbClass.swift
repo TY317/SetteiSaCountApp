@@ -13,8 +13,82 @@ class Mhrsb: ObservableObject {
     // -------
     // 通常時
     // -------
+    // レア役からのBZ当選率
+    let ratioRareBzNormalWeak: [Double] = [9.8,10.5,11.7,14.1,14.8,16.4]
+    let ratioRareBzNormalStrong: [Double] = [33.2,34.4,35.9,38.3,40.2,42.2]
+    let ratioRareBzHighWeak: [Double] = [33.2,34.4,35.9,38.3,40.2,42.2]
+    let ratioRareBzHighStrong: [Double] = [66.8,68.0,69.5,71.9,74.2,76.6]
+    let ratioRareBzSuperWeak: [Double] = [66.8,67.6,69.5,76.6,77.3,78.9]
+    @AppStorage("mhrsbRareBzNormalWeakCount") var rareBzNormalWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountHit") var rareBzNormalWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCount") var rareBzNormalStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountHit") var rareBzNormalStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCount") var rareBzHighWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountHit") var rareBzHighWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCount") var rareBzHighStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountHit") var rareBzHighStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCount") var rareBzSuperWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountHit") var rareBzSuperWeakCountHit: Int = 0
+    // オトモ潜水艇の規定周期
+    // 規定周期の振り分け（[周期][設定]。1〜5周期）
+    let ratioCycleDistribution: [[Double]] = [
+        [20.0,20.3,20.7,22.3,23.4,25.0],
+        [20.0,21.1,22.7,26.6,28.5,30.5],
+        [20.0,20.7,21.5,23.0,23.8,25.0],
+        [20.0,18.4,16.4,13.7,11.7,9.8],
+        [20.0,19.5,18.8,14.5,12.5,9.8],
+    ]
+    // 周期到達時の当選率（独自算出。[周期][設定]。1〜4周期）
+    // その周期まで外れた条件での当選率＝その周期の振り分け÷（その周期以降の振り分けの合計）。5周期は全設定100%のため対象外
+    var ratioCycleHit: [[Double]] {
+        (0..<4).map { cycle in
+            (0..<6).map { setting in
+                let remain = ratioCycleDistribution[cycle...].reduce(0.0) { $0 + $1[setting] }
+                return remain > 0 ? ratioCycleDistribution[cycle][setting] / remain * 100 : 0
+            }
+        }
+    }
+    @AppStorage("mhrsbCycleReachCount1") var cycleReachCount1: Int = 0
+    @AppStorage("mhrsbCycleHitCount1") var cycleHitCount1: Int = 0
+    @AppStorage("mhrsbCycleReachCount2") var cycleReachCount2: Int = 0
+    @AppStorage("mhrsbCycleHitCount2") var cycleHitCount2: Int = 0
+    @AppStorage("mhrsbCycleReachCount3") var cycleReachCount3: Int = 0
+    @AppStorage("mhrsbCycleHitCount3") var cycleHitCount3: Int = 0
+    @AppStorage("mhrsbCycleReachCount4") var cycleReachCount4: Int = 0
+    @AppStorage("mhrsbCycleHitCount4") var cycleHitCount4: Int = 0
+    // 規定周期到達時のCZ種別
+    let ratioCycleCzKindBz: [Double] = [80.0,78.5,75.8,71.9,67.2,60.5]
+    let ratioCycleCzKindFukubiki: [Double] = [20.0,21.5,24.2,28.1,32.8,39.5]
+    @AppStorage("mhrsbCycleCzKindCountBz") var cycleCzKindCountBz: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountFukubiki") var cycleCzKindCountFukubiki: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountSum") var cycleCzKindCountSum: Int = 0
+
+    func cycleCzKindSumFunc() {
+        cycleCzKindCountSum = cycleCzKindCountBz + cycleCzKindCountFukubiki
+    }
 
     func resetNormal() {
+        rareBzNormalWeakCount = 0
+        rareBzNormalWeakCountHit = 0
+        rareBzNormalStrongCount = 0
+        rareBzNormalStrongCountHit = 0
+        rareBzHighWeakCount = 0
+        rareBzHighWeakCountHit = 0
+        rareBzHighStrongCount = 0
+        rareBzHighStrongCountHit = 0
+        rareBzSuperWeakCount = 0
+        rareBzSuperWeakCountHit = 0
+        cycleReachCount1 = 0
+        cycleHitCount1 = 0
+        cycleReachCount2 = 0
+        cycleHitCount2 = 0
+        cycleReachCount3 = 0
+        cycleHitCount3 = 0
+        cycleReachCount4 = 0
+        cycleHitCount4 = 0
+        cycleCzKindCountBz = 0
+        cycleCzKindCountFukubiki = 0
+        cycleCzKindCountSum = 0
         minusCheck = false
     }
 
@@ -518,6 +592,27 @@ class MhrsbMemory1: ObservableObject {
     @AppStorage("mhrsbQuest6CountMissMemory1") var quest6CountMiss: Int = 0
     @AppStorage("mhrsbQuest6CountHitMemory1") var quest6CountHit: Int = 0
     @AppStorage("mhrsbQuest6CountSumMemory1") var quest6CountSum: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountMemory1") var rareBzNormalWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountHitMemory1") var rareBzNormalWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountMemory1") var rareBzNormalStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountHitMemory1") var rareBzNormalStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountMemory1") var rareBzHighWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountHitMemory1") var rareBzHighWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountMemory1") var rareBzHighStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountHitMemory1") var rareBzHighStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountMemory1") var rareBzSuperWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountHitMemory1") var rareBzSuperWeakCountHit: Int = 0
+    @AppStorage("mhrsbCycleReachCount1Memory1") var cycleReachCount1: Int = 0
+    @AppStorage("mhrsbCycleHitCount1Memory1") var cycleHitCount1: Int = 0
+    @AppStorage("mhrsbCycleReachCount2Memory1") var cycleReachCount2: Int = 0
+    @AppStorage("mhrsbCycleHitCount2Memory1") var cycleHitCount2: Int = 0
+    @AppStorage("mhrsbCycleReachCount3Memory1") var cycleReachCount3: Int = 0
+    @AppStorage("mhrsbCycleHitCount3Memory1") var cycleHitCount3: Int = 0
+    @AppStorage("mhrsbCycleReachCount4Memory1") var cycleReachCount4: Int = 0
+    @AppStorage("mhrsbCycleHitCount4Memory1") var cycleHitCount4: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountBzMemory1") var cycleCzKindCountBz: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountFukubikiMemory1") var cycleCzKindCountFukubiki: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountSumMemory1") var cycleCzKindCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory1") var memo = ""
     @AppStorage("mhrsbDateMemory1") var dateDouble = 0.0
 }
@@ -570,6 +665,27 @@ class MhrsbMemory2: ObservableObject {
     @AppStorage("mhrsbQuest6CountMissMemory2") var quest6CountMiss: Int = 0
     @AppStorage("mhrsbQuest6CountHitMemory2") var quest6CountHit: Int = 0
     @AppStorage("mhrsbQuest6CountSumMemory2") var quest6CountSum: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountMemory2") var rareBzNormalWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountHitMemory2") var rareBzNormalWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountMemory2") var rareBzNormalStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountHitMemory2") var rareBzNormalStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountMemory2") var rareBzHighWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountHitMemory2") var rareBzHighWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountMemory2") var rareBzHighStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountHitMemory2") var rareBzHighStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountMemory2") var rareBzSuperWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountHitMemory2") var rareBzSuperWeakCountHit: Int = 0
+    @AppStorage("mhrsbCycleReachCount1Memory2") var cycleReachCount1: Int = 0
+    @AppStorage("mhrsbCycleHitCount1Memory2") var cycleHitCount1: Int = 0
+    @AppStorage("mhrsbCycleReachCount2Memory2") var cycleReachCount2: Int = 0
+    @AppStorage("mhrsbCycleHitCount2Memory2") var cycleHitCount2: Int = 0
+    @AppStorage("mhrsbCycleReachCount3Memory2") var cycleReachCount3: Int = 0
+    @AppStorage("mhrsbCycleHitCount3Memory2") var cycleHitCount3: Int = 0
+    @AppStorage("mhrsbCycleReachCount4Memory2") var cycleReachCount4: Int = 0
+    @AppStorage("mhrsbCycleHitCount4Memory2") var cycleHitCount4: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountBzMemory2") var cycleCzKindCountBz: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountFukubikiMemory2") var cycleCzKindCountFukubiki: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountSumMemory2") var cycleCzKindCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory2") var memo = ""
     @AppStorage("mhrsbDateMemory2") var dateDouble = 0.0
 }
@@ -622,6 +738,27 @@ class MhrsbMemory3: ObservableObject {
     @AppStorage("mhrsbQuest6CountMissMemory3") var quest6CountMiss: Int = 0
     @AppStorage("mhrsbQuest6CountHitMemory3") var quest6CountHit: Int = 0
     @AppStorage("mhrsbQuest6CountSumMemory3") var quest6CountSum: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountMemory3") var rareBzNormalWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountHitMemory3") var rareBzNormalWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountMemory3") var rareBzNormalStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountHitMemory3") var rareBzNormalStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountMemory3") var rareBzHighWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountHitMemory3") var rareBzHighWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountMemory3") var rareBzHighStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountHitMemory3") var rareBzHighStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountMemory3") var rareBzSuperWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountHitMemory3") var rareBzSuperWeakCountHit: Int = 0
+    @AppStorage("mhrsbCycleReachCount1Memory3") var cycleReachCount1: Int = 0
+    @AppStorage("mhrsbCycleHitCount1Memory3") var cycleHitCount1: Int = 0
+    @AppStorage("mhrsbCycleReachCount2Memory3") var cycleReachCount2: Int = 0
+    @AppStorage("mhrsbCycleHitCount2Memory3") var cycleHitCount2: Int = 0
+    @AppStorage("mhrsbCycleReachCount3Memory3") var cycleReachCount3: Int = 0
+    @AppStorage("mhrsbCycleHitCount3Memory3") var cycleHitCount3: Int = 0
+    @AppStorage("mhrsbCycleReachCount4Memory3") var cycleReachCount4: Int = 0
+    @AppStorage("mhrsbCycleHitCount4Memory3") var cycleHitCount4: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountBzMemory3") var cycleCzKindCountBz: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountFukubikiMemory3") var cycleCzKindCountFukubiki: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountSumMemory3") var cycleCzKindCountSum: Int = 0
     @AppStorage("mhrsbMemoMemory3") var memo = ""
     @AppStorage("mhrsbDateMemory3") var dateDouble = 0.0
 }

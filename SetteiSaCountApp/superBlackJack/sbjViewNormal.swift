@@ -333,7 +333,6 @@ struct sbjViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "BBスルー天井振分け") {
                     sbjTableBbTenjo()
                 }
-                .popoverTip(tipVer430SbjBbTenjo())
                 // 95%信頼区間グラフ
                 unitNaviLink95Ci(Ci95view: AnyView(sbjView95Ci(sbj: sbj, selection: 1)))
 //                    .popoverTip(tipUnitButtonLink95Ci())
