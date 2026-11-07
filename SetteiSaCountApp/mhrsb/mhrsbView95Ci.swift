@@ -175,6 +175,101 @@ struct mhrsbView95Ci: View {
                 )
             )
             .tag(10)
+
+            // 通常 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "通常 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzNormalWeakCountHit,
+                        bigNumber: $mhrsb.rareBzNormalWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzNormalWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzNormalWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzNormalWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzNormalWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzNormalWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzNormalWeak[5]
+                    )
+                )
+            )
+            .tag(11)
+
+            // 通常 強レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "通常 強レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzNormalStrongCountHit,
+                        bigNumber: $mhrsb.rareBzNormalStrongCount,
+                        setting1Percent: mhrsb.ratioRareBzNormalStrong[0],
+                        setting2Percent: mhrsb.ratioRareBzNormalStrong[1],
+                        setting3Percent: mhrsb.ratioRareBzNormalStrong[2],
+                        setting4Percent: mhrsb.ratioRareBzNormalStrong[3],
+                        setting5Percent: mhrsb.ratioRareBzNormalStrong[4],
+                        setting6Percent: mhrsb.ratioRareBzNormalStrong[5]
+                    )
+                )
+            )
+            .tag(12)
+
+            // 高確 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "高確 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzHighWeakCountHit,
+                        bigNumber: $mhrsb.rareBzHighWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzHighWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzHighWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzHighWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzHighWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzHighWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzHighWeak[5]
+                    )
+                )
+            )
+            .tag(13)
+
+            // 高確 強レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "高確 強レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzHighStrongCountHit,
+                        bigNumber: $mhrsb.rareBzHighStrongCount,
+                        setting1Percent: mhrsb.ratioRareBzHighStrong[0],
+                        setting2Percent: mhrsb.ratioRareBzHighStrong[1],
+                        setting3Percent: mhrsb.ratioRareBzHighStrong[2],
+                        setting4Percent: mhrsb.ratioRareBzHighStrong[3],
+                        setting5Percent: mhrsb.ratioRareBzHighStrong[4],
+                        setting6Percent: mhrsb.ratioRareBzHighStrong[5]
+                    )
+                )
+            )
+            .tag(14)
+
+            // 超高確 弱レア役からのBZ当選率
+            unitListSection95Ci(
+                grafTitle: "超高確 弱レア役→BZ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.rareBzSuperWeakCountHit,
+                        bigNumber: $mhrsb.rareBzSuperWeakCount,
+                        setting1Percent: mhrsb.ratioRareBzSuperWeak[0],
+                        setting2Percent: mhrsb.ratioRareBzSuperWeak[1],
+                        setting3Percent: mhrsb.ratioRareBzSuperWeak[2],
+                        setting4Percent: mhrsb.ratioRareBzSuperWeak[3],
+                        setting5Percent: mhrsb.ratioRareBzSuperWeak[4],
+                        setting6Percent: mhrsb.ratioRareBzSuperWeak[5]
+                    )
+                )
+            )
+            .tag(15)
         }
         // //// firebaseログ
         .onAppear {

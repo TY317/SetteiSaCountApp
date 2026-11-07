@@ -13,8 +13,34 @@ class Mhrsb: ObservableObject {
     // -------
     // 通常時
     // -------
+    // レア役からのBZ当選率
+    let ratioRareBzNormalWeak: [Double] = [9.8,10.5,11.7,14.1,14.8,16.4]
+    let ratioRareBzNormalStrong: [Double] = [33.2,34.4,35.9,38.3,40.2,42.2]
+    let ratioRareBzHighWeak: [Double] = [33.2,34.4,35.9,38.3,40.2,42.2]
+    let ratioRareBzHighStrong: [Double] = [66.8,68.0,69.5,71.9,74.2,76.6]
+    let ratioRareBzSuperWeak: [Double] = [66.8,67.6,69.5,76.6,77.3,78.9]
+    @AppStorage("mhrsbRareBzNormalWeakCount") var rareBzNormalWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalWeakCountHit") var rareBzNormalWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCount") var rareBzNormalStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzNormalStrongCountHit") var rareBzNormalStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCount") var rareBzHighWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzHighWeakCountHit") var rareBzHighWeakCountHit: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCount") var rareBzHighStrongCount: Int = 0
+    @AppStorage("mhrsbRareBzHighStrongCountHit") var rareBzHighStrongCountHit: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCount") var rareBzSuperWeakCount: Int = 0
+    @AppStorage("mhrsbRareBzSuperWeakCountHit") var rareBzSuperWeakCountHit: Int = 0
 
     func resetNormal() {
+        rareBzNormalWeakCount = 0
+        rareBzNormalWeakCountHit = 0
+        rareBzNormalStrongCount = 0
+        rareBzNormalStrongCountHit = 0
+        rareBzHighWeakCount = 0
+        rareBzHighWeakCountHit = 0
+        rareBzHighStrongCount = 0
+        rareBzHighStrongCountHit = 0
+        rareBzSuperWeakCount = 0
+        rareBzSuperWeakCountHit = 0
         minusCheck = false
     }
 

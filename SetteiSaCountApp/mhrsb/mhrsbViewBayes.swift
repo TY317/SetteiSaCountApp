@@ -13,6 +13,7 @@ struct mhrsbViewBayes: View {
     // 機種ごとに見直し
     let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
+    @State var rareBzEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var bzScenarioEnable: Bool = true
@@ -50,6 +51,8 @@ struct mhrsbViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // レア役からのBZ当選率
+                unitToggleWithQuestion(enable: self.$rareBzEnable, title: "レア役からのBZ当選率")
                 // CZ初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ初当り確率") {
                     unitExView5body2image(
@@ -160,6 +163,38 @@ struct mhrsbViewBayes: View {
     // //// 事後確率の算出
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // レア役からのBZ当選率（状態×レア役の5種類を合算）
+        var logPostRareBz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareBzEnable {
+            logPostRareBz = arraySumDouble([
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzNormalWeak,
+                    Count: mhrsb.rareBzNormalWeakCountHit,
+                    bigNumber: mhrsb.rareBzNormalWeakCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzNormalStrong,
+                    Count: mhrsb.rareBzNormalStrongCountHit,
+                    bigNumber: mhrsb.rareBzNormalStrongCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzHighWeak,
+                    Count: mhrsb.rareBzHighWeakCountHit,
+                    bigNumber: mhrsb.rareBzHighWeakCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzHighStrong,
+                    Count: mhrsb.rareBzHighStrongCountHit,
+                    bigNumber: mhrsb.rareBzHighStrongCount
+                ),
+                logPostPercentBino(
+                    ratio: mhrsb.ratioRareBzSuperWeak,
+                    Count: mhrsb.rareBzSuperWeakCountHit,
+                    bigNumber: mhrsb.rareBzSuperWeakCount
+                ),
+            ])
+        }
 
         // CZ初当り確率（BZ・アイルー福引。1ゲームごとに BZ／福引／それ以外 の多項として計算）
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -324,6 +359,7 @@ struct mhrsbViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostRareBz,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostBzScenario,
