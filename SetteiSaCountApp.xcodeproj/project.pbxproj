@@ -420,6 +420,7 @@
 		0F59EBE62F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE52F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift */; };
 		0F59EBE82F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */; };
 		0F59EBEA2F98E34500CF0C55 /* commonSectionCustomGinchan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */; };
+		FB766F1DD89E4A18AD5E9210 /* commonSectionCustomKujilucky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C0AC9E609B422A99E604A9 /* commonSectionCustomKujilucky.swift */; };
 		0F59EBEC2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */; };
 		0F59EBF02F9A53E900CF0C55 /* jormungandTableChara12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */; };
 		0F59EBF12F9A53F100CF0C55 /* jormungandTableChara12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */; };
@@ -2253,6 +2254,7 @@
 		0F59EBE52F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomFujimaru.swift; sourceTree = "<group>"; };
 		0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomTamachan.swift; sourceTree = "<group>"; };
 		0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomGinchan.swift; sourceTree = "<group>"; };
+		63C0AC9E609B422A99E604A9 /* commonSectionCustomKujilucky.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomKujilucky.swift; sourceTree = "<group>"; };
 		0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonSectionCustomKopanda.swift; sourceTree = "<group>"; };
 		0F59EBEF2F9A53E900CF0C55 /* jormungandTableChara12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara12.swift; sourceTree = "<group>"; };
 		0F59EBF22F9A57EB00CF0C55 /* jormungandTableChara3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jormungandTableChara3.swift; sourceTree = "<group>"; };
@@ -5114,6 +5116,7 @@
 				0F59EBE52F98E23F00CF0C55 /* commonSectionCustomFujimaru.swift */,
 				0F59EBE72F98E2BB00CF0C55 /* commonSectionCustomTamachan.swift */,
 				0F59EBE92F98E34500CF0C55 /* commonSectionCustomGinchan.swift */,
+				63C0AC9E609B422A99E604A9 /* commonSectionCustomKujilucky.swift */,
 				0F59EBEB2F98E54E00CF0C55 /* commonSectionCustomKopanda.swift */,
 			);
 			path = view;
@@ -8438,6 +8441,7 @@
 				0FDBDAEF2E8D509B00197B94 /* urmiraView95CiTotal.swift in Sources */,
 				0F9D9C362EA4626F00450B23 /* kingHanaVer2View95CiShima.swift in Sources */,
 				0F59EBEA2F98E34500CF0C55 /* commonSectionCustomGinchan.swift in Sources */,
+				FB766F1DD89E4A18AD5E9210 /* commonSectionCustomKujilucky.swift in Sources */,
 				0FFAB86F2E72F52B00296A4F /* starHanaViewBayes.swift in Sources */,
 				0FEB2E0E2E3E421B004C5F45 /* reSwordTableRareBonus.swift in Sources */,
 				0FC7200A2E6C618A000DD53B /* kaguyaViewBayes.swift in Sources */,
