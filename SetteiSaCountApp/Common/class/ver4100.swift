@@ -50,7 +50,7 @@ struct tipVer4100MhrsbRareBz: Tip {
         Text("機能更新")
     }
     var message: Text? {
-        Text("レア役からのBZ当選率のカウント機能を追加しました")
+        Text("レア役からのBZ当選率、リプレイメーター周期当選、規定周期当選時のCZ種別振分けのカウント機能を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
