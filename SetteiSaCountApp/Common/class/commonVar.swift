@@ -883,6 +883,9 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5119", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5104", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5104", isUnlocked: false)
+                // モンハンSB 通常時にレア役からのBZ当選率を追加
+                machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
+                mhrsbMenuNormalBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

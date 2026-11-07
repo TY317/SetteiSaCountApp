@@ -270,6 +270,82 @@ struct mhrsbView95Ci: View {
                 )
             )
             .tag(15)
+
+            // オトモ潜水艇 1周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n1周期到達時の当選率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount1,
+                        bigNumber: $mhrsb.cycleReachCount1,
+                        setting1Percent: mhrsb.ratioCycleHit[0][0],
+                        setting2Percent: mhrsb.ratioCycleHit[0][1],
+                        setting3Percent: mhrsb.ratioCycleHit[0][2],
+                        setting4Percent: mhrsb.ratioCycleHit[0][3],
+                        setting5Percent: mhrsb.ratioCycleHit[0][4],
+                        setting6Percent: mhrsb.ratioCycleHit[0][5]
+                    )
+                )
+            )
+            .tag(16)
+
+            // オトモ潜水艇 2周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n2周期到達時の当選率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount2,
+                        bigNumber: $mhrsb.cycleReachCount2,
+                        setting1Percent: mhrsb.ratioCycleHit[1][0],
+                        setting2Percent: mhrsb.ratioCycleHit[1][1],
+                        setting3Percent: mhrsb.ratioCycleHit[1][2],
+                        setting4Percent: mhrsb.ratioCycleHit[1][3],
+                        setting5Percent: mhrsb.ratioCycleHit[1][4],
+                        setting6Percent: mhrsb.ratioCycleHit[1][5]
+                    )
+                )
+            )
+            .tag(17)
+
+            // オトモ潜水艇 3周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n3周期到達時の当選率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount3,
+                        bigNumber: $mhrsb.cycleReachCount3,
+                        setting1Percent: mhrsb.ratioCycleHit[2][0],
+                        setting2Percent: mhrsb.ratioCycleHit[2][1],
+                        setting3Percent: mhrsb.ratioCycleHit[2][2],
+                        setting4Percent: mhrsb.ratioCycleHit[2][3],
+                        setting5Percent: mhrsb.ratioCycleHit[2][4],
+                        setting6Percent: mhrsb.ratioCycleHit[2][5]
+                    )
+                )
+            )
+            .tag(18)
+
+            // オトモ潜水艇 4周期到達時の当選率
+            unitListSection95Ci(
+                grafTitle: "リプレイメーター\n4周期到達時の当選率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleHitCount4,
+                        bigNumber: $mhrsb.cycleReachCount4,
+                        setting1Percent: mhrsb.ratioCycleHit[3][0],
+                        setting2Percent: mhrsb.ratioCycleHit[3][1],
+                        setting3Percent: mhrsb.ratioCycleHit[3][2],
+                        setting4Percent: mhrsb.ratioCycleHit[3][3],
+                        setting5Percent: mhrsb.ratioCycleHit[3][4],
+                        setting6Percent: mhrsb.ratioCycleHit[3][5]
+                    )
+                )
+            )
+            .tag(19)
         }
         // //// firebaseログ
         .onAppear {

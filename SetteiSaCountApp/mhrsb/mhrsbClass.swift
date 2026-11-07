@@ -29,6 +29,33 @@ class Mhrsb: ObservableObject {
     @AppStorage("mhrsbRareBzHighStrongCountHit") var rareBzHighStrongCountHit: Int = 0
     @AppStorage("mhrsbRareBzSuperWeakCount") var rareBzSuperWeakCount: Int = 0
     @AppStorage("mhrsbRareBzSuperWeakCountHit") var rareBzSuperWeakCountHit: Int = 0
+    // オトモ潜水艇の規定周期
+    // 規定周期の振り分け（[周期][設定]。1〜5周期）
+    let ratioCycleDistribution: [[Double]] = [
+        [20.0,20.3,20.7,22.3,23.4,25.0],
+        [20.0,21.1,22.7,26.6,28.5,30.5],
+        [20.0,20.7,21.5,23.0,23.8,25.0],
+        [20.0,18.4,16.4,13.7,11.7,9.8],
+        [20.0,19.5,18.8,14.5,12.5,9.8],
+    ]
+    // 周期到達時の当選率（独自算出。[周期][設定]。1〜4周期）
+    // その周期まで外れた条件での当選率＝その周期の振り分け÷（その周期以降の振り分けの合計）。5周期は全設定100%のため対象外
+    var ratioCycleHit: [[Double]] {
+        (0..<4).map { cycle in
+            (0..<6).map { setting in
+                let remain = ratioCycleDistribution[cycle...].reduce(0.0) { $0 + $1[setting] }
+                return remain > 0 ? ratioCycleDistribution[cycle][setting] / remain * 100 : 0
+            }
+        }
+    }
+    @AppStorage("mhrsbCycleReachCount1") var cycleReachCount1: Int = 0
+    @AppStorage("mhrsbCycleHitCount1") var cycleHitCount1: Int = 0
+    @AppStorage("mhrsbCycleReachCount2") var cycleReachCount2: Int = 0
+    @AppStorage("mhrsbCycleHitCount2") var cycleHitCount2: Int = 0
+    @AppStorage("mhrsbCycleReachCount3") var cycleReachCount3: Int = 0
+    @AppStorage("mhrsbCycleHitCount3") var cycleHitCount3: Int = 0
+    @AppStorage("mhrsbCycleReachCount4") var cycleReachCount4: Int = 0
+    @AppStorage("mhrsbCycleHitCount4") var cycleHitCount4: Int = 0
 
     func resetNormal() {
         rareBzNormalWeakCount = 0
@@ -41,6 +68,14 @@ class Mhrsb: ObservableObject {
         rareBzHighStrongCountHit = 0
         rareBzSuperWeakCount = 0
         rareBzSuperWeakCountHit = 0
+        cycleReachCount1 = 0
+        cycleHitCount1 = 0
+        cycleReachCount2 = 0
+        cycleHitCount2 = 0
+        cycleReachCount3 = 0
+        cycleHitCount3 = 0
+        cycleReachCount4 = 0
+        cycleHitCount4 = 0
         minusCheck = false
     }
 

@@ -40,3 +40,19 @@ struct tipVer4100: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：モンハンSB 通常時 レア役からのBZ当選率
+//////////////////
+struct tipVer4100MhrsbRareBz: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("レア役からのBZ当選率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
