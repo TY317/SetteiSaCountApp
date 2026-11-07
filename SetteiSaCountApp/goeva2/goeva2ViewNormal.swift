@@ -446,7 +446,7 @@ struct goeva2ViewNormal: View {
             // ---- 規定ゲーム数
             Section {
                 // 参考情報）規定ゲーム数の振り分け
-                unitLinkButtonViewBuilder(sheetTitle: "規定ゲーム数の振り分け") {
+                unitLinkButtonViewBuilder(sheetTitle: "規定ゲーム数 ゾーン別期待度") {
                     HStack(spacing: 0) {
                         unitTableGameIndex(gameList: [100,250,400,550,700,850])
                         unitTableZoneKitai(
