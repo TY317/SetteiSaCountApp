@@ -493,6 +493,94 @@ struct mhrsbViewNormal: View {
                 Text("リプレイメーター 周期当選")
             }
 
+            // ---- 規定周期到達時のCZ種別
+            Section {
+                // 確率横並び
+                HStack {
+                    // ブレイクゾーン
+                    unitResultRatioPercent2Line(
+                        title: "BZ",
+                        count: $mhrsb.cycleCzKindCountBz,
+                        bigNumber: $mhrsb.cycleCzKindCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // アイルー福引
+                    unitResultRatioPercent2Line(
+                        title: "アイルー福引",
+                        count: $mhrsb.cycleCzKindCountFukubiki,
+                        bigNumber: $mhrsb.cycleCzKindCountSum,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+
+                // 参考情報）規定周期到達時のCZ種別
+                unitLinkButtonViewBuilder(sheetTitle: "規定周期当選時のCZ種別") {
+                    Text("・リプレイメーターの規定周期到達でCZに当選したときの種別振分け")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "BZ",
+                            percentList: mhrsb.ratioCycleCzKindBz,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "アイルー福引",
+                            percentList: mhrsb.ratioCycleCzKindFukubiki,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // ブレイクゾーン
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "BZ",
+                            count: $mhrsb.cycleCzKindCountBz,
+                            color: .personalSummerLightBlue,
+                            minusBool: $mhrsb.minusCheck) {
+                                mhrsb.cycleCzKindSumFunc()
+                            }
+                        // アイルー福引
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "アイルー福引",
+                            count: $mhrsb.cycleCzKindCountFukubiki,
+                            color: .personalSummerLightGreen,
+                            minusBool: $mhrsb.minusCheck) {
+                                mhrsb.cycleCzKindSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            mhrsbView95Ci(
+                                mhrsb: mhrsb,
+                                selection: 20,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        mhrsbViewBayes(
+                            mhrsb: mhrsb,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("規定周期当選時のCZ種別")
+            }
+
             // レア役
             Section {
                 // レア役停止系

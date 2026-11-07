@@ -15,6 +15,7 @@ struct mhrsbViewBayes: View {
     let payoutList: [Double] = [97.5, 98.8, 100.8, 105.2, 108.4, 112.4]
     @State var rareBzEnable: Bool = true
     @State var cycleEnable: Bool = true
+    @State var cycleCzKindEnable: Bool = true
     @State var firstHitCzEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
     @State var bzScenarioEnable: Bool = true
@@ -59,6 +60,13 @@ struct mhrsbViewBayes: View {
                     unitExView5body2image(
                         title: "リプメーター 周期到達時の当選率",
                         textBody1: "・1〜4周期の到達時の当選率（規定周期の振り分けから独自算出）を判別要素として反映させます"
+                    )
+                }
+                // 規定周期到達時のCZ種別
+                unitToggleWithQuestion(enable: self.$cycleCzKindEnable, title: "規定周期当選時のCZ種別振分け") {
+                    unitExView5body2image(
+                        title: "規定周期当選時のCZ種別振分け",
+                        textBody1: "・CZ種別の振分けを判別要素として反映させます"
                     )
                 }
                 // CZ初当り確率
@@ -232,6 +240,16 @@ struct mhrsbViewBayes: View {
             ])
         }
 
+        // 規定周期到達時のCZ種別（BZ／福引の二択なので福引の選択率だけを使う）
+        var logPostCycleCzKind: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.cycleCzKindEnable {
+            logPostCycleCzKind = logPostPercentBino(
+                ratio: mhrsb.ratioCycleCzKindFukubiki,
+                Count: mhrsb.cycleCzKindCountFukubiki,
+                bigNumber: mhrsb.cycleCzKindCountSum
+            )
+        }
+
         // CZ初当り確率（BZ・アイルー福引。1ゲームごとに BZ／福引／それ以外 の多項として計算）
         var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitCzEnable {
@@ -397,6 +415,7 @@ struct mhrsbViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostRareBz,
             logPostCycle,
+            logPostCycleCzKind,
             logPostFirstHitCz,
             logPostFirstHitAt,
             logPostBzScenario,

@@ -56,6 +56,16 @@ class Mhrsb: ObservableObject {
     @AppStorage("mhrsbCycleHitCount3") var cycleHitCount3: Int = 0
     @AppStorage("mhrsbCycleReachCount4") var cycleReachCount4: Int = 0
     @AppStorage("mhrsbCycleHitCount4") var cycleHitCount4: Int = 0
+    // 規定周期到達時のCZ種別
+    let ratioCycleCzKindBz: [Double] = [80.0,78.5,75.8,71.9,67.2,60.5]
+    let ratioCycleCzKindFukubiki: [Double] = [20.0,21.5,24.2,28.1,32.8,39.5]
+    @AppStorage("mhrsbCycleCzKindCountBz") var cycleCzKindCountBz: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountFukubiki") var cycleCzKindCountFukubiki: Int = 0
+    @AppStorage("mhrsbCycleCzKindCountSum") var cycleCzKindCountSum: Int = 0
+
+    func cycleCzKindSumFunc() {
+        cycleCzKindCountSum = cycleCzKindCountBz + cycleCzKindCountFukubiki
+    }
 
     func resetNormal() {
         rareBzNormalWeakCount = 0
@@ -76,6 +86,9 @@ class Mhrsb: ObservableObject {
         cycleHitCount3 = 0
         cycleReachCount4 = 0
         cycleHitCount4 = 0
+        cycleCzKindCountBz = 0
+        cycleCzKindCountFukubiki = 0
+        cycleCzKindCountSum = 0
         minusCheck = false
     }
 

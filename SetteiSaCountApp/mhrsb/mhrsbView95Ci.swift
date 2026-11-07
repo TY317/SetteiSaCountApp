@@ -70,7 +70,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 QUEST(青)
             unitListSection95Ci(
-                grafTitle: "クエスト QUEST(青)",
+                grafTitle: "クエスト成功\nQUEST(青)",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest1CountHit,
@@ -88,7 +89,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 QUEST(黄)
             unitListSection95Ci(
-                grafTitle: "クエスト QUEST(黄)",
+                grafTitle: "クエスト成功\nQUEST(黄)",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest2CountHit,
@@ -106,7 +108,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 ライゼクス
             unitListSection95Ci(
-                grafTitle: "クエスト ライゼクス",
+                grafTitle: "クエスト成功\nライゼクス",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest3CountHit,
@@ -124,7 +127,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 セルレギオス
             unitListSection95Ci(
-                grafTitle: "クエスト セルレギオス",
+                grafTitle: "クエスト成功\nセルレギオス",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest4CountHit,
@@ -142,7 +146,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 オロミドロ亜種
             unitListSection95Ci(
-                grafTitle: "クエスト オロミドロ亜種",
+                grafTitle: "クエスト成功\nオロミドロ亜種",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest5CountHit,
@@ -160,7 +165,8 @@ struct mhrsbView95Ci: View {
 
             // クエスト成功期待度 テオ・テスカトル
             unitListSection95Ci(
-                grafTitle: "クエスト テオ・テスカトル",
+                grafTitle: "クエスト成功\nテオ・テスカトル",
+                titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
                         currentCount: $mhrsb.quest6CountHit,
@@ -273,7 +279,7 @@ struct mhrsbView95Ci: View {
 
             // オトモ潜水艇 1周期到達時の当選率
             unitListSection95Ci(
-                grafTitle: "リプレイメーター\n1周期到達時の当選率",
+                grafTitle: "リプレイメーター\n1周期到達時の当選回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -292,7 +298,7 @@ struct mhrsbView95Ci: View {
 
             // オトモ潜水艇 2周期到達時の当選率
             unitListSection95Ci(
-                grafTitle: "リプレイメーター\n2周期到達時の当選率",
+                grafTitle: "リプレイメーター\n2周期到達時の当選回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -311,7 +317,7 @@ struct mhrsbView95Ci: View {
 
             // オトモ潜水艇 3周期到達時の当選率
             unitListSection95Ci(
-                grafTitle: "リプレイメーター\n3周期到達時の当選率",
+                grafTitle: "リプレイメーター\n3周期到達時の当選回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -330,7 +336,7 @@ struct mhrsbView95Ci: View {
 
             // オトモ潜水艇 4周期到達時の当選率
             unitListSection95Ci(
-                grafTitle: "リプレイメーター\n4周期到達時の当選率",
+                grafTitle: "リプレイメーター\n4周期到達時の当選回数",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -346,6 +352,25 @@ struct mhrsbView95Ci: View {
                 )
             )
             .tag(19)
+
+            // 規定周期到達時のCZ種別（アイルー福引の選択率）
+            unitListSection95Ci(
+                grafTitle: "規定周期到達時\nアイルー福引選択回数",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.cycleCzKindCountFukubiki,
+                        bigNumber: $mhrsb.cycleCzKindCountSum,
+                        setting1Percent: mhrsb.ratioCycleCzKindFukubiki[0],
+                        setting2Percent: mhrsb.ratioCycleCzKindFukubiki[1],
+                        setting3Percent: mhrsb.ratioCycleCzKindFukubiki[2],
+                        setting4Percent: mhrsb.ratioCycleCzKindFukubiki[3],
+                        setting5Percent: mhrsb.ratioCycleCzKindFukubiki[4],
+                        setting6Percent: mhrsb.ratioCycleCzKindFukubiki[5]
+                    )
+                )
+            )
+            .tag(20)
         }
         // //// firebaseログ
         .onAppear {
