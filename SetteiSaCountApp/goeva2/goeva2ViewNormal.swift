@@ -442,6 +442,22 @@ struct goeva2ViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- 規定ゲーム数
+            Section {
+                // 参考情報）規定ゲーム数の振り分け
+                unitLinkButtonViewBuilder(sheetTitle: "規定ゲーム数の振り分け") {
+                    HStack(spacing: 0) {
+                        unitTableGameIndex(gameList: [100,250,400,550,700,850])
+                        unitTableZoneKitai(
+                            columTitle: "期待度",
+                            kitaiList: [1,2,1,1,3,10]
+                        )
+                    }
+                }
+            } header: {
+                Text("規定ゲーム数")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.goeva2MenuNormalBadge)
