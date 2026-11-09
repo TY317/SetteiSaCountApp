@@ -37,6 +37,16 @@ struct ggoViewNormal: View {
             } header: {
                 Text("小役")
             }
+
+            // ---- 通常モード
+            Section {
+                // 参考情報）モードごとのゾーン期待度
+                unitLinkButtonViewBuilder(sheetTitle: "モードごとのゾーン期待度") {
+                    ggoTableModeZone()
+                }
+            } header: {
+                Text("通常モード")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.ggoMenuNormalBadge)

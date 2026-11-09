@@ -1892,6 +1892,8 @@
 		1E52F220E8E24917BD66A047 /* ggoViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8587C11CA65443378E7C7837 /* ggoViewBayes.swift */; };
 		9F9BDF5B444C46759212FB40 /* ggoTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */; };
 		FF7F906A5A4749F2A86F406A /* ggoTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */; };
+		72DD6C2E4BF54D6FB836858C /* ggoTableModeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3F194598294A90B21AFE11 /* ggoTableModeZone.swift */; };
+		B90DD7820A574DDB9BFE5647 /* ggoTableModeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3F194598294A90B21AFE11 /* ggoTableModeZone.swift */; };
 		DA1F2FF6A9F24E0F8ED856D4 /* seiyaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C877F695C7D4E06B4AE1884 /* seiyaClass.swift */; };
 		DAD45DD83F6B4457854B7280 /* streetFighter6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6AC2A718745E9A5FC01DE /* streetFighter6TableKoyakuPattern.swift */; };
 		DCB0B1BB6B4B405085DC7894 /* unitTablePointIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9FA5DE221443AAF9F8E24 /* unitTablePointIndex.swift */; };
@@ -3623,6 +3625,7 @@
 		E55D950ED3134EA183D9E2A2 /* ggoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewNormal.swift; sourceTree = "<group>"; };
 		8587C11CA65443378E7C7837 /* ggoViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewBayes.swift; sourceTree = "<group>"; };
 		DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoTableKoyakuPattern.swift; sourceTree = "<group>"; };
+		2B3F194598294A90B21AFE11 /* ggoTableModeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoTableModeZone.swift; sourceTree = "<group>"; };
 		E9E5781583CE45D0818A86E0 /* gareiView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiView95Ci.swift; sourceTree = "<group>"; };
 		E9F5ED267CA346DCA8FC4CF4 /* streetFighter6ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6ViewScreen.swift; sourceTree = "<group>"; };
 		EB0E2B12E13E48CC8741536E /* yajikitaViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewEnding.swift; sourceTree = "<group>"; };
@@ -6359,6 +6362,7 @@
 				E55D950ED3134EA183D9E2A2 /* ggoViewNormal.swift */,
 				8587C11CA65443378E7C7837 /* ggoViewBayes.swift */,
 				DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */,
+				2B3F194598294A90B21AFE11 /* ggoTableModeZone.swift */,
 				D26792B57391417285DFEC4C /* ggoViewFirstHit.swift */,
 				60C56D76CBA54FDF84A39D93 /* ggoView95Ci.swift */,
 				866D759509C9453E928E4034 /* ggoAssets.xcassets */,
@@ -7481,6 +7485,7 @@
 				14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */,
 				D1D399A5DBC048F48D97D3B3 /* seiyaTableKoyakuPattern.swift in Sources */,
 				9F9BDF5B444C46759212FB40 /* ggoTableKoyakuPattern.swift in Sources */,
+				72DD6C2E4BF54D6FB836858C /* ggoTableModeZone.swift in Sources */,
 				43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */,
 				ED72F5F313BB43D5864C9711 /* gareiTableKoyakuPattern.swift in Sources */,
 				DDAC4C76D0C84F198B325AB1 /* tonskillTableKoyakuPattern.swift in Sources */,
@@ -8651,6 +8656,7 @@
 				C26102E52F4F4FA3BCC12CE2 /* goeva2TableKoyakuPattern.swift in Sources */,
 				51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */,
 				FF7F906A5A4749F2A86F406A /* ggoTableKoyakuPattern.swift in Sources */,
+				B90DD7820A574DDB9BFE5647 /* ggoTableModeZone.swift in Sources */,
 				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
 				0A90FE0685C54E79B51946E6 /* tonskillTableKoyakuPattern.swift in Sources */,
