@@ -55,7 +55,6 @@ struct kokakukidotaiViewNormal: View {
                     )
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
-                .popoverTip(tipVer440KokakuIede())
                 
                 // 参考情報）200or400GでのCZ当選率
                 unitLinkButtonViewBuilder(sheetTitle: "200,400GでのCZ期待度") {

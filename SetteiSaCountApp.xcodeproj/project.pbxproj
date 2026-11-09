@@ -619,7 +619,6 @@
 		0F6F08A73024BC3E0088F00C /* tokyoGhoulClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1561A2D67196C00B17F83 /* tokyoGhoulClass.swift */; };
 		0F6F08B73024C1880088F00C /* sbjTableBbTenjo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08B63024C1880088F00C /* sbjTableBbTenjo.swift */; };
 		0F6F08B83024C1900088F00C /* sbjTableBbTenjo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08B63024C1880088F00C /* sbjTableBbTenjo.swift */; };
-		0F6F0900302AA8730088F00C /* ver440.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F08FF302AA8730088F00C /* ver440.swift */; };
 		0F6F0972302D6B4C0088F00C /* dropkickTableLinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */; };
 		0F6F0973302D6B550088F00C /* dropkickTableLinePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */; };
 		0F6F0975302D72090088F00C /* dropkickTableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0974302D72090088F00C /* dropkickTableMode.swift */; };
@@ -2435,7 +2434,6 @@
 		0F6F08A03020CF710088F00C /* worldDaiStarTableKiteiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarTableKiteiGame.swift; sourceTree = "<group>"; };
 		0F6F08A3302210200088F00C /* worldDaiStarTableLuckyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarTableLuckyMode.swift; sourceTree = "<group>"; };
 		0F6F08B63024C1880088F00C /* sbjTableBbTenjo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sbjTableBbTenjo.swift; sourceTree = "<group>"; };
-		0F6F08FF302AA8730088F00C /* ver440.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver440.swift; sourceTree = "<group>"; };
 		0F6F0971302D6B4C0088F00C /* dropkickTableLinePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableLinePoint.swift; sourceTree = "<group>"; };
 		0F6F0974302D72090088F00C /* dropkickTableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableMode.swift; sourceTree = "<group>"; };
 		0F6F0977302D761F0088F00C /* dropkickTableModeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableModeTable.swift; sourceTree = "<group>"; };
@@ -5250,7 +5248,6 @@
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
-				0F6F08FF302AA8730088F00C /* ver440.swift */,
 				0F5D71263031E0040023B7CC /* ver450.swift */,
 				0F62B8143044128A00B1B6D3 /* ver460.swift */,
 				0F6790AD305633B400373AD5 /* ver470.swift */,
@@ -7400,7 +7397,6 @@
 				0FD357242DA0CDF60069BD1A /* kaijiTableModeStageChange.swift in Sources */,
 				0FA024472CDB93C4004B3FD5 /* ver150Tip.swift in Sources */,
 				0FC71FFE2E6BC7C6000DD53B /* toreveViewScreen.swift in Sources */,
-				0F6F0900302AA8730088F00C /* ver440.swift in Sources */,
 				0F973F532F94571C00818DD9 /* enen2TableEndingRatio.swift in Sources */,
 				0F2020582F4F2F2500FDA263 /* gobsla2TableScreenSisaDetail.swift in Sources */,
 				0F6B59BA2DFD2F6400DB1A2B /* unitMachinListLink.swift in Sources */,

@@ -129,7 +129,6 @@ struct kokakukidotaiViewCz: View {
                     bigNumber: $kokakukidotai.czScreenCountSum,
                     numberofDicimal: 0
                 )
-                .popoverTip(tipVer440KokakuCzScreen())
                 
                 // 参考情報）イシカワ画面振分け
                 unitLinkButtonViewBuilder(sheetTitle: "イシカワ画面振分け") {

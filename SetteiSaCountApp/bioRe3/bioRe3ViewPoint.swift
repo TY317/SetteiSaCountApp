@@ -70,7 +70,6 @@ struct bioRe3ViewPoint: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .popoverTip(tipVer440BioRe3Point())
 
                 // サークルピッカー
                 Picker("", selection: self.$selectedItem) {
