@@ -97,6 +97,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5073", name: "GGO", fullName: "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン", iconName: "ggoMachineIcon", btBadge: false, maker: "京楽"),
         Machine(id: "5104", name: "聖闘士星矢", fullName: "聖闘士星矢 黄金十二宮", iconName: "seiyaMachineIcon", btBadge: false, maker: "SANYO"),
         Machine(id: "5119", name: "ゴジエヴァ2", fullName: "ゴジラ対エヴァンゲリオン2", iconName: "goeva2MachineIcon", btBadge: false, maker: "SANKYO"),
         Machine(id: "5061", name: "獣王", fullName: "獣王", iconName: "juoMachineIcon", btBadge: false, maker: "サミー"),
@@ -380,6 +381,12 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
     @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
+
+    // ---- ソードアート・オンライン オルタナティブ ガンゲイル・オンライン
+    @AppStorage("ggoMenuNormalBadge") var ggoMenuNormalBadge: String = "none"
+    @AppStorage("ggoMenuFirstHitBadge") var ggoMenuFirstHitBadge: String = "none"
+    @AppStorage("ggoMenuBayesBadge") var ggoMenuBayesBadge: String = "none"
+    @AppStorage("ggoMenuScreenBadge") var ggoMenuScreenBadge: String = "none"
 
     // ---- 聖闘士星矢 黄金十二宮
     @AppStorage("seiyaMenuNormalBadge") var seiyaMenuNormalBadge: String = "none"
@@ -882,6 +889,8 @@ class commonVar: ObservableObject {
             if isVersionCompare(lastVersion, lessThan: targetVersion) {
                 print("\(targetVersion)未満からアップデートされました")
                 // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5073", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5073", isUnlocked: false)
             } else {
                 print("\(targetVersion)以上です")
             }

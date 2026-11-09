@@ -18,7 +18,7 @@ struct tipVer4110UpdateInfo: Tip {
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("")
+        Text("・ガンゲイル・オンライン")
     }
     var image: Image? {
         Image(systemName: "star")
