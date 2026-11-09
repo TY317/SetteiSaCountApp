@@ -79,15 +79,15 @@ struct ggoViewTop: View {
                 }
 
                 // 設定期待値計算
-//                NavigationLink(destination: ggoViewBayes(
-//                    ggo: ggo,
-//                )) {
-//                    unitLabelMenu(
-//                        imageSystemName: "gauge.open.with.lines.needle.33percent",
-//                        textBody: "設定期待値",
-//                        badgeStatus: common.ggoMenuBayesBadge
-//                    )
-//                }
+                NavigationLink(destination: ggoViewBayes(
+                    ggo: ggo,
+                )) {
+                    unitLabelMenu(
+                        imageSystemName: "gauge.open.with.lines.needle.33percent",
+                        textBody: "設定期待値",
+                        badgeStatus: common.ggoMenuBayesBadge
+                    )
+                }
 
                 // 解析サイトへのリンク
                 unitLinkSectionDMM(urlString: "https://p-town.dmm.com/machines/5073")
