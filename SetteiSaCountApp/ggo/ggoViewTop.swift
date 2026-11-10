@@ -27,6 +27,7 @@ struct ggoViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: ggo.machineName,
+                        titleFont: .title3,
                     )
                 }
 
@@ -70,7 +71,7 @@ struct ggoViewTop: View {
                 // 設定推測グラフ
                 NavigationLink(destination: ggoView95Ci(
                     ggo: ggo,
-                    selection: 1,
+                    selection: 2,
                 )) {
                     unitLabelMenu(
                         imageSystemName: "chart.bar.xaxis",

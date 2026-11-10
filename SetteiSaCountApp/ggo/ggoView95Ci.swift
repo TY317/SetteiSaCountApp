@@ -14,60 +14,41 @@ struct ggoView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 回数
-//            unitListSection95Ci(
-//                grafTitle: "回数",
-//                titleFont: .title2,
-//                grafView: AnyView(
-//                    unitChart95CiPercent(
-//                        currentCount: $ggo.otomeAttackHit,
-//                        bigNumber: $ggo.otomeAttackSum,
-//                        setting1Percent: ggo.ratioOtomeAttack[0],
-//                        setting2Percent: ggo.ratioOtomeAttack[1],
-//                        setting3Percent: ggo.ratioOtomeAttack[2],
-//                        setting4Percent: ggo.ratioOtomeAttack[3],
-//                        setting5Percent: ggo.ratioOtomeAttack[4],
-//                        setting6Percent: ggo.ratioOtomeAttack[5]
-//                    )
-//                )
-//            )
-//            .tag(1)
-//
-//            // CZ初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "CZ初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $ggo.firstHitCountCz,
-//                        bigNumber: $ggo.normalGame,
-//                        setting1Denominate: ggo.ratioFirstHitCz[0],
-//                        setting2Denominate: ggo.ratioFirstHitCz[1],
-//                        setting3Denominate: ggo.ratioFirstHitCz[2],
-//                        setting4Denominate: ggo.ratioFirstHitCz[3],
-//                        setting5Denominate: ggo.ratioFirstHitCz[4],
-//                        setting6Denominate: ggo.ratioFirstHitCz[5]
-//                    )
-//                )
-//            )
-//            .tag(2)
-//
-//            // AT初当り回数
-//            unitListSection95Ci(
-//                grafTitle: "AT初当り回数",
-//                grafView: AnyView(
-//                    unitChart95CiDenominate(
-//                        currentCount: $ggo.firstHitCountAt,
-//                        bigNumber: $ggo.normalGame,
-//                        setting1Denominate: ggo.ratioFirstHitAt[0],
-//                        setting2Denominate: ggo.ratioFirstHitAt[1],
-//                        setting3Denominate: ggo.ratioFirstHitAt[2],
-//                        setting4Denominate: ggo.ratioFirstHitAt[3],
-//                        setting5Denominate: ggo.ratioFirstHitAt[4],
-//                        setting6Denominate: ggo.ratioFirstHitAt[5]
-//                    )
-//                )
-//            )
-//            .tag(3)
+            // ボーナス合算初当り回数
+            unitListSection95Ci(
+                grafTitle: "ボーナス合算初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ggo.activeFirstHitCountBonus,
+                        bigNumber: $ggo.activeNormalGame,
+                        setting1Denominate: ggo.ratioFirstHitBonus[0],
+                        setting2Denominate: ggo.ratioFirstHitBonus[1],
+                        setting3Denominate: ggo.ratioFirstHitBonus[2],
+                        setting4Denominate: ggo.ratioFirstHitBonus[3],
+                        setting5Denominate: ggo.ratioFirstHitBonus[4],
+                        setting6Denominate: ggo.ratioFirstHitBonus[5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // ST初当り回数
+            unitListSection95Ci(
+                grafTitle: "ST初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ggo.activeFirstHitCountSt,
+                        bigNumber: $ggo.activeNormalGame,
+                        setting1Denominate: ggo.ratioFirstHitSt[0],
+                        setting2Denominate: ggo.ratioFirstHitSt[1],
+                        setting3Denominate: ggo.ratioFirstHitSt[2],
+                        setting4Denominate: ggo.ratioFirstHitSt[3],
+                        setting5Denominate: ggo.ratioFirstHitSt[4],
+                        setting6Denominate: ggo.ratioFirstHitSt[5]
+                    )
+                )
+            )
+            .tag(3)
         }
         // //// firebaseログ
         .onAppear {
