@@ -53,6 +53,17 @@ struct vivyViewTop: View {
                         )
                     }
 
+                    // 終了画面
+                    NavigationLink(destination: vivyViewScreen(
+                        vivy: vivy,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面",
+                            badgeStatus: common.vivyMenuScreenBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(
