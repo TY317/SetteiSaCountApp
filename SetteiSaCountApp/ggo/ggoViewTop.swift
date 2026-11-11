@@ -193,13 +193,55 @@ struct ggoSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        ggoMemory1.modeHeavenCountMiss = ggo.modeHeavenCountMiss
+        ggoMemory1.modeHeavenCountHit = ggo.modeHeavenCountHit
+        ggoMemory1.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory1.playGameSum = ggo.playGameSum
+        ggoMemory1.firstHitCountBonus = ggo.firstHitCountBonus
+        ggoMemory1.firstHitCountSt = ggo.firstHitCountSt
+        ggoMemory1.firstHitInputMode = ggo.firstHitInputMode
+        ggoMemory1.manualNormalGame = ggo.manualNormalGame
+        ggoMemory1.manualFirstHitCountBig = ggo.manualFirstHitCountBig
+        ggoMemory1.manualFirstHitCountReg = ggo.manualFirstHitCountReg
+        ggoMemory1.manualFirstHitCountEpisode = ggo.manualFirstHitCountEpisode
+        ggoMemory1.manualFirstHitCountSt = ggo.manualFirstHitCountSt
+        ggoMemory1.gameArrayData = ggo.gameArrayData
+        ggoMemory1.bonusKindArrayData = ggo.bonusKindArrayData
+        ggoMemory1.stResultArrayData = ggo.stResultArrayData
     }
     func saveMemory2() {
-
+        ggoMemory2.modeHeavenCountMiss = ggo.modeHeavenCountMiss
+        ggoMemory2.modeHeavenCountHit = ggo.modeHeavenCountHit
+        ggoMemory2.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory2.playGameSum = ggo.playGameSum
+        ggoMemory2.firstHitCountBonus = ggo.firstHitCountBonus
+        ggoMemory2.firstHitCountSt = ggo.firstHitCountSt
+        ggoMemory2.firstHitInputMode = ggo.firstHitInputMode
+        ggoMemory2.manualNormalGame = ggo.manualNormalGame
+        ggoMemory2.manualFirstHitCountBig = ggo.manualFirstHitCountBig
+        ggoMemory2.manualFirstHitCountReg = ggo.manualFirstHitCountReg
+        ggoMemory2.manualFirstHitCountEpisode = ggo.manualFirstHitCountEpisode
+        ggoMemory2.manualFirstHitCountSt = ggo.manualFirstHitCountSt
+        ggoMemory2.gameArrayData = ggo.gameArrayData
+        ggoMemory2.bonusKindArrayData = ggo.bonusKindArrayData
+        ggoMemory2.stResultArrayData = ggo.stResultArrayData
     }
     func saveMemory3() {
-
+        ggoMemory3.modeHeavenCountMiss = ggo.modeHeavenCountMiss
+        ggoMemory3.modeHeavenCountHit = ggo.modeHeavenCountHit
+        ggoMemory3.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory3.playGameSum = ggo.playGameSum
+        ggoMemory3.firstHitCountBonus = ggo.firstHitCountBonus
+        ggoMemory3.firstHitCountSt = ggo.firstHitCountSt
+        ggoMemory3.firstHitInputMode = ggo.firstHitInputMode
+        ggoMemory3.manualNormalGame = ggo.manualNormalGame
+        ggoMemory3.manualFirstHitCountBig = ggo.manualFirstHitCountBig
+        ggoMemory3.manualFirstHitCountReg = ggo.manualFirstHitCountReg
+        ggoMemory3.manualFirstHitCountEpisode = ggo.manualFirstHitCountEpisode
+        ggoMemory3.manualFirstHitCountSt = ggo.manualFirstHitCountSt
+        ggoMemory3.gameArrayData = ggo.gameArrayData
+        ggoMemory3.bonusKindArrayData = ggo.bonusKindArrayData
+        ggoMemory3.stResultArrayData = ggo.stResultArrayData
     }
 }
 
@@ -231,13 +273,64 @@ struct ggoSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        ggo.modeHeavenCountMiss = ggoMemory1.modeHeavenCountMiss
+        ggo.modeHeavenCountHit = ggoMemory1.modeHeavenCountHit
+        ggo.modeHeavenCountSum = ggoMemory1.modeHeavenCountSum
+        ggo.playGameSum = ggoMemory1.playGameSum
+        ggo.firstHitCountBonus = ggoMemory1.firstHitCountBonus
+        ggo.firstHitCountSt = ggoMemory1.firstHitCountSt
+        ggo.firstHitInputMode = ggoMemory1.firstHitInputMode
+        ggo.manualNormalGame = ggoMemory1.manualNormalGame
+        ggo.manualFirstHitCountBig = ggoMemory1.manualFirstHitCountBig
+        ggo.manualFirstHitCountReg = ggoMemory1.manualFirstHitCountReg
+        ggo.manualFirstHitCountEpisode = ggoMemory1.manualFirstHitCountEpisode
+        ggo.manualFirstHitCountSt = ggoMemory1.manualFirstHitCountSt
+        let gameArrayDecoded = decodeIntArray(from: ggoMemory1.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: ggo.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: ggoMemory1.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: ggo.bonusKindArrayKey)
+        let stResultArrayDecoded = decodeStringArray(from: ggoMemory1.stResultArrayData)
+        saveArray(stResultArrayDecoded, forKey: ggo.stResultArrayKey)
     }
     func loadMemory2() {
-
+        ggo.modeHeavenCountMiss = ggoMemory2.modeHeavenCountMiss
+        ggo.modeHeavenCountHit = ggoMemory2.modeHeavenCountHit
+        ggo.modeHeavenCountSum = ggoMemory2.modeHeavenCountSum
+        ggo.playGameSum = ggoMemory2.playGameSum
+        ggo.firstHitCountBonus = ggoMemory2.firstHitCountBonus
+        ggo.firstHitCountSt = ggoMemory2.firstHitCountSt
+        ggo.firstHitInputMode = ggoMemory2.firstHitInputMode
+        ggo.manualNormalGame = ggoMemory2.manualNormalGame
+        ggo.manualFirstHitCountBig = ggoMemory2.manualFirstHitCountBig
+        ggo.manualFirstHitCountReg = ggoMemory2.manualFirstHitCountReg
+        ggo.manualFirstHitCountEpisode = ggoMemory2.manualFirstHitCountEpisode
+        ggo.manualFirstHitCountSt = ggoMemory2.manualFirstHitCountSt
+        let gameArrayDecoded = decodeIntArray(from: ggoMemory2.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: ggo.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: ggoMemory2.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: ggo.bonusKindArrayKey)
+        let stResultArrayDecoded = decodeStringArray(from: ggoMemory2.stResultArrayData)
+        saveArray(stResultArrayDecoded, forKey: ggo.stResultArrayKey)
     }
     func loadMemory3() {
-
+        ggo.modeHeavenCountMiss = ggoMemory3.modeHeavenCountMiss
+        ggo.modeHeavenCountHit = ggoMemory3.modeHeavenCountHit
+        ggo.modeHeavenCountSum = ggoMemory3.modeHeavenCountSum
+        ggo.playGameSum = ggoMemory3.playGameSum
+        ggo.firstHitCountBonus = ggoMemory3.firstHitCountBonus
+        ggo.firstHitCountSt = ggoMemory3.firstHitCountSt
+        ggo.firstHitInputMode = ggoMemory3.firstHitInputMode
+        ggo.manualNormalGame = ggoMemory3.manualNormalGame
+        ggo.manualFirstHitCountBig = ggoMemory3.manualFirstHitCountBig
+        ggo.manualFirstHitCountReg = ggoMemory3.manualFirstHitCountReg
+        ggo.manualFirstHitCountEpisode = ggoMemory3.manualFirstHitCountEpisode
+        ggo.manualFirstHitCountSt = ggoMemory3.manualFirstHitCountSt
+        let gameArrayDecoded = decodeIntArray(from: ggoMemory3.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: ggo.gameArrayKey)
+        let bonusKindArrayDecoded = decodeStringArray(from: ggoMemory3.bonusKindArrayData)
+        saveArray(bonusKindArrayDecoded, forKey: ggo.bonusKindArrayKey)
+        let stResultArrayDecoded = decodeStringArray(from: ggoMemory3.stResultArrayData)
+        saveArray(stResultArrayDecoded, forKey: ggo.stResultArrayKey)
     }
 }
 

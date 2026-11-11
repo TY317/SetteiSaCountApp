@@ -154,18 +154,63 @@ class Ggo: ObservableObject {
 
 
 class GgoMemory1: ObservableObject {
+    @AppStorage("ggoModeHeavenCountMissMemory1") var modeHeavenCountMiss: Int = 0
+    @AppStorage("ggoModeHeavenCountHitMemory1") var modeHeavenCountHit: Int = 0
+    @AppStorage("ggoModeHeavenCountSumMemory1") var modeHeavenCountSum: Int = 0
+    @AppStorage("ggoPlayGameSumMemory1") var playGameSum: Int = 0
+    @AppStorage("ggoFirstHitCountBonusMemory1") var firstHitCountBonus: Int = 0
+    @AppStorage("ggoFirstHitCountStMemory1") var firstHitCountSt: Int = 0
+    @AppStorage("ggoFirstHitInputModeMemory1") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ggoManualNormalGameMemory1") var manualNormalGame: Int = 0
+    @AppStorage("ggoManualFirstHitCountBigMemory1") var manualFirstHitCountBig: Int = 0
+    @AppStorage("ggoManualFirstHitCountRegMemory1") var manualFirstHitCountReg: Int = 0
+    @AppStorage("ggoManualFirstHitCountEpisodeMemory1") var manualFirstHitCountEpisode: Int = 0
+    @AppStorage("ggoManualFirstHitCountStMemory1") var manualFirstHitCountSt: Int = 0
+    @AppStorage("ggoGameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("ggoBonusKindArrayKeyMemory1") var bonusKindArrayData: Data?
+    @AppStorage("ggoStResultArrayKeyMemory1") var stResultArrayData: Data?
     @AppStorage("ggoMemoMemory1") var memo = ""
     @AppStorage("ggoDateMemory1") var dateDouble = 0.0
 }
 
 
 class GgoMemory2: ObservableObject {
+    @AppStorage("ggoModeHeavenCountMissMemory2") var modeHeavenCountMiss: Int = 0
+    @AppStorage("ggoModeHeavenCountHitMemory2") var modeHeavenCountHit: Int = 0
+    @AppStorage("ggoModeHeavenCountSumMemory2") var modeHeavenCountSum: Int = 0
+    @AppStorage("ggoPlayGameSumMemory2") var playGameSum: Int = 0
+    @AppStorage("ggoFirstHitCountBonusMemory2") var firstHitCountBonus: Int = 0
+    @AppStorage("ggoFirstHitCountStMemory2") var firstHitCountSt: Int = 0
+    @AppStorage("ggoFirstHitInputModeMemory2") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ggoManualNormalGameMemory2") var manualNormalGame: Int = 0
+    @AppStorage("ggoManualFirstHitCountBigMemory2") var manualFirstHitCountBig: Int = 0
+    @AppStorage("ggoManualFirstHitCountRegMemory2") var manualFirstHitCountReg: Int = 0
+    @AppStorage("ggoManualFirstHitCountEpisodeMemory2") var manualFirstHitCountEpisode: Int = 0
+    @AppStorage("ggoManualFirstHitCountStMemory2") var manualFirstHitCountSt: Int = 0
+    @AppStorage("ggoGameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("ggoBonusKindArrayKeyMemory2") var bonusKindArrayData: Data?
+    @AppStorage("ggoStResultArrayKeyMemory2") var stResultArrayData: Data?
     @AppStorage("ggoMemoMemory2") var memo = ""
     @AppStorage("ggoDateMemory2") var dateDouble = 0.0
 }
 
 
 class GgoMemory3: ObservableObject {
+    @AppStorage("ggoModeHeavenCountMissMemory3") var modeHeavenCountMiss: Int = 0
+    @AppStorage("ggoModeHeavenCountHitMemory3") var modeHeavenCountHit: Int = 0
+    @AppStorage("ggoModeHeavenCountSumMemory3") var modeHeavenCountSum: Int = 0
+    @AppStorage("ggoPlayGameSumMemory3") var playGameSum: Int = 0
+    @AppStorage("ggoFirstHitCountBonusMemory3") var firstHitCountBonus: Int = 0
+    @AppStorage("ggoFirstHitCountStMemory3") var firstHitCountSt: Int = 0
+    @AppStorage("ggoFirstHitInputModeMemory3") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ggoManualNormalGameMemory3") var manualNormalGame: Int = 0
+    @AppStorage("ggoManualFirstHitCountBigMemory3") var manualFirstHitCountBig: Int = 0
+    @AppStorage("ggoManualFirstHitCountRegMemory3") var manualFirstHitCountReg: Int = 0
+    @AppStorage("ggoManualFirstHitCountEpisodeMemory3") var manualFirstHitCountEpisode: Int = 0
+    @AppStorage("ggoManualFirstHitCountStMemory3") var manualFirstHitCountSt: Int = 0
+    @AppStorage("ggoGameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("ggoBonusKindArrayKeyMemory3") var bonusKindArrayData: Data?
+    @AppStorage("ggoStResultArrayKeyMemory3") var stResultArrayData: Data?
     @AppStorage("ggoMemoMemory3") var memo = ""
     @AppStorage("ggoDateMemory3") var dateDouble = 0.0
 }
