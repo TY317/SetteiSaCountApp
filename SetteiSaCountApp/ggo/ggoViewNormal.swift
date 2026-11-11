@@ -28,6 +28,78 @@ struct ggoViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 天国選択率
+            Section {
+                // 天国選択率
+                unitResultRatioPercent2Line(
+                    title: "天国選択率",
+                    count: $ggo.modeHeavenCountHit,
+                    bigNumber: $ggo.modeHeavenCountSum,
+                    numberofDicimal: 0
+                )
+
+                // 参考情報）天国選択率
+                unitLinkButtonViewBuilder(sheetTitle: "天国選択率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "天国選択率",
+                            percentList: ggo.ratioModeHeaven,
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 情報
+                    Text("・100Gや150G付近で流星ステージに移行した場合は天国濃厚")
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                    // カウントボタン横並び
+                    HStack {
+                        // 天国なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "天国なし",
+                            count: $ggo.modeHeavenCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $ggo.minusCheck) {
+                                ggo.modeHeavenSumFunc()
+                            }
+                        // 天国あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "天国あり",
+                            count: $ggo.modeHeavenCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $ggo.minusCheck) {
+                                ggo.modeHeavenSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ggoView95Ci(
+                                ggo: ggo,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ggoViewBayes(
+                            ggo: ggo,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("天国選択率")
+            }
+            
             // レア役
             Section {
                 // レア役停止系
@@ -47,6 +119,8 @@ struct ggoViewNormal: View {
             } header: {
                 Text("通常モード")
             }
+
+            
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.ggoMenuNormalBadge)

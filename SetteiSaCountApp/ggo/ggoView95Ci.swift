@@ -49,6 +49,24 @@ struct ggoView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 天国選択率
+            unitListSection95Ci(
+                grafTitle: "天国選択率",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ggo.modeHeavenCountHit,
+                        bigNumber: $ggo.modeHeavenCountSum,
+                        setting1Percent: ggo.ratioModeHeaven[0],
+                        setting2Percent: ggo.ratioModeHeaven[1],
+                        setting3Percent: ggo.ratioModeHeaven[2],
+                        setting4Percent: ggo.ratioModeHeaven[3],
+                        setting5Percent: ggo.ratioModeHeaven[4],
+                        setting6Percent: ggo.ratioModeHeaven[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {

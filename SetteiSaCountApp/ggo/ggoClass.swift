@@ -13,8 +13,20 @@ class Ggo: ObservableObject {
     // -------
     // 通常時
     // -------
+    // 天国選択率
+    let ratioModeHeaven: [Double] = [21.9,23.0,24.6,28.1,31.3,31.6]
+    @AppStorage("ggoModeHeavenCountMiss") var modeHeavenCountMiss: Int = 0
+    @AppStorage("ggoModeHeavenCountHit") var modeHeavenCountHit: Int = 0
+    @AppStorage("ggoModeHeavenCountSum") var modeHeavenCountSum: Int = 0
+
+    func modeHeavenSumFunc() {
+        modeHeavenCountSum = modeHeavenCountHit + modeHeavenCountMiss
+    }
 
     func resetNormal() {
+        modeHeavenCountMiss = 0
+        modeHeavenCountHit = 0
+        modeHeavenCountSum = 0
         minusCheck = false
     }
 
