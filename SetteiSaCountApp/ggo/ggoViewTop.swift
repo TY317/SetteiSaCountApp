@@ -65,6 +65,17 @@ struct ggoViewTop: View {
                         )
                     }
 
+                    // 上位ST中
+                    NavigationLink(destination: ggoViewDuringHighSt(
+                        ggo: ggo,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "scope",
+                            textBody: "上位ST中",
+                            badgeStatus: common.ggoMenuDuringHighStBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewTamachanTrophy()) {
                         unitLabelMenu(

@@ -387,6 +387,7 @@ class commonVar: ObservableObject {
     @AppStorage("ggoMenuFirstHitBadge") var ggoMenuFirstHitBadge: String = "none"
     @AppStorage("ggoMenuBayesBadge") var ggoMenuBayesBadge: String = "none"
     @AppStorage("ggoMenuScreenBadge") var ggoMenuScreenBadge: String = "none"
+    @AppStorage("ggoMenuDuringHighStBadge") var ggoMenuDuringHighStBadge: String = "none"
 
     // ---- 聖闘士星矢 黄金十二宮
     @AppStorage("seiyaMenuNormalBadge") var seiyaMenuNormalBadge: String = "none"
