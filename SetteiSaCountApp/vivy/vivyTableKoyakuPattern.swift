@@ -166,7 +166,7 @@ struct vivyTableKoyakuPattern: View {
             
             // //// 4段目
             VStack(spacing: 7) {
-                unitReelLongTitle(titleText: "チャンス目（1枚）")
+                unitReelLongTitle(titleText: "チャンス目")
                 HStack(spacing: 15) {
                     // チャンス目１
                     unitReelPattern(
