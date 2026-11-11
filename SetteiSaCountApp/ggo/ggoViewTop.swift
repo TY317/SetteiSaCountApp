@@ -27,7 +27,7 @@ struct ggoViewTop: View {
                 } header: {
                     unitLabelMachineTopTitle(
                         machineName: ggo.machineName,
-                        titleFont: .title3,
+                        titleFont: .subheadline,
                     )
                 }
 
@@ -51,6 +51,17 @@ struct ggoViewTop: View {
                             imageSystemName: "party.popper.fill",
                             textBody: "初当り",
                             badgeStatus: common.ggoMenuFirstHitBadge,
+                        )
+                    }
+
+                    // 終了画面カード
+                    NavigationLink(destination: ggoViewScreen(
+                        ggo: ggo,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "photo.on.rectangle.angled.fill",
+                            textBody: "終了画面カード",
+                            badgeStatus: common.ggoMenuScreenBadge,
                         )
                     }
 

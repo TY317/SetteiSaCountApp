@@ -1933,6 +1933,7 @@
 		FF5BE591DC8D4AA8924FD957 /* gareiViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDD9A1AACD4A0083082750 /* gareiViewTop.swift */; };
 		FF7FE6BC597A469A952AC3E5 /* dropkickViewKoakuma.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F6B3F0939E44DBB3A07384 /* dropkickViewKoakuma.swift */; };
 		FF94062C3D854E19B4CDFA4C /* ggoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26792B57391417285DFEC4C /* ggoViewFirstHit.swift */; };
+		CE0B0F032565447294A71917 /* ggoViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */; };
 		FFA392900F8146A994885C8B /* mhrsbViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742E39F6FDF410AB1E3B9D2 /* mhrsbViewScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -3606,6 +3607,7 @@
 		D155CE16AC81480FB2B6F7B7 /* dropkickViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickViewScreen.swift; sourceTree = "<group>"; };
 		D1AEBE350D1C4D949AFD79DC /* seiyaViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewTop.swift; sourceTree = "<group>"; };
 		D26792B57391417285DFEC4C /* ggoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewFirstHit.swift; sourceTree = "<group>"; };
+		5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewScreen.swift; sourceTree = "<group>"; };
 		D282D208C968CC16CEC3B557 /* aobutaViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewScreen.swift; sourceTree = "<group>"; };
 		D2CEE2DE798C4C219035184C /* karakuri2TableLampColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karakuri2TableLampColor.swift; sourceTree = "<group>"; };
 		D4D0F45DF7174A9497281784 /* index2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewScreen.swift; sourceTree = "<group>"; };
@@ -6364,6 +6366,7 @@
 				DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */,
 				2B3F194598294A90B21AFE11 /* ggoTableModeZone.swift */,
 				D26792B57391417285DFEC4C /* ggoViewFirstHit.swift */,
+				5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */,
 				60C56D76CBA54FDF84A39D93 /* ggoView95Ci.swift */,
 				866D759509C9453E928E4034 /* ggoAssets.xcassets */,
 			);
@@ -8361,6 +8364,7 @@
 				D971912E8F574DE29D99B70A /* ggoViewNormal.swift in Sources */,
 				1E52F220E8E24917BD66A047 /* ggoViewBayes.swift in Sources */,
 				FF94062C3D854E19B4CDFA4C /* ggoViewFirstHit.swift in Sources */,
+				CE0B0F032565447294A71917 /* ggoViewScreen.swift in Sources */,
 				3F15C1583170408BA94FAE76 /* ggoView95Ci.swift in Sources */,
 				74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */,
 				690FE88E5CC24FFC9861CAA2 /* goeva2ViewScreen.swift in Sources */,
