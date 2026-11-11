@@ -22,6 +22,8 @@
 		761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94EBCEF8C554DD99283940B /* vivyClass.swift */; };
 		BFE1BEF8C69441FE833568B2 /* vivyViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24614A152DB34769BA554445 /* vivyViewNormal.swift */; };
 		099C285A44FE4914AB667CD3 /* vivyViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */; };
+		DF325413400F4D11B58DCD1D /* vivyTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF6FBE087B4B89B3CB675A /* vivyTableKoyakuPattern.swift */; };
+		4F6FA694593F42E39FFC6ACC /* vivyTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF6FBE087B4B89B3CB675A /* vivyTableKoyakuPattern.swift */; };
 		CE30DC52D4804499AEEDF0A6 /* vivyViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */; };
 		E906264A29BA43D583F04546 /* vivyView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134D22E70BE42898827BD8D /* vivyView95Ci.swift */; };
 		76469C4312CC466C89D1FE17 /* vivyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */; };
@@ -3508,6 +3510,7 @@
 		B94EBCEF8C554DD99283940B /* vivyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyClass.swift; sourceTree = "<group>"; };
 		24614A152DB34769BA554445 /* vivyViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewNormal.swift; sourceTree = "<group>"; };
 		760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewBayes.swift; sourceTree = "<group>"; };
+		74FF6FBE087B4B89B3CB675A /* vivyTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewFirstHit.swift; sourceTree = "<group>"; };
 		C134D22E70BE42898827BD8D /* vivyView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyView95Ci.swift; sourceTree = "<group>"; };
 		FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = vivyAssets.xcassets; sourceTree = "<group>"; };
@@ -6398,6 +6401,7 @@
 				B94EBCEF8C554DD99283940B /* vivyClass.swift */,
 				24614A152DB34769BA554445 /* vivyViewNormal.swift */,
 				760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */,
+				74FF6FBE087B4B89B3CB675A /* vivyTableKoyakuPattern.swift */,
 				CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */,
 				C134D22E70BE42898827BD8D /* vivyView95Ci.swift */,
 				FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */,
@@ -7521,6 +7525,7 @@
 				14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */,
 				D1D399A5DBC048F48D97D3B3 /* seiyaTableKoyakuPattern.swift in Sources */,
 				9F9BDF5B444C46759212FB40 /* ggoTableKoyakuPattern.swift in Sources */,
+				DF325413400F4D11B58DCD1D /* vivyTableKoyakuPattern.swift in Sources */,
 				72DD6C2E4BF54D6FB836858C /* ggoTableModeZone.swift in Sources */,
 				43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */,
 				ED72F5F313BB43D5864C9711 /* gareiTableKoyakuPattern.swift in Sources */,
@@ -8700,6 +8705,7 @@
 				C26102E52F4F4FA3BCC12CE2 /* goeva2TableKoyakuPattern.swift in Sources */,
 				51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */,
 				FF7F906A5A4749F2A86F406A /* ggoTableKoyakuPattern.swift in Sources */,
+				4F6FA694593F42E39FFC6ACC /* vivyTableKoyakuPattern.swift in Sources */,
 				B90DD7820A574DDB9BFE5647 /* ggoTableModeZone.swift in Sources */,
 				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
