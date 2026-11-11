@@ -21,6 +21,7 @@
 		50705A3186D2410A811E2C25 /* vivyViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C04F2401F24643A9A5E87A /* vivyViewTop.swift */; };
 		761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94EBCEF8C554DD99283940B /* vivyClass.swift */; };
 		BFE1BEF8C69441FE833568B2 /* vivyViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24614A152DB34769BA554445 /* vivyViewNormal.swift */; };
+		099C285A44FE4914AB667CD3 /* vivyViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */; };
 		CE30DC52D4804499AEEDF0A6 /* vivyViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */; };
 		E906264A29BA43D583F04546 /* vivyView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134D22E70BE42898827BD8D /* vivyView95Ci.swift */; };
 		76469C4312CC466C89D1FE17 /* vivyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */; };
@@ -3506,6 +3507,7 @@
 		F3C04F2401F24643A9A5E87A /* vivyViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewTop.swift; sourceTree = "<group>"; };
 		B94EBCEF8C554DD99283940B /* vivyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyClass.swift; sourceTree = "<group>"; };
 		24614A152DB34769BA554445 /* vivyViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewNormal.swift; sourceTree = "<group>"; };
+		760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewBayes.swift; sourceTree = "<group>"; };
 		CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyViewFirstHit.swift; sourceTree = "<group>"; };
 		C134D22E70BE42898827BD8D /* vivyView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyView95Ci.swift; sourceTree = "<group>"; };
 		FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = vivyAssets.xcassets; sourceTree = "<group>"; };
@@ -6395,6 +6397,7 @@
 				F3C04F2401F24643A9A5E87A /* vivyViewTop.swift */,
 				B94EBCEF8C554DD99283940B /* vivyClass.swift */,
 				24614A152DB34769BA554445 /* vivyViewNormal.swift */,
+				760314F9374B45A08C8AEE48 /* vivyViewBayes.swift */,
 				CB54D8C38A8A4831A48F3873 /* vivyViewFirstHit.swift */,
 				C134D22E70BE42898827BD8D /* vivyView95Ci.swift */,
 				FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */,
@@ -8400,6 +8403,7 @@
 				50705A3186D2410A811E2C25 /* vivyViewTop.swift in Sources */,
 				761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */,
 				BFE1BEF8C69441FE833568B2 /* vivyViewNormal.swift in Sources */,
+				099C285A44FE4914AB667CD3 /* vivyViewBayes.swift in Sources */,
 				CE30DC52D4804499AEEDF0A6 /* vivyViewFirstHit.swift in Sources */,
 				E906264A29BA43D583F04546 /* vivyView95Ci.swift in Sources */,
 				74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */,
