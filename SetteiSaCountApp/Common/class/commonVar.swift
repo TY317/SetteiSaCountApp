@@ -388,6 +388,7 @@ class commonVar: ObservableObject {
     @AppStorage("vivyMenuFirstHitBadge") var vivyMenuFirstHitBadge: String = "none"
     @AppStorage("vivyMenuBayesBadge") var vivyMenuBayesBadge: String = "none"
     @AppStorage("vivyMenuScreenBadge") var vivyMenuScreenBadge: String = "none"
+    @AppStorage("vivyMenuEndingBadge") var vivyMenuEndingBadge: String = "none"
 
     // ---- ソードアート・オンライン オルタナティブ ガンゲイル・オンライン
     @AppStorage("ggoMenuNormalBadge") var ggoMenuNormalBadge: String = "none"

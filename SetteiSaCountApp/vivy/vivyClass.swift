@@ -68,6 +68,45 @@ class Vivy: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // ミニキャラ選択
+    // -------
+    let ratioChara1: [Double] = [16.7,16.6,16.5,16.5,16.5,16.5]   // ヴィヴィ
+    let ratioChara2: [Double] = [16.7,24.8,14.5,14.4,14.4,14.4]   // エリザベス
+    let ratioChara3: [Double] = [16.7,14.5,24.8,14.8,14.4,14.4]   // エステラ
+    let ratioChara4: [Double] = [16.7,14.5,14.5,24.7,14.4,14.4]   // グレイス
+    let ratioChara5: [Double] = [16.7,14.5,14.5,14.4,24.7,14.4]   // オフィーリア
+    let ratioChara6: [Double] = [16.7,14.5,14.5,14.0,14.4,24.7]   // マツモト
+    @AppStorage("vivyCharaCount1") var charaCount1: Int = 0
+    @AppStorage("vivyCharaCount2") var charaCount2: Int = 0
+    @AppStorage("vivyCharaCount3") var charaCount3: Int = 0
+    @AppStorage("vivyCharaCount4") var charaCount4: Int = 0
+    @AppStorage("vivyCharaCount5") var charaCount5: Int = 0
+    @AppStorage("vivyCharaCount6") var charaCount6: Int = 0
+    @AppStorage("vivyCharaCountSum") var charaCountSum: Int = 0
+
+    func charaSumFunc() {
+        charaCountSum = countSum(
+            charaCount1,
+            charaCount2,
+            charaCount3,
+            charaCount4,
+            charaCount5,
+            charaCount6,
+        )
+    }
+
+    func resetChara() {
+        charaCount1 = 0
+        charaCount2 = 0
+        charaCount3 = 0
+        charaCount4 = 0
+        charaCount5 = 0
+        charaCount6 = 0
+        charaCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -79,6 +118,7 @@ class Vivy: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetScreen()
+        resetChara()
     }
 }
 

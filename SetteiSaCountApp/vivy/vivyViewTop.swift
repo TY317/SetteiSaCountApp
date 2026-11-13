@@ -64,6 +64,17 @@ struct vivyViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: vivyViewEnding(
+                        vivy: vivy,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.vivyMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewKopandaTrophy()) {
                         unitLabelMenu(
