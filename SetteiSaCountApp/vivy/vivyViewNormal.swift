@@ -253,7 +253,7 @@ struct vivyViewNormal: View {
                 // 参考情報）昇格までの継続回数振分け
                 unitLinkButtonViewBuilder(sheetTitle: "昇格までの継続回数振分け") {
                     VStack(alignment: .leading) {
-                        Text("・アクセルチャンス中はレア役1回ごとに継続回数が1つ進む")
+                        Text("・アクセルチャンスはセット継続ごとに継続回数が1つ進む")
                         Text("・突入時に昇格までの継続回数を下表の振分けで決定")
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
