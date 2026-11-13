@@ -14,7 +14,58 @@ class Vivy: ObservableObject {
     // 通常時
     // -------
 
+    // アクセルチャンス昇格 継続回数
+    // 突入時に昇格までの継続回数（1〜5回）を抽選。[回数][設定]
+    let ratioAccelDistribution: [[Double]] = [
+        [3.5,5.9,6.3,7.8,9.0,10.2],
+        [1.6,10.2,1.6,10.2,5.1,10.5],
+        [19.9,10.9,19.9,12.9,19.9,20.3],
+        [25.0,25.0,25.0,25.0,25.0,25.0],
+        [50.0,48.0,47.3,44.1,41.0,34.0],
+    ]
+    // その回まで昇格しなかった場合に、その回で昇格する確率（独自算出）。[回数][設定]
+    // 5回目は全設定100%なので対象外
+    var ratioAccelPromote: [[Double]] {
+        (0..<4).map { step in
+            (0..<6).map { setting in
+                let remain = ratioAccelDistribution[step...].reduce(0.0) { $0 + $1[setting] }
+                return remain > 0 ? ratioAccelDistribution[step][setting] / remain * 100 : 0
+            }
+        }
+    }
+    @AppStorage("vivyAccelPromoteCountMiss1") var accelPromoteCountMiss1: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit1") var accelPromoteCountHit1: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum1") var accelPromoteCountSum1: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss2") var accelPromoteCountMiss2: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit2") var accelPromoteCountHit2: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum2") var accelPromoteCountSum2: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss3") var accelPromoteCountMiss3: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit3") var accelPromoteCountHit3: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum3") var accelPromoteCountSum3: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss4") var accelPromoteCountMiss4: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit4") var accelPromoteCountHit4: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum4") var accelPromoteCountSum4: Int = 0
+
+    func accelPromoteSumFunc() {
+        accelPromoteCountSum1 = accelPromoteCountHit1 + accelPromoteCountMiss1
+        accelPromoteCountSum2 = accelPromoteCountHit2 + accelPromoteCountMiss2
+        accelPromoteCountSum3 = accelPromoteCountHit3 + accelPromoteCountMiss3
+        accelPromoteCountSum4 = accelPromoteCountHit4 + accelPromoteCountMiss4
+    }
+
     func resetNormal() {
+        accelPromoteCountMiss1 = 0
+        accelPromoteCountHit1 = 0
+        accelPromoteCountSum1 = 0
+        accelPromoteCountMiss2 = 0
+        accelPromoteCountHit2 = 0
+        accelPromoteCountSum2 = 0
+        accelPromoteCountMiss3 = 0
+        accelPromoteCountHit3 = 0
+        accelPromoteCountSum3 = 0
+        accelPromoteCountMiss4 = 0
+        accelPromoteCountHit4 = 0
+        accelPromoteCountSum4 = 0
         minusCheck = false
     }
 

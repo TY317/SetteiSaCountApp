@@ -23,6 +23,7 @@ struct vivyViewBayes: View {
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var accelPromoteEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -44,6 +45,8 @@ struct vivyViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // アクセルチャンス昇格 継続回数
+                unitToggleWithQuestion(enable: self.$accelPromoteEnable, title: "アクセルチャンス昇格")
 
                 // トロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -116,6 +119,35 @@ struct vivyViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // アクセルチャンス昇格 継続回数
+        // 突入時の1回の抽選を「その回まで昇格しなかった場合の昇格率」に分解して各回の二項尤度を足す
+        // （各回の条件付き確率の積が1回分の同時確率と一致するため、二重計上にならない）
+        var logPostAccelPromote: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.accelPromoteEnable {
+            logPostAccelPromote = arraySumDouble([
+                logPostPercentBino(
+                    ratio: vivy.ratioAccelPromote[0],
+                    Count: vivy.accelPromoteCountHit1,
+                    bigNumber: vivy.accelPromoteCountSum1
+                ),
+                logPostPercentBino(
+                    ratio: vivy.ratioAccelPromote[1],
+                    Count: vivy.accelPromoteCountHit2,
+                    bigNumber: vivy.accelPromoteCountSum2
+                ),
+                logPostPercentBino(
+                    ratio: vivy.ratioAccelPromote[2],
+                    Count: vivy.accelPromoteCountHit3,
+                    bigNumber: vivy.accelPromoteCountSum3
+                ),
+                logPostPercentBino(
+                    ratio: vivy.ratioAccelPromote[3],
+                    Count: vivy.accelPromoteCountHit4,
+                    bigNumber: vivy.accelPromoteCountSum4
+                ),
+            ])
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -153,6 +185,7 @@ struct vivyViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostAccelPromote,
             logPostTrophy,
             logPostBefore,
         ])

@@ -14,6 +14,82 @@ struct vivyView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // アクセルチャンス昇格 1回目
+            unitListSection95Ci(
+                grafTitle: "アクセルチャンス昇格\n1回目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.accelPromoteCountHit1,
+                        bigNumber: $vivy.accelPromoteCountSum1,
+                        setting1Percent: vivy.ratioAccelPromote[0][0],
+                        setting2Percent: vivy.ratioAccelPromote[0][1],
+                        setting3Percent: vivy.ratioAccelPromote[0][2],
+                        setting4Percent: vivy.ratioAccelPromote[0][3],
+                        setting5Percent: vivy.ratioAccelPromote[0][4],
+                        setting6Percent: vivy.ratioAccelPromote[0][5]
+                    )
+                )
+            )
+            .tag(1)
+
+            // アクセルチャンス昇格 2回目
+            unitListSection95Ci(
+                grafTitle: "アクセルチャンス昇格\n2回目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.accelPromoteCountHit2,
+                        bigNumber: $vivy.accelPromoteCountSum2,
+                        setting1Percent: vivy.ratioAccelPromote[1][0],
+                        setting2Percent: vivy.ratioAccelPromote[1][1],
+                        setting3Percent: vivy.ratioAccelPromote[1][2],
+                        setting4Percent: vivy.ratioAccelPromote[1][3],
+                        setting5Percent: vivy.ratioAccelPromote[1][4],
+                        setting6Percent: vivy.ratioAccelPromote[1][5]
+                    )
+                )
+            )
+            .tag(2)
+
+            // アクセルチャンス昇格 3回目
+            unitListSection95Ci(
+                grafTitle: "アクセルチャンス昇格\n3回目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.accelPromoteCountHit3,
+                        bigNumber: $vivy.accelPromoteCountSum3,
+                        setting1Percent: vivy.ratioAccelPromote[2][0],
+                        setting2Percent: vivy.ratioAccelPromote[2][1],
+                        setting3Percent: vivy.ratioAccelPromote[2][2],
+                        setting4Percent: vivy.ratioAccelPromote[2][3],
+                        setting5Percent: vivy.ratioAccelPromote[2][4],
+                        setting6Percent: vivy.ratioAccelPromote[2][5]
+                    )
+                )
+            )
+            .tag(3)
+
+            // アクセルチャンス昇格 4回目
+            unitListSection95Ci(
+                grafTitle: "アクセルチャンス昇格\n4回目",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.accelPromoteCountHit4,
+                        bigNumber: $vivy.accelPromoteCountSum4,
+                        setting1Percent: vivy.ratioAccelPromote[3][0],
+                        setting2Percent: vivy.ratioAccelPromote[3][1],
+                        setting3Percent: vivy.ratioAccelPromote[3][2],
+                        setting4Percent: vivy.ratioAccelPromote[3][3],
+                        setting5Percent: vivy.ratioAccelPromote[3][4],
+                        setting6Percent: vivy.ratioAccelPromote[3][5]
+                    )
+                )
+            )
+            .tag(4)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

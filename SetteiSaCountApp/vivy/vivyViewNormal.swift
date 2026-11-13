@@ -26,8 +26,249 @@ struct vivyViewNormal: View {
     let lazyVGridCountPortrait: Int = 3
     let lazyVGridCountLandscape: Int = 5
     @State var lazyVGridCount: Int = 3
+    let accelStepItems: [String] = ["1回目", "2回目", "3回目", "4回目"]
+    @State var selectedAccelStep: String = "1回目"
     var body: some View {
         List {
+            // ---- アクセルチャンス昇格 継続回数
+            Section {
+                // 継続回数ごとの昇格率
+                VStack {
+                    Text("その回までに昇格しなかった場合の昇格率")
+                        .font(.subheadline)
+                        .foregroundStyle(Color.secondary)
+                    HStack {
+                        // 1回目
+                        unitResultRatioPercent2Line(
+                            title: "1回目",
+                            count: $vivy.accelPromoteCountHit1,
+                            bigNumber: $vivy.accelPromoteCountSum1,
+                            numberofDicimal: 0,
+                            spacerBool: false,
+                            titelFont: .subheadline,
+                        )
+                        // 2回目
+                        unitResultRatioPercent2Line(
+                            title: "2回目",
+                            count: $vivy.accelPromoteCountHit2,
+                            bigNumber: $vivy.accelPromoteCountSum2,
+                            numberofDicimal: 0,
+                            spacerBool: false,
+                            titelFont: .subheadline,
+                        )
+                        // 3回目
+                        unitResultRatioPercent2Line(
+                            title: "3回目",
+                            count: $vivy.accelPromoteCountHit3,
+                            bigNumber: $vivy.accelPromoteCountSum3,
+                            numberofDicimal: 0,
+                            spacerBool: false,
+                            titelFont: .subheadline,
+                        )
+                        // 4回目
+                        unitResultRatioPercent2Line(
+                            title: "4回目",
+                            count: $vivy.accelPromoteCountHit4,
+                            bigNumber: $vivy.accelPromoteCountSum4,
+                            numberofDicimal: 0,
+                            spacerBool: false,
+                            titelFont: .subheadline,
+                        )
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+
+                // 参考情報）実質の昇格率
+                unitLinkButtonViewBuilder(sheetTitle: "実質の昇格率（独自算出）") {
+                    VStack(alignment: .leading) {
+                        Text("・継続回数の振分けから独自算出した確率")
+                        Text("・その回まで昇格しなかった場合に、その回で昇格する確率")
+                        Text("・5回目は全設定100%のため対象外")
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "1回目",
+                            percentList: vivy.ratioAccelPromote[0],
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "2回目",
+                            percentList: vivy.ratioAccelPromote[1],
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "3回目",
+                            percentList: vivy.ratioAccelPromote[2],
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "4回目",
+                            percentList: vivy.ratioAccelPromote[3],
+                            numberofDicimal: 0,
+                        )
+                    }
+                }
+
+                // 参考情報）昇格までの継続回数振分け
+                unitLinkButtonViewBuilder(sheetTitle: "昇格までの継続回数振分け") {
+                    VStack(alignment: .leading) {
+                        Text("・アクセルチャンス中はレア役1回ごとに継続回数が1つ進む")
+                        Text("・突入時に昇格までの継続回数を下表の振分けで決定")
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "1回",
+                                percentList: vivy.ratioAccelDistribution[0],
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "2回",
+                                percentList: vivy.ratioAccelDistribution[1],
+                                numberofDicimal: 1,
+                            )
+                            unitTablePercent(
+                                columTitle: "3回",
+                                percentList: vivy.ratioAccelDistribution[2],
+                                numberofDicimal: 1,
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercent(
+                                columTitle: "4回",
+                                percentList: vivy.ratioAccelDistribution[3],
+                                numberofDicimal: 0,
+                            )
+                            unitTablePercent(
+                                columTitle: "5回",
+                                percentList: vivy.ratioAccelDistribution[4],
+                                numberofDicimal: 0,
+                            )
+                        }
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 補足
+                    VStack(alignment: .leading) {
+                        Text("・レア役を引いて継続するたびに、その回数目を選んで昇格の有無をカウント")
+                        Text("・昇格した時点で、そのアクセルチャンスのカウントは終了")
+                    }
+                    .foregroundStyle(Color.secondary)
+                    .font(.caption)
+
+                    // 継続回数のセグメントピッカー
+                    Picker("", selection: self.$selectedAccelStep) {
+                        ForEach(self.accelStepItems, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    // カウントボタン横並び
+                    HStack {
+                        // 1回目
+                        if self.selectedAccelStep == self.accelStepItems[0] {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格なし",
+                                count: $vivy.accelPromoteCountMiss1,
+                                color: .personalSummerLightBlue,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格あり",
+                                count: $vivy.accelPromoteCountHit1,
+                                color: .blue,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                        }
+                        // 2回目
+                        else if self.selectedAccelStep == self.accelStepItems[1] {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格なし",
+                                count: $vivy.accelPromoteCountMiss2,
+                                color: .personalSpringLightYellow,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格あり",
+                                count: $vivy.accelPromoteCountHit2,
+                                color: .yellow,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                        }
+                        // 3回目
+                        else if self.selectedAccelStep == self.accelStepItems[2] {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格なし",
+                                count: $vivy.accelPromoteCountMiss3,
+                                color: .personalSummerLightGreen,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格あり",
+                                count: $vivy.accelPromoteCountHit3,
+                                color: .green,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                        }
+                        // 4回目
+                        else {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格なし",
+                                count: $vivy.accelPromoteCountMiss4,
+                                color: .personalSummerLightRed,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "昇格あり",
+                                count: $vivy.accelPromoteCountHit4,
+                                color: .red,
+                                minusBool: $vivy.minusCheck) {
+                                    vivy.accelPromoteSumFunc()
+                                }
+                        }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            vivyView95Ci(
+                                vivy: vivy,
+                                selection: self.accel95CiTag(),
+                            )
+                        )
+                    )
+                    // Ci95viewは@Stateで初回の値を保持するので、選択が変わったら作り直す
+                    .id(self.accel95CiTag())
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        vivyViewBayes(
+                            vivy: vivy,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("アクセルチャンス昇格 継続回数")
+            }
+            
             // レア役
             Section {
                 // レア役停止系
@@ -43,8 +284,8 @@ struct vivyViewNormal: View {
                 // 参考情報）周期モードについて
                 unitLinkButtonViewBuilder(sheetTitle: "周期モードについて") {
                     VStack(alignment: .leading) {
-                        Text("・通常A・通常B・天国の3種類")
                         Text("・設定変更時＆AT終了時にモードを抽選")
+                        Text("・偶数設定は通常Bへ移行しやすい")
                         Text("・天国移行率は約40%（設定1）")
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -82,6 +323,8 @@ struct vivyViewNormal: View {
             } header: {
                 Text("周期モード")
             }
+
+            
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.vivyMenuNormalBadge)
@@ -119,6 +362,12 @@ struct vivyViewNormal: View {
                 unitButtonReset(isShowAlert: $isShowAlert, action: vivy.resetNormal)
             }
         }
+    }
+
+    // アクセルチャンス昇格の95Ciタグ（1回目＝1 〜 4回目＝4）
+    private func accel95CiTag() -> Int {
+        let stepIndex = self.accelStepItems.firstIndex(of: self.selectedAccelStep) ?? 0
+        return 1 + stepIndex
     }
 }
 
