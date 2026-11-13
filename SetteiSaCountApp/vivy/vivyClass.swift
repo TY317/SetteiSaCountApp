@@ -46,6 +46,17 @@ class Vivy: ObservableObject {
     @AppStorage("vivyAccelPromoteCountHit4") var accelPromoteCountHit4: Int = 0
     @AppStorage("vivyAccelPromoteCountSum4") var accelPromoteCountSum4: Int = 0
 
+    // 弱チェリー確率（状態別）。ゲーム数はその状態で消化したゲーム数を直接入力
+    let ratioWeakCherryNormal: [Double] = [72.8,-1,-1,-1,-1,62.4]   // 通常時
+    let ratioWeakCherryHigh2: [Double] = [23.6,-1,-1,-1,-1,22.4]   // 変換高確Lv2
+    let ratioWeakCherryHigh3: [Double] = [13.9,-1,-1,-1,-1,13.5]   // 変換高確Lv3
+    @AppStorage("vivyWeakCherryGameNormal") var weakCherryGameNormal: Int = 0
+    @AppStorage("vivyWeakCherryCountNormal") var weakCherryCountNormal: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh2") var weakCherryGameHigh2: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh2") var weakCherryCountHigh2: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh3") var weakCherryGameHigh3: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh3") var weakCherryCountHigh3: Int = 0
+
     func accelPromoteSumFunc() {
         accelPromoteCountSum1 = accelPromoteCountHit1 + accelPromoteCountMiss1
         accelPromoteCountSum2 = accelPromoteCountHit2 + accelPromoteCountMiss2
@@ -54,6 +65,12 @@ class Vivy: ObservableObject {
     }
 
     func resetNormal() {
+        weakCherryGameNormal = 0
+        weakCherryCountNormal = 0
+        weakCherryGameHigh2 = 0
+        weakCherryCountHigh2 = 0
+        weakCherryGameHigh3 = 0
+        weakCherryCountHigh3 = 0
         accelPromoteCountMiss1 = 0
         accelPromoteCountHit1 = 0
         accelPromoteCountSum1 = 0

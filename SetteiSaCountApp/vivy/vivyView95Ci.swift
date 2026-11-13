@@ -14,6 +14,63 @@ struct vivyView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // 弱チェリー確率 通常時
+            unitListSection95Ci(
+                grafTitle: "弱🍒確率\n通常時",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $vivy.weakCherryCountNormal,
+                        bigNumber: $vivy.weakCherryGameNormal,
+                        setting1Denominate: vivy.ratioWeakCherryNormal[0],
+                        setting2Denominate: vivy.ratioWeakCherryNormal[1],
+                        setting3Denominate: vivy.ratioWeakCherryNormal[2],
+                        setting4Denominate: vivy.ratioWeakCherryNormal[3],
+                        setting5Denominate: vivy.ratioWeakCherryNormal[4],
+                        setting6Denominate: vivy.ratioWeakCherryNormal[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // 弱チェリー確率 変換高確Lv2
+            unitListSection95Ci(
+                grafTitle: "弱🍒確率\n変換高確Lv2",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $vivy.weakCherryCountHigh2,
+                        bigNumber: $vivy.weakCherryGameHigh2,
+                        setting1Denominate: vivy.ratioWeakCherryHigh2[0],
+                        setting2Denominate: vivy.ratioWeakCherryHigh2[1],
+                        setting3Denominate: vivy.ratioWeakCherryHigh2[2],
+                        setting4Denominate: vivy.ratioWeakCherryHigh2[3],
+                        setting5Denominate: vivy.ratioWeakCherryHigh2[4],
+                        setting6Denominate: vivy.ratioWeakCherryHigh2[5]
+                    )
+                )
+            )
+            .tag(6)
+
+            // 弱チェリー確率 変換高確Lv3
+            unitListSection95Ci(
+                grafTitle: "弱🍒確率\n変換高確Lv3",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $vivy.weakCherryCountHigh3,
+                        bigNumber: $vivy.weakCherryGameHigh3,
+                        setting1Denominate: vivy.ratioWeakCherryHigh3[0],
+                        setting2Denominate: vivy.ratioWeakCherryHigh3[1],
+                        setting3Denominate: vivy.ratioWeakCherryHigh3[2],
+                        setting4Denominate: vivy.ratioWeakCherryHigh3[3],
+                        setting5Denominate: vivy.ratioWeakCherryHigh3[4],
+                        setting6Denominate: vivy.ratioWeakCherryHigh3[5]
+                    )
+                )
+            )
+            .tag(7)
+            
             // アクセルチャンス昇格 1回目
             unitListSection95Ci(
                 grafTitle: "アクセルチャンス昇格\n1回目",

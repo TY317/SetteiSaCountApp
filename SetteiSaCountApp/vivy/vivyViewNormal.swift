@@ -28,8 +28,147 @@ struct vivyViewNormal: View {
     @State var lazyVGridCount: Int = 3
     let accelStepItems: [String] = ["1回目", "2回目", "3回目", "4回目"]
     @State var selectedAccelStep: String = "1回目"
+    let weakCherryStateItems: [String] = ["通常時", "変換高確Lv2", "変換高確Lv3"]
+    @State var selectedWeakCherryState: String = "通常時"
     var body: some View {
         List {
+            // ---- 弱チェリー確率
+            Section {
+                // 状態別の確率横並び
+                HStack {
+                    // 通常時
+                    unitResultRatioDenomination2Line(
+                        title: "通常時",
+                        count: $vivy.weakCherryCountNormal,
+                        bigNumber: $vivy.weakCherryGameNormal,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 変換高確Lv2
+                    unitResultRatioDenomination2Line(
+                        title: "Lv2",
+                        count: $vivy.weakCherryCountHigh2,
+                        bigNumber: $vivy.weakCherryGameHigh2,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 変換高確Lv3
+                    unitResultRatioDenomination2Line(
+                        title: "Lv3",
+                        count: $vivy.weakCherryCountHigh3,
+                        bigNumber: $vivy.weakCherryGameHigh3,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+
+                // 参考情報）弱チェリー確率
+                unitLinkButtonViewBuilder(sheetTitle: "弱チェリー確率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTableDenominate(
+                            columTitle: "通常時",
+                            denominateList: vivy.ratioWeakCherryNormal,
+                            numberofDicimal: 0,
+                            titleFont: .subheadline,
+                        )
+                        unitTableDenominate(
+                            columTitle: "変換高確Lv2",
+                            denominateList: vivy.ratioWeakCherryHigh2,
+                            numberofDicimal: 0,
+                            titleFont: .subheadline,
+                        )
+                        unitTableDenominate(
+                            columTitle: "変換高確Lv3",
+                            denominateList: vivy.ratioWeakCherryHigh3,
+                            numberofDicimal: 1,
+                            titleFont: .subheadline,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 状態のセグメントピッカー
+                    Picker("", selection: self.$selectedWeakCherryState) {
+                        ForEach(self.weakCherryStateItems, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    // 通常時
+                    if self.selectedWeakCherryState == self.weakCherryStateItems[0] {
+                        unitTextFieldNumberInputWithUnit(
+                            title: "通常時ゲーム数",
+                            inputValue: $vivy.weakCherryGameNormal,
+                            unitText: "Ｇ"
+                        )
+                        .focused(self.$isFocused)
+                        unitCountButtonDenominateWithFunc(
+                            title: "弱🍒",
+                            count: $vivy.weakCherryCountNormal,
+                            color: .personalSummerLightRed,
+                            bigNumber: $vivy.weakCherryGameNormal,
+                            numberofDicimal: 0,
+                            minusBool: $vivy.minusCheck) {
+                            }
+                    }
+                    // 変換高確Lv2
+                    else if self.selectedWeakCherryState == self.weakCherryStateItems[1] {
+                        unitTextFieldNumberInputWithUnit(
+                            title: "変換高確Lv2ゲーム数",
+                            inputValue: $vivy.weakCherryGameHigh2,
+                            unitText: "Ｇ"
+                        )
+                        .focused(self.$isFocused)
+                        unitCountButtonDenominateWithFunc(
+                            title: "弱🍒",
+                            count: $vivy.weakCherryCountHigh2,
+                            color: .lightRed,
+                            bigNumber: $vivy.weakCherryGameHigh2,
+                            numberofDicimal: 0,
+                            minusBool: $vivy.minusCheck) {
+                            }
+                    }
+                    // 変換高確Lv3
+                    else {
+                        unitTextFieldNumberInputWithUnit(
+                            title: "変換高確Lv3ゲーム数",
+                            inputValue: $vivy.weakCherryGameHigh3,
+                            unitText: "Ｇ"
+                        )
+                        .focused(self.$isFocused)
+                        unitCountButtonDenominateWithFunc(
+                            title: "弱🍒",
+                            count: $vivy.weakCherryCountHigh3,
+                            color: .red,
+                            bigNumber: $vivy.weakCherryGameHigh3,
+                            numberofDicimal: 1,
+                            minusBool: $vivy.minusCheck) {
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            vivyView95Ci(
+                                vivy: vivy,
+                                selection: self.weakCherry95CiTag(),
+                            )
+                        )
+                    )
+                    // Ci95viewは@Stateで初回の値を保持するので、選択が変わったら作り直す
+                    .id(self.weakCherry95CiTag())
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("弱チェリー確率")
+            }
+            
             // ---- アクセルチャンス昇格 継続回数
             Section {
                 // 継続回数ごとの昇格率
@@ -157,7 +296,7 @@ struct vivyViewNormal: View {
                 DisclosureGroup {
                     // 補足
                     VStack(alignment: .leading) {
-                        Text("・レア役を引いて継続するたびに、その回数目を選んで昇格の有無をカウント")
+                        Text("・セット継続するたびに、その回数目を選んで昇格の有無をカウント")
                         Text("・昇格した時点で、そのアクセルチャンスのカウントは終了")
                     }
                     .foregroundStyle(Color.secondary)
@@ -361,7 +500,24 @@ struct vivyViewNormal: View {
                 // /// リセット
                 unitButtonReset(isShowAlert: $isShowAlert, action: vivy.resetNormal)
             }
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isFocused = false
+                    }, label: {
+                        Text("完了")
+                            .fontWeight(.bold)
+                    })
+                }
+            }
         }
+    }
+
+    // 弱チェリー確率の95Ciタグ（通常時＝5 〜 変換高確Lv3＝7）
+    private func weakCherry95CiTag() -> Int {
+        let stateIndex = self.weakCherryStateItems.firstIndex(of: self.selectedWeakCherryState) ?? 0
+        return 5 + stateIndex
     }
 
     // アクセルチャンス昇格の95Ciタグ（1回目＝1 〜 4回目＝4）
