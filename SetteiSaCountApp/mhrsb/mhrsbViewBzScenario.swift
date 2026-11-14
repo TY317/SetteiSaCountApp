@@ -182,8 +182,8 @@ struct mhrsbViewBzScenario: View {
                 // 推定シナリオE以上選択率
                 unitResultRatioPercent2Line(
                     title: "推定シナリオE以上選択率",
-                    count: .constant(Int((mhrsb.bzEstimatedOverECount * 1000).rounded())),
-                    bigNumber: .constant(validCount * 1000),
+                    count: .constant(validCount > 0 ? Int((mhrsb.bzEstimatedOverERatio * 1000).rounded()) : 0),
+                    bigNumber: .constant(validCount > 0 ? 1000 : 0),
                     numberofDicimal: 1
                 )
                 Text(String(format: "AT区間 %d区間中、推定 %.1f区間がシナリオE以上", validCount, mhrsb.bzEstimatedOverECount))
@@ -195,7 +195,8 @@ struct mhrsbViewBzScenario: View {
                 unitLinkButtonViewBuilder(sheetTitle: "BZシナリオE以上選択率") {
                     VStack(alignment: .leading) {
                         Text("・高設定ほどシナリオE以上が選ばれやすい")
-                        Text("・推定値は、記録したアイコンテーブルの並びから求めた区間ごとの「E以上だった見込み」を合計して、区間数で割った目安（独自算出）")
+                        Text("・推定値は、記録したアイコンテーブルの並びから求めた目安（独自算出）")
+                        Text("・計測区間数に応じて内部的に補正をかけた数値で、区間が増えるほど台の記録に近づく")
                     }
                     HStack(spacing: 0) {
                         unitTableSettingIndex()
@@ -272,7 +273,7 @@ struct mhrsbViewBzScenario: View {
                                 }
                             }
                         }
-                        Text("・全設定平均のシナリオ選択率を前提にした目安（独自算出）")
+                        Text("・推定E以上選択率を前提にした目安（独自算出）")
                             .font(.caption)
                             .foregroundStyle(Color.secondary)
                     }
@@ -384,7 +385,7 @@ struct mhrsbViewBzScenario: View {
                             Text("・アイコンテーブルはBZの1個目のアイコンで判別できる")
                             Text("・AT区間ごとに、記録したテーブルの並びが各シナリオで起きる確率を求め、設定ごとのシナリオ選択率で重みづけして設定期待値に反映する")
                             Text("・同じAT区間のCZは同じシナリオから出ているため、区間単位で計算する（CZごとに独立に数えると判別材料を多く見積もってしまう）")
-                            Text("・シナリオ推測と推定E以上選択率は、全設定平均のシナリオ選択率を前提にした目安")
+                            Text("・推定E以上選択率は、計測区間数に応じて内部的に補正をかけた目安。シナリオ推測はこの推定値を前提にしている")
                             Text("・アイルー福引もCZ回数に含める前提（公式な明記なし）。BZ成功率の設定差（設定2以上は未判明）は考慮していない")
                             Text("・当アプリによる独自算出の参考値です")
                         }
