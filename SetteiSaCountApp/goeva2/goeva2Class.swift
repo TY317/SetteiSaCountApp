@@ -342,6 +342,8 @@ class Goeva2Memory1: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory1") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory1") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory1") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory1") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory1") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory1") var memo = ""
     @AppStorage("goeva2DateMemory1") var dateDouble = 0.0
 }
@@ -395,6 +397,8 @@ class Goeva2Memory2: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory2") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory2") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory2") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory2") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory2") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory2") var memo = ""
     @AppStorage("goeva2DateMemory2") var dateDouble = 0.0
 }
@@ -448,6 +452,8 @@ class Goeva2Memory3: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory3") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory3") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory3") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory3") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory3") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory3") var memo = ""
     @AppStorage("goeva2DateMemory3") var dateDouble = 0.0
 }
