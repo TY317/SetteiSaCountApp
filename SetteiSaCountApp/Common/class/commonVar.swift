@@ -905,6 +905,9 @@ class commonVar: ObservableObject {
                 // SAO2 AT中にAT終了時のセット継続率を追加
                 machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
                 sao2MenuDuringAtBadge = "update"
+                // モンハンSB 終了画面の振分けを追加
+                machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
+                mhrsbMenuScreenBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

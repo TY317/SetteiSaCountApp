@@ -371,6 +371,44 @@ struct mhrsbView95Ci: View {
                 )
             )
             .tag(20)
+
+            // 終了画面 終了画面 高設定示唆 弱
+            unitListSection95Ci(
+                grafTitle: "終了画面\n高設定示唆 弱",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.screenCount3,
+                        bigNumber: $mhrsb.screenCountSum,
+                        setting1Percent: mhrsb.ratioScreenHighWeak[0],
+                        setting2Percent: mhrsb.ratioScreenHighWeak[1],
+                        setting3Percent: mhrsb.ratioScreenHighWeak[2],
+                        setting4Percent: mhrsb.ratioScreenHighWeak[3],
+                        setting5Percent: mhrsb.ratioScreenHighWeak[4],
+                        setting6Percent: mhrsb.ratioScreenHighWeak[5]
+                    )
+                )
+            )
+            .tag(21)
+
+            // 終了画面 終了画面 高設定示唆 強
+            unitListSection95Ci(
+                grafTitle: "終了画面\n高設定示唆 強",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $mhrsb.screenCount4,
+                        bigNumber: $mhrsb.screenCountSum,
+                        setting1Percent: mhrsb.ratioScreenHighStrong[0],
+                        setting2Percent: mhrsb.ratioScreenHighStrong[1],
+                        setting3Percent: mhrsb.ratioScreenHighStrong[2],
+                        setting4Percent: mhrsb.ratioScreenHighStrong[3],
+                        setting5Percent: mhrsb.ratioScreenHighStrong[4],
+                        setting6Percent: mhrsb.ratioScreenHighStrong[5]
+                    )
+                )
+            )
+            .tag(22)
         }
         // //// firebaseログ
         .onAppear {

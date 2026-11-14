@@ -116,6 +116,10 @@ class Mhrsb: ObservableObject {
     // --------
     // 終了画面
     // --------
+    // 振分けが判明している示唆
+    let ratioScreenHighWeak: [Double] = [5.0,5.0,5.0,10.0,10.0,10.0]     // 高設定示唆 弱（フィオレーネ&オトモアイルー）
+    let ratioScreenHighStrong: [Double] = [0.5,1.0,2.0,3.3,3.9,5.0]      // 高設定示唆 強（チッチェ&オトモアイルー&ガルク）
+    // 確定系（振分け不明のため小さな埋め値）
     let ratioScreenNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
     let ratioScreenNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
     let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]

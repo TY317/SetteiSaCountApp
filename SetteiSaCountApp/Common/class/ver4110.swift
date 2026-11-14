@@ -56,3 +56,19 @@ struct tipVer4110Sao2AtSetContinue: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：モンハンSB 終了画面の振分け
+//////////////////
+struct tipVer4110MhrsbScreenRatio: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("終了画面の高設定示唆の振分けを追加し、設定期待値に反映しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

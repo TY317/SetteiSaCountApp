@@ -154,6 +154,22 @@ struct mhrsbViewScreen: View {
                         )
                     }
                 }
+
+                // 参考情報）終了画面の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "終了画面の振分け") {
+                    mhrsbTableScreenRatio(mhrsb: mhrsb)
+                }
+                .popoverTip(tipVer4110MhrsbScreenRatio())
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        mhrsbView95Ci(
+                            mhrsb: mhrsb,
+                            selection: 21,
+                        )
+                    )
+                )
             } header: {
                 unitLabelHeaderScreenCount()
             }
@@ -228,6 +244,65 @@ struct mhrsbViewScreen: View {
         case 7: return $mhrsb.screenCount8
         case 8: return $mhrsb.screenCount9
         default: return .constant(0)
+        }
+    }
+}
+
+// //// 参考情報）終了画面の振分け（示唆を縦、設定を横に並べる。不明は ?、出現しない設定は -）
+struct mhrsbTableScreenRatio: View {
+    @ObservedObject var mhrsb: Mhrsb
+    let sisaList: [String] = [
+        "奇数示唆",
+        "偶数示唆",
+        "高設定示唆 弱",
+        "高設定示唆 強",
+        "設定2 否定",
+        "設定3 否定",
+        "設定2 以上濃厚",
+        "設定5 以上濃厚",
+        "設定6 濃厚",
+    ]
+    // [示唆][設定]。-1＝不明（?）、0＝出現しない（-）
+    var ratioTable: [[Double]] {
+        [
+            [-1,-1,-1,-1,-1,-1],
+            [-1,-1,-1,-1,-1,-1],
+            mhrsb.ratioScreenHighWeak,
+            mhrsb.ratioScreenHighStrong,
+            [-1,0,-1,-1,-1,-1],
+            [-1,-1,0,-1,-1,-1],
+            [0,-1,-1,-1,-1,-1],
+            [0,0,0,0,-1,-1],
+            [0,0,0,0,0,-1],
+        ]
+    }
+    let maxWidth: CGFloat = 70
+
+    var body: some View {
+        VStack(spacing: 20) {
+//            VStack(alignment: .leading) {
+//                Text("・高設定示唆 弱：フィオレーネ&オトモアイルー")
+//                Text("・高設定示唆 強：チッチェ&オトモアイルー&ガルク")
+//                Text("・振分けが判明していない示唆は「?」")
+//            }
+//            .frame(maxWidth: .infinity, alignment: .leading)
+            ForEach([0, 3], id: \.self) { start in
+                HStack(spacing: 0) {
+                    unitTableString(
+                        columTitle: "",
+                        stringList: self.sisaList,
+                        contentFont: .subheadline,
+                    )
+                    ForEach(start..<(start + 3), id: \.self) { setting in
+                        unitTablePercent(
+                            columTitle: "設定\(setting + 1)",
+                            percentList: self.ratioTable.map { $0[setting] },
+                            numberofDicimal: 1,
+                            maxWidth: self.maxWidth,
+                        )
+                    }
+                }
+            }
         }
     }
 }
