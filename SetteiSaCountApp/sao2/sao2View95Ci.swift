@@ -197,6 +197,25 @@ struct sao2View95Ci: View {
                 )
             )
             .tag(10)
+
+            // AT終了時のセット継続率
+            unitListSection95Ci(
+                grafTitle: "AT終了時のセット継続率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $sao2.atSetContinueCountHit,
+                        bigNumber: $sao2.atSetContinueCountSum,
+                        setting1Percent: sao2.ratioAtSetContinue[0],
+                        setting2Percent: sao2.ratioAtSetContinue[1],
+                        setting3Percent: sao2.ratioAtSetContinue[2],
+                        setting4Percent: sao2.ratioAtSetContinue[3],
+                        setting5Percent: sao2.ratioAtSetContinue[4],
+                        setting6Percent: sao2.ratioAtSetContinue[5]
+                    )
+                )
+            )
+            .tag(11)
             
 //            // 炎炎ループ初当り回数
 //            unitListSection95Ci(

@@ -51,7 +51,7 @@ struct sao2ViewDuringAt: View {
                         )
                     }
                 }
-                .popoverTip(tipVer460Sao2StartStage())
+//                .popoverTip(tipVer460Sao2StartStage())
 
                 // カウント
                 DisclosureGroup {
@@ -106,6 +106,84 @@ struct sao2ViewDuringAt: View {
                 Text("・スナイパーチャンス１・２戦目でのデスガン選択率は設定5優遇")
             } header: {
                 Text("デスガン選択率")
+            }
+
+            // ---- AT終了時のセット継続率
+            Section {
+                // セット継続率
+                unitResultRatioPercent2Line(
+                    title: "セット継続率",
+                    count: $sao2.atSetContinueCountHit,
+                    bigNumber: $sao2.atSetContinueCountSum,
+                    numberofDicimal: 1
+                )
+
+                // 参考情報）AT終了時のセット継続率
+                unitLinkButtonViewBuilder(sheetTitle: "AT終了時のセット継続率") {
+                    Text("・ATの枚数が0枚になるたびに、下表の確率でセット継続を抽選")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "セット継続率",
+                            percentList: sao2.ratioAtSetContinue,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+                .popoverTip(tipVer4110Sao2AtSetContinue())
+
+                // カウント
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・内部的に複数セットを持っていることがあるため、楽曲変化など複数セットが見込まれる場合はカウントから除外を推奨")
+                    }
+
+                    // カウントボタン横並び
+                    HStack {
+                        // 継続なし
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "継続なし",
+                            count: $sao2.atSetContinueCountMiss,
+                            color: .personalSummerLightBlue,
+                            minusBool: $sao2.minusCheck) {
+                                sao2.atSetContinueSumFunc()
+                            }
+                        // 継続あり
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "継続あり",
+                            count: $sao2.atSetContinueCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $sao2.minusCheck) {
+                                sao2.atSetContinueSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            sao2View95Ci(
+                                sao2: sao2,
+                                selection: 11,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        sao2ViewBayes(
+                            sao2: sao2,
+                            bayes: bayes,
+                            viewModel: viewModel,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("AT終了時のセット継続率")
             }
         }
         // //// バッジのリセット

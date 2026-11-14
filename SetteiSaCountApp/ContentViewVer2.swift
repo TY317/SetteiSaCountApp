@@ -28,6 +28,9 @@ struct ContentViewVer2: View {
     let scrollViewHeightPortrait = 250.0
     let scrollViewHeightLandscape = 150.0
     @State var scrollViewHeight = 250.0
+    // レビューリクエスト判定用：機種ページを開いた時刻
+    @State private var machinePageOpenedAt: Date? = nil
+    @Environment(\.requestReview) var requestReview
     let spaceHeightPortrait = 250.0
     let spaceHeightLandscape = 0.0
     @State var spaceHeight = 250.0
@@ -72,7 +75,7 @@ struct ContentViewVer2: View {
     var body: some View {
         VStack(spacing: 0) {
             NavigationStack {
-                TipView(tipVer4100UpdateInfo())
+                TipView(tipVer4110UpdateInfo())
                 TabView(selection: $homeTab) {
                 // ホーム画面（1ページ目）
     //            NavigationStack {
@@ -514,12 +517,26 @@ struct ContentViewVer2: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                         applyAppInterfaceStyle(appearanceMode)
                     }
+                    // レビューリクエスト判定用に機種ページを開いた時刻を記録
+                    machinePageOpenedAt = Date()
+                }
+                // 機種ページ→ホーム復帰時、1分以上滞在していればレビューリクエストを判定
+                .onDisappear {
+                    if let openedAt = machinePageOpenedAt,
+                       Date().timeIntervalSince(openedAt) >= 60 {
+                        requestReviewIfNeeded(requestReview)
+                    } else {
+                        print("機種ページ滞在1分未満のためレビューリクエスト判定なし")
+                    }
+                    machinePageOpenedAt = nil
                 }
         )
     }
 
     func getLinkView(for id: String) -> AnyView {
         switch id {
+        case "5120": return AnyView(vivyViewTop())
+        case "5073": return AnyView(ggoViewTop())
         case "5104": return AnyView(seiyaViewTop())
         case "5119": return AnyView(goeva2ViewTop())
         case "5061": return AnyView(juoViewTop())

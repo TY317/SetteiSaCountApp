@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 import TipKit
 import Charts
 
@@ -1443,7 +1444,6 @@ struct unitViewSaveMemory: View {
     @FocusState var isFocused: Bool
     
 //    @ObservedObject var common = commonVar()
-    @AppStorage("commonAppLaunchCount") private var appLaunchCount: Int = 0
     @Environment(\.requestReview) var requestReview
     
     var body: some View {
@@ -1569,30 +1569,8 @@ struct unitViewSaveMemory: View {
                                 actionMemory3()
                             }
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            // //// レビューリクエストの実行
-                            // アプリ起動回数が20回以上ならレビューリクエストを実行
-                            if self.appLaunchCount > 20 {
-                                // 現在の時刻を日本時間に合わせて取得
-                                let currentDate = Date()
-                                let calendar = Calendar.current
-                                let timeZone = TimeZone(identifier: "Asia/Tokyo")!
-                                let currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
-                                // 時間のコンポーネントを取得
-                                guard let hour = currentComponents.hour else { return }
-                                // 21時から翌日の8時までの間
-                                // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
-                                if hour >= 15 || hour < 9 {
-                                    requestReview()
-                                    print("起動回数:\(self.appLaunchCount)回")
-                                    print("レビューリクエストの実行")
-                                    self.appLaunchCount = 2
-                                } else {
-                                    print("起動回数:\(self.appLaunchCount)回")
-                                    print("レビューリクエストの見送り")
-                                }
-                            } else {
-                                print("起動回数不足:\(self.appLaunchCount)回")
-                            }
+                            // //// レビューリクエストの実行（条件判定は共通関数）
+                            requestReviewIfNeeded(requestReview)
                         }
                     } message: {
                         Text("現在のカウントデータを選択中のメモリーに上書き保存します")
@@ -2630,13 +2608,43 @@ struct unitButton95CiExplain: View {
 
 
 // ///////////////////////
+// レビューリクエストの共通判定
+// 呼び出し元：95CIグラフ非表示時／メモリー保存時／機種ページ→ホーム復帰時（1分以上滞在）
+// ///////////////////////
+@MainActor
+func requestReviewIfNeeded(_ requestReview: RequestReviewAction) {
+    let launchCountKey = "commonAppLaunchCount"
+    let appLaunchCount = UserDefaults.standard.integer(forKey: launchCountKey)
+    // アプリ起動回数が20回以上ならレビューリクエストを実行
+    guard appLaunchCount > 20 else {
+        print("起動回数不足:\(appLaunchCount)回")
+        return
+    }
+    // 現在の時刻を日本時間に合わせて取得
+    let timeZone = TimeZone(identifier: "Asia/Tokyo")!
+    let currentComponents = Calendar.current.dateComponents(in: timeZone, from: Date())
+    guard let hour = currentComponents.hour else { return }
+    // 21時から翌日の8時までの間
+    // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
+    if hour >= 15 || hour < 9 {
+        requestReview()
+        print("起動回数:\(appLaunchCount)回")
+        print("レビューリクエストの実行")
+        UserDefaults.standard.set(2, forKey: launchCountKey)
+    } else {
+        print("起動回数:\(appLaunchCount)回")
+        print("レビューリクエストの見送り")
+    }
+}
+
+
+// ///////////////////////
 // 95%信頼グラフ　タブビュー表示用の入れ物
 // ///////////////////////
 struct unitListSection95Ci: View {
     @State var grafTitle: String
     @State var titleFont: Font = .title
     @State var grafView: AnyView
-    @AppStorage("commonAppLaunchCount") private var appLaunchCount: Int = 0
     @Environment(\.requestReview) var requestReview
     
     var body: some View {
@@ -2647,30 +2655,8 @@ struct unitListSection95Ci: View {
                 unitLabelMachineTopTitle(machineName: self.grafTitle, titleFont: self.titleFont)
             }
             .onDisappear {
-                // //// レビューリクエストの実行
-                // アプリ起動回数が20回以上ならレビューリクエストを実行
-                if self.appLaunchCount > 20 {
-                    // 現在の時刻を日本時間に合わせて取得
-                    let currentDate = Date()
-                    let calendar = Calendar.current
-                    let timeZone = TimeZone(identifier: "Asia/Tokyo")!
-                    let currentComponents = calendar.dateComponents(in: timeZone, from: currentDate)
-                    // 時間のコンポーネントを取得
-                    guard let hour = currentComponents.hour else { return }
-                    // 21時から翌日の8時までの間
-                    // 250102修正 15時から翌日の9時までの間、全然レビュー来ないので緩和
-                    if hour >= 15 || hour < 9 {
-                        requestReview()
-                        print("起動回数:\(self.appLaunchCount)回")
-                        print("レビューリクエストの実行")
-                        self.appLaunchCount = 2
-                    } else {
-                        print("起動回数:\(self.appLaunchCount)回")
-                        print("レビューリクエストの見送り")
-                    }
-                } else {
-                    print("起動回数不足:\(self.appLaunchCount)回")
-                }
+                // //// レビューリクエストの実行（条件判定は共通関数）
+                requestReviewIfNeeded(requestReview)
             }
         }
     }

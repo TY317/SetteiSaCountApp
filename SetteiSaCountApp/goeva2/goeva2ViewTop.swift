@@ -200,6 +200,8 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory1.manualFirstHitCountEva = goeva2.manualFirstHitCountEva
         goeva2Memory1.manualFirstHitCountGodzilla = goeva2.manualFirstHitCountGodzilla
         goeva2Memory1.manualFirstHitCountAt = goeva2.manualFirstHitCountAt
+        goeva2Memory1.gesshokuCount = goeva2.gesshokuCount
+        goeva2Memory1.manualGesshokuCount = goeva2.manualGesshokuCount
         goeva2Memory1.screenCount1 = goeva2.screenCount1
         goeva2Memory1.screenCount2 = goeva2.screenCount2
         goeva2Memory1.screenCount3 = goeva2.screenCount3
@@ -249,6 +251,8 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory2.manualFirstHitCountEva = goeva2.manualFirstHitCountEva
         goeva2Memory2.manualFirstHitCountGodzilla = goeva2.manualFirstHitCountGodzilla
         goeva2Memory2.manualFirstHitCountAt = goeva2.manualFirstHitCountAt
+        goeva2Memory2.gesshokuCount = goeva2.gesshokuCount
+        goeva2Memory2.manualGesshokuCount = goeva2.manualGesshokuCount
         goeva2Memory2.screenCount1 = goeva2.screenCount1
         goeva2Memory2.screenCount2 = goeva2.screenCount2
         goeva2Memory2.screenCount3 = goeva2.screenCount3
@@ -298,6 +302,8 @@ struct goeva2SubViewSaveMemory: View {
         goeva2Memory3.manualFirstHitCountEva = goeva2.manualFirstHitCountEva
         goeva2Memory3.manualFirstHitCountGodzilla = goeva2.manualFirstHitCountGodzilla
         goeva2Memory3.manualFirstHitCountAt = goeva2.manualFirstHitCountAt
+        goeva2Memory3.gesshokuCount = goeva2.gesshokuCount
+        goeva2Memory3.manualGesshokuCount = goeva2.manualGesshokuCount
         goeva2Memory3.screenCount1 = goeva2.screenCount1
         goeva2Memory3.screenCount2 = goeva2.screenCount2
         goeva2Memory3.screenCount3 = goeva2.screenCount3
@@ -379,6 +385,8 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.manualFirstHitCountEva = goeva2Memory1.manualFirstHitCountEva
         goeva2.manualFirstHitCountGodzilla = goeva2Memory1.manualFirstHitCountGodzilla
         goeva2.manualFirstHitCountAt = goeva2Memory1.manualFirstHitCountAt
+        goeva2.gesshokuCount = goeva2Memory1.gesshokuCount
+        goeva2.manualGesshokuCount = goeva2Memory1.manualGesshokuCount
         goeva2.screenCount1 = goeva2Memory1.screenCount1
         goeva2.screenCount2 = goeva2Memory1.screenCount2
         goeva2.screenCount3 = goeva2Memory1.screenCount3
@@ -431,6 +439,8 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.manualFirstHitCountEva = goeva2Memory2.manualFirstHitCountEva
         goeva2.manualFirstHitCountGodzilla = goeva2Memory2.manualFirstHitCountGodzilla
         goeva2.manualFirstHitCountAt = goeva2Memory2.manualFirstHitCountAt
+        goeva2.gesshokuCount = goeva2Memory2.gesshokuCount
+        goeva2.manualGesshokuCount = goeva2Memory2.manualGesshokuCount
         goeva2.screenCount1 = goeva2Memory2.screenCount1
         goeva2.screenCount2 = goeva2Memory2.screenCount2
         goeva2.screenCount3 = goeva2Memory2.screenCount3
@@ -483,6 +493,8 @@ struct goeva2SubViewLoadMemory: View {
         goeva2.manualFirstHitCountEva = goeva2Memory3.manualFirstHitCountEva
         goeva2.manualFirstHitCountGodzilla = goeva2Memory3.manualFirstHitCountGodzilla
         goeva2.manualFirstHitCountAt = goeva2Memory3.manualFirstHitCountAt
+        goeva2.gesshokuCount = goeva2Memory3.gesshokuCount
+        goeva2.manualGesshokuCount = goeva2Memory3.manualGesshokuCount
         goeva2.screenCount1 = goeva2Memory3.screenCount1
         goeva2.screenCount2 = goeva2Memory3.screenCount2
         goeva2.screenCount3 = goeva2Memory3.screenCount3

@@ -201,6 +201,24 @@ struct goeva2View95Ci: View {
             )
             .tag(10)
 
+            // 月蝕変異の発生率
+            unitListSection95Ci(
+                grafTitle: "月蝕変異回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $goeva2.activeGesshokuCount,
+                        bigNumber: $goeva2.activeNormalGame,
+                        setting1Denominate: goeva2.ratioGesshoku[0],
+                        setting2Denominate: goeva2.ratioGesshoku[1],
+                        setting3Denominate: goeva2.ratioGesshoku[2],
+                        setting4Denominate: goeva2.ratioGesshoku[3],
+                        setting5Denominate: goeva2.ratioGesshoku[4],
+                        setting6Denominate: goeva2.ratioGesshoku[5]
+                    )
+                )
+            )
+            .tag(11)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

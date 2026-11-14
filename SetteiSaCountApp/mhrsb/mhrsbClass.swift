@@ -116,6 +116,10 @@ class Mhrsb: ObservableObject {
     // --------
     // 終了画面
     // --------
+    // 振分けが判明している示唆
+    let ratioScreenHighWeak: [Double] = [5.0,5.0,5.0,10.0,10.0,10.0]     // 高設定示唆 弱（フィオレーネ&オトモアイルー）
+    let ratioScreenHighStrong: [Double] = [0.5,1.0,2.0,3.3,3.9,5.0]      // 高設定示唆 強（チッチェ&オトモアイルー&ガルク）
+    // 確定系（振分け不明のため小さな埋め値）
     let ratioScreenNegate2: [Double] = [0.1,0,0.1,0.1,0.1,0.1,]
     let ratioScreenNegate3: [Double] = [0.1,0.1,0,0.1,0.1,0.1,]
     let ratioScreenOver2: [Double] = [0,0.1,0.1,0.1,0.1,0.1,]
@@ -433,14 +437,6 @@ class Mhrsb: ObservableObject {
         return list.map { $0 / total }
     }
 
-    // 全設定平均のシナリオ選択率（シナリオ推測の表示用）
-    var bzScenarioPriorAverage: [Double] {
-        let settingCount = ratioBzScenario[0].count
-        return bzScenarioNameList.indices.map { scenario in
-            (0..<settingCount).reduce(0.0) { $0 + bzScenarioPrior(setting: $1)[scenario] } / Double(settingCount)
-        }
-    }
-
     // そのシナリオで、区間の記録の並びが起きる確率
     func bzScenarioLikelihood(scenario: Int, interval: MhrsbBzInterval) -> Double {
         let levelList = bzScenarioLevelList[scenario]
@@ -468,9 +464,73 @@ class Mhrsb: ObservableObject {
         bzScenarioNameList.indices.contains { bzScenarioLikelihood(scenario: $0, interval: interval) > 0 }
     }
 
-    // 区間ごとのシナリオの見込み（全設定平均のシナリオ選択率が前提）
+    // //// 推定E以上選択率（計測区間数に応じた補正つき）
+    // 打ち始めは「一般的なホールの設定配分」でのE以上選択率を、補正用の区間として数区間分持たせ、
+    // 区間の記録が増えるほど、その台の記録から見た値に近づける。
+    // 絞り込めない区間（E以上でもD以下でも起きやすさが同じ）は、推定値をどちらにも動かさない。
+    // 一般的なホールの設定配分（設定期待値ページの事前配分「デフォルト」と同じ）
+    let bzGeneralSettingWeightList: [Double] = [72, 21, 2, 3, 1, 1]
+    // 補正用に持たせる区間数
+    let bzPriorIntervalCount: Double = 3
+
+    // 一般的なホールの設定配分で平均したシナリオ選択率
+    var bzScenarioPriorGeneral: [Double] {
+        let weightTotal = bzGeneralSettingWeightList.reduce(0, +)
+        return bzScenarioNameList.indices.map { scenario in
+            bzGeneralSettingWeightList.indices.reduce(0.0) {
+                $0 + bzGeneralSettingWeightList[$1] / weightTotal * bzScenarioPrior(setting: $1)[scenario]
+            }
+        }
+    }
+
+    // E以上・D以下それぞれの中でのシナリオの比率（合計1に割り戻したもの）
+    private func bzScenarioShape(overE: Bool) -> [Double] {
+        let prior = bzScenarioPriorGeneral
+        let inGroup = prior.indices.map { bzScenarioOverEIndexList.contains($0) == overE ? prior[$0] : 0 }
+        let total = inGroup.reduce(0, +)
+        return inGroup.map { total > 0 ? $0 / total : 0 }
+    }
+
+    // E以上選択率 overE を前提にしたシナリオ選択率
+    private func bzScenarioPrior(overE: Double) -> [Double] {
+        let shapeOverE = bzScenarioShape(overE: true)
+        let shapeUnderD = bzScenarioShape(overE: false)
+        return bzScenarioNameList.indices.map { overE * shapeOverE[$0] + (1 - overE) * shapeUnderD[$0] }
+    }
+
+    // 区間がE以上だった見込み（E以上選択率 overE が前提）
+    private func bzOverEProbability(interval: MhrsbBzInterval, overE: Double) -> Double {
+        let prior = bzScenarioPrior(overE: overE)
+        let weightList = prior.indices.map { prior[$0] * bzScenarioLikelihood(scenario: $0, interval: interval) }
+        let total = weightList.reduce(0, +)
+        guard total > 0 else { return overE }
+        return bzScenarioOverEIndexList.reduce(0.0) { $0 + weightList[$1] } / total
+    }
+
+    // 推定E以上選択率（0〜1）
+    // 「補正用の区間＋各区間のE以上の見込み」の平均を、値が落ち着くまで繰り返し求める
+    var bzEstimatedOverERatio: Double {
+        let generalOverE = bzScenarioOverEIndexList.reduce(0.0) { $0 + bzScenarioPriorGeneral[$1] }
+        let intervalList = bzValidIntervalList
+        var overE = generalOverE
+        for _ in 0..<200 {
+            let sum = intervalList.reduce(0.0) { $0 + bzOverEProbability(interval: $1, overE: overE) }
+            let next = (bzPriorIntervalCount * generalOverE + sum) / (bzPriorIntervalCount + Double(intervalList.count))
+            if abs(next - overE) < 1e-7 {
+                overE = next
+                break
+            }
+            overE = next
+        }
+        return overE
+    }
+
+    // 区間ごとのシナリオの見込み（推定E以上選択率が前提）
     func bzScenarioPosterior(interval: MhrsbBzInterval) -> [Double] {
-        let prior = bzScenarioPriorAverage
+        bzScenarioPosterior(interval: interval, overE: bzEstimatedOverERatio)
+    }
+    func bzScenarioPosterior(interval: MhrsbBzInterval, overE: Double) -> [Double] {
+        let prior = bzScenarioPrior(overE: overE)
         let weightList = prior.indices.map { prior[$0] * bzScenarioLikelihood(scenario: $0, interval: interval) }
         let total = weightList.reduce(0, +)
         guard total > 0 else { return weightList.map { _ in 0 } }
@@ -494,10 +554,9 @@ class Mhrsb: ObservableObject {
         return forecast.map { $0 / reachable }
     }
 
-    // 区間がシナリオE以上だった見込み
+    // 区間がシナリオE以上だった見込み（推定E以上選択率が前提）
     func bzOverEProbability(interval: MhrsbBzInterval) -> Double {
-        let posterior = bzScenarioPosterior(interval: interval)
-        return bzScenarioOverEIndexList.reduce(0.0) { $0 + posterior[$1] }
+        bzOverEProbability(interval: interval, overE: bzEstimatedOverERatio)
     }
 
     // 判別に使える区間（あり得ない並びの区間は除外）
@@ -505,9 +564,10 @@ class Mhrsb: ObservableObject {
         bzAllIntervalList.filter { bzIsPossible(interval: $0) }
     }
 
-    // 推定シナリオE以上の区間数
+    // 推定シナリオE以上の区間数（推定E以上選択率が前提）
     var bzEstimatedOverECount: Double {
-        bzValidIntervalList.reduce(0.0) { $0 + bzOverEProbability(interval: $1) }
+        let overE = bzEstimatedOverERatio
+        return bzValidIntervalList.reduce(0.0) { $0 + bzOverEProbability(interval: $1, overE: overE) }
     }
 
     // CZ◯回目のアイコンテーブル実質出現率（％）。czNumber は 1〜7

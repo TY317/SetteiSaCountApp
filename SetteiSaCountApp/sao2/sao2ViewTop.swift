@@ -333,6 +333,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory1.startStageCountHit = sao2.startStageCountHit
         sao2Memory1.startStageCountMiss = sao2.startStageCountMiss
         sao2Memory1.startStageCountSum = sao2.startStageCountSum
+        sao2Memory1.atSetContinueCountMiss = sao2.atSetContinueCountMiss
+        sao2Memory1.atSetContinueCountHit = sao2.atSetContinueCountHit
+        sao2Memory1.atSetContinueCountSum = sao2.atSetContinueCountSum
     }
     func saveMemory2() {
         sao2Memory2.ggoKiritoCountMiss = sao2.ggoKiritoCountMiss
@@ -392,6 +395,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory2.startStageCountHit = sao2.startStageCountHit
         sao2Memory2.startStageCountMiss = sao2.startStageCountMiss
         sao2Memory2.startStageCountSum = sao2.startStageCountSum
+        sao2Memory2.atSetContinueCountMiss = sao2.atSetContinueCountMiss
+        sao2Memory2.atSetContinueCountHit = sao2.atSetContinueCountHit
+        sao2Memory2.atSetContinueCountSum = sao2.atSetContinueCountSum
     }
     func saveMemory3() {
         sao2Memory3.ggoKiritoCountMiss = sao2.ggoKiritoCountMiss
@@ -451,6 +457,9 @@ struct sao2SubViewSaveMemory: View {
         sao2Memory3.startStageCountHit = sao2.startStageCountHit
         sao2Memory3.startStageCountMiss = sao2.startStageCountMiss
         sao2Memory3.startStageCountSum = sao2.startStageCountSum
+        sao2Memory3.atSetContinueCountMiss = sao2.atSetContinueCountMiss
+        sao2Memory3.atSetContinueCountHit = sao2.atSetContinueCountHit
+        sao2Memory3.atSetContinueCountSum = sao2.atSetContinueCountSum
     }
 }
 
@@ -539,6 +548,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.startStageCountHit = sao2Memory1.startStageCountHit
         sao2.startStageCountMiss = sao2Memory1.startStageCountMiss
         sao2.startStageCountSum = sao2Memory1.startStageCountSum
+        sao2.atSetContinueCountMiss = sao2Memory1.atSetContinueCountMiss
+        sao2.atSetContinueCountHit = sao2Memory1.atSetContinueCountHit
+        sao2.atSetContinueCountSum = sao2Memory1.atSetContinueCountSum
     }
     func loadMemory2() {
         sao2.ggoKiritoCountMiss = sao2Memory2.ggoKiritoCountMiss
@@ -598,6 +610,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.startStageCountHit = sao2Memory2.startStageCountHit
         sao2.startStageCountMiss = sao2Memory2.startStageCountMiss
         sao2.startStageCountSum = sao2Memory2.startStageCountSum
+        sao2.atSetContinueCountMiss = sao2Memory2.atSetContinueCountMiss
+        sao2.atSetContinueCountHit = sao2Memory2.atSetContinueCountHit
+        sao2.atSetContinueCountSum = sao2Memory2.atSetContinueCountSum
     }
     func loadMemory3() {
         sao2.ggoKiritoCountMiss = sao2Memory3.ggoKiritoCountMiss
@@ -657,6 +672,9 @@ struct sao2SubViewLoadMemory: View {
         sao2.startStageCountHit = sao2Memory3.startStageCountHit
         sao2.startStageCountMiss = sao2Memory3.startStageCountMiss
         sao2.startStageCountSum = sao2Memory3.startStageCountSum
+        sao2.atSetContinueCountMiss = sao2Memory3.atSetContinueCountMiss
+        sao2.atSetContinueCountHit = sao2Memory3.atSetContinueCountHit
+        sao2.atSetContinueCountSum = sao2Memory3.atSetContinueCountSum
     }
 }
 

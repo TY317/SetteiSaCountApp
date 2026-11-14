@@ -191,10 +191,23 @@ class Sao2: ObservableObject {
         startStageCountSum = startStageCountHit + startStageCountMiss
     }
 
+    // AT終了時のセット継続率
+    let ratioAtSetContinue: [Double] = [6.0,6.5,6.6,7.7,11.3,13.1]
+    @AppStorage("sao2AtSetContinueCountMiss") var atSetContinueCountMiss: Int = 0
+    @AppStorage("sao2AtSetContinueCountHit") var atSetContinueCountHit: Int = 0
+    @AppStorage("sao2AtSetContinueCountSum") var atSetContinueCountSum: Int = 0
+
+    func atSetContinueSumFunc() {
+        atSetContinueCountSum = atSetContinueCountHit + atSetContinueCountMiss
+    }
+
     func resetDuringAt() {
         startStageCountHit = 0
         startStageCountMiss = 0
         startStageCountSum = 0
+        atSetContinueCountMiss = 0
+        atSetContinueCountHit = 0
+        atSetContinueCountSum = 0
         minusCheck = false
     }
 
@@ -351,6 +364,9 @@ class Sao2Memory1: ObservableObject {
     @AppStorage("sao2GgoKiritoCountMissMemory1") var ggoKiritoCountMiss: Int = 0
     @AppStorage("sao2GgoKiritoCountHitMemory1") var ggoKiritoCountHit: Int = 0
     @AppStorage("sao2GgoKiritoCountSumMemory1") var ggoKiritoCountSum: Int = 0
+    @AppStorage("sao2AtSetContinueCountMissMemory1") var atSetContinueCountMiss: Int = 0
+    @AppStorage("sao2AtSetContinueCountHitMemory1") var atSetContinueCountHit: Int = 0
+    @AppStorage("sao2AtSetContinueCountSumMemory1") var atSetContinueCountSum: Int = 0
     @AppStorage("sao2MemoMemory1") var memo = ""
     @AppStorage("sao2DateMemory1") var dateDouble = 0.0
 }
@@ -414,6 +430,9 @@ class Sao2Memory2: ObservableObject {
     @AppStorage("sao2GgoKiritoCountMissMemory2") var ggoKiritoCountMiss: Int = 0
     @AppStorage("sao2GgoKiritoCountHitMemory2") var ggoKiritoCountHit: Int = 0
     @AppStorage("sao2GgoKiritoCountSumMemory2") var ggoKiritoCountSum: Int = 0
+    @AppStorage("sao2AtSetContinueCountMissMemory2") var atSetContinueCountMiss: Int = 0
+    @AppStorage("sao2AtSetContinueCountHitMemory2") var atSetContinueCountHit: Int = 0
+    @AppStorage("sao2AtSetContinueCountSumMemory2") var atSetContinueCountSum: Int = 0
     @AppStorage("sao2MemoMemory2") var memo = ""
     @AppStorage("sao2DateMemory2") var dateDouble = 0.0
 }
@@ -477,6 +496,9 @@ class Sao2Memory3: ObservableObject {
     @AppStorage("sao2GgoKiritoCountMissMemory3") var ggoKiritoCountMiss: Int = 0
     @AppStorage("sao2GgoKiritoCountHitMemory3") var ggoKiritoCountHit: Int = 0
     @AppStorage("sao2GgoKiritoCountSumMemory3") var ggoKiritoCountSum: Int = 0
+    @AppStorage("sao2AtSetContinueCountMissMemory3") var atSetContinueCountMiss: Int = 0
+    @AppStorage("sao2AtSetContinueCountHitMemory3") var atSetContinueCountHit: Int = 0
+    @AppStorage("sao2AtSetContinueCountSumMemory3") var atSetContinueCountSum: Int = 0
     @AppStorage("sao2MemoMemory3") var memo = ""
     @AppStorage("sao2DateMemory3") var dateDouble = 0.0
 }

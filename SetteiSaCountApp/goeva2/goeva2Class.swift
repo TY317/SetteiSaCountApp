@@ -120,6 +120,15 @@ class Goeva2: ObservableObject {
         set { }
     }
 
+    // 月蝕変異の発生率（通常ゲーム数は入力方式ごとの値を流用し、回数も入力方式ごとに別管理）
+    let ratioGesshoku: [Double] = [5333,4367,3734,3156,2720,2399]
+    @AppStorage("goeva2GesshokuCount") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCount") var manualGesshokuCount: Int = 0
+    var activeGesshokuCount: Int {
+        get { isHistoryInputMode ? gesshokuCount : manualGesshokuCount }
+        set { }
+    }
+
     // データ登録
     func addHistory() {
         // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
@@ -146,6 +155,8 @@ class Goeva2: ObservableObject {
         manualFirstHitCountEva = 0
         manualFirstHitCountGodzilla = 0
         manualFirstHitCountAt = 0
+        gesshokuCount = 0
+        manualGesshokuCount = 0
         minusCheck = false
     }
     func addRemoveCommon() {
@@ -331,6 +342,8 @@ class Goeva2Memory1: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory1") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory1") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory1") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory1") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory1") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory1") var memo = ""
     @AppStorage("goeva2DateMemory1") var dateDouble = 0.0
 }
@@ -384,6 +397,8 @@ class Goeva2Memory2: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory2") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory2") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory2") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory2") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory2") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory2") var memo = ""
     @AppStorage("goeva2DateMemory2") var dateDouble = 0.0
 }
@@ -437,6 +452,8 @@ class Goeva2Memory3: ObservableObject {
     @AppStorage("goeva2VoiceCount7Memory3") var voiceCount7: Int = 0
     @AppStorage("goeva2VoiceCount8Memory3") var voiceCount8: Int = 0
     @AppStorage("goeva2VoiceCountSumMemory3") var voiceCountSum: Int = 0
+    @AppStorage("goeva2GesshokuCountMemory3") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCountMemory3") var manualGesshokuCount: Int = 0
     @AppStorage("goeva2MemoMemory3") var memo = ""
     @AppStorage("goeva2DateMemory3") var dateDouble = 0.0
 }

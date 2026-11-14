@@ -96,7 +96,7 @@ struct mhrsbViewBayes: View {
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "AT終了画面") {
                     unitExView5body2image(
                         title: "AT終了画面",
-                        textBody1: "・確定系のみ反映させます"
+                        textBody1: "・確定系と、振分けが判明している示唆（高設定示唆 弱・強）を反映させます"
                     )
                 }
 
@@ -331,11 +331,14 @@ struct mhrsbViewBayes: View {
         }
 
         // AT終了画面
-        // 確定系（設定2・3否定、設定2・5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        // 振分けが判明している示唆（高設定示唆 弱・強）と確定系（設定2・3否定、設定2・5以上濃厚、設定6濃厚）を渡し、
+        // 振分け不明の示唆（奇数・偶数）は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.screenEnable {
             logPostScreen = logPostPercentMulti(
                 countList: [
+                    mhrsb.screenCount3,
+                    mhrsb.screenCount4,
                     mhrsb.screenCount5,
                     mhrsb.screenCount6,
                     mhrsb.screenCount7,
@@ -343,6 +346,8 @@ struct mhrsbViewBayes: View {
                     mhrsb.screenCount9,
                 ],
                 ratioList: [
+                    mhrsb.ratioScreenHighWeak,
+                    mhrsb.ratioScreenHighStrong,
                     mhrsb.ratioScreenNegate2,
                     mhrsb.ratioScreenNegate3,
                     mhrsb.ratioScreenOver2,

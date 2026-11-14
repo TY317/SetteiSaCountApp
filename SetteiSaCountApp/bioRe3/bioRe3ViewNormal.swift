@@ -50,7 +50,6 @@ struct bioRe3ViewNormal: View {
                     bigNumber: $bioRe3.playGame,
                     numberofDicimal: 1
                 )
-                .popoverTip(tipVer440BioRe3Bell())
 
                 // 参考情報）5枚ベル確率
                 unitLinkButtonViewBuilder(sheetTitle: "5枚🔔確率") {

@@ -1,21 +1,24 @@
 //
-//  ver440.swift
+//  ver4110.swift
 //  SetteiSaCountApp
 //
-//  Created by 横田徹 on 2026/08/11.
+//  Created by 横田徹 on 2026/11/09.
 //
 
 import Foundation
 import SwiftUI
 import TipKit
 
-struct tipVer440UpdateInfo: Tip {
+//////////////////
+// Tip：更新情報（機種追加／機能追加の告知）
+//////////////////
+struct tipVer4110UpdateInfo: Tip {
     var title: Text {
         Text("機種追加！")
 //        Text("機能追加！")
     }
     var message: Text? {
-        Text("・ストリートファイター6\n・邪神ちゃんドロップキック")
+        Text("・ガンゲイル・オンライン\n・Vivy")
     }
     var image: Image? {
         Image(systemName: "star")
@@ -26,7 +29,7 @@ struct tipVer440UpdateInfo: Tip {
 //////////////////
 // Tip：
 //////////////////
-struct tipVer440: Tip {
+struct tipVer4110: Tip {
     var title: Text {
         Text("機能更新")
     }
@@ -40,14 +43,14 @@ struct tipVer440: Tip {
 
 
 //////////////////
-// Tip：
+// Tip：SAO2 AT終了時のセット継続率
 //////////////////
-struct tipVer440KokakuCzScreen: Tip {
+struct tipVer4110Sao2AtSetContinue: Tip {
     var title: Text {
         Text("機能更新")
     }
     var message: Text? {
-        Text("CZ終了画面 イシカワの設定差が判明\n算出機能を追加しました")
+        Text("AT終了時のセット継続率のカウント機能を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
@@ -56,14 +59,14 @@ struct tipVer440KokakuCzScreen: Tip {
 
 
 //////////////////
-// Tip：
+// Tip：モンハンSB 終了画面の振分け
 //////////////////
-struct tipVer440KokakuIede: Tip {
+struct tipVer4110MhrsbScreenRatio: Tip {
     var title: Text {
-        Text("機能更新")
+        Text("情報更新")
     }
     var message: Text? {
-        Text("AT終了時200G・400Gそれぞれの設定差が判明\n個別カウントに対応しました")
+        Text("終了画面の高設定示唆の振分けを追加し、設定期待値に反映しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
@@ -72,30 +75,14 @@ struct tipVer440KokakuIede: Tip {
 
 
 //////////////////
-// Tip：
+// Tip：ゴジエヴァ2 月蝕変異の発生率
 //////////////////
-struct tipVer440BioRe3Bell: Tip {
+struct tipVer4110Goeva2Gesshoku: Tip {
     var title: Text {
         Text("機能更新")
     }
     var message: Text? {
-        Text("5枚🔔確率の設定差が判明\nカウント機能を追加しました")
-    }
-    var image: Image? {
-        Image(systemName: "exclamationmark.bubble")
-    }
-}
-
-
-//////////////////
-// Tip：
-//////////////////
-struct tipVer440BioRe3Point: Tip {
-    var title: Text {
-        Text("機能更新")
-    }
-    var message: Text? {
-        Text("規定ネメシスポイントは滞在状態で振分けが異なります\n通常時・AT中・上位AT中を切り替えてカウントして下さい")
+        Text("月蝕変異の発生率のカウント機能を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
