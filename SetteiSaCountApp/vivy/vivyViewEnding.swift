@@ -85,29 +85,6 @@ struct vivyViewEnding: View {
                     )
                 }
 
-                // 参考情報）キャラ数での示唆
-                unitLinkButtonViewBuilder(sheetTitle: "キャラ数での示唆") {
-                    HStack(spacing: 0) {
-                        unitTableString(
-                            columTitle: "",
-                            stringList: ["1体", "2体", "3体", "4体", "5体", "6体"],
-                            maxWidth: 80,
-                        )
-                        unitTableString(
-                            columTitle: "示唆",
-                            stringList: [
-                                "キャラの種類で設定を示唆",
-                                "設定2 以上濃厚",
-                                "設定3 以上濃厚",
-                                "設定4 以上濃厚",
-                                "設定5 以上濃厚",
-                                "設定6 濃厚",
-                            ],
-                            maxWidth: 250,
-                        )
-                    }
-                }
-
                 // 参考情報）ミニキャラ1体の示唆
                 unitLinkButtonViewBuilder(sheetTitle: "1体出現時の振分け") {
                     VStack(spacing: 20) {
@@ -147,6 +124,29 @@ struct vivyViewEnding: View {
                                 numberofDicimal: 1,
                             )
                         }
+                    }
+                }
+                
+                // 参考情報）キャラ数での示唆
+                unitLinkButtonViewBuilder(sheetTitle: "キャラ数での示唆") {
+                    HStack(spacing: 0) {
+                        unitTableString(
+                            columTitle: "",
+                            stringList: ["1体", "2体", "3体", "4体", "5体", "6体"],
+                            maxWidth: 80,
+                        )
+                        unitTableString(
+                            columTitle: "示唆",
+                            stringList: [
+                                "キャラの種類で設定を示唆",
+                                "設定2 以上濃厚",
+                                "設定3 以上濃厚",
+                                "設定4 以上濃厚",
+                                "設定5 以上濃厚",
+                                "設定6 濃厚",
+                            ],
+                            maxWidth: 250,
+                        )
                     }
                 }
 

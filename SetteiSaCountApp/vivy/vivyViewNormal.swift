@@ -117,12 +117,17 @@ struct vivyViewNormal: View {
                     }
                     // 変換高確Lv2
                     else if self.selectedWeakCherryState == self.weakCherryStateItems[1] {
-                        unitTextFieldNumberInputWithUnit(
-                            title: "変換高確Lv2ゲーム数",
-                            inputValue: $vivy.weakCherryGameHigh2,
-                            unitText: "Ｇ"
-                        )
-                        .focused(self.$isFocused)
+                        // ゲーム数（直接入力＋ステッパーで1Gずつ増減）
+                        HStack {
+                            unitTextFieldNumberInputWithUnit(
+                                title: "Lv2ゲーム数",
+                                inputValue: $vivy.weakCherryGameHigh2,
+                                unitText: "Ｇ"
+                            )
+                            .focused(self.$isFocused)
+                            Stepper("Lv2ゲーム数", value: $vivy.weakCherryGameHigh2, in: 0...99999)
+                                .labelsHidden()
+                        }
                         unitCountButtonDenominateWithFunc(
                             title: "弱🍒",
                             count: $vivy.weakCherryCountHigh2,
@@ -134,12 +139,17 @@ struct vivyViewNormal: View {
                     }
                     // 変換高確Lv3
                     else {
-                        unitTextFieldNumberInputWithUnit(
-                            title: "変換高確Lv3ゲーム数",
-                            inputValue: $vivy.weakCherryGameHigh3,
-                            unitText: "Ｇ"
-                        )
-                        .focused(self.$isFocused)
+                        // ゲーム数（直接入力＋ステッパーで1Gずつ増減）
+                        HStack {
+                            unitTextFieldNumberInputWithUnit(
+                                title: "Lv3ゲーム数",
+                                inputValue: $vivy.weakCherryGameHigh3,
+                                unitText: "Ｇ"
+                            )
+                            .focused(self.$isFocused)
+                            Stepper("Lv3ゲーム数", value: $vivy.weakCherryGameHigh3, in: 0...99999)
+                                .labelsHidden()
+                        }
                         unitCountButtonDenominateWithFunc(
                             title: "弱🍒",
                             count: $vivy.weakCherryCountHigh3,
