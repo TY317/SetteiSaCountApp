@@ -902,6 +902,9 @@ class commonVar: ObservableObject {
                 machines.updateMachineIsUnlocked(id: "5073", isUnlocked: false)
                 machines.updateMachineBadgeStatus(id: "5120", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5120", isUnlocked: false)
+                // SAO2 AT中にAT終了時のセット継続率を追加
+                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
+                sao2MenuDuringAtBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

@@ -191,10 +191,23 @@ class Sao2: ObservableObject {
         startStageCountSum = startStageCountHit + startStageCountMiss
     }
 
+    // AT終了時のセット継続率
+    let ratioAtSetContinue: [Double] = [6.0,6.5,6.6,7.7,11.3,13.1]
+    @AppStorage("sao2AtSetContinueCountMiss") var atSetContinueCountMiss: Int = 0
+    @AppStorage("sao2AtSetContinueCountHit") var atSetContinueCountHit: Int = 0
+    @AppStorage("sao2AtSetContinueCountSum") var atSetContinueCountSum: Int = 0
+
+    func atSetContinueSumFunc() {
+        atSetContinueCountSum = atSetContinueCountHit + atSetContinueCountMiss
+    }
+
     func resetDuringAt() {
         startStageCountHit = 0
         startStageCountMiss = 0
         startStageCountSum = 0
+        atSetContinueCountMiss = 0
+        atSetContinueCountHit = 0
+        atSetContinueCountSum = 0
         minusCheck = false
     }
 

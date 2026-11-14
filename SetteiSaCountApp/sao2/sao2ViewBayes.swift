@@ -26,6 +26,7 @@ struct sao2ViewBayes: View {
     @State var endingEnable: Bool = true
     @State var mothersEnable: Bool = true
     @State var startStageEnable: Bool = true
+    @State var atSetContinueEnable: Bool = true
 
     
     // 全機種共通
@@ -72,6 +73,7 @@ struct sao2ViewBayes: View {
 
                 // AT開始時のステージ
                 unitToggleWithQuestion(enable: self.$startStageEnable, title: "AT開始時のステージ")
+                unitToggleWithQuestion(enable: self.$atSetContinueEnable, title: "AT終了時のセット継続率")
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -303,6 +305,15 @@ struct sao2ViewBayes: View {
                 bigNumber: sao2.startStageCountSum
             )
         }
+        // AT終了時のセット継続率
+        var logPostAtSetContinue: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.atSetContinueEnable {
+            logPostAtSetContinue = logPostPercentBino(
+                ratio: sao2.ratioAtSetContinue,
+                Count: sao2.atSetContinueCountHit,
+                bigNumber: sao2.atSetContinueCountSum
+            )
+        }
 
 
         // トロフィー
@@ -356,6 +367,7 @@ struct sao2ViewBayes: View {
             logPostMothers,
 
             logPostStartStage,
+            logPostAtSetContinue,
             logPostTrophy,
             logPostBefore,
         ])

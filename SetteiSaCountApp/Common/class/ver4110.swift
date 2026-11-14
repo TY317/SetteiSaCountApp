@@ -40,3 +40,19 @@ struct tipVer4110: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：SAO2 AT終了時のセット継続率
+//////////////////
+struct tipVer4110Sao2AtSetContinue: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("AT終了時のセット継続率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
