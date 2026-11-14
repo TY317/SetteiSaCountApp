@@ -24,6 +24,7 @@ struct vivyViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var accelPromoteEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -47,6 +48,8 @@ struct vivyViewBayes: View {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
                 // アクセルチャンス昇格 継続回数
                 unitToggleWithQuestion(enable: self.$accelPromoteEnable, title: "アクセルチャンス昇格")
+                // AT初当り確率
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
 
                 // トロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -147,6 +150,15 @@ struct vivyViewBayes: View {
                 ),
             ])
         }
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: vivy.ratioFirstHitAt,
+                Count: vivy.activeFirstHitCountAt,
+                bigNumber: vivy.activeNormalGame
+            )
+        }
 
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -186,6 +198,7 @@ struct vivyViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostAccelPromote,
+            logPostFirstHitAt,
             logPostTrophy,
             logPostBefore,
         ])

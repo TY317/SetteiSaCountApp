@@ -70,6 +70,24 @@ struct vivyView95Ci: View {
                 )
             )
             .tag(7)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $vivy.activeFirstHitCountAt,
+                        bigNumber: $vivy.activeNormalGame,
+                        setting1Denominate: vivy.ratioFirstHitAt[0],
+                        setting2Denominate: vivy.ratioFirstHitAt[1],
+                        setting3Denominate: vivy.ratioFirstHitAt[2],
+                        setting4Denominate: vivy.ratioFirstHitAt[3],
+                        setting5Denominate: vivy.ratioFirstHitAt[4],
+                        setting6Denominate: vivy.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(8)
             
             // アクセルチャンス昇格 1回目
             unitListSection95Ci(

@@ -253,42 +253,51 @@ struct vivyViewNormal: View {
                 // 参考情報）昇格までの継続回数振分け
                 unitLinkButtonViewBuilder(sheetTitle: "昇格までの継続回数振分け") {
                     VStack(alignment: .leading) {
-                        Text("・アクセルチャンスはセット継続ごとに継続回数が1つ進む")
-                        Text("・突入時に昇格までの継続回数を下表の振分けで決定")
+                        Text("・昇格までの継続回数を下表の振分けで決定")
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     VStack(spacing: 20) {
                         HStack(spacing: 0) {
                             unitTableSettingIndex()
                             unitTablePercent(
-                                columTitle: "1回",
+                                columTitle: "1回目",
                                 percentList: vivy.ratioAccelDistribution[0],
                                 numberofDicimal: 1,
                             )
                             unitTablePercent(
-                                columTitle: "2回",
+                                columTitle: "2回目",
                                 percentList: vivy.ratioAccelDistribution[1],
                                 numberofDicimal: 1,
                             )
                             unitTablePercent(
-                                columTitle: "3回",
+                                columTitle: "3回目",
                                 percentList: vivy.ratioAccelDistribution[2],
                                 numberofDicimal: 1,
                             )
-                        }
-                        HStack(spacing: 0) {
-                            unitTableSettingIndex()
                             unitTablePercent(
-                                columTitle: "4回",
+                                columTitle: "4回目",
                                 percentList: vivy.ratioAccelDistribution[3],
                                 numberofDicimal: 0,
                             )
                             unitTablePercent(
-                                columTitle: "5回",
+                                columTitle: "5回目",
                                 percentList: vivy.ratioAccelDistribution[4],
                                 numberofDicimal: 0,
                             )
                         }
+//                        HStack(spacing: 0) {
+//                            unitTableSettingIndex()
+//                            unitTablePercent(
+//                                columTitle: "4回目",
+//                                percentList: vivy.ratioAccelDistribution[3],
+//                                numberofDicimal: 0,
+//                            )
+//                            unitTablePercent(
+//                                columTitle: "5回目",
+//                                percentList: vivy.ratioAccelDistribution[4],
+//                                numberofDicimal: 0,
+//                            )
+//                        }
                     }
                 }
 
@@ -422,37 +431,7 @@ struct vivyViewNormal: View {
             Section {
                 // 参考情報）周期モードについて
                 unitLinkButtonViewBuilder(sheetTitle: "周期モードについて") {
-                    VStack(alignment: .leading) {
-                        Text("・設定変更時＆AT終了時にモードを抽選")
-                        Text("・偶数設定は通常Bへ移行しやすい")
-                        Text("・天国移行率は約40%（設定1）")
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("[モードごとの規定周期振り分け]")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.top)
-                    HStack(spacing: 0) {
-                        unitTableString(
-                            columTitle: "規定周期",
-                            stringList: ["1周期", "2周期", "3周期", "4周期", "5周期", "6周期"],
-                        )
-                        unitTablePercent(
-                            columTitle: "通常A",
-                            percentList: [0, 27.5, 11.3, 18.3, 17.9, 24.9],
-                            numberofDicimal: 0,
-                        )
-                        unitTablePercent(
-                            columTitle: "通常B",
-                            percentList: [0, 43.6, 56.4, 0, 0, 0],
-                            numberofDicimal: 0,
-                        )
-                        unitTablePercent(
-                            columTitle: "天国",
-                            percentList: [100, 0, 0, 0, 0, 0],
-                            numberofDicimal: 0,
-                        )
-                    }
+                    vivyTableCycleMode()
                 }
 
                 // 参考情報）モードごとの規定ポイント期待度
@@ -526,6 +505,46 @@ struct vivyViewNormal: View {
         return 1 + stepIndex
     }
 }
+
+// //// 周期モードについて（通常時・初当りの両ページで使う）
+struct vivyTableCycleMode: View {
+    var body: some View {
+        VStack {
+            VStack(alignment: .leading) {
+                Text("・設定変更時＆AT終了時にモードを抽選")
+                Text("・偶数設定は通常Bへ移行しやすい")
+                Text("・天国移行率は約40%（設定1）")
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Text("[モードごとの規定周期振り分け]")
+                .font(.title2)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.top)
+            HStack(spacing: 0) {
+                unitTableString(
+                    columTitle: "規定周期",
+                    stringList: ["1周期", "2周期", "3周期", "4周期", "5周期", "6周期"],
+                )
+                unitTablePercent(
+                    columTitle: "通常A",
+                    percentList: [0, 27.5, 11.3, 18.3, 17.9, 24.9],
+                    numberofDicimal: 0,
+                )
+                unitTablePercent(
+                    columTitle: "通常B",
+                    percentList: [0, 43.6, 56.4, 0, 0, 0],
+                    numberofDicimal: 0,
+                )
+                unitTablePercent(
+                    columTitle: "天国",
+                    percentList: [100, 0, 0, 0, 0, 0],
+                    numberofDicimal: 0,
+                )
+            }
+        }
+    }
+}
+
 
 // //// モードごとの規定ポイント期待度（前回の規定ポイントで切り替え）
 // kitaiList：0=－　1=△　2=◯　3=◎　11=周期天井

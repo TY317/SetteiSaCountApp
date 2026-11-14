@@ -89,9 +89,106 @@ class Vivy: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitAt: [Double] = [276.5,251.7,272.1,222.8,235.9,210.3]
+    // 登録の種類（周期到達とAT当選を同じ履歴に並べる）
+    let entryKindList: [String] = ["周期到達", "AT当選"]
+    @AppStorage("vivySelectedEntryKind") var selectedEntryKind: String = "周期到達"
+    // 選択肢
+    let cycleList: [String] = ["1周期", "2周期", "3周期", "4周期", "5周期", "6周期"]
+    let pointList: [String] = ["111pt", "222pt", "333pt", "444pt", "555pt"]
+    let triggerList: [String] = ["CZ", "直撃", "周期天井", "ゲーム数天井", "その他"]
+    let atLabel: String = "AT"
+    // 選択結果
+    @AppStorage("vivyInputGame") var inputGame: Int = 0
+    @AppStorage("vivySelectedCycle") var selectedCycle: String = "1周期"
+    @AppStorage("vivySelectedPoint") var selectedPoint: String = "111pt"
+    @AppStorage("vivySelectedTrigger") var selectedTrigger: String = "CZ"
 
+    // 履歴（1行ごとに種類・ゲーム数・中央列・右列を持つ）
+    // 周期到達の行：ゲーム数 0（表示は空欄）／中央＝周期数／右＝規定ポイント
+    // AT当選の行：ゲーム数／中央＝AT／右＝当選契機
+    let entryKindArrayKey: String = "vivyEntryKindArrayKey"
+    @AppStorage("vivyEntryKindArrayKey") var entryKindArrayData: Data?
+    let gameArrayKey: String = "vivyGameArrayKey"
+    @AppStorage("vivyGameArrayKey") var gameArrayData: Data?
+    let centerArrayKey: String = "vivyCenterArrayKey"
+    @AppStorage("vivyCenterArrayKey") var centerArrayData: Data?
+    let rightArrayKey: String = "vivyRightArrayKey"
+    @AppStorage("vivyRightArrayKey") var rightArrayData: Data?
+
+    // 履歴からの自動算出結果
+    @AppStorage("vivyPlayGameSum") var playGameSum: Int = 0
+    @AppStorage("vivyFirstHitCountAt") var firstHitCountAt: Int = 0
+
+    // 入力方式（履歴入力／カウント入力）
+    let firstHitInputModeList: [String] = ["履歴入力", "カウント入力"]
+    @AppStorage("vivyFirstHitInputMode") var firstHitInputMode: String = "履歴入力"
+    // カウント入力用
+    @AppStorage("vivyManualNormalGame") var manualNormalGame: Int = 0
+    @AppStorage("vivyManualFirstHitCountAt") var manualFirstHitCountAt: Int = 0
+    // 確率算出・95Ci・設定期待値に使う値（選択中の入力方式の値を返す）
+    var isHistoryInputMode: Bool {
+        firstHitInputMode == firstHitInputModeList[0]
+    }
+    var isCycleEntry: Bool {
+        selectedEntryKind == entryKindList[0]
+    }
+    var activeNormalGame: Int {
+        get { isHistoryInputMode ? playGameSum : manualNormalGame }
+        set { }
+    }
+    var activeFirstHitCountAt: Int {
+        get { isHistoryInputMode ? firstHitCountAt : manualFirstHitCountAt }
+        set { }
+    }
+
+    // データ登録
+    func addHistory() {
+        if isCycleEntry {
+            arrayStringAddData(arrayData: entryKindArrayData, addData: entryKindList[0], key: entryKindArrayKey)
+            arrayIntAddData(arrayData: gameArrayData, addData: 0, key: gameArrayKey)
+            arrayStringAddData(arrayData: centerArrayData, addData: selectedCycle, key: centerArrayKey)
+            arrayStringAddData(arrayData: rightArrayData, addData: selectedPoint, key: rightArrayKey)
+        } else {
+            arrayStringAddData(arrayData: entryKindArrayData, addData: entryKindList[1], key: entryKindArrayKey)
+            arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+            arrayStringAddData(arrayData: centerArrayData, addData: atLabel, key: centerArrayKey)
+            arrayStringAddData(arrayData: rightArrayData, addData: selectedTrigger, key: rightArrayKey)
+        }
+        addRemoveCommon()
+    }
+    // 1行削除
+    func removeLastHistory() {
+        arrayStringRemoveLast(arrayData: entryKindArrayData, key: entryKindArrayKey)
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: centerArrayData, key: centerArrayKey)
+        arrayStringRemoveLast(arrayData: rightArrayData, key: rightArrayKey)
+        addRemoveCommon()
+    }
     func resetFirstHit() {
+        arrayStringRemoveAll(arrayData: entryKindArrayData, key: entryKindArrayKey)
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: centerArrayData, key: centerArrayKey)
+        arrayStringRemoveAll(arrayData: rightArrayData, key: rightArrayKey)
+        addRemoveCommon()
+        inputGame = 0
+        manualNormalGame = 0
+        manualFirstHitCountAt = 0
         minusCheck = false
+    }
+    func addRemoveCommon() {
+        // ゲーム数はAT当選ごとにリセットされるので単純合計（周期到達の行は0）
+        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        firstHitCountAt = arrayStringDataCount(arrayData: entryKindArrayData, countString: entryKindList[1])
+    }
+
+    // AT区間の先頭行かどうか（先頭行、または1つ前がAT当選）
+    var atIntervalStartFlagList: [Bool] {
+        let kindArray = decodeStringArray(from: entryKindArrayData)
+        return kindArray.indices.map { index in
+            if index == 0 { return true }
+            return kindArray[index - 1] == entryKindList[1]
+        }
     }
 
     // --------
