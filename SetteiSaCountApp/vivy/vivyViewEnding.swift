@@ -149,6 +149,18 @@ struct vivyViewEnding: View {
                         }
                     }
                 }
+
+                // //// 95%信頼区間グラフへのリンク
+                unitNaviLink95Ci(
+                    Ci95view: AnyView(
+                        vivyView95Ci(
+                            vivy: vivy,
+                            selection: self.chara95CiTag(),
+                        )
+                    )
+                )
+                // Ci95viewは@Stateで初回の値を保持するので、選択が変わったら作り直す
+                .id(self.chara95CiTag())
             } header: {
                 Text("カウント結果")
             }
@@ -189,6 +201,12 @@ struct vivyViewEnding: View {
                 unitButtonReset(isShowAlert: $isShowAlert, action: vivy.resetChara)
             }
         }
+    }
+
+    // ミニキャラの95Ciタグ（ピッカーで選択中のキャラ。ヴィヴィ＝9 〜 マツモト＝14）
+    private func chara95CiTag() -> Int {
+        let charaIndex = self.selectList.firstIndex(of: self.selectedItem) ?? 0
+        return 9 + charaIndex
     }
 
     private func sisaText(item: String) -> String {

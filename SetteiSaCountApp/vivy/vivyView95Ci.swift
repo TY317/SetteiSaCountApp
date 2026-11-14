@@ -70,24 +70,6 @@ struct vivyView95Ci: View {
                 )
             )
             .tag(7)
-
-            // AT初当り回数
-            unitListSection95Ci(
-                grafTitle: "AT初当り回数",
-                grafView: AnyView(
-                    unitChart95CiDenominate(
-                        currentCount: $vivy.activeFirstHitCountAt,
-                        bigNumber: $vivy.activeNormalGame,
-                        setting1Denominate: vivy.ratioFirstHitAt[0],
-                        setting2Denominate: vivy.ratioFirstHitAt[1],
-                        setting3Denominate: vivy.ratioFirstHitAt[2],
-                        setting4Denominate: vivy.ratioFirstHitAt[3],
-                        setting5Denominate: vivy.ratioFirstHitAt[4],
-                        setting6Denominate: vivy.ratioFirstHitAt[5]
-                    )
-                )
-            )
-            .tag(8)
             
             // アクセスチャンス昇格 1回目
             unitListSection95Ci(
@@ -164,6 +146,138 @@ struct vivyView95Ci: View {
                 )
             )
             .tag(4)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $vivy.activeFirstHitCountAt,
+                        bigNumber: $vivy.activeNormalGame,
+                        setting1Denominate: vivy.ratioFirstHitAt[0],
+                        setting2Denominate: vivy.ratioFirstHitAt[1],
+                        setting3Denominate: vivy.ratioFirstHitAt[2],
+                        setting4Denominate: vivy.ratioFirstHitAt[3],
+                        setting5Denominate: vivy.ratioFirstHitAt[4],
+                        setting6Denominate: vivy.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(8)
+
+            // エンディング ミニキャラ ヴィヴィ
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nヴィヴィ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount1,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara1[0],
+                        setting2Percent: vivy.ratioChara1[1],
+                        setting3Percent: vivy.ratioChara1[2],
+                        setting4Percent: vivy.ratioChara1[3],
+                        setting5Percent: vivy.ratioChara1[4],
+                        setting6Percent: vivy.ratioChara1[5]
+                    )
+                )
+            )
+            .tag(9)
+
+            // エンディング ミニキャラ エリザベス
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nエリザベス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount2,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara2[0],
+                        setting2Percent: vivy.ratioChara2[1],
+                        setting3Percent: vivy.ratioChara2[2],
+                        setting4Percent: vivy.ratioChara2[3],
+                        setting5Percent: vivy.ratioChara2[4],
+                        setting6Percent: vivy.ratioChara2[5]
+                    )
+                )
+            )
+            .tag(10)
+
+            // エンディング ミニキャラ エステラ
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nエステラ",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount3,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara3[0],
+                        setting2Percent: vivy.ratioChara3[1],
+                        setting3Percent: vivy.ratioChara3[2],
+                        setting4Percent: vivy.ratioChara3[3],
+                        setting5Percent: vivy.ratioChara3[4],
+                        setting6Percent: vivy.ratioChara3[5]
+                    )
+                )
+            )
+            .tag(11)
+
+            // エンディング ミニキャラ グレイス
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nグレイス",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount4,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara4[0],
+                        setting2Percent: vivy.ratioChara4[1],
+                        setting3Percent: vivy.ratioChara4[2],
+                        setting4Percent: vivy.ratioChara4[3],
+                        setting5Percent: vivy.ratioChara4[4],
+                        setting6Percent: vivy.ratioChara4[5]
+                    )
+                )
+            )
+            .tag(12)
+
+            // エンディング ミニキャラ オフィーリア
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nオフィーリア",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount5,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara5[0],
+                        setting2Percent: vivy.ratioChara5[1],
+                        setting3Percent: vivy.ratioChara5[2],
+                        setting4Percent: vivy.ratioChara5[3],
+                        setting5Percent: vivy.ratioChara5[4],
+                        setting6Percent: vivy.ratioChara5[5]
+                    )
+                )
+            )
+            .tag(13)
+
+            // エンディング ミニキャラ マツモト
+            unitListSection95Ci(
+                grafTitle: "ミニキャラ\nマツモト",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $vivy.charaCount6,
+                        bigNumber: $vivy.charaCountSum,
+                        setting1Percent: vivy.ratioChara6[0],
+                        setting2Percent: vivy.ratioChara6[1],
+                        setting3Percent: vivy.ratioChara6[2],
+                        setting4Percent: vivy.ratioChara6[3],
+                        setting5Percent: vivy.ratioChara6[4],
+                        setting6Percent: vivy.ratioChara6[5]
+                    )
+                )
+            )
+            .tag(14)
 
             // 回数
 //            unitListSection95Ci(
