@@ -306,10 +306,31 @@ struct vivyViewNormal: View {
                     // 補足
                     VStack(alignment: .leading) {
                         Text("・セット継続するたびに、その回数目を選んで昇格の有無をカウント")
-                        Text("・昇格した時点で、そのアクセルチャンスのカウントは終了")
+                        Text("・開始時にPUSHボタンで筐体左右のランプが点灯し色で振分けを示唆")
                     }
                     .foregroundStyle(Color.secondary)
                     .font(.caption)
+
+                    // 参考情報）EX昇格の継続回数示唆
+                    unitLinkButtonViewBuilder(sheetTitle: "ランプ色での継続回数示唆") {
+                        VStack(alignment: .leading) {
+                            Text("・アクセルチャンス開始時（第2停止まで）にPUSHボタンを押すと筐体左右のランプが点灯")
+                            Text("・ランプの色でEX昇格までに必要な残りの継続回数を示唆")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(spacing: 0) {
+                            unitTableString(
+                                columTitle: "ランプの色",
+                                stringList: ["白", "青", "黄", "緑"],
+                                maxWidth: 100,
+                            )
+                            unitTableString(
+                                columTitle: "示唆",
+                                stringList: ["デフォルト", "残り3回以内", "残り2回以内", "次のレア役で昇格"],
+                                maxWidth: 220,
+                            )
+                        }
+                    }
 
                     // 継続回数のセグメントピッカー
                     Picker("", selection: self.$selectedAccelStep) {
@@ -414,7 +435,7 @@ struct vivyViewNormal: View {
                         .foregroundStyle(Color.blue)
                 }
             } header: {
-                Text("アクセルチャンス昇格 継続回数")
+                Text("アクセスチャンス昇格 継続回数")
             }
             
             // レア役
