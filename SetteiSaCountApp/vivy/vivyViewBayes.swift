@@ -47,8 +47,8 @@ struct vivyViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
-                // アクセルチャンス昇格 継続回数
-                unitToggleWithQuestion(enable: self.$accelPromoteEnable, title: "アクセルチャンス昇格")
+                // アクセスチャンス昇格 継続回数
+                unitToggleWithQuestion(enable: self.$accelPromoteEnable, title: "アクセスチャンス昇格")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
                 // エンディング ミニキャラ
@@ -131,7 +131,7 @@ struct vivyViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
-        // アクセルチャンス昇格 継続回数
+        // アクセスチャンス昇格 継続回数
         // 突入時の1回の抽選を「その回まで昇格しなかった場合の昇格率」に分解して各回の二項尤度を足す
         // （各回の条件付き確率の積が1回分の同時確率と一致するため、二重計上にならない）
         var logPostAccelPromote: [Double] = [Double](repeating: 0, count: self.settingList.count)

@@ -169,7 +169,7 @@ struct vivyViewNormal: View {
                 Text("弱チェリー確率")
             }
             
-            // ---- アクセルチャンス昇格 継続回数
+            // ---- アクセスチャンス昇格 継続回数
             Section {
                 // 継続回数ごとの昇格率
                 VStack {
@@ -314,7 +314,7 @@ struct vivyViewNormal: View {
                     // 参考情報）EX昇格の継続回数示唆
                     unitLinkButtonViewBuilder(sheetTitle: "ランプ色での継続回数示唆") {
                         VStack(alignment: .leading) {
-                            Text("・アクセルチャンス開始時（第2停止まで）にPUSHボタンを押すと筐体左右のランプが点灯")
+                            Text("・アクセスチャンス開始時（第2停止まで）にPUSHボタンを押すと筐体左右のランプが点灯")
                             Text("・ランプの色でEX昇格までに必要な残りの継続回数を示唆")
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -520,7 +520,7 @@ struct vivyViewNormal: View {
         return 5 + stateIndex
     }
 
-    // アクセルチャンス昇格の95Ciタグ（1回目＝1 〜 4回目＝4）
+    // アクセスチャンス昇格の95Ciタグ（1回目＝1 〜 4回目＝4）
     private func accel95CiTag() -> Int {
         let stepIndex = self.accelStepItems.firstIndex(of: self.selectedAccelStep) ?? 0
         return 1 + stepIndex

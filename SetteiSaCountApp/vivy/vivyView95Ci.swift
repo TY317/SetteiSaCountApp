@@ -89,9 +89,9 @@ struct vivyView95Ci: View {
             )
             .tag(8)
             
-            // アクセルチャンス昇格 1回目
+            // アクセスチャンス昇格 1回目
             unitListSection95Ci(
-                grafTitle: "アクセルチャンス昇格\n1回目",
+                grafTitle: "アクセスチャンス昇格\n1回目",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -108,9 +108,9 @@ struct vivyView95Ci: View {
             )
             .tag(1)
 
-            // アクセルチャンス昇格 2回目
+            // アクセスチャンス昇格 2回目
             unitListSection95Ci(
-                grafTitle: "アクセルチャンス昇格\n2回目",
+                grafTitle: "アクセスチャンス昇格\n2回目",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -127,9 +127,9 @@ struct vivyView95Ci: View {
             )
             .tag(2)
 
-            // アクセルチャンス昇格 3回目
+            // アクセスチャンス昇格 3回目
             unitListSection95Ci(
-                grafTitle: "アクセルチャンス昇格\n3回目",
+                grafTitle: "アクセスチャンス昇格\n3回目",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
@@ -146,9 +146,9 @@ struct vivyView95Ci: View {
             )
             .tag(3)
 
-            // アクセルチャンス昇格 4回目
+            // アクセスチャンス昇格 4回目
             unitListSection95Ci(
-                grafTitle: "アクセルチャンス昇格\n4回目",
+                grafTitle: "アクセスチャンス昇格\n4回目",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
