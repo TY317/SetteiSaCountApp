@@ -242,6 +242,16 @@ class Vivy: ObservableObject {
     let ratioChara4: [Double] = [16.7,14.5,14.5,24.7,14.4,14.4]   // グレイス
     let ratioChara5: [Double] = [16.7,14.5,14.5,14.4,24.7,14.4]   // オフィーリア
     let ratioChara6: [Double] = [16.7,14.5,14.5,14.0,14.4,24.7]   // マツモト
+    // 設定期待値用：設定ごとの合計が100%になるよう正規化した振分け（元の表は丸めで98.8〜100.2%）
+    var ratioCharaNormalizedList: [[Double]] {
+        let rawList = [ratioChara1, ratioChara2, ratioChara3, ratioChara4, ratioChara5, ratioChara6]
+        return rawList.map { ratio in
+            ratio.indices.map { setting in
+                let total = rawList.reduce(0.0) { $0 + $1[setting] }
+                return total > 0 ? ratio[setting] / total * 100 : 0
+            }
+        }
+    }
     @AppStorage("vivyCharaCount1") var charaCount1: Int = 0
     @AppStorage("vivyCharaCount2") var charaCount2: Int = 0
     @AppStorage("vivyCharaCount3") var charaCount3: Int = 0

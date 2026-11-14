@@ -25,6 +25,7 @@ struct vivyViewBayes: View {
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var accelPromoteEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var charaEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
     @State var over3Check: Bool = false   // 3以上濃厚
     @State var over4Check: Bool = false   // 4以上濃厚
@@ -50,6 +51,14 @@ struct vivyViewBayes: View {
                 unitToggleWithQuestion(enable: self.$accelPromoteEnable, title: "アクセルチャンス昇格")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                // エンディング ミニキャラ
+                unitToggleWithQuestion(enable: self.$charaEnable, title: "エンディング ミニキャラ") {
+                    unitExView5body2image(
+                        title: "エンディング ミニキャラ",
+                        textBody1: "・ミニキャラ1体の出現時の振分けを反映させます",
+                        textBody2: "・2体以上出現時（設定N以上濃厚）はトロフィー欄などで反映してください",
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("コパンダトロフィー") {
@@ -160,6 +169,23 @@ struct vivyViewBayes: View {
             )
         }
 
+        // エンディング ミニキャラ（全キャラの振分けが判明しているので全カテゴリを渡す）
+        var logPostChara: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.charaEnable {
+            logPostChara = logPostPercentMulti(
+                countList: [
+                    vivy.charaCount1,
+                    vivy.charaCount2,
+                    vivy.charaCount3,
+                    vivy.charaCount4,
+                    vivy.charaCount5,
+                    vivy.charaCount6,
+                ],
+                ratioList: vivy.ratioCharaNormalizedList,
+                bigNumber: vivy.charaCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -199,6 +225,7 @@ struct vivyViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostAccelPromote,
             logPostFirstHitAt,
+            logPostChara,
             logPostTrophy,
             logPostBefore,
         ])
