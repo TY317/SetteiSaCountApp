@@ -908,6 +908,9 @@ class commonVar: ObservableObject {
                 // モンハンSB 終了画面の振分けを追加
                 machines.updateMachineBadgeStatus(id: "5095", newStatus: "update")
                 mhrsbMenuScreenBadge = "update"
+                // ゴジエヴァ2 初当りに月蝕変異の発生率を追加
+                machines.updateMachineBadgeStatus(id: "5119", newStatus: "update")
+                goeva2MenuFirstHitBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

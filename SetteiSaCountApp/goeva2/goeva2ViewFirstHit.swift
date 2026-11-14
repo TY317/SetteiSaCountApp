@@ -218,6 +218,72 @@ struct goeva2ViewFirstHit: View {
                 } header: {
                     Text("集計結果")
                 }
+
+                // ---- 月蝕変異の発生率
+                Section {
+
+                    // 月蝕変異の発生率
+                    unitResultRatioDenomination2Line(
+                        title: "月蝕変異",
+                        count: $goeva2.gesshokuCount,
+                        bigNumber: $goeva2.playGameSum,
+                        numberofDicimal: 0
+                    )
+
+                    // 参考情報）月蝕変異の発生率
+                    unitLinkButtonViewBuilder(sheetTitle: "月蝕変異の発生率") {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "月蝕変異",
+                                denominateList: goeva2.ratioGesshoku
+                            )
+                        }
+                    }
+                    .popoverTip(tipVer4110Goeva2Gesshoku())
+
+                    // カウント
+                    DisclosureGroup {
+                        // 通常ゲーム数（上の集計結果の値を表示のみ）
+                        HStack {
+                            Text("通常ゲーム数")
+                            Spacer()
+                            Text("\(goeva2.playGameSum)    G")
+                                .foregroundStyle(Color.secondary)
+                        }
+                        // カウントボタン
+                        HStack {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "月蝕変異",
+                                count: $goeva2.gesshokuCount,
+                                color: .personalSummerLightPurple,
+                                minusBool: $goeva2.minusCheck) {
+                                }
+                        }
+
+                        // //// 95%信頼区間グラフへのリンク
+                        unitNaviLink95Ci(
+                            Ci95view: AnyView(
+                                goeva2View95Ci(
+                                    goeva2: goeva2,
+                                    selection: 11,
+                                )
+                            )
+                        )
+
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            goeva2ViewBayes(
+                                goeva2: goeva2,
+                            )
+                        }
+                    } label: {
+                        Text("カウント")
+                            .foregroundStyle(Color.blue)
+                    }
+                } header: {
+                    Text("月蝕変異の発生率")
+                }
             
             }
             // カウント入力
@@ -303,6 +369,72 @@ struct goeva2ViewFirstHit: View {
                     }
                 } header: {
                     Text("カウント")
+                }
+
+                // ---- 月蝕変異の発生率
+                Section {
+
+                    // 月蝕変異の発生率
+                    unitResultRatioDenomination2Line(
+                        title: "月蝕変異",
+                        count: $goeva2.manualGesshokuCount,
+                        bigNumber: $goeva2.manualNormalGame,
+                        numberofDicimal: 0
+                    )
+
+                    // 参考情報）月蝕変異の発生率
+                    unitLinkButtonViewBuilder(sheetTitle: "月蝕変異の発生率") {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTableDenominate(
+                                columTitle: "月蝕変異",
+                                denominateList: goeva2.ratioGesshoku
+                            )
+                        }
+                    }
+                    .popoverTip(tipVer4110Goeva2Gesshoku())
+
+                    // カウント
+                    DisclosureGroup {
+                        // 通常ゲーム数（上のカウントの値を表示のみ）
+                        HStack {
+                            Text("通常ゲーム数")
+                            Spacer()
+                            Text("\(goeva2.manualNormalGame)    G")
+                                .foregroundStyle(Color.secondary)
+                        }
+                        // カウントボタン
+                        HStack {
+                            unitCountButtonWithoutRatioWithFunc(
+                                title: "月蝕変異",
+                                count: $goeva2.manualGesshokuCount,
+                                color: .personalSummerLightPurple,
+                                minusBool: $goeva2.minusCheck) {
+                                }
+                        }
+
+                        // //// 95%信頼区間グラフへのリンク
+                        unitNaviLink95Ci(
+                            Ci95view: AnyView(
+                                goeva2View95Ci(
+                                    goeva2: goeva2,
+                                    selection: 11,
+                                )
+                            )
+                        )
+
+                        // //// 設定期待値へのリンク
+                        unitNaviLinkBayes {
+                            goeva2ViewBayes(
+                                goeva2: goeva2,
+                            )
+                        }
+                    } label: {
+                        Text("カウント")
+                            .foregroundStyle(Color.blue)
+                    }
+                } header: {
+                    Text("月蝕変異の発生率")
                 }
             }
 

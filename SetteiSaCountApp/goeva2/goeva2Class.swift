@@ -120,6 +120,15 @@ class Goeva2: ObservableObject {
         set { }
     }
 
+    // 月蝕変異の発生率（通常ゲーム数は入力方式ごとの値を流用し、回数も入力方式ごとに別管理）
+    let ratioGesshoku: [Double] = [5333,4367,3734,3156,2720,2399]
+    @AppStorage("goeva2GesshokuCount") var gesshokuCount: Int = 0
+    @AppStorage("goeva2ManualGesshokuCount") var manualGesshokuCount: Int = 0
+    var activeGesshokuCount: Int {
+        get { isHistoryInputMode ? gesshokuCount : manualGesshokuCount }
+        set { }
+    }
+
     // データ登録
     func addHistory() {
         // AT直撃は当選1択なのでピッカーの選択状態によらず当選で登録
@@ -146,6 +155,8 @@ class Goeva2: ObservableObject {
         manualFirstHitCountEva = 0
         manualFirstHitCountGodzilla = 0
         manualFirstHitCountAt = 0
+        gesshokuCount = 0
+        manualGesshokuCount = 0
         minusCheck = false
     }
     func addRemoveCommon() {

@@ -72,3 +72,19 @@ struct tipVer4110MhrsbScreenRatio: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ゴジエヴァ2 月蝕変異の発生率
+//////////////////
+struct tipVer4110Goeva2Gesshoku: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("月蝕変異の発生率のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

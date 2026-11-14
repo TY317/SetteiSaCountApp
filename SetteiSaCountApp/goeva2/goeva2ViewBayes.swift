@@ -26,6 +26,7 @@ struct goeva2ViewBayes: View {
     @State var suikaCzEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitAtEnable: Bool = true
+    @State var gesshokuEnable: Bool = true
     @State var screenEnable: Bool = true
     @State var voiceEnable: Bool = true
     @State var selectedBeforeGuessPattern: String = "デフォルト"
@@ -50,6 +51,7 @@ struct goeva2ViewBayes: View {
                 unitToggleWithQuestion(enable: self.$firstHitBonusEnable, title: "ボーナス初当り確率")
                 // AT初当り確率
                 unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                unitToggleWithQuestion(enable: self.$gesshokuEnable, title: "月蝕変異の発生率")
                 // 終了画面
                 unitToggleWithQuestion(enable: self.$screenEnable, title: "終了画面") {
                     unitExView5body2image(
@@ -160,6 +162,16 @@ struct goeva2ViewBayes: View {
             )
         }
 
+        // 月蝕変異の発生率
+        var logPostGesshoku: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.gesshokuEnable {
+            logPostGesshoku = logPostDenoBino(
+                ratio: goeva2.ratioGesshoku,
+                Count: goeva2.activeGesshokuCount,
+                bigNumber: goeva2.activeNormalGame
+            )
+        }
+
         // 終了画面
         // 確定系（設定1・3否定、設定2・4否定、設定2/4/5以上濃厚、設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostScreen: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -221,6 +233,7 @@ struct goeva2ViewBayes: View {
             logPostSuikaCz,
             logPostFirstHitBonus,
             logPostFirstHitAt,
+            logPostGesshoku,
             logPostScreen,
             logPostVoice,
             logPostTrophy,
